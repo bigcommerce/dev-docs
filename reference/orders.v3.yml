@@ -9,7 +9,7 @@ info:
 
     - [Authentication](#authentication)
     - [Order Transactions](#order-transactions)
-    - [Order refunds](#order-refunds)
+    - [Payment Actions](#payment-actions)
     - [Resources](#resources)
 
     ## Authentication
@@ -39,7 +39,11 @@ info:
     * PayPal Express
     * Amazon Pay
 
-    ## Order Refunds
+    ## Payment Actions
+    ### Capture and Void
+    Capture or void the payment for and order.
+
+    ### Order Refunds
     The Order API refund endpoints allow developers to process refunds against orders with settled payments. Refund endpoints are useful when building order management or payment integrations. They make embedding refund functionality directly into the application possible without requiring merchants to return to their BigCommerce Control Panel.
 
     ## Resources
@@ -54,7 +58,7 @@ host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v3'
 tags:
   - name: Metafields
-  - name: Order Refunds
+  - name: Payment Actions
   - name: Transactions
 schemes:
   - https
@@ -63,6 +67,76 @@ produces:
 consumes:
   - application/json
 paths:
+  '/orders/{order_id}/payment_actions/capture':
+    post:
+      summary: Capture
+      description: |-
+        Capture the payment for an order updating the `payment_status` to `capture pending`.
+
+        Requires at least one of the following scopes:
+        * `store_v2_orders`
+        * `store_v2_transactions`
+      operationId: paymentactioncapture
+      parameters:
+        - name: order_id
+          in: path
+          description: ID of the order
+          required: true
+          type: integer
+        - $ref: '#/parameters/Accept'
+        - $ref: '#/parameters/Content-Type'
+      responses:
+        '201':
+          $ref: '#/responses/201_Created'
+        '400':
+          $ref: '#/responses/400_BadRequest'
+        '404':
+          $ref: '#/responses/404_NotFound'
+        '422':
+          $ref: '#/responses/422_UnprocessableEntity'
+        '502':
+          $ref: '#/responses/502_GatewayError'
+        '503':
+          $ref: '#/responses/503_ServiceUnavailable'
+        '504':
+          $ref: '#/responses/504_GatewayTimeout'
+      tags:
+        - Payment Actions
+  '/orders/{order_id}/payment_actions/void':
+    post:
+      summary: Void
+      description: |-
+        Void the payment for an order updating the `payment_status` to `void pending`.
+
+        Requires at least one of the following scopes:
+        * `store_v2_orders`
+        * `store_v2_transactions`
+      operationId: paymentactionvoid
+      parameters:
+        - name: order_id
+          in: path
+          description: ID of the order
+          required: true
+          type: integer
+        - $ref: '#/parameters/Accept'
+        - $ref: '#/parameters/Content-Type'
+      responses:
+        '201':
+          $ref: '#/responses/201_Created'
+        '400':
+          $ref: '#/responses/400_BadRequest'
+        '404':
+          $ref: '#/responses/404_NotFound'
+        '422':
+          $ref: '#/responses/422_UnprocessableEntity'
+        '502':
+          $ref: '#/responses/502_GatewayError'
+        '503':
+          $ref: '#/responses/503_ServiceUnavailable'
+        '504':
+          $ref: '#/responses/504_GatewayTimeout'
+      tags:
+        - Payment Actions
   '/orders/{order_id}/transactions':
     parameters:
       - name: order_id
@@ -74,7 +148,20 @@ paths:
     get:
       tags:
         - Transactions
-      description: "Returns an **order's** transactions. \n\n**Usage Notes**\n* Depending on the payment method, different information will be available (not all payment gateways return full card or fraud detail).\n* Transactions are not created for the following payment methods:\n\t* Test Payment Gateway\n\t* PayPal Express\n\t* Amazon Pay"
+      description: |-
+        Returns an **order's** transactions.
+
+        **Usage Notes**
+        * Depending on the payment method, different information will be available (not all payment gateways return full card or fraud detail).
+        * Transactions are not created for the following payment methods:
+          * Test Payment Gateway
+          * PayPal Express
+          * Amazon Pay
+
+
+        Requires at least one of the following scopes:
+        * `store_v2_transactions_read_only`
+        * `store_v2_transactions`
       operationId: getTransactions
       responses:
         '200':
@@ -133,10 +220,307 @@ paths:
           in: header
           type: string
           default: application/json
+  '/orders/{order_id}/payment_actions/refund_quotes':
+    post:
+      summary: Create a Refund Quote
+      description: |-
+        Calculate the tax amount, total refund amount and get available payment options for an order refund by providing items and costs or quantities to refund.
+
+        Requires at least one of the following scopes:
+        * `store_v2_orders`
+        * `store_v2_transactions`
+      operationId: postrefundquote
+      parameters:
+        - name: order_id
+          in: path
+          description: Order id
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RefundQuote_Post'
+          x-examples:
+            Quantity:
+              items:
+                - item_id: 75
+                  item_type: PRODUCT
+                  quantity: 1
+            Amount:
+              items:
+                - item_id: 79
+                  item_type: SHIPPING
+                  amount: 10
+            Tax Exempt (Order Level):
+              items:
+                - item_type: ORDER
+                  item_id: 1234
+                  amount: 1
+                  reason: Overchaged $1.00
+            Multiple Items:
+              items:
+                - item_id: 75
+                  item_type: PRODUCT
+                  quantity: 1
+                - item_id: 79
+                  item_type: SHIPPING
+                  amount: 10
+          description: ''
+        - $ref: '#/parameters/Accept'
+        - $ref: '#/parameters/Content-Type'
+      responses:
+        '201':
+          $ref: '#/responses/RefundQuote_Resp'
+        '422':
+          $ref: '#/responses/422_UnprocessableEntity'
+      tags:
+        - Payment Actions
+    parameters:
+      - name: order_id
+        in: path
+        type: string
+        required: true
+
+  '/orders/{order_id}/payment_actions/refunds':
+    post:
+      summary: Create a Refund
+      description: |-
+        Creates a refund.
+
+        Requires at least one of the following scopes:
+        * `store_v2_orders`
+        * `store_v2_transactions`
+      operationId: postrefund
+      parameters:
+        - name: order_id
+          in: path
+          description: order id
+          required: true
+          type: integer
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RefundRequest_Post'
+          x-examples:
+            Quantity:
+              items:
+                - item_id: 75
+                  item_type: PRODUCT
+                  quantity: 1
+              payments:
+                - provider_id: storecredit
+                  amount: 232.75
+                  offline: false
+            Amount:
+              order_id: 1
+              items:
+                - item_type: SHIPPING
+                  item_id: 1
+                  amount: 1.99
+                  reason: string
+              reason: Wrong t-shirt size
+              payments:
+                - |-
+                  {
+                      "provider_id": "checkout_paypalexpress",
+                      "amount": 9.99,
+                      "offline": true
+                  }
+            Tax Exempt (Order Level):
+              order_id: 1234
+              items:
+                - item_type: ORDER
+                  item_id: 1234
+                  amount: 1
+                  reason: overcharged
+              payments:
+                - provider_id: authorizenet
+                  provider_description: Authorize.net
+                  amount: 1
+                  offline: false
+            Multiple Items:
+              items:
+                - item_id: 75
+                  item_type: PRODUCT
+                  quantity: 1
+                - item_id: 79
+                  item_type: SHIPPING
+                  amount: 10
+              tax_adjustment_amount: 0
+              payments:
+                - provider_id: storecredit
+                  amount: 232.75
+                  offline: false
+          description: ''
+        - $ref: '#/parameters/Accept'
+        - $ref: '#/parameters/Content-Type'
+      responses:
+        '201':
+          $ref: '#/responses/Refund_Resp'
+        '503':
+          description: Service Unavailable
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/FailedQuoteError'
+              meta:
+                $ref: '#/definitions/Meta'
+          examples:
+            application/json:
+              data:
+                - order_id: 1
+                  status: 503
+                  error: Tax service gone away
+              meta: {}
+      tags:
+        - Payment Actions
+    get:
+      summary: Get Refunds for Order
+      description: |-
+        Returns a list of refunds ordered by refund ID in ascending order for the given order.
+
+        Requires at least one of the following scopes:
+        * `store_v2_transactions_read_only`
+        * `store_v2_transactions`
+        * `store_v2_orders_read_only`
+        * `store_v2_orders`
+
+      operationId: getorderrefunds
+      parameters:
+        - $ref: '#/parameters/Accept'
+        - $ref: '#/parameters/Content-Type'
+      responses:
+        '200':
+          $ref: '#/responses/RefundCollection_Resp'
+      tags:
+        - Payment Actions
+    parameters:
+      - name: order_id
+        in: path
+        type: string
+        required: true
+  /orders/payment_actions/refund_quotes:
+    post:
+      summary: Create Refund Quotes - BATCH
+      description: |-
+        Calculate the tax amount, total refund amount and get availble payment options for an order refund by providing items and costs or quantities to refund.
+
+        This endpoint will accept a batch of one or more.
+
+        Requires at least one of the following scopes:
+        * `store_v2_orders`
+        * `store_v2_transactions`
+      operationId: postrefundquotes
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/PostRefundQuotesRequest'
+          x-examples:
+            application/json:
+              - items:
+                  - item_id: 76
+                    item_type: PRODUCT
+                    quantity: 1
+                tax_adjustment_amount: 0
+        - $ref: '#/parameters/Accept'
+        - $ref: '#/parameters/Content-Type'
+      responses:
+        '201':
+          $ref: '#/responses/RefundQuotesBATCH_Resp'
+        '422':
+          description: Partial success/failure response. Status to roll up to the most severe individual failure to the whole request.
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/RefundQuote_Full'
+              errors:
+                type: array
+                items:
+                  $ref: '#/definitions/FailedQuoteError'
+              meta:
+                $ref: '#/definitions/Meta'
+          examples:
+            Example 1: |-
+              {
+                  "data": [
+                      {
+                          "order_id": 1,
+                          "total_refund_amount": 1.99,
+                          "total_refund_tax_amount": 1.95,
+                          "rounding": 1,
+                          "adjustment": 0.05,
+                          "tax_inclusive": true,
+                          "refund_methods": [
+                              ""
+                          ]
+                      }
+                  ],
+                  "errors": [
+                      {
+                          "order_id": 1,
+                          "status": 422,
+                          "error": "Refund amount is greater than remaining amount"
+                      }
+                  ],
+                  "meta": {
+                      "failure": 1,
+                      "success": 1,
+                      "total": 2
+                  }
+              }
+        '503':
+          description: Status to roll up to the most severe individual failure to the whole request. Example shows that severe error status is rolled up to the overall response status code.
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/RefundQuote_Full'
+              errors:
+                type: array
+                items:
+                  $ref: '#/definitions/FailedQuoteError'
+              meta:
+                $ref: '#/definitions/Meta'
+          examples:
+            application/json:
+              data: []
+              errors:
+                - order_id: 1
+                  status: 503
+                  error: Tax service could not be contacted
+                - order_id: 100
+                  status: 422
+                  error: Refund amount exceeds remaining amount
+              meta:
+                failure: 2
+                success: 0
+                total: 2
+      tags:
+        - Payment Actions
+      x-private: true
   /orders/payment_actions/refunds:
     get:
       summary: Get All Refunds
-      description: Returns a list of refunds ordered by refund ID in ascending order.
+      description: |-
+        Returns a list of refunds ordered by refund ID in ascending order.
+
+        Requires at least one of the following scopes:
+        * `store_v2_transactions_read_only`
+        * `store_v2_transactions`
+        * `store_v2_orders_read_only`
+        * `store_v2_orders`
       operationId: getrefunds
       parameters:
         - name: 'order_id:in'
@@ -189,10 +573,19 @@ paths:
         '200':
           $ref: '#/responses/RefundCollection_Resp'
       tags:
-        - Order Refunds
+        - Payment Actions
     post:
       summary: Create Refunds - BATCH
-      description: Creates a refund. This endpoint will accept a batch of one or more.
+      description: |-
+        Creates a refund.
+
+        This endpoint will accept a batch of one or more.
+
+        Requires at least one of the following scopes:
+        * `store_v2_orders`
+        * `store_v2_transactions`
+
+
       operationId: postrefunds
       parameters:
         - name: body
@@ -319,274 +712,7 @@ paths:
                   }
               }
       tags:
-        - Order Refunds
-      x-private: true
-  '/orders/{order_id}/payment_actions/refund_quotes':
-    post:
-      summary: Create a Refund Quote
-      description: 'Calculate the tax amount, total refund amount and get availble payment options for an order refund by providing items and costs or quantities to refund.'
-      operationId: postrefundquote
-      parameters:
-        - name: order_id
-          in: path
-          description: Order id
-          required: true
-          type: integer
-        - name: body
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/RefundQuote_Post'
-          x-examples:
-            Quantity:
-              items:
-                - item_id: 75
-                  item_type: PRODUCT
-                  quantity: 1
-            Amount:
-              items:
-                - item_id: 79
-                  item_type: SHIPPING
-                  amount: 10
-            Tax Exempt (Order Level):
-              items:
-                - item_type: ORDER
-                  item_id: 1234
-                  amount: 1
-                  reason: Overchaged $1.00
-            Multiple Items:
-              items:
-                - item_id: 75
-                  item_type: PRODUCT
-                  quantity: 1
-                - item_id: 79
-                  item_type: SHIPPING
-                  amount: 10
-          description: ''
-        - $ref: '#/parameters/Accept'
-        - $ref: '#/parameters/Content-Type'
-      responses:
-        '201':
-          $ref: '#/responses/RefundQuote_Resp'
-        '422':
-          $ref: '#/responses/422_UnprocessableEntity'
-      tags:
-        - Order Refunds
-    parameters:
-      - name: order_id
-        in: path
-        type: string
-        required: true
-  '/orders/{order_id}/payment_actions/refunds':
-    post:
-      summary: Create a Refund
-      description: Creates a refund.
-      operationId: postrefund
-      parameters:
-        - name: order_id
-          in: path
-          description: order id
-          required: true
-          type: integer
-        - name: body
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/RefundRequest_Post'
-          x-examples:
-            Quantity:
-              items:
-                - item_id: 75
-                  item_type: PRODUCT
-                  quantity: 1
-              payments:
-                - provider_id: storecredit
-                  amount: 232.75
-                  offline: false
-            Amount:
-              order_id: 1
-              items:
-                - item_type: SHIPPING
-                  item_id: 1
-                  amount: 1.99
-                  reason: string
-              reason: Wrong t-shirt size
-              payments:
-                - |-
-                  {
-                      "provider_id": "checkout_paypalexpress",
-                      "amount": 9.99,
-                      "offline": true
-                  }
-            Tax Exempt (Order Level):
-              order_id: 1234
-              items:
-                - item_type: ORDER
-                  item_id: 1234
-                  amount: 1
-                  reason: overcharged
-              payments:
-                - provider_id: authorizenet
-                  provider_description: Authorize.net
-                  amount: 1
-                  offline: false
-            Multiple Items:
-              items:
-                - item_id: 75
-                  item_type: PRODUCT
-                  quantity: 1
-                - item_id: 79
-                  item_type: SHIPPING
-                  amount: 10
-              tax_adjustment_amount: 0
-              payments:
-                - provider_id: storecredit
-                  amount: 232.75
-                  offline: false
-          description: ''
-        - $ref: '#/parameters/Accept'
-        - $ref: '#/parameters/Content-Type'
-      responses:
-        '201':
-          $ref: '#/responses/Refund_Resp'
-        '503':
-          description: Service Unavailable
-          schema:
-            type: object
-            properties:
-              data:
-                type: array
-                items:
-                  $ref: '#/definitions/FailedQuoteError'
-              meta:
-                $ref: '#/definitions/Meta'
-          examples:
-            application/json:
-              data:
-                - order_id: 1
-                  status: 503
-                  error: Tax service gone away
-              meta: {}
-      tags:
-        - Order Refunds
-    get:
-      summary: Get Refunds for Order
-      description: Returns a list of refunds ordered by refund ID in ascending order for the given order.
-      operationId: getorderrefunds
-      parameters:
-        - $ref: '#/parameters/Accept'
-        - $ref: '#/parameters/Content-Type'
-      responses:
-        '200':
-          $ref: '#/responses/RefundCollection_Resp'
-      tags:
-        - Order Refunds
-    parameters:
-      - name: order_id
-        in: path
-        type: string
-        required: true
-  /orders/payment_actions/refund_quotes:
-    post:
-      summary: Create Refund Quotes - BATCH
-      description: |-
-        Calculate the tax amount, total refund amount and get availble payment options for an order refund by providing items and costs or quantities to refund.
-
-        This endpoint will accept a batch of one or more.
-      operationId: postrefundquotes
-      parameters:
-        - name: body
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/PostRefundQuotesRequest'
-          x-examples:
-            application/json:
-              - items:
-                  - item_id: 76
-                    item_type: PRODUCT
-                    quantity: 1
-                tax_adjustment_amount: 0
-        - $ref: '#/parameters/Accept'
-        - $ref: '#/parameters/Content-Type'
-      responses:
-        '201':
-          $ref: '#/responses/RefundQuotesBATCH_Resp'
-        '422':
-          description: Partial success/failure response. Status to roll up to the most severe individual failure to the whole request.
-          schema:
-            type: object
-            properties:
-              data:
-                type: array
-                items:
-                  $ref: '#/definitions/RefundQuote_Full'
-              errors:
-                type: array
-                items:
-                  $ref: '#/definitions/FailedQuoteError'
-              meta:
-                $ref: '#/definitions/Meta'
-          examples:
-            Example 1: |-
-              {
-                  "data": [
-                      {
-                          "order_id": 1,
-                          "total_refund_amount": 1.99,
-                          "total_refund_tax_amount": 1.95,
-                          "rounding": 1,
-                          "adjustment": 0.05,
-                          "tax_inclusive": true,
-                          "refund_methods": [
-                              ""
-                          ]
-                      }
-                  ],
-                  "errors": [
-                      {
-                          "order_id": 1,
-                          "status": 422,
-                          "error": "Refund amount is greater than remaining amount"
-                      }
-                  ],
-                  "meta": {
-                      "failure": 1,
-                      "success": 1,
-                      "total": 2
-                  }
-              }
-        '503':
-          description: Status to roll up to the most severe individual failure to the whole request. Example shows that severe error status is rolled up to the overall response status code.
-          schema:
-            type: object
-            properties:
-              data:
-                type: array
-                items:
-                  $ref: '#/definitions/RefundQuote_Full'
-              errors:
-                type: array
-                items:
-                  $ref: '#/definitions/FailedQuoteError'
-              meta:
-                $ref: '#/definitions/Meta'
-          examples:
-            application/json:
-              data: []
-              errors:
-                - order_id: 1
-                  status: 503
-                  error: Tax service could not be contacted
-                - order_id: 100
-                  status: 422
-                  error: Refund amount exceeds remaining amount
-              meta:
-                failure: 2
-                success: 0
-                total: 2
-      tags:
-        - Order Refunds
+        - Payment Actions
       x-private: true
   '/orders/{order_id}/metafields':
     parameters:
@@ -775,8 +901,10 @@ securityDefinitions:
       ### OAuth Scopes
       |  **UI Name** | **Permission** | **Parameter** |
       | --- | --- | --- |
-      |  Order Transactions | modify | `store_v2_transactions` |
-      |  Order Transactions | read-only | `store_v2_transactions_read_only` |
+      |  Order Transactions | read and modify `transactions` and `payment_methods` | `store_v2_transactions` |
+      |  Order Transactions | read `transactions` and `payment_methods`  | `store_v2_transactions_read_only` |
+      |  Orders | read and modify `payment_methods` |`store_v2_orders`|
+      |  Orders | read `payment_methods` |`store_v2_orders_read_only`|
 
       ### Headers
 
@@ -2582,6 +2710,11 @@ responses:
       properties: {}
   201_Acknowledged:
     description: Request acknowledged.
+    schema:
+      type: object
+      properties: {}
+  201_Created:
+    description: Resource Created.
     schema:
       type: object
       properties: {}
