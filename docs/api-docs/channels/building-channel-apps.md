@@ -114,7 +114,7 @@ Once created, channels show up in the product list within the control panel so t
 > **Note**
 >
 > - You can find the app ID in the URL when editing the app in [DevTools](https://devtools.bigcommerce.com/). For more information, see [Finding an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
-> - `config_meta.app.id` is optional; however, if you're building an app that creates or manages a channel, we recommend including the app ID to ensure the it's user interface in the BigCommerce control panel works properly.
+> - `config_meta.app.id` is optional; however, if you're building an app that creates or manages a channel, we recommend including the app ID to ensure the user interface in the BigCommerce control panel works properly.
 > - Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request.
 
 </div>
