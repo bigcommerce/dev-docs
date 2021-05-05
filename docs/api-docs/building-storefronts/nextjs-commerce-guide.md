@@ -105,7 +105,7 @@ To get started with Next.js Commerce, you’ll need to deploy a live version dir
 ```bash
 BIGCOMMERCE_STOREFRONT_API_URL=https://store-${STORE_ID}.mybigcommerce.com/graphql
 BIGCOMMERCE_STOREFRONT_API_TOKEN=${STOREFRONT_TOKEN}
-BIGCOMMERCE_STORE_API_URL=https://api.bigcommerce.com/stores/${STORE_ID}
+BIGCOMMERCE_STORE_API_URL=https://api.bigcommerce.com/stores/${STORE_ID}/v3/
 BIGCOMMERCE_STORE_API_TOKEN=${STORE_TOKEN}
 BIGCOMMERCE_STORE_API_CLIENT_ID=${STORE_CLIENT}
 ```
