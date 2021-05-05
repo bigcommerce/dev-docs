@@ -1853,6 +1853,11 @@ paths:
               createdTime: '2019-01-10T17:18:00+00:00'
               updatedTime: '2019-01-10T17:19:47+00:00'
               customerMessage: ''
+        '404':
+          description: Gift certificate code not found
+          schema:
+            type: object
+            properties: {}
   '/checkouts/{checkoutId}/gift-certificates/{giftCertificateCode}':
     delete:
       description: |-
