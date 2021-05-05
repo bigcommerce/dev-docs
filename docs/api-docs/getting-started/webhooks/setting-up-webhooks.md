@@ -4,11 +4,9 @@
 
 ### On this page
 
-- [Prerequisites](#prerequisites)
-- [Create project folder](#create-project-folder)
-- [Install ngrok](#install-ngrok)
-- [Create express app](#create-express-app)
-- [Start the app and ngrok](#start-the-app-and-ngrok)
+- [Create an Express app](#create-an-express-app)
+- [Start the app](#start-the-app)
+- [Create a webook](#create-a-webook)
 - [Trigger the webhook event](#trigger-the-webhook-event)
 - [Adding custom headers](#adding-custom-headers)
 - [Troubleshooting](#troubleshooting)
@@ -16,419 +14,149 @@
 
 </div>
 
-In this tutorial, we'll install the software ngrok, register a BigCommerce webhook on your store, and then observe the response when the webhook event is triggered.
+In this tutorial, we'll create a Node.js Express app that handless webhook callbacks and uses [ngrok](https://ngrok.com/) (ngrok.com) to expose the app to the internet. Then, we'll create a webhook and observe the callback using the ngrok web interface when the event is triggered.
 
-If you would like to follow along, we have created a [Postman](https://www.postman.com/) collection with all the requests. 
+### Prerequisites
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3f005ed74030e01bbf7a)
+- [API Access Token](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication) with [scope](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) set to **Information & Settings** read-only and **Products** read-only.
+- [Webhooks Overview](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview)
+- Familiarity with working in the terminal
+- Familiarity working with `node` and `npm`
+## Create an Express app
 
-## Prerequisites
+First, let's make a `webooks-test` directory and initialize a Node.js Express app inside of it. To do so, run the following commands in a terminal.
 
-- NPM is installed (installed automatically with Node)
-- Familiarity with command line
-- Familiarity with Postman
-- [API Access Token](/api-docs/getting-started/basics/authentication#authentication_getting-api-credentials) with [scope](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes) set to Information & Settings read-only and Products read-only.
-- [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
+```bash
+mkdir webhooks-test         # Create project directory
 
-## Create project folder
+cd webhooks-test            # Move into project directory
 
-1. Open the terminal and create a folder, then move into that directory. This folder will hold ngrok and the Node app. 
+npm init                    # Initialize node app (hit return to accept the default values)
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
+npm install express --save  # Install express
 
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
+npm install ngrok           # install node wrapper for ngrok
 
-**Create new folder and move to new directory using the shell**
-
-```shell
-mkdir webhooks-test
-cd webhooks-test
+touch index.js              # create main app script file
 ```
 
-## Install ngrok
+Then, copy and paste the JavaScript below into `index.js`.
 
-When testing your application locally, ngrok is a helpful tool for viewing the webhook responses that BigCommerce sends to your app. Ngrok creates a publicly accessible tunnel URL to an application running on your machine's localhost. When using ngrok you can view HTTP request details in its web interface. 
 
-### Mac/Linux
-
-1. Visit https://ngrok.com/ and click download.
-2. Choose the version for your operating system.
-3. Unzip ngrok and place the application in the project folder that you created.
-This step can be accomplished in one command:
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-**Downloading ngrok and moving contents to folder using the shell**
-```shell
-unzip /Users/your-computer/Downloads/ngrok-stable-darwin-amd64.zip -d /Users/your-computer/Documents/webhooks-test
-```
-
-### Windows
-
-1. Visit https://ngrok.com/ and click download.
-2. Choose the version for your operating system.
-3. Unzip ngrok and place the application in the project folder that you created.
-4. Make sure ngrok is referenced in your [PATH environment variable](https://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them).
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--success">
-<div class="HubBlock-content">
-    
-<!-- theme: success -->
-
-### Checkpoint
-> At this point you should have a project folder with ngrok unzipped inside of it. 
-
-</div>
-</div>
-</div>
-
-## Create express app
-
-1. In the terminal run `npm init`. You will be prompted with several questions about the app setup. Feel free to hit return to accept the default values.  The final screen will look something like this:     
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-**Final setup**
-
-```json
-{
-  "name": "webhooks-test",
-  "version": "1.0.0",
-  "description": "webhooks-test",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
-}
-```
-
-2. Take note of the value in "main", `index.js`. 
-3. Create a file in your project folder called `index.js`. In the terminal use the command `touch index.js` for Mac or `copy nul > index.js` for Windows.
-
-4. Install [Express](https://expressjs.com/en/starter/installing.html) using the terminal in the same project folder by running `npm install express --save`
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--success">
-<div class="HubBlock-content">
-    
-<!-- theme: success -->
-
-### Checkpoint
-> At this point your project folder should contain:
-* `index.js`
-* `node_modules`
-* `package.json`
-* `ngrok`
-* `package-lock.json`
-
-</div>
-</div>
-</div>
-
-5. Copy and paste the following into `index.js`:
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-**index.js**
 ```js
 const express = require('express');
+const ngrok = require('ngrok')
 const app = express();
 
 // when there's a post request to /webooks...
 app.post('/webhooks', function (req, res) {
-  
+
     // respond with 200 OK
     res.send('OK');
 });
 
+// listen to port 3000
 app.listen(3000, function () {
-    console.log('Listening for webhooks on port 3000')
+    console.log('Listening for webhooks on port 3000');
+
+    // start ngrok and create a tunnel to port 3000
+    (async function() {
+        const url = await ngrok.connect(3000);
+    })();
 })
 ```
 
 This app listens to requests on port `3000`, then responds with a `200` status once it receives a `POST` request to `/webhooks`.
 
-From the Express [Website](https://expressjs.com/en/starter/basic-routing.html):
-`app.METHOD(PATH, HANDLER)`
-- app is an instance of express.
-- METHOD is an [HTTP request method](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods), in lowercase.
-- PATH is a path on the server.
-- HANDLER is the function executed when the route is matched.
-- Res.send is the body parameter that sends the HTTP response.
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
-## Start the app and ngrok
+> ### Note
+> * Ngrok is a helpful tool for viewing webhook callbacks BigCommerce sends to your app. Ngrok creates a publicly accessible tunnel URL to an application running on your machine. When using ngrok you can view HTTP request details in its web interface.
+> * For simplicity, this tutorial uses an [npm package](https://www.npmjs.com/package/ngrok) to install and run ngrok. For official ngrok usage and installation instructions, [visit ngrok.com](https://ngrok.com/).
 
-1. Open two terminal tabs. In both tabs, navigate to your project folder. 
-2. In one tab run the app. `node index.js`
-3. Start ngrok in the other tab. `./ngrok http 3000`
-
-
-#### node index.js
-
-```shell
-BIGCOMMERCE:webhooks your.computer$ node index.js
-Listening for webhooks on port 3000
-```
-
-#### ngrok http 3000
-
-![ngrok running](//s3.amazonaws.com/user-content.stoplight.io/6012/1531500085650)
-
-ngrok returns two values we will need to register a webhook and observe the response: 
-- **Web Interface:** Where you can monitor the hook from a browser. `http://127.0.0.1:4040`
-- **Forwarding:** The webhook destination. Make note of the https version. For example, `https://6a35e97b.ngrok.io`.
-
-4. Open a web browser and copy in your Web Interface URL: `http://127.0.0.1:4040`.  This is where webhook payloads will appear when they fire.
-
-<!--
-    title: #### ngrok Web Interface
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1531500191661
--->
-
-#### ngrok web interface
-![#### ngrok Web Interface
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1531500191661 "#### ngrok Web Interface
-")
-
-Subscribe to the `store/product/updated` event: 
-
-1. If you have not already done so, generate the [API Access Token](/api-docs/getting-started/basics/authentication#authentication_getting-api-credentials) with the Information & Settings scope set to Read-Only and the Products scope set to Read-Only.
-
-2. `POST` to `https://api.bigcommerce.com/stores/{{store_hash}}/v2/hooks`. 
-Replace store_hash with the value from your store's API path.
-3. In the request body, `scope` is the webhook event we are subscribing to, and `destination` is the `ngrok` forwarding url with `/webhooks` appended (the route specified in the Express app):
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
+</div>
+</div>
 </div>
 
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-**Webhook POST request body**
-```json
+## Start the app
+
+To start the app, run the following commands.
+
+```bash
+cd ~/path/to/webhooks-test # Make sure you're in your webhooks-test project directory
+
+node index.js              # Start the app
+```
+
+Navigate to `http://localhost:4040/` in your browser. You should see the ngrok web interface like shown in the image below. Copy the HTTPS tunnel URL and keep the app running.
+
+![ngrok web interface](//s3.amazonaws.com/user-content.stoplight.io/6012/1531500191661 "ngrok web interface")
+
+## Create a webook
+
+Now, we'll create a webook that subscribes to the `store/product/updated` [webhook event](https://developer.bigcommerce.com/api-docs/store-management/webhooks/events). To do so, send a `POST` request to `/stores/{{STORE_HASH}}/v3/hooks`.
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
+X-Auth-Token: {{ACCESS_TOKEN}}
+
 {
  "scope": "store/product/updated",
- "destination": "https://6a35e97b.ngrok.io/webhooks",
+ "destination": "https://6a35e97b.ngrok.io/webhooks", # replace 6a35e97b.ngrok.io with your HTTPS tunnel URL
  "is_active": true
 }
 ```
 
-4. Update the request headers to contain the following:
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/webhooks/webhooks/createwebhooks#requestrunner)
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
+> ### Note
+> * Be sure to replace `6a35e97b.ngrok.io` with your ngrok HTTPS tunnel URL.
+> * Currently, BigCommerce does not support desination URLs served over custom HTTPS ports. Use the default HTTPS port 443.
+
 </div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-**Request headers**
-```http
-    Accept: application/json
-    Content-Type: application/json
-    X-Auth-Token: {{the OAuth token}}
-```
-
-5. Check all the values and then send. If successful, the response will be `200 OK`.
-
-The id number displayed in the response is needed to disable the hook.
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">200 OK Response</div>
-    </div><div class="HubBlock-header-subtitle"></div>
 </div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-**200 response**
-```json
-{
-  "id": 14263419,
-  "client_id": "your-client-id",
-  "store_hash": "your-store-hash",
-  "scope": "store/product/updated",
-  "destination": "https://6a35e97b.ngrok.io/webhooks",
-  "headers": null,
-  "is_active": true,
-  "created_at": 1531256030,
-  "updated_at": 1531256030
-}
-```
+</div>
 
 ## Trigger the webhook event
-Webhooks fire when a shopper performs an action on the storefront, or when users take action in the control panel. Making changes to stores via API also trigger webhooks. To illustrate this point, we'll demonstrate both methods.
 
-### Update via the control panel
-1. From your store’s control panel, navigate to **Products > View**. Choose a product and edit product details like name or description. 
-2. Click **Save**.
+Webhooks fire when shoppers perform actions on the storefront and when users make changes in the control panel. They also fire when updates are made via API. Trigger the webhook you just created by performing the following actions in your BigCommerce control panel.
 
-<!--
-    title: #### BigCommerce Control Panel
+1. Navigate to **Products** > [**View**](https://login.bigcommerce.com/deep-links/manage/products).
+2. Edit a product and change something like **name** or **description**.
+3. Click **Save**.
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1531500906129
--->
+Now, visit the ngrok web interface address (`http://127.0.0.1:4040`) and check for a `200` response.
 
-#### BigCommerce control panel
-![#### BigCommerce Control Panel
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1531500906129 "#### BigCommerce Control Panel
-")
+![ngrok Web Interface](//s3.amazonaws.com/user-content.stoplight.io/6012/1531500945565 "ngrok Web Interface")
 
-3. Visit the ngrok web interface address and check for a `200` response. 
-
-
-<!--
-    title: #### ngrok Web Interface
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1531500945565
--->
-
-#### ngrok web interface
-![#### ngrok Web Interface
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1531500945565 "#### ngrok Web Interface
-")
-
-The summary shows the webhook fired and our Express app returned a `200` response along with the text OK. The response is generated by `res.send(‘OK’)` in our app code, but this text can be changed to say something else, or even forward the `POST` response to another app. For more information, see [Express Routing](https://expressjs.com/en/guide/routing.html).
-
-The record of the HTTP request will also show in the terminal tab running ngrok.
-
-<!--
-    title: #### ngrok Terminal Response
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1531500989467
--->
-
-#### ngrok Terminal Response
-![#### ngrok Terminal Response
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1531500989467 "#### ngrok Terminal Response
-")
-
-### Update via the API
-1. Generate the [API Access Token](/api-docs/getting-started/basics/authentication#authentication_getting-api-credentials). Set the Information & Settings scope to read-only and the Products scope to modify.
-
-
-2. Create a `PUT` request to the product to be updated, replacing `{{store-hash}}` and `{{product_id}}` with values from your store: 
-
-`https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/124`
-
-In this example, the price of `product_id` 124 is being changed to `12.99`:
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-**PUT request to update product**
-
-```json
-{
-  "price": 12.99
-}
-```
-
-After hitting send, check the ngrok web interface. You may see a single event or several based on how many times you updated the product in the previous step.
-
-<!--
-    title: #### ngrok Web Interface
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1531501115256
--->
-
-#### ngrok web interface
-![#### ngrok Web Interface
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1531501115256 "#### ngrok Web Interface
-")
-
-That’s it! In this walkthrough you created a webhook, set up a server to accept the response, and used ngrok to observe the webhook payload.
-
-Want to keep going? Try changing the text in `res.send()` to a custom response, print the response to a webpage, or register a different webhook event. 
+The summary shows the webhook fired and our Express app returned a `200` response along with the text OK. The response is generated by `res.send(‘OK')` in our app code. For more information, see [Express Routing](https://expressjs.com/en/guide/routing.html).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
-    
-<!-- theme: warning -->
 
-### URL timeout
-> Unless you have a paid ngrok account, the destination URL will only be valid for a few hours. After that, the webhook will stop working. Send a DELETE request to the specific webhook ID to disable the hook. 
+> ### Note
+>
+> * Unless you have a paid ngrok account, the destination URL will only be valid for a few hours. After that, the webhook will stop working. Send a `DELETE` request to the specific webhook ID to disable the hook.
 
 </div>
 </div>
 </div>
 
 ## Adding custom headers
-For added security you can add custom headers to your webhook request. The `headers` property accepts any key value pair as a string. 
 
-<!--
-title: "Example Webhook Custom Headers"
-subtitle: ""
-lineNumbers: true
--->
+For added security you can add custom headers to your create webhook request. The `headers` property accepts any key value pair as a string. BigCommerce will include the headers in callback requests made to your application.
 
-**Example webhook custom headers**
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
+X-Auth-Token: {{ACCESS_TOKEN}}
 
-```json
 {
 "scope": "store/cart/lineItem/*",
   "destination": "https://myapp.herokuapp.com/",
@@ -437,44 +165,34 @@ lineNumbers: true
     "User-Name": "Hello",
     "Password": "Goodbye"
   }
-    
 }
 ```
 
 ## Troubleshooting
 
+**Custom ports**
+
+Currently, BigCommerce does not support desination URLs served over custom HTTPS ports. Use the default HTTPS port `443`.
+
 **Getting a `404` error using the root (/) url?**
 
 Add this snippet to your code to respond to incoming get requests with 'hello':
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
 ```js
 app.get('/',(req, res)=>{
     res.send('Hello!');
-}); 
+});
 ```
 
 **Getting error "ngrok not found"?**
 
 There are two ways to fix this. Your local setup will determine which command will work.
-Use the command `mv ngrok /usr/local/bin `to move ngrok to your local bin folder. This way it becomes available globally. 
-Use the command `./ngrok http 3000` to run ngrok as a sudo user. 
-
+Use the command `mv ngrok /usr/local/bin `to move ngrok to your local bin folder. This way it becomes available globally.
+Use the command `./ngrok http 3000` to run ngrok as a sudo user.
 
 **Windows users**
 
-If you are having trouble getting ngrok started try setting the PATH. 
+If you are having trouble getting ngrok started try setting the PATH.
     - [What are PATH and other environment variables, and how can I set or use them?](https://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them)
 
 ## Resources
