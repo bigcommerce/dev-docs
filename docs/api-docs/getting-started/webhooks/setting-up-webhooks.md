@@ -172,7 +172,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 **Custom ports**
 
-Currently, BigCommerce does not support desination URLs served over custom HTTPS ports. Use the default HTTPS port `443`.
+Currently, BigCommerce does not support destination URLs served over custom HTTPS ports. Use the default HTTPS port `443`.
 
 **Getting a `404` error using the root (/) url?**
 
