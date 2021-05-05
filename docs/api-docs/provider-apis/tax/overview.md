@@ -58,7 +58,7 @@ Once your tax provider configuration is ready, we'll let you know via email. The
 | Adjust URL                            | Optional                       | URL                          | URL BigCommerce should use for Tax Provider API quote requests.                                       | `https://sampletax.example.com/doc/adjust`        |
 | Void URL                              | Optional                       | URL                          | URL BigCommerce should use for Tax Provider API quote requests.                                       | `https://sampletax.example.com/doc/void`          |
 | **Testing**                               |                                |                              |                                                                                                       |                                                   |
-| Partner test store domain(s)          | Required                       | Domain name                  | Share your test store domain(s) sow we can test prior to launching your tax provider.                 | `https://sampletax-test-store.mybigcommerce.com/` |
+| Partner sandbox store domain          | Required                       | Domain name                  | Share your partner sandbox store for testing purposes prior to launching your tax provider. Learn how to [create a partner sandbox store](https://developer.bigcommerce.com/api-docs/partner/getting-started/create-a-sandbox-store).                 | `https://sampletax-test-store.mybigcommerce.com/` |
 
 ### Sandbox tax provider configuration
 
