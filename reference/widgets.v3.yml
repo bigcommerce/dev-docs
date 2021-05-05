@@ -1231,11 +1231,19 @@ definitions:
         type: string
         description: name for each element in the list
       thumbnail:
-        type: string
+        type: object
         description: used to display an image stored at the specified attribute name
+        properties:
+          type:
+            type: string
+            example: image
+          valueKey:
+            type: string
+            example: imageUrl.src
       schema:
         type: array
         description: The schema used for each element in the array.
+        items: {}
   widgetSchemaSetting_Base:
     type: object
     title: widgetSchemaSetting_Base
