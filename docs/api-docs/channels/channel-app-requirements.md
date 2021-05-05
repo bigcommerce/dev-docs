@@ -43,8 +43,8 @@ All Partners:
 - Must use [Listings API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api), if supporting per product listings.
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--info">	
-<div class="HubBlock-content">	
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
 <!-- theme: info -->
 
