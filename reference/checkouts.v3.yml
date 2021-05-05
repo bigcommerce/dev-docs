@@ -552,7 +552,7 @@ definitions:
                 description: 'ISO-4217 currency code. (See: http://en.wikipedia.org/wiki/ISO_4217.)'
                 type: string
           base_amount:
-            description: 'Cost of cart''s contents, before applying discounts.'
+            description: Sum of cart line-item amounts before cart-level discounts, coupons, or taxes.
             type: number
             format: double
           channel_id:
@@ -563,11 +563,11 @@ definitions:
             type: number
             format: double
           cart_amount_inc_tax:
-            description: 'Sum of line-items amounts, minus cart-level discounts and coupons including tax'
+            description: 'Sum of cart line-item amounts minus cart-level discounts and coupons including tax'
             type: number
             format: double
           cart_amount_ex_tax:
-            description: 'Sum of line-items amounts, minus cart-level discounts and coupons excluding tax'
+            description: 'Sum of cart line-item amounts minus cart-level discounts and coupons excluding tax'
             type: number
             format: double
           coupons:

@@ -905,13 +905,13 @@ definitions:
         type: boolean
       base_amount:
         type: number
-        description: 'Cost of cart''s contents, before applying discounts.'
+        description: Sum of cart line-item amounts before cart-level discounts, coupons, or taxes.
       discount_amount:
         type: number
         description: Discounted amount.
       cart_amount:
         type: number
-        description: 'Sum of line-items amounts, minus cart-level discounts and coupons. This amount includes taxes (where applicable).'
+        description: Sum of cart line-item amounts minus cart-level discounts and coupons. This amount includes taxes (where applicable).
       coupons:
         type: array
         items:
