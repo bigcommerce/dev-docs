@@ -12,7 +12,7 @@ paths:
         '422':
           $ref: '#/components/responses/422_UnprocessableEntity'
       summary: Create a Webhook
-      description: Creates a webhook. Only one webhook at a time can be created. Custom headers can be added.
+      description: Creates a webhook. Only one webhook at a time can be created. Custom headers can be added. Destination URL must be served on port 443 (custom ports are not currently supported).
       operationId: createWebhooks
       parameters:
         - $ref: '#/components/parameters/Accept'
@@ -405,7 +405,7 @@ components:
         destination:
           type: string
           example: 'https://665b65a6.ngrok.io/webhooks`'
-          description: URL must be active and return a 200 response
+          description: URL must be active, return a 200 response, and be served on port 443 (custom ports not currently supported).
         is_active:
           type: boolean
           example: true
