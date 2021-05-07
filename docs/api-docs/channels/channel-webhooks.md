@@ -10,7 +10,7 @@
 
 </div>
 
-Developers building third-party sales channels or multi-storefront capabilities may need to be notified when a changes are made to a channel in BigCommerce so that they can perform downstream actions required to setup or deactivate the channel. To facilitate this, we've added `store/channel` webook events that fire when a channel is created or updated. We'll assume you're faimilar with webhooks and briefly introduce the channel event in this article; however, if you would like an introduction to webhooks, see [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/about-webhooks).
+Developers building third-party sales channels or multi-storefront capabilities may need to be notified when changes are made to a channel in BigCommerce so that they can perform downstream actions required to setup or deactivate the channel. To facilitate this, we've added `store/channel` webook events that fire when a channel is created or updated. We'll assume you're faimilar with webhooks and briefly introduce the channel events in this article; however, if you would like an introduction to webhooks, see [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/about-webhooks).
 
 ##
 
