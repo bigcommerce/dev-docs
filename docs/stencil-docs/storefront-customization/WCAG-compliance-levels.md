@@ -51,14 +51,14 @@ Understandable
 | Level AA | [Language of Parts](https://www.w3.org/TR/WCAG21/#language-of-parts)       | The option to translate your theme into [multiple displayed languages](https://developer.bigcommerce.com/stencil-docs/localization/multi-language-checkout).                |
 | Level AAA| [Unusual Words](https://www.w3.org/TR/WCAG21/#unusual-words)               | The ability to add information and links to your [footer categories] to provide additional details.                                                                           |
 
-Understandable
+
 | Level    | Guideline 3.2: Predictable                                                  | Cornerstone technique |
 | --       | --                                                                          | --                    | 
 | Level A  | [On Input](https://www.w3.org/TR/WCAG21/#on-input)                          | You are required to click a submit button to perform an action.                                                                                                          |
 | Level AA | [Consistent Navigation](https://www.w3.org/TR/WCAG21/#consistent-navigation)|* There is a consistent presentation and layout for users who interact with repeated content. <br>* Navigation menus are always in the same place.</br> * The Search box is in the same location on all pages. |         
 | Level AAA| [Change on Request](https://www.w3.org/TR/WCAG21/#change-on-request)        | Users are automatically redirected from an old page to a new page in such a way that they never realize the redirect has occurred.                                            |
 
-Understandable
+
 | Level    | Guideline 3.3: Input Assistance                                            | Cornerstone technique |
 | --       | --                                                                         | --                    | 
 | Level A  | [Error Identification](https://www.w3.org/TR/WCAG21/#error-identification) | Users receive an error message when they fail to include an @ in the email address.                                                                                                        |
