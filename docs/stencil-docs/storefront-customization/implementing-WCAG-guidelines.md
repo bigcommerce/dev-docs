@@ -1,17 +1,17 @@
 
-# Implementing WCAG Guidelines
+# Implementing WCAG Guidelines - Examples
 
 <div class="otp" id="no-index">
 
 ### On this page
-- [Bypass blocks example](#bypass-blocks-example)
-- [Location example](#location-example)
-- [Unusual words example](#unusual-words-example)
+- [Bypass blocks](#bypass-blocks)
+- [Location](#location)
+- [Unusual words](#unusual-words)
 </div>
 
 This article provides Cornerstone code snippets which satisfy current WCAG guidelines or code you can add to meet a WCAG requirement.
 
-## Bypass blocks example
+## Bypass blocks
 To satisfy the [bypass blocks](https://www.w3.org/TR/WCAG21/#bypass-blocks) WCAG guideline, Cornerstone has a 'Skip to Main' link on each page. You can view this code in `/templates/components/common/header.html`.
 
 ```html
@@ -22,7 +22,7 @@ To satisfy the [bypass blocks](https://www.w3.org/TR/WCAG21/#bypass-blocks) WCAG
 {{/if}}
 ```
 
-## Location example
+## Location
 To satisfy the [Location](https://www.w3.org/TR/WCAG21/#location) WCAG guideline, Cornerstone provides breadcrumbs on each page. See an example of breadcrumbs in `/templates/components/common/contact-us.html`.
 
 ```html
@@ -30,7 +30,7 @@ To satisfy the [Location](https://www.w3.org/TR/WCAG21/#location) WCAG guideline
 {{#unless theme_settings.hide_contact_us_page_heading }}
 ```
 
-## Unusual Words example
+## Unusual Words
 To satisfy the [unusual words](https://www.w3.org/TR/WCAG21/#unusual-words) WCAG guideline, you can add links to your footer categories section in the Cornerstone theme. In `/templates/components/common/footer.html`, include the new links after the {{/each}} line.
 
 ```html
