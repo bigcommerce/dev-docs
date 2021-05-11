@@ -49,4 +49,4 @@ To satisfy the [unusual words](https://www.w3.org/TR/WCAG21/#unusual-words) WCAG
 ```
 View the HTML output below.
 
-![footer categories](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/WCAG-guidelines-03.png "Footer_categories")
+![footer categories](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/WCAG-guidelines-03.png "Footer categories")
