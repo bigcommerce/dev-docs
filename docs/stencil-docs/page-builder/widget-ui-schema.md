@@ -62,7 +62,10 @@ Elements in the list have settings defined by the array’s schema, which you ca
   "id": "slides",
   "defaultCount": 2,
   "entryLabel": "Slide",
-  "thumbnail": "imageUrl",
+  "thumbnail": {
+    "type": "image",
+    "valueKey": "imageUrl.src"
+  },
   "schema": [
     {
       "type": "tab",
