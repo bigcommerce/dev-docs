@@ -1225,7 +1225,7 @@ definitions:
       id:
         type: string
       defaultCount:
-        type: string
+        type: integer
         description: number of elements in the list to display by default.
       entryLabel:
         type: string
@@ -1241,9 +1241,12 @@ definitions:
             type: string
             example: imageUrl.src
       schema:
-        type: array
         description: The schema used for each element in the array.
-        items: {}
+        type: array
+        items:
+          anyOf:
+            - $ref: '#/definitions/widgetSchemaHidden'
+            - $ref: '#/definitions/widgetSchemaTab'
   widgetSchemaSetting_Base:
     type: object
     title: widgetSchemaSetting_Base
