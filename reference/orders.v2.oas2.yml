@@ -302,6 +302,7 @@ paths:
                       email: elsie@example.com
                   products:
                     - product_id: 184
+                      quantity: 5
                       product_options:
                         - id: 200
                           value: '180'
