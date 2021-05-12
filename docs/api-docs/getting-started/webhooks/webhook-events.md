@@ -44,7 +44,8 @@ This article contains a complete reference of all BigCommerce webhook events and
 | `scope` | The [event](/api-docs/getting-started/webhooks/webhook-events) registered when the webhook was created. |
 | `store_id` | A numerical identifier that is unique to each store. |
 | `data` | A lightweight description of the [event](/api-docs/getting-started/webhooks/webhook-events) that triggered the webhook. Will vary depending on the event registered. |
-| `hash` | The payload data json encoded then passed through SH1 encryption. |
+| `hash` | The payload data JSON encoded then passed through SH1 encryption. |
+
 | `created_at` | Unix timestamp of the date the hook was created. |
 | `producer` | Will always follow the pattern `stores/store_hash`. This is the store that created the webhook. |
 
