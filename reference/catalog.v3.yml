@@ -19338,7 +19338,7 @@ definitions:
             maxLength: 255
           image_url:
             type: string
-            description: Publicly available image url 
+            description: Publicly available image url
       - properties:
           product_id:
             type: integer
@@ -21484,6 +21484,9 @@ definitions:
           If entered, the sale price will be used instead of value in the price field when calculating the product's cost.
         format: float
         minimum: 0
+      map_price:
+        type: number
+        description: Minimum Advertised Price
       tax_class_id:
         type: integer
         description: |
