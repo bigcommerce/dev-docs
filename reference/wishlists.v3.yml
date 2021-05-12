@@ -296,9 +296,6 @@ paths:
         Updates a wishlist.
 
         Use this endpoint to update existing wishlist items, change the wishlist's name and whether the wishlist is available publicly. To add or delete a wishlist item, see [Wishlist Items](https://developer.bigcommerce.com/api-reference/store-management/wishlists/wishlists-items).
-
-        **Required Fields**
-        * customer_id
       summary: Update a Wishlist
       tags:
         - Wishlists
@@ -549,6 +546,7 @@ definitions:
               example: 22
     required:
       - customer_id
+      - items
   wishlist_Full:
     title: wishlist_Full
     type: object
