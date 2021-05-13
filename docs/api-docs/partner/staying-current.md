@@ -1,4 +1,4 @@
-# Staying Current with Changes
+# Staying Current with Platform Changes
 
 <div class="otp" id="no-index">
 
