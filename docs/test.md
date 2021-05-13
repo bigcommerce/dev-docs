@@ -16,6 +16,8 @@ Deep links make it possible to create URLs that send users to a particular page 
 
 Deep linking enables developers to effectively communicate with the app users when the app is not open. For example, you can include a deep link in your emails, dashboard, or mobile app notifications to direct viewers to a specific location within the app.
 
+When you navigate to a page within the app, like `/manage/app/123/some/page`, everything after the app's index page URL is passed into the load endpoint in the form of a `deep_link` query string. In this case, `/some/page` is transformed into `deep_link=%some%page`.
+
 Users who do not have the app installed on their devices will be redirected to the [App Marketplace](https://www.bigcommerce.com/apps/) to download the app before navigating to a particular location within the app.
 
 ## Implementation
