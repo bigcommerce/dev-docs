@@ -72,7 +72,16 @@ Additionally, when providing the details for a sandbox tax provider configuratio
 * Platform availability, i.e. all stores or only specified store hashes
 * Supported / unsupported countries
 
-Tax providers can create multiple sandbox tax providers within their production tax provider configuration, for example a tax provider could have a development and a test sandbox tax provider nested within their production tax provider configuration.
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+> ### Note
+> * We recommend tax providers request to create only one sandbox tax provider within their production tax provider configuration, any development procedures related to testing different estimate, commit, adjust and void Tax Providers API endpoints should be performed externally and decoupled from the BigCommerce platform to avoid uneccessary dependencies.
+
+</div>
+</div>
+</div>
 
 ## Building the app
 
