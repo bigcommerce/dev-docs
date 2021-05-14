@@ -23,7 +23,6 @@ x-stoplight:
     showModels: false
 security:
   - X-Auth-Client: []
-  - X-Auth-Token: []
 info:
   version: ''
   title: Customers V3
@@ -49,11 +48,13 @@ info:
     |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
     ### OAuth Scopes
+    |  **UI Name** | **Permission** | **Parameter** |
+    | --- | --- | --- |
+    |  Customers | modify | `store_v2_customers` |
+    |  Customers | read-only | `store_v2_customers_read_only` |
+    | Stored Payment Instruments| modify | `store_stored_payment_instruments`|
+    | Stored Payment Instruments| read-only | `store_stored_payment_instruments_read_only` |
 
-    | UI Name                                      | Permission | Parameter                                     |
-    |----------------------------------------------|------------|-----------------------------------------------|
-    | Customers                                    | modify     | `store_v2_customers`                          |
-    | Customers                                    | read-only  | `store_v2_customers_read_only`                |
 
     For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 
@@ -1624,7 +1625,7 @@ paths:
       tags:
         - Customer Stored Instruments
       description: |-
-        Lists all available stored instruments for a customer. This list will include all types of stored instruments namely card, account and bank_account instruments
+        Lists all available stored instruments for a customer. This list will include all types of stored instruments namely `card`, `account` and `bank_account` instruments. Requires the **Stored Payment Instruments** OAuth scope (`store_stored_payment_instruments_read_only`).
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
@@ -1700,6 +1701,8 @@ paths:
               example:
                 code: 403
                 message: Missing scope
+      security:
+        - X-Auth-Token: []
 components:
   parameters:
     customerId:
@@ -3857,6 +3860,8 @@ components:
         | --- | --- | --- |
         |  Customers | modify | `store_v2_customers` |
         |  Customers | read-only | `store_v2_customers_read_only` |
+        | Stored Payment Instruments| modify | `store_stored_payment_instruments`|
+        | Stored Payment Instruments| read-only | `store_stored_payment_instruments_read_only` |
 
         ### Headers
 
