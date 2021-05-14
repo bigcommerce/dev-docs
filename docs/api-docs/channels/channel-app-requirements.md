@@ -21,7 +21,8 @@ All Partners:
 
 - Uses [Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
 - [Creates a channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) upon app installation.
-- Reads and updates channel status via [Channels endpoints](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
+- Reads and updates channel status using the [Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) endpoints.
+
 - Follows requirements for specific channel type
 
 - Contains an onboarding user flow
