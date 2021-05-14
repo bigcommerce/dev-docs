@@ -229,7 +229,8 @@ The same response is returned for the following events.
 
 | Name                    | Description                                              |
 |-------------------------|----------------------------------------------------------|
-| `store/channel/*`       | Subscribe to all `store/channel` events                    |
+| `store/channel/*`       | Subscribe to all `store/channel` events.                    |
+
 | `store/channel/created` | Fires when a channel is created via control panel or API |
 | `store/channel/updated` | Fires when a channel is updated via control panel or API |
 
