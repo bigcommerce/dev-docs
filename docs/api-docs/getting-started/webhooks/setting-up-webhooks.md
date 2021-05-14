@@ -78,7 +78,8 @@ This app listens to requests on port `3000`, then responds with a `200` status o
 
 > ### Note
 > * Ngrok is a helpful tool for viewing webhook callbacks BigCommerce sends to your app. Ngrok creates a publicly accessible tunnel URL to an application running on your machine. When using ngrok you can view HTTP request details in its web interface.
-> * For simplicity, this tutorial uses an [npm package](https://www.npmjs.com/package/ngrok) to install and run ngrok. For official ngrok usage and installation instructions, [visit ngrok.com](https://ngrok.com/).
+> * For simplicity, this tutorial uses an [npm package](https://www.npmjs.com/package/ngrok) to install and run ngrok. For official ngrok usage and installation instructions, visit [ngrok.com](https://ngrok.com/).
+
 
 </div>
 </div>
