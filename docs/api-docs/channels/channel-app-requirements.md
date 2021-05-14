@@ -29,7 +29,8 @@ All Partners:
 
 Select Partners:
 
-- Uses [Big Design](https://developer.bigcommerce.com/big-design/)
+- Uses [Big Design](https://developer.bigcommerce.com/big-design/).
+
 - Includes `config_meta.app.id` in the [create channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) request.
 
 <div class="HubBlock--callout">
