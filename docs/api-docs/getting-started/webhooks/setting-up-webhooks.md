@@ -43,7 +43,8 @@ npm install ngrok           # install node wrapper for ngrok
 touch index.js              # create main app script file
 ```
 
-Then, copy and paste the JavaScript below into `index.js`.
+Then, copy and paste the following JavaScript code into `index.js`.
+
 
 
 ```js
