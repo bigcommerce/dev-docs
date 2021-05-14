@@ -202,7 +202,8 @@ Use the command `./ngrok http 3000` to run ngrok as a sudo user.
 
 **Windows users**
 
-If you are having trouble getting ngrok started try setting the PATH.
+If you are having trouble getting ngrok started, try setting the PATH.
+
     - [What are PATH and other environment variables, and how can I set or use them?](https://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them)
 
 ## Resources
