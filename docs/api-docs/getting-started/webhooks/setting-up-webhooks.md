@@ -15,7 +15,8 @@
 
 </div>
 
-In this tutorial, we'll create a Node.js Express app that handless webhook callbacks and uses [ngrok](https://ngrok.com/) (ngrok.com) to expose the app to the internet. Then, we'll create a webhook and observe the callback using the ngrok web interface when the event is triggered.
+In this tutorial, we'll create a Node.js Express app that handless webhook callbacks and uses [ngrok](https://ngrok.com/) (ngrok.com) to expose the app to the Internet. Then, we'll create a webhook and observe the callback using the ngrok web interface when the event is triggered.
+
 
 ### Prerequisites
 
