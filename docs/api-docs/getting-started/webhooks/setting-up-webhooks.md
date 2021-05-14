@@ -33,7 +33,8 @@ mkdir webhooks-test         # Create project directory
 
 cd webhooks-test            # Move into project directory
 
-npm init                    # Initialize node app (hit return to accept the default values)
+npm init                    # Initialize a Node.js project (hit return to accept the default values)
+
 
 npm install express --save  # Install express
 
