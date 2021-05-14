@@ -77,7 +77,7 @@ Additionally, when providing the details for a sandbox tax provider configuratio
 <div class="HubBlock-content">
 
 > ### Note
-> * We recommend tax providers request to create only one sandbox tax provider within their production tax provider configuration, any development procedures related to testing different estimate, commit, adjust and void Tax Providers API endpoints should be performed externally and decoupled from the BigCommerce platform to avoid unnecessary dependencies.
+> * We recommend tax providers request to create only one sandbox tax provider within their production tax provider configuration, any development procedures related to testing different estimate, commit, adjust and void Tax Provider API endpoints should be performed externally and decoupled from the BigCommerce platform to avoid unnecessary dependencies.
 
 </div>
 </div>
