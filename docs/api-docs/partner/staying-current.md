@@ -20,14 +20,13 @@ For up-to-date information about latest releases, new features, and bug fixes, w
 
 ## Cornerstone theme updates
 
-For Cornerstone theme updates, we recommend setting up [a feed alert](https://developer.bigcommerce.com/changelog#feeds) for the [Developer Changelog](https://developer.bigcommerce.com/changelog). 
+For recent updates to the Stencil's Cornerstone theme, we recommend setting up [a feed alert](https://developer.bigcommerce.com/changelog#feeds) for the [Developer Changelog](https://developer.bigcommerce.com/changelog). You can also refer to the [Cornerstone repository](https://github.com/bigcommerce/cornerstone/) in GitHub.
 
 Most of the time, you will not need to do anything to update your theme. New code is pushed to all stores several times a week. Occasionally, you may have to take some action by opting into the new feature in the control panel.
 
 ### Custom themes
 
 Depending on the level of customization, you may need to manually port changes into your custom theme. The [Theme Updates and Version Control](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/theme-updates-and-version-control) article talks about the steps you can take to keep your custom theme up-to-date with BigCommerce theme updates and version releases. To learn more about customization and applying updates, see [Apply Updates](https://developer.bigcommerce.com/stencil-docs/developing-further/updates).
-For recent updates to the Stencil's Cornerstone theme, refer to the [Cornerstone repository](https://github.com/bigcommerce/cornerstone/) in GitHub.
 
 ## API updates
 
