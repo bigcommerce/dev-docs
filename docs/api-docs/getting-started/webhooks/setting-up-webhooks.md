@@ -186,7 +186,8 @@ Currently, BigCommerce does not support destination URLs served over custom HTTP
 
 **Getting a `404` error using the root (/) url?**
 
-Add this snippet to your code to respond to incoming get requests with 'hello':
+Add this snippet to your code to respond to incoming `GET` requests with 'hello':
+
 
 ```js
 app.get('/',(req, res)=>{
