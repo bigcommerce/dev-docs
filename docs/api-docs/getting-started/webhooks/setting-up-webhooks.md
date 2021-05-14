@@ -109,7 +109,8 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 {
  "scope": "store/product/updated",
- "destination": "https://6a35e97b.ngrok.io/webhooks", # replace 6a35e97b.ngrok.io with your HTTPS tunnel URL
+ "destination": "https://6a35e97b.ngrok.io/webhooks", # Replace 6a35e97b.ngrok.io with your HTTPS tunnel URL
+
  "is_active": true
 }
 ```
