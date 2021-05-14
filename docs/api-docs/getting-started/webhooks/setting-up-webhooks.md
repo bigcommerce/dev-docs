@@ -133,7 +133,8 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Trigger the webhook event
 
-Webhooks fire when shoppers perform actions on the storefront and when users make changes in the control panel. They also fire when updates are made via API. Trigger the webhook you just created by performing the following actions in your BigCommerce control panel.
+Webhooks fire when shoppers perform actions on the storefront and when users make changes in the control panel. They will also fire when you make changes using an API. Trigger the webhook you just created by performing the following actions in your BigCommerce control panel:
+
 
 1. Navigate to **Products** > [**View**](https://login.bigcommerce.com/deep-links/manage/products).
 2. Edit a product and change something like **name** or **description**.
