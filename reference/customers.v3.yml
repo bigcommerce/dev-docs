@@ -23,6 +23,7 @@ x-stoplight:
     showModels: false
 security:
   - X-Auth-Client: []
+  - X-Auth-Token: []
 info:
   version: ''
   title: Customers V3
