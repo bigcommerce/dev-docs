@@ -6,7 +6,8 @@
 
 - [Create an Express app](#create-an-express-app)
 - [Start the app](#start-the-app)
-- [Create a webook](#create-a-webook)
+- [Create a webhook](#create-a-webhook)
+
 - [Trigger the webhook event](#trigger-the-webhook-event)
 - [Adding custom headers](#adding-custom-headers)
 - [Troubleshooting](#troubleshooting)
