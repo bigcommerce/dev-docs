@@ -157,7 +157,8 @@ The summary shows the webhook fired and our Express app returned a `200` respons
 
 ## Adding custom headers
 
-For added security you can add custom headers to your create webhook request. The `headers` property accepts any key value pair as a string. BigCommerce will include the headers in callback requests made to your application.
+You can add custom headers to your create webhook request for added security. The `headers` property accepts any key-value pair as a string. BigCommerce will include the headers in callback requests made to your application.
+
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
