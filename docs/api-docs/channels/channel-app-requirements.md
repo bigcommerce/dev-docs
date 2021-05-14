@@ -19,7 +19,8 @@ Once approved, channel apps are discoverable on BigCommerce's App Marketplace. A
 
 All Partners:
 
-- Uses [Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
+- Uses [Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
+
 - [Creates a channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) upon app installation.
 - Reads and updates channel status using the [Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) endpoints.
 
