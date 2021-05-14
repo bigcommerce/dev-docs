@@ -26,7 +26,8 @@ In this tutorial, we'll create a Node.js Express app that handless webhook callb
 - Familiarity working with `node` and `npm`
 ## Create an Express app
 
-First, let's make a `webooks-test` directory and initialize a Node.js Express app inside of it. To do so, run the following commands in a terminal.
+First, let's make a `webooks-test` directory and initialize a Node.js Express app inside of it. To do so, run the following commands in the terminal.
+
 
 ```bash
 mkdir webhooks-test         # Create project directory
