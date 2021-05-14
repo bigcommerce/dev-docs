@@ -89,7 +89,8 @@ This app listens to requests on port `3000`, then responds with a `200` status o
 
 ## Start the app
 
-To start the app, run the following commands.
+To start the app, run the following commands:
+
 
 ```bash
 cd ~/path/to/webhooks-test # Make sure you're in your webhooks-test project directory
