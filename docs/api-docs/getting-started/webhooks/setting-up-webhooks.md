@@ -41,7 +41,8 @@ npm install express --save  # Install express
 
 npm install ngrok           # install node wrapper for ngrok
 
-touch index.js              # create main app script file
+touch index.js              # Create main app script file
+
 ```
 
 Then, copy and paste the following JavaScript code into `index.js`.
