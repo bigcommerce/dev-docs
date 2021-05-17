@@ -1,0 +1,15 @@
+name: remark
+on: [pull_request]
+jobs:
+  remark:
+    name: runner / remark
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.2
+      - name: quality-docs-github-check
+        uses: markcmurphy/retext-goog-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
+          level: warning
+          filter_mode: added
