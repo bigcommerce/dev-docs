@@ -16,6 +16,7 @@ paths:
         Creates a **Cart**. 
 
         **Required Fields**
+
         |Field|Details|
         |-|-|
         |`line_items`|| 
@@ -704,6 +705,7 @@ definitions:
           code:
             type: string
             format: ISO-4217
+            description: 'The [transactional currency](https://developer.bigcommerce.com/api-docs/multi-currency/guide/introduction#multi-currency-definitions) code for the cart as a [ISO-4217](https://www.iso.org/iso-4217-currency-codes.html) formatted string; required when multi-currency is enabled. Passing in a non-transactional display currency will result in a `400` error.'
       locale:
         type: string
         description: Accepts string of format `xx` or `xx-YY`.
@@ -900,12 +902,12 @@ definitions:
           code:
             type: string
             format: ISO-4217
-            description: 'ISO-4217 currency code. (See: http://en.wikipedia.org/wiki/ISO_4217.)'
+            description: 'The [transactional currency](https://developer.bigcommerce.com/api-docs/multi-currency/guide/introduction#multi-currency-definitions) code for the cart as a [ISO-4217](https://www.iso.org/iso-4217-currency-codes.html) formatted string.'
       tax_included:
         type: boolean
       base_amount:
         type: number
-        description: Sum of cart line-item amounts before cart-level discounts, coupons, or taxes.
+        description: 'Sum of cart line-item amounts before cart-level discounts, coupons, or taxes.'
       discount_amount:
         type: number
         description: Discounted amount.
@@ -1025,7 +1027,6 @@ definitions:
                                       type: integer
                                       description: |-
                                         The discount type.
-
                                         - type 0: per_item_discount
                                         - type 1: percentage_discount
                                         - type 2: per_total_discount
@@ -1198,7 +1199,6 @@ definitions:
                                       type: integer
                                       description: |-
                                         The discount type.
-
                                         - type 0: per_item_discount
                                         - type 1: percentage_discount
                                         - type 2: per_total_discount
@@ -1332,7 +1332,6 @@ definitions:
                 title: Item Custom
                 description: |-
                   Add a custom item to the shopper's cart.
-
                   * Custom items are not added to the catalog.
                   * The price should be set to match the store settings for taxes.
                 properties:
