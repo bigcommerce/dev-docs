@@ -56,9 +56,9 @@ Need code up a custom storefront but don't want to start from scratch? Kick-star
 
 ### Custom solutions
 
-Need to build a custom solution from scratch? Bigcommerce has APIs, SDKs, and toolkits to help you do whatever you need, headlessly.
+Need to build a custom solution from scratch? BigCommerce has APIs, SDKs, and toolkits to help you do whatever you need, headlessly.
 
-* [Create storefront channels with the Channels API.](https://developer.bigcommerce.com/api-docs/channels/quick-start).
+* [Create storefront channels with the Channels API](https://developer.bigcommerce.com/api-docs/channels/quick-start).
 * [Manage sites and routes for headless storefronts with the sites and routes API](https://developer.bigcommerce.com/api-reference/store-management/sites).
 * [Manage 301 redirects for one or more storefronts with Redirects V3 API](https://developer.bigcommerce.com/api-reference/store-management/redirects)
 * [Create storefront specific product listings with the Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
