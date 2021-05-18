@@ -17,7 +17,7 @@
 
 </div>
 
-This article providers a high level guide to using BigCommerce to power headless storefronts; we'll assume you're already familiar with headless commerce as a concept; if you're not, check out our whitepaper, [A New Era of Ecommerce: Headless Commerce](https://www.bigcommerce.com/new-era-headless-caas/) or the Help Center's [Headless Commerce Guide](https://support.bigcommerce.com/s/article/The-Headless-Approach).
+This article provides a high level guide to using BigCommerce to power headless storefronts; we'll assume you're already familiar with headless commerce as a concept; if you're not, check out our whitepaper, [A New Era of Ecommerce: Headless Commerce](https://www.bigcommerce.com/new-era-headless-caas/) or the Help Center's [Headless Commerce Guide](https://support.bigcommerce.com/s/article/The-Headless-Approach).
 
 ## Ways to implement headless
 
@@ -33,11 +33,12 @@ Want to build a headless storefront powered by a BigCommerce back-end, but don't
 
 |  Solution | Method of Integration | Platform | Type |
 | --- | --- | --- | --- |
-| [DEITY Falcon](https://www.bigcommerce.com/apps/deity-falcon-pwa-storefront/) | BigCommerce App | DEITY Faclon | PWA |
-| [Bloomreach](https://www.bigcommerce.com/apps/bloomreach/) | BigCommerce App | Bloomreach | CMS / DXP |
-| [Sitrecore Extend](https://www.bigcommerce.com/apps/sitecore-extend/) | BigCommerce App | Sitecore | CMS |
 | [BigCommerce for Wordpress](https://wordpress.org/plugins/bigcommerce/) | WordPress Plugin | WordPress | CMS |
 | [BigCommerce for Drupal](https://www.drupal.org/project/bigcommerce) | Drupal Module | Drupal | CMS |
+| [Bloomreach](https://www.bigcommerce.com/apps/bloomreach/) | BigCommerce App | Bloomreach | CMS / DXP |
+| [DEITY Falcon](https://www.bigcommerce.com/apps/deity-falcon-pwa-storefront/) | BigCommerce App | DEITY Faclon | PWA |
+| [Next.js Commerce](https://nextjs.org/commerce) | BigCommerce App | Next/Vercel | Web App |
+| [Sitrecore Extend](https://www.bigcommerce.com/apps/sitecore-extend/) | BigCommerce App | Sitecore | CMS |
 
 [See more headless solutions and tools](https://developer.bigcommerce.com/tools-resources).
 
@@ -55,9 +56,9 @@ Need code up a custom storefront but don't want to start from scratch? Kick-star
 
 ### Custom solutions
 
-Need to build a custom solution from scratch? Bigcommerce has APIs, SDKs, and toolkits to help you do whatever you need, headlessly.
+Need to build a custom solution from scratch? BigCommerce has APIs, SDKs, and toolkits to help you do whatever you need, headlessly.
 
-* [Create storefront channels with the Channels API.](https://developer.bigcommerce.com/api-docs/channels/quick-start).
+* [Create storefront channels with the Channels API](https://developer.bigcommerce.com/api-docs/channels/quick-start).
 * [Manage sites and routes for headless storefronts with the sites and routes API](https://developer.bigcommerce.com/api-reference/store-management/sites).
 * [Manage 301 redirects for one or more storefronts with Redirects V3 API](https://developer.bigcommerce.com/api-reference/store-management/redirects)
 * [Create storefront specific product listings with the Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
