@@ -248,13 +248,13 @@ paths:
         * attribute_value -- This is input as a string, regardless of the [Type](/api-reference/customer-subscribers/v3-customers-api/models/type).
 
         **Notes**
-        For multi-storefront merchants who wants to give:
-        * Global access:
-          * The channel listed in `origin_channel_id` needs `allow_global_logins=true` in their channel settings
-          * Leave `channel_ids` empty
-        * Channel restricted access:
-          * The channel listed in `origin_channel_id` needs to have `allow_global_logins=false` in their channel settings
-          *  Either leave `channel_ids` empty to use the current channel or give the list of channels we grant access
+
+        A customer can be created with global access or channel-specific access.
+        * **Global access:**
+          * Make sure the channel has `allow_global_logins` enabled. This is on by default only for the default storefront. Find more info at [Customer Settings > Channel](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-settings-channel/customersettingschannelget)
+          * Omit `channel_ids` field, or provide `channel_ids: null`.
+        * **Channel-specific access:**
+          * Provide a `channel_ids` array containing the channels accessible by the customer.
       summary: Create Customers
       tags:
         - Customers
