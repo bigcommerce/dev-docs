@@ -21,29 +21,3 @@ allOf:
       saved:
         $ref: ../common/amount.yml
   - $ref: ../common/price.yml
-x-examples:
-  example-1:
-    non_sale_price_without_tax:
-      currency: string
-      formatted: string
-      value: null
-    price_range:
-      max: null
-      min: null
-    rrp_without_tax:
-      currency: string
-      formatted: string
-      value: null
-    sale_price_without_tax:
-      currency: string
-      formatted: string
-      value: null
-    saved:
-      currency: string
-      formatted: string
-      value: null
-    tax_label: string
-    without_tax:
-      currency: string
-      formatted: string
-      value: null
