@@ -49,7 +49,7 @@ Accept: application/json
 ```json
 {
   "created_at": 1580329317,
-  "destination": "https://665b65a6.ngrok.io/webhooks",
+  "destination": "https://665b65a6.ngrok.io/webhooks", // note: custom ports are not supported
   "headers": null,
   "id": 20172984,
   "is_active": true,
@@ -66,7 +66,8 @@ Accept: application/json
 <!-- theme: warning -->
 
 ### Note
-> Following the creation of a webhook, it can take up to one minute for BigCommerce to start making `POST` requests to the destination server.
+> * Following the creation of a webhook, it can take up to one minute for BigCommerce to start making `POST` requests to the destination server.
+> * The `destination` URL must be served on port **433**; custom ports are not currently supported.
 
 </div>
 </div>
