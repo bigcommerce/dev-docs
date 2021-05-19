@@ -16,7 +16,9 @@ At BigCommerce, we strive to offer the best ecommerce experience to our customer
 
 ## General updates
 
-For up-to-date information about the latest releases, new features, and bug fixes, we recommend setting up [a feed alert](https://developer.bigcommerce.com/changelog#feeds) for the [Developer Changelog](https://developer.bigcommerce.com/changelog). Additionally, you can gain more visibility into product updates by attending BigCommerce’s [Town Hall](https://support.bigcommerce.com/s/article/BigCommerce-Town-Halls) webinar programs and reading the [Product Blog](https://support.bigcommerce.com/s/blog).
+For up-to-date information about the latest releases, new features, and bug fixes, we recommend setting up [a feed alert](https://developer.bigcommerce.com/changelog#feeds) for the [Developer Changelog](https://developer.bigcommerce.com/changelog). Additionally, you can gain more visibility into product updates by attending BigCommerce’s [Town Hall](https://support.bigcommerce.com/s/article/BigCommerce-Town-Halls) webinar programs and reading the [Product](https://support.bigcommerce.com/s/blog) and [Developer](https://medium.com/bigcommerce-developer-blog) blogs.
+
+For a complete list of available resources, see [Support](https://developer.bigcommerce.com/api-docs/partner/getting-started/support). 
 
 ## Cornerstone theme updates
 
@@ -40,4 +42,4 @@ Our [Product Blog](https://support.bigcommerce.com/s/blog) is the best place to 
 
 ## Checkout SDK updates
 
-The Checkout JavaScript SDK and associated documentation are available from the [Checkout SDK repository](https://github.com/bigcommerce/checkout-sdk-js) in GitHub. Additionally, enterprise clients can reach out to their account manager to review services and resources available.
+The Checkout JavaScript SDK and associated documentation are available from the [Checkout SDK repository](https://github.com/bigcommerce/checkout-sdk-js). For information on [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout), see the [Checkout JS repository](https://github.com/bigcommerce/checkout-js). Additionally, enterprise clients can reach out to their account managers to review services and resources available.
