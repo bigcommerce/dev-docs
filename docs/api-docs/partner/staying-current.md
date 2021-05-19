@@ -42,4 +42,4 @@ Our [Product Blog](https://support.bigcommerce.com/s/blog) is the best place to 
 
 ## Checkout SDK updates
 
-The Checkout JavaScript SDK and associated documentation are available from the [Checkout SDK repository](https://github.com/bigcommerce/checkout-sdk-js). For information on [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout), see the [Checkout JS repository](https://github.com/bigcommerce/checkout-js). Additionally, enterprise clients can reach out to their account managers to review services and resources available.
+The Checkout JavaScript SDK and associated documentation are available from the [Checkout SDK repository](https://github.com/bigcommerce/checkout-sdk-js). For information on [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout), see the [Checkout JS repository](https://github.com/bigcommerce/checkout-js).
