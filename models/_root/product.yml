@@ -4,14 +4,14 @@ properties:
   AddThisServiceButtonMeta:
     type: string
   add_this:
+    type: array
     items:
+      type: object
       properties:
         annotation:
           type: string
         service:
           type: string
-      type: object
-    type: array
   add_to_wishlist_url:
     description: URL to add the product to the customer’s wishlist
     type: string
@@ -19,9 +19,9 @@ properties:
     type: string
   bulk_discount_rates:
     description: List of discount rates for the current product
+    type: array
     items:
       type: object
-    type: array
   can_purchase:
     description: Boolean that indicates whether the product is available for purchase
     type: boolean
@@ -29,14 +29,14 @@ properties:
     description: URL to the customer’s shopping cart
     type: string
   category:
+    type: array
     items:
       type: string
-    type: array
   customizations:
-    description: Product customizations (for example, a T-shirt size); these correspond to configurable fields and numeric-text product options in the BigCommerce control panel
+    description: 'Product customizations (for example, a T-shirt size); these correspond to configurable fields and numeric-text product options in the BigCommerce control panel'
+    type: array
     items:
       type: object
-    type: array
   description:
     description: (HTML) description of the product
     type: string
@@ -50,30 +50,30 @@ properties:
     description: Unique ID for the product
     type: string
   images:
-    description: List of all images for this product, in Stencil image format (as configured in config.json; used with the getImage Handlebars helper)
+    description: 'List of all images for this product, in Stencil image format (as configured in config.json; used with the getImage Handlebars helper)'
+    type: array
     items:
+      type: object
       properties:
         alt:
           type: string
         data:
           type: string
-      type: object
-    type: array
   main_image:
     description: Primary image to display when the product details page loads
+    type: object
     properties:
       alt:
         type: string
       data:
         type: string
-    type: object
   max_purchase_quantity:
     description: Maximum quantity that can be purchased at once
     type: integer
   meta_description:
     type: string
   meta_keywords:
-    description: Optional search keywords that merchants may enter in the control panel’s "Add a Product" or “Edit a Product” page, to characterize the product in meta tags and storefront searches
+    description: 'Optional search keywords that merchants may enter in the control panel’s "Add a Product" or “Edit a Product” page, to characterize the product in meta tags and storefront searches'
     type: string
   min_purchase_quantity:
     description: Minimum quantity that can be purchased at once
@@ -82,9 +82,9 @@ properties:
     description: Number of reviews the product has
     type: integer
   options:
+    type: array
     items:
       type: object
-    type: array
   page_title:
     type: string
   price:
@@ -97,9 +97,9 @@ properties:
   reviews:
     $ref: ../product/reviews.yml
   shipping_messages:
+    type: array
     items:
       type: object
-    type: array
   show_quantity_input:
     type: integer
   sku:
@@ -107,9 +107,9 @@ properties:
     type: string
   tags:
     description: Keywords by which this product can also be identified
+    type: array
     items:
       type: object
-    type: array
   title:
     description: Displayed name of the product
     type: string
@@ -124,3 +124,17 @@ properties:
   warranty:
     description: Optional warranty text set by the merchant
     type: string
+  custom_fields:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 61
+        name:
+          type: string
+          example: unavailable_for
+        value:
+          type: string
+          example: CAD
