@@ -21,7 +21,7 @@ To satisfy the [bypass blocks](https://www.w3.org/TR/WCAG21/#bypass-blocks) WCAG
 {{/each}}
 {{/if}}
 ```
-View the HTML output below.
+**HTML output**
 
 ![Skip to Main](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/WCAG-guidelines-01.png "Skip to Main")
 
