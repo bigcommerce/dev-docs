@@ -32,7 +32,7 @@ To satisfy the [Location](https://www.w3.org/TR/WCAG21/#location) WCAG guideline
 {{#partial "page"}} {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 {{#unless theme_settings.hide_contact_us_page_heading }}
 ```
-View the HTML output below.
+**HTML output**
 
 ![Breadcrumbs](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/WCAG-guidelines-02.png "Breadcrumbs")
 
