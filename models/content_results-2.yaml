@@ -1,0 +1,16 @@
+title: content_results
+type: object
+description: '{{content_results}}'
+properties:
+  title:
+    type: string
+    example: test
+  url:
+    type: string
+    example: 'https://www.hatertron.ninja/completely/configurable'
+  content:
+    type: string
+    example: test
+  type:
+    type: string
+    example: Post
