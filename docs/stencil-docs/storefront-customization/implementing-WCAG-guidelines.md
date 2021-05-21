@@ -47,6 +47,6 @@ To satisfy the [unusual words](https://www.w3.org/TR/WCAG21/#unusual-words) WCAG
     });
 </script>
 ```
-View the HTML output below.
+**HTML output**
 
 ![footer categories](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/WCAG-guidelines-03.png "Footer categories")
