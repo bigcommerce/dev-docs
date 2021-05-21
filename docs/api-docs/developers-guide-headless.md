@@ -172,7 +172,7 @@ In the diagram below, the Storefront is any location the products are being rend
 |**BigCommerce**|BigCommerce will respond to the application with the requested data to power the backend ecommerce functionality. It can handle processing payments, storing customer data, retrieving the catalog and order information.|
 
 ### Managing access to your stencil site
-To prevent search engines or shoppers from accessing your non-functioning stencil site, you should redirect shoppers to the storefront. There are three possible ways to redirect visitors to your headless site, see [Pointing Your Domain](https://support.bigcommerce.com/s/article/Changing-Domains#point) for details.
+Once you transition to a headless setup and are no longer using your Stencil storefront, make sure to redirect shoppers to your new frontend by changing your custom domain's [nameservers](https://support.bigcommerce.com/s/article/Changing-Domains#nameservers). Also, make sure that your unused Stencil storefront is inaccessible to both search engines and shoppers. To prevent search engines from crawling and indexing your Stencil storefront, edit your robots.txt file to disallow all [robots](https://support.bigcommerce.com/s/article/Understanding-the-Robots-txt-File). To prevent shoppers from accessing your Stencil storefront's permanent URL, [Set Store as Down for Maintenance](https://support.bigcommerce.com/s/article/Maintenance-Mode) with a custom message directing shoppers to your new frontend. 
 
 ## PCI compliance
 
