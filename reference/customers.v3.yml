@@ -248,7 +248,6 @@ paths:
         * attribute_value -- This is input as a string, regardless of the [Type](/api-reference/customer-subscribers/v3-customers-api/models/type).
 
         **Notes**
-
         A customer can be created with global access or channel-specific access.
         * **Global access:**
           * Make sure the channel has `allow_global_logins` enabled. This is on by default only for the default storefront. Find more info at [Customer Settings > Channel](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-settings-channel/customersettingschannelget)
@@ -291,15 +290,17 @@ paths:
                         postal_code: '33333'
                         state_or_province: California
                     attributes:
-                      - - attribute_id: 0
-                          value: string
+                      - attribute_id: 55
+                        value: string
                     authentication:
                       force_password_reset: true
                       new_password: string
                     accepts_product_review_abandoned_cart_emails: true
                     store_credit_amounts:
                       - amount: 43.15
-                    origin_channel_id: 1
+                    origin_channel_id: 0
+                    channel_ids:
+                      - 0
         required: true
         x-examples: {}
         description: ''
@@ -1033,7 +1034,7 @@ paths:
 
         **Notes**
 
-        Once the data type is set, it can not be changed. The attribute will need to be deleted then created again with the new data type. This will also delete it from the customer.
+        Once the data type is set, it cannot be changed. The attribute will need to be deleted then created again with the new data type. This will also delete it from the customer.
 
         Customer attributes are created separately from the customer. After the name and type are created, then the attributes can be added to the customer.
 
@@ -1978,6 +1979,71 @@ components:
                   $ref: '#/components/schemas/customer_Full'
               meta:
                 $ref: '#/components/schemas/_metaCollection'
+          examples:
+            example-1:
+              value:
+                data:
+                  - email: string
+                    first_name: string
+                    last_name: string
+                    company: string
+                    phone: string
+                    registration_ip_address: string
+                    notes: string
+                    tax_exempt_category: string
+                    customer_group_id: 0
+                    id: 0
+                    date_modified: '2019-08-24T14:15:22Z'
+                    date_created: '2019-08-24T14:15:22Z'
+                    address_count: 0
+                    attribute_count: 0
+                    authentication:
+                      force_password_reset: true
+                    addresses:
+                      - first_name: string
+                        last_name: string
+                        company: string
+                        address1: string
+                        address2: string
+                        city: string
+                        state_or_province: string
+                        postal_code: string
+                        country_code: st
+                        phone: string
+                        address_type: residential
+                        customer_id: 0
+                        id: 0
+                        country: string
+                        form_fields:
+                          - name: color
+                            value: blue
+                            customer_id: 0
+                    attributes:
+                      - name: string
+                        type: string
+                        id: 0
+                        date_modified: '2019-08-24T14:15:22Z'
+                        date_created: '2019-08-24T14:15:22Z'
+                    form_fields:
+                      - name: color
+                        value: blue
+                        customer_id: 0
+                    store_credit_amounts:
+                      - amount: 43.15
+                    accepts_product_review_abandoned_cart_emails: true
+                    channel_ids:
+                      - 0
+                meta:
+                  pagination:
+                    total: 0
+                    count: 0
+                    per_page: 0
+                    current_page: 0
+                    total_pages: 0
+                    links:
+                      previous: string
+                      current: string
+                      next: string
     CustomerResponse:
       description: Customer Response
       content:
@@ -4032,7 +4098,7 @@ components:
           items:
             $ref: '#/components/schemas/address_Full'
         attributes:
-          description: Array of customer attributes. Limited to 10
+          description: Array of customer attributes. Limited to 10.
           type: array
           maxItems: 10
           items:
@@ -4097,7 +4163,7 @@ components:
           items:
             $ref: '#/components/schemas/customerAddresses_Base'
         attributes:
-          description: Array of customer attributes. Limited to 10
+          description: Array of customer attributes. Limited to 10.
           type: array
           maxItems: 10
           items:
@@ -4212,14 +4278,16 @@ components:
           type: integer
           format: int32
         value:
-          description: 'Attribute value. This will always be a string, regardless of the attributes type.'
           type: string
+          description: 'Attribute value. This will always be a string, regardless of the attributes type.'
           minLength: 0
           maxLength: 255
+          example: string
         customer_id:
-          description: Customer ID.
           type: integer
+          description: Customer ID.
           format: int32
+          example: 8504
       required:
         - attribute_id
         - value
@@ -4922,29 +4990,21 @@ components:
           - customer_id
       title: customerAttributes_Full
     customerAttributes_Base:
-      description: |-
-        The `attributes` array for the `customer` object used in `POST` requests to `/customers`.
-
-        Array of customer attributes. Limited to 10.
-      type: array
-      maxItems: 10
+      description: ''
       title: customerAttributes_Base
-      items:
-        title: Customer Attribute Value
-        type: object
-        properties:
-          attribute_id:
-            description: Attribute ID.
-            type: integer
-            format: int32
-          value:
-            description: 'Attribute value. This will always be a string, regardless of the attributes type.'
-            type: string
-            minLength: 0
-            maxLength: 255
-        required:
-          - attribute_id
-          - value
+      type: object
+      properties:
+        attribute_id:
+          type: integer
+          format: int32
+          example: 55
+          description: Attribute ID.
+        value:
+          type: string
+          example: string
+          minLength: 0
+          maxLength: 255
+          description: 'Attribute value. This will always be a string, regardless of the attribute''s type.'
     attribute_Base:
       type: object
       properties:
