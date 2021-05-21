@@ -1,0 +1,18 @@
+title: content_results
+type: array
+description: '{{content_results}} array'
+items:
+  type: object
+  properties:
+    title:
+      type: string
+      example: test
+    url:
+      type: string
+      example: 'https://www.example/completely/configurable'
+    content:
+      type: string
+      example: test
+    type:
+      type: string
+      example: Post

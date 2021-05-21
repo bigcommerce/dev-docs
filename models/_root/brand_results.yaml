@@ -1,0 +1,10 @@
+title: brand_results
+type: object
+description: '{{brand_results}} array'
+properties:
+  url:
+    type: string
+    example: 'https://www.example/test-brand/'
+  name:
+    type: string
+    example: Test brand

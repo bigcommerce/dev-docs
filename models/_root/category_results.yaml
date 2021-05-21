@@ -1,0 +1,10 @@
+title: category_results
+type: object
+description: '{{category_results}} array'
+properties:
+  url:
+    type: string
+    example: 'https://www.example/card-testing/'
+  name:
+    type: string
+    example: Card Testing

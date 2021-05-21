@@ -1,0 +1,120 @@
+title: product_results
+type: object
+description: '{{product_results}}'
+properties:
+  products:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 121
+        sku:
+          type: string
+          example: Test
+        name:
+          type: string
+          example: Bundle Demo
+        url:
+          type: string
+          example: 'https://www.example/bundle-demo/'
+        brand:
+          type: object
+          properties:
+            name:
+              type: 'null'
+              description: ''
+        availability:
+          type: string
+        summary:
+          type: string
+        image:
+          type: object
+          properties:
+            data:
+              type: string
+              example: 'https://cdn11.bigcommerce.com/s-iu88q6epfh/images/stencil/{:size}/products/121/377/850x850__74338.1591376249.png?c=1'
+            alt:
+              type: string
+              example: Bundle Demo
+        qty_in_cart:
+          type: integer
+          example: 0
+        pre-order:
+          type: boolean
+          description: 'false'
+        has_options:
+          type: boolean
+          description: 'true'
+        show_cart_action:
+          type: boolean
+          description: 'true'
+        stock_level:
+          type: 'null'
+          description: ''
+        low_stock_level:
+          type: 'null'
+          description: ''
+        weight:
+          type: object
+          properties:
+            formatted:
+              type: string
+              description: 12.00 Ounces
+            value:
+              type: integer
+              example: 12
+        demo:
+          type: boolean
+          description: 'false'
+        date_added:
+          type: string
+          example: 5th Jun 2020
+        add_to_wishlist_url:
+          type: string
+          example: /wishlist.php?action=add&product_id=121
+        custom_fields:
+          type: 'null'
+        images:
+          type: object
+          properties:
+            data:
+              type: string
+              example: 'https://cdn11.bigcommerce.com/s-iu88q6epfh/images/stencil/{:size}/products/121/377/850x850__74338.1591376249.png?c=1'
+            alt:
+              type: string
+              example: Bundle Demo
+  rating:
+    type: integer
+    example: 0
+  num_reviews:
+    type: integer
+    example: 0
+  price:
+    type: object
+    properties:
+      without_tax:
+        type: object
+        properties:
+          formatted:
+            type: number
+            example: $20.00
+          value:
+            type: integer
+            example: 20
+          currency:
+            type: string
+            example: USD
+  tax_label:
+    type: string
+    example: Tax
+  category:
+    type: array
+    items:
+      type: object
+      properties:
+        Bundle Inventory Tracker:
+          type: string
+        Bundle Inventory Tracker/Bundles:
+          type: string
