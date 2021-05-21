@@ -9,7 +9,7 @@ items:
       example: test
     url:
       type: string
-      example: 'https://www.hatertron.ninja/completely/configurable'
+      example: 'https://www.example/completely/configurable'
     content:
       type: string
       example: test

@@ -18,7 +18,7 @@ properties:
           example: Bundle Demo
         url:
           type: string
-          example: 'https://www.hatertron.ninja/bundle-demo/'
+          example: 'https://www.example/bundle-demo/'
         brand:
           type: object
           properties:

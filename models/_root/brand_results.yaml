@@ -4,7 +4,7 @@ description: '{{brand_results}} array'
 properties:
   url:
     type: string
-    example: 'https://www.hatertron.ninja/test-brand/'
+    example: 'https://www.example/test-brand/'
   name:
     type: string
     example: Test brand
