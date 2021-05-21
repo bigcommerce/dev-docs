@@ -81,9 +81,9 @@ info:
     {
       "channel_id": 1,
       "expires_at": 1602288000,
-      "allowed_cors_origins": [
-        "https://store.example.com"
-      ]
+      "allowed_cors_origins": 
+        ["https://store.example.com"]
+      
     }
 
     ```
@@ -283,10 +283,10 @@ paths:
             application/json: |-
               {
                 "channel_id": 1,
-                "expires_at": {$$.env.expires_at},
-                "allowed_cors_origins": [
-                  "{$$.env.allowed_cors_origin}"
-                ]
+                "expires_at": 1620766652,
+                "allowed_cors_origins": 
+                  ["https://www.yourstorefront.com"]
+                
               }
     delete:
       tags:
@@ -371,7 +371,7 @@ definitions:
         type: integer
         description: Unix timestamp (UTC time) defining when the token should expire.
         format: double
-        default: '{$$.env.expires_at}'
+        default: 1620766652
     required:
       - channel_id
       - expires_at
@@ -385,7 +385,7 @@ definitions:
           only accepts a single element.
         minItems: 1
         maxItems: 1
-        example: 'https://www.yourstorefront.com/'
+        example: https://www.yourstorefront.com/
         items:
           type: string
           minLength: 1
