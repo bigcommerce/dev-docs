@@ -53,7 +53,8 @@ The following is an example of a callback BigCommerce sends to the `destination`
 
  | Property | Description |
 |-|-|
-|`type`| Will always be channel |
+|`type`| Will always be `"channel"` |
+
 |`id`  | The ID of the channel  |
 
 ## Creating a channel webhook
