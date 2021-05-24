@@ -60,7 +60,8 @@ The following is an example of a callback BigCommerce sends to the `destination`
 
 ## Creating a channel webhook
 
-To create a webhook that subscribe to channel events, send a `POST` request to [/stores/{{STORE_HASH}}/v2/hooks](https://developer.bigcommerce.com/api-reference/webhooks/webhooks/createwebhooks) with `scope` set to a `store/channel/created`, `store/channel/updated`, or `store/channel/*`.
+To create a webhook that subscribes to channel events, send a `POST` request to [/stores/{{STORE_HASH}}/v2/hooks](https://developer.bigcommerce.com/api-reference/webhooks/webhooks/createwebhooks) with `scope` set to `store/channel/created`, `store/channel/updated`, or `store/channel/*`.
+
 
 
 ```http
