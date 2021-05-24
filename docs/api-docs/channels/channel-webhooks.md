@@ -82,6 +82,7 @@ Accept: application/json
 
 ### Related articles
 
-* [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks)
+* [Webhooks Overview](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview)
+
 * [Webhooks Tutorial](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks)
 * [Webhooks Events](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events)
