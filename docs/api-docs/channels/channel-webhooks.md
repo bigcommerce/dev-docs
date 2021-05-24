@@ -22,7 +22,8 @@ Developers building third-party sales channels or multi-storefront capabilities 
 | store/channel/created | Fires when a channel is created via control panel or API |
 | store/channel/updated | Fires when a channel is updated via control panel or API |
 
-Updates to the following fields trigger a `store/channel/updated` event.
+Updates to the following fields trigger a `store/channel/updated` event:
+
 
 * `name`
 * `external_id`
