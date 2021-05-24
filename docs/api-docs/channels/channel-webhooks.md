@@ -36,7 +36,8 @@ Updates to the following fields trigger a `store/channel/updated` event.
 
 ## Channel webhook callbacks
 
-Below is an example of a callback BigCommerce will send to the `destination` URL when a channel event fires.
+The following is an example of a callback BigCommerce sends to the `destination` URL when a channel event fires:
+
 
 ```json
 {
