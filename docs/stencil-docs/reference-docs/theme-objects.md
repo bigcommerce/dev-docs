@@ -36,7 +36,7 @@ fetch(window.location.pathname + "?debug=context")
 });
 ```
 
-## Using handlebars
+## Using Handlebars
 
 The templating language used by Stencil themes is Handlebars; use it in templates to access dynamic page data:
 
