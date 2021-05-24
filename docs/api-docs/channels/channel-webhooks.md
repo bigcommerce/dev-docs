@@ -75,7 +75,7 @@ Accept: application/json
 }
 ```
 
-[Learn more about creating webhooks](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks).
+To learn more about creating webhooks, see [Webhooks Tutorial](https://developer.bigcommerce.com/api-docs/store-management/webhooks/tutorial).
 
 
 ## Resources
