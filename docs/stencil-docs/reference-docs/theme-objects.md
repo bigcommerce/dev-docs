@@ -4,7 +4,7 @@
 
 ### On this page
 - [Viewing a page's context](#viewing-a-pages-context)
-- [Using handlebars](#using-handlebars)
+- [Using Handlebars](#using-handlebars)
 - [Using PageManager JavaScript](#using-pagemanager-javascript)
 - [Client-side injection](#client-side-injection)
 - [Resources](#resources)
