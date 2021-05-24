@@ -2,7 +2,8 @@
 
 <div class="otp" id="no-index">
 
-### On This Page
+### On this page
+
 - [Channel webhook events](#channel-webhook-events)
 - [Channel webhook callbacks](#channel-webhook-callbacks)
 - [Creating a channel webhook](#creating-a-channel-webhook)
