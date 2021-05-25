@@ -21,6 +21,7 @@
 - [Complex rules](#complex-rules)
 - [Creating brands](#creating-brands)
 - [Categories](#categories)
+- [Product Sort Order](#product-sort-order)
 - [Related resources](#related-resources)
 
 </div>
@@ -1026,9 +1027,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-## Product Sort Order (Beta)
+## Product Sort Order
 
-[Product Sort Order](add-link-here) allows you to manage the sort order of products displayed on any given category page. Products assigned to multiple storefront categories can have different sort order values per category.
+[Product Sort Order (Beta)](add-link-here) allows you to manage the sort order of products displayed on any given category page. Products assigned to multiple storefront categories can have different sort order values per category.
 
 ### Product sorting on a storefront 
 
