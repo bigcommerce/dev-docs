@@ -241,7 +241,7 @@ servers:
         description: Store hash used to identify the store.
 x-stoplight:
   docs:
-    includeDownloadLink: false
+    includeDownloadLink: true
     showModels: false
 components:
   schemas:
