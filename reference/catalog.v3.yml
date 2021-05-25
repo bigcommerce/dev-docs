@@ -3041,7 +3041,7 @@ paths:
               instance:
                 type: string
             title: Not Found
-      summary: Get Product Variant Metafields
+      summary: Get All Product Variant Metafields
       tags:
         - Product Variants Metafields
     post:
@@ -3446,7 +3446,7 @@ paths:
               instance:
                 type: string
             title: Not Found
-      summary: Get Product Variant Metafields
+      summary: Get a Product Variant Metafields
       tags:
         - Product Variants Metafields
     put:
