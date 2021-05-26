@@ -113,6 +113,7 @@ tags:
   - name: Summary
   - name: Variants
   - name: Catalog
+  - name: Category Product Sort Order
 schemes:
   - https
 produces:
@@ -16921,6 +16922,92 @@ paths:
           default: application/json
           required: true
       operationId: getCatalogSummary
+  '/catalog/categories/{category_id}/products/sort-order':
+    parameters:
+      - type: integer
+        name: category_id
+        in: path
+        required: true
+        description: The ID of the `Category` to which the resource belongs.
+    get:
+      summary: Get Product Sort Order (Beta)
+      tags:
+        - Category Product Sort Order
+      responses:
+        '200':
+          $ref: '#/responses/ProductSortOrderResponse'
+        '404':
+          $ref: '#/responses/Error404Response'
+      operationId: getsortorders
+      description: |-
+        Returns a list of products and their sort order for a specific category.
+
+        **Usage Notes**
+        * Data pairs are displayed in ascending order based on products' `sort_order` values.
+        * `null` values are allowed for products without specified `sort_order` values.
+        * Products with `sort_order` value of `null` will be displayed after products with valid numerical values.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content">
+
+        > ### Note
+        > This endpoint is in beta.
+
+        </div>
+        </div>
+        </div>
+      parameters:
+        - type: string
+          in: header
+          name: Accept
+          required: true
+          default: application/json
+        - type: string
+          in: header
+          name: Content-Type
+          required: true
+          default: application/json
+    put:
+      summary: Update Product Sort Order (Beta)
+      operationId: updatesortorder
+      responses:
+        '200':
+          $ref: '#/responses/ProductSortOrderResponse'
+        '404':
+          $ref: '#/responses/Error404Response'
+        '422':
+          $ref: '#/responses/Error422Response'
+      description: |-
+        Updates *Sort Order* of products within a specific category.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content">
+
+        > ### Note
+        > This endpoint is in beta.
+
+        </div>
+        </div>
+        </div>
+      tags:
+        - Category Product Sort Order
+      parameters:
+        - type: string
+          in: header
+          default: application/json
+          name: Accept
+          required: true
+        - type: string
+          in: header
+          name: Content-Type
+          required: true
+          default: application/json
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/productSortOrder'
 parameters:
   FilterTemplateFileParam:
     in: query
@@ -21853,6 +21940,24 @@ definitions:
           errors:
             $ref: '#/definitions/detailedErrors'
     type: object
+  productSortOrder:
+    title: productSortOrder
+    type: object
+    description: The relative priority of the product among other products inside the category.
+    properties:
+      product_id:
+        type: integer
+        example: 99
+        minimum: 1
+        description: The ID of the associated product.
+      sort_order:
+        type: integer
+        example: 4
+        minimum: 0
+        x-nullable: true
+    required:
+      - product_id
+      - sort_order
 securityDefinitions:
   X-Auth-Token:
     type: apiKey
@@ -28063,6 +28168,68 @@ responses:
             links:
               next: '?page=2&limit=50'
               current: '?page=1&limit=50'
+  Error404Response:
+    description: The requested category was not found.
+    content:
+      application/json:
+        schema:
+          properties:
+            id:
+              type: string
+    schema:
+      $ref: '#/definitions/error_Base'
+  Error422Response:
+    description: |-
+      Unprocessable entity.
+
+      Please verify if all requested products are assigned to the category.
+
+      Please verify if all required fields are present in the request body and are filled with values correctly.
+    content:
+      application/json:
+        schema:
+          properties:
+            id:
+              type: string
+    schema:
+      $ref: '#/definitions/error_Base'
+  ProductSortOrderResponse:
+    description: ''
+    content:
+      application/json:
+        schema:
+          properties:
+            id:
+              type: string
+    schema:
+      allOf:
+        - properties:
+            data:
+              type: array
+              items:
+                $ref: '#/definitions/productSortOrder'
+        - properties:
+            meta:
+              $ref: '#/definitions/metaCollection_Full'
+      type: object
+    examples:
+      Example:
+        data:
+          - product_id: 66
+            sort_order: 7
+          - product_id: 123
+            sort_order: 0
+          - product_id: 14
+            sort_order: null
+          - product_id: 16
+            sort_order: null
+        meta:
+          pagination:
+            total: 4
+            count: 4
+            per_page: 50
+            current_page: 1
+            total_pages: 1
 x-stoplight:
   docs:
     includeDownloadLink: true
