@@ -40,18 +40,18 @@ To develop against BigCommerce's Cornerstone theme (which is the building block 
 git clone https://github.com/bigcommerce/cornerstone.git
 ```
 
-Cornerstone and other themes can also be downloaded from the BigCommerce control panel. For instructions on doing so, see [Downloading and Uploading Custom Themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload) (BigCommerce Knowledge Base).
+Cornerstone and other themes can also be downloaded from the BigCommerce control panel. For instructions on doing so, see [Downloading and Uploading Custom Themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload) (BigCommerce Knowledge Base). 
 
 It is also possible to download and develop against themes in the BigCommerce Themes Marketplace. To do so:
 1. Navigate to **Storefront** > **Theme Marketplace**, and add the desired theme.
 2. Once added, navigate to **Storefront** > **My Themes** > **Theme Thumbnail** > **Theme Options**.
 3. Select the appropriate Download option.
-
-
+ 
 **Download options**:
 * **Download current theme** - download the theme active on the storefront (appears when current theme is selected).
-* **Download your latest customizations** - download the theme's most recently saved version (appears only for themes customized for this store).
-* **Download theme file** - download the theme as it was originally uploaded to Theme Marketplace.
+* **Download Original Theme** - download the theme as it was originally uploaded to Theme Marketplace.
+
+Note: Downloading a theme does not include the current configuration of a theme. Run a [stencil pull](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands#stencil-pull) command to obtain the theme's most recently saved version (appears only for themes customized for this store).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
