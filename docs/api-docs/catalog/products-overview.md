@@ -15,7 +15,7 @@
 - [Adding product metafields](#adding-product-metafields)
 - [Adding product reviews](#adding-product-reviews)
 - [Variant options](#variant-options)
-- [Variant](#variant)
+- [Variants](#variants)
 - [Creating variants](#creating-variants)
 - [Modifier options](#modifier-options)
 - [Complex rules](#complex-rules)
@@ -492,7 +492,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-options/createoption#requestrunner)
 
-## Variant
+## Variants
 
 [Variants](/api-reference/store-management/catalog/product-variants/getvariantsbyproductid) represent an item as it sits on the shelf in the warehouse or a particular saleable product. A product might be a t-shirt, while the variant would be “a small, red t-shirt.” Shoppers select variants on the storefront via product options. In the case where a product is simple, meaning it does not have any options, the product is its own variant - called a base variant. Everything you can buy should be a variant.
 
@@ -733,7 +733,7 @@ You can add an adjuster to a modifier option to change things, such as increasin
 
 The following example shows how to add a modifier and a checkbox with a price adjuster to increase the product's price by five dollars.
 
-Creating a checkbox with an adjuster requires two separate calls: one to create the checkbox and another one to add the adjuster. You can define adjusters within the `option_values` array, but `option_values` are not allowed in the request to create a checkbox modifier because creating a checkbox automatically generates two mandatory option values: `Yes` and `No`. Once you have created the checkbox along with its option values, you can update the modifier to add an adjuster.
+Creating a checkbox with an adjuster requires two separate calls: one to create the checkbox and another one to add the adjuster. You can define adjusters within the `option_values` array, but `option_values` are not allowed in the request to create a checkbox modifier because creating a checkbox automatically generates two mandatory option values: `Yes` and `No`. Once you have created the checkbox and its option values, you can update the modifier to add an adjuster.
 
 
 <div class="HubBlock--callout">
@@ -1029,16 +1029,16 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Product Sort Order
 
-[Product Sort Order (Beta)](add-link-here) allows you to manage the sort order of products displayed on any given category page. Products assigned to multiple storefront categories can have different sort order values per category.
+[Product Sort Order (Beta)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-sort-order) allows you to manage the sort order of products displayed on any given category page. Products assigned to multiple storefront categories can have different sort order values per category.
 
 ### Product sorting on a storefront 
 
-The Catalog API supports two manually managed methods of product sorting: on a category level and on a product level. If a user combines both sorting methods on a storefront, products are sorted based on the following sorting method priority:
+The Catalog API supports two manually managed methods of product sorting: on a category level and a product level. If a user combines both sorting methods on a storefront, products with sort order values on a category level take priority. If there is no sort order value on a category level, the Catalog API sorts products by values on a product level.
+
+Product sorting methods:
 
 1. Manually specified sort order on a category level.
 2. Manually specified sort order on a product level. `0` by default. 
-
-If there is no sort order value on a category level, products are sorted by values on a product level.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
