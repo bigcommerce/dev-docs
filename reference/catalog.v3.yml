@@ -93,6 +93,7 @@ tags:
   - name: Categories
   - name: Category Metafields
   - name: Category Images
+  - name: Product Sort Order
   - name: Products
   - name: Product Bulk Pricing Rules
   - name: Product Complex Rules
@@ -113,7 +114,6 @@ tags:
   - name: Summary
   - name: Variants
   - name: Catalog
-  - name: Category Product Sort Order
 schemes:
   - https
 produces:
@@ -16931,8 +16931,6 @@ paths:
         description: The ID of the `Category` to which the resource belongs.
     get:
       summary: Get Product Sort Order (Beta)
-      tags:
-        - Category Product Sort Order
       responses:
         '200':
           $ref: '#/responses/ProductSortOrderResponse'
@@ -16968,6 +16966,8 @@ paths:
           name: Content-Type
           required: true
           default: application/json
+      tags:
+        - Product Sort Order
     put:
       summary: Update Product Sort Order (Beta)
       operationId: updatesortorder
@@ -16991,8 +16991,6 @@ paths:
         </div>
         </div>
         </div>
-      tags:
-        - Category Product Sort Order
       parameters:
         - type: string
           in: header
@@ -17008,6 +17006,8 @@ paths:
           name: body
           schema:
             $ref: '#/definitions/productSortOrder'
+      tags:
+        - Product Sort Order
 parameters:
   FilterTemplateFileParam:
     in: query
