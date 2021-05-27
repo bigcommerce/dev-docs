@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Pages V3
-  version: '3'
+  version: '3.0'
   description: Manage content pages across multiple sites.
   termsOfService: 'http://www.bigcommerce.com/terms'
 tags:
