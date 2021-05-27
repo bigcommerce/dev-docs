@@ -12,7 +12,19 @@ paths:
       operationId: content-pages-get
       tags:
         - Pages
-      description: Returns a list of content pages.
+      description: |-
+        Returns a list of content pages.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content">
+
+        > ### Note
+        > This endpoint is in beta. Any comments on performance should be submitted via the **Docs Feedback** button on this page.
+
+        </div>
+        </div>
+        </div>
       responses:
         '200':
           description: |
@@ -96,10 +108,21 @@ paths:
           in: query
           name: page
           description: 'Which page number to return, based on the page size. Used to paginate large collections.'
-      summary: Get Pages
+      summary: Get Pages (Beta)
     post:
       operationId: content-pages-post
-      description: Creates content pages.
+      description: |-
+        Creates content pages.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content">
+
+        > ### Note
+        > This endpoint is in beta. Any comments on performance should be submitted via the **Docs Feedback** button on this page.
+        </div>
+        </div>
+        </div>
       tags:
         - Pages
       requestBody:
@@ -153,10 +176,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-      summary: Create Pages
+      summary: Create Pages (Beta)
     put:
       operationId: content-pages-put
-      description: Updates content pages.
+      description: |-
+        Updates content pages.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content">
+
+        > ### Note
+        > This endpoint is in beta. Any comments on performance should be submitted via the **Docs Feedback** button on this page.
+
+        </div>
+        </div>
+        </div>
       tags:
         - Pages
       requestBody:
@@ -210,12 +245,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-      summary: Update Pages
+      summary: Update Pages (Beta)
     delete:
       operationId: content-pages-delete
       tags:
         - Pages
-      description: Deletes a page from a store.
+      description: |-
+        Deletes a page from a store.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content">
+
+        > ### Note
+        > This endpoint is in beta. Any comments on performance should be submitted via the **Docs Feedback** button on this page.
+
+        </div>
+        </div>
+        </div>
       responses:
         '204':
           description: |
@@ -231,7 +278,7 @@ paths:
           in: query
           name: channel_id
           description: Channel Id provided to delete all pages for a given Channel
-      summary: Delete a Page
+      summary: Delete a Page (Beta)
 servers:
   - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
     description: Pages API Gateway
