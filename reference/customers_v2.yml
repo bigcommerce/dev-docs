@@ -2,128 +2,65 @@ swagger: '2.0'
 info:
   version: ''
   title: Customers V2
-  description: >-
-    Create and Manage Customers, Customer Addresses, and Customer Groups.
-    Additionally, validate customer passwords. To learn more about Customers see
-    [here](/api-docs/customers/customers-subscribers-overview).
-
+  description: |-
+    Create and Manage Customers, Customer Addresses, and Customer Groups. Additionally, validate customer passwords. To learn more about Customers see [here](/api-docs/customers/customers-subscribers-overview).
 
     - [Authentication](#authentication)
-
     - [Available Endpoints](#available-endpoints)
-
     - [Usage Notes](#usage-notes)
-
     - [Resources](#resources)
-
 
     ## Authentication
 
-
-    Requests can be authenticated by sending an `access_token` via
-    `X-Auth-Token` HTTP header:
-
+    Requests can be authenticated by sending an `access_token` via `X-Auth-Token` HTTP header:
 
     ```http
-
     GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
     host: api.bigcommerce.com
-
     Accept: application/json
-
     X-Auth-Token: {access_token}
-
     ```
 
-
     |Header|Parameter|Description|
-
     |-|-|-|
-
-    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-    installing an app in a BigCommerce control panel.|
-
+    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
     ### OAuth Scopes
-
-    | UI Name                                      | Permission |
-    Parameter                                     |
-
+    | UI Name                                      | Permission | Parameter                                     |
     |----------------------------------------------|------------|-----------------------------------------------|
+    | Customers                                    | modify     | `store_v2_customers`                          |
+    | Customers                                    | read-only  | `store_v2_customers_read_only`                |
 
-    | Customers                                    | modify     |
-    `store_v2_customers`                          |
-
-    | Customers                                    | read-only  |
-    `store_v2_customers_read_only`                |
-
-
-    For more information on Authenticating BigCommerce APIs, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
-
+    For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 
     ## Available Endpoints
-
-    | Resource / Endpoint                     |
-    Description
-    |
-
+    | Resource / Endpoint                     | Description |
     |-----------------------------------------|-------------------------------------------------------------------------------|
-
-    | Customers                               | Identity and account details for
-    customers shopping on BigCommerce stores     |
-
-    | Customers Addresses                     | Postal address belonging to a
-    customer.                                       |
-
-    | Customers Groups                        | Groupings of customers who share
-    the same level of access and discounts       |
-
-    | Customers Validate Password             | Validate customer
-    passwords                                                   |
-
+    | Customers                               | Identity and account details for customers shopping on BigCommerce stores     |
+    | Customers Addresses                     | Postal address belonging to a customer.                                       |
+    | Customers Groups                        | Groupings of customers who share the same level of access and discounts       |
+    | Customers Validate Password             | Validate customer passwords                                                   |
 
     ## Usage Notes
 
-
     **Customer Groups**
-
     * Customer Groups are only available on specific plans.
 
-
     **Customers vs. Subscribers**
-
-    * A subscriber is not always a customer. Someone can sign up for the
-    newsletter only and not create an account.
-
-    * A customer is not always a subscriber. Signing up for the newsletter is a
-    separate action from creating an account and purchasing an item.
-
-    * A customer and a subscriber can be the same. If a shopper checks out on
-    the storefront, creates an account and opts into the newsletter, they are a
-    customer and a subscriber.
-
+    * A subscriber is not always a customer. Someone can sign up for the newsletter only and not create an account.
+    * A customer is not always a subscriber. Signing up for the newsletter is a separate action from creating an account and purchasing an item.
+    * A customer and a subscriber can be the same. If a shopper checks out on the storefront, creates an account and opts into the newsletter, they are a customer and a subscriber.
 
     ## Resources
 
-
     ### Related APIs / Endpoints
       [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
-    - [Current Customer
-    API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api)
-
-    - [Customers API
-    (v3)](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api)
-
-    - [Subscribers
-    API](https://developer.bigcommerce.com/api-reference/customer-subscribers/subscribers-api)
-
+    - [Current Customer API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api)
+    - [Customers API (v3)](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api)
+    - [Subscribers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/subscribers-api)
 
     ### Webhooks
-
-    -
-    [Customers](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_customer)
+    - [Customers](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_customer)
 host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v2'
 schemes:
@@ -135,9 +72,7 @@ produces:
 paths:
   /customers:
     get:
-      description: >-
-        Returns a list of all *Customers*. Default sorting is by customer id,
-        from lowest to highest. Optional parameters can be passed in.
+      description: 'Returns a list of all *Customers*. Default sorting is by customer id, from lowest to highest. Optional parameters can be passed in.'
       summary: Get All Customers
       parameters:
         - name: Accept
@@ -226,8 +161,7 @@ paths:
                 reset_pass_on_login: false
                 accepts_marketing: true
                 addresses:
-                  url: >-
-                    https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/1/addresses
+                  url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/1/addresses'
                   resource: /customers/1/addresses
               - id: 2
                 company: ''
@@ -246,8 +180,7 @@ paths:
                 reset_pass_on_login: false
                 accepts_marketing: true
                 addresses:
-                  url: >-
-                    https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/2/addresses
+                  url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/2/addresses'
                   resource: /customers/2/addresses
             Response Schema:
               - first_name: in
@@ -412,92 +345,58 @@ paths:
       operationId: getAllCustomers
       deprecated: true
     post:
-      description: >-
+      description: |-
         Creates a *Customer*.
 
-
         **Required Fields**
-
         *   `first_name`
-
         *   `last_name`
-
         *   `email`
 
-
         **Read Only Fields**
-
         *   `id`
-
         *   `date_created`
-
         *   `date_modified`
-
         *   `accepts_marketing`
-
         *   `addresses`
-
         *   `form_fields`
-
 
         ## Notes
 
+        The `_authentication` object exposes functionality associated with the customer’s ability to log in to the store. All properties of the `_authentication` object are optional.
 
-        The `_authentication` object exposes functionality associated with the
-        customer’s ability to log in to the store. All properties of the
-        `_authentication` object are optional.
-
-
-        When the `_authentication` object is not supplied with an update
-        request, then the existing customer password remains the same.
-
+        When the `_authentication` object is not supplied with an update request, then the existing customer password remains the same.
 
         ## Updating Passwords
 
-
-        To manually update a customer password in the same way as the control
-        panel, supply a value for the password field:
-
+        To manually update a customer password in the same way as the control panel, supply a value for the password field:
 
         ```json
-
         {
             "_authentication": {
                 "password": "12w69Y217PYR96J"
             }
         }
-
         ```
-
 
         ## Confirming Passwords
 
-
-        An additional optional `password_confirmation` field can also be sent,
-        providing password confirmation as a service:
-
+        An additional optional `password_confirmation` field can also be sent, providing password confirmation as a service:
 
         ```json
-
         {
             "_authentication": {
                "password": "12w69Y217PYR96J",
                "password_confirmation": "12w69Y217PYR96J"
             }
         }
-
         ```
-
 
         ## Forcing Password Resets
 
-
-        To force a customer to reset their password upon their next login
-        attempt, give the `force_reset` field a value of true, as shown here:
-
+        To force a customer to reset their password upon their next login attempt, give the `force_reset` field a value of true, as shown here:
 
         ```json
-
         {
             "_authentication": {
                 "force_reset": true
@@ -528,9 +427,7 @@ paths:
             properties:
               _authentication:
                 type: object
-                description: >-
-                  This can vary depending on the action being taken to update,
-                  validate or force a password change. See Update Customer
+                description: 'This can vary depending on the action being taken to update, validate or force a password change. See Update Customer'
               company:
                 type: string
               first_name:
@@ -580,8 +477,7 @@ paths:
               tax_exempt_category: ''
               accepts_marketing: true
               addresses:
-                url: >-
-                  https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses
+                url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses'
                 resource: /customers/5/addresses
               form_fields:
                 - name: ''
@@ -620,9 +516,7 @@ paths:
       operationId: createANewCustomer
       deprecated: true
     delete:
-      description: >-
-        By default, it deletes all *Customers*. Up to 100 customers per batch
-        can be deleted.
+      description: 'By default, it deletes all *Customers*. Up to 100 customers per batch can be deleted.'
       summary: Delete Customers
       tags:
         - Customers
@@ -723,8 +617,7 @@ paths:
               tax_exempt_category: ''
               accepts_marketing: true
               addresses:
-                url: >-
-                  https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses
+                url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses'
                 resource: /customers/5/addresses
               form_fields:
                 - name: ''
@@ -829,8 +722,7 @@ paths:
               reset_pass_on_login: false
               accepts_marketing: true
               addresses:
-                url: >-
-                  https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/1/addresses
+                url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/1/addresses'
                 resource: /customers/1/addresses
             Response Schema:
               first_name: ut tempor aute consectetur
@@ -904,8 +796,7 @@ paths:
               tax_exempt_category: ''
               accepts_marketing: true
               addresses:
-                url: >-
-                  https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses
+                url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses'
                 resource: /customers/5/addresses
               form_fields:
                 - name: ''
@@ -914,18 +805,11 @@ paths:
             type: object
             properties:
               id:
-                description: >-
-                  Unique numeric ID of this customer. This is a READ-ONLY field;
-                  do not set or modify its value in a POST or PUT request.
+                description: Unique numeric ID of this customer. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
                 example: 1
                 type: integer
               _authentication:
-                description: >-
-                  Not returned in any responses, but accepts up to two fields
-                  allowing you to set the customer’s password. If a password is
-                  not supplied, it is generated automatically. For further
-                  information about using this object, please see the Customers
-                  resource documentation.
+                description: 'Not returned in any responses, but accepts up to two fields allowing you to set the customer’s password. If a password is not supplied, it is generated automatically. For further information about using this object, please see the Customers resource documentation.'
                 type: object
                 properties:
                   force_reset:
@@ -955,26 +839,18 @@ paths:
                 example: 1234567890
                 type: string
               date_created:
-                description: >-
-                  Date on which the customer registered from the storefront or
-                  was created in the control panel. This is a READ-ONLY field;
-                  do not set or modify its value in a POST or PUT request.
+                description: Date on which the customer registered from the storefront or was created in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
                 example: 'Thu, 11 Jan 2018 20:57:52 +0000'
                 type: string
                 format: date-time
               date_modified:
-                description: >
-                  Date on which the customer updated their details in the
-                  storefront or was updated in the control panel. This is a
-                  READ-ONLY field; do not set or modify its value in a POST or
-                  PUT request.
+                description: |
+                  Date on which the customer updated their details in the storefront or was updated in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
                 example: 'Tue, 10 Apr 2018 18:59:05 +0000'
                 type: string
                 format: date-time
               store_credit:
-                description: >-
-                  The amount of credit the customer has. (Float, Float as
-                  String, Integer)
+                description: 'The amount of credit the customer has. (Float, Float as String, Integer)'
                 example: 0
                 type: string
               registration_ip_address:
@@ -989,13 +865,10 @@ paths:
                 description: Store-owner notes on the customer.
                 type: string
               tax_exempt_category:
-                description: >-
-                  If applicable, the tax-exempt category of the shopper's customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration.
+                description: 'If applicable, the tax-exempt category of the shopper''s customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration.'
                 type: string
               accepts_marketing:
-                description: >-
-                  If the customer accepts product review emails or abandon cart
-                  emails. Read-Only.
+                description: If the customer accepts product review emails or abandon cart emails. Read-Only.
                 example: true
                 type: boolean
                 readOnly: true
@@ -1005,17 +878,14 @@ paths:
                 properties:
                   url:
                     description: Full URL of where the resource is located.
-                    example: >-
-                      https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses
+                    example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses'
                     type: string
                   resource:
                     description: Resource being accessed.
                     example: /customers/5/addresses
                     type: string
               form_fields:
-                description: >-
-                  Array of custom fields. This is a READ-ONLY field; do not set
-                  or modify its value in a POST or PUT request.
+                description: Array of custom fields. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
                 type: array
                 items:
                   title: Form Fields
@@ -1049,6 +919,62 @@ paths:
                 }
               }
             password-confirm: |2-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                  {
                       "_authentication": {
                          "password": "12w69Y217PYR96J",
@@ -1058,89 +984,58 @@ paths:
             password-reset:
               _authentication:
                 force_reset: true
-      description: >-
+      description: |-
         Updates a *Customer*.
 
-
         **Read Only Fields**
-
         *   id
-
         *   date_created
-
         *   date_modified
-
         *   accepts_marketing
-
         *   addresses
-
         *   form_fields
-
 
         ## Notes
 
+        The `_authentication` object exposes functionality associated with the customer’s ability to log in to the store. All properties of the `_authentication` object are optional.
 
-        The `_authentication` object exposes functionality associated with the
-        customer’s ability to log in to the store. All properties of the
-        `_authentication` object are optional.
-
-
-        When the `_authentication` object is not supplied with an update
-        request, then the existing customer password remains the same.
-
+        When the `_authentication` object is not supplied with an update request, then the existing customer password remains the same.
 
         ## Updating Passwords
 
-
-        To manually update a customer password in the same way as the control
-        panel, supply a value for the `password` field:
-
+        To manually update a customer password in the same way as the control panel, supply a value for the `password` field:
 
         ```
-
         {
             "_authentication": {
                 "password": "12w69Y217PYR96J"
             }
         }
-
         ```
-
 
         #### Confirming Passwords
 
-
-        An additional optional `password_confirmation` field can also be sent,
-        providing password confirmation as a service:
-
+        An additional optional `password_confirmation` field can also be sent, providing password confirmation as a service:
 
         ```
-
         {
             "_authentication": {
                "password": "12w69Y217PYR96J"
                "password_confirmation": "12w69Y217PYR96J"
             }
         }
-
         ```
-
 
         #### Forcing Password Resets
 
-
-        To force a customer to reset their password upon their next login
-        attempt, give the `force_reset` field a value of true, as shown here:
-
+        To force a customer to reset their password upon their next login attempt, give the `force_reset` field a value of true, as shown here:
 
         ```
-
         {
             "_authentication": {
                 "force_reset": true
             }
         }
-
         ```
       operationId: updateACustomer
       deprecated: true
@@ -1204,38 +1099,22 @@ paths:
       deprecated: true
   '/customers/{customer_id}/validate':
     post:
-      description: >-
-        **This endpoint has special rate limiting protections to protect against
-        abuse.**
+      description: |-
+        **This endpoint has special rate limiting protections to protect against abuse.**
 
-
-        Provided a password, will return a true/false response indicating if the
-        provided password matches the customer’s current password. This endpoint
-        is useful if you want to power the login of another system using
-        BigCommerce’s stored customer accounts, or as a safe way to migrate
-        passwords to another system (by checking them against BigCommerce’s
-        password, and if correct, storing it in another system securely.)If the
-        password matches what’s stored against the customer account, the
-        response will be:
-
+        Provided a password, will return a true/false response indicating if the provided password matches the customer’s current password. This endpoint is useful if you want to power the login of another system using BigCommerce’s stored customer accounts, or as a safe way to migrate passwords to another system (by checking them against BigCommerce’s password, and if correct, storing it in another system securely.)If the password matches what’s stored against the customer account, the response will be:
 
         ```json
-
         {
             "success": "true"
         }
-
         ```
-
         If the password does NOT match, the response will instead be:
 
-
         ```json
-
         {
             "success": "false"
         }
-
         ```
       summary: Validate a Password
       produces:
@@ -1267,9 +1146,7 @@ paths:
             properties:
               password:
                 type: string
-                description: >-
-                  String to run against customer password. Will return a true or
-                  false.
+                description: String to run against customer password. Will return a true or false.
           x-examples:
             application/json:
               password: abc12345
@@ -1293,14 +1170,10 @@ paths:
         description: Id of the customer
   '/customers/{customer_id}/addresses':
     get:
-      description: >-
-        Returns a list of *Customer Addresses*. Returns the addresses belonging
-        to a customer. Default sorting is by address id, from lowest to
-        highest.
+      description: |-
+        Returns a list of *Customer Addresses*. Returns the addresses belonging to a customer. Default sorting is by address id, from lowest to highest.
 
-
-        The maximum limit is 250. If a limit isn’t provided, up to 50
-        `customer_addresses` are returned by default.
+        The maximum limit is 250. If a limit isn’t provided, up to 50 `customer_addresses` are returned by default.
       summary: Get All Customer Addresses
       parameters:
         - name: customer_id
@@ -1476,35 +1349,21 @@ paths:
       operationId: getAllCustomerAddresses
       deprecated: true
     post:
-      description: >-
-        Creates a new *Customer Address*. (Note: The “state” property cannot be
-        null. As a workaround for addresses that include no state/province
-        string, pass a space as the “state” value.)
-
+      description: |-
+        Creates a new *Customer Address*. (Note: The “state” property cannot be null. As a workaround for addresses that include no state/province string, pass a space as the “state” value.)
 
         **Required Fields**
-
         *   first_name
-
         *   last_name
-
         *   phone
-
         *   street_1
-
         *   city
-
         *   state
-
         *   zip
-
         *   country
 
-
         **Read Only Fields**
-
         *   id
-
         *   country_iso2
       summary: Create a Customer Address
       parameters:
@@ -1805,11 +1664,7 @@ paths:
                 example: Austin
               state:
                 type: string
-                description: >-
-                  The customer’s state/province. Do not abbreviate the state;
-                  spell out the entire word, e.g.: California. (Cannot be null.
-                  As a workaround for addresses that include no state/province
-                  string, pass a space as the “state” value.)
+                description: 'The customer’s state/province. Do not abbreviate the state; spell out the entire word, e.g.: California. (Cannot be null. As a workaround for addresses that include no state/province string, pass a space as the “state” value.)'
                 example: Texas
               zip:
                 type: string
@@ -1820,9 +1675,7 @@ paths:
                 description: The customer’s country. Must be the full country name.
                 example: United States
               country_iso2:
-                description: >-
-                  2-letter ISO Alpha-2 code for the customer’s country.
-                  READ-ONLY
+                description: 2-letter ISO Alpha-2 code for the customer’s country. READ-ONLY
                 example: US
                 type: string
               phone:
@@ -2004,9 +1857,7 @@ paths:
         description: Id of the customer
   /customer_groups:
     get:
-      description: >-
-        Returns a list of *Customer Groups*. Default sorting is by
-        customer-group id, from lowest to highest.
+      description: 'Returns a list of *Customer Groups*. Default sorting is by customer-group id, from lowest to highest.'
       summary: Get All Customer Groups
       parameters:
         - name: Accept
@@ -2039,10 +1890,7 @@ paths:
           in: query
           required: false
           type: string
-          description: >-
-            Filter customer groups by exact name match. Can use `name:like` to
-            filter using a fuzzy matching method. This is good for implementing
-            search.
+          description: 'Filter customer groups by exact name match. Can use `name:like` to filter using a fuzzy matching method. This is good for implementing search.'
         - name: is_default
           in: query
           required: false
@@ -2389,7 +2237,7 @@ paths:
         - in: body
           name: body
           schema:
-            $ref: '#/definitions/customerGroup_Full'
+            $ref: '#/definitions/customerGroup_Post'
           x-examples:
             application/json:
               name: 25% off
@@ -2420,16 +2268,12 @@ paths:
                   }
                 ]
               }
-      description: >-
+      description: |-
         Updates a *Customer Group*.
-
 
         **Notes**
 
-
-        Any combination of fields can be updated at once. Discount rules are
-        treated in bulk. The entire set of rules is overwritten when a request
-        is sent.
+        Any combination of fields can be updated at once. Discount rules are treated in bulk. The entire set of rules is overwritten when a request is sent.
       tags:
         - Customer Groups
       operationId: updateACustomerGroup
@@ -2550,8 +2394,7 @@ definitions:
     properties:
       url:
         description: URL of the shipping address for api requests
-        example: >-
-          https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/shippingaddresses
+        example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/shippingaddresses'
         type: string
       resource:
         description: ''
@@ -2576,8 +2419,7 @@ definitions:
       tax_exempt_category: ''
       accepts_marketing: true
       addresses:
-        url: >-
-          https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses
+        url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses'
         resource: /customers/5/addresses
       form_fields:
         - name: ''
@@ -2587,24 +2429,17 @@ definitions:
       - type: object
         properties:
           id:
-            description: >-
-              Unique numeric ID of this customer. This is a READ-ONLY field; do
-              not set or modify its value in a POST or PUT request.
+            description: Unique numeric ID of this customer. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
             example: 1
             type: integer
           date_created:
-            description: >-
-              Date on which the customer registered from the storefront or was
-              created in the control panel. This is a READ-ONLY field; do not
-              set or modify its value in a POST or PUT request.
+            description: Date on which the customer registered from the storefront or was created in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
             example: 'Thu, 11 Jan 2018 20:57:52 +0000'
             type: string
             format: date-time
           date_modified:
-            description: >
-              Date on which the customer updated their details in the storefront
-              or was updated in the control panel. This is a READ-ONLY field; do
-              not set or modify its value in a POST or PUT request.
+            description: |
+              Date on which the customer updated their details in the storefront or was updated in the control panel. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
             example: 'Tue, 10 Apr 2018 18:59:05 +0000'
             type: string
             format: date-time
@@ -2619,15 +2454,12 @@ definitions:
           - all
           - specific
           - none
-        description: >-
+        description: |-
           + `all` - Customers can access all categories
            + `specific`  - Customers can access a specific list of categories
-          + `none` - Customers are prevented from viewing any of the categories
-          in this group.
+          + `none` - Customers are prevented from viewing any of the categories in this group.
       categories:
-        description: >-
-          Is an array of category IDs and should be supplied only if `type` is
-          specific.
+        description: Is an array of category IDs and should be supplied only if `type` is specific.
         type: array
         example: '18,19,23,34'
         items:
@@ -2674,13 +2506,7 @@ definitions:
   customerGroup_Full:
     title: customerGroup_Full
     type: object
-    description: >-
-      When creating a customer group category discount using the API it defaults
-      to "products in this category and its subcategories". In the [Control
-      Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing)
-      this can be changed to either "products in this category only" or
-      "products in this category and its subcategories". There are currently no
-      settings to change this behavior via API.
+    description: 'When creating a customer group category discount using the API it defaults to "products in this category and its subcategories". In the [Control Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing) this can be changed to either "products in this category only" or "products in this category and its subcategories". There are currently no settings to change this behavior via API.'
     properties:
       id:
         description: Id of the customer group
@@ -2691,17 +2517,13 @@ definitions:
         example: Wholesale
         type: string
       is_default:
-        description: >-
-          Determines whether new customers are assigned to this group by
-          default.
+        description: Determines whether new customers are assigned to this group by default.
         example: false
         type: boolean
       category_access:
         $ref: '#/definitions/categoryAccessLevel_Full'
       discount_rules:
-        description: >-
-          A collection of discount rules that are automatically applied to
-          customers who are members of the group
+        description: A collection of discount rules that are automatically applied to customers who are members of the group
         type: array
         items:
           type: object
@@ -2726,14 +2548,16 @@ definitions:
             price_list_id:
               type: integer
               example: 3
-              description: >-
-                If a customer group is assigned to a price list,`method` and
-                `amount` are not shown. `type` and `price_list_id` are returned.
+              description: 'If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned.'
+            product_id:
+              type: integer
+              description: 'When you select product for rule `type`, `product_id` and `type` are returned fields.'
+            category_id:
+              type: integer
+              description: 'When you select category for rule `type`, `category_id` and `type` are returned fields.'
       is_group_for_guests:
         type: boolean
-        description: >-
-          If the groups is for guests. There can only be one customer group for
-          guests at a time.
+        description: If the groups is for guests. There can only be one customer group for guests at a time.
   country_Full:
     title: country_Full
     example:
@@ -2742,8 +2566,7 @@ definitions:
       country_iso2: AU
       country_iso3: AUS
       states:
-        url: >-
-          https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states
+        url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states'
         resource: /countries/13/states
     type: object
     properties:
@@ -2769,8 +2592,7 @@ definitions:
         properties:
           url:
             description: ''
-            example: >-
-              https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states
+            example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states'
             type: string
           resource:
             description: ''
@@ -2782,8 +2604,7 @@ definitions:
     properties:
       url:
         description: ''
-        example: >-
-          https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states
+        example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states'
         type: string
       resource:
         description: ''
@@ -2817,30 +2638,20 @@ definitions:
   customerGroup_Post:
     title: customerGroup_Post
     type: object
-    description: >-
-      When creating a customer group category discount using the API it defaults
-      to "products in this category and its subcategories". In the [Control
-      Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing)
-      this can be changed to either "products in this category only" or
-      "products in this category and its subcategories". There are currently no
-      settings to change this behavior via API.
+    description: 'When creating a customer group category discount using the API it defaults to "products in this category and its subcategories". In the [Control Panel](https://support.bigcommerce.com/s/article/Customer-Groups#pricing) this can be changed to either "products in this category only" or "products in this category and its subcategories". There are currently no settings to change this behavior via API.'
     properties:
       name:
         description: Name of the group
         example: Wholesale
         type: string
       is_default:
-        description: >-
-          Determines whether new customers are assigned to this group by
-          default.
+        description: Determines whether new customers are assigned to this group by default.
         example: false
         type: boolean
       category_access:
         $ref: '#/definitions/categoryAccessLevel_Full'
       discount_rules:
-        description: >-
-          A collection of discount rules that are automatically applied to
-          customers who are members of the group
+        description: A collection of discount rules that are automatically applied to customers who are members of the group
         type: array
         items:
           type: object
@@ -2865,14 +2676,16 @@ definitions:
             price_list_id:
               type: integer
               example: 3
-              description: >-
-                If a customer group is assigned to a price list,`method` and
-                `amount` are not shown. `type` and `price_list_id` are returned.
+              description: 'If a customer group is assigned to a price list,`method` and `amount` are not shown. `type` and `price_list_id` are returned.'
+            product_id:
+              type: integer
+              description: Required field in the request body when you select product for rule `type`. `product_id` and `type` are returned fields.
+            category_id:
+              type: integer
+              description: Required field in the request body when you select category for rule `type`. `category_id` and `type` are returned fields.
       is_group_for_guests:
         type: boolean
-        description: >-
-          If the groups is for guests. There can only be one customer group for
-          guests at a time.
+        description: If the groups is for guests. There can only be one customer group for guests at a time.
   validatePassword:
     type: object
     properties:
@@ -2898,8 +2711,7 @@ definitions:
       tax_exempt_category: ''
       accepts_marketing: true
       addresses:
-        url: >-
-          https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses
+        url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses'
         resource: /customers/5/addresses
       form_fields:
         - name: ''
@@ -2908,11 +2720,7 @@ definitions:
     type: object
     properties:
       _authentication:
-        description: >-
-          Not returned in any responses, but accepts up to two fields allowing
-          you to set the customer’s password. If a password is not supplied, it
-          is generated automatically. For further information about using this
-          object, please see the Customers resource documentation.
+        description: 'Not returned in any responses, but accepts up to two fields allowing you to set the customer’s password. If a password is not supplied, it is generated automatically. For further information about using this object, please see the Customers resource documentation.'
         type: object
         properties:
           force_reset:
@@ -2942,9 +2750,7 @@ definitions:
         example: 1234567890
         type: string
       store_credit:
-        description: >-
-          The amount of credit the customer has. (Float, Float as String,
-          Integer)
+        description: 'The amount of credit the customer has. (Float, Float as String, Integer)'
         example: 0
         type: string
       registration_ip_address:
@@ -2959,13 +2765,10 @@ definitions:
         description: Store-owner notes on the customer.
         type: string
       tax_exempt_category:
-        description: >-
-          If applicable, the tax-exempt category of the shopper's customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration.
+        description: 'If applicable, the tax-exempt category of the shopper''s customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration.'
         type: string
       accepts_marketing:
-        description: >-
-          If the customer accepts product review emails or abandon cart emails.
-          Read-Only.
+        description: If the customer accepts product review emails or abandon cart emails. Read-Only.
         example: true
         type: boolean
         readOnly: true
@@ -2975,17 +2778,14 @@ definitions:
         properties:
           url:
             description: Full URL of where the resource is located.
-            example: >-
-              https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses
+            example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses'
             type: string
           resource:
             description: Resource being accessed.
             example: /customers/5/addresses
             type: string
       form_fields:
-        description: >-
-          Array of custom fields. This is a READ-ONLY field; do not set or
-          modify its value in a POST or PUT request.
+        description: Array of custom fields. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
         type: array
         items:
           title: Form Fields
@@ -3055,11 +2855,7 @@ definitions:
         example: Austin
       state:
         type: string
-        description: >-
-          The customer’s state/province. Do not abbreviate the state; spell out
-          the entire word, e.g.: California. (Cannot be null. As a workaround
-          for addresses that include no state/province string, pass a space as
-          the “state” value.)
+        description: 'The customer’s state/province. Do not abbreviate the state; spell out the entire word, e.g.: California. (Cannot be null. As a workaround for addresses that include no state/province string, pass a space as the “state” value.)'
         example: Texas
       zip:
         type: string
@@ -3098,47 +2894,29 @@ securityDefinitions:
     type: apiKey
     name: X-Auth-Token
     in: header
-    description: >-
+    description: |-
       ### OAuth Scopes
-
       |  **UI Name** | **Permission** | **Parameter** |
-
       | --- | --- | --- |
-
       |  Customers | modify | `store_v2_customers` |
-
       |  Customers | read-only | `store_v2_customers_read_only` |
-
 
       ### Headers
 
-
       |Header|Parameter|Description|
-
       |-|-|-|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
       ### Example
 
-
       ```http
-
       GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
       host: api.bigcommerce.com
-
       Content-Type: application/json
-
       X-Auth-Token: {access_token}
-
       ```
 
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 security:
   - X-Auth-Token: []
   - X-Auth-Client: []
@@ -3165,9 +2943,7 @@ parameters:
     name: is_group_for_guests
     in: query
     type: boolean
-    description: >-
-      If the groups is for guests. There can only be one customer group for
-      guests at a time.
+    description: If the groups is for guests. There can only be one customer group for guests at a time.
 x-stoplight:
   docs:
     includeDownloadLink: true
