@@ -1,4 +1,4 @@
-# Developing Themes for Accessibility
+# Developing Accessible Themes 
 
 <div class="otp" id="no-index">
 
