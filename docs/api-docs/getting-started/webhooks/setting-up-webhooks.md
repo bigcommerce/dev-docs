@@ -12,14 +12,6 @@
 - [Troubleshooting](#troubleshooting)
 - [Resources](#resources)
 
-- [Create an Express app](#create-an-express-app)
-- [Start the app](#start-the-app)
-- [Create a webhook](#create-a-webhook)
-- [Trigger the webhook event](#trigger-the-webhook-event)
-- [Adding custom headers](#adding-custom-headers)
-- [Troubleshooting](#troubleshooting)
-- [Resources](#resources)
-
 </div>
 
 In this tutorial, we'll create a Node.js Express app that handless webhook callbacks and uses [ngrok](https://ngrok.com/) (ngrok.com) to expose the app to the Internet. Then, we'll create a webhook and observe the callback using the ngrok web interface when the event is triggered.
