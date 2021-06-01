@@ -1,0 +1,92 @@
+openapi: 3.0.1
+servers:
+  - url: 'https://{$$.env.store_domain}/api/storefront'
+info:
+  title: Storefront Cookie Consent
+  description: Specify shopper cookie consent preferences
+  version: Storefront
+tags:
+  - name: Consent
+paths:
+  /consent:
+    post:
+      summary: Set Cookie Consent Preferences
+      tags:
+        - Consent
+      responses:
+        '200':
+          description: Consent Settings Saved
+        '400':
+          description: Invalid input
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsentPreferences'
+            examples:
+              Example:
+                value:
+                  allow:
+                    - 2
+                    - 3
+                  deny:
+                    - 4
+        description: Data sent to the [Update Customer Consent](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-consent/customersconsentbycustomerid-put) Customers V3 endpoint when creating a customer during checkout
+        required: true
+      description: |-
+        Sets the status of a customer's consent to allow data collection by cookies and scripts according to the following consent categories:
+
+
+          2. Analytics — These cookies provide statistical information on site usage so the store owner can improve the website over time.  
+          3. Functional — These cookies enable enhanced functionality, such as videos and live chat. If a shopper does not allow these, then some or all of these functions may not work properly. 
+          4. Targeting; Advertising — These cookies allow merchants to create profiles or personalize content to enhance users' shopping experience.
+          
+          
+        This endpoint only works if the cookie consent feature is enabled. It is assumed the shopper has not consented to anything until a value is explicitly set. The request body must be populated with a complete set of allowed and denied categories.
+
+        Once set, consent preferences will be saved as a cookie for guest shoppers. Consent preferences will be persisted to a shopper's account to be used for future sessions once they have logged in. Consent preferences can also be managed using the [Customer Consent](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-consent/) V3 endpoint.   
+      operationId: postConsent
+    parameters: []
+components:
+  schemas:
+    ConsentPreferences:
+      type: object
+      title: ConsentPreferences
+      description: |-
+        List of allowed and denied consent categories. Must be populated with a complete set of allowed and denied categories.
+
+        Configurable categories are:
+
+        2 - Functional
+        3 - Analytics
+        4 - Targeting; Advertising
+
+        For further definition of these categories, see [Scripts API](https://developer.bigcommerce.com/api-docs/store-management/scripts).
+      properties:
+        allow:
+          type: array
+          description: 'Explicitly allowed consent categories. Allowed values are 2, 3, 4.'
+          items:
+            type: integer
+            enum:
+              - 2
+              - 3
+              - 4
+            example: 3
+        deny:
+          type: array
+          description: 'Denied consent categories. Allowed values are 2, 3, 4.'
+          items:
+            type: integer
+            enum:
+              - 2
+              - 3
+              - 4
+            example: 4
+      required:
+        - allow
+        - deny
+x-stoplight:
+  docs:
+    includeDownloadLink: false
+    showModels: false
