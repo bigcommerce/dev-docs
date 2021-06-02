@@ -7,20 +7,21 @@
 - [Products overview](#products-overview)
 - [Creating products with options](#creating-products-with-options)
 - [Creating digital products](#creating-digital-products)
-- [Pricing precision](#pricing-precision)
 - [Adding product images](#adding-product-images)
 - [Adding product videos](#adding-product-videos)
 - [Adding custom fields](#adding-custom-fields)
 - [Adding bulk pricing rules](#adding-bulk-pricing-rules)
+- [Pricing precision](#pricing-precision)
 - [Adding product metafields](#adding-product-metafields)
 - [Adding product reviews](#adding-product-reviews)
-- [Creating brands](#creating-brands)
 - [Variant options](#variant-options)
-- [Variant](#variant)
-- [Create a variant](#create-a-variant)
+- [Variants](#variants)
+- [Creating variants](#creating-variants)
 - [Modifier options](#modifier-options)
 - [Complex rules](#complex-rules)
+- [Creating brands](#creating-brands)
 - [Categories](#categories)
+- [Product Sort Order](#product-sort-order)
 - [Related resources](#related-resources)
 
 </div>
@@ -54,7 +55,7 @@ Products can be physical or digital:
 <!-- theme:  -->
 
 ### Note
-> * Only one product can be created at a time.
+> Only one product can be created at a time.
 
 </div>
 </div>
@@ -136,7 +137,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 <!-- theme:  -->
 
 ### Note
-> * When you create options via `/products`, `display_type` defaults to a radio button (displayed as selectable boxes in some themes).
+> When you create options via `/products`, `display_type` defaults to a radio button (displayed as selectable boxes in some themes).
 
 </div>
 </div>
@@ -178,25 +179,16 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 <!-- theme:  -->
 
 ### Note
-> * Files can only be added to digital products via [Control Panel or WebDav](https://support.bigcommerce.com/articles/Public/Creating-Downloadable-Products/#adding-downloadable-product) -- attaching via the API is not supported. You can also set additional settings such as file description and maximum downloads in the control panel.
+> Files can only be added to digital products via [control panel or WebDav](https://support.bigcommerce.com/articles/Public/Creating-Downloadable-Products/#adding-downloadable-product) -- attaching via the API is not supported. You can also set additional settings such as file description and maximum downloads in the control panel.
 
 </div>
 </div>
 </div>
 
-
-## Pricing precision
-
-BigCommerce pricing is precise up to `4` decimal places. For example:
-
-* `"$ 10.99999` rounds up to `$ 11`
-* `"$ 10.99994` rounds down to `$ 10.9999`
-
-Currency display settings allow for more than four decimal places. When this is the case, the additional decimal places will display as `0`s.
 
 ## Adding product images
 
-Add a product image to a product with a `POST` to `/v3/catalog/products/{{product_id}}/images`.
+To add an image to a product, send a `POST` request to `/v3/catalog/products/{{product_id}}/images`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/images
@@ -221,7 +213,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ### Note
 > * If using `image_file`, set `Content-Type` header to `multipart/form-data` -- otherwise, you will be unable to add subsequent requests.
 > * Set `is_thumbmail` to true to set the image as the thumbnail used on product listing pages.
-> * Only one image can be the product thumbnail at a time.
+> * A product can have only one thumbnail image at a time.
 > * If only one image is on the product, it becomes both the thumbnail and the main product image.
 > * You can also add images to [variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid).
 
@@ -231,7 +223,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Adding product videos
 
-Videos hosted on YouTube can be added as a product video via `PUT` to `/v3/catalog/products/{{product_id}}/videos`.
+To add a video hosted on YouTube as a product video, send a `PUT` request to `/v3/catalog/products/{{product_id}}/videos`.
 
 ```http
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/videos
@@ -265,7 +257,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Adding custom fields
 
-To add custom fields to a product, `POST` to `/v3/catalog/products/{{product_id}}/custom-fields`.
+To add custom fields to a product, send a `POST` request to `/v3/catalog/products/{{product_id}}/custom-fields`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/custom-fields
@@ -288,7 +280,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 <!-- theme:  -->
 
 ### Note
-> Custom field values are limited to **250** characters. For additional information on custom fields and their use-cases, see [Custom Fields](https://support.bigcommerce.com/s/article/Custom-Fields).
+> Custom field values are limited to **250** characters. For additional information on custom fields and their use cases, see [Custom Fields](https://support.bigcommerce.com/s/article/Custom-Fields).
 
 
 </div>
@@ -298,8 +290,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ## Adding bulk pricing rules
 
 To add bulk quantity-based pricing to products, send a `PUT` request to `/v3/catalog/products/{{product_id}}/bulk-pricing-rules`.
-
-
 
 ```http
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/bulk-pricing-rules
@@ -329,13 +319,21 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 For general information and use cases for product bulk pricing, see [Bulk Pricing](https://support.bigcommerce.com/s/article/Bulk-Pricing).
 
+## Pricing precision
+
+BigCommerce pricing is precise up to `4` decimal places. For example:
+
+* `"$ 10.99999` rounds up to `$ 11`
+* `"$ 10.99994` rounds down to `$ 10.9999`
+
+Currency display settings allow for more than four decimal places. In such cases, the additional decimal places will display as `0`s.
 
 ## Adding product metafields
 
 [Metafields](/api-reference/store-management/catalog/product-metafields/createproductmetafield) are key-value pairs intended for programmatically storing data against a product or other entity. Data stored in metafields does not appear in the storefront or the control panel. Data not appearing in the storefront or control panel is useful when information needs to be passed back and forth between an app and BigCommerce.
 
 
-To add metafields to a product, `PUT` to `/v3/catalog/products/{{product_id}}/metafields`.
+To add metafields to a product, send a `PUT` request to `/v3/catalog/products/{{product_id}}/metafields`.
 
 ```http
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/metafields
@@ -361,7 +359,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 <div class="HubBlock-content">
 
 ### Note
-> * You can add metafields to variants, products, categories, and brands.
+> You can add metafields to variants, products, categories, and brands.
 
 </div>
 </div>
@@ -369,7 +367,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Adding product reviews
 
-To add product reviews to a product, `POST` to `/v3/catalog/products/{{product_id}}/reviews`.
+To add product reviews to a product, send a `POST` request to `/v3/catalog/products/{{product_id}}/reviews`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/reviews
@@ -395,39 +393,11 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 <div class="HubBlock-content">
 
 ### Note
-> * You cannot create reviews in the control panel.
+> You cannot create reviews in the control panel.
 
 </div>
 </div>
 </div>
-
-## Creating brands
-
-To create a [Brand](/api-reference/store-management/catalog/brands/getbrands), send a `POST` request to `/v3/catalog/brands`.
-
-
-```http
-POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/brands
-Accept: application/json
-Content-Type: application/json
-X-Auth-Token: {{ACCESS_TOKEN}}
-
-{
-  "name": "BigCommerce",
-  "page_title": "BigCommerce",
-  "meta_keywords": [
-    "ecommerce",
-    "best in class",
-    "grow your business"
-  ],
-  "image_url": "{{image_url}}"
-}
-```
-
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brands/createbrand#requestrunner)
-
-For general information on brands and their use cases, see [Managing Brands](https://support.bigcommerce.com/s/article/Managing-Brands).
-
 
 ## Variant options
 
@@ -439,7 +409,6 @@ Example:
 
 This example results in selecting a combination of small and red on the storefront and correlates to a product variation, also called a SKU.
 
-
 **Variant options:**
 
 * Require the shopper to select a value
@@ -449,8 +418,8 @@ This example results in selecting a combination of small and red on the storefro
 * Color swatch
 * Product pick list
 * Product pick list with images
-* Will automatically generate variants when created in the CP
-* Are auto-generated from variants when you create a product with variants via V3 API Product /POST
+* Will automatically generate variants when created in the control panel
+* Are auto-generated from variants when you create a product with variants using the [Products](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/createproduct) endpoint
 
 ### Variant options example
 
@@ -472,14 +441,15 @@ This example results in selecting a combination of small and red on the storefro
 
 <!-- theme:  -->
 
-### Create variant option
-> Creating a variant option does not automatically create SKUs or build out variants. You can build out SKUs later using the [variants endpoint](/api-reference/store-management/catalog/product-variants/createvariant).
+### Create a variant option
+> Creating a variant option does not automatically create SKUs or build out variants. You can build out SKUs later using the [Variants](/api-reference/store-management/catalog/product-variants/createvariant) endpoint.
 
 </div>
 </div>
 </div>
 
 ### Create variant options
+
 The following request will create options that will show on the storefront as choices selected by the customer. In a separate request, you could build out SKUs based on these variant option values or a combination of variant option values. You can use a similar request to add new choices to an existing variant.
 <!--
 title: "Create Size Variant Option"
@@ -522,14 +492,14 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-options/createoption#requestrunner)
 
-## Variant
+## Variants
+
 [Variants](/api-reference/store-management/catalog/product-variants/getvariantsbyproductid) represent an item as it sits on the shelf in the warehouse or a particular saleable product. A product might be a t-shirt, while the variant would be “a small, red t-shirt.” Shoppers select variants on the storefront via product options. In the case where a product is simple, meaning it does not have any options, the product is its own variant - called a base variant. Everything you can buy should be a variant.
 
 * Options build out variants.
 * Variants are usually what you track inventory against.
 * Can have their own price, weight, dimensions, image, etc. - or they can inherit these values from the product if you have not specified them.
 * Must have a SKU code (unless they are a base variant).
-
 * In non-base variants, variants will relate to a particular combination of variant option values - such as “small” and “red”.
 
 
@@ -554,7 +524,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 | T-Shirt | Blue<br>-<br> Small<br> Medium<br> Large| SM-BLU<br> SM-MED <br> SM-LARG
 | Backpack | Black<br>Yellow<br>-<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>-<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L|
 
-## Create a variant
+## Creating variants
 
 You can create variants in two ways:
 * From existing variant options, using [Create a Product Variant](/api-reference/store-management/catalog/product-variants/createvariant) endpoint.
@@ -763,8 +733,7 @@ You can add an adjuster to a modifier option to change things, such as increasin
 
 The following example shows how to add a modifier and a checkbox with a price adjuster to increase the product's price by five dollars.
 
-Creating a checkbox with an adjuster requires two separate calls: one to create the checkbox and another one to add the adjuster. You can define adjusters within the `option_values` array, but `option_values` are not allowed in the request to create a checkbox modifier because creating a checkbox automatically generates two mandatory option values: `Yes` and `No`. Once you have created the checkbox along with its option values, you can update the modifier to add an adjuster.
-
+Creating a checkbox with an adjuster requires two separate calls: one to create the checkbox and another one to add the adjuster. You can define adjusters within the `option_values` array, but `option_values` are not allowed in the request to create a checkbox modifier because creating a checkbox automatically generates two mandatory option values: `Yes` and `No`. Once you have created the checkbox and its option values, you can update the modifier to add an adjuster.
 
 
 <div class="HubBlock--callout">
@@ -885,12 +854,13 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ```
 
 To fix this error:
-* Modify the products using the V2 API
-* Remove the option set using the V2 API or the control panel, then remake the variants and modifiers using V3
+
+* Modify the products using the V2 API.
+* Remove the option set using the V2 API or the control panel, then remake the variants and modifiers using V3.
 
 ## Complex rules
 
-[Complex rules](/api-reference/store-management/catalog/product-complex-rules/getcomplexrules) allow merchants to set up conditions and actions based on shopper option selections on the storefront. You can use them to vary the following based on option selections made by the shopper:
+[Complex rules](/api-reference/store-management/catalog/product-complex-rules/getcomplexrules) allow merchants to set up conditions and actions based on shopper option selections on the storefront. You can use them to vary the following based on the shopper's option selections:
 * Price
 * Weight
 * Image
@@ -901,7 +871,7 @@ Adjustments made by complex rules are displayed to shoppers in real-time on the 
 For most merchant use cases, **best practice** will be to either assign values (such as a price) directly to a variant or use adjusters on the modifier option itself. However, complex rules exist for rare cases where a rule condition is too complex to express in those forms easily.
 
 Use complex rules when an adjustment should be triggered by:
-* The selection of values across multiple modifier options
+* The selection of values across multiple modifier options.
 * The combination of a particular variant/SKU and a modifier option value.
 
 ### Complex rules example
@@ -943,9 +913,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ```
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-complex-rules/updatecomplexrule#requestrunner)
 
-### Troubleshooting
+### Troubleshooting: 422 Errors
 
-Complex rules must consist of multiple conditions that trigger the rule adjustment. If multiple conditions are not specified, the request will return a 422 unprocessable entity.
+Complex rules must consist of multiple conditions that trigger the rule adjustment. If multiple conditions are not specified, the request will return a 422 error.
 
 ```json
 {
@@ -954,6 +924,33 @@ Complex rules must consist of multiple conditions that trigger the rule adjustme
     "type": "https://developer.bigcommerce.com/api#api-status-codes"
 }
 ```
+
+## Creating brands
+
+To create a [Brand](/api-reference/store-management/catalog/brands/getbrands), send a `POST` request to `/v3/catalog/brands`.
+
+
+```http
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/brands
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+
+{
+  "name": "BigCommerce",
+  "page_title": "BigCommerce",
+  "meta_keywords": [
+    "ecommerce",
+    "best in class",
+    "grow your business"
+  ],
+  "image_url": "{{image_url}}"
+}
+```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brands/createbrand#requestrunner)
+
+For general information on brands and their use cases, see [Managing Brands](https://support.bigcommerce.com/s/article/Managing-Brands).
 
 ## Categories
 
@@ -1029,6 +1026,32 @@ X-Auth-Token: {{ACCESS_TOKEN}}
   "meta": {...}
 }
 ```
+
+## Product Sort Order
+
+[Product Sort Order (Beta)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-sort-order) allows you to manage the sort order of products displayed on any given category page. Products assigned to multiple storefront categories can have different sort order values per category.
+
+### Product sorting on a storefront 
+
+The Catalog API supports two manually managed methods of product sorting: on a category level and a product level. If a user combines both sorting methods on a storefront, products with sort order values on a category level take priority. If there is no sort order value on a category level, the Catalog API sorts products by values on a product level.
+
+Product sorting methods:
+
+1. Manually specified sort order on a category level.
+2. Manually specified sort order on a product level. `0` by default. 
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme:  -->
+
+### Note
+> Products with the same sort order value either on a category or a product level are sorted by `product id` as a second criterion.
+
+</div>
+</div>
+</div>
 
 ## Related resources
 
