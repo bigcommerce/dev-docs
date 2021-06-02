@@ -1,5 +1,3 @@
-<h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for WordPress</h3>
-
 # Code Reference
 
 <div class="otp" id="no-index">
@@ -11,12 +9,12 @@
 </div> 
 
 ## Code reference
-Search the BigCommerce for WordPress codebase for detailed entries on available hooks, functions, classes and methods. Do a deep dive, and browse the building blocks you can use to extend and customize the plugin.
-
-[View the code reference here](https://bigcommerce.moderntribe.qa/)
+To search the BigCommerce for WordPress (BC4WP) codebase for detailed entries on available hooks, functions, classes, and methods, visit the [BigCommerce Plugin Code Reference](https://bigcommerce.moderntribe.qa/).
 
 
 ## Useage notes
+
+The following list contains additional notes on the usage of the hooks, functions, classes, and methods found in the [BigCommerce Plugin Code Reference](https://bigcommerce.moderntribe.qa/) that allow you to extend and customize the BC4WP plugin:
 
 ### Classes
 
