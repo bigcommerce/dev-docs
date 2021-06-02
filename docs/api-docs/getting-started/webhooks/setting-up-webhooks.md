@@ -7,7 +7,6 @@
 - [Create an Express app](#create-an-express-app)
 - [Start the app](#start-the-app)
 - [Create a webhook](#create-a-webhook)
-
 - [Trigger the webhook event](#trigger-the-webhook-event)
 - [Adding custom headers](#adding-custom-headers)
 - [Troubleshooting](#troubleshooting)
@@ -26,7 +25,7 @@ In this tutorial, we'll create a Node.js Express app that handless webhook callb
 - Familiarity working with `node` and `npm`
 ## Create an Express app
 
-First, let's make a `webooks-test` directory and initialize a Node.js Express app inside of it. To do so, run the following commands in the terminal.
+First, let's make a `webhooks-test` directory and initialize a Node.js Express app inside of it. To do so, run the following commands in the terminal.
 
 
 ```bash
@@ -54,7 +53,7 @@ const express = require('express');
 const ngrok = require('ngrok')
 const app = express();
 
-// when there's a post request to /webooks...
+// when there's a post request to /webhooks...
 app.post('/webhooks', function (req, res) {
 
     // respond with 200 OK
@@ -102,9 +101,9 @@ Navigate to `http://localhost:4040/` in your browser. You should see the ngrok w
 
 ![ngrok web interface](//s3.amazonaws.com/user-content.stoplight.io/6012/1531500191661 "ngrok web interface")
 
-## Create a webook
+## Create a webhook
 
-Now, we'll create a webook that subscribes to the `store/product/updated` [webhook event](https://developer.bigcommerce.com/api-docs/store-management/webhooks/events). To do so, send a `POST` request to `/stores/{{STORE_HASH}}/v3/hooks`.
+Now, we'll create a webhook that subscribes to the `store/product/updated` [webhook event](https://developer.bigcommerce.com/api-docs/store-management/webhooks/events). To do so, send a `POST` request to `/stores/{{STORE_HASH}}/v3/hooks`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
