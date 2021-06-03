@@ -18,4 +18,4 @@ The following list contains additional notes on the usage of the hooks, function
 
 ### Classes
 
-  - Refinery - refinery only filters product results on product archive or product category archive pages.
+  - Refinery - filters product results on product archive or product category archive pages.
