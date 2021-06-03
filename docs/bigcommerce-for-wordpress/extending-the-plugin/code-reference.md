@@ -4,7 +4,8 @@
 
 ### On this page
 - [Code reference](#code-reference)
-- [Useage notes](#useage-notes)
+- [Usage notes](#usage-notes)
+
 
 </div> 
 
