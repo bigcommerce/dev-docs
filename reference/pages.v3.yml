@@ -34,85 +34,119 @@ paths:
               schema:
                 $ref: '#/components/schemas/PagesCollectionResponse'
               examples:
-                response:
+                example-1:
                   value:
                     data:
-                      - id: 0
-                        name: string
-                        is_visible: true
+                      - id: 1
+                        channel_id: 1
+                        name: Content page
+                        meta_title: Content page
+                        email: ''
+                        is_visible: false
                         parent_id: 0
                         sort_order: 0
-                        type: string
-                        is_homepage: true
-                        is_customers_only: true
-                        email: string
-                        meta_title: string
-                        body: string
-                        feed: string
-                        link: string
-                        contact_fields:
-                          - fullname: string
-                            phone: string
-                            companyname: string
-                            orderno: string
-                            rma: string
-                        meta_keywords: string
+                        description: null
+                        type: page
+                        meta_keywords: ''
                         meta_description: string
+                        is_homepage: false
+                        is_customers_only: false
                         search_keywords: string
-                        url: string
-                        channel_id: 0
+                        content_type: text/html
+                        url: /my-content-page
+                      - id: 2
+                        channel_id: 1
+                        name: Feed page
+                        meta_title: string
+                        email: ''
+                        is_visible: false
+                        parent_id: 0
+                        sort_order: 3
+                        description: null
+                        feed: 'https://bigcommerce.com/feed/'
+                        type: feed
+                        meta_keywords: ''
+                        meta_description: string
+                        is_homepage: false
+                        is_customers_only: true
+                        search_keywords: string
+                        content_type: text/html
+                        url: /rss-feed-page
+                      - id: 3
+                        channel_id: 1
+                        name: Link page
+                        meta_title: ''
+                        email: ''
+                        is_visible: false
+                        parent_id: 0
+                        sort_order: 0
+                        description: null
+                        link: '1'
+                        type: link
+                        meta_keywords: ''
+                        meta_description: ''
+                        is_homepage: false
+                        is_customers_only: false
+                        search_keywords: ''
+                        content_type: text/html
                     meta:
                       pagination:
-                        total: 0
-                        count: 0
-                        per_page: 0
-                        current_page: 0
-                        total_pages: 0
+                        total: 3
+                        count: 3
+                        per_page: 50
+                        current_page: 1
+                        total_pages: 1
                         links:
-                          previous: string
-                          current: string
-                          next: string
+                          current: '?page=1&limit=50'
       parameters:
         - schema:
             type: integer
           in: query
           name: channel_id
-          description: Channel Id to return only pages for a given Channel
+          description: Channel Id to return only pages for a given Channel.
         - schema:
             type: integer
           in: query
           name: id
-          description: Id of the page
+          description: Id of the page.
         - schema:
             type: string
           in: query
           name: 'id:in'
-          description: 'Explicitly fetch Pages by IDs, provided as CSV string'
+          description: 'Explicitly fetch Pages by IDs, provided as CSV string.'
         - schema:
             type: string
           in: query
           name: name
-          description: Name of the page
+          description: Name of the page.
         - schema:
             type: string
           in: query
           name: 'name:like'
-          description: Partial name of the page
+          description: Partial name of the page.
         - schema:
             type: integer
           in: query
           name: limit
-          description: Number of results to return per page
+          description: Number of results to return per page.
         - schema:
             type: integer
           in: query
           name: page
           description: 'Which page number to return, based on the page size. Used to paginate large collections.'
+        - schema:
+            type: string
+            example: body
+            enum:
+              - body
+          in: query
+          name: include
+          description: Indicates whether to include page sub-resources.
       summary: Get Pages
     post:
       operationId: content-pages-post
       description: |-
-        Creates content pages.
+        Creates a content page.
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
@@ -129,46 +163,53 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PagesPostRequest'
-        description: Create operation for Page objects.
+              $ref: '#/components/schemas/Page'
+            examples:
+              example-1:
+                value:
+                  channel_id: 1
+                  name: Content Page
+                  is_visible: false
+                  parent_id: 0
+                  sort_order: 0
+                  type: page
+                  body: <div>Hello World!</div>
+                  is_homepage: false
+                  meta_title: My Content page
+                  meta_keywords: string
+                  meta_description: string
+                  search_keywords: string
+                  url: /my-content-page
+        description: ''
         required: true
       responses:
         '200':
-          description: |
-            An array of created pages.
+          description: |+
+
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PagesResponse'
+                $ref: '#/components/schemas/PageResponse'
               examples:
-                response:
+                example-1:
                   value:
                     data:
-                      - id: 0
-                        name: string
-                        is_visible: true
-                        parent_id: 0
-                        sort_order: 0
-                        type: string
-                        is_homepage: true
-                        is_customers_only: true
-                        email: string
-                        meta_title: string
-                        body: string
-                        feed: string
-                        link: string
-                        contact_fields:
-                          - fullname: string
-                            phone: string
-                            companyname: string
-                            orderno: string
-                            rma: string
-                        meta_keywords: string
-                        meta_description: string
-                        search_keywords: string
-                        url: string
-                        channel_id: 0
-                    meta: {}
+                      email: string
+                      meta_title: string
+                      body: <div>Hello World!</div>
+                      meta_keywords: string
+                      meta_description: string
+                      search_keywords: page
+                      url: /my-content-page
+                      channel_id: 1
+                      name: Content Page
+                      is_visible: true
+                      parent_id: 0
+                      sort_order: 0
+                      type: page
+                      is_homepage: true
+                      is_customers_only: true
+                    id: 1
         '422':
           description: |
             The `Page` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
@@ -176,7 +217,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-      summary: Create Pages
+      summary: Create a Page
     put:
       operationId: content-pages-put
       description: |-
@@ -198,46 +239,37 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PagesPutRequest'
-        description: Update operation for Page objects.
+              $ref: '#/components/schemas/PagePut'
+        description: ''
         required: true
       responses:
         '200':
-          description: |
-            An array of updated pages.
+          description: |+
+
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PagesResponse'
+                $ref: '#/components/schemas/PageResponse'
               examples:
                 response:
                   value:
                     data:
-                      - id: 0
-                        name: string
-                        is_visible: true
-                        parent_id: 0
-                        sort_order: 0
-                        type: string
-                        is_homepage: true
-                        is_customers_only: true
-                        email: string
-                        meta_title: string
-                        body: string
-                        feed: string
-                        link: string
-                        contact_fields:
-                          - fullname: string
-                            phone: string
-                            companyname: string
-                            orderno: string
-                            rma: string
-                        meta_keywords: string
-                        meta_description: string
-                        search_keywords: string
-                        url: string
-                        channel_id: 0
-                    meta: {}
+                      email: string
+                      meta_title: string
+                      body: <div>Hello World!</div>
+                      meta_keywords: string
+                      meta_description: string
+                      search_keywords: page
+                      url: /my-content-page
+                      channel_id: 1
+                      name: Content Page
+                      is_visible: true
+                      parent_id: 0
+                      sort_order: 0
+                      type: page
+                      is_homepage: true
+                      is_customers_only: true
+                    id: 1
         '422':
           description: |
             The `Page` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
@@ -327,83 +359,50 @@ components:
       properties:
         pagination:
           $ref: '#/components/schemas/Pagination'
-    PagesPost:
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/Page'
-        - type: object
-          required:
-            - type
-            - name
-            - link (for a page of type link)
-            - feed (for a page of type rss_feed)
-            - body (for a page of type raw)
-    PagesPutRequest:
-      description: |
-        Request payload for the BigCommerce API.
-      type: array
-      items:
-        $ref: '#/components/schemas/PagePut'
-    PagesPostRequest:
-      description: |
-        Request payload for the BigCommerce API.
-      type: array
-      items:
-        $ref: '#/components/schemas/PagesPost'
     PagesCollectionResponse:
       description: |
         Response payload for the BigCommerce API.
       type: object
+      title: ''
       properties:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/Page'
+            $ref: '#/components/schemas/PageFull'
         meta:
           $ref: '#/components/schemas/CollectionMeta'
-      title: ''
-    PagesResponse:
-      description: |
-        Response payload for the BigCommerce API.
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Page'
-        meta:
-          type: object
     PageResponse:
       description: |
         Response payload for the BigCommerce API.
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Page'
-    ContactFields:
-      type: object
+      x-examples: {}
       allOf:
-        - type: object
-          properties:
+        - properties:
+            data:
+              $ref: '#/components/schemas/PageFull'
+        - properties:
+            meta:
+              type: object
+      type: object
+    ContactFields:
+      allOf:
+        - properties:
             fullname:
               type: string
-              description: full name of the customer submitting the form
+              description: Full name of the customer submitting the form.
             phone:
               type: string
-              description: 'customer’s phone number, as submitted on the form'
+              description: 'Customer’s phone number, as submitted on the form.'
             companyname:
               type: string
-              description: customer’s submitted company name
+              description: Customer’s submitted company name.
             orderno:
               type: string
-              description: customer’s submitted order number
+              description: Customer’s submitted order number.
             rma:
               type: string
-              description: customer’s submitted RMA (Return Merchandise Authorization) number.
-    PagePut:
+              description: Customer’s submitted RMA (Return Merchandise Authorization) number.
       type: object
+    PagePut:
       allOf:
         - $ref: '#/components/schemas/Page'
         - type: object
@@ -415,37 +414,41 @@ components:
           required:
             - id
     Page:
-      type: object
       allOf:
-        - $ref: '#/components/schemas/PageBase'
         - type: object
           properties:
             email:
               type: string
-              description: |
-                The email of the customer. Must be unique.
-              minLength: 3
+              description: 'Where the page’s type is a contact form: contact email address that receives messages sent via the form. Must be unique.'
               maxLength: 255
             meta_title:
               type: string
             body:
               type: string
               description: |
-                HTML or variable that populates this page’s  element, in default/desktop view. Required in POST if page type is raw.
+                HTML or variable that populates this page’s  element, in default/desktop view. Required in a `POST` request if the page type is `raw`.
+              example: <div>Hello World!</div>
             feed:
               type: string
               description: |
-                If page type is rss_feed the n this field is visisble. Required in POST required for rss page type.
+                The URL of the RSS feed. Required in a `POST` request if the page type is `rss_feed`.
             link:
               type: string
               description: |
-                If page type is link this field is returned. Required in POST to create a link page.
+                Required in a `POST` request to create a link if the page type is `link`.
             contact_fields:
-              type: array
+              type: string
               description: |
-                Where the page’s type is a contact form: object whose members are the fields enabled (in the control panel) for storefront display. Possible members are:fullname: full name of the customer submitting the form; phone: customer’s phone number, as submitted on the form; companyname: customer’s submitted company name; orderno: customer’s submitted order number; rma: customer’s submitted RMA (Return Merchandise Authorization) number.
-              items:
-                $ref: '#/components/schemas/ContactFields'
+                Where the page’s type is `contact_form`: comma-separated list of keywords representing the fields enabled in the control panel for storefront display. Possible fields include:
+
+                |Field|Description|
+                |-|-|
+                |`fullname`|Full name of the customer submitting the form|
+                |`phone`|Customer’s phone number, as submitted on the form|
+                |`companyname`|Customer’s submitted company name|
+                |`orderno`|Customer’s submitted order number|
+                |`rma`|Customer’s submitted RMA (Return Merchandise Authorization) number|
+              example: 'fullname,companyname,phone,orderno,rma'
             meta_keywords:
               type: string
               description: |
@@ -458,52 +461,69 @@ components:
               type: string
               description: |
                 Comma-separated list of keywords that shoppers can use to locate this page when searching the store.
+              example: page
             url:
               type: string
               description: |
                 Relative URL on the storefront for this page.
+              example: /my-store-page
             channel_id:
               type: integer
               description: |
                 The Id of the channel where this page should be shown.
+              example: 1
+        - $ref: '#/components/schemas/PageBase'
+      title: ''
+      description: ''
     PageBase:
       type: object
       description: Common Page properties.
       properties:
-        id:
-          type: integer
-          description: |
-            The unique numeric ID of the page.
         name:
           type: string
           description: |
-            The first name of the page.
+            The name of the page. Must be unique.
           minLength: 1
           maxLength: 100
+          example: My Store Page
         is_visible:
           type: boolean
           description: |
-            If true, this page appears in the storefront’s navigation menu.
+            Determines the visibility of the page in the storefront’s navigation menu.
         parent_id:
           type: integer
           description: |
             ID of any parent Web page.
+          example: 0
         sort_order:
           type: integer
           description: |
-            Order in which this page should display on the storefront. (Lower integers specify earlier display.)
+            Determines the order in which the page is displayed on the storefront. (Lower integers specify earlier display.)
+          example: 0
         type:
           type: string
-          description: |
-            page: free-text page link: link to another web address rss_feed: syndicated content from an RSS feed contact_form: When the store’s contact form is used.
+          description: |-
+            Determines the type of the page.
+
+            |Value|Description|
+            |-|-|
+            |`contact_form`|when the store’s contact form is used|
+            |`link`|link to another web address|
+            |`page`|free-text page|
+            |`raw`|raw page|
+            |`rss_feed`|syndicated content from an RSS feed|
+          example: page
         is_homepage:
           type: boolean
           description: |
-            If true, this page is the storefront’s home page.
+            Determines whether this page is the storefront’s home page.
         is_customers_only:
           type: boolean
           description: |
-            If `true`, this will be displayed as a home page. ??????
+            If `true`, this will be displayed as a home page.
+      required:
+        - name
+        - type
     Pagination:
       type: object
       description: |
@@ -546,3 +566,12 @@ components:
               type: string
               description: |
                 Link to the next page returned in the response.
+    PageFull:
+      title: PageFull
+      allOf:
+        - $ref: '#/components/schemas/Page'
+        - type: object
+          properties:
+            id:
+              type: integer
+              description: ID of the page.
