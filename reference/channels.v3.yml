@@ -150,18 +150,17 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateChannelReq"
+              $ref: '#/components/schemas/CreateChannelReq'
             examples:
               Create a Facebook Channel:
-                $ref: "#/components/examples/create_channel_req_example"
+                $ref: '#/components/examples/create_channel_req_example'
         required: true
       responses:
         '200':
           $ref: '#/components/responses/single_channel_without_currencies_resp'
         '422':
           $ref: '#/components/responses/missing_or_invalid_channel_data_resp'
-
-  /channels/{channel_id}:
+  '/channels/{channel_id}':
     parameters:
       - $ref: '#/components/parameters/channel_id_path_param'
     get:
@@ -208,7 +207,7 @@ paths:
               $ref: '#/components/schemas/UpdateChannelReq'
             examples:
               Update a Facebook Channel:
-                $ref: "#/components/examples/update_channel_req_example"
+                $ref: '#/components/examples/update_channel_req_example'
         required: true
       responses:
         '200':
@@ -219,8 +218,7 @@ paths:
           $ref: '#/components/responses/duplicate_channel_resp'
         '422':
           $ref: '#/components/responses/invalid_channel_update_field_resp'
-
-  /channels/{channel_id}/active-theme:
+  '/channels/{channel_id}/active-theme':
     get:
       tags:
         - Channel Active Theme
@@ -234,7 +232,6 @@ paths:
           $ref: '#/components/responses/channel_active_theme_resp'
         '404':
           $ref: '#/components/responses/active_theme_not_found_resp'
-
   /channels/currency-assignments:
     get:
       tags:
@@ -285,8 +282,7 @@ paths:
           $ref: '#/components/responses/multiple_channels_currency_assignments_resp'
         '422':
           $ref: '#/components/responses/missing_or_invalid_multiple_channels_currency_assignments_data_resp'
-
-  /channels/{channel_id}/currency-assignments:
+  '/channels/{channel_id}/currency-assignments':
     parameters:
       - $ref: '#/components/parameters/channel_id_path_param'
     get:
@@ -345,14 +341,13 @@ paths:
         - Channel Currency Assignments
       summary: Delete Channel Currency Assignments
       operationId: deleteSingleChannelCurrencyAssignments
-      description: Deletes currency assignments for a specific channel. Once done, this channel will inherit the store’s currency settings.
+      description: 'Deletes currency assignments for a specific channel. Once done, this channel will inherit the store’s currency settings.'
       responses:
         '200':
           $ref: '#/components/responses/delete_currency_assignments_resp'
         '404':
           $ref: '#/components/responses/channel_not_found_resp'
-
-  /channels/{channel_id}/listings:
+  '/channels/{channel_id}/listings':
     parameters:
       - $ref: '#/components/parameters/channel_id_path_param'
     get:
@@ -360,7 +355,7 @@ paths:
         - Channel Listings
       summary: Get Channel Listings
       operationId: listChannelListings
-      description: Returns a list of all *Channel Listings* for a specific channel. Note that if the *Channel* is not found or there is no listing associated to the *Channel*, it will return a 200 response with empty data.
+      description: 'Returns a list of all *Channel Listings* for a specific channel. Note that if the *Channel* is not found or there is no listing associated to the *Channel*, it will return a 200 response with empty data.'
       parameters:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/after'
@@ -431,8 +426,7 @@ paths:
           $ref: '#/components/responses/single_and_multiple_listings_resp'
         '422':
           $ref: '#/components/responses/missing_or_invalid_multiple_listings_data_for_put_resp'
-
-  /channels/{channel_id}/listings/{listing_id}:
+  '/channels/{channel_id}/listings/{listing_id}':
     parameters:
       - $ref: '#/components/parameters/channel_id_path_param'
       - $ref: '#/components/parameters/listing_id_path_param'
@@ -447,7 +441,6 @@ paths:
           $ref: '#/components/responses/single_listing_resp'
         '404':
           $ref: '#/components/responses/listing_not_found_resp'
-
   '/channels/{channel_id}/site':
     get:
       summary: Get a Channel Site
@@ -521,7 +514,6 @@ paths:
       tags:
         - Channel Site
       summary: Delete a Channel Site
-
 security:
   - X-Auth-Token: []
 x-stoplight:
@@ -552,7 +544,7 @@ components:
       schema:
         type: boolean
     status_in:
-      name: status:in
+      name: 'status:in'
       description: Filter items by a comma-separated list of statuses.
       in: query
       required: false
@@ -570,7 +562,7 @@ components:
             - deleted
             - terminated
     type_in:
-      name: type:in
+      name: 'type:in'
       description: Filter items by a comma-separated list of types.
       in: query
       required: false
@@ -584,8 +576,8 @@ components:
             - pos
             - storefront
     platform_in:
-      name: platform:in
-      description: Filter items by a comma-separated list of platforms. For a list of supported platforms, see [Platform](https://developer.bigcommerce.com/api-reference/store-management/channels#platform).
+      name: 'platform:in'
+      description: 'Filter items by a comma-separated list of platforms. For a list of supported platforms, see [Platform](https://developer.bigcommerce.com/api-reference/store-management/channels#platform).'
       in: query
       required: false
       schema:
@@ -593,7 +585,7 @@ components:
         items:
           type: string
         example:
-          - facebook, amazon
+          - 'facebook, amazon'
     date_created:
       name: date_created
       description: 'Filter items by date_created. For example, `date_created=2019-09-04T00:00:00`, `date_created=2019-09-04`, or `date_created=1567573200`'
@@ -602,14 +594,14 @@ components:
       schema:
         type: string
     date_created_min:
-      name: date_created:min
+      name: 'date_created:min'
       description: 'Filter items by minimum date_created. For example, `date_created:min=2019-09-04T00:00:00`, `date_created:min=2019-09-04`, or `date_created:min=1567573200`'
       in: query
       required: false
       schema:
         type: string
     date_created_max:
-      name: date_created:max
+      name: 'date_created:max'
       description: 'Filter items by maximum date_created. For example, `date_created:max=2019-09-04T00:00:00`, `date_created:max=2019-09-04`, or `date_created:max=1567573200`'
       in: query
       required: false
@@ -623,14 +615,14 @@ components:
       schema:
         type: string
     date_modified_min:
-      name: date_modified:min
+      name: 'date_modified:min'
       description: 'Filter items by minimum date_modified. For example, `date_modified:min=2019-09-04T00:00:00`, `date_modified:min=2019-09-04`, or `date_modified:min=1567573200`'
       in: query
       required: false
       schema:
         type: string
     date_modified_max:
-      name: date_modified:max
+      name: 'date_modified:max'
       description: 'Filter items by maximum date_modified. For example, `date_modified:max=2019-09-04T00:00:00`, `date_modified:max=2019-09-04`, or `date_modified:max=1567573200`'
       in: query
       required: false
@@ -658,7 +650,7 @@ components:
       schema:
         type: integer
     product_id_in:
-      name: product_id:in
+      name: 'product_id:in'
       description: Filter items by a comma-separated list of product IDs.
       in: query
       required: false
@@ -683,9 +675,7 @@ components:
       schema:
         type: integer
         format: int64
-
   responses:
-    # 200 response
     multiple_channels_without_currencies_resp:
       description: ''
       content:
@@ -841,8 +831,6 @@ components:
                   created_at: '2019-08-05T18:26:21Z'
                   updated_at: '2019-08-05T18:26:21Z'
                 meta: {}
-
-    # error response
     invalid_channel_id_resp:
       description: Invalid channel ID is provided.
       content:
@@ -862,7 +850,7 @@ components:
             Invalid Filter Value:
               $ref: '#/components/examples/error_422_invalid_filter_value_resp_example'
     missing_or_invalid_channel_data_resp:
-      description: The request is missing one or more required fields or invalid data is submitted. Commonly, an invalid combination of `type` and `platform` was provided.
+      description: 'The request is missing one or more required fields or invalid data is submitted. Commonly, an invalid combination of `type` and `platform` was provided.'
       content:
         application/json:
           schema:
@@ -909,7 +897,7 @@ components:
             Channel Not Found:
               $ref: '#/components/examples/error_404_entity_not_found_resp_example'
     duplicate_channel_resp:
-      description: A *Channel* with the same combination of `name`, `platform`, and `type` already exists.
+      description: 'A *Channel* with the same combination of `name`, `platform`, and `type` already exists.'
       content:
         application/json:
           schema:
@@ -918,7 +906,7 @@ components:
             Duplicate Channel:
               $ref: '#/components/examples/error_409_resp_example'
     invalid_channel_update_field_resp:
-      description: When an invalid value or invalid field is submitted, a 422 response will be sent. Note that attempt to update a deleted or terminated channel will also result in 422 response.
+      description: 'When an invalid value or invalid field is submitted, a 422 response will be sent. Note that attempt to update a deleted or terminated channel will also result in 422 response.'
       content:
         application/json:
           schema:
@@ -985,7 +973,7 @@ components:
             Invalid Listing ID:
               $ref: '#/components/examples/error_422_invalid_listing_id_resp_example'
     invalid_filters_resp:
-      description: When an invalid value or invalid query parameter is submitted, a 422 response will be sent.
+      description: 'When an invalid value or invalid query parameter is submitted, a 422 response will be sent.'
       content:
         application/json:
           schema:
@@ -995,63 +983,61 @@ components:
               $ref: '#/components/examples/error_422_invalid_filters_resp_example'
             Invalid Filter Value:
               $ref: '#/components/examples/error_422_invalid_filter_value_resp_example'
-
   examples:
-    # Examples for request body
     create_channel_req_example:
       value:
-        name: "Facebook"
-        platform: "facebook"
-        type: "marketplace"
-        status: "connected"
+        name: Facebook
+        platform: facebook
+        type: marketplace
+        status: connected
         config_meta:
           app:
             id: 123
             sections:
-              - title: "Overview"
-                query_path: "overview"
-              - title: "Settings"
-                query_path: "settings"
+              - title: Overview
+                query_path: overview
+              - title: Settings
+                query_path: settings
     update_channel_req_example:
       value:
-        name: "Facebook"
-        status: "connected"
+        name: Facebook
+        status: connected
         is_listable_from_ui: false
         config_meta:
           app:
             id: 123
             sections:
-              - title: "Overview"
-                query_path: "overview"
-              - title: "Settings"
-                query_path: "settings"
+              - title: Overview
+                query_path: overview
+              - title: Settings
+                query_path: settings
     multiple_channels_currency_assignments_req_example:
       value:
         - channel_id: 1
           enabled_currencies:
-            - "USD"
-          default_currency: "USD"
+            - USD
+          default_currency: USD
         - channel_id: 664177
           enabled_currencies:
-            - "USD"
-            - "GBP"
-          default_currency: "USD"
+            - USD
+            - GBP
+          default_currency: USD
         - channel_id: 664179
           enabled_currencies:
-            - "USD"
-            - "AUD"
-          default_currency: "USD"
+            - USD
+            - AUD
+          default_currency: USD
         - channel_id: 667159
           enabled_currencies:
-            - "USD"
-          default_currency: "USD"
+            - USD
+          default_currency: USD
     single_channel_currency_assignments_req_example:
       value:
         enabled_currencies:
-          - "USD"
-          - "GBP"
-          - "AUD"
-        default_currency: "USD"
+          - USD
+          - GBP
+          - AUD
+        default_currency: USD
     create_single_listing_req_example:
       value:
         - product_id: 80
@@ -1119,165 +1105,163 @@ components:
               name: Terrarium with dinosaur
         - listing_id: 882789362
           product_id: 100
-          state: "pending"
-          name: "Women's Bold T-Shirt"
+          state: pending
+          name: Women's Bold T-Shirt
           variants:
             - product_id: 100
               variant_id: 91
-              state: "pending"
-              name: "Small women's bold t-shirt"
-
-    # Examples for 200 response
+              state: pending
+              name: Small women's bold t-shirt
     multiple_channels_without_currencies_resp_example:
       value:
         data:
           - id: 1
-            icon_url: "https://s3.amazonaws.com/bc-channel-platform/channel-icons/bigcommerce.svg"
+            icon_url: 'https://s3.amazonaws.com/bc-channel-platform/channel-icons/bigcommerce.svg'
             is_listable_from_ui: true
             is_visible: true
-            date_created: "2021-05-07T14:54:51Z"
-            external_id: ""
-            type: "storefront"
-            platform: "bigcommerce"
+            date_created: '2021-05-07T14:54:51Z'
+            external_id: ''
+            type: storefront
+            platform: bigcommerce
             is_enabled: true
-            date_modified: "2021-05-07T14:54:51Z"
-            name: "Test Store"
-            status: "prelaunch"
+            date_modified: '2021-05-07T14:54:51Z'
+            name: Test Store
+            status: prelaunch
           - id: 664179
-            icon_url: "https://s3.amazonaws.com/bc-channel-platform/channel-icons/amazon.svg"
+            icon_url: 'https://s3.amazonaws.com/bc-channel-platform/channel-icons/amazon.svg'
             is_listable_from_ui: true
             is_visible: true
-            date_created: "2021-05-10T20:32:40Z"
-            external_id: ""
-            type: "marketplace"
-            platform: "amazon"
+            date_created: '2021-05-10T20:32:40Z'
+            external_id: ''
+            type: marketplace
+            platform: amazon
             is_enabled: false
-            date_modified: "2021-05-13T14:25:54Z"
-            name: "Amazon"
-            status: "connected"
+            date_modified: '2021-05-13T14:25:54Z'
+            name: Amazon
+            status: connected
           - id: 667159
-            icon_url: "https://s3.amazonaws.com/bc-channel-platform/channel-icons/facebook.svg"
+            icon_url: 'https://s3.amazonaws.com/bc-channel-platform/channel-icons/facebook.svg'
             is_listable_from_ui: false
             is_visible: true
-            date_created: "2021-05-13T15:41:39Z"
-            external_id: ""
+            date_created: '2021-05-13T15:41:39Z'
+            external_id: ''
             config_meta:
               app:
                 id: 123
                 sections:
-                  - title: "Overview"
-                    query_path: "overview"
-                  - title: "Settings"
-                    query_path: "settings"
-            type: "marketplace"
-            platform: "facebook"
+                  - title: Overview
+                    query_path: overview
+                  - title: Settings
+                    query_path: settings
+            type: marketplace
+            platform: facebook
             is_enabled: true
-            date_modified: "2021-05-13T15:41:39Z"
-            name: "Facebook"
-            status: "connected"
+            date_modified: '2021-05-13T15:41:39Z'
+            name: Facebook
+            status: connected
         meta:
           pagination:
             per_page: 2
             total: 8
             count: 2
             links:
-              previous: "?page=1&limit=2"
-              current: "?page=2&limit=2"
-              next: "?page=3&limit=2"
+              previous: '?page=1&limit=2'
+              current: '?page=2&limit=2'
+              next: '?page=3&limit=2'
             total_pages: 4
             current_page: 2
     single_channel_without_currencies_resp_example:
       value:
         data:
           id: 667159
-          icon_url: "https://s3.amazonaws.com/bc-channel-platform/channel-icons/facebook.svg"
+          icon_url: 'https://s3.amazonaws.com/bc-channel-platform/channel-icons/facebook.svg'
           is_listable_from_ui: false
           is_visible: true
-          date_created: "2021-05-13T15:41:39Z"
-          external_id: ""
+          date_created: '2021-05-13T15:41:39Z'
+          external_id: ''
           config_meta:
             app:
               id: 123
               sections:
-                - title: "Overview"
-                  query_path: "overview"
-                - title: "Settings"
-                  query_path: "settings"
-          type: "marketplace"
-          platform: "facebook"
+                - title: Overview
+                  query_path: overview
+                - title: Settings
+                  query_path: settings
+          type: marketplace
+          platform: facebook
           is_enabled: true
-          date_modified: "2021-05-13T15:41:39Z"
-          name: "Facebook"
-          status: "connected"
+          date_modified: '2021-05-13T15:41:39Z'
+          name: Facebook
+          status: connected
         meta: {}
     single_channel_with_currencies_resp_example:
       value:
         data:
           id: 667159
-          icon_url: "https://s3.amazonaws.com/bc-channel-platform/channel-icons/facebook.svg"
+          icon_url: 'https://s3.amazonaws.com/bc-channel-platform/channel-icons/facebook.svg'
           is_listable_from_ui: false
           is_visible: true
-          date_created: "2021-05-13T15:41:39Z"
-          external_id: ""
+          date_created: '2021-05-13T15:41:39Z'
+          external_id: ''
           config_meta:
             app:
               id: 123
               sections:
-                - title: "Overview"
-                  query_path: "overview"
-                - title: "Settings"
-                  query_path: "settings"
-          type: "marketplace"
-          platform: "facebook"
+                - title: Overview
+                  query_path: overview
+                - title: Settings
+                  query_path: settings
+          type: marketplace
+          platform: facebook
           is_enabled: true
-          date_modified: "2021-05-13T15:41:39Z"
-          name: "Facebook"
-          status: "connected"
+          date_modified: '2021-05-13T15:41:39Z'
+          name: Facebook
+          status: connected
           currencies:
             channel_id: 667159
             enabled_currencies:
-              - "USD"
-            default_currency: "USD"
+              - USD
+            default_currency: USD
         meta: {}
     single_active_theme_resp_example:
       value:
         data:
-          active_theme_uuid: "e3d82ce0-9bae-0133-0de7-525400970412"
-          active_theme_configuration_uuid: "1c0962a0-9172-0139-70bc-2a81c0049363"
-          active_theme_version_uuid: "b9911770-8a43-0139-f84a-7e39a3a0bc55"
-          saved_theme_configuration_uuid: "1c0962a0-9172-0139-70bc-2a81c0049363"
+          active_theme_uuid: e3d82ce0-9bae-0133-0de7-525400970412
+          active_theme_configuration_uuid: 1c0962a0-9172-0139-70bc-2a81c0049363
+          active_theme_version_uuid: b9911770-8a43-0139-f84a-7e39a3a0bc55
+          saved_theme_configuration_uuid: 1c0962a0-9172-0139-70bc-2a81c0049363
         meta: {}
     multiple_channels_currency_assignments_resp_example:
       value:
         data:
           - channel_id: 1
             enabled_currencies:
-              - "USD"
-            default_currency: "USD"
+              - USD
+            default_currency: USD
           - channel_id: 664177
             enabled_currencies:
-              - "USD"
-              - "GBP"
-            default_currency: "USD"
+              - USD
+              - GBP
+            default_currency: USD
           - channel_id: 664179
             enabled_currencies:
-              - "USD"
-              - "AUD"
-            default_currency: "USD"
+              - USD
+              - AUD
+            default_currency: USD
           - channel_id: 667159
             enabled_currencies:
-              - "USD"
-            default_currency: "USD"
+              - USD
+            default_currency: USD
         meta: {}
     single_channel_currency_assignments_resp_example:
       value:
         data:
           channel_id: 1
           enabled_currencies:
-            - "USD"
-            - "GBP"
-            - "AUD"
-          default_currency: "USD"
+            - USD
+            - GBP
+            - AUD
+          default_currency: USD
         meta: {}
     delete_currency_assignments_resp_example:
       value:
@@ -1289,32 +1273,32 @@ components:
           - channel_id: 667159
             listing_id: 882998595
             product_id: 80
-            state: "active"
-            name: "Orbit Terrarium - Large"
-            description: "The same terrarium, but not a [Sample]"
-            date_created: "2021-05-24T17:46:33Z"
-            date_modified: "2021-05-24T17:46:33Z"
+            state: active
+            name: Orbit Terrarium - Large
+            description: 'The same terrarium, but not a [Sample]'
+            date_created: '2021-05-24T17:46:33Z'
+            date_modified: '2021-05-24T17:46:33Z'
             variants:
               - channel_id: 667159
                 product_id: 80
                 variant_id: 64
-                state: "active"
-                name: "Terrarium with dinosaur"
-                date_created: "2021-05-24T17:46:33Z"
-                date_modified: "2021-05-24T17:46:33Z"
+                state: active
+                name: Terrarium with dinosaur
+                date_created: '2021-05-24T17:46:33Z'
+                date_modified: '2021-05-24T17:46:33Z'
               - channel_id: 667159
                 product_id: 80
                 variant_id: 65
-                state: "active"
-                name: "Terrarium with fish"
-                date_created: "2021-05-24T17:46:33Z"
-                date_modified: "2021-05-24T17:46:33Z"
+                state: active
+                name: Terrarium with fish
+                date_created: '2021-05-24T17:46:33Z'
+                date_modified: '2021-05-24T17:46:33Z'
         meta:
           pagination:
             count: 1
             total: 1
             links:
-              current: "?page=1&limit=1000"
+              current: '?limit=1000'
             total_pages: 1
     multiple_listings_resp_example:
       value:
@@ -1322,56 +1306,55 @@ components:
           - channel_id: 664177
             listing_id: 882789361
             product_id: 80
-            state: "active"
-            name: "Orbit Terrarium - Large"
-            description: "The same terrarium, but not a [Sample]"
-            date_created: "2021-05-24T17:46:33Z"
-            date_modified: "2021-05-24T17:46:33Z"
+            state: active
+            name: Orbit Terrarium - Large
+            description: 'The same terrarium, but not a [Sample]'
+            date_created: '2021-05-24T17:46:33Z'
+            date_modified: '2021-05-24T17:46:33Z'
             variants:
               - channel_id: 664177
                 product_id: 80
                 variant_id: 64
-                state: "active"
-                name: "Terrarium with dinosaur"
-                date_created: "2021-05-24T17:46:33Z"
-                date_modified: "2021-05-24T17:46:33Z"
+                state: active
+                name: Terrarium with dinosaur
+                date_created: '2021-05-24T17:46:33Z'
+                date_modified: '2021-05-24T17:46:33Z'
               - channel_id: 664177
                 product_id: 80
                 variant_id: 65
-                state: "active"
-                name: "Terrarium with fish"
-                date_created: "2021-05-24T17:46:33Z"
-                date_modified: "2021-05-24T17:46:33Z"
-
+                state: active
+                name: Terrarium with fish
+                date_created: '2021-05-24T17:46:33Z'
+                date_modified: '2021-05-24T17:46:33Z'
           - channel_id: 664177
             listing_id: 882789362
             product_id: 100
-            state: "pending"
-            name: "Women's Bold T-Shirt"
-            description: "The same t-shirt, but not a [Sample]"
-            date_created: "2021-05-24T17:46:33Z"
-            date_modified: "2021-05-24T17:46:33Z"
+            state: pending
+            name: Women's Bold T-Shirt
+            description: 'The same t-shirt, but not a [Sample]'
+            date_created: '2021-05-24T17:46:33Z'
+            date_modified: '2021-05-24T17:46:33Z'
             variants:
               - channel_id: 664177
                 product_id: 100
                 variant_id: 91
-                state: "pending"
-                name: "Small women's bold t-shirt"
-                date_created: "2021-05-24T17:46:33Z"
-                date_modified: "2021-05-24T17:46:33Z"
+                state: pending
+                name: Small women's bold t-shirt
+                date_created: '2021-05-24T17:46:33Z'
+                date_modified: '2021-05-24T17:46:33Z'
               - channel_id: 664177
                 product_id: 100
                 variant_id: 92
-                state: "pending"
-                name: "Medium women's bold t-shirt"
-                date_created: "2021-05-24T17:46:33Z"
-                date_modified: "2021-05-24T17:46:33Z"
+                state: pending
+                name: Medium women's bold t-shirt
+                date_created: '2021-05-24T17:46:33Z'
+                date_modified: '2021-05-24T17:46:33Z'
         meta:
           pagination:
             count: 2
             total: 2
             links:
-              current: "?page=1&limit=1000"
+              current: '?limit=1000'
             total_pages: 1
     single_listing_with_empty_meta_resp_example:
       value:
@@ -1379,70 +1362,68 @@ components:
           channel_id: 667159
           listing_id: 882998595
           product_id: 80
-          state: "active"
-          name: "Orbit Terrarium - Large"
-          description: "The same terrarium, but not a [Sample]"
-          date_created: "2021-05-24T17:46:33Z"
-          date_modified: "2021-05-24T17:46:33Z"
+          state: active
+          name: Orbit Terrarium - Large
+          description: 'The same terrarium, but not a [Sample]'
+          date_created: '2021-05-24T17:46:33Z'
+          date_modified: '2021-05-24T17:46:33Z'
           variants:
             - channel_id: 667159
               product_id: 80
               variant_id: 64
-              state: "active"
-              name: "Terrarium with dinosaur"
-              date_created: "2021-05-24T17:46:33Z"
-              date_modified: "2021-05-24T17:46:33Z"
+              state: active
+              name: Terrarium with dinosaur
+              date_created: '2021-05-24T17:46:33Z'
+              date_modified: '2021-05-24T17:46:33Z'
             - channel_id: 667159
               product_id: 80
               variant_id: 65
-              state: "active"
-              name: "Terrarium with fish"
-              date_created: "2021-05-24T17:46:33Z"
-              date_modified: "2021-05-24T17:46:33Z"
+              state: active
+              name: Terrarium with fish
+              date_created: '2021-05-24T17:46:33Z'
+              date_modified: '2021-05-24T17:46:33Z'
         meta: {}
-
-    # Examples for error response
     error_400_resp_example:
       value:
         status: 400
-        title: "Input is invalid"
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        title: Input is invalid
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors: {}
     error_404_resp_example:
       value:
         status: 404
-        title: "Not found"
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        title: Not found
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors: {}
     error_404_entity_not_found_resp_example:
       value:
         status: 404
-        title: "The requested entity was not found."
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        title: The requested entity was not found.
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors: {}
     error_404_active_theme_not_found_resp_example:
       value:
         status: 404
-        title: "No active theme found with channel_id: 123456789"
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        title: 'No active theme found with channel_id: 123456789'
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors: {}
     error_404_listing_not_found_resp_example:
       value:
         status: 404
         title: 'Listing [123456789] not found'
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors: {}
     error_409_resp_example:
       value:
         status: 409
-        title: "Channel already exists with name: 'Facebook', platform: 'facebook' and type 'marketplace'"
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        title: 'Channel already exists with name: ''Facebook'', platform: ''facebook'' and type ''marketplace'''
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors: {}
     error_422_invalid_filter_value_resp_example:
       value:
         status: 422
-        title: "Query parameter \"limit\" value must be integer. For input string: \"a\"."
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        title: 'Query parameter "limit" value must be integer. For input string: "a".'
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors: {}
     error_422_channel_resp_example:
       value:
@@ -1455,97 +1436,96 @@ components:
     error_422_invalid_type_platform_combination_resp_example:
       value:
         status: 422
-        title: "Input channel type [marketplace] with platform [bigcommerce] is not supported"
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        title: 'Input channel type [marketplace] with platform [bigcommerce] is not supported'
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors: {}
     error_422_prevent_update_type_and_platform_resp_example:
       value:
         status: 422
-        title: "The following fields are invalid: type, platform"
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        title: 'The following fields are invalid: type, platform'
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors:
-          type: "The field 'type' can not be updated after channel is created."
-          platform: "The field 'platform' can not be updated after channel is created."
+          type: The field 'type' can not be updated after channel is created.
+          platform: The field 'platform' can not be updated after channel is created.
     error_422_prevent_update_deleted_channel_resp_example:
       value:
         status: 422
-        title: "A deleted channel cannot be updated. Channel can be restored within 90 days after deleting by contacting BigCommerce support team"
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        title: A deleted channel cannot be updated. Channel can be restored within 90 days after deleting by contacting BigCommerce support team
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors: {}
     error_422_multiple_channels_currency_assignments_resp_example:
       value:
         status: 422
-        title: "JSON data is missing or invalid"
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        title: JSON data is missing or invalid
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors:
-          0.channel_id: "error.expected.jsnumber"
-          0.enabled_currencies: "error.path.missing"
-          0.default_currency: "error.path.missing"
+          0.channel_id: error.expected.jsnumber
+          0.enabled_currencies: error.path.missing
+          0.default_currency: error.path.missing
     error_422_single_channel_currency_assignments_resp_example:
       value:
         status: 422
-        title: "JSON data is missing or invalid"
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        title: JSON data is missing or invalid
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors:
-          enabled_currencies: "error.path.missing"
-          default_currency: "error.path.missing"
+          enabled_currencies: error.path.missing
+          default_currency: error.path.missing
     error_422_invalid_enabled_currencies_resp_example:
       value:
         status: 422
-        title: "The following fields are invalid: enabled_currencies"
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        title: 'The following fields are invalid: enabled_currencies'
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors:
-          enabled_currencies: "The field 'enabled_currencies' contains the following currencies that have not been enabled [AWG]"
+          enabled_currencies: 'The field ''enabled_currencies'' contains the following currencies that have not been enabled [AWG]'
     error_422_invalid_channel_id_resp_example:
       value:
         status: 422
-        title: "The following channel_id's [123456789] are not valid for store 1000000000."
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        title: 'The following channel_id''s [123456789] are not valid for store 1000000000.'
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors: {}
     error_422_invalid_filters_resp_example:
       value:
         status: 422
-        title: "The filter(s): a, b are not valid filter parameter(s)."
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        title: 'The filter(s): a, b are not valid filter parameter(s).'
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors: {}
     error_422_product_id_mismatch_resp_example:
       value:
         status: 422
-        title: "0/0 product listing group(s) and 0/0 product listing(s) upserted. Invalid fields: "
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        title: '0/0 product listing group(s) and 0/0 product listing(s) upserted. Invalid fields: '
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors: {}
     error_422_missing_listing_required_fields_resp_example:
       value:
         status: 422
-        title: "JSON data is missing or invalid"
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        title: JSON data is missing or invalid
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors:
-          0.state: "error.path.missing"
-          0.variants: "error.path.missing"
-          0.product_id: "error.path.missing"
+          0.state: error.path.missing
+          0.variants: error.path.missing
+          0.product_id: error.path.missing
     error_422_missing_listing_variants_required_fields_resp_example:
       value:
         status: 422
-        title: "JSON data is missing or invalid"
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        title: JSON data is missing or invalid
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors:
-          0.variants.0.state: "error.path.missing"
-          0.variants.0.product_id: "error.path.missing"
-          0.variants.0.variant_id: "error.path.missing"
+          0.variants.0.state: error.path.missing
+          0.variants.0.product_id: error.path.missing
+          0.variants.0.variant_id: error.path.missing
     error_422_invalid_channel_id_v2_resp_example:
       value:
         status: 422
-        title: "Channel id (1000000) is not valid for store (1001808665)!"
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        title: Channel id (1000000) is not valid for store (1001808665)!
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors: {}
     error_422_invalid_listing_id_resp_example:
       value:
         status: 422
-        title: "0/0 product listing group(s) and 0/0 product listing(s) upserted. Invalid fields: group_id,"
-        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+        title: '0/0 product listing group(s) and 0/0 product listing(s) upserted. Invalid fields: group_id,'
+        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors:
-          group_id: "Group id (0) for store (1001808665) cannot be less than or equal to zero!"
-
+          group_id: Group id (0) for store (1001808665) cannot be less than or equal to zero!
   securitySchemes:
     X-Auth-Token:
       type: apiKey
@@ -1579,7 +1559,6 @@ components:
 
 
         * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
-
   schemas:
     ChannelId:
       type: integer
@@ -1593,7 +1572,7 @@ components:
       type: integer
       format: int64
       minimum: 1
-      description: The ID of the channel listing that has been created, returned, or updated.
+      description: 'The ID of the channel listing that has been created, returned, or updated.'
     ProductId:
       type: integer
       format: int64
@@ -1604,10 +1583,10 @@ components:
       description: The ID of the product variant associated with this channel listing.
     ExternalId:
       type: string
-      description: 'Associated ID within a system / platform outside of BC.'
+      description: Associated ID within a system / platform outside of BC.
     IsListableFromUI:
       type: boolean
-      description: 'Indicates if a channel can create listings from the BigCommerce UI. Default value for this field is based on the channel type and platform combination if not specified on create.'
+      description: Indicates if a channel can create listings from the BigCommerce UI. Default value for this field is based on the channel type and platform combination if not specified on create.
     IsVisible:
       type: boolean
       description: 'Indicates if a channel is visible within the BigCommerce merchant admin UI (control panel). If `false`, the channel will not show in Channel Manager nor in any channels dropdown throughout the UI. Default value for this field is `true` if not specified on create.'
@@ -1663,16 +1642,16 @@ components:
       description: 'Default currency for the channel in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three character alphabetic format. Will be used on storefront when other currencies cannot.'
     ChannelProductName:
       type: string
-      description: Name of the product for this channel listing specifically. This is an optional field that can be used to override the product name in the catalog. 
+      description: Name of the product for this channel listing specifically. This is an optional field that can be used to override the product name in the catalog.
     ChannelProductVariantName:
       type: string
-      description: Name of the product variant for this channel listing specifically. This is an optional field that can be used to override the name of the product variant in the catalog. 
+      description: Name of the product variant for this channel listing specifically. This is an optional field that can be used to override the name of the product variant in the catalog.
     ChannelProductDescription:
       type: string
-      description: Description of the product for this channel listing specifically. This is an optional field that can be used to override the product description in the catalog. 
+      description: Description of the product for this channel listing specifically. This is an optional field that can be used to override the product description in the catalog.
     ChannelProductVariantDescription:
       type: string
-      description: Description of the product variant for this channel listing specifically. This is an optional field that can be used to override the description of the product variant in the catalog. 
+      description: Description of the product variant for this channel listing specifically. This is an optional field that can be used to override the description of the product variant in the catalog.
     ChannelListingDateCreated:
       type: string
       format: date-time
@@ -1718,7 +1697,6 @@ components:
         - rejected
         - submitted
         - deleted
-
     ChannelConfigMeta:
       type: object
       description: Optional channel configuration object.
@@ -1729,7 +1707,7 @@ components:
           properties:
             id:
               type: integer
-              description: "The unique `id` given to an app registered in [DevTools](https://devtools.bigcommerce.com/); used to create links to the app in channel manager. `app.id` is optional; however, if you're building an app that creates or manages a channel, we recommend including it to ensure the user interface in the control panel works properly. Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request. [Learn how to find an App''s ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id)."
+              description: 'The unique `id` given to an app registered in [DevTools](https://devtools.bigcommerce.com/); used to create links to the app in channel manager. `app.id` is optional; however, if you''re building an app that creates or manages a channel, we recommend including it to ensure the user interface in the control panel works properly. Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request. [Learn how to find an App''''s ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).'
             sections:
               type: array
               description: 'If set, when the app is loaded within the control panel, the navigation `sections` will be directly embedded in the control panel navigation.'
@@ -1778,7 +1756,6 @@ components:
       required:
         - enabled_currencies
         - default_currency
-
     CreateChannelReq:
       type: object
       properties:
@@ -1824,7 +1801,7 @@ components:
     UpsertMultipleChannelsCurrencyAssignmentsReq:
       type: array
       items:
-        $ref: "#/components/schemas/CurrencyRequiredWithChannelId"
+        $ref: '#/components/schemas/CurrencyRequiredWithChannelId'
     CreateMultipleListingsReq:
       type: array
       items:
@@ -1922,7 +1899,6 @@ components:
           $ref: '#/components/schemas/ChannelListingVariantDateCreated'
         date_modified:
           $ref: '#/components/schemas/ChannelListingVariantDateModified'
-
     ChannelWithoutCurrencies:
       type: object
       properties:
@@ -1982,7 +1958,7 @@ components:
         icon_url:
           $ref: '#/components/schemas/IconUrl'
         currencies:
-          $ref:  "#/components/schemas/CurrencyNotRequiredWithChannelId"
+          $ref: '#/components/schemas/CurrencyNotRequiredWithChannelId'
     ActiveTheme:
       type: object
       description: Details about the Channel's relationship to Themes.
@@ -1998,7 +1974,7 @@ components:
           description: The UUID of the currently active Theme Version on the Channel. Needed to look up the available Custom Templates for the Theme.
         saved_theme_configuration_uuid:
           type: string
-          description: The UUID of the most recently saved Theme Configuration. If this is different from the active Theme Configuration UUID, this indicates that some changes have been saved in the control panel Theme Editor that have not yet been published.
+          description: 'The UUID of the most recently saved Theme Configuration. If this is different from the active Theme Configuration UUID, this indicates that some changes have been saved in the control panel Theme Editor that have not yet been published.'
     Listing:
       type: object
       properties:
@@ -2040,7 +2016,6 @@ components:
         errors:
           type: object
           description: Provides more details to errors.
-
     MetaWithFullPagination:
       type: object
       description: 'Data about the response, including pagination.'
@@ -2056,7 +2031,6 @@ components:
     EmptyMeta:
       type: object
       description: Empty meta object; may be used later.
-
     pagination_Full:
       type: object
       description: |
@@ -2132,7 +2106,6 @@ components:
           type: integer
           description: |
             The total number of pages in the collection.
-
     site_Put:
       type: object
       properties:
