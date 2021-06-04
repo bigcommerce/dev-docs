@@ -40,8 +40,9 @@ The open source BigCommerce for WordPress (BC4WP) plugin currently supports the 
 * Enterprise systems integrations (connect to existing ERP suites, PIM software, OMS solutions, POS systems, or marketing automation tools)
 * Faceted search with FacetWP and search with SearchWP
 * Multi-site selling
-* Multi-channel selling (eBay, Amazon, Facebook, Instagram, Google Shopping, Square and more) and Central Management (bulk listing, automatic inventory syncing, unified order and fulfillment management)
+* Multi-channel selling (eBay, Amazon, Facebook, Instagram, Google Shopping, Square, and more) and Central Management (bulk listing, automatic inventory syncing, unified order and fulfillment management)
 * Shopper wishlists
+* Shipping calculator on Cart page
 
 ### Supported payment gateways
 
@@ -59,7 +60,6 @@ BC4WP does not support the following payment gateways:
 * AfterPay
 * Google Pay
 * Masterpass
-
 
 ## Unsupported features
 
@@ -82,7 +82,6 @@ We plan on supporting and improving the following features in the BC4WP plugin:
 * Moderation and management of product reviews
 * Additional theme styling within customizer
 * Multi-currency
-* Abandoned cart saver 
-* Shipping calculation on cart page
+* Abandoned cart saver
 * Promotional banner support
 * Page builder plugins support
