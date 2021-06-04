@@ -42,7 +42,7 @@ BigCommerce has over 65 payment gateway integrations available out-of-the box, s
 
 * PayPal Express (now called PayPal Checkout)
 * PayPal through Braintree
-* All non-hosted (API) gateways that are supported by Optimized One Page Checkout 
+* All non-hosted (API) gateways that are supported by Optimized One-Page Checkout 
 
 ### Unsupported payment gateways
 
