@@ -20,7 +20,17 @@ The open source BigCommerce for WordPress (BC4WP) plugin currently supports the 
 * Product variants and product variant pricing
 * Product promotions
 * Secure shopper accounts and logins with PCI compliant checkout
-* Cart, Checkout, account profiles, sign in, shipping & returns, gift certificates, and Order History pages for shoppers
+* The following WordPress pages are created when BC4WP is installed:
+  * Account Profile
+  * Addresses
+  * Cart
+  * Checkout
+  * Checkout Complete
+  * Sign-In
+  * Shipping and Returns
+  * Gift Certificates
+  * Order History
+  * Wish Lists
 * Ability to overwrite template files
 * ShipperHQ integration
 * Gutenberg and Classic Editor
