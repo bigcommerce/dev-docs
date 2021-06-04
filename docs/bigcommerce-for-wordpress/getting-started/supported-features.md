@@ -43,6 +43,8 @@ The open source BigCommerce for WordPress (BC4WP) plugin currently supports the 
 * Multi-channel selling (eBay, Amazon, Facebook, Instagram, Google Shopping, Square, and more) and Central Management (bulk listing, automatic inventory syncing, unified order and fulfillment management)
 * Shopper wishlists
 * Shipping calculator on Cart page
+* Abandoned cart recovery
+
 
 ### Supported payment gateways
 
@@ -82,6 +84,5 @@ We plan on supporting and improving the following features in the BC4WP plugin:
 * Moderation and management of product reviews
 * Additional theme styling within customizer
 * Multi-currency
-* Abandoned cart saver
 * Promotional banner support
 * Page builder plugins support
