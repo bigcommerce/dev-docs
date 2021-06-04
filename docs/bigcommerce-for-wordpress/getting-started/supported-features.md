@@ -5,15 +5,15 @@
 <div class="otp" id="no-index">
 
 ### On this page
-- [BigCommerce for WordPress supported features](#bigcommerce-for-wordpress-supported-features)
-- [BigCommerce for WordPress unsupported features](#bigcommerce-for-wordpress-unsupported-features)
+- [Supported features](#supported-features)
+- [Unsupported features](#unsupported-features)
 - [General product roadmap](#general-product-roadmap)
 
 </div>
 
-## BigCommerce for WordPress supported features
+## Supported features
 
-The open source BigCommerce for WordPress plugin currently supports the following features and capabilities that are native to the BigCommerce platform and more:
+The open source BigCommerce for WordPress (BC4WP) plugin currently supports the following features and capabilities that are native to the BigCommerce platform and more:
 
 * Complex product catalog (600 SKUs per product, 250 product values for a single option)
 * Product pick lists and bundled products
@@ -35,7 +35,7 @@ The open source BigCommerce for WordPress plugin currently supports the followin
 
 ### Supported payment gateways
 
-BigCommerce has over 65 payment gateway integrations available out-of-the box, serving 100+ countries and over 250 local payment methods. BigCommerce for WordPress currently supports the following payment gateways:
+BigCommerce has over 65 payment gateway integrations available out-of-the box, serving 100+ countries and over 250 local payment methods. BC4WP supports the following payment gateways:
 
 * PayPal Express (now called PayPal Checkout)
 * PayPal through Braintree
@@ -43,7 +43,7 @@ BigCommerce has over 65 payment gateway integrations available out-of-the box, s
 
 ### Unsupported payment gateways
 
-The following payment gateways are currently not supported:
+BC4WP does not support the following payment gateways:
 
 * Amazon Pay
 * AfterPay
@@ -51,9 +51,9 @@ The following payment gateways are currently not supported:
 * Masterpass
 
 
-## BigCommerce for WordPress unsupported features
+## Unsupported features
 
-The BigCommerce for WordPress plugin does not currently support the following features: 
+BC4WP does not support the following features: 
 
 * Product file upload field
 * Warranty, availability fields
@@ -65,7 +65,7 @@ The BigCommerce for WordPress plugin does not currently support the following fe
 
 ## General product roadmap
 
-We plan on supporting and improving the following features in the BigCommerce for WordPress plugin:
+We plan on supporting and improving the following features in the BC4WP plugin:
 
 * Product modifier improvements
 * Product variant images
