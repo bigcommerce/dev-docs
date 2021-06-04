@@ -13,27 +13,16 @@
 
 ## Supported features
 
-The open source BigCommerce for WordPress (BC4WP) plugin currently supports the following features and capabilities that are native to the BigCommerce platform and more:
+The BigCommerce for WordPress (BC4WP) plugin supports the following features:
 
 * Complex product catalog (600 SKUs per product, 250 product values for a single option)
 * Product pick lists and bundled products
 * Product variants and product variant pricing
 * Product promotions
 * Secure shopper accounts and logins with PCI compliant checkout
-* The following WordPress pages are created when BC4WP is installed:
-  * Account Profile
-  * Addresses
-  * Cart
-  * Checkout
-  * Checkout Complete
-  * Sign-In
-  * Shipping and Returns
-  * Gift Certificates
-  * Order History
-  * Wish Lists
-* Ability to overwrite template files
+* Ability to overwrite and customize template files
 * ShipperHQ integration
-* Gutenberg and Classic Editor
+* Gutenberg and Classic Editor integration
 * Google accelerated mobile pages 
 * Google address autocomplete 
 * Facebook Pixel 
@@ -42,9 +31,10 @@ The open source BigCommerce for WordPress (BC4WP) plugin currently supports the 
 * Multi-site selling
 * Multi-channel selling (eBay, Amazon, Facebook, Instagram, Google Shopping, Square, and more) and Central Management (bulk listing, automatic inventory syncing, unified order and fulfillment management)
 * Shopper wishlists
-* Shipping calculator on Cart page
+* Shipping calculator
 * Abandoned cart recovery
-
+* Theme styling within customizer
+* Coupon codes
 
 ### Supported payment gateways
 
@@ -82,7 +72,6 @@ We plan on supporting and improving the following features in the BC4WP plugin:
 * Product modifier improvements
 * Product variant images
 * Moderation and management of product reviews
-* Additional theme styling within customizer
 * Multi-currency
 * Promotional banner support
 * Page builder plugins support
