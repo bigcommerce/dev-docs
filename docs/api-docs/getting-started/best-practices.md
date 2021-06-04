@@ -76,7 +76,8 @@ Apps that authenticate with OAuth are rate-limited based on a quota that is refr
 | All other sandboxes (Dev/Partner/Employee) | 20k per hour (150 / 30sec)| 
 | Plus & Standard plans| 20k per hour (150 / 30sec) | 
 
-_\* The "Unlimited" rate limit on BigCommerce Enterprise plans means that stores on these plans will not be artificially rate limited on the basis of API-requests-per-unit-of-time. However, there are physical limits to the infrastructure which may limit the maximum throughput of requests on any given API endpoint. BigCommerce reserves the right to limit unreasonable or abusive API activity in the interest platform stability, per our Terms of Service._
+_\* The **Unlimited** rate limit on BigCommerce Enterprise plans means that stores on this plan will not be artificially rate-limited on the basis of API-requests-per-unit-of-time. However, there are physical limits to the infrastructure which may limit the maximum throughput of requests on any given API endpoint. BigCommerce also reserves the right to limit unreasonable or abusive API activity in the interest of platform stability, per our [Terms of Service](https://www.bigcommerce.com/terms/api-terms/)._
+
 
 Each request to the API consumes one available request from the quota. When an app hits the quota limit, subsequent requests are rejected until the quota is refreshed.
 
