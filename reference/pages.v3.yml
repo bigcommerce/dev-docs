@@ -221,7 +221,7 @@ paths:
     put:
       operationId: content-pages-put
       description: |-
-        Updates content pages.
+        Updates a content page.
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
@@ -240,6 +240,23 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PagePut'
+            examples:
+              example-1:
+                value:
+                  id: 9
+                  channel_id: 1
+                  name: Content Page
+                  meta_title: Content Page
+                  is_visible: false
+                  parent_id: 0
+                  sort_order: 0
+                  type: page
+                  meta_keywords: ''
+                  meta_description: string
+                  is_homepage: false
+                  is_customers_only: false
+                  search_keywords: 'content, api'
+                  url: /my-content-page
         description: ''
         required: true
       responses:
@@ -251,25 +268,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/PageResponse'
               examples:
-                response:
+                Response:
                   value:
                     data:
-                      email: string
-                      meta_title: string
-                      body: <div>Hello World!</div>
-                      meta_keywords: string
-                      meta_description: string
-                      search_keywords: page
-                      url: /my-content-page
+                      id: 9
                       channel_id: 1
                       name: Content Page
-                      is_visible: true
+                      meta_title: Content Page
+                      email: ''
+                      is_visible: false
                       parent_id: 0
                       sort_order: 0
+                      description: null
                       type: page
-                      is_homepage: true
-                      is_customers_only: true
-                    id: 1
+                      meta_keywords: ''
+                      meta_description: string
+                      is_homepage: false
+                      is_customers_only: false
+                      search_keywords: 'content, api'
+                      content_type: text/html
+                      url: /my-content-page
+                    meta: {}
         '422':
           description: |
             The `Page` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
@@ -277,7 +296,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-      summary: Update Pages
+      summary: Update a Page
     delete:
       operationId: content-pages-delete
       tags:
@@ -312,7 +331,7 @@ paths:
           description: Channel Id provided to delete all pages for a given Channel
       summary: Delete a Page
 servers:
-  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+  - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3'
     description: Pages API Gateway
     variables:
       store_hash:
@@ -413,6 +432,7 @@ components:
                 The unique numeric ID of the page.
           required:
             - id
+      x-examples: {}
     Page:
       allOf:
         - type: object
@@ -575,3 +595,10 @@ components:
             id:
               type: integer
               description: ID of the page.
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      type: apiKey
+      in: header
+security:
+  - X-Auth-Token: []
