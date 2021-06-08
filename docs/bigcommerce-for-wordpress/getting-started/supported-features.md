@@ -36,6 +36,18 @@ The BigCommerce for WordPress (BC4WP) plugin supports the following features:
 * Theme styling within customizer
 * Coupon codes
 
+## Unsupported features
+
+BC4WP does not support the following features: 
+
+* Product file upload field
+* Warranty, availability fields
+* Persistent cart
+* Cart preview
+* Cart page promotional banners
+* Real-time syncing with BigCommerce catalog updates
+* Google Analytics Enhanced Ecommerce
+
 ### Supported payment gateways
 
 BigCommerce has over 65 payment gateway integrations available out-of-the box, serving 100+ countries and over 250 local payment methods. BC4WP supports the following payment gateways:
@@ -52,18 +64,6 @@ BC4WP does not support the following payment gateways:
 * AfterPay
 * Google Pay
 * Masterpass
-
-## Unsupported features
-
-BC4WP does not support the following features: 
-
-* Product file upload field
-* Warranty, availability fields
-* Persistent cart
-* Cart preview
-* Cart page promotional banners
-* Real-time syncing with BigCommerce catalog updates
-* Google Analytics Enhanced Ecommerce
 
 ## General product roadmap
 
