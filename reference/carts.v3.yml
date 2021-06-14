@@ -114,6 +114,18 @@ paths:
                   name: Custom Product
                   quantity: 1
                   list_price: 10
+            Options Selections:
+              line_items:
+                - quantity: 5
+                  product_id: 118
+                  variant_id: 115
+                  option_selections:
+                    - option_id: 121
+                      option_value: 10
+                      name: Size
+                      name_id: 125
+                      value: Small
+                      value_id: 125
           description: |-
             **Examples:**
 
@@ -2514,6 +2526,10 @@ definitions:
               value:
                 type: string
                 description: Override selected Option Value
+              name_id:
+                type: integer
+              value_id:
+                type: integer
       required:
         - quantity
         - product_id
