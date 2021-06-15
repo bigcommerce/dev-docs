@@ -27,6 +27,19 @@ You will need to use the [Channels, Sites, and Routes](https://developer.bigcomm
 
 Embedded Checkout requires the BigCommerce Checkout SDK to invoke a method to render the checkout in your site. Learn more about the [Checkout SDK](https://developer.bigcommerce.com/api-docs/cart-and-checkout/checkout-sdk).
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+### Note 
+Translated strings are not supported through Stencil and therefore are not available if using embedded checkout. To display translated strings at checkout, we suggest using a custom [Checkout](https://developer.bigcommerce.com/stencil-docs/localization/multi-language-checkout). 
+
+</div>
+</div>
+</div>
+
 ## Logged-In customers
 
 The [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api) allows you to manage customers in two steps. First, you need to pass the `customer_id` when creating the cart. Second, you need to log in the customer, so the session is active when the checkout loads.
