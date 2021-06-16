@@ -196,7 +196,27 @@ paths:
         IsMultiContentStreaming: false
   '/checkouts/{checkoutId}/consignments':
     post:
-      description: "Adds a new *Consignment* to *Checkout*.\n\n\nThere are two steps to add a new shipping address and shipping options with line items. \n* Add a new Consignment to Checkout.\n\t* Send a POST to Consignments with each shipping address and line items IDs. Each address can have its own line item IDs.\n\n* [Update the Consignment](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) with Shipping Options.\n\n\n**Required Fields**\n* shipping_address\n* line_items"
+      description: |-
+        Adds a new consignment to a checkout.
+
+
+        There are two steps to create a new consignment with a shipping address, line items, and shipping option. 
+        1. Add a new consignment to a checkout. Append the following query parameter to your `POST` request to also return `available_shipping_options` necessary for step two: `?include=consignments.available_shipping_options`. 
+        2. [Update the consignment](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) with one of the available shipping options returned from your `POST` request.
+
+        Though the only required `shipping_address` properties to create a consignment are `email` and `country_code`, to successfully [create an order](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-orders/createanorder) the `shipping_address` requires the following properties:
+        * `first_name`
+        * `last_name`
+        * `address1`
+        * `city`
+        * `country`
+        * `email`
+        * `country_code`
+
+        Depending on the country, the following `shipping_address` properties can also be required:
+
+        * `postal_code`
+        * `state_or_province`
       summary: Add Consignment to Checkout
       tags:
         - Checkout Consignments
@@ -284,7 +304,12 @@ paths:
         IsMultiContentStreaming: false
   '/checkouts/{checkoutId}/consignments/{consignmentId}':
     put:
-      description: "Updates an existing consignment. Shipping address, line item IDs or the shipping option ID can be updated using this endpoint.\n\nThere are two steps to add a new shipping address and shipping options with line items. \n1. Add a [new Consignment](/api-reference/cart-checkout/server-server-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) to Checkout.\n2. Update the Consignment with Shipping Options.\n\t1. Update each *Consignment* `shipping_option_id` (shipping address and line items) with the `available_shipping_option > id` from Step One. \n\n\n**Required Fields**\n* shipping_option_id"
+      description: |-
+        Updates an existing consignment. Shipping address, line item IDs or the shipping option ID can be updated using this endpoint.
+
+        There are two steps to add a new shipping address and shipping options with line items. 
+        1. Add a new [consignment](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) to a checkout.
+        2. Assign a shipping option to the new consignment by sending a `PUT` request to update the consignment's `shipping_option_id` with a returned value from `data.consignments[N].available_shipping_option[N].id` in step one.
       summary: Update Checkout Consignment
       tags:
         - Checkout Consignments
@@ -363,9 +388,9 @@ paths:
           $ref: '#/responses/CheckoutResponse'
     delete:
       description: |-
-        Removes an existing consignment from checkout.
+        Removes an existing consignment from a checkout.
 
-        Removing the last consigment will remove the Cart from the customer it is assigned to. Create a new rediret url for the customer to access it again.
+        Removing the last consigment will remove the Cart from the customer it is assigned to. Create a new redirect url for the customer to access it again.
       summary: Delete Checkout Consignment
       tags:
         - Checkout Consignments
@@ -1352,7 +1377,7 @@ definitions:
           type: object
           properties:
             item_id:
-              description: Corresponds to `line_items` > `id in Checkout response.
+              description: 'Corresponds to `line_items.physical_items[N].id` value from `GET`checkout response.'
               type: string
             quantity:
               description: ''
@@ -1363,7 +1388,7 @@ definitions:
             - quantity
   UpdateConsignmentRequest:
     title: Update Consignment Request
-    description: 'One or more of these three fields are mandatory. Shipping address and line items can be updated in one request. Shipping option ID has to be updated in a separate request, since changing the address or line items can invalidate the previously available shipping options.'
+    description: One or more of these three fields are mandatory. `shipping_address` and `line_items` can be updated in one request. `shipping_option_id` has to be updated in a separate request since changing the address or line items can invalidate the previously available shipping options.
     type: object
     properties:
       shipping_address:
@@ -1431,7 +1456,7 @@ definitions:
           type: object
           properties:
             item_id:
-              description: Corresponds to `line_items` > `id in Checkout response.
+              description: 'Corresponds to `line_items.physical_items[N].id` value from `GET`checkout response.'
               type: string
             quantity:
               description: ''
