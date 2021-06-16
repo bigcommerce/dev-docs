@@ -45,12 +45,21 @@ Cornerstone and other themes can also be downloaded from the BigCommerce control
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
+<<<<<<< HEAD
 
 <!-- theme: info -->
 
 ### Note  
 Downloading a theme does not include the current configuration of a theme. Run a [stencil pull](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands#stencil-pull) command to obtain the theme's most recently saved version (appears only for themes customized for this store).
 
+=======
+
+<!-- theme: info -->
+
+### Note  
+Downloading a theme does not include the current configuration of a theme. Run a [stencil pull](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands#stencil-pull) command to obtain the theme's most recently saved version (appears only for themes customized for this store).
+
+>>>>>>> master
 </div>
 </div>
 </div>
@@ -159,6 +168,20 @@ For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](
 
 ### BitBucket re-authentication
 > If you receive error messages about resolving BitBucket as an SSH host when running `stencil init`, enter the BitBucket password used to set up the BitBucket SSH Keys when prompted.
+
+</div>
+</div>
+</div>
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+### Debugging your theme  
+The Stencil framework provides built-in debugging tools to aid in your custom front-end development. To see what data is available on the page you are working on, add the debug query string to your store's localhost URL. For example, `http://localhost:3000/product/sample-product?debug=context`. This string will return a list of all the objects on the page in JSON syntax. If you want to view the available JSON objects and rendered page simultaneously, change the debug value to `bar`. For example, `http://localhost:3000/product/sample-product?debug=bar`.
+
 
 </div>
 </div>
