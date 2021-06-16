@@ -269,7 +269,7 @@ paths:
             examples:
               example-1:
                 value:
-                  - email: string
+                  - email: string@example.com
                     first_name: string
                     last_name: string
                     company: string
@@ -291,7 +291,7 @@ paths:
                         state_or_province: California
                     attributes:
                       - attribute_id: 55
-                        value: string
+                        attribute_value: string
                     authentication:
                       force_password_reset: true
                       new_password: string
@@ -4185,6 +4185,7 @@ components:
         - email
         - first_name
         - last_name
+        - addresses
     customer_Put:
       title: customer_Put
       type: object
@@ -4997,7 +4998,7 @@ components:
           format: int32
           example: 55
           description: Attribute ID.
-        value:
+        attribute_value:
           type: string
           example: string
           minLength: 0
