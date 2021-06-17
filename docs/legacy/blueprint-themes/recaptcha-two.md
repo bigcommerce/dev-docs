@@ -164,7 +164,6 @@ Below are the browsers supported for the BigCommerce control panel. We drop supp
 |-|
 | Chrome latest |
 | Firefox latest |
-| Internet Explorer 11 or later |
 | Safari latest |
 
 For a current list of target browsers (desktop and mobile) that BigCommerce supports for _storefronts_ using our themes, please see <NOBR><a href="https://forum.bigcommerce.com/s/article/Themes-Supported-Browsers" target="_blank">this support page</a>.</nobr>
