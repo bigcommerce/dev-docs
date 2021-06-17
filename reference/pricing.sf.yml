@@ -24,7 +24,7 @@ info:
 paths:
   /pricing/products:
     post:
-      summary: Get Prices
+      summary: Get Prices (Batch)
       operationId: get-prices
       parameters:
         - name: body
@@ -335,7 +335,7 @@ paths:
               meta: {}
       tags:
         - Products
-      description: 'Get get a product or SKU''s price for a specific channel, currency, and customer group.'
+      description: 'Calculate batch pricing for products for a specific channel, currency, and customer group.'
 definitions:
   BulkPricingTier:
     type: object
