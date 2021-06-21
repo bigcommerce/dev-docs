@@ -1,6 +1,21 @@
 # Guides
 
-### CLI setup instructions
+<div class="otp" id="no-index">
+	
+### On this page
+
+- [CLI setup instructions](#cli-setup-instructions)
+- [Set up and recommendtions for cron](#set-up-and-recommendtions-for-cron)
+- [Stop unnecessary webhooks](#stop-unnecessary-webhooks)
+- [Localizing strings displayed on the storefront](#localizing-strings-displayed-on-the-storefront)
+- [Styling checkout](#styling-checkout)
+- [Hide WordPress admin bar for customers](#hide-wordpress-admin-bar-for-customers)
+- [Gutenberg Support](#gutenberg-support)
+- [Creating Your Own Blocks](#creating-your-own-blocks)
+
+</div>
+
+## CLI setup instructions
 
 The import process will run faster and more reliably if run from the command line.
 
@@ -20,7 +35,7 @@ Subsequent imports will only update products that have changed since the last im
 
 `wp bigcommerce import products --force`
 
-### Set up and recommendtions for cron
+## Set up and recommendtions for cron
 
 WordPress sites will generally operate more efficiently if WordPress's default cron is disabled and replaced with a server-side cron job.
 
@@ -33,13 +48,13 @@ To disable WordPress's default cron, follow these steps:
 `* * * * * /usr/bin/wp cron event run --due-now --quiet > /dev/null 2>&1`
 Running the job every minute is generally recommended.
 
-### Stop unnecessary webhooks
+## Stop unnecessary webhooks
 
 BigCommerce contains a number of webhooks that your site may benefit from. We recommend disabling unused webhooks to enhance performance. To disable the webhooks you do not need, use the [Webhooks API](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview) and update the `is_active` fields to false.
 
 Because webhooks are associated by client ID, make sure you are using BigCommerce for WordPress API credentials to make these Webhook API calls.
 
-### Localizing strings displayed on the storefront
+## Localizing strings displayed on the storefront
 
 You can localize the language used by BC4WP to display messages on your storefront. The array `$js_i18n_array` defined in `src/BigCommerce/Assets/Theme/JS_Localization.php:19` contains all strings used by `assets/js/dist/scripts.js` to display messages on the front-end.
 
@@ -113,7 +128,7 @@ Once you save the file, WordPress will now localize the modified string when an 
 2. Filter `$js_i18n_array` and update the value for `ajax_add_to_cart_success` to `'Ttem added to cart. <a href="/cart">View Cart!</a>'` before being returned on the following line by our return statement.
 3. `Scripts.js` displays this updated string when a user adds an item to their cart.
 
-### Styling checkout
+## Styling checkout
 
 BigCommerce for WordPress offers two possible checkout experiences, depending on whether the WordPress site has an installed SSL certificate.
 
@@ -121,16 +136,16 @@ If no SSL is detected, WordPress redirects shoppers to your BigCommerce checkout
 
 If an SSL is detected, BC4WP seamlessly embeds BigCommerce’s secure one-page checkout through an iFrame on your WordPress checkout page.
 
-### Hide WordPress admin bar for customers
+## Hide WordPress admin bar for customers
 
 The default setup of WordPress shows an admin bar at the top of every page for every logged in user. It provides a link back to the main site, the user's name, and the ability to log out. This is reasonable for sites that are mainly content and might have additional custom actions in the bar, but for commerce-focused sites you may want to hide it.
 
 For a BigCommerce for WordPress child plugin that hides the bar for customers, see [BC4WP plugin](https://github.com/becomevocal/bc4wp-hide-wp-admin-bar-for-customers).
 
-### Gutenberg Support
+## Gutenberg Support
 
 The WordPress Gutenberg Visual Editor provides users the ability to easily compose a page by adding and arranging blocks of content. Some blocks come with WordPress by default -- paragraph, image, list, and audio blocks, for example. Additionally, WordPress plugins can extend Gutenberg by adding their own blocks to the Visual Editor's Add Block dropdown. The BigCommerce for Wordpress plugin is packed with custom blocks that put the power of BigCommerce in the hands of WordPress developers.
 
-### Creating Your Own Blocks
+## Creating Your Own Blocks
 
 The source code behind the BigCommerce for WordPress Gutenberg blocks is available on [GitHub](https://github.com/bigcommerce/bigcommerce-for-wordpress/tree/master/src/BigCommerce/Editor/Gutenberg/Blocks). Developers can use these blocks as a starting point for creating their own, customized BigCommerce Gutenbenberg editor blocks.

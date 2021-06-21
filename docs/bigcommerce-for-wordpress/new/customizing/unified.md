@@ -1,3 +1,11 @@
+<div class="otp" id="no-index">
+	
+### On this page
+- [Overview](#overview)
+- [Overriding Styles](#overriding-styles)
+
+</div>
+
 ## Overview
 
 BigCommerce for WordPress (BC4WP) is compatible out-of-the-box with all standard WordPress themes and includes full support for the Genesis theme framework. The plugin includes templates and stylesheets to render all of the elements and pages you need to merchandise your products and move shoppers through checkout, including:

@@ -1,3 +1,13 @@
+<div class="otp" id="no-index">
+	
+### On this page
+- [Overview](#overview)
+- [Hooks](#hooks)
+- [Accessing BigCommerce data](#accessing-bigcommerce-data)
+- [Proxy REST API Endpoints](#proxy-rest-api-endpoints)
+
+</div>
+
 ## Overview
 
 [placeholder]

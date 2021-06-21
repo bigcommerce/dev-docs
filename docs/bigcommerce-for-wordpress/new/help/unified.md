@@ -1,5 +1,14 @@
 ## Details on how to debug
 
+<div class="otp" id="no-index">
+	
+### On this page
+
+- [Details on how to debug](#details-on-how-to-debug)
+- [Troubleshooting](#troubleshooting)
+
+</div>
+
 If the site is not importing as expected, enable diagnostic logging to produce a detailed log of the import process.
 
 ![Diagnostic logging](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/details-on-how-to-debug.png)
