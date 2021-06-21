@@ -27,9 +27,6 @@ All actions and filters called by the plugin begin with the `bigcommerce/` prefi
 
 The entire plugin operates through closures wrapped around calls to classes instantiated via a dependency injection container. In the event that you need to modify the core behavior of the plugin, there are several methods to get access to these closures.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
 
 ## Accessing BigCommerce data
 
