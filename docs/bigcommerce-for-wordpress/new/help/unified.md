@@ -1,4 +1,5 @@
-## Details on how to debug
+# Help
+
 
 <div class="otp" id="no-index">
 	
@@ -8,6 +9,8 @@
 - [Troubleshooting](#troubleshooting)
 
 </div>
+
+## Details on how to debug
 
 If the site is not importing as expected, enable diagnostic logging to produce a detailed log of the import process.
 
