@@ -1,6 +1,5 @@
 # Code Reference
 
-## Code reference
 To search the BigCommerce for WordPress (BC4WP) codebase for detailed entries on available hooks, functions, classes, and methods, visit the [BigCommerce Plugin Code Reference](https://bigcommerce.moderntribe.qa/).
 
 
