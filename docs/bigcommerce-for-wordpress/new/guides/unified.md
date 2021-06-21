@@ -4,14 +4,10 @@
 	
 ### On this page
 
-- [CLI setup instructions](#cli-setup-instructions)
-- [Set up and recommendtions for cron](#set-up-and-recommendtions-for-cron)
-- [Stop unnecessary webhooks](#stop-unnecessary-webhooks)
-- [Localizing strings displayed on the storefront](#localizing-strings-displayed-on-the-storefront)
-- [Styling checkout](#styling-checkout)
-- [Hide WordPress admin bar for customers](#hide-wordpress-admin-bar-for-customers)
-- [Gutenberg Support](#gutenberg-support)
-- [Creating Your Own Blocks](#creating-your-own-blocks)
+- [Importing and syncing](#importing-and-syncing)
+- [Performance](#performance)
+- [Styling and templates](#styling-and-templates)
+- [Extending BC4WP](#extending-bc4wp)
 
 </div>
 
