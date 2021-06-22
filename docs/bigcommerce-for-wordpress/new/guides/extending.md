@@ -7,6 +7,7 @@
 - [Gutenberg Support](#gutenberg-support)
 - [Creating Your Own Blocks](#creating-your-own-blocks)
 </div>
+
 ## Gutenberg Support
 
 The WordPress Gutenberg Visual Editor provides users the ability to easily compose a page by adding and arranging blocks of content. Some blocks come with WordPress by default -- paragraph, image, list, and audio blocks, for example. Additionally, WordPress plugins can extend Gutenberg by adding their own blocks to the Visual Editor's Add Block dropdown. The BigCommerce for Wordpress plugin is packed with custom blocks that put the power of BigCommerce in the hands of WordPress developers.
