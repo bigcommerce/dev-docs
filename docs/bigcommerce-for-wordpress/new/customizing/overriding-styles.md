@@ -15,8 +15,6 @@ BigCommerce for WordPress uses [PostCSS](https://postcss.org/), a JavaScript too
 
 The `asset/pcss` directory contains PostCSS modules. The `assets/css` directory contains both the minified and uncompressed versions of the CSS files created during the PostCSS build process.
 
-### Custom CSS
-
 To style BigCommerce for WordPress elements with custom CSS, add your CSS to your theme’s stylesheet rather than editing the plugin stylesheets directly. Your theme’s CSS will have specificity over styles applied by the plugin and will override the default styles.
 
 For example, you might want to change the Add-To-Cart button from blue to orange by adding the following CSS to your theme’s stylesheet:
