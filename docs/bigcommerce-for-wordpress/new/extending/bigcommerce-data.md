@@ -1,8 +1,8 @@
-## Accessing BigCommerce data
+# Accessing BigCommerce data
 
 BC4WP allows your WordPress site to access most of your BigCommerce data. The following will guide you through the process of accessing your products, variants, channels, customers, and customer groups.
 
-### Products
+## Products
 
 If you have a WordPress post ID (as you might get by calling `get_the_ID()` in the context of a template), you can get a Product object.
 
@@ -54,7 +54,7 @@ Generally, the WordPress plugin works with post IDs, not product IDs. The latter
 
 There is a REST API endpoint to retrieve additional information about the product in the browser.  Its primary purpose is supporting the product block interface in the WordPress admin. Still, you can use it anywhere to retrieve a small subset of the product's information. The endpoint is `/wp-json/bigcommerce/v1/products`.
 
-### Variants
+## Variants
 
 Retrieve a Product object as explained in the Products section. After that step, you can retrieve information about variants.
 
@@ -88,7 +88,7 @@ The schema does not completely match the API data. It has been adjusted to suit 
 - image
 - option_ids
 
-### Channels
+## Channels
 
 The current channel is available through a Connections object.
 
@@ -106,7 +106,7 @@ $channel_id   = get_term_meta( $channel->term_id, \BigCommerce\Taxonomies\Channe
 
 The channel ID is not available anywhere on the client side.
 
-### Customers
+## Customers
 
 A logged-out user does not have any customer information. For a logged-in user, you can create a Customer object to get the customer's information.
 
@@ -126,7 +126,7 @@ $order     = $customer->get_order_details( $order_id );
 
 The customer ID is not available anywhere on the client side.
 
-### Customer groups
+## Customer groups
 
 Similar to the customer ID, the customer group ID is available via the Customer object.
 
@@ -142,21 +142,8 @@ $group      = $customer->get_group();
 $group_info = $group->get_info();
 ```
 
-The customer group ID is not available anywhere on the client side.
+The customer group ID is not available anywhere on the client side.    
 
-
-
-
-    
-<!-- theme: error -->
-
-### Warning
-
-> Modifying core plugin functionality can lead to security vulnerabilities, data corruption, broken user workflows, and an overall unpleasant experience for you and your customers. Proceed at your own risk.
-
-</div>
-</div>
-</div>
 
 The `bigcommerce/init` action fires after the plugin has completed initializing all of its service providers and hooked them into WordPress. It passes two arguments: the primary plugin controller (an instance of the BigCommerce\Plugin class) and the dependency injection container itself. The former is also available at any time after initialization by calling the function `bigcommerce()`.
 

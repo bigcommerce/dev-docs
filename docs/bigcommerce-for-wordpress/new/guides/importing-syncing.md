@@ -1,3 +1,5 @@
+# Importing and Syncing
+
 ### CLI setup instructions
 
 The import process will run faster and more reliably if run from the command line.

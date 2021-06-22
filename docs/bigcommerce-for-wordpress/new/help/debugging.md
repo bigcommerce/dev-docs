@@ -1,4 +1,6 @@
-### Details on how to debug
+# Debugging 
+
+## Details on how to debug
 
 If the site is not importing as expected, enable diagnostic logging to produce a detailed log of the import process.
 
