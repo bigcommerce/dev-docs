@@ -1,6 +1,13 @@
 # Performance
 
-### Stop unnecessary webhooks
+<div class="otp" id="no-index">
+	
+### On this page
+
+- [Stop unnecessary webhooks](#stop-unnecessary-webhooks)
+</div>
+
+## Stop unnecessary webhooks
 
 BigCommerce contains a number of webhooks that your site may benefit from. We recommend disabling unused webhooks to enhance performance. To disable the webhooks you do not need, use the [Webhooks API](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview) and update the `is_active` fields to false.
 

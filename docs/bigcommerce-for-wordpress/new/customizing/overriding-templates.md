@@ -1,5 +1,13 @@
 # Overriding Templates
 
+<div class="otp" id="no-index">
+	
+### On this page
+
+- [Styling BC4WP templates](#styling-bc4wp-templates)
+  
+</div>
+
 ## Styling BC4WP templates
 
 BC4WP includes template files that are used to display your BigCommerce data on your WordPress storefront. You can edit these templates to change both the content displayed and the styling of that content.

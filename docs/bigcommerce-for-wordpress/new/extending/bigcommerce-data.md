@@ -1,5 +1,17 @@
 # Accessing BigCommerce data
 
+<div class="otp" id="no-index">
+	
+### On this page
+
+- [Products](#products)
+- [Variants](#variants)
+- [Channels](#channels)
+- [Customers](#customers)
+- [Customer groups](#customer-groups)
+  
+</div>
+
 BC4WP allows your WordPress site to access most of your BigCommerce data. The following will guide you through the process of accessing your products, variants, channels, customers, and customer groups.
 
 ## Products

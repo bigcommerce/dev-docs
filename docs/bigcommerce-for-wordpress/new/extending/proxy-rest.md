@@ -1,5 +1,13 @@
 # Proxy REST API Endpoints
 
+<div class="otp" id="no-index">
+	
+### On this page
+- [Caching and Webhooks](#caching-and-webhooks)
+- [Endpoints](#endpoints)
+
+</div>
+
 BigCommerce for WordPress sets up several proxy REST endpoints that map requests to the BigCommerce API. This allows developers to build extensions using client-side requests without having to worry about cross-origin restrictions. This feature is useful for building extensions such as single-page store apps or progressive web apps, and it powers the AMP integration provided when the official AMP plugin for WordPress is active on the same site.
 
 By default, these proxy REST endpoints are available under `your-wordpress-site.com/wp-json/bc/v3/`, with request routes mapping to those documented in the BigCommerce Dev Center's API Reference. For example, `your-wordpress-site.com/wp-json/bc/v3/catalog/products` returns data from the corresponding BigCommerce API endpoint and accepts all the same parameters.

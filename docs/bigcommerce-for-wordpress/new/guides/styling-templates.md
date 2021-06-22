@@ -1,5 +1,12 @@
 # Styling Templates
 
+<div class="otp" id="no-index">
+	
+### On this page
+- [Localizing strings displayed on the storefront](#localizing-strings-displayed-on-the-storefront)
+- [Styling checkout](#styling-checkout)
+
+</div>
 ## Localizing strings displayed on the storefront
 
 You can localize the language used by BC4WP to display messages on your storefront. The array `$js_i18n_array` defined in `src/BigCommerce/Assets/Theme/JS_Localization.php:19` contains all strings used by `assets/js/dist/scripts.js` to display messages on the front-end.

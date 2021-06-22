@@ -1,5 +1,12 @@
 # Hooks
 
+<div class="otp" id="no-index">
+	
+### On this page
+- [Architectural guidelines](#architectural-guidelines)
+
+</div>
+
 Hooks are access points during the WordPress execution process where a developer can insert custom code. Hooks consist of two types: actions and filters. Both allow developers to execute custom code during the WordPress lifecycle. The difference lies in whether the function returns a value:
 
 - **Actions** execute a function with no output. Even if a value was returned it would be ignored.

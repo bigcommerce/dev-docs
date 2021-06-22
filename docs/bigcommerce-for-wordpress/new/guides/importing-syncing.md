@@ -1,6 +1,14 @@
 # Importing and Syncing
 
-### CLI setup instructions
+<div class="otp" id="no-index">
+	
+### On this page
+- [CLI setup instructions](#cli-setup-instructions)
+- [Set up and recommendations for cron](#set-up-and-recommendations-for-cron)
+
+</div>
+
+## CLI setup instructions
 
 The import process will run faster and more reliably if run from the command line.
 
@@ -20,7 +28,7 @@ Subsequent imports will only update products that have changed since the last im
 
 `wp bigcommerce import products --force`
 
-### Set up and recommendations for cron
+## Set up and recommendations for cron
 
 WordPress sites will generally operate more efficiently if WordPress's default cron is disabled and replaced with a server-side cron job.
 
