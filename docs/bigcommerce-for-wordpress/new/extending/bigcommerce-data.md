@@ -1,4 +1,4 @@
-# Accessing BigCommerce data
+# ## Accessing BigCommerce data using built-in methods
 
 <div class="otp" id="no-index">
 	
@@ -135,6 +135,7 @@ $addresses = $customer->get_addresses();
 $orders    = $customer->get_orders( $page, $limit );
 $order     = $customer->get_order_details( $order_id );
 ```
+
 
 The customer ID is not available anywhere on the client side.
 

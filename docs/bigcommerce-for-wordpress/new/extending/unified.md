@@ -5,7 +5,7 @@
 ### On this page
 - [Overview](#overview)
 - [Hooks](#hooks)
-- [Accessing BigCommerce data](#accessing-bigcommerce-data)
+- [Accessing BigCommerce data using built-in methods](#accessing-bigcommerce-data-using-built-in-methods)
 - [Proxy REST API Endpoints](#proxy-rest-api-endpoints)
 
 </div>
@@ -30,7 +30,7 @@ All actions and filters called by the plugin begin with the `bigcommerce/` prefi
 The entire plugin operates through closures wrapped around calls to classes instantiated via a dependency injection container. In the event that you need to modify the core behavior of the plugin, there are several methods to get access to these closures.
 
 
-## Accessing BigCommerce data
+## Accessing BigCommerce data using built-in methods
 
 BC4WP allows your WordPress site to access most of your BigCommerce data. The following will guide you through the process of accessing your products, variants, channels, customers, and customer groups.
 
