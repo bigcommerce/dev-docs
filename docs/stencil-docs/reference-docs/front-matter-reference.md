@@ -11,6 +11,7 @@
 - [Brand attributes](#brand-attributes)
 - [Brand list attributes](#brand-list-attributes)
 - [Search attributes](#search-attributes)
+- [GraphQL attributes](#graphql-attributes)
   
 </div>
 
@@ -20,7 +21,7 @@ Front matter defines which store resources are available to be rendered within a
 You can use YAML Front Matter for templates in the `templates/pages/` directory. Injecting objects in the front matter of `templates/pages/page.html` will make the objects available to custom templates.
 
 
-You cannot use Front Matter for templates in the following directories:
+You cannot use Front matter for templates in the following directories:
 * `templates/components/`
 * `templates/layout/`
 * `templates/pages/custom/`
@@ -205,3 +206,100 @@ search:
 |Property|Description|
 |---|---|
 |`product_results`|`limit` defines the number of product search results displayed per page. The range of possible values is 1–100 products.|
+  
+## GraphQL attributes
+You can add [GraphQL storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview) queries to your theme via the Front matter block in a template file. For example, you can request a product's variants by augmenting the existing [product.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html):
+  
+ ```html
+ ---
+product:
+    videos:
+        limit: {{theme_settings.productpage_videos_count}}
+    reviews:
+        limit: {{theme_settings.productpage_reviews_count}}
+    related_products:
+        limit: {{theme_settings.productpage_related_products_count}}
+    similar_by_views:
+        limit: {{theme_settings.productpage_similar_by_views_count}}
+ gql: "query productById($productId: Int!) {
+  site {
+    product(entityId: $productId) {
+      variants(first: 25) {
+        edges {
+          node {
+            sku
+            defaultImage {
+              url(width: 1000)
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  "
+  ```
+We suggest testing queries using the [storefront API playground](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html) to refine them before adding them to your template. You can launch the playground in the context of your store by clicking the link under the Advanced Settings menu in your control panel.
+  
+Once you have added a query to your template's Front matter block, execution happens automatically when the page loads. The data returned by the query will be returned in the page's context and made available to the handlebars under the gql key. For example, you can retrieve the variant data from the above query in product.html like this:
+```html
+ {{#each gql.data.site.product.variants.edges}}
+    {{#with node}}
+      {{sku}} {{! - - sku code from each variant from GQL response}}
+    {{/with}}
+  {{/each}}
+  ```
+  
+On some pages, you may take advantage of special variables that you can inject into your query to help fetch data relevant to that page. For example, in the case where you wish to fetch information about a product with a GraphQL query, you can use the `$productId` variable on product pages to inject the product ID of the current page.
+
+The complete list of available variables is:
+* category.html: $categoryId
+* product.html: $productId
+* brand.html: $brandId
+* page.html: $pageId
+* contact-us.html: $pageId
+* blog-post.html: $blogPostId
+  
+You are also free to use any queries which do not require dynamic variables to return the data you need for your template. Here is an example:
+  
+Query example
+ ```yaml
+ gql: “guery CategoryTree4LevelsDeep {
+	site {
+      categoryTree {
+		      ...CategoryFields
+          children {
+          ...CategoryFields
+          children {
+ 		      ...CategoryFields
+                }
+          }	
+      }
+  }
+}
+```
+  
+Query response example
+
+```json
+ "gql": {
+    data: {
+        site {
+            categoryTree [
+            {
+                "children": [],
+                "categoryId": 23,
+                "name": "Shop All",
+                "path": "/shop-all/"
+            },
+            {
+                "children": [],
+                "categoryId": 18,
+                "name": "Shirts",
+                "path": "/shirts/"
+            }
+        ]
+        }
+    }
+}
+``` 
