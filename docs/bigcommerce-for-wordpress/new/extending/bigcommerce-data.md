@@ -1,4 +1,4 @@
-# ## Accessing BigCommerce data using built-in methods
+# Accessing BigCommerce data using built-in methods
 
 <div class="otp" id="no-index">
 	
