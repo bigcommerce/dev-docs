@@ -5,7 +5,7 @@
 ### On this page
 - [Localizing theme files](#localizing-theme-files)
 - [Localizing checkout](#localizing-checkout)
-- [Localizing control panel content](#localizing-control-panel-content)
+- [Localizing your storefront content](#localizing-your-storefront-content)
 - [Resources](#resources)
 
 </div>
@@ -17,7 +17,7 @@ A BigCommerce storefront can be customized to display in any one language of you
 
 * [**Checkout.**](#localizing-checkout) Localize checkout by modifying theme files in Stencil CLI and settings in the BigCommerce control panel.
 
-* [**Control panel.**](#localizing-control-panel-content) Adjust other localization details in the BigCommerce control panel.
+* [**Storefront content.**](#localizing-your-storefront-content) Adjust other localization details in the BigCommerce control panel.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -42,7 +42,7 @@ The bulk of localizing a store is translating content on your theme's page templ
 
 ### Multiple language strings by BigCommerce
 
-Some of the strings displayed on your storefront are not currently editable in BigCommerce. These are strings such as "This promotion cannot be applied with the selected currency." BigCommerce will automatically render such strings in the shopper's language as defined by the shopper's browser language settings.
+Some of the strings displayed on your storefront are not currently editable in BigCommerce. These are strings such as "This promotion cannot be applied with the selected currency."  The language setting for these strings are not defined by the shopper's browser language settings. Rather, you should select the language displayed on your storefront by using the default language setting found in the control panel's [Store Profile](https://support.bigcommerce.com/s/article/Store-Profile-Settings#locale) area. This language setting determines the language of your storefront content.
 
 BigCommerce supports these uneditable strings in the following languages:
 * [Dutch](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-nl-NL.po)
@@ -55,15 +55,6 @@ BigCommerce supports these uneditable strings in the following languages:
 * [Spanish (Spain)](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-es-ES.po)
 * [Swedish](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-sv-SE.po)
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme: info -->
-Currently BigCommerce only supports English for all stores. If you would like the additional languages turned on for your store, please reach out to our support team.
-</div>
-</div>
-</div>
 
 You can review these strings by downloading the language files we have made available in the portable object format. We recommend viewing these in a simple text editor or a text editor designed to handle PO files.
 
@@ -88,9 +79,9 @@ Localizing your theme's checkout and order confirmation pages requires customiza
 </div>
 </div>
 
-## Localizing control panel content
+## Localizing your storefront content
 
-The remaining localization options reside outside your theme and are accessible through the BigCommerce control panel:
+Localizing the control panel and options outside your theme and are accessible through the BigCommerce control panel. The [Default Language setting, found in the control panel's Store Profile area](https://support.bigcommerce.com/s/article/Store-Profile-Settings#locale), allows localization of the following items:
 
 * [Product catalog](#localizing-the-product-catalog)
 * [Currency](#localizing-currency)
@@ -100,19 +91,7 @@ The remaining localization options reside outside your theme and are accessible 
 * [Static web pages](#localizing-static-web-pages)
 * [Transactional emails](#managing-transactional-emails)
 * [Gift certificates](#managing-gift-certificates)
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
-<!-- theme: warning -->
-
-### Transactional emails or gift certificates translation
-> The BigCommerce platform does not currently support translation of transactional emails or gift certificates into languages other than English, so instead we have provided a best practice for each.
-
-</div>
-</div>
-</div>
+* [System messages](#managing-system-messages)
 
 ### Localizing the product catalog
 
@@ -139,13 +118,14 @@ If you create static pages as Stencil custom templates, you can localize their c
 
 ### Managing transactional emails
 
-BigCommerce does not currently provide native support for localizing transactional emails such as order confirmation or status updates. To fully localize a store into a language other than English, disable the sending of BigCommerce native emails.
-
-To disable native emails, go to **Storefront** › [**Email Templates**](http://login.bigcommerce.com/deep-links//manage/storefront-manager/email-templates). Uncheck each email type that you prefer to customize. If you would like to localize transactional emails, see our Partner Apps, such as [CM Commerce](https://www.bigcommerce.com/apps/cm-commerce/), for more details.
+To fully localize a store into a language other than English, disable the sending of BigCommerce native emails. To disable native emails, go to **Storefront** › [**Email Templates**](http://login.bigcommerce.com/deep-links//manage/storefront-manager/email-templates). Uncheck each email type that you prefer to customize. If you would like to localize transactional emails, see our Partner Apps, such as [CM Commerce](https://www.bigcommerce.com/apps/cm-commerce/), for more details.
 
 ### Managing gift certificates
 
-The BigCommerce platform does not currently support translation of gift certificates into languages other than English. To fully localize your store, disable gift certificates in the BigCommerce control panel.
+To fully localize your store, disable gift certificates in the BigCommerce control panel.
+
+### Managing system messages
+You can configure each store's payment and checkout error messages in the BigCommerce control panel. For details, see [Verbose Error Messages at Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout#verbose).
 
 
 ## Resources
