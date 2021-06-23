@@ -274,76 +274,6 @@ paths:
         - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
         - $ref: '#/components/parameters/KeysToDelete'
       description: Delete storefront robots.txt.
-  /settings/storefront/category:
-    get:
-      summary: Get Category Settings
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/StorefrontCategorySettings'
-                  meta:
-                    type: object
-              examples:
-                example-1:
-                  value:
-                    data:
-                      listing_mode: null
-                      default_product_sort: bestselling
-                      category_tree_depth: 0
-                    meta: {}
-        '422':
-          description: Provided settings could not be applied for some reason - detailed errors in the response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-      parameters:
-        - $ref: '#/components/parameters/ChannelIdParam'
-      description: Get storefront category settings.
-      tags:
-        - Storefront Category
-    put:
-      summary: Update Category Settings
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/StorefrontCategorySettings'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/StorefrontCategorySettings'
-                  meta:
-                    type: object
-      parameters:
-        - $ref: '#/components/parameters/ChannelIdParam'
-      tags:
-        - Storefront Category
-      description: Update storefront category settings.
-    delete:
-      summary: Delete  Category
-      tags:
-        - Storefront Category
-      operationId: delete-settings-storefrontcategory
-      responses:
-        '200':
-          description: OK
-      parameters:
-        - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
-        - $ref: '#/components/parameters/KeysToDelete'
-      description: Delete storefront category settings.
   /settings/storefront/search:
     get:
       summary: Get Search Settings
@@ -843,15 +773,6 @@ components:
             - none
         meta_keywords:
           type: string
-    StorefrontCategorySettings:
-      type: object
-      properties:
-        listing_mode:
-          $ref: ''
-        default_product_sort:
-          $ref: '#/components/schemas/ProductSortEnumValues'
-        category_tree_depth:
-          type: integer
     StorefrontSearchSettings:
       type: object
       properties:
