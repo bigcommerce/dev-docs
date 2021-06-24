@@ -243,11 +243,13 @@ We suggest testing queries using the [storefront API playground](https://github.
   
 Once you have added a query to your template's Front matter block, execution happens automatically when the page loads. The data returned by the query will be returned in the page's context and made available to the handlebars under the gql key. For example, you can retrieve the variant data from the above query in product.html like this:
 ```html
+ {{#if gql.data.site.product}}
  {{#each gql.data.site.product.variants.edges}}
     {{#with node}}
       {{sku}} {{! - - sku code from each variant from GQL response}}
     {{/with}}
-  {{/each}}
+ {{/each}}
+ {{/if}}
   ```
 If the query specified in Front matter is invalid, the context `gql` attribute will return `errors` block, e.g.:
 ```html
