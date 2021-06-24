@@ -302,38 +302,37 @@ gql: query CategoryTree4LevelsDeep {
 Query response example
 
 ```json
- "gql": {
-    "data": {
-        "site": {
-            "categoryTree": [
+{
+  "data": {
+    "site": {
+      "categoryTree": [
+        {
+          "name": "Apparel",
+          "path": "/apparel/",
+          "entityId": 25,
+          "children": [
             {
-                "name": "Shop All",
-                "path": "/shop-all/",
-		"entityId": 24,
-		"children": [
-           		{
-			"name": "New category",
-			"path": "/shop-all/new-category/",
-			"entityId": 26,
-			"children": []
-			}
-            	]    
+              "name": "Shirts",
+              "path": "/apparel/shirts/",
+              "entityId": 27,
+              "children": []
             },
             {
-                "name": "Apparel",
-                "path": "/apparel/",
-		"entityId": 25,
-		"children": [
-			{
-			"name": "Shirts",
-			"path": "/apparel/shirts/",
-			"entityId": 27,
-			"children": []
-            					}
-        				]
-        			}
-    			]
-		}
-	}
+              "name": "Hoodies",
+              "path": "/hoodies/",
+              "entityId": 28,
+              "children": []
+            },
+            {
+              "name": "Caps",
+              "path": "/caps/",
+              "entityId": 29,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  }
 }
 ``` 
