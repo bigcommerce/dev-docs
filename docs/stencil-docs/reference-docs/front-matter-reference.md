@@ -264,19 +264,19 @@ You are also free to use any queries which do not require dynamic variables to r
   
 Query example
  ```yaml
- gql: “guery CategoryTree4LevelsDeep {
+gql: “guery CategoryTree4LevelsDeep {
 	site {
-      categoryTree {
-		      ...CategoryFields
-          children {
-          ...CategoryFields
-          children {
- 		      ...CategoryFields
-                }
-          }	
-      }
-  }
-}
+		categoryTree {
+			...CategoryFields
+			children {
+			...CategoryFields
+			children {
+ 		...CategoryFields
+					}
+				}	
+			}
+		}
+	}
 ```
   
 Query response example
