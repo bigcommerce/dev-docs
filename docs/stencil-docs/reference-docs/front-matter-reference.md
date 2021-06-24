@@ -283,7 +283,26 @@ The following is the complete list of available variables:
 You can also query data without using variables. The following query returns the product category tree as a JSON object.
   
  ```yaml
-gql: query CategoryTree4LevelsDeep {
+gql: "query CategoryTree3LevelsDeep {
+  site {
+    categoryTree {
+      ...CategoryFields
+      children {
+        ...CategoryFields
+        children {
+          ...CategoryFields
+        }
+      }
+    }
+  }
+}
+
+fragment CategoryFields on CategoryTreeItem {
+  name
+  path
+  entityId
+}"
+
 	site {
 		categoryTree {
 			...CategoryFields
