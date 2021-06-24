@@ -371,9 +371,9 @@ paths:
           in: query
           description: 'Filter items by categories. Use for products in multiple categories. For example, `categories:in=12`.'
           name: 'categories:in'
-        - type: string
+        - type: array
           in: query
-          name: sku
+          name: 'sku:in'
           description: Filter items by sku.
       responses:
         '200':
