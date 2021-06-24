@@ -303,18 +303,6 @@ fragment CategoryFields on CategoryTreeItem {
   entityId
 }"
 
-	site {
-		categoryTree {
-			...CategoryFields
-			children {
-			...CategoryFields
-			children {
- 		...CategoryFields
-					}
-				}	
-			}
-		}
-	}
 ```
   
 The example query returns the following JSON object:
