@@ -18,10 +18,10 @@
 Front matter defines which store resources are available to be rendered within a Stencil template. Front matter is declared at the top of each template and uses [YAML](https://yaml.org/) syntax. For more information, see [Declaring Front Matter Objects](https://developer.bigcommerce.com/stencil-docs/storefront-customization/using-front-matter#declaring-front-matter-objects).
 
 ## Supported templates
-You can use YAML Front Matter for templates in the `templates/pages/` directory. Injecting objects in the front matter of `templates/pages/page.html` will make the objects available to custom templates.
+You can use YAML front matter for templates in the `templates/pages/` directory. Injecting objects in the front matter of `templates/pages/page.html` will make the objects available to custom templates.
 
 
-You cannot use Front matter for templates in the following directories:
+You cannot use front matter for templates in the following directories:
 * `templates/components/`
 * `templates/layout/`
 * `templates/pages/custom/`
@@ -208,7 +208,7 @@ search:
 |`product_results`|`limit` defines the number of product search results displayed per page. The range of possible values is 1–100 products.|
   
 ## GraphQL attributes
-You can add [GraphQL storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview) queries to your theme via the Front matter block in a template file. For example, you can request a product's variants by augmenting the existing [product.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html):
+You can add [GraphQL storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview) queries to your theme via the front matter block in a template file. For example, you can request a product's variants by augmenting the existing [product.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html):
   
  ```html
  ---
@@ -241,7 +241,7 @@ product:
   ```
 We suggest testing queries using the [storefront API playground](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html) to refine them before adding them to your template. You can launch the playground in the context of your store by clicking the link under the Advanced Settings menu in your control panel.
   
-Once you have added a query to your template's Front matter block, execution happens automatically when the page loads. The data returned by the query will be returned in the page's context and made available to the handlebars under the gql key. For example, you can retrieve the variant data from the above query in product.html like this:
+Once you have added a query to your template's front matter block, execution happens automatically when the page loads. The data returned by the query will be returned in the page's context and made available to the handlebars under the gql key. For example, you can retrieve the variant data from the above query in product.html like this:
 ```html
  {{#if gql.data.site.product}}
  {{#each gql.data.site.product.variants.edges}}
@@ -251,7 +251,7 @@ Once you have added a query to your template's Front matter block, execution hap
  {{/each}}
  {{/if}}
   ```
-If the query specified in Front matter is invalid, the context `gql` attribute will return `errors` block, e.g.:
+If the query specified in front matter is invalid, the context `gql` attribute will return `errors` block, e.g.:
 ```html
 {
   "gql": {
