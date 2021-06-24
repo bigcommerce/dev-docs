@@ -249,6 +249,24 @@ Once you have added a query to your template's Front matter block, execution hap
     {{/with}}
   {{/each}}
   ```
+If the query specified in Front matter is invalid, the context `gql` attribute will return `errors` block, e.g.:
+```html
+{
+  "gql": {
+    "errors": [
+      {
+        "locations": [
+          {
+            "column": 1,
+            "line": 1
+          }
+        ],
+        "message": "Syntax error while parsing GraphQL query."
+      }
+    ]
+  }
+}
+```
   
 On some pages, you may take advantage of special variables that you can inject into your query to help fetch data relevant to that page. For example, in the case where you wish to fetch information about a product with a GraphQL query, you can use the `$productId` variable on product pages to inject the product ID of the current page.
 
@@ -283,23 +301,37 @@ Query response example
 
 ```json
  "gql": {
-    data: {
-        site {
-            categoryTree [
+    "data": {
+        "site": {
+            "categoryTree": [
             {
-                "children": [],
-                "categoryId": 23,
                 "name": "Shop All",
-                "path": "/shop-all/"
+                "path": "/shop-all/",
+		"entityId": 24,
+		"children": [
+           		{
+			"name": "New category",
+			"path": "/shop-all/new-category/",
+			"entityId": 26,
+			"children": []
+			}
+            	]    
             },
             {
-                "children": [],
-                "categoryId": 18,
-                "name": "Shirts",
-                "path": "/shirts/"
-            }
-        ]
-        }
-    }
+                "name": "Apparel",
+                "path": "/apparel/",
+		"entityId": 25,
+		"children": [
+			{
+			"name": "Shirts",
+			"path": "/apparel/shirts/",
+			"entityId": 27,
+			"children": []
+            					}
+        				]
+        			}
+    			]
+		}
+	}
 }
 ``` 
