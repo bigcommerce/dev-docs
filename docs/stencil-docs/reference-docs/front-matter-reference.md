@@ -210,7 +210,7 @@ search:
 ## GraphQL attributes
 You can add [GraphQL storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview) queries to your theme via the front matter block in a template file. For example, you can request a product's variants by augmenting the existing [product.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html):
   
- ```html
+ ```handlebars
  ---
 product:
     videos:
@@ -239,10 +239,10 @@ product:
   }
   "
   ```
-We suggest testing queries using the [storefront API playground](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html) to refine them before adding them to your template. You can launch the playground in the context of your store by clicking the link under the Advanced Settings menu in your control panel.
+We suggest testing GraphQL queries using the [storefront API playground](https://developer.bigcommerce.com/api-reference/storefront/graphql#graphql-playground) to refine them before adding them to your template. You can launch the playground in the context of your store by clicking the **Storefront API Playground** link under the **Advanced Settings** menu in your store's control panel.
   
-Once you have added a query to your template's front matter block, execution happens automatically when the page loads. The data returned by the query will be returned in the page's context and made available to the handlebars under the gql key. For example, you can retrieve the variant data from the above query in product.html like this:
-```html
+Once you have added a query to your template's front matter block, execution happens automatically when the page loads. The data returned by the query will be returned in the page's context and made available to the handlebars under the `gql` key. For example, you can retrieve the variant data from the above query in `product.html` like this:
+```handlebars
  {{#if gql.data.site.product}}
  {{#each gql.data.site.product.variants.edges}}
     {{#with node}}
@@ -251,7 +251,7 @@ Once you have added a query to your template's front matter block, execution hap
  {{/each}}
  {{/if}}
   ```
-If the query specified in front matter is invalid, the context `gql` attribute will return `errors` block, e.g.:
+If the GraphQL query is invalid, Stencil returns an `errors` object with `locations` and `message` properties similar to the following example:
 ```html
 {
   "gql": {
@@ -270,19 +270,18 @@ If the query specified in front matter is invalid, the context `gql` attribute w
 }
 ```
   
-On some pages, you may take advantage of special variables that you can inject into your query to help fetch data relevant to that page. For example, in the case where you wish to fetch information about a product with a GraphQL query, you can use the `$productId` variable on product pages to inject the product ID of the current page.
+On some pages, you can inject special variables into your query to fetch data relevant to that page. For example, using the `$productId` variable on product pages injects the product ID associated with the current page.
 
-The complete list of available variables is:
-* category.html: $categoryId
-* product.html: $productId
-* brand.html: $brandId
-* page.html: $pageId
-* contact-us.html: $pageId
-* blog-post.html: $blogPostId
+The following is the complete list of available variables:
+* `category.html`: `$categoryId`
+* `product.html`: `$productId`
+* `brand.html`: `$brandId`
+* `page.html`: `$pageId`
+* `contact-us.html`: `$pageId`
+* `blog-post.html`: `$blogPostId`
   
-You are also free to use any queries which do not require dynamic variables to return the data you need for your template. Here is an example:
+You can also query data without using variables. The following query returns the product category tree as a JSON object.
   
-Query example
  ```yaml
 gql: query CategoryTree4LevelsDeep {
 	site {
@@ -299,7 +298,7 @@ gql: query CategoryTree4LevelsDeep {
 	}
 ```
   
-Query response example
+The example query returns the following JSON object:
 
 ```json
 {
