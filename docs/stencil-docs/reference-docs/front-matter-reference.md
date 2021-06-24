@@ -282,7 +282,7 @@ You are also free to use any queries which do not require dynamic variables to r
   
 Query example
  ```yaml
-gql: “guery CategoryTree4LevelsDeep {
+gql: query CategoryTree4LevelsDeep {
 	site {
 		categoryTree {
 			...CategoryFields
