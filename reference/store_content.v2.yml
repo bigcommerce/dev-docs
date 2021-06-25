@@ -84,7 +84,7 @@ paths:
           in: query
           required: false
           type: string
-          description: Filter param.
+          description: Filter param. Value must be URL encoded.
         - name: tag
           in: query
           required: false
