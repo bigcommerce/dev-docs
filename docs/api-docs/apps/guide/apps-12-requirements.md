@@ -18,9 +18,10 @@ The Apps Marketplace team reviews all app submissions and tests apps to verify t
 
 ## General requirements
 
-- Make support resources available throughout the app, like during onboarding and on the app’s dashboard within the BigCommerce iframe.
+- Make support resources available throughout the app, like during onboarding and on the app's dashboard within the BigCommerce iFrame.
+
 - Follow branding guidelines when referencing BigCommerce (see our [Media Kit](https://www.bigcommerce.com/press/media-kit/) for more information).
-Don’t reference competitor platforms in the app's listing information or dashboard.
+Don't reference competitor platforms in the app's listing information or dashboard.
 * Use the same app name in app submission and in app content such as logos and descriptions.
 * Keep app titles concise. Avoid using extra taglines or descriptors; include those in the app summary, if necessary.
 * Include the name of both your brand and any connected third-party platforms in the title (ex:
@@ -31,25 +32,25 @@ Don’t reference competitor platforms in the app's listing information or dashb
 ## Listing
 
 * Approval for the [Marketplace](https://www.bigcommerce.com/apps/) requires all fields listed in the Publishing Apps section (**Case Studies** and **Videos** are optional).
-
 * Listings should be well worded, cleanly formatted, and follow wording and image specifications.
 * App listing name should be restricted to only branding and not include taglines.
 
 ## Functionality
 
-* Apps must work as intended and can not conflict with BigCommerce functionality.
+* Apps must work as intended and cannot conflict with BigCommerce functionality.
 * Apps must use V3 endpoints in favor of V2 endpoints when feature parity exists.
 * Apps must serve all callback URLs over HTTPS.
 * Apps in the Marketplace must be[ multi-user enabled](https://developer.bigcommerce.com/api-docs/apps/guide/users).
-* Apps that process transactions or handle credit card data must pass a PCI Compliance review by BigCommerce’s security team.
-* Apps that access the Checkout Content scope will also be subject to a security assessment by BigCommerce’s security team.
+* Apps that process transactions or handle credit card data must pass a PCI Compliance review by BigCommerce's security team. New payment gateway app submissions may not be accepted for Marketplace review.
+* Apps that access the Checkout Content scope will also be subject to a security assessment by BigCommerce's security team.
+* Apps that modify the checkout experience must use the BigCommerce [Checkout SDK](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk).
 * Apps that add another marketplace or sales channel to a store should make use of the [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/guide/building-channel-apps) and follow [Channel App Requirements](https://developer.bigcommerce.com/api-docs/channels/guide/channel-app-requirements).
 * Apps that create orders in the BigCommerce store need to properly mark accurate order source, payment method, and other order details.
 
 ## Installation
 
 * Apps should be [single-click](https://developer.bigcommerce.com/api-docs/apps/guide/types#single-click) and use [OAuth flow](https://developer.bigcommerce.com/api-docs/apps/guide/auth) to authenticate.
-* Apps must respond to install [callback](https://developer.bigcommerce.com/api-docs/apps/guide/callbacks) with styled and branded HTML for the control panel iFrame; this content cannot be blank and must follow our user-interface constraints. Apps using [BigDesign](https://design.bigcommerce.com/components) are preferred.
+* Apps must respond to install [callback](https://developer.bigcommerce.com/api-docs/apps/guide/callbacks) with styled and branded HTML for the control panel iframe; this content cannot be blank and must follow our user-interface constraints. Apps using [BigDesign](https://design.bigcommerce.com/components) are preferred.
 * Apps must store user tokens against the store hash, not the user's email address, to avoid problems with ownership changes and multiple user support.
 * Apps need to include options for new user registration as well as existing users.
 * Apps should autofill registration fields such as email address and store URL based on the store's information.
@@ -61,7 +62,7 @@ Don’t reference competitor platforms in the app's listing information or dashb
 <div class="HubBlock-content">
 
 ### Note
-> 1. If your app cannot meet this requirement, email <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a> to discuss your options for approval.
+> 1. If your app cannot meet these requirements, email <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a> to discuss your options for approval.
 
 </div>
 </div>
@@ -70,7 +71,7 @@ Don’t reference competitor platforms in the app's listing information or dashb
 ## FAQ
 
 **Are all fields required?**
-For Marketplace approval, you'll need to fill out all fields on your listing with applicable content and links. These will be reviewed as part of the Marketplace approval process. Case Studies and Videos are optional.
+For Marketplace approval, you'll need to fill out all fields on your listing with applicable content and links. These will be reviewed as part of the Marketplace approval process. **Case Studies** and **Videos** are optional.
 
 ## Next steps
 * [Publish your app](https://developer.bigcommerce.com/api-docs/apps/guide/publishing).
