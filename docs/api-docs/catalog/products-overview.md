@@ -735,7 +735,6 @@ The following example shows how to add a modifier and a checkbox with a price ad
 
 Creating a checkbox with an adjuster requires two separate calls: one to create the checkbox and another one to add the adjuster. You can define adjusters within the `option_values` array, but `option_values` are not allowed in the request to create a checkbox modifier because creating a checkbox automatically generates two mandatory option values: `Yes` and `No`. Once you have created the checkbox and its option values, you can update the modifier to add an adjuster.
 
-
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
