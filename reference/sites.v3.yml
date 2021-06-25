@@ -515,7 +515,7 @@ paths:
           in: body
           required: true
           schema:
-            $ref: '#/definitions/siteRoute_Full'
+            $ref: '#/definitions/siteRoutes_Route_Base'
           x-examples:
             application/json:
               type: product
@@ -611,7 +611,7 @@ definitions:
         properties:
           id:
             type: integer
-            description: Unique ID for this route. Required when updating an existing route
+            description: Unique ID for this route. Required when updating an existing route.
       - $ref: '#/definitions/siteRoute_Base'
   put_Site:
     type: object
@@ -756,9 +756,9 @@ definitions:
       matching:
         type: string
         description: |-
-          (entity_id?) For a given type, which resources should match this route? e.g For a route with the type: "product" and matching: "5" this route would be used for the product with the ID of 5.
+          Depending on the resource type, this can be an ID (matching a specific item), or a "*" wildcard (matching all items of that type).
 
-          Depending on the type of resource, this may be an ID (matching a specific item), or a "*" wildcard matching all items of that type.
+          For example, a route with a type: "product" and matching: "5" will be used for the product with the ID of 5.
         example: '5'
       route:
         type: string
@@ -770,6 +770,48 @@ definitions:
           - `{slug}` The **slug** for the requested item (if available). Note: the `slug` value may contain `/` slash
           - `{language}` The **language** string that the client is using
         example: /my-amazing-product
+  siteRoutes_Route_Base:
+    title: siteRoutes_Route_Base
+    type: object
+    properties:
+      type:
+        type: string
+        description: 'The type of resource being routed to; [supported types](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api#route-types).'
+        enum:
+          - product
+          - brand
+          - category
+          - page
+          - blog
+          - home
+          - cart
+          - checkout
+          - search
+          - account
+          - login
+          - returns
+          - static
+      matching:
+        type: string
+        example: '5'
+        description: |-
+          Depending on the resource type, this can be an ID (matching a specific item), or a "*" wildcard (matching all items of that type).
+
+          For example, a route with a type: "product" and matching: "5" will be used for the product with the ID of 5.
+      route:
+        type: string
+        example: /my-amazing-product
+        description: |-
+          The route template that will be used to generate the URL for the requested resource.
+
+          Supports several tokens:
+          - `{id}` The **ID** of the requested item
+          - `{slug}` The **slug** for the requested item (if available). Note: the `slug` value may contain `/` slash
+          - `{language}` The **language** string that the client is using
+    required:
+      - type
+      - matching
+      - route
 tags:
   - name: Sites
     description: 'Enables creation and management of external sites (domains) where shoppers shop. Allows for the correct shopping experience to be delivered and maintained (i.e. redirect URLs, email links) when a shopper goes through the purchasing process.'
