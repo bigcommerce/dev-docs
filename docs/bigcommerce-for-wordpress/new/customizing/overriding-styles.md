@@ -11,13 +11,13 @@
 
 ## CSS
 
-BigCommerce for WordPress uses [PostCSS](https://postcss.org/), a JavaScript tool that accepts CSS with special additional syntax and compiles it into normal CSS. Combined with PostCSS plugins, PostCSS offers many of CSS preprocessors' core features like Sass, with less overhead.
+BigCommerce for WordPress (BC4WP) uses [PostCSS](https://postcss.org/), a JavaScript tool that accepts CSS with special additional syntax and compiles it into normal CSS. Combined with PostCSS plugins, PostCSS offers many of CSS preprocessors' core features like Sass, with less overhead.
 
 The `asset/pcss` directory contains PostCSS modules. The `assets/css` directory contains both the minified and uncompressed versions of the CSS files created during the PostCSS build process.
 
-To style BigCommerce for WordPress elements with custom CSS, add your CSS to your theme’s stylesheet rather than editing the plugin stylesheets directly. Your theme’s CSS will have specificity over styles applied by the plugin and will override the default styles.
+To style BC4WP elements with custom CSS, add your CSS to your theme’s style sheet rather than editing the BC4WP plugin style sheets directly. Your theme’s CSS has specificity over styles applied by the plugin and overrides the default styles.
 
-For example, you might want to change the Add-To-Cart button from blue to orange by adding the following CSS to your theme’s stylesheet:
+For example, you might want to change the Add-To-Cart button from blue to orange by adding the following CSS to your theme’s style sheet:
 
 ```css
 button.bc-btn.bc-btn--form-submit.bc-btn--add_to_cart {
@@ -27,4 +27,8 @@ button.bc-btn.bc-btn--form-submit.bc-btn--add_to_cart {
 
 ## Opting out of BigCommerce styles
 
-If you wish to disable the built-in plugin styles entirely, you have the option to do so. In the WordPress theme customizer, navigate to BigCommerce > Colors & Theme and select Disable Plugin Styles from the CSS dropdown menu.
+To disable the BC4WP plugin styles entirely, take the following steps: 
+
+1. From within the WordPress admin dashboard's lefthand menu, go to **Appearance** and select **Customize**.
+2. Navigate to **BigCommerce** > **Colors & Theme**. 
+2. Select **Disable Plugin Styles** from the **CSS** menu.
