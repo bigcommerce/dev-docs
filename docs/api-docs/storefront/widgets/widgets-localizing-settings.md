@@ -35,31 +35,31 @@ The following example demonstrates how to add translations for the widget templa
    "default": "Line color",
    "fr-FR": "Couleur de la ligne",
    "en": "Line color",
-   "zh-CH": "线条颜色"
+   "zh-CN": "线条颜色"
  },
  "i18n.LineStyle": {
    "default": "Line style",
    "fr-FR": "Style de ligne",
    "en": "Line style",
-   "zh-CH": "线型"
+   "zh-CN": "线型"
  },
  "i18n.LineWidth": {
    "default": "Line width",
    "fr-FR": "Largeur de ligne",
    "en": "Line width",
-   "zh-CH": "行宽"
+   "zh-CN": "行宽"
  },
  "i18n.LineThickness": {
    "default": "Line Thickness",
    "fr-FR": "Épaisseur de ligne",
    "en": "Line Thickness",
-   "zh-CH": "线的粗细"
+   "zh-CN": "线的粗细"
  },
  "i18n.Alignment": {
    "default": "Alignment",
    "fr-FR": "Alignement",
    "en": "Alignment",
-   "zh-CH": "结盟"
+   "zh-CN": "结盟"
  }
 }
 ```
@@ -69,7 +69,7 @@ The following example demonstrates how to add translations for the widget templa
 **Stringified schema translations**
 
 ```json
-"{\n \"i18n.LineColor\": {\n   \"default\": \"Line color\",\n   \"fr-FR\": \"Couleur de la ligne\",\n   \"en\": \"Line color\",\n   \"zh-CH\": \"线条颜色\"\n },\n \"i18n.LineStyle\": {\n   \"default\": \"Line style\",\n   \"fr-FR\": \"Style de ligne\",\n   \"en\": \"Line style\",\n   \"zh-CH\": \"线型\"\n },\n \"i18n.LineWidth\": {\n   \"default\": \"Line width\",\n   \"fr-FR\": \"Largeur de ligne\",\n   \"en\": \"Line width\",\n   \"zh-CH\": \"行宽\"\n },\n \"i18n.LineThickness\": {\n   \"default\": \"Line Thickness\",\n   \"fr-FR\": \"Épaisseur de ligne\",\n   \"en\": \"Line Thickness\",\n   \"zh-CH\": \"线的粗细\"\n },\n \"i18n.Alignment\": {\n   \"default\": \"Alignment\",\n   \"fr-FR\": \"Alignement\",\n   \"en\": \"Alignment\",\n   \"zh-CH\": \"结盟\"\n }\n}"
+"{\n \"i18n.LineColor\": {\n   \"default\": \"Line color\",\n   \"fr-FR\": \"Couleur de la ligne\",\n   \"en\": \"Line color\",\n   \"zh-CN\": \"线条颜色\"\n },\n \"i18n.LineStyle\": {\n   \"default\": \"Line style\",\n   \"fr-FR\": \"Style de ligne\",\n   \"en\": \"Line style\",\n   \"zh-CN\": \"线型\"\n },\n \"i18n.LineWidth\": {\n   \"default\": \"Line width\",\n   \"fr-FR\": \"Largeur de ligne\",\n   \"en\": \"Line width\",\n   \"zh-CN\": \"行宽\"\n },\n \"i18n.LineThickness\": {\n   \"default\": \"Line Thickness\",\n   \"fr-FR\": \"Épaisseur de ligne\",\n   \"en\": \"Line Thickness\",\n   \"zh-CN\": \"线的粗细\"\n },\n \"i18n.Alignment\": {\n   \"default\": \"Alignment\",\n   \"fr-FR\": \"Alignement\",\n   \"en\": \"Alignment\",\n   \"zh-CN\": \"结盟\"\n }\n}"
 ```
 
 4. Create a widget template by sending a `POST` request to the [Create a Widget Template](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/createwidgettemplate) endpoint. The following example creates a simple text widget:
@@ -163,7 +163,7 @@ Accept: application/json
    ]
  }
 ],
-  "schema_translations": "{\n \"i18n.LineColor\": {\n   \"default\": \"Line color\",\n   \"fr-FR\": \"Couleur de la ligne\",\n   \"en\": \"Line color\",\n   \"zh-CH\": \"线条颜色\"\n },\n \"i18n.LineStyle\": {\n   \"default\": \"Line style\",\n   \"fr-FR\": \"Style de ligne\",\n   \"en\": \"Line style\",\n   \"zh-CH\": \"线型\"\n },\n \"i18n.LineWidth\": {\n   \"default\": \"Line width\",\n   \"fr-FR\": \"Largeur de ligne\",\n   \"en\": \"Line width\",\n   \"zh-CH\": \"行宽\"\n },\n \"i18n.LineThickness\": {\n   \"default\": \"Line Thickness\",\n   \"fr-FR\": \"Épaisseur de ligne\",\n   \"en\": \"Line Thickness\",\n   \"zh-CH\": \"线的粗细\"\n },\n \"i18n.Alignment\": {\n   \"default\": \"Alignment\",\n   \"fr-FR\": \"Alignement\",\n   \"en\": \"Alignment\",\n   \"zh-CH\": \"结盟\"\n }\n}",
+  "schema_translations": "{\n \"i18n.LineColor\": {\n   \"default\": \"Line color\",\n   \"fr-FR\": \"Couleur de la ligne\",\n   \"en\": \"Line color\",\n   \"zh-CN\": \"线条颜色\"\n },\n \"i18n.LineStyle\": {\n   \"default\": \"Line style\",\n   \"fr-FR\": \"Style de ligne\",\n   \"en\": \"Line style\",\n   \"zh-CN\": \"线型\"\n },\n \"i18n.LineWidth\": {\n   \"default\": \"Line width\",\n   \"fr-FR\": \"Largeur de ligne\",\n   \"en\": \"Line width\",\n   \"zh-CN\": \"行宽\"\n },\n \"i18n.LineThickness\": {\n   \"default\": \"Line Thickness\",\n   \"fr-FR\": \"Épaisseur de ligne\",\n   \"en\": \"Line Thickness\",\n   \"zh-CN\": \"线的粗细\"\n },\n \"i18n.Alignment\": {\n   \"default\": \"Alignment\",\n   \"fr-FR\": \"Alignement\",\n   \"en\": \"Alignment\",\n   \"zh-CN\": \"结盟\"\n }\n}",
   "template": "<h1>{{textContent}}</h1>"
 }
 ```
@@ -190,7 +190,7 @@ For example:
 |en|en-US|
 |fr|fr-FR|
 |uk|uk-UA|
-|zh|zh-CH|
+|zh|zh-CN|
 |-|es-419|
 
 <div class="HubBlock--callout">
