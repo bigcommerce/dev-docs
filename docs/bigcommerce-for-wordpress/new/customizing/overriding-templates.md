@@ -22,11 +22,11 @@ You can find all of the BC4WP template files that render on the frontend in the 
 
 These templates might require modification to match the styling of your theme. Both templates call the functions `get_header()` and `get_footer()` to render your theme's default header and footer.
 
-You can render the page content inside the wrapper template found in `components/page-wrapper.php`. By modifying this wrapper template to match the HTML markup of a template in your theme, you can have consistent styling across your site.
+You can render the page content inside the wrapper template found in `components/page-wrapper.php`. By modifying this wrapper template to match the HTML in your theme, you can have consistent styling across your site.
 
 ### Template overrides
 
-When WordPress updates a plugin, the new version overwrites existing plugin files. To ensure that your customizations persist through the update process, it’s important to use overrides in your theme files rather than editing plugin files directly.
+When WordPress updates a plugin, the new version overwrites existing plugin files. To ensure that your customizations persist through the update process, use overrides in your theme files rather than editing plugin files directly.
 
 To override any template, create a `/bigcommerce` directory in your theme and copy the template file to that directory.
 
