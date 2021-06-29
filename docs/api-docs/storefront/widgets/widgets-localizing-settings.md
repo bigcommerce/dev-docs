@@ -10,9 +10,9 @@
   
 </div>
 
-You can localize widget template settings to the provided language translations using the Internationalization (**i18n**) system.
+You can localize widget template settings to the provided language translations using the internationalization (**i18n**) system.
 
-In this article we will explain how to localize your widget template settings and provide a practical example of how to map settings to translations. 
+This article explains how to localize your widget template settings and provides a practical example of how to map settings to translations. 
 
 ## Mapping settings to translations
 
@@ -24,7 +24,7 @@ You can localize your widget template settings by defining translations in the `
 
 The following example demonstrates how to add translations for the widget template settings using the `schema_translations` property. 
 
-1. Identify all of the settings that need to be translated. Each `label` value must start with the `i18n.` prefix. For example, `"label": "i18n.LineColor"`.
+1. Identify all of the settings that need a translation. Each `label` value must start with the `i18n.` prefix. For example, `"label": "i18n.LineColor"`.
 2. Prepare your schema translations JSON object. It must contain a default language code along with the other languages you want to support formatted by two lowercase letters, a dash, and at least two alphanumeric characters. For more information, see the [Formatting language codes](#formatting-language-codes) section below.
 
 **Schema translations example**
@@ -72,7 +72,7 @@ The following example demonstrates how to add translations for the widget templa
 "{\n \"i18n.LineColor\": {\n   \"default\": \"Line color\",\n   \"fr-FR\": \"Couleur de la ligne\",\n   \"en\": \"Line color\",\n   \"zh-CH\": \"线条颜色\"\n },\n \"i18n.LineStyle\": {\n   \"default\": \"Line style\",\n   \"fr-FR\": \"Style de ligne\",\n   \"en\": \"Line style\",\n   \"zh-CH\": \"线型\"\n },\n \"i18n.LineWidth\": {\n   \"default\": \"Line width\",\n   \"fr-FR\": \"Largeur de ligne\",\n   \"en\": \"Line width\",\n   \"zh-CH\": \"行宽\"\n },\n \"i18n.LineThickness\": {\n   \"default\": \"Line Thickness\",\n   \"fr-FR\": \"Épaisseur de ligne\",\n   \"en\": \"Line Thickness\",\n   \"zh-CH\": \"线的粗细\"\n },\n \"i18n.Alignment\": {\n   \"default\": \"Alignment\",\n   \"fr-FR\": \"Alignement\",\n   \"en\": \"Alignment\",\n   \"zh-CH\": \"结盟\"\n }\n}"
 ```
 
-4. Create a widget template by sending a `POST` request to the [Create a Widget Template](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/createwidgettemplate) endpoint. The following example creates a simple text widget.
+4. Create a widget template by sending a `POST` request to the [Create a Widget Template](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/createwidgettemplate) endpoint. The following example creates a simple text widget:
 
 ```http
 POST /stores/{{store_hash}}/v3/content/widget-templates
@@ -173,7 +173,7 @@ Accept: application/json
 
 ![Default language code](https://storage.googleapis.com/bigcommerce-production-dev-center/images/01-Localizing%20Widget%20Template%20Settings.png "Default language code")
 
-7. Change your store's language settings. You can do so in the [**User Profile**](https://support.bigcommerce.com/s/article/User-Profile?language=en_US) within the control panel. For this example, we are going to set the language to French.
+7. Change your store's language settings. You can do so in the control panel by going to [**My Profile** > **Edit Profile**](http://login.bigcommerce.com/deep-links/user-settings/profile). For this example, we are going to set the language to French.
 
 8. Return to Page Builder and test the widget again. The display language should now be French.
 
@@ -210,4 +210,5 @@ For example:
 
 - [Internationalization](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Internationalization)
 - [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder?language=en_US)
+- [User Profile](https://support.bigcommerce.com/s/article/User-Profile?language=en_US)
 - [Widgets API Overview](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview)
