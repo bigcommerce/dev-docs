@@ -29,6 +29,7 @@ info:
 tags:
   - name: Email Statuses
   - name: Search Filters
+  - name: Store Locale
   - name: Storefront Category
   - name: Storefront Robotstxt
   - name: Storefront Search
@@ -732,6 +733,77 @@ paths:
           description: No Content
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
+  /settings/store/locale:
+    get:
+      summary: Get Locale Settings
+      description: Returns global locale settings.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Locale'
+                  meta:
+                    type: object
+              examples:
+                Example:
+                  value:
+                    data:
+                      default_shopper_language: en
+                      store_country: United States
+                    meta: {}
+        '422':
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Store Locale
+    put:
+      summary: Update Locale Settings
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Locale'
+                  meta:
+                    type: object
+              examples:
+                Example:
+                  value:
+                    data:
+                      default_shopper_language: en
+                      store_country: United States
+                    meta: {}
+        '422':
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Locale'
+            examples:
+              Example:
+                value:
+                  default_shopper_language: en
+                  store_country: United States
+      tags:
+        - Store Locale
+      description: Updates global locale settings.
 components:
   schemas:
     AnalyticsProvider:
@@ -796,6 +868,16 @@ components:
           type: string
         store_address:
           type: string
+    Locale:
+      description: 'The basic locale settings for a store, used to give shopper information about languages, countries, etc.'
+      type: object
+      properties:
+        default_shopper_language:
+          type: string
+          default: en
+        store_country:
+          type: string
+          default: United States
     StorefrontStatus:
       title: ''
       type: object
