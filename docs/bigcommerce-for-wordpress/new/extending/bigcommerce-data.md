@@ -64,7 +64,7 @@ The product ID can appear in various places on the client side. The ID you use d
 
 Generally, the WordPress plugin works with post IDs, not product IDs. The latter is rarely needed on the client side.
 
-There is a REST API endpoint to retrieve additional information about the product in the browser.  Its primary purpose is supporting the product block interface in the WordPress admin. Still, you can use it anywhere to retrieve a small subset of the product's information. The endpoint is `/wp-json/bigcommerce/v1/products`.
+There is a REST API endpoint to retrieve additional information about the product in the browser. Its primary purpose is supporting the product block interface in the WordPress admin. Still, you can use it anywhere to retrieve a small subset of the product's information. The endpoint is `/wp-json/bigcommerce/v1/products`.
 
 ## Variants
 
@@ -72,7 +72,7 @@ Retrieve a Product object as explained in the Products section. After that step,
 
 `$variants = $product->variants;`
 
-The returned objects will match the schema from the BigCommerce API.
+The returned objects match the schema from the BigCommerce API.
 
 ```php
 $variant_ids = wp_list_pluck( $variants, 'id' );
@@ -109,7 +109,7 @@ $connections = new \BigCommerce\Taxonomies\Channel\Connections();
 $channel     = $connections->current();
 ```
 
-The response is a WP_Term object with meta containing the channel ID:
+The response is a `WP_Term` object with meta containing the channel ID:
 
 ```php
 $channel_name = $channel->name;
