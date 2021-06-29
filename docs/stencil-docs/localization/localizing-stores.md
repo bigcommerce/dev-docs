@@ -126,7 +126,9 @@ You can localize transactional emails by using compatible third-party apps such 
 To fully localize your store, disable gift certificates in the BigCommerce control panel.
 
 ### Managing system messages
-You can configure each store's payment and checkout error messages in the BigCommerce control panel. For details, see [Verbose Error Messages at Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout#verbose).
+You can localize a store's payment and checkout error messages via checkout-js in the BigCommerce control panel. For a list of error messages and supported languages, see [Verbose Error Messages at Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout#verbose).
+
+To customize payment and checkout messages, define these variables in the theme language files. For details, see [Multi-language setup](https://developer.bigcommerce.com/stencil-docs/localization/multi-language-checkout#multi-language-setup).
 
 
 ## Resources
