@@ -15,7 +15,7 @@
 
 ## Multi-language setup
 
-In the Stencil's Cornerstone theme, the [Optimized Checkout](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss) SCSS file and the [Order Confirmation](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/order-confirmation.html) HTML file both contain Handlebars `{{lang}}` statements. These `{{lang}}` statements facilitate translation by enabling automatic rendering of their parameters into the default storefront language defined in the control panel.
+Cornerstone's [Optimized Checkout](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss) SCSS file and [Order Confirmation](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/order-confirmation.html) HTML file both contain Handlebars `{{lang}}` statements. These `{{lang}}` statements facilitate translation by enabling automatic rendering of their parameters into the default storefront language defined in the control panel.
 
 The following example shows how to use the `{{lang}}` statement in the header of the [default checkout page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/checkout.html): 
 
@@ -70,7 +70,7 @@ You can provide values for all of the checkout's supported translation keys even
 
 1. Download checkout's [en.json](https://github.com/bigcommerce/checkout-js/blob/master/src/app/locale/translations/en.json) file (GitHub).
 2. Copy and paste the file's contents into your theme's `en.json` file.
-3. Copy and paste the file's contents into each of the corresponding `json` file for the other languages you support. For naming requirements, see [Translation Keys](https://developer.bigcommerce.com/stencil-docs/localization/translation-keys#the-schema).
+3. Copy and paste the file's contents into each of the corresponding `json` files for the other languages you support. For naming requirements, see [Translation Keys](https://developer.bigcommerce.com/stencil-docs/localization/translation-keys#the-schema).
 4. Replace the values with appropriate phrases in each file's target language.
 
 ## Localized country and state names
