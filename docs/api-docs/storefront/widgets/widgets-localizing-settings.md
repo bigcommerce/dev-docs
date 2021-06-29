@@ -171,13 +171,13 @@ Accept: application/json
 5. From the control panel, open [Page Builder](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview) and locate your newly created widget template.
 6. Drag and drop the widget in a [region](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#regions) on a page to test it out.
 
-![Default language code](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/Sample_app/Localizing%20Widget%20Template%20Settings/01-Localizing%20Widget%20Template%20Settings.png "Default language code")
+![Default language code](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/01-Localizing%20Widget%20Template%20Settings.png "Default language code")
 
 7. Change your store's language settings. You can do so in the [**User Profile**](https://support.bigcommerce.com/s/article/User-Profile?language=en_US) within the control panel. For this example, we are going to set the language to French.
 
 8. Return to Page Builder and test the widget again. The display language should now be French.
 
-![FR language code](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/Sample_app/Localizing%20Widget%20Template%20Settings/03-Localizing%20Widget%20Template%20Settings.png "FR language code")
+![FR language code](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/03-Localizing%20Widget%20Template%20Settings.png "FR language code")
 
 ## Formatting language codes 
 
