@@ -42,7 +42,7 @@ The bulk of localizing a store is translating content on your theme's page templ
 
 ### Multiple language strings by BigCommerce
 
-Some of the strings displayed on your storefront are not currently editable in BigCommerce. These are strings such as "This promotion cannot be applied with the selected currency."  The language setting for these strings are not defined by the shopper's browser language settings. Rather, you should select the language displayed on your storefront by using the default language setting found in the control panel's [Store Profile](https://support.bigcommerce.com/s/article/Store-Profile-Settings#locale) area. This language setting determines the language of your storefront content.
+Currently, you cannot edit strings such as "This promotion cannot be applied with the selected currency" in BigCommerce. The language settings for these strings are not defined by the shopper's browser language settings. Rather, you select your storefront's display language by using the default language setting found in the control panel's [Store Profile](https://support.bigcommerce.com/s/article/Store-Profile-Settings#locale). This language setting determines the language of your storefront content.
 
 BigCommerce supports these uneditable strings in the following languages:
 * [Dutch](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-nl-NL.po)
@@ -80,7 +80,7 @@ Localizing your theme's checkout and order confirmation pages requires customiza
 
 ## Localizing your storefront content
 
-Localizing the control panel and options outside your theme and are accessible through the BigCommerce control panel. The [Default Language setting, found in the control panel's Store Profile area](https://support.bigcommerce.com/s/article/Store-Profile-Settings#locale), allows localization of the following items:
+Localize the control panel and options outside your theme by accessing the [Default Language setting, found in the control panel's Store Profile](https://support.bigcommerce.com/s/article/Store-Profile-Settings#locale). The Store Profile allows localization of the following items:
 
 * [Product catalog](#localizing-the-product-catalog)
 * [Currency](#localizing-currency)
@@ -117,7 +117,9 @@ If you create static pages as Stencil custom templates, you can localize their c
 
 ### Managing transactional emails
 
-To fully localize a store into a language other than English, disable the sending of BigCommerce native emails. To disable native emails, go to **Storefront** › [**Email Templates**](http://login.bigcommerce.com/deep-links//manage/storefront-manager/email-templates). Uncheck each email type that you prefer to customize. If you would like to localize transactional emails, see our Partner Apps, such as [CM Commerce](https://www.bigcommerce.com/apps/cm-commerce/), for more details.
+To fully localize a store into a language other than English, disable the sending of BigCommerce native emails. To disable native emails, go to **Storefront** › [**Email Templates**](http://login.bigcommerce.com/deep-links/manage/storefront-manager/email-templates). Uncheck each email type that you prefer to customize.
+
+You can localize transactional emails by using compatible third-party apps such as [CM Commerce](https://www.bigcommerce.com/apps/cm-commerce/).
 
 ### Managing gift certificates
 
