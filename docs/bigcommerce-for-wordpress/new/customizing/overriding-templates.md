@@ -12,46 +12,6 @@
 
 BC4WP includes template files that are used to display your BigCommerce data on your WordPress storefront. You can edit these templates to change both the content displayed and the styling of that content.
 
-<!--
-title: "Schema translations example"
-lineNumbers: true
--->
-
-```json
-{
- "i18n.LineColor": {
-   "default": "Line color",
-   "fr-FR": "Couleur de la ligne",
-   "en": "Line color",
-   "zh-CH": "线条颜色"
- },
- "i18n.LineStyle": {
-   "default": "Line style",
-   "fr-FR": "Style de ligne",
-   "en": "Line style",
-   "zh-CH": "线型"
- },
- "i18n.LineWidth": {
-   "default": "Line width",
-   "fr-FR": "Largeur de ligne",
-   "en": "Line width",
-   "zh-CH": "行宽"
- },
- "i18n.LineThickness": {
-   "default": "Line Thickness",
-   "fr-FR": "Épaisseur de ligne",
-   "en": "Line Thickness",
-   "zh-CH": "线的粗细"
- },
- "i18n.Alignment": {
-   "default": "Alignment",
-   "fr-FR": "Alignement",
-   "en": "Alignment",
-   "zh-CH": "结盟"
- }
-}
-```
-
 ### Templates location
 
 You can find all of the BC4WP template files that render on the frontend in the `templates/public` folder. Templates within the `templates/public/components` subfolder render smaller content blocks within your theme’s template, while the following two control the entire page:
