@@ -38,7 +38,7 @@ $sku = $product->sku();
 $brand = $product->brand();
 ```
 
-Consult the code reference for a full list of methods available on the Product object.
+Consult the code reference for a complete list of methods available on the Product object.
 
 For any data not directly exposed through a dedicated method, call `$product->get_property()` to retrieve the value.
 
@@ -91,14 +91,14 @@ var variant_ids = variants.map( variant => variant.variant_id );
 
 The schema does not completely match the API data. It has been adjusted to suit the needs of the product form. Properties include:
 
-- variant_id
-- price
-- formatted_price
-- sku
-- disabled
-- disabled_message
-- image
-- option_ids
+- `variant_id`
+- `price`
+- `formatted_price`
+- `sku`
+- `disabled`
+- `disabled_message`
+- `image`
+- `option_ids`
 
 ## Channels
 
@@ -158,11 +158,11 @@ $group_info = $group->get_info();
 The customer group ID is not available anywhere on the client side.    
 
 
-The `bigcommerce/init` action fires after the plugin has completed initializing all of its service providers and hooked them into WordPress. It passes two arguments: the primary plugin controller (an instance of the BigCommerce\Plugin class) and the dependency injection container itself. The former is also available at any time after initialization by calling the function `bigcommerce()`.
+The `bigcommerce/init` action fires after the plugin has completed initializing its service providers and hooked them into WordPress. It passes two arguments: the primary plugin controller (an instance of the BigCommerce\Plugin class) and the dependency injection container itself. The former is also available after initialization by calling the function `bigcommerce()`.
 
-An instance of each of the service providers found in the src/BigCommerce/Container directory can be accessed via this plugin controller, using the keys specified in `\BigCommerce\Plugin::load_service_providers()`. E.g., to get an instance of the BigCommerce\Container\Cart service provider, you would use `bigcommerce()->cart`.
+An instance of each service provider found in the src/BigCommerce/Container directory can be accessed via this plugin controller, using the keys specified in `\BigCommerce\Plugin::load_service_providers()`. For example, to get an instance of the `BigCommerce\Container\Cart` service provider, you would use `bigcommerce()->cart`.
 
-Every action or filter callback created by one of the service providers is given an identifier so that it can be retrieved and, if appropriate, unhooked from WordPress. E.g., to unhook the closure that renders the product archive template and replace it with your own, you could do:
+Every action or filter callback created by one of the service providers is given an identifier so that it can be retrieved and, if appropriate, unhooked from WordPress. For example, to unhook the closure that renders the product archive template and replace it with your own, you could do:
 
 ```javascript
 remove_action( 'bigcommerce/template/product/archive', bigcommerce()->templates->product_archive, 10 );
