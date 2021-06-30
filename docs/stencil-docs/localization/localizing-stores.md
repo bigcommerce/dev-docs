@@ -42,7 +42,8 @@ The bulk of localizing a store is translating content on your theme's page templ
 
 ### Multiple language strings by BigCommerce
 
-Currently, you cannot edit strings such as "This promotion cannot be applied with the selected currency" in BigCommerce. The language settings for these strings are not defined by the shopper's browser language settings. Rather, you select your storefront's display language by using the default language setting found in the control panel's [Store Profile](https://support.bigcommerce.com/s/article/Store-Profile-Settings#locale). This language setting determines the language of your storefront content.
+Currently, you cannot edit strings such as "This promotion cannot be applied with the selected currency" in BigCommerce. The language settings for these strings are not defined by the shopper's browser language settings. Rather, you select your storefront's display language using the default language setting found in the control panel's [Store Profile](https://support.bigcommerce.com/s/article/Store-Profile-Settings#locale). This language setting determines the language of your storefront content.
+
 
 BigCommerce supports these uneditable strings in the following languages:
 * [Dutch](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-nl-NL.po)
