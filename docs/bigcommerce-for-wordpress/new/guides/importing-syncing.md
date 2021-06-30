@@ -3,24 +3,24 @@
 <div class="otp" id="no-index">
 	
 ### On this page
-- [CLI setup instructions](#cli-setup-instructions)
+- [Command-line setup instructions](#command-line-setup-instructions)
 - [Set up and recommendations for cron](#set-up-and-recommendations-for-cron)
 
 </div>
 
-## CLI setup instructions
+## Command-line setup instructions
 
-The import process will run faster and more reliably if run from the command line.
+The import process runs faster and more reliably if run from a command prompt.
 
 1. Ensure that your host has [WP-CLI](https://wp-cli.org/) installed and configured to manage your WordPress site.
 
-2. The initial import will likely take longer than subsequent imports. Run the following command for the first import: 
-`wp bigcommerce import products`
+2. The initial import takes longer than subsequent imports. Run the following command for the initial import: 
+`wp bigcommerce wordpress import products` 
 
 3. Set up a system cron job to run the import at your desired frequency. For example, to run every 10 minutes:
 `*/10 * * * * /usr/bin/wp bigcommerce import products --quiet > /dev/null 2>&1`
 
-This does not disable the WordPress cron-based import process. As long as the CLI import runs more frequently than the import configured on the settings screen, the cron-based import should never be triggered. In the event that both are running concurrently, safeguards are in place to ensure that only one process runs at a time.
+This does not disable the WordPress cron-based import process. As long as the command-line import runs more frequently than the import configured on the BC4WP settings menu, the cron-based import should never be triggered. Safeguards are in place to ensure that only one process runs at a time.
 
 ![Product Sync](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/cli-setup-instructions.png)
 
@@ -34,7 +34,7 @@ WordPress sites will generally operate more efficiently if WordPress's default c
 
 To disable WordPress's default cron, follow these steps:
 
-1. Set a constant in `your wp-config.php`:
+1. Set a constant in your `wp-config.php`:
 `define( 'DISABLE_WP_CRON', true );`
 
 2. Set up a system cron job to run WordPress's cron events from the command line:
