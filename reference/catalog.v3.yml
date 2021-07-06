@@ -207,8 +207,7 @@ paths:
           in: query
           type: boolean
         - name: is_featured
-          description: |
-            Filter items by is_featured. `0` for true, `1` for false.
+          description: 'Filter items by is_featured. `1` for true, `0` for false.'
           required: false
           in: query
           type: integer
@@ -216,8 +215,7 @@ paths:
             - 1
             - 0
         - name: is_free_shipping
-          description: |
-            Filter items by is_free_shipping.
+          description: 'Filter items by is_free_shipping. `1` for true, `0` for false.'
           required: false
           in: query
           type: integer
