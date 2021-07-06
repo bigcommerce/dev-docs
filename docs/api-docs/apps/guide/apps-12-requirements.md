@@ -28,6 +28,7 @@ Don't reference competitor platforms in the app's listing information or dashboa
 "Marketplace by BigCommerce" or "Search by BigCommerce").
 - Develop app client-side code to be compatible with all BigCommerce [supported browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers) and default features.
 - Include applicable test account details in your test instructions with the submission for any third-party services required in the app.
+- Use only BigCommerce API resources to perform relevant API functions.
 
 ## Listing
 
