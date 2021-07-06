@@ -14600,10 +14600,7 @@ paths:
         - name: product_id
           in: query
           type: string
-          description: |-
-            A comma-separated list of ids of Products whose prices were requested. For example:
-            `?product_id=:id`
-            `?product_id:in=77,80,81`
+          description: 'A comma-separated list of IDs of products whose variants were requested. For example:`?product_id=:id``?product_id:in=77,80,81`'
       responses:
         '200':
           description: ''
