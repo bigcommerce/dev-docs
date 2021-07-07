@@ -95,8 +95,8 @@ An end-to-end example that displays a customer's recently purchased products is 
 
 <!-- theme: info -->
 
-### IAT claim
-> The iat claim is only good for 30 seconds.
+### IAT and EXP claims
+> The current customer tokens are valid for 15 minutes.
 
 </div>
 </div>
