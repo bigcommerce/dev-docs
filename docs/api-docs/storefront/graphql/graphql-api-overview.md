@@ -320,7 +320,7 @@ In addition to using `fetch()`, there's a other ways to query the API:
 > * If pasted directly into a script in [**Storefront** > **Script Manager**](https://support.bigcommerce.com/s/article/Using-Script-Manager), the output from `console.log(json)` will be viewable in the browser's Javascript Console.
 > * The above code must be used in a place where the `{{settings.storefront_api.token}}` handlebars variable can be accessed in order to get credentials for the API request.
 > * The `fetch` request `credentials` property must be set to `same-origin` (even when making request from a Stencil theme).
-> * There is no default limit on items GraphQL can fetch. However, you can control the number of items retrieved for the nodes that return multiple items. If your application allows, use the `first` argument to retrieve a specific number of records from a query. The example below returns the first ten products. 
+> * There is no default limit on items GraphQL can fetch. However, you can control the number of items retrieved for the nodes that return multiple items. Use the `first` argument to retrieve a specific number of records from a query. The example below returns the first ten products. 
  
  ```js
  products(first: 10) 
