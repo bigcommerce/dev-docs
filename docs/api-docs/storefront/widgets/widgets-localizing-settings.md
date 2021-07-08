@@ -5,7 +5,7 @@
 ### On this page
 
 - [Mapping settings to translations](#mapping-settings-to-translations)
-- [Formatting language codes](#formatting-language-codes)
+- [Supported language code schemes](#supported-language-code-schemes)
 - [Resources](#resources)
   
 </div>
@@ -179,19 +179,9 @@ Accept: application/json
 
 ![FR language code](https://storage.googleapis.com/bigcommerce-production-dev-center/images/03-Localizing%20Widget%20Template%20Settings.png "FR language code")
 
-## Formatting language codes 
+## Supported language code schemes 
 
-Widget templates support two-character and multiple-character language code values. The language code must follow a set format of two lowercase letters, a dash, and at least two alphanumeric characters. 
-
-For example:
-
-|Two-character language code|Multiple-character language code|
-|-|-|
-|en|en-US|
-|fr|fr-FR|
-|uk|uk-UA|
-|zh|zh-CN|
-|-|es-419|
+Widget templates support both [ISO 639‑1](https://en.wikipedia.org/wiki/ISO_639-1) and [IETF language tag](https://en.wikipedia.org/wiki/IETF_language_tag) code schemes. The language code must follow a set format of two lowercase letters for a two-letter code system or two lowercase letters, a dash, and at least two alphanumeric characters for a multiple-character code system.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
