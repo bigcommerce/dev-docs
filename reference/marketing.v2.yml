@@ -216,7 +216,7 @@ paths:
                 ids:
                   - 0
       responses:
-        '200':
+        '201':
           $ref: '#/responses/coupon_Resp'
       tags:
         - Coupons
