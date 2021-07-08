@@ -5213,8 +5213,6 @@ components:
         phone:
           type: string
           example: 101-192-0293
-        store_credit_amounts:
-          $ref: '#/components/schemas/CustomerStoredCreditAmounts'
     CustomerStoredCreditAmounts:
       description: 'Store credit. '
       type: array
