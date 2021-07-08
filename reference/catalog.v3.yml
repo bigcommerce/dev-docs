@@ -74,8 +74,6 @@ info:
     * [Products](/api-docs/store-management/webhooks/events#products)
     * [Categories](/api-docs/store-management/webhooks/events#category)
     * [SKU](/api-docs/store-management/webhooks/events#sku)
-
-
   termsOfService: ''
   license:
     name: ''
@@ -1252,7 +1250,7 @@ paths:
                     type: string
                   image_file:
                     description: |
-                      Must be sent as a multipart/form-data field in the request body.
+                      Must be sent as a multipart/form-data field in the request body. Limit of 1MB per file.
                     type: string
             title: Product Image Post
             type: object
@@ -19915,7 +19913,7 @@ definitions:
     properties:
       image_file:
         description: |
-          The local path to the original image file uploaded to BigCommerce.
+          The local path to the original image file uploaded to BigCommerce. Limit of 1MB per file.
         type: string
       is_thumbnail:
         description: |
