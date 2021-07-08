@@ -10768,6 +10768,10 @@ paths:
           type: string
           default: application/json
           required: true
+        - type: integer
+          in: query
+          name: status
+          description: 'Filter items by status. `1` for approved, `0` for pending.'
       responses:
         '200':
           description: ''
