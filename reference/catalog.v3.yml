@@ -16932,7 +16932,7 @@ paths:
         required: true
         description: The ID of the `Category` to which the resource belongs.
     get:
-      summary: Get Product Sort Order
+      summary: Get Product Sort Order (Beta)
       responses:
         '200':
           $ref: '#/responses/ProductSortOrderResponse'
@@ -16946,6 +16946,17 @@ paths:
         * Data pairs are displayed in ascending order based on products' `sort_order` values.
         * `null` values are allowed for products without specified `sort_order` values.
         * Products with `sort_order` value of `null` will be displayed after products with valid numerical values.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content">
+
+        > ### Note
+        > This endpoint is in beta.
+
+        </div>
+        </div>
+        </div>
       parameters:
         - type: string
           in: header
@@ -16960,7 +16971,7 @@ paths:
       tags:
         - Product Sort Order
     put:
-      summary: Update Product Sort Order
+      summary: Update Product Sort Order (Beta)
       operationId: updatesortorder
       responses:
         '200':
@@ -16969,7 +16980,19 @@ paths:
           $ref: '#/responses/Error404Response'
         '422':
           $ref: '#/responses/Error422Response'
-      description: Updates *Sort Order* of products within a specific category.
+      description: |-
+        Updates *Sort Order* of products within a specific category.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content">
+
+        > ### Note
+        > This endpoint is in beta.
+
+        </div>
+        </div>
+        </div>
       parameters:
         - type: string
           in: header
