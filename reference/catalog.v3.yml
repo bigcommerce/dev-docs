@@ -71,12 +71,11 @@ info:
     ## Resources
 
     ### Webhooks
-    * [Products](/api-docs/getting-started/webhooks/webhook-events#webhook-events_products)
-    * [Categories](/api-docs/getting-started/webhooks/webhook-events#webhook-events_category)
-    * [SKU](/api-docs/getting-started/webhooks/webhook-events#webhook-events_sku)
+    * [Products](/api-docs/store-management/webhooks/events#products)
+    * [Categories](/api-docs/store-management/webhooks/events#category)
+    * [SKU](/api-docs/store-management/webhooks/events#sku)
 
-    ### Related Endpoints
-    * [Catalog API](/api-reference/catalog/catalog-api)
+
   termsOfService: ''
   license:
     name: ''
