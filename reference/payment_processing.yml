@@ -80,6 +80,9 @@ paths:
                       description: Identifier for payment method that will be used for this payment and `id` from the Get Accepted Payment Methods API
                       type: string
                       minLength: 1
+                    save_instrument:
+                      type: boolean
+                      description: 'To use `save_instrument`, configure the payment gateway to accept stored cards.'
               required:
                 - payment
             examples:
@@ -105,6 +108,7 @@ paths:
                       token: 8cdf7b6ea1b27119463bf9e5106639618cc77a9adc49f0069ca8b756cc15caee
                       verification_value: '1142'
                     payment_method_id: adyenv2.scheme
+                    save_instrument: true
               Paypal Stored Card:
                 value:
                   payment:
