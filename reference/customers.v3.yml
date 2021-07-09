@@ -1293,7 +1293,7 @@ paths:
 
         **Required Fields**
         * customer_id -- ID of the *Customer*
-        * id -- ID of the *Customer Attribute*
+        * attribute_id -- ID of the *Customer Attribute*
         * value -- Value of the *Customer Attribute*
       summary: Upsert Customer Attribute Values
       operationId: CustomersAttributeValuesPut
