@@ -101,14 +101,15 @@ paths:
             - site_id
           in: query
           name: sort
-          description: Sorts a collection by a specified field.
+          description: |
+            Field name to sort by. Note: Since redirect `id` increments when new redirects are added, you can use that field to sort by redirect create date.
         - type: string
           enum:
             - asc
             - desc
           in: query
           name: direction
-          description: Sort direction.
+          description: Sort direction. Acceptable values are `asc`, `desc`.
         - type: string
           enum:
             - to_url

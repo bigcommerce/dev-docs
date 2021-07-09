@@ -180,7 +180,8 @@ paths:
           in: query
           type: integer
         - name: sort
-          description: Field name to sort the scripts by.
+          description: |
+            Field name to sort the scripts by. Note: Since `id` increments when new scripts are added, you can use that field to sort by script create date.
           required: false
           in: query
           type: string
