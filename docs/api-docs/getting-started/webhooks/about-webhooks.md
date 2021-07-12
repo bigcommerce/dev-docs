@@ -215,7 +215,7 @@ Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 ```
-**Unable to view your Webhook**
+**Unable to view your webhook**
 
 Webhooks created with one token are not visible when you list webhooks using a different token. To view your webhook, use the same account token that created the webhook.
 
