@@ -694,6 +694,22 @@ paths:
                     $ref: '#/components/schemas/EnabledTransactionalEmails'
                   meta:
                     type: object
+              examples:
+                Example:
+                  value:
+                    data:
+                      abandoned_cart_email: true
+                      account_details_changed_email: true
+                      combined_order_status_email: true
+                      createaccount_email: true
+                      createguestaccount_email: true
+                      giftcertificate_email: true
+                      invoice_email: true
+                      ordermessage_notification: true
+                      return_confirmation_email: true
+                      return_statuschange_email: true
+                      product_review_email: false
+                    meta: {}
       operationId: get-settings-emails-enabled
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
@@ -715,11 +731,41 @@ paths:
                     $ref: '#/components/schemas/EnabledTransactionalEmails'
                   meta:
                     type: object
+              examples:
+                Example:
+                  value:
+                    data:
+                      abandoned_cart_email: true
+                      account_details_changed_email: true
+                      combined_order_status_email: true
+                      createaccount_email: true
+                      createguestaccount_email: true
+                      giftcertificate_email: true
+                      invoice_email: true
+                      ordermessage_notification: true
+                      return_confirmation_email: true
+                      return_statuschange_email: true
+                      product_review_email: false
+                    meta: {}
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/EnabledTransactionalEmails'
+            examples:
+              Example:
+                value:
+                  abandoned_cart_email: true
+                  account_details_changed_email: true
+                  combined_order_status_email: true
+                  createaccount_email: true
+                  createguestaccount_email: true
+                  giftcertificate_email: true
+                  invoice_email: true
+                  ordermessage_notification: true
+                  return_confirmation_email: true
+                  return_statuschange_email: true
+                  product_review_email: false
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
     delete:
@@ -1134,15 +1180,15 @@ components:
           type: boolean
         combined_order_status_email:
           type: boolean
-        create_account_email:
+        createaccount_email:
           type: boolean
-        create_guest_account_email:
+        createguestaccount_email:
           type: boolean
-        gift_certificate_email:
+        giftcertificate_email:
           type: boolean
         invoice_email:
           type: boolean
-        order_message_notification_email:
+        ordermessage_notification:
           type: boolean
         return_confirmation_email:
           type: boolean
