@@ -152,6 +152,16 @@ After the final retry attempt (cumulatively **48 hours** after the first deliver
 
 To avoid accumulating unused webhooks, BigCommerce automatically deletes registered webhooks on app uninstall.
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+### Note
+> You can not delete a webhook by deleting the account token used to create it. The associated webhook will continue to run after you delete the token, and you will be unable to edit, delete, or manage the webhook. For information on how to manaually delete a webhook, see [Delete a Webhook](https://developer.bigcommerce.com/api-reference/store-management/webhooks/webhooks/deleteawebhook).
+</div> 
+</div>
+</div>
+
 ## Security
 
 To ensure webhook callback requests are secure, BigCommerce takes the following precautions:
@@ -205,6 +215,9 @@ Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 ```
+**Unable to view your webhook**
+
+Webhooks created with one token are not visible when you list webhooks using a different token. To view your webhook, use the same account token that created the webhook.
 
 ## Tools
 
