@@ -18,8 +18,7 @@ The Apps Marketplace team reviews all app submissions and tests apps to verify t
 
 ## General requirements
 
-- Make support resources available throughout the app, like during onboarding and on the app's dashboard within the BigCommerce iFrame.
-
+- Make support resources available throughout the app, like during onboarding and on the app's dashboard within the BigCommerce iframe.
 - Follow branding guidelines when referencing BigCommerce (see our [Media Kit](https://www.bigcommerce.com/press/media-kit/) for more information).
 Don't reference competitor platforms in the app's listing information or dashboard.
 * Use the same app name in app submission and in app content such as logos and descriptions.
