@@ -226,14 +226,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/LineItemsRequest'
+              $ref: '#/components/schemas/requestLineItemPut'
             examples:
               Example:
                 value:
-                  lineItems:
-                    - productId: 229
-                      variantId: 191
-                      quantity: 10
+                  lineItem:
+                    productId: 229
+                    variantId: 191
+                    quantity: 10
         required: true
       responses:
         '200':
@@ -498,6 +498,30 @@ components:
       x-examples: {}
       type: object
       description: Cart object used in add items requests.
+    requestLineItemPut:
+      title: requestLineItemPut
+      oneOf:
+        - properties:
+            lineItem:
+              $ref: '#/components/schemas/requestCartPostLineItem'
+          required:
+            - lineItem
+        - properties:
+            giftCertificates:
+              $ref: '#/components/schemas/requestLineItemGiftCertificate'
+          required:
+            - giftCertificates
+        - properties:
+            lineItem:
+              $ref: '#/components/schemas/requestCartPostLineItem'
+            giftCertificates:
+              $ref: '#/components/schemas/requestLineItemGiftCertificate'
+          required:
+            - lineItem
+            - giftCertificates
+      x-examples: {}
+      description: ''
+      type: object
     responseCartCurrency:
       title: Currency
       type: object
