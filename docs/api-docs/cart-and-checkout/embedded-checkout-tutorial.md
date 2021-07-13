@@ -216,7 +216,7 @@ Use the `embedded_checkout_url` that is returned from generating redirect URLs a
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 	
-When the shopper is logged in, use the https://store-url/login/token/token URL as the `url` option for `embedCheckout`. For unauthenticated shoppers, use the `embedded_checkout_url` as the `url` option instead.
+When the shopper is logged in, use the https://{{store-url}}/login/token/{{token}} URL as the `url` option for `embedCheckout`. For unauthenticated shoppers, use the `embedded_checkout_url` as the `url` option instead.
 	
 </div>
 </div>
@@ -268,7 +268,7 @@ For Embedded Checkout to work correctly for shoppers using a browser with restri
 
 ### How do I make sure that authenticated shoppers who sign out from the checkout page are also signed out of the headless storefront?
 
-To ensure you log shoppers off from the checkout page and the headless storefront, developers should pass an `onSignOut` option to `embedCheckout` to handle sign out events from the checkout page. There is not a corresponding event to handle logging in on the checkout page.
+To ensure you log shoppers off from the checkout page and the headless storefront, developers should pass an `onSignOut` option to `embedCheckout` to handle sign out events from the checkout page. 
 
 ## Related resources
 
