@@ -163,11 +163,16 @@ ngrok http 3000
 
 ![https tunnel](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-02.png "https tunnel")
 
-<!-- theme: info -->
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
 > ### Note
->
 > When installed as an npm package, ngrok sessions expire every two hours. To prevent your session from timing out, you can create a ngrok account and download ngrok for your machine. To learn more, see [Download & setup ngrok](https://ngrok.com/download).
+
+</div>
+</div>
+</div>
 
 ## Register the draft app
 
@@ -187,11 +192,16 @@ To register your draft app, you need a BigCommerce store. If you do not have a B
 
 ![HTTPS URL](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-05.png "HTTPS URL")
 
-<!-- theme: warning -->
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
 
 > ### Warning
->
 > Avoid using the HTTP URL to prevent security policy errors.
+
+</div>
+</div>
+</div>
 
 * For Auth Callback URL, enter the URL of your app followed by `/api/auth`.
 * For Load Callback URL, enter the URL of your app followed by `/api/load`.
@@ -199,11 +209,16 @@ To register your draft app, you need a BigCommerce store. If you do not have a B
 
 ![Callback url](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-06.png "Callback url")
 
-<!-- theme: info -->
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
 > ### Note
->
-> Next.js maps all APIs that are part of the Next.js package to the `/api/*` route. To learn more about Next.js API routes, see [API Routes](https://nextjs.org/docs/api-routes/introduction). 
+> Next.js maps all APIs that are part of the Next.js package to the `/api/*` route. To learn more about Next.js API routes, see [API Routes](https://nextjs.org/docs/api-routes/introduction).
+
+</div>
+</div>
+</div>
 
 6. Because your sample app will be modifying the Products API resource, you need to set the Products OAuth scope to **MODIFY**. To learn more about the available OAuth scopes, see [OAuth scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
@@ -231,12 +246,16 @@ CLIENT_SECRET={app secret}
 
 AUTH_CALLBACK=https://{ngrok_id}.ngrok.io/api/auth
 ```
-
-<!-- theme: warning -->
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
 
 > ### Warning
->
 > Never share sensitive data such as API keys and passwords publicly.
+
+</div>
+</div>
+</div>
 
 3. Navigate to [Developer Portal > My Apps](https://devtools.bigcommerce.com/my/apps). Locate your app and click **View Client ID** to retrieve your app's credentials.
 4. Copy the app's Client ID and Client Secret and paste them into the `.env` file.
@@ -247,11 +266,16 @@ AUTH_CALLBACK=https://{ngrok_id}.ngrok.io/api/auth
 npm run dev
 ```
 
-<!-- theme: info -->
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
 > ### Note
->
 > If ngrok stops working or your ngrok session expires, restart the tunnel to get the new `ngrok_id` and update the callback URLs in the Developer Portal and the `AUTH_CALLBACK` in the `.env` file.
+
+</div>
+</div>
+</div>
 
 ## Install and launch the app
 

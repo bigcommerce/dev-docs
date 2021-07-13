@@ -22,12 +22,17 @@ If you do not have Node.js installed, you can download it from [Node.js Download
 
 ## Generate a package.json file
 
-<!-- theme: info -->
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
 > ### Note
->
 > * Make sure that you are using Node.js version 10.13+.
-> * We will not be relying on the `create-next-app` CLI tool to build the app. Instead, we will do a manual setup using custom dependencies. 
+> * We will not be relying on the `create-next-app` CLI tool to build the app. Instead, we will do a manual setup using custom dependencies.
+
+</div>
+</div>
+</div> 
 
 1. Using the terminal, initialize the project’s `package.json` file.
 

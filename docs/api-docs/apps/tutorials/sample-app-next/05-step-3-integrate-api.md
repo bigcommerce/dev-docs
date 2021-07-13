@@ -95,11 +95,16 @@ export * from './db';
 
 [View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/types/index.ts)
 
-<!-- theme: info -->
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
 > ### Note
->
 > If ngrok stops working or your ngrok session expires, restart the tunnel to get the new `ngrok_id` and update the callback URLs in the Developer Portal and the `AUTH_CALLBACK` in the `.env` file.
+
+</div>
+</div>
+</div>
 
 ## Initialize React Context
 
@@ -147,11 +152,16 @@ You will use a JSON Web Token (**JWT**) to securely transmit information encoded
 JWT_KEY={SECRET}
 ```
 
-<!-- theme: info -->
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
 > ### Note
->
 > The JWT key should be at least 32 random characters (256 bits) for HS256.
+
+</div>
+</div>
+</div>
 
 ## Update the auth lib page
 
@@ -446,11 +456,16 @@ FIRE_DOMAIN={firebaseConfig.authDomain}
 FIRE_PROJECT_ID={firebaseConfig.projectId}
 ```
 
-<!-- theme: info -->
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
 > ### Note
->
 > In the development mode, every time you modify your environment variables, make sure to restart the process (`npm run dev`) to capture the changes.
+
+</div>
+</div>
+</div>
 
 ## Set up the MySQL database
 

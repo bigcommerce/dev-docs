@@ -6,11 +6,16 @@ You will learn how to connect your app to BigCommerce, integrate an API, and set
 
 At the end of this tutorial, you will have a functional single-click app that can make API calls and store app data in a database.
 
-<!-- theme: info -->
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
 > ### Note
->
 > To get the app up and running quickly, follow the steps described in the [Deploy to Heroku install flow](../docs/Deploy-to-Heroku-install-flow.md). 
+
+</div>
+</div>
+</div>
 
 **Prerequisites**
 
