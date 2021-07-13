@@ -175,10 +175,9 @@ fetch('/graphql', {
   headers: {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer {{settings.storefront_api.token}}'
-      ''
   },
-  body: JSON.stringify({ query: `query MyFirstQuery {...}`
-);
+  body: JSON.stringify({ query: `query MyFirstQuery {...}`})
+});
 ```
 
 <div class="HubBlock--callout">
