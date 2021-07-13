@@ -4,7 +4,7 @@
 
 ### On this page
 - [Adding translations](#adding-translations)
-- [Language code formatting](#language-code-formatting)
+- [Supported language code schemes](#supported-language-code-schemes)
 - [Resources](#resources)
 
 </div>
@@ -15,7 +15,7 @@ Stencil themes support translations for variation descriptions enabling you to c
 
 You can localize theme variations by adding a `translations` object for each variation in the theme's `config.json` file. 
 
-The following example demonstrates how to use the `translations` object in a theme's `variations` collection to localize the description for each variation.
+The following example demonstrates how to localize each variation description by adding a `translations` object.
 
 ```json
 {
@@ -94,19 +94,10 @@ The following example demonstrates how to use the `translations` object in a the
 </div>
 </div>
 
-## Language code formatting
+## Supported language code schemes
 
-In addition to the `default` language code, themes support two-character and multiple-character language code values. The language code must follow a set format of two lowercase letters, a dash, and at least two alphanumeric characters. 
-
-For example:
-
-|Two-character language code|Multiple-character language code|
-|-|-|
-|en|en-US|
-|fr|fr-FR|
-|uk|uk-UA|
-|zh|zh-CN|
-|-|es-419|
+In addition to the `default` language code, themes support both [ISO 639‑1](https://en.wikipedia.org/wiki/ISO_639-1) and [IETF language tag](https://en.wikipedia.org/wiki/IETF_language_tag) code schemes.
+The language code must follow a set format of two lowercase letters for a two-letter code system or two lowercase letters, a dash, and at least two alphanumeric characters for a multiple-character code system.
 
 ## Resources
 
