@@ -182,9 +182,7 @@ Customers can log in using the [Customer Login API](https://developer.bigcommerc
 
 You will first need to use JSON Web Token Standard to create a new token. Use a [JWT library](https://jwt.io/#libraries-io) to accomplish this. For more information, see [Create JWT Using the Debugger Tool](https://developer.bigcommerce.com/api-docs/customers/customer-login-api#create-jwt-using-the-debugger-tool).
 
-Next, include the `checkout_url` as part of the request payload you send to BigCommerce.
-
-**`POST`** `https://{store-url}}/login/token/{token}`
+Next, include the `embedded_checkout_url` as part of the request payload you send to BigCommerce.
 
 **Customer Login Request**
 
@@ -213,6 +211,16 @@ The `request_ip` field is optional.
 ## Embedding the checkout
 
 Use the `embedded_checkout_url` that is returned from generating redirect URLs and assemble a JSON object. It will be used by the Checkout JS SDK to determine how to render the checkout.
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+	
+When the shopper is logged in, use the https://store-url/login/token/token URL as the `url` option for `embedCheckout`. For unauthenticated shoppers, use the `embedded_checkout_url` as the `url` option instead.
+	
+</div>
+</div>
+</div>
 
 **JSON object**
 ```json
@@ -257,6 +265,10 @@ At this time, you cannot embed a checkout using a hosted payment gateway. See [A
 ### How do I resolve Embedded Checkout 403 "Cannot start checkout session with an empty cart" Errors?
 
 For Embedded Checkout to work correctly for shoppers using a browser with restricted privacy settings (like Apple's Safari), your checkout page must be served from the same domain as your BigCommerce storefront. For example, if your headless storefront is `www.mystore.com`, then your BigCommerce store's domain should be `checkout.mystore.com`. For more information on making Embedded Checkout on a headless WordPress storefront compatible with Safari, see [BigCommerce for WordPress](https://support.bigcommerce.com/s/article/BigCommerce-for-WordPress-Checkout#safari).
+
+### How do I make sure that authenticated shoppers who sign out from the checkout page are also signed out of the headless storefront?
+
+To ensure you log shoppers off from the checkout page and the headless storefront, developers should pass an `onSignOut` option to `embedCheckout` to handle sign out events from the checkout page. There is not a corresponding event to handle logging in on the checkout page.
 
 ## Related resources
 
