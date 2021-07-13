@@ -495,7 +495,9 @@ paths:
           default: application/json
       responses:
         '204':
-          description: ''
+          description: '`204 No Content`. Action has been enacted and no further information is to be supplied. `null` is returned.'
+          schema:
+            x-nullable: true
       tags:
         - Price Lists
       summary: Delete All Price Lists
@@ -789,7 +791,10 @@ paths:
       operationId: deletePriceList
       responses:
         '204':
-          description: ''
+          description: '`204 No Content`. Action has been enacted and no further information is to be supplied. `null` is returned.'
+          examples: {}
+          schema:
+            x-nullable: true
       tags:
         - Price Lists
       summary: Delete a Price List
