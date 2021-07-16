@@ -728,6 +728,7 @@ definitions:
                     gift_wrapping:
                       title: Gift Wrapping
                       type: object
+                      x-nullable: true
                       properties:
                         name:
                           description: ''
@@ -743,7 +744,6 @@ definitions:
                           description: ''
                           type: number
                           format: double
-                      x-nullable: true
                   required:
                     - quantity
               digital_items:
@@ -1133,7 +1133,7 @@ definitions:
                 properties:
                   id:
                     description: Discount rule ID that applied this discount
-                    type: string
+                    type: integer
             shipping_cost_inc_tax:
               description: The shipping cost for this consignment including tax.
               type: number
