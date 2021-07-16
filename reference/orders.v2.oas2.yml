@@ -166,14 +166,33 @@ paths:
                       price_inc_tax: 12.45
                       price_ex_tax: 10.12
                       sku: MUG-GRY
+              Updating a pickup consignment location:
+                value:
+                  consignments:
+                    - id: 101
+                      fulfillment_method:
+                        digital: null
+                        delivery: null
+                        pickup:
+                          location:
+                            id: 2
+              Adding a line item to a pickup consignment:
+                value:
+                  consignments:
+                    - id: 101
+                      line_items:
+                        - name: BigCommerce Coffee Mug
+                          quantity: 1
+                          price_inc_tax: 12.45
+                          price_ex_tax: 10.12
+                          sku: MUG-GRY
         required: true
       responses:
         '200':
           $ref: '#/components/responses/order_Resp'
       operationId: updateAnOrder
     delete:
-      description:
-        Archives an order.
+      description: Archives an order.
       summary: Archive an Order
       tags:
         - Orders
@@ -244,7 +263,7 @@ paths:
 
         **Required Fields**
 
-        *   products
+        *   products or consignments
         *   billing_address
       summary: Create an Order
       tags:
@@ -348,10 +367,63 @@ paths:
                           value: '180'
                         - id: 230
                           value: '192'
+              Pickup Order:
+                value:
+                  consignments:
+                    - line_items:
+                        - name: BigCommerce Coffee Mug
+                          quantity: 1
+                          price_inc_tax: 50
+                          price_ex_tax: 45
+                      fulfillment_method:
+                        digital: null
+                        delivery: null
+                        pickup:
+                          location:
+                            id: 1
+                            name: Location 1 - overwrite
+                  billing_address:
+                    first_name: Jane
+                    last_name: Doe
+                    street_1: 123 Main Street
+                    city: Austin
+                    state: Texas
+                    zip: '78751'
+                    country: United States
+                    country_iso2: US
+                    email: janedoe@example.com
         required: true
       responses:
-        '200':
+        '201':
           $ref: '#/components/responses/order_Resp'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response_400'
+              examples:
+                Empty consignments:
+                  value:
+                    - status: 400
+                      message: The field 'consignments' in invalid.
+                      details:
+                        invalid_reason: Consignments must not be empty.
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response_409'
+              examples:
+                Insufficient stock in pickup location:
+                  value:
+                    status: 409
+                    message: Quantities of one or more products are out of stock or did not meet quantity requirements
+                    details:
+                      errors:
+                        - type: OutOfStock
+                          messge: Insufficient stock of variant 100 available in location 1
       operationId: createAnOrder
     delete:
       description: Archives all orders.
@@ -893,8 +965,114 @@ paths:
     parameters:
       - $ref: '#/components/parameters/order_id_path'
       - $ref: '#/components/parameters/shipping_address_id'
+  '/orders/{orderId}/consignments':
+    parameters:
+      - schema:
+          type: string
+        name: orderId
+        in: path
+        required: true
+        description: Order Id.
+    get:
+      summary: ListOrderConsignments
+      tags:
+        - Order Consignments
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/orderConsignment_Get'
+              examples:
+                example-1:
+                  value:
+                    - id: 101
+                      line_items:
+                        url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/products'
+                        resource: /orders/129/products
+                      fulfillment_method:
+                        digital: null
+                        delivery: null
+                        pickup:
+                          location:
+                            id: '1'
+                            name: Location 1
+                            address_line_1: 123 Main Street
+                            address_line_2: Suite 101
+                            city: Austin
+                            state: Texas
+                            postal_code: '78726'
+                            country_alpha2: US
+                            email: location1@example.com
+                            phone: +1 111-111-1111
+        '404':
+          $ref: '#/components/responses/404_Resp'
+      operationId: get-orders-orderId-consignments
+      description: 'List all of the order consignments. '
+      parameters:
+        - schema:
+            type: string
+            example: pickup
+          in: query
+          name: fulfillment_type
+          description: Filter the consignments based on their fulfillment method.
+  '/orders/{orderId}/consignments/{consignmentId}':
+    parameters:
+      - schema:
+          type: string
+        name: orderId
+        in: path
+        required: true
+        description: Order Id.
+      - schema:
+          type: string
+        name: consignmentId
+        in: path
+        required: true
+        description: Consignment Id.
+    get:
+      summary: getOrderConsginment
+      tags:
+        - Order Consignments
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/orderConsignment_Get'
+              examples:
+                Pickup Order Consignment:
+                  value:
+                    id: 101
+                    line_items:
+                      url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/products'
+                      resource: /orders/129/products
+                    fulfillment_method:
+                      digital: null
+                      delivery: null
+                      pickup:
+                        location:
+                          id: '1'
+                          name: Location 1
+                          address_line_1: 123 Main Street
+                          address_line_2: Suite 101
+                          city: Austin
+                          state: Texas
+                          postal_code: '78726'
+                          country_alpha2: US
+                          email: location1@example.com
+                          phone: +1 111-111-1111
+        '404':
+          $ref: '#/components/responses/404_Resp'
+      operationId: get-orders-orderId-consignments-consignmentId
+      description: Get a single order consginemnt.
 tags:
   - name: Orders
+  - name: Order Consignments
   - name: Order Coupons
   - name: Order Products
   - name: Order Taxes
@@ -2418,6 +2596,24 @@ components:
                 carrier_code: ''
                 rate_code: ''
                 rate_id: ''
+    404_Resp:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                status:
+                  type: integer
+                message:
+                  type: string
+          examples:
+            response:
+              value:
+                - status: 404
+                  message: The requested resource was not found.
     orderTaxes_Resp:
       description: ''
       content:
@@ -2884,8 +3080,8 @@ components:
                   - AvaTaxProvider
                   - ''
               customer_locale:
-                type: string,
-                example: \"en\", \"en-us\",
+                type: 'string,'
+                example: '\"en\", \"en-us\",'
                 description: The customer's locale
   requestBodies: null
   securitySchemes:
@@ -3148,13 +3344,13 @@ components:
           example: 'null'
           type:
             - string
-            - 'null'
+          nullable: true
         event_date:
           description: Date of the promotional event/scheduled delivery.
           type:
             - string
-            - 'null'
           format: date
+          nullable: true
         fixed_shipping_cost:
           description: 'Fixed shipping cost for this product. (Float, Float-As-String, Integer)'
           example: '0.0000'
@@ -3170,12 +3366,12 @@ components:
           example: 5
           type:
             - integer
-            - 'null'
+          nullable: true
         parent_order_product_id:
           description: ID of a parent product.
           type:
             - integer
-            - 'null'
+          nullable: true
         is_bundled_product:
           description: Whether this product is bundled with other products.
           example: false
@@ -3197,7 +3393,7 @@ components:
           description: 'ID of the order in another system. For example, the Amazon Order ID if this is an Amazon order.This field can be updated in a /POST, but using a /PUT to update the order will return a 400 error. The field ''external_id'' cannot be written to. Please remove it from your request before trying again. It can not be overwritten once set.'
           type:
             - string
-            - 'null'
+          nullable: true
         upc:
           type: string
           maxLength: 255
@@ -3979,7 +4175,7 @@ components:
           type: string
         customer_locale:
           type: string
-          example: \"en\", \"en-us\",
+          example: '\"en\", \"en-us\",'
           description: The customer's locale
         total_ex_tax:
           description: 'Override value for the total, excluding tax. If specified, the field `total_inc_tax` is also required. (Float, Float-As-String, Integer)'
@@ -4200,6 +4396,8 @@ components:
           type: integer
           example: 7
           description: The staus ID of the order.
+        consignments:
+          $ref: '#/components/schemas/orderConsignments_Resource'
     orderCustomProduct_Put:
       type: object
       title: orderCustomProduct_Put
@@ -4400,26 +4598,252 @@ components:
             products:
               type: array
               items:
-                anyOf:
-                  - $ref: '#/components/schemas/orderCatalogProduct_Put'
-                  - $ref: '#/components/schemas/orderCustomProduct_Put'
+                $ref: '#/components/schemas/orderProduct_Put'
             shipping_addresses:
               $ref: '#/components/schemas/shippingAddress_Base'
+            consignments:
+              type: array
+              description: |-
+                A list of order consignments.
+
+                Consignments field can not be used in conjunction with the products or the shipping_addresses fields.
+
+                Currently only single consignment orders are supported.
+              minItems: 1
+              maxItems: 1
+              items:
+                $ref: '#/components/schemas/orderConsignment_Put'
         - $ref: '#/components/schemas/order_Shared'
     order_Post:
       title: order_Post
-      description: Products and Billing address only required for POST operation.
+      description: Products (or consignments) and Billing address only required for POST operation.
       allOf:
         - type: object
           properties:
             products:
-              type: array
-              items:
-                anyOf:
-                  - $ref: '#/components/schemas/orderCustomProduct_Post'
-                  - $ref: '#/components/schemas/orderCatalogProduct_Post'
+              $ref: '#/components/schemas/orderProduct_Post'
             shipping_addresses:
               type: array
               items:
                 $ref: '#/components/schemas/shippingAddress_Base'
+            consignments:
+              type: array
+              minItems: 1
+              maxItems: 1
+              description: |-
+                A list of order consignments.
+
+                Consignments field can not be used in conjunction with the products or the shipping_addresses fields.
+
+                Currently only single consignment orders are supported.
+              items:
+                $ref: '#/components/schemas/orderConsignment_Post'
         - $ref: '#/components/schemas/order_Shared'
+    orderConsignment_Post:
+      title: orderConsignment_Post
+      type: object
+      properties:
+        line_items:
+          $ref: '#/components/schemas/orderProduct_Post'
+        fulfillment_method:
+          allOf:
+            - $ref: '#/components/schemas/orderFulfillmentMethod'
+            - type: object
+              properties:
+                pickup:
+                  type: object
+                  description: ''
+                  properties:
+                    location:
+                      type: object
+                      description: |-
+                        - The default values for optional fields come from the pickup store location specified via id field. Use the optional fields for the values you need to overwrite.
+
+                        - If inventory is being tracked on an item, there should be sufficient stock for the item in the pickup location, and the related inventory will be deducted upon successful creation.
+                      properties:
+                        id:
+                          type: integer
+                      required:
+                        - id
+    orderFulfillmentMethod:
+      title: orderFulfillmentMethod
+      type: object
+      description: 'One and only one of the fulfillment methods will have a value other than null. '
+      properties:
+        digital:
+          description: Digital consignment is not supported yet and can only accept null.
+          nullable: true
+        delivery:
+          description: Delivery consignment is not supported yet and can only accept null.
+          nullable: true
+        pickup:
+          $ref: '#/components/schemas/orderPickup'
+      required:
+        - digital
+        - delivery
+        - pickup
+    orderProduct_Post:
+      title: orderProduct_Post
+      type: array
+      items:
+        anyOf:
+          - $ref: '#/components/schemas/orderCustomProduct_Post'
+          - $ref: '#/components/schemas/orderCatalogProduct_Post'
+    orderPickup:
+      title: orderPickupLocation_Base
+      type: object
+      description: ''
+      properties:
+        location:
+          type: object
+          description: The pickup store location information.
+          properties:
+            id:
+              type: integer
+              description: The id of the pickup store location.
+              example: '1'
+            name:
+              type: string
+              description: The name of the pickup store location.
+              example: Location 1
+              maxLength: 255
+            address_line_1:
+              type: string
+              description: Street address (first line).
+              example: 123 Main Street
+              maxLength: 255
+            address_line_2:
+              type: string
+              description: Street address (second line).
+              maxLength: 255
+              example: Suite 101
+            city:
+              type: string
+              maxLength: 255
+              example: Austin
+            state:
+              type: string
+              example: Texas
+            postal_code:
+              type: string
+              example: '78726'
+              maxLength: 50
+            country_alpha2:
+              type: string
+              minLength: 2
+              maxLength: 2
+              example: US
+              description: 2-letter ISO Alpha-2 code for the country.
+            email:
+              type: string
+              description: Pickup location's email address.
+              maxLength: 255
+              example: location1@example.com
+            phone:
+              type: string
+              description: Pickup location's phone number.
+              maxLength: 125
+              example: +1 111-111-1111
+    orderConsignment_Get:
+      title: orderConsignment_Get
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 101
+          description: Order consignment id.
+        line_items:
+          $ref: '#/components/schemas/products_Resource'
+        fulfillment_method:
+          $ref: '#/components/schemas/orderFulfillmentMethod'
+    orderProduct_Put:
+      title: orderProduct_Put
+      anyOf:
+        - $ref: '#/components/schemas/orderCustomProduct_Put'
+        - $ref: '#/components/schemas/orderCatalogProduct_Put'
+    orderConsignment_Put:
+      title: orderConsignment_Put
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 101
+          description: |-
+            To `add` a consignment to an existing order, don't include `id` in the payload.
+
+            To `update` an order consignment, `id` is required. The payload should only contain the fields that needs to be updated.
+        line_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/orderProduct_Put'
+        fulfillment_method:
+          allOf:
+            - $ref: '#/components/schemas/orderFulfillmentMethod'
+            - type: object
+              properties:
+                pickup:
+                  type: object
+                  properties:
+                    location:
+                      type: object
+                      description: '- The payload should only contain the fields that needs to be updated. Those fields that are omitted will not be changed.'
+                      properties:
+                        id:
+                          type: integer
+                          description: |-
+                            - If pickup location id is updated, rest of the location fields will be updated to reflect the new location information. If you need to overwrite these values you should provide them in the payload.
+                            - If inventory is being tracked on an item, there should be sufficient stock for the item in the new pickup location, and the related inventory will be deducted from the new location and return to the old location upon successful update.
+    orderConsignments_Resource:
+      title: orderConsignments_Resource
+      type: object
+      readOnly: true
+      properties:
+        url:
+          description: ''
+          readOnly: true
+          example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/101/consignments'
+          type: string
+        resource:
+          description: ''
+          readOnly: true
+          example: /orders/101/consignments
+          type: string
+    response_400:
+      type: array
+      items:
+        type: object
+        properties:
+          status:
+            type: integer
+            example: 400
+          message:
+            type: string
+            example: The field name in invalid.
+          details:
+            type: object
+            properties:
+              invalid_reason:
+                type: string
+                example: Name must be of type string.
+      examples:
+        Invalid Field:
+          value:
+            - status: 400
+              message: Invalid field.
+              details:
+                invalid_reason: Invalid reason.
+    response_409:
+      type: object
+      properties:
+        status:
+          type: integer
+          example: 409
+        message:
+          type: string
+        details:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
