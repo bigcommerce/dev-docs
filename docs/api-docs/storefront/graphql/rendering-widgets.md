@@ -9,7 +9,7 @@ The following sample GraphQL query demonstrates how to request rendered widget c
 **GraphQL query**
 
 ```graphql
-query fetchWidgets {
+query {
   site {
     content {
       renderedRegionsByPageType(pageType: HOME) {
