@@ -60,6 +60,7 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 * Bolt
 * Checkout.com
 * CyberSource
+* Mollie
 * MyVirtualMerchant
 * Paymetric
 * PayPal powered by Braintree
