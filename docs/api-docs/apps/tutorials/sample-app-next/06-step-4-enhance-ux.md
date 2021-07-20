@@ -107,19 +107,21 @@ import { useProductList } from '../../lib/hooks';
 </div>
 </div>
 
-3. Add the `Products` functional component.
+4. Add the `Products` functional component. The `Products` component uses the BigDesign's [StatefulTable](https://developer.bigcommerce.com/big-design/statefulTable), a wrapper of the [Table](https://developer.bigcommerce.com/big-design/table) component that supports pagination, row selection, and sorting.
 
 ```js
 const Products = () => {
     const router = useRouter();
+    // Retrieve data from the catalog/products endpoint
     const { isError, isLoading, list = [] } = useProductList();
+    // Properly format data for BigDesign's StatefulTable
     const tableItems = list.map(({ id, inventory_level: stock, name, price }) => ({
         id,
         name,
         price,
         stock,
     }));
-
+    // When rendering table headers, you can return a string or a React component:
     const renderName = (id: number, name: string): ReactElement => (
         <Link href={`/products/${id}`}>
             <StyledLink>{name}</StyledLink>
@@ -162,8 +164,6 @@ const Products = () => {
 export default Products;
 ```
 
-The `Products` functional component uses the BigDesign's [StatefulTable](https://developer.bigcommerce.com/big-design/statefulTable), a wrapper of the [Table](https://developer.bigcommerce.com/big-design/table) component that supports pagination, row selection, and sorting.
-
 [View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/pages/products/index.tsx)
 
 ## Add the InnerHeader component
@@ -180,7 +180,7 @@ import { useProductList } from '../lib/hooks';
 import { TabIds, TabRoutes } from './header';
 ```
 
-3. Define the `InnerHeader` functional component. 
+3. Define the `InnerHeader` functional component. You will use it for the Product Edit page, a subpage of `products` (`/products/[pid]`), whereas the main `Header` component is used for the main pages such as `/` and `/products`.
 
 ```js
 const InnerHeader = () => {
@@ -324,6 +324,8 @@ To test your app in a production or a production-like environment (integration o
 Keep in mind that any changes you make to your code after running `npm run build` will need to go through the build process to be captured.
 
 ## Create the ErrorMessage component
+
+To surface error messages to the app's users, add an error message component. You can call this component from any `page` or `component`.
 
 1. In the `components` folder, add the `error.tsx` file.
 

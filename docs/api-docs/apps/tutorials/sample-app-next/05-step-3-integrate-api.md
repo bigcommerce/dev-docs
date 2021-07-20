@@ -10,10 +10,16 @@ In the purview of this tutorial, we will demonstrate how to integrate your app w
 
 ## Install npm packages
 
-1. Install firebase, jsonwebtoken, mysql, and swr npm packages.
+* If using Firebase, install firebase, jsonwebtoken, and swr npm packages.
 
 ```shell
-npm install --save firebase jsonwebtoken mysql swr
+npm install --save firebase jsonwebtoken swr
+```
+
+* If using MySQL, install mysql, jsonwebtoken, and swr npm packages.
+
+```shell
+npm install --save jsonwebtoken mysql swr
 ```
 
 ## Add TypeScript definitions
@@ -681,7 +687,7 @@ export default async function uninstall(req: NextApiRequest, res: NextApiRespons
 
 ## Add the Products endpoint
 
-You will use this endpoint to retrieve your products summary.
+You will use this endpoint to retrieve your products summary from the [Catalog API](https://developer.bigcommerce.com/api-reference/store-management/catalog/summary/getcatalogsummary).
 
 1. In the `pages/api` folder, create a new folder called `products`.
 
@@ -699,14 +705,17 @@ import { bigcommerceClient, getSession } from '../../../lib/auth';
 ```js
 export default async function products(req: NextApiRequest, res: NextApiResponse) {
     try {
+        // First, retrieve the session by calling:
         const { accessToken, storeHash } = await getSession(req);
+        // Then, connect the Node API client (to make API calls to BigCommerce)
         const bigcommerce = bigcommerceClient(accessToken, storeHash);
-
+        // For this example, we'll be connecting to the Catalog API
         const { data } = await bigcommerce.get('/catalog/summary');
         res.status(200).json(data);
+        // Finally, handle errors
     } catch (error) {
         const { message, response } = error;
-        res.status(response?.status || 500).end(message || 'Authentication failed, please re-install');
+        res.status(response?.status || 500).json({ message });
     }
 }
 ```
@@ -873,7 +882,7 @@ import Header from '../components/header';
 import SessionProvider from '../context/session';
 ```
 
-4. Wrap `<Component {...pageProps} />` with the `SessionProvider`.
+4. For Context to properly propagate, we need to wrap `<Component {...pageProps} />` with the Context `SessionProvider`. This will ensure each page has access to the React Context.
 
 ```js
 <SessionProvider>
