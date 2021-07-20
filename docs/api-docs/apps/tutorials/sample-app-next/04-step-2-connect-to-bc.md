@@ -75,7 +75,7 @@ The `verify` method employs the `signed_payload` query parameter to authenticate
 
 ## Add API endpoints
 
-Next.js maps all APIs that are part of the Next.js package to the `/api/*` route. You can take advantage of it by creating a sub-directory within the `pages` folder called `api`. This will signal Next.js to treat files within `/apges/api` as API endpoints. Instead of looking for React components, Next.js will look for and handle API routes. Next.js will also automatically handle routing for files placed within `/pages/api`. To learn more about Next.JS API routes, see [API Routes](https://nextjs.org/docs/api-routes/introduction). 
+Next.js maps all APIs that are part of the Next.js application to the `/api/*` route. For example, `/pages/api/load` will be routed to `https://your_app_address/api/load`. You can take advantage of it by creating a sub-directory within the `pages` folder called `api`. This will signal Next.js to treat files within `/pages/api` as API endpoints. Instead of looking for React components, Next.js will look for and handle API routes. Next.js will also automatically handle routing for files placed within `/pages/api`. To learn more about Next.JS API routes, see [API Routes](https://nextjs.org/docs/api-routes/introduction). 
 
 1. In the `pages` folder, create an `api` folder.
 
@@ -94,7 +94,7 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
         res.redirect(302, '/');
     } catch (error) {
         const { message, response } = error;
-        res.status(response?.status || 500).json(message);
+        res.status(response?.status || 500).json({ message });
     }
 }
 ```
@@ -116,7 +116,7 @@ export default async function load(req: NextApiRequest, res: NextApiResponse) {
         res.redirect(302, '/');
     } catch (error) {
         const { message, response } = error;
-        res.status(response?.status || 500).json(message);
+        res.status(response?.status || 500).json({ message });
     }
 }
 ```
@@ -214,7 +214,7 @@ To register your draft app, you need a BigCommerce store. If you do not have a B
 <div class="HubBlock-content">
 
 > ### Note
-> Next.js maps all APIs that are part of the Next.js package to the `/api/*` route. To learn more about Next.js API routes, see [API Routes](https://nextjs.org/docs/api-routes/introduction).
+> Next.js maps all APIs that are part of the Next.js application to the `/api/*` route. To learn more about Next.js API routes, see [API Routes](https://nextjs.org/docs/api-routes/introduction).
 
 </div>
 </div>
