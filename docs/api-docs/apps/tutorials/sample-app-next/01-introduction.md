@@ -24,8 +24,7 @@ This tutorial assumes that you have experience using a text editor and a termina
 To successfully complete this tutorial, you will need the following:
 
 * Experience with [Node.js](https://nodejs.org/en/), [JavaScript](https://www.javascript.com/), and [React](https://www.javascript.com/)
-* Experience using [npm](https://www.javascript.com/)
-* [Experience building apps](https://www.javascript.com/)
+* Experience using [npm](https://www.npmjs.com/)
 * [Store / Dev Sandbox](https://www.bigcommerce.com/essentials/free-trial/) (required to develop and test apps)
 * [Developer Portal Account](https://devtools.bigcommerce.com/) (required to register apps)
 
