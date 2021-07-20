@@ -59,7 +59,7 @@ export function getBCAuth(query: QueryParams) {
 }
 ```
 
-The `authorize` method will retrieve your permanent access token and return it in the `data` object.
+You will use the `authorize` method for the `/auth` API endpoint which gets called when you install or update the app. The `authorize` method will retrieve your permanent access token and return it in the `data` object. 
 
 6. Export the `getBCVerify` function.
 
