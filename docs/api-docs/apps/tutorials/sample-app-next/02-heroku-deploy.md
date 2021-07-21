@@ -1,6 +1,6 @@
-# Deploy to Heroku install flow
+# Quick Start: Deploy to Heroku Install Flow
 
-To get the sample app up and running quickly, you can use the deploy to [Heroku](https://www.heroku.com/home) install flow described below. You will need a [Heroku](https://www.heroku.com/home) account to use this flow. If you don’t have a Heroku account, you can sign up for free [here](https://signup.heroku.com/).
+If you want to skip the tutorial and get the app running quickly, you can use this install flow to deploy the sample app to [Heroku](https://www.heroku.com/home). If you don't have a [Heroku](https://www.heroku.com/home) account, you can create one [here](https://signup.heroku.com/).
 
 1. Fork the BigCommerce's [sample-app-nodejs](https://github.com/bigcommerce/sample-app-nodejs) repository.
 2. In your fork, locate the `README.md` file. Click **Deploy to Heroku**. This will open Heroku's [Create New App](https://dashboard.heroku.com/) page in your browser.
