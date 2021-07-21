@@ -1,5 +1,6 @@
-[Step 3: Add a database](../docs/Step-3-Integrate-the-BigCommerce-API.md)
-# Step 4: Enhance the user experience with BigDesign
+[Step 3: Integrate the BigCommerce API and Add a Database](../docs/Step-3-Integrate-the-BigCommerce-API.md)
+
+# Step 4: Enhance the User Experience with BigDesign
 
 [BigDesign](https://developer.bigcommerce.com/big-design/) plays a pivotal part in the BigCommerce control panel and ecosystem. App developers are encouraged to use BigDesign to develop apps that have a native BigCommerce look and feel.
 

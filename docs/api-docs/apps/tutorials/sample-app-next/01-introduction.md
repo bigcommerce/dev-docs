@@ -11,7 +11,7 @@ At the end of this tutorial, you will have a functional single-click app that ca
 <div class="HubBlock-content">
 
 > ### Note
-> To get the app up and running quickly, follow the steps described in the [Deploy to Heroku install flow](../docs/Deploy-to-Heroku-install-flow.md). 
+> To get the app up and running quickly, follow the steps described in the [Deploy to Heroku Install Flow](../docs/Deploy-to-Heroku-install-flow.md). 
 
 </div>
 </div>
@@ -36,4 +36,4 @@ With the exception of automated routing, our sample app is very React-ive. Even 
 
 [BigDesign](https://developer.bigcommerce.com/big-design/) is a BigCommerce library of React components. Using BigDesign when developing your BigCommerce apps will ensure that your app has a similar interface and adheres to the same user experience standards as the rest of the BigCommerce platform. We encourage you to familiarize yourself with BigDesign to simplify future integrations with BigCommerce.
 
-[Next: Set up your local environment](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/docs/api-docs/apps/tutorials/sample-app-next/03-step-1-setup.md)
+[Next: Set up Your Local Environment](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/docs/api-docs/apps/tutorials/sample-app-next/03-step-1-setup.md)
