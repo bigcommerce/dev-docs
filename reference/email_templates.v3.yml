@@ -13,7 +13,18 @@ paths:
   /marketing/email-templates:
     get:
       summary: Get Email Templates
-      description: Get a list of email templates.
+      description: |-
+        Get a list of email templates.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content">
+
+        >### Note
+        >`/marketing/email-templates` endpoints only work after opting into the new email management experience from your store's control panel. You can opt-in by visiting Email Templates. If you have already opted in, visiting the Email Templates page will return a `404` error, and you will be able to access the new Transactional Emails page.
+        </div>
+        </div>
+        </div>
       responses:
         '200':
           content:
@@ -53,7 +64,19 @@ paths:
         required: true
     get:
       summary: Get an Email Template
-      description: Get an single global email template or a channel-specific email template override.
+      description: |-
+        Get a single global email template or a channel-specific email template override.
+
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content">
+
+        >### Note
+        >`/marketing/email-templates` endpoints only work after opting into the new email management experience from your store's control panel. You can opt-in by visiting [Email Templates](https://login.bigcommerce.com/deep-links/manage/marketing/email-templates). If you have already opted in, visiting the [Email Templates](https://login.bigcommerce.com/deep-links/manage/marketing/email-templates) page will return a `404` error, and you will be able to access the new [Transactional Emails](https://login.bigcommerce.com/deep-links/manage/transactional-emails) page.
+
+        </div>
+        </div>
+        </div>
       tags:
         - Email Templates
       responses:
