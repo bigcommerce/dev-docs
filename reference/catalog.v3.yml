@@ -1270,6 +1270,7 @@ paths:
                 -H 'X-Auth-Token: {X-Auth-Token:}' \
                 -H 'content-type: multipart/form-data; boundary=-WebKitFormBoundary7MA4YWxkTrZu0gW' \
                 -F image_file=@/Users/user.name/Documents/docs_images/product-image.png
+          description: ''
         - in: header
           type: string
           name: Accept
@@ -1282,7 +1283,7 @@ paths:
           required: true
       responses:
         '200':
-          description: ''
+          description: Success
           schema:
             description: |
               Response payload for the BigCommerce API.
@@ -1405,6 +1406,11 @@ paths:
                 url_tiny: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/485/product-image__98178.1536854227.66.100.png?c=2'
                 date_modified: '2018-09-13T15:57:07+00:00'
               meta: {}
+        '400':
+          description: Bad Request
+          schema:
+            type: object
+            properties: {}
         '404':
           description: |
             The product ID does not exist.
@@ -1424,10 +1430,36 @@ paths:
               instance:
                 type: string
             title: Not Found
+        '422':
+          description: |-
+            Unprocessable Entity. 
+
+            May occur if the `Content-Type` header is set to `multipart/form-data` rather than `application/json` when creating a product image using `image_url`.
+          schema:
+            description: ''
+            type: object
+            properties:
+              status:
+                type: number
+              title:
+                type: string
+                minLength: 1
+              type:
+                type: string
+                minLength: 1
+            required:
+              - status
+              - title
+              - type
+          examples:
+            Example:
+              status: 422
+              title: image_url must be present if uploading by url
+              type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
       summary: Create a Product Image
       consumes:
-        - multipart/form-data
         - application/json
+        - multipart/form-data
       tags:
         - Product Images
   '/catalog/products/{product_id}/images/{image_id}':
