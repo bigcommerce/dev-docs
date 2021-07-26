@@ -8,7 +8,7 @@
 - [Add and start ngrok](#add-and-start-ngrok)
 - [Register a draft app](#register-a-draft-app)
 - [Configure sandbox environment](#configure-sandbox-environment)
-- [Start dev environment](#start-the-dev-environment)
+- [Start dev environment](#start-dev-environment)
 - [Install the app](#install-the-app)
 - [Next steps](#next-steps)
 - [Resources](#resources)
