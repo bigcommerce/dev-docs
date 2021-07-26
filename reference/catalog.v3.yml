@@ -20315,7 +20315,9 @@ definitions:
       - type: object
         properties:
           variants:
-            $ref: '#/definitions/productVariant_Post_Product'
+            type: array
+            items:
+              $ref: '#/definitions/productVariant_Post_Product'
     title: product_Post
   product_Put:
     description: The model for a PUT to update a product.
