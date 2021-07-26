@@ -120,7 +120,7 @@ Assume that `{{cart.items}}` returns 10 items. You can use this helper to limit 
 {{pluck limit collection path}}
 ```
 
-Retrieves corresponding values from some or all elements in a collection using specified search key(s). Returns retrieved values in an array of comma-separated strings.
+Retrieves corresponding values from some or all elements in a collection using specified search key(s). Returns retrieved values in an array when values are nested or returns values as strings if used alone.
 
 #### Parameters
 
@@ -161,6 +161,10 @@ users: [
 
 {{pluck users "image.url"}}'
 <!-- => barney.jpg,fred.jpg -->
+
+Standard pluck helper example:
+// {{pluck items "data.title"}}
+results in: '["aa", "bb", "cc"]'
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/pluck.js)
