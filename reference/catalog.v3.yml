@@ -1407,7 +1407,7 @@ paths:
                 date_modified: '2018-09-13T15:57:07+00:00'
               meta: {}
         '400':
-          description: Bad Request
+          description: 'Bad Request. If the server allows only requests that match a limited list of common browser user agents, the server might return a generic 400 status code. For example, suppose your server sends a request to the Ruby UserAgent, and the Ruby UserAgent is not on the list of approved user agents. You will receive a 400 response unless you add it to the list.'
           schema:
             type: object
             properties: {}
@@ -1758,6 +1758,18 @@ paths:
                 url_tiny: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/products/158/images/485/product-image__98178.1536854227.66.100.png?c=2'
                 date_modified: '2018-09-13T15:57:07+00:00'
               meta: {}
+        '201':
+          description: Created
+          schema:
+            type: object
+            properties: {}
+        '400':
+          description: |-
+            Bad Request.
+            If the server allows only requests that match a limited list of common browser user agents, the server might return a generic 400 status code. For example, suppose your server sends a request to the Ruby UserAgent, and the Ruby UserAgent is not on the list of approved user agents. You will receive a 400 response unless you add it to the list.
+          schema:
+            type: object
+            properties: {}
         '404':
           description: |
             The resource was not found.
@@ -3648,6 +3660,13 @@ paths:
               data:
                 image_url: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/product_images/attribute_rule_images/85_source_1536863430.png'
               meta: {}
+        '400':
+          description: |-
+            Bad Request.
+            If the server allows only requests that match a limited list of common browser user agents, the server might return a generic 400 status code. For example, suppose your server sends a request to the Ruby UserAgent, and the Ruby UserAgent is not on the list of approved user agents. You will receive a 400 response unless you add it to the list.
+          schema:
+            type: object
+            properties: {}
         '404':
           description: |
             The resource was not found.
@@ -8365,6 +8384,13 @@ paths:
               data:
                 image_url: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/product_images/attribute_rule_images/85_source_1536863430.png'
               meta: {}
+        '400':
+          description: |-
+            Bad Request.
+            If the server allows only requests that match a limited list of common browser user agents, the server might return a generic 400 status code. For example, suppose your server sends a request to the Ruby UserAgent, and the Ruby UserAgent is not on the list of approved user agents. You will receive a 400 response unless you add it to the list.
+          schema:
+            type: object
+            properties: {}
         '404':
           description: |
             The resource was not found.
@@ -12934,6 +12960,13 @@ paths:
               data:
                 image_url: 'https://cdn11.bigcommerce.com/s-{store_hash}/product_images/k/group_1545334669__76009.png'
               meta: {}
+        '400':
+          description: |-
+            Bad Request.
+            If the server allows only requests that match a limited list of common browser user agents, the server might return a generic 400 status code. For example, suppose your server sends a request to the Ruby UserAgent, and the Ruby UserAgent is not on the list of approved user agents. You will receive a 400 response unless you add it to the list.
+          schema:
+            type: object
+            properties: {}
         '404':
           description: |
             The resource was not found.
@@ -14509,6 +14542,13 @@ paths:
               data:
                 image_url: 'https://cdn11.bigcommerce.com/s-{store_hash}/product_images/k/group_1545334669__76009.png'
               meta: {}
+        '400':
+          description: |-
+            Bad Request.
+            If the server allows only requests that match a limited list of common browser user agents, the server might return a generic 400 status code. For example, suppose your server sends a request to the Ruby UserAgent, and the Ruby UserAgent is not on the list of approved user agents. You will receive a 400 response unless you add it to the list.
+          schema:
+            type: object
+            properties: {}
         '404':
           description: The resource was not found.
           schema:
