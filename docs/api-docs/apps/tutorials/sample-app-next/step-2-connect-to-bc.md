@@ -1,4 +1,4 @@
-[Step 1: Set up your local environment](../docs/Step-1-Set-up-your-local-environment.md)
+[Step 1: Set up Your Local Environment](https://developer.bigcommerce.com/api-docs/apps/tutorials/sample-app-nextjs/step-1-setup)
 
 # Step 2: Connect Your App to BigCommerce
 
@@ -295,4 +295,4 @@ You should see your app embedded in the BigCommerce platform.
 
 ![Embedded app](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-09.png "Embedded app")
 
-[Next: Integrate the BigCommerce API and Add a Database](../docs/Step-3-Integrate-the-BigCommerce-API.md)
+[Next: Integrate the BigCommerce API and Add a Database](https://developer.bigcommerce.com/api-docs/apps/tutorials/sample-app-nextjs/step-3-integrate)

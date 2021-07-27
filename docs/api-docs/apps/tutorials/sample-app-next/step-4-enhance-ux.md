@@ -1,4 +1,4 @@
-[Step 3: Integrate the BigCommerce API and Add a Database](../docs/Step-3-Integrate-the-BigCommerce-API.md)
+[Step 3: Integrate the BigCommerce API and Add a Database](https://developer.bigcommerce.com/api-docs/apps/tutorials/sample-app-nextjs/step-3-integrate)
 
 # Step 4: Enhance the User Experience with BigDesign
 
@@ -795,6 +795,6 @@ You should now have a fully functional app that pulls data from BigCommerce's Ca
 
 This concludes our Next.js Sample App tutorial. To continue developing with BigCommerce, consider working through these supplemental materials:
 
-* [Managing Apps in the Developer Portal](https://developer.bigcommerce.com/api-docs/apps/guide/developer-portal)
 * [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/apps/guide/requirements)
+* [Managing Apps in the Developer Portal](https://developer.bigcommerce.com/api-docs/apps/guide/developer-portal)
 * [Publishing an App](https://developer.bigcommerce.com/api-docs/apps/guide/publishing)

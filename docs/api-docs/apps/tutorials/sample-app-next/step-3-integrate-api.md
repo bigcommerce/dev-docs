@@ -1,4 +1,4 @@
-[Step 2: Connect Your App to BigCommerce](../docs/Step-2-Connect-your-app-to-BigCommerce.md)
+[Step 2: Connect Your App to BigCommerce](https://developer.bigcommerce.com/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect)
 
 # Step 3: Integrate the BigCommerce API and Add a Database
 
@@ -876,4 +876,4 @@ Now that you have synced up the database, your app should display information un
 
 ![Sample app](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-13.png "Sample app")
 
-[Next: Enhance the User Experience with BigDesign](../docs/Step-4-Enhance-the-user-experience-with-BigDesign.md)
+[Next: Enhance the User Experience with BigDesign](https://developer.bigcommerce.com/api-docs/apps/tutorials/sample-app-nextjs/step-4-enhance)

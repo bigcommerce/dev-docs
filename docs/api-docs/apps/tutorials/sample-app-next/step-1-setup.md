@@ -1,4 +1,4 @@
-[Introduction](../docs/Introduction.md)
+[Introduction](https://developer.bigcommerce.com/api-docs/apps/tutorials/sample-app-nextjs/introduction)
 
 # Step 1: Set up Your Local Environment
 
@@ -208,4 +208,4 @@ npm run dev
 
 ![Hello world](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-01.png "Hello world")
 
-[Next: Connect Your App to BigCommerce](../docs/Step-2-Connect-your-app-to-BigCommerce.md)
+[Next: Connect Your App to BigCommerce](https://developer.bigcommerce.com/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect)
