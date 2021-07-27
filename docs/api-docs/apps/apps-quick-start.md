@@ -37,7 +37,7 @@ npm install
 
 ## Add and start ngrok
 
-You will need a publicly accessible URL to connect your sample app to BigCommerce. To add network access while in the development phase, you can use [ngrok](https://ngrok.com/docs), a free tool that lets you expose local servers like `localhost:3000` to the public Internet over secure tunnels.
+You will need a publicly accessible URL to connect your sample app to BigCommerce. To add network access while in the development phase, you can use [ngrok](https://ngrok.com/docs), a free tool that lets you expose local servers like `localhost:3000` to the public internet over secure tunnels.
 
 1. In a new terminal window, install [ngrok](https://www.npmjs.com/package/ngrok#usage).
 
@@ -45,7 +45,7 @@ You will need a publicly accessible URL to connect your sample app to BigCommerc
 npm install ngrok -g
 ```
 
-2. Expose the web server on port 3000 to the Internet.
+2. Expose the web server on port 3000 to the internet.
 
 ```shell
 ngrok http 3000
@@ -55,7 +55,7 @@ ngrok http 3000
 
 Next, register a draft app in the [Developer Portal](https://devtools.bigcommerce.com/) using the sandbox's app URL. To do so:
 1. [Login to the Developer Portal](https://devtools.bigcommerce.com/).
-2. Click **Create an App**.
+2. Click **Create an app**.
 3. Give the app a name.
 4. Click **Technical**.
 5. Enter Auth Callback URL as `https://{ngrok_id}.ngrok.io/api/auth`. For example, `https://12345.ngrok.io/api/auth`. You can get the `ngrok_id` from the terminal that is running `ngrok http 3000`.
@@ -118,7 +118,7 @@ MYSQL_PORT={mysql port *optional*}
 
 4. Update the `AUTH_CALLBACK` with the `ngrok_id`. You can get the `ngrok_id` from the terminal that is running `ngrok http 3000`. 
 
-5. Enter a JWT secret.
+5. Enter a JSON Web Token (**JWT**) secret. To learn more about JWT, see the [Internet Engineering Task Force documentation](https://datatracker.ietf.org/doc/html/rfc7519).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
