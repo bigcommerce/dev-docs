@@ -4,19 +4,19 @@
 
 After you have embedded your app in the BigCommerce platform, the next step is to integrate the BigCommerce API.
 
-Anytime you make an API call to BigCommerce, you need to pass in the access token. Storing the access token in a database, will allow you to persist the session when you call `/auth`, `/load`, or `/uninstall` endpoints. 
+Anytime you make an API call to BigCommerce, you need to pass in the access token. Storing the access token in a database will allow you to persist the session when you call `/auth`, `/load`, or `/uninstall` endpoints. 
 
 In the purview of this tutorial, we will demonstrate how to integrate your app with [Cloud Firestore](https://firebase.google.com/docs/firestore/quickstart), a cloud-hosted NoSQLFirebase database, and [MySQL](https://www.mysql.com/), a relational database management system.
 
 ## Install npm packages
 
-* If using Firebase, install firebase, jsonwebtoken, and swr npm packages.
+* If using Firebase, install `firebase`, `jsonwebtoken`, and `swr` npm packages.
 
 ```shell
 npm install --save firebase jsonwebtoken swr
 ```
 
-* If using MySQL, install mysql, jsonwebtoken, and swr npm packages.
+* If using MySQL, install `mysql`, `jsonwebtoken`, and `swr` npm packages.
 
 ```shell
 npm install --save jsonwebtoken mysql swr
@@ -281,38 +281,42 @@ export function decodePayload(encodedContext: string) {
 
 In the purview of this tutorial, we will provide config and initialization code for both Firebase and MySQL databases. Depending on the database you choose to integrate your app with, use the configuration instructions specific to your setup. 
 
-Start by updating your environment variables.
+For Firebase configuration instructions, see [Set up Firebase database](#set-up-firebase-database).
+
+For MySQL configuration instructions, see [Set up MySQL database](#set-up-mysql-database).
+
+## Set up Firebase database
+
+[Cloud Firestore](https://firebase.google.com/docs/firestore/quickstart) is a cloud-hosted NoSQL Firebase database. Start by creating a Firebase project and a Cloud Firestore database. For a quickstart on how to set up your Cloud Firestore, see [Get started](https://firebase.google.com/docs/firestore/quickstart).
+
+Make a note of the Firebase `apiKey`, `authDomain`, and `projectId`. You will need that information to update the app's environment variables in the next step.
+
+### Update environment variables
 
 1. In the `.env` file, specify the database type.
 
 ```
-DB_TYPE={database}
+DB_TYPE=firebase
 ```
 
-If using Firebase, add the following Firebase config placeholder:
+2. Enter your Firebase database config keys.
 
 ```
-FIRE_API_KEY={firebase key}
-FIRE_DOMAIN={firebase domain}
-FIRE_PROJECT_ID={firebase project id}
+FIRE_API_KEY={firebaseConfig.apiKey}
+FIRE_DOMAIN={firebaseConfig.authDomain}
+FIRE_PROJECT_ID={firebaseConfig.projectId}
 ```
 
-Jump to instructions on how to [set up your Firebase database](#set-up-the-firebase-database). 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
-If using MySQL, add the following MySQL config placeholder:
+> ### Note
+> In the development mode, every time you modify your environment variables, make sure to restart the process (`npm run dev`) to capture the changes.
 
-```
-MYSQL_HOST={mysql host}
-MYSQL_DATABASE={mysql domain}
-MYSQL_USERNAME={mysql username}
-MYSQL_PASSWORD={mysql password}
-MYSQL_PORT={mysql port}
-```
-Jump to instructions on how to [set up your MySQL database](#set-up-the-mysql-database). 
-
-## Set up the Firebase database
-
-[Cloud Firestore](https://firebase.google.com/docs/firestore/quickstart) is a cloud-hosted NoSQL Firebase database built on Google's infrastructure. To learn more about Firebase, including how-to guides and code samples, see [Firebase Documentation](https://firebase.google.com/docs). 
+</div>
+</div>
+</div>
 
 ### Configure the Firebase database
 
@@ -406,60 +410,26 @@ export async function deleteStore({ store_hash: storeHash }: SessionProps) {
 
 Running `firebase.initializeApp()` will initialize the app. For initialized apps, call `firebase.app()` to retrieve the Firebase app instance.
 
-### Create a Firebase project
+## Set up MySQL database
 
-1. Log into [Cloud Firestore](https://firebase.google.com/products/firestore) using your Google Account. If you do not have a Google Account, you can create one [here](https://accounts.google.com/signup/v2/webcreateaccount?service=ahsid&continue=https%3A%2F%2Ffirebase.google.com%2F&dsh=S1963086278%3A1615746698743908&gmb=exp&biz=false&flowName=GlifWebSignIn&flowEntry=SignUp).
-
-2. Once logged in, click **Go to console** in the top right corner.
-
-![Firebase](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-11.png "Firebase")
-
-3. In the Firebase console, click **Add project**.
-
-4. Enter your project name.
-
-5. You may choose to enable Google Analytics for your project (optional).
-
-6. Click **Continue**.
-
-6. Click **Create a project**.
-
-### Create a Firebase config
-
-1. In your Firebase project console, click on the **settings icon** that resembles a gear in the top left corner.
-
-2. Select **Project settings** from the dropdown menu.
-
-3. Under the **General** tab, scroll down to **Your apps** and select the **web** platform.
-
-4. Type in the name of your app and click **Register app**.
-
-5. Make a note of the Firebase `apiKey`, `authDomain`, and `projectId`. You will use your web app's Firebase configuration to update the app's environment variables. Alternatively, you can locate the app's Firebase configuration in the **Project settings**, under **Your apps**, in the **Firebase SDK snippet**. 
-
-### Create a Cloud Firestore database
-
-1. In your Firebase console, click **Firestore Database** in the left pane. Follow the steps to create a Cloud Firestore database.
-
-2. Click **Create database**.
-
-3. Choose **Start in test mode**.
-
-4. Select your Cloud Firestore location and click **Enable**.
+[MySQL](https://www.mysql.com/) is a relational database management system. For instructions on how to set up and use MySQL, see [Getting Started with MySQL](https://dev.mysql.com/doc/mysql-getting-started/en/). Once you complete the database setup, make a note of the MySQL `host`, `domain`, `username`, `password`, and `port` variables. You will need them to update the app's environment variables in the next step.
 
 ### Update environment variables
 
 1. In the `.env` file, specify the database type.
 
 ```
-DB_TYPE=firebase
+DB_TYPE=mysql
 ```
 
-2. Enter your web app's Firebase configuration using the following format:
+2. Enter your MySQL database config keys.
 
 ```
-FIRE_API_KEY={firebaseConfig.apiKey}
-FIRE_DOMAIN={firebaseConfig.authDomain}
-FIRE_PROJECT_ID={firebaseConfig.projectId}
+MYSQL_HOST={mysql host}
+MYSQL_DATABASE={mysql domain}
+MYSQL_USERNAME={mysql username}
+MYSQL_PASSWORD={mysql password}
+MYSQL_PORT={mysql port}
 ```
 
 <div class="HubBlock--callout">
@@ -472,10 +442,6 @@ FIRE_PROJECT_ID={firebaseConfig.projectId}
 </div>
 </div>
 </div>
-
-## Set up the MySQL database
-
-[MySQL](https://www.mysql.com/) is a relational database management system.
 
 ### Configure MySQL
 
@@ -538,23 +504,7 @@ export async function deleteStore({ store_hash: storeHash }: SessionProps) {
 
 [View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/lib/dbs/mysql.ts)
 
-### Update environment variables
 
-1. In the `.env` file, specify the database type.
-
-```
-DB_TYPE=mysql
-```
-
-2. Enter your MySQL database config keys (host, database, username, password, and port).
-
-```
-MYSQL_HOST={mysql host}
-MYSQL_DATABASE={mysql domain}
-MYSQL_USERNAME={mysql username}
-MYSQL_PASSWORD={mysql password}
-MYSQL_PORT={mysql port}
-```
 
 ## Setup the db lib page
 
