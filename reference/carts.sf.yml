@@ -294,6 +294,18 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/deleteCartsItems'
+  /cart-summary:
+    get:
+      summary: /cart-summary
+      description: Fetches summary details about the current primary cart. Designed for faster response in cases where summary information is sufficient.
+      tags:
+        - Cart
+      responses:
+        '200':
+          $ref: '#/components/responses/CartSummary'
+        '204':
+          description: An empty response when there is no cart for the current shopper.
+      operationId: get-cart-summary
 components:
   schemas:
     responseCartCoupons:
@@ -1526,6 +1538,44 @@ components:
                 createdTime: string
                 updatedTime: string
                 locale: string
+    CartSummary:
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Cart ID
+              channel_id:
+                type: integer
+                description: Channel ID for the cart.
+              currency:
+                type: string
+                description: Currency code for the current cart.
+              line_item_count:
+                type: integer
+                description: Count of the number of line items in the cart.
+              total_price:
+                type: number
+                description: Cart subtotal.
+              total_quantity:
+                type: integer
+                description: Total quantity of cart items.
+              item_quantities:
+                type: object
+                description: An object containing product ID to quantity mappings. Variable response keys.
+              promotions:
+                type: array
+                description: Array of promotional messages relevant to the current cart.
+                items:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                    text:
+                      type: string
   parameters:
     lineItems.options:
       name: include
