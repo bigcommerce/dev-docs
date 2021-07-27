@@ -388,7 +388,7 @@ paths:
         - Cart Items
       responses:
         '200':
-          description: ''
+          description: 'NOTE: Discounted line items are re-evaluated on cart actions and may be automatically added back to your cart with a new line item ID to satisfy promotional requirements.'
           schema:
             $ref: '#/definitions/Cart_Full'
           examples:

@@ -1319,7 +1319,7 @@ components:
                   updatedTime: '2021-03-04T14:17:50+00:00'
                   locale: en
     deleteCartsItems:
-      description: ''
+      description: 'NOTE: Discounted line items are re-evaluated on cart actions and may be automatically added back to your cart with a new line item ID to satisfy promotional requirements.'
       content:
         application/json:
           schema:
