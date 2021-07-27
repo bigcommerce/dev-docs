@@ -102,8 +102,7 @@ paths:
             format: UUID
       responses:
         '204':
-          description: ''
-          content: {}
+          $ref: '#/components/responses/deleteCarts'
   '/carts/{cartId}/items':
     post:
       tags:
@@ -1577,24 +1576,6 @@ components:
                     text:
                       type: string
   parameters:
-    lineItems.options:
-      name: include
-      in: query
-      description: |-
-        To return product options add one of the following include:
-
-        `lineItems.physicalItems.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
-
-        `lineItems.digitalItems.options`:  The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
-
-        `lineItems.digitalItems.options,lineItems.physicalItems.options`:  The Cart returns an abbreviated result. Use this to return digital and physical options. Can also be used in a /POST to have the extended Cart object return.
-      schema:
-        type: string
-        default: 'lineItems.digitalItems.options,lineItems.physicalItems.options'
-        enum:
-          - lineItems.physicalItems.options
-          - lineItems.digitalItems.options
-          - 'lineItems.digitalItems.options,lineItems.physicalItems.options'
     include:
       name: include
       in: query
