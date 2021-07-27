@@ -166,7 +166,7 @@ To connect your sample app to BigCommerce, you need a publicly accessible URL. T
 npm install ngrok -g
 ```
 
-2. Expose the web server on port 3000 to the Internet.
+2. Expose the web server on port 3000 to the internet.
 
 ```shell
 ngrok http 3000
