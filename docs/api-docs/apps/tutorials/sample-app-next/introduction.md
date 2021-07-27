@@ -1,5 +1,12 @@
 # Introduction
 
+<div class="otp" id="no-index">
+
+### On this page
+- [Prerequisites](#prerequisites)
+
+</div>
+
 This tutorial demonstrates how to build and embed a simple BigCommerce app using Node.js, React, Next.js, and BigDesign, BigCommerce's library of React components. 
 
 You will learn how to connect your app to BigCommerce, integrate an API, and set up a database to store app data. You will use BigDesign to give your app a native BigCommerce visual style and behavior. 
@@ -17,7 +24,7 @@ At the end of this tutorial, you will have a functional single-click app that ca
 </div>
 </div>
 
-**Prerequisites**
+## Prerequisites
 
 This tutorial assumes that you have experience using a text editor and a terminal app. 
 

@@ -1,5 +1,3 @@
-[Introduction](https://developer.bigcommerce.com/api-docs/apps/tutorials/sample-app-nextjs/introduction)
-
 # Step 1: Set up Your Local Environment
 
 Start by setting up your local development environment.
@@ -204,7 +202,7 @@ export default class MyDocument extends Document {
 npm run dev
 ```
 
-2. Open http://localhost:3000 from your browser. You should see the text “Hello world” displayed under **Homepage**.
+2. Open `http://localhost:3000` from your browser. You should see the text “Hello world” displayed under **Homepage**.
 
 ![Hello world](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-01.png "Hello world")
 

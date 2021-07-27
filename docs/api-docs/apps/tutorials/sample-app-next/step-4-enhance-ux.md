@@ -1,6 +1,24 @@
-[Step 3: Integrate the BigCommerce API and Add a Database](https://developer.bigcommerce.com/api-docs/apps/tutorials/sample-app-nextjs/step-3-integrate)
-
 # Step 4: Enhance the User Experience with BigDesign
+
+<div class="otp" id="no-index">
+
+### On this page
+- [Create the Products List route](#create-the-products-list-route)
+- [Update custom hooks](#update-custom-hooks)
+- [Create the Products page](#create-the-products-page)
+- [Add the InnerHeader component](#add-the-innerheader-component)
+- [Update the Header component](#update-the-header-component)
+- [Create the ErrorMessage component](#create-the-errormessage-component)
+- [Create the Loading component](#create-the-loading-component)
+- [Add system checks](#add-system-checks)
+- [Update TypeScript definitions](#update-typescript-definitions)
+- [Create the Form component](#create-the-form-component)
+- [Create dynamic product routes](#create-dynamic-product-routes)
+- [Integrate dynamic routes with the internal API](#integrate-dynamic-routes-with-the-internal-api)
+- [Style the home page](#style-the-home-page)
+- [Start the app](#start-the-app)
+
+</div>
 
 [BigDesign](https://developer.bigcommerce.com/big-design/) plays a pivotal part in the BigCommerce control panel and ecosystem. App developers are encouraged to use BigDesign to develop apps that have a native BigCommerce look and feel.
 
@@ -310,7 +328,7 @@ export default Header;
 
 The `Header` functional component uses the `useEffect` React hook to perform side effects and enhance performance. Notably, performance enhancement is only visible in a production or production-like environment (integration or staging). `router.prefetch()` will not prefetch the products page while in the development mode.
 
-## Test your app
+### Test your app
 
 Your app should now display two tabs: **Home** and **Products**. Click on the **Products** tab. You should see a list of products from your test store.
 
@@ -355,7 +373,7 @@ export default ErrorMessage;
 
 The `Loading` component makes use of the BigDesign's indeterminant ProgressCircle indicator. The indeterminant [ProgressCircle](https://developer.bigcommerce.com/big-design/progress-circle) represents an unknown amount of time for a task to complete. To learn more about BigDesign's progress indicators, see [Progress Indicator Design Guidelines](https://design.bigcommerce.com/components/progress-indicators).
 
-1. In the `components` folder, create a `loading.tsx` file.
+In the `components` folder, create a `loading.tsx` file.
 
 ```js
 import { Flex, H3, Panel, ProgressCircle } from '@bigcommerce/big-design';
@@ -695,7 +713,7 @@ export default async function products(req: NextApiRequest, res: NextApiResponse
 
 [View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/pages/api/products/%5Bpid%5D.ts)
 
-## Test your app
+### Test your app
 
 1. Pick a product from the products list and try changing its information such as name or price. 
 
@@ -764,7 +782,7 @@ export default Index;
 
 [View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/pages/index.tsx)
 
-## Test your app
+### Test your app
 
 Your home page should now look similar to the following:
 

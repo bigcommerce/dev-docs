@@ -1,6 +1,17 @@
-[Step 1: Set up Your Local Environment](https://developer.bigcommerce.com/api-docs/apps/tutorials/sample-app-nextjs/step-1-setup)
-
 # Step 2: Connect Your App to BigCommerce
+
+<div class="otp" id="no-index">
+
+### On this page
+- [Install node-bigcommerce](#install-node-bigcommerce)
+- [Setup the auth lib page](#setup-the-auth-lib-page)
+- [Add API endpoints](#add-api-endpoints)
+- [Create an HTTPS tunnel](#create-an-https-tunnel)
+- [Register the draft app](#register-the-draft-app)
+- [Add your Client ID and Client Secret Key](#add-your-client-id-and-client-secret-key)
+- [Install and launch the app](#install-and-launch-the-app)
+
+</div>
 
 In this step, you will connect your app to the BigCommerce ecosystem embedding it into **Draft Apps**.
 
@@ -186,7 +197,7 @@ To register your draft app, you need a BigCommerce store. If you do not have a B
 
 2. Enter app details at the prompts. Because you are building a sample app, you can name it anything you want. Production-level apps should meet the general requirements outlined in [Approval Requirements](https://developer.bigcommerce.com/api-docs/apps/guide/requirements). 
 
-3. Click on section 2: **Technical**. 
+3. Click **Technical**. 
 
 4. Under **App Features**, select **STORE OWNER** for Multiple Users and **SINGLE-CLICK** for App Type.
 

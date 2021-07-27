@@ -1,6 +1,26 @@
-[Step 2: Connect Your App to BigCommerce](https://developer.bigcommerce.com/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect)
-
 # Step 3: Integrate the BigCommerce API and Add a Database
+
+<div class="otp" id="no-index">
+
+### On this page
+- [Install npm packages](#install-npm-packages)
+- [Add TypeScript definitions](#add-typescript-definitions)
+- [Initialize React Context](#initialize-react-context)
+- [Update environment variables](#update-environment-variables)
+- [Update the auth lib page](#update-the-auth-lib-page)
+- [Add a database](#add-a-database)
+- [Set up Firebase database](#set-up-firebase-database)
+- [Set up MySQL database](#set-up-mysql-database)
+- [Set up the db lib page](#setup-the-db-lib-page)
+- [Upgrade the endpoints](#upgrade-the-endpoints)
+- [Add the Products endpoint](#add-the-products-endpoint)
+- [Create a custom hook](#create-a-custom-hook)
+- [Create a header component](#create-a-header-component)
+- [Update the homepage](#update-the-homepage)
+- [Update the user interface](#update-the-user-interface)
+- [Test your app](#test-your-app)
+
+</div>
 
 After you have embedded your app in the BigCommerce platform, the next step is to integrate the BigCommerce API.
 
@@ -10,13 +30,13 @@ In the purview of this tutorial, we will demonstrate how to integrate your app w
 
 ## Install npm packages
 
-* If using Firebase, install `firebase`, `jsonwebtoken`, and `swr` npm packages.
+If using Firebase, install `firebase`, `jsonwebtoken`, and `swr` npm packages.
 
 ```shell
 npm install --save firebase jsonwebtoken swr
 ```
 
-* If using MySQL, install `mysql`, `jsonwebtoken`, and `swr` npm packages.
+If using MySQL, install `mysql`, `jsonwebtoken`, and `swr` npm packages.
 
 ```shell
 npm install --save jsonwebtoken mysql swr
@@ -154,7 +174,7 @@ You will use a JSON Web Token (**JWT**) to securely transmit information encoded
 
 2. Enter a JWT secret. Your JWT key should be at least 32 random characters (256 bits) for HS256.
 
-```
+```shell
 JWT_KEY={SECRET}
 ```
 
@@ -295,13 +315,13 @@ Make a note of the Firebase `apiKey`, `authDomain`, and `projectId`. You will ne
 
 1. In the `.env` file, specify the database type.
 
-```
+```shell
 DB_TYPE=firebase
 ```
 
 2. Enter your Firebase database config keys.
 
-```
+```shell
 FIRE_API_KEY={firebaseConfig.apiKey}
 FIRE_DOMAIN={firebaseConfig.authDomain}
 FIRE_PROJECT_ID={firebaseConfig.projectId}
@@ -418,13 +438,13 @@ Running `firebase.initializeApp()` will initialize the app. For initialized apps
 
 1. In the `.env` file, specify the database type.
 
-```
+```shell
 DB_TYPE=mysql
 ```
 
 2. Enter your MySQL database config keys.
 
-```
+```shell
 MYSQL_HOST={mysql host}
 MYSQL_DATABASE={mysql domain}
 MYSQL_USERNAME={mysql username}
@@ -506,7 +526,7 @@ export async function deleteStore({ store_hash: storeHash }: SessionProps) {
 
 
 
-## Setup the db lib page
+## Set up the db lib page
 
 2. In the `lib` folder, create a `db.ts` file.
 
@@ -872,7 +892,7 @@ import Header from '../components/header';
 
 ## Test your app
 
-Now that you have synced up the database, your app should display information under the Inventory Count, Variant Count, and Primary Category fields.
+Now that you have synced up the database, your app should display information under **Inventory Count**, **Variant Count**, and **Primary Category** fields.
 
 ![Sample app](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-13.png "Sample app")
 
