@@ -37,6 +37,8 @@ Use [Handlebars expressions](https://developer.bigcommerce.com/api-docs/store-ma
 
 [Learn how to edit, test, and preview transactional email templates in the control panel](https://support.bigcommerce.com/s/article/Customizing-Emails).
 
+Saving an email template that exceeds 65,536 characters returns an "Email body too large" error message and truncates extra characters.
+
 ## API
 
 To manage transactional email templates programmatically, use the [Email Templates API](https://developer.bigcommerce.com/api-reference/store-management/email-templates). For example, to [get a list of email templates](https://developer.bigcommerce.com/api-reference/store-management/email-templates/email-templates/getemailtemplates), send a `GET` request to `/v3/marketing/email-templates`.
