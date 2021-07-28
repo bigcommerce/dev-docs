@@ -5,6 +5,7 @@
 ### On this page
 - [Ways to implement headless](#ways-to-implement-headless)
 - [Sample integration](#storefront-channels)
+- [Next steps](#next-steps)
 - [Resources](#resources)
 
 </div>
@@ -50,6 +51,10 @@ In the diagram below, the Storefront is any location the products are being rend
 |**Storefront**|The front end presentation layer where a shopper interacts with products. In a headless architecture, the storefront might be a CMS, native mobile app, kiosk, static site, or any other front end solution you can imagine. The BigCommerce WordPress plugin is built using an existing CMS and injecting a stores catalog. Any CMS that accepts custom integrations can be used. Another option is to build a storefront from scratch using a framework such as [Gatsby](https://www.bigcommerce.com/blog/flexible-headless-commerce-solutions/#overview-of-bigcommerce-for-react-gatsby).|
 |**Application**|Solution built by developer to control the requests and responses from the BigCommerce APIs. In addition to handling essential ecommerce tasks like requesting product information or sending the request to process a payment, the application layer can also handle logic for custom functionality, like presenting discount codes based on a shopper's history or pre filling details on the checkout page. |
 |**BigCommerce**|BigCommerce will respond to the application with the requested data to power the backend ecommerce functionality. It can handle processing payments, storing customer data, retrieving the catalog and order information.|
+
+## Next steps
+
+- [Learn how to create a channel and a channel site]()
 
 ## Resources
 
