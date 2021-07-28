@@ -56,4 +56,8 @@ The following table outlines PCI compliance responsibilities based on the type o
 
 ## Resources
 
+- [Maintaining Payment Security](https://www.pcisecuritystandards.org/pci_security/maintaining_payment_security)
+- [Merchants Classification Levels Visa](https://usa.visa.com/support/small-business/security-compliance.html#3)
+- [Merchants Classification Levels Mastercard](https://www.mastercard.us/en-us/merchants/safety-security/security-recommendations/merchants-need-to-know.html)
 - [Payments API](https://developer.bigcommerce.com/api-docs/store-management/payment-processing)
+- [Self Assessment Questionnaire (SAQ) Types and Identifying which SAQ is for you](https://www.pcisecuritystandards.org/documents/SAQ-InstrGuidelines-v3_2_1.pdf?agreement=true&time=1562173376464)
