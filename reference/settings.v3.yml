@@ -924,21 +924,6 @@ components:
         store_country:
           type: string
           default: United States
-        shopper_language_selection_method:
-          type: string
-          enum:
-            - browser
-            - default_shopper_language
-          example: default_shopper_language
-          default: default_shopper_language
-          description: |-
-            Determines whether to display the storefront content in the shopper's browser language or the shopper's selected default language.
-
-            Available values: 
-
-            `browser` - language updates automatically based on the shopper browser language. Multiple languages are supported.
-
-            `default_shopper_language` - content is displayed in a single language based on the set default_shopper_language. Only the selected language is supported.
     StorefrontStatus:
       title: ''
       type: object
