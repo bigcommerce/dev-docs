@@ -799,8 +799,9 @@ paths:
                 Example:
                   value:
                     data:
-                      default_shopper_language: en
+                      default_shopper_language: en-US
                       store_country: United States
+                      shopper_language_selection_method: default_shopper_language
                     meta: {}
         '422':
           description: Provided settings could not be applied for some reason - detailed errors in the response.
@@ -828,8 +829,9 @@ paths:
                 Example:
                   value:
                     data:
-                      default_shopper_language: en
+                      default_shopper_language: en-US
                       store_country: United States
+                      shopper_language_selection_method: default_shopper_language
                     meta: {}
         '422':
           description: Provided settings could not be applied for some reason - detailed errors in the response.
@@ -845,8 +847,9 @@ paths:
             examples:
               Example:
                 value:
-                  default_shopper_language: en
+                  default_shopper_language: en-US
                   store_country: United States
+                  shopper_language_selection_method: default_shopper_language
       tags:
         - Store Locale
       description: Updates global locale settings.
@@ -924,6 +927,19 @@ components:
         store_country:
           type: string
           default: United States
+        shopper_language_selection_method:
+          type: string
+          enum:
+            - browser
+            - default_shopper_language
+          example: default_shopper_language
+          default: default_shopper_language
+          description: |-
+            Determines whether to display the storefront content in the shopper's browser language or the shopper's selected default language.
+
+            Available values:
+            * `browser` - language updates automatically based on the shopper browser language. Multiple languages are supported.
+            * `default_shopper_language` - content is displayed in a single language based on the set `default_shopper_language`. Only the selected language is supported.
     StorefrontStatus:
       title: ''
       type: object
