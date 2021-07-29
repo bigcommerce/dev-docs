@@ -15,7 +15,7 @@ When you enable ShipperHQ on a store, additional fields become available on the 
 
 These field values can be set in the Control Panel by the merchant as well as using one of the following:
 * [Product Metafields Endpoint](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield)
-* [Variant Metafields Endpoint](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield)
+* [Variant Metafields Endpoint](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield)
 
 ## ShipperHQ object properties
 
