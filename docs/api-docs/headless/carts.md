@@ -31,7 +31,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ```json
 {
-    "channel_id": 20266,
+    "channel_id": 704181,
     "line_items": [
         {
             "quantity": 1,
@@ -46,14 +46,15 @@ To create a cart for an existing customer, include the `customer_id` in your `PO
 
 ```json
 {
-    "channel_id": 20266,
-	"customer_id": 42,
-	"line_items": [
-		{
-			"quantity": 5,
-			"product_id": 191
-		}
-	]
+    "channel_id": 704181,
+    "customer_id": 1,
+    "line_items": [
+        {
+            "quantity": 1,
+            "product_id": 80,
+            "variant_id": 64
+        }
+    ]
 }
 ```
 
