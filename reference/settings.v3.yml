@@ -799,7 +799,7 @@ paths:
                 Example:
                   value:
                     data:
-                      default_shopper_language: en-US
+                      default_shopper_language: en
                       store_country: United States
                       shopper_language_selection_method: default_shopper_language
                     meta: {}
@@ -829,7 +829,7 @@ paths:
                 Example:
                   value:
                     data:
-                      default_shopper_language: en-US
+                      default_shopper_language: en
                       store_country: United States
                       shopper_language_selection_method: default_shopper_language
                     meta: {}
@@ -847,7 +847,7 @@ paths:
             examples:
               Example:
                 value:
-                  default_shopper_language: en-US
+                  default_shopper_language: en
                   store_country: United States
                   shopper_language_selection_method: default_shopper_language
       tags:
