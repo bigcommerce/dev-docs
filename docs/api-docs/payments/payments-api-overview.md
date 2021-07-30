@@ -60,6 +60,7 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 * Bolt
 * Checkout.com
 * CyberSource
+* Mollie
 * MyVirtualMerchant
 * Paymetric
 * PayPal powered by Braintree
@@ -68,7 +69,6 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 
 **BigCommerce supports the following gateways for credit cards:**
 
-* AdyenV2
 * Authorize.net
 * Barclaycard Fuse
 * Bolt
@@ -558,7 +558,7 @@ The `payment_access_token` is not from the payment provider. It is created by Bi
 A declined payment will return a 4XX error with details if available.
 
 ### Authorization
-If you configure a payment gateway for authorization only, authorization happens at the time of processing. You will need to capture the order later through the control panel. If you configure a payment gateway for authorization and capture, the payment will be authorized and captured at the time of processing.
+If you configure a payment gateway for authorization only, authorization happens at the time of processing. You will need to capture the order later using the control panel or the Capture API. If you configure a payment gateway for authorization and capture, the payment will be authorized and captured at the time of processing.
 
 ### Control panel
 Orders created and captured via the API will look the same as other orders created via the storefront or other apps. The order source will be "Checkout API".
@@ -620,11 +620,11 @@ The Payments API does not support adding a third-party gateway. Payments are pro
 
 **Can I issue a refund?**
 
-Refunds can be issued either using the [Control Panel](https://support.bigcommerce.com/s/article/Processing-Refunds) or through the payment gateway directly.
+You can issue a refund using the [control panel](https://support.bigcommerce.com/s/article/Processing-Refunds), the Refunds API, or through the payment gateway directly.
 
 **How do I process payment for a capture credit card?**
 
-Once a payment has been authorized, the capture step will need to be completed using the [Control Panel](https://support.bigcommerce.com/s/article/How-can-I-set-my-payment-gateway-to-only-authorize-transactions-and-not-capture-the-funds-automatically).
+Once you have an authorized payment, perform the capture step using the [control panel](https://support.bigcommerce.com/s/article/How-can-I-set-my-payment-gateway-to-only-authorize-transactions-and-not-capture-the-funds-automatically) or the Capture API.
 
 **Can I use this on orders with more than one shipping address?**
 Yes, checkouts and orders with more than one consignment can use the Payments API.
