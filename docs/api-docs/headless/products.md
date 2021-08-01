@@ -130,7 +130,7 @@ It is best practice to cache product details in a database to improve performanc
  
 ## Next steps
 
-- [Learn how to create carts headlessly]()
+- [Learn how to create carts headlessly](https://developer.bigcommerce.com/api-docs/storefronts/guide/developers-guide-headless/carts)
 
 ## Resources
 

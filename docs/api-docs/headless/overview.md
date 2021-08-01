@@ -54,7 +54,7 @@ In the diagram below, the Storefront is any location the products are being rend
 
 ## Next steps
 
-- [Learn how to create a channel and a channel site]()
+- [Learn how to create a channel and a channel site](https://developer.bigcommerce.com/api-docs/storefronts/guide/developers-guide-headless/channels)
 
 ## Resources
 

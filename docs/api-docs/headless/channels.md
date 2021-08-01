@@ -3,7 +3,7 @@
 <div class="otp" id="no-index">
 
 ### On this page
-- [Creating a channel](#creating-a-channel)
+- [Creating channels](#creating-channels)
 - [Next steps](#next-steps)
 - [Resources](#resources)
 
@@ -11,7 +11,7 @@
 
 This section demonstrates how to create a channel and a channel site for a headless storefront.
 
-## Creating a channel
+## Creating channels
 
 Before you can display products on a headless storefront, you need to create a channel and a channel site for that storefront. A **channel** is essentially a sales platform such as a headless storefront, a marketplace, or a POS system. A **site** is a domain that links a headless storefront to a sales channel.
 
@@ -23,7 +23,7 @@ You can create both using the [Channels API](https://developer.bigcommerce.com/a
 
 ## Next steps
 
-- [Learn how to render products hedlessly](#products)
+- [Learn how to render products hedlessly](https://developer.bigcommerce.com/api-docs/storefronts/guide/developers-guide-headless/products)
 
 ## Resources
 

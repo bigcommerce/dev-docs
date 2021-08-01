@@ -1,4 +1,4 @@
-# Creating a Checkout
+# Creating Checkouts
 
 <div class="otp" id="no-index">
 
@@ -58,7 +58,7 @@ The Checkouts API allows you to move the cart to checkout and turn it into an or
 
 ## Next steps
 
-- [Learn how to create an order]()
+- [Learn how to create an order](https://developer.bigcommerce.com/api-docs/storefronts/guide/developers-guide-headless/orders)
 
 ## Resources
 

@@ -264,7 +264,7 @@ A successful transaction will return a status of success. The order is then auto
 
 ## Next steps
 
-- [Learn more about PCI compliance]()
+- [Learn more about PCI compliance](https://developer.bigcommerce.com/api-docs/storefronts/guide/developers-guide-headless/pci-compliance)
 
 ## Resources
 

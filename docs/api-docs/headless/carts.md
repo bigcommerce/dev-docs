@@ -169,7 +169,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Next steps
 
-- [Learn how to move a cart to checkout]()
+- [Learn how to move a cart to checkout](https://developer.bigcommerce.com/api-docs/storefronts/guide/developers-guide-headless/checkout)
 
 ## Resources
 
