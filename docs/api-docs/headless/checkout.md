@@ -1,4 +1,4 @@
-# Checkout
+# Creating a Checkout
 
 <div class="otp" id="no-index">
 

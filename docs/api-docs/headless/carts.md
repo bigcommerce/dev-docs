@@ -1,4 +1,4 @@
-# Carts
+# Managing Carts
 
 <div class="otp" id="no-index">
 
@@ -169,7 +169,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Next steps
 
-- [Learn how to move the cart to checkout]()
+- [Learn how to move a cart to checkout]()
 
 ## Resources
 

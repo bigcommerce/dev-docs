@@ -1,4 +1,4 @@
-# Customers
+# Managing Customers
 
 <div class="otp" id="no-index">
 
@@ -11,7 +11,7 @@
 
 </div>
 
-This section explains how to associate a headless cart to a customer.
+This section covers different ways to associate customers to headless carts.
 
 ## Customer login using GraphQL
 
