@@ -11,7 +11,7 @@
 - [Add a database](#add-a-database)
 - [Set up Firebase database](#set-up-firebase-database)
 - [Set up MySQL database](#set-up-mysql-database)
-- [Set up the db lib page](#setup-the-db-lib-page)
+- [Set up a db lib page](#set-up-a-db-lib-page)
 - [Upgrade the endpoints](#upgrade-the-endpoints)
 - [Add the Products endpoint](#add-the-products-endpoint)
 - [Create a custom hook](#create-a-custom-hook)
@@ -22,11 +22,11 @@
 
 </div>
 
-After you have embedded your app in the BigCommerce platform, the next step is to integrate the BigCommerce API.
+Now that you have embedded your app in the BigCommerce platform, you're ready to integrate the BigCommerce API.
 
 Anytime you make an API call to BigCommerce, you need to pass in the access token. Storing the access token in a database will allow you to persist the session when you call `/auth`, `/load`, or `/uninstall` endpoints. 
 
-In the purview of this tutorial, we will demonstrate how to integrate your app with [Cloud Firestore](https://firebase.google.com/docs/firestore/quickstart), a cloud-hosted NoSQLFirebase database, and [MySQL](https://www.mysql.com/), a relational database management system.
+In this tutorial, we will demonstrate how to integrate your app with [Cloud Firestore](https://firebase.google.com/docs/firestore/quickstart), a cloud-hosted NoSQLFirebase database, and [MySQL](https://www.mysql.com/), a relational database management system.
 
 ## Install npm packages
 
@@ -299,7 +299,7 @@ export function decodePayload(encodedContext: string) {
 
 ## Add a database
 
-In the purview of this tutorial, we will provide config and initialization code for both Firebase and MySQL databases. Depending on the database you choose to integrate your app with, use the configuration instructions specific to your setup. 
+In this section of the tutorial, we will provide config and initialization code for both Firebase and MySQL databases. Depending on the database you choose to integrate your app with, use the configuration instructions specific to your setup. 
 
 For Firebase configuration instructions, see [Set up Firebase database](#set-up-firebase-database).
 
@@ -526,7 +526,7 @@ export async function deleteStore({ store_hash: storeHash }: SessionProps) {
 
 
 
-## Set up the db lib page
+## Set up a db lib page
 
 2. In the `lib` folder, create a `db.ts` file.
 

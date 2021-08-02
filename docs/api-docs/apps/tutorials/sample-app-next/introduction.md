@@ -18,7 +18,7 @@ At the end of this tutorial, you will have a functional single-click app that ca
 <div class="HubBlock-content">
 
 > ### Note
-> To get the app up and running quickly, follow the steps described in the [Quick Start: Deploy to Heroku Install Flow](https://developer.bigcommerce.com/api-docs/apps/tutorials/sample-app-nextjs/deploy-to-heroku). 
+> To get the app up and running quickly, follow the steps described in [Quick Start: Deploy to Heroku Install Flow](https://developer.bigcommerce.com/api-docs/apps/tutorials/sample-app-nextjs/deploy-to-heroku). 
 
 </div>
 </div>
@@ -26,10 +26,9 @@ At the end of this tutorial, you will have a functional single-click app that ca
 
 ## Prerequisites
 
-This tutorial assumes that you have experience using a text editor and a terminal app. 
-
 To successfully complete this tutorial, you will need the following:
 
+* Experience using a text editor and a terminal app
 * Experience with [Node.js](https://nodejs.org/en/), [JavaScript](https://www.javascript.com/), and [React](https://www.javascript.com/)
 * Experience using [npm](https://www.npmjs.com/)
 * [Store / Dev Sandbox](https://www.bigcommerce.com/essentials/free-trial/) (required to develop and test apps)
