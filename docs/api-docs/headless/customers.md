@@ -15,11 +15,11 @@ This section covers different ways to associate customers to headless carts.
 
 ## Customer login using GraphQL
 
-You create a customer login client-side or server-side.
+You can login a customer account using client-side or server-side code.
 
 ### Client-side GraphQL customer login
 
-To log in a customer account with an email address and a password in client-side code, you can use the following [GraphQL Storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview) customer login mutation.
+To login a customer account with an email address and a password in client-side code, use the following [GraphQL Storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview) customer login mutation.
 
 **Customer login mutation**
 
@@ -31,13 +31,13 @@ mutation Login($email: String!, $pass: String!) {
 }
 ```
 
-When a customer is logged in using the customer login mutation, subsequent queries made to the GraphQL Storefront  API will return customer-specific results (for example, customer group pricing) using the context of the logged in customer.
+When a customer is logged in using the customer login mutation, subsequent queries made to the GraphQL Storefront API will return customer-specific results (for example, customer group pricing) using the context of the logged in customer.
 
 ### Server-side GraphQL customer login
 
 To make queries from the perspective of a particular customer in server-side code, use [customer impersonation tokens](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-impersonation-tokens).
 
-When you use customer impersonation tokens to authenticate requests made to the GraphQL API, the tokens receive store information from the perspective of the customer corresponding to the customer ID passed in the `X-Bc-Customer-Id` header of the `POST` request. Pricing, product availability, customer account, and customer details will be reflected.
+When you use customer impersonation tokens to authenticate requests made to the GraphQL Storefront API, the tokens receive store information from the perspective of the customer corresponding to the customer ID passed in the `X-Bc-Customer-Id` header of the `POST` request. Pricing, product availability, customer account, and customer details will be reflected.
 
 ## Customer Single Sign-on
 
@@ -64,11 +64,11 @@ You can log a customer into an embedded checkout by setting `redirect_to` in the
 ## Identifying logged-in customers
 
 If a customer logs into a BigCommerce-hosted cart or checkout, then navigates back to the headless storefront, you will need to confirm the customer's identity before revealing sensitive information.
-To address this need, BigCommerce provides a [Current Customer API](https://developer.bigcommerce.com/api-docs/storefront/current-customer-api) which you can access via client-side JavaScript. This endpoint returns a `JWT` (signed with your OAuth client secret) that contains customer details.
+To address this need, BigCommerce provides the [Current Customers API](https://developer.bigcommerce.com/api-docs/storefront/current-customer-api) accessible via client-side JavaScript. The [Get Current Customer](https://developer.bigcommerce.com/api-reference/storefront/current-customers/current-customers/getcurrentcustomer) endpoint returns a `JWT` (signed with your OAuth client secret) that contains customer details.
 
 ## Surfacing customer group pricing
 
-When querying the GraphQL Storefront API, customer-specific pricing will be reflected in query results if the customer is first logged-in using the [customer login mutation](https://next.stoplight.io/bigcommerce/bigcommerce-dev-docs/version%2F1.3/05-headless-customers.md#client-side-graphql-customer-login) or a [customer impersonation token](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-impersonation-tokens).
+When querying the GraphQL Storefront API, customer-specific pricing will be reflected in query results if the customer is first logged in using the [customer login mutation](https://next.stoplight.io/bigcommerce/bigcommerce-dev-docs/version%2F1.3/05-headless-customers.md#client-side-graphql-customer-login) or a [customer impersonation token](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-impersonation-tokens).
 
 For server-side REST implementations, you can use the [Pricing API](https://developer.bigcommerce.com/api-reference/store-management/pricing) to [get prices](https://developer.bigcommerce.com/api-reference/store-management/pricing/products/get-prices) for a particular customer group.
 
