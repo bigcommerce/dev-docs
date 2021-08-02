@@ -155,7 +155,7 @@ product:
   images:
     limit: 5           # limits images to 5
   reviews: true
-    limit: 5           # limits reviews to 5
+    limit: 250         # limits reviews to 250
   related_products:
     limit: 10          # limits related products by name to 10
   similar_by_views:
@@ -167,10 +167,41 @@ product:
 |`product`|When filtering/limiting, products' default sorting is by order id, from lowest to highest.|
 |`videos`|If `product.videos` is not defined, you will not return videos. If you define `product.videos`, the default behavior is to return all videos. If you define `product.videos.limit`, this sets the maximum number of videos returned.|
 |`images`|If `product.images` is not defined, you will not return images. If `product.images` is defined, you must also define `product.images.limit`, which throttles the number of images returned. The maximum allowable value for this parameter is five images.|
-|`reviews`|Boolean indicating whether to display product reviews. If `product.reviews` is present and is not explicitly set to `false`, reviews will appear. If not defined, defaults to 10 reviews. When filtering/limiting reviews, the default sorting is by review id, from lowest to highest.|
+|`reviews`|Boolean indicating whether to display product reviews. If `product.reviews` is present and is not explicitly set to `false`, reviews will appear. If not defined, defaults to 10 reviews. When filtering/limiting reviews, the default sorting is by review id, from lowest to highest. If a product has over 250 reviews, you can fetch the rest using the GraphQL Storefront API. See the example GraphQL query below.|
 |`related_products`|Displays products that are related by name. If `limit` absent or undefined, the default behavior is to display all related products. Inserting `limit` with no integer will display 0 products.|
 |`similar_by_views`|Displays products similar to those displayed in the current page context. If `limit` absent or undefined, the default is to display four products.|
-
+  
+Sample GraphQL query for product reviews over the limit.
+  
+  ```yaml
+# Fetch product reviews for a product
+query reviewsByProductId(
+  $productId: Int!
+  $cursor: String
+  # Use GraphQL Query Variables to inject your product ID
+) {
+  site {
+    product(entityId: $productId) {
+      reviews(first:250, after:$cursor) {
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
+        edges {
+          node {
+            rating
+            title
+            text
+            createdAt {
+              utc
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+```
 ## Brand attributes
 
 ```yaml
