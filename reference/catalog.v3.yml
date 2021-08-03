@@ -1407,7 +1407,7 @@ paths:
                 date_modified: '2018-09-13T15:57:07+00:00'
               meta: {}
         '400':
-          description: 'Bad Request. The requested resource could not be downloaded and may be invalid. Possible reasons include malformed request syntax or the file host blocking requests.'
+          description: Bad Request. The requested resource could not be downloaded and may be invalid. Possible reasons include malformed request syntax or the file host blocking requests.
           schema:
             type: object
             properties: {}
@@ -1764,8 +1764,7 @@ paths:
             type: object
             properties: {}
         '400':
-          description: |-
-            Bad Request. The requested resource could not be downloaded and may be invalid. Possible reasons include malformed request syntax or the file host blocking requests.
+          description: Bad Request. The requested resource could not be downloaded and may be invalid. Possible reasons include malformed request syntax or the file host blocking requests.
           schema:
             type: object
             properties: {}
@@ -3660,8 +3659,7 @@ paths:
                 image_url: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/product_images/attribute_rule_images/85_source_1536863430.png'
               meta: {}
         '400':
-          description: |-
-            Bad Request. The requested resource could not be downloaded and may be invalid. Possible reasons include malformed request syntax or the file host blocking requests.
+          description: Bad Request. The requested resource could not be downloaded and may be invalid. Possible reasons include malformed request syntax or the file host blocking requests.
           schema:
             type: object
             properties: {}
@@ -8383,8 +8381,7 @@ paths:
                 image_url: 'https://cdn8.bigcommerce.com/s-id30h7ohwf/product_images/attribute_rule_images/85_source_1536863430.png'
               meta: {}
         '400':
-          description: |-
-            Bad Request. The requested resource could not be downloaded and may be invalid. Possible reasons include malformed request syntax or the file host blocking requests.
+          description: Bad Request. The requested resource could not be downloaded and may be invalid. Possible reasons include malformed request syntax or the file host blocking requests.
           schema:
             type: object
             properties: {}
@@ -12958,8 +12955,7 @@ paths:
                 image_url: 'https://cdn11.bigcommerce.com/s-{store_hash}/product_images/k/group_1545334669__76009.png'
               meta: {}
         '400':
-          description: |-
-            Bad Request. The requested resource could not be downloaded and may be invalid. Possible reasons include malformed request syntax or the file host blocking requests.
+          description: Bad Request. The requested resource could not be downloaded and may be invalid. Possible reasons include malformed request syntax or the file host blocking requests.
           schema:
             type: object
             properties: {}
@@ -14539,8 +14535,7 @@ paths:
                 image_url: 'https://cdn11.bigcommerce.com/s-{store_hash}/product_images/k/group_1545334669__76009.png'
               meta: {}
         '400':
-          description: |-
-            Bad Request. The requested resource could not be downloaded and may be invalid. Possible reasons include malformed request syntax or the file host blocking requests.
+          description: Bad Request. The requested resource could not be downloaded and may be invalid. Possible reasons include malformed request syntax or the file host blocking requests.
           schema:
             type: object
             properties: {}
@@ -21193,10 +21188,10 @@ definitions:
           option_set_display:
             type: string
             description: Legacy template setting which controls if the option set shows up to the side of or below the product image and description.
-      - properties:
           variants:
-            $ref: '#/definitions/productVariant_Full'
-        type: object
+            type: array
+            items:
+              $ref: '#/definitions/productVariant_Full'
     title: product_Full
   productImage_Full:
     title: productImage_Full
