@@ -124,7 +124,7 @@ Accept: application/json
 <div class="HubBlock-content">
 
 > ### Note
-> * Omit `?channel_id` to interact with global email templates.
+> Omit `?channel_id` to interact with global email templates.
 
 </div>
 </div>
