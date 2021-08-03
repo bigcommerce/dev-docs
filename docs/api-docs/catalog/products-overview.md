@@ -240,7 +240,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-videos/createproductvideo#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-videos/createproductvideo#requestrunner)
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
