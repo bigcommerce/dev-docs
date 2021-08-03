@@ -833,7 +833,7 @@ paths:
                   - 23
                   - 21
                 brand_id: 36
-                option_set_id: {}
+                option_set_id: 55
                 option_set_display: right
                 inventory_level: 0
                 inventory_warning_level: 0
@@ -869,7 +869,7 @@ paths:
                 date_created: '2018-08-15T14:48:46+00:00'
                 date_modified: '2018-09-05T20:42:07+00:00'
                 view_count: 10
-                preorder_release_date: {}
+                preorder_release_date: '2018-09-05T20:42:07+00:00'
                 preorder_message: ''
                 is_preorder_only: false
                 is_price_hidden: false
@@ -2406,16 +2406,16 @@ paths:
                   sku_id: 348
                   price: 10
                   calculated_price: 10
-                  sale_price: {}
-                  retail_price: {}
+                  sale_price: 8
+                  retail_price: 10
                   map_price: {}
-                  weight: {}
+                  weight: 4
                   calculated_weight: 2
-                  width: {}
-                  height: {}
-                  depth: {}
+                  width: 5
+                  height: 5
+                  depth: 5
                   is_free_shipping: false
-                  fixed_cost_shipping_price: {}
+                  fixed_cost_shipping_price: 10
                   purchasing_disabled: false
                   purchasing_disabled_message: ''
                   image_url: ''
@@ -2435,22 +2435,22 @@ paths:
                   product_id: 192
                   sku: SMIT-1
                   sku_id: 349
-                  price: {}
+                  price: 25
                   calculated_price: 25
-                  sale_price: {}
-                  retail_price: {}
+                  sale_price: 20
+                  retail_price: 25
                   map_price: {}
-                  weight: {}
+                  weight: 2
                   calculated_weight: 1
-                  width: {}
-                  height: {}
-                  depth: {}
+                  width: 5
+                  height: 5
+                  depth: 5
                   is_free_shipping: false
-                  fixed_cost_shipping_price: {}
+                  fixed_cost_shipping_price: 10
                   purchasing_disabled: false
                   purchasing_disabled_message: ''
                   image_url: ''
-                  cost_price: {}
+                  cost_price: 25
                   upc: ''
                   mpn: ''
                   gtin: ''
@@ -2466,22 +2466,22 @@ paths:
                   product_id: 192
                   sku: SMIT-2
                   sku_id: 350
-                  price: {}
+                  price: 25
                   calculated_price: 25
-                  sale_price: {}
-                  retail_price: {}
+                  sale_price: 20
+                  retail_price: 25
                   map_price: {}
-                  weight: {}
+                  weight: 2
                   calculated_weight: 1
-                  width: {}
-                  height: {}
-                  depth: {}
+                  width: 5
+                  height: 5
+                  depth: 5
                   is_free_shipping: false
-                  fixed_cost_shipping_price: {}
+                  fixed_cost_shipping_price: 10
                   purchasing_disabled: false
                   purchasing_disabled_message: ''
                   image_url: ''
-                  cost_price: {}
+                  cost_price: 25
                   upc: ''
                   mpn: ''
                   gtin: ''
@@ -2586,22 +2586,22 @@ paths:
                 product_id: 192
                 sku: SMIT-2
                 sku_id: 350
-                price: {}
+                price: 25
                 calculated_price: 25
-                sale_price: {}
-                retail_price: {}
+                sale_price: 20
+                retail_price: 25
                 map_price: {}
-                weight: {}
+                weight: 2
                 calculated_weight: 1
-                width: {}
-                height: {}
-                depth: {}
+                width: 5
+                height: 5
+                depth: 5
                 is_free_shipping: false
-                fixed_cost_shipping_price: {}
+                fixed_cost_shipping_price: 10
                 purchasing_disabled: false
                 purchasing_disabled_message: ''
                 image_url: ''
-                cost_price: {}
+                cost_price: 25
                 upc: ''
                 mpn: ''
                 gtin: ''
@@ -2694,22 +2694,22 @@ paths:
                 product_id: 192
                 sku: SMIT-2
                 sku_id: 350
-                price: {}
+                price: 25
                 calculated_price: 25
-                sale_price: {}
-                retail_price: {}
+                sale_price: 20
+                retail_price: 25
                 map_price: {}
-                weight: {}
+                weight: 2
                 calculated_weight: 1
-                width: {}
-                height: {}
-                depth: {}
+                width: 5
+                height: 5
+                depth: 5
                 is_free_shipping: false
-                fixed_cost_shipping_price: {}
+                fixed_cost_shipping_price: 10
                 purchasing_disabled: false
                 purchasing_disabled_message: ''
                 image_url: ''
-                cost_price: {}
+                cost_price: 25
                 upc: ''
                 mpn: ''
                 gtin: ''
@@ -2815,7 +2815,7 @@ paths:
                 retail_price: 89
                 sale_price: 85
                 sku: OTS
-                sku_id: null
+                sku_id: 10
                 upc: ''
                 weight: 1
                 width: 2
@@ -3961,13 +3961,13 @@ paths:
                         format: date
                         description: |
                           (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                        example: '2018-08-31T05:00:00+00:00'
+                        example: '2018-08-31'
                       date_latest_value:
                         type: string
                         format: date
                         description: |
                           (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                        example: '2019-01-01T05:00:00+00:00'
+                        example: '2019-01-01'
                       file_types_mode:
                         type: string
                         description: |
@@ -3982,14 +3982,14 @@ paths:
                           (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
                             `images` - Allows upload of image MIME types (`bmp`, `gif`, `jpg`, `jpeg`, `jpe`, `jif`, `jfif`, `jfi`, `png`, `wbmp`, `xbm`, `tiff`). `documents` - Allows upload of document MIME types (`txt`, `pdf`, `rtf`, `doc`, `docx`, `xls`, `xlsx`, `accdb`, `mdb`, `one`, `pps`, `ppsx`, `ppt`, `pptx`, `pub`, `odt`, `ods`, `odp`, `odg`, `odf`).
                             `other` - Allows file types defined in the `file_types_other` array.
-                        example: 'images, documents, other'
+                        example: [images, documents, other]
                         items:
                           type: string
                       file_types_other:
                         type: array
                         description: |
                           (file) A list of other file types allowed with the file upload option.
-                        example: pdf
+                        example: [pdf, txt]
                         items:
                           type: string
                       file_max_size:
@@ -4479,13 +4479,13 @@ paths:
                         format: date
                         description: |
                           (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                        example: '2018-08-31T05:00:00+00:00'
+                        example: '2018-08-31'
                       date_latest_value:
                         type: string
                         format: date
                         description: |
                           (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                        example: '2019-01-01T05:00:00+00:00'
+                        example: '2019-01-01'
                       file_types_mode:
                         type: string
                         description: |
@@ -4500,14 +4500,14 @@ paths:
                           (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
                             `images` - Allows upload of image MIME types (`bmp`, `gif`, `jpg`, `jpeg`, `jpe`, `jif`, `jfif`, `jfi`, `png`, `wbmp`, `xbm`, `tiff`). `documents` - Allows upload of document MIME types (`txt`, `pdf`, `rtf`, `doc`, `docx`, `xls`, `xlsx`, `accdb`, `mdb`, `one`, `pps`, `ppsx`, `ppt`, `pptx`, `pub`, `odt`, `ods`, `odp`, `odg`, `odf`).
                             `other` - Allows file types defined in the `file_types_other` array.
-                        example: 'images, documents, other'
+                        example: [images, documents, other]
                         items:
                           type: string
                       file_types_other:
                         type: array
                         description: |
                           (file) A list of other file types allowed with the file upload option.
-                        example: pdf
+                        example: [pdf, txt]
                         items:
                           type: string
                       file_max_size:
@@ -5864,13 +5864,13 @@ paths:
                         format: date
                         description: |
                           (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                        example: '2018-08-31T05:00:00+00:00'
+                        example: '2018-08-31'
                       date_latest_value:
                         type: string
                         format: date
                         description: |
                           (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                        example: '2019-01-01T05:00:00+00:00'
+                        example: '2019-01-01'
                       file_types_mode:
                         type: string
                         description: |
@@ -5885,14 +5885,14 @@ paths:
                           (file) The type of files allowed to be uploaded if the `file_type_option` is set to `specific`. Values:
                             `images` - Allows upload of image MIME types (`bmp`, `gif`, `jpg`, `jpeg`, `jpe`, `jif`, `jfif`, `jfi`, `png`, `wbmp`, `xbm`, `tiff`). `documents` - Allows upload of document MIME types (`txt`, `pdf`, `rtf`, `doc`, `docx`, `xls`, `xlsx`, `accdb`, `mdb`, `one`, `pps`, `ppsx`, `ppt`, `pptx`, `pub`, `odt`, `ods`, `odp`, `odg`, `odf`).
                             `other` - Allows file types defined in the `file_types_other` array.
-                        example: 'images, documents, other'
+                        example: [images, documents, other]
                         items:
                           type: string
                       file_types_other:
                         type: array
                         description: |
                           (file) A list of other file types allowed with the file upload option.
-                        example: pdf
+                        example: [pdf, txt]
                         items:
                           type: string
                       file_max_size:
@@ -8532,7 +8532,7 @@ paths:
                     - rule_id: 82
                       modifier_id: 221
                       modifier_value_id: 175
-                      variant_id: {}
+                      variant_id: 1
                       combination_id: 0
                 - id: 83
                   product_id: 195
@@ -8551,7 +8551,7 @@ paths:
                     - rule_id: 83
                       modifier_id: 221
                       modifier_value_id: 174
-                      variant_id: {}
+                      variant_id: 1
                       combination_id: 0
               meta:
                 pagination:
@@ -9782,7 +9782,7 @@ paths:
                   quantity_min: 4
                   quantity_max: 0
                   type: price
-                  amount: 1.25
+                  amount: 1
               meta:
                 pagination:
                   total: 2
@@ -13231,7 +13231,7 @@ paths:
                   page_title: ''
                   meta_keywords:
                     - ''
-                  meta_description: {}
+                  meta_description: 'description'
                   image_url: ''
                   search_keywords: ''
                   custom_url:
@@ -13242,7 +13242,7 @@ paths:
                   page_title: ''
                   meta_keywords:
                     - ''
-                  meta_description: {}
+                  meta_description: 'description'
                   image_url: ''
                   search_keywords: ''
                   custom_url:
@@ -13253,7 +13253,7 @@ paths:
                   page_title: ''
                   meta_keywords:
                     - ''
-                  meta_description: {}
+                  meta_description: 'description'
                   image_url: ''
                   search_keywords: ''
                   custom_url:
@@ -13264,7 +13264,7 @@ paths:
                   page_title: ''
                   meta_keywords:
                     - ''
-                  meta_description: {}
+                  meta_description: 'description'
                   image_url: ''
                   search_keywords: ''
                   custom_url:
@@ -13275,7 +13275,7 @@ paths:
                   page_title: ''
                   meta_keywords:
                     - ''
-                  meta_description: {}
+                  meta_description: 'description'
                   image_url: ''
                   search_keywords: ''
                   custom_url:
@@ -13286,7 +13286,7 @@ paths:
                   page_title: ''
                   meta_keywords:
                     - ''
-                  meta_description: {}
+                  meta_description: 'description'
                   image_url: ''
                   search_keywords: ''
                   custom_url:
@@ -13297,7 +13297,7 @@ paths:
                   page_title: ''
                   meta_keywords:
                     - ''
-                  meta_description: {}
+                  meta_description: 'description'
                   image_url: ''
                   search_keywords: ''
                   custom_url:
@@ -13308,7 +13308,7 @@ paths:
                   page_title: ''
                   meta_keywords:
                     - ''
-                  meta_description: {}
+                  meta_description: 'description'
                   image_url: ''
                   search_keywords: ''
                   custom_url:
@@ -13319,7 +13319,7 @@ paths:
                   page_title: ''
                   meta_keywords:
                     - ''
-                  meta_description: {}
+                  meta_description: 'description'
                   image_url: ''
                   search_keywords: ''
                   custom_url:
@@ -13330,7 +13330,7 @@ paths:
                   page_title: ''
                   meta_keywords:
                     - ''
-                  meta_description: {}
+                  meta_description: 'description'
                   image_url: ''
                   search_keywords: ''
                   custom_url:
@@ -14832,16 +14832,16 @@ paths:
                   sku_id: 330
                   price: 15.99
                   calculated_price: 15.99
-                  sale_price: {}
-                  retail_price: {}
+                  sale_price: 15.99
+                  retail_price: 15.99
                   map_price: {}
                   weight: 15
                   calculated_weight: 15
                   width: 4
-                  height: {}
-                  depth: {}
+                  height: 4
+                  depth: 4
                   is_free_shipping: false
-                  fixed_cost_shipping_price: {}
+                  fixed_cost_shipping_price: 10
                   purchasing_disabled: false
                   purchasing_disabled_message: ''
                   image_url: ''
@@ -14867,16 +14867,16 @@ paths:
                   sku_id: 331
                   price: 555
                   calculated_price: 555
-                  sale_price: {}
-                  retail_price: {}
+                  sale_price: 500
+                  retail_price: 555
                   map_price: {}
-                  weight: {}
+                  weight: 15
                   calculated_weight: 15
-                  width: {}
-                  height: {}
-                  depth: {}
+                  width: 5
+                  height: 5
+                  depth: 5
                   is_free_shipping: false
-                  fixed_cost_shipping_price: {}
+                  fixed_cost_shipping_price: 10
                   purchasing_disabled: false
                   purchasing_disabled_message: ''
                   image_url: ''
@@ -14900,18 +14900,18 @@ paths:
                   product_id: 184
                   sku: LAR-RED
                   sku_id: 332
-                  price: {}
+                  price: 253.99
                   calculated_price: 253.99
-                  sale_price: {}
-                  retail_price: {}
+                  sale_price: 250
+                  retail_price: 253.99
                   map_price: {}
-                  weight: {}
+                  weight: 15
                   calculated_weight: 15
-                  width: {}
-                  height: {}
-                  depth: {}
+                  width: 5
+                  height: 5
+                  depth: 5
                   is_free_shipping: false
-                  fixed_cost_shipping_price: {}
+                  fixed_cost_shipping_price: 10
                   purchasing_disabled: false
                   purchasing_disabled_message: ''
                   image_url: ''
@@ -14935,18 +14935,18 @@ paths:
                   product_id: 184
                   sku: SMA-GRE
                   sku_id: 333
-                  price: {}
+                  price: 249
                   calculated_price: 249
-                  sale_price: {}
-                  retail_price: {}
+                  sale_price: 230
+                  retail_price: 249
                   map_price: {}
-                  weight: {}
+                  weight: 15
                   calculated_weight: 15
-                  width: {}
-                  height: {}
-                  depth: {}
+                  width: 5
+                  height: 5
+                  depth: 5
                   is_free_shipping: false
-                  fixed_cost_shipping_price: {}
+                  fixed_cost_shipping_price: 10
                   purchasing_disabled: false
                   purchasing_disabled_message: ''
                   image_url: ''
@@ -14970,18 +14970,18 @@ paths:
                   product_id: 184
                   sku: MED-GRE
                   sku_id: 334
-                  price: {}
+                  price: 249
                   calculated_price: 249
-                  sale_price: {}
-                  retail_price: {}
+                  sale_price: 230
+                  retail_price: 249
                   map_price: {}
-                  weight: {}
+                  weight: 15
                   calculated_weight: 15
-                  width: {}
-                  height: {}
-                  depth: {}
+                  width: 5
+                  height: 5
+                  depth: 5
                   is_free_shipping: false
-                  fixed_cost_shipping_price: {}
+                  fixed_cost_shipping_price: 10
                   purchasing_disabled: false
                   purchasing_disabled_message: ''
                   image_url: ''
@@ -15005,18 +15005,18 @@ paths:
                   product_id: 184
                   sku: LAR-GRE
                   sku_id: 335
-                  price: {}
+                  price: 253.99
                   calculated_price: 253.99
-                  sale_price: {}
-                  retail_price: {}
+                  sale_price: 230
+                  retail_price: 253.99
                   map_price: {}
-                  weight: {}
+                  weight: 15
                   calculated_weight: 15
-                  width: {}
-                  height: {}
-                  depth: {}
+                  width: 5
+                  height: 5
+                  depth: 5
                   is_free_shipping: false
-                  fixed_cost_shipping_price: {}
+                  fixed_cost_shipping_price: 10
                   purchasing_disabled: false
                   purchasing_disabled_message: ''
                   image_url: ''
