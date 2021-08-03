@@ -5,7 +5,7 @@
 ### On this page
 - [OAuth scopes](#oauth-scopes)
 - [Products overview](#products-overview)
-- [Creating products with options](#creating-products-with-options)
+- [Creating products with variant options](#creating-products-with-variant-options)
 - [Creating digital products](#creating-digital-products)
 - [Adding product images](#adding-product-images)
 - [Adding product videos](#adding-product-videos)
