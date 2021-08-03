@@ -19,6 +19,20 @@
 | stencilString  | `stencilString` accepts (as a string) a key name that you have defined in <span class="fn">config.json</span> as editable. It returns (also as a string) the key’s value. This function is used for purposes like defining font family names, or defining paths to images.  |
 | stencilImage  | `stencilImage` accepts (as a string) a key name for an image url that you have defined in <span class="fn">config.json</span>. It also accepts (as a string) the key name for the image size that you have defined in <span class="fn">config.json</span>. It returns the string value of the image URL and the size.  |
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+  
+<!-- theme: info -->
+
+### NOTE
+> The [config.json](https://developer.bigcommerce.com/stencil-docs/storefront-customization/directory-structure#configjson) file is the main configuration file for Stencil themes. The file exists in the theme root directory.
+
+</div>
+</div>
+</div>
+
+
 ## Compiling custom Sass files
 
 If you want to add your own custom Sass files to a theme, initiate auto-compilation of those files by including the associated tag in your HTML markup. Doing this is useful for isolating your custom styles. Cornerstone's Sass file is named <span class="fp">/assets/scss/theme.scss</span>.
@@ -33,7 +47,7 @@ Next, import the custom file into `theme.css`.
 @import "foobar";
 ```
 
-Finally, ensure `{{stylesheet '/assets/css/theme.css'}}` is located in `templates/assets/layout/base.html/`.
+Finally, ensure `{{stylesheet '/assets/css/theme.css'}}` is located in `templates/layout/base.html/`.
 
 ```handlebars
 <head>
