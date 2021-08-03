@@ -179,7 +179,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 <!-- theme:  -->
 
 ### Note
-> Files can only be added to digital products via [control panel or WebDav](https://support.bigcommerce.com/articles/Public/Creating-Downloadable-Products/#adding-downloadable-product) -- attaching via the API is not supported. You can also set additional settings such as file description and maximum downloads in the control panel.
+> Files can only be added to digital products via [control panel or WebDav](https://support.bigcommerce.com/s/article/Creating-Downloadable-Products) -- attaching via the API is not supported. You can also set additional settings such as file description and maximum downloads in the control panel.
 
 </div>
 </div>
