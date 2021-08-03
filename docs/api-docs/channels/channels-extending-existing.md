@@ -6,27 +6,27 @@
 
 ## On this page
 
-- [On this page](#on-this-page)
-- [Step 1: Update API credentials](#step-1-update-api-credentials)
-- [Step 2: Integrate channel API](#step-2-integrate-channel-api)
-- [Step 3: Migrate existing data](#step-3-migrate-existing-data)
-- [App requirements](#app-requirements)
-- [Sample configuration](#sample-configuration)
-- [Terminology](#terminology)
-- [Related resources](#related-resources)
+ - [Step 1: Update API credentials](#step-1-update-api-credentials)
+ - [Step 2: Integrate channel API](#step-2-integrate-channel-api)
+ - [Step 3: Migrate existing data](#step-3-migrate-existing-data)
+ - [App requirements](#app-requirements)
+ - [Sample configuration](#sample-configuration)
+ - [Terminology](#terminology)
+ - [Related resources](#related-resources)
 
 </div>
 
 This article provides a guide to partners who would like to update or replace their existing sales channel apps to leverage new functionality available via Channels Toolkit.
 
+
 ## Step 1: Update API credentials
 
 Existing sales channel apps need app credentials with updated OAuth scopes to authenticate and authorize requests to Channels Toolkit APIs. Login to the [Developer Portal](https://devtools.bigcommerce.com) to update your app's credentials. Channel APIs require the following scopes:
 
-| UI Name                  | Parameter                | Enables                                             |
-| ------------------------ | ------------------------ | --------------------------------------------------- |
-| Channels Settings Modify | `store_channel_settings` | Creating channels that reference external platforms |
-| Channels Listings Modify | `store_channel_listings` | Creating and reading product listing information    |
+|UI Name|Parameter|Enables|
+|-|-|-|
+|Channels Settings Modify|`store_channel_settings`|Creating channels that reference external platforms|
+|Channels Listings Modify|`store_channel_listings`|Creating and reading product listing information|
 
 See [Authenticating BigCommerce's REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication) for more information on app credentials.
 
@@ -40,9 +40,10 @@ To be visible in Channel Manager once installed, apps must meet certain requirem
 
 - [Create a Channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) request must include `app_id` at a minimum in the [app config object](#sample-configuration).
 
+
 ### Channel manager example
 
-![Extending Existing Apps 01](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-channel-manager.png 'Extending Existing Apps 01')
+![Extending Existing Apps 01](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-channel-manager.png "Extending Existing Apps 01")
 
 ### Select partners
 
@@ -52,17 +53,18 @@ To be visible in Channel Manager once installed, apps must meet certain requirem
 
 ### Channel app import section
 
-![Extending Existing Apps 03](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-pos-import.png 'Extending Existing Apps 03')
+![Extending Existing Apps 03](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-pos-import.png "Extending Existing Apps 03")
 
 ### Channel app settings section
 
-![Extending Existing Apps 04](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/extending-screenshots-04.png 'Extending Existing Apps 04')
+![Extending Existing Apps 04](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/extending-screenshots-04.png "Extending Existing Apps 04")
 
 ## Step 3: Migrate existing data
 
 - **Channels** - Register a channel for all existing merchants using the app.
 - **Orders** - Add `channel_id` with the corresponding channel ID for the merchant and which channel the order was placed on, if orders are synced to BigCommerce.
 - **Listings (optional)** - Create channel specific [product listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api). This is primarily necessary for storefronts, marketplaces, and marketing type of channels.
+
 
 ## App requirements
 
@@ -81,6 +83,8 @@ The above "updating existing app" data applies; however, non-POS channel apps ar
 **All Partners**:
 
 - Must use [Listings API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) if supporting per product listings.
+
+
 
 ## Sample configuration
 
@@ -132,7 +136,7 @@ Accept: application/json
 </div>
 
 **Properties**
-| Property | Type | Description |
+|  Property | Type | Description |
 | --- | --- | --- |
 | `type` | str | Allowed Values: pos, marketplace, storefront, marketing |
 | `platform` | str | Allowed Values: see below or in [API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) |
@@ -146,45 +150,30 @@ Accept: application/json
 | &nbsp;&nbsp; ↳ `query_path` | str | Passed to app's iframe. Ex: `https://<store_url>/manage/channel/2/app?id=5&section=overview` |
 
 **Accepted Platforms and Types**
-| Platform | Accepted Type |
+| Platform          | Accepted Type             |
 |-------------------|---------------------------|
-| `square ` | `pos` |
-| `vend` | `pos` |
-| `clover` | `pos` |
-| `facebook` | `marketplace`,`marketing` |
-| `amazon` | `marketplace` |
-| `ebay` | `marketplace` |
-| `wordpress` | `storefront` |
-| `drupal` | `storefont` |
-| `acquia` | `storefront` |
-| `bloomreach` | `storefront` |
-| `deity` | `storefront` |
-| `google_shopping`\* | `marketing` |
-| `google` | `marketing` |
-| `google` | `marketplace` |
-| `custom` | `storefront`, `pos`, `marketing`, `marketplace` |
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
->
-> \* The `google_shopping` platform is depreciated and should **not** be used. Support for the types `marketing` and `marketplace` on the `google` platform are being added.
-
-</div>
-</div>
-</div>
+| `square `         | `pos`                     |
+| `vend`            | `pos`                     |
+| `clover`          | `pos`                     |
+| `facebook`        | `marketplace`,`marketing` |
+| `amazon`          | `marketplace`             |
+| `ebay`            | `marketplace`             |
+| `wordpress`       | `storefront`              |
+| `drupal`          | `storefont`               |
+| `acquia`          | `storefront`              |
+| `bloomreach`      | `storefront`              |
+| `deity`           | `storefront`              |
+| `google_shopping` | `marketing`               |
+| `custom`          | `storefront`, `pos`, `marketing`, `marketplace`             |
 
 For a complete Channel API reference (including request schemas and property descriptions), see: [API Reference > Channels and Listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
 
 ## Terminology
 
-| Term                 | Definition                                                                                                                                                                                                                                                                                                                                                               |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|Term|Definition|
+|-|-|
 | **Channels Toolkit** | Channels Toolkit is a set of tools, UI patterns, guidelines, and APIs provided by BigCommerce to enable partners and developers to extend the BigCommerce ecosystem by building sales channel integrations (whether they are point of sale, marketing, marketplace, social, or headless storefronts) that are more deeply embedded within the BigCommerce control panel. |
 | **Select Partners**  | Partners approved by BigCommerce to be marketed and discoverable as sales channel providers within the new Channel Manager. These are partners who offer what we know to be best in breed integrations to key sales channels that help merchants grow their business.                                                                                                    |
-
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
