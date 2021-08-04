@@ -127,4 +127,4 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Next steps
 
-- [Learn how to create orders]()
+- [Learn how to create an order](https://developer.bigcommerce.com/api-docs/storefronts/guide/orders)

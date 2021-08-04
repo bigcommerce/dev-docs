@@ -1,10 +1,10 @@
-# Rendering Products
+# Working with Products
 
 <div class="otp" id="no-index">
 
 ### On this page
 - [Retrieving product data](#retrieving-product-data)
-- [Managing product data](#managing-product-data)
+- [Managing products](#managing-products)
 - [Next steps](#next-steps)
 - [Resources](#resources)
 
@@ -111,7 +111,7 @@ query SingleProduct {
 </div>
 </div>
 
-## Managing product data
+## Managing products
 
 The GraphQL Storefront API provides read-only data as seen by shoppers on storefronts. You can manage products data using BigCommerce's [Products API](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/). To retrieve the complete list of products, send a `GET` request to the [Get All Products](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/getproducts) endpoint. If you need to influence the response, you can pass optional query string parameters with the request.
 
@@ -130,7 +130,7 @@ It is best practice to cache product details in a database to improve performanc
  
 ## Next steps
 
-- [Learn how to create a cart](https://developer.bigcommerce.com/api-docs/storefronts/guide/developers-guide-headless/carts)
+- [Learn how to create a cart](https://developer.bigcommerce.com/api-docs/storefronts/guide/carts)
 
 ## Resources
 

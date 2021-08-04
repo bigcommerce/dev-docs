@@ -58,7 +58,7 @@ The Checkouts API allows you to move the cart to checkout and turn it into an or
 
 ## Next steps
 
-- [Learn how to create an order](https://developer.bigcommerce.com/api-docs/storefronts/guide/developers-guide-headless/orders)
+- [Learn how to create an Embedded Checkout](https://developer.bigcommerce.com/api-docs/storefronts/embedded-checkout/embedded-checkout-tutorial)
 
 ## Resources
 

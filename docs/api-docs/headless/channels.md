@@ -23,7 +23,7 @@ You can create both using the [Channels API](https://developer.bigcommerce.com/a
 
 ## Next steps
 
-- [Learn how to render products](https://developer.bigcommerce.com/api-docs/storefronts/guide/developers-guide-headless/products)
+- [Learn how to work with products](https://developer.bigcommerce.com/api-docs/storefronts/guide/products)
 
 ## Resources
 

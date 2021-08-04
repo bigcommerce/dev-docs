@@ -54,7 +54,7 @@ In the diagram below, the storefront is where the shopper interacts with product
 
 ## Next steps
 
-- [Learn how to create a channel and a channel site](https://developer.bigcommerce.com/api-docs/storefronts/guide/developers-guide-headless/channels)
+- [Learn how to create a channel and a channel site](https://developer.bigcommerce.com/api-docs/storefronts/guide/channels)
 
 ## Resources
 
