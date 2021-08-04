@@ -112,16 +112,29 @@ query SingleProduct {
 
 ## Managing products
 
-The GraphQL Storefront API provides read-only data as seen by shoppers on storefronts. You can manage products data using BigCommerce's [Products API](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/). To retrieve the complete list of products, send a `GET` request to the [Get All Products](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/getproducts) endpoint. If you need to influence the response, you can pass optional query string parameters with the request.
+The GraphQL Storefront API provides read-only data and cannot be used to manipulate products at this time. You will need to use BigCommerce's REST [Products API](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/) to manage products data. 
+
+To update products in batches, send a `PUT` request to the [Update Products (Batch)](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/updateproducts) endpoint. 
 
 ```http
-GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products
+PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/getproducts#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/updateproducts#requestrunner)
+
+To update a single product, send a `PUT` request to the [Update a Product](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/updateproduct) endpoint.
+
+```http
+PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
+```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/updateproduct#requestrunner)
 
 ### Cache the catalog
 
