@@ -2923,7 +2923,6 @@ components:
         - email
         - first_name
         - last_name
-        - addresses
     customer_Put:
       title: customer_Put
       type: object
