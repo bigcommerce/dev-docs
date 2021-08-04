@@ -1,4 +1,4 @@
-# Developers Guide to Headless Commerce
+# Introduction to Headless Commerce
 
 <div class="otp" id="no-index">
 
