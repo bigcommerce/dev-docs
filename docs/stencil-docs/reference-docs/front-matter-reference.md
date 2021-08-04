@@ -154,7 +154,7 @@ product:
     limit: 5           # limits videos to 5
   images:
     limit: 5           # limits images to 5
-  reviews: true
+  reviews:
     limit: 250         # limits reviews to 250
   related_products:
     limit: 10          # limits related products by name to 10
