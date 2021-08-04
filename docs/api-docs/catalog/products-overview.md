@@ -5,7 +5,7 @@
 ### On this page
 - [OAuth scopes](#oauth-scopes)
 - [Products overview](#products-overview)
-- [Creating products with options](#creating-products-with-options)
+- [Creating products with variant options](#creating-products-with-variant-options)
 - [Creating digital products](#creating-digital-products)
 - [Adding product images](#adding-product-images)
 - [Adding product videos](#adding-product-videos)
@@ -179,7 +179,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 <!-- theme:  -->
 
 ### Note
-> Files can only be added to digital products via [control panel or WebDav](https://support.bigcommerce.com/articles/Public/Creating-Downloadable-Products/#adding-downloadable-product) -- attaching via the API is not supported. You can also set additional settings such as file description and maximum downloads in the control panel.
+> Files can only be added to digital products via [control panel or WebDav](https://support.bigcommerce.com/s/article/Creating-Downloadable-Products) -- attaching via the API is not supported. You can also set additional settings such as file description and maximum downloads in the control panel.
 
 </div>
 </div>
@@ -204,7 +204,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog-api/catalog/product-images/createproductimage#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-images/createproductimage#requestrunner)
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -240,7 +240,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-videos/createproductvideo#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-videos/createproductvideo#requestrunner)
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -386,7 +386,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-reviews/createproductreview#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-reviews/createproductreview#requestrunner)
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
