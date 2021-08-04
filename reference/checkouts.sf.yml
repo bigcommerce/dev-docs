@@ -1255,6 +1255,7 @@ paths:
                   postalCode: '12345'
                   customFields:
                     - {}
+                  shouldSaveAddress: true
                 lineItems:
                   - itemId: 69791a88-85c9-4c19-8042-e537621e8a55
                     quantity: 2
@@ -1271,6 +1272,7 @@ paths:
                   postalCode: '12345'
                   customFields:
                     - {}
+                  shouldSaveAddress: false
                 lineItems:
                   - itemId: ba2c619d-e6b4-48c2-8809-d88e424ed450
                     quantity: 1
@@ -1377,6 +1379,7 @@ paths:
                     postalCode: '96720'
                     phone: '8081234567'
                     customFields: []
+                    shouldSaveAddress: true
               orderId: {}
               shippingCostTotal: 8
               shippingCostBeforeDiscount: 8
@@ -1436,6 +1439,7 @@ paths:
               lineItems:
                 - itemId: ff4ab5d4-7a5e-4e13-b561-11e785b7e4e0
                   quantity: 1
+              shouldSaveAddress: true
             Selected Shipping Option:
               shippingOptionId: e1ae7924-cb99-48df-ae5a-ec0aa37b64eb
         - name: include
@@ -1541,6 +1545,7 @@ paths:
                     postalCode: '96720'
                     phone: '8081234567'
                     customFields: []
+                    shouldSaveAddress: true
               orderId: {}
               shippingCostTotal: 8
               shippingCostBeforeDiscount: 8
@@ -2563,6 +2568,9 @@ definitions:
           id:
             description: ''
             type: string
+          shouldSaveAddress:
+            description: 'Indicates if we should add this address to the customer address book.'
+            type: boolean
   address_Base:
     title: address_Base
     type: object
@@ -3546,6 +3554,9 @@ definitions:
                   type: string
                 fieldValue:
                   type: string
+          shouldSaveAddress:
+            description: 'Indicates if we should add this address to the customer address book.'
+            type: boolean
         required:
           - countryCode
       lineItems:
@@ -3635,6 +3646,9 @@ definitions:
                   type: string
                 fieldValue:
                   type: string
+          shouldSaveAddress:
+            description: 'Indicates if we should add this address to the customer address book.'
+            type: boolean
         required:
           - countryCode
       lineItems:
