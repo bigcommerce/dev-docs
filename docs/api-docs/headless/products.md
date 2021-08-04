@@ -121,6 +121,21 @@ PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
+
+[
+  {
+    "id": 77,
+    "name": "Fog Linen Chambray Towel - Beige Stripe",
+    "inventory_level": 11,
+    "price": 55.97
+  },
+  {
+    "id": 80,
+    "name": "Orbit Terrarium - Large",
+    "inventory_level": 15,
+    "price": 100.99
+  }
+]
 ```
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/updateproducts#requestrunner)
@@ -132,6 +147,12 @@ PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
+
+{
+    "name": "Fog Linen Chambray Towel - Beige Stripe",
+    "inventory_level": 10,
+    "price": 55.97
+}
 ```
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/updateproduct#requestrunner)
