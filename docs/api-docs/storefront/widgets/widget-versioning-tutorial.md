@@ -80,13 +80,13 @@ Accept: application/json
 </div>
 </div>
 
-You can view your widget template in the store's control panel using [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder), BigCommerce's storefront editing and customization tool. You can locate your newly created widget template in the left pane under **Custom**. 
+You can use [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder), BigCommerce's storefront editing and customization tool, to view your widget template in the control panel. It will be displayed in the left pane under **Custom**.
 
 ![Page Builder](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widget-versioning-01.png "Page Builder")
 
 ### Create a widget
 
-In this tutorial, we will create and place our widget programmatically. To place your widget using Page Builder, drag and drop the widget template from the left pane onto the page.
+In this tutorial, you will create and place a widget programmatically. To place your widget using Page Builder, drag and drop the widget template from the left pane onto the page.
 
 To create a widget using the Widgets API, send a `POST` request to [`/v3/content/widgets`](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/widget/createwidget). Replace the `widget_template_uuid` placeholder with the `uuid` from the [previous step](#create-a-widget-template).
 
@@ -108,7 +108,7 @@ Accept: application/json
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget/createwidget#requestrunner)
 
-Look for `version_uuid` and `current_version_uuid` in the response. You will notice that widget's `version_uuid` matches `current_version_uuid` of the widget template.
+Look for `version_uuid` and `current_version_uuid` in the response. The widget's `version_uuid`should match the `current_version_uuid` of the widget template.
 
 ```json
 {
@@ -141,9 +141,9 @@ Look for `version_uuid` and `current_version_uuid` in the response. You will not
 
 ### Place the widget
 
-Place your widget by [creating a placement](https://developer.bigcommerce.com/api-reference/store-management/widgets/placement/createplacement). For this tutorial, we will place our widget in the `home_below_featured_products` region. To get a list of all available regions, send a `GET` request to [`v3/content/regions`](https://developer.bigcommerce.com/api-reference/store-management/widgets/regions/getcontentregions).
+You can place the widget on the storefront by [creating a placement](https://developer.bigcommerce.com/api-reference/store-management/widgets/placement/createplacement). The following example uses the `home_below_featured_products` region. To get a list of all available regions, send a `GET` request to [`v3/content/regions`](https://developer.bigcommerce.com/api-reference/store-management/widgets/regions/getcontentregions).
 
-To place your widget, send a `POST` request to [`/v3/content/placements`](https://developer.bigcommerce.com/api-reference/store-management/widgets/placement/createplacement).
+To place your widget, send a `POST` request to [`/v3/content/placements`](https://developer.bigcommerce.com/api-reference/store-management/widgets/placement/createplacement). 
 
 ```http
 POST /stores/{{STORE_HASH}}/v3/content/placements
@@ -168,7 +168,9 @@ The widget should now be visible on your store's homepage under **Featured Produ
 
 ## Update the widget template
 
-To create a new version of the widget template without affecting the widget created from it, we are going to include the `"create_new_version": true` parameter in the `PUT` request to [`/v3/content/widget-templates/{uuid}`](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/updatewidgettemplate). This will create a new version record and associate that record to the current version. 
+The `create_new_version` parameter controls whether widget updates are *forced* or *opt-in*. Omitting the `create_new_version` parameter or setting it to `false` will make it a *forced* update.
+
+To create a new version of the widget template without affecting existing widgets, set `create_new_version` to `true` when sending a `PUT` request to [`/v3/content/widget-templates/{uuid}`](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/updatewidgettemplate). This will create a new widget template version record and associate that record to the `current_version_uuid`.
 
 ```http
 POST /stores/{{store_hash}}v3/content/widget-templates/{uuid}
@@ -206,8 +208,8 @@ Accept: application/json
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/updatewidgettemplate#requestrunner)
 
-Let's look at our widget again. Send a `GET` request to [`/v3/content/widgets/{uuid}`](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget/getwidget) to retrieve your widget's data.
-You will notice that `current_version_uuid` has changed and is now different from the widget's `version_uuid`. Although we have updated the widget template, the widget created using that template did not change.
+Send a `GET` request to [`/v3/content/widgets/{uuid}`](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget/getwidget) to retrieve your widget's data.
+You will notice that `current_version_uuid` has changed and is now different from the widget's `version_uuid`. Although you have updated the widget template, the widget created using that template did not change.
 
 ### Create a new widget
 

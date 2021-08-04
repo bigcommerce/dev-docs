@@ -37,6 +37,15 @@ Use [Handlebars expressions](https://developer.bigcommerce.com/api-docs/store-ma
 
 [Learn how to edit, test, and preview transactional email templates in the control panel](https://support.bigcommerce.com/s/article/Customizing-Emails).
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+> ### Note
+> Saving an email template that exceeds 65,536 characters returns an "Email body too large" error message and truncates extra characters.
+</div>
+</div>
+</div>
+
 ## API
 
 To manage transactional email templates programmatically, use the [Email Templates API](https://developer.bigcommerce.com/api-reference/store-management/email-templates). For example, to [get a list of email templates](https://developer.bigcommerce.com/api-reference/store-management/email-templates/email-templates/getemailtemplates), send a `GET` request to `/v3/marketing/email-templates`.
@@ -122,7 +131,7 @@ Accept: application/json
 <div class="HubBlock-content">
 
 > ### Note
-> * Omit `?channel_id` to interact with global email templates.
+> Omit `?channel_id` to interact with global email templates.
 
 </div>
 </div>
