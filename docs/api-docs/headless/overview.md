@@ -4,7 +4,7 @@
 
 ### On this page
 - [Ways to implement headless commerce](#ways-to-implement-headless-commerce)
-- [Sample integration](#storefront-channels)
+- [Sample integration](#sample-integration)
 - [Next steps](#next-steps)
 - [Resources](#resources)
 
