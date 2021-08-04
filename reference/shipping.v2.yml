@@ -2,29 +2,17 @@ swagger: '2.0'
 info:
   version: ''
   title: Shipping V2
-  description: >-
+  description: |-
     Manage shipping zones, shipping methods, and shipping carrier connections.
 
-
     ### Shipping Zones
-
-    The Shipping Zone object and endpoints manage shipping zones within
-    countries.
-
+    The Shipping Zone object and endpoints manage shipping zones within countries.
 
     ### Shipping Methods
-
-    The Shipping Methods object and endpoints manage shipping rules within
-    Shipping Zones. These rules determine the shipping rates displayed at
-    checkout, and related parts of the control panel, such as the shipping of
-    manual orders.
-
+    The Shipping Methods object and endpoints manage shipping rules within Shipping Zones. These rules determine the shipping rates displayed at checkout, and related parts of the control panel, such as the shipping of manual orders.
 
     ### Shipping Carrier Connections
-
-    Carrier connections refer to specific settings required to connect to a
-    specific shipping carrier. Each carrier requires your app to supply a unique
-    set of properties/fields to establish a connection with that carrier.
+    Carrier connections refer to specific settings required to connect to a specific shipping carrier. Each carrier requires your app to supply a unique set of properties/fields to establish a connection with that carrier.
 host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v2'
 schemes:
@@ -960,9 +948,7 @@ paths:
       operationId: deleteAShippingZone
   '/shipping/zones/{zone_id}/methods':
     get:
-      description: >-
-        Returns a list of *Shipping Methods* in a zone. Default sorting is by
-        shipping-method id, from lowest to highest.
+      description: 'Returns a list of *Shipping Methods* in a zone. Default sorting is by shipping-method id, from lowest to highest.'
       summary: Get All Shipping Methods in a Zone
       tags:
         - Shipping Method
@@ -1152,100 +1138,64 @@ paths:
       operationId: createAShippingMethod
   '/shipping/zones/{zone_id}/methods/{method_id}':
     get:
-      description: >-
-        Returns a single *Shipping Method* in a zone. Real Time Carrier
-        Connections are also supported by this endpoint.
-
+      description: |-
+        Returns a single *Shipping Method* in a zone. Real Time Carrier Connections are also supported by this endpoint.
 
         ### Settings Objects
 
-
-        A shipping method's `type` and `settings` properties can match one of
-        the following models:
-
+        A shipping method's `type` and `settings` properties can match one of the following models:
 
         ### perorder Object – Properties
 
-
         Object model for flat-rate shipping quotes per order.
 
-
         | Name | Type | Description |
-
         | - | - | - |
-
         | rate | number | Flat rate per order. |
-
 
         #### JSON Example
 
-
         ```json
-
         {
             "name": "Flat Rate per Order",
             "type": "perorder",
             "settings": {
                 "rate": 7
         },
-
         ```
-
 
         ### peritem Object – Properties
 
-
         Object model for flat-rate shipping quotes per item ordered.
 
-
         | Name | Type | Description |
-
         | - | - | - |
-
         | rate | number | Flat rate per item. |
-
 
         #### JSON Example
 
-
         ```json
-
         {
             "name": "Flat Rate per Item",
             "type": "peritem",
             "settings": {
                 "rate": 8
         },
-
         ```
-
 
         ### weight Object – Properties
 
-
         Object model for shipping quotes by weight.
 
-
         | Name | Type | Description |
-
         | - | - | - |
-
-        | default_cost | number | Default shipping cost, applied either as a
-        percentage of the order's total value or as a fixed amount. |
-
-        | default_cost_type | string | How the default shipping cost is
-        calculated. One of: `percentage_of_total` or `fixed_amount`. |
-
-        | range | number | Array of [range](#range) objects. The units for these
-        ranges' `lower_limit` and `upper_limit` properties depend on the default
-        units set in the store's control panel. |
-
+        | default_cost | number | Default shipping cost, applied either as a percentage of the order's total value or as a fixed amount. |
+        | default_cost_type | string | How the default shipping cost is calculated. One of: `percentage_of_total` or `fixed_amount`. |
+        | range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties depend on the default units set in the store's control panel. |
 
 
         #### JSON Example
-
         ```json
-
         {
             "name": "Rate per Weight",
             "type": "weight",
@@ -1266,42 +1216,24 @@ paths:
                 ]
             }
         }
-
         ```
-
 
         ### total Object – Properties
 
-
         Object model for shipping quotes by order's total value.
 
-
         | Name | Type | Description |
-
         | - | - | - |
-
-        | default_cost | number | Default shipping cost, applied either as a
-        percentage of the order's total value or as a fixed amount. |
-
-        | default_cost_type | string | How the default shipping cost is
-        calculated. One of: `percentage_of_total` or `fixed_amount`. |
-
-        | include_order_total_taxes | boolean | Whether or not to include taxes
-        on the order's total value in the shipping-cost calculation. |
-
-        | range | number | Array of [range](#range) objects. The units for these
-        ranges' `lower_limit` and `upper_limit` properties are values in the
-        store's currency. |
-
+        | default_cost | number | Default shipping cost, applied either as a percentage of the order's total value or as a fixed amount. |
+        | default_cost_type | string | How the default shipping cost is calculated. One of: `percentage_of_total` or `fixed_amount`. |
+        | include_order_total_taxes | boolean | Whether or not to include taxes on the order's total value in the shipping-cost calculation. |
+        | range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties are values in the store's currency. |
 
         #### JSON Example
 
-
         This example sets free shipping above a certain order total:
 
-
         ```json
-
         {
             "name": "Per Total or Free",
             "type": "total",
@@ -1338,40 +1270,26 @@ paths:
                 ]
             }
         }
-
         ```
-
 
         ### Range Object – Properties
 
-
-        Object model to define ranges for shipping quotes. Units are defined in
-        the parent object.
-
+        Object model to define ranges for shipping quotes. Units are defined in the parent object.
 
         | Name | Type | Description |
-
         | - | - | - |
-
         | lower_limit | number | Lower limit for order total. |
-
         | upper_limit | number | Upper limit for order total. |
-
-        | shipping_cost | number | Shipping cost for orders whose total falls
-        between the lower and upper limits. |
-
+        | shipping_cost | number | Shipping cost for orders whose total falls between the lower and upper limits. |
 
         #### JSON Example
 
-
         ```json
-
         {
             "lower_limit": 0,
             "upper_limit": 20,
             "shipping_cost": 8
         }
-
         ```
       summary: Get a Shipping Method
       tags:
@@ -1458,9 +1376,7 @@ paths:
                   - royalmail
                   - upsready
               settings:
-                description: >-
-                  Depends on the shipping-method type. See the [supported
-                  settings object](#supported-settings).
+                description: 'Depends on the shipping-method type. See the [supported settings object](#supported-settings).'
                 type: object
               enabled:
                 description: Whether or not this shipping-zone method is enabled.
@@ -1472,17 +1388,12 @@ paths:
                   - fixed_surcharge
                   - percentage_surcharge
                 example: percentage_surcharge
-                description: >-
-                  `fixed_surcharge`: flat-rate handling fee applied to shipping
-                  cost.
+                description: |-
+                  `fixed_surcharge`: flat-rate handling fee applied to shipping cost.
 
-
-                  `percentage_surcharge`: percentage handling fee applied to
-                  shipping cost
+                  `percentage_surcharge`: percentage handling fee applied to shipping cost
               is_fallback:
-                description: >-
-                  Whether or not this shipping zone is the fallback if all
-                  others are not valid for the order.
+                description: Whether or not this shipping zone is the fallback if all others are not valid for the order.
                 example: false
                 type: boolean
           examples:
@@ -1586,9 +1497,7 @@ paths:
         IsMultiContentStreaming: false
       operationId: updateAShippingMethod
     delete:
-      description: >-
-        Deletes an *Shipping Method*. Real Time Carrier Connections can also be
-        deleted.
+      description: Deletes an *Shipping Method*. Real Time Carrier Connections can also be deleted.
       summary: Delete a Shipping Method
       tags:
         - Shipping Method
@@ -1633,13 +1542,10 @@ paths:
       operationId: deleteAShippingMethod
   /shipping/carrier/connection:
     put:
-      description: >-
+      description: |-
         Updates a *Carrier Connection*.
 
-
-        Updating the carrier connection is done using the same information as
-        creating the connection. This endpoint can be used to update
-        credentials.
+        Updating the carrier connection is done using the same information as creating the connection. This endpoint can be used to update credentials.
       summary: Update a Carrier Connection
       tags:
         - Shipping Carrier
@@ -1666,9 +1572,7 @@ paths:
               connection:
                 account_id: yourEndiciaAccountId
                 pass_phrase: yourEndiciaPassphrase
-          description: >-
-            The request body will vary by carrier. See [Create a Carrier
-            Connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection).
+          description: 'The request body will vary by carrier. See [Create a Carrier Connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection).'
       responses:
         '204':
           description: Returns if request was succesful
@@ -1716,17 +1620,24 @@ paths:
         '204':
           description: Returns if request was succesful
         '400':
-          description: >-
-            If a required field is not provided, the request will return a 400
-            response.
+          description: |
+            Invalid requests will return a 400 response.
 
+                [
+                  {
+                    "status": 400,
+                    "message": "The field 'id' cannot be written to. Please remove it from your request before trying again."
+                  }
+                ]
 
-            [
-                {
+            If a required field is not provided, the request will return a 400 response.
+
+                [
+                  {
                     "status": 400,
                     "message": "Required fields missing [key]"
-                }
-            ]
+                  }
+                ]
           schema: {}
       x-unitTests: []
       x-operation-settings:
@@ -2093,9 +2004,7 @@ definitions:
           - royalmail
           - upsready
       settings:
-        description: >-
-          Depends on the shipping-method type. See the [supported settings
-          object](#supported-settings).
+        description: 'Depends on the shipping-method type. See the [supported settings object](#supported-settings).'
         type: object
         properties:
           rate:
@@ -2112,16 +2021,12 @@ definitions:
           - fixed_surcharge
           - percentage_surcharge
         example: percentage_surcharge
-        description: >-
+        description: |-
           `fixed_surcharge`: flat-rate handling fee applied to shipping cost.
 
-
-          `percentage_surcharge`: percentage handling fee applied to shipping
-          cost
+          `percentage_surcharge`: percentage handling fee applied to shipping cost
       is_fallback:
-        description: >-
-          Whether or not this shipping zone is the fallback if all others are
-          not valid for the order.
+        description: Whether or not this shipping zone is the fallback if all others are not valid for the order.
         example: false
         type: boolean
   ShippingResponse:
@@ -2170,21 +2075,15 @@ definitions:
             properties:
               previous:
                 type: string
-                description: >-
-                  Query string appended to the resource to return to the
-                  previous page.
+                description: Query string appended to the resource to return to the previous page.
                 example: '?limit=1&page=1'
               next:
                 type: string
-                description: >-
-                  Query string appended to the resource to proceed to the next
-                  page.
+                description: Query string appended to the resource to proceed to the next page.
                 example: '?limit=1&page=3'
               current:
                 type: string
-                description: >-
-                  Query string appended to the resource to show the current
-                  page.
+                description: Query string appended to the resource to show the current page.
                 example: '?limit=1&page=2'
 tags:
   - name: Shipping Method
@@ -2196,47 +2095,29 @@ securityDefinitions:
     type: apiKey
     name: X-Auth-Token
     in: header
-    description: >-
+    description: |-
       ### OAuth Scopes
-
       |  **UI Name** | **Permission** | **Parameter** |
-
       | --- | --- | --- |
-
       |  Information & Settings | modify | `store_v2_information` |
-
       |  Information & Settings | read-only | `store_v2_information_read_only` |
-
 
       ### Headers
 
-
       |Header|Parameter|Description|
-
       |-|-|-|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
       ### Example
 
-
       ```http
-
       GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
       host: api.bigcommerce.com
-
       Content-Type: application/json
-
       X-Auth-Token: {access_token}
-
       ```
 
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
