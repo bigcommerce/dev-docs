@@ -30,7 +30,7 @@ paths:
         * A cart can be created by adding an existing **catalog item** or a **custom item**.
         * Carts are valid for **30 days** from the **last modification** (this includes creating the cart or editing the cart).
         * If a product has modifiers, omit the `variant_id` and instead use the `option_selections` array to describe both the **variant** and the **modifier** selections.
-        * The format and data type of a cart's `option_value` is defined by the `value_data` object of a product’s [variant option value](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-option-values/getoptionvaluebyid), [modifier value](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifier-values/getmodifiervaluebyid), or a combination of both.
+        * The format and data type of a cart's `option_value` is defined by the `value_data` object of a product's [variant option value](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variant-option-values/getoptionvaluebyid), [modifier value](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifier-values/getmodifiervaluebyid), or a combination of both.
         * Redirect URLs can only be generated from carts created using the **Server-to-Server Carts API**. 
         * To get cart `redirect_urls` in the response, append the following query parameter to the request URL: `include=redirect_urls`.
         * To restore a cart that was created by a shopper or via the Storefront Cart API, first recreate the cart using the Server to Server Cart API.
