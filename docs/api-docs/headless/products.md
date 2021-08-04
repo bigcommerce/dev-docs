@@ -14,7 +14,7 @@ This section demonstrates how to use BigCommerce's GraphQL Storefront API and RE
 
 ## Retrieving product data
 
-BigCommerce's [GraphQL Storefront API](https://developer.bigcommerce.com/api-reference/storefront/graphql) makes it possible to query storefront data from a remote site. By leveraging the power of GraphQL, you can access product information for any product from any page.
+BigCommerce's [GraphQL Storefront API](https://developer.bigcommerce.com/api-reference/graphql/graphql) makes it possible to query storefront data from a remote site. By leveraging the power of GraphQL, you can access product information for any product from any page.
 
 The following example demonstrates how to fetch product data using the GraphQL Storefront API. It relies on the [GraphQL Cursor Connections Specification model](https://relay.dev/graphql/connections.htm) to handle pagination.
 
@@ -83,7 +83,7 @@ Following the same API fetching logic, you can retrieve data for a single produc
 ```graphql
 query SingleProduct {
   site {
-    products (entityIds: ${props.id}) {
+    product (entityId: ${params.id}) {
       id
       entityId
       name
@@ -105,7 +105,7 @@ query SingleProduct {
 <div class="HubBlock-content">
 
 > ### Note
-> We recommend using the GraphQL Storefront API to consume the product data as it can retrieve pricing and other product-related information in a single call and orchestrate an aggregated response.
+> We recommend using the GraphQL Storefront API to consume the product data. It can retrieve pricing and other product-related information in a single call and orchestrate an aggregated response.
 
 </div>
 </div>
@@ -113,7 +113,7 @@ query SingleProduct {
 
 ## Managing product data
 
-The GraphQL Storefront API provides read-only data as seen by shoppers on storefronts. You can manage products data using the BigCommerce's [Products API](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/). To retrieve the complete list of products, send a `GET` request to [`/v3/catalog/products`](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/getproducts). If you need to influence the response, optional query string parameters can be passed with the request.
+The GraphQL Storefront API provides read-only data as seen by shoppers on storefronts. You can manage products data using BigCommerce's [Products API](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/). To retrieve the complete list of products, send a `GET` request to the [Get All Products](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/getproducts) endpoint. If you need to influence the response, you can pass optional query string parameters with the request.
 
 ```http
 GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products
@@ -126,7 +126,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ### Cache the catalog
 
-It is best practice to cache product details in a database to improve performance and increase operational efficiency. Caching product information will allow you to implement search functionality and enable you to control the information displayed to the customers.
+It is best practice to cache product details in a database to improve performance and increase operational efficiency. Caching product information will allow you to implement search functionality and control the information displayed to the customers.
  
 ## Next steps
 

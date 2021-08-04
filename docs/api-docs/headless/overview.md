@@ -3,7 +3,7 @@
 <div class="otp" id="no-index">
 
 ### On this page
-- [Ways to implement headless](#ways-to-implement-headless)
+- [Ways to implement headless commerce](#ways-to-implement-headless-commerce)
 - [Sample integration](#storefront-channels)
 - [Next steps](#next-steps)
 - [Resources](#resources)
@@ -12,11 +12,11 @@
 
 This is the first article in a comprehensive developer's guide to using BigCommerce as a commerce back-end for headless storefronts. If you are not familiar with headless commerce as a concept, start by reviewing our whitepaper, [A New Era of Ecommerce: Headless Commerce](https://www.bigcommerce.com/new-era-headless-caas/), or the Help Center's [Headless Commerce Guide](https://support.bigcommerce.com/s/article/The-Headless-Approach).
 
-## Ways to implement headless
+## Ways to implement headless commerce
 
-If you want to build a headless storefront powered by a BigCommerce backend without starting from scratch, BigCommerce offers multiple starter apps and pre-built solutions to choose from. For headless storefront solutions and tools, see [Headless Integrations](https://developer.bigcommerce.com/tools-resources#headless-integrations).
+If you are looking to build a headless storefront powered by a BigCommerce backend without starting from scratch, BigCommerce offers multiple starter apps and pre-built solutions to choose from. For headless storefront solutions and tools, see [Headless Integrations](https://developer.bigcommerce.com/tools-resources#headless-integrations).
 
-If you are looking to build a custom solution, BigCommerce has APIs, SDKs, and toolkits available to support your headless architecture.
+If you need to build a custom solution, BigCommerce has APIs and [SDKs](https://developer.bigcommerce.com/tools-resources#sdks) available to support your headless architecture.
 
 ### Custom solutions
 
@@ -42,14 +42,14 @@ If you are looking to build a custom solution, BigCommerce has APIs, SDKs, and t
 
 ## Sample integration
 
-In the diagram below, the Storefront is any location the products are being rendered and where the shopper browses for products. With headless the storefront can be a CMS or an app. The Application is making API calls to BigCommerce in order to perform certain actions and return data either to display to the shopper or pass it along to another system. BigCommerce is creating the order and processing payments so you don’t need to worry about building the infrastructure.
+In the diagram below, the storefront is where the shopper interacts with products through a UI. With headless commerce, the storefront can be a CMS or an app. The application makes API calls to BigCommerce to perform specific actions and return data either to display to the shopper or to pass it along to another system. BigCommerce is creating the order and processing payments, so you don't need to worry about building the infrastructure.
 
 ![Sample Headless Integration](https://storage.googleapis.com/bigcommerce-production-dev-center/images/developers-guide-to-headless-01.png "Sample Headless Integration")
 
 |Entity|Description|
 |-|-|
 |**Storefront**|The front end presentation layer where a shopper interacts with products. In a headless architecture, the storefront might be a CMS, native mobile app, kiosk, static site, or any other front end solution you can imagine. The BigCommerce WordPress plugin is built using an existing CMS and injecting a stores catalog. Any CMS that accepts custom integrations can be used. Another option is to build a storefront from scratch using a framework such as [Gatsby](https://www.bigcommerce.com/blog/flexible-headless-commerce-solutions/#overview-of-bigcommerce-for-react-gatsby).|
-|**Application**|Solution built by developer to control the requests and responses from the BigCommerce APIs. In addition to handling essential ecommerce tasks like requesting product information or sending the request to process a payment, the application layer can also handle logic for custom functionality, like presenting discount codes based on a shopper's history or pre filling details on the checkout page. |
+|**Application**|Solution built by a developer to control the requests and responses from the BigCommerce APIs. In addition to handling essential ecommerce tasks like requesting product information or sending the request to process a payment, the application layer can also handle the logic for custom functionality, like presenting discount codes based on a shopper's history or pre-filling details on the checkout page. |
 |**BigCommerce**|BigCommerce will respond to the application with the requested data to power the backend ecommerce functionality. It can handle processing payments, storing customer data, retrieving the catalog and order information.|
 
 ## Next steps

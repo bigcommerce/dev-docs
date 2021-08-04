@@ -16,7 +16,7 @@ In this section, we will explain how to use the Carts API to create and manage c
 
 ## Creating a cart
 
-The [Carts API](https://developer.bigcommerce.com/api-reference/store-management/carts) allows you to create carts for both existing and guest customers. 
+The [Carts API](https://developer.bigcommerce.com/api-reference/store-management/carts) lets you create carts for both existing and guest customers. 
 
 To create a cart, send a `POST` request to the [Create a Cart](https://developer.bigcommerce.com/api-reference/store-management/carts/cart/createacart) endpoint.
 
@@ -137,9 +137,9 @@ For example:
 
 `https://store.example.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ7Y2xpZW50X2lkfSIsImlhdCI6MTUzNTM5MzExMywianRpIjoie3V1aWR9Iiwib3BlcmF0aW9uIjoiY3VzdG9tZXJfbG9naW4iLCJzdG9yZV9oYXNoIjoie3N0b3JlX2hhc2h9IiwiY3VzdG9tZXJfaWQiOjJ9.J-fAtbjRFGdLsT744DhoprFEDqIfVq72HbDzrbFy6Is`
 
-The customer login JWT must include a `channel_id` property. If the `channel_id` is not included, CORS checks will fail and the checkout will not load.
+The customer login JWT must include a `channel_id` property. If you omit the `channel_id`, CORS checks will fail and the checkout will not load.
 
-If you are using [Embedded Checkout](https://developer.bigcommerce.com/api-docs/storefronts/embedded-checkout/embedded-checkout-overview), pass the customer login URL to the Checkout SDK to login the customer, then redirect to checkout within the embedded checkout iFrame.
+If you are using [Embedded Checkout](https://developer.bigcommerce.com/api-docs/storefronts/embedded-checkout/embedded-checkout-overview), pass the customer login URL to the Checkout SDK to log in the customer, then redirect to checkout within the embedded checkout iFrame.
 
 ## Deleting a line item
 

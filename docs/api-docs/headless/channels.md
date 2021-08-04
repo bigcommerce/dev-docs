@@ -1,4 +1,4 @@
-# Creating channels
+# Creating Channels
 
 <div class="otp" id="no-index">
 
