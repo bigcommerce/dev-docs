@@ -105,8 +105,7 @@ query SingleProduct {
 <div class="HubBlock-content">
 
 > ### Note
-> We recommend using the GraphQL Storefront API to consume the product data. It can retrieve pricing and other product-related information in a single call and orchestrate an aggregated response.
-
+> We recommend using the GraphQL Storefront API to query the product data. It lets you specify the information needed from the server and retrieve multiple resources in a single call. For example, using the GraphQL Storefront API, you can fetch product pricing, options, and variations in a single request, improving performance and minimizing the need for subsequent API calls.
 </div>
 </div>
 </div>
