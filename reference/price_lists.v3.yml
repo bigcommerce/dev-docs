@@ -2427,15 +2427,19 @@ paths:
         - type: array
           in: query
           name: 'id:in'
+          description: Filter items by a comma-separated list of `id`s.
         - type: array
           in: query
           name: 'customer_group_id:in'
+          description: Filter items by a comma-separated list of `customer_group_id`s.
         - type: array
           in: query
           name: 'price_list_id:in'
+          description: Filter items by a comma-separated list of `price_list_id`s.
         - type: array
           in: query
           name: 'channel_id:in'
+          description: Filter items by a comma-separated list of `channel_id`s.
         - type: integer
           in: query
           name: page
@@ -2460,6 +2464,10 @@ paths:
         - $ref: '#/parameters/FilterPriceListIdParam'
         - $ref: '#/parameters/FilterCustomerGroupIdParam'
         - $ref: '#/parameters/FilterChannelIdParam'
+        - type: array
+          in: query
+          name: 'channel_id:in'
+          description: Filter results by a comma-separated list of `channel_id`s.
       responses:
         '204':
           description: An empty response.
