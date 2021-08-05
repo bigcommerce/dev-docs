@@ -129,7 +129,7 @@ paths:
       description: Upserts new redirect data across all storefronts.
       responses:
         '201':
-          $ref: ''
+          description: 'Created'
           schema:
             type: object
             properties:
@@ -227,7 +227,7 @@ definitions:
         $ref: '#/definitions/Error'
   301RedirectUpsert:
     type: object
-    description: 'Data necessary to create or update a redirect. If there''s a conflict on the from_path and site_id, the redirect will be overwritten with new data.'
+    description: "Data necessary to create or update a redirect. If there's a conflict on the from_path and site_id, the redirect will be overwritten with new data."
     properties:
       from_path:
         type: string

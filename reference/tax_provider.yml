@@ -3,7 +3,8 @@ info:
   title: Tax Provider API
   version: '1.0'
   contact: {}
-  description: 'Use BigCommerce''s platform-to-platform Tax Provider API to integrate a tax calculation engine into the BigCommerce storefront and control panel. Supports [estimate](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/estimate), [adjust](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/adjust), [commit](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/commit), and [void](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/void) operations. For more information, see [Tax Provider API Overview](https://developer.bigcommerce.com/api-docs/providers/tax).'
+
+  description: "Use BigCommerce's platform-to-platform Tax Provider API to integrate a tax calculation engine into the BigCommerce storefront and control panel. Supports [estimate](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/estimate), [adjust](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/adjust), [commit](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/commit), and [void](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/void) operations. For more information, see [Tax Provider API Overview](https://developer.bigcommerce.com/api-docs/providers/tax)."
 tags:
   - name: Tax Provider
 servers:
@@ -648,7 +649,7 @@ components:
             tax_inclusive:
               type: boolean
               description: 'Note: **Tax Inclusive** and **Tax Exclusive** prices cannot be added together.'
-              default: 'false'
+              default: false
           required:
             - amount
             - tax_inclusive
@@ -660,13 +661,13 @@ components:
         tax_exempt:
           type: boolean
           description: Flag whether or not this item is always tax exempt. For example, gift certificate purchases and order-level refunds are tax exempt. Tax exempt items are included in the request for auditing purposes.
-          default: 'false'
+          default: false
         type:
           type: string
           description: |-
             The type of line item this request represents. This will depend on the items position in the request hirearchy, for example a collection of items (which may or may not also have wrapping attached) are contained within the document request. Seperately, each document request has a single shipping and a single handling line item (to capture these values).
 
-            The type refund is used when the tax estimate request is for an order-level refund.  
+            The type refund is used when the tax estimate request is for an order-level refund.
           enum:
             - item
             - wrapping

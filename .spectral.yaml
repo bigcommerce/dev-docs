@@ -39,6 +39,7 @@ except:
   'reference/customer_login.yml':
     - operation-operationId
     - operation-success-response
+    - oas2-schema
   'reference/customers.v2.yml':
     - oas2-valid-media-example
     - oas2-valid-schema-example
@@ -178,6 +179,7 @@ except:
     - openapi-tags
   'form_fields.sf.yml':
     - operation-operationId
+    - oas2-schema
   'geography.v2.yml':
     - operation-operationId
     - oas2-valid-media-example
