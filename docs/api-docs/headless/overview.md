@@ -16,29 +16,15 @@ This is the first article in a comprehensive developer's guide to using BigComme
 
 If you are looking to build a headless storefront powered by a BigCommerce backend without starting from scratch, BigCommerce offers multiple starter apps and pre-built solutions to choose from. For headless storefront solutions and tools, see [Headless Integrations](https://developer.bigcommerce.com/tools-resources#headless-integrations).
 
-If you need to build a custom solution, BigCommerce has APIs and [SDKs](https://developer.bigcommerce.com/tools-resources#sdks) available to support your headless architecture.
+If you need to build a custom solution, BigCommerce has APIs and [SDKs](https://developer.bigcommerce.com/tools-resources#sdks) available to support your headless architecture. For specific use cases, see the following sections of the guide:
 
-### Custom solutions
-
-* [Create storefront channels with the Channels API](https://developer.bigcommerce.com/api-docs/channels/quick-start).
-* [Manage sites and routes for headless storefronts with the sites and routes API](https://developer.bigcommerce.com/api-reference/store-management/sites).
-* [Manage 301 redirects for one or more storefronts with Redirects V3 API](https://developer.bigcommerce.com/api-reference/store-management/redirects)
-* [Create storefront specific product listings with the Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
-* [Query storefront data with GraphQL](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview).
-* [Use customer impersonation tokens to query data specific to the shopper](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-impersonation-tokens).
-* [Create carts with the Server-to-Server Carts API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api).
-* [Fetch and display abandoned cart information using the Abandoned Carts API](https://developer.bigcommerce.com/api-reference/cart-checkout/s2s-abandoned-carts).
-* [Create and manage shopper wishlists with the Wislists API](https://developer.bigcommerce.com/api-reference/store-management/wishlists)
-* [Manage product data with the Catalog API](https://developer.bigcommerce.com/api-reference/catalog/catalog-api).
-* [Embed BigCommerce's checkout in an iFrame with Embedded Checkout](https://developer.bigcommerce.com/api-docs/storefronts/embedded-checkout/embedded-checkout-overview).
-* [Redirect to BigCommerce's hosted checkout using the Server-to-Server Checkout API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api)
-* [Create custom BigCommerce hosted checkout pages from scratch using Checkout SDK](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk-quickstart).
-* [Create a custom BigCommerce hosted checkout from a fork of BigCommerce's Checkout-JS](https://github.com/bigcommerce/checkout-js).
-* [Build a custom checkout experience from scratch using the Server-to-Server Checkout API](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api).
-* [Restyle the BigCommerce hosted checkout](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/optimized-one-page-checkout).
-* [Process payments using the Payments API](https://developer.bigcommerce.com/api-reference/payments/payments-process-payments).
-* [Manage orders with Orders V2 and V3 APIs](https://developer.bigcommerce.com/api-docs/store-management/orders).
-* [Use webhooks to get notified when specific events occur in BigCommerce](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview).
+* [Create a channel and a channel site](https://developer.bigcommerce.com/api-docs/storefronts/guide/channels)
+* [Fetch and manage product data](https://developer.bigcommerce.com/api-docs/storefronts/guide/products)
+* [Create a cart](https://developer.bigcommerce.com/api-docs/storefronts/guide/carts)
+* [Move a cart to checkout](https://developer.bigcommerce.com/api-docs/storefronts/guide/checkout)
+* [Log in a customer](https://developer.bigcommerce.com/api-docs/storefronts/guide/customers)
+* [Create an order](https://developer.bigcommerce.com/api-docs/storefronts/guide/orders)
+* [Learn about PCI compliance](https://developer.bigcommerce.com/api-docs/storefronts/guide/pci-compliance)
 
 ## Sample integration
 
