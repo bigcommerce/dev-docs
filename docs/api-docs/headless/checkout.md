@@ -4,7 +4,7 @@
 
 ### On this page
 - [Redirecting to the BigCommerce checkout](#redirecting-to-the-bigcommerce-checkout)
-- [Embedding the BigCommerce checkout](#embedding-the-BigCommerce-checkout)
+- [Embedding the BigCommerce checkout](#embedding-the-bigcommerce-checkout)
 - [Using the Checkouts API](#using-the-checkouts-api)
 - [Next steps](#next-steps)
 - [Resources](#resources)
