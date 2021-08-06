@@ -1729,16 +1729,15 @@ paths:
                         first_name: Tester
                         last_name: Tester
                         email: example@email.com
-                        company: string
+                        company: Test Company
                         address1: 1 Sample Street
-                        address2: string
-                        city: string
+                        address2: Appt 1
+                        city: Las Vegas
+                        postal_code: '90854'
                         state_or_province: Nevada
                         state_or_province_code: NV
                         country_code: US
                         phone: 101-192-0293
-                        store_credit_amounts:
-                          - amount: 43.15
         '401':
           description: Unauthorized
           content:
@@ -3664,13 +3663,19 @@ components:
         company:
           type: string
           description: Company of the card holder
+          example: Test Company
         address1:
           type: string
           example: 1 Sample Street
         address2:
           type: string
+          example: Appt 1
         city:
           type: string
+          example: Las Vegas
+        postal_code:
+          type: string
+          example: '90854'
         state_or_province:
           type: string
           description: Represents state or province
