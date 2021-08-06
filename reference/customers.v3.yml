@@ -3020,39 +3020,47 @@ components:
         - value
         - customer_id
     attribute_Full:
-      title: attribute_Full
+      description: ''
       type: object
+      x-examples:
+        Example:
+          attribute_id: 2
+          attribute_value: 'Yes'
+          customer_id: 1
+          date_created: '2021-07-28T19:00:38Z'
+          date_modified: '2021-07-28T19:00:38Z'
+          id: 2
       properties:
-        name:
-          description: Attribute name.
+        attribute_id:
+          type: integer
+          description: Attribute ID
+          format: int32
+          example: 2
+        attribute_value:
           type: string
           minLength: 1
-          maxLength: 255
-        type:
-          title: Type
-          description: 'Attribute type should match one of: string, number, date. When doing a'
-          example: string
-          type: string
-          enum:
-            - string
-            - number
-            - date
-        id:
-          description: Attribute ID.
+          description: Attribute value
+          example: 'Yes'
+        customer_id:
           type: integer
+          description: Customer ID
+          example: 1
           format: int32
-        date_modified:
-          description: The date on which the customer attribute was modified.
-          type: string
-          format: date-time
         date_created:
-          description: The date of which the customer attribute was created.
           type: string
+          minLength: 1
+          description: The date the customer attribute was created
           format: date-time
-      required:
-        - name
-        - type
-        - id
+        date_modified:
+          type: string
+          minLength: 1
+          description: The date the customer attribute was modified
+          format: date-time
+        id:
+          type: integer
+          description: Attribute value ID
+          format: int32
+          example: 2
     attribute_Put:
       title: attribute_Put
       type: object
