@@ -19,7 +19,6 @@ info:
 
     ### OAuth Scopes
     |  **UI Name** | **Permission** | **Parameter** |
-    | --- | --- | --- |
     |  Information & Settings | modify | `store_v2_information` |
     |  Information & Settings | read-only | `store_v2_information_read_only` |
   contact:
@@ -769,16 +768,59 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
     delete:
-      summary: Delete Email Statuses Overrides
-      description: Delete channel specific overrides for email settings.
+      summary: Delete Email Statuses
+      description: |-
+        Delete overrides for email settings. Provide email types that should be deleted. 
+
+        If `channel_id` is supplied as a query parameter, email template overrides are deleted per given channel. If no `channel_id` is supplied, global level template are reset to default.
       operationId: delete-settings-transactional-emails-enabled
-      tags:
+      tags: 
         - Email Statuses
       responses:
         '204':
           description: No Content
       parameters:
-        - $ref: '#/components/parameters/ChannelIdParam'
+        - schema:
+            type: integer
+          in: query
+          name: channel_id
+          description: Delete contextual overrides related to this channel ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                abandoned_cart_email:
+                  nullable: true
+                account_details_changed_email:
+                  nullable: true
+                combined_order_status_email:
+                  nullable: true
+                create_account_email:
+                  nullable: true
+                create_guest_account_email:
+                  nullable: true
+                gift_certificate_email:
+                  nullable: true
+                invoice_email:
+                  nullable: true
+                order_message_notification_email:
+                  nullable: true
+                return_confirmation_email:
+                  nullable: true
+                return_statuschange_email:
+                  nullable: true
+                product_review_email:
+                  nullable: true
+            examples:
+              Reset gift certificate template:
+                value:
+                  gift_certificate_email: null
+              Reset product review and invoice email templates:
+                value:
+                  invoice_email: null
+                  product_review_email: null
   /settings/store/locale:
     get:
       summary: Get Locale Settings
