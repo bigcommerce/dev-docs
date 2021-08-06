@@ -919,7 +919,6 @@ securityDefinitions:
 
       * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 security:
-  - X-Auth-Client: []
   - X-Auth-Token: []
 definitions:
   GetReturnsSettings:
@@ -2168,13 +2167,13 @@ definitions:
         description: details why the request failed
     title: FailedQuoteError
   ItemsRefund:
+    title: ItemsRefund
     type: array
     items:
       anyOf:
         - $ref: '#/definitions/AmountBoundItem'
         - $ref: '#/definitions/QuantityBoundItem'
         - $ref: '#/definitions/TaxExemptItem'
-    title: ItemsRefund
   PaymentRequest:
     type: object
     properties:
