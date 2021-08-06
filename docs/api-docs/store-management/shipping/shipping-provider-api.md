@@ -427,6 +427,16 @@ Response:
 
 When you uninstall an app with an associated shipping carrier, you also automatically remove all of the shipping methods and connection info for that carrier from the store. You can no longer make quote requests, and users will no longer see shipping quotes for that carrier.
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+> ### Note
+>The response payload will display shipping quotes from lowest to highest price.
+</div>
+</div>
+</div>
+
 ## Including product metatadata in rate requests
 
 BigCommerce passes carrier-specific product metadata to a carrier service in a rate request via product and variant metafields. This product metadata can be useful if your service depends on specific fields that are not existent on BigCommerce products or variants by default.
