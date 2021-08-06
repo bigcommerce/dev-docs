@@ -281,7 +281,6 @@ paths:
         in: path
         type: string
         required: true
-
   '/orders/{order_id}/payment_actions/refunds':
     post:
       summary: Create a Refund
@@ -389,7 +388,6 @@ paths:
         * `store_v2_transactions`
         * `store_v2_orders_read_only`
         * `store_v2_orders`
-
       operationId: getorderrefunds
       parameters:
         - $ref: '#/parameters/Accept'
@@ -584,8 +582,6 @@ paths:
         Requires at least one of the following scopes:
         * `store_v2_orders`
         * `store_v2_transactions`
-
-
       operationId: postrefunds
       parameters:
         - name: body
@@ -2414,8 +2410,8 @@ definitions:
   AdjustmentAmount:
     type: number
     format: float
-    description: A negative or positive 2 decimal place rounded value that represents the difference between the refund amount requested in the refund quote and the actual amount that is refundable on the order. This value is negative when the refund amount requested in the refund quote is more than the total refundable amount. This value is positive when the total refundable amount has increased, e.g. as a result of rounding.
-    example: -10.20
+    description: 'A negative or positive 2 decimal place rounded value that represents the difference between the refund amount requested in the refund quote and the actual amount that is refundable on the order. This value is negative when the refund amount requested in the refund quote is more than the total refundable amount. This value is positive when the total refundable amount has increased, e.g. as a result of rounding.'
+    example: -10.2
     title: Adjustment Amount
   MetaRefund:
     type: object
@@ -2456,7 +2452,15 @@ definitions:
       permission_set:
         type: string
         description: |
-          Determines whether the field is completely private to the app that owns the field (`app_only`), or visible to other API consumers (`read`), or completely open for reading and writing to other apps (`write`). Can additionally grant storefront visibility to the field using (`read_and_sf_access`) or (`write_and_sf_access`).
+          Determines the visibility and writeability of the field by other API consumers.
+
+          |Value|Description
+          |-|-|
+          |`app_only`|Private to the app that owns the field|
+          |`read`|Visible to other API consumers|
+          |`write`|Open for reading and writing by other API consumers|
+          |`read_and_sf_access`|Visible to other API consumers, including on storefront|
+          |`write_and_sf_access`|Open for reading and writing by other API consumers, including on storefront|
         enum:
           - app_only
           - read
@@ -2514,6 +2518,8 @@ definitions:
           - post
         minimum: 0
         maximum: 10000000000
+    required:
+      - permission_set
   Metafield:
     type: object
     description: |
