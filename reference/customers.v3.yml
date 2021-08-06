@@ -2235,7 +2235,10 @@ components:
                       type: integer
                       format: int32
                     attribute_value:
-                      description: 'Attribute value. This will always be a string, regardless of the attributes type.'
+                      description: |-
+                        Attribute value. This will always be a string, regardless of the attributes type. 
+
+                        Corresponds to `value` used in customer attribute values `PUT` requests.
                       type: string
                       minLength: 0
                       maxLength: 255
@@ -3000,7 +3003,10 @@ components:
           type: integer
           format: int32
         value:
-          description: 'Attribute value. This will always be a string, regardless of the attribute''s type.'
+          description: |-
+            Attribute value. This will always be a string, regardless of the attribute's type. 
+
+            Corresponds to `attribute_value` used in customer attribute values `GET` requests.
           type: string
           minLength: 0
           maxLength: 255
