@@ -3606,7 +3606,7 @@ components:
         last_4:
           type: string
           description: Last four digits of this card
-          example: '1111'
+          example: "1111"
         billing_address:
           $ref: '#/components/schemas/BillingAddress'
       description: 'Details about a stored card instrument which includes details around billing, last 4 digits, issuer, etc.'
@@ -3687,7 +3687,7 @@ components:
         state_or_province:
           type: string
           description: Represents state or province
-          example: Nevada
+          example: 'Nevada'
         state_or_province_code:
           type: string
           example: NV
