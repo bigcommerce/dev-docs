@@ -174,7 +174,7 @@ Accept: application/json
 
 > ### Note
 >
-> \* The `google_shopping` platform is depreciated and should **not** be used. Support for the types `marketing` and `marketplace` on the `google` platform are being added.
+> \* We discourage using `google_shopping` as BigCommerce has deprecated this platform. Instead, we have added support for `marketing` and `marketplace` types on the `google` platform.
 
 </div>
 </div>
