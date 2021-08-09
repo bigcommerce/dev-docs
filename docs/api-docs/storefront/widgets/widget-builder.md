@@ -1,8 +1,18 @@
 # Widget Builder CLI
 
-Widget Builder CLI is a powerful tool that lets you see a real-time preview of a widget outside the context of a store while it is being developed.
+<div class="otp" id="no-index">
 
-This article contains detailed instructions on how to install and configure Widget Builder CLI. 
+### On this page
+- [Prerequisites](#prerequisites)
+- [Installation instructions](#installation-instructions)
+- [Upgrade the widget](#upgrade-the-widget)
+- [Related resources](#related-resources)
+
+</div>
+
+The Widget Builder Command Line Interface (**CLI**) is a command line tool that lets you build and preview widgets in real time outside the context of your store.
+
+This article contains detailed instructions on how to install and use the Widget Builder CLI. 
 
 ## Prerequisites
 
@@ -12,19 +22,46 @@ This article contains detailed instructions on how to install and configure Widg
 * API `access_token` with `content modify` scope.
 * Knowledge of the [Widgets API](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview).
 
-## Installing on Mac
+## Installation instructions
 
-To install Widget Builder CLI on a Mac, open the terminal and follow the steps outlined in this section. 
+### Installing on a Mac
+To install the Widget Builder CLI and its dependencies on a Mac, open the terminal and follow the steps outlined in this section. 
 
 1. Clone the [widget-builder](https://github.com/bigcommerce/widget-builder) GitHub repo.
 
-2. Open the `widget-builder` directory and run the following command to install the Widget Builder CLI:
+2. Navigate to the `widget-builder` directory and install the Widget Builder CLI.
 
 ```shell
 npm run install-cli
 ```
 
-3. Once the installation is complete, you can retrieve usage information by running `widget-builder -h`. It will return a list of supported options and commands.
+3. To ensure that the installation was successful, run the following command:
+
+```shell
+widget-builder -h
+```
+
+This will retrieve usage information and return a list of supported options and commands.
 
 **Sample output**
-`Usage: widget-builder [options] [command]`
+
+```shell
+Usage: widget-builder [options] [command]
+
+Options:
+  -V, --version                  output the version number
+  --gen-config                   generate a config.json file
+  --gen-query-params             generate a queryParams.json file
+  --auto-open <flag>             open browser automatically to the builder
+                                 preview (default: "true")
+  -h, --help                     display help for command
+
+Commands:
+  init                           Initialization of widget builder configuration
+  start [options] [widgetPath]   starts the widget builder locally
+  validate [options] <file>
+  create <widget-template-name>  Create a blank widget template
+  publish <widget-template>      Releases the widget template to the store
+                                 belonging to the env config
+  help [command]                 display help for command
+```
