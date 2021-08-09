@@ -19,6 +19,7 @@ Custom theme uploads must meet these restrictions:
 * Before uploading, you must package custom themes into a Stencil-specific zip file format, using Stencil CLI's `stencil bundle` command.
 * A theme's zip file must be no larger than 50 MB. If your file exceeds that size, please use either a WebDAV or a CDN upload to exclude large static assets.
 * Generated parsed template files must be less than 1 MB.
+* When using Windows, it is necessary to close PowerShell and re-open as admin before installing nvm.
 
 ## Error codes
 
