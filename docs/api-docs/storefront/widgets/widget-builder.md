@@ -4,15 +4,16 @@
 
 ### On this page
 - [Prerequisites](#prerequisites)
-- [Installation instructions](#installation-instructions)
-- [Upgrade the widget](#upgrade-the-widget)
-- [Related resources](#related-resources)
+- [Installing Widget Builder CLI](#installing-widget-builder-cli)
+- [Configuring Widget Builder CLI](#configuring-widget-builder-cli)
+- [Creating a new project](#creating-a-new-project)
+- [Resources](#resources)
 
 </div>
 
-The Widget Builder Command Line Interface (**CLI**) is a command line tool that lets you build and preview widgets in real time outside the context of your store.
+Widget Builder Command Line Interface (**CLI**) is a command line tool that lets you build and preview widgets in real time outside the context of your store.
 
-This article contains detailed instructions on how to install and use the Widget Builder CLI. 
+This article contains detailed instructions on how to install and use Widget Builder CLI. 
 
 ## Prerequisites
 
@@ -22,7 +23,7 @@ This article contains detailed instructions on how to install and use the Widget
 * API `access_token` with `content modify` scope.
 * Knowledge of the [Widgets API](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview).
 
-## Installation instructions
+## Installing Widget Builder CLI
 
 ### Installing on a Mac
 To install the Widget Builder CLI and its dependencies on a Mac, open the terminal and follow the steps outlined in this section. 
@@ -65,3 +66,15 @@ Commands:
                                  belonging to the env config
   help [command]                 display help for command
 ```
+
+## Configuring Widget Builder CLI
+
+## Creating a new project
+
+To create a new project, run the following command:
+
+`widget-builder init`
+
+## Resources
+
+* [Authenticating BigCommerce's REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication)
