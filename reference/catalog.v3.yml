@@ -5618,6 +5618,11 @@ paths:
                   colors:
                     - '#123c91, #FFFF00, #397a44'
                 is_default: false
+        '404':
+          description: No option(s) were found with this query.
+          schema:
+            type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+            properties: {}
         '422':
           description: |
             The `OptionValue` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
