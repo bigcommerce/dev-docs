@@ -18,7 +18,8 @@ The steps in this article assume you've installed Stencil CLI on your system. If
 
 ## Obtaining store API credentials
 
-Stencil CLI uses various BigCommerce APIs to inject store-specific data, like carousel images and products, into the live theme preview it serves up. To do so, you must supply the Stencil CLI with a store API token. For detailed instructions, see [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts).
+Stencil CLI uses various BigCommerce APIs to inject store-specific data, like carousel images and products, into the live theme preview it serves up. To do so, you must supply the Stencil CLI with a Stencil CLI token. For detailed instructions, see [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts).
+
 
 
 To automatically create a store API account with the scopes and permissions required by Stencil CLI, select **Create Stencil-CLI Token** in the **Create API Accounts** dropdown:
@@ -40,18 +41,20 @@ To develop against BigCommerce's Cornerstone theme (which is the building block 
 git clone https://github.com/bigcommerce/cornerstone.git
 ```
 
-Cornerstone and other themes can also be downloaded from the BigCommerce control panel. For instructions on doing so, see [Downloading and Uploading Custom Themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload) (BigCommerce Knowledge Base).
+Cornerstone and other themes can also be downloaded from the BigCommerce control panel. For instructions on doing so, see [Downloading and Uploading Custom Themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload) (BigCommerce Knowledge Base). 
 
-It is also possible to download and develop against themes in the BigCommerce Themes Marketplace. To do so:
-1. Navigate to **Storefront** > **Theme Marketplace**, and add the desired theme.
-2. Once added, navigate to **Storefront** > **My Themes** > **Theme Thumbnail** > **Theme Options**.
-3. Select the appropriate Download option.
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
+<!-- theme: info -->
 
-**Download options**:
-* **Download current theme** - download the theme active on the storefront (appears when current theme is selected).
-* **Download your latest customizations** - download the theme's most recently saved version (appears only for themes customized for this store).
-* **Download theme file** - download the theme as it was originally uploaded to Theme Marketplace.
+### Note  
+Downloading a theme does not include the current configuration of a theme. Run a [stencil pull](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands#stencil-pull) command to obtain the theme's most recently saved version (appears only for themes customized for this store).
+
+</div>
+</div>
+</div>
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -157,6 +160,20 @@ For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](
 
 ### BitBucket re-authentication
 > If you receive error messages about resolving BitBucket as an SSH host when running `stencil init`, enter the BitBucket password used to set up the BitBucket SSH Keys when prompted.
+
+</div>
+</div>
+</div>
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+### Debugging your theme  
+The Stencil framework provides built-in debugging tools to aid in your custom front-end development. To see what data is available on the page you are working on, add the debug query string to your store's localhost URL. For example, `http://localhost:3000/product/sample-product?debug=context`. This string will return a list of all the objects on the page in JSON syntax. If you want to view the available JSON objects and rendered page simultaneously, change the debug value to `bar`. For example, `http://localhost:3000/product/sample-product?debug=bar`.
+
 
 </div>
 </div>

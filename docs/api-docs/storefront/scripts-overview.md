@@ -139,7 +139,7 @@ Stencil themes from the marketplace support the [Optimized One-Page Checkout](ht
 | Scope | Visibility |
 | -- | -- |
 | `all_pages` | Add Wishlist </br> Blog List </br> Blog Post</br> Brand Pages </br> All Brands Page </br> Cart </br> Category </br> Checkout </br> My Account </br> Product Compare </br> Order Confirmation </br> Page </br> Payment Methods</br> Login </br> Contact Form </br> Product </br> Search </br> All Wishlist </br> Wish List <br> 404 page |
-| `storefront` |  Add Wishlist </br> Blog List </br> Blog Post</br> Brand Pages </br> All Brands Page </br> Cart </br> Category </br> Product Compare </br> Page </br> Contact Form </br> My Account </br> Product </br> Search </br> All Wishlist </br> Login </br> Wish List <br> 404 page|
+| `storefront` |  Add Wishlist </br> Blog List </br> Blog Post</br> Brand Pages </br> All Brands Page </br> Cart </br> Category </br> Product Compare </br> Page </br> Contact Form </br> Product </br> Search </br> All Wishlist </br> Wish List <br> 404 page|
 | `checkout` | Checkout | 
 | `order_confirmation` | Order Confirmation | 
 

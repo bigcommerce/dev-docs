@@ -58,7 +58,7 @@ Once your tax provider configuration is ready, we'll let you know via email. The
 | Adjust URL                            | Optional                       | URL                          | URL BigCommerce should use for Tax Provider API quote requests.                                       | `https://sampletax.example.com/doc/adjust`        |
 | Void URL                              | Optional                       | URL                          | URL BigCommerce should use for Tax Provider API quote requests.                                       | `https://sampletax.example.com/doc/void`          |
 | **Testing**                               |                                |                              |                                                                                                       |                                                   |
-| Partner test store domain(s)          | Required                       | Domain name                  | Share your test store domain(s) sow we can test prior to launching your tax provider.                 | `https://sampletax-test-store.mybigcommerce.com/` |
+| Partner sandbox store domain          | Required                       | Domain name                  | Share your partner sandbox store for testing purposes prior to launching your tax provider. Learn how to [create a partner sandbox store](https://developer.bigcommerce.com/api-docs/partner/getting-started/create-a-sandbox-store).                 | `https://sampletax-test-store.mybigcommerce.com/` |
 
 ### Sandbox tax provider configuration
 
@@ -72,7 +72,16 @@ Additionally, when providing the details for a sandbox tax provider configuratio
 * Platform availability, i.e. all stores or only specified store hashes
 * Supported / unsupported countries
 
-Tax providers can create multiple sandbox tax providers within their production tax provider configuration, for example a tax provider could have a development and a test sandbox tax provider nested within their production tax provider configuration.
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+> ### Note
+> * We recommend tax providers request to create only one sandbox tax provider within their production tax provider configuration, any development procedures related to testing different estimate, commit, adjust and void Tax Provider API endpoints should be performed externally and decoupled from the BigCommerce platform to avoid unnecessary dependencies.
+
+</div>
+</div>
+</div>
 
 ## Building the app
 
@@ -212,4 +221,3 @@ For Tax Provider API related questions, or to request set up of a new tax provid
   - [Delete a Tax Provider Connection](https://developer.bigcommerce.com/api-reference/store-management/tax/tax-provider-connection/provider-connection-delete)
   - [Update a Tax Provider Connection](https://developer.bigcommerce.com/api-reference/store-management/tax/tax-provider-connection/provider-connection-put)
   - [Tax Classes](https://developer.bigcommerce.com/api-reference/store-management/tax-classes-api)
-

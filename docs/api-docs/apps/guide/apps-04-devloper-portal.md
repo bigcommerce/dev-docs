@@ -78,7 +78,7 @@ Edit an app by clicking **Edit App**.
 
 Click **Edit App**, then navigate to the technical tab to edit enabled features, callback URLs, and OAuth scopes.
 
-![Techical Details](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps-04-developer-portal-03.png "Technical Details")
+![Technical Details](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps-04-developer-portal-04.png "Technical Details")
 
 [Learn more about completing registration fields and submitting apps for approval](https://developer.bigcommerce.com/api-docs/apps/guide/publishing).
 
