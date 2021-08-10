@@ -163,8 +163,22 @@ Accept: application/json
 | `acquia`          | `storefront`              |
 | `bloomreach`      | `storefront`              |
 | `deity`           | `storefront`              |
-| `google_shopping` | `marketing`               |
-| `custom`          | `storefront`, `pos`, `marketing`, `marketplace`             |
+| `google_shopping`\* | `marketing` |
+| `google` | `marketing` |
+| `google` | `marketplace` |
+| `custom` | `storefront`, `pos`, `marketing`, `marketplace` |
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+> ### Note
+>
+> \* We discourage using `google_shopping` as BigCommerce has deprecated this platform. Instead, we have added support for `marketing` and `marketplace` types on the `google` platform.
+
+</div>
+</div>
+</div>
 
 For a complete Channel API reference (including request schemas and property descriptions), see: [API Reference > Channels and Listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
 
