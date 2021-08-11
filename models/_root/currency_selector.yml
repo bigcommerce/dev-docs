@@ -1,4 +1,10 @@
-description: "`global` `{{currency_selector}}` array of supported currencies, and the storefront's active currency"
+description: |-
+  A list of all supported currencies, and the currency that is actively in use in the storefront.
+
+  `global` `{{currency_selector}}`
+
+  **Handlebars Expression**
+  {{currency_selector}}
 type: object
 properties:
   active_currency_id:

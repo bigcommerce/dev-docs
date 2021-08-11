@@ -1,4 +1,8 @@
-description: '{{countries}} array available to `templates/pages/account/payment-methods.html`; used in country and state drop-downs when submitting add payment form'
+description: |-
+  {{countries}} array available to `templates/pages/account/payment-methods.html`; used in country and state drop-downs when submitting add payment form.
+
+  **Handlebars Expression**
+  {{countries}}
 type: array
 items:
   type: object

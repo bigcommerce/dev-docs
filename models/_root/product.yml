@@ -1,4 +1,20 @@
-description: '`{{product}}` object available to `templates/pages/product.html`, `templates/pages/amp/product.html`, and their components'
+description: |-
+  Default property that provides detailed product data. Called on the default `templates/pages/product.html` and `templates/pages/amp/product.html` templates, and on several partials in the `templates/components/` subdirectory:
+
+  `account/returns-list.html`,
+  `cart/item-options.html`,
+  `products/add-to-cart.html`,
+  `products/event-date.html`,
+  `products/modals/writeReview.html`,
+  `products/price.html`,
+  `products/product-view.html`,
+  `amp/products/product-options.html`,
+  `amp/products/product-view.html`, and
+  `amp/products/product-view-details.html`.
+
+  **Handlebars Expression**
+
+  {{product}}
 type: object
 properties:
   AddThisServiceButtonMeta:

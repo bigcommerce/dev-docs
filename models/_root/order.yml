@@ -1,4 +1,8 @@
-description: '`{{order}}` object available to templates and components with order context'
+description: |-
+  `{{order}}` object available to templates and components with order context
+
+  **Handlebars Expression**
+  {{order}}
 type: object
 properties:
   billing_address:
@@ -204,8 +208,10 @@ properties:
       properties:
         label:
           type: string
+          description: 'The label of the total row (Subtotal, Tax, Grand Total, etc.).'
         value:
           type: object
+          description: Value that customer selected for the option.
           properties:
             currency:
               type: string

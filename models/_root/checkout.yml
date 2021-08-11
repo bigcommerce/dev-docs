@@ -1,4 +1,10 @@
-description: '{{checkout}} object available to checkout and order confirmation templates and components'
+description: |-
+  Used to access checkout content and data in templates\pages\order-confirmation.html
+
+  {{checkout}} object available to checkout and order confirmation templates and components
+
+  **Handlebars Expression**
+  {{checkout.*}}
 type: object
 properties:
   order_confirmation_content:
