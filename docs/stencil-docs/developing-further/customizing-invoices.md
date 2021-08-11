@@ -62,7 +62,7 @@ As a developer, you can customize this invoice by editing your theme's `invoice.
 
 ## Customizing the detailed customer printable invoice
 
-This invoice is used when a store receives an order from a United Kingdom address. This invoice can be customized by performing the following steps:
+Use this invoice when a store receives an order from a shipping address in a country which supports PrintableDetailedInvoice. This invoice can be customized by performing the following steps:
 
 1. Download the [PrintableDetailedInvoice.html](https://storage.googleapis.com/bigcommerce-production-dev-center/template-files/PrintableDetailedInvoice.html) file, which contains the skeleton of the detailed printable invoice.
 2. Open the file in the text editor of your choice and edit the HTML file to match your desired customization.

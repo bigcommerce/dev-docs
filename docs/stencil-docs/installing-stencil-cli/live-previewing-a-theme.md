@@ -18,7 +18,8 @@ The steps in this article assume you've installed Stencil CLI on your system. If
 
 ## Obtaining store API credentials
 
-Stencil CLI uses various BigCommerce APIs to inject store-specific data, like carousel images and products, into the live theme preview it serves up. To do so, you must supply the Stencil CLI with a store API token. For detailed instructions, see [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts).
+Stencil CLI uses various BigCommerce APIs to inject store-specific data, like carousel images and products, into the live theme preview it serves up. To do so, you must supply the Stencil CLI with a Stencil CLI token. For detailed instructions, see [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts).
+
 
 
 To automatically create a store API account with the scopes and permissions required by Stencil CLI, select **Create Stencil-CLI Token** in the **Create API Accounts** dropdown:
@@ -159,6 +160,20 @@ For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](
 
 ### BitBucket re-authentication
 > If you receive error messages about resolving BitBucket as an SSH host when running `stencil init`, enter the BitBucket password used to set up the BitBucket SSH Keys when prompted.
+
+</div>
+</div>
+</div>
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+### Debugging your theme  
+The Stencil framework provides built-in debugging tools to aid in your custom front-end development. To see what data is available on the page you are working on, add the debug query string to your store's localhost URL. For example, `http://localhost:3000/product/sample-product?debug=context`. This string will return a list of all the objects on the page in JSON syntax. If you want to view the available JSON objects and rendered page simultaneously, change the debug value to `bar`. For example, `http://localhost:3000/product/sample-product?debug=bar`.
+
 
 </div>
 </div>

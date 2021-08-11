@@ -202,7 +202,7 @@ Helper methods for generating login tokens are provided in our [API Client Libra
 
 * [PHP sample](https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421)
 * [Python sample](https://github.com/bigcommerce/bigcommerce-api-python/blob/master/bigcommerce/customer_login_token.py)
-* [Ruby sample](https://github.com/bigcommerce/bigcommerce-api-ruby/blob/master/examples/customers/customer_login.rb)
+* [Ruby sample](https://github.com/jordanarldt/ruby-bc-customer-sso-generator/)
 
 For client libraries in other languages, see [Libraries for Token Signing/Verification](https://jwt.io/#libraries-io).
 
