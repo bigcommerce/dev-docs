@@ -1,23 +1,36 @@
-description: '`global` `{{carousel}}` array of images, texts, and styles for configure for the storefront slide show'
+description: |-
+  A list of images, text, and style assets for a storefront’s image slide show.
+
+  {{carousel}} array
+
+  **Handlebars Expression**
+  `{{carousel}}`
 type: object
 properties:
   slides:
     type: array
+    description: Object containing properties for each slide in the slideshow.
     items:
       type: object
       properties:
         alt_text:
           type: string
+          description: Alt text for the image.
         button_text:
           type: string
+          description: Text displayed on a call-to-action button defined by the merchant.
         button_text_color:
           type: string
+          description: Color of the button.
         heading:
           type: string
+          description: Heading message defined by the merchant.
         heading_color:
           type: string
+          description: Color of the heading text.
         image:
           type: string
+          description: Path to the image file used on this slide.
         image_height:
           type: string
         image_width:
@@ -35,9 +48,13 @@ properties:
               type: integer
         text:
           type: string
+          description: Subheading defined by the merchant.
         text_color:
           type: string
+          description: Color of the subheading text
         url:
           type: string
+          description: URL to which the image will link.
   swap_frequency:
     type: integer
+    description: 'Indicates how often (in seconds) the slides will change; the value must be between 1 and 90,000 seconds.'

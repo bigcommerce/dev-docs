@@ -1,4 +1,14 @@
-description: '`global` `{{banners}}` object'
+description: |-
+  Elements of marketing banners at page's top and/or bottom.
+
+  `global` `{{banners}}` object
+
+  **Handlebars Expressions**
+  `{{banners}}`, `{{{banners}}}`
+
+  **Handlebars Formatting Exception**
+  Where a banner contains HTML, the banner helper must be placed in triple braces, as in this example `{{{banners}}}`.
+  (Double braces would escape the HTML.)
 type: object
 properties:
   bottom:
