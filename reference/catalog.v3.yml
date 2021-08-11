@@ -2923,98 +2923,7 @@ paths:
             title: Meta Field Collection Response
             properties:
               data:
-                type: array
-                items:
-                  type: object
-                  description: Common Metafield properties.
-                  title: Metafield
-                  properties:
-                    id:
-                      type: integer
-                      description: Unique ID of the *Metafield*. Read-Only.
-                      example: 6
-                    permission_set:
-                      type: string
-                      description: |
-                        Determines whether the field is completely private to the app that owns the field (`app_only`), or visible to other API consumers (`read`), or completely open for reading and writing to other apps (`write`). Required for POST.
-                      enum:
-                        - app_only
-                        - read
-                        - write
-                        - read_and_sf_access
-                        - write_and_sf_access
-                    namespace:
-                      type: string
-                      description: |
-                        Namespace for the metafield, for organizational purposes. This is set set by the developer. Required for POST.
-                      x-required:
-                        - post
-                      minLength: 1
-                      maxLength: 64
-                      example: Warehouse Locations
-                    key:
-                      type: string
-                      description: |
-                        The name of the field, for example: `location_id`, `color`. Required for POST.
-                      x-required:
-                        - post
-                      minLength: 1
-                      maxLength: 64
-                      example: Location
-                    value:
-                      type: string
-                      description: |
-                        The value of the field, for example: `1`, `blue`. Required for POST.
-                      x-required:
-                        - post
-                      minLength: 1
-                      maxLength: 65535
-                      example: 4HG
-                    description:
-                      type: string
-                      description: |
-                        Description for the metafields.
-                      minLength: 0
-                      maxLength: 255
-                      example: Location in the warehouse
-                    resource_type:
-                      type: string
-                      description: |
-                        The type of resource with which the metafield is associated.
-                      enum:
-                        - category
-                        - brand
-                        - product
-                        - variant
-                      x-required:
-                        - post
-                      example: product
-                    resource_id:
-                      type: integer
-                      description: |
-                        The ID for the resource with which the metafield is associated.
-                      x-required:
-                        - post
-                      minimum: 0
-                      maximum: 10000000000
-                      example: 111
-                    created_at:
-                      type: string
-                      format: date-time
-                      description: |
-                        Date and time of the metafield's creation. Read-Only.
-                      example: '2018-05-07T20:14:17+00:00'
-                    updated_at:
-                      type: string
-                      format: date-time
-                      description: |
-                        Date and time when the metafield was last updated. Read-Only.
-                      example: '2018-05-07T20:14:17+00:00'
-                  required:
-                    - permission_set
-                    - namespace
-                    - key
-                    - value
+                $ref: '#/definitions/metafield_Base'
               meta:
                 $ref: '#/definitions/categoriesTree_Resp'
           examples:
@@ -3028,8 +2937,8 @@ paths:
                   resource_type: brand
                   resource_id: 111
                   id: 6
-                  created_at: '1973-01-20T21:34:57.903Z'
-                  updated_at: '1990-12-30T00:29:23.515Z'
+                  date_created: '1973-01-20T21:34:57.903Z'
+                  date_modified: '1990-12-30T00:29:23.515Z'
                 - permission_set: read
                   namespace: Warehouse Locations
                   key: Location
@@ -3038,8 +2947,8 @@ paths:
                   resource_type: brand
                   resource_id: 111
                   id: 6
-                  created_at: '1973-01-20T21:34:57.903Z'
-                  updated_at: '1990-12-30T00:29:23.515Z'
+                  date_created: '1973-01-20T21:34:57.903Z'
+                  date_modified: '1990-12-30T00:29:23.515Z'
                 - permission_set: app_only
                   namespace: Warehouse Locations
                   key: Location
@@ -3048,8 +2957,8 @@ paths:
                   resource_type: brand
                   resource_id: 111
                   id: 6
-                  created_at: '1973-01-20T21:34:57.903Z'
-                  updated_at: '1990-12-30T00:29:23.515Z'
+                  date_created: '1973-01-20T21:34:57.903Z'
+                  date_modified: '1990-12-30T00:29:23.515Z'
               meta:
                 pagination:
                   total: 3
@@ -3101,98 +3010,7 @@ paths:
           in: body
           required: true
           schema:
-            allOf:
-              - description: Common Metafield properties.
-                title: Metafield
-                properties:
-                  id:
-                    type: integer
-                    description: Unique ID of the *Metafield*. Read-Only.
-                    example: 6
-                  permission_set:
-                    type: string
-                    description: |
-                      Determines whether the field is completely private to the app that owns the field (`app_only`), or visible to other API consumers (`read`), or completely open for reading and writing to other apps (`write`). Required for POST.
-                    enum:
-                      - app_only
-                      - read
-                      - write
-                      - read_and_sf_access
-                      - write_and_sf_access
-                  namespace:
-                    type: string
-                    description: |
-                      Namespace for the metafield, for organizational purposes. This is set set by the developer. Required for POST.
-                    x-required:
-                      - post
-                    minLength: 1
-                    maxLength: 64
-                    example: Warehouse Locations
-                  key:
-                    type: string
-                    description: |
-                      The name of the field, for example: `location_id`, `color`. Required for POST.
-                    x-required:
-                      - post
-                    minLength: 1
-                    maxLength: 64
-                    example: Location
-                  value:
-                    type: string
-                    description: |
-                      The value of the field, for example: `1`, `blue`. Required for POST.
-                    x-required:
-                      - post
-                    minLength: 1
-                    maxLength: 65535
-                    example: 4HG
-                  description:
-                    type: string
-                    description: |
-                      Description for the metafields.
-                    minLength: 0
-                    maxLength: 255
-                    example: Location in the warehouse
-                  resource_type:
-                    type: string
-                    description: |
-                      The type of resource with which the metafield is associated.
-                    enum:
-                      - category
-                      - brand
-                      - product
-                      - variant
-                    x-required:
-                      - post
-                    example: product
-                  resource_id:
-                    type: integer
-                    description: |
-                      The ID for the resource with which the metafield is associated.
-                    x-required:
-                      - post
-                    minimum: 0
-                    maximum: 10000000000
-                    example: 111
-                  created_at:
-                    type: string
-                    format: date-time
-                    description: |
-                      Date and time of the metafield's creation. Read-Only.
-                    example: '2018-05-07T20:14:17+00:00'
-                  updated_at:
-                    type: string
-                    format: date-time
-                    description: |
-                      Date and time when the metafield was last updated. Read-Only.
-                    example: '2018-05-07T20:14:17+00:00'
-                required:
-                  - permission_set
-                  - namespace
-                  - key
-                  - value
-            title: Metafield Post
-            type: object
+            $ref: '#/definitions/metafield_Post'
           x-examples:
             application/json:
               permission_set: app_only
@@ -3214,120 +3032,7 @@ paths:
           required: true
       responses:
         '200':
-          description: ''
-          schema:
-            type: object
-            title: Metafield Response
-            properties:
-              data:
-                type: object
-                description: Common Metafield properties.
-                title: Metafield
-                properties:
-                  id:
-                    type: integer
-                    description: Unique ID of the *Metafield*. Read-Only.
-                    example: 6
-                  permission_set:
-                    type: string
-                    description: |
-                      Determines whether the field is completely private to the app that owns the field (`app_only`), or visible to other API consumers (`read`), or completely open for reading and writing to other apps (`write`). Required for POST.
-                    enum:
-                      - app_only
-                      - read
-                      - write
-                      - read_and_sf_access
-                      - write_and_sf_access
-                  namespace:
-                    type: string
-                    description: |
-                      Namespace for the metafield, for organizational purposes. This is set set by the developer. Required for POST.
-                    x-required:
-                      - post
-                    minLength: 1
-                    maxLength: 64
-                    example: Warehouse Locations
-                  key:
-                    type: string
-                    description: |
-                      The name of the field, for example: `location_id`, `color`. Required for POST.
-                    x-required:
-                      - post
-                    minLength: 1
-                    maxLength: 64
-                    example: Location
-                  value:
-                    type: string
-                    description: |
-                      The value of the field, for example: `1`, `blue`. Required for POST.
-                    x-required:
-                      - post
-                    minLength: 1
-                    maxLength: 65535
-                    example: 4HG
-                  description:
-                    type: string
-                    description: |
-                      Description for the metafields.
-                    minLength: 0
-                    maxLength: 255
-                    example: Location in the warehouse
-                  resource_type:
-                    type: string
-                    description: |
-                      The type of resource with which the metafield is associated.
-                    enum:
-                      - category
-                      - brand
-                      - product
-                      - variant
-                    x-required:
-                      - post
-                    example: product
-                  resource_id:
-                    type: integer
-                    description: |
-                      The ID for the resource with which the metafield is associated.
-                    x-required:
-                      - post
-                    minimum: 0
-                    maximum: 10000000000
-                    example: 111
-                  created_at:
-                    type: string
-                    format: date-time
-                    description: |
-                      Date and time of the metafield's creation. Read-Only.
-                    example: '2018-05-07T20:14:17+00:00'
-                  updated_at:
-                    type: string
-                    format: date-time
-                    description: |
-                      Date and time when the metafield was last updated. Read-Only.
-                    example: '2018-05-07T20:14:17+00:00'
-                required:
-                  - permission_set
-                  - namespace
-                  - key
-                  - value
-              meta:
-                type: object
-                description: Empty meta object; may be used later.
-                title: Meta
-          examples:
-            application/json:
-              data:
-                id: 8
-                key: location_id
-                value: 'Shelf 3, Bin 5'
-                namespace: Inventory Namespace
-                permission_set: read
-                resource_type: product
-                resource_id: 158
-                description: Where products are located
-                date_created: '2018-09-13T16:42:37+00:00'
-                date_modified: '2018-09-13T16:42:37+00:00'
-              meta: {}
+          $ref: '#/responses/MetafieldResponse'
         '409':
           description: |
             The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate unique-key combinations of the app's client id, namespace, key, resource_type, and resource_id.
@@ -5621,7 +5326,7 @@ paths:
         '404':
           description: No option(s) were found with this query.
           schema:
-            type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
+            type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
             properties: {}
         '422':
           description: |
@@ -10346,8 +10051,8 @@ paths:
                   resource_type: brand
                   resource_id: 111
                   id: 6
-                  created_at: '1973-01-20T21:34:57.903Z'
-                  updated_at: '1990-12-30T00:29:23.515Z'
+                  date_created: '1973-01-20T21:34:57.903Z'
+                  date_modified: '1990-12-30T00:29:23.515Z'
                 - permission_set: read
                   namespace: Warehouse Locations
                   key: Location
@@ -10356,8 +10061,8 @@ paths:
                   resource_type: brand
                   resource_id: 111
                   id: 6
-                  created_at: '1973-01-20T21:34:57.903Z'
-                  updated_at: '1990-12-30T00:29:23.515Z'
+                  date_created: '1973-01-20T21:34:57.903Z'
+                  date_modified: '1990-12-30T00:29:23.515Z'
               meta:
                 pagination:
                   total: 2
@@ -10559,31 +10264,7 @@ paths:
           required: true
       responses:
         '200':
-          description: ''
-          schema:
-            type: object
-            title: Metafield Response
-            properties:
-              data:
-                $ref: '#/definitions/metafield_Full'
-              meta:
-                type: object
-                description: Empty meta object; may be used later.
-                title: Meta
-          examples:
-            application/json:
-              data:
-                id: 8
-                key: location_id
-                value: 'Shelf 3, Bin 5'
-                namespace: Inventory Namespace
-                permission_set: read
-                resource_type: product
-                resource_id: 158
-                description: Where products are located
-                date_created: '2018-09-13T16:42:37+00:00'
-                date_modified: '2018-09-13T16:42:37+00:00'
-              meta: {}
+          $ref: '#/responses/MetafieldResponse'
         '404':
           description: |
             The resource was not found.
@@ -10635,120 +10316,7 @@ paths:
           required: true
       responses:
         '200':
-          description: ''
-          schema:
-            type: object
-            title: Metafield Response
-            properties:
-              data:
-                type: object
-                description: Common Metafield properties.
-                title: Metafield
-                properties:
-                  id:
-                    type: integer
-                    description: Unique ID of the *Metafield*. Read-Only.
-                    example: 6
-                  permission_set:
-                    type: string
-                    description: |
-                      Determines whether the field is completely private to the app that owns the field (`app_only`), or visible to other API consumers (`read`), or completely open for reading and writing to other apps (`write`). Required for POST.
-                    enum:
-                      - app_only
-                      - read
-                      - write
-                      - read_and_sf_access
-                      - write_and_sf_access
-                  namespace:
-                    type: string
-                    description: |
-                      Namespace for the metafield, for organizational purposes. This is set set by the developer. Required for POST.
-                    x-required:
-                      - post
-                    minLength: 1
-                    maxLength: 64
-                    example: Warehouse Locations
-                  key:
-                    type: string
-                    description: |
-                      The name of the field, for example: `location_id`, `color`. Required for POST.
-                    x-required:
-                      - post
-                    minLength: 1
-                    maxLength: 64
-                    example: Location
-                  value:
-                    type: string
-                    description: |
-                      The value of the field, for example: `1`, `blue`. Required for POST.
-                    x-required:
-                      - post
-                    minLength: 1
-                    maxLength: 65535
-                    example: 4HG
-                  description:
-                    type: string
-                    description: |
-                      Description for the metafields.
-                    minLength: 0
-                    maxLength: 255
-                    example: Location in the warehouse
-                  resource_type:
-                    type: string
-                    description: |
-                      The type of resource with which the metafield is associated.
-                    enum:
-                      - category
-                      - brand
-                      - product
-                      - variant
-                    x-required:
-                      - post
-                    example: product
-                  resource_id:
-                    type: integer
-                    description: |
-                      The ID for the resource with which the metafield is associated.
-                    x-required:
-                      - post
-                    minimum: 0
-                    maximum: 10000000000
-                    example: 111
-                  created_at:
-                    type: string
-                    format: date-time
-                    description: |
-                      Date and time of the metafield's creation. Read-Only.
-                    example: '2018-05-07T20:14:17+00:00'
-                  updated_at:
-                    type: string
-                    format: date-time
-                    description: |
-                      Date and time when the metafield was last updated. Read-Only.
-                    example: '2018-05-07T20:14:17+00:00'
-                required:
-                  - permission_set
-                  - namespace
-                  - key
-                  - value
-              meta:
-                type: object
-                description: Empty meta object; may be used later.
-                title: Meta
-          examples:
-            application/json:
-              data:
-                id: 8
-                key: location_id
-                value: 'Shelf 3, Bin 5'
-                namespace: Inventory Namespace
-                permission_set: read
-                resource_type: product
-                resource_id: 158
-                description: Where products are located
-                date_created: '2018-09-13T16:42:37+00:00'
-                date_modified: '2018-09-13T16:42:37+00:00'
-              meta: {}
+          $ref: '#/responses/MetafieldResponse'
         '404':
           description: |
             The resource was not found.
@@ -12469,8 +12037,8 @@ paths:
                   resource_type: brand
                   resource_id: 111
                   id: 6
-                  created_at: '1973-01-20T21:34:57.903Z'
-                  updated_at: '1990-12-30T00:29:23.515Z'
+                  date_created: '1973-01-20T21:34:57.903Z'
+                  date_modified: '1990-12-30T00:29:23.515Z'
                 - permission_set: read
                   namespace: Warehouse Locations
                   key: Location
@@ -12479,8 +12047,8 @@ paths:
                   resource_type: brand
                   resource_id: 111
                   id: 6
-                  created_at: '1973-01-20T21:34:57.903Z'
-                  updated_at: '1990-12-30T00:29:23.515Z'
+                  date_created: '1973-01-20T21:34:57.903Z'
+                  date_modified: '1990-12-30T00:29:23.515Z'
               meta:
                 pagination:
                   total: 2
@@ -12554,120 +12122,7 @@ paths:
           required: true
       responses:
         '200':
-          description: ''
-          schema:
-            type: object
-            title: Metafield Response
-            properties:
-              data:
-                type: object
-                description: Common Metafield properties.
-                title: Metafield
-                properties:
-                  id:
-                    type: integer
-                    description: Unique ID of the *Metafield*. Read-Only.
-                    example: 6
-                  permission_set:
-                    type: string
-                    description: |
-                      Determines whether the field is completely private to the app that owns the field (`app_only`), or visible to other API consumers (`read`), or completely open for reading and writing to other apps (`write`). Required for POST.
-                    enum:
-                      - app_only
-                      - read
-                      - write
-                      - read_and_sf_access
-                      - write_and_sf_access
-                  namespace:
-                    type: string
-                    description: |
-                      Namespace for the metafield, for organizational purposes. This is set set by the developer. Required for POST.
-                    x-required:
-                      - post
-                    minLength: 1
-                    maxLength: 64
-                    example: Warehouse Locations
-                  key:
-                    type: string
-                    description: |
-                      The name of the field, for example: `location_id`, `color`. Required for POST.
-                    x-required:
-                      - post
-                    minLength: 1
-                    maxLength: 64
-                    example: Location
-                  value:
-                    type: string
-                    description: |
-                      The value of the field, for example: `1`, `blue`. Required for POST.
-                    x-required:
-                      - post
-                    minLength: 1
-                    maxLength: 65535
-                    example: 4HG
-                  description:
-                    type: string
-                    description: |
-                      Description for the metafields.
-                    minLength: 0
-                    maxLength: 255
-                    example: Location in the warehouse
-                  resource_type:
-                    type: string
-                    description: |
-                      The type of resource with which the metafield is associated.
-                    enum:
-                      - category
-                      - brand
-                      - product
-                      - variant
-                    x-required:
-                      - post
-                    example: product
-                  resource_id:
-                    type: integer
-                    description: |
-                      The ID for the resource with which the metafield is associated.
-                    x-required:
-                      - post
-                    minimum: 0
-                    maximum: 10000000000
-                    example: 111
-                  created_at:
-                    type: string
-                    format: date-time
-                    description: |
-                      Date and time of the metafield's creation. Read-Only.
-                    example: '2018-05-07T20:14:17+00:00'
-                  updated_at:
-                    type: string
-                    format: date-time
-                    description: |
-                      Date and time when the metafield was last updated. Read-Only.
-                    example: '2018-05-07T20:14:17+00:00'
-                required:
-                  - permission_set
-                  - namespace
-                  - key
-                  - value
-              meta:
-                type: object
-                description: Empty meta object; may be used later.
-                title: Meta
-          examples:
-            application/json:
-              data:
-                id: 8
-                key: location_id
-                value: 'Shelf 3, Bin 5'
-                namespace: Inventory Namespace
-                permission_set: read
-                resource_type: product
-                resource_id: 158
-                description: Where products are located
-                date_created: '2018-09-13T16:42:37+00:00'
-                date_modified: '2018-09-13T16:42:37+00:00'
-              meta: {}
+          $ref: '#/responses/MetafieldResponse'
         '409':
           description: |
             The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate, unique key combinations of the app's client id, namespace, key, resource_type, and resource_id.
@@ -12773,31 +12228,7 @@ paths:
           required: true
       responses:
         '200':
-          description: ''
-          schema:
-            type: object
-            title: Metafield Response
-            properties:
-              data:
-                $ref: '#/definitions/metafield_Base'
-              meta:
-                type: object
-                description: Empty meta object; may be used later.
-                title: Meta
-          examples:
-            application/json:
-              data:
-                id: 8
-                key: location_id
-                value: 'Shelf 3, Bin 5'
-                namespace: Inventory Namespace
-                permission_set: read
-                resource_type: product
-                resource_id: 158
-                description: Where products are located
-                date_created: '2018-09-13T16:42:37+00:00'
-                date_modified: '2018-09-13T16:42:37+00:00'
-              meta: {}
+          $ref: '#/responses/MetafieldResponse'
         '404':
           description: The resource was not found.
           schema:
@@ -12849,31 +12280,7 @@ paths:
           required: true
       responses:
         '200':
-          description: ''
-          schema:
-            type: object
-            title: Metafield Response
-            properties:
-              data:
-                $ref: '#/definitions/metafield_Full'
-              meta:
-                type: object
-                description: Empty meta object; may be used later.
-                title: Meta
-          examples:
-            application/json:
-              data:
-                id: 8
-                key: location_id
-                value: 'Shelf 3, Bin 5'
-                namespace: Inventory Namespace
-                permission_set: read
-                resource_type: product
-                resource_id: 158
-                description: Where products are located
-                date_created: '2018-09-13T16:42:37+00:00'
-                date_modified: '2018-09-13T16:42:37+00:00'
-              meta: {}
+          $ref: '#/responses/MetafieldResponse'
         '404':
           description: |
             The resource was not found.
@@ -14139,8 +13546,8 @@ paths:
                   resource_type: brand
                   resource_id: 111
                   id: 6
-                  created_at: '1973-01-20T21:34:57.903Z'
-                  updated_at: '1990-12-30T00:29:23.515Z'
+                  date_created: '1973-01-20T21:34:57.903Z'
+                  date_modified: '1990-12-30T00:29:23.515Z'
                 - permission_set: read
                   namespace: Warehouse Locations
                   key: Location
@@ -14149,8 +13556,8 @@ paths:
                   resource_type: brand
                   resource_id: 111
                   id: 6
-                  created_at: '1973-01-20T21:34:57.903Z'
-                  updated_at: '1990-12-30T00:29:23.515Z'
+                  date_created: '1973-01-20T21:34:57.903Z'
+                  date_modified: '1990-12-30T00:29:23.515Z'
               meta:
                 pagination:
                   total: 2
@@ -14223,32 +13630,7 @@ paths:
           required: true
       responses:
         '200':
-          description: ''
-          schema:
-            type: object
-            title: Metafield Response
-            properties:
-              data:
-                description: Common Metafield properties.
-                title: Metafield
-              meta:
-                type: object
-                description: Empty meta object; may be used later.
-                title: Meta
-          examples:
-            application/json:
-              data:
-                id: 8
-                key: location_id
-                value: 'Shelf 3, Bin 5'
-                namespace: Inventory Namespace
-                permission_set: read
-                resource_type: product
-                resource_id: 158
-                description: Where products are located
-                date_created: '2018-09-13T16:42:37+00:00'
-                date_modified: '2018-09-13T16:42:37+00:00'
-              meta: {}
+          $ref: '#/responses/MetafieldResponse'
         '409':
           description: |
             The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate unique key combination of the app's client id, namespace, key, resource_type, and resource_id.
@@ -14354,31 +13736,7 @@ paths:
           required: true
       responses:
         '200':
-          description: ''
-          schema:
-            type: object
-            title: Metafield Response
-            properties:
-              data:
-                $ref: '#/definitions/metafield_Full'
-              meta:
-                type: object
-                description: Empty meta object; may be used later.
-                title: Meta
-          examples:
-            application/json:
-              data:
-                id: 8
-                key: location_id
-                value: 'Shelf 3, Bin 5'
-                namespace: Inventory Namespace
-                permission_set: read
-                resource_type: product
-                resource_id: 158
-                description: Where products are located
-                date_created: '2018-09-13T16:42:37+00:00'
-                date_modified: '2018-09-13T16:42:37+00:00'
-              meta: {}
+          $ref: '#/responses/MetafieldResponse'
         '404':
           description: |
             The resource was not found.
@@ -14430,31 +13788,7 @@ paths:
           required: true
       responses:
         '200':
-          description: ''
-          schema:
-            type: object
-            title: Metafield Response
-            properties:
-              data:
-                $ref: '#/definitions/metafield_Full'
-              meta:
-                type: object
-                description: Empty meta object; may be used later.
-                title: Meta
-          examples:
-            application/json:
-              data:
-                id: 8
-                key: location_id
-                value: 'Shelf 3, Bin 5'
-                namespace: Inventory Namespace
-                permission_set: read
-                resource_type: product
-                resource_id: 158
-                description: Where products are located
-                date_created: '2018-09-13T16:42:37+00:00'
-                date_modified: '2018-09-13T16:42:37+00:00'
-              meta: {}
+          $ref: '#/responses/MetafieldResponse'
         '404':
           description: |
             The resource was not found.
@@ -22670,12 +22004,22 @@ responses:
                 example: 6
               permission_set:
                 type: string
-                description: |
-                  Determines whether the field is completely private to the app that owns the field (`app_only`), or visible to other API consumers (`read`), or completely open for reading and writing to other apps (`write`). Required for POST.
+                description: |-
+                  Determines the visibility and writeability of the field by other API consumers.
+
+                  |Value|Description
+                  |-|-|
+                  |`app_only`|Private to the app that owns the field|
+                  |`read`|Visible to other API consumers|
+                  |`write`|Open for reading and writing by other API consumers|
+                  |`read_and_sf_access`|Visible to other API consumers, including on storefront|
+                  |`write_and_sf_access`|Open for reading and writing by other API consumers, including on storefront|
                 enum:
                   - app_only
                   - read
                   - write
+                  - read_and_sf_access
+                  - write_and_sf_access
                 x-required:
                   - post
               namespace:
@@ -22733,13 +22077,13 @@ responses:
                 minimum: 0
                 maximum: 10000000000
                 example: 111
-              created_at:
+              date_created:
                 type: string
                 format: date-time
                 description: |
                   Date and time of the metafield's creation. Read-Only.
                 example: '2018-05-07T20:14:17+00:00'
-              updated_at:
+              date_modified:
                 type: string
                 format: date-time
                 description: |
@@ -22763,8 +22107,8 @@ responses:
             resource_type: brand
             resource_id: 111
             id: 6
-            created_at: '1973-01-20T21:34:57.903Z'
-            updated_at: '1990-12-30T00:29:23.515Z'
+            date_created: '1973-01-20T21:34:57.903Z'
+            date_modified: '1990-12-30T00:29:23.515Z'
           - permission_set: read
             namespace: Warehouse Locations
             key: Location
@@ -22773,8 +22117,8 @@ responses:
             resource_type: brand
             resource_id: 111
             id: 6
-            created_at: '1973-01-20T21:34:57.903Z'
-            updated_at: '1990-12-30T00:29:23.515Z'
+            date_created: '1973-01-20T21:34:57.903Z'
+            date_modified: '1990-12-30T00:29:23.515Z'
           - permission_set: app_only
             namespace: Warehouse Locations
             key: Location
@@ -22783,8 +22127,8 @@ responses:
             resource_type: brand
             resource_id: 111
             id: 6
-            created_at: '1973-01-20T21:34:57.903Z'
-            updated_at: '1990-12-30T00:29:23.515Z'
+            date_created: '1973-01-20T21:34:57.903Z'
+            date_modified: '1990-12-30T00:29:23.515Z'
         meta:
           pagination:
             total: 3
@@ -22805,29 +22149,29 @@ responses:
           description: Common Metafield properties.
           title: Metafield
           properties:
+            date_created:
+              type: string
+              format: date-time
+              description: |
+                Date and time of the metafield's creation. Read-Only.
+              example: '2018-05-07T20:14:17+00:00'
+            date_modified:
+              type: string
+              format: date-time
+              description: |
+                Date and time when the metafield was last updated. Read-Only.
+              example: '2018-05-07T20:14:17+00:00'
+            description:
+              type: string
+              description: |
+                Description for the metafields.
+              minLength: 0
+              maxLength: 255
+              example: Location in the warehouse
             id:
               type: integer
               description: Unique ID of the *Metafield*. Read-Only.
               example: 6
-            permission_set:
-              type: string
-              description: |
-                Determines whether the field is completely private to the app that owns the field (`app_only`), or visible to other API consumers (`read`), or completely open for reading and writing to other apps (`write`). Required for POST.
-              enum:
-                - app_only
-                - read
-                - write
-              x-required:
-                - post
-            namespace:
-              type: string
-              description: |
-                Namespace for the metafield, for organizational purposes. This is set set by the developer. Required for POST.
-              x-required:
-                - post
-              minLength: 1
-              maxLength: 64
-              example: Warehouse Locations
             key:
               type: string
               description: |
@@ -22837,22 +22181,44 @@ responses:
               minLength: 1
               maxLength: 64
               example: Location
-            value:
+            namespace:
               type: string
               description: |
-                The value of the field, for example: `1`, `blue`. Required for POST.
+                Namespace for the metafield, for organizational purposes. This is set set by the developer. Required for POST.
               x-required:
                 - post
               minLength: 1
-              maxLength: 65535
-              example: 4HG
-            description:
+              maxLength: 64
+              example: Warehouse Locations
+            permission_set:
               type: string
+              description: |-
+                Determines the visibility and writeability of the field by other API consumers.
+
+                |Value|Description
+                |-|-|
+                |`app_only`|Private to the app that owns the field|
+                |`read`|Visible to other API consumers|
+                |`write`|Open for reading and writing by other API consumers|
+                |`read_and_sf_access`|Visible to other API consumers, including on storefront|
+                |`write_and_sf_access`|Open for reading and writing by other API consumers, including on storefront|
+              enum:
+                - app_only
+                - read
+                - write
+                - read_and_sf_access
+                - write_and_sf_access
+              x-required:
+                - post
+            resource_id:
+              type: integer
               description: |
-                Description for the metafields.
-              minLength: 0
-              maxLength: 255
-              example: Location in the warehouse
+                The ID for the resource with which the metafield is associated.
+              x-required:
+                - post
+              minimum: 0
+              maximum: 10000000000
+              example: 111
             resource_type:
               type: string
               description: |
@@ -22865,31 +22231,19 @@ responses:
               x-required:
                 - post
               example: product
-            resource_id:
-              type: integer
+            value:
+              type: string
               description: |
-                The ID for the resource with which the metafield is associated.
+                The value of the field, for example: `1`, `blue`. Required for POST.
               x-required:
                 - post
-              minimum: 0
-              maximum: 10000000000
-              example: 111
-            created_at:
-              type: string
-              format: date-time
-              description: |
-                Date and time of the metafield's creation. Read-Only.
-              example: '2018-05-07T20:14:17+00:00'
-            updated_at:
-              type: string
-              format: date-time
-              description: |
-                Date and time when the metafield was last updated. Read-Only.
-              example: '2018-05-07T20:14:17+00:00'
+              minLength: 1
+              maxLength: 65535
+              example: 4HG
           required:
-            - permission_set
-            - namespace
             - key
+            - namespace
+            - permission_set
             - value
         meta:
           type: object
@@ -22898,16 +22252,16 @@ responses:
     examples:
       application/json:
         data:
-          id: 8
-          key: location_id
-          value: 'Shelf 3, Bin 5'
-          namespace: Inventory Namespace
-          permission_set: read
-          resource_type: product
-          resource_id: 158
+          date_created: '2021-08-06T19:15:35+00:00'
+          date_modified: '2021-08-06T19:15:35+00:00'
           description: Where products are located
-          date_created: '2018-09-13T16:42:37+00:00'
-          date_modified: '2018-09-13T16:42:37+00:00'
+          id: 4
+          key: location_id
+          namespace: App Namespace
+          permission_set: app_only
+          resource_id: 137
+          resource_type: product
+          value: 'Shelf 3, Bin 5'
         meta: {}
   CategoryCollectionResponse:
     description: ''
