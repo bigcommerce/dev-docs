@@ -27,7 +27,7 @@ This article introduces BigCommerce's [Orders V2](https://developer.bigcommerce.
 * Access token for [API authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication) with the following [scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes):
   * Orders - **Modify**
   * Products - **Read**
-* [Product](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/createproduct) with [variants](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants/createvariant).
+* [Product](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/createproduct) with [variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants/createvariant).
 
 ## Creating an order
 
