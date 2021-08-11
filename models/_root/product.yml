@@ -12,9 +12,7 @@ description: |-
   `amp/products/product-view.html`, and
   `amp/products/product-view-details.html`.
 
-  **Handlebars Expression**
-
-  {{product}}
+  **Handlebars Expression** {{product}}
 type: object
 properties:
   AddThisServiceButtonMeta:

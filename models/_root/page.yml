@@ -1,9 +1,7 @@
 description: |-
   `{{page}}` object present on content pages, forms, and RSS feeds.
 
-  **Handlebars Expression**
-
-  {{page}}
+  **Handlebars Expression** {{page}}
 type: object
 properties:
   breadcrumbs:

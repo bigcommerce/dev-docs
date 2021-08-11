@@ -1,9 +1,7 @@
 description: |-
   `global` `{{pages}}` object containg storefront content page data
 
-  **Handlebars Expression**
-
-  {{pages}}
+  **Handlebars Expression** {{pages}}
 type: object
 properties:
   URL:

@@ -1,9 +1,7 @@
 description: |-
   `{{pagination}}` object available to templates containing paginated lists, such as `templates/pages/category.html` and `templates/pages/brands.html`.
 
-  **Handlebars Expression**
-
-  {{pagination}}
+  **Handlebars Expression** {{pagination}}
 oneOf:
   - properties:
       category:

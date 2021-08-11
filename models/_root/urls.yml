@@ -1,5 +1,5 @@
-
-description: '`global` `{{urls}}` object containg a collection of storefront pages and their sub-pages'
+description: |
+  `global` `{{urls}}` object containg a collection of storefront pages and their sub-pages
 type: object
 properties:
   account:
