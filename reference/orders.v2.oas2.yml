@@ -4268,6 +4268,16 @@ components:
         - Empty strings `''` and `null` are invalid for `xxx` and `xxx_customer, and `xxx_merchant`.
         - `xxx`, `xxx_customer`, and `xxx_merchant` default to the value from `catalog` if not supplied in the request.
       type: object
+      x-examples:
+        Product With a Drop Down and a Text Field Modifier:
+          value:
+            product_id: 100
+            quantity: 1
+            product_options:
+              - id: 111
+                value: '123'
+              - id: 112
+                value: 'Custom Message'
       properties:
         product_id:
           type: integer
@@ -4295,6 +4305,17 @@ components:
                 type: integer
               value:
                 type: string
+                description: |-
+                  Depending on the option type, value can be one of the following:
+                  - The variant option value id or the modifier value id for modifier types with a list of defined values, such as drop down or checkbox modifiers.
+                  - The modifier value for modifier types without a list of defined values, such as text field or date field modifiers.
+
+                  Notes:
+                  - The following option types are not currently supported via api:
+                    - File upload
+                    - Pick list
+                  - For date modifiers use either the `YYYY-MM-DDThh:mm:ss±hh:mm` or the `YYYY-MM-DD` ISO-8601 formats. The date field modifier values are saved and retuned as timestamps. For values entered using the YYYY-MM-DD format, the store timezone is used when creating the timestamp.
+                  - For multi-line text field modifiers, use the `\n` characters for separating the lines.
               display_name:
                 type: string
                 example: couleur
