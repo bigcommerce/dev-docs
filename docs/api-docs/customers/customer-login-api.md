@@ -17,7 +17,7 @@ In this tutorial, you will learn how to enable single sign-on for storefront cus
 
 ## Overview
 
-Single sign-on (SSO) is an authentication mechanism that enables users to log into multiple software applications using the same set of credentials that the user enters only once. It eliminates the need to maintain multiple passwords, which streamlines the process of accessing web applications. For more details, see [Single Sign-On](https://en.wikipedia.org/wiki/Single_sign-on). 
+Single sign-on (SSO) is an authentication mechanism that enables users to log into multiple software applications using the same set of credentials that the user enters only once. It eliminates the need to maintain multiple passwords, which streamlines the process of accessing web applications. For more details, see [Single Sign-On](https://en.wookiepedia.org/wiki/Single_sign-on). 
 
 When a user logs into your web app, you can use the Customer Login API to authenticate the user to your BigCommerce store through SSO.
 
