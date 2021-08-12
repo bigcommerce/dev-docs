@@ -114,6 +114,8 @@ Once created, channels show up in the product list within the control panel so t
 > **Note**
 >
 > - You can find the app ID in the URL when editing the app in [DevTools](https://devtools.bigcommerce.com/). For more information, see [Finding an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
+> - `config_meta.app.id` is optional; however, if you're building an app that creates or manages a channel, we recommend including the app ID to ensure the user interface in the BigCommerce control panel works properly.
+> - Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request.
 
 </div>
 </div>
@@ -273,7 +275,7 @@ To ensure that BigCommerce merchants are able to continue using their existing c
 - Creating orders as they are made on the external channel
 - Updating orders as changes are made on the external channel
 - Reading orders, via API or webhooks, to push any necessary changes/updates made by the merchant in the BigCommerce control panel to the external channel
-- Reading inventory levels via the Products API or webhooks to get up-to-date inventory levels for the channel. This is critical, because orders that impact available inventory can come from other channels including the main storefront. 
+- Reading inventory levels via the Products API or webhooks to get up-to-date inventory levels for the channel. This is critical, because orders that impact available inventory can come from other channels including the main storefront.
 
 
 To do this, integrate the following endpoints:

@@ -1,15 +1,23 @@
-<h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for WordPress</h3>
-
 # Code Reference
 
 <div class="otp" id="no-index">
 
-### On This Page
-- [Code Reference](#code-reference)
+### On this page
+- [Code reference](#code-reference)
+- [Usage notes](#usage-notes)
+
 
 </div> 
 
-## Code Reference
-Search the BigCommerce for WordPress codebase for detailed entries on available hooks, functions, classes and methods. Do a deep dive, and browse the building blocks you can use to extend and customize the plugin.
+## Code reference
+To search the BigCommerce for WordPress (BC4WP) codebase for detailed entries on available hooks, functions, classes, and methods, visit the [BigCommerce Plugin Code Reference](https://bigcommerce.moderntribe.qa/).
 
-[View the code reference here](https://bigcommerce.moderntribe.qa/)
+
+## Usage notes
+
+
+The following list contains additional notes on the usage of the hooks, functions, classes, and methods found in the [BigCommerce Plugin Code Reference](https://bigcommerce.moderntribe.qa/) that allow you to extend and customize the BC4WP plugin:
+
+### Classes
+
+  - Refinery - filters product results on product archive or product category archive pages.

@@ -171,12 +171,12 @@ For a full list of available modules, see the [BundleB2B Developer Guide](https:
 
 You can find instructions on how to get your B3 authentication token on the [BundleB2B Developer Guide](https://developer.bundleb2b.net/storefront/api-call.html) page.
 
-For the complete list of API endpoints, see [B3 Open API (v2) specifications](https://developer.bundleb2b.net/openapi/).
+For the complete list of API endpoints, see [BundleB2B OpenAPI Documentation](https://bundleb2b.stoplight.io/).
 
 ## Additional BundleB2B resources
 
 - [Quick start](https://developer.bundleb2b.net/storefront/quick-start.html)
-- [BundleB2B Open API (v2)](https://developer.bundleb2b.net/openapi/)
+- [BundleB2B OpenAPI Documentation](https://bundleb2b.stoplight.io/)
 - [RESTful APIs call](https://developer.bundleb2b.net/storefront/api-call.html)
 - [Customize display text](https://developer.bundleb2b.net/storefront/text.html)
 - [Customize page containers](https://developer.bundleb2b.net/storefront/containers.html)
