@@ -289,18 +289,15 @@ paths:
                         phone: '707070707'
                         postal_code: '33333'
                         state_or_province: California
-                    attributes:
-                      - attribute_id: 55
-                        attribute_value: string
                     authentication:
                       force_password_reset: true
-                      new_password: string
+                      new_password: string123
                     accepts_product_review_abandoned_cart_emails: true
                     store_credit_amounts:
                       - amount: 43.15
-                    origin_channel_id: 0
+                    origin_channel_id: 1
                     channel_ids:
-                      - 0
+                      - 1
         required: true
         x-examples: {}
         description: ''
@@ -398,7 +395,7 @@ paths:
             examples:
               example-1:
                 value:
-                  - email: string
+                  - email: string@examples.com
                     first_name: string
                     last_name: string
                     company: string
@@ -407,16 +404,15 @@ paths:
                     notes: string
                     tax_exempt_category: string
                     customer_group_id: 0
-                    id: 0
+                    id: 1
                     authentication:
                       force_password_reset: true
-                      new_password: string
+                      new_password: string123
                     accepts_product_review_abandoned_cart_emails: true
                     store_credit_amounts:
                       - amount: 43.15
                     channel_ids:
-                      - -1
-                      - -2
+                      - 1
     delete:
       description: |-
         Deletes Customers.
@@ -1314,7 +1310,7 @@ paths:
             examples:
               Example:
                 value:
-                  - attribute_id: 2
+                  - attribute_id: 1
                     value: 'No'
                     customer_id: 2
         required: true
@@ -1556,47 +1552,6 @@ paths:
                   - customer_id: 12
                     name: What is your favorite pizza topping?
                     value: Mushrooms
-    post:
-      responses:
-        '200':
-          $ref: '#/components/responses/FormFieldValuesResponse'
-        '422':
-          description: 'The form field value was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.'
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: integer
-                    description: The HTTP status code.
-                    format: int32
-                  title:
-                    type: string
-                    description: The error title describing the particular error.
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                  errors:
-                    type: object
-      description: Creates a list of form field values for the Customer or Customer Address object.
-      summary: Create Customer Form Field Values
-      operationId: postCustomersFormFieldValues
-      tags:
-        - Customer Form Field Values
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/formFieldValue_Full'
-            examples:
-              example-1:
-                value:
-                  name: color
-                  value: blue
-                  customer_id: 0
-      parameters: []
   '/customers/{customerId}/consent':
     get:
       description: Gets the status of a customer's consent to allow data collection by cookies and scripts while shopping on a storefront.
