@@ -93,7 +93,6 @@ You can provide values for all of the checkout's supported translation keys even
 
 4. Replace the values with appropriate phrases in each file's target language.
 
-
 ## Localized country and state names
 
 BigCommerce's Optimized One-Page Checkout will translate displayed **Country/State** names into supported languages. To take advantage of this functionality, enable Optimized One-Page Checkout on your store. You do not need to provide any keys-values for the **Country/State** names already translated within the BigCommerce platform. As with the translation options described above, the storefront will automatically display the translated **Country/State** names based on the default storefront language defined in the control panel.
