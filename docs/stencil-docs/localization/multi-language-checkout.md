@@ -91,11 +91,7 @@ You can provide values for all of the checkout's supported translation keys even
 | Chinese Simplified | `zh-TW.json` |
 | Chinese Traditional | `zh.json` |
 
-<<<<<<< HEAD
 4. Replace the values with appropriate phrases in each file's target language.
-=======
-5. Replace the values with appropriate phrases in each file's target language.
->>>>>>> master
 
 ## Localized country and state names
 
