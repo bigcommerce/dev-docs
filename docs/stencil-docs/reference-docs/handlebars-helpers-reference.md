@@ -1387,6 +1387,27 @@ Increments the variable set by [assignVar](#assignVar) by 1.
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/incrementVar.js)
 
+### {{JSONparse}}
+
+```handlebars
+{{JSONparse key}}
+```
+
+Parse data with [JSONparse](#jsonparse).
+
+#### Parameters
+
+- `key` {String}
+
+#### Example
+
+```handlebars
+{{#JSONparse '{"foo": "bar"}'}}
+  {{foo}}
+{{/JSONparse}}
+<!-- output: bar -->
+```
+
 ## Standard helpers
 
 <div class="HubBlock--callout">
@@ -1515,27 +1536,6 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [urlResolve](https://github.com/helpers/handlebars-helpers#urlResolve) | url | Takes a `base` URL and a `href` URL and resolves them as a browser would for an anchor tag. |
 | [urlParse](https://github.com/helpers/handlebars-helpers#urlParse) | url | Parses a URL string into an object. |
 | [stripProtocol](https://github.com/helpers/handlebars-helpers#stripProtocol) | url | Strips protocol from a URL. Useful for displaying media that may have an 'http' protocol on secure connections. |
-
-### {{JSONparse}}
-
-```handlebars
-{{JSONparse key}}
-```
-
-Parse data with [JSONparse](#jsonparse).
-
-#### Parameters
-
-- `key` {String}
-
-#### Example
-
-```handlebars
-{{#JSONparse '{"foo": "bar"}'}}
-  {{foo}}
-{{/JSONparse}}
-<!-- output: bar -->
-```
 
 ## Contributing to helpers
 
