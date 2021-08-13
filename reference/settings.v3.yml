@@ -107,18 +107,6 @@ paths:
       tags:
         - Storefront Status
       description: Update storefront status.
-    delete:
-      summary: Delete Status
-      operationId: delete-settings-storefront-status
-      responses:
-        '200':
-          description: ''
-      parameters:
-        - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
-        - $ref: '#/components/parameters/KeysToDelete'
-      tags:
-        - Storefront Status
-      description: Delete storefront status.
   /settings/storefront/seo:
     get:
       summary: Get SEO Settings
