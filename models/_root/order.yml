@@ -1,8 +1,7 @@
 description: |-
   `{{order}}` object available to templates and components with order context
 
-  **Handlebars Expression**
-  {{order}}
+  **Handlebars Expression** {{order}}
 type: object
 properties:
   billing_address:

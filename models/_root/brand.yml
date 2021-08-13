@@ -3,8 +3,7 @@ description: |-
 
   `{{brand}}` object available to `templates/pages/brand.html`
 
-  **Handlebars Expression:**
-  `{{brand}}`
+  **Handlebars Expression:** `{{brand}}`
 type: object
 properties:
   config:

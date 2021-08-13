@@ -3,8 +3,7 @@ description: |-
 
   {{checkout}} object available to checkout and order confirmation templates and components
 
-  **Handlebars Expression**
-  {{checkout.*}}
+  **Handlebars Expression** {{checkout.*}}
 type: object
 properties:
   order_confirmation_content:

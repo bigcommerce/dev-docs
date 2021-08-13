@@ -1,8 +1,7 @@
 description: |
   `global` `{{head}}` object containing data configured for the HTML `<head>` element.
 
-  **Handlebars Expression**
-  {{head}}
+  **Handlebars Expression** {{head}}
 type: object
 properties:
   favicon:

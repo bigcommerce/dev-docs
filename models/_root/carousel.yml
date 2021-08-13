@@ -3,8 +3,7 @@ description: |-
 
   {{carousel}} array
 
-  **Handlebars Expression**
-  `{{carousel}}`
+  **Handlebars Expression** `{{carousel}}`
 type: object
 properties:
   slides:
