@@ -1483,7 +1483,7 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [getObject](https://github.com/helpers/handlebars-helpers#getObject) |object| Use property paths (`a.b.c`) to get an object from the context. Differs from the [get](https://github.com/helpers/handlebars-helpers#get) helper in that this helper will return the actual object including the given property key. This helper does not work as a block helper. |
 | [hasOwn](https://github.com/helpers/handlebars-helpers#hasOwn) | object | Returns `true` if `key` is an own, enumerable property of the given context object. |
 | [isObject](https://github.com/helpers/handlebars-helpers#isObject) | object | Returns `true` if value is an object. |
-| [JSONparse](https://github.com/helpers/handlebars-helpers#JSONparse) | object | Parses the given string using `JSON.parse`. |
+| [JSONparse](#jsonparse) | object | Parses the given string using `JSON.parse`. |
 | [JSONstringify](https://github.com/helpers/handlebars-helpers#JSONstringify) | object | Stringifies an object using `JSON.stringify`. |
 | [merge](https://github.com/helpers/handlebars-helpers#merge) |object| Deeply merges the properties of the given objects with the context object. |
 | [pick](https://github.com/helpers/handlebars-helpers#pick) | object | Picks properties from the context object. |
@@ -1515,6 +1515,27 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [urlResolve](https://github.com/helpers/handlebars-helpers#urlResolve) | url | Takes a `base` URL and a `href` URL and resolves them as a browser would for an anchor tag. |
 | [urlParse](https://github.com/helpers/handlebars-helpers#urlParse) | url | Parses a URL string into an object. |
 | [stripProtocol](https://github.com/helpers/handlebars-helpers#stripProtocol) | url | Strips protocol from a URL. Useful for displaying media that may have an 'http' protocol on secure connections. |
+
+### {{JSONparse}}
+
+```handlebars
+{{JSONparse key}}
+```
+
+Parse data with [JSONparse](#jsonparse).
+
+#### Parameters
+
+- `key` {String}
+
+#### Example
+
+```handlebars
+{{#JSONparse '{"foo": "bar"}'}}
+  {{foo}}
+{{/JSONparse}}
+<!-- output: bar -->
+```
 
 ## Contributing to helpers
 
