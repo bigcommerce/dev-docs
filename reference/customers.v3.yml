@@ -3176,6 +3176,7 @@ components:
           type: string
           minLength: 0
           maxLength: 100
+          example: California
         postal_code:
           description: The postal code of the customer address.
           type: string
@@ -3186,6 +3187,7 @@ components:
           type: string
           minLength: 2
           maxLength: 2
+          example: US
         phone:
           description: The phone number of the customer address.
           type: string
@@ -3203,10 +3205,12 @@ components:
           description: The customer ID.
           type: integer
           format: int32
+          example: 1
         id:
           description: The unique numeric ID of the address.
           type: integer
           format: int32
+          example: 1
       required:
         - first_name
         - last_name
@@ -3250,6 +3254,7 @@ components:
         state_or_province:
           description: The state or province name
           type: string
+          example: New South Wales
           minLength: 0
           maxLength: 100
         postal_code:
@@ -3260,6 +3265,7 @@ components:
         country_code:
           description: The country code of the customer address.
           type: string
+          example: AU
           minLength: 2
           maxLength: 2
         phone:
@@ -3279,6 +3285,7 @@ components:
           description: The customer ID.
           type: integer
           format: int32
+          example: 1
       required:
         - first_name
         - last_name
@@ -3457,13 +3464,9 @@ components:
       type: object
       properties:
         allow:
-          type: array
-          items:
-            $ref: '#/components/schemas/consentAllow'
+          $ref: '#/components/schemas/consentAllow'
         deny:
-          type: array
-          items:
-            $ref: '#/components/schemas/Deny'
+          $ref: '#/components/schemas/Deny'
         updated_at:
           description: The date of which the customer consent was last updated.
           type: string
@@ -3473,6 +3476,10 @@ components:
       type: array
       uniqueItems: true
       minItems: 0
+      example:
+          - essential
+          - targeting
+          - functional
       items:
         type: string
         enum:
@@ -3485,6 +3492,8 @@ components:
       type: array
       uniqueItems: true
       minItems: 0
+      example: 
+          - analytics
       items:
         type: string
         enum:
@@ -3498,13 +3507,9 @@ components:
       type: object
       properties:
         allow:
-          type: array
-          items:
-            $ref: '#/components/schemas/consentAllow'
+          $ref: '#/components/schemas/consentAllow'
         deny:
-          type: array
-          items:
-            $ref: '#/components/schemas/Deny'
+          $ref: '#/components/schemas/Deny'
     customerAttributes_Base:
       description: ''
       title: customerAttributes_Base
