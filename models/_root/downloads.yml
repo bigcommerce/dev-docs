@@ -2,8 +2,7 @@ type: array
 description: |-
   Property for digital (non-physical) products. (Called on the default <theme-name>/templates/pages/account/download-item.htmltemplate.)
 
-  **Handlebars Expression**
-  {{downloads}}
+  **Handlebars Expression** {{downloads}}
 items:
   type: object
   properties:

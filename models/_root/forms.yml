@@ -1,8 +1,7 @@
 description: |-
   `{{forms}}` object available to pages and components with forms
 
-  **Handlebars Expression**
-  {{forms.edit_account}}
+  **Handlebars Expression** {{forms.edit_account}}
 type: object
 anyOf:
   - $ref: ../forms/address.yml

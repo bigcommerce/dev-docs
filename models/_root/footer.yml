@@ -5,8 +5,7 @@ description: |-
 
   `global` `{{footer}}` object
 
-  **Handlebars Expression**
-  {{footer}}
+  **Handlebars Expression** {{footer}}
 properties:
   sitemap_url:
     type: string

@@ -1,8 +1,7 @@
 description: |-
   `global` `{{faceted_search}}`; provides data for searching by category or brand.
 
-  **Handlebars Expression**
-  {{faceted_search}}
+  **Handlebars Expression** {{faceted_search}}
 type: object
 properties:
   facets:

@@ -3,8 +3,7 @@ description: |-
 
   `global` `{{breadcrumbs}}` array
 
-  **Handlebars Expression**
-  `{{breadcrumbs}}`
+  **Handlebars Expression** `{{breadcrumbs}}`
 type: array
 items:
   type: object

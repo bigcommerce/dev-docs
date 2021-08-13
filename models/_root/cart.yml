@@ -3,8 +3,7 @@ description: |-
 
   `{{cart}}` object available to `templates/pages/cart.html`; contains `cart_id` if one exists.
 
-  **Handlebars Expression**
-  {{cart}}
+  **Handlebars Expression** {{cart}}
 type: object
 properties:
   additional_checkout_buttons:

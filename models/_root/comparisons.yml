@@ -3,8 +3,7 @@ description: |-
 
   `{{comparisons}}` array 
 
-  **Handlebars Expression**
-  {{comparisons}}
+  **Handlebars Expression** {{comparisons}}
 type: array
 title: comparisons
 items:

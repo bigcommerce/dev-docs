@@ -5,5 +5,4 @@ properties:
 description: |-
   Object to enable the current customer to create a store account. (Called on the default `<theme-name&gt;/templates/pages/auth/create-account.html` template.)
 
-  **Handlebars Expressions**
-  {{forms.create_account}}
+  **Handlebars Expressions** {{forms.create_account}}

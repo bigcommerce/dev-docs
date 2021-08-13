@@ -1,8 +1,7 @@
 description: |-
   `{{customer}}` object available to templates and components with customer context such as `page/contact-us-form.html`, `common/subscription-form.html`, `account/address-list.html`, `account/messages-form.html`, and `account/wishlist-list.html`.
 
-  **Handlebars Expression**
-  {{customer}}
+  **Handlebars Expression** {{customer}}
 type: object
 properties:
   addresses:

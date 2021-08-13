@@ -3,8 +3,7 @@ description: |-
 
   `global` `{{currency_selector}}`
 
-  **Handlebars Expression**
-  {{currency_selector}}
+  **Handlebars Expression** {{currency_selector}}
 type: object
 properties:
   active_currency_id:

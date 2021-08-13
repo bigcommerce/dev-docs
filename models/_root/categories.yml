@@ -4,8 +4,7 @@ description: |-
 
   `global` `{{categories}}` array 
 
-  **Handlebars Expression**
-  {{categories}}
+  **Handlebars Expression** {{categories}}
 items:
   type: object
   properties:
