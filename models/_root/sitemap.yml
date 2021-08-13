@@ -1,22 +1,38 @@
-description: "`{{sitemap}}` object available to `templates/pages/sitemap.html`."
+description: |2-
+
+
+
+
+
+
+   A list of all sitemap properties for this BigCommerce storefront: pages, categories, and brands.
+   
+  `{{sitemap}}` object available to `templates/pages/sitemap.html`.
+
+  **Handlebars Expression** {{sitemap}}
 type: array
 items:
   type: object
   properties:
     body:
       type: array
+      description: List of all sitemap subsections
       items:
         type: object
         properties:
           label:
             type: string
+            description: 'Label of the page, category, or brand.'
           url:
             type: string
+            description: 'URL to the page, category, or brand.'
     label:
       type: string
+      description: 'Subsection title (pages, categories, brands)'
     show_all_link:
       type: boolean
     subsection_url:
       type: string
+      description: 'URL to subsection content (pages, categories, brands) of the sitemap.'
     title:
       type: string

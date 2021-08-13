@@ -1,45 +1,45 @@
 type: string
-description: "`global` `{{page_type}}` string."
+description: "A string representing the type of page currently displayed.\n\n`global` `{{page_type}}` string.\n\n**Handlebars Expression** {{page_type}}\n\nAll possible values for {{page-type}} are:\n\n**account**     | **shippingaddressform** | **account_new_return** |\n|-|-|-|\naccount_addressbook | account_downloaditem| account_inbox\neditaccount\t    | account_orderstatus | account_orders\ninvoice_print\t    | account_order\t  | account_recentitems\naccount_saved_return |account_returns\t  |wishlists\nadd-wishlist        |wishlist\t          |createaccount_thanks\ncreateaccount\t    |forgotpassword\t  |login\ngetnewpassword      |blog\t          |blog_post\nbrand\t            | brands\t          |cart\ncategory*\t    |compare\t          |403\n404\t            |error\t          |giftcertificates_balance\ngiftcertificates    |giftcertificates_redeem\t|default*\npage*\t            |page_contact_form\t  |product*\nrss\t            |search\t          |sitemap\nnewsletter_subscribe  |unsubscribe\t  |hibernation\nmaintenance|     |\n\n* The four most-commonly-used values for {{page_type}}.\t"
 example: brands
 enum:
-- account_addressboo
-- account_downloaditem
-- account_inbox
-- editaccount
-- account_orderstatus
-- account_ordersinvoice_print
-- account_order
-- account_recentitems
-- account_saved_return
-- account_returns
-- wishlists
-- add-wishlist
-- wishlist
-- createaccount_thanks
-- createaccount
-- forgotpassword
-- login
-- getnewpassword
-- blog
-- blog_post
-- brand
-- brands
-- cart
-- category
-- compare
-- 403
-- 404
-- error
-- giftcertificates_balance
-- giftcertificates
-- giftcertificates_redeem
-- default
-- page
-- page_contact_form
-- product
-- rss
-- search
-- sitemap
-- newsletter_subscribe
-- unsubscribe
-- hibernation
+  - account_addressboo
+  - account_downloaditem
+  - account_inbox
+  - editaccount
+  - account_orderstatus
+  - account_ordersinvoice_print
+  - account_order
+  - account_recentitems
+  - account_saved_return
+  - account_returns
+  - wishlists
+  - add-wishlist
+  - wishlist
+  - createaccount_thanks
+  - createaccount
+  - forgotpassword
+  - login
+  - getnewpassword
+  - blog
+  - blog_post
+  - brand
+  - brands
+  - cart
+  - category
+  - compare
+  - 403
+  - 404
+  - error
+  - giftcertificates_balance
+  - giftcertificates
+  - giftcertificates_redeem
+  - default
+  - page
+  - page_contact_form
+  - product
+  - rss
+  - search
+  - sitemap
+  - newsletter_subscribe
+  - unsubscribe
+  - hibernation

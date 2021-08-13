@@ -1,4 +1,9 @@
-description: '`global` `{{settings}}` object'
+description: |-
+  Common settings shared across every BigCommerce storefront
+
+  `global` `{{settings}}` object
+
+  **Handlebars Expression** {{settings}}
 type: object
 title: settings
 properties:

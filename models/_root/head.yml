@@ -1,4 +1,8 @@
-description: '`global` `{{head}}` object containing data configured for the HTML `<head>` element'
+description: |
+  `global` `{{head}}` object containing data configured for the HTML `<head>` element.
+
+  **Handlebars Expression**
+  {{head}}
 type: object
 properties:
   favicon:
@@ -8,7 +12,7 @@ properties:
     description: meta tags to improve store SEO
     type: string
   scripts:
-    description: 'scripts to be loaded in the `<head>` tag'
+    description: scripts to be loaded in the `<head>` tag
     type: string
   stylesheets:
     description: CSS files to be included

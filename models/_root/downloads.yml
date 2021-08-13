@@ -1,5 +1,9 @@
 type: array
-description: '`{{downloads}}` object available to `templates/pages/account/download-item.html`'
+description: |-
+  Property for digital (non-physical) products. (Called on the default <theme-name>/templates/pages/account/download-item.htmltemplate.)
+
+  **Handlebars Expression**
+  {{downloads}}
 items:
   type: object
   properties:

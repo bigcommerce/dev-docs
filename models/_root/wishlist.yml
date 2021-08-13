@@ -1,12 +1,17 @@
-description: "`{{wishlist}}` object available to `templates/pages/account/wishlist-details.html` and components."
+description: |-
+  Wishlist information for a specific wishlist. (Called on the default `templates/pages/account/wishlist-details.html` template and `templates/components/account/wishlist-item-list.htmlpartial`.)
+
+  **Handlebars Expression** {{wishlist}}
 type: object
 properties:
   id:
     type: number
+    description: Unique system ID for the wishlist.
   is_editable:
     type: boolean
   is_public:
     type: boolean
+    description: Boolean value indicating whether the wishlist is publicly available.
   items:
     type: array
     items:
@@ -18,13 +23,11 @@ properties:
           type: string
         availability:
           type: object
-          properties:
         brand:
           type: object
           properties:
             name:
               type: object
-              properties:
         custom_fields:
           type: array
           items:
@@ -52,12 +55,10 @@ properties:
             $ref: ../common/image.yml
         low_stock_level:
           type: object
-          properties:
         name:
           type: string
         num_reviews:
           type: object
-          properties:
         pre_order:
           type: boolean
         price:
@@ -80,17 +81,15 @@ properties:
           type: number
         rating:
           type: object
-          properties:
         remove_url:
           type: string
+          description: URL to remove the product from the wishlist
         show_cart_action:
           type: boolean
         sku:
           type: object
-          properties:
         stock_level:
           type: object
-          properties:
         summary:
           type: string
         url:
@@ -100,12 +99,11 @@ properties:
           properties:
             formatted:
               type: object
-              properties:
             value:
               type: object
-              properties:
   name:
     type: string
+    description: Customer-defined name of the wishlist.
   pagination:
     type: object
     properties:
@@ -122,11 +120,11 @@ properties:
               type: string
       next:
         type: object
-        properties:
       previous:
         type: object
-        properties:
   share_url:
     type: string
+    description: URL used to share the wishlist.
   token:
     type: string
+    description: Unique public token for the wishlist

@@ -1,4 +1,10 @@
-description: '`{{cart}}` object available to `templates/pages/cart.html`; contains `cart_id` if one exists'
+description: |-
+  The cart-specific properties for the current session.
+
+  `{{cart}}` object available to `templates/pages/cart.html`; contains `cart_id` if one exists.
+
+  **Handlebars Expression**
+  {{cart}}
 type: object
 properties:
   additional_checkout_buttons:
@@ -70,6 +76,7 @@ properties:
                 type: string
         id:
           type: string
+          description: Unique ID of the coupon.
         image:
           $ref: ../common/image.yml
         max_purchase_quantity:
@@ -95,6 +102,7 @@ properties:
           type: integer
         quantity:
           type: integer
+          description: Total number of items in the cart.
         release_date:
           type: string
         remove_url:

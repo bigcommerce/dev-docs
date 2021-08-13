@@ -1,4 +1,7 @@
-description: '`global` `{{social_media}}` array of all social-media site links for the storefront'
+description: |-
+  `global` `{{social_media}}` array of all social-media site links for the storefront.
+
+  **Handlebars Expression** {{social_media}}
 type: array
 items:
   type: object

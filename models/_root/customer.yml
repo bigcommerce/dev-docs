@@ -1,16 +1,23 @@
-description: '`{{customer}}` object available to templates and components with customer context such as `page/contact-us-form.html`, `common/subscription-form.html`, `account/address-list.html`, `account/messages-form.html`, and `account/wishlist-list.html`'
+description: |-
+  `{{customer}}` object available to templates and components with customer context such as `page/contact-us-form.html`, `common/subscription-form.html`, `account/address-list.html`, `account/messages-form.html`, and `account/wishlist-list.html`.
+
+  **Handlebars Expression**
+  {{customer}}
 type: object
 properties:
   addresses:
     $ref: ../customer/addresses.yml
   customer_group_id:
     type: number
+    description: ID of this customer's group.
   customer_group_name:
     type: string
+    description: Name of this customer's group.
   edit_stored_instrument:
     type: string
   email:
     type: string
+    description: Customer’s email address.
   id:
     description: Customer's ID
     type: integer
@@ -38,12 +45,13 @@ properties:
     $ref: ../customer/returns.yml
   shipping_address:
     description: Shipping address used for the order
+    type: object
     properties:
       address1:
-        description: Customer's shipping address, first line
+        description: 'Customer''s shipping address, first line'
         type: string
       address2:
-        description: Customer's shipping address, second line
+        description: 'Customer''s shipping address, second line'
         type: string
       city:
         description: Customer's shipping city
@@ -67,7 +75,7 @@ properties:
         description: Used for custom shipping forms
         type: string
       id:
-        description: Unique, system-generated ID
+        description: 'Unique, system-generated ID'
         type: string
       last_name:
         description: Customer's shipping (last) name
@@ -87,11 +95,11 @@ properties:
       zip:
         description: Customer's shipping zip
         type: string
-    type: object
   shipping_addresses:
     $ref: ../customer/orders.yml
   store_credit:
     description: Customer's store credit
+    type: object
     properties:
       currency:
         type: string
@@ -99,6 +107,5 @@ properties:
         type: string
       value:
         type: number
-    type: object
   wishlists:
     $ref: ../customer/wishlists.yml

@@ -1,4 +1,10 @@
-description: '`global` and template `{{blog}}` objects'
+description: |
+  Blog-specific properties for the blog feature within BigCommerce storefronts. These objects are called on the default `templates/components/blog/post.html` partial.
+
+  `global` and template `{{blog}}` objects
+
+  **Handlebars Expression**
+  `{{blog}}`
 type: object
 oneOf:
   - type: object
@@ -12,7 +18,7 @@ oneOf:
         type: string
         description: Blog name.
       posts:
-          $ref: ../blog/posts.yml
+        $ref: ../blog/posts.yml
       tag:
         type: 'null'
         description: The blog's tag.
@@ -20,14 +26,14 @@ oneOf:
         type: string
         description: URL to the blog page.
   - type: object
-    description: "`global` `{{blog}} object"
+    description: '`global` `{{blog}} object'
     title: blog (blog page)
     properties:
       name:
         type: string
         description: Blog name.
       recent_posts:
-          $ref: ../blog/posts.yml
+        $ref: ../blog/posts.yml
       url:
         type: string
         description: URL to the blog page.

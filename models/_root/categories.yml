@@ -1,5 +1,11 @@
 type: array
-description: '`global` `{{categories}}` array containing categories for the current page context; default sort is by category `id` ascending'
+description: |-
+  A array of category objects filled with all categories shown in the current page context; default sorting is by category ID, from lowest to highest
+
+  `global` `{{categories}}` array 
+
+  **Handlebars Expression**
+  {{categories}}
 items:
   type: object
   properties:
@@ -40,3 +46,6 @@ items:
           children:
             type: array
             description: List of child categories.
+examples:
+  - '<!-- renders a UL of categories for the current page context --> <ul class="people_list"> {{#each categories}} <li>{{this.name}}</li> {{/each}} </ul>'
+title: ''

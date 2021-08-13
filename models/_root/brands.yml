@@ -1,4 +1,4 @@
-description: '{{brands}} object available to `templates/pages/brands.html`'
+description: '`{{brands}}` object available to `templates/pages/brands.html`'
 type: array
 items:
   type: object
