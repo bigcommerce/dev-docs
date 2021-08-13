@@ -39,7 +39,7 @@ Each of the three is an origin channel for a single customer account located wit
 
 Whether each customer account can log in to channels other than its origin channel depends on the value of `allow_global_login` for each channel and the value of `channel_ids` for the customer. 
 
-![Creating%20Channel%20Specific%20Customers%2065fe26925c5049e4b0ee98cdbe3f1539/Untitled.png](Creating%20Channel%20Specific%20Customers%2065fe26925c5049e4b0ee98cdbe3f1539/Untitled.png)
+![creating channel specific customers diagram](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channel-specific-customers.png)
 
 #### Access levels for each customer
 
