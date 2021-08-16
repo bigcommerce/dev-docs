@@ -1393,7 +1393,7 @@ Increments the variable set by [assignVar](#assignVar) by 1.
 {{JSONparse key}}
 ```
 
-Parse data with [JSONparse](#jsonparse).
+Parse data with JSONparse.
 
 #### Parameters
 
