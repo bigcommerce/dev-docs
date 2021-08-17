@@ -206,14 +206,7 @@ paths:
               - formfields
         - in: query
           name: sort
-          description: |-
-            Sort items by date_created or last_name:
-            * `date_created:asc` - date created, ascending
-            * `date_created:desc` - date created, descending
-            * `last_name:asc` - last name, ascending
-            * `last_name:desc` - last name, descending
-
-            Example: `sort=last_name:asc`
+          description: 'Sort items by date_created, date_modified, or last_name:* `date_created:asc` - date created, ascending* `date_created:desc` - date created, descending* `last_name:asc` - last name, ascending* `last_name:desc` - last name, descending * `date_modified:asc` - date modified, ascending* `date_modified:desc`- date modified, descending  Example: `sort=last_name:asc`'
           schema:
             type: string
             enum:
@@ -221,6 +214,8 @@ paths:
               - 'date_created:desc'
               - 'last_name:asc'
               - 'last_name:desc'
+              - 'date_modified:asc'
+              - 'date_modified:desc'
       responses:
         '200':
           $ref: '#/components/responses/CustomerCollectionResponse'
