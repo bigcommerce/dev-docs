@@ -1,50 +1,17 @@
-swagger: '2.0'
+openapi: 3.0.0
 info:
-  version: ''
+  version: 1.0.0-oas3
   title: Geography
   description: >-
-    Get countries, states, and provinces.
-
-
-    - [Authentication](#authentication)
-
-
-    ## Authentication
-
-
-    Authenticate requests by including an
+    Get countries, states, and provinces. - [Authentication](#authentication) ##
+    Authentication Authenticate requests by including an
     [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
-    `access_token` in the request header.
-
-
-    ```http
-
-    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
-
-    Content-Type: application/json
-
-    X-Auth-Token: {{ACCESS_TOKEN}}
-
-    ```
-
-
-    ### OAuth Scopes
-
-    |  **UI Name** | **Permission** | **Parameter** |
-
-    | --- | --- | --- |
-
-    |  Information & Settings | modify | `store_v2_information` |
-
-    |  Information & Settings | read-only | `store_v2_information_read_only` |
-host: api.bigcommerce.com
-basePath: '/stores/{$$.env.store_hash}/v2'
-schemes:
-  - https
-consumes:
-  - application/json
-produces:
-  - application/json
+    `access_token` in the request header. ```http GET
+    https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
+    Content-Type: application/json X-Auth-Token: {{ACCESS_TOKEN}} ``` ### OAuth
+    Scopes |  **UI Name** | **Permission** | **Parameter** | | --- | --- | --- |
+    |  Information & Settings | modify | `store_v2_information` | |  Information
+    & Settings | read-only | `store_v2_information_read_only` |
 paths:
   /countries:
     get:
@@ -56,180 +23,196 @@ paths:
         - name: Accept
           in: header
           required: true
-          type: string
           description: ''
-          default: application/json
+          schema:
+            type: string
+            default: application/json
         - name: Content-Type
           in: header
           required: true
-          type: string
           description: ''
-          default: application/json
+          schema:
+            type: string
+            default: application/json
         - name: page
           in: query
           required: false
-          type: number
-          exclusiveMaximum: false
-          exclusiveMinimum: false
           description: Number of pages
+          schema:
+            type: number
+            exclusiveMinimum: false
+            exclusiveMaximum: false
         - name: limit
           in: query
           required: false
-          type: number
-          exclusiveMaximum: false
-          exclusiveMinimum: false
           description: Count per page
+          schema:
+            type: number
+            exclusiveMinimum: false
+            exclusiveMaximum: false
         - in: query
           name: country
-          type: string
+          schema:
+            type: string
         - in: query
           name: country_iso2
-          type: string
+          schema:
+            type: string
         - in: query
           name: country_iso3
-          type: string
+          schema:
+            type: string
       responses:
         '200':
-          $ref: '#/responses/countryCollection_Resp'
+          $ref: '#/components/responses/countryCollection_Resp'
       tags:
         - Countries
-  '/countries/{id}':
+  /countries/{id}:
     get:
       description: >-
-        Returns a single *Country*. 
-
-
-        Gets a country. A country or territory, identifiable by an ISO 3166
-        country code.
+        Returns a single *Country*.  Gets a country. A country or territory,
+        identifiable by an ISO 3166 country code.
       summary: Get a Country
       parameters:
         - name: id
           in: path
           required: true
-          type: integer
-          exclusiveMaximum: false
-          exclusiveMinimum: false
           description: The id of the country.
+          schema:
+            type: integer
+            exclusiveMinimum: false
+            exclusiveMaximum: false
         - name: Accept
           in: header
           required: true
-          type: string
           description: ''
-          default: application/json
+          schema:
+            type: string
+            default: application/json
         - name: Content-Type
           in: header
           required: true
-          type: string
           description: ''
-          default: application/json
+          schema:
+            type: string
+            default: application/json
       responses:
         '200':
-          $ref: '#/responses/countriesResponse'
+          $ref: '#/components/responses/countriesResponse'
       tags:
         - Countries
     parameters:
       - name: id
         in: path
-        type: string
         required: true
-  '/countries/{country_id}/states':
+        schema:
+          type: string
+  /countries/{country_id}/states:
     get:
       description: |-
         Returns a list of *States* belonging to a *Country*. 
-
         A state or province, identifiable by an ISO 3166 subdivision code.
       summary: Get All Country's States
       parameters:
         - name: country_id
           in: path
           required: true
-          type: integer
-          exclusiveMaximum: false
-          exclusiveMinimum: false
           description: Id of the country
+          schema:
+            type: integer
+            exclusiveMinimum: false
+            exclusiveMaximum: false
         - name: Accept
           in: header
           required: true
-          type: string
           description: ''
+          schema:
+            type: string
         - name: Content-Type
           in: header
           required: true
-          type: string
           description: ''
+          schema:
+            type: string
         - name: state
           in: query
           required: false
-          type: string
           description: Name of the state/province.
+          schema:
+            type: string
         - name: state_abbreviation
           in: query
           required: false
-          type: string
           description: Abbreviation for the state/province.
+          schema:
+            type: string
         - name: page
           in: query
           required: false
-          type: number
-          exclusiveMaximum: false
-          exclusiveMinimum: false
           description: Number of pages
+          schema:
+            type: number
+            exclusiveMinimum: false
+            exclusiveMaximum: false
         - name: limit
           in: query
           required: false
-          type: number
-          exclusiveMaximum: false
-          exclusiveMinimum: false
           description: Count per page
+          schema:
+            type: number
+            exclusiveMinimum: false
+            exclusiveMaximum: false
       responses:
         '200':
-          $ref: '#/responses/countriesStatesCollectionResponse'
+          $ref: '#/components/responses/countriesStatesCollectionResponse'
       tags:
         - States
     parameters:
       - name: country_id
         in: path
-        type: string
         required: true
-  '/countries/{country_id}/states{id}':
+        schema:
+          type: string
+  /countries/{country_id}/states{id}:
     get:
       description: |-
         Returns a *State*. 
-
         A state or province, identifiable by an ISO 3166 subdivision code.
       summary: Get a Country's State
-      produces:
-        - application/json
       parameters:
         - name: country_id
           in: path
           required: true
-          type: integer
-          exclusiveMaximum: false
-          exclusiveMinimum: false
           description: Id of the country
+          schema:
+            type: integer
+            exclusiveMinimum: false
+            exclusiveMaximum: false
         - name: id
           in: path
           required: true
-          type: integer
-          exclusiveMaximum: false
-          exclusiveMinimum: false
           description: Id of the states
+          schema:
+            type: integer
+            exclusiveMinimum: false
+            exclusiveMaximum: false
         - name: Accept
           in: header
           required: true
-          type: string
           description: ''
-          default: application/json
+          schema:
+            type: string
+            default: application/json
         - name: Content-Type
           in: header
           required: true
-          type: string
           description: ''
-          default: application/json
+          schema:
+            type: string
+            default: application/json
       responses:
         '200':
-          $ref: '#/responses/countriesStatesResponse'
+          $ref: '#/components/responses/countriesStatesResponse'
       x-unitTests: []
       x-operation-settings:
         CollectParameters: false
@@ -241,17 +224,19 @@ paths:
     parameters:
       - name: country_id
         in: path
-        type: string
         required: true
+        schema:
+          type: string
       - name: id
         in: path
-        type: string
         required: true
+        schema:
+          type: string
   /countries/count:
     get:
       responses:
         '200':
-          $ref: '#/responses/countResponse'
+          $ref: '#/components/responses/countResponse'
       summary: Get a Count of All Countries
       tags:
         - Countries
@@ -261,7 +246,7 @@ paths:
     get:
       responses:
         '200':
-          $ref: '#/responses/countResponse'
+          $ref: '#/components/responses/countResponse'
       summary: Get a Count of All States
       tags:
         - States
@@ -270,16 +255,16 @@ paths:
     get:
       responses:
         '200':
-          $ref: '#/responses/countriesStatesCollectionResponse'
+          $ref: '#/components/responses/countriesStatesCollectionResponse'
       summary: Get All States
       tags:
         - States
       description: Returns a list of all states.
-  '/countries/{country_id}/states/count':
+  /countries/{country_id}/states/count:
     get:
       responses:
         '200':
-          $ref: '#/responses/countResponse'
+          $ref: '#/components/responses/countResponse'
       summary: 'Get a Count of Country''s States '
       tags:
         - States
@@ -287,143 +272,11 @@ paths:
     parameters:
       - name: country_id
         in: path
-        type: string
         required: true
-definitions:
-  country_Full:
-    title: country_Full
-    example:
-      id: 13
-      country: Australia
-      country_iso2: AU
-      country_iso3: AUS
-      states:
-        url: >-
-          https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states
-        resource: /countries/13/states
-    allOf:
-      - type: object
-        properties:
-          id:
-            type: integer
-            description: Id of the country.
-            example: 13
-      - $ref: '#/definitions/country_Base'
-      - type: object
-        properties:
-          states:
-            $ref: '#/definitions/countriesStates_Full'
-  countriesStates_Full:
-    title: countriesStates_Full
-    type: object
-    properties:
-      url:
-        description: ''
-        example: >-
-          https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states
-        type: string
-      resource:
-        description: ''
-        example: /countries/13/states
-        type: string
-    description: Refers to the `states` object return in `GET` countries requests.
-  countriesState_Full:
-    title: countriesState_Full
-    example:
-      id: 208
-      state: Australian Capital Territory
-      state_abbreviation: ACT
-      country_id: 13
-    type: object
-    properties:
-      id:
-        description: Numeric ID of the state/province.
-        example: 208
-        type: integer
-      state:
-        description: Name of the state/province.
-        example: Australian Capital Territory
-        type: string
-      state_abbreviation:
-        description: Abbreviation for the state/province.
-        example: ACT
-        type: string
-      country_id:
-        description: Numeric ID of the state’s/province’s associated country.
-        example: 13
-        type: integer
-    description: 'Refers to the state returned in `GET` states requests. '
-  country_Base:
-    type: object
-    title: country_Base
-    properties:
-      country:
-        type: string
-        example: Australia
-        description: Country name.
-      country_iso2:
-        type: string
-        description: 2-letter country code.
-        example: AU
-      country_iso3:
-        type: string
-        description: 3-letter country code.
-        example: AUS
-  count_Full:
-    type: object
-    properties:
-      count:
-        type: integer
-        minimum: 1
-securityDefinitions:
-  X-Auth-Token:
-    type: apiKey
-    name: X-Auth-Token
-    in: header
-    description: >-
-      ### OAuth Scopes
-
-      |  **UI Name** | **Permission** | **Parameter** |
-
-      | --- | --- | --- |
-
-      |  Information & Settings | modify | `store_v2_information` |
-
-      |  Information & Settings | read-only | `store_v2_information_read_only` |
-
-
-      ### Headers
-
-
-      |Header|Parameter|Description|
-
-      |-|-|-|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
-
-      ### Example
-
-
-      ```http
-
-      GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
-      host: api.bigcommerce.com
-
-      Content-Type: application/json
-
-      X-Auth-Token: {access_token}
-
-      ```
-
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+        schema:
+          type: string
 security:
   - X-Auth-Token: []
-  - X-Auth-Client: []
 tags:
   - name: Countries
   - name: States
@@ -431,65 +284,185 @@ x-stoplight:
   docs:
     includeDownloadLink: true
     showModels: false
-responses:
-  countriesResponse:
-    description: ''
-    schema:
-      $ref: '#/definitions/country_Full'
-    examples:
-      application/json:
-        id: 1
-        country: Afghanistan
-        country_iso2: AF
-        country_iso3: AFG
+servers:
+  - url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2
+    variables:
+      $$.env.store_hash:
+        default: unknown
+components:
+  responses:
+    countriesResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/country_Full'
+          examples:
+            response:
+              value:
+                id: 1
+                country: Afghanistan
+                country_iso2: AF
+                country_iso3: AFG
+                states:
+                  url: >-
+                    https://api.bigcommerce.com/stores/h10wocxy6s/v2/countries/1/states
+                  resource: /countries/1/states
+    countriesStatesResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/countriesState_Full'
+    countryCollection_Resp:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/country_Full'
+          example:
+                [
+                  {
+                    "id": 1,
+                    "country": "Afghanistan",
+                    "country_iso2": "AF",
+                    "country_iso3": "AFG",
+                    "states": {
+                      "url": "https:\/\/api.bigcommerce.com\/stores\/store_hash\/v2\/countries\/1\/states",
+                      "resource": "\/countries\/1\/states"
+                    }
+                  },
+                  {
+                    "id": 2,
+                    "country": "Albania",
+                    "country_iso2": "AL",
+                    "country_iso3": "ALB",
+                    "states": {
+                      "url": "https:\/\/api.bigcommerce.com\/stores\/store_hash\/v2\/countries\/2\/states",
+                      "resource": "\/countries\/2\/states"
+                    }
+                  }
+                  ]
+    countriesStatesCollectionResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/countriesState_Full'
+    countResponse:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/count_Full'
+          examples:
+            response:
+              value:
+                count: 241
+  securitySchemes:
+    X-Auth-Token:
+      type: apiKey
+      name: X-Auth-Token
+      in: header
+      description: >-
+        ### OAuth Scopes |  **UI Name** | **Permission** | **Parameter** | | ---
+        | --- | --- | |  Information & Settings | modify |
+        `store_v2_information` | |  Information & Settings | read-only |
+        `store_v2_information_read_only` | ### Headers
+        |Header|Parameter|Description| |-|-|-| |`X-Auth-Token`|`access_token
+        `|Obtained by creating an API account or installing an app in a
+        BigCommerce control panel.| ### Example ```http GET
+        /stores/{$$.env.store_hash}/v3/catalog/summary host: api.bigcommerce.com
+        Content-Type: application/json X-Auth-Token: {access_token} ``` * For
+        more information on Authenticating BigCommerce APIs, see:
+        [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+  schemas:
+    country_Full:
+      title: country_Full
+      example:
+        id: 13
+        country: Australia
+        country_iso2: AU
+        country_iso3: AUS
         states:
-          url: 'https://api.bigcommerce.com/stores/h10wocxy6s/v2/countries/1/states'
-          resource: /countries/1/states
-  countriesStatesResponse:
-    description: ''
-    schema:
-      $ref: '#/definitions/countriesState_Full'
-  countryCollection_Resp:
-    description: ''
-    schema:
-      type: array
-      items:
-        $ref: '#/definitions/country_Full'
-    examples:
-      application/json: |-
-        [
-          {
-            "id": 1,
-            "country": "Afghanistan",
-            "country_iso2": "AF",
-            "country_iso3": "AFG",
-            "states": {
-              "url": "https:\/\/api.bigcommerce.com\/stores\/store_hash\/v2\/countries\/1\/states",
-              "resource": "\/countries\/1\/states"
-            }
-          },
-          {
-            "id": 2,
-            "country": "Albania",
-            "country_iso2": "AL",
-            "country_iso3": "ALB",
-            "states": {
-              "url": "https:\/\/api.bigcommerce.com\/stores\/store_hash\/v2\/countries\/2\/states",
-              "resource": "\/countries\/2\/states"
-            }
-          },
-          // ...
-          ]
-  countriesStatesCollectionResponse:
-    description: ''
-    schema:
-      type: array
-      items:
-        $ref: '#/definitions/countriesState_Full'
-  countResponse:
-    description: ''
-    schema:
-      $ref: '#/definitions/count_Full'
-    examples:
-      application/json:
-        count: 241
+          url: >-
+            https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states
+          resource: /countries/13/states
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: integer
+              description: Id of the country.
+              example: 13
+        - $ref: '#/components/schemas/country_Base'
+        - type: object
+          properties:
+            states:
+              $ref: '#/components/schemas/countriesStates_Full'
+    countriesStates_Full:
+      title: countriesStates_Full
+      type: object
+      properties:
+        url:
+          description: ''
+          example: >-
+            https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states
+          type: string
+        resource:
+          description: ''
+          example: /countries/13/states
+          type: string
+      description: Refers to the `states` object return in `GET` countries requests.
+    countriesState_Full:
+      title: countriesState_Full
+      example:
+        id: 208
+        state: Australian Capital Territory
+        state_abbreviation: ACT
+        country_id: 13
+      type: object
+      properties:
+        id:
+          description: Numeric ID of the state/province.
+          example: 208
+          type: integer
+        state:
+          description: Name of the state/province.
+          example: Australian Capital Territory
+          type: string
+        state_abbreviation:
+          description: Abbreviation for the state/province.
+          example: ACT
+          type: string
+        country_id:
+          description: Numeric ID of the state’s/province’s associated country.
+          example: 13
+          type: integer
+      description: 'Refers to the state returned in `GET` states requests. '
+    country_Base:
+      type: object
+      title: country_Base
+      properties:
+        country:
+          type: string
+          example: Australia
+          description: Country name.
+        country_iso2:
+          type: string
+          description: 2-letter country code.
+          example: AU
+        country_iso3:
+          type: string
+          description: 3-letter country code.
+          example: AUS
+    count_Full:
+      type: object
+      properties:
+        count:
+          type: integer
+          minimum: 1
