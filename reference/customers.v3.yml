@@ -1738,7 +1738,7 @@ components:
             example-1:
               value:
                 data:
-                  - email: string
+                  - email: string@example.com
                     first_name: string
                     last_name: string
                     company: string
@@ -1769,25 +1769,11 @@ components:
                         customer_id: 0
                         id: 0
                         country: string
-                        form_fields:
-                          - name: color
-                            value: blue
-                            customer_id: 0
-                    attributes:
-                      - name: string
-                        type: string
-                        id: 0
-                        date_modified: '2019-08-24T14:15:22Z'
-                        date_created: '2019-08-24T14:15:22Z'
-                    form_fields:
-                      - name: color
-                        value: blue
-                        customer_id: 0
                     store_credit_amounts:
                       - amount: 43.15
                     accepts_product_review_abandoned_cart_emails: true
                     channel_ids:
-                      - 0
+                      - 1
                 meta:
                   pagination:
                     total: 0
@@ -3477,9 +3463,9 @@ components:
       uniqueItems: true
       minItems: 0
       example:
-          - essential
-          - targeting
-          - functional
+        - essential
+        - targeting
+        - functional
       items:
         type: string
         enum:
@@ -3492,8 +3478,8 @@ components:
       type: array
       uniqueItems: true
       minItems: 0
-      example: 
-          - analytics
+      example:
+        - analytics
       items:
         type: string
         enum:
@@ -3566,7 +3552,7 @@ components:
         last_4:
           type: string
           description: Last four digits of this card
-          example: "1111"
+          example: '1111'
         billing_address:
           $ref: '#/components/schemas/BillingAddress'
       description: 'Details about a stored card instrument which includes details around billing, last 4 digits, issuer, etc.'
@@ -3647,7 +3633,7 @@ components:
         state_or_province:
           type: string
           description: Represents state or province
-          example: 'Nevada'
+          example: Nevada
         state_or_province_code:
           type: string
           example: NV
