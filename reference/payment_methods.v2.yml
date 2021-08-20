@@ -2,44 +2,27 @@ swagger: '2.0'
 info:
   version: ''
   title: Payment Methods
-  description: >-
-    Get a list of a store's enabled payment methods. For processing payments,
-    see [Payment Processing API](/api-docs/payments/payments-api-overview).
-
+  description: |-
+    Get a list of a store's enabled payment methods. For processing payments, see [Payment Processing API](/api-docs/payments/payments-api-overview).
 
     - [Authentication](#authentication)
-
     - [Subresources](#subresources)
-
     - [Additional Resources](#additional-resources)
-
 
     ## Authentication
 
-
-    Authenticate requests by including an
-    [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
-    `access_token` in the request header.
-
+    Authenticate requests by including an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` in the request header.
 
     ```http
-
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/{{ENDPOINT}}
-
     Content-Type: application/json
-
     X-Auth-Token: {{ACCESS_TOKEN}}
-
     ```
 
-
     ### OAuth Scopes
-
     |  **UI Name** | **Permission** | **Parameter** |
-
     | --- | --- | --- |
-
-    |  Get Payment Methods | read-only | `store_payments_methods_read` |
+    |  Information & Settings | read-only | `store_payments_methods_read` |
   termsOfService: ''
   license:
     name: ''
@@ -54,9 +37,21 @@ produces:
 paths:
   /payments/methods:
     get:
-      description: >-
-        Gets the list of enabled payment methods. Default sorting is by payment
-        method, alphabetically from A to Z.
+      description: |-
+        Gets the list of enabled payment methods. Default sorting is by payment method, alphabetically from A to Z.
+
+
+        <div class=\"HubBlock--callout\">
+        <div class=\"CalloutBlock--info\">
+        <div class=\"HubBlock-content\">
+
+         ### Note:
+        Avoid using this API operation if possible. It is not supported; therefore, all enabled providers may not appear.
+
+         </div>
+         </div>
+         </div>
+         
       summary: Get All Payment Methods
       parameters:
         - name: Accept
@@ -114,9 +109,7 @@ definitions:
         example: Square
         type: string
       test_mode:
-        description: >-
-          Determines whether the payment gateway is in test mode. Always false
-          for offline payment methods.
+        description: Determines whether the payment gateway is in test mode. Always false for offline payment methods.
         example: false
         type: boolean
 tags:
@@ -126,45 +119,28 @@ securityDefinitions:
     type: apiKey
     name: X-Auth-Token
     in: header
-    description: >-
+    description: |-
       ### OAuth Scopes
-
       |  **UI Name** | **Permission** | **Parameter** |
-
       | --- | --- | --- |
-
       |  Get Payment Methods | read-only | `store_payments_methods_read` |
-
 
       ### Headers
 
-
       |Header|Parameter|Description|
-
       |-|-|-|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
       ### Example
 
-
       ```http
-
       GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
       host: api.bigcommerce.com
-
       Content-Type: application/json
-
       X-Auth-Token: {access_token}
-
       ```
 
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
