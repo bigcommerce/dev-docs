@@ -2519,7 +2519,7 @@ definitions:
               option_id:
                 type: number
               option_value:
-                type: string
+                type: integer
               name:
                 type: string
                 description: Override selected Option or Modifier Name
@@ -2533,6 +2533,7 @@ definitions:
       required:
         - quantity
         - product_id
+    description: ''
   Cart_Line_Item_Update_Post:
     type: object
     title: Cart_Line_Item_Update_Post
