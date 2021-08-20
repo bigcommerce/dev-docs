@@ -73,7 +73,7 @@ info:
     |Type|Platform|Allowed Statuses|
     |--|--|--|
     |`storefront`|`bigcommerce`|`prelaunch`, `active`, `inactive`, `archived`, `deleted`|
-    |`storefront`|**Is not** `bigcommerce` |`active`, `inactive`, `disconnected`, `archived`, `deleted`
+    |`storefront`|**Is not** `bigcommerce` |`active`, `inactive`, `archived`, `deleted`
     |`marketing`, `marketplace`, `pos`|N/A|`connected`, `disconnected`, `archived`, `deleted`|
 
     <div class="HubBlock--callout">
@@ -1605,6 +1605,7 @@ components:
         - archived
         - deleted
         - terminated
+      title: ''
     ChannelName:
       type: string
       description: Name of the channel as it will appear to merchants in the control panel.
