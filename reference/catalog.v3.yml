@@ -16373,7 +16373,21 @@ paths:
       operationId: updatesortorder
       responses:
         '200':
-          $ref: '#/responses/ProductSortOrderResponse'
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/productSortOrder'
+          examples:
+            Example:
+              - product_id: 88
+                sort_order: 1
+              - product_id: 93
+                sort_order: 2
+              - product_id: 94
+                sort_order: null
+              - product_id: 97
+                sort_order: 3
         '404':
           $ref: '#/responses/Error404Response'
         '422':
@@ -16393,7 +16407,19 @@ paths:
         - in: body
           name: body
           schema:
-            $ref: '#/definitions/productSortOrder'
+            type: array
+            items:
+              $ref: '#/definitions/productSortOrder'
+          x-examples:
+            Example:
+              - product_id: 88
+                sort_order: 1
+              - product_id: 93
+                sort_order: 2
+              - product_id: 94
+                sort_order: null
+              - product_id: 97
+                sort_order: 3
       tags:
         - Product Sort Order
 parameters:
@@ -21334,23 +21360,21 @@ definitions:
     type: object
   productSortOrder:
     title: productSortOrder
-    type: array
     description: The relative priority of the product among other products inside the category.
-    items:
-      type: object
-      properties:
-        product_id:
-          type: integer
-          description: The ID of the associated product.
-          example: 99
-          minimum: 1
-        sort_order:
-          type: integer
-          example: 4
-          minimum: 0
-      required:
-        - product_id
-        - sort_order
+    type: object
+    properties:
+      product_id:
+        type: integer
+        description: The ID of the associated product.
+        example: 99
+        minimum: 1
+      sort_order:
+        type: integer
+        minimum: 0
+        example: 4
+    required:
+      - product_id
+      - sort_order
 securityDefinitions:
   X-Auth-Token:
     type: apiKey
