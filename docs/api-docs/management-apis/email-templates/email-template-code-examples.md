@@ -19,7 +19,7 @@ This article contains code examples that you can use in your store's control pan
 | Phrase name | Phrase value|
 |-|-|
 | subject | Password change request for {store}|
-| title | Hello {name} |
+| title | Hello {name}, |
 | message | You recently requested to reset your password. Just click the button to set a new password.|
 | password | Set a new password|
 
@@ -28,6 +28,20 @@ This article contains code examples that you can use in your store's control pan
 [Image]()
 
 ## Account created
+
+| Phrase name | Phrase value |
+|-|-|
+|subject | Welcome to the {store}|
+| hello | Hello {name}, |
+| message | You have been added to our mailing list and will now be among the first to hear about new arrivals, big events, and special offers. Start enjoying an enriched {store} experience with your new account. |
+| sign_in | Go to my account|
+| help | If you have any questions regarding your account, click 'Reply' in your email client and we'll be only too happy to help.|
+| thanks | Thanks,|
+| goodbye | {store} |
+
+[Code example]()
+
+[Image]()
 
 ## Abandoned cart
 
