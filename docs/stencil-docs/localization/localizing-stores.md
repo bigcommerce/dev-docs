@@ -52,7 +52,6 @@ BigCommerce supports these uneditable strings in the following languages:
 * [German](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-de-DE.po)
 * [Italian](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-it-IT.po)
 * [Portuguese (Brazil)](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-pt-BR.po)
-* [Spanish (Mexico)](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-es-MX.po)
 * [Swedish](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-sv-SE.po)
 
 
@@ -155,7 +154,4 @@ To customize payment and checkout messages, define these variables in the theme 
 * [German](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-de-DE.po)
 * [Italian](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-it-IT.po)
 * [Portuguese (Brazil)](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-pt-BR.po)
-
-* [Spanish (Mexico)](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-es-MX.po)
-
 * [Swedish](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-sv-SE.po)
