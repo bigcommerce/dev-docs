@@ -29,17 +29,26 @@ This article contains code examples that you can use in your store's control pan
 
 ## Account created
 
-| Phrase name | Phrase value |
-|-|-|
-|subject | Welcome to the {store}|
-| hello | Hello {name}, |
-| message | You have been added to our mailing list and will now be among the first to hear about new arrivals, big events, and special offers. Start enjoying an enriched {store} experience with your new account. |
-| sign_in | Go to my account|
-| help | If you have any questions regarding your account, click 'Reply' in your email client and we'll be only too happy to help.|
-| thanks | Thanks,|
-| goodbye | {store} |
+Using the account created template, here is an example of how you can add a button to your email.
 
-[Code example]()
+Copy and paste the contents below into the Content Code editor. A blue button with white text 
+
+```html
+<table class="row">
+  <tr>
+     <th class="column">
+          <table>
+             <tr>
+                <th>
+                   <a href="{{store.path}}" style = "background-color:blue; color:white" class="sigh-in">Sign-in</a>
+                 </th>
+                <th class="expander"></th>
+            </tr>
+        </table>
+    </th>
+  </tr>
+</table>
+```
 
 [Image]()
 
