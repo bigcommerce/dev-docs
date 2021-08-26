@@ -307,6 +307,39 @@ paths:
                           value: '180'
                         - id: 230
                           value: '192'
+              Product with a Drop Down and a Text Field Modifier:
+                value:
+                  status_id: 0
+                  customer_id: 11
+                  billing_address:
+                    first_name: Jane
+                    last_name: Doe
+                    street_1: 123 Main Street
+                    city: Austin
+                    state: Texas
+                    zip: '78751'
+                    country: United States
+                    country_iso2: US
+                    email: janedoe@example.com
+                  shipping_addresses:
+                    - first_name: Trish
+                      last_name: Test
+                      company: Acme Pty Ltd
+                      street_1: 666 Sussex St
+                      city: Austin
+                      state: Texas
+                      zip: '78751'
+                      country: United States
+                      country_iso2: US
+                      email: elsie@example.com
+                  products:
+                    - product_id: 184
+                      quantity: 5
+                      product_options:
+                        - id: 200
+                          value: '180'
+                        - id: 230
+                          value: 'Custom Message'
               Multiple Products:
                 value:
                   status_id: 0
@@ -4268,16 +4301,6 @@ components:
         - Empty strings `''` and `null` are invalid for `xxx` and `xxx_customer, and `xxx_merchant`.
         - `xxx`, `xxx_customer`, and `xxx_merchant` default to the value from `catalog` if not supplied in the request.
       type: object
-      x-examples:
-        Product With a Drop Down and a Text Field Modifier:
-          value:
-            product_id: 100
-            quantity: 1
-            product_options:
-              - id: 111
-                value: '123'
-              - id: 112
-                value: 'Custom Message'
       properties:
         product_id:
           type: integer
@@ -4297,7 +4320,7 @@ components:
           description: The product name that is shown to merchant in control panel.
         product_options:
           type: array
-          description: '`product_options` are required when adding a product with variants.'
+          description: 'List of product variant options and modifiers. `product_options` are required when adding a product with variants and not specifying the `variant_id`, or when products have mandatory modifiers.'
           items:
             type: object
             properties:
