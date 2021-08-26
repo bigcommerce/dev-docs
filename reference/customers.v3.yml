@@ -554,6 +554,21 @@ paths:
               type: array
               items:
                 $ref: '#/components/schemas/address_Post'
+            examples:
+              example-1:
+                value:
+                  - first_name: string
+                    last_name: string
+                    company: string
+                    address1: string
+                    address2: string
+                    city: string
+                    state_or_province: New South Wales
+                    postal_code: string
+                    country_code: AU
+                    phone: string
+                    address_type: residential
+                    customer_id: 1
         required: true
         x-examples:
           application/json:
@@ -821,6 +836,15 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CustomerSettingsObject'
+            examples:
+              example-1:
+                value:
+                  privacy_settings:
+                    ask_shopper_for_tracking_consent: true
+                    policy_url: 'https://bigcommmerce.com/policy'
+                  customer_group_settings:
+                    guest_customer_group_id: 0
+                    default_customer_group_id: 0
         required: true
       responses:
         '200':
@@ -3664,7 +3688,7 @@ components:
               description: Determines if a customer requires consent for tracking privacy.
             policy_url:
               type: string
-              example: "https://bigcommmerce.com/policy"
+              example: 'https://bigcommmerce.com/policy'
               description: The URL for a website's privacy policy
         customer_group_settings:
           type: object
@@ -3691,7 +3715,7 @@ components:
               description: Determines if a customer requires consent for tracking privacy
             policy_url:
               type: string
-              example: "https://bigcommmerce.com/policy"
+              example: 'https://bigcommmerce.com/policy'
               description: The URL for a website's privacy policy
         customer_group_settings:
           type: object
