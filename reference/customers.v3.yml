@@ -3664,6 +3664,7 @@ components:
               description: Determines if a customer requires consent for tracking privacy.
             policy_url:
               type: string
+              example: "https://bigcommmerce.com/policy"
               description: The URL for a website's privacy policy
         customer_group_settings:
           type: object
@@ -3671,9 +3672,11 @@ components:
           properties:
             guest_customer_group_id:
               type: integer
+              example: 0
               description: The ID for a guest customer group
             default_customer_group_id:
               type: integer
+              example: 0
               description: The ID for a default customer group
     CustomerChannelSettingsObject:
       title: CustomerChannelSettingsObject
@@ -3688,6 +3691,7 @@ components:
               description: Determines if a customer requires consent for tracking privacy
             policy_url:
               type: string
+              example: "https://bigcommmerce.com/policy"
               description: The URL for a website's privacy policy
         customer_group_settings:
           type: object
@@ -3695,9 +3699,11 @@ components:
           properties:
             guest_customer_group_id:
               type: integer
+              example: 0
               description: The ID for a guest customer group
             default_customer_group_id:
               type: integer
+              example: 0
               description: The ID for a default customer group
         allow_global_logins:
           type: boolean
