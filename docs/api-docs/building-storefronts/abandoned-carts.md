@@ -6,7 +6,7 @@
 
 - [Abandoned Cart Saver](#abandoned-cart-saver)
 - [Recreating abandoned cart experience](#recreating-abandoned-cart-experience)
-- [Cart recovery and custom solutions](#cart-recovery-and-custom-solutions)
+- [Cart recovery and custom checkout solutions](#cart-recovery-and-custom-checkout-solutions)
 - [Resources](#resources)
 
 </div>
@@ -163,7 +163,7 @@ You can test the route creation by sending a `GET` request to [Get a Site's Rout
 
 After you set up the `recover_abandoned_cart` site route, BigCommerce will use it to point shoppers to the abandoned cart page on your headless store.
 
-## Cart recovery and custom solutions
+## Cart recovery and custom checkout solutions
 
 To trigger this abandoned cart recovery experience, the cart must be associated with a channel ID and be aware of the shopper's email address. Headless storefronts using custom checkout solutions can to leverage BigCommerce's Customers and Carts APIs to initiate the abandoned cart recovery experience. 
 
