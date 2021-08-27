@@ -4,7 +4,6 @@
 
 ### On this page
 
-- [Cart abandonment](#cart-abandonment)
 - [Abandoned Cart Saver](#abandoned-cart-saver)
 - [Recreating abandoned cart experience](#recreating-abandoned-cart-experience)
 - [Resources](#resources)
