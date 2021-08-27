@@ -6,6 +6,7 @@
 
 - [Abandoned Cart Saver](#abandoned-cart-saver)
 - [Recreating abandoned cart experience](#recreating-abandoned-cart-experience)
+- [Cart recovery and custom solutions](#cart-recovery-and-custom-solutions)
 - [Resources](#resources)
 
 </div>
@@ -161,6 +162,134 @@ Accept: application/json
 You can test the route creation by sending a `GET` request to [Get a Site's Routes](https://developer.bigcommerce.com/api-reference/store-management/sites/site-routes/index-site-routes) endpoint to retrieve the routes associated with your headless storefront's domain.
 
 After you set up the `recover_abandoned_cart` site route, BigCommerce will use it to point shoppers to the abandoned cart page on your headless store.
+
+## Cart recovery and custom solutions
+
+To trigger this abandoned cart recovery experience, the cart must be associated with a channel ID and be aware of the shopper's email address. Headless storefronts using custom checkout solutions can to leverage BigCommerce's Customers and Carts APIs to initiate the abandoned cart recovery experience. 
+
+The following example demonstrates how to create a cart and associate it to the headless storefront without going though BigCommerce's [Open Checkout](https://github.com/bigcommerce/checkout-js).
+
+1. Link your headless storefront to your sales channel by sending a `POST` request to the `/sites` endpoint.
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "url": "http://commerce-zr8y-teststore-bigcommerce.vercel.app",
+  "channel_id": 773240
+}
+```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/sites/sites/post-site#requestrunner)
+
+2. Using the [Site Routes](https://developer.bigcommerce.com/api-reference/store-management/sites/site-routes/post-site-route) endpoint, create `cart` and `recover_abandoned_cart` routes.
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "matching": "*",
+  "route": "/my-abandoned-cart-page/",
+  "type": "recover_abandoned_cart"
+}
+
+```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/sites/site-routes/post-site-route#requestrunner)
+
+3. To create a customer, send a `POST` request to the `/customers` endpoint. In the request body, set `accepts_product_review_abandoned_cart_emails` to `true` to enable Abandoned Cart Saver notifications. This will create a customer account that can receive Abandoned Cart Saver emails.
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/customers
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+[
+ {
+   "email": "test_user@bigcommerce.com",
+   "first_name": "Jane",
+   "last_name": "Doe",
+   "addresses": [
+     {
+       "address1": "123 Main St",
+       "address2": "",
+       "address_type": "residential",
+       "city": "Austin",
+       "country_code": "US",
+       "first_name": "Jane",
+       "last_name": "Doe",
+       "phone": "512-111-0000",
+       "postal_code": "78701",
+       "state_or_province": "Texas"
+     }
+   ],
+   "accepts_product_review_abandoned_cart_emails": true,
+   "origin_channel_id": 773240,
+   "channel_ids": [
+     773240
+   ]
+ }
+]
+```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customerspost#requestrunner)
+
+4. Create a cart passing in the customer ID and the channel ID. Send a `POST` request to the `/carts` endpoint to create a cart. Include the customer ID and channel ID in the request body so that the correct site and routes are used to create the URL used in transactional emails.
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/carts
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "base_amount": 25,
+  "cart_amount": 25,
+  "channel_id": 773240,
+  "currency": {
+    "code": "USD"
+  },
+  "customer_id": 2,
+  "discount_amount": 0,
+  "line_items": [
+      {
+        "coupon_amount": 0,
+        "coupons": [],
+        "discount_amount": 0,
+        "discounts": [],
+        "extended_list_price": 25,
+        "extended_sale_price": 25,
+        "id": "5572bddf-f24d-4f4a-a1b6-29d4519494a6",
+        "image_url": "https://cdn11.bigcommerce.com/s-hg3tj17dfi/product_images/attribute_rule_images/8_thumb_1629748882.png",
+        "is_mutable": true,
+        "is_require_shipping": true,
+        "list_price": 25,
+        "name": "Short sleeve t-shirt",
+        "parent_id": null,
+        "product_id": 114,
+        "quantity": 1,
+        "sale_price": 25,
+        "sku": "5F6D82D6569C0_8579",
+        "taxable": true,
+        "url": "https://next-storefront2.mybigcommerce.com/ladies-short-sleeve-t-shirt/",
+        "variant_id": 85
+      }
+    ],
+  "locale": "en",
+  "tax_included": false
+}
+```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/carts/cart/createacart#requestrunner)
+
+This will create a cart associated with the headless storefront without using BigCommerce's Open Checkout. Because the payment was never attempted, this cart will be treated as abandoned initiating the abandoned cart recovery experience. 
 
 ## Resources
 
