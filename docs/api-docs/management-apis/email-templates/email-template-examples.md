@@ -11,7 +11,7 @@
 
 </div>
 
-This article provides examples of how to customize email templates if you are using the latest version. You can enable the new version of transactional emails by going to **Marketing> Transactional Emails** and clicking **Try New Experience**. When you are ready to use a template, make sure you **Enable** the template from the respective dropdown. 
+This article provides examples of how to customize email templates. The examples are for use in the the recently updated templates. You can enable the new version of transactional emails by going to **Marketing> Transactional Emails** and clicking **Try New Experience**. When you are ready to use a template, make sure you **Enable** the template from the respective dropdown. 
 
 Code examples below will demonstrate how to update text, add a button, change logo size, and change the font size.
 
