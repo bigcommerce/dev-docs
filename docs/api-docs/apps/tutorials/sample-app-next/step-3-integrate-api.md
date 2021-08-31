@@ -307,9 +307,45 @@ For MySQL configuration instructions, see [Set up MySQL database](#set-up-mysql-
 
 ## Set up Firebase database
 
-[Cloud Firestore](https://firebase.google.com/docs/firestore/quickstart) is a cloud-hosted NoSQL Firebase database. Start by creating a Firebase project and a Cloud Firestore database. For a quickstart on how to set up your Cloud Firestore, see [Get started](https://firebase.google.com/docs/firestore/quickstart).
+[Cloud Firestore](https://firebase.google.com/docs/firestore/quickstart) is a cloud-hosted NoSQL Firebase database built on Google's infrastructure. To learn more about Firebase, including how-to guides and code samples, see [Firebase Documentation](https://firebase.google.com/docs). For a quickstart on how to set up your Cloud Firestore, see [Get started](https://firebase.google.com/docs/firestore/quickstart).
 
-Make a note of the Firebase `apiKey`, `authDomain`, and `projectId`. You will need that information to update the app's environment variables in the next step.
+### Create a Firebase project
+
+1. Log into [Cloud Firestore](https://firebase.google.com/products/firestore) using your Google account. To create a Google account, visit the [Google signup page](https://accounts.google.com/signup/v2/webcreateaccount?hl=en&flowName=GlifWebSignIn&flowEntry=SignUp).
+
+2. Once logged in, click **Go to console** in the top right corner.
+
+3. In the Firebase console, click **Add project**.
+
+4. Enter your project name.
+
+5. You may choose to enable Google Analytics for your project (optional).
+
+6. Click **Continue**.
+
+7. Click **Create a project**.
+
+### Create a Firebase config
+
+1. In your Firebase project console, click on the **settings icon** that resembles a gear in the top left corner.
+
+2. Select **Project settings** from the dropdown menu.
+
+3. Under the **General** tab, scroll down to **Your apps** and select the **web** platform.
+
+4. Type in the name of your app and click **Register app**.
+
+5. Make a note of the Firebase `apiKey`, `authDomain`, and `projectId`. You will need that information to update the app's environment variables.
+
+### Create a Cloud Firestore database
+
+1. In your Firebase console, click **Firestore Database** in the left pane. Follow the steps to create a Cloud Firestore database.
+
+2. Click **Create database**.
+
+3. Choose **Start in test mode**.
+
+4. Select your Cloud Firestore location and click **Enable**.
 
 ### Update environment variables
 
