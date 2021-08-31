@@ -317,13 +317,9 @@ For MySQL configuration instructions, see [Set up MySQL database](#set-up-mysql-
 
 3. In the Firebase console, click **Add project**.
 
-4. Enter your project name.
+4. Enter your project name and click **Continue**.
 
-5. You may choose to enable Google Analytics for your project (optional).
-
-6. Click **Continue**.
-
-7. Click **Create a project**.
+5. Click **Create project**.
 
 ### Create a Firebase config
 
@@ -331,7 +327,7 @@ For MySQL configuration instructions, see [Set up MySQL database](#set-up-mysql-
 
 2. Select **Project settings** from the dropdown menu.
 
-3. Under the **General** tab, scroll down to **Your apps** and select the **web** platform.
+3. Under the **General** tab, scroll down to **Your apps** and click on the **code icon** to select the web platform.
 
 4. Type in the name of your app and click **Register app**.
 
@@ -339,7 +335,7 @@ For MySQL configuration instructions, see [Set up MySQL database](#set-up-mysql-
 
 ### Create a Cloud Firestore database
 
-1. In your Firebase console, click **Firestore Database** in the left pane. Follow the steps to create a Cloud Firestore database.
+1. In your Firebase console, click **Firestore Database** under **Build** in the left pane. Follow the steps to create a Cloud Firestore database.
 
 2. Click **Create database**.
 
