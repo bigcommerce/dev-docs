@@ -327,7 +327,7 @@ For MySQL configuration instructions, see [Set up MySQL database](#set-up-mysql-
 
 2. Select **Project settings** from the dropdown menu.
 
-3. Under the **General** tab, scroll down to **Your apps** and click on the **code icon** to select the web platform.
+3. Under the **General** tab, scroll down to **Your apps** and click on the **code icon** (</>) to select the web platform.
 
 4. Type in the name of your app and click **Register app**.
 
