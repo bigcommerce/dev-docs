@@ -59,11 +59,8 @@ You can review these strings by downloading the language files we have made avai
 
 ## Localizing checkout
 
-Localizing your theme's checkout and order confirmation pages requires customizations within:
+Localizing your theme's checkout and order confirmation pages requires customizations within the default checkout page and the order confirmation HTML file. See [Multi-language setup](https://developer.bigcommerce.com/stencil-docs/localization/multi-language-checkout) for details.
 
-* the corresponding templates ([checkout.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/checkout.html) and [order-confirmation.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/order-confirmation.html))
-* each [JSON translation file](https://github.com/bigcommerce/cornerstone/tree/master/lang)
-* the [BigCommerce control panel](http://login.bigcommerce.com/deep-links/manage/)
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
