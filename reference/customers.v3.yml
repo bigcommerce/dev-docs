@@ -917,24 +917,23 @@ paths:
           name: channel_id
           schema:
             type: integer
-          examples:
-            example-1:
-              value:
-                privacy_settings:
-                  ask_shopper_for_tracking_consent: true
-                  policy_url: 'https://bigcommmerce.com/policy'
-                customer_group_settings:
-                  guest_customer_group_id: 0
-                  default_customer_group_id: 0
-                allow_global_logins: true
           required: true
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CustomerChannelSettingsObject'
+              $ref: '#/components/schemas/CustomerChannelSettingsObject'        
+            examples:
+                example-1:
+                  value:
+                    privacy_settings:
+                      ask_shopper_for_tracking_consent: true
+                      policy_url: 'https://bigcommmerce.com/policy'
+                    customer_group_settings:
+                      guest_customer_group_id: 0
+                      default_customer_group_id: 0
+                    allow_global_logins: true
         required: true
-        description: ''
       responses:
         '200':
           description: Customer settings are returned.
@@ -953,12 +952,6 @@ paths:
                       guest_customer_group_id: 0
                       default_customer_group_id: 0
                     allow_global_logins: true
-    parameters:
-      - schema:
-          type: integer
-        name: channel_id
-        in: path
-        required: true
   /customers/attributes:
     get:
       description: Returns a list of Customer Attributes. You can pass in optional filter parameters.
