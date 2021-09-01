@@ -26,12 +26,12 @@ Custom theme uploads must meet these restrictions:
 |:- | - |
 | TR-100, -101, -700, -1200, -1300 | A server error occurred. |
 | TR-200 | Problem uploading the theme. |
-| TR-300 | Invalid zip file. (Among other possible root causes, this can indicate an included <code>bundle.js.map</code> source-map file that exceeds its size limit of 5 MB. As a workaround, move this file outside your theme directory before re-running <code>stencil bundle</code>). |
+| TR-300 | Invalid zip file. (Among other possible root causes, this can indicate an included `bundle.js.map` source-map file that exceeds its size limit of 5 MB. As a workaround, move this file outside your theme directory before re-running `stencil bundle`.) |
 | TR-301 | Failed to unzip file. |
 | TR-400 | The zip contains restricted/invalid file(s) - e.g., a file with an invalid extension. |
 | TR-500 | The zip file is larger than the 50 MB limit, or the parsed JSON for templates exceeds the 1 MB size limit. |
-| TR-600 | The zip file is missing a required file (<code>theme-name/templates/pages/home.html</code>). |
-| TR-601 | The zip file is missing some parsed template file(s); or, one or more non-<code>.html</code> files are present in the <code>theme-name/templates/</code></nobr> subdirectory. |
+| TR-600 | The zip file is missing a required file (`theme-name/templates/pages/home.html`). |
+| TR-601 | The zip file is missing some parsed template file(s); or, one or more non-`.html` files are present in the `theme-name/templates/`</nobr> subdirectory. |
 | TR-800 | There was a problem processing the contained `config.json` file. <b>Please check the `config.json` documentation for the required keys and for keys that require values. |
 | TR-900 | The contained `config.json` file is missing the required developer information. |
 | TR-901 | A theme variation defined in the contained config.json file is missing its required external ID. |
@@ -44,8 +44,8 @@ Custom theme uploads must meet these restrictions:
 | TR-1600 | There was a temporary problem on our system. Please try again. |
 | TR-1601 | There was a problem with processing screenshots. |
 | TR-1700, -1800, -1801, -1802, -1803 | System error, possibly temporary. Please try again. |
-| TR-3402 | You are not allowed to edit your active theme. [Please select <code>Make a Copy</code>, then edit the resulting copy of your theme.] |
-| TR-4400 | One or more values in the <code>config.json</code> file exceed the 64-character limit. (Can also indicate string lengths that exceed their limits in other JSON files.) |
+| TR-3402 | You are not allowed to edit your active theme. [Please select `Make a Copy`, then edit the resulting copy of your theme.] |
+| TR-4400 | One or more values in the `config.json` file exceed the 64-character limit. (The 64-character limit only applies to values in `config.json` that are both greater than 64 characters and mapped to a text input in the theme's `schema.json` file.) |
 
 ## Warnings
 
