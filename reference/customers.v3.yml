@@ -3714,6 +3714,15 @@ components:
               type: integer
               example: 0
               description: The ID for a default customer group
+      x-examples:
+        example-1:
+          value:
+            privacy_settings:
+              ask_shopper_for_tracking_consent: true
+              policy_url: 'https://bigcommmerce.com/policy'
+            customer_group_settings:
+              guest_customer_group_id: 0
+              default_customer_group_id: 0
     CustomerChannelSettingsObject:
       title: CustomerChannelSettingsObject
       type: object
@@ -3746,6 +3755,16 @@ components:
           description: |-
             * Determines if a channel allows global customer to login
             * Determines if customers created on this channel will get global access/login
+      x-examples:
+        example-1:
+          value:
+            privacy_settings:
+              ask_shopper_for_tracking_consent: true
+              policy_url: 'https://bigcommmerce.com/policy'
+            customer_group_settings:
+              guest_customer_group_id: 0
+              default_customer_group_id: 0
+            allow_global_logins: true
     ValidateCustomerCredentialsObject:
       title: ValidateCustomerCredentialsObject
       type: object
