@@ -365,7 +365,6 @@ Updates to the following fields trigger a `store/channel/updated` event.
 ### The same response is returned for the following events:
 
 - `store/order/statusUpdated`
-- `store/order/updated` (if status updated)
 
 **Response fields**
 
