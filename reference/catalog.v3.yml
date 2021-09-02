@@ -9389,7 +9389,7 @@ paths:
       operationId: deleteCustomFieldById
       responses:
         '204':
-          description: ''
+          description: '`204 No Content`. Action has been enacted and no further information is to be supplied. `null` is returned.'
         '404':
           description: |
             The resource was not found.
