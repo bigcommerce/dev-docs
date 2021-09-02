@@ -19,6 +19,7 @@ info:
 
     ### OAuth Scopes
     |  **UI Name** | **Permission** | **Parameter** |
+    |-|-|-|
     |  Information & Settings | modify | `store_v2_information` |
     |  Information & Settings | read-only | `store_v2_information_read_only` |
   contact:
@@ -762,7 +763,7 @@ paths:
 
         If `channel_id` is supplied as a query parameter, email template overrides are deleted per given channel. If no `channel_id` is supplied, global level template are reset to default.
       operationId: delete-settings-transactional-emails-enabled
-      tags: 
+      tags:
         - Email Statuses
       responses:
         '204':
@@ -1459,3 +1460,7 @@ servers:
         description: Store hash used to identify the store.
 security:
   - X-Auth-Token: []
+x-stoplight:
+  docs:
+    includeDownloadLink: true
+    showModels: false
