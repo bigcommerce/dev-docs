@@ -44,7 +44,7 @@ Custom theme uploads must meet these restrictions:
 | TR-1600 | There was a temporary problem on our system. Please try again. |
 | TR-1601 | There was a problem with processing screenshots. |
 | TR-1700, -1800, -1801, -1802, -1803 | System error, possibly temporary. Please try again. |
-| TR-3402 | You are not allowed to edit your active theme. [Please select `Make a Copy`, then edit the resulting copy of your theme.] |
+| TR-3402 | You are not allowed to edit your active theme. [Please select **Make a Copy**, then edit the resulting copy of your theme.] |
 | TR-4400 | One or more values in the `config.json` file exceed the 64-character limit. (The 64-character limit only applies to values in `config.json` that are both greater than 64 characters and mapped to a text input in the theme's `schema.json` file.) |
 
 ## Warnings
