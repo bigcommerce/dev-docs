@@ -68,11 +68,9 @@ You can locate your channel ID by:
 
 - going to **Channel Manager > Storefronts** in the control panel, clicking on **...** next to your headless storefront, and selecting **Advanced settings** from the dropdown
 
-</br>
 
 **or**
 
-</br>
 
 - sending a `GET` request to the [Get All Channels](https://developer.bigcommerce.com/api-reference/store-management/channels/channels/listchannels) endpoint. 
 
