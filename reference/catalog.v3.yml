@@ -1745,7 +1745,8 @@ paths:
       summary: Update a Product Image
       tags:
         - Product Images
-      consumes: []
+      consumes:
+        - application/json
     delete:
       description: Deletes a *Product Image*.
       operationId: deleteProductImage
