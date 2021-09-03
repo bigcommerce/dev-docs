@@ -525,6 +525,14 @@ paths:
       description: |-
         To delete *Product* objects, you must include a filter. This prevents inadvertently deleting all *Product* objects in a store.
 
+        <div class="HubBlock--callout">
+        <div class="CalloutBlock--info">
+        <div class="HubBlock-content">
+        The maximum number of products you can delete at one time is 250.
+        </div>
+        </div>
+        </div>  
+
         **Example**:
         To delete products with the id's of 1,2 and 3, use `DELETE /v3/catalog/products?id:in=1,2,3`.
       operationId: deleteProducts
