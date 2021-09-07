@@ -233,7 +233,7 @@ To register your draft app, you need a BigCommerce store. If you do not have a B
 </div>
 </div>
 
-6. Because your sample app will be modifying the Products API resource, you need to set the Products OAuth scope to **MODIFY**. To learn more about the available OAuth scopes, see [OAuth scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+6. Because you will be modifying the Products API resource, set the Products OAuth scope to **MODIFY**. To learn more about the available OAuth scopes, see [OAuth scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
 ![OAuth scopes](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-07.png "OAuth Scopes")
 
