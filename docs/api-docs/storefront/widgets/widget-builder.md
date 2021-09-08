@@ -1,4 +1,4 @@
-# Widget Builder CLI
+# Getting Started with Widget Builder CLI
 
 <div class="otp" id="no-index">
 
@@ -6,12 +6,11 @@
 - [Prerequisites](#prerequisites)
 - [Installing Widget Builder CLI](#installing-widget-builder-cli)
 - [Configuring Widget Builder CLI](#configuring-widget-builder-cli)
-- [Creating a new project](#creating-a-new-project)
 - [Resources](#resources)
 
 </div>
 
-Widget Builder Command Line Interface (**CLI**) is a command line tool that lets you build and preview widgets in real time outside the context of your store.
+Widget Builder Command Line Interface (**CLI**) is a command line tool that lets you build, edit, and preview custom storefront widgets in real time outside the context of your BigCommerce store.
 
 This article contains detailed instructions on how to install and configure Widget Builder CLI. 
 
@@ -21,16 +20,14 @@ This article contains detailed instructions on how to install and configure Widg
 * npm 6.14
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
 * API `access_token` with `content modify` scope. For information on how to generate store API credentials, see [Obtaining store API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
-* Knowledge of the [Widgets API](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview).
 
 ## Installing Widget Builder CLI
 
-### Installing on Mac
-To install the Widget Builder CLI and its dependencies on Mac, open the terminal and run the following commands. 
+Follow these instructions to install Widget Builder CLI and its dependencies. 
 
-1. Clone the [widget-builder](https://github.com/bigcommerce/widget-builder) GitHub repo.
+1. In the terminal, clone the [widget-builder](https://github.com/bigcommerce/widget-builder) GitHub repo.
 
-2. Navigate to the `widget-builder` directory and install the Widget Builder CLI.
+2. Navigate to the `widget-builder` directory and install Widget Builder CLI.
 
 ```shell
 npm run install-cli
@@ -42,7 +39,7 @@ npm run install-cli
 widget-builder -h
 ```
 
-**Sample output**
+**Sample output:**
 
 ```shell
 Usage: widget-builder [options] [command]
@@ -71,7 +68,7 @@ Commands:
 
 <!-- theme: info -->
 
-> Refer to [Widget Builder README.MD](https://github.com/bigcommerce/widget-builder) for supported `node` version.
+> Refer to [Widget Builder README.MD](https://github.com/bigcommerce/widget-builder) for the latest supported `node` version.
 
 </div>
 </div>
@@ -87,13 +84,31 @@ To get started, run the following command:
 widget-builder init
 ```
 
-When prompted, enter your API account credentials.
+When prompted, enter your API account credentials. This will create the `.env` file with the necessary parameter assignments.
 
-## Creating a new project
+**Sample output:**
 
-To create a new project, run the following command:
+```shell
+Thank you for using Widget Builder
 
-`widget-builder init`
+            
+This guide will help you get your enviornment set up.
+
+Before continuing, please make sure you've created or have been provided a Store API account.
+You'll need those credentials in order to generate the appropriate configurations.
+You can find more information here. https://support.bigcommerce.com/s/article/Store-API-Accounts#creating
+
+? Are you ready to continue? You may press any key to continue Yes
+? It looks like you already have a configuration file, this will overwrite it. A
+re you sure? No
+? What is the Client ID? xxxxxxxxxxxxx
+? What is the Access Token? xxxxxxxxxxxxx
+? What is the API Path? https://api.bigcommerce.com/stores/xxxxx/v3/
+[2021-09-08T15:12:40.271Z] Successfully created your configuration, you're all set!
+```
+### Resetting configurations
+
+If you need to reset the configurations, run the `widget-builder init` command to overwrite the existing assignments.
 
 ## Resources
 
