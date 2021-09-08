@@ -92,7 +92,7 @@ When prompted, enter your API account credentials. This will create the `.env` f
 Thank you for using Widget Builder
 
             
-This guide will help you get your enviornment set up.
+This guide will help you get your environment set up.
 
 Before continuing, please make sure you've created or have been provided a Store API account.
 You'll need those credentials in order to generate the appropriate configurations.
