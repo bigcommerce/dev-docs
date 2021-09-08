@@ -15,7 +15,7 @@
 
 ## Multi-language setup
 
-Cornerstone's [Optimized Checkout](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss) SCSS file and [Order Confirmation](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/order-confirmation.html) HTML file both contain Handlebars `{{lang}}` statements. These `{{lang}}` statements facilitate translation by enabling automatic rendering of their parameters into the default storefront language defined in the control panel.
+Cornerstone's [Optimized Checkout](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss) SCSS file and [Order Confirmation](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/order-confirmation.html) HTML file both contain Handlebars `{{lang}}` statements. These `{{lang}}` statements facilitate translation by enabling automatic rendering of their parameters into the default storefront language defined in the control panel. Checkout has been pre-translated into English, French, German, Italian, Portugese, Spanish, Swedish, and Dutch. See [Resources](https://developer.bigcommerce.com/stencil-docs/localization/localizing-stores#resources) to download the supported language files. You can override the pre-translations by providing the xx.json file for the language you want to override.
 
 The following example shows how to use the `{{lang}}` statement in the header of the [default checkout page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/checkout.html): 
 
@@ -71,34 +71,31 @@ You can provide values for all of the checkout's supported translation keys even
 1. Download checkout's [en.json](https://github.com/bigcommerce/checkout-js/blob/master/src/app/locale/translations/en.json) file (GitHub).
 2. Copy and paste the file's contents into your theme's `en.json` file.
 3. Copy and paste the file's contents into each of the corresponding `json` files for the other languages you support. For naming requirements, see [Translation Keys](https://developer.bigcommerce.com/stencil-docs/localization/translation-keys#the-schema).
-4. Replace the values with appropriate phrases in each file's target language.
-
-## Localized country and state names
-
-BigCommerce's Optimized One-Page Checkout will currently translate displayed **Country/State** names into 12 supported languages. To enable this translation, follow these steps:
-
-1. Enable Optimized One-Page Checkout.
-
-2. Inside your `lang` subdirectory, provide an `xx.json` file with the appropriate two-letter prefix for one or more of the supported languages. For a complete list of supported languages, see the table below. 
-
 
 | Supported Language | Required Translation File Name |
 |-|-|
 | German | `de.json` |
 | Spanish | `es.json` |
+| French (Canada)| `fr-CA.json`|
 | French | `fr.json` |
 | Hindi | `hi.json` |
 | Italian | `it.json` |
 | Japanese | `ja.json` |
 | Korean | `ko.json` |
 | Dutch | `nl.json` |
+| Portuguese (Brazil)| `pt-BR.json`|
+| Portuguese (Portugal) | `pt.json`|
 | Punjabi | `pa.json` |
+| Swedish | `sv.json`|
 | Tamil | `ta.json` |
 | Chinese Simplified | `zh-TW.json` |
 | Chinese Traditional | `zh.json` |
 
-3. We recommend that you populate your JSON file with the checkout-specific keys-values covered in [Adding your own translation values](#adding-your-own-translation-values). It is not mandatory to translate the drop-down lists, but it is necessary to provide a consistent translation of the surrounding **Address** sections. You do not need to provide any keys-values for the **Country/State** names, whose translations already exist within the BigCommerce platform.
-4. As with the translation options described above, the storefront will automatically display the translated **Country/State** names based on the default storefront language defined in the control panel.
+4. Replace the values with appropriate phrases in each file's target language.
+
+## Localized country and state names
+
+BigCommerce's Optimized One-Page Checkout will translate displayed **Country/State** names into supported languages. To take advantage of this functionality, enable Optimized One-Page Checkout on your store. You do not need to provide any keys-values for the **Country/State** names already translated within the BigCommerce platform. As with the translation options described above, the storefront will automatically display the translated **Country/State** names based on the default storefront language defined in the control panel.
 
 ## Limits on translation
 
