@@ -1,4 +1,4 @@
-# Getting Started with Widget Builder CLI
+# Widget Builder CLI
 
 <div class="otp" id="no-index">
 
@@ -6,13 +6,15 @@
 - [Prerequisites](#prerequisites)
 - [Installing Widget Builder CLI](#installing-widget-builder-cli)
 - [Configuring Widget Builder CLI](#configuring-widget-builder-cli)
+- [Building widgets](#building-widgets)
+- [Publishing to store](#publishing-to-store)
 - [Resources](#resources)
 
 </div>
 
 Widget Builder Command Line Interface (**CLI**) is a command line tool that lets you build, edit, and preview custom storefront widgets in real time outside the context of your BigCommerce store.
 
-This article contains detailed instructions on how to install and configure Widget Builder CLI. 
+This article contains detailed instructions on how to get started with Widget Builder CLI. 
 
 ## Prerequisites
 
@@ -25,7 +27,7 @@ This article contains detailed instructions on how to install and configure Widg
 
 Follow these instructions to install Widget Builder CLI and its dependencies. 
 
-1. In the terminal, clone the [widget-builder](https://github.com/bigcommerce/widget-builder) GitHub repo.
+1. In a terminal, clone the [widget-builder](https://github.com/bigcommerce/widget-builder) GitHub repo.
 
 2. Navigate to the `widget-builder` directory and install Widget Builder CLI.
 
@@ -110,6 +112,46 @@ re you sure? No
 
 If you need to reset the configurations, run the `widget-builder init` command to overwrite the existing assignments.
 
+## Building widgets
+
+To start Widget Builder locally, open the directory containing your widget template files and run the following command:
+
+```shell
+widget-builder start [path to widget template]
+```
+Your default browser should open automatically on port 8080.
+
+### Starter template
+
+To jump start widget development, Widget Builder CLI provides a blank template with the appropriate files needed to start building widgets. To use the starter template, run the following command:
+
+```shell
+widget-builder create [widget template name]
+```
+
+**Sample output:**
+
+```shell
+[2021-09-08T17:29:38.868Z] Successfully created ./test-widget-one 
+[2021-09-08T17:29:38.870Z] Successfully created schema.json in ./test-widget-one/schema.json
+[2021-09-08T17:29:38.871Z] Successfully created config.json in ./test-widget-one/config.json
+[2021-09-08T17:29:38.871Z] Successfully created widget.html in ./test-widget-one/widget.html
+[2021-09-08T17:29:39.564Z] Starting widget-builder at http://localhost:8080!
+[2021-09-08T17:29:39.887Z] Socket connected.
+```
+
+Your default browser should open automatically and display a text widget on port 8080.
+
+## Publishing to store
+
+To publish a widget to your BigCommerce store, run the following command:
+
+```shell
+widget-builder publish [path to widget template]
+```
+
 ## Resources
 
 * [Authenticating BigCommerce's REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication)
+* [Widgets API Overview](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview)
+* [Widget Builder GitHub repository](https://github.com/bigcommerce/widget-builder)
