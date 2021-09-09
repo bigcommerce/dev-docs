@@ -38,7 +38,7 @@ info:
     Requests can be authenticated by sending an `access_token` via `X-Auth-Token` HTTP header:
 
     ```http
-    GET /stores/{$$.env.store_hash}/v3/catalog/summary
+    GET /stores/{$$.env.store_hash}/v3/customers
     host: api.bigcommerce.com
     Accept: application/json
     X-Auth-Token: {access_token}
