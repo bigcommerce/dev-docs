@@ -2292,7 +2292,7 @@ components:
                       maxLength: 255
                     type:
                       title: Type
-                      description: 'Attribute type should match one of: string, number, date. When doing a'
+                      description: 'Attribute type should match one of: string, number, date.'
                       example: string
                       type: string
                       enum:
@@ -3057,7 +3057,7 @@ components:
           maxLength: 255
         type:
           title: Type
-          description: 'Attribute type should match one of: string, number, date. When doing a'
+          description: 'Attribute type should match one of: string, number, date.'
           example: string
           type: string
           enum:
