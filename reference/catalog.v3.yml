@@ -366,10 +366,14 @@ paths:
           in: query
           description: 'Filter items by categories. Use for products in multiple categories. For example, `categories:in=12`.'
           name: 'categories:in'
+        - type: string
+          in: query
+          name: sku
+          description: 'Filter items by main SKU. To filter by variant SKU, see [Get All Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/variants/getvariants). '
         - type: array
           in: query
           name: 'sku:in'
-          description: Filter items by sku.
+          description: Filter items by SKU.
       responses:
         '200':
           $ref: '#/responses/ProductCollectionResponse'
