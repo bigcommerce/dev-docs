@@ -188,7 +188,3 @@ stencil start
 ## Resources
 
 * [Dockerizing BigCommerce's Stencil CLI](https://medium.com/bigcommerce-developer-blog/dockerizing-bigcommerces-stencil-cli-f508ddc0c3c0) (medium.com)
-
-### Additional resources
-
-* [Demonstration of Stencil Installation and Launch](https://www.youtube.com/watch/iWBrJalyM0A) (youtube.com)

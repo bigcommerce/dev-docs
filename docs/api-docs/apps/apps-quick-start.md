@@ -61,8 +61,9 @@ Next, register a draft app in the [Developer Portal](https://devtools.bigcommerc
 5. Enter Auth Callback URL as `https://{ngrok_id}.ngrok.io/api/auth`. For example, `https://12345.ngrok.io/api/auth`. You can get the `ngrok_id` from the terminal that is running `ngrok http 3000`.
 6. Enter Load Callback URL as `https://{ngrok_id}.ngrok.io/api/load`.
 7. Enter Uninstall Callback URL as `https://{ngrok_id}.ngrok.io/api/uninstall`.
-8. Click **Update & Close**.
-9. Click **View Client ID** -- this is the app's client ID and client secret.
+8. Because you will be modifying the Products API resource, set the Products OAuth scope to **MODIFY**. To learn more about the available OAuth scopes, see [OAuth scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+9. Click **Update & Close**.
+10. Click **View Client ID** -- this is the app's client ID and client secret.
 
 Keep this tab open for the next step.
 

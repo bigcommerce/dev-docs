@@ -52,7 +52,6 @@ BigCommerce supports these uneditable strings in the following languages:
 * [German](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-de-DE.po)
 * [Italian](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-it-IT.po)
 * [Portuguese (Brazil)](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-pt-BR.po)
-* [Spanish (Mexico)](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-es-MX.po)
 * [Swedish](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-sv-SE.po)
 
 
@@ -60,11 +59,8 @@ You can review these strings by downloading the language files we have made avai
 
 ## Localizing checkout
 
-Localizing your theme's checkout and order confirmation pages requires customizations within:
+Localizing your theme's checkout and order confirmation pages requires customizations within the default checkout page and the order confirmation HTML file. See [Multi-language setup](https://developer.bigcommerce.com/stencil-docs/localization/multi-language-checkout) for details.
 
-* the corresponding templates ([checkout.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/checkout.html) and [order-confirmation.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/order-confirmation.html))
-* each [JSON translation file](https://github.com/bigcommerce/cornerstone/tree/master/lang)
-* the [BigCommerce control panel](http://login.bigcommerce.com/deep-links/manage/)
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -155,7 +151,4 @@ To customize payment and checkout messages, define these variables in the theme 
 * [German](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-de-DE.po)
 * [Italian](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-it-IT.po)
 * [Portuguese (Brazil)](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-pt-BR.po)
-
-* [Spanish (Mexico)](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-es-MX.po)
-
 * [Swedish](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-sv-SE.po)
