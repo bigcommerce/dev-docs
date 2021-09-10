@@ -96,16 +96,23 @@ info:
 
     | Type | Description |
     |-|-|
-    |`account_new_return`|Route for shopper account page|
-    |`account_order_status`|Route for shopper order status account page|
-    |`cart`|Route to shopper's cart|
-    |`checkout`|Route to checkout|
-    |`create_account`|Route to the create a shopper account page|
-    |`forgot_password`|Route to shopper forgot password page|
-    |`home`|Route to headless storefront homepage|
     |`product`|Route for product details pages |
+    |`brand`|Route to brand pages |
+    |`category`|Route to category pages |    
+    |`blog`|Route to blog page|    
+    |`home`|Route to storefront homepage|
+    |`cart`|Route to shopper's cart|
+    |`checkout`|Route to checkout page|
+    |`search`|Route to store search page|
+    |`account`|Route to account profile page|
+    |`login`|Route to account login page|
+    |`returns`|Route for return policy page|
+    |`static`|Route to a static page|    
+    |`create_account`|Route to create new shopper account page|
+    |`forgot_password`|Route to shopper forgot password page|
+    |`account_order_status`|Route for order status page|
+    |`account_new_return`|Route for product returns page|
     |`recover_abandoned_cart`|Route for URL in emails for a shopper to recover their abandoned cart|
-    |`unsubscribe`|Route for unsubscribe URL in emails|
 
     ## Route variables
 
