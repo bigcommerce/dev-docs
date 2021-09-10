@@ -58,7 +58,7 @@ Go to **Transactional Emails> Email Templates**. Click **...** next to **Account
 <div class="HubBlock-content">
   
   ### Note 
-  You can select a different button background and text color. We suggest adhering to the minimum color contrast standards set by [WCAG](https://webaim.org/articles/contrast/). 
+  You can select a different button background and text color. We suggest adhering to the [minimum color contrast standards](https://webaim.org/articles/contrast/) set by WCAG. 
 </div>
 </div>
 </div> 
