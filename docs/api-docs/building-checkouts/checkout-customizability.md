@@ -6,7 +6,7 @@ The first path is to render the checkout on the BigCommerce storefront. With the
 		
 The second path is to render the checkout experience outside of the BigCommerce storefront. The Server to Server APIs are for consumption by other servers on the internet, which in turn are responsible for session management, whether that's a website running on a CMS or a native mobile app.
 
-![Change logo size](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/checkout-options.png "Checkout options")
+![Change logo size](https://github.com/bigcommerce/dev-docs/blob/development/assets/images/checkout_options.png "Checkout options")
 
 Once a developer has chosen a path, they can choose the options they want to use to build the custom checkout. The table below provides an overview of the different options available to help developers select the one that best suits their needs.
 
