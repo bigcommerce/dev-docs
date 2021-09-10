@@ -67,7 +67,7 @@ Go to **Transactional Emails> Email Templates**. Click **...** next to **Account
 
 ## Changing logo size
 
-To change the size of your logo that appears in your email, specify width and height values in the Content editor. Go to **Transactional Emails> Email Templates**. Click **...** next to **Order Email** and select **Edit Template**. Go to the **Code** tab and replace: 
+To change the size of your logo that appears in your email, specify width and height values in the Content editor. Go to **Transactional Emails > Email Templates**. Click **...** next to **Order Email** and select **Edit Template**. Go to the **Code** tab and replace: 
 
 ```html
 <img src="{{store.logo.url}}" alt="{{store.logo.title}}">
