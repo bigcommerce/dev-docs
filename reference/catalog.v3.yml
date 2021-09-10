@@ -9628,7 +9628,7 @@ paths:
                       additionalProperties:
                         type: string
             title: Error Response
-      summary: Creates a Bulk Pricing Rule
+      summary: Create a Bulk Pricing Rule
       tags:
         - Product Bulk Pricing Rules
   '/catalog/products/{product_id}/bulk-pricing-rules/{bulk_pricing_rule_id}':
