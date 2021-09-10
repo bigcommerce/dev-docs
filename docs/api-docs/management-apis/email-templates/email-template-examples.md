@@ -20,7 +20,7 @@ The following code examples demonstrate how to update text, add a button, change
 <div class="HubBlock-content">
   
   ### Note 
-  It is important to preview all changes and write your emails for [accessibility](https://www.w3.org/WAI/tips/writing/).  
+  It is important to write your emails for [accessibility](https://www.w3.org/WAI/tips/writing/) and preview changes.  
   
 </div>
 </div>
