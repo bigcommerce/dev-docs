@@ -27,7 +27,7 @@ The following code examples demonstrate how to update text, add a button, change
 </div> 
 
 ## Updating text
-To change existing text in an email template, you will need to update information in the **Phrases** and **Code** tabs. For detailed instructions, see [Editing Template Phrases](https://support.bigcommerce.com/s/article/Customizing-Emails?language=en_US#phrases). 
+To change existing text in an email template, update information in the **Phrases** and **Code** tabs. For detailed instructions, see [Editing Template Phrases](https://support.bigcommerce.com/s/article/Customizing-Emails?language=en_US#phrases). 
 
 
 ## Adding a button
