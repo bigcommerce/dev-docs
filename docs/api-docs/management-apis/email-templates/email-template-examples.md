@@ -90,7 +90,7 @@ with
 
 ## Changing font size
   
-To change the email font size, you will need to use the style attribute. You can define attributes such as color and font size within the paragraph `<p>` tag. Go to **Transactional Emails> Email Templates**, click **...** next to **Guest Account**, and select **Edit Template**. Go to the **Code** tab and replace: 
+To change the email font size, use the style attribute. You can define attributes such as color and font size within the paragraph `<p>` tag. Go to **Transactional Emails > Email Templates**, click **...** next to **Guest Account**, and select **Edit Template**. Go to the **Code** tab and replace: 
   
 ```html
 <p>{{lang 'help'}}</p>
