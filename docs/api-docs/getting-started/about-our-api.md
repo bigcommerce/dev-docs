@@ -87,7 +87,7 @@ Make BigCommerce API requests in the context of the storefront or server-to-serv
 | [Customers](/api-reference/customer-subscribers/customers-api) | Manage store customers.  |
 | [V3 Customers](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api) |Manage store customers. To learn about using V3 Customers vs V2 Customers, see [Customers Overview](https://developer.bigcommerce.com/api-docs/customers/customers-subscribers-overview). |
 | [Subscribers](/api-reference/customer-subscribers/subscribers-api) | Manage newsletter subscribers. |
-| [Price Lists](/api-reference/catalog/pricelists-api| Create variations of catalog pricing. |
+| [Price Lists](/api-reference/catalog/pricelists-api)| Create variations of catalog pricing. |
 | [Scripts](/api-reference/content/content-scripts-api) | Add a script to a stores page. |
 | [Marketing](/api-reference/marketing/marketing-api) | Create and manage coupons, banners, and gift certificates. |
 | [Enabled Payment Methods](/api-reference/payments/payment-methods-api) | Get a list of available payment methods on a store. |
