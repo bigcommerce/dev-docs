@@ -12,7 +12,7 @@
 
 </div>
 
-Widget Builder Command Line Interface (**CLI**) is a command line tool that lets you build, edit, and preview custom storefront widgets in real time outside the context of your BigCommerce store.
+Widget Builder Command Line Interface (**CLI**) is a command-line tool that lets you build, edit, and preview custom storefront widgets in real-time outside the context of your BigCommerce store.
 
 This article contains detailed instructions on how to get started with Widget Builder CLI. 
 
@@ -78,7 +78,7 @@ Commands:
 
 ## Configuring Widget Builder CLI
 
-Once you have installed Widget Builder CLI, the next step is to set up your store's environment. To generate appropriate configurations, you will need the store's Client ID, Access Token, and API Path. 
+Once you have installed Widget Builder CLI, the next step is to set up your store's environment. You will need the store's Client ID, Access Token, and API Path to generate appropriate configurations. 
 
 To get started, run the following command:
 
@@ -96,7 +96,7 @@ Thank you for using Widget Builder
             
 This guide will help you get your environment set up.
 
-Before continuing, please make sure you've created or have been provided a Store API account.
+Before continuing, please make sure you've created or received a Store API account.
 You'll need those credentials in order to generate the appropriate configurations.
 You can find more information here. https://support.bigcommerce.com/s/article/Store-API-Accounts#creating
 
