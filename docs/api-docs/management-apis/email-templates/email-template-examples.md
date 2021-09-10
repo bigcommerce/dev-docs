@@ -20,7 +20,7 @@ The following code examples demonstrate how to update text, add a button, change
 <div class="HubBlock-content">
   
   ### Note 
-  It is important to preview all changes and style your emails for accessibility.  
+  It is important to preview all changes and write your emails for [accessibility](https://www.w3.org/WAI/tips/writing/).  
   
 </div>
 </div>
@@ -32,9 +32,9 @@ To change existing text in an email template, update information in the **Phrase
 
 ## Adding a button
 
-To add a button to an email, you will need to add additional code to your template. Here is example HTML code that will add a blue button with white text to the account created template.
+You can create an email button using HTML. The following code example adds a blue button with white text to the account created template.
 
-Go to **Transactional Emails> Email Templates**. Click **...** next to **Account Created** and select **Edit Template**. Copy and paste the contents below into the Content editor. Ensure you paste the text outside the `<table>` tags. 
+Go to **Transactional Emails> Email Templates**. Click **...** next to **Account Created** and select **Edit Template**. Copy and paste the contents below into the Content editor. Ensure you paste the text outside the open `<table>` and closed `</table>` tags. 
   
 ```html
 <table class="row">
@@ -63,7 +63,7 @@ Go to **Transactional Emails> Email Templates**. Click **...** next to **Account
 </div>
 </div> 
 
-![Add button](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/email-templates-add-button.png "Button with white text on a blue background")
+![Add button](https://github.com/bigcommerce/dev-docs/blob/development/assets/images/email-templates-add-button.png "Button with white text on a blue background")
 
 ## Changing logo size
 
@@ -86,7 +86,7 @@ with
 </div>
 </div> 
   
-![Change logo size](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/email-templates-change-logo-size.png "Change logo size")
+![Change logo size](https://github.com/bigcommerce/dev-docs/blob/development/assets/images/email-templates-change-logo-size.png "Change logo size")
 
 ## Changing font size
   
@@ -100,17 +100,9 @@ To change the email font size, use the style attribute. You can define attribute
   ```html
 <p style="font-size:16px;">{{lang 'help'}}</p>
    ```
-To make your text responsive so that it can viewed on a variety of devices and screen sizes, use viewport width (`vw`) unit to set the `font-size`.
+To make your text responsive so that it can viewed on a variety of devices and screen sizes, use the viewport width (`vw`) unit to set the `font-size`. `vw` style settings allow you to control the widths of elements no matter the viewport size. 
   
   ```html
   <p style="font-size:2.0vw">{{lang 'help'}}</p>
   ```
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-  
-  ### Note 
-  The `vw` style settings allow you to control the widths of elements no matter the viewport size.  
-</div>
-</div>
-</div> 
+
