@@ -100,7 +100,7 @@ To change the email font size, use the style attribute. You can define attribute
   ```html
 <p style="font-size:16px;">{{lang 'help'}}</p>
    ```
-To make your text responsive so that it can viewed on a variety of devices and screen sizes, you can change the text to the following:
+To make your text responsive so that it can viewed on a variety of devices and screen sizes, use viewport width (`vw`) unit to set the `font-size`.
   
   ```html
   <p style="font-size:2.0vw">{{lang 'help'}}</p>
