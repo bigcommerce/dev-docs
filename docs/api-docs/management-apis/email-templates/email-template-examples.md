@@ -63,7 +63,7 @@ Go to **Transactional Emails> Email Templates**. Click **...** next to **Account
 </div>
 </div> 
 
-![Add button](https://github.com/bigcommerce/dev-docs/blob/development/assets/images/email-templates-add-button.png "Button with white text on a blue background")
+![Add button](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/email-templates-add-button.png "Button with white text on a blue background")
 
 ## Changing logo size
 
@@ -86,7 +86,7 @@ with
 </div>
 </div> 
   
-![Change logo size](https://github.com/bigcommerce/dev-docs/blob/development/assets/images/email-templates-change-logo-size.png "Change logo size")
+![Change logo size](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/email-templates-change-logo-size.png "Change logo size")
 
 ## Changing font size
   
