@@ -41,7 +41,7 @@ If you do not have Node.js installed, you can download it from [Node.js Download
 
 > ### Note
 > * Make sure that you are using Node.js version 10.13+.
-> * This sample app uses custom dependencies and dost not rely on the `create-next-app` CLI tool.
+> * This sample app uses custom dependencies and does not rely on the `create-next-app` CLI tool.
 
 </div>
 </div>

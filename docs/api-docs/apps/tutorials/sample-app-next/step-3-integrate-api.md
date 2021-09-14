@@ -24,9 +24,9 @@
 
 Now that you have embedded your app in the BigCommerce platform, you're ready to integrate the BigCommerce API.
 
-Anytime you make an API call to BigCommerce, you need to pass in the access token. Storing the access token in a database will allow you to persist the session when you call `/auth`, `/load`, or `/uninstall` endpoints. 
+Anytime you make an API call to BigCommerce, you need to pass in the access token. Storing the access token in a database allows you to persist the session when you call `/auth`, `/load`, or `/uninstall` endpoints. 
 
-In this tutorial, we will demonstrate how to integrate your app with [Cloud Firestore](https://firebase.google.com/docs/firestore/quickstart), a cloud-hosted NoSQLFirebase database, and [MySQL](https://www.mysql.com/), a relational database management system.
+This step demonstrates how to integrate the sample app with [Cloud Firestore](https://firebase.google.com/docs/firestore/quickstart), a cloud-hosted NoSQLFirebase database, and [MySQL](https://www.mysql.com/), a relational database management system.
 
 ## Install npm packages
 
@@ -168,7 +168,7 @@ export default SessionProvider;
 
 ## Update environment variables
 
-You will use a JSON Web Token (**JWT**) to securely transmit information encoded as a JSON object between parties. To learn more about JWT, see the [Internet Engineering Task Force documentation](https://datatracker.ietf.org/doc/html/rfc7519).
+You use a JSON Web Token (**JWT**) to securely transmit information encoded as a JSON object between parties. To learn more about JWT, see the [Internet Engineering Task Force documentation](https://datatracker.ietf.org/doc/html/rfc7519).
 
 1. Open the `.env` file.
 
@@ -299,7 +299,7 @@ export function decodePayload(encodedContext: string) {
 
 ## Add a database
 
-In this section of the tutorial, we will provide config and initialization code for both Firebase and MySQL databases. Depending on the database you choose to integrate your app with, use the configuration instructions specific to your setup. 
+In this section of the tutorial, we provide config and initialization code for both Firebase and MySQL databases. Depending on the database you choose to integrate your app with, use the configuration instructions specific to your setup. 
 
 For Firebase configuration instructions, see [Set up Firebase database](#set-up-firebase-database).
 
@@ -689,7 +689,7 @@ export default async function uninstall(req: NextApiRequest, res: NextApiRespons
 
 ## Add the Products endpoint
 
-You will use this endpoint to retrieve your products summary from the [Catalog API](https://developer.bigcommerce.com/api-reference/store-management/catalog/summary/getcatalogsummary).
+The Products endpoint retrieves your products summary from the [Catalog API](https://developer.bigcommerce.com/api-reference/store-management/catalog/summary/getcatalogsummary).
 
 1. In the `pages/api` folder, create a new folder called `products`.
 
@@ -702,7 +702,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { bigcommerceClient, getSession } from '../../../lib/auth';
 ```
 
-4. Add the async `products` function, which will await the data returned from `bigcommerce.get`.
+4. Add the async `products` function, which awaits the data returned from `bigcommerce.get`.
 
 ```js
 export default async function products(req: NextApiRequest, res: NextApiResponse) {
@@ -724,11 +724,11 @@ export default async function products(req: NextApiRequest, res: NextApiResponse
 
 [View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/api/products/index.ts)
 
-The `products` function will call the `getSession` function to retrieve the session's access token and store hash. 
+The `products` function calls the `getSession` function to retrieve the session's access token and store hash. 
 
 ## Create a custom hook
 
-To consume the Products API endpoint, you will create a custom React hook using [SWR](https://swr.vercel.app/). 
+To consume the Products endpoint, create a custom React hook using [SWR](https://swr.vercel.app/). 
 
 1.  In the `lib` folder, create a `hooks.ts` file.
 
@@ -747,7 +747,7 @@ function fetcher(url: string, encodedContext: string) {
 }
 ```
 
-The `fetcher` function accepts the API URL and returns the data asynchronously.
+The `fetcher` function accepts the API URL and returns data asynchronously.
 
 4. Export the `useProducts` function.
 
@@ -766,7 +766,7 @@ export function useProducts() {
 }
 ```
 
-`useSWR` accepts two arguments: the API URL and the `fetcher` function. The `fetcher` function will take the `/api/products` URL passed into it from `useProduct`. The `useProducts` function will destructure the data returned by the `useSWR` hook. 
+`useSWR` accepts two arguments: the API URL and the `fetcher` function. The `fetcher` function takes the `/api/products` URL passed in from the `useProduct` function. The `useProducts` function destructures the data returned by the `useSWR` hook. 
 
 [View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/lib/hooks.ts)
 
@@ -854,7 +854,7 @@ export default Index;
 
 [View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/index.tsx)
 
-Once `summary` is available, it will create the `Flex` component with three `Box` components inside of it. `inventory_count`, `variant_count`, and `primary_category_name` will be populated with data returned from calling the `/catalog/summary` endpoint we added in [Add the Products endpoint](#add-the-products-endpoint). 
+`summary` creates the `Flex` component with three `Box` components inside of it. `inventory_count`, `variant_count`, and `primary_category_name` ware populated with data returned from calling the `/catalog/summary` endpoint added in [Add the Products endpoint](#add-the-products-endpoint). 
 
 For the complete list of properties returned by the `/catalog/summary` endpoint, see [Get a Catalog Summary](https://developer.bigcommerce.com/api-reference/store-management/catalog/summary/getcatalogsummary). 
 
@@ -884,7 +884,7 @@ import Header from '../components/header';
 import SessionProvider from '../context/session';
 ```
 
-4. For Context to properly propagate, we need to wrap `<Component {...pageProps} />` with the Context `SessionProvider`. This will ensure each page has access to the React Context.
+4. For Context to properly propagate, we need to wrap `<Component {...pageProps} />` with the Context `SessionProvider`. This ensures that each page has access to the React Context.
 
 ```js
 <SessionProvider>
