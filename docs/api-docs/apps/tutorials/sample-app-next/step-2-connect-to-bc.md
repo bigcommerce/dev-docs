@@ -13,7 +13,7 @@
 
 </div>
 
-In this step, you will connect your app to the BigCommerce ecosystem embedding it into **Draft Apps**.
+In this step, you connect your app to the BigCommerce ecosystem embedding it into **Draft Apps**.
 
 ## Install node-bigcommerce
 
@@ -60,7 +60,7 @@ interface QueryParams {
 }
 ```
 
-The `bigcommerceSigned` function will be called when loading or uninstalling the application.
+The `bigcommerceSigned` function is called when loading or uninstalling the application.
 
 5. Export the `getBCAuth` function.
 
@@ -70,7 +70,7 @@ export function getBCAuth(query: QueryParams) {
 }
 ```
 
-You will use the `authorize` method for the `/auth` API endpoint which gets called when you install or update the app. The `authorize` method will retrieve your permanent access token and return it in the `data` object. 
+You use the `authorize` method for the `/auth` API endpoint which gets called when you install or update the app. The `authorize` method retrieves your permanent access token and returns it in the `data` object. 
 
 6. Export the `getBCVerify` function.
 
@@ -80,17 +80,17 @@ export function getBCVerify({ signed_payload }: QueryParams) {
 }
 ```
 
-The `verify` method employs the `signed_payload` query parameter to authenticate requests. You will use the `verify` method for both `/load` and `/uninstall` API endpoints. To learn more about the OAuth flow, see [Single-Click App OAuth Flow](https://developer.bigcommerce.com/api-docs/apps/guide/auth).
+The `verify` method employs the `signed_payload` query parameter to authenticate requests. You use the `verify` method for both `/load` and `/uninstall` API endpoints. To learn more about the OAuth flow, see [Single-Click App OAuth Flow](https://developer.bigcommerce.com/api-docs/apps/guide/auth).
 
 [View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-2-connect-app-to-bc/lib/auth.ts)
 
 ## Add API endpoints
 
-Next.js maps all APIs that are part of the Next.js application to the `/api/*` route. For example, `/pages/api/load` will be routed to `https://your_app_address/api/load`. You can take advantage of it by creating a sub-directory within the `pages` folder called `api`. This will signal Next.js to treat files within `/pages/api` as API endpoints. Instead of looking for React components, Next.js will look for and handle API routes. Next.js will also automatically handle routing for files placed within `/pages/api`. To learn more about Next.JS API routes, see [API Routes](https://nextjs.org/docs/api-routes/introduction). 
+Next.js maps all APIs that are part of the Next.js application to the `/api/*` route. You can take advantage of it by creating a sub-directory within the `pages` folder called `api`. This signals Next.js to treat files within `/pages/api` as API endpoints and automatically handle their routing. To learn more about Next.js API routes, see [API Routes](https://nextjs.org/docs/api-routes/introduction).
 
 1. In the `pages` folder, create an `api` folder.
 
-2. Open the api folder and add the following files: `auth.ts`, `load.ts`, and `uninstall.ts`.
+2. Open the `api` folder and add the following files: `auth.ts`, `load.ts`, and `uninstall.ts`.
 
 3. Open the `auth.ts` file and add the logic to authorize the app.
 
@@ -136,7 +136,7 @@ export default async function load(req: NextApiRequest, res: NextApiResponse) {
 
 [View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-2-connect-app-to-bc/pages/api/load.ts)
 
-5. Open the `uninstall.ts` file and add the logic to remove a user who has uninstalled your application from their BigCommerce account.
+5. Open the `uninstall.ts` file and add the logic to remove a user who has uninstalled the application from their BigCommerce account.
 
 ```js
 import { NextApiRequest, NextApiResponse } from 'next';
@@ -158,7 +158,7 @@ export default async function uninstall(req: NextApiRequest, res: NextApiRespons
 
 ## Create an HTTPS tunnel
 
-To connect your sample app to BigCommerce, you need a publicly accessible URL. To add network access while still in the development phase, you will use [ngrok](https://ngrok.com/docs), a free tool that lets you expose local servers like `localhost:3000` to the public internet over secure tunnels.
+To connect your sample app to BigCommerce, you need a publicly accessible URL. To add network access while still in the development phase, you can use [ngrok](https://ngrok.com/docs), a free tool that lets you expose local servers like `localhost:3000` to the public internet over secure tunnels.
 
 1. Open a new terminal window and install [ngrok](https://www.npmjs.com/package/ngrok#usage).
 
@@ -189,7 +189,7 @@ ngrok http 3000
 
 ## Register the draft app
 
-To register your draft app, you need a BigCommerce store. If you do not have a BigCommerce store, visit the [BigCommerce Pricing](https://www.bigcommerce.com/essentials/pricing/) page to start a free trial.
+To register an app, you need a BigCommerce store. If you do not have a BigCommerce store, visit the [BigCommerce Pricing](https://www.bigcommerce.com/essentials/pricing/) page to start a free trial.
 
 1. In your [Developer Portal](https://devtools.bigcommerce.com/my/apps) account, click  **Create an app**.
 
@@ -245,7 +245,7 @@ You should see your app listed under **My Apps** in your **Developer Portal** ac
 
 ## Add your Client ID and Client Secret Key
 
-It is best practice to declare environment variables in the environment file named `.env`. You will use the `.env` file to store your Client ID and Client Secret Key. 
+It is best practice to declare environment variables in the `.env` environment file. You use the `.env` file to store your Client ID and Client Secret Key. 
 
 Next.js comes pre-equipped to handle environment variables. It loads environment variables from `.env.local` into `process.env`, allowing you to use them in Next.js data fetching and API routes. To learn more, see [Next.js Environment Variables](https://nextjs.org/docs/basic-features/environment-variables).
 
@@ -253,12 +253,13 @@ Next.js comes pre-equipped to handle environment variables. It loads environment
 
 2. Add the app's credentials and auth callback placeholders to the `.env` file.
 
-```
+```shell
 CLIENT_ID={app client id}
 CLIENT_SECRET={app secret}
 
 AUTH_CALLBACK=https://{ngrok_id}.ngrok.io/api/auth
 ```
+
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
