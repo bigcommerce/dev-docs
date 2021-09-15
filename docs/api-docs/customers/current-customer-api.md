@@ -26,7 +26,7 @@ To address this need, BigCommerce provides a Current Customer endpoint that your
 > - An app client ID is required in requests to `/customer/current.jwt`.
 > - To generate an app client ID, create an app in the [BigCommerce Developer Portal](https://devtools.bigcommerce.com/).
 > - Use the app's secret to validate the signature on the JWT.
-> - The app doesn't need to be installed or published on a store to use the client ID to get the JWT
+> - The app doesn't need to be installed or published on a store to use the client ID to get the JWT.
 
 </div>
 </div>
@@ -63,7 +63,7 @@ Below is an example JavaScript code snippet that will access this JWT. To test t
 </script>
 ```
 
-The above JavaScript should alert to the browser with a JWT token if you are logged into the storefront with a customer account. The JWT returned from this endpoint (example below) can be decoded on [JWT.IO](https://jwt.io/).
+The above JavaScript should alert the browser with a JWT token after logging into the storefront with a customer account. The JWT returned from this endpoint (example below) can be decoded on [JWT.IO](https://jwt.io/).
 
 If a shopper is browsing as a guest, BigCommerce will return a `404` response, and you will see an error message. Wrapping your script in a `{{#if customer}}` Handlebars helper will check for a logged-in customer before running the request. For more information, visit Handlebars Helpers. [Handlebars Helpers](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#if).
 
