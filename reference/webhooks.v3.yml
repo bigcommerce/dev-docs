@@ -51,6 +51,11 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
+        - $ref: '#/components/parameters/FilterPageParam'
+        - $ref: '#/components/parameters/FilterLimitParam'
+        - $ref: '#/components/parameters/IsActive'
+        - $ref: '#/components/parameters/FilterByScope'
+        - $ref: '#/components/parameters/FilterByDestination'
   '/hooks/{id}':
     get:
       responses:
@@ -127,6 +132,66 @@ servers:
         default: '{$$.env.store_hash}'
 components:
   parameters:
+    WebhookId:
+      name: webhook_id
+      in: path
+      description: The ID of a Webhook.
+      required: true
+      schema:
+        type: integer
+    IsActive:
+      name: is_active
+      in: query
+      description: |
+        Enables user to filter for webhooks that are active or not.
+      schema:
+        type: boolean
+    FilterByScope:
+      name: scope
+      in: query
+      description: |
+        Enables user to filter for webhooks by scope.
+      schema:
+        type: string
+    FilterByDestination:
+      name: destination
+      in: query
+      description: |
+        Enables user to filter for webhooks by destination.
+      schema:
+        type: string
+    FilterPageParam:
+      name: page
+      in: query
+      description: |
+        Page number.
+      required: false
+      schema:
+        type: integer
+    FilterLimitParam:
+      name: limit
+      in: query
+      description: |
+        Items count per page.
+      required: false
+      schema:
+        type: integer
+    FilterMaxCreatedAtParam:
+      name: 'created_at:max'
+      in: query
+      description: |
+        Maximum value for returned data.
+      required: false
+      schema:
+        type: string
+    FilterMinCreatedAtParam:
+      name: 'created_at:min'
+      in: query
+      description: |
+        Minimum value for returned data.
+      required: false
+      schema:
+        type: string
     Accept:
       in: header
       name: Accept
@@ -172,9 +237,15 @@ components:
                       custom: string
                 meta:
                   pagination:
-                    offset: 0
-                    limit: 0
-                    total_items: 0
+                    count: 5
+                    current_page: 1
+                    links:
+                      current: '?limit=100&page=1'
+                      next: '?limit=100&page=1'
+                      previous: '?limit=100&page=1'
+                    per_page: 100
+                    total: 5
+                    total_pages: 1
         v2:
           schema:
             type: array
@@ -305,7 +376,7 @@ components:
               data:
                 $ref: '#/components/schemas/webhook_Full'
               meta:
-                type: object
+                $ref: '#/components/schemas/Pagination'
           examples:
             v3:
               value:
@@ -320,7 +391,17 @@ components:
                   is_active: true
                   headers:
                     custom: string
-                meta: {}
+                meta:
+                  pagination:
+                    count: 5
+                    current_page: 1
+                    links:
+                      current: '?limit=100&page=1'
+                      next: '?limit=100&page=1'
+                      previous: '?limit=100&page=1'
+                    per_page: 100
+                    total: 5
+                    total_pages: 1
         v2:
           schema:
             $ref: '#/components/schemas/webhook_Full'
@@ -400,11 +481,11 @@ components:
       title: store/cart/created
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook.'
+              description: A lightweight description of the event that triggered the webhook.
               properties:
                 type:
                   type: string
@@ -453,11 +534,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook.'
+              description: A lightweight description of the event that triggered the webhook.
               properties:
                 type:
                   type: string
@@ -495,11 +576,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook.'
+              description: A lightweight description of the event that triggered the webhook.
               properties:
                 type:
                   type: string
@@ -538,11 +619,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -584,11 +665,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -625,11 +706,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -674,11 +755,11 @@ components:
           $ref: '#/components/examples/store-cart-created'
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -718,11 +799,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -769,11 +850,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -816,11 +897,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -901,11 +982,11 @@ components:
           $ref: '#/components/examples/store-cart-created'
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -945,11 +1026,11 @@ components:
           $ref: '#/components/examples/store-cart-created'
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -994,11 +1075,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1040,11 +1121,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1092,11 +1173,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1136,11 +1217,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1180,11 +1261,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1227,11 +1308,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1279,11 +1360,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1331,11 +1412,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1382,11 +1463,11 @@ components:
           $ref: '#/components/examples/store-cart-created'
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1430,11 +1511,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1475,11 +1556,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1517,11 +1598,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1564,11 +1645,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1620,11 +1701,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1672,11 +1753,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1725,11 +1806,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1768,11 +1849,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1815,11 +1896,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1863,11 +1944,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1930,11 +2011,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -1997,11 +2078,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -2046,11 +2127,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -2093,11 +2174,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -2147,11 +2228,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -2204,11 +2285,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -2261,11 +2342,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -2320,11 +2401,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -2392,11 +2473,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -2457,11 +2538,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -2497,11 +2578,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -2539,11 +2620,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -2581,11 +2662,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -2623,11 +2704,11 @@ components:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
-        - description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+        - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             data:
               type: object
-              description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+              description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
               properties:
                 type:
                   type: string
@@ -2725,15 +2806,33 @@ components:
       description: |
         Data about the response, including pagination and collection totals.
       properties:
-        offset:
+        total:
           type: integer
-          description: Offset.
-        limit:
+          description: Total number of returned items across all pages.
+        count:
           type: integer
-          description: Total number of items in the result set.
-        total_items:
+          description: Number of items on current page.
+        per_page:
           type: integer
-          description: Total number of items.
+          description: Maximum number of items per page.
+        current_page:
+          type: integer
+          description: Current page number.
+        total_pages:
+          type: integer
+          description: Total number of pages.
+        links:
+          type: object
+          properties:
+            previous:
+              type: string
+              description: Link to the previous page returned in the response.
+            current:
+              type: string
+              description: Link to the current page returned in the response.
+            next:
+              type: string
+              description: Link to the next page returned in the response.
       x-internal: true
     webhook_callback_base:
       description: ''
@@ -2766,7 +2865,7 @@ components:
               type: string
               minLength: 1
               example: store/cart/created
-              description: 'The event registered when the webhook was created.'
+              description: The event registered when the webhook was created.
             hash:
               type: string
               minLength: 1
@@ -2776,11 +2875,11 @@ components:
     callback_category_data:
       title: callback_category_data
       type: object
-      description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+      description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
       properties:
         data:
           type: object
-          description: 'A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.'
+          description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
           properties:
             type:
               type: string
