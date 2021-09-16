@@ -68,7 +68,8 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 # Install Stencil CLI supported version of Node.js
 nvm install 12.1
 
-# Switch to Stencil CLI supported version of Node.js:
+# Switch to Stencil CLI supported version of Node.js
+
 nvm use 12.1
 
 # Install Stencil CLI
