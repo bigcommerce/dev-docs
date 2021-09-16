@@ -17,7 +17,8 @@ This article contains the detailed instructions needed to install and configure 
 
 ## Installing on Mac
 
-To install Stencil CLI and it's dependencies on Mac, open a terminal and run the following commands. Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
+To install Stencil CLI and its dependencies on Mac, open a terminal and run the following commands. Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
+
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
