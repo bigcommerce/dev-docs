@@ -1323,6 +1323,7 @@ components:
                   store_credit_amount: '0.0000'
                   gift_certificate_amount: '0.0000'
                   ip_address: 00.000.000.000
+                  ip_address_v6: ''
                   geoip_country: United States
                   geoip_country_iso2: US
                   currency_id: 1
@@ -1536,6 +1537,7 @@ components:
                 store_credit_amount: '0.0000'
                 gift_certificate_amount: '0.0000'
                 ip_address: ''
+                ip_address_v6: ''
                 geoip_country: ''
                 geoip_country_iso2: ''
                 currency_id: 1
@@ -3929,9 +3931,21 @@ components:
           example: '0.0000'
           type: string
         ip_address:
-          description: 'IP Address of the customer, if known.'
-          example: 12.345.678.910
           type: string
+          description: |-
+            IPv4 Address of the customer, if known.
+
+            Note: You can set either `ip_address` or `ip_address_v6`. Setting the `ip_address` value will reset the `ip_address_v6` value and vice versa.
+          example: 12.345.678.910
+          maxLength: 30
+        ip_address_v6:
+          type: string
+          description: |-
+            IPv6 Address of the customer, if known.
+
+            Note: You can set either `ip_address` or `ip_address_v6`. Setting the `ip_address_v6` value will reset the `ip_address` value and vice versa.
+          example: '2001:db8:3333:4444:5555:6666:7777:8888'
+          maxLength: 39
         is_deleted:
           description: 'Indicates whether the order was deleted (archived). Set to to true, to archive an order.'
           example: false
