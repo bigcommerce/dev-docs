@@ -25,7 +25,7 @@ You can localize your widget template settings by defining translations in the `
 The following example demonstrates how to add translations for the widget template settings using the `schema_translations` property. 
 
 1. Identify all of the settings that need a translation. Each `label` value must start with the `i18n.` prefix. For example, `"label": "i18n.LineColor"`.
-2. Prepare your schema translations JSON object. It must contain a default language code along with the other languages you want to support formatted by two lowercase letters, a dash, and at least two alphanumeric characters. For more information, see the [Formatting language codes](#formatting-language-codes) section below.
+2. Prepare your schema translations JSON object. It must contain a default language code along with the other languages you want to support formatted by two lowercase letters, a dash, and at least two alphanumeric characters. For more information, see the [Supported language code schemes](#supported-language-code-schemes) section below.
 
 **Schema translations example**
 

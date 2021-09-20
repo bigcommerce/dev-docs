@@ -19,7 +19,7 @@ Start by setting up your local development environment.
 
 ## Install Node
 
-For this tutorial, you will need Node.js version 10.13+. To check your version of Node.js, run the following command in your terminal:
+For this tutorial, you need Node.js version 10.13+. To check your version of Node.js, run the following command in your terminal:
 
 ```shell
 node -v
@@ -41,13 +41,13 @@ If you do not have Node.js installed, you can download it from [Node.js Download
 
 > ### Note
 > * Make sure that you are using Node.js version 10.13+.
-> * We will not be relying on the `create-next-app` CLI tool to build the app. Instead, we will do a manual setup using custom dependencies.
+> * This sample app uses custom dependencies and does not rely on the `create-next-app` CLI tool.
 
 </div>
 </div>
 </div> 
 
-1. Using the terminal, initialize the project’s `package.json` file.
+1. Using the terminal, initialize the project's `package.json` file.
 
 ```shell
 npm init
@@ -96,7 +96,7 @@ npm install --save-dev babel-plugin-styled-components @types/node @types/react t
 
 1. In the root directory of your project, create a `pages` folder.
 
-2. In the `pages` folder, create an `index.tsx` file. This will be your app's homepage.
+2. In the `pages` folder, create an `index.tsx` file. This is your app's homepage.
 
 3. Open `index.tsx` in your code editor.
 
@@ -127,9 +127,9 @@ Next.js associates each file in the pages folder with a route based on the file'
 
 ## Initialize BigDesign
 
-Next.js allows you to use a theme provider and import CSS files from `node_modules`. In this tutorial, you will integrate [BigDesign](https://developer.bigcommerce.com/) to give your app a distinct BigCommerce look and feel.
+Next.js allows you to use a theme provider and import CSS files from `node_modules`. In this tutorial, you integrate [BigDesign](https://developer.bigcommerce.com/) to give your app a distinct BigCommerce look and feel.
 
-1. Next.js uses the `App` component to initialize pages. To override the default `App` component, add the `_app.tsx` file to the `pages` folder. This is where you will initialize BigDesign. 
+1. Next.js uses the `App` component to initialize pages. To override the default `App` component, add the `_app.tsx` file to the `pages` folder. This is where you initialize BigDesign. 
 
 2. Open `_app.tsx` and import `GlobalStyles` from BigDesign and `AppProps` from Next.js.
 

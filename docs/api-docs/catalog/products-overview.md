@@ -401,7 +401,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Variant options
 
-[Variant options](/api-reference/store-management/catalog/product-options/getoptions) are any choices that the shopper needs to make that will result in selecting a variant. Color and size are typical examples of variant options.  A t-shirt can have different combinations of sizes and colors.
+[Variant options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variant-options) are any choices that the shopper needs to make that will result in selecting a variant. Color and size are typical examples of variant options.  A t-shirt can have different combinations of sizes and colors.
 
 Example:
 * Color is a variant option; red, orange, and green are variant option values.
@@ -494,7 +494,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Variants
 
-[Variants](/api-reference/store-management/catalog/product-variants/getvariantsbyproductid) represent an item as it sits on the shelf in the warehouse or a particular saleable product. A product might be a t-shirt, while the variant would be “a small, red t-shirt.” Shoppers select variants on the storefront via product options. In the case where a product is simple, meaning it does not have any options, the product is its own variant - called a base variant. Everything you can buy should be a variant.
+[Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants/getvariantbyid) represent an item as it sits on the shelf in the warehouse or a particular saleable product. A product might be a t-shirt, while the variant would be “a small, red t-shirt.” Shoppers select variants on the storefront via product options. In the case where a product is simple, meaning it does not have any options, the product is its own variant - called a base variant. Everything you can buy should be a variant.
 
 * Options build out variants.
 * Variants are usually what you track inventory against.
@@ -517,7 +517,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 </div>
 </div>
 
-### Variants:
+### Variant examples:
 
 | Product | Variant option | Variant |
 | -- | -- | -- |
