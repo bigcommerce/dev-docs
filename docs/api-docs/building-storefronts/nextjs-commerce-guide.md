@@ -116,7 +116,7 @@ BIGCOMMERCE_STORE_URL=https://store-${STORE_HASH}.mybigcommerce.com
 BIGCOMMERCE_STORE_API_STORE_HASH=${STORE_HASH}
 ```
 
-- `STORE_HASH`: Your store hash can be retrieved from your BigCommerce Store Control Panel URL in the format of `https://store-${STORE_HASH}.mybigcommerce.com/manage/dashboard`
+- `STORE_HASH`: You can retrieve it from your BigCommerce store control panel URL in the format of `https://store-${STORE_HASH}.mybigcommerce.com/manage/dashboard`
 
   ![STORE-HASH location in URL](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-15.png)
 
