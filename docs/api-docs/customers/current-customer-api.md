@@ -3,6 +3,7 @@
 <div class="otp" id="no-index">
 
 ### On this page
+
 - [Identifying logged-in customers securely](#identifying-logged-in-customers-securely)
 - [Example JavaScript](#example-javascript)
 
@@ -14,55 +15,57 @@ Suppose your application interacts dynamically with the BigCommerce storefront a
 
 To address this need, BigCommerce provides a Current Customer endpoint that your app can access via JavaScript on the storefront. This endpoint allows a remote application, such as a third-party subscription billing app, to return a JWT with identifying customer details. The information is signed with your [OAuth client secret](/api-docs/getting-started/basics/authentication#authentication_client-id-secret).
 
-
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
 <!-- theme: info  -->
+
 ### Note
-> * An app client ID is required in requests to `/customer/current.jwt`.
-> * To generate an app client ID, create an app in the [BigCommerce Developer Portal](https://devtools.bigcommerce.com/).
-> * Use the app's secret to validate the signature on the JWT.
-> * The app doesn't need to be installed or published on a store to use the client ID to get the JWT
+
+> - An app client ID is required in requests to `/customer/current.jwt`.
+> - To generate an app client ID, create an app in the [BigCommerce Developer Portal](https://devtools.bigcommerce.com/).
+> - Use the app's secret to validate the signature on the JWT.
+> - The app doesn't need to be installed or published on a store to use the client ID to get the JWT.
 
 </div>
 </div>
 </div>
-
 
 ## Example JavaScript
 
 Below is an example JavaScript code snippet that will access this JWT. To test the JWT functionality, you can install this JavaScript on your sandbox BigCommerce store. You must include your application's client ID in the request to identify the requesting application.
 
-
-
 ```html
 <script type="text/javascript">
-function customerJWT() {
-    var appClientId = "**BC_CLIENT_ID**"; // TODO: Fill this in with your app's client ID
+  function customerJWT() {
+    var appClientId = '**BC_CLIENT_ID**'; // TODO: Fill this in with your app's client ID
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == 4 ) {
-           if (xmlhttp.status == 200) {
-               alert('Customer JWT:\n' + xmlhttp.responseText);
-           }
-           else if (xmlhttp.status == 404) {
-              alert('Not logged in!');
-           }
-           else {
-               alert('Something went wrong');
-           }
+    xmlhttp.onreadystatechange = function () {
+      if (xmlhttp.readyState == 4) {
+        if (xmlhttp.status == 200) {
+          alert('Customer JWT:\n' + xmlhttp.responseText);
+        } else if (xmlhttp.status == 404) {
+          alert('Not logged in!');
+        } else {
+          alert('Something went wrong');
         }
+      }
     };
-    xmlhttp.open("GET", "/customer/current.jwt?app_client_id="+appClientId, true);
+    xmlhttp.open(
+      'GET',
+      '/customer/current.jwt?app_client_id=' + appClientId,
+      true
+    );
     xmlhttp.send();
-}
-customerJWT();
+  }
+  customerJWT();
 </script>
 ```
-The above JavaScript should alert to the browser with a JWT token if you are logged into the storefront with a customer account. If no customer is logged in, BigCommerce will return a `404` response, and you will see an error message. The JWT returned from this endpoint (example below) can be decoded on [JWT.IO](https://jwt.io/).
 
+The above JavaScript should alert the browser with a JWT token after logging into the storefront with a customer account. The JWT returned from this endpoint (example below) can be decoded on [JWT.IO](https://jwt.io/).
+
+If a shopper is browsing as a guest, BigCommerce will return a `404` response, and you will see an error message. Wrapping your script in a `{{#if customer}}` Handlebars helper will check for a logged-in customer before running the request. For more information, visit Handlebars Helpers. [Handlebars Helpers](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#if).
 
 **Example Logged In Customers Response**
 
@@ -96,6 +99,7 @@ An end-to-end example that displays a customer's recently purchased products is 
 <!-- theme: info -->
 
 ### IAT and EXP claims
+
 > The current customer tokens are valid for 15 minutes.
 
 </div>
