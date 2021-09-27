@@ -172,7 +172,7 @@ If executing the `stencil start` command generates an `Unauthorized, please use 
 
 ### 403 errors
 
-If the Stencil server responds with a 403 error, check to ensure you are not using a proxy-based domain service like Cloudflare or Amazon Cloudfront. If you are using a proxy, modify the hosts file on your machine to map your localhost to the BigCommerce IP of your store.
+If the Stencil server responds with a `403` error and you are using a proxy-based domain service like Cloudflare or Amazon Cloudfront, modify the hosts file on your machine to map the localhost to the IP address of the BigCommerce server.
 
 ## 500 errors
 
