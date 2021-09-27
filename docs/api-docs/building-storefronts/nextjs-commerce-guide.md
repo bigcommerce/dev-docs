@@ -57,7 +57,7 @@ To get started with Next.js Commerce, you'll need to deploy a live version direc
 
    ![Create Git repository](https://storage.googleapis.com/bigcommerce-production-dev-center/images/nextjs_commerce/commerce_create_repo.png)
 
-4. The next dialogue asks if you would like to create a team or use your personal account. You may click on **Skip** if you don't want to create a Vercel Team.
+4. (Optional) Create a team. You can also click **Skip** to continue without creating a Vercel Team.
 
    ![Create Vercel team](https://storage.googleapis.com/bigcommerce-production-dev-center/images/nextjs_commerce/commerce_create_team.png)
 
