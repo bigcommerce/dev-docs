@@ -61,7 +61,7 @@ To get started with Next.js Commerce, you'll need to deploy a live version direc
 
    ![Create Vercel team](https://storage.googleapis.com/bigcommerce-production-dev-center/images/nextjs_commerce/commerce_create_team.png)
 
-5. In the **Add Integrations** dialogue box, click **Add** next to the BigCommerce integration to connect your BigCommerce store to your Vercel project.
+5. In the **Add Integrations** dialogue box, click **Add** to connect your BigCommerce store to your Vercel project.
 
    ![Add BigCommerce integration](https://storage.googleapis.com/bigcommerce-production-dev-center/images/nextjs_commerce/commerce_add_integrations.png)
 
