@@ -79,15 +79,7 @@ To get started with Next.js Commerce, you'll need to deploy a live version direc
 
       ![Sign up for BigCommerce store registration form](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-09.png)
 
-7. When the integration completes, you will see that the **Add** button has turned to a **Change** button.
-
-   ![BigCommerce integration installation confirmation](https://storage.googleapis.com/bigcommerce-production-dev-center/images/nextjs_commerce/commerce_integrations_added.png)
-
-8. Next.js Commerce will now begin to deploy
-
-   ![Next.js Deployment](https://storage.googleapis.com/bigcommerce-production-dev-center/images/nextjs_commerce/commerce_deploy.png)
-
-9. Upon completion of deployment to Vercel, you will see your site deployed in a thumbnail image.
+7. Upon completion of deployment to Vercel, you will see your site deployed in a thumbnail image.
 
 ![Commerce deployment confirmation dialogue](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-14.png)
 
