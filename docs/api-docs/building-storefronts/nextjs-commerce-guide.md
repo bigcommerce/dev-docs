@@ -122,7 +122,7 @@ BIGCOMMERCE_STORE_API_STORE_HASH=${STORE_HASH}
 
 - `STORE_TOKEN|STORE_CLIENT`: For instructions on generating Store API credentials, visit [Obtaining Store API Credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
 - `STOREFRONT_API_TOKEN`: For instructions on generating the Storefront API token, visit [Create a Token](https://developer.bigcommerce.com/api-reference/store-management/tokens/api-token/createtoken).
-- `CHANNEL_ID`: Use the channel ID of the channel created by Vercel during deployment. For information on how to retrieve channel information, visit [Get All Channels](https://developer.bigcommerce.com/api-reference/store-management/channels/channels/listchannels)
+- `CHANNEL_ID`: Use the channel ID of the channel created by Vercel during deployment. For information on how to retrieve channel information, visit [Get All Channels](https://developer.bigcommerce.com/api-reference/store-management/channels/channels/listchannels).
 
 3. Open a terminal in your repository's root directory. To install the project's dependencies, run `npm install`.
 
