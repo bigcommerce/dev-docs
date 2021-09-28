@@ -170,6 +170,10 @@ To prevent this error from recurring, add the same `nvm use <version_number>` co
 
 If executing the `stencil start` command generates an `Unauthorized, please use a valid username/token` error, make sure the `.stencil` file or `secrets.stencil.json` and `config.stencil.json` files (if using Stencil V3.1 release or later) contain the correct store URL. Also, verify that you copied the correct username and token. If you continue to get the same error, please reissue tokens.
 
+### 403 errors
+
+If the Stencil server responds with a `403` error and you are using a proxy-based domain service like Cloudflare or Amazon Cloudfront, modify the hosts file on your machine to map the localhost to the IP address of the BigCommerce server.
+
 ## 500 errors
 
 If you see errors like or _similar_ to below:
