@@ -51,19 +51,21 @@ To get started with Next.js Commerce, you'll need to deploy a live version direc
 
    **Note:** If you have an existing Vercel account, you can sign in using those credentials.
 
-   ![Create Vercel account](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-02.png)
+   ![Create Vercel account](https://storage.googleapis.com/bigcommerce-production-dev-center/images/nextjs_commerce/commerce_get_started.png)
 
-   ![Log in with existing Vercel account](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-03.png)
+3. After signing in, a **Create Git Repository** dialogue will appear with a dropdown to select your Git Scope, and a **Repository Name** text field. You may change the name of the project from the default or leave it as-is. Click **Create** to proceed.
 
-3. After signing in, a **Clone Git Repository** dialogue will appear with a link to the Next.js Commerce repository, a dropdown to select your Vercel account, and a **Project Name** text field. You may change the name of the project from the default or leave it as-is. Click **Continue** to proceed.
+   ![Create Git repository](https://storage.googleapis.com/bigcommerce-production-dev-center/images/nextjs_commerce/commerce_create_repo.png)
 
-   ![Clone Git repository](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-04.png)
+4. (Optional) Create a team. You can also click **Skip** to continue without creating a Vercel Team.
 
-4. In the **Install Integrations** dialogue box, click **Install** next to the BigCommerce integration to connect your BigCommerce store to your Vercel project.
+   ![Create Vercel team](https://storage.googleapis.com/bigcommerce-production-dev-center/images/nextjs_commerce/commerce_create_team.png)
 
-   ![Install BigCommerce integration](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-05.png)
+5. In the **Add Integrations** dialogue box, click **Add** to connect your BigCommerce store to your Vercel project.
 
-5. The **Add BigCommerce to Your Vercel Project** dialogue will have options to either **Sign Up** or **Log In**.
+   ![Add BigCommerce integration](https://storage.googleapis.com/bigcommerce-production-dev-center/images/nextjs_commerce/commerce_add_integrations.png)
+
+6. In the **Add BigCommerce to Your Vercel Project** dialogue, select **Sign Up** or **Log In**.
 
    1. If you are an existing developer on BigCommerce, select **Log In** and use your BigCommerce credentials to integrate BigCommerce and Vercel. Follow the on-screen instructions to install the Vercel app to your BigCommerce store.
 
@@ -77,23 +79,9 @@ To get started with Next.js Commerce, you'll need to deploy a live version direc
 
       ![Sign up for BigCommerce store registration form](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-09.png)
 
-6. When the integration completes, you will see a blue checkmark where the **Install** button used to be. Click **Continue**.
+7. Upon completion of deployment to Vercel, you will see your site deployed in a thumbnail image.
 
-   ![BigCommerce integration installation confirmation](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-10.png)
-
-7. The **Create Git Repository** dialogue box will display a message about importing the `main` branch of the Next.js Commerce repository into your Vercel account. To complete the process, select your Git provider and name the repository where you want Next.js Commerce cloned and deployed to Vercel. Click **Continue**.
-
-   ![Create Git repository dialogue](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-11.png)
-
-   ![Create Git repository continue button](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-12.png)
-
-8. In the **Import Project** dialogue, confirm your Vercel project settings and then click **Deploy**.
-
-   ![Import Vercel project to Git repository dialogue](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-13.png)
-
-9. Upon completion of deployment to Vercel, you will see your site deployed in a thumbnail image.
-
-   ![Commerce deployment confirmation dialogue](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-14.png)
+![Commerce deployment confirmation dialogue](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-14.png)
 
 ### Developing locally after Vercel deployment
 
@@ -108,12 +96,25 @@ BIGCOMMERCE_STORE_API_TOKEN=${STORE_TOKEN}
 BIGCOMMERCE_STORE_API_CLIENT_ID=${STORE_CLIENT}
 ```
 
-- `STORE_ID`: Your store ID can be retrieved from your BigCommerce Store Control Panel URL in the format of `https://store-${STORE_ID}.mybigcommerce.com/manage/dashboard`
+```bash
+COMMERCE_PROVIDER=bigcommerce
+BIGCOMMERCE_STOREFRONT_API_URL=https://store-${STORE_HASH}-${CHANNEL_ID}.mybigcommerce.com/graphql
+BIGCOMMERCE_STOREFRONT_API_TOKEN=${STOREFRONT_API_TOKEN}
+BIGCOMMERCE_STORE_API_URL=https://api.bigcommerce.com/stores/${STORE_ID}
+BIGCOMMERCE_STORE_API_TOKEN=${STORE_TOKEN}
+BIGCOMMERCE_STORE_API_CLIENT_ID=${STORE_CLIENT}
+BIGCOMMERCE_CHANNEL_ID=${CHANNEL_ID}
+BIGCOMMERCE_STORE_URL=https://store-${STORE_HASH}.mybigcommerce.com
+BIGCOMMERCE_STORE_API_STORE_HASH=${STORE_HASH}
+```
 
-  ![STORE-ID location in URL](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-15.png)
+- `STORE_HASH`: You can retrieve it from your BigCommerce store control panel URL in the format of `https://store-${STORE_HASH}.mybigcommerce.com/manage/dashboard`
+
+  ![STORE-HASH location in URL](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-15.png)
 
 - `STORE_TOKEN|STORE_CLIENT`: For instructions on generating Store API credentials, visit [Obtaining Store API Credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
-- `STOREFRONT_TOKEN`: For instructions on generating the Storefront API token, visit [Create a Token](https://developer.bigcommerce.com/api-reference/store-management/tokens/api-token/createtoken).
+- `STOREFRONT_API_TOKEN`: For instructions on generating the Storefront API token, visit [Create a Token](https://developer.bigcommerce.com/api-reference/store-management/tokens/api-token/createtoken).
+- `CHANNEL_ID`: Use the channel ID of the channel created by Vercel during deployment. For information on how to retrieve channel information, visit [Get All Channels](https://developer.bigcommerce.com/api-reference/store-management/channels/channels/listchannels).
 
 3. Open a terminal in your repository's root directory. To install the project's dependencies, run `npm install`.
 
@@ -126,6 +127,7 @@ BIGCOMMERCE_STORE_API_CLIENT_ID=${STORE_CLIENT}
 <div class="HubBlock-content">
 
 > ### Note
+>
 > Any saved changes you push to your Git repository will trigger a redeployment at Vercel. You can also trigger a redeployment manually through the Vercel dashboard.
 
 </div>
