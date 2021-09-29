@@ -1,3 +1,6 @@
+[_metadata_:author]:- "mark"
+[_metadata_:tags]:- "markdown metadata"
+
 # Developers Guide to Headless Commerce
 
 <div class="otp" id="no-index">
