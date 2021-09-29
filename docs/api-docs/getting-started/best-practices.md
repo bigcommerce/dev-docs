@@ -100,7 +100,6 @@ Certain BigCommerce API resources rate-limit concurrent requests. This is to ens
 | -- | -- | -- |
 | 10| `/stores/:hash/v3/customers` | `POST` |
 
-All other BigCommerce API resource endpoints have a rate limit of 3 concurrent requests at a time.
 
 ### Playing nicely with the platform
 
