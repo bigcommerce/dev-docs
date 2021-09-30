@@ -2580,7 +2580,7 @@ components:
                 type: number
               date_created:
                 type: string
-                description: 'The date this order was created. If not specified, will default to the current time. The date should be in RFC 2822 format, e.g.: Tue, 20 Nov 2012 00:00:00 +0000'
+                description: 'The date the order was created, formatted in the RFC-2822 standard. You set this attribute on Order creation (POST) to support the migration of historical orders. If you do not provide a value, then it will default to the current date/time. e.g., `Tue, 20 Nov 2012 00:00:00 +0000`'
               date_modified:
                 type: string
                 description: A read-only value representing the last modification of the order. Do not attempt to modify or set this value in a POST or PUT operation. RFC-2822
@@ -2870,11 +2870,15 @@ components:
                 example: www
                 type: string
               external_source:
-                description: 'For orders submitted or modified via the API, using a PUT or POST operation, you can optionally pass in a value identifying the system used to generate the order. For example: `POS`. Otherwise, the value will be null.'
+                description: |-
+                  This value identifies an external system that generated the order and submitted it to BigCommerce via the Orders API.
+                  * When supplying the value, we recommend combining the type of system and vendor, e.g., ERP (Acumatica) or POS (Square).
+                  * If you are migrating historical orders processed on another eCommerce platform to BigCommerce, supply the following code as the value: M-MIG. This code will exclude historical orders from the store’s GMV/order count, which factors into pricing.
+                  * If you do not provide a value, then it will default to null..
                 example: 'null'
-                type:
-                  - string
-                  - 'null'
+                oneOf:
+                  - type: string
+                  - type: null
               products:
                 $ref: '#/components/schemas/products_Resource'
               shipping_addresses:
@@ -3889,7 +3893,7 @@ components:
           example: Thank you
           type: string
         date_created:
-          description: 'The date this order was created. If not specified, will default to the current time. The date should be in RFC 2822 format.'
+          description: 'The date the order was created, formatted in the RFC-2822 standard. You set this attribute on Order creation (POST) to support the migration of historical orders. If you do not provide a value, then it will default to the current date/time. e.g., `Tue, 20 Nov 2012 00:00:00 +0000`'
           type: string
         default_currency_code:
           description: The currency code of the transactional currency the shopper pays in; writeable when multi-currency is enabled.
@@ -3905,15 +3909,19 @@ components:
         external_id:
           description: 'ID of the order in another system. For example, the Amazon Order ID if this is an Amazon order.This field can be updated in a /POST, but using a /PUT to update the order will return a 400 error. The field ''external_id'' cannot be written to. Please remove it from your request before trying again. It can not be overwritten once set.'
           example: null
-          type:
-            - string
-            - 'null'
+          oneOf:
+            - type: string
+            - type: null
         external_source:
-          description: 'For orders submitted or modified via the API, using a PUT or POST operation, you can optionally pass in a value identifying the system used to generate the order. For example: `POS`. Otherwise, the value will be null.'
+          description: |-
+            This value identifies an external system that generated the order and submitted it to BigCommerce via the Orders API.
+            * When supplying the value, we recommend combining the type of system and vendor, e.g., ERP (Acumatica) or POS (Square).
+            * If you are migrating historical orders processed on another eCommerce platform to BigCommerce, supply the following code as the value: M-MIG. This code will exclude historical orders from the store’s GMV/order count, which factors into pricing.
+            * If you do not provide a value, then it will default to null.
           example: 'null'
-          type:
-            - string
-            - 'null'
+          oneOf:
+            - type: string
+            - type: null
         geoip_country:
           description: 'The full name of the country where the customer made the purchase, based on the IP.'
           example: United States
