@@ -242,7 +242,11 @@ paths:
         * attribute_id
         * attribute_value -- This is input as a string, regardless of the [Type](/api-reference/customer-subscribers/v3-customers-api/models/type).
 
+        **Limits**
+        * Limit of 10 concurrent requests.
+
         **Notes**
+
         A customer can be created with global access or channel-specific access.
         * **Global access:**
           * Make sure the channel has `allow_global_logins` enabled. This is on by default only for the default storefront. Find more info at [Customer Settings > Channel](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-settings-channel/customersettingschannelget)
@@ -594,6 +598,9 @@ paths:
         **Required Fields**
         * id -- ID of the *Customer Address*
         * customer_id -- ID of the *Customer*.
+
+        **Limits**
+        * Limit of 3 concurrent requests. 
       summary: Update a Customer Address
       operationId: CustomersAddressesPut
       deprecated: false
@@ -701,7 +708,7 @@ paths:
     post:
       tags:
         - Customer Validate Credentials
-      description: Validate a customer credentials - This endpoint has special rate limiting protections to protect against abuse
+      description: Validate a customer credentials - This endpoint has special rate limiting protections to protect against abuse.
       summary: Validate a customer credentials
       operationId: CustomerValidateCredentials
       requestBody:
@@ -1027,6 +1034,9 @@ paths:
         * name
         * type
 
+        **Limits**
+        * Limit of 3 concurrent requests.
+
         **Notes**
 
         Once the data type is set, it cannot be changed. The attribute will need to be deleted then created again with the new data type. This will also delete it from the customer.
@@ -1097,6 +1107,10 @@ paths:
         * id -- ID of the *Customer Attribute*
 
         Once the data type is set, it can not be changed. The attribute will need to be deleted then created again with the new data type. This will also delete it from the customer.
+        
+        **Limits**
+        * Limit of 3 concurrent requests.
+
       summary: Update a Customer Attribute
       operationId: CustomersAttributesPut
       deprecated: false
@@ -1284,7 +1298,8 @@ paths:
 
         Upsert checks for an existing record. If there is none, it creates the record, if there is a matching record, it updates that record.
 
-        Up to 10 per call are allowed.
+        **Limits**
+        * 10 per call limit.
       summary: Upsert Customer Attribute Values
       operationId: CustomersAttributeValuesPut
       deprecated: false
@@ -1529,6 +1544,9 @@ paths:
         Upsert checks for an existing record, if there is none it creates the record, if there is a matching record it updates that record.
 
         To learn more about editing form fields, see [Adding and Editing Fields in the Account Signup Form](https://support.bigcommerce.com/s/article/Editing-Form-Fields).
+
+        **Limits**
+        * Limit of 10 concurrent requests.
       operationId: CustomerFormFieldValuePUT
       tags:
         - Customer Form Field Values

@@ -787,7 +787,11 @@ paths:
         - Price Lists
       summary: Update a Price List
     delete:
-      description: Deletes a *Price List*. All associated price records are also removed.
+      description: |- 
+        Deletes a *Price List*. All associated price records are also removed.
+
+        **Limits**
+        * Limit of 1 concurrent request.
       operationId: deletePriceList
       responses:
         '204':

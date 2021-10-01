@@ -335,7 +335,11 @@ paths:
               meta: {}
       tags:
         - Products
-      description: 'Calculate batch pricing for products for a specific channel, currency, and customer group.'
+      description: |-
+        Calculate batch pricing for products for a specific channel, currency, and customer group.
+
+        **Limits**
+        * Limit of 50 concurrent requests.
 definitions:
   BulkPricingTier:
     type: object
