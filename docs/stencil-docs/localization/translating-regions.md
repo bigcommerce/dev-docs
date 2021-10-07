@@ -10,7 +10,7 @@
 
 Themes now support translations for a specific region, which localizes the region name within Page Builder. Within the region html, we can now add a translation field to point to the correct localization from schema_translations.json. 
 
-## Translating region example
+## Translating regions example
 
 home.html
 ```html
