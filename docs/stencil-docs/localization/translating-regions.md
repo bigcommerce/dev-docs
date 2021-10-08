@@ -124,5 +124,5 @@ schemaTranslations.json
 * [Translation Keys](https://developer.bigcommerce.com/stencil-docs/localization/translation-keys)
 * [Page Builder Overview](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview)
 * [Translation Keys](https://developer.bigcommerce.com/stencil-docs/localization/translation-keys)
-* [schemaTranslations,json](https://developer.bigcommerce.com/stencil-docs/storefront-customization/directory-structure#schematranslationsjson)
+* [schemaTranslations.json](https://developer.bigcommerce.com/stencil-docs/storefront-customization/directory-structure#schematranslationsjson)
  
