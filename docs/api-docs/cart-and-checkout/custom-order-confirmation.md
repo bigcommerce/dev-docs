@@ -36,8 +36,8 @@ You can deploy and [install the custom confirmation page](#installing-a-custom-o
 When a store uses a custom confirmation page, the following properties are attached to the `window.checkoutConfig` object on the checkout page:
 
 * `containerId`: ID of the HTML component where you load the checkout app.
-* `orderId`: If present, it means we should render an order confirmation page for the given order ID.
-* `checkoutId`: If present, the ID of the active checkout. You can't have both `orderId` and `checkoutId`.
+* `orderId`: The generated order ID.
+* `publicPath`: If present, the public URL of the custom checkout file's directory.
 
 To use the data exposed in the window object, include relevant code in your loader file. The following is an example of the relevant code:
 
