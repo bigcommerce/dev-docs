@@ -94,7 +94,6 @@ schemaTranslations.json
  }
 }
 ```
-
 ![https://storage.googleapis.com/bigcommerce-production-dev-center/images/translating_regions_layers.png](https://storage.googleapis.com/bigcommerce-production-dev-center/images/translating_regions_layers.png)
 
 <div class="HubBlock--callout">
