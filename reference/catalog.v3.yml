@@ -397,6 +397,9 @@ paths:
         - `calculated_price`
         - `base_variant_id`
 
+        **Limits**
+        - 255 characters product name length.
+
         **Usage Notes**
         * `POST` requests to `/products` accepts a single `video` object; to send an array of video objects, see: `/products/{product_id}/videos`.
       operationId: createProduct
@@ -2493,6 +2496,10 @@ paths:
         **Read-Only Fields**
         * id
 
+        **Limits**
+        * 600 SKUs per product limit.
+        * 255 characters SKU length limit.
+
         Variants need to be created one at a time using this endpoint. To use a variant array and create products and variants in the same call use the [Create Products](/api-reference/catalog/catalog-api/products/createproduct) during the initial product creation.
       operationId: createVariant
       parameters:
@@ -3862,6 +3869,9 @@ paths:
         **Read-Only Fields**
         * id
 
+        **Limits**
+        * 255 characters option name length.
+
         **Notes**
 
         * Only one variant option at a time can be created; individual variant options will contain an array of multiple values.
@@ -4876,6 +4886,9 @@ paths:
 
         **Read-Only Fields**
         * id
+
+        **Limits**
+        * 250 option values per option limit.
       operationId: createOptionValue
       parameters:
         - name: OptionValue
@@ -8946,6 +8959,10 @@ paths:
 
         **Read-Only:**
         - id
+
+        **Limits**
+        - 200 custom fields per product limit.
+        - 255 characters per custom field limit.
       operationId: createCustomField
       parameters:
         - name: CustomField
@@ -9503,6 +9520,9 @@ paths:
 
         **Read-Only Fields**
         - id
+
+        **Limits**
+        - 50 bulk pricing rule per product limit.
       operationId: createBulkPricingRule
       parameters:
         - name: BulkPricingRule
@@ -11140,7 +11160,7 @@ paths:
       tags:
         - Category
     post:
-      description: "Creates a *Category*.\n\n**Required Fields**:\n- parent_id: \n\t- To create a child category, set the parent_id to the parent category.\n\t- To create a top level category, set the parent_id to 0.\n- name\n\n**Read-Only Fields**:\n- id"
+      description: "Creates a *Category*.\n\n**Required Fields**:\n- parent_id: \n\t- To create a child category, set the parent_id to the parent category.\n\t- To create a top level category, set the parent_id to 0.\n- name\n\n**Read-Only Fields**:\n- id\n\n**Limits**:\n- 16,000 categories per store limit.\n- 1,000 categories per product limit.\n- 50 characters category name length.\n- 8 levels of category depth limit.\n- 65,642 characters category description length limit."
       operationId: createCategory
       parameters:
         - name: category
@@ -12735,6 +12755,9 @@ paths:
 
         **Read-Only Fields**
         - id
+
+        **Limits**
+        - 30,000 brands per store limit
       operationId: createBrand
       parameters:
         - name: Brand
