@@ -1,0 +1,441 @@
+openapi: 3.0.0
+info:
+  title: V3 Abandoned Cart Emails API
+  version: 0.0.1
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  description: Proposed V3 Abandoned Cart Emails API managing Handlebars-based emails.
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    description: BigCommerce API Gateway
+    variables:
+      store_hash:
+        default: abc123
+        description: Store hash used to identify the store.
+paths:
+  /marketing/abandoned-cart-emails:
+    get:
+      description: Get all Abandoned Cart email templates
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdOptional'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AbandondedCartEmail'
+                  meta:
+                    type: object
+              examples:
+                List of abandoned cart templates:
+                  value:
+                    data:
+                      - id: 1
+                        notify_at_minutes: 60
+                        coupon_code: FF11-22X4
+                        template:
+                          subject: 'Complete your purchase at {{ store.name }}'
+                          body: 'Complete your purchase <a href="{{ notification.checkout_link }}">{{notification.checkout.link}}'
+                          translations:
+                            - locale: en
+                              keys:
+                                hello_phrase: 'Welcome back,'
+                    meta: {}
+          description: |
+            An array of abandoned cart emails on the store
+      tags: []
+      operationId: get-marketing-abandoned-cart-emails
+    post:
+      summary: ''
+      operationId: post-marketing-abandoned-cart-emails
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+               schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/AbandondedCartEmail'
+                  meta:
+                    type: object
+                
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SaveError'
+      description: Create Abandoned Cart email template
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AbandondedCartEmailPayload'
+            examples:
+              Add active abandoned cart email template:
+                value:
+                  is_active: true
+                  coupon_code: FF11-22X4
+                  notify_at_minutes: 60
+                  template:
+                    subject: 'Complete your purchase at {{ store.name }}'
+                    body: '{{lang ''hello_phrase'' }}<br>Complete your purchase <a href="{{ notification.checkout_link }}">{{notification.checkout.link}}'
+                    translations:
+                      - locale: en
+                        keys:
+                          hello_phrase: Welcome
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdOptional'
+  '/marketing/abandoned-cart-emails/{id}':
+    get:
+      description: Get a single Abandoned Cart email template
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/AbandondedCartEmail'
+                  meta:
+                    type: object
+      tags: []
+      operationId: get-marketing-abandoned-cart-email-id
+    put:
+      description: Update a template
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/AbandondedCartEmail'
+                  meta:
+                    type: object
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SaveError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AbandondedCartEmailPayload'
+            examples:
+              Update Abandoned Cart email template:
+                value:
+                  is_active: true
+                  coupon_code: FF11-22X4
+                  notify_at_minutes: 60
+                  template:
+                    subject: 'Complete your purchase at {{ store.name }}'
+                    body: 'Complete your purchase <a href="{{ notification.checkout_link }}">{{notification.checkout.link}}'
+                    translations:
+                      - locale: en
+                        keys:
+                          hello_phrase: 'Welcome back,'
+              Enable email:
+                value: 
+                  is_active: true
+              Disable email:
+                value:
+                  is_active: false
+              Update coupon code and notification time:
+                value:
+                  coupon_code: FF11-22X4
+                  notify_at_minutes: 60
+      tags: []
+      operationId: put-marketing-abandoned-cart-email-template-id
+    delete:
+      tags: []
+      description: Delete Abandoned Cart Email
+      operationId: delete-marketing-abandoned-cart-email
+      responses:
+        '204':
+          description: No Content
+    parameters:
+      - schema:
+          type: integer
+          minimum: 0
+        name: id
+        in: path
+        required: true
+        description: Abandoned Cart email template ID
+  /marketing/abandoned-cart-emails/default:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  subject:
+                    type: string
+                    minLength: 1
+                  body:
+                    type: string
+                    minLength: 1
+                  translations:
+                    type: array
+                    uniqueItems: true
+                    minItems: 1
+                    items:
+                      required:
+                        - locale
+                        - keys
+                      properties:
+                        locale:
+                          type: string
+                          minLength: 1
+                        keys:
+                          type: object
+                          properties:
+                            hello_phrase:
+                              type: string
+                              minLength: 1
+                required:
+                  - subject
+                  - body
+                  - translations
+              examples:
+                example-1:
+                  value:
+                    subject: 'Complete your purchase at {{ store.name }}'
+                    body: '{{lang ''hello_phrase''}} Complete your purchase <a href="{{ notification.checkout_link }}">{{notification.checkout.link}}'
+                    translations:
+                      - locale: en
+                        keys:
+                          hello_phrase: Welcome back
+      operationId: get-marketing-abandoned-cart-emails-default
+      description: Return default Abandoned Cart email template
+  /marketing/abandoned-cart-emails/settings:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AbandonedCartSettings'
+      operationId: get-marketing-abandoned-cart-emails-settings
+      description: Read Abandoned Cart email settings
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdRequired'
+    put:
+      summary: ''
+      operationId: put-marketing-abandoned-cart-emails-settings
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AbandonedCartSettings'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AbandonedCartSettings'
+      description: Update Abandoned Cart Email template settings
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdOptional'
+components:
+  schemas:
+    SaveError:
+      type: object
+      title: SaveError
+      description: ''
+      properties:
+        status:
+          type: integer
+        title:
+          type: string
+        type:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
+    BaseError:
+      title: BaseError
+      type: object
+      properties:
+        status:
+          type: string
+        type:
+          type: string
+    AbandonedCartEmailModel:
+      title: AbandonedCartEmailModel
+      type: object
+      properties:
+        notify_at_minutes:
+          $ref: '#/components/schemas/NotifyAtMinutes'
+        coupon_code:
+          $ref: '#/components/schemas/CouponCode'
+        template:
+          $ref: '#/components/schemas/Template'
+    AbandonedCartSettings:
+      title: AbandonedCartSettings
+      type: object
+      properties:
+        use_global:
+          type: boolean
+          description: Indicates inheritance state
+      required:
+        - use_global
+    AbandondedCartEmailPayload:
+      type: object
+      properties:
+        is_active:
+          type: boolean
+        coupon_code:
+          $ref: '#/components/schemas/CouponCode'
+        notify_at_minutes:
+          $ref: '#/components/schemas/NotifyAtMinutes'
+        template:
+          $ref: '#/components/schemas/Template'
+      title: ''
+    Template:
+      title: Template
+      type: object
+      properties:
+        subject:
+          type: string
+          example: '''Complete your purchase at {{ store.name }}'''
+          maxLength: 255
+        body:
+          type: string
+          example: '''Complete your purchase <a href="{{ notification.checkout_link }}">{{notification.checkout.link}}'''
+        translation:
+          type: array
+          items:
+            $ref: '#/components/schemas/TranslationDefinition'
+      required:
+        - subject
+        - body
+        - translation
+    TranslationDefinition:
+      title: TranslationDefinition
+      type: object
+      properties:
+        locale:
+          type: string
+          example: en
+          description: 'Locale code for this language, such as ''en'', ''en-us'', ''fr-ca''.'
+        keys:
+          type: string
+          description: |-
+            Language keys for the template. User-defined. Should match any lang keys used in the template.
+        additionalProperties:
+          nullable: true
+      required:
+        - locale
+        - keys
+    NotifyAtMinutes:
+      type: integer
+      title: NotifyAtMinutes
+      description: 'Describes when this email will be sent, in minutes. Only supports certain intervals described in the enum.'
+      example: 60
+      enum:
+        - 60
+        - 120
+        - 180
+        - 240
+        - 300
+        - 360
+        - 420
+        - 480
+        - 540
+        - 600
+        - 660
+        - 720
+        - 780
+        - 840
+        - 900
+        - 960
+        - 1020
+        - 1080
+        - 1140
+        - 1200
+        - 1260
+        - 1320
+        - 1380
+        - 1440
+        - 2880
+        - 4320
+        - 5760
+        - 7200
+        - 8640
+        - 10080
+        - 11520
+        - 12960
+        - 14400
+      x-examples:
+        example-1: 60
+        type: integer
+    CouponCode:
+      title: Coupon Code Field
+      type: string
+      example: FF11-22X4
+    AbandondedCartEmail:
+      title: AbandondedCartEmail
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        notify_at_minutes:
+          $ref: '#/components/schemas/NotifyAtMinutes'
+        coupon_code:
+          $ref: '#/components/schemas/CouponCode'
+        template:
+          $ref: '#/components/schemas/Template'
+        is_active:
+          type: boolean
+        sent_num:
+          type: integer
+  parameters:
+    ChannelIdOptional:
+      in: query
+      name: channel_id
+      description: Channel ID to use for channel-level data.
+      schema:
+        type: integer
+    ChannelIdRequired:
+      name: channel_id
+      in: query
+      required: true
+      schema:
+        type: integer
+      description: Channel ID to use for channel-specific setting.
+  securitySchemes:
+    X-Auth-Token:
+      name: API Key
+      type: apiKey
+      in: header
