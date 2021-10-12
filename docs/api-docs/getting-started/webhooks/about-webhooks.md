@@ -15,13 +15,13 @@
 
 </div>
 
-Webhooks notify applications when specific events occur on a BigCommerce store. For example when:
+Webhooks notify applications when specific events occur on a BigCommerce store. For example, when:
 
 * an order is created,
 * a product's inventory changes
 * an item is added to a shopper's cart
 
-This article is an overview of webhook behavior on BigCommerce. For a complete webhook API reference, see [API Reference > Webhooks](/api-reference/webhooks/webhooks/createwebhooks). For step-by-step webhooks tutorial on creating a webhook for certain store events, see [Webhooks Tutorial](api-docs/getting-started/webhooks/setting-up-webhooks).
+This article is an overview of webhook behavior on BigCommerce. For a complete webhook API reference, see [API Reference > Webhooks](/api-reference/webhooks/webhooks/createwebhooks). For a step-by-step webhooks tutorial on creating a webhook for certain store events, see [Webhooks Tutorial](api-docs/getting-started/webhooks/setting-up-webhooks).
 
 ## Creating a webhook
 
@@ -92,7 +92,7 @@ When a webhook is triggered, BigCommerce will `POST` a light payload containing 
  }
 ```
 
-A request can then be made to [/orders/{id}](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/getanorder) to obtain full order details.
+You can then make a request to [/orders/{id}](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/getanorder) to obtain full order details.
 
 For more information on specific webhook events and their payloads, see [Webhook Events](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events).
 
@@ -111,10 +111,10 @@ The webhook service may send many payloads to a single URI in quick succession. 
 
 The following process will determine whether the destination URI gets blacklisted:
 
-1. Once a webhook is triggered, the service checks if your callback URI is on the blacklist
-2. If it's not, we calculate a success ratio for the remote server based on its success/failure count in a **two minute window**
-3. If at any point in the two minute window the success/failure ratio dips below **90%**, the destination URI's domain will be blacklisted for **three minutes**
-4. Webhook events triggered during this time are sent to our retry queues to be executed later when the domain is no longer blacklisted and once the retry queue time has elapsed
+1. Once a webhook is triggered, the service checks if your callback URI is on the blacklist.
+2. If it's not, we calculate a success ratio for the remote server based on its success/failure count in a **two minute window**.
+3. If at any point in the two minute window the success/failure ratio dips below **90%**, the destination URI's domain will be blacklisted for **three minutes**.
+4. Webhook events triggered during this time are sent to our retry queues to be executed later when the domain is no longer blacklisted and once the retry queue time has elapsed.
 
 Once a domain is no longer blacklisted, all new webhook requests will be sent as they occur. Event requests sent to the retry queue during a blacklisting period will be delivered according to the retry queue schedule.
 
@@ -157,7 +157,7 @@ To avoid accumulating unused webhooks, BigCommerce automatically deletes registe
 <div class="HubBlock-content">
 
 ### Note
-> You can not delete a webhook by deleting the account token used to create it. The associated webhook will continue to run after you delete the token, and you will be unable to edit, delete, or manage the webhook. For information on how to manaually delete a webhook, see [Delete a Webhook](https://developer.bigcommerce.com/api-reference/store-management/webhooks/webhooks/deleteawebhook).
+> You can not delete a webhook by deleting the account token used to create it. The associated webhook will continue to run after you delete the token, and you will be unable to edit, delete, or manage the webhook. For information on how to manually delete a webhook, see [Delete a Webhook](https://developer.bigcommerce.com/api-reference/store-management/webhooks/webhooks/deleteawebhook).
 </div> 
 </div>
 </div>
@@ -168,7 +168,7 @@ To ensure webhook callback requests are secure, BigCommerce takes the following 
 
 * Webhook payloads contain minimal information about the store and event
 * Webhook payloads are sent over **TLS-encrypted** connection
-* Create Webhook requests accept an optional header object which can be used to authenticate callbacks requests
+* Create Webhook requests to accept an optional header object which can be used to authenticate callbacks requests
 
 **POST requests that includes header object**
 
@@ -205,7 +205,7 @@ Once the issue is resolved, set `is_active` to `true` by making a `PUT` request 
 
 **No 200 response when making `POST` to `/hooks`**
 * Check TLS/SSL configuration on machine making `POST` request.
-* Verify `POST` request contains the required `HTTP` headers:
+* Verify `POST` request contains the required `HTTP` headers.
 
 **Create hook POST request**
 
@@ -232,7 +232,6 @@ Below is a collection of third-party tools that can be used to aid in the develo
 
 ### Articles
 * [Webhook Tutorial](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks)
-* [Webhook Events](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events)
 
 ### Endpoints
 * [Webhooks Reference](https://developer.bigcommerce.com/api-reference/webhooks)
