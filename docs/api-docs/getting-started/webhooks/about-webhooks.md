@@ -120,19 +120,19 @@ Once a domain is no longer blacklisted, all new webhook requests will be sent as
 
 The webhook dispatcher will then attempt several retries (at increasing intervals) until the maximum retry limit is reached.
 
-|Queue|Interval|
-|-|-|
-|`dispatches.retries.60`|Retries after 60 seconds|
-|`dispatches.retries.180`|Retries after 180 seconds|
-|`dispatches.retries.300`|Retries after 300 seconds|
-|`dispatches.retries.600`|Retries after 600 seconds|
-|`dispatches.retries.900`|Retries after 900 seconds|
-|`dispatches.retries.1800`|Retries after 1800 seconds|
-|`dispatches.retries.3600`|Retries after 3600 seconds|
-|`dispatches.retries.7200`|Retries after 7200 seconds|
-|`dispatches.retries.21600`|Retries after 21600 seconds|
-|`dispatches.retries.50400`|Retries after 50400 seconds|
-|`dispatches.retries.86400`|Retries after 86400 seconds|
+|Interval|
+|-|
+|Retries after 60 seconds|
+|Retries after 180 seconds|
+|Retries after 300 seconds|
+|Retries after 600 seconds|
+|Retries after 900 seconds|
+|Retries after 1800 seconds|
+|Retries after 3600 seconds|
+|Retries after 7200 seconds|
+|Retries after 21600 seconds|
+|Retries after 50400 seconds|
+|Retries after 86400 seconds|
 
 After the final retry attempt (cumulatively **48 hours** after the first delivery attempt), the webhook will be deactivated, and an email will be sent to the email address registered for the subscribing app. To reactivate the webhook, set `is_active`  back to `true` by making a `PUT` request to `/hooks/{id}`.
 
