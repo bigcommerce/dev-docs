@@ -178,8 +178,8 @@ To ensure webhook callback requests are secure, BigCommerce takes the following 
   "destination": "{{DESTINATION_URL}}",
   "is_active": true,
   "headers": {
-    "Username": "Hello",
-    "Password": "Goodbye"
+    "username": "Hello",
+    "password": "Goodbye"
   }
 }
 ```
