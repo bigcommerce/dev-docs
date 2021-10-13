@@ -590,23 +590,23 @@ You can create orders using the [Server to Server API Endpoints](https://develop
 
 | Code | Description | Possible Causes | Possible Solutions |
 |-|-|  - |  - |
-| `10000` | We're experiencing difficulty processing your transaction. Please try again later.  |  Connection error | Try the request again |
-| `10001` | Unable to process the payment because invalid data was supplied with the transaction. | Missing or incorrect Fields |  Check the request for any data that is incorrect or is missing |
+| `10000` |  An internal error has occurred within the API. |  Connection error | Try the request again |
+| `10001` | Missing or incorrect required fields. | Missing or incorrect Fields |  Check the request for any data that is incorrect or is missing |
 | `30000` | Merchant payment configuration could not be found. | * The payment provider has not been configured in the store. | Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. |
-| `30001` | Merchant payment configuration is not configured correctly. | The payment gateway rejects the payment configuration. | Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. <br> Reach out to the payment gateway to check that the information is correct. |
+| `3001` | Merchant payment configuration is not configured correctly. | The payment gateway rejects the payment configuration. | Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. <br> Reach out to the payment gateway to check that the information is correct. |
 | `30002` | Vaulting service is currently not available. |  The vaulting feature is not enabled on this store. | Reach out to the store owner to enable [Stored Credit Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards) |
 | `30003` | Order could not be found. | The order does not exist. <br> The order ID is not correct. |  Check the current orders in the store using [Get All Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/getanorder) |
 | `30004` | The validation on line item and grand total does not match. | N/A| Recreate the payment access token <br> Recreate the order <br> Ensure the store settings for taxes and discounts are setup correctly|
 | `30050` | Payment instrument could not be saved. | Credit card information is incorrect. | Check that the card information is correct.<br> * `expiry_month` is two digits<br>* `expiry_year` is four digits |
-| `30051` | That stored payment instrument could not be found. Please try a different payment option. |  The card requested for payment is not associated to the shopper.| Use [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget) to see available vaulted cards |
-| `30100` | Payment access token could not be created. | N/A|N/A|
+| `30051` | The stored card was not found. |  The card requested for payment is not associated to the shopper.| Use [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget) to see available vaulted cards |
+|`30100` | Payment access token could not be created. | N/A|N/A|
 | `30101` | Order is invalid. | The order is in the wrong status. | Orders must be in Incomplete Status with a `status_id:0`. <br>  The order must be created by the Checkout SDK, Checkout API, or V2 Orders API. Orders created in the control panel and set to an incomplete status will return this error. |
-| `30102` | Your card details could not be verified. Please double check them and try again. | The card information provided was incorrect.<br>The token provided was incorrect. | Check that the shopper information provided is correct.<br>Make sure the token in the authorization header field is correct. |
-| `30103` | Your card has expired. Please try again with a valid card. |N/A | N/A|
-| `30104` | There was a problem processing your card. Please contact your card issuer. |N/A |N/A|
-| `30105` | This is a duplicate transaction. Please contact us to confirm your order. Do not try to pay again. |N/A |N/A |
+| `30102` | The payment was declined. | The card information provided was incorrect.<br>The token provided was incorrect. | Check that the shopper information provided is correct.<br>Make sure the token in the authorization header field is correct. |
+| `30103` | Card has expired. |N/A | N/A|
+| `30104` | The payment was declined. Please contact card issuer for more information. |N/A |N/A|
+| `30105` | The payment was declined due to duplicate payment being submitted. |N/A |N/A |
 | `30106` | The payment was declined due to insufficient funds. |N/A |N/A|
-| `30107` | The authorization for this transaction has been revoked. |Shopper revoked payment authorization associated with the stored PayPal account.|N/A|
+| `30107` | The payment was declined due to stored instrument no longer being valid. |Shopper revoked payment authorization associated with the stored PayPal account.|N/A|
 
 ## FAQ
 
