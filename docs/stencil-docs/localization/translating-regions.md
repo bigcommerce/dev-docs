@@ -8,9 +8,28 @@
 
 </div>
 
-Themes now support translations for a specific region, which localizes the region name within Page Builder. Within the region html, we can now add a translation field to point to the correct localization from schema_translations.json. 
+Themes now support translations for a specific region, which localizes the region name within Page Builder. Within the region HTML, we can now add a translation field to point to the correct localization from `schema_translations.json`. 
 
 ## Translating regions example
+
+In this example, we will translate several regions on the home page. The following code sample contains translated fields that localize the `layers` pane within PageBuilder.
+
+
+1. Add `translation` fields to the home page (/templates/pages/home.html).
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+### Notes 
+* Translation must follow prefix “i18n.RegionName.” 
+* You can only add a translation field to a `{{{ region }}}` field.
+    
+</div>
+</div>
+</div>
 
 home.html
 ```html
@@ -40,7 +59,29 @@ translation="i18n.RegionName.HomeBelowContentGlobal"}}}
 </div>
 ```
 
+2. Add region translations to the `schema_translations.json` file. 
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+### Notes 
+    
+* Region translations must live within the schema_translations.json file.
+* Language code must contain a default value.
+> * Language code outside of default will support two character language code as well as multiple character language code (which is formatted by two lowercase letters, a dash, and at least two alphanumeric characters after). Example provided below:<br/>
+        - Example of two character language code “en”, “fr”, “uk”, “zh”.<br />
+        - Example of multiple character language code “fr-FR”, “zh-CN”, “en-US”, “uk-UA”, “es-419”.
+
+</div>
+</div>
+</div>
+
+
 schemaTranslations.json
+
 ```json
 {
  "i18n.RegionName.HomeBelowMenu": {
@@ -94,25 +135,11 @@ schemaTranslations.json
  }
 }
 ```
+
+3. Change the language in the control panel settings to view the translated regions. Go to `My Profile > Edit Profile > Preferred language`.
+
+
 ![https://storage.googleapis.com/bigcommerce-production-dev-center/images/translating_regions_layers.png](https://storage.googleapis.com/bigcommerce-production-dev-center/images/translating_regions_layers.png)
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme: info -->
-
-### Notes
-> * Translation must follow prefix “i18n.RegionName.” 
-> * Region translations live within the schema_translations.json file.
-> * Language code must contain a default value.
-> * Language code outside of default will support two character language code as well as multiple character language code (which is formatted by two lowercase letters, a dash, and at least two alphanumeric characters after). Example provided below:<br/>
-        - Example of two character language code “en”, “fr”, “uk”, “zh”.<br />
-        - Example of multiple character language code “fr-FR”, “zh-CN”, “en-US”, “uk-UA”, “es-419”.
-
-</div>
-</div>
-</div>
 
 
 
