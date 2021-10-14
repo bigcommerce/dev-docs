@@ -122,10 +122,12 @@ properties:
                       type: string
             attribute_lines:
               type: array
+              description: A list of strings that represents product variant options.
               items:
                 type: object
             configurable_fields:
               type: array
+              description: Object array with properties name and value.
               items:
                 type: object
       payment:
@@ -139,6 +141,7 @@ properties:
             type: string
           gateway_amount:
             type: object
+            description: Price value. Provided only if the payment method is offline.
             properties:
               formatted:
                 type: string
@@ -208,6 +211,7 @@ properties:
         properties:
           mandate_url:
             type: string
+            description: Link to the confirmation page in the Stripe.
           shipping_addresses_num:
             type: integer
           show_immediate_download:
@@ -238,6 +242,7 @@ properties:
         type: string
       path_normal:
         type: string
+        description: 'Path to the store (i.e., domain + protocol)'
       path:
         type: string
       address:
@@ -249,6 +254,7 @@ properties:
             type: string
           direction:
             type: string
+            description: 'Left to right or right to left, depending on the language'
   customer:
     type: object
     properties:
@@ -277,6 +283,7 @@ properties:
             type: string
           sepa:
             type: string
+            description: A link to SEPA mandate and also receive this link embedded on email confirmation.
           shipment_to_multiple_addresses:
             type: string
           shipping_immediate_download:
@@ -343,4 +350,3 @@ properties:
             type: string
           email_address:
             type: string
-

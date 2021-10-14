@@ -1,4 +1,5 @@
 type: object
+description: ''
 properties:
   return:
     type: object
@@ -69,6 +70,7 @@ properties:
         type: string
       path_normal:
         type: string
+        description: 'Path to the store (i.e., domain + protocol)'
       path:
         type: string
       address:
@@ -80,6 +82,7 @@ properties:
             type: string
           direction:
             type: string
+            description: 'Left to right or right to left, depending on the language'
   customer:
     type: object
     properties:
@@ -126,4 +129,4 @@ properties:
             type: string
           go_shopping:
             type: string
-
+title: ''
