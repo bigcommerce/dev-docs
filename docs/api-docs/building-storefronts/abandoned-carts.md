@@ -33,7 +33,7 @@ The Abandoned Cart Saver will trigger under the following circumstances:
 - **Stencil stores**: a logged-in customer adds an item to the cart, then leaves the store without attempting payment.
 - **Stores using [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout?language=en_US)**: a guest customer adds an item to the cart, begins checkout by entering their email address, then leaves the store without attempting payment.
 - **Headless stores using custom checkout solutions**:
-  - a logged-in customer with the `accepts_product_review_abandoned_cart_email` property set to `true` adds an item to the cart, then leaves the store without attempting payment.
+  - a logged-in customer with the `accepts_product_review_abandoned_cart_email` property set to `true` creates a cart, then leaves the store without attempting payment.
   - a guest customer with email address adds an item to the cart , then leaves the store without attempting payment.
 
 ## Setting up the abandoned cart route
