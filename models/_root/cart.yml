@@ -16,6 +16,17 @@ properties:
     description: 'List of coupons applied to the cart; default sorting is by coupon id, from lowest to highest.'
     items:
       type: object
+      properties:
+        id:
+          type: number
+        code:
+          type: string
+        displayName:
+          type: string
+        couponType:
+          type: string
+        discountedAmount:
+          type: number
   discount:
     type: 'null'
     description: Discount being applied to the cart in the current session.
@@ -24,6 +35,39 @@ properties:
     description: List of gift certificates applied to the cart.
     items:
       type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        theme:
+          type: string
+        amount:
+          type: number
+        taxable:
+          type: boolean
+        sender:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              email:
+                type: string
+        recipient:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              email:
+                type: string
+        message:
+          type: string
+        '':
+          type: string
   gift_wrapping_cost:
     type: object
     description: Price object that defines the cost associated with adding gift wrapping to the items in the cart.
@@ -200,6 +244,11 @@ properties:
     type: array
     items:
       type: object
+      properties:
+        message:
+          type: string
+        type:
+          type: number
   sub_total:
     type: object
     description: 'Price object that defines the total cost of all the items in the cart. Might or might not include tax, based on the tax display settings the merchant has configured. Excludes shipping, discounts, and gift wrapping.'
