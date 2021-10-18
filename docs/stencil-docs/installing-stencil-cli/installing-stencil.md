@@ -62,6 +62,9 @@ npm install -g @bigcommerce/stencil-cli
 
 ```shell
 
+# Run terminal using `Rosetta` mode.
+rm -rf node_modules
+
 # Install Node Version Manager (nvm)
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 
@@ -69,11 +72,10 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 nvm install 12.1
 
 # Switch to Stencil CLI supported version of Node.js
-
 nvm use 12.1
 
 # Install Stencil CLI
-npm install -g @bigcommerce/stencil-cli
+npm install -g @bigcommerce/stencil-cli --target_arch=x64
 ```
 
 ## Installing on Windows
