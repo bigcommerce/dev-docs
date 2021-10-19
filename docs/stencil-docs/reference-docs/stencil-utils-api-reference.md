@@ -162,9 +162,17 @@ The `itemAdd`function allows your code to add an item to the cart, with options:
     <th>Description/Usage</th>
   </tr>
   <tr>
-    <td>formData</td>
+    <td>FormData</td>
     <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData">FormData</a> object </td>
-    <td>Contains all details about the added item and its product options</td>
+    <td>Contains all details about the added item and its product options.<br /> FormData example:
+	    
+```html
+action: add
+product_id: 123
+attribute[123]: 321
+qty[]: 1
+```
+</td>	    
   </tr>
   <tr>
     <td>callback</td>

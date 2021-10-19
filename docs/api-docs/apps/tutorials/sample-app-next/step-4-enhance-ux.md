@@ -22,13 +22,13 @@
 
 [BigDesign](https://developer.bigcommerce.com/big-design/) plays a pivotal part in the BigCommerce control panel and ecosystem. App developers are encouraged to use BigDesign to develop apps that have a native BigCommerce look and feel.
 
-This step will focus on expanding functionality and integrating advanced design elements available as part of the BigDesign library.
+This step focuses on expanding functionality and integrating advanced design elements available as part of the BigDesign library.
 
 ## Create the Products List route
 
 1. From the `pages/api` folder, open the `products` folder.
 
-2. In the `products` folder, create a `list.ts` file. The `list.ts` file will be routed to `/api/list` and will be treated as an API endpoint, instead of a regular component.
+2. In the `products` folder, create a `list.ts` file. The `list.ts` file will be routed to `/api/list` and treated as an API endpoint, instead of a regular component.
 
 3. At the top of the file, import the following packages:
 
@@ -120,7 +120,7 @@ import { useProductList } from '../../lib/hooks';
 <div class="HubBlock-content">
 
 > ### Note
-> Because BigDesign and Next.js both have a component called `Link`, you will need to import BigDesign's `Link` as `StyledLink` to avoid TypeScript errors.
+> Because BigDesign and Next.js both have a component called `Link`, you need to import BigDesign's `Link` as `StyledLink` to avoid TypeScript errors.
 
 </div>
 </div>
@@ -199,7 +199,7 @@ import { useProductList } from '../lib/hooks';
 import { TabIds, TabRoutes } from './header';
 ```
 
-3. Define the `InnerHeader` functional component. You will use it for the Product Edit page, a subpage of `products` (`/products/[pid]`), whereas the main `Header` component is used for the main pages such as `/` and `/products`.
+3. Define the `InnerHeader` functional component. You use it for the Product Edit page, a subpage of `products` (`/products/[pid]`), whereas the main `Header` component is used for the main pages such as `/` and `/products`.
 
 ```js
 const InnerHeader = () => {
@@ -234,7 +234,7 @@ The `ArrowBackIcon` component is part of the BigDesign's Icons package. You can 
 
 ## Update the Header component
 
-In this step, you will incorporate the BigDesign's `Tabs` component into your app. You will use the `Tabs` component to organize and navigate between content types. To learn more, see [Tabs Design Guidelines](https://design.bigcommerce.com/components/tabs). 
+In this step, you incorporate the BigDesign's `Tabs` component into your app. You use the `Tabs` component to organize and navigate between content types. To learn more, see [Tabs Design Guidelines](https://design.bigcommerce.com/components/tabs). 
 
 1. In the components folder, open the `header.tsx` file and update the imports.
 
@@ -326,7 +326,7 @@ export default Header;
 
 [View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/components/header.tsx)
 
-The `Header` functional component uses the `useEffect` React hook to perform side effects and enhance performance. Notably, performance enhancement is only visible in a production or production-like environment (integration or staging). `router.prefetch()` will not prefetch the products page while in the development mode.
+The `Header` functional component uses the `useEffect` React hook to perform side effects and enhance performance. Notably, performance enhancement is only visible in a production or production-like environment (integration or staging). `router.prefetch()` does not prefetch the products page while in the development mode.
 
 ### Test your app
 
@@ -336,11 +336,11 @@ Your app should now display two tabs: **Home** and **Products**. Click on the **
 
 ### Latency
 
-When loading the products page for the first time, the latency you notice only happens in the development mode. In production or a production-like environment, `router.prefetch()` will prefetch the products page reducing the latency.
+When loading the products page for the first time, the latency you notice only happens in the development mode. In production or a production-like environment, `router.prefetch()` prefetches the products page reducing the latency.
 
-To test your app in a production or a production-like environment (integration or staging), run `npm run build` instead of `npm run dev` in your terminal. Doing so will build and compile your local code. Then, run `npm run start` to get the performance enhancements traditionally not available in the development mode. 
+To test your app in a production or a production-like environment (integration or staging), run `npm run build` instead of `npm run dev` in your terminal. This builds and compiles your local code. Then, run `npm run start` to get the performance enhancements traditionally not available in the development mode. 
 
-Keep in mind that any changes you make to your code after running `npm run build` will need to go through the build process to be captured.
+Keep in mind that any changes you make to your code after running `npm run build` need to go through the build process to be captured.
 
 ## Create the ErrorMessage component
 
@@ -405,7 +405,7 @@ import ErrorMessage from '../../components/error';
 import Loading from '../../components/loading';
 ```
 
-3. Inside the `Products` functional component, above the `return` statement, add the logic to return `ErrorMessage` and `Loading` components. `isLoading` will check when the page or component is loading and `isError` will check for API errors.
+3. Inside the `Products` functional component, above the `return` statement, add the logic to return `ErrorMessage` and `Loading` components. `isLoading` checks when the page or component is loading and `isError` checks for API errors.
 
 ```js
 if (isLoading) return <Loading />;
@@ -438,7 +438,7 @@ export interface StringKeyValue {
 
 ## Create the Form component
 
-You will use the BigDesign's `Form` component to display and edit individual product information.
+You use the BigDesign's `Form` component to display and edit individual product information.
 
 The BigDesign's `Form` component comes with built-in support for accessibility, validation, and handling errors. It supports various input types, including Input, Checkbox, Radio, Select, and Textarea. To learn more, see [Form Fields Design Guidelines](https://design.bigcommerce.com/components/forms).
 
@@ -591,7 +591,7 @@ export default Form;
 
 ## Create dynamic product routes
 
-Next.js allows you to create dynamic routes by adding brackets to a page; for example, `[pid]`. Any route similar to `products/123` or `products/abc` will be matched by `pages/products/[pid].tsx`. To learn more about defining dynamic routes in Next.js, see [Dynamic Routes](https://nextjs.org/docs/routing/dynamic-routes).
+Next.js allows you to create dynamic routes by adding brackets to a page; for example, `[pid]`. Any route similar to `products/123` or `products/abc` is matched by `pages/products/[pid].tsx`. To learn more about defining dynamic routes in Next.js, see [Dynamic Routes](https://nextjs.org/docs/routing/dynamic-routes).
 
 1. Navigate to the `/pages/products` folder and create a `[pid].tsx` file.
 
@@ -659,7 +659,7 @@ export default ProductInfo;
 
 [View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/pages/products/%5Bpid%5D.tsx)
 
-The `ProductInfo` functional component uses the `Form` component defined in `/components/form`. If you click on a product from the products list, it will take you to the corresponding page containing information about that particular product.
+The `ProductInfo` functional component uses the `Form` component defined in `/components/form`. When you click on a product from the products list, it takes you to the corresponding page containing information about that particular product.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">

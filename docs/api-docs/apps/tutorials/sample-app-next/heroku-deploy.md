@@ -25,7 +25,7 @@ If you want to skip the tutorial and get the app running quickly, you can use th
 
 11. In the Developer Portal, click **Edit App**.
 12. Open the **Technical** tab. In App Features, select STORE OWNER for **Multiple Users** and SINGLE-CLICK for **App Type**.
-13. Scroll down to **Callback URLs** and update Auth, Load, and Uninstall URLs replacing placeholders with your heroku app url. For example, your Auth Callback should look similar to the following:  `https://heroku-sample-app.herokuapp.com/api/auth`.
+13. Scroll down to **Callback URLs** and update Auth, Load, and Uninstall URLs replacing placeholders with your Heroku app URL. For example, your Auth Callback should look similar to the following:  `https://heroku-sample-app.herokuapp.com/api/auth`.
 14. Scroll down to OAuth scopes and set the **Products** access to MODIFY.
 15. Click **Update & Close**.
 16. In your sandbox store control panel, go to **Apps** > **My Apps** > **My Draft Apps**. Open your app and press **Install**. Click **Confirm**. This will install the app on your store. The installed app should look similar to the following:

@@ -15,13 +15,13 @@
 
 </div>
 
-Webhooks notify applications when specific events occur on a BigCommerce store. For example when:
+Webhooks notify applications when specific events occur on a BigCommerce store. For example, when:
 
 * an order is created,
 * a product's inventory changes
 * an item is added to a shopper's cart
 
-This article is an overview of webhook behavior on BigCommerce. For a complete webhook API reference, see [API Reference > Webhooks](/api-reference/webhooks/webhooks/createwebhooks). For step-by-step webhooks tutorial on creating a webhook for certain store events, see [Webhooks Tutorial](api-docs/getting-started/webhooks/setting-up-webhooks).
+This article is an overview of webhook behavior on BigCommerce. For a complete webhook API reference, see [API Reference > Webhooks](/api-reference/webhooks/webhooks/createwebhooks). For a step-by-step webhooks tutorial on creating a webhook for certain store events, see [Webhooks Tutorial](https://developer.bigcommerce.com/api-docs/store-management/webhooks/tutorial).
 
 ## Creating a webhook
 
@@ -75,7 +75,7 @@ Accept: application/json
 
 ## Callback payload
 
-When a webhook is triggered, BigCommerce will `POST` a light payload containing event details to the destination server. For example, the `data` object for `store/order/statusUpdated` contains only the order `id`:
+When a webhook is triggered, BigCommerce will `POST` a light payload containing event details to the destination server. For example, the `data` object for `store/order/statusUpdated` contains only the order `id`.
 
 
 **statusUpdated POST request body**
@@ -92,7 +92,7 @@ When a webhook is triggered, BigCommerce will `POST` a light payload containing 
  }
 ```
 
-A request can then be made to [/orders/{id}](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/getanorder) to obtain full order details.
+You can then make a request to [/orders/{id}](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/getanorder) to obtain full order details.
 
 For more information on specific webhook events and their payloads, see [Webhook Events](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events).
 
@@ -111,28 +111,28 @@ The webhook service may send many payloads to a single URI in quick succession. 
 
 The following process will determine whether the destination URI gets blacklisted:
 
-1. Once a webhook is triggered, the service checks if your callback URI is on the blacklist
-2. If it's not, we calculate a success ratio for the remote server based on its success/failure count in a **two minute window**
-3. If at any point in the two minute window the success/failure ratio dips below **90%**, the destination URI's domain will be blacklisted for **three minutes**
-4. Webhook events triggered during this time are sent to our retry queues to be executed later when the domain is no longer blacklisted and once the retry queue time has elapsed
+1. Once a webhook is triggered, the service checks if your callback URI is on the blacklist.
+2. If it's not, we calculate a success ratio for the remote server based on its success/failure count in a **two minute window**.
+3. If at any point in the two minute window the success/failure ratio dips below **90%**, the destination URI's domain will be blacklisted for **three minutes**.
+4. Webhook events triggered during this time are sent to our retry queues to be executed later when the domain is no longer blacklisted and once the retry queue time has elapsed.
 
 Once a domain is no longer blacklisted, all new webhook requests will be sent as they occur. Event requests sent to the retry queue during a blacklisting period will be delivered according to the retry queue schedule.
 
 The webhook dispatcher will then attempt several retries (at increasing intervals) until the maximum retry limit is reached.
 
-|Queue|Interval|
-|-|-|
-|`dispatches.retries.60`|Retries after 60 seconds|
-|`dispatches.retries.180`|Retries after 180 seconds|
-|`dispatches.retries.300`|Retries after 300 seconds|
-|`dispatches.retries.600`|Retries after 600 seconds|
-|`dispatches.retries.900`|Retries after 900 seconds|
-|`dispatches.retries.1800`|Retries after 1800 seconds|
-|`dispatches.retries.3600`|Retries after 3600 seconds|
-|`dispatches.retries.7200`|Retries after 7200 seconds|
-|`dispatches.retries.21600`|Retries after 21600 seconds|
-|`dispatches.retries.50400`|Retries after 50400 seconds|
-|`dispatches.retries.86400`|Retries after 86400 seconds|
+|Intervals|
+|-|
+|Retries after 60 seconds|
+|Retries after 180 seconds|
+|Retries after 300 seconds|
+|Retries after 600 seconds|
+|Retries after 900 seconds|
+|Retries after 1800 seconds|
+|Retries after 3600 seconds|
+|Retries after 7200 seconds|
+|Retries after 21600 seconds|
+|Retries after 50400 seconds|
+|Retries after 86400 seconds|
 
 After the final retry attempt (cumulatively **48 hours** after the first delivery attempt), the webhook will be deactivated, and an email will be sent to the email address registered for the subscribing app. To reactivate the webhook, set `is_active`  back to `true` by making a `PUT` request to `/hooks/{id}`.
 
@@ -157,7 +157,7 @@ To avoid accumulating unused webhooks, BigCommerce automatically deletes registe
 <div class="HubBlock-content">
 
 ### Note
-> You can not delete a webhook by deleting the account token used to create it. The associated webhook will continue to run after you delete the token, and you will be unable to edit, delete, or manage the webhook. For information on how to manaually delete a webhook, see [Delete a Webhook](https://developer.bigcommerce.com/api-reference/store-management/webhooks/webhooks/deleteawebhook).
+> You can not delete a webhook by deleting the account token used to create it. The associated webhook will continue to run after you delete the token, and you will be unable to edit, delete, or manage the webhook. For information on how to manually delete a webhook, see [Delete a Webhook](https://developer.bigcommerce.com/api-reference/store-management/webhooks/webhooks/deleteawebhook).
 </div> 
 </div>
 </div>
@@ -166,9 +166,9 @@ To avoid accumulating unused webhooks, BigCommerce automatically deletes registe
 
 To ensure webhook callback requests are secure, BigCommerce takes the following precautions:
 
-* Webhook payloads contain minimal information about the store and event
-* Webhook payloads are sent over **TLS-encrypted** connection
-* Create Webhook requests accept an optional header object which can be used to authenticate callbacks requests
+* Webhook payloads contain minimal information about the store and event.
+* Webhook payloads are sent over **TLS-encrypted** connection.
+* Create Webhook requests to accept an optional header object which can be used to authenticate callbacks requests.
 
 **POST requests that includes header object**
 
@@ -178,8 +178,8 @@ To ensure webhook callback requests are secure, BigCommerce takes the following 
   "destination": "{{DESTINATION_URL}}",
   "is_active": true,
   "headers": {
-    "Username": "Hello",
-    "Password": "Goodbye"
+    "username": "Hello",
+    "password": "Goodbye"
   }
 }
 ```
@@ -232,7 +232,7 @@ Below is a collection of third-party tools that can be used to aid in the develo
 
 ### Articles
 * [Webhook Tutorial](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks)
-* [Webhook Events](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events)
+* [Webhook Events](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events)
 
 ### Endpoints
 * [Webhooks Reference](https://developer.bigcommerce.com/api-reference/webhooks)

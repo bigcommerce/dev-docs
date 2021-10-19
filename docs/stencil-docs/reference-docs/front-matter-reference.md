@@ -270,16 +270,6 @@ product:
   }
   "
   ```
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-**Note:**
-You are required to be running on a BigCommerce instance to add GraphQL Storefront API queries.
-
-</div>
-</div>
-</div>
   
 We suggest testing GraphQL queries using the [storefront API playground](https://developer.bigcommerce.com/api-reference/storefront/graphql#graphql-playground) to refine them before adding them to your template. You can launch the playground in the context of your store by clicking the **Storefront API Playground** link under the **Advanced Settings** menu in your store's control panel.
   
