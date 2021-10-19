@@ -938,7 +938,7 @@ definitions:
           description: "Example as part of a Cart response:\n\n```\n\"discounts\": [\n\t\t{\n\t\t\t\t\"id\": 2,\n\t\t\t\t\"discounted_amount\": 2\n\t\t},\n\t\t{\n\t\t\t\t\"id\": \"coupon\",\n\t\t\t\t\"discounted_amount\": 0.42\n\t\t}\n]\n```"
           properties:
             id:
-              type: number
+              type: string
               description: 'ID of the applied discount. '
               example: coupon
             discounted_amount:
@@ -994,6 +994,38 @@ definitions:
                         format: uri
                         example: 'https://pathtoproductimage/ProductDefault.png'
                         description: Image of the product or variant.
+                      gift_certificates:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            amount:
+                              type: number
+                              example: 10
+                            id:
+                              type: string
+                              example: "abc-123"
+                            name:
+                              type: string
+                              example: "jane"
+                            quantity:
+                              type: number
+                              example: 1
+                            recipient:
+                              type: object
+                              properties:
+                                email:
+                                  type: string
+                                  example: "janedoe@example.com"
+                                name:
+                                  type: string
+                                  example: "Jane Doe"
+                            taxable:
+                              type: boolean
+                              example: true
+                            theme:
+                              type: string
+                              example: "birthday"
                       discounts:
                         type: array
                         items:
@@ -2410,10 +2442,10 @@ definitions:
         description: |-
           Key name to identify the type of coupon.
 
-          type 0: per_item_discount  
-          type 1: percentage_discount  
+          type 0: per_item_discount
+          type 1: percentage_discount
           type 2: per_total_discount
-          type 3: shipping_discount  
+          type 3: shipping_discount
           type 4: free_shipping
           type 5: promotion
         type: string
@@ -2631,7 +2663,7 @@ securityDefinitions:
       X-Auth-Token: {access_token}
       ```
 
-      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 parameters:
   Accept:
     in: header
