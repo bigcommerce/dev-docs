@@ -1,3 +1,7 @@
+---
+tags: [guide]
+---
+
 # Beginning App Development
 
 <div class="otp" id="no-index">
