@@ -690,7 +690,10 @@ definitions:
                             format: double
                     coupons:
                       description: ''
-                      type: number
+                      type:
+                        - number
+                        - array
+                      items: {}
                     discount_amount:
                       description: The total value of all discounts applied to this item.
                       type: number
@@ -810,7 +813,10 @@ definitions:
                             format: double
                     coupons:
                       description: ''
-                      type: number
+                      type:
+                        - number
+                        - array
+                      items: {}
                     discount_amount:
                       description: The total value of all discounts applied to this item.
                       type: number
