@@ -1,3 +1,6 @@
+---
+tags: [apps, guide]
+---
 # Introduction to Building Apps
 
 <div class="otp" id="no-index">

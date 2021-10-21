@@ -1,3 +1,6 @@
+---
+tags: [apps, guide]
+---
 # Publishing an App
 
 <div class="otp" id="no-index">

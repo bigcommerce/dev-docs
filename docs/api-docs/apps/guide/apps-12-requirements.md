@@ -1,3 +1,6 @@
+---
+tags: [apps, guide]
+---
 # App Store Approval Requirements
 
 <div class="otp" id="no-index">

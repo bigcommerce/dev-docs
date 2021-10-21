@@ -1,3 +1,6 @@
+---
+tags: [apps, guide]
+---
 # Designing a Single-Click App's UI
 
 <div class="otp" id="no-index">

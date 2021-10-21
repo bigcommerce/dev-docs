@@ -1,3 +1,6 @@
+---
+tags: [apps, guide]
+---
 # Managing Apps in the Developer Portal
 
 <div class="otp" id="no-index">

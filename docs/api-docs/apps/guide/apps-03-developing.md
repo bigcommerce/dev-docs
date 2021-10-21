@@ -1,5 +1,5 @@
 ---
-tags: [guide]
+tags: [apps, guide]
 ---
 
 # Beginning App Development

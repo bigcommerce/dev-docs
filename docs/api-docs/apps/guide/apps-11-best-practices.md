@@ -1,3 +1,6 @@
+---
+tags: [apps, guide]
+---
 # App Development Best Practices
 
 <div class="otp" id="no-index">

@@ -1,3 +1,6 @@
+---
+tags: [apps, guide]
+---
 # Single-Click App Callbacks
 
 

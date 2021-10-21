@@ -1,3 +1,6 @@
+---
+tags: [apps, guide]
+---
 # Types of Apps
 
 <div class="otp" id="no-index">

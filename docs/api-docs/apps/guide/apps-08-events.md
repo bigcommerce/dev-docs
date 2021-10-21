@@ -1,3 +1,6 @@
+---
+tags: [apps, guide]
+---
 # Listening for Events
 
 <div class="otp" id="no-index">

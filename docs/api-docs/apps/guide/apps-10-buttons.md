@@ -1,3 +1,6 @@
+---
+tags: [apps, guide]
+---
 # Creating an External Installation Button
 
 
