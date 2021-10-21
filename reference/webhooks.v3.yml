@@ -505,8 +505,8 @@ components:
       title: store/cart/updated
       description: |-
         This webhook fires when the following occur:
-        - a cart's line items are modified, such as adding a new item to a cart, updating an existing item's quantity, or deleting an item.
-        - a shopper enters or changes their email address during guest checkout, including logging into their customer account after creating a guest cart, which associates the account's email address with the cart.
+        -  Modifying a cart's line items by adding a new item to a cart, updating an existing item's quantity, or deleting an item.
+        -  Entering or changing their email address during guest checkout. This includes logging into a customer account after creating a guest cart, which associates the account's email address with the cart.
 
         The `store/cart/created` webhook firing also triggers this webhook because adding a product to an empty cart is considered an update. 
 
@@ -554,7 +554,7 @@ components:
     store_cart_deleted:
       title: store/cart/deleted
       description: |-
-        This webhook will fire whenever a cart is deleted. This will occur either when all items have been removed from a cart and it is auto-deleted, or when the cart is explicitly removed via a `DELETE` request by an API consumer. This ends the lifecycle of the cart. The  `store/cart/updated`  webhook will also fire when the last item is removed.
+        This webhook fires whenever a cart is deleted. Cart deletion occurs either when all items have been removed from a cart which causes auto-deletion, or when an API consumer explicitly removes the cart through a `DELETE` request. Cart deletion ends the lifecycle of the cart. The `store/cart/updated` webhook also fires when the last item is removed.
 
         ### Example callback:
 
@@ -596,7 +596,7 @@ components:
     store_cart_couponApplied:
       title: store/cart/couponApplied
       description: |-
-        This webhook will fire whenever a new coupon code is applied to a cart. It will include the ID of the coupon code.
+        This webhook fires whenever a new coupon code is applied to a cart. The webhook request body includes the ID of the coupon code.
 
         ### Example callback:
 
@@ -643,7 +643,7 @@ components:
     store_cart_abandoned:
       title: store/cart/abandoned
       description: |-
-        This webhook will fire once after a cart is abandoned. A cart is considered abandoned if no changes have been made for at least one hour after the last modified property. This hook is available for all store plans, regardless of whether the Abandoned Cart Saver feature is enabled.
+        This webhook fires after a cart is abandoned. A cart becomes abandoned when no changes occur for at least one hour after the last modified property. This webhook is available for all store plans, regardless of whether the Abandoned Cart Saver feature is enabled.
 
         ### Example callback:
 
@@ -683,7 +683,7 @@ components:
     store_cart_converted:
       title: store/cart/converted
       description: |-
-        This hook fires when a cart is converted into an order, which is typically after the payment step of checkout on the storefront. At this point, the cart is no longer accessible and has been deleted. This hook returns both the cart ID and order ID for correlation purposes.
+        This webhook fires when a cart is converted into an order, which is typically after the checkout payment step on the storefront. At this point, the cart is automatically deleted and no longer accessible. This webhook returns both the cart ID and order ID for correlation purposes.
 
         ### Example callback:
 
@@ -730,7 +730,7 @@ components:
     store_cart_lineItem_wildcard:
       title: store/cart/lineItem/*
       description: |-
-        Subscribe to all cart line item events. This webhook will fire when a change occurs to line items in the cart. This can be when items are added to a cart, removed or updated.(Ex. change to quantity, product options or price).
+        This webhook subscribes to all cart line item events. 
 
         ### Example callback:
 
@@ -776,7 +776,7 @@ components:
     store_cart_lineItem_created:
       title: store/cart/lineItem/created
       description: |-
-        When a new item is added to the cart
+        This webhook fires when a new item is added to the cart.
 
         ### Example callback:
 
@@ -823,7 +823,7 @@ components:
     store_cart_lineItem_updated:
       title: store/cart/lineItem/updated
       description: |-
-        When an item’s quantity has changed or the product options change.
+        This webhook fires when an item’s quantity has changed or the product options change.
 
         Fields that trigger event:
         - Quantity
@@ -874,7 +874,7 @@ components:
     store_cart_lineItem_deleted:
       title: store/cart/lineItem/deleted
       description: |-
-        When an item is deleted from the cart
+        This webhook fires when an item is deleted from the cart.
 
         ### Example callback:
 
@@ -930,7 +930,7 @@ components:
       title: store/category/created
       type: object
       description: |-
-        Category is created   
+        This webhook fires when a category is created.
 
         ### Example callback:
 
@@ -958,7 +958,7 @@ components:
     store_category_updated:
       title: store/category/updated
       description: |-
-        Category is updated <br><br>Fields that trigger event:<ul><li>Url</li><li>Name</li><li>Redirect old URLs</li><li>Description</li><li>Parent Category</li><li>Template Layout File</li><li>Sort Order</li><li>Default Product Sort</li><li>Category Image</li><li>Page Title</li><li>Meta Keywords</li><li>Meta Description</li><li>Search Keywords</li><li>Google Product Category</li><li>Enable Google Shopping</li></ul>
+        This webhook fires when a category is updated. <br><br>Fields that trigger event:<ul><li>Url</li><li>Name</li><li>Redirect old URLs</li><li>Description</li><li>Parent Category</li><li>Template Layout File</li><li>Sort Order</li><li>Default Product Sort</li><li>Category Image</li><li>Page Title</li><li>Meta Keywords</li><li>Meta Description</li><li>Search Keywords</li><li>Google Product Category</li><li>Enable Google Shopping</li></ul>
 
         ### Example callback:
 
@@ -1002,7 +1002,7 @@ components:
     store_category_deleted:
       title: store/category/deleted
       description: |-
-        Category is deleted
+        This webhook fires when a category is deleted.
 
         ### Example callback:
 
@@ -1053,7 +1053,7 @@ components:
     store_channel_created:
       title: store/channel/created
       description: |-
-        Fires when a channel is created via control panel or API
+        This webhook fires when a channel is created via control panel or API.
 
         ### Example callback:
 
@@ -1097,7 +1097,7 @@ components:
     store_channel_updated:
       title: store/channel/updated
       description: |-
-        Fires when a channel is updated via control panel or API. 
+        This webhook fires when a channel is updated via control panel or API. 
 
         Fields that trigger event:<ul><li>name</li><li>external_id</li><li>status</li><li>is_listable_from_ui</li><li>is_visible</li><li>is_enabled (to be deprecated)</li><li>config_meta</li></ul>
 
@@ -1151,7 +1151,7 @@ components:
     store_customer_created:
       title: store/customer/created
       description: |-
-        A new customer is created
+        This webhook fires when a new customer is created.
 
         ### Example callback:
 
@@ -1195,7 +1195,7 @@ components:
     store_customer_updated:
       title: store/customer/updated
       description: |-
-        Customer is updated. Does not currently track changes to the customer address.
+        This webhook fires when a customer is updated. This webhook does not fire on changes to a customer's address.
 
         ### Example callback:
 
@@ -1239,7 +1239,7 @@ components:
     store_customer_deleted:
       title: store/customer/deleted
       description: |-
-        Customer is deleted
+        This webhook fires when a customer is deleted.
 
         ### Example callback:
 
@@ -1283,7 +1283,7 @@ components:
     store_customer_address_created:
       title: store/customer/address/created
       description: |-
-        Customer address is created
+        This webhook fires when a customer address is created.
 
         ### Example callback:
 
@@ -1335,7 +1335,7 @@ components:
     store_customer_address_updated:
       title: store/customer/address/updated
       description: |-
-        Customer address is updated
+        This webhook fires when a customer address is updated.
 
         ### Example callback:
 
@@ -1387,7 +1387,7 @@ components:
     store_customer_address_deleted:
       title: store/customer/address/deleted
       description: |-
-        Customer address is deleted
+        This webhook fires when a customer address is deleted.
 
         ### Example callback:
 
@@ -1439,7 +1439,7 @@ components:
     store_customer_payment_instrument_default_updated:
       title: store/customer/payment/instrument/default/updated
       description: |-
-        Customer default payment instrument is updated
+        This webhook fires when a customer default payment instrument is updated.
 
         ### Example callback:
 
@@ -1489,7 +1489,7 @@ components:
     store_order_created:
       title: store/order/created
       description: |-
-        Fires if an order is created using the control panel, an app or via the API.
+        This webhook fires if an order is created using the control panel, an app or via the API.
 
         ### Example callback:
 
@@ -1532,7 +1532,7 @@ components:
     store_order_updated:
       title: store/order/updated
       description: |-
-        Fires when an already created order is updated. Any changes to an existing order will fire this webhook.Updates can include changing the status, updating a coupon or changing an address. 
+        This webhook fires when an already created order is updated.  
 
         Fields that trigger event: <ul><li>Product Type</li><li>Search Keywords</li><li>Related Products</li><li>Warranty Information</li><li>Page Title</li><li>Meta Description</li><li>Gift Wrapping options</li><li>Bin Picking Number (BPN)</li><li>Fixed Shipping Price</li><li>Free Shipping</li><li>Open Graph Sharing Type</li><li>Availability Text</li><li>Purchasability</li><li>Release Date</li><li>Remove pre-order status on this date</li></ul>
 
@@ -1577,7 +1577,7 @@ components:
     store_order_archived:
       title: store/order/archived
       description: |-
-        Order is archived
+        This webhook fires when an order is archived.
 
         ### Example callback:
 
@@ -1619,7 +1619,7 @@ components:
     store_order_statusUpdated:
       title: store/order/statusUpdated
       description: |-
-        This will only fire if the order status has changed, such as `Pending` to `Awaiting Payment`
+        This webhook only fires if the order status has changed, such as `Pending` to `Awaiting Payment`
 
         ### Example callback:
 
@@ -1676,7 +1676,7 @@ components:
     store_order_message_created:
       title: store/order/message/created
       description: |-
-        Order message is created by customer or in control panel
+        This webhook fires when an order message is created by customer or in control panel.
 
         ### Example callback:
 
@@ -1728,7 +1728,7 @@ components:
     store_order_refund_created:
       title: store/order/refund/created
       description: |-
-        A refund has been submitted against an order
+        This webhook fires when a refund has been submitted against an order.
 
         ### Example callback:
 
@@ -1784,7 +1784,7 @@ components:
     store_product_deleted:
       title: store/product/deleted
       description: |-
-        Product is deleted
+        This webhook fires when a product is deleted.
 
         ### Example callback:
 
@@ -1827,7 +1827,7 @@ components:
     store_product_created:
       title: store/product/created
       description: |-
-        A new product is created
+        This webhook fires when a new product is created.
 
         ### Example callback:
 
@@ -1870,7 +1870,7 @@ components:
     store_product_updated:
       title: store/product/updated
       description: |-
-        Occurs when product details are edited. 
+        This webhook fires when product details are edited. 
 
         Fields that trigger event<ul><li>Product Type</li><li>Search Keywords</li><li>Related Products</li><li>Warranty Information</li><li>Page Title</li><li>Meta Description</li><li>Gift Wrapping options</li><li>Bin Picking Number (BPN)</li><li>Fixed Shipping Price</li><li>Free Shipping</li><li>Open Graph Sharing Type</li><li>Availability Text</li><li>Purchasability</li><li>Release Date</li><li>Remove pre-order status on this date</li><li>Preorder Message</li><li>Inventory Stock</li><li>Inventory Low Stock</li><li>Track inventory</li><li>Product UPC/EAN</li><li>SKU</li><li>Cost</li><li>Tax Class</li><li>Weight</li><li>Width</li><li>Height</li><li>Depth</li><li>Condition</li><li>Show condition on storefront</li><li>Brand</li><li>Default Price</li><li>Sale Price</li><li>MSRP</li><li>Product Name</li><li>Description</li><li>Visible on Storefront</li><li>Sort Order</li><li>Categories</li><li>Product URL</li><li>Set as a Featured Product on my Storefront</li></ul>
 
@@ -1917,7 +1917,7 @@ components:
     store_product_inventory_updated:
       title: store/product/inventory/updated
       description: |-
-        Product inventory is updated. <br><br>Fields that trigger event: <ul><li>Inventory Stock</li></ul>Fields that do not trigger event: <ul><li>Track Inventory</li><li>Inventory Low Stock</li></ul>
+        This webhook fires when product inventory is updated. <br><br>Fields that trigger event: <ul><li>Inventory Stock</li></ul>Fields that do not trigger event: <ul><li>Track Inventory</li><li>Inventory Low Stock</li></ul>
 
         ### Example callback:
 
@@ -1976,7 +1976,7 @@ components:
                         - relative
                     value:
                       type: integer
-                      description: 'the number of items that the inventory changed by. This can be negative if the inventory is decreased `-3` or positive if an item is returned to the inventory from an order, `2`'
+                      description: This value is the difference between an item's inventory count before and after the inventory updates. This value is negative if an item's inventory count decreases. For example, reducing inventory by three returns a value of `-3`. This value is positive if an item's inventory count increases. For example, returning two items to the inventory returns a value of `2`.
                       example: 2
       x-tags:
         - created
@@ -1984,7 +1984,7 @@ components:
     store_product_inventory_order_updated:
       title: store/product/inventory/order/updated
       description: |-
-        Fires if a product’s inventory is decremented or incremented, including when an order is placed. Webhook responds to inventory updates made using the control panel, CSV import, API or an app.<br><br>Fields that trigger event: <ul><li>Quantity</li></ul>
+        This webhook fires if a product’s inventory increases or decreases. <br><br>Fields that trigger event: <ul><li>Quantity</li></ul>
 
         ### Example callback:
 
@@ -2043,7 +2043,7 @@ components:
                         - relative
                     value:
                       type: integer
-                      description: 'the number of items that the inventory changed by. This can be negative if the inventory is decreased `-3` or positive if an item is returned to the inventory from an order, `2`'
+                      description: This value is the difference between an item's inventory count before and after the inventory updates. This value is negative if an item's inventory count decreases. For example, reducing inventory by three returns a value of `-3`. This value is positive if an item's inventory count increases. For example, returning two items to the inventory returns a value of `2`.
                       example: 2
       x-tags:
         - created
@@ -2055,7 +2055,7 @@ components:
     store_shipment_created:
       title: store/shipment/created
       description: |-
-        Shipment is created
+        This webhook fires when a shipment is created.
 
         ### Example callback:
 
@@ -2102,7 +2102,7 @@ components:
     store_shipment_updated:
       title: store/shipment/updated
       description: |-
-        Shipment is updated
+        This webhook fires when a shipment is updated.
 
         Fields that trigger event:<ul><li>Shipping Tracking Number</li></ul>
 
@@ -2151,7 +2151,7 @@ components:
     store_shipment_deleted:
       title: store/shipment/deleted
       description: |-
-        Shipment is deleted
+        This webhook fires when a shipment is deleted.
 
         ### Example callback:
 
@@ -2202,7 +2202,7 @@ components:
     store_sku_created:
       title: store/sku/created
       description: |-
-        A new SKU is created
+        This webhook fires when a new SKU is created.
 
         ### Example callback:
 
@@ -2259,7 +2259,7 @@ components:
     store_sku_updated:
       title: store/sku/updated
       description: |-
-        SKU is updated
+        This webhook fires when a SKU is updated.
 
         ### Example callback:
 
@@ -2316,7 +2316,7 @@ components:
     store_sku_deleted:
       title: store/sku/deleted
       description: |-
-        SKU is deleted
+        This webhook fires when a SKU is deleted.
 
         ### Example callback:
 
@@ -2373,7 +2373,7 @@ components:
     store_sku_inventory_updated:
       title: store/sku/inventory/updated
       description: |-
-        SKU is updated
+        This webhook fires when a SKU is updated.
 
         ### Example callback:
 
@@ -2445,7 +2445,7 @@ components:
     store_sku_inventory_order_updated:
       title: store/sku/inventory/order/updated
       description: |-
-        This will fire when the inventory is updated via API, the control panel, when an order is placed and when an order is refunded and the inventory is returned to stock. This hook will fire based on a store's Inventory settings. <br><br>Fields that trigger event:<ul><li>Quantity</li></ul>
+        This webhook fires when the inventory is updated.<br><br>Fields that trigger event:<ul><li>Quantity</li></ul>
 
         ### Example callback:
 
@@ -2517,7 +2517,7 @@ components:
     store_app_uninstalled:
       title: store/app/uninstalled
       description: |-
-        Occurs when a client store is cancelled and uninstalled from the platform
+        This webhook fires when a client store is canceled and uninstalled from the platform.
 
         ### Example callback:
 
@@ -2554,7 +2554,7 @@ components:
     store_information_updated:
       title: store/information/updated
       description: |-
-        Occurs when changes are made to store settings. 
+        This webhook fires when changes are made to store settings. 
 
         Fields that trigger event
         <ul><li>Store Name</li><li>Store Address</li><li>Store Country</li><li>Address Type</li><li>Email</li><li>Phone</li></ul>
@@ -2598,7 +2598,7 @@ components:
     store_subscriber_created:
       title: store/subscriber/created
       description: |-
-        Subscriber is created 
+        This webhook fires when a subscriber is created. 
 
         ### Example callback:
 
@@ -2640,7 +2640,7 @@ components:
     store_subscriber_updated:
       title: store/subscriber/updated
       description: |-
-        Subscriber is updated 
+        The webhook fires when a subscriber is updated. 
 
         ### Example callback:
 
@@ -2682,7 +2682,7 @@ components:
     store_subscriber_deleted:
       title: store/subscriber/deleted
       description: |-
-        Subscriber is deleted
+        This webhook fires when a subscriber is deleted.
 
         ### Example callback:
 
