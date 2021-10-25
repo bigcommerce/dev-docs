@@ -115,7 +115,7 @@ paths:
                             description: The selected value ID for the configured option.
                             type: integer
                     retail_price:
-                      description: The (optional) RRP/retail price configured for this product
+                      description: The (optional) RRP/retail price configured for this product. Used for price comparison and storefront display purposes.
                       type: object
                       properties:
                         as_entered:
@@ -132,7 +132,7 @@ paths:
                           type: number
                     sale_price:
                       type: object
-                      description: The price for a product including estimates for tax
+                      description: The merchant-entered sale price for a product overwrites the default price. The sale_price is optional.
                       properties:
                         as_entered:
                           description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
@@ -148,7 +148,7 @@ paths:
                           type: number
                     minimum_advertised_price:
                       type: object
-                      description: The price for a product including estimates for tax
+                      description: 'The minimum advertised price (MAP) allowed to be shown on a storefront. A value supplied by the merchant and used for display purposes.'
                       properties:
                         as_entered:
                           description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
@@ -164,7 +164,7 @@ paths:
                           type: number
                     price:
                       type: object
-                      description: The price for a product including estimates for tax
+                      description: The merchant-entered price for a product could be including or excluding tax. Price must be defined when creating a product and serves as the default price.
                       properties:
                         as_entered:
                           description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
@@ -180,7 +180,8 @@ paths:
                           type: number
                     calculated_price:
                       type: object
-                      description: The price for a product including estimates for tax
+                      description: 'The shopper price for a product including modifier, option, and option set rules.  Calculated_price may include or exclude estimates for tax.'
+
                       properties:
                         as_entered:
                           description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
@@ -196,7 +197,7 @@ paths:
                           type: number
                     price_range:
                       type: object
-                      description: 'For estimated prices, the minimum/maximum price that will typically apply to this product'
+                      description: The minimum and maximum price that will typically apply to this product. Only used for complex products (products with variants).
                       properties:
                         minimum:
                           type: object
@@ -232,7 +233,8 @@ paths:
                               type: number
                     retail_price_range:
                       type: object
-                      description: 'For estimated prices, the minimum/maximum price that will typically apply to this product'
+                      description: The product's variants that will typically apply to this product.
+
                       properties:
                         minimum:
                           type: object
