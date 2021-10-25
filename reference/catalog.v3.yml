@@ -398,7 +398,7 @@ paths:
         - `base_variant_id`
 
         **Limits**
-        - 255 characters product name length.
+        - 250 characters product name length.
 
         **Usage Notes**
         * `POST` requests to `/products` accepts a single `video` object; to send an array of video objects, see: `/products/{product_id}/videos`.
@@ -20872,7 +20872,7 @@ definitions:
         x-required:
           - post
         minLength: 1
-        maxLength: 255
+        maxLength: 250
         example: Smith Journal 13
       type:
         type: string
