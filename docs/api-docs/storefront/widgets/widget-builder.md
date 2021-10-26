@@ -12,9 +12,9 @@
 
 </div>
 
-Widget Builder Command Line Interface (**CLI**) is a command-line tool that lets you build, edit, and preview custom storefront widgets in real-time outside the context of your BigCommerce store.
+The Widget Builder Command Line Interface (**CLI**) is a command-line tool that lets you build, edit, and preview custom storefront widgets in real-time outside the context of your BigCommerce store.
 
-This article contains detailed instructions on how to get started with Widget Builder CLI. 
+This article contains detailed instructions on how to get started with the Widget Builder CLI. 
 
 ## Prerequisites
 
@@ -23,13 +23,13 @@ This article contains detailed instructions on how to get started with Widget Bu
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
 * API `access_token` with `content modify` scope. For information on how to generate store API credentials, see [Obtaining store API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
 
-## Installing Widget Builder CLI
+## Installing the Widget Builder CLI
 
-Follow these instructions to install Widget Builder CLI and its dependencies. 
+Follow these instructions to install the Widget Builder CLI and its dependencies. 
 
 1. In a terminal, clone the [widget-builder](https://github.com/bigcommerce/widget-builder) GitHub repo.
 
-2. Navigate to the `widget-builder` directory and install Widget Builder CLI.
+2. Navigate to the `widget-builder` directory and install the Widget Builder CLI.
 
 ```shell
 npm run install-cli
@@ -76,9 +76,9 @@ Commands:
 </div>
 </div>
 
-## Configuring Widget Builder CLI
+## Configuring the Widget Builder CLI
 
-Once you have installed Widget Builder CLI, the next step is to set up your store's environment. You will need the store's Client ID, Access Token, and API Path to generate appropriate configurations. 
+Once you have installed the Widget Builder CLI, the next step is to set up your store's environment. You will need the store's Client ID, Access Token, and API Path to generate appropriate configurations. 
 
 To get started, run the following command:
 
@@ -101,8 +101,6 @@ You'll need those credentials in order to generate the appropriate configuration
 You can find more information here. https://support.bigcommerce.com/s/article/Store-API-Accounts#creating
 
 ? Are you ready to continue? You may press any key to continue Yes
-? It looks like you already have a configuration file, this will overwrite it. A
-re you sure? No
 ? What is the Client ID? xxxxxxxxxxxxx
 ? What is the Access Token? xxxxxxxxxxxxx
 ? What is the API Path? https://api.bigcommerce.com/stores/xxxxx/v3/
@@ -123,7 +121,7 @@ Your default browser should open automatically on port 8080.
 
 ### Starter template
 
-To jump start widget development, Widget Builder CLI provides a blank template with the appropriate files needed to start building widgets. To use the starter template, run the following command:
+To jump start widget development, the Widget Builder CLI provides a blank template with the appropriate files needed to start building widgets. To use the starter template, run the following command:
 
 ```shell
 widget-builder create [widget template name]
