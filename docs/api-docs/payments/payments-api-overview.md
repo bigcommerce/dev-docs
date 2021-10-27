@@ -70,6 +70,7 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 **BigCommerce supports the following gateways for credit cards:**
 
 * Authorize.net
+* Ayden
 * Barclaycard Fuse
 * Bolt
 * CardConnect
@@ -85,6 +86,7 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 * NMI
 * Orbital
 * Paymetric
+* PayPal integration
 * PayPal powered by Braintree
 * PayPal Payments Pro (Payflow Edition) UK
 * PayPal Payments Pro (Payflow Edition) US
