@@ -10,6 +10,6 @@ jobs:
         uses: bigcommerce/dev-docs-style-guide-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-review
+          reporter: github-pr-check
           level: warning
           filter_mode: nofilter
