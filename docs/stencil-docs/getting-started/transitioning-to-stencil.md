@@ -44,9 +44,9 @@ When transitioning any store from Blueprint to Stencil, you should be aware of a
 For complete control over a theme’s appearance, logic, and theme configuration files, developers can use the Stencil command line interface (Stencil CLI). This interface allows you to design and preview storefronts locally before pushing them to production. Access to real-time previews and testing across various devices is available via [Browsersync](https://www.browsersync.io/), a browser testing assistant built into Stencil CLI.
 
 
-While Blueprint themes allow users to add new files and assets to themes via WebDav, Stencil assets must be added to and bundled into the theme, or referenced from an external source.
+While Blueprint themes allow users to add new files and assets to themes via WebDAV, Stencil assets must be added to and bundled into the theme, or referenced from an external source.
 
-For images referenced from anywhere in your Blueprint file directory, you will need to move these assets to your Stencil theme and reference them appropriately. You can still reference assets from within the `/content/` folder in WebDav or from an external source.
+For images referenced from anywhere in your Blueprint file directory, you will need to move these assets to your Stencil theme and reference them appropriately. You can still reference assets from within the `/content/` folder in WebDAV or from an external source.
 
 For more information on Stencil theme assets, see the [Theme Assets](https://developer.bigcommerce.com/stencil-docs/storefront-customization/theme-assets) page.
 

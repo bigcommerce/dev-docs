@@ -55,7 +55,7 @@ You will need to host the custom confirmation file online so it can be served by
 
 ### Using WebDAV to host a custom order confirmation page
 
-You can upload a custom order confirmation page to your store's server using WebDAV. The instructions to upload the `/dist` folder to the BigCommerce server using WebDav are below:
+You can upload a custom order confirmation page to your store's server using WebDAV. The instructions to upload the `/dist` folder to the BigCommerce server using WebDAV are below:
 
 1. Before proceeding, ensure you have downloaded [Cyberduck](https://cyberduck.io/), our recommended WebDAV client.
 **Note:**  For more information on how to use Cyberduck, refer to the [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV) page.
@@ -101,5 +101,5 @@ NOTES:
 
 ### Articles
 - [Checkout SDK](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk)
-- [File Access (WebDav)](https://support.bigcommerce.com/s/article/File-Access-WebDAV)
+- [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV)
 - [Installing Custom Checkouts in the Control Panel](https://support.bigcommerce.com/s/blog-article/aAn4O000000CdFGSA0/installing-custom-checkouts-in-the-control-panel)

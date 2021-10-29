@@ -62,7 +62,7 @@ You can update the fonts in `config.json`; make sure to follow the `Google_FontN
 
 ### Custom fonts
 
-Custom fonts can be used in any theme. To use a custom font upload it to the stores `/content/` folder in [WebDav](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
+Custom fonts can be used in any theme. To use a custom font upload it to the stores `/content/` folder in [WebDAV](https://support.bigcommerce.com/s/article/File-Access-WebDAV).
 
 ![content folder markdown](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/content_folder_webdav.png "Content Folder Webdav")
 

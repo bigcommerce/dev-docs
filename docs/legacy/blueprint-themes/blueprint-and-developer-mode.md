@@ -37,6 +37,6 @@ Follow these steps to start developing using the Blueprint theme:
     (For example: <NOBR>`https://store-123abmy.mybigcommerce.com/admin/index.php?ToDo=viewTemplates&dev=enable`.</nobr>)
 2.  Apply the Blueprint theme.
 3.  Connect to the site via <a href="https://forum.bigcommerce.com/s/article/File-Access-WebDAV" target="_blank">WebDAV</a>.
-4.  Once connected via WebDav, navigate to the `/template/` folder, where you will have access to all the files that make up a theme.
+4.  Once connected via WebDAV, navigate to the `/template/` folder, where you will have access to all the files that make up a theme.
 5.  To make a change to a file, just download the file, edit it, and then upload your altered version.
 6.  Every time you make changes to any files, you will need to upload them through WebDAV for the changes to be reflected on your site.
