@@ -94,7 +94,7 @@ When a webhook is triggered, BigCommerce will `POST` a light payload containing 
 
 You can then make a request to [/orders/{id}](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/getanorder) to obtain full order details.
 
-For more information on specific webhook events and their payloads, see [Webhook Events](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events).
+For more information on specific webhook events and their payloads, see [Webhook Events](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events).
 
 ## Handling callbacks
 
