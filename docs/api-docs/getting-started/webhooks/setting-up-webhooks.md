@@ -16,17 +16,16 @@
 
 In this tutorial, we'll create a Node.js Express app that handless webhook callbacks and uses [ngrok](https://ngrok.com/) (ngrok.com) to expose the app to the Internet. Then, we'll create a webhook and observe the callback using the ngrok web interface when the event is triggered.
 
-
 ### Prerequisites
 
 - [API Access Token](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication) with [scope](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) set to **Information & Settings** read-only and **Products** read-only.
 - [Webhooks Overview](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview)
 - Familiarity with working in the terminal
 - Familiarity working with `node` and `npm`
+
 ## Create an Express app
 
 First, let's make a `webhooks-test` directory and initialize a Node.js Express app inside of it. To do so, run the following commands in the terminal.
-
 
 ```bash
 mkdir webhooks-test         # Create project directory
@@ -46,29 +45,26 @@ touch index.js              # Create main app script file
 
 Then, copy and paste the following JavaScript code into `index.js`.
 
-
-
 ```js
 const express = require('express');
-const ngrok = require('ngrok')
+const ngrok = require('ngrok');
 const app = express();
 
 // when there's a post request to /webhooks...
 app.post('/webhooks', function (req, res) {
-
-    // respond with 200 OK
-    res.send('OK');
+  // respond with 200 OK
+  res.send('OK');
 });
 
 // listen to port 3000
 app.listen(3000, function () {
-    console.log('Listening for webhooks on port 3000');
+  console.log('Listening for webhooks on port 3000');
 
-    // start ngrok and create a tunnel to port 3000
-    (async function() {
-        const url = await ngrok.connect(3000);
-    })();
-})
+  // start ngrok and create a tunnel to port 3000
+  (async function () {
+    const url = await ngrok.connect(3000);
+  })();
+});
 ```
 
 This app listens to requests on port `3000`, then responds with a `200` status once it receives a `POST` request to `/webhooks`.
@@ -78,9 +74,9 @@ This app listens to requests on port `3000`, then responds with a `200` status o
 <div class="HubBlock-content">
 
 > ### Note
-> * Ngrok is a helpful tool for viewing webhook callbacks BigCommerce sends to your app. Ngrok creates a publicly accessible tunnel URL to an application running on your machine. When using ngrok you can view HTTP request details in its web interface.
-> * For simplicity, this tutorial uses an [npm package](https://www.npmjs.com/package/ngrok) to install and run ngrok. For official ngrok usage and installation instructions, visit [ngrok.com](https://ngrok.com/).
-
+>
+> - Ngrok is a helpful tool for viewing webhook callbacks BigCommerce sends to your app. Ngrok creates a publicly accessible tunnel URL to an application running on your machine. When using ngrok you can view HTTP request details in its web interface.
+> - For simplicity, this tutorial uses an [npm package](https://www.npmjs.com/package/ngrok) to install and run ngrok. For official ngrok usage and installation instructions, visit [ngrok.com](https://ngrok.com/).
 
 </div>
 </div>
@@ -90,7 +86,6 @@ This app listens to requests on port `3000`, then responds with a `200` status o
 
 To start the app, run the following commands:
 
-
 ```bash
 cd ~/path/to/webhooks-test # Make sure you're in your webhooks-test project directory
 
@@ -99,7 +94,7 @@ node index.js              # Start the app
 
 Navigate to `http://localhost:4040/` in your browser. You should see the ngrok web interface like shown in the image below. Copy the HTTPS tunnel URL and keep the app running.
 
-![ngrok web interface](//s3.amazonaws.com/user-content.stoplight.io/6012/1531500191661 "ngrok web interface")
+![ngrok web interface](//s3.amazonaws.com/user-content.stoplight.io/6012/1531500191661 'ngrok web interface')
 
 ## Create a webhook
 
@@ -124,8 +119,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 <div class="HubBlock-content">
 
 > ### Note
-> * Be sure to replace `6a35e97b.ngrok.io` with your ngrok HTTPS tunnel URL.
-> * Currently, BigCommerce does not support desination URLs served over custom HTTPS ports. Use the default HTTPS port 443.
+>
+> - Be sure to replace `6a35e97b.ngrok.io` with your ngrok HTTPS tunnel URL.
+> - Currently, BigCommerce does not support desination URLs served over custom HTTPS ports. Use the default HTTPS port 443.
 
 </div>
 </div>
@@ -135,14 +131,13 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 Webhooks fire when shoppers perform actions on the storefront and when users make changes in the control panel. They will also fire when you make changes using an API. Trigger the webhook you just created by performing the following actions in your BigCommerce control panel:
 
-
 1. Navigate to **Products** > [**View**](https://login.bigcommerce.com/deep-links/manage/products).
 2. Edit a product and change something like **name** or **description**.
 3. Click **Save**.
 
 Now, visit the ngrok web interface address (`http://127.0.0.1:4040`) and check for a `200` response.
 
-![ngrok Web Interface](//s3.amazonaws.com/user-content.stoplight.io/6012/1531500945565 "ngrok Web Interface")
+![ngrok Web Interface](//s3.amazonaws.com/user-content.stoplight.io/6012/1531500945565 'ngrok Web Interface')
 
 The summary shows the webhook fired and our Express app returned a `200` response along with the text OK. The response is generated by `res.send(‘OK')` in our app code. For more information, see [Express Routing](https://expressjs.com/en/guide/routing.html).
 
@@ -152,7 +147,7 @@ The summary shows the webhook fired and our Express app returned a `200` respons
 
 > ### Note
 >
-> * Unless you have a paid ngrok account, the destination URL will only be valid for a few hours. After that, the webhook will stop working. Send a `DELETE` request to the specific webhook ID to disable the hook.
+> - Unless you have a paid ngrok account, the destination URL will only be valid for a few hours. After that, the webhook will stop working. Send a `DELETE` request to the specific webhook ID to disable the hook.
 
 </div>
 </div>
@@ -161,7 +156,6 @@ The summary shows the webhook fired and our Express app returned a `200` respons
 ## Adding custom headers
 
 You can add custom headers to your create webhook request for added security. The `headers` property accepts any key-value pair as a string. BigCommerce will include the headers in callback requests made to your application.
-
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
@@ -172,8 +166,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
   "destination": "https://myapp.herokuapp.com/",
   "is_active": true,
   "headers": {
-    "User-Name": "Hello",
-    "Password": "Goodbye"
+    "Authorization": "Basic SGVsbG86R29vZGJ5ZQ=="
   }
 }
 ```
@@ -188,10 +181,9 @@ Currently, BigCommerce does not support destination URLs served over custom HTTP
 
 Add this snippet to your code to respond to incoming `GET` requests with 'hello':
 
-
 ```js
-app.get('/',(req, res)=>{
-    res.send('Hello!');
+app.get('/', (req, res) => {
+  res.send('Hello!');
 });
 ```
 
@@ -208,6 +200,7 @@ If you are having trouble getting ngrok started, try setting the PATH.
     - [What are PATH and other environment variables, and how can I set or use them?](https://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them)
 
 ## Resources
-* [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/about-webhooks)
-* [Webhook Events](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events)
-* [Webhooks Reference](https://developer.bigcommerce.com/api-reference/webhooks)
+
+- [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/about-webhooks)
+- [Webhook Events](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events)
+- [Webhooks Reference](https://developer.bigcommerce.com/api-reference/webhooks)
