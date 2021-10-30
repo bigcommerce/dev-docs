@@ -74,7 +74,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 {
   "name": "BigCommerce Coffee Mug",
-  "price": "10.00",
+  "price": 10.00,
   "categories": [
     23,
     21
@@ -98,7 +98,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 {
   "name": "BigCommerce Coffee Mug",
-  "price": "10.00",
+  "price": 10.00,
   "categories": [
     23,
     21
@@ -155,7 +155,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 {
   "name": "ebook: A Guide to Coffee",
-  "price": "10.00",
+  "price": 10.00,
   "categories": [
     23,
     21
@@ -645,7 +645,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 {
   "name": "BigCommerce Coffee Mug",
-  "price": "10.00",
+  "price": 10.00,
   "categories": [
     23,
     21
