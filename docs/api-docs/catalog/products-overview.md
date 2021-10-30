@@ -418,39 +418,38 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Variant options
 
-[Variant options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variant-options) are any choices that the shopper needs to make that will result in selecting a variant. Color and size are typical examples of variant options.  A t-shirt can have different combinations of sizes and colors.
+When a product comes in different sizes, colors, etc., [variant options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variant-options) represent those differences.
 
 Example:
-* Color is a variant option; red, orange, and green are variant option values.
-* Size is a variant option; small, medium, and large are variant option values.
+* BigCommerce t-shirts come in several sizes and colors.
+* Small, medium, and large are the available size variant option values.
+* Red, orange, and green are the color variant option values.
 
-This example results in selecting a combination of small and red on the storefront and correlates to a product variation, also called a SKU.
+When a customer selects a large green t-shirt from the catalog, this combination of variant option values typically correlates with a SKU.
 
-**Variant options:**
+The shopper must select a variant before adding a product with variant options to their cart.  The shopper typically makes this choice by manipulating a UI element, such as a
+  * **rectangle**, 
+  * **radio button**, 
+  * **swatch**, 
+  * **product pick list**, or
+  * **product pick list with images**.
 
-* Require the shopper to select a value
-* Only support “multiple choice” option types
-* Rectangle
-* Radio button
-* Color swatch
-* Product pick list
-* Product pick list with images
-* Will automatically generate variants when created in the control panel
-* Are auto-generated from variants when you create a product with variants using the [Products](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/createproduct) endpoint
+The catalog generates the set of possible variants based on the variant options you configure using the control panel or the [`/products` endpoint](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/createproduct).
 
 ### Variant options example
 
+The following table represents a total of 3 t-shirt variants and 6 backpack variants.
 
-| Product | Variant option |
-| -- | -- |
-| T-Shirt | Blue<br>-<br>Small<br> Medium<br> Large|
-| Backpack | Black<br> Yellow<br>-<br>2L <br> 3L<br> 8L |
+| Product  | Colors        | Sizes      |
+|----------|---------------|------------|
+| T-Shirt  | Blue          | S, M, L    |
+| Backpack | Black, Yellow | 2L, 3L, 8L |
 
 ### Options created on V2 and V3
 
 * If a product has variant options created using the V2 API, you cannot add additional variant options using the V3 API.
 * SKUs in V2 map to variants in V3.
-* Base variants are not SKUs in V2.
+* _Base variants_ are not SKUs in V2.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -459,7 +458,7 @@ This example results in selecting a combination of small and red on the storefro
 <!-- theme:  -->
 
 ### Create a variant option
-> Creating a variant option does not automatically create SKUs or build out variants. You can build out SKUs later using the [Variants](/api-reference/store-management/catalog/product-variants/createvariant) endpoint.
+> Creating a variant option does not generate a SKU. You can add SKUs to variants later  [Variants](/api-reference/store-management/catalog/product-variants/updatevariant) endpoint.
 
 </div>
 </div>
