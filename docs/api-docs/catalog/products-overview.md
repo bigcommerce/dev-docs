@@ -5,6 +5,7 @@
 ### On this page
 - [OAuth scopes](#oauth-scopes)
 - [Products overview](#products-overview)
+- [Creating a product](#creating-a-product)
 - [Creating products with variant options](#creating-products-with-variant-options)
 - [Creating digital products](#creating-digital-products)
 - [Adding product images](#adding-product-images)
@@ -61,7 +62,7 @@ Products can be physical or digital:
 </div>
 </div>
 
-### Creating a product
+## Creating a product
 
 Below is an example `POST` request for creating a simple product without variant options or modifiers.
 
@@ -201,7 +202,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ### Note
 > * If using `image_file`, set `Content-Type` header to `multipart/form-data` -- otherwise, you will be unable to add subsequent requests.
-> * Set `is_thumbmail` to true to set the image as the thumbnail used on product listing pages.
+> * Set `is_thumbnail` to true to use this image on product listing pages.
 > * A product can have only one thumbnail image at a time.
 > * If only one image is on the product, it becomes both the thumbnail and the main product image.
 > * You can also add variant-specific images when [creating a variant](/api-reference/store-management/catalog/product-variants/createvariant).
@@ -225,7 +226,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
   "description": "Video Describing the Mug",
   "sort_order": 1,
   "type": "youtube",
-  "video_id": "R12345677"
+  "video_id": "_KMh8yqDSlg"
 }
 ```
 
@@ -238,7 +239,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ### Note
 > * A product can have more than one video.
 > * You must host product videos on YouTube.
-> * `video_id` corresponds to the `v` parameter in the URL (Ex: `https://www.youtube.com/watch?v=R12345677`).
+> * `video_id` corresponds to the `v` parameter in the URL (Ex: `https://www.youtube.com/watch?v=_KMh8yqDSlg`).
 
 </div>
 </div>
@@ -687,7 +688,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 * Text to be engraved on the product
 * A selected color for an unfinished product before it’s shipped
 
-Critically, the modifier will not change the SKU/variant fulfilled, and you cannot track inventory against combinations of modifier values. Modifiers typically would not change which product is “picked off the shelf” in the warehouse, but they change what happens to that product before sending it to the shopper, or how a merchant can send it.
+Critically, the modifier will not change the SKU/variant fulfilled, and you cannot track inventory against combinations of modifier values. Modifiers typically would not change which product is "picked off the shelf" in the warehouse, but they change what happens to that product before sending it to the shopper, or how a merchant can send it.
 
 Modifier options:
 * May be required or non-required
