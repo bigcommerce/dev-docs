@@ -298,7 +298,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 <!-- theme:  -->
 
 ### Note
-> Custom field values are limited to **250** characters. For additional information on custom fields and their use cases, see [Custom Fields](https://support.bigcommerce.com/s/article/Custom-Fields).
+> Custom field values are limited to **250** characters. For more about using custom fields, see [Custom Fields](https://support.bigcommerce.com/s/article/Custom-Fields).
 
 
 </div>
@@ -307,7 +307,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Adding bulk pricing rules
 
-To add bulk quantity-based pricing to products, send a `PUT` request to `/v3/catalog/products/{{product_id}}/bulk-pricing-rules`.
+To add bulk pricing to products based on purchase quantity, send a `PUT` request to `/v3/catalog/products/{{product_id}}/bulk-pricing-rules`.
 
 ```http
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/bulk-pricing-rules
@@ -335,7 +335,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-bulk-pricing-rules/updatebulkpricingrule#requestrunner)
 
-For general information and use cases for product bulk pricing, see [Bulk Pricing](https://support.bigcommerce.com/s/article/Bulk-Pricing).
+For details about configuring bulk prices, see [Bulk Pricing](https://support.bigcommerce.com/s/article/Bulk-Pricing).
 
 ## Pricing precision
 
@@ -348,8 +348,7 @@ Currency display settings allow for more than four decimal places. In such cases
 
 ## Adding product metafields
 
-[Metafields](/api-reference/store-management/catalog/product-metafields/createproductmetafield) are key-value pairs intended for programmatically storing data against a product or other entity. Data stored in metafields does not appear in the storefront or the control panel. Data not appearing in the storefront or control panel is useful when information needs to be passed back and forth between an app and BigCommerce.
-
+[Metafields](/api-reference/store-management/catalog/product-metafields/createproductmetafield) are key-value pairs intended to programmatically store data about a product or other entity. Metafield data does not appear in the storefront or the control panel, but can be useful to improve your catalog's integration with another service, such as a shipping app.
 
 To add metafields to a product, send a `PUT` request to `/v3/catalog/products/{{product_id}}/metafields`.
 
@@ -385,7 +384,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Adding product reviews
 
-To add product reviews to a product, send a `POST` request to `/v3/catalog/products/{{product_id}}/reviews`.
+To add reviews to a product, send a `POST` request to `/v3/catalog/products/{{product_id}}/reviews`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/reviews
@@ -400,7 +399,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
   "rating": 5,
   "email": "testing@bigcommerce.com",
   "name": "BigCommerce",
-  "date_reviewed": "2018-07-20T17:45:13+00:00"
+  "date_reviewed": "2021-07-20T17:45:13+00:00"
 }
 ```
 
