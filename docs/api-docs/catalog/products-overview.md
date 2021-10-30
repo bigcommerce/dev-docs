@@ -40,14 +40,13 @@ For more information on OAuth Scopes and authentication, see [Authentication](ht
 
 ## Products overview
 
-[Products](/api-reference/store-management/catalog/products/getproducts) are the primary catalog entity, and the primary function of the ecommerce platform is to sell products on the storefront and other channels.
+[Products](/api-reference/store-management/catalog/products/getproducts) are the primary catalog entity, and the primary function of the ecommerce platform is to sell products on the storefront and through other channels.
 
 
 Products can be physical or digital:
-* **Physical** - Exist in a physical form, have a weight, and are sold by merchants to ship to customers.
+* **Physical** - Material goods that have weight and take up space.  Merchants ship them out, or customers pick them up.
 
-* **Digital** - Non-physical products, including downloadable files (for example, computer software, ebooks, or music) and services (for example, haircuts, consulting, or lawn care).
-
+* **Digital** - Intangible purchases that represent virtual goods, licenses, services, or events.  Customers download, redeem, experience, or attend them.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -56,7 +55,7 @@ Products can be physical or digital:
 <!-- theme:  -->
 
 ### Note
-> Only one product can be created at a time.
+> You can only create one product per request.
 
 </div>
 </div>
@@ -64,7 +63,7 @@ Products can be physical or digital:
 
 ## Creating a product
 
-Below is an example `POST` request for creating a simple product without variant options or modifiers.
+The following sample `POST` request creates a physical product with no optional modifiers.
 
 
 ```http
@@ -89,7 +88,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Creating products with variant options
 
-To create a complex product with variant options selectable by shoppers, include a `variants` array in the request body.
+To create a product with variant options that shoppers select, include a `variants` array in the request body.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
@@ -138,7 +137,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 <!-- theme:  -->
 
 ### Note
-> When you create options via `/products`, `display_type` defaults to a radio button (displayed as selectable boxes in some themes).
+> When you create variant options using the `/products` endpoint, `display_type` defaults to a radio button (displayed as selectable boxes in some themes).
 
 </div>
 </div>
