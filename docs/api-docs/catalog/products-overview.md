@@ -75,7 +75,10 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 {
   "name": "BigCommerce Coffee Mug",
   "price": 10.00,
-  "weight": 4.2, //set unit in control panel
+  "categories": [
+    23,
+    21
+  ],
   "weight": 4,
   "type": "physical"
 }
@@ -96,6 +99,10 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 {
   "name": "BigCommerce Coffee Mug",
   "price": 10.00,
+  "categories": [
+    23,
+    21
+  ],
   "weight": 4,
   "type": "physical",
   "variants": [
@@ -149,6 +156,10 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 {
   "name": "ebook: A Guide to Coffee",
   "price": 10.00,
+  "categories": [
+    23,
+    21
+  ],
   "type": "digital",
   "images": [
     {
