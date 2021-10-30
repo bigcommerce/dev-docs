@@ -145,7 +145,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Creating digital products
 
-To create a digital product (like an ebook), set `type` to `digital`.
+To create a digital product, set `type` to `digital`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
@@ -179,7 +179,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 <!-- theme:  -->
 
 ### Note
-> Files can only be added to digital products via [control panel or WebDAV](https://support.bigcommerce.com/s/article/Creating-Downloadable-Products) -- attaching via the API is not supported. You can also set additional settings such as file description and maximum downloads in the control panel.
+> You can only upload files to attach to digital products using [WebDAV or your control panel](https://support.bigcommerce.com/s/article/Creating-Downloadable-Products) -- the API does not support uploading assets other than product photos. You can set additional settings, such as file description and maximum downloads, in the control panel.
 
 </div>
 </div>
@@ -206,6 +206,24 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-images/createproductimage#requestrunner)
 
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/images
+Accept: application/json
+Content-Type: multipart/form-data
+X-Auth-Token: {{ACCESS_TOKEN}}
+
+{
+  "is_thumbnail": false, //additional image
+  "sort_order": 1,
+  "description": "Yellow Large Bath Towel",
+  "image_file": "{{image_path}}" //previously uploaded to BigCommerce
+}
+```
+
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-images/createproductimage#requestrunner)
+
+
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
@@ -223,7 +241,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Adding product videos
 
-To add a video hosted on YouTube as a product video, send a `PUT` request to `/v3/catalog/products/{{product_id}}/videos`.
+To add a YouTube-hosted video as a product video, send a `PUT` request to `/v3/catalog/products/{{product_id}}/videos`.
 
 ```http
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/videos
@@ -248,7 +266,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ### Note
 > * A product can have more than one video.
-> * You must host product videos on YouTube.
+> * Currently, the API only supports YouTube videos.
 > * `video_id` corresponds to the `v` parameter in the URL (Ex: `https://www.youtube.com/watch?v=_KMh8yqDSlg`).
 
 </div>
