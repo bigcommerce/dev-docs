@@ -418,7 +418,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Variants
 
-Products vary, and those differences matter.  [Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants/getvariantbyid) represent items that customers can purchase.  One style of shoes, for instance, can come in an assortment of sizes, colors, and materials.  If the product is signature sneakers, the variant is a brick-colored pair of signature sneakers with white soles and marine plastic uppers in US women's size 9.  Everything a customer can buy is a variant.  A product with no options is its own variant - called a _base variant_.
+Products vary, and those differences matter.  [Variants](/api-reference/store-management/catalog/product-variants/getvariantbyid) represent items that customers can purchase.  One style of shoes, for instance, can come in an assortment of sizes, colors, and materials.  If the product is signature sneakers, the variant is a brick-colored pair of signature sneakers with white soles and marine plastic uppers in US women's size 9.  Everything a customer can buy is a variant.  A product with no options is its own variant - called a _base variant_.
 
 In this example, every meaningfully distinct pair of shoes is a product variant.  The differences that combine to create those options are variant options.  And the actual values of those options are variant option values.
 
@@ -433,13 +433,13 @@ In this example, every meaningfully distinct pair of shoes is a product variant.
 |                   |                                          |         **270** |
 
 
-In theory, these variant options and variant option values form 270 possible distinct variants of signature sneakers.  In practice, these may not all exist!  Variants can have their own prices, weights, dimensions, images, etc.  They will inherit these values from the parent product if you do not specify them.  Variants are typically what you track inventory against, so each variant must have its own _SKU_.  The catalog generates the set of possible variants based on the variant options you configure using the control panel or the [Create a product](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/createproduct) endpoint.
+In theory, these variant options and variant option values form 270 possible distinct variants of signature sneakers.  In practice, these may not all exist!  Variants can have their own prices, weights, dimensions, images, etc.  They will inherit these values from the parent product if you do not specify them.  Variants are typically what you track inventory against, so each variant must have its own _SKU_.  The catalog generates the set of possible variants based on the variant options you configure using the control panel or the [Create a product](/api-reference/store-management/catalog/products/createproduct) endpoint.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> Consult the [Create a variant](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants/createvariant) reference for limits. If you're working with more variants, categories and metafields can help to integrate multiple products.
+> Consult the [Create a variant](/api-reference/store-management/catalog/product-variants/createvariant) reference for limits. If you're working with more variants, categories and metafields can help to integrate multiple products.
 
 </div>
 </div>
@@ -474,7 +474,7 @@ If a product has variants, the shopper must select a value for each variant opti
 
 ### Create variant options
 
-The following request [Creates a variant option](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variant-options/createoption) and populates it with values for the customer to choose between. In a separate request, you can add SKUs representing the resulting variants. To add new values to an existing variant option, use the [Update a variant option](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variant-options/updateoption) endpoint.
+The following request [Creates a variant option](/api-reference/store-management/catalog/product-variant-options/createoption) and populates it with values for the customer to choose between. In a separate request, you can add SKUs representing the resulting variants. To add new values to an existing variant option, use the [Update a variant option](/api-reference/store-management/catalog/product-variant-options/updateoption) endpoint.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -554,7 +554,7 @@ You can define variants by specifying options and SKUs when you initially create
 
 The following uses existing variant options to create variants.
 
-First, view all the existing product variant options using the [Get all product variant options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variant-options/getoptions) endpoint.
+First, view all the existing product variant options using the [Get all product variant options](/api-reference/store-management/catalog/product-variant-options/getoptions) endpoint.
 
 
 ```http
@@ -654,7 +654,7 @@ The `option_values` array combines the options small and blue to create the SKU 
 
 ### Create a variant using the product endpoint
 
-The following example creates a base product, variant options, and variants in a single call to the [Products](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/createproduct) endpoint. Use this method to create a product and variants in a single call without creating variant options first (option display will default to radio button).
+The following example creates a base product, variant options, and variants in a single call to the [Create a product](/api-reference/store-management/catalog/products/createproduct) endpoint. Use this method to create a product and variants in a single call without creating variant options first (option display will default to radio button).
 
 
 ```http
@@ -770,7 +770,7 @@ Creating a checkbox with an adjuster requires two separate calls: one to create 
 </div>
 </div>
 
-To [create a modifier](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/createmodifier), send a `POST` request to `/v3/catalog/products/{{product_id}}/modifiers`.
+To [create a modifier](/api-reference/store-management/catalog/product-modifiers/createmodifier), send a `POST` request to `/v3/catalog/products/{{product_id}}/modifiers`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/modifiers
@@ -839,7 +839,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 Since this is a checkbox with two states, you create two option values. The default `adjuster_value` is null.
 
-To [update the modifier value](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifier-values/updatemodifiervalue), send a `PUT` request to `/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values/{value_id}`.
+To [update the modifier value](/api-reference/store-management/catalog/product-modifier-values/updatemodifiervalue), send a `PUT` request to `/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values/{value_id}`.
 
 ```http
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values/{value_id}
@@ -1049,7 +1049,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Product Sort Order
 
-[Product Sort Order](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-sort-order) allows you to manage the sort order of products displayed on any given category page. Products assigned to multiple storefront categories can have different sort order values per category.
+[Product Sort Order](/api-reference/store-management/catalog/product-sort-order) allows you to manage the sort order of products displayed on any given category page. Products assigned to multiple storefront categories can have different sort order values per category.
 
 ### Product sorting on a storefront 
 
