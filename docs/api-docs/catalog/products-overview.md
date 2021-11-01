@@ -44,7 +44,7 @@ For more information on OAuth Scopes and authentication, see [Authentication](ht
 
 
 Products can be physical or digital:
-* **Physical** - Material goods that have weight and take up space.  Merchants ship them out, or customers pick them up.
+* **Physical** - Material goods that have a weight and take up space.  Merchants ship them out, or customers pick them up.
 
 * **Digital** - Intangible purchases that represent virtual goods, licenses, services, or events.  Customers download, redeem, experience, or attend them.
 
