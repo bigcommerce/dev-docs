@@ -15,8 +15,8 @@
 - [Pricing precision](#pricing-precision)
 - [Adding product metafields](#adding-product-metafields)
 - [Adding product reviews](#adding-product-reviews)
-- [Variant options](#variant-options)
 - [Variants](#variants)
+- [Variant options](#variant-options)
 - [Creating variants](#creating-variants)
 - [Modifier options](#modifier-options)
 - [Complex rules](#complex-rules)
@@ -416,40 +416,49 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 </div>
 </div>
 
+## Variants
+
+Products vary, and those differences matter.  [Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants/getvariantbyid) represent items that customers can purchase.  One style of shoes, for instance, can come in an assortment of sizes, colors, and materials.  If the product is signature sneakers, the variant is a brick-colored pair of signature sneakers with white soles and marine plastic uppers in US women's size 9.  Everything a customer can buy is a variant.  A product with no options is its own variant - called a _base variant_.
+
+In this example, every meaningfully distinct pair of shoes is a product variant.  The differences that combine to create those options are variant options.  And the actual values of those options are variant option values.
+
+### Variants options and values for signature sneakers
+
+| Variant options   | Variant option values                    | No. of variants |
+|-------------------|------------------------------------------|----------------:|
+| size (US Women's) | 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5 |              10 |
+| upper material    | canvas, marine plastic, leather          |               3 |
+| upper color       | brick, azul, gold                        |               3 |
+| sole color        | charcoal, white, azul                    |               3 |
+|                   |                                          |         **270** |
+
+
+In theory, these variant options and variant option values form 270 possible distinct variants of signature sneakers.  In practice, these may not all exist!  Variants can have their own prices, weights, dimensions, images, etc.  They will inherit these values from the parent product if you do not specify them.  Variants are typically what you track inventory against, so each variant must have its own _SKU_.  The catalog generates the set of possible variants based on the variant options you configure using the control panel or the [Create a product](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/createproduct) endpoint.
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+> Consult the [Create a variant](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants/createvariant) reference for limits. If you're working with more variants, categories and metafields can help to integrate multiple products.
+
+</div>
+</div>
+</div>
+
 ## Variant options
-
-When a product comes in different sizes, colors, etc., [variant options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variant-options) represent those differences.
-
-Example:
-* BigCommerce t-shirts come in several sizes and colors.
-* Small, medium, and large are the available size variant option values.
-* Red, orange, and green are the color variant option values.
-
-When a customer selects a large green t-shirt from the catalog, this combination of variant option values typically correlates with a SKU.
-
-The shopper must select a variant before adding a product with variant options to their cart.  The shopper typically makes this choice by manipulating a UI element, such as a
+If a product has variants, the shopper must select a value for each variant option before adding the product to their cart.  The shopper typically makes this choice by manipulating a UI element, such as a
   * **rectangle**, 
   * **radio button**, 
   * **swatch**, 
   * **product pick list**, or
   * **product pick list with images**.
 
-The catalog generates the set of possible variants based on the variant options you configure using the control panel or the [`/products` endpoint](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/createproduct).
+### Variant options in V2 and V3
 
-### Variant options example
-
-The following table represents a total of 3 t-shirt variants and 6 backpack variants.
-
-| Product  | Colors        | Sizes      |
-|----------|---------------|------------|
-| T-Shirt  | Blue          | S, M, L    |
-| Backpack | Black, Yellow | 2L, 3L, 8L |
-
-### Options created on V2 and V3
-
+* _SKUs_ in V2 become _variants_ in V3.
+* _Base variants_ do not correlate with SKUs in V2.
 * If a product has variant options created using the V2 API, you cannot add additional variant options using the V3 API.
-* SKUs in V2 map to variants in V3.
-* _Base variants_ are not SKUs in V2.
+
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -457,8 +466,7 @@ The following table represents a total of 3 t-shirt variants and 6 backpack vari
 
 <!-- theme:  -->
 
-### Create a variant option
-> Creating a variant option does not generate a SKU. You can add SKUs to variants later  [Variants](/api-reference/store-management/catalog/product-variants/updatevariant) endpoint.
+> Creating a variant option does not generate a SKU. You can add SKUs to variants later using the [Update a product variant](/api-reference/store-management/catalog/product-variants/updatevariant) endpoint.
 
 </div>
 </div>
@@ -508,15 +516,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variant-options/createoption#requestrunner)
 
-## Variants
-
-[Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants/getvariantbyid) represent an item as it sits on the shelf in the warehouse or a particular saleable product. A product might be a t-shirt, while the variant would be "a small, red t-shirt." Shoppers select variants on the storefront via product options. In the case where a product is simple, meaning it does not have any options, the product is its own variant - called a base variant. Everything you can buy should be a variant.
-
-* Options build out variants.
-* Variants are usually what you track inventory against.
-* Can have their own price, weight, dimensions, image, etc. - or they can inherit these values from the product if you have not specified them.
-* Must have a SKU code (unless they are a base variant).
-* In non-base variants, variants will relate to a particular combination of variant option values - such as "small" and "red".
 
 
 <div class="HubBlock--callout">
