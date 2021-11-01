@@ -620,8 +620,7 @@ To combine the variant option values into variants and build out SKUs use the fo
 <!-- theme:  -->
 
 ### Note
-> * Variants need to be created one at a time using this endpoint.
-> * You can create only one variant option at a time; individual variant options will contain an array of multiple values.
+> * You can create one variant at a time using this endpoint.  Individual variant options will contain an array of multiple values.
 > * To use a variant array and create variants in the same call as the base product, use the [Create a product](/api-reference/store-management/catalog/products/createproduct) endpoint.
 
 </div>
