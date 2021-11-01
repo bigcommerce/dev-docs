@@ -457,7 +457,7 @@ If a product has variants, the shopper must select a value for each variant opti
 
 * _SKUs_ in V2 become _variants_ in V3.
 * _Base variants_ do not correlate with SKUs in V2.
-* If a product has variant options created using the V2 API, you cannot add additional variant options using the V3 API.
+
 
 
 <div class="HubBlock--callout">
@@ -474,7 +474,20 @@ If a product has variants, the shopper must select a value for each variant opti
 
 ### Create variant options
 
-The following request will create options that will show on the storefront as choices selected by the customer. In a separate request, you could build out SKUs based on these variant option values or a combination of variant option values. You can use a similar request to add new choices to an existing variant.
+The following request [Creates a variant option](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variant-options/createoption) and populates it with values for the customer to choose between. In a separate request, you can add SKUs representing the resulting variants. To add new values to an existing variant option, use the [Update a variant option](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variant-options/updateoption) endpoint.
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme:  -->
+
+> If a product has variant options created using the V2 API, you cannot add additional variant options using the V3 API.
+
+</div>
+</div>
+</div>
+
 <!--
 title: "Create Size Variant Option"
 subtitle: "/POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options"
