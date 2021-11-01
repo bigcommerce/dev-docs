@@ -538,31 +538,24 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 <!-- theme: warning -->
 
 ### V2 SKU rules will override variant pricing
-> Creating SKU rules via the V2 API or via CSV import will alter or override any variant price or sale price added to a product via the control panel, V3 API, or Price Lists UI.
+> If you create SKU rules using the V2 API or CSV import, those rules will alter or override any variant price or sale price added to a product using the control panel, the V3 API, or the Price Lists UI.
 
 
 </div>
 </div>
 </div>
 
-### Variant examples:
-
-| Product | Variant option | Variant |
-| -- | -- | -- |
-| T-Shirt | Blue<br>-<br> Small<br> Medium<br> Large| SM-BLU<br> SM-MED <br> SM-LARG
-| Backpack | Black<br>Yellow<br>-<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>-<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L|
 
 ## Creating variants
 
-You can create variants in two ways:
-* From existing variant options, using [Create a Product Variant](/api-reference/store-management/catalog/product-variants/createvariant) endpoint.
+You can create variants in two ways.
 
-* By adding variants with options and SKUs, using [Create a Product](/api-reference/store-management/catalog/products/createproduct) endpoint.
+You can define variants by specifying options and SKUs when you initially create the product, using the [Create a product](/api-reference/store-management/catalog/products/createproduct) endpoint.  You can also use existing variant options and the [Create a product variant](/api-reference/store-management/catalog/product-variants/createvariant) endpoint to add new variants.
 
+The following uses existing variant options to create variants.
 
-The example below will go over using existing variant options to create the variants.
+First, view all the existing product variant options using the [Get all product variant options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variant-options/getoptions) endpoint.
 
-To fetch variant information, send a `GET` request to `/v3/catalog/products/{{product_id}}/options`.
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/options
