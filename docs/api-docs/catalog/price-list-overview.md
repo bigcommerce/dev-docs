@@ -51,7 +51,7 @@ The following OAuth Scopes are required:
 
 
 
-- **Currency:** a price list can contain records for multiple currencies. *Only price records that match the store's default currency determine storefront and in-cart prices.* Although BigCommerce supports a storefront currency selection, this is not currently integrated with price lists and will merely convert prices from the store's default currency for display convenience.
+- **Currency:** a price list can contain records for multiple currencies. If a multi-currency price list record is available on BigCommerce, the customer group/channel uses the corresponding record for a particular currency. BigCommerce performs currency conversion when a price record is missing an entry for a specific currency.
 
 
 <!--
