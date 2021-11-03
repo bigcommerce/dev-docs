@@ -271,17 +271,89 @@ query ExtendedProductsById(
                 isRequired
                 ... on CheckboxOption {
                   checkedByDefault
+                  label
+                  entityId
+                  displayName
+                  isRequired
+                  isVariantOption
+                }
+                ... on DateFieldOption {
+                  defaultValue
+                  earliest
+                  latest
+                  limitDateBy
+                  entityId
+                  displayName
+                  isRequired
+                  isVariantOption
+                }
+                ... on FileUploadFieldOption {
+                  maxFileSize
+                  fileTypes
+                  entityId
+                  displayName
+                  isRequired
+                  isVariantOption
+                }
+                ... on TextFieldOption{
+                  defaultValue
+                  minLength
+                  maxLength
+                  entityId
+                  displayName
+                  isRequired
+                  isVariantOption
+                }
+                ... on MultiLineTextFieldOption{
+                  defaultValue
+                  minLength
+                  maxLength
+                  maxLines
+                  entityId
+                  displayName
+                  isRequired
+                  isVariantOption
+                }
+                ... on NumberFieldOption {
+                  defaultValue
+                  lowest
+                  highest
+                  isIntegerOnly
+                  limitNumberBy
+                  entityId
+                  displayName
+                  isRequired
+                  isVariantOption
                 }
                 ... on MultipleChoiceOption {
+                  displayStyle
+                  entityId
+                  displayName
+                  isRequired
+                  isVariantOption
                   values(first: 10) {
                     edges {
                       node {
                         entityId
                         label
                         isDefault
+                        ... on MultipleChoiceOptionValue {
+                          entityId
+                          label
+                          isDefault
+                        }
+                        ... on ProductPickListOptionValue {
+                          productId
+                          entityId
+                          label
+                          isDefault
+                        }
                         ... on SwatchOptionValue {
                           hexColors
                           imageUrl(width: 200)
+                          entityId
+                          label
+                          isDefault
                         }
                       }
                     }
