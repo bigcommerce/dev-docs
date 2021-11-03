@@ -26,7 +26,7 @@
 <!-- theme: info -->
 
 ### NOTE
-> The [config.json](https://developer.bigcommerce.com/stencil-docs/storefront-customization/directory-structure#configjson) file is the main configuration file for Stencil themes. The file exists in the theme root directory.
+> The [config.json](https://developer.bigcommerce.com/stencil-docs/storefront-customization/directory-structure#configjson) file is the main configuration file for Stencil themes and exists in the theme root directory. Use Stencil CLI to edit this file.
 
 </div>
 </div>
