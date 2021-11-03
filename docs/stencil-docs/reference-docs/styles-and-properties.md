@@ -84,7 +84,7 @@ Optional field: `force_reload`
 ```
 Required fields: `type` and  `content`
 
-## imageDimension.md
+## imageDimension
 
 Used to set image ratio on theme setting
 
