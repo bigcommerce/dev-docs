@@ -51,7 +51,7 @@ The following OAuth Scopes are required:
 
 
 
-- **Currency:** a price list can contain records for multiple currencies. If you use a transactional currency, the customer group or channel will use price records in that currency. If a multi-currency price list is unavailable, BigCommerce auto converts the catalog price. The customer group or channel uses price records in the default currency and performs a currency conversion for display-only currencies.
+- **Currency:** a price list can contain records for multiple currencies. If you use a [transactional currency](https://developer.bigcommerce.com/api-docs/multi-currency/guide/introduction#display-vs-transactional), the customer group or channel will use price records in that currency. If a multi-currency price list is unavailable, BigCommerce auto converts the catalog price. The customer group or channel uses price records in the default currency and performs a currency conversion for [display-only currencies](https://developer.bigcommerce.com/api-docs/multi-currency/guide/introduction#display-vs-transactional).
 
 
 <!--
