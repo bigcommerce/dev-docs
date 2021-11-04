@@ -172,8 +172,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
   "destination": "https://myapp.herokuapp.com/",
   "is_active": true,
   "headers": {
-    "User-Name": "Hello",
-    "Password": "Goodbye"
+    "Authorization": "Basic SGVsbG86R29vZGJ5ZQ=="
   }
 }
 ```
