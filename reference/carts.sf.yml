@@ -686,13 +686,15 @@ components:
           description: 'The product option name. For example, Color or Size'
         nameId:
           type: number
-          description: The product option identifier.
+          description: 'The product option identifier. It is the same as the `optionId` used in the request. '
+          example: 125
         value:
           type: string
           description: 'The product option value. For example, Red or Medium'
         valueId:
           type: number
-          description: The product option value identifier.
+          description: The product option value identifier. It is the same as the `optionValue` used in the request.
+          example: 127
     responseCartLineItemsGiftCertificates:
       title: Item Gift Certificate
       required:
@@ -830,13 +832,15 @@ components:
           description: 'The product option name. For example, Color or Size'
         nameId:
           type: number
-          description: The product option identifier.
+          description: The product option identifier. It is the same as the `optionId` used in the request.
+          example: 125
         value:
           type: string
           description: 'The product option value. For example, Red or Medium'
         valueId:
           type: number
-          description: The product option value identifier.
+          description: The product option value identifier. It is the same as the `optionValue` used in the request.
+          example: 127
     responseCartLineItemsItemsPhysicalItemsItemsAllOf1:
       type: object
       properties:
@@ -888,14 +892,15 @@ components:
                   - properties:
                       optionId:
                         type: number
-                        description: ID of the option.
+                        description: 'ID of the option, same as the `nameId`.'
+                        example: 125
                       optionValue:
-                        description: Value of the option.
+                        description: 'Value of the option, same as the `valueId`.'
                         oneOf:
                           - type: string
-                            properties: {}
+                            example: Small
                           - type: number
-                            properties: {}
+                            example: 127
                           - type: object
                             properties:
                               month:
