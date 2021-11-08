@@ -210,6 +210,8 @@ paths:
                       is_homepage: true
                       is_customers_only: true
                     id: 1
+        '207':
+          $ref: '#/components/responses/HTTP207Response'
         '422':
           description: |
             The `Page` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
@@ -289,6 +291,8 @@ paths:
                       content_type: text/html
                       url: /my-content-page
                     meta: {}
+        '207':
+          $ref: '#/components/responses/HTTP207Response'
         '422':
           description: |
             The `Page` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
@@ -600,5 +604,11 @@ components:
       name: X-Auth-Token
       type: apiKey
       in: header
+  responses:
+    HTTP207Response:
+      description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+      content:
+        application/json:
+          schema: {}
 security:
   - X-Auth-Token: []
