@@ -121,7 +121,9 @@ paths:
                     $ref: '#/components/schemas/AbandondedCartEmail'
                   meta:
                     type: object
-      tags: []
+      produces:
+        - application/json
+      tags: [Abandoned Carts Emails]
       operationId: 'getAbandonedCartEmailTemplateId'
     put:
       summary: Update an email template
@@ -172,16 +174,20 @@ paths:
                 value:
                   coupon_code: FF11-22X4
                   notify_at_minutes: 60
-      tags: []
+      produces:
+        - application/json
+      tags: [Abandoned Cart Emails]
       operationId: 'updateAbandonedCartEmailsId'
     delete:
-      tags: []
+      tags: [Abandoned Cart Emails]
       description: Delete Abandoned Cart Email template.
       summary: Delete email template
       operationId: 'deleteAbandonedCartEmailTemplateId'
       responses:
         '204':
           description: No Content
+      produces:
+        - application/json
     parameters:
       - schema:
           type: integer
@@ -193,7 +199,7 @@ paths:
   /marketing/abandoned-cart-emails/default:
     get:
       summary: GET default email template
-      tags: []
+      tags: [Abandoned Cart Emails]
       responses:
         '200':
           description: OK
@@ -240,12 +246,14 @@ paths:
                       - locale: en
                         keys:
                           hello_phrase: Welcome back
+      produces:
+        - application/json
       operationId: GetDefaultAbandonedCartEmailTemplate
       description: Return default Abandoned Cart Email template.
   /marketing/abandoned-cart-emails/settings:
     get:
       summary: Get email template settings
-      tags: []
+      tags: [Abandoned Cart Emails]
       responses:
         '200':
           description: OK
@@ -255,12 +263,14 @@ paths:
                 $ref: '#/components/schemas/AbandonedCartSettings'
       operationId: GetAbandonedCartEmailTemplateSettings
       description: Read Abandoned Cart Email Template settings.
+      produces:
+        - application/json
       parameters:
         - $ref: '#/components/parameters/ChannelIdRequired'
     put:
       summary: Update email template settings
       operationId: updateEmailTemplateSettings
-      tags: []
+      tags: [Abandoned Cart Emails]
       responses:
         '200':
           description: OK
@@ -274,6 +284,8 @@ paths:
             schema:
               $ref: '#/components/schemas/AbandonedCartSettings'
       description: Update Abandoned Cart Email template settings.
+      produces:
+        - application/json
       parameters:
         - $ref: '#/components/parameters/ChannelIdOptional'
 components:
