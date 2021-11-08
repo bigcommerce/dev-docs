@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: V3 Abandoned Cart Emails API (open beta)
+  title: Abandoned Cart Emails V3 API (open beta)
   version: 3.0.0
   termsOfService: 'https://www.bigcommerce.com/terms'
   description: Abandoned Cart Emails V3 API managing Handlebars-based emails.
@@ -57,7 +57,7 @@ paths:
                     meta: {}
           produces:
           - application/json
-      tags: [Abandoned Carts Emails]
+      tags: [Abandoned Cart Emails]
       summary: Get all email templates
       operationId: getAbandonedCartEmails
     post:
@@ -65,7 +65,7 @@ paths:
       operationId: createEmailTemplate
       produces:
         - application/json
-      tags: [Abandoned Carts Emails]
+      tags: [Abandoned Cart Emails]
       responses:
         '200':
           description: OK
@@ -107,7 +107,7 @@ paths:
         - $ref: '#/components/parameters/ChannelIdOptional'
   '/marketing/abandoned-cart-emails/{id}':
     get:
-      summary: Get a email template
+      summary: Get an email template
       description: Get a single Abandoned Cart Email template.
       responses:
         '200':
@@ -123,11 +123,15 @@ paths:
                     type: object
       produces:
         - application/json
-      tags: [Abandoned Carts Emails]
+      tags: [Abandoned Cart Emails]
       operationId: 'getAbandonedCartEmailTemplateId'
     put:
       summary: Update an email template
       description: Update an email template.
+      operationId: 'updateAbandonedCartEmailsId'
+      produces:
+        - application/json
+      tags: [Abandoned Cart Emails]
       responses:
         '200':
           description: OK
@@ -174,11 +178,6 @@ paths:
                 value:
                   coupon_code: FF11-22X4
                   notify_at_minutes: 60
-      produces:
-        - application/json
-      tags: []
-
-      operationId: 'updateAbandonedCartEmailsId'
     delete:
       tags: [Abandoned Cart Emails]
       description: Delete Abandoned Cart Email template.
@@ -200,7 +199,11 @@ paths:
   /marketing/abandoned-cart-emails/default:
     get:
       summary: Get default email template
-      tags: []
+      description: Return default Abandoned Cart Email template.
+      tags: [Abandoned Cart Emails]
+      produces:
+        - application/json
+      operationId: GetDefaultAbandonedCartEmailTemplate
       responses:
         '200':
           description: OK
@@ -247,10 +250,6 @@ paths:
                       - locale: en
                         keys:
                           hello_phrase: Welcome back
-      produces:
-        - application/json
-      operationId: GetDefaultAbandonedCartEmailTemplate
-      description: Return default Abandoned Cart Email template.
   /marketing/abandoned-cart-emails/settings:
     get:
       summary: Get email template settings
@@ -271,7 +270,7 @@ paths:
     put:
       summary: Update email template settings
       operationId: updateEmailTemplateSettings
-      tags: [Abandoned Cart Emails]
+      tags: [Template settings]
       responses:
         '200':
           description: OK
