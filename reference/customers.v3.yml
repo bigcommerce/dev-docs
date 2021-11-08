@@ -249,10 +249,10 @@ paths:
 
         A customer can be created with global access or channel-specific access.
         * **Global access:**
-          * Make sure the channel has `allow_global_logins` enabled. This is on by default only for the default storefront. Find more info at [Customer Settings > Channel](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-settings-channel/customersettingschannelget)
+          * Make sure the channel has `allow_global_logins` enabled. This is on by default only for the default storefront. Find more info at [Customer Settings > Channel](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-settings-channel/customersettingschannelget).
           * Omit `channel_ids` field, or provide `channel_ids: null`.
         * **Channel-specific access:**
-          * Provide a `channel_ids` array containing the channels accessible by the customer.
+          * Provide a `channel_ids` array containing the channels accessible by the customer. This array cannot be empty.
       summary: Create Customers
       tags:
         - Customers
@@ -887,11 +887,11 @@ paths:
 
         **Required Fields**
 
-        * `channel_id`
+        * `channel_id`: Provide a `channel_id` array containing one or more channel IDs. Customers will have access to these channels and no others. This array cannot be empty.
 
         **Notes**
 
-        * Setting `null` will delete override per given channel and values will be inherited from the global level.
+        * Setting `null` will delete override per given channel, and values will be inherited from the global level. Make sure the channel has `allow_global_logins` enabled.
       summary: Update Customer Settings per Channel
       operationId: CustomerSettingsChannelPut
       parameters:
@@ -1107,10 +1107,9 @@ paths:
         * id -- ID of the *Customer Attribute*
 
         Once the data type is set, it can not be changed. The attribute will need to be deleted then created again with the new data type. This will also delete it from the customer.
-        
+
         **Limits**
         * Limit of 3 concurrent requests.
-
       summary: Update a Customer Attribute
       operationId: CustomersAttributesPut
       deprecated: false
@@ -2754,7 +2753,7 @@ components:
           description: Array of channels the customer can access
           type: array
           items:
-            type: integer
+            example: [1,2]
       required:
         - email
         - first_name
@@ -3432,7 +3431,7 @@ components:
       title: customerChannelIds
       description: Array of channel ids the Customer has access to.
       items:
-        type: integer
+        example: [1,2]
     CardInstrument:
       type: object
       properties:
