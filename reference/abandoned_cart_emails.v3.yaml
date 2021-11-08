@@ -176,7 +176,8 @@ paths:
                   notify_at_minutes: 60
       produces:
         - application/json
-      tags: [Abandoned Cart Emails]
+      tags: []
+
       operationId: 'updateAbandonedCartEmailsId'
     delete:
       tags: [Abandoned Cart Emails]
@@ -198,8 +199,8 @@ paths:
         description: Abandoned Cart email template ID
   /marketing/abandoned-cart-emails/default:
     get:
-      summary: GET default email template
-      tags: [Abandoned Cart Emails]
+      summary: Get default email template
+      tags: []
       responses:
         '200':
           description: OK
@@ -253,7 +254,7 @@ paths:
   /marketing/abandoned-cart-emails/settings:
     get:
       summary: Get email template settings
-      tags: [Abandoned Cart Emails]
+      tags: [Template settings]
       responses:
         '200':
           description: OK
