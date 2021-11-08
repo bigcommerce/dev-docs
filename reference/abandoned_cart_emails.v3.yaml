@@ -3,11 +3,17 @@ info:
   title: V3 Abandoned Cart Emails API (open beta)
   version: 3.0.0
   termsOfService: 'https://www.bigcommerce.com/terms'
-  description: Proposed V3 Abandoned Cart Emails API managing Handlebars-based emails.
+  description: Abandoned Cart Emails V3 API managing Handlebars-based emails.
   contact:
     name: BigCommerce
     url: 'https://www.bigcommerce.com'
     email: support@bigcommerce.com
+  schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
 servers:
   - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
     description: BigCommerce API Gateway
@@ -18,8 +24,7 @@ servers:
 paths:
   /marketing/abandoned-cart-emails:
     get:
-      summary: Get all email templates
-      description: Get all Abandoned Cart Email templates.
+      description:  An array of abandoned cart emails on the store.
       parameters:
         - $ref: '#/components/parameters/ChannelIdOptional'
       responses:
@@ -50,14 +55,17 @@ paths:
                               keys:
                                 hello_phrase: 'Welcome back,'
                     meta: {}
-          description: |
-            An array of abandoned cart emails on the store
-      tags: []
+          produces:
+          - application/json
+      tags: [Abandoned Carts Emails]
+      summary: Get all email templates
       operationId: getAbandonedCartEmails
     post:
       summary: 'Create email template'
       operationId: createEmailTemplate
-      tags: []
+      produces:
+        - application/json
+      tags: [Abandoned Carts Emails]
       responses:
         '200':
           description: OK
