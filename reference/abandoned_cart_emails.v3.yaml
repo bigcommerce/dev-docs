@@ -18,6 +18,7 @@ servers:
 paths:
   /marketing/abandoned-cart-emails:
     get:
+      summary: Get all email templates
       description: Get all Abandoned Cart Email templates.
       parameters:
         - $ref: '#/components/parameters/ChannelIdOptional'
@@ -52,10 +53,10 @@ paths:
           description: |
             An array of abandoned cart emails on the store
       tags: []
-      operationId: GET /marketing/abandoned-cart-emails
+      operationId: getAbandonedCartEmails
     post:
-      summary: ''
-      operationId: POST /marketing/abandoned-cart-emails
+      summary: 'Create email template'
+      operationId: createEmailTemplate
       tags: []
       responses:
         '200':
@@ -98,6 +99,7 @@ paths:
         - $ref: '#/components/parameters/ChannelIdOptional'
   '/marketing/abandoned-cart-emails/{id}':
     get:
+      summary: Get a email template
       description: Get a single Abandoned Cart Email template.
       responses:
         '200':
@@ -112,9 +114,10 @@ paths:
                   meta:
                     type: object
       tags: []
-      operationId: 'GET /marketing/abandoned-cart-emails/{id}'
+      operationId: 'getAbandonedCartEmailTemplateId'
     put:
-      description: Update a template.
+      summary: Update an email template
+      description: Update an email template.
       responses:
         '200':
           description: OK
@@ -162,11 +165,12 @@ paths:
                   coupon_code: FF11-22X4
                   notify_at_minutes: 60
       tags: []
-      operationId: 'PUT /marketing/abandoned-cart-emails/{id}'
+      operationId: 'updateAbandonedCartEmailsId'
     delete:
       tags: []
       description: Delete Abandoned Cart Email template.
-      operationId: 'DELETE /marketing/abandoned-cart-emails/{id}'
+      summary: Delete email template
+      operationId: 'deleteAbandonedCartEmailTemplateId'
       responses:
         '204':
           description: No Content
@@ -180,7 +184,7 @@ paths:
         description: Abandoned Cart email template ID
   /marketing/abandoned-cart-emails/default:
     get:
-      summary: GET /marketing/abandoned-cart-emails/default
+      summary: GET default email template
       tags: []
       responses:
         '200':
@@ -228,11 +232,11 @@ paths:
                       - locale: en
                         keys:
                           hello_phrase: Welcome back
-      operationId: GET /marketing/abandoned-cart-emails/default
+      operationId: GetDefaultAbandonedCartEmailTemplate
       description: Return default Abandoned Cart Email template.
   /marketing/abandoned-cart-emails/settings:
     get:
-      summary: GET /marketing/abandoned-cart-emails/settings
+      summary: Get email template settings
       tags: []
       responses:
         '200':
@@ -241,13 +245,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AbandonedCartSettings'
-      operationId: GET /marketing/abandoned-cart-emails/settings
-      description: Read Abandoned Cart Email template settings.
+      operationId: GetAbandonedCartEmailTemplateSettings
+      description: Read Abandoned Cart Email Template settings.
       parameters:
         - $ref: '#/components/parameters/ChannelIdRequired'
     put:
-      summary: PUT /marketing/abandoned-cart-emails/settings
-      operationId: put-marketing-abandoned-cart-emails-settings
+      summary: Update email template settings
+      operationId: updateEmailTemplateSettings
       tags: []
       responses:
         '200':
@@ -437,3 +441,7 @@ components:
       name: API Key
       type: apiKey
       in: header
+x-stoplight:
+  docs:
+    includeDownloadLink: true
+    showModels: false
