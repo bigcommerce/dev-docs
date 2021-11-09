@@ -689,7 +689,7 @@ definitions:
                             type: number
                             format: double
                     coupons:
-                      description: ''
+                      description: Returns an empty array when there are no coupons. Returns a number if you apply coupons.
                       type:
                         - number
                         - array
@@ -812,7 +812,7 @@ definitions:
                             type: number
                             format: double
                     coupons:
-                      description: ''
+                      description: Returns an empty array when there are no coupons. Returns a number if you apply coupons.
                       type:
                         - number
                         - array
@@ -1580,196 +1580,6 @@ responses:
         data:
           $ref: '#/definitions/Checkout'
     examples:
-      application/json:
-        data:
-          id: 41d4ef29-0532-4ded-a669-14e4048451ad
-          cart:
-            id: 41d4ef29-0532-4ded-a669-14e4048451ad
-            customer_id: 9
-            email: testing@example.com
-            currency:
-              code: USD
-            base_amount: 520.54
-            discount_amount: 0
-            cart_amount_inc_tax: 600.6
-            cart_amount_ex_tax: 515.54
-            coupons:
-              - id: 1
-                code: S2549JM0Y
-                coupon_type: per_total_discount
-                discounted_amount: 5
-            discounts:
-              - id: 87c770bc-7a5e-42cf-aaf9-c8bceda81704
-                discounted_amount: 0.17
-              - id: 8166a146-3ecb-40aa-b40a-f39244e6c257
-                discounted_amount: 0.46
-              - id: 1359bfee-5b01-4f73-803b-6b07d75b36cd
-                discounted_amount: 2.1
-              - id: 20e79ae2-5c44-472c-9ac4-aaa645b955ff
-                discounted_amount: 2.27
-            line_items:
-              physical_items:
-                - id: 8166a146-3ecb-40aa-b40a-f39244e6c257
-                  parent_id: 123
-                  variant_id: 328
-                  product_id: 158
-                  sku: SKU-BDD6E975
-                  name: Chambray Towel
-                  url: 'http://store-url.mybigcommerce.com/all/chambray-towel/'
-                  quantity: 1
-                  is_taxable: true
-                  image_url: 'https://cdn8.bigcommerce.com/s-{store_hash}/products/158/images/382/foglinenbeigestripetowel1b_1024x1024__83011__60806.1534344511.330.500.jpg?c=2'
-                  discounts:
-                    - id: total-coupon
-                      discounted_amount: 0.46
-                  coupons: 0
-                  discount_amount: 0
-                  coupon_amount: 0
-                  list_price: 47.49
-                  sale_price: 47.49
-                  extended_list_price: 47.49
-                  extended_sale_price: 47.03
-                  is_require_shipping: true
-                - id: 1359bfee-5b01-4f73-803b-6b07d75b36cd
-                  parent_id: 123
-                  variant_id: 338
-                  product_id: 167
-                  sku: ''
-                  name: Able Brewing System
-                  url: 'http://store-url.mybigcommerce.com/all/able-brewing-system/'
-                  quantity: 1
-                  is_taxable: true
-                  image_url: 'https://cdn8.bigcommerce.com/s-{store_hash}/products/167/images/398/ablebrewingsystem4_1024x1024__07155__93974.1534344516.330.500.jpg?c=2'
-                  discounts:
-                    - id: total-coupon
-                      discounted_amount: 2.1
-                  coupons: 0
-                  discount_amount: 0
-                  coupon_amount: 0
-                  list_price: 218.5
-                  sale_price: 218.5
-                  extended_list_price: 218.5
-                  extended_sale_price: 216.4
-                  is_require_shipping: true
-                - id: 20e79ae2-5c44-472c-9ac4-aaa645b955ff
-                  parent_id: 123
-                  variant_id: 367
-                  product_id: 184
-                  sku: SMA-GRE
-                  name: Canvas Laundry Cart
-                  url: 'http://store-url.mybigcommerce.com/all/canvas-laundry-cart/'
-                  quantity: 1
-                  is_taxable: true
-                  image_url: 'https://cdn8.bigcommerce.com/s-{store_hash}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.330.500.jpg?c=2'
-                  discounts:
-                    - id: total-coupon
-                      discounted_amount: 2.27
-                  coupons: 0
-                  discount_amount: 0
-                  coupon_amount: 0
-                  list_price: 236.55
-                  sale_price: 236.55
-                  extended_list_price: 236.55
-                  extended_sale_price: 234.28
-                  is_require_shipping: true
-              digital_items:
-                - id: 87c770bc-7a5e-42cf-aaf9-c8bceda81704
-                  parent_id: 123
-                  variant_id: 360
-                  product_id: 189
-                  sku: ''
-                  name: Gather Journal Issue 7
-                  url: 'http://store-url.mybigcommerce.com/all/gather-journal-issue-7/'
-                  quantity: 1
-                  is_taxable: true
-                  image_url: 'https://cdn8.bigcommerce.com/s-{store_hash}/products/189/images/465/gather_1024x1024__17195__82620.1534344540.330.500.jpg?c=2'
-                  discounts:
-                    - id: total-coupon
-                      discounted_amount: 0.17
-                  coupons: 0
-                  discount_amount: 0
-                  coupon_amount: 0
-                  list_price: 18
-                  sale_price: 18
-                  extended_list_price: 18
-                  extended_sale_price: 17.83
-                  is_require_shipping: false
-              gift_certificates: []
-            created_time: '2018-08-15T15:53:10+00:00'
-            updated_time: '2018-08-15T15:54:31+00:00'
-          billing_address:
-            id: 5b744c77bbe1f
-            first_name: BigCommerce
-            last_name: BigCommerce Cart/Checkout
-            email: testing@example.com
-            company: {}
-            address1: 123 Main Street
-            address2: {}
-            city: Austin
-            state_or_province: Texas
-            state_or_province_code: TX
-            country: United States
-            country_code: US
-            postal_code: '78726'
-            phone: '5122134567'
-          consignments:
-            - id: 5b744c77bbf2b
-              shipping_cost_inc_tax: 54.53
-              shipping_cost_ex_tax: 46.81
-              handling_cost_inc_tax: 0
-              handling_cost_ex_tax: 0
-              coupon_discounts: []
-              discounts: []
-              line_item_ids:
-                - 8166a146-3ecb-40aa-b40a-f39244e6c257
-                - 1359bfee-5b01-4f73-803b-6b07d75b36cd
-                - 20e79ae2-5c44-472c-9ac4-aaa645b955ff
-              selectedShippingOption:
-                id: 156fb123-68e1-40a2-8a48-98ceb04031c1
-                type: shipping_upsready
-                description: UPS® (UPS Next Day Air®)
-                image_url: ''
-                cost: 46.81
-                transit_time: 1 business day
-              shippingAddress:
-                first_name: BigCommerce
-                last_name: BigCommerce Cart/Checkout
-                email: testing@example.com
-                company: ''
-                address1: 123 Main Street
-                address2: ''
-                city: Austin
-                state_or_province: Texas
-                state_or_province_code: TX
-                country: United States
-                country_code: US
-                postal_code: '78726'
-                phone: '5122134567'
-                customFields:
-                  - field_id: field_25
-                    field_value: 11305 4 Points Drive
-              couponDiscounts: []
-          taxes:
-            - name: This is tax
-              amount: 92.78
-          coupons:
-            - id: 1
-              code: S2549JM0Y
-              coupon_type: per_total_discount
-              discounted_amount: 5
-          order_id: {}
-          shipping_cost_total_inc_tax: 54.53
-          shipping_cost_total_ex_tax: 46.81
-          handling_cost_total_inc_tax: 0
-          handling_cost_total_ex_tax: 0
-          tax_total: 92.78
-          subtotal_inc_tax: 606.42496049047
-          subtotal_ex_tax: 520.54
-          grand_total: 605.13
-          created_time: '2018-08-15T15:53:10+00:00'
-          updated_time: '2018-08-15T15:54:31+00:00'
-          customer_message: ''
-        meta: {}
       Available Shipping Options:
         data:
           id: 306d57d7-124e-4112-82cd-35e060c0d4d9
@@ -1801,7 +1611,7 @@ responses:
                   is_taxable: true
                   image_url: 'https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2'
                   discounts: []
-                  coupons: 0
+                  coupons: []
                   discount_amount: 0
                   coupon_amount: 0
                   list_price: 31.95
@@ -1928,7 +1738,7 @@ responses:
                   is_taxable: true
                   image_url: 'https://cdn11.bigcommerce.com/s-{store_hash}/products/188/images/460/dustpan1_1024x1024_1024x1024__43447__69128.1534344539.330.500.jpg?c=2'
                   discounts: []
-                  coupons: 0
+                  coupons: []
                   discount_amount: 0
                   coupon_amount: 0
                   list_price: 31.95
@@ -2008,6 +1818,207 @@ responses:
           grand_total: 41.55
           created_time: '2019-08-05T15:38:14+00:00'
           updated_time: '2019-08-05T15:41:28+00:00'
+          customer_message: ''
+        meta: {}
+      Coupon Applied:
+        data:
+          id: 267c5d6f-0d27-48ea-b731-e7832a4c5537
+          cart:
+            id: 267c5d6f-0d27-48ea-b731-e7832a4c5537
+            customer_id: 25
+            channel_id: 1
+            email: customer@example.com
+            currency:
+              code: USD
+            base_amount: 67
+            discount_amount: 0
+            cart_amount_inc_tax: 53.6
+            cart_amount_ex_tax: 53.6
+            coupons:
+              - id: 1
+                code: SHOP20
+                coupon_type: percentage_discount
+                discounted_amount: 13.4
+            discounts:
+              - id: 985c79a3-4c94-4104-923a-2e3d4572e72d
+                discounted_amount: 7
+              - id: b0adf3a7-7a92-44d9-ad46-87235b118e48
+                discounted_amount: 6.4
+            line_items:
+              physical_items:
+                - id: b0adf3a7-7a92-44d9-ad46-87235b118e48
+                  parent_id: null
+                  variant_id: 528
+                  product_id: 145
+                  sku: htltwl-001
+                  name: Hotel Towel
+                  url: 'https://example.com/hotel-towel/'
+                  quantity: 1
+                  is_taxable: true
+                  image_url: 'https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1'
+                  discounts:
+                    - id: coupon
+                      discounted_amount: 6.4
+                  coupons: 6.4
+                  discount_amount: 0
+                  coupon_amount: 6.4
+                  list_price: 32
+                  sale_price: 32
+                  extended_list_price: 32
+                  extended_sale_price: 32
+                  is_require_shipping: true
+                  gift_wrapping: null
+                  is_mutable: true
+              digital_items:
+                - id: 985c79a3-4c94-4104-923a-2e3d4572e72d
+                  parent_id: null
+                  variant_id: 182
+                  product_id: 138
+                  sku: ebk-001
+                  name: eBook Download
+                  url: 'https://example.com/digital/'
+                  quantity: 1
+                  is_taxable: true
+                  image_url: 'https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1'
+                  discounts:
+                    - id: coupon
+                      discounted_amount: 7
+                  coupons: 7
+                  discount_amount: 0
+                  coupon_amount: 7
+                  list_price: 35
+                  sale_price: 35
+                  extended_list_price: 35
+                  extended_sale_price: 35
+                  is_require_shipping: false
+                  is_mutable: true
+              gift_certificates: []
+              custom_items: []
+            created_time: '2021-11-08T22:46:23+00:00'
+            updated_time: '2021-11-09T16:08:01+00:00'
+          billing_address:
+            id: 618a9ce18173e
+            first_name: null
+            last_name: null
+            email: customer@example.com
+            company: ''
+            address1: null
+            address2: null
+            city: null
+            state_or_province: ''
+            state_or_province_code: ''
+            country: ''
+            country_code: ''
+            postal_code: null
+            phone: ''
+            custom_fields: []
+          consignments: []
+          taxes:
+            - name: Tax
+              amount: 0
+          coupons:
+            - id: 1
+              code: SHOP20
+              coupon_type: percentage_discount
+              discounted_amount: 13.4
+          order_id: null
+          shipping_cost_total_inc_tax: 0
+          shipping_cost_total_ex_tax: 0
+          handling_cost_total_inc_tax: 0
+          handling_cost_total_ex_tax: 0
+          tax_total: 0
+          subtotal_inc_tax: 67
+          subtotal_ex_tax: 67
+          grand_total: 53.6
+          created_time: '2021-11-08T22:46:23+00:00'
+          updated_time: '2021-11-09T16:08:01+00:00'
+          customer_message: ''
+        meta: {}
+      No Coupon Applied:
+        data:
+          id: 267c5d6f-0d27-48ea-b731-e7832a4c5537
+          cart:
+            id: 267c5d6f-0d27-48ea-b731-e7832a4c5537
+            customer_id: 0
+            channel_id: 1
+            email: ''
+            currency:
+              code: USD
+            base_amount: 67
+            discount_amount: 0
+            cart_amount_inc_tax: 67
+            cart_amount_ex_tax: 67
+            coupons: []
+            discounts:
+              - id: 985c79a3-4c94-4104-923a-2e3d4572e72d
+                discounted_amount: 0
+              - id: b0adf3a7-7a92-44d9-ad46-87235b118e48
+                discounted_amount: 0
+            line_items:
+              physical_items:
+                - id: b0adf3a7-7a92-44d9-ad46-87235b118e48
+                  parent_id: null
+                  variant_id: 528
+                  product_id: 145
+                  sku: htltwl-001
+                  name: Hotel Towel
+                  url: 'https://example.com/hotel-towel/'
+                  quantity: 1
+                  is_taxable: true
+                  image_url: 'https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1'
+                  discounts: []
+                  coupons: []
+                  discount_amount: 0
+                  coupon_amount: 0
+                  list_price: 32
+                  sale_price: 32
+                  extended_list_price: 32
+                  extended_sale_price: 32
+                  is_require_shipping: true
+                  gift_wrapping: null
+                  is_mutable: true
+              digital_items:
+                - id: 985c79a3-4c94-4104-923a-2e3d4572e72d
+                  parent_id: null
+                  variant_id: 182
+                  product_id: 138
+                  sku: ebk-001
+                  name: eBook Download
+                  url: 'https://example.com/digital/'
+                  quantity: 1
+                  is_taxable: true
+                  image_url: 'https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1'
+                  discounts: []
+                  coupons: []
+                  discount_amount: 0
+                  coupon_amount: 0
+                  list_price: 35
+                  sale_price: 35
+                  extended_list_price: 35
+                  extended_sale_price: 35
+                  is_require_shipping: false
+                  is_mutable: true
+              gift_certificates: []
+              custom_items: []
+            created_time: '2021-11-08T22:46:23+00:00'
+            updated_time: '2021-11-09T16:06:56+00:00'
+          billing_address: {}
+          consignments: []
+          taxes:
+            - name: Tax
+              amount: 0
+          coupons: []
+          order_id: null
+          shipping_cost_total_inc_tax: 0
+          shipping_cost_total_ex_tax: 0
+          handling_cost_total_inc_tax: 0
+          handling_cost_total_ex_tax: 0
+          tax_total: 0
+          subtotal_inc_tax: 67
+          subtotal_ex_tax: 67
+          grand_total: 67
+          created_time: '2021-11-08T22:46:23+00:00'
+          updated_time: '2021-11-09T16:06:56+00:00'
           customer_message: ''
         meta: {}
   order_Resp:
