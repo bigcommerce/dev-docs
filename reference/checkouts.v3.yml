@@ -689,7 +689,7 @@ definitions:
                             type: number
                             format: double
                     coupons:
-                      description: Returns an empty array when there are no coupons. Returns a number if you apply coupons.
+                      description: When the line item uses a coupon, returns a number indicating the total discounted amount.  Otherwise, returns an empty array.
                       type:
                         - number
                         - array
@@ -703,7 +703,7 @@ definitions:
                       type: number
                       format: double
                     list_price:
-                      description: 'Item''s list price, as quoted by the manufacturer/distributor.'
+                      description: Item's list price, as quoted by the manufacturer/distributor.
                       type: number
                       format: double
                     sale_price:
@@ -812,7 +812,7 @@ definitions:
                             type: number
                             format: double
                     coupons:
-                      description: Returns an empty array when there are no coupons. Returns a number if you apply coupons.
+                      description: When the line item uses a coupon, returns a number indicating the total discounted amount.  Otherwise, returns an empty array.
                       type:
                         - number
                         - array
@@ -826,7 +826,7 @@ definitions:
                       type: number
                       format: double
                     list_price:
-                      description: 'Item''s list price, as quoted by the manufacturer/distributor.'
+                      description: Item's list price, as quoted by the manufacturer/distributor.
                       type: number
                       format: double
                     sale_price:
@@ -854,7 +854,7 @@ definitions:
                       description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
                       type: string
                     amount:
-                      description: 'Value must be between 1.00 and 1,000.00 in the store''s default currency.'
+                      description: Value must be between 1.00 and 1,000.00 in the store's default currency.
                       type: number
                       format: double
                     sender:
