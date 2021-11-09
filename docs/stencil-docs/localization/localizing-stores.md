@@ -46,13 +46,13 @@ Currently, you cannot edit strings such as "This promotion cannot be applied wit
 
 
 BigCommerce supports these uneditable strings in the following languages:
-* [Dutch](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-nl-NL.po)
+* [Dutch](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-nl-NL.po)
 * English
-* [French](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-fr-FR.po)
-* [German](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-de-DE.po)
-* [Italian](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-it-IT.po)
-* [Portuguese (Brazil)](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-pt-BR.po)
-* [Swedish](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-sv-SE.po)
+* [French](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-fr-FR.po)
+* [German](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-de-DE.po)
+* [Italian](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-it-IT.po)
+* [Portuguese (Brazil)](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-pt-BR.po)
+* [Swedish](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-sv-SE.po)
 
 
 You can review these strings by downloading the language files we have made available in the portable object format. We recommend viewing these in a simple text editor or a text editor designed to handle PO files.
@@ -146,9 +146,9 @@ To customize payment and checkout messages, define these variables in the theme 
 
 ### Language files
 
-* [Dutch](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-nl-NL.po)
-* [French](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-fr-FR.po)
-* [German](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-de-DE.po)
-* [Italian](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-it-IT.po)
-* [Portuguese (Brazil)](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-pt-BR.po)
-* [Swedish](https://bigcommerce.github.io/dev-docs/assets/PO/storefront-sv-SE.po)
+* [Dutch](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-nl-NL.po)
+* [French](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-fr-FR.po)
+* [German](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-de-DE.po)
+* [Italian](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-it-IT.po)
+* [Portuguese (Brazil)](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-pt-BR.po)
+* [Swedish](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-sv-SE.po)
