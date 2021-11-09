@@ -62,24 +62,6 @@ Specify app type, multiple users support, callback URLs, and OAuth scopes; and, 
 
 ![DevTools 02](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-02.png  "DevTools 02")
 
-| Field                      | Description                                                                                                                        |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------         |
-| App Details                | Value proposition; avoid fluff or buzzwords; not be indexed for search; 200 words max                                                    |
-| Videos                     | Videos highlighting purpose and value of your app                                                                                          |
-| Case Studies               | case studies demonstrating how merchants have benefited from using your app. 4 max                                                         |
-| Features                   | App's major features; include title and description for each; title is search indexed; rich text accepted; 5 max                           |
-| Legal Termals & Privacy    | App privacy policy and ToS links; legally required                                                                                         |
-| International Optimization | Countries app optimized for and countries app does not support                                                                             |
-| Help Guides                | Links to app's user and installation guides; highly recommended                                                                            |
-| App Screenshot             | Screenshots of app UI inside BigCommerce                                                                                                   |
-| Alternate Logo             | Used if app featured in Marketplace carousel; should be 259 x 158px (or larger at ratio); dark background and light branding; no taglines  |
-
-## Fill in details
-
-Provide a helpful description with screenshots and a video to promote your app. We recommend bullet points followed by short paragraphs with headers. Aim for 200 words in total.
-
-![DevTools 03](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-03.png  "DevTools 03")
-
 | Field                  | Description                                                                |
 | ---------------------- | -------------------------------------------------------------------------- |
 | Multiple Users         | Optionally allow your app to be accessible to store users other than owner |
@@ -89,6 +71,24 @@ Provide a helpful description with screenshots and a video to promote your app. 
 | Uninstall Callback URL | Requested when store owner clicks uninstall                                |
 | OAuth Scopes           | OAuth scopes the app requires                                              |
 | Test Instructions      | Instructions needed to test the app thoroughly                             |
+
+## Fill in details
+
+Provide a helpful description with screenshots and a video to promote your app. We recommend bullet points followed by short paragraphs with headers. Aim for 200 words in total.
+
+![DevTools 03](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-03.png  "DevTools 03")
+
+| Field                      | Description                                                                                                                               |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| App Details                | Value proposition; avoid fluff or buzzwords; not be indexed for search; 200 words max                                                     |
+| Videos                     | Videos highlighting purpose and value of your app                                                                                         |
+| Case Studies               | case studies demonstrating how merchants have benefited from using your app. 4 max                                                        |
+| Features                   | App's major features; include title and description for each; title is search indexed; rich text accepted; 5 max                          |
+| Legal Termals & Privacy    | App privacy policy and ToS links; legally required                                                                                        |
+| International Optimization | Countries app optimized for and countries app does not support                                                                            |
+| Help Guides                | Links to app's user and installation guides; highly recommended                                                                           |
+| App Screenshot             | Screenshots of app UI inside BigCommerce                                                                                                  |
+| Alternate Logo             | Used if app featured in Marketplace carousel; should be 259 x 158px (or larger at ratio); dark background and light branding; no taglines |
 
 ## Review submission
 
