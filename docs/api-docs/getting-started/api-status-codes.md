@@ -22,6 +22,7 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 | **201** | **Created** | For a successful `POST` request. |
 | **202** | **Accepted** | For a request that resulted in a scheduled task being created to perform the actual request. |
 | **204** | **No Content** | For a successful request that produced no response (such as `DELETE` requests). |
+| **207** | **Multi-Status** | Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured.|
 
 ## 3xx Redirection 
 
