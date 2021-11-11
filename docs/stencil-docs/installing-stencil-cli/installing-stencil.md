@@ -69,12 +69,12 @@ Installing Stencil CLI and its dependencies on Macs that use Apple silicone, suc
 
 
 Open terminal using Rosetta.
-- Open **Finder**.
-- Go to **Applications** > **Utilities** > **Terminal**.
-- Right-click **Terminal** and select **Get Info**.
-- Check the **Open using Rosetta** checkbox.
-- Close the window and quit all terminal instances.
-- Start a new terminal, and install Rosetta if prompted.
+1. Open **Finder**.
+2. Go to **Applications** > **Utilities** > **Terminal**.
+3. Right-click **Terminal** and select **Get Info**.
+4. Check the **Open using Rosetta** checkbox.
+5. Close the window and quit all terminal instances.
+6. Start a new terminal, and install Rosetta if prompted.
 
 Run the following commands.
 ```shell
