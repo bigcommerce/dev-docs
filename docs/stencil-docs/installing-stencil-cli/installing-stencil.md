@@ -59,7 +59,8 @@ Installing Stencil CLI and its dependencies on Macs that use Apple silicone, suc
 
 <!-- theme: info -->
 
-> These instructions have been tested on a **MacBook Air** with a M1 chip.
+> These instructions have been tested on a **MacBook Air** with an M1 chip.
+
 
 </div>
 </div>
