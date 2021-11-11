@@ -48,29 +48,38 @@ nvm use 12
 # Install Stencil CLI
 npm install -g @bigcommerce/stencil-cli
 ```
+
+### Installing on Mac with M1 chip
+To install Stencil CLI and its dependencies on Mac with a M1 chip, open a Rosetta terminal and run the following commands.
+
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
 <!-- theme: info -->
 
-> Use these instructions for Mac's with a M1 chip.
+> These instructions have been tested on a **MacBook Air** with a M1 chip.
 
 </div>
 </div>
 </div>
 
+
+Open terminal using Rosetta.
+- Open **Finder**.
+- Go to **Applications** > **Utilities** > **Terminal**.
+- Right-click **Terminal** and select **Get Info**.
+- Check the **Open using Rosetta** checkbox.
+- Close the window and quit all terminal instances.
+- Start a new terminal, and install Rosetta if prompted.
+
+Run the following commands.
 ```shell
-
-# Install Node Version Manager (nvm)
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-
 # Install Stencil CLI supported version of Node.js
-nvm install 12.1
+nvm install 12
 
 # Switch to Stencil CLI supported version of Node.js
-
-nvm use 12.1
+nvm use 12
 
 # Install Stencil CLI
 npm install -g @bigcommerce/stencil-cli
