@@ -50,7 +50,8 @@ npm install -g @bigcommerce/stencil-cli
 ```
 
 ### Installing on Mac with M1 chip
-To install Stencil CLI and its dependencies on Mac with a M1 chip, open a Rosetta terminal and run the following commands.
+Installing Stencil CLI and its dependencies on Macs that use Apple silicone, such as the M1 chip, requires Rosetta. Rosetta allows a Mac with Apple silicon to use apps built for a Mac with an Intel processor. The following steps will guide you through the installation process:
+
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
