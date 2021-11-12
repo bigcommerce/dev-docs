@@ -68,7 +68,8 @@ Installing Stencil CLI and its dependencies on Macs that use Apple silicon, such
 </div>
 
 
-Open terminal using Rosetta.
+Open the terminal using Rosetta.
+
 1. Open **Finder**.
 2. Go to **Applications** > **Utilities** > **Terminal**.
 3. Right-click **Terminal** and select **Get Info**.
