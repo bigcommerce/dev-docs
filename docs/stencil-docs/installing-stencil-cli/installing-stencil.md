@@ -67,6 +67,7 @@ Installing Stencil CLI and its dependencies on Macs that use Apple silicon, such
 </div>
 </div>
 
+To open the Rosetta terminal:
 
 1. Open **Finder**.
 2. Go to **Applications** > **Utilities** > **Terminal**.
@@ -76,6 +77,7 @@ Installing Stencil CLI and its dependencies on Macs that use Apple silicon, such
 6. Start a new terminal, and install Rosetta if prompted.
 
 Run the following commands:
+
 ```shell
 # Install Stencil CLI supported version of Node.js
 nvm install 12
