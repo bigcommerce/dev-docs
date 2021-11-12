@@ -48,29 +48,42 @@ nvm use 12
 # Install Stencil CLI
 npm install -g @bigcommerce/stencil-cli
 ```
+
+### Installing on Mac with Apple silicon
+
+Installing Stencil CLI and its dependencies on Macs that use Apple silicon, such as the M1 chip, requires Rosetta. Rosetta allows a Mac with Apple silicon to use apps built for a Mac with an Intel processor. The following steps will guide you through the installation process:
+
+
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
 <!-- theme: info -->
 
-> Use these instructions for Mac's with a M1 chip.
+> These instructions have been tested on a **MacBook Air** with an M1 chip.
+
 
 </div>
 </div>
 </div>
 
+
+Open the terminal using Rosetta.
+
+1. Open **Finder**.
+2. Go to **Applications** > **Utilities** > **Terminal**.
+3. Right-click **Terminal** and select **Get Info**.
+4. Check the **Open using Rosetta** checkbox.
+5. Close the window and quit all terminal instances.
+6. Start a new terminal, and install Rosetta if prompted.
+
+Run the following commands.
 ```shell
-
-# Install Node Version Manager (nvm)
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-
 # Install Stencil CLI supported version of Node.js
-nvm install 12.1
+nvm install 12
 
 # Switch to Stencil CLI supported version of Node.js
-
-nvm use 12.1
+nvm use 12
 
 # Install Stencil CLI
 npm install -g @bigcommerce/stencil-cli
