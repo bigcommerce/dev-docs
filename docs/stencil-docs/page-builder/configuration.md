@@ -51,14 +51,17 @@ In all, the structure that you give your theme's `config.json` and `schema.json`
 
 ## Theme Styles data types
 
-You are free to decide which properties of your theme to make editable in Theme Styles and in which order to display them. Theme Styles can expose any set of properties as long as your `schema.json` declares them using the data types that Theme Styles supports.
+You are free to decide which properties of your theme to make editable in [Theme Styles](https://developer.bigcommerce.com/stencil-docs/reference-docs/styles-and-properties/) and in which order to display them. Theme Styles can expose any set of properties as long as your `schema.json` declares them using the data types that Theme Styles supports.
 
 Theme Styles supports the following data types:
+* checkbox
 * color
 * font
-* select (drop-down list)
-* checkbox
+* heading
 * imageDimension
+* optimizedCheckout-image
+* reference 
+* select (drop-down list)
 * text
 
 Within `schema.json`, you can declare each object's data type in a statement like the one highlighted here:
