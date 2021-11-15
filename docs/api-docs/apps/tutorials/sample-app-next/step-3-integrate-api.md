@@ -30,16 +30,16 @@ This step demonstrates how to integrate the sample app with [Cloud Firestore](ht
 
 ## Install npm packages
 
-If using Firebase, install `firebase`, `jsonwebtoken`, and `swr` npm packages.
+If using Firebase, install `firebase@^8.2.6`, `jsonwebtoken`, and `swr` npm packages.
 
 ```shell
-npm install --save firebase jsonwebtoken swr
+npm install --save firebase@^8.2.6 jsonwebtoken swr
 ```
 
 If using MySQL, install `mysql`, `jsonwebtoken`, and `swr` npm packages.
 
 ```shell
-npm install --save jsonwebtoken mysql swr
+npm install --save mysql jsonwebtoken swr
 ```
 
 ## Add TypeScript definitions
