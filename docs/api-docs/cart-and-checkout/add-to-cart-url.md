@@ -64,26 +64,20 @@ $("button#addToCart").click(function() {
 	// add product id 123
     return $.get("/cart.php?action=add&product_id=123")
 	.done(function(data, status, xhr) {
-		console.log('first item complete with status ' + status + ' and data: ');
-		console.log(data);
-		//resolve promise
-		return xhr.resolve();
+		console.log('first item complete with status ' + status);
 	})
 	.then(function() {
 		// add product id 456
 		return $.get("/cart.php?action=add&product_id=456");
 	})
 	.done(function(data, status, xhr) {
-		console.log('second item complete with status ' + status + ' and data: ');
-		console.log(data);
-		// resolve promise
-		return xhr.resolve();
+		console.log('second item complete with status ' + status);
 	})
-	// chain more async GET requests as desired
+	// chain more async GET requests using .then & .done
 	.fail(function(xhr, status, error) {
 		console.log('oh noes, error with status ' + status + ' and error: ');
 		console.error(error);
-		return xhr.resolve('failure');
+		return xhr.done();
 	})
 	.always(function() {
 		// go to cart
