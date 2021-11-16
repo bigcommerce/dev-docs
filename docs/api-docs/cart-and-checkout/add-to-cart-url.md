@@ -49,9 +49,9 @@ Once constructed, a URL can be inserted directly as text or as an HTML link:
 
 ## Adding multiple products
 
-The `sku` and `product_id` parameters accept a single value; you can only use the first value of a comma-separated list of values. In other words, only one product can be added for each request made to an add to cart URL; however, it's possible to combine several HTTP requests into a single button click using front-end JavaScript.
+The `sku` and `product_id` parameters accept a single value; you can only use the first value of a comma-separated list of values. In other words, only one product can be added for each request made to an add to cart URL.  However, it's possible to combine several HTTP requests into a single button click using front-end JavaScript, as long as your code waits to receive the response of your first request before it makes a second.
 
-The following gives a very basic example:
+The following gives a very basic example using jQuery.  You can also use async/await syntax to make a series of calls from within a `for` loop.
 
 ```html
 
