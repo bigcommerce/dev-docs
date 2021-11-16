@@ -4,7 +4,7 @@
 
 ### On this page
 - [Parameters](#parameters)
-- [Common usage](#common-usage)
+- [Common Usage](#common-usage)
 - [Adding multiple products](#adding-multiple-products)
 
 </div>
