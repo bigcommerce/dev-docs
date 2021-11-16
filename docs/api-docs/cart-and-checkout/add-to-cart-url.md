@@ -51,7 +51,7 @@ Once constructed, a URL can be inserted directly as text or as an HTML link:
 
 The `sku` and `product_id` parameters accept a single value; you can only use the first value of a comma-separated list of values. In other words, only one product can be added for each request made to an add to cart URL; however, it's possible to combine several HTTP requests into a single button click using front-end JavaScript.
 
-Here's a very basic example using jQuery:
+The following gives a very basic example:
 
 ```html
 
@@ -62,14 +62,34 @@ Here's a very basic example using jQuery:
 $("button#addToCart").click(function() {
 
 	// add product id 123
-    $.get("/cart.php?action=add&product_id=123");
-
-	// add product id 456
-    $.get("/cart.php?action=add&product_id=456", function(data) {
-
+    return $.get("/cart.php?action=add&product_id=123")
+	.done(function(data, status, xhr) {
+		console.log('first item complete with status ' + status + ' and data: ');
+		console.log(data);
+		//resolve promise
+		return xhr.resolve();
+	})
+	.then(function() {
+		// add product id 456
+		return $.get("/cart.php?action=add&product_id=456");
+	})
+	.done(function(data, status, xhr) {
+		console.log('second item complete with status ' + status + ' and data: ');
+		console.log(data);
+		// resolve promise
+		return xhr.resolve();
+	})
+	// chain more async GET requests as desired
+	.fail(function(xhr, status, error) {
+		console.log('oh noes, error with status ' + status + ' and error: ');
+		console.error(error);
+		return xhr.resolve('failure');
+	})
+	.always(function() {
 		// go to cart
-		window.location = "/cart.php";
+		return window.location = "/cart.php";
 	});
+
 });
 </script>
 ```
