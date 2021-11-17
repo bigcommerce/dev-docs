@@ -41,7 +41,17 @@ If using MySQL, install `mysql`, `jsonwebtoken`, and `swr` npm packages.
 ```shell
 npm install --save mysql jsonwebtoken swr
 ```
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
+<!-- theme: info -->
+
+> These instructions have been tested using the **firebase v8** package.  You can view a list of all the tested package versions in the [package.json file on the Step 3 branch](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/package.json) of this sample app's repo.
+
+</div>
+</div>
+</div>
 ## Add TypeScript definitions
 
 1. In the root directory of your project, add a `types` folder.
