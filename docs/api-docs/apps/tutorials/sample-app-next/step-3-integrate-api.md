@@ -39,7 +39,7 @@ npm install --save firebase jsonwebtoken swr
 If using MySQL, install `mysql`, `jsonwebtoken`, and `swr` npm packages.
 
 ```shell
-npm install --save jsonwebtoken mysql swr
+npm install --save mysql jsonwebtoken swr
 ```
 
 ## Add TypeScript definitions
