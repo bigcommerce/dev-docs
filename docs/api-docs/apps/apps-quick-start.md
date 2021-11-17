@@ -6,7 +6,7 @@
 - [Get started](#get-started)
 - [Fork the sandbox](#fork-the-sandbox)
 - [Register a draft app](#register-a-draft-app)
-- [Configure sandbox environment](#configure-sandbox-environment)
+- [Configure sandbox environment](#confige-sandbox-environment)
 - [Install the app](#install-the-app)
 - [Next steps](#next-steps)
 - [Resources](#resources)
