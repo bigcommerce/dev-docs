@@ -15,7 +15,7 @@
 - [Pricing precision](#pricing-precision)
 - [Adding product metafields](#adding-product-metafields)
 - [Adding product reviews](#adding-product-reviews)
-- [Variants](#variants)
+- [Variants and modifiers](#variants-and-modifiers)
 - [Variant options](#variant-options)
 - [Creating variants](#creating-variants)
 - [Modifier options](#modifier-options)
@@ -416,7 +416,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 </div>
 </div>
 
-## Variants
+## Variants and modifiers
 
 Products vary, and those differences matter.  [Variants](/api-reference/store-management/catalog/product-variants/getvariantbyid) represent items that customers can purchase.  One style of shoes, for instance, can come in an assortment of sizes, colors, and materials.  If the product is signature sneakers, the variant is a brick-colored pair of signature sneakers with white soles and marine plastic uppers in US women's size 9.  Everything a customer can buy is a variant.  A product with no options is its own variant - called a _base variant_.
 
