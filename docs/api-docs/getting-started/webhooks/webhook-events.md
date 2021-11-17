@@ -229,8 +229,7 @@ The same response is returned for the following events.
 
 | Name                    | Description                                              |
 |-------------------------|----------------------------------------------------------|
-| `store/channel/*`       | Subscribe to all `store/channel` events.                    |
-
+| `store/channel/*`       | Subscribe to all `store/channel` events.                 |
 | `store/channel/created` | Fires when a channel is created via control panel or API |
 | `store/channel/updated` | Fires when a channel is updated via control panel or API |
 
@@ -365,7 +364,6 @@ Updates to the following fields trigger a `store/channel/updated` event.
 ### The same response is returned for the following events:
 
 - `store/order/statusUpdated`
-- `store/order/updated` (if status updated)
 
 **Response fields**
 

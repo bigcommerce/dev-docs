@@ -120,7 +120,7 @@ Assume that `{{cart.items}}` returns 10 items. You can use this helper to limit 
 {{pluck limit collection path}}
 ```
 
-Retrieves corresponding values from some or all elements in a collection using specified search key(s). Returns retrieved values in a comma-separated string.
+Retrieves corresponding values from some or all elements in a collection using specified search key(s). Returns retrieved values in a comma-separated string. When used in conjunction with the built-in `{{each}}` helper, returns retrieved values in an array. 
 
 #### Parameters
 
@@ -161,6 +161,10 @@ users: [
 
 {{pluck users "image.url"}}'
 <!-- => barney.jpg,fred.jpg -->
+
+Standard pluck helper example:
+// {{pluck items "data.title"}}
+results in: '["aa", "bb", "cc"]'
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/pluck.js)
@@ -1383,6 +1387,23 @@ Increments the variable set by [assignVar](#assignVar) by 1.
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/incrementVar.js)
 
+### {{JSONparse}}
+
+Parse data with JSONparse.
+
+#### Parameters
+
+- `json` {String}
+
+#### Example
+
+```handlebars
+{{#JSONparse '{"foo": "bar"}'}}
+  {{foo}}
+{{/JSONparse}}
+<!-- output: bar -->
+```
+
 ## Standard helpers
 
 <div class="HubBlock--callout">
@@ -1479,7 +1500,7 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [getObject](https://github.com/helpers/handlebars-helpers#getObject) |object| Use property paths (`a.b.c`) to get an object from the context. Differs from the [get](https://github.com/helpers/handlebars-helpers#get) helper in that this helper will return the actual object including the given property key. This helper does not work as a block helper. |
 | [hasOwn](https://github.com/helpers/handlebars-helpers#hasOwn) | object | Returns `true` if `key` is an own, enumerable property of the given context object. |
 | [isObject](https://github.com/helpers/handlebars-helpers#isObject) | object | Returns `true` if value is an object. |
-| [JSONparse](https://github.com/helpers/handlebars-helpers#JSONparse) | object | Parses the given string using `JSON.parse`. |
+| [JSONparse](#jsonparse) | object | Parses the given string using `JSON.parse`. |
 | [JSONstringify](https://github.com/helpers/handlebars-helpers#JSONstringify) | object | Stringifies an object using `JSON.stringify`. |
 | [merge](https://github.com/helpers/handlebars-helpers#merge) |object| Deeply merges the properties of the given objects with the context object. |
 | [pick](https://github.com/helpers/handlebars-helpers#pick) | object | Picks properties from the context object. |

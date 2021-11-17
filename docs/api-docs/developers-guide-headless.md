@@ -36,9 +36,10 @@ Want to build a headless storefront powered by a BigCommerce back-end, but don't
 | [BigCommerce for Wordpress](https://wordpress.org/plugins/bigcommerce/) | WordPress Plugin | WordPress | CMS |
 | [BigCommerce for Drupal](https://www.drupal.org/project/bigcommerce) | Drupal Module | Drupal | CMS |
 | [Bloomreach](https://www.bigcommerce.com/apps/bloomreach/) | BigCommerce App | Bloomreach | CMS / DXP |
-| [DEITY Falcon](https://www.bigcommerce.com/apps/deity-falcon-pwa-storefront/) | BigCommerce App | DEITY Faclon | PWA |
-| [Next.js Commerce](https://nextjs.org/commerce) | BigCommerce App | Next/Vercel | Web App |
+| [DEITY Falcon](https://www.bigcommerce.com/apps/deity-falcon-pwa-storefront/) | BigCommerce App | DEITY Falcon | PWA |
 | [Sitrecore Extend](https://www.bigcommerce.com/apps/sitecore-extend/) | BigCommerce App | Sitecore | CMS |
+
+*Note.* CMS = Content Management System; DXP = Digital eXperience Platform; PWA = Progressive Web App.
 
 [See more headless solutions and tools](https://developer.bigcommerce.com/tools-resources).
 
@@ -50,7 +51,8 @@ Need code up a custom storefront but don't want to start from scratch? Kick-star
 | --- | --- |
 | [gatsby-bigcommerce-netlify-cms-starter](https://github.com/bigcommerce/gatsby-bigcommerce-netlify-cms-starter) | Node / React / Gatsby / Netlify |
 | [bc-nuxt-vue-starter](https://github.com/bigcommerce/bc-nuxt-vue-starter) | Node / Vue / Nuxt |
-| [acf_bc](https://github.com/thirdandgrove/acf_bc) |PHP / ACF / Drupal |
+| [acf_bc](https://github.com/thirdandgrove/acf_bc) | PHP / ACF / Drupal |
+| [Next.js Commerce](https://nextjs.org/commerce) | Node / Next / React |
 
 [See more headless starter apps and tools](https://developer.bigcommerce.com/tools-resources).
 
@@ -139,6 +141,7 @@ If you are using the hosted checkout option, shoppers will be able to navigate t
 
 To customize the checkout when using a redirect URL, use our [Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js). The Checkout JS SDK is a library of methods for interacting with the checkout page's underlying Storefront Checkout API, allowing you to build a custom checkout page UI in the framework of your choice.
 
+
 ### Checkout API
 If you need complete control over the checkout page, you have the option to build an external checkout in your CMS or app using the server-to-server Checkout API. Then use the Payments API to process a payment through BigCommerce to take payment for the order. If you are using the Payments API, you are responsible for [PCI compliance](#pci-compliance).
 
@@ -169,6 +172,9 @@ In the diagram below, the Storefront is any location the products are being rend
 |**Storefront**|The front end presentation layer where a shopper interacts with products. In a headless architecture, the storefront might be a CMS, native mobile app, kiosk, static site, or any other front end solution you can imagine. The BigCommerce WordPress plugin is built using an existing CMS and injecting a stores catalog. Any CMS that accepts custom integrations can be used. Another option is to build a storefront from scratch using a framework such as [Gatsby](https://www.bigcommerce.com/blog/flexible-headless-commerce-solutions/#overview-of-bigcommerce-for-react-gatsby).|
 |**Application**|Solution built by developer to control the requests and responses from the BigCommerce APIs. In addition to handling essential ecommerce tasks like requesting product information or sending the request to process a payment, the application layer can also handle logic for custom functionality, like presenting discount codes based on a shopper's history or pre filling details on the checkout page. |
 |**BigCommerce**|BigCommerce will respond to the application with the requested data to power the backend ecommerce functionality. It can handle processing payments, storing customer data, retrieving the catalog and order information.|
+
+### Managing access to your Stencil site
+Once you transition to a headless setup and are no longer using your Stencil storefront, make sure to redirect shoppers to your new frontend by changing your custom domain's [nameservers](https://support.bigcommerce.com/s/article/Changing-Domains#nameservers). Also, make sure that your unused Stencil storefront is inaccessible to both search engines and shoppers. To prevent search engines from crawling and indexing your Stencil storefront, edit your robots.txt file to disallow all [robots](https://support.bigcommerce.com/s/article/Understanding-the-Robots-txt-File). To prevent shoppers from accessing your Stencil storefront's permanent URL, [Set Store as Down for Maintenance](https://support.bigcommerce.com/s/article/Maintenance-Mode) with a custom message directing shoppers to your new frontend. 
 
 ## PCI compliance
 
