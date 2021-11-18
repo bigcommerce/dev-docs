@@ -4,7 +4,7 @@
 
 ### On this page
 - [Parameters](#parameters)
-- [Common Usage](#common-usage)
+- [Common usage](#common-usage)
 - [Adding multiple products](#adding-multiple-products)
 
 </div>
@@ -28,7 +28,7 @@ URLs constructed with these parameters allow you to:
 | string  | `sku=`        | SKU to add to the cart (or select on product page)  | `/cart.php?action=add&sku=xlredtshirt`                      |
 | string  | `source=`     | source of the sale for analytics; can be any string | `/cart.php?action=buy&sku=xlredtshirt&source=emailcampaign` |
 
-## Common Usage
+## Common usage
 
 Below is a table of common scenarios and example URLs.
 
@@ -94,7 +94,7 @@ $("button#addToCart").click(function() {
 
 <!-- theme: warning -->
 
-> Due to CORs (Cross Origin Resource Sharing), using JavaScript to make multiple carting requests only works in the BigCommerce storefont and only on the storefront with the domain the request is being made to.
+> Due to CORS (Cross Origin Resource Sharing), using JavaScript to make multiple carting requests only works in the BigCommerce storefont and only on the storefront with the domain the request is being made to.
 
 Alternatively, the [Storefront Cart APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis#working-sf-apis_storefront-cart) `/api/storefront/cart` endpoint accepts an array of `lineItems` -- depending on the complexities and specifics of the use case, using Storefront Cart APIs may be a better solution than adding to cart URLs.
 
