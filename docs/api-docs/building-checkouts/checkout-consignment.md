@@ -32,7 +32,7 @@ For more information on OAuth Scopes and authentication, see [Authentication](ht
 <div class="HubBlock-content">
 
 ### Note
-BigCommerce S2S Checkout API responds quickly when only one consignment is present on the checkout; however, as you add more and more consignments to the order, these API calls take more and more time to complete.	
+BigCommerce S2S Checkout API responds quickly when only one consignment is present on the checkout; however, as you add more and more consignments to the order, the API calls take more and more time to complete.	
 
 </div>
 </div>
@@ -40,7 +40,7 @@ BigCommerce S2S Checkout API responds quickly when only one consignment is prese
 
 ## Creating a consignment
 
-Before creating a consignment, you will need a checkout ID. The cart ID and checkout ID are the same.
+Before creating a consignment, you need the checkout ID. The cart ID and checkout ID are the same.
 
 There are two steps to create a new consignment.
 
@@ -54,7 +54,6 @@ Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 
-[
   {
     "shipping_address": {
       "email": "jane2@example.com",
@@ -109,14 +108,14 @@ X-Auth-Token: {{ACCESS_TOKEN}}
       }
     ]
   }
-]
+
 ```
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost#requestrunner)
 
 ## Updating a consignment
 
-Before updating a consignment, you will need the checkoutID and the consignmentID. You can find the consignmentID in the consignment object displayed in the response generated in step 1. The checkoutID is the same as the Cart ID.
+Before updating a consignment, you need the checkoutID and the consignmentID. You can find the consignmentID in the consignment object displayed in the response generated in step 1. The checkoutID is the same as the Cart ID.
 
 2. To update a consignment to a checkout, assign a shipping option by sending a PUT request to update the consignment’s `shipping_option_id` with the `available_shipping_options` returned from step 1.
 
@@ -161,8 +160,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput#requestrunner)
 
+## Resources
 
-## Related resources
+### Related resources
 
 Endpoints
 * [Checkout API](https://developer.bigcommerce.com/api-reference/store-management/checkouts)
