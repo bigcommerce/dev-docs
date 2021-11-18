@@ -5,7 +5,7 @@
 ### On this page
 - [Install Node](#install-node)
 - [Set up a project directory](#set-up-a-project-directory)
-- [Generate a package.json file](#generate-a-package.json-file)
+- [Generate a package.json file](#generate-a-packagejson-file)
 - [Install npm packages](#install-npm-packages)
 - [Add scripts](#add-scripts)
 - [Create a starter page](#create-a-starter-page)
@@ -74,6 +74,18 @@ npm install --save-dev babel-plugin-styled-components @types/node @types/react t
 [babel-plugin-styled-components](https://www.npmjs.com/package/babel-plugin-styled-components) is a supplement to the styled-components library that, among other things, offers improved debugging and minification of styles.
 
 [@types/node](https://www.npmjs.com/package/@types/node) and [@types/react](https://www.npmjs.com/package/@types/react) contain TypeScript type definitions for Node.js and React.js respectively.
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+> You can view a list of all the tested package versions in the [package.json file on the Step 1 branch](https://github.com/bigcommerce/sample-app-nodejs/blob/step-1-app-foundation/package.json) of this sample app's repo.
+
+</div>
+</div>
+</div>
 
 ## Add scripts
 
