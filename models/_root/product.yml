@@ -31,6 +31,16 @@ properties:
     type: string
   availability:
     type: string
+  brand:
+    description: Product manufactured by a particular company
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        url:
+          type: string
   bulk_discount_rates:
     description: List of discount rates for the current product
     type: array
@@ -46,11 +56,17 @@ properties:
     type: array
     items:
       type: string
+  condition:
+    description: Product condition
+    type: string
   customizations:
     description: 'Product customizations (for example, a T-shirt size); these correspond to configurable fields and numeric-text product options in the BigCommerce control panel'
     type: array
     items:
       type: object
+  depth:
+    description: Product depth
+    type: string
   description:
     description: (HTML) description of the product
     type: string
@@ -60,6 +76,12 @@ properties:
   gift_wrapping_available:
     description: Whether or not gift wrapping is enabled
     type: boolean
+  gtin:
+    description: Global Trade Item Number. An identifier for trade items that is incorporated into several product identification standards, such as ISBN, UPC, and EAN.
+    type: number
+  height:
+    description: Product height
+    type: string
   id:
     description: Unique ID for the product
     type: string
@@ -92,6 +114,9 @@ properties:
   min_purchase_quantity:
     description: Minimum quantity that can be purchased at once
     type: integer
+  mpn:
+    description: Manufacturer Part Number. It is used to reference and identify a product.
+    type: number
   num_reviews:
     description: Number of reviews the product has
     type: integer
@@ -110,6 +135,28 @@ properties:
     $ref: ../product/related_products.yml
   reviews:
     $ref: ../product/reviews.yml
+  sale_price_without_tax:
+    type: array
+    items:
+      type: object
+      properties:
+        currency:
+          type: string
+        formatted:
+          type: string
+        value:
+          type: number
+  saved:
+    type: array
+    items:
+      type: object
+      properties:
+        currency:
+          type: string
+        formatted:
+          type: string
+        value:
+          type: number
   shipping_messages:
     type: array
     items:
@@ -124,6 +171,9 @@ properties:
     type: array
     items:
       type: object
+  tax_label:
+    description: The type of tax applied to orders in your store.
+    type: string
   title:
     description: Displayed name of the product
     type: string
@@ -138,6 +188,21 @@ properties:
   warranty:
     description: Optional warranty text set by the merchant
     type: string
+  width:
+    description: Product width
+    type: string
+  without_tax:
+    description: When a customer is tax-exempt
+    type: array
+    items:
+      type: object
+      properties:
+        currency:
+          type: string
+        formatted:
+          type: string
+        value:
+          type: number
   custom_fields:
     type: array
     items:
