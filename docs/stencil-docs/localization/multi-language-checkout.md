@@ -23,7 +23,7 @@ The following example shows how to use the `{{lang}}` statement in the header of
 {{#partial "head"}}
 
 {{{ checkout.checkout_head }}}
-{{{ stylesheet '/assets/css/optimized-checkout.css' }}}
+{{{ stylesheet '/assets/css/optimized-checkout.scss' }}}
 {{ getFontsCollection }}
 
 <script type="text/javascript">
