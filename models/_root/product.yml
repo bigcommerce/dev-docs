@@ -179,7 +179,7 @@ properties:
     type: string
   upc:
     description: Optional UPC code for the product
-    type: 'null'
+    type: string
   url:
     description: URL to the product detail page
     type: string
