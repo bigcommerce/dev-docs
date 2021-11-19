@@ -28,7 +28,7 @@ URLs constructed with these parameters allow you to:
 | string  | `sku=`        | SKU to add to the cart (or select on product page)  | `/cart.php?action=add&sku=xlredtshirt`                      |
 | string  | `source=`     | source of the sale for analytics; can be any string | `/cart.php?action=buy&sku=xlredtshirt&source=emailcampaign` |
 
-## Common Usage
+## Common usage
 
 Below is a table of common scenarios and example URLs.
 
@@ -49,9 +49,9 @@ Once constructed, a URL can be inserted directly as text or as an HTML link:
 
 ## Adding multiple products
 
-The `sku` and `product_id` parameters accept a single value; you can only use the first value of a comma-separated list of values. In other words, only one product can be added for each request made to an add to cart URL; however, it's possible to combine several HTTP requests into a single button click using front-end JavaScript.
+The `sku` and `product_id` parameters accept a single value; you can only use the first value of a comma-separated list of values. In other words, only one product can be added for each request made to an add to cart URL. However, it's possible to combine several HTTP requests into a single button click using front-end JavaScript, as long as your code waits to receive the response of your first request before it makes a second.
 
-Here's a very basic example using jQuery:
+The following gives a very basic example using jQuery.  You can also use async/await syntax to make a series of calls from within a `for` loop.
 
 ```html
 
@@ -62,14 +62,28 @@ Here's a very basic example using jQuery:
 $("button#addToCart").click(function() {
 
 	// add product id 123
-    $.get("/cart.php?action=add&product_id=123");
-
-	// add product id 456
-    $.get("/cart.php?action=add&product_id=456", function(data) {
-
+    return $.get("/cart.php?action=add&product_id=123")
+	.done(function(data, status, xhr) {
+		console.log('first item complete with status ' + status);
+	})
+	.then(function() {
+		// add product id 456
+		return $.get("/cart.php?action=add&product_id=456");
+	})
+	.done(function(data, status, xhr) {
+		console.log('second item complete with status ' + status);
+	})
+	// chain more async GET requests using .then & .done
+	.fail(function(xhr, status, error) {
+		console.log('oh noes, error with status ' + status + ' and error: ');
+		console.error(error);
+		return xhr.done();
+	})
+	.always(function() {
 		// go to cart
-		window.location = "/cart.php";
+		return window.location = "/cart.php";
 	});
+
 });
 </script>
 ```
@@ -80,7 +94,7 @@ $("button#addToCart").click(function() {
 
 <!-- theme: warning -->
 
-> Due to CORs (Cross Origin Resource Sharing), using JavaScript to make multiple carting requests only works in the BigCommerce storefont and only on the storefront with the domain the request is being made to.
+> Due to CORS (Cross Origin Resource Sharing), using JavaScript to make multiple carting requests only works in the BigCommerce storefont and only on the storefront with the domain the request is being made to.
 
 Alternatively, the [Storefront Cart APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis#working-sf-apis_storefront-cart) `/api/storefront/cart` endpoint accepts an array of `lineItems` -- depending on the complexities and specifics of the use case, using Storefront Cart APIs may be a better solution than adding to cart URLs.
 
