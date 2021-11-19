@@ -13,9 +13,15 @@
 This article discusses how to create and update a consignment.
 
 ## Overview
-A consignment is a step in the checkout process. It is an object that includes at least one physical line item, one shipping address, and one shipping method. An order that ships to multiple addresses will have multiple consignments.
+A consignment is a list of items sent to a shopper. It is an object that includes at least one physical line item, one shipping address, and one shipping method. A checkout will always have one consignment assigned to it, which is the first shipping address. An order that ships to several addresses will have multiple consignments.
+
+The Storefront and Server-to-Server Checkout APIs provide methods for creating a consignment to specify how the items should ship to a particular address. Consignment is the way we identify item fulfillment which is a requirement for order creation at checkout.
+
+
 
 ### OAuth scopes
+
+Use the following OAuth scopes for the Server-to-Server Checkout API.
 
 | UI Name  | Permission | Parameter                     |
 |----------|------------|-------------------------------|
@@ -24,19 +30,16 @@ A consignment is a step in the checkout process. It is an object that includes a
 
 For more information on OAuth Scopes and authentication, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 
+NOTE: The Storefront Checkout API allows developers to build a checkout experience by accessing raw API request/response data.
+
+
 ### Limits
-* 50 consignment limit
+* 50 line item limit for guests shoppers
+* 600 line item limit for logged-in shoppers
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
 
-### Note
-BigCommerce S2S Checkout API responds quickly when only one consignment is present on the checkout; however, as you add more and more consignments to the order, the API calls take more and more time to complete.	
+NOTE: BigCommerce Server-to-Server Checkout API responds quickly when only one consignment is present on the checkout; however, as you add more and more consignments to the order, the API calls take more and more time to complete.	
 
-</div>
-</div>
-</div>
 
 ## Creating a consignment
 
@@ -46,7 +49,7 @@ There are two steps to create a new consignment.
 
 1. To add a consignment to a checkout, append `include=consignment.available_shipping_options` to the POST request.
 
-Below is an example `POST` request for creating a simple consignment.
+Below is an example `POST` request for creating two simple consignments.
   
   ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/checkouts/{checkoutId}/consignments?include=consignments.available_shipping_options
@@ -164,5 +167,5 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ### Related resources
 
-Endpoints
-* [Checkout API](https://developer.bigcommerce.com/api-reference/store-management/checkouts)
+* [Server-to-Server Checkout API](https://developer.bigcommerce.com/api-reference/store-management/checkouts)
+* [Storefront Checkouts](https://developer.bigcommerce.com/api-reference/storefront/checkouts)
