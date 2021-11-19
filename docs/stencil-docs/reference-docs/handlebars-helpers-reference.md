@@ -434,7 +434,7 @@ Renders a link tag to insert a stylesheet into a theme; returns an HTML string. 
 #### Example
 
 ```handlebars
-{{stylesheet "assets/css/style.css" class="myStylesheet"}}
+{{stylesheet "assets/css/style.scss" class="myStylesheet"}}
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/stylesheet.js)
