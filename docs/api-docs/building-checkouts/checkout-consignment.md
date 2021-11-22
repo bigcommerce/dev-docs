@@ -160,9 +160,13 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput#requestrunner)
 
-## Resources
 
-### Related resources
+## Further reading
 
-* [Server-to-Server Checkout API](https://developer.bigcommerce.com/api-reference/store-management/checkouts)
-* [Storefront Checkouts](https://developer.bigcommerce.com/api-reference/storefront/checkouts)
+* [BigCommerce Checkout is Now Open Source](https://medium.com/bigcommerce-developer-blog/bigcommerce-checkout-is-now-open-source-39e823bc5b3b)
+<!-- link to forthcoming flow chart of headless calls -- cart > checkout > order > payment flow -->
+
+## Related documentation
+
+* [Server-to-Server Checkout API Reference](https://developer.bigcommerce.com/api-reference/store-management/checkouts)
+* [Storefront Checkout API Reference](https://developer.bigcommerce.com/api-reference/storefront/checkouts)
