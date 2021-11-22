@@ -1,0 +1,32 @@
+type: array
+items:
+  type: object
+  description: Available if product has options.
+  properties:
+    condition:
+      type: boolean
+    display_name:
+      type: string
+    id:
+      type: number
+    partial:
+      type: string
+    required:
+      type: boolean
+    state:
+      type: string
+    type:
+      type: string
+    values:
+      type: array
+      items:
+        type: object
+        properties:
+          data:
+            type: string
+          id:
+            type: number
+          label:
+            type: string
+          selected:
+            type: boolean
