@@ -52,11 +52,11 @@ For more information on OAuth Scopes and authentication, see [Authentication](ht
 
 Before creating a consignment, you need the checkout ID. The cart ID and checkout ID are the same.
 
-There are two steps to create a new consignment.
 
-1. To add a consignment to a checkout, append `include=consignment.available_shipping_options` to the POST request.
+The [Create a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) requires a `checkoutID`.  You can create consignments associated with a cart before it becomes a checkout.  This endpoint supports creating multiple consignments in a single call.
 
-Below is an example `POST` request for creating two simple consignments.
+The following is an example `POST` request for creating two consignments. Append `include=consignment.available_shipping_options` to the endpoint so that you will have the information to select one of them in the next step.
+
   
   ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/checkouts/{checkoutId}/consignments?include=consignments.available_shipping_options
