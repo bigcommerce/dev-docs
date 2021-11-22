@@ -5,8 +5,9 @@
 ### On this page
 - [Overview](#overview)
 - [Creating a consignment](#creating-a-consignment)
-- [Updating a consignmnet](#updating-a-consignment)
-- [Resources](#resources)
+- [Updating a consignment](#updating-a-consignment)
+- [Further reading](#further-reading)
+- [Related documentation](#related-documentation)
 
 </div> 
 
