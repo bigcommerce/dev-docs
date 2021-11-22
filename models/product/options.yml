@@ -30,3 +30,11 @@ items:
             type: string
           selected:
             type: boolean
+    checked:
+      type: boolean
+    label:
+      type: string
+    noValue:
+      type: number
+    value:
+      type: number
