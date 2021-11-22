@@ -123,9 +123,8 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 Before updating a consignment, you need the checkoutID and the consignmentID. You can find the consignmentID in the consignment object displayed in the response generated in step 1. The checkoutID is the same as the Cart ID.
 
-2. To update a consignment to a checkout, assign a shipping option by sending a PUT request to update the consignment’s `shipping_option_id` with the `available_shipping_options` returned from step 1.
 
-Below is an example PUT request for updating an existing consignment.
+The following is an example `PUT` request that updates a consignment’s `shipping_option_id` with one of the `available_shipping_options.id` returned in the response from the [Create a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost).
 
   ```http
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/checkouts/{checkoutId}/consignments/{consignmentId}
@@ -134,32 +133,7 @@ Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 
 {
-  "shipping_address": {
-    "email": "jane2@example.com",
-    "country_code": "US",
-    "first_name": "Testing",
-    "last_name": "BigCommerce",
-    "company": "BigCommerce",
-    "address1": "1234 Main Street",
-    "address2": "1234",
-    "city": "Austin",
-    "state_or_province": "Texas",
-    "state_or_province_code": "TX",
-    "postal_code": "78751",
-    "phone": "+481526687548x4{1-5}",
-    "custom_fields": [
-      {
-        "field_id": "field_25",
-        "field_value": "You're Welcome"
-      }
-    ]
-  },
-  "line_items": [
-    {
-      "item_id": "00a8e1c3-996f-4786-96ca-2a8a887b6648",
-      "quantity": 1
-    }
-  ]
+  "shipping_option_id": "9241669174884c2f2e83b3adabf03f83"
 }
 
 ```
