@@ -50,8 +50,19 @@ For more information on OAuth Scopes and authentication, see [Authentication](ht
 
 ## Creating a consignment
 
-Before creating a consignment, you need the checkout ID. The cart ID and checkout ID are the same.
 
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+> Prerequisites: prior to working with consignments, your code will need to create or retrieve a cart or checkout.  The cart ID and checkout ID are the same.
+
+</div>
+</div>
+</div>
 
 The [Create a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) requires a `checkoutID`.  You can create consignments associated with a cart before it becomes a checkout.  This endpoint supports creating multiple consignments in a single call.
 
