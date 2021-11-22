@@ -1,13 +1,18 @@
 type: array
 items:
   type: object
-  description: Available if product has options.
   properties:
+    checked:
+      type: boolean
     condition:
       type: boolean
     display_name:
       type: string
     id:
+      type: number
+    label:
+      type: string
+    noValue:
       type: number
     partial:
       type: string
