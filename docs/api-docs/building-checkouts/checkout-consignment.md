@@ -31,14 +31,21 @@ Use the following OAuth scopes for the Server-to-Server Checkout API.
 
 For more information on OAuth Scopes and authentication, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 
-NOTE: The Storefront Checkout API allows developers to build a checkout experience by accessing raw API request/response data.
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
 
 > For limits on the number of line items in a consignment, see the [Create a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) documentation.
 
 > The Storefront Checkout API allows developers to build a checkout experience by accessing raw API request/response data.
 
+> The Server-to-Server Checkout API responds quickly when the checkout contains one consignment.  Each additional consignment increases the amount of time the API takes to finish creating a checkout.
 
-NOTE: BigCommerce Server-to-Server Checkout API responds quickly when only one consignment is present on the checkout; however, as you add more and more consignments to the order, the API calls take more and more time to complete.	
+</div>
+</div>
+</div>
 
 
 ## Creating a consignment
