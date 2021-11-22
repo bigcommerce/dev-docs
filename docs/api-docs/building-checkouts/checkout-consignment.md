@@ -121,7 +121,21 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Updating a consignment
 
-Before updating a consignment, you need the checkoutID and the consignmentID. You can find the consignmentID in the consignment object displayed in the response generated in step 1. The checkoutID is the same as the Cart ID.
+The [Update a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) requires the `checkoutId` and the `consignmentId`. You can find the consignment ID in the response from the preceding API call. The checkout ID is the same as the cart ID.
+
+There are two distinct kinds of consignment updates. The first selects a fulfillment option. The second can update the recipient's shipping address and adjust the list of included line items. 
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
+
+<!-- theme: warning -->
+
+> You must choose: because changing the shipping address and weight can change available fulfillment options, you can't do both in the same call to the [Update a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput).
+
+</div>
+</div>
+</div>
 
 
 The following is an example `PUT` request that updates a consignment’s `shipping_option_id` with one of the `available_shipping_options.id` returned in the response from the [Create a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost).
