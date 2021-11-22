@@ -33,10 +33,9 @@ For more information on OAuth Scopes and authentication, see [Authentication](ht
 
 NOTE: The Storefront Checkout API allows developers to build a checkout experience by accessing raw API request/response data.
 
+> For limits on the number of line items in a consignment, see the [Create a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) documentation.
 
-### Limits
-* 50 line item limit for guests shoppers
-* 600 line item limit for logged-in shoppers
+> The Storefront Checkout API allows developers to build a checkout experience by accessing raw API request/response data.
 
 
 NOTE: BigCommerce Server-to-Server Checkout API responds quickly when only one consignment is present on the checkout; however, as you add more and more consignments to the order, the API calls take more and more time to complete.	
