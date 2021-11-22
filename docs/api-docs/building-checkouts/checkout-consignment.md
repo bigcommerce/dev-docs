@@ -58,60 +58,62 @@ Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 
-  {
-    "shipping_address": {
-      "email": "jane2@example.com",
-      "country_code": "US",
-      "first_name": "BigCommerce",
-      "last_name": "Cart/Checkout",
-      "address1": "123 Main Street",
-      "city": "Austin",
-      "state_or_province": "Texas",
-      "state_or_province_code": "TX",
-      "postal_code": "78751",
-      "phone": "688546",
-      "custom_fields": [
+  [
+    {
+      "shipping_address": {
+        "email": "jane2@example.com",
+        "country_code": "US",
+        "first_name": "BigCommerce",
+        "last_name": "Cart/Checkout",
+        "address1": "123 Main Street",
+        "city": "Austin",
+        "state_or_province": "Texas",
+        "state_or_province_code": "TX",
+        "postal_code": "78751",
+        "phone": "688546",
+        "custom_fields": [
+          {
+            "field_id": "field_25",
+            "field_value": "Great!"
+          }
+        ]
+      },
+      "line_items": [
         {
-          "field_id": "field_25",
-          "field_value": "Great!"
+          "item_id": "00a8e1c3-996f-4786-96ca-2a8a887b6648",
+          "quantity": 1
         }
       ]
     },
-    "line_items": [
-      {
-        "item_id": "00a8e1c3-996f-4786-96ca-2a8a887b6648",
-        "quantity": 1
-      }
-    ]
-  },
-   {
-    "shipping_address": {
-      "email": "testing@example.com",
-      "country_code": "US",
-      "first_name": "Testing",
-      "last_name": "BigCommerce",
-      "company": "BigCommerce",
-      "address1": "111 Main Street",
-      "address2": "#1324",
-      "city": "Austin",
-      "state_or_province": "Texas",
-      "state_or_province_code": "TX",
-      "postal_code": "78751",
-      "phone": "+5185158x1{1-5}",
-      "custom_fields": [
+    {
+      "shipping_address": {
+        "email": "testing@example.com",
+        "country_code": "US",
+        "first_name": "Testing",
+        "last_name": "BigCommerce",
+        "company": "BigCommerce",
+        "address1": "111 Main Street",
+        "address2": "#1324",
+        "city": "Austin",
+        "state_or_province": "Texas",
+        "state_or_province_code": "TX",
+        "postal_code": "78751",
+        "phone": "+5185158x1{1-5}",
+        "custom_fields": [
+          {
+            "field_id": "field_25",
+            "field_value": "You're Welcome"
+          }
+        ]
+      },
+      "line_items": [
         {
-          "field_id": "field_25",
-          "field_value": "You're Welcome"
+          "item_id": "00a8e1c3-996f-4786-96ca-2a8a887b6648",
+          "quantity": 2
         }
       ]
-    },
-    "line_items": [
-      {
-        "item_id": "00a8e1c3-996f-4786-96ca-2a8a887b6648",
-        "quantity": 2
-      }
-    ]
-  }
+    }
+  ]
 
 ```
 
