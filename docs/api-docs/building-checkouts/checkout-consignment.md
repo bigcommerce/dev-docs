@@ -14,11 +14,11 @@
 This article discusses how to create and update a consignment.
 
 ## Overview
-A consignment is a list of items sent to a shopper. It is an object that includes at least one physical line item, one shipping address, and one shipping method. A checkout will always have one consignment assigned to it, which is the first shipping address. An order that ships to several addresses will have multiple consignments.
+A _consignment_ is a list of physical products that will travel together to the purchaser, and it specifies how those items can and will ship. It is an object that includes at least one product line item and one shipping address. A checkout containing one or more physical products will always have at least one consignment associated with it. An order that ships to multiple addresses will have at least one consignment per shipping address.
 
-The Storefront and Server-to-Server Checkout APIs provide methods for creating a consignment to specify how the items should ship to a particular address. Consignment is the way we identify item fulfillment which is a requirement for order creation at checkout.
+The Storefront Checkout and Server-to-Server Checkout APIs provide methods for creating consignments, which are shipments waiting to happen.  A newly created consignment returns a list of fulfillment options available based on the destination address.  These APIs also provide methods for updating this consignment to change the destination, add or remove items, and select a fulfillment option. 
 
-
+A checkout containing physical products is not eligible to become an order until each of its consignments contains a `selected_shipping_option`.
 
 ### OAuth scopes
 
