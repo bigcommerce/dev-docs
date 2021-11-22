@@ -32,15 +32,17 @@ properties:
   availability:
     type: string
   brand:
-    description: Product manufactured by a particular company
+    description: The company, product line, or trademark associated with the product.
     type: array
     items:
       type: object
       properties:
         name:
           type: string
+          description: The name of the company, product line, or trademark.
         url:
           type: string
+          description: The store's internal page with all the products from that brand.
   bulk_discount_rates:
     description: List of discount rates for the current product
     type: array
@@ -65,7 +67,7 @@ properties:
     items:
       type: object
   depth:
-    description: Product depth
+    description: The product's physical depth measurement.
     type: string
   description:
     description: (HTML) description of the product
@@ -78,9 +80,9 @@ properties:
     type: boolean
   gtin:
     description: Global Trade Item Number. An identifier for trade items that is incorporated into several product identification standards, such as ISBN, UPC, and EAN.
-    type: number
+    type: string
   height:
-    description: Product height
+    description: The product's physical height measurement.
     type: string
   id:
     description: Unique ID for the product
@@ -116,14 +118,12 @@ properties:
     type: integer
   mpn:
     description: Manufacturer Part Number. It is used to reference and identify a product.
-    type: number
+    type: string
   num_reviews:
     description: Number of reviews the product has
     type: integer
   options:
-    type: array
-    items:
-      type: object
+    $ref: ../product/options.yml
   page_title:
     type: string
   price:
@@ -135,28 +135,6 @@ properties:
     $ref: ../product/related_products.yml
   reviews:
     $ref: ../product/reviews.yml
-  sale_price_without_tax:
-    type: array
-    items:
-      type: object
-      properties:
-        currency:
-          type: string
-        formatted:
-          type: string
-        value:
-          type: number
-  saved:
-    type: array
-    items:
-      type: object
-      properties:
-        currency:
-          type: string
-        formatted:
-          type: string
-        value:
-          type: number
   shipping_messages:
     type: array
     items:
@@ -171,9 +149,6 @@ properties:
     type: array
     items:
       type: object
-  tax_label:
-    description: The type of tax applied to orders in your store.
-    type: string
   title:
     description: Displayed name of the product
     type: string
@@ -189,20 +164,8 @@ properties:
     description: Optional warranty text set by the merchant
     type: string
   width:
-    description: Product width
+    description: The product's physical width measurement.
     type: string
-  without_tax:
-    description: When a customer is tax-exempt
-    type: array
-    items:
-      type: object
-      properties:
-        currency:
-          type: string
-        formatted:
-          type: string
-        value:
-          type: number
   custom_fields:
     type: array
     items:
