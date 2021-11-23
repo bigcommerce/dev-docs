@@ -1058,6 +1058,6 @@ Product sorting methods:
 * [Catalog API](/api-reference/store-management/catalog)
 
 ### Webhooks
-* [Products](/api-docs/store-management/webhooks/webhook-events#products)
-* [Categories](/api-docs/store-management/webhooks/webhook-events#category)
-* [SKU](/api-docs/store-management/webhooks/webhook-events#sku)
+* [Products](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#products)
+* [Categories](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#category)
+* [SKU](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#sku)
