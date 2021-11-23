@@ -31,6 +31,18 @@ properties:
     type: string
   availability:
     type: string
+  brand:
+    description: The company, product line, or trademark associated with the product.
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the company, product line, or trademark.
+        url:
+          type: string
+          description: The store's internal page with all the products from that brand.
   bulk_discount_rates:
     description: List of discount rates for the current product
     type: array
@@ -46,11 +58,17 @@ properties:
     type: array
     items:
       type: string
+  condition:
+    description: Product condition
+    type: string
   customizations:
     description: 'Product customizations (for example, a T-shirt size); these correspond to configurable fields and numeric-text product options in the BigCommerce control panel'
     type: array
     items:
       type: object
+  depth:
+    description: The product's physical depth measurement.
+    type: string
   description:
     description: (HTML) description of the product
     type: string
@@ -60,6 +78,12 @@ properties:
   gift_wrapping_available:
     description: Whether or not gift wrapping is enabled
     type: boolean
+  gtin:
+    description: Global Trade Item Number. An identifier for trade items that is incorporated into several product identification standards, such as ISBN, UPC, and EAN.
+    type: string
+  height:
+    description: The product's physical height measurement.
+    type: string
   id:
     description: Unique ID for the product
     type: string
@@ -92,6 +116,9 @@ properties:
   min_purchase_quantity:
     description: Minimum quantity that can be purchased at once
     type: integer
+  mpn:
+    description: Manufacturer Part Number. It is used to reference and identify a product.
+    type: string
   num_reviews:
     description: Number of reviews the product has
     type: integer
@@ -99,6 +126,40 @@ properties:
     type: array
     items:
       type: object
+      properties:
+        checked:
+          type: boolean
+        condition:
+          type: boolean
+        display_name:
+          type: string
+        id:
+          type: number
+        label:
+          type: string
+        noValue:
+          type: number
+        partial:
+          type: string
+        required:
+          type: boolean
+        state:
+          type: string
+        type:
+          type: string
+        values:
+          type: array
+          items:
+            type: object
+            properties:
+              data:
+                type: string
+              id:
+                type: number
+              label:
+                type: number
+              selected:
+                type: string
   page_title:
     type: string
   price:
@@ -129,7 +190,7 @@ properties:
     type: string
   upc:
     description: Optional UPC code for the product
-    type: 'null'
+    type: string
   url:
     description: URL to the product detail page
     type: string
@@ -137,6 +198,9 @@ properties:
     $ref: ../product/videos.yml
   warranty:
     description: Optional warranty text set by the merchant
+    type: string
+  width:
+    description: The product's physical width measurement.
     type: string
   custom_fields:
     type: array
