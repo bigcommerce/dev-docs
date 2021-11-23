@@ -47,17 +47,17 @@ Next, import the custom file into `theme.scss`.
 @import "foobar";
 ```
 
-Finally, ensure `{{stylesheet '/assets/css/theme.css'}}` is located in `templates/layout/base.html/`.
+Finally, ensure `{{stylesheet '/assets/css/theme.scss'}}` is located in `templates/layout/base.html/`.
 
 ```handlebars
 <head>
 <!-- ... -->
-{{stylesheet '/assets/css/theme.css'}}
+{{stylesheet '/assets/css/theme.scss'}}
 <!-- ... -->
 </head>
 ```
 
-While `stencil start` is running, it will recompile your custom Sass files to the specified <span class="fp">`{theme-name}/assets/css/theme.css`</span> file (note that this object file’s name is always the same, and is independent of your custom Sass file's names).
+While `stencil start` is running, it will recompile your custom Sass files to the specified <span class="fp">`{theme-name}/assets/css/theme.scss`</span> file (note that this object file’s name is always the same, and is independent of your custom Sass file's names).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
