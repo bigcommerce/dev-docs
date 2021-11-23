@@ -32,6 +32,6 @@
               id:
                 type: number
               label:
-                type: number
-              selected:
                 type: string
+              selected:
+                type: boolean
