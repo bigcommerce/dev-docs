@@ -199,10 +199,6 @@ paths:
       description: |-
         Adds a new consignment to a checkout.
 
-        **Limits**
-
-        - 50 `line_item` limit for guest shoppers
-        - 600 `line_item` limit for logged-in shoppers
 
         There are two steps to create a new consignment with a shipping address, line items, and shipping option. 
         1. Add a new consignment to a checkout. Append the following query parameter to your `POST` request to also return `available_shipping_options` necessary for step two: `?include=consignments.available_shipping_options`. 
