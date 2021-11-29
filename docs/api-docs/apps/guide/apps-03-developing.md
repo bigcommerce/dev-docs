@@ -53,7 +53,7 @@ ngrok http 3000                  # start ngrok
 For step-by-step instructions, see [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf) on our [developer blog](https://medium.com/bigcommerce-developer-blog).
 
 ## Registering a draft app
-Once you've exposed an app to the internet, you can register a draft app in the [Developer Portal](https://devtools.bigcommerce.com/) using the app's callback URLs. To do so:
+Once you've exposed an app to the internet, you can register it as a draft app in the [Developer Portal](https://devtools.bigcommerce.com/) using the app's callback URLs. To do so:
 1. [Log into the Developer Portal](https://devtools.bigcommerce.com/).
 
 2. Click **Create an App**.
@@ -72,8 +72,10 @@ Once you've exposed an app to the internet, you can register a draft app in the 
 
 
 ## Installing a draft app
-Draft apps are installable on stores owned by the same email as the [Developer Portal](https://devtools.bigcommerce.com/my/apps) account. Use the following steps to installLog into the store and navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts) and click the app to install the draft. Once you click **Install**, BigCommerce will begin the OAauth flow by making a `GET` request to the app's `/auth` callback URL. If the app handles all the requests successfully, the app will be installed and you can begin feature development.
-
+Any store registered to the same email as your [Developer Portal](https://devtools.bigcommerce.com/my/apps) account can install your draft apps. Use the following steps to install.  
+1. Log into the store and navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts).
+2. Click the draft app thumbnail to install the draft. 
+3. Once you click **Install**, BigCommerce will begin the OAauth flow by making a `GET` request to the app's `/auth` callback URL. If the app handles all the requests successfully, the app has been installed and you can begin feature development.
 
 ## Next steps
 * [Learn How Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf)
