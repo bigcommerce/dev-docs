@@ -193,7 +193,7 @@ ngrok http 3000
 <div class="HubBlock-content">
 
 > ### Note
-> When installed as an npm package, ngrok sessions expire every two hours. To prevent your session from timing out, you can create a ngrok account and download ngrok for your machine. To learn more, see [Download & setup ngrok](https://ngrok.com/download).
+> Although you can use the `ngrok` npm package without creating an account, any unauthenticated tunnels you create will expire after two hours. For the best development experience, [create a free ngrok account](https://dashboard.ngrok.com/signup), [find your ngrok authtoken](https://dashboard.ngrok.com/get-started/your-authtoken), and [add the authtoken](https://ngrok.com/docs#getting-started-authtoken) to your global `ngrok` configuration.
 
 </div>
 </div>
