@@ -8,7 +8,6 @@
 - [The load request](#the-load-request)
 - [The remove user request](#the-remove-user-request)
 - [Next steps](#next-steps)
-
 - [Resources](#resources)
 - [Related articles](#related-articles)
 

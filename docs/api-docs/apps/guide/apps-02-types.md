@@ -4,7 +4,6 @@
 
 ### On this page
 - [Single-Click](#single-click)
-
 - [Connector](#connector)
 - [Visibility](#visibility)
 - [Next steps](#next-steps)
