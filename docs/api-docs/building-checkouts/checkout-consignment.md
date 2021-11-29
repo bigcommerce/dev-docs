@@ -39,9 +39,9 @@ For more information on OAuth Scopes and authentication, see [Authentication](ht
 
 > For limits on the number of line items in a consignment, see the [Create a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) documentation.
 
-> The Storefront Checkout API allows developers to build a checkout experience by accessing raw API request/response data.
-
-> The Server-to-Server Checkout API responds quickly when the checkout contains one consignment.  Each additional consignment increases the amount of time the API takes to finish creating a checkout.
+> The Server-to-Server Checkout API responds quickly when the checkout contains one consignment.  Each additional consignment increases the amount of time the API takes to finish creating a checkout. The example API calls in this article use the Server-to-Server Checkout API.
+  
+> The Storefront Checkout API allows developers to manage a shopper’s cart and checkout and fetch order data via client-side JavaScript on BigCommerce Stencil powered storefronts. OAuth scopes are not needed.
 
 </div>
 </div>
@@ -58,13 +58,13 @@ For more information on OAuth Scopes and authentication, see [Authentication](ht
 
 <!-- theme: info -->
 
-> Prerequisites: prior to working with consignments, your code will need to create or retrieve a cart or checkout.  The cart ID and checkout ID are the same.
+> Prerequisites: Prior to working with consignments, your code will need to create or retrieve a cart or checkout.  The cart ID and checkout ID are the same.
 
 </div>
 </div>
 </div>
 
-The [Create a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) requires a `checkoutID`.  You can create consignments associated with a cart before it becomes a checkout.  This endpoint supports creating multiple consignments in a single call.
+The [Create a consignment endpoint](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) requires a `checkoutID`.  You can create consignments associated with a cart before it becomes a checkout.  This endpoint supports creating multiple consignments in a single call.
 
 The following is an example `POST` request for creating two consignments. Append `include=consignment.available_shipping_options` to the endpoint so that you will have the information to select one of them in the next step.
 
@@ -148,7 +148,7 @@ There are two distinct kinds of consignment updates. The first selects a fulfill
 
 <!-- theme: warning -->
 
-> You must choose: because changing the shipping address and weight can change available fulfillment options, you can't do both in the same call to the [Update a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput).
+> You must choose the type of consignment update because changing the shipping address and weight can change available fulfillment options. You can't do both in the same call to the [Update a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput).
 
 </div>
 </div>
