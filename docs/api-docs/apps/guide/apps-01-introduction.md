@@ -63,7 +63,7 @@ Create [widgets](https://support.bigcommerce.com/s/article/Page-Builder#builder)
 
 ## Getting started
 Here's how to get started with BigCommerce development:
-1. [Start a free trial](https://www.bigcommerce.com/essentials/free-trial/) to test apps against.
+1. [Create a BigCommerce sandbox store](https://developer.bigcommerce.com/api-docs/partner/getting-started/create-a-sandbox-store).
 
 2. [Apply to be a Partner](https://www.bigcommerce.com/partners) to get paid for your apps.
 
