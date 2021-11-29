@@ -161,7 +161,7 @@ BigCommerce hosts [Google Cloud Platform](https://cloud.google.com/) in the [us-
 * [Node / FaunaDB / Netlify](https://github.com/bigcommerce/channels-app/)
 
 ### Tools
-* [Node API Client](https://github.com/getconversio/node-bigcommerce)
+* [Node API Client](https://github.com/bigcommerce/node-bigcommerce/)
 * [Python API Client](https://github.com/bigcommerce/bigcommerce-api-python)
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)

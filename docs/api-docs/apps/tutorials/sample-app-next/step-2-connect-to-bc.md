@@ -51,7 +51,7 @@ import * as BigCommerce from 'node-bigcommerce';
 
 ```js
 // Create BigCommerce instance
-// https://github.com/getconversio/node-bigcommerce
+// https://github.com/bigcommerce/node-bigcommerce/
 const bigcommerce = new BigCommerce({
     logLevel: 'info',
     clientId: process.env.CLIENT_ID,
