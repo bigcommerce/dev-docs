@@ -87,12 +87,12 @@ You use the `authorize` method for the `/auth` API endpoint which gets called wh
 6. Export the `getBCVerify` function.
 
 ```js
-export function getBCVerify({ signed_payload }: QueryParams) {
-    return bigcommerceSigned.verify(signed_payload);
+export function getBCVerify({ signed_payload_jwt }: QueryParams) {
+    return bigcommerceSigned.verifyJWT(signed_payload_jwt);
 }
 ```
 
-The `verify` method employs the `signed_payload` query parameter to authenticate requests. You use the `verify` method for both `/load` and `/uninstall` API endpoints. To learn more about the OAuth flow, see [Single-Click App OAuth Flow](https://developer.bigcommerce.com/api-docs/apps/guide/auth).
+The `verifyJWT` method employs the `signed_payload_jwt` query parameter to authenticate requests. You use the `verifyJWT` method for both `/load` and `/uninstall` API endpoints. To learn more about the OAuth flow, see [Single-Click App OAuth Flow](https://developer.bigcommerce.com/api-docs/apps/guide/auth).
 
 [View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-2-connect-app-to-bc/lib/auth.ts)
 

@@ -267,8 +267,8 @@ export function getBCAuth(query: QueryParams) {
     return bigcommerce.authorize(query);
 }
 
-export function getBCVerify({ signed_payload }: QueryParams) {
-    return bigcommerceSigned.verify(signed_payload);
+export function getBCVerify({ signed_payload_jwt }: QueryParams) {
+    return bigcommerceSigned.verifyJWT(signed_payload_jwt);
 }
 ``` 
 
