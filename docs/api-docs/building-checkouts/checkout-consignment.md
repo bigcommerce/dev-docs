@@ -126,7 +126,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
       "line_items": [
         {
           "item_id": "00a8e1c3-996f-4786-96ca-2a8a887b6648",
-          "quantity": 2
+          "quantity": 1
         }
       ]
     }
@@ -135,6 +135,8 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ```
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost#requestrunner)
+
+Just copy and paste your `store_hash`,`access_token`, and `checkoutId` into the form, then click **Send**.
 
 ## Updating a consignment
 
@@ -171,6 +173,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput#requestrunner)
 
+Just copy and paste your `store_hash`,`access_token`, `checkoutId`, and `consignmentId` into the form, then click **Send**.
 
 ## Further reading
 
