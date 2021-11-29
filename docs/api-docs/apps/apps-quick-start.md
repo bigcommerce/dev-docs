@@ -15,7 +15,7 @@
 
 </div>
 
-In this quick start tutorial, you will create a [single-click app](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/types-of-apps) using [Node.js](https://nodejs.org/en/), [React](https://www.javascript.com/), [Next.js](https://nextjs.org/), and [BigDesign](https://developer.bigcommerce.com/big-design/). 
+In this quick start tutorial, you will create a [single-click app](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/types-of-apps) using [Node.js](https://nodejs.org/en/), [React](https://www.reactjs.org/), [Next.js](https://nextjs.org/), and [BigDesign](https://developer.bigcommerce.com/big-design/). 
 
 ## Prerequisites
 

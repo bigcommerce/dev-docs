@@ -29,7 +29,7 @@ At the end of this tutorial, you will have a functional single-click app that ca
 To successfully complete this tutorial, you need the following:
 
 * Experience using a text editor and a terminal app
-* Experience with [Node.js](https://nodejs.org/en/), [JavaScript](https://www.javascript.com/), and [React](https://www.javascript.com/)
+* Experience with [Node.js](https://nodejs.org/en/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), and [React](https://www.reactjs.org/)
 * Experience using [npm](https://www.npmjs.com/)
 * [Store / Dev Sandbox](https://www.bigcommerce.com/essentials/free-trial/) (required to develop and test apps)
 * [Developer Portal Account](https://devtools.bigcommerce.com/) (required to register apps)
