@@ -135,6 +135,7 @@ can take up to 24 hours to appear on the Apps Marketplace. Feel free to use this
 ## Resources
 
 ### Sample apps
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)

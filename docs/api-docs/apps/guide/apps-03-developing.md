@@ -24,7 +24,7 @@ Here's a few things you'll need before beginning app development:
 ## Beginning with hello world
 The fastest way to begin app development is by starting with one of our Hello World apps. Create and install an app in minutes with our [Hello World Express example on CodeSandbox](https://developer.bigcommerce.com/api-docs/apps/quick-start), or clone the starter for your preferred stack:
 
-* [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask) (github)
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs/)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex) (github)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra) (github)
 * [Laravel / React](https://github.com/bigcommerce/laravel-react-sample-app) (github)
@@ -98,6 +98,7 @@ Draft apps are installable on stores owned by the same email as the [Developer P
 * [Building Apps Quick Start](https://developer.bigcommerce.com/api-docs/apps/quick-start)
 
 ### Sample apps
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)

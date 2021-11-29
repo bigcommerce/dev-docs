@@ -64,6 +64,7 @@ There are three visibility options for apps: **Draft**, **Unlisted**, and **Publ
 * [Building Apps Quick Start](https://developer.bigcommerce.com/api-docs/apps/quick-start)
 
 ### Sample apps
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
