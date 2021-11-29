@@ -25,10 +25,11 @@ Here's a few things you'll need before beginning app development:
 The fastest way to begin app development is by starting with one of our sample apps. You can follow our [Building Apps Quick Start Tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start), or clone the GitHub repo for your preferred stack:
 
 * [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs/)
-* [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex) (github)
-* [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra) (github)
-* [Laravel / React](https://github.com/bigcommerce/laravel-react-sample-app) (github)
-* [Node / FaunaDB / Nelify](https://github.com/bigcommerce/channels-app/) (github)
+* [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
+* [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
+* [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
+* [Laravel / React](https://github.com/bigcommerce/laravel-react-sample-app)
+* [Node / FaunaDB / Nelify](https://github.com/bigcommerce/channels-app/)
 
 ## Testing locally with ngrok
 You can use [ngrok](https://ngrok.com/) to test apps locally. It's easy to install and works well with [Express](https://expressjs.com/):

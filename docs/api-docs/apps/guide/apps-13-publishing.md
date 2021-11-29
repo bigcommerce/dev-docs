@@ -130,7 +130,7 @@ The changes will be effective immediately in your control panel app card, but th
 can take up to 24 hours to appear on the Apps Marketplace. Feel free to use this as a grace period to make edits as needed.
 
 ## Next steps
-[Review the Apps Marketplace listing guide](https://grow.bigcommerce.com/rs/695-JJT-333/images/Updated_List_of_App_Fields_for_Tech_Partners.pdf) (PDF).
+[Review the Apps Marketplace listing guide (PDF)](https://grow.bigcommerce.com/rs/695-JJT-333/images/Updated_List_of_App_Fields_for_Tech_Partners.pdf).
 
 ## Resources
 
