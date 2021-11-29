@@ -224,7 +224,6 @@ For additional details, see [Security Considerations in RC6749](https://tools.ie
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
 * [Laravel / React](https://github.com/bigcommerce/laravel-react-sample-app)
 * [Node / FaunaDB / Netlify](https://github.com/bigcommerce/channels-app/)
-* [Node / Express / CodeSandbox](https://codesandbox.io/s/express-hello-world-app-fq5t1?file=%2Fapp.js)
 
 ### Tools
 * [Node API Client](https://github.com/bigcommerce/node-bigcommerce/)

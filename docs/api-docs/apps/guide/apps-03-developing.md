@@ -4,7 +4,7 @@
 
 ### On this page
 - [Getting started](#getting-started)
-- [Beginning with hello world](#beginning-with-hello-world)
+- [Beginning quickly](#beginning-quickly)
 - [Testing locally with ngrok](#testing-locally-with-ngrok)
 - [Registering a draft app](#registering-a-draft-app)
 - [Installing a draft app](#installing-a-draft-app)
@@ -21,8 +21,8 @@ Here's a few things you'll need before beginning app development:
 2. [Developer Portal Account](https://devtools.bigcommerce.com/) (required to register apps)
 3. [BigCommerce partnership](https://www.bigcommerce.com/partners/) (required to publish apps to marketplace)
 
-## Beginning with hello world
-The fastest way to begin app development is by starting with one of our Hello World apps. Create and install an app in minutes with our [Hello World Express example on CodeSandbox](https://developer.bigcommerce.com/api-docs/apps/quick-start), or clone the starter for your preferred stack:
+## Beginning quickly
+The fastest way to begin app development is by starting with one of our sample apps. You can follow our [Building Apps Quick Start Tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start), or clone the GitHub repo for your preferred stack:
 
 * [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs/)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex) (github)
@@ -51,20 +51,6 @@ ngrok http 3000                  # start ngrok
 ```
 
 For step-by-step instructions, see [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf) on our [developer blog](https://medium.com/bigcommerce-developer-blog).
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme: info -->
-
-### Note
-> * If you'd rather skip setting up a development environment and experiment with app development in the browser, fork our [Express Hello World App in CodeSandbox](https://codesandbox.io/s/express-hello-world-app-fq5t1?file=/app.js). For step-by-step instructions, see the [Building Apps Quick Start Tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start).
-
-
-</div>
-</div>
-</div>
 
 ## Registering a draft app
 Once you've exposed an app to the internet, you can register a draft app in the [Developer Portal](https://devtools.bigcommerce.com/) using the app's callback URLs. To do so:

@@ -7,7 +7,7 @@
 - [Get started](#get-started)
 - [Add and start ngrok](#add-and-start-ngrok)
 - [Register a draft app](#register-a-draft-app)
-- [Configure sandbox environment](#configure-sandbox-environment)
+- [Configure environment variables](#configure-environment-variables)
 - [Start dev environment](#start-dev-environment)
 - [Install the app](#install-the-app)
 - [Next steps](#next-steps)
@@ -53,7 +53,7 @@ ngrok http 3000
 
 ## Register a draft app
 
-Next, register a draft app in the [Developer Portal](https://devtools.bigcommerce.com/) using the sandbox's app URL. To do so:
+Next, register a draft app in the [Developer Portal](https://devtools.bigcommerce.com/).
 1. [Login to the Developer Portal](https://devtools.bigcommerce.com/).
 2. Click **Create an app**.
 3. Give the app a name.
@@ -67,9 +67,9 @@ Next, register a draft app in the [Developer Portal](https://devtools.bigcommerc
 
 Keep this tab open for the next step.
 
-## Configure sandbox environment
+## Configure environment variables
 
-After registering the app, enter the app's credentials and auth callback into your sandbox's [environment variables](https://codesandbox.io/docs/secrets) (codesandbox.io).
+After registering your draft app, add its credentials and auth callback URL to your project's environment variables file.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
