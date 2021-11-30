@@ -54,7 +54,7 @@ ngrok http 3000                  # start ngrok
 For step-by-step instructions, see [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf) on our [developer blog](https://medium.com/bigcommerce-developer-blog).
 
 ## Registering a draft app
-Once you've exposed an app to the internet, you can register it as a draft app in the [Developer Portal](https://devtools.bigcommerce.com/) using the app's callback URLs. Use the following steps to register:
+Once you've exposed your app to the internet, you can register it as a draft app in the [Developer Portal](https://devtools.bigcommerce.com/) using the app's callback URLs. Use the following steps to register:
 
 1. [Sign in to the Developer Portal](https://devtools.bigcommerce.com/).
 2. Click **Create an App**.

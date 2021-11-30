@@ -6,7 +6,7 @@
 - [Prerequisites](#prerequisites)
 - [Get started](#get-started)
 - [Add and start ngrok](#add-and-start-ngrok)
-- [Register a draft app](#register-a-draft-app)
+- [Register the app](#register-the-app)
 - [Configure environment variables](#configure-environment-variables)
 - [Start dev environment](#start-dev-environment)
 - [Install the app](#install-the-app)
@@ -37,7 +37,7 @@ npm install
 
 ## Add and start ngrok
 
-You will need a publicly accessible URL to connect your sample app to BigCommerce. To add network access while in the development phase, you can use [ngrok](https://ngrok.com/docs), a free tool that lets you expose local servers like `localhost:3000` to the public internet over secure tunnels.
+You will need a publicly accessible URL to connect the draft app to BigCommerce. To add network access while in the development phase, you can use [ngrok](https://ngrok.com/docs), a free tool that lets you expose local servers like `localhost:3000` to the public internet over secure tunnels.
 
 1. In a new terminal window, install [ngrok](https://www.npmjs.com/package/ngrok#usage).
 
@@ -51,9 +51,9 @@ npm install ngrok -g
 ngrok http 3000
 ```
 
-## Register a draft app
+## Register the app
 
-Next, register a draft app in the [Developer Portal](https://devtools.bigcommerce.com/) using the following steps:
+Next, register the draft app in the [Developer Portal](https://devtools.bigcommerce.com/) using the following steps:
 
 1. [Sign in to the Developer Portal](https://devtools.bigcommerce.com/).
 2. Click **Create an app**.
@@ -70,7 +70,7 @@ Keep this tab open for the next step.
 
 ## Configure environment variables
 
-After registering your draft app, add its credentials and auth callback URL to your project's environment variables file.
+After registering the draft app, add its credentials and auth callback URL to your project's environment variables file.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -83,7 +83,7 @@ After registering your draft app, add its credentials and auth callback URL to y
 </div>
 </div>
 
-1. Create an `.env` file in the root directory of your app.
+1. Create an `.env` file in the root directory of your project.
 
 2. Copy the contents of `.env-sample` to `.env`.
 
@@ -134,13 +134,13 @@ MYSQL_PORT={mysql port *optional*}
 </div>
 
 6. Specify `DB_TYPE`:
-* If using Firebase, enter your Firebase config keys. For information on how to set up Cloud Firestore, see [Firebase quick start](https://firebase.google.com/docs/firestore/quickstart). 
-* If using MySQL, enter your MySQL database config keys (host, database, user/pass and optionally port).
+* If using Firebase, enter your project's Firebase config keys. For information on how to set up Cloud Firestore, see [Firebase quick start](https://firebase.google.com/docs/firestore/quickstart). 
+* If using MySQL, enter your project's MySQL database config keys (host, database, user/pass and optionally port).
 * If using Heroku with ClearDB, the database should create the necessary Config Var, namely, `CLEARDB_DATABASE_URL`.
 
 ## Start dev environment
 
-In a separate terminal from `ngrok`, start your dev environment.
+In a separate terminal from `ngrok`, start the app's dev environment.
 
 ```shell
 npm run dev
@@ -158,15 +158,15 @@ npm run dev
 
 ## Install the app
 
-Finally, install your draft app on any store registered to the same email as your [Developer Portal](https://devtools.bigcommerce.com/my/apps) account using the following steps: 
+Finally, install the draft app on any store registered to the same email as your [Developer Portal](https://devtools.bigcommerce.com/my/apps) account using the following steps: 
 
-1. Sign in to your store, navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts), and install the app.
+1. Sign in to the store, navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts), and install the app.
 2. If everything is configured correctly, you should get an `Authorization Successful` message.
 3. Navigate back to **My Apps** to see the list of installed apps.
 4. Click **Launch** on the draft app to test the `/load` callback.
 5. Navigate back to **My Apps** and click **Uninstall** to test the `/uninstall callback`.
 
-Congrats! You've created and installed your first BigCommerce app.
+Congrats! You've created and installed a BigCommerce draft app.
 
 ## Next steps
 * [Apply to become a BigCommerce partner](https://www.bigcommerce.com/partners/) (required to publish apps to marketplace)
