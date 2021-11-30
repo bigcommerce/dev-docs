@@ -55,7 +55,7 @@ ngrok http 3000
 
 Next, register a draft app in the [Developer Portal](https://devtools.bigcommerce.com/) using the following steps:
 
-1. [Login to the Developer Portal](https://devtools.bigcommerce.com/).
+1. [Sign in to the Developer Portal](https://devtools.bigcommerce.com/).
 2. Click **Create an app**.
 3. Give the app a name.
 4. Click **Technical**.
@@ -157,7 +157,10 @@ npm run dev
 </div>
 
 ## Install the app
-1. Sign in to your store and navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts) and install the app.
+
+Finally, install your draft app on any store registered to the same email as your [Developer Portal](https://devtools.bigcommerce.com/my/apps) account using the following steps: 
+
+1. Sign in to your store, navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts), and install the app.
 2. If everything is configured correctly, you should get an `Authorization Successful` message.
 3. Navigate back to **My Apps** to see the list of installed apps.
 4. Click **Launch** on the draft app to test the `/load` callback.

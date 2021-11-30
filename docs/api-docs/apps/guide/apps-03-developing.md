@@ -54,26 +54,21 @@ ngrok http 3000                  # start ngrok
 For step-by-step instructions, see [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf) on our [developer blog](https://medium.com/bigcommerce-developer-blog).
 
 ## Registering a draft app
-Once you've exposed an app to the internet, you can register it as a draft app in the [Developer Portal](https://devtools.bigcommerce.com/) using the app's callback URLs. To do so:
-1. [Sign in to the Developer Portal](https://devtools.bigcommerce.com/).
+Once you've exposed an app to the internet, you can register it as a draft app in the [Developer Portal](https://devtools.bigcommerce.com/) using the app's callback URLs. Use the following steps to register:
 
+1. [Sign in to the Developer Portal](https://devtools.bigcommerce.com/).
 2. Click **Create an App**.
 3. Name your app.
-
 4. Click **Technical**.
-
 5. Enter your app's callback URLs. If you're using ngrok, they'll look like this:
-
    * **Auth**: `https://4022ffe4.ngrok.io/auth`
    * **Load**: `https://4022ffe4.ngrok.io/load`
    * **Uninstall**: `https://4022ffe4.ngrok.io/uninstall`
 6.  Click **Update & Close**.
-
 7.  Click **View Client ID** to view the app's `client_id` and `client_secret`.
 
-
 ## Installing a draft app
-Any store registered to the same email as your [Developer Portal](https://devtools.bigcommerce.com/my/apps) account can install your draft apps. Use the following steps to install:  
+Any store registered to the same email as your [Developer Portal](https://devtools.bigcommerce.com/my/apps) account can install your draft apps. Use the following steps to install:
 
 1. Sign in to the store and navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts).
 2. Click the draft app thumbnail to install the draft. 
