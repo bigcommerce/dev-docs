@@ -22,7 +22,9 @@ Here's a few things you'll need before beginning app development:
 3. [BigCommerce partnership](https://www.bigcommerce.com/partners/) (required to publish apps to marketplace)
 
 ## Beginning quickly
-The fastest way to begin app development is by starting with one of our sample apps. You can follow our [Building Apps Quick Start Tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start), or clone the GitHub repo for your preferred stack:
+The fastest way to begin app development is by starting with one of our sample apps. You can follow our [Building Apps Quick Start Tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start), either alone or in conjunction with [spinning up a Heroku instance](https://heroku.com/deploy?template=https://github.com/bigcommerce/sample-app-nodejs) that runs our [Node / React / Next.js sample app](https://github.com/bigcommerce/sample-app-nodejs/).  
+
+Alternatively, you can clone the GitHub repo for your preferred stack:
 
 * [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs/)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
