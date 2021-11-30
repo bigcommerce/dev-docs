@@ -22,6 +22,16 @@ A checkout containing physical products is not eligible to become an order until
 
 ### OAuth scopes
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+  
+> The Storefront Checkout API allows developers to manage a shopper’s cart, checkout, and order data using client-side JavaScript on BigCommerce Stencil-powered storefronts. The Storefront Checkout API requests do not require OAuth scopes.
+  
+</div>
+</div>
+</div>
+
 Use the following OAuth scopes for the Server-to-Server Checkout API.
 
 | UI Name  | Permission | Parameter                     |
@@ -41,7 +51,6 @@ For more information on OAuth Scopes and authentication, see [Authentication](ht
 
 > The Server-to-Server Checkout API responds quickly when the checkout contains one consignment.  Each additional consignment increases the amount of time the API takes to finish creating a checkout. The example API calls in this article use the Server-to-Server Checkout API.
   
-> The Storefront Checkout API allows developers to manage a shopper’s cart and checkout and fetch order data via client-side JavaScript on BigCommerce Stencil powered storefronts. OAuth scopes are not needed.
 
 </div>
 </div>
@@ -136,7 +145,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost#requestrunner)
 
-Just copy and paste your `store_hash`,`access_token`, and `checkoutId` into the form, then click **Send**.
+Copy and paste your `store_hash`,`access_token`, and `checkoutId` into the form, then click **Send**.
 
 ## Updating a consignment
 
@@ -150,7 +159,7 @@ There are two distinct kinds of consignment updates. The first selects a fulfill
 
 <!-- theme: warning -->
 
-> You must choose the type of consignment update because changing the shipping address and weight can change available fulfillment options. You can't do both in the same call to the [Update a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput).
+> You must choose one type of consignment update because changing the shipping address and weight can change available fulfillment options. You can't do both in the same call to the [Update a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput).
 
 </div>
 </div>
@@ -173,7 +182,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput#requestrunner)
 
-Just copy and paste your `store_hash`,`access_token`, `checkoutId`, `consignmentId` and query parameter (`consignments.available_shipping_options`) into the form, then click **Send**.
+Copy and paste your `store_hash`,`access_token`, `checkoutId`, `consignmentId` and query parameter (`consignments.available_shipping_options`) into the form, then click **Send**.
 
 ## Further reading
 
