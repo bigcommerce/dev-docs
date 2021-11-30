@@ -12,16 +12,20 @@
 
 ## Overview: why deep link?
 <!-- explanation: what is a deep link? -->
-_Deep links_ empower you to create a seamless experience for merchants who use your app to interact with third-party services from within the BigCommerce control panel. 
 <!-- explanation: what does a deep link do? -->
-
+_Deep links_ make it possible to parse and generate URIs that retrieve assets from, or send users to, a particular view _inside another application_. 
 <!-- explanation: what is it a link to? -->
 
 <!-- explanation: what kind of developer would want to use BC's deep linking feature? -->
 
 <!-- explanation: why would this developer want to use BC's deep linking feature? -->
+Deep links empower you to create seamless user experiences for merchants and developers by presenting information from any third-party view or service within the BigCommerce control panel. 
 
-Deep links make it possible to create URLs that send users to a particular page within an app. By sending users directly to the desired location or content, you can create a more personalized experience and improve the way users interact with your app. When navigating within the app, the browser URL is updated based on the page being viewed, making it possible to discover, bookmark, and share particular pages of the app. 
+Deep links can help you write code that compensates for future changes to third-party resources.
+
+
+
+By sending users directly to the desired location or content, you can create a more personalized experience and improve the way users interact with your app. When navigating within the app, the browser URL is updated based on the page being viewed, making it possible to discover, bookmark, and share particular pages of the app. 
 
 Deep linking enables developers to effectively communicate with the app users when the app is not open. For example, you can include a deep link in your emails, dashboard, or mobile app notifications to direct viewers to a specific location within the app.
 
