@@ -75,13 +75,8 @@ In the following steps, we'll be adding React components to assemble our coupon 
 
 ```js
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import VerticalStepper from './VerticalStepper';
 
 export default function CouponDrawer() {

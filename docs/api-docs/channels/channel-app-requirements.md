@@ -19,16 +19,35 @@ Once approved, channel apps are discoverable on BigCommerce's App Marketplace. A
 
 All Partners:
 
-- Uses [Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
-- [Creates a channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) upon app installation using the `app_id`
-- Reads and updates channel status via [Channels endpoints](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
+- Uses [Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
+
+- [Creates a channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) upon app installation.
+- Reads and updates channel status using the [Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) endpoints.
+
 - Follows requirements for specific channel type
 
 - Contains an onboarding user flow
 
 Select Partners:
 
-- Uses [Big Design](https://developer.bigcommerce.com/big-design/)
+- Uses [Big Design](https://developer.bigcommerce.com/big-design/).
+
+- Includes `config_meta.app.id` in the [create channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) request.
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+> ### Note
+>
+> - You can find the app ID in the URL when editing the app in the [Developer Portal](https://devtools.bigcommerce.com/). For more information, see [Finding an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
+> - `config_meta.app.id` is optional; however, if you're building an app that creates or manages a channel, we recommend including the app ID to ensure the user interface in the BigCommerce control panel works properly.
+> - Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request.
+
+</div>
+</div>
+</div>
+
 
 ## Storefronts
 
@@ -43,8 +62,8 @@ All Partners:
 - Must use [Listings API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api), if supporting per product listings.
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--info">	
-<div class="HubBlock-content">	
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
 <!-- theme: info -->
 

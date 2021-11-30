@@ -17,7 +17,20 @@ This article contains the detailed instructions needed to install and configure 
 
 ## Installing on Mac
 
-To install Stencil CLI and it's dependencies on Mac, open a terminal and run the following commands.
+To install Stencil CLI and its dependencies on Mac, open a terminal and run the following commands. Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
+
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+> These instructions have been tested on **Mac OS X Yosemite**.
+
+</div>
+</div>
+</div>
 
 ```shell
 # For ARM based macs
@@ -36,22 +49,49 @@ nvm use 12
 npm install -g @bigcommerce/stencil-cli
 ```
 
+### Installing on Mac with Apple silicon
+
+Installing Stencil CLI and its dependencies on Macs that use Apple silicon, such as the M1 chip, requires Rosetta. Rosetta allows a Mac with Apple silicon to use apps built for a Mac with an Intel processor. The following steps will guide you through opening a Rosetta terminal and installing Stencil CLI and its dependencies.
+
+
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
 <!-- theme: info -->
 
-> These instructions have been tested on **Mac OS X Yosemite**.
+> These instructions have been tested on a **MacBook Air** with an M1 chip.
 
-> Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
 
 </div>
 </div>
 </div>
+
+To open the Rosetta terminal:
+
+1. Open **Finder**.
+2. Go to **Applications** > **Utilities** > **Terminal**.
+3. Right-click **Terminal** and select **Get Info**.
+4. Check the **Open using Rosetta** checkbox.
+5. Close the window and quit all terminal instances.
+6. Start a new terminal, and install Rosetta if prompted.
+
+Run the following commands:
+
+```shell
+# Install Stencil CLI supported version of Node.js
+nvm install 12
+
+# Switch to Stencil CLI supported version of Node.js
+nvm use 12
+
+# Install Stencil CLI
+npm install -g @bigcommerce/stencil-cli
+```
 
 ## Installing on Windows
-There's two methods for installing Stencil CLI and its dependencies on Windows.
+There are two methods for installing Stencil CLI and its dependencies on Windows.
+
 
 ### Method 1: Install dependencies using Chocolatey
 If you're not comfortable manually installing and configuring Python and Node.js on Windows, or if you prefer an easy installation option, use the [Chocolatey package manager](https://chocolatey.org/) to install Stencil CLI's dependencies. To do so, [open PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/starting-windows-powershell?view=powershell-6) as an administrator, and run the following commands:
@@ -188,7 +228,3 @@ stencil start
 ## Resources
 
 * [Dockerizing BigCommerce's Stencil CLI](https://medium.com/bigcommerce-developer-blog/dockerizing-bigcommerces-stencil-cli-f508ddc0c3c0) (medium.com)
-
-### Additional resources
-
-* [Demonstration of Stencil Installation and Launch](https://www.youtube.com/watch/iWBrJalyM0A) (youtube.com)

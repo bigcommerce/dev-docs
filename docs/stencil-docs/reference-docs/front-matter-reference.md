@@ -11,16 +11,17 @@
 - [Brand attributes](#brand-attributes)
 - [Brand list attributes](#brand-list-attributes)
 - [Search attributes](#search-attributes)
+- [GraphQL attributes](#graphql-attributes)
   
 </div>
 
 Front matter defines which store resources are available to be rendered within a Stencil template. Front matter is declared at the top of each template and uses [YAML](https://yaml.org/) syntax. For more information, see [Declaring Front Matter Objects](https://developer.bigcommerce.com/stencil-docs/storefront-customization/using-front-matter#declaring-front-matter-objects).
 
 ## Supported templates
-You can use YAML Front Matter for templates in the `templates/pages/` directory. Injecting objects in the front matter of `templates/pages/page.html` will make the objects available to custom templates.
+You can use YAML front matter for templates in the `templates/pages/` directory. Injecting objects in the front matter of `templates/pages/page.html` will make the objects available to custom templates.
 
 
-You cannot use Front Matter for templates in the following directories:
+You cannot use front matter for templates in the following directories:
 * `templates/components/`
 * `templates/layout/`
 * `templates/pages/custom/`
@@ -153,8 +154,8 @@ product:
     limit: 5           # limits videos to 5
   images:
     limit: 5           # limits images to 5
-  reviews: true
-    limit: 5           # limits reviews to 5
+  reviews:
+    limit: 250         # limits reviews to 250
   related_products:
     limit: 10          # limits related products by name to 10
   similar_by_views:
@@ -166,10 +167,41 @@ product:
 |`product`|When filtering/limiting, products' default sorting is by order id, from lowest to highest.|
 |`videos`|If `product.videos` is not defined, you will not return videos. If you define `product.videos`, the default behavior is to return all videos. If you define `product.videos.limit`, this sets the maximum number of videos returned.|
 |`images`|If `product.images` is not defined, you will not return images. If `product.images` is defined, you must also define `product.images.limit`, which throttles the number of images returned. The maximum allowable value for this parameter is five images.|
-|`reviews`|Boolean indicating whether to display product reviews. If `product.reviews` is present and is not explicitly set to `false`, reviews will appear. If not defined, defaults to 10 reviews. When filtering/limiting reviews, the default sorting is by review id, from lowest to highest.|
+|`reviews`|Boolean indicating whether to display product reviews. If `product.reviews` is present and is not explicitly set to `false`, reviews will appear. If not defined, defaults to 10 reviews. When filtering/limiting reviews, the default sorting is by review id, from lowest to highest. If a product has over 250 reviews, you can fetch the rest using the GraphQL Storefront API. See the example GraphQL query below.|
 |`related_products`|Displays products that are related by name. If `limit` absent or undefined, the default behavior is to display all related products. Inserting `limit` with no integer will display 0 products.|
 |`similar_by_views`|Displays products similar to those displayed in the current page context. If `limit` absent or undefined, the default is to display four products.|
-
+  
+Sample GraphQL query for product reviews over the limit.
+  
+  ```yaml
+# Fetch product reviews for a product
+query reviewsByProductId(
+  $productId: Int!
+  $cursor: String
+  # Use GraphQL Query Variables to inject your product ID
+) {
+  site {
+    product(entityId: $productId) {
+      reviews(first:250, after:$cursor) {
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
+        edges {
+          node {
+            rating
+            title
+            text
+            createdAt {
+              utc
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+```
 ## Brand attributes
 
 ```yaml
@@ -205,3 +237,140 @@ search:
 |Property|Description|
 |---|---|
 |`product_results`|`limit` defines the number of product search results displayed per page. The range of possible values is 1–100 products.|
+  
+## GraphQL attributes
+You can add [GraphQL Storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview) queries to your theme via the front matter block in a template file. For example, you can request a product's variants by augmenting the existing [product.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html):
+  
+ ```handlebars
+ ---
+product:
+    videos:
+        limit: {{theme_settings.productpage_videos_count}}
+    reviews:
+        limit: {{theme_settings.productpage_reviews_count}}
+    related_products:
+        limit: {{theme_settings.productpage_related_products_count}}
+    similar_by_views:
+        limit: {{theme_settings.productpage_similar_by_views_count}}
+ gql: "query productById($productId: Int!) {
+  site {
+    product(entityId: $productId) {
+      variants(first: 25) {
+        edges {
+          node {
+            sku
+            defaultImage {
+              url(width: 1000)
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  "
+  ```
+  
+We suggest testing GraphQL queries using the [storefront API playground](https://developer.bigcommerce.com/api-reference/storefront/graphql#graphql-playground) to refine them before adding them to your template. You can launch the playground in the context of your store by clicking the **Storefront API Playground** link under the **Advanced Settings** menu in your store's control panel.
+  
+Once you have added a query to your template's front matter block, execution happens automatically when the page loads. The data returned by the query will be returned in the page's context and made available to the handlebars under the `gql` key. For example, you can retrieve the variant data from the above query in `product.html` like this:
+```handlebars
+ {{#if gql.data.site.product}}
+ {{#each gql.data.site.product.variants.edges}}
+    {{#with node}}
+      {{sku}} {{! - - sku code from each variant from GQL response}}
+    {{/with}}
+ {{/each}}
+ {{/if}}
+  ```
+If the GraphQL query is invalid, Stencil returns an `errors` object with `locations` and `message` properties similar to the following example:
+```html
+{
+  "gql": {
+    "errors": [
+      {
+        "locations": [
+          {
+            "column": 1,
+            "line": 1
+          }
+        ],
+        "message": "Syntax error while parsing GraphQL query."
+      }
+    ]
+  }
+}
+```
+  
+On some pages, you can inject special variables into your query to fetch data relevant to that page. For example, using the `$productId` variable on product pages injects the product ID associated with the current page.
+
+The following is the complete list of available variables:
+* `category.html`: `$categoryId`
+* `product.html`: `$productId`
+* `brand.html`: `$brandId`
+* `page.html`: `$pageId`
+* `contact-us.html`: `$pageId`
+* `blog-post.html`: `$blogPostId`
+  
+You can also query data without using variables. The following query returns the product category tree as a JSON object.
+  
+ ```yaml
+gql: "query CategoryTree3LevelsDeep {
+  site {
+    categoryTree {
+      ...CategoryFields
+      children {
+        ...CategoryFields
+        children {
+          ...CategoryFields
+        }
+      }
+    }
+  }
+}
+
+fragment CategoryFields on CategoryTreeItem {
+  name
+  path
+  entityId
+}"
+
+```
+  
+The example query returns the following JSON object:
+
+```json
+{
+  "data": {
+    "site": {
+      "categoryTree": [
+        {
+          "name": "Apparel",
+          "path": "/apparel/",
+          "entityId": 25,
+          "children": [
+            {
+              "name": "Shirts",
+              "path": "/apparel/shirts/",
+              "entityId": 27,
+              "children": []
+            },
+            {
+              "name": "Hoodies",
+              "path": "/hoodies/",
+              "entityId": 28,
+              "children": []
+            },
+            {
+              "name": "Caps",
+              "path": "/caps/",
+              "entityId": 29,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+``` 
