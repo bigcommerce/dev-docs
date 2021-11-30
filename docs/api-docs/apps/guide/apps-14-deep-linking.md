@@ -4,13 +4,22 @@
 
 ### On this page
 
-- [Overview](#overview)
-- [Implementation](#implementation)
-- [URL decoding code samples](#URL-decoding-code-samples)
+- [Overview: why deep link?](#overview-why-deep-link)
+- [Our implementation](#our-implementation)
+- [Your implementation](#your-implementation)
 
 </div>
 
-## Overview
+## Overview: why deep link?
+<!-- explanation: what is a deep link? -->
+_Deep links_ empower you to create a seamless experience for merchants who use your app to interact with third-party services from within the BigCommerce control panel. 
+<!-- explanation: what does a deep link do? -->
+
+<!-- explanation: what is it a link to? -->
+
+<!-- explanation: what kind of developer would want to use BC's deep linking feature? -->
+
+<!-- explanation: why would this developer want to use BC's deep linking feature? -->
 
 Deep links make it possible to create URLs that send users to a particular page within an app. By sending users directly to the desired location or content, you can create a more personalized experience and improve the way users interact with your app. When navigating within the app, the browser URL is updated based on the page being viewed, making it possible to discover, bookmark, and share particular pages of the app. 
 
@@ -18,7 +27,8 @@ Deep linking enables developers to effectively communicate with the app users wh
 
 Users who do not have the app installed on their devices will be redirected to the [App Marketplace](https://www.bigcommerce.com/apps/) to download the app before navigating to a particular location within the app.
 
-## Implementation
+## Our implementation
+<!-- reference -->
 
 Deep linking can be implemented by using the `deep_link` query parameter which is passed to the load endpoint whenever the app is loaded. 
 
@@ -46,8 +56,10 @@ Because this feature is optional, if an app does not explicitly support deep lin
 </div>
 </div>
 
-## URL decoding code samples
-
+## Your implementation
+<!-- reference -->
+### Decoding URLs
+<!-- how to -->
 The `deep_link` query parameter is automatically appended to your app's load endpoint. Because its value is URL-encoded, you need to decode it to read the value server-side. 
 
 The following code samples illustrate how to correctly decode a URL using different programming languages.
