@@ -168,15 +168,24 @@ Finally, install the draft app on any store registered to the same email as your
 
 Congrats! You've created and installed a BigCommerce draft app.
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+> Interested in sharing or selling your app? Learn more about [becoming a BigCommerce partner](https://www.bigcommerce.com/partners/become-a-partner) and [getting your app approved](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements).
+
+</div>
+</div>
+</div>
+
 ## Next steps
-* [Apply to become a BigCommerce partner](https://www.bigcommerce.com/partners/) (required to publish apps to marketplace)
-* [Learn more about Building Apps](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)
-* [Check out the App Marketplace](https://www.bigcommerce.com/apps/)
+* [Learn more about building apps](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)
+* [Apply to become a BigCommerce partner](https://www.bigcommerce.com/partners/become-a-partner)
+* [Check out the BC App Marketplace approval requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
 
 ## Resources
-
-* [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
+* [BC App Marketplace](https://www.bigcommerce.com/apps/)
 * [Authenticating BigCommerce's REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication)
-* [Becoming a Partner](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner)
 * [Testing locally with ngrok](https://developer.bigcommerce.com/api-docs/apps/guide/development#testing-locally-with-ngrok)
-* [Types of Apps](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/types-of-apps)
+* [Types of apps](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/types-of-apps)
+* [Becoming a partner](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner)
