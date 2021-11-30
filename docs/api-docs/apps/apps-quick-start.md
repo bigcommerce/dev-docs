@@ -53,7 +53,8 @@ ngrok http 3000
 
 ## Register a draft app
 
-Next, register a draft app in the [Developer Portal](https://devtools.bigcommerce.com/).
+Next, register a draft app in the [Developer Portal](https://devtools.bigcommerce.com/) using the following steps:
+
 1. [Login to the Developer Portal](https://devtools.bigcommerce.com/).
 2. Click **Create an app**.
 3. Give the app a name.
