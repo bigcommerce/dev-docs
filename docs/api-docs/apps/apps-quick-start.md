@@ -157,7 +157,7 @@ npm run dev
 </div>
 
 ## Install the app
-1. Log into your store and navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts) and install the app.
+1. Sign in to your store and navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts) and install the app.
 2. If everything is configured correctly, you should get an `Authorization Successful` message.
 3. Navigate back to **My Apps** to see the list of installed apps.
 4. Click **Launch** on the draft app to test the `/load` callback.

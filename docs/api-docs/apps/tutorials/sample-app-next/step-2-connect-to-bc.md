@@ -128,7 +128,7 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
 
 The `/auth` endpoint gets called when installing the app. Launching (loading) or uninstalling the app will not call the `/auth` endpoint.
 
-4. Open the `load.ts` file and add the logic to log the user in when the app calls the `/load` endpoint (when launching the app).
+4. Open the `load.ts` file and add the logic to sign the user in when the app calls the `/load` endpoint (when launching the app).
 
 ```js
 import { NextApiRequest, NextApiResponse } from 'next';
@@ -305,7 +305,7 @@ npm run dev
 
 ## Install and launch the app
 
-1. Log into your BigCommerce store and navigate to [**Apps** > **My Apps** > **My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts). You should see your new app displayed under **My Draft Apps**.
+1. Sign in to your BigCommerce store and navigate to [**Apps** > **My Apps** > **My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts). You should see your new app displayed under **My Draft Apps**.
 
 ![My draft apps](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-08.png "My draft apps")
 

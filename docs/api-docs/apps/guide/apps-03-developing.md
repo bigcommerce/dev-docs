@@ -55,7 +55,7 @@ For step-by-step instructions, see [How to Test App Authentication Locally with 
 
 ## Registering a draft app
 Once you've exposed an app to the internet, you can register it as a draft app in the [Developer Portal](https://devtools.bigcommerce.com/) using the app's callback URLs. To do so:
-1. [Log into the Developer Portal](https://devtools.bigcommerce.com/).
+1. [Sign in to the Developer Portal](https://devtools.bigcommerce.com/).
 
 2. Click **Create an App**.
 3. Name your app.
@@ -75,7 +75,7 @@ Once you've exposed an app to the internet, you can register it as a draft app i
 ## Installing a draft app
 Any store registered to the same email as your [Developer Portal](https://devtools.bigcommerce.com/my/apps) account can install your draft apps. Use the following steps to install:  
 
-1. Log into the store and navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts).
+1. Sign in to the store and navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts).
 2. Click the draft app thumbnail to install the draft. 
 3. Once you click **Install**, BigCommerce will begin the OAauth flow by making a `GET` request to the app's `/auth` callback URL. If the app handles all the requests successfully, the app has been installed and you can begin feature development.
 

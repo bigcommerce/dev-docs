@@ -33,7 +33,7 @@ The app ID is in the URL after `/manage/marketplace/apps/`:
 
 
 To find an app's ID in the [Developer Portal](https://devtools.bigcommerce.com/my/apps):
-1. Log into the [Developer Portal](https://devtools.bigcommerce.com/my/apps).
+1. Sign in to the [Developer Portal](https://devtools.bigcommerce.com/my/apps).
 
 2. Click **Edit App**.
 

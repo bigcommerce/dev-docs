@@ -3,7 +3,7 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Logging in](#logging-in)
+- [Signing in](#signing-in)
 - [Creating apps](#creating-apps)
 - [Editing apps](#editing-apps)
 - [Editing technical details](#editing-technical-details)
@@ -16,9 +16,9 @@
 
 App developers create, edit, and submit apps for approval using the [Developer Portal](https://devtools.bigcommerce.com/). In [Beginning App Development](https://developer.bigcommerce.com/api-docs/apps/guide/development) we briefly touched on how to create a draft app. In this article, we'll go over how to perform other common app management tasks in the [Developer Portal](https://devtools.bigcommerce.com/). For detailed instructions on submitting apps for approval, see [Publishing Apps](https://developer.bigcommerce.com/api-docs/apps/guide/publishing).
 
-## Logging in
+## Signing in
 
-Log in to or create a [Developer Portal](https://devtools.bigcommerce.com) account at [devtools.bigcommerce.com](https://devtools.bigcommerce.com).
+Sign in or create a [Developer Portal](https://devtools.bigcommerce.com) account at [devtools.bigcommerce.com](https://devtools.bigcommerce.com).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">

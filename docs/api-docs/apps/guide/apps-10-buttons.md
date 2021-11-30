@@ -31,7 +31,7 @@ When clicked, your button should open a modal similar to the image below. We rec
 
 ![Install Button](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-10-buttons-02.png "Install Button")
 
-Your button will link merchants to BigCommerce's install endpoint for your application. Once the merchant clicks the link, they will be prompted to log in and authorize your application.
+Your button will link merchants to BigCommerce's install endpoint for your application. Once the merchant clicks the link, they will be prompted to sign in and authorize your application.
 
 ## Rendering success and failure pages
 
