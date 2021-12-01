@@ -76,7 +76,7 @@ definitions:
         description: Whether this item is taxable.
         type: boolean
       baseAmount:
-        description: "Cost of cart's contents, before applying discounts."
+        description: 'Cost of cart''s contents, before applying discounts.'
         type: number
         format: double
       discountAmount:
@@ -85,7 +85,7 @@ definitions:
         format: float
       giftWrappingCostTotal:
         type: number
-        description: Gift wrapping for all items, including or excluding tax.
+        description: 'Gift wrapping for all items, including or excluding tax.'
       orderAmount:
         description: 'Sum of line-items amounts, minus cart-level discounts and coupons. This amount includes taxes (where applicable).'
         type: number
@@ -189,13 +189,10 @@ definitions:
     title: Applied Discount
     type: object
     properties:
-      name:
-        description: The name provided by the merchant.
-        type: string
-      discountedAmount:
-        description: The discounted amount applied within a given context.
+      coupon:
         type: number
-        format: double
+        description: 'Property key is discount ID, value is discount amount.'
+        example: 8.28
   OrderLineItem:
     title: Order Line Item
     type: object
@@ -257,10 +254,10 @@ definitions:
         description: 'URL of an image of this item, accessible on the internet.'
         type: string
       discounts:
-        description: 'List of discounts applied to this item, as an array of AppliedDiscount objects.'
-        type: array
-        items:
-          $ref: '#/definitions/AppliedDiscount'
+        description: 'List of discounts applied to this item. If no discount applied, empty array is returned. If discount has been applied, discount object returned. '
+        oneOf:
+          - $ref: '#/definitions/AppliedDiscount'
+          - type: array
       discountAmount:
         description: The total value of all discounts applied to this item (excluding coupon).
         type: number
@@ -270,7 +267,7 @@ definitions:
         type: number
         format: double
       listPrice:
-        description: "Item's list price, as quoted by the manufacturer/distributor."
+        description: 'Item''s list price, as quoted by the manufacturer/distributor.'
         type: number
         format: double
       salePrice:
@@ -367,7 +364,7 @@ definitions:
         type: number
         format: double
       listPrice:
-        description: "Item's list price, as quoted by the manufacturer/distributor."
+        description: 'Item''s list price, as quoted by the manufacturer/distributor.'
         type: number
         format: double
       salePrice:
@@ -565,7 +562,7 @@ definitions:
         type: number
         format: double
       listPrice:
-        description: "Item's list price, as quoted by the manufacturer/distributor."
+        description: 'Item''s list price, as quoted by the manufacturer/distributor.'
         type: number
         format: double
       salePrice:

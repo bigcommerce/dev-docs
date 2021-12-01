@@ -463,6 +463,8 @@ paths:
       responses:
         '200':
           $ref: '#/responses/ProductResponse'
+        '207':
+          $ref: '#/responses/HTTP207Status'
         '409':
           description: |
             `Product` was in conflict with another product. This is the result of duplicate unique values, such as name or SKU; a missing or invalid `category_id`, `brand_id`, or `tax_class id`; or a conflicting `bulk_pricing_rule`.
@@ -661,6 +663,8 @@ paths:
       responses:
         '200':
           $ref: '#/responses/ProductCollectionResponse'
+        '207':
+          $ref: '#/responses/HTTP207Status'
         '404':
           description: The resource was not found.
           schema:
@@ -964,6 +968,8 @@ paths:
           schema:
             type: object
             properties: {}
+        '207':
+          $ref: '#/responses/HTTP207Status'
         '404':
           description: |
             The resource was not found.
@@ -2575,6 +2581,8 @@ paths:
                     option_id: 220
                     option_display_name: Color
               meta: {}
+        '207':
+          $ref: '#/responses/HTTP207Status'
         '404':
           description: |
             The resource was not found.
@@ -2781,6 +2789,8 @@ paths:
                 weight: 1
                 width: 2
               meta: {}
+        '207':
+          $ref: '#/responses/HTTP207Status'
         '404':
           description: |
             The resource was not found.
@@ -11320,6 +11330,8 @@ paths:
       responses:
         '200':
           $ref: '#/responses/CategoryResponse'
+        '207':
+          $ref: '#/responses/HTTP207Status'
         '409':
           description: |
             The `Category` was in conflict with another category. This is the result of duplicate unique values, such as `name` or `custom_url`.
@@ -11832,6 +11844,8 @@ paths:
                 description: Empty meta object; may be used later.
                 title: Meta
             title: Category Response
+        '207':
+          $ref: '#/responses/HTTP207Status'
         '404':
           description: The resource was not found.
           schema:
@@ -12952,6 +12966,8 @@ paths:
                   url: /brands/Common-Good.html
                   is_customized: false
               meta: {}
+        '207':
+          $ref: '#/responses/HTTP207Status'
         '409':
           description: Brand was in conflict with another brand. This is the result of duplicate unique fields such as name.
           schema:
@@ -13341,6 +13357,8 @@ paths:
                   url: /brands/Common-Good.html
                   is_customized: false
               meta: {}
+        '207':
+          $ref: '#/responses/HTTP207Status'
         '404':
           description: |
             The resource was not found.
@@ -27632,6 +27650,14 @@ responses:
             per_page: 50
             current_page: 1
             total_pages: 1
+  HTTP207Status:
+    description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+    content:
+      application/json:
+        schema:
+          properties:
+            id:
+              type: string
 x-stoplight:
   docs:
     includeDownloadLink: true

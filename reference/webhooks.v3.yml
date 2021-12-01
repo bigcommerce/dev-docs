@@ -656,7 +656,8 @@ components:
           "hash": "352e4afc6dd3fc85ea26bfdf3f91852604d57528",
           "data": {
             "type": "cart",
-            "id": "09346904-4175-44fd-be53-f7e598531b6c"
+            "id": "09346904-4175-44fd-be53-f7e598531b6c",
+            "token": "1eed6d2d979776ff18e695ceeb10ea61"
           }
         }
         ```
@@ -679,6 +680,10 @@ components:
                   type: string
                   description: ID of the cart
                   example: 09346904-4175-44fd-be53-f7e598531b6c
+                token:
+                  type: string
+                  example: 1eed6d2d979776ff18e695ceeb10ea61
+                  description: Use this token to obtain cart data.
       type: object
     store_cart_converted:
       title: store/cart/converted
@@ -1976,7 +1981,7 @@ components:
                         - relative
                     value:
                       type: integer
-                      description: This value is the difference between an item's inventory count before and after the inventory updates. This value is negative if an item's inventory count decreases. For example, reducing inventory by three returns a value of `-3`. This value is positive if an item's inventory count increases. For example, returning two items to the inventory returns a value of `2`.
+                      description: 'This value is the difference between an item''s inventory count before and after the inventory updates. This value is negative if an item''s inventory count decreases. For example, reducing inventory by three returns a value of `-3`. This value is positive if an item''s inventory count increases. For example, returning two items to the inventory returns a value of `2`.'
                       example: 2
       x-tags:
         - created
@@ -2043,7 +2048,7 @@ components:
                         - relative
                     value:
                       type: integer
-                      description: This value is the difference between an item's inventory count before and after the inventory updates. This value is negative if an item's inventory count decreases. For example, reducing inventory by three returns a value of `-3`. This value is positive if an item's inventory count increases. For example, returning two items to the inventory returns a value of `2`.
+                      description: 'This value is the difference between an item''s inventory count before and after the inventory updates. This value is negative if an item''s inventory count decreases. For example, reducing inventory by three returns a value of `-3`. This value is positive if an item''s inventory count increases. For example, returning two items to the inventory returns a value of `2`.'
                       example: 2
       x-tags:
         - created

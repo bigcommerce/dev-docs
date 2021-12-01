@@ -11,6 +11,8 @@ properties:
         type: string
       id:
         type: string
+      token:
+        type: string
   hash:
     type: string
   created_at:

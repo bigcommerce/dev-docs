@@ -35,9 +35,10 @@ paths:
         - On the Checkout page prior to specifying a Shipping Address.
         - On the Checkout page, when toggling any option related to using the shopper’s Shipping Address as their Billing Address.
 
-        The following control panel can also trigger tax estimation requests.
+        The following control panel actions can also trigger tax estimate requests.
 
-        - Order refund flows.
+        - Order refund.
+        - Edit order.
         - Test connection feature in Tax Settings.
       operationId: estimate
       parameters:

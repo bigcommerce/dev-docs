@@ -94,7 +94,16 @@ paths:
               schema: {}
       operationId: getAnOrder
     put:
-      description: 'Updates an *Order*. To learn more about creating or updating orders, see [Orders Overview](/api-docs/orders/orders-api-overview).'
+      description: |-
+        Updates an *Order*. 
+
+        To add a product to an existing order, don't include `id` in the body. Include `product_options` if adding a product with variants.
+
+        To update a product in an order, include `id` in the body. The body should only contain the fields that need to be updated. Those fields that are omitted will not be changed.
+
+        To remove a product from an order, set that product's `quantity` to `0`.
+
+        To learn more about creating or updating orders, see [Orders Overview](/api-docs/orders/orders-api-overview).
       summary: Update an Order
       tags:
         - Orders
@@ -148,7 +157,7 @@ paths:
                         - id: 230
                           value: '192'
                   customer_locale: en
-              Adding an Existing Product:
+              Adding an existing product to order:
                 value:
                   products:
                     - product_id: 123
@@ -158,7 +167,7 @@ paths:
                         value: 12
                       price_inc_tax: 12.45
                       price_ex_tax: 10.12
-              Adding a New Products:
+              Adding a new product to order:
                 value:
                   products:
                     - name: BigCommerce Coffee Mug
@@ -166,13 +175,23 @@ paths:
                       price_inc_tax: 12.45
                       price_ex_tax: 10.12
                       sku: MUG-GRY
+              Removing a product from an order:
+                value:
+                  products:
+                    - product_id: 123
+                      quantity: 0
+                      product_options:
+                        id: 56
+                        value: 12
+                      price_inc_tax: 12.45
+                      price_ex_tax: 10.12
         required: true
       responses:
         '200':
           $ref: '#/components/responses/order_Resp'
       operationId: updateAnOrder
     delete:
-      description: Archives an order.
+      description: 'Archives an order. To remove a single product from an order, see `PUT /orders/{order_id}`.'
       summary: Archive an Order
       tags:
         - Orders
@@ -339,7 +358,7 @@ paths:
                         - id: 200
                           value: '180'
                         - id: 230
-                          value: 'Custom Message'
+                          value: Custom Message
               Multiple Products:
                 value:
                   status_id: 0
@@ -2916,7 +2935,7 @@ components:
                   - ''
               customer_locale:
                 type: 'string,'
-                example: 'en'
+                example: en
                 description: The customer's locale
   requestBodies: null
   securitySchemes:
@@ -4026,7 +4045,7 @@ components:
           type: string
         customer_locale:
           type: string
-          example: 'en'
+          example: en
           description: The customer's locale
         total_ex_tax:
           description: 'Override value for the total, excluding tax. If specified, the field `total_inc_tax` is also required. (Float, Float-As-String, Integer)'
@@ -4312,7 +4331,7 @@ components:
           properties:
             id:
               type: integer
-              description: 'The order product `id`. To add a product to an existing order, don''t include `id ` in the payload. `id` is required when updating an order product.'
+              description: 'The order product `id`. To add a product to an existing order, don''t include `id` in the payload. `id` is required when updating an order product.'
         - $ref: '#/components/schemas/orderCatalogProduct_Post'
     orderCatalogProduct_Post:
       title: orderCatalogProduct_Post

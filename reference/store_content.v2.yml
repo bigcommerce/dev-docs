@@ -260,6 +260,11 @@ paths:
               meta_keywords: 'BigCommerce, welcome, ecommerce'
               author: BigCommerce
               thumbnail_path: ''
+        '207':
+          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+          schema:
+            type: object
+            properties: {}
       tags:
         - Blog Posts
       operationId: createABlogPosts
@@ -423,6 +428,11 @@ paths:
               meta_keywords: 'BigCommerce, welcome, ecommerce'
               author: BigCommerce
               thumbnail_path: ''
+        '207':
+          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+          schema:
+            type: object
+            properties: {}
       operationId: updateABlogPost
     delete:
       description: Deletes a *Blog Post*.
@@ -1646,3 +1656,4 @@ x-stoplight:
   docs:
     includeDownloadLink: false
     showModels: false
+responses: {}
