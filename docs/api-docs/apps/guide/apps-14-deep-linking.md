@@ -23,6 +23,7 @@ Deep links empower you to create seamless user experiences for merchants and dev
 
 Deep links can help you write code that compensates for future changes to third-party resources.
 
+<!-- TODO explanation: review [types of apps](https://developer.bigcommerce.com/api-docs/apps/guide/types) and segment description of deep linking benefits for different types -->
 
 
 By sending users directly to the desired location or content, you can create a more personalized experience and improve the way users interact with your app. When navigating within the app, the browser URL is updated based on the page being viewed, making it possible to discover, bookmark, and share particular pages of the app. 
