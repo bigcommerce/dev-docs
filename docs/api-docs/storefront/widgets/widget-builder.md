@@ -8,6 +8,8 @@
 - [Configuring Widget Builder](#configuring-widget-builder)
 - [Building widgets](#building-widgets)
 - [Publishing to store](#publishing-to-store)
+- [Contributions](#contributions)
+- [Issues / Bugs](#issues--bugs)
 - [Resources](#resources)
 
 </div>
@@ -147,6 +149,25 @@ To publish a widget to your BigCommerce store, run the following command:
 ```shell
 widget-builder publish [path to widget template]
 ```
+
+## Contributions
+
+If you wish to contribute, please refer to our [contribution guide](CONTRIBUTING.md)
+and [code of conduct](CODE_OF_CONDUCT.md) for this project.
+
+## Issues / Bugs
+
+* Please include a clear, specific title and replicable description.
+
+* Please include your environment, OS, and any exceptions/backtraces that occur. The more
+information that is given, the more likely we can debug and fix the issue.
+
+**If you find a security bug, please do not post as an issue. Send directly to [security@bigcommerce.com](mailto:security@bigcommerce.com)
+instead.**
+
+Thank you again for your interest in contributing to the Widget Builder!
+
+Copyright (C) 2019-Present BigCommerce Inc. All rights reserved.
 
 ## Resources
 
