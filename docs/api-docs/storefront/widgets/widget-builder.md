@@ -1,4 +1,4 @@
-# Widget Builder CLI
+# Widget Builder
 
 <div class="otp" id="no-index">
 
