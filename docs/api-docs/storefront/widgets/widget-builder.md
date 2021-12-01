@@ -4,17 +4,17 @@
 
 ### On this page
 - [Prerequisites](#prerequisites)
-- [Installing Widget Builder CLI](#installing-widget-builder-cli)
-- [Configuring Widget Builder CLI](#configuring-widget-builder-cli)
+- [Installing Widget Builder](#installing-widget-builder)
+- [Configuring Widget Builder](#configuring-widget-builder)
 - [Building widgets](#building-widgets)
 - [Publishing to store](#publishing-to-store)
 - [Resources](#resources)
 
 </div>
 
-The Widget Builder Command Line Interface (**CLI**) is a command-line tool that lets you build, edit, and preview custom storefront widgets in real-time outside the context of your BigCommerce store.
+Widget Builder is a command-line tool that lets you build, edit, and preview custom storefront widgets in real-time outside the context of your BigCommerce store.
 
-This article contains detailed instructions on how to get started with the Widget Builder CLI. 
+This article contains detailed instructions on how to get started with Widget Builder. 
 
 ## Prerequisites
 
@@ -23,13 +23,13 @@ This article contains detailed instructions on how to get started with the Widge
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
 * API `access_token` with `content modify` scope. For information on how to generate store API credentials, see [Obtaining store API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
 
-## Installing the Widget Builder CLI
+## Installing Widget Builder
 
-Follow these instructions to install the Widget Builder CLI and its dependencies. 
+Follow these instructions to install Widget Builder and its dependencies. 
 
 1. In a terminal, clone the [widget-builder](https://github.com/bigcommerce/widget-builder) GitHub repo.
 
-2. Navigate to the `widget-builder` directory and install the Widget Builder CLI.
+2. Navigate to the `widget-builder` directory and install Widget Builder.
 
 ```shell
 npm run install-cli
@@ -76,9 +76,9 @@ Commands:
 </div>
 </div>
 
-## Configuring the Widget Builder CLI
+## Configuring Widget Builder
 
-Once you have installed the Widget Builder CLI, the next step is to set up your store's environment. You will need the store's Client ID, Access Token, and API Path to generate appropriate configurations. 
+Once you have installed Widget Builder, the next step is to set up your store's environment. You will need the store's Client ID, Access Token, and API Path to generate appropriate configurations. 
 
 To get started, run the following command:
 
@@ -121,7 +121,7 @@ Your default browser should open automatically on port 8080.
 
 ### Starter template
 
-To jump start widget development, the Widget Builder CLI provides a blank template with the appropriate files needed to start building widgets. To use the starter template, run the following command:
+To jump start widget development, Widget Builder provides a blank template with the appropriate files needed to start building widgets. To use the starter template, run the following command:
 
 ```shell
 widget-builder create [widget template name]
