@@ -24,7 +24,7 @@ Commit your changes.
 * Capitalize the subject.
 * Use present tense ("Add Feature" not "Added Feature").
 * Use imperative mood ("Fix Broken Link" not "Fixes Broken Link").
-*
+
 ## Pull request
 
 [Open a pull request](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request); explain your changes in the description.
