@@ -152,11 +152,18 @@ widget-builder create [[path-to/]some-widget]
 Your default browser should open automatically and display a text widget on port 8080.
 ## Building widgets
 
-To start Widget Builder locally, open the directory containing your widget template files and run the following command:
+To spin up the development server for any existing widget, first ensure that it is located in a child directory of the root where you configured the corresponding environment.  Navigate to that environment root, then run the following command:
 
 ```shell
-widget-builder start [path to widget template]
+widget-builder start [[path-to/]widget-name]
 ```
+**Sample output:**
+
+```shell
+[2021-09-08T17:29:39.564Z] Starting widget-builder at http://localhost:8080!
+[2021-09-08T17:29:39.887Z] Socket connected.
+```
+
 Your default browser should open automatically on port 8080.
 
 ## Publishing to store
