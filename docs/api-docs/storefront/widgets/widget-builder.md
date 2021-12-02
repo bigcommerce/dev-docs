@@ -32,7 +32,7 @@ This article is a guide to help you learn how to use Widget Builder.
 
 <!-- theme: info -->
 
-> Refer to the [Widget Builder README.md](https://github.com/bigcommerce/widget-builder) for the latest supported `node` version.
+> Refer to the [Widget Builder README.md](https://github.com/bigcommerce/widget-builder) for the latest supported Node.js and `npm` versions.
 
 </div>
 </div>
@@ -120,10 +120,10 @@ Initializing Widget Builder at multiple levels of a single file hierarchy can ha
  
  
 <div class="HubBlock--callout">
-<div class="CalloutBlock--warn">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-<!-- theme: warn -->
+<!-- theme: info -->
 
 > To use Widget Builder as a development tool, you must run `widget-builder` commands from the same directory where you ran `widget-builder init`.
 
