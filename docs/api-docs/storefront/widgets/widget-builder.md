@@ -25,6 +25,18 @@ This article contains detailed instructions on how to get started with Widget Bu
 * A BigCommerce [store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial) or [sandbox store](https://developer.bigcommerce.com/api-docs/partner/getting-started/create-a-sandbox-store).
 * API `access_token` with `content modify` scope. For information on how to generate store API credentials, see [Obtaining store API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+> Refer to the [Widget Builder README.md](https://github.com/bigcommerce/widget-builder) for the latest supported `node` version.
+
+</div>
+</div>
+</div>
+
 ## Installing Widget Builder
 
 Follow these instructions to install Widget Builder and its dependencies. 
@@ -61,18 +73,6 @@ Commands:
                                  belonging to the env config
   help [command]                 display help for command
 ```
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme: info -->
-
-> Refer to [Widget Builder README.MD](https://github.com/bigcommerce/widget-builder) for the latest supported `node` version.
-
-</div>
-</div>
-</div>
 
 ## Configuring Widget Builder
 
