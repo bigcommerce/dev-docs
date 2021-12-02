@@ -79,20 +79,20 @@ Commands:
 
 ## Configure Widget Builder
 
-Once you have installed Widget Builder, the next step is to set up the widget development environment for your store.  This configuration will authorize you to access your store's data during the development process. You will need the store's `Client ID`, `Access Token`, and `API Path` to configure the environment. 
+Once you have installed Widget Builder, the next step is to configure your development environment with your store's authentication credentials so that you can work with your store's data during the development process. You'll need the store's `Client ID`, `Access Token`, and `API Path`. To configure the environment, follow these instructions:
 
-To get started, locate or create a parent directory for the widgets you plan to develop using these credentials.
+1. Locate or create a parent directory for the widgets you plan to develop using these credentials.
 
 **Sample input:**
 
 ```shell
-# organized by name of store  
+# organized by name of store 
 cd ~/bc-projects/tools-r-us
 mkdir widget-workshop
 cd widget-workshop
 ```
 
-Next, start the interactive sequence that will generate a `.env` file to authenticate the widgets you build in the subfolders of this parent directory.  The session will prompt you to enter your API account credentials. Begin by running `widget-builder init`. 
+2. Run the interactive sequence that generates the configuration file. The session will prompt you to enter your API account credentials. Begin by running `widget-builder init`. 
 
 **Sample session:**
 
@@ -108,10 +108,14 @@ Before continuing, please make sure you've created or received a Store API accou
 You'll need those credentials in order to generate the appropriate configurations.
 You can find more information here. https://support.bigcommerce.com/s/article/Store-API-Accounts#creating
 
-? Are you ready to continue? You may press any key to continue (Y/n) Yes
-? What is the Client ID? xxxxxxxxxxxxx
-? What is the Access Token? xxxxxxxxxxxxx
-? What is the API Path? https://api.bigcommerce.com/stores/xxxxx/v3/
+? Are you ready to continue? You may press any key to continue (Y/n) 
+  > Y
+? What is the Client ID? 
+  > xxxxxxxxxxxxx
+? What is the Access Token? 
+  > xxxxxxxxxxxxx
+? What is the API Path? 
+  > xxxxxxxxxxxxx
 [2021-09-08T15:12:40.271Z] Successfully created your configuration, you're all set!
 ```
 ## Reset or create parallel configurations
