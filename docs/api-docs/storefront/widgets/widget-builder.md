@@ -106,15 +106,6 @@ You can find more information here. https://support.bigcommerce.com/s/article/St
 
 If you need to reset the configurations, run the `widget-builder init` command to overwrite the existing assignments.
 
-## Building widgets
-
-To start Widget Builder locally, open the directory containing your widget template files and run the following command:
-
-```shell
-widget-builder start [path to widget template]
-```
-Your default browser should open automatically on port 8080.
-
 ### Starter template
 
 To jump start widget development, Widget Builder provides a blank template with the appropriate files needed to start building widgets. To use the starter template, run the following command:
@@ -135,6 +126,14 @@ widget-builder create [widget template name]
 ```
 
 Your default browser should open automatically and display a text widget on port 8080.
+## Building widgets
+
+To start Widget Builder locally, open the directory containing your widget template files and run the following command:
+
+```shell
+widget-builder start [path to widget template]
+```
+Your default browser should open automatically on port 8080.
 
 ## Publishing to store
 
