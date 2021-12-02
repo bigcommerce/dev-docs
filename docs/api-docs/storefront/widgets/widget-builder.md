@@ -168,11 +168,13 @@ Your default browser should open automatically on port 8080.
 
 ## Publishing to store
 
-To publish a widget to your BigCommerce store, run the following command:
+To publish a widget to your BigCommerce store, navigate to its environment root, then run the following command:
 
 ```shell
-widget-builder publish [path to widget template]
+widget-builder publish [[path/to/]widget-name]
 ```
+
+If you're interested in making your widgets available for download or sale on other stores, check out the [BigCommerce App Marketplace](https://www.bigcommerce.com/apps/toolswidgets/) and learn about [becoming a partner developer](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner).
 
 ## Resources
 
