@@ -77,7 +77,7 @@ Commands:
 
 ## Configure Widget Builder
 
-Once you have installed Widget Builder, the next step is to set up the widget development environment for your store.  This will authorize you to access your store's data during the development process. You will need the store's `Client ID`, `Access Token`, and `API Path` to generate the appropriate configuration. 
+Once you have installed Widget Builder, the next step is to set up the widget development environment for your store.  This configuration will authorize you to access your store's data during the development process. You will need the store's `Client ID`, `Access Token`, and `API Path` to configure the environment. 
 
 To get started, locate or create a parent directory for the widgets you plan to develop using these credentials.
 
@@ -114,7 +114,7 @@ You can find more information here. https://support.bigcommerce.com/s/article/St
 ```
 ## Reset or create parallel configurations
 
-If you need to reset the configuration, you can run the `widget-builder init` command in the same directory to overwrite the existing assignments.  Running `widget-builder init` in sibling directory will create a separate development environment.  
+If you need to reset the configuration, you can run the `widget-builder init` command in the same directory to overwrite the existing assignments.  Running `widget-builder init` in a sibling directory will create a separate development environment.  
 
 Initializing Widget Builder at multiple levels of a single file hierarchy can have unpredictable results and is not recommended.
  
@@ -125,7 +125,7 @@ Initializing Widget Builder at multiple levels of a single file hierarchy can ha
 
 <!-- theme: warn -->
 
-> To use Widget Builder as a development tool, you must run `widget-builder` commmands from the same directory where you ran `widget-builder init`.
+> To use Widget Builder as a development tool, you must run `widget-builder` commands from the same directory where you ran `widget-builder init`.
 
 </div>
 </div>
@@ -133,7 +133,7 @@ Initializing Widget Builder at multiple levels of a single file hierarchy can ha
   
 ## Generate a scaffold with `create`
 
-To jump start widget development, Widget Builder's `create` command creates a child directory, populates it with the blank template files you need to get started, and spins up a development server.  To use the generator, run the following command:
+Jump-start widget development with Widget Builder's `create` command, which creates a child directory, populates it with blank template files, and spins up a development server.  To use the generator, run the following command:
 
 ```shell
 widget-builder create [[path-to/]some-widget]
