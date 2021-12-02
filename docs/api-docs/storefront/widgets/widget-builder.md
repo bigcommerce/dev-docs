@@ -50,10 +50,6 @@ Usage: widget-builder [options] [command]
 
 Options:
   -V, --version                  output the version number
-  --gen-config                   generate a config.json file
-  --gen-query-params             generate a queryParams.json file
-  --auto-open <flag>             open browser automatically to the builder
-                                 preview (default: "true")
   -h, --help                     display help for command
 
 Commands:
