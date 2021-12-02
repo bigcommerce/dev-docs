@@ -132,19 +132,19 @@ Initializing Widget Builder at multiple levels of a single file hierarchy can ha
 
 ## Starter template
 
-To jump start widget development, Widget Builder provides a blank template with the appropriate files needed to start building widgets. To use the starter template, run the following command:
+To jump start widget development, Widget Builder's `create` command creates a child directory, populates it with the blank template files you need to get started, and spins up a development server.  To use the generator, run the following command:
 
 ```shell
-widget-builder create [widget template name]
+widget-builder create [[path-to/]some-widget]
 ```
 
 **Sample output:**
 
 ```shell
-[2021-09-08T17:29:38.868Z] Successfully created ./test-widget-one 
-[2021-09-08T17:29:38.870Z] Successfully created schema.json in ./test-widget-one/schema.json
-[2021-09-08T17:29:38.871Z] Successfully created config.json in ./test-widget-one/config.json
-[2021-09-08T17:29:38.871Z] Successfully created widget.html in ./test-widget-one/widget.html
+[2021-09-08T17:29:38.868Z] Successfully created ./some-widget 
+[2021-09-08T17:29:38.870Z] Successfully created schema.json in ./some-widget/schema.json
+[2021-09-08T17:29:38.871Z] Successfully created config.json in ./some-widget/config.json
+[2021-09-08T17:29:38.871Z] Successfully created widget.html in ./some-widget/widget.html
 [2021-09-08T17:29:39.564Z] Starting widget-builder at http://localhost:8080!
 [2021-09-08T17:29:39.887Z] Socket connected.
 ```
