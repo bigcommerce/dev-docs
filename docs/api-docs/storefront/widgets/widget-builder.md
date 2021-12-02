@@ -14,9 +14,9 @@
 
 </div>
 
-Widget Builder is a command-line tool that lets you build, edit, and preview custom storefront widgets in real-time outside the context of your BigCommerce store.
+Widget Builder is a command-line tool that lets you build, edit, and preview custom storefront widgets in real time, outside the context of your BigCommerce store.
 
-This article contains detailed instructions on how to get started with Widget Builder. 
+This article is a guide to help you learn how to use Widget Builder. 
 
 ## Prerequisites
 
