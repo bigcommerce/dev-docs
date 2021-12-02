@@ -136,7 +136,7 @@ Initializing Widget Builder at multiple levels of a single file hierarchy can ha
 Jump-start widget development with Widget Builder's `create` command, which creates a child directory, populates it with blank template files, and spins up a development server.  To use the generator, run the following command:
 
 ```shell
-widget-builder create [[path-to/]some-widget]
+widget-builder create <[path/to/]some-widget>
 ```
 
 **Sample output:**
@@ -157,7 +157,7 @@ Your default browser should open automatically and display a text widget on port
 To spin up the development server for any existing widget, first ensure that it is located in a child directory of the root where you configured the corresponding environment.  Navigate to that environment root, then run the following command:
 
 ```shell
-widget-builder start [[path-to/]widget-name]
+widget-builder start <[path/to/]widget-name>
 ```
 **Sample output:**
 
@@ -173,7 +173,7 @@ Your default browser should open automatically on port 8080.
 To publish a widget to your BigCommerce store, navigate to its environment root, then run the following command:
 
 ```shell
-widget-builder publish [[path/to/]widget-name]
+widget-builder publish <[path/to/]widget-name>
 ```
 
 If you're interested in making your widgets available for download or sale on other stores, check out the [BigCommerce App Marketplace](https://www.bigcommerce.com/apps/toolswidgets/) and learn about [becoming a partner developer](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner).
