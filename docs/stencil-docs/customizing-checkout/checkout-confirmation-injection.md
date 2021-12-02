@@ -16,7 +16,7 @@
 
 A prerequisite for the next two options is to add themewide styles to your Checkout or Order Confirmation page. To do so, add this statement:
 
-`{{{stylesheet '/assets/css/theme.css'}}}`
+`{{{stylesheet '/assets/css/theme.scss'}}}`
 
 ...before this statement, which is already present at the head of each template:
 

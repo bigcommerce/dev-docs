@@ -26,7 +26,7 @@ lineNumbers: true
 
 ```html
 {{#partial "head"}}
-    <link href="{{cdn '/assets/css/invoice.css'}}" rel="stylesheet">
+    <link href="{{cdn '/assets/css/invoice.scss'}}" rel="stylesheet">
 {{/partial}}
 ```
 
@@ -87,7 +87,7 @@ lineNumbers: true
 
 ```html
 {{#partial "head"}}
-    <link href="{{cdn '/assets/css/invoice.css'}}" rel="stylesheet">
+    <link href="{{cdn '/assets/css/invoice.scss'}}" rel="stylesheet">
 {{/partial}}
 
 {{#partial "page"}}

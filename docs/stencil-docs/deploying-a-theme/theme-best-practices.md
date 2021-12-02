@@ -39,7 +39,7 @@ Injecting JavaScript context variables allow you to access store data through yo
 
 You can then use the `{{jsContext}}` Handlebars helper to access a stringified JSON object containing all injected data with your assigned custom variable names as keys in the key-value pairs. For more information, see [injection helpers](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#inject). 
 
-The code example below uses `{{inject}}` and `{{jsContent}}` to log the product name to your browser's console when added to Cornerstone's `product.html` file: 
+The code example below uses `{{inject}}` and `{{jsContext}}` to log the product name to your browser's console when added to Cornerstone's `product.html` file: 
 
 ```javascript
 {{inject "myProductName" product.title}}

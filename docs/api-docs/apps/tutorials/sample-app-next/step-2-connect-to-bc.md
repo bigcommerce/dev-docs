@@ -23,6 +23,18 @@ To authenticate and use your app with the BigCommerce API, install the [node-big
 npm install node-bigcommerce
 ```
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+> You can view a list of all the tested package versions in the [package.json file on the Step 2 branch](https://github.com/bigcommerce/sample-app-nodejs/blob/step-2-connect-app-to-bc/package.json) of this sample app's repo.
+
+</div>
+</div>
+</div>
+
 ## Setup the auth lib page
 
 1. In the root directory of your app, create a `lib` folder.

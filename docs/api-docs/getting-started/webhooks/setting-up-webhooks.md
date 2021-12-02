@@ -172,8 +172,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
   "destination": "https://myapp.herokuapp.com/",
   "is_active": true,
   "headers": {
-    "User-Name": "Hello",
-    "Password": "Goodbye"
+    "Authorization": "Basic SGVsbG86R29vZGJ5ZQ=="
   }
 }
 ```
@@ -209,5 +208,5 @@ If you are having trouble getting ngrok started, try setting the PATH.
 
 ## Resources
 * [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/about-webhooks)
-* [Webhook Events](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events)
+* [Webhook Events](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events)
 * [Webhooks Reference](https://developer.bigcommerce.com/api-reference/webhooks)
