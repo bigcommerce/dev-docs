@@ -40,17 +40,19 @@ This article is a guide to help you learn how to use Widget Builder.
 
 ## Install Widget Builder
 
-Follow these instructions to install Widget Builder and its dependencies. 
+To install Widget Builder and its dependencies, follow these instructions: 
 
-1. In a terminal, clone the [widget-builder](https://github.com/bigcommerce/widget-builder) GitHub repo.
+1. Open a terminal, and verify that you are using supported versions of Node.js and `npm`.
 
-2. Navigate to the `widget-builder` directory and install Widget Builder.
+2. Clone the [widget-builder](https://github.com/bigcommerce/widget-builder) GitHub repository.
+
+3. Navigate to the `widget-builder` directory, and install Widget Builder using the following commands:
 
 ```shell
 npm run install-cli
 ```
 
-3. To retrieve usage information and view supported options and commands, run the following command:
+To retrieve usage information and view supported options and commands, run the following command:
 
 ```shell
 widget-builder -h
