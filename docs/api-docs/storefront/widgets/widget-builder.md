@@ -21,8 +21,8 @@ This article contains detailed instructions on how to get started with Widget Bu
 ## Prerequisites
 
 * Node.js 14
-* npm 6.14
-* [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
+* [npm](https://www.npmjs.com/) 6.14
+* A BigCommerce [store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial) or [sandbox store](https://developer.bigcommerce.com/api-docs/partner/getting-started/create-a-sandbox-store).
 * API `access_token` with `content modify` scope. For information on how to generate store API credentials, see [Obtaining store API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
 
 ## Installing Widget Builder
