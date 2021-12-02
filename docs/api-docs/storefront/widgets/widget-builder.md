@@ -76,19 +76,26 @@ Commands:
 
 ## Configuring Widget Builder
 
-Once you have installed Widget Builder, the next step is to set up your store's environment. You will need the store's Client ID, Access Token, and API Path to generate appropriate configurations. 
+Once you have installed Widget Builder, the next step is to set up the widget development environment for your store.  This will authorize you to access your store's data during the development process. You will need the store's `Client ID`, `Access Token`, and `API Path` to generate the appropriate configuration. 
 
-To get started, run the following command:
+To get started, locate or create a parent directory for the widgets you plan to develop using these credentials.
+
+**Sample input:**
 
 ```shell
-widget-builder init
+# organized by name of store  
+cd ~/bc-projects/tools-r-us
+mkdir widget-workshop
+cd widget-workshop
 ```
 
-When prompted, enter your API account credentials. This will create the `.env` file with the necessary parameter assignments.
+Next, start the interactive sequence that will generate a `.env` file to authenticate the widgets you build in the subfolders of this parent directory.  The session will prompt you to enter your API account credentials. Begin by running `widget-builder init`. 
 
-**Sample output:**
+**Sample session:**
 
 ```shell
+~/bc-projects/tools-r-us/widget-workshop % widget-builder init
+
 Thank you for using Widget Builder
 
             
@@ -98,7 +105,7 @@ Before continuing, please make sure you've created or received a Store API accou
 You'll need those credentials in order to generate the appropriate configurations.
 You can find more information here. https://support.bigcommerce.com/s/article/Store-API-Accounts#creating
 
-? Are you ready to continue? You may press any key to continue Yes
+? Are you ready to continue? You may press any key to continue (Y/n) Yes
 ? What is the Client ID? xxxxxxxxxxxxx
 ? What is the Access Token? xxxxxxxxxxxxx
 ? What is the API Path? https://api.bigcommerce.com/stores/xxxxx/v3/
