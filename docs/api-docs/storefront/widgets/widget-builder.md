@@ -4,12 +4,12 @@
 
 ### On this page
 - [Prerequisites](#prerequisites)
-- [Installing Widget Builder](#installing-widget-builder)
-- [Configuring Widget Builder](#configuring-widget-builder)
-- [Resetting configurations](#resetting-configurations)
-- [Starter template](#starter-template)
-- [Building widgets](#building-widgets)
-- [Publishing to store](#publishing-to-store)
+- [Install Widget Builder](#install-widget-builder)
+- [Configure Widget Builder](#configure-widget-builder)
+- [Reset or create parallel configurations](#reset-or-create-parallel-configurations)
+- [Generate a scaffold with `create`](#generate-a-scaffold-with-create)
+- [Continue development with `start`](#continue-development-with-start)
+- [Publish to store](#publish-to-store)
 - [Resources](#resources)
 
 </div>
@@ -25,6 +25,7 @@ This article is a guide to help you learn how to use Widget Builder.
 * A BigCommerce [store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial) or [sandbox store](https://developer.bigcommerce.com/api-docs/partner/getting-started/create-a-sandbox-store).
 * API `access_token` with `content modify` scope. For information on how to generate store API credentials, see [Obtaining store API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
 
+
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
@@ -37,7 +38,7 @@ This article is a guide to help you learn how to use Widget Builder.
 </div>
 </div>
 
-## Installing Widget Builder
+## Install Widget Builder
 
 Follow these instructions to install Widget Builder and its dependencies. 
 
@@ -74,7 +75,7 @@ Commands:
   help [command]                 display help for command
 ```
 
-## Configuring Widget Builder
+## Configure Widget Builder
 
 Once you have installed Widget Builder, the next step is to set up the widget development environment for your store.  This will authorize you to access your store's data during the development process. You will need the store's `Client ID`, `Access Token`, and `API Path` to generate the appropriate configuration. 
 
@@ -111,7 +112,7 @@ You can find more information here. https://support.bigcommerce.com/s/article/St
 ? What is the API Path? https://api.bigcommerce.com/stores/xxxxx/v3/
 [2021-09-08T15:12:40.271Z] Successfully created your configuration, you're all set!
 ```
-## Resetting configurations
+## Reset or create parallel configurations
 
 If you need to reset the configuration, you can run the `widget-builder init` command in the same directory to overwrite the existing assignments.  Running `widget-builder init` in sibling directory will create a separate development environment.  
 
@@ -129,8 +130,8 @@ Initializing Widget Builder at multiple levels of a single file hierarchy can ha
 </div>
 </div>
 </div>
-
-## Starter template
+  
+## Generate a scaffold with `create`
 
 To jump start widget development, Widget Builder's `create` command creates a child directory, populates it with the blank template files you need to get started, and spins up a development server.  To use the generator, run the following command:
 
@@ -150,7 +151,8 @@ widget-builder create [[path-to/]some-widget]
 ```
 
 Your default browser should open automatically and display a text widget on port 8080.
-## Building widgets
+
+## Continue development with `start`
 
 To spin up the development server for any existing widget, first ensure that it is located in a child directory of the root where you configured the corresponding environment.  Navigate to that environment root, then run the following command:
 
@@ -166,7 +168,7 @@ widget-builder start [[path-to/]widget-name]
 
 Your default browser should open automatically on port 8080.
 
-## Publishing to store
+## Publish to store
 
 To publish a widget to your BigCommerce store, navigate to its environment root, then run the following command:
 
