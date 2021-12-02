@@ -176,6 +176,10 @@ To publish a widget to your BigCommerce store, navigate to its environment root,
 widget-builder publish <[path/to/]widget-name>
 ```
 
+Publishing a widget from the same path will update or overwrite your existing widget.  If you have a widget with the same name currently deployed in your store, the updated widget will **immediately** replace the previous version on your live storefront.
+
+To add published widgets to your store, open your store's control panel and navigate to **Storefront** **>** **My Themes**.  Click the **Customize** button on your active theme, and locate your published widget in the **Custom** section of the left-side menu.
+
 If you're interested in making your widgets available for download or sale on other stores, check out the [BigCommerce App Marketplace](https://www.bigcommerce.com/apps/toolswidgets/) and learn about [becoming a partner developer](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner).
 
 ## Resources
