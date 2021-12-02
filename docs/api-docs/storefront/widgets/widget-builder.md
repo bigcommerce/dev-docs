@@ -6,6 +6,8 @@
 - [Prerequisites](#prerequisites)
 - [Installing Widget Builder](#installing-widget-builder)
 - [Configuring Widget Builder](#configuring-widget-builder)
+- [Resetting configurations](#resetting-configurations)
+- [Starter template](#starter-template)
 - [Building widgets](#building-widgets)
 - [Publishing to store](#publishing-to-store)
 - [Resources](#resources)
@@ -102,11 +104,11 @@ You can find more information here. https://support.bigcommerce.com/s/article/St
 ? What is the API Path? https://api.bigcommerce.com/stores/xxxxx/v3/
 [2021-09-08T15:12:40.271Z] Successfully created your configuration, you're all set!
 ```
-### Resetting configurations
+## Resetting configurations
 
 If you need to reset the configurations, run the `widget-builder init` command to overwrite the existing assignments.
 
-### Starter template
+## Starter template
 
 To jump start widget development, Widget Builder provides a blank template with the appropriate files needed to start building widgets. To use the starter template, run the following command:
 
