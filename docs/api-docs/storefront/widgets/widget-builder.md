@@ -156,7 +156,7 @@ widget-builder create <[path/to/]some-widget>
 [2021-09-08T17:29:39.887Z] Socket connected.
 ```
 
-Your default browser should open automatically and display a text widget on port 8080.
+Your default browser will open automatically and display a text widget on port 8080.
 
 ## Continue development with `start`
 
@@ -172,7 +172,7 @@ widget-builder start <[path/to/]widget-name>
 [2021-09-08T17:29:39.887Z] Socket connected.
 ```
 
-Your default browser should open automatically on port 8080.
+Your default browser will open automatically on port 8080.
 
 ## Publish to store
 
