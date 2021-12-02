@@ -113,7 +113,22 @@ You can find more information here. https://support.bigcommerce.com/s/article/St
 ```
 ## Resetting configurations
 
-If you need to reset the configurations, run the `widget-builder init` command to overwrite the existing assignments.
+If you need to reset the configuration, you can run the `widget-builder init` command in the same directory to overwrite the existing assignments.  Running `widget-builder init` in sibling directory will create a separate development environment.  
+
+Initializing Widget Builder at multiple levels of a single file hierarchy can have unpredictable results and is not recommended.
+ 
+ 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warn">
+<div class="HubBlock-content">
+
+<!-- theme: warn -->
+
+> To use Widget Builder as a development tool, you must run `widget-builder` commmands from the same directory where you ran `widget-builder init`.
+
+</div>
+</div>
+</div>
 
 ## Starter template
 
