@@ -139,7 +139,7 @@ Initializing Widget Builder at multiple levels of a single file hierarchy can ha
   
 ## Generate a scaffold with `create`
 
-Jump-start widget development with Widget Builder's `create` command, which creates a child directory, populates it with blank template files, and spins up a development server.  To use the generator, run the following command:
+Jump-start widget development with Widget Builder's `create` command, which creates a child directory, populates it with blank template files, and starts a development server. To use the generator, run the following command:
 
 ```shell
 widget-builder create <[path/to/]some-widget>
@@ -160,7 +160,7 @@ Your default browser should open automatically and display a text widget on port
 
 ## Continue development with `start`
 
-To spin up the development server for any existing widget, first ensure that it is located in a child directory of the root where you configured the corresponding environment.  Navigate to that environment root, then run the following command:
+Widget Builder's `start` command will start the development server for an existing widget that is located in a child directory of the environment root. Navigate to that environment root, then run the following command:
 
 ```shell
 widget-builder start <[path/to/]widget-name>
