@@ -39,6 +39,12 @@ This article is a guide to help you learn how to use Widget Builder.
 
 For more information on OAuth Scopes and authentication, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 
+## Install Widget Builder
+
+To install Widget Builder and its dependencies, follow these instructions: 
+
+1. Open a terminal, and verify that you are using supported versions of Node.js and `npm`.
+
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
@@ -50,12 +56,6 @@ For more information on OAuth Scopes and authentication, see [Authentication](ht
 </div>
 </div>
 </div>
-
-## Install Widget Builder
-
-To install Widget Builder and its dependencies, follow these instructions: 
-
-1. Open a terminal, and verify that you are using supported versions of Node.js and `npm`.
 
 2. Clone the [widget-builder](https://github.com/bigcommerce/widget-builder) GitHub repository.
 
