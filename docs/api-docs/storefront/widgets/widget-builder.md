@@ -26,7 +26,7 @@ This article is a guide to help you learn how to use Widget Builder.
 * Store API OAuth credentials for `content` resources with scope `modify`. For information on how to generate store API credentials, see [Obtaining store API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--warn">
+<div class="CalloutBlock--warning">
 <div class="HubBlock-content">
 
 <!-- theme: warn -->
