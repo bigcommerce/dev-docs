@@ -4,7 +4,6 @@
 
 ### On this page
 - [Single-Click](#single-click)
-
 - [Connector](#connector)
 - [Visibility](#visibility)
 - [Next steps](#next-steps)
@@ -64,6 +63,7 @@ There are three visibility options for apps: **Draft**, **Unlisted**, and **Publ
 * [Building Apps Quick Start](https://developer.bigcommerce.com/api-docs/apps/quick-start)
 
 ### Sample apps
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
@@ -71,7 +71,7 @@ There are three visibility options for apps: **Draft**, **Unlisted**, and **Publ
 * [Node / FaunaDB / Netlify](https://github.com/bigcommerce/channels-app/)
 
 ### Tools
-* [Node API Client](https://github.com/getconversio/node-bigcommerce)
+* [Node API Client](https://github.com/bigcommerce/node-bigcommerce/)
 * [Python API Client](https://github.com/bigcommerce/bigcommerce-api-python)
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)

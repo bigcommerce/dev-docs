@@ -267,8 +267,8 @@ export function getBCAuth(query: QueryParams) {
     return bigcommerce.authorize(query);
 }
 
-export function getBCVerify({ signed_payload }: QueryParams) {
-    return bigcommerceSigned.verify(signed_payload);
+export function getBCVerify({ signed_payload_jwt }: QueryParams) {
+    return bigcommerceSigned.verifyJWT(signed_payload_jwt);
 }
 ``` 
 
@@ -321,7 +321,7 @@ For MySQL configuration instructions, see [Set up MySQL database](#set-up-mysql-
 
 ### Create a Firebase project
 
-1. Log into [Cloud Firestore](https://firebase.google.com/products/firestore) using your Google account. To create a Google account, visit the [Google signup page](https://accounts.google.com/signup/v2/webcreateaccount?hl=en&flowName=GlifWebSignIn&flowEntry=SignUp).
+1. Sign in to [Cloud Firestore](https://firebase.google.com/products/firestore) using your Google account. To create a Google account, visit the [Google signup page](https://accounts.google.com/signup/v2/webcreateaccount?hl=en&flowName=GlifWebSignIn&flowEntry=SignUp).
 
 2. Once logged in, click **Go to console** in the top right corner.
 

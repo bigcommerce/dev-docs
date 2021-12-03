@@ -25,7 +25,7 @@ The following BigCommerce API clients expose helper methods for fetching an OAut
 * [bigcommerce/bigcommerce-api-python](https://github.com/bigcommerce/bigcommerce-api-python)
   * Fetches `access_token`
   * Verifies `signed_payload`
-* [conversio/node-bigcommerce](https://github.com/getconversio/node-bigcommerce)
+* [bigcommerce/node-bigcommerce](https://github.com/bigcommerce/node-bigcommerce/)
   * Fetches `access_token`
   * Verifies `signed_payload`
 * [bigcommerce/bigcommerce-api-php](https://github.com/bigcommerce/bigcommerce-api-php)
@@ -218,15 +218,15 @@ For additional details, see [Security Considerations in RC6749](https://tools.ie
 * [Types of Apps](https://developer.bigcommerce.com/api-docs/apps/guide/types-of-apps)
 
 ### Sample apps
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
 * [Laravel / React](https://github.com/bigcommerce/laravel-react-sample-app)
 * [Node / FaunaDB / Netlify](https://github.com/bigcommerce/channels-app/)
-* [Node / Express / CodeSandbox](https://codesandbox.io/s/express-hello-world-app-fq5t1?file=%2Fapp.js)
 
 ### Tools
-* [Node API Client](https://github.com/getconversio/node-bigcommerce)
+* [Node API Client](https://github.com/bigcommerce/node-bigcommerce/)
 * [Python API Client](https://github.com/bigcommerce/bigcommerce-api-python)
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)

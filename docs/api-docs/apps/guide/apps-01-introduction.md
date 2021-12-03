@@ -36,7 +36,7 @@ When a merchant launches an app, BigCommerce makes a request to the app's `/load
 ## Use cases
 What can developers do with BigCommerce apps?
 
-### Integrate with Business Systems
+### Integrate with business systems
 Use [BigCommerce APIs](https://developer.bigcommerce.com/api-reference) to integrate stores with business systems such as the following:
 * [ERP systems](https://www.bigcommerce.com/apps/erp/)
 * [Order management platforms](https://www.bigcommerce.com/apps/catalog-order-management/)
@@ -46,24 +46,24 @@ Use [BigCommerce APIs](https://developer.bigcommerce.com/api-reference) to integ
 [Learn more about BigCommerce's APIs](https://developer.bigcommerce.com/api-reference).
 
 
-### Connect to Sales Channels
+### Connect to sales channels
 List products on external [sales channels](https://www.bigcommerce.com/apps/sales-channels/) with [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference).
 
 [Learn more about connecting apps to sales channels.](https://developer.bigcommerce.com/api-docs/channels/overview).
 
-### Add and Manage Scripts
+### Add and manage scripts
 Create and manage scripts with [Scripts API](https://developer.bigcommerce.com/api-reference/store-management/scripts) and [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
 
 [Learn more about creating scripts](https://developer.bigcommerce.com/api-docs/storefront/scripts-overview).
 
-### Create Custom Widgets
+### Create custom widgets
 Create [widgets](https://support.bigcommerce.com/s/article/Page-Builder#builder) for merchants to install and configure.
 
 [Learn more about creating widgets](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview).
 
 ## Getting started
 Here's how to get started with BigCommerce development:
-1. [Start a free trial](https://www.bigcommerce.com/essentials/free-trial/) to test apps against.
+1. [Create a BigCommerce sandbox store](https://developer.bigcommerce.com/api-docs/partner/getting-started/create-a-sandbox-store).
 
 2. [Apply to be a Partner](https://www.bigcommerce.com/partners) to get paid for your apps.
 
@@ -76,12 +76,13 @@ Here's how to get started with BigCommerce development:
 ## Next steps
 * [Decide which type of app to build](https://developer.bigcommerce.com/api-docs/apps/guide/types)
 
-* [Start building apps with CodeSandbox, Node, and Express](https://developer.bigcommerce.com/api-docs/apps/quick-start)
+* [Start building apps with Node, React, Next.js, and BigDesign](https://developer.bigcommerce.com/api-docs/apps/quick-start)
 
 
 ## Resources
 
-### Sample Apps
+### Sample apps
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
@@ -89,7 +90,7 @@ Here's how to get started with BigCommerce development:
 * [Node / FaunaDB / Nelify](https://github.com/bigcommerce/channels-app/)
 
 ### Tools
-* [Node API Client](https://github.com/getconversio/node-bigcommerce)
+* [Node API Client](https://github.com/bigcommerce/node-bigcommerce/)
 * [Python API Client](https://github.com/bigcommerce/bigcommerce-api-python)
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
@@ -98,7 +99,7 @@ Here's how to get started with BigCommerce development:
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 
-### Blog Posts
+### Blog posts
 * [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf) (BigCommerce Developer Blog)
 * [Building a BigCommerce App Using Laravel and React](https://medium.com/bigcommerce-developer-blog/building-a-bigcommerce-app-using-laravel-and-react-711ceceb5006) (BigCommerce Developer Blog)
 * [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2) (BigCommerce Developer Blog)

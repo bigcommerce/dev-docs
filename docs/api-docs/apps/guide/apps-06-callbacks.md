@@ -215,7 +215,7 @@ The following BigCommerce API clients expose helper methods for verifying the `s
 * [bigcommerce/bigcommerce-api-python](https://github.com/bigcommerce/bigcommerce-api-python)
   * Fetches `access_token`
   * Verifies `signed_payload`
-* [conversio/node-bigcommerce](https://github.com/getconversio/node-bigcommerce)
+* [bigcommerce/node-bigcommerce](https://github.com/bigcommerce/node-bigcommerce/)
   * Fetches `access_token`
   * Verifies `signed_payload`
 
@@ -225,6 +225,7 @@ The following BigCommerce API clients expose helper methods for verifying the `s
 ## Resources
 
 ### Sample apps
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
@@ -232,7 +233,7 @@ The following BigCommerce API clients expose helper methods for verifying the `s
 * [Node / FaunaDB / Nelify](https://github.com/bigcommerce/channels-app/)
 
 ### Tools
-* [Node API Client](https://github.com/getconversio/node-bigcommerce)
+* [Node API Client](https://github.com/bigcommerce/node-bigcommerce/)
 * [Python API Client](https://github.com/bigcommerce/bigcommerce-api-python)
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)

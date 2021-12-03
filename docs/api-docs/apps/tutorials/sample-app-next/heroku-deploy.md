@@ -11,7 +11,7 @@ If you want to skip the tutorial and get the app running quickly, you can use th
 
 4. Scroll down to **Config Vars** and replace the `<APP NAME>` placeholder inside `AUTH_CALLBACK` with your app's name.
 
-5. To obtain the Client ID and Client Secret, log into the [Developer Portal](https://devtools.bigcommerce.com/my/apps) and click **Create an app**. 
+5. To obtain the Client ID and Client Secret, sign in to the [Developer Portal](https://devtools.bigcommerce.com/my/apps) and click **Create an app**. 
 
 ![Create an App](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-03.png "Create an App")
 
