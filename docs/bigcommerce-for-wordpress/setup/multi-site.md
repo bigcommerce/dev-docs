@@ -41,6 +41,9 @@ Multiple sites can share the same API credentials or you can choose to create a 
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
 
+<!-- theme:  -->
+
+>### API Account Name Field
 > We suggest 'WordPress' for the name, although you can name it anything you'd like as long as it's unique within your API accounts and is more than 3 characters.
 
 </div>
@@ -79,19 +82,6 @@ Select `modify` for all other scopes.
 
 The screen will also contain your API Path, which you will need for the WordPress Plugin. -->
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
-    
-<!-- theme:  -->
-
-<!--### API Account Name Field
-> We suggest 'WordPress' for the name, although you can name it anything you'd like as long as it's unique within your API accounts and is more than 3 characters.-->
-
-</div>
-</div>
-</div>
-
 <!--
     title: #### Fill in the Name and OAuth Scopes.
 
@@ -122,7 +112,7 @@ The screen will also contain your API Path, which you will need for the WordPres
     
 <!-- theme:  -->
 
-### .txt file fownload
+>### .txt file download
 > You'll also see a `.txt` file download in your browser that contains the same information in an easy-to-read format, including your API Path again in case you didn't copy it before.
 
 </div>
@@ -171,10 +161,10 @@ _Congratulations, you're done setting up your additional site!_
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
-    
+
 <!-- theme:  -->
 
-### WordPress Currency Processing
+>### WordPress Currency Processing
 > The WordPress sites you connect to your BigCommerce store will process in the same currency as the BigCommerce store.
 
 </div>
