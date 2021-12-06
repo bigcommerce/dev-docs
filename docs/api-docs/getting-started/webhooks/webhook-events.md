@@ -336,6 +336,8 @@ Updates to the following fields trigger a `store/channel/updated` event.
 | store/order/statusUpdated | This will only fire if the order status has changed. Such as Pending to Awaiting Payment |
 | store/order/message/created | Order message is created by customer or in control panel |
 | store/order/refund/created | A refund has been submitted against an order |
+| store/order/transaction/created | Fires when a transaction record is created |
+| store/order/transaction/updated | Fires when a transaction record is updated  |
 
 ### The same response is returned for the following events:
 
@@ -439,6 +441,32 @@ Updates to the following fields trigger a `store/channel/updated` event.
     },
     "hash": "cb07cdbdda8b1965e812693d5988154807eeed02",
     "created_at": 1561479923,
+    "producer": "stores/{store_hash}"
+}
+```
+
+### The same response is returned for the following events:
+
+* `store/order/transaction/created`
+* `store/order/transaction/updated`
+
+**Response fields**
+- type -- Will always be transaction
+- order_id -- ID of the order associated with the transaction
+- transaction_id -- ID of the transaction created by the payment provider
+
+```json
+{
+    "scope": "store/order/transaction/created",
+    "channel_id": null,
+    "store_id": "1025646",
+    "data": {
+        "type": "transaction",
+        "order_id": 250,
+        "transaction_id": "176342342"
+    },
+    "hash": "dd70c0976e06b67aaf671e73f49dcb79230ebf9d",
+    "created_at": 1561479335,
     "producer": "stores/{store_hash}"
 }
 ```
