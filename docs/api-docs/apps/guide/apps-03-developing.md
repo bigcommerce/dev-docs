@@ -31,7 +31,7 @@ Alternatively, you can clone the GitHub repo for your preferred stack:
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
 * [Laravel / React](https://github.com/bigcommerce/laravel-react-sample-app)
-* [Node / FaunaDB / Nelify](https://github.com/bigcommerce/channels-app/)
+* [Node / FaunaDB / Netlify](https://github.com/bigcommerce/channels-app/)
 
 ## Testing locally with ngrok
 You can use [ngrok](https://ngrok.com/) to test apps locally. It's easy to install and works well with [Express](https://expressjs.com/):
