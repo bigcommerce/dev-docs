@@ -138,7 +138,7 @@ Bigcommerce.init({
 
 - If your app has a new user form, we recommend auto-filling input fields with data from the [stores](https://developer.bigcommerce.com/api-reference/store-management/store-information-api) endpoint, which contains much of the info you need.
 - If your app doesn't have an approval process for new users, consider automatically generating accounts for new stores that install your app.
-- If your app requires the user to log in at launch, use the information BigCommerce sends to your callback URL to authenticate the user without asking for a username and password each time.
+- If your app requires the user to sign in at launch, use the information BigCommerce sends to your callback URL to authenticate the user without asking for a username and password each time.
 - If you plan to share user testimonials, add a link to your full case study in the case studies field.
 
 ## Deployment
@@ -153,7 +153,8 @@ BigCommerce hosts [Google Cloud Platform](https://cloud.google.com/) in the [us-
 
 ## Resources
 
-### Sample aps
+### Sample apps
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
@@ -161,7 +162,7 @@ BigCommerce hosts [Google Cloud Platform](https://cloud.google.com/) in the [us-
 * [Node / FaunaDB / Netlify](https://github.com/bigcommerce/channels-app/)
 
 ### Tools
-* [Node API Client](https://github.com/getconversio/node-bigcommerce)
+* [Node API Client](https://github.com/bigcommerce/node-bigcommerce/)
 * [Python API Client](https://github.com/bigcommerce/bigcommerce-api-python)
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)

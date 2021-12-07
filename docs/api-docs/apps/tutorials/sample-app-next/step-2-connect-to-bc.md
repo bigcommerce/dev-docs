@@ -51,7 +51,7 @@ import * as BigCommerce from 'node-bigcommerce';
 
 ```js
 // Create BigCommerce instance
-// https://github.com/getconversio/node-bigcommerce
+// https://github.com/bigcommerce/node-bigcommerce/
 const bigcommerce = new BigCommerce({
     logLevel: 'info',
     clientId: process.env.CLIENT_ID,
@@ -87,12 +87,12 @@ You use the `authorize` method for the `/auth` API endpoint which gets called wh
 6. Export the `getBCVerify` function.
 
 ```js
-export function getBCVerify({ signed_payload }: QueryParams) {
-    return bigcommerceSigned.verify(signed_payload);
+export function getBCVerify({ signed_payload_jwt }: QueryParams) {
+    return bigcommerceSigned.verifyJWT(signed_payload_jwt);
 }
 ```
 
-The `verify` method employs the `signed_payload` query parameter to authenticate requests. You use the `verify` method for both `/load` and `/uninstall` API endpoints. To learn more about the OAuth flow, see [Single-Click App OAuth Flow](https://developer.bigcommerce.com/api-docs/apps/guide/auth).
+The `verifyJWT` method employs the `signed_payload_jwt` query parameter to authenticate requests. You use the `verifyJWT` method for both `/load` and `/uninstall` API endpoints. To learn more about the OAuth flow, see [Single-Click App OAuth Flow](https://developer.bigcommerce.com/api-docs/apps/guide/auth).
 
 [View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-2-connect-app-to-bc/lib/auth.ts)
 
@@ -128,7 +128,7 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
 
 The `/auth` endpoint gets called when installing the app. Launching (loading) or uninstalling the app will not call the `/auth` endpoint.
 
-4. Open the `load.ts` file and add the logic to log the user in when the app calls the `/load` endpoint (when launching the app).
+4. Open the `load.ts` file and add the logic to sign the user in when the app calls the `/load` endpoint (when launching the app).
 
 ```js
 import { NextApiRequest, NextApiResponse } from 'next';
@@ -193,7 +193,7 @@ ngrok http 3000
 <div class="HubBlock-content">
 
 > ### Note
-> When installed as an npm package, ngrok sessions expire every two hours. To prevent your session from timing out, you can create a ngrok account and download ngrok for your machine. To learn more, see [Download & setup ngrok](https://ngrok.com/download).
+> Although you can use the `ngrok` npm package without creating an account, any unauthenticated tunnels you create will expire after two hours. For the best development experience, [create a free ngrok account](https://dashboard.ngrok.com/signup), [find your ngrok authtoken](https://dashboard.ngrok.com/get-started/your-authtoken), and [add the authtoken](https://ngrok.com/docs#getting-started-authtoken) to your global `ngrok` configuration.
 
 </div>
 </div>
@@ -305,7 +305,7 @@ npm run dev
 
 ## Install and launch the app
 
-1. Log into your BigCommerce store and navigate to [**Apps** > **My Apps** > **My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts). You should see your new app displayed under **My Draft Apps**.
+1. Sign in to your BigCommerce store and navigate to [**Apps** > **My Apps** > **My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts). You should see your new app displayed under **My Draft Apps**.
 
 ![My draft apps](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-08.png "My draft apps")
 

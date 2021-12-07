@@ -4,7 +4,7 @@
 
 ### On this page
 - [Getting started](#getting-started)
-- [Beginning with hello world](#beginning-with-hello-world)
+- [Beginning quickly](#beginning-quickly)
 - [Testing locally with ngrok](#testing-locally-with-ngrok)
 - [Registering a draft app](#registering-a-draft-app)
 - [Installing a draft app](#installing-a-draft-app)
@@ -17,18 +17,21 @@ The BigCommerce team has developed an array of sample apps and tools to assist d
 
 ## Getting started
 Here's a few things you'll need before beginning app development:
-1. [Store / Dev Sandbox](https://www.bigcommerce.com/essentials/free-trial/) (required to test app installation)
+1. [BigCommerce sandbox store](https://developer.bigcommerce.com/api-docs/partner/getting-started/create-a-sandbox-store) (required to test app installation)
 2. [Developer Portal Account](https://devtools.bigcommerce.com/) (required to register apps)
 3. [BigCommerce partnership](https://www.bigcommerce.com/partners/) (required to publish apps to marketplace)
 
-## Beginning with hello world
-The fastest way to begin app development is by starting with one of our Hello World apps. Create and install an app in minutes with our [Hello World Express example on CodeSandbox](https://developer.bigcommerce.com/api-docs/apps/quick-start), or clone the starter for your preferred stack:
+## Beginning quickly
+The fastest way to begin app development is by starting with one of our sample apps. You can follow our [Building Apps Quick Start Tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start), either alone or in conjunction with [spinning up a Heroku instance](https://heroku.com/deploy?template=https://github.com/bigcommerce/sample-app-nodejs) that runs our [Node / React / Next.js sample app](https://github.com/bigcommerce/sample-app-nodejs/).  
 
-* [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask) (github)
-* [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex) (github)
-* [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra) (github)
-* [Laravel / React](https://github.com/bigcommerce/laravel-react-sample-app) (github)
-* [Node / FaunaDB / Nelify](https://github.com/bigcommerce/channels-app/) (github)
+Alternatively, you can clone the GitHub repo for your preferred stack:
+
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs/)
+* [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
+* [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
+* [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
+* [Laravel / React](https://github.com/bigcommerce/laravel-react-sample-app)
+* [Node / FaunaDB / Netlify](https://github.com/bigcommerce/channels-app/)
 
 ## Testing locally with ngrok
 You can use [ngrok](https://ngrok.com/) to test apps locally. It's easy to install and works well with [Express](https://expressjs.com/):
@@ -52,42 +55,26 @@ ngrok http 3000                  # start ngrok
 
 For step-by-step instructions, see [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf) on our [developer blog](https://medium.com/bigcommerce-developer-blog).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme: info -->
-
-### Note
-> * If you'd rather skip setting up a development environment and experiment with app development in the browser, fork our [Express Hello World App in CodeSandbox](https://codesandbox.io/s/express-hello-world-app-fq5t1?file=/app.js). For step-by-step instructions, see the [Building Apps Quick Start Tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start).
-
-
-</div>
-</div>
-</div>
-
 ## Registering a draft app
-Once you've exposed an app to the internet, you can register a draft app in the [Developer Portal](https://devtools.bigcommerce.com/) using the app's callback URLs. To do so:
-1. [Log into the Developer Portal](https://devtools.bigcommerce.com/).
+Once you've exposed your app to the internet, you can register it as a draft app in the [Developer Portal](https://devtools.bigcommerce.com/) using the app's callback URLs. Use the following steps to register:
 
+1. [Sign in to the Developer Portal](https://devtools.bigcommerce.com/).
 2. Click **Create an App**.
 3. Name your app.
-
 4. Click **Technical**.
-
 5. Enter your app's callback URLs. If you're using ngrok, they'll look like this:
-
    * **Auth**: `https://4022ffe4.ngrok.io/auth`
    * **Load**: `https://4022ffe4.ngrok.io/load`
    * **Uninstall**: `https://4022ffe4.ngrok.io/uninstall`
 6.  Click **Update & Close**.
-
 7.  Click **View Client ID** to view the app's `client_id` and `client_secret`.
 
-
 ## Installing a draft app
-Draft apps are installable on stores owned by the same email as the [Developer Portal](https://devtools.bigcommerce.com/my/apps) account. Use the following steps to installLog into the store and navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts) and click the app to install the draft. Once you click **Install**, BigCommerce will begin the OAauth flow by making a `GET` request to the app's `/auth` callback URL. If the app handles all the requests successfully, the app will be installed and you can begin feature development.
+Any store registered to the same email as your [Developer Portal](https://devtools.bigcommerce.com/my/apps) account can install your draft apps. Use the following steps to install:
 
+1. Sign in to the store and navigate to **Apps** > **My Apps** > [**My Draft Apps**](https://login.bigcommerce.com/deep-links/manage/marketplace/apps/my-apps/drafts).
+2. Click the draft app thumbnail to install the draft. 
+3. Once you click **Install**, BigCommerce will begin the OAauth flow by making a `GET` request to the app's `/auth` callback URL. If the app handles all the requests successfully, the app has been installed and you can begin feature development.
 
 ## Next steps
 * [Learn How Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf)
@@ -98,6 +85,7 @@ Draft apps are installable on stores owned by the same email as the [Developer P
 * [Building Apps Quick Start](https://developer.bigcommerce.com/api-docs/apps/quick-start)
 
 ### Sample apps
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
@@ -105,7 +93,7 @@ Draft apps are installable on stores owned by the same email as the [Developer P
 * [Node / FaunaDB / Netlify](https://github.com/bigcommerce/channels-app/)
 
 ### Tools
-* [Node API Client](https://github.com/getconversio/node-bigcommerce)
+* [Node API Client](https://github.com/bigcommerce/node-bigcommerce/)
 * [Python API Client](https://github.com/bigcommerce/bigcommerce-api-python)
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
