@@ -47,7 +47,7 @@ For more information on OAuth Scopes and authentication, see [Authentication](ht
 
 <!-- theme: info -->
 
-> For limits on the number of line items in a consignment, see the [Create a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) documentation.
+> For limits on the number of line items in a consignment, see the [Create a consignment endpoint](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) documentation.
 
 > The Server-to-Server Checkout API responds quickly when the checkout contains one consignment.  Each additional consignment increases the amount of time the API takes to finish creating a checkout. The example API calls in this article use the Server-to-Server Checkout API.
   
@@ -73,7 +73,7 @@ For more information on OAuth Scopes and authentication, see [Authentication](ht
 </div>
 </div>
 
-The [Create a consignment endpoint](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) requires a `checkoutID`.  You can create consignments associated with a cart before it becomes a checkout.  This endpoint supports creating multiple consignments in a single call.
+The [Create a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) requires a `checkoutID`.  You can create consignments associated with a cart before it becomes a checkout.  This endpoint supports creating multiple consignments in a single call.
 
 The following is an example `POST` request for creating two consignments. Append `include=consignment.available_shipping_options` to the endpoint so that you will have the information to select one of them in the next step.
 
@@ -149,7 +149,7 @@ Copy and paste your `store_hash`,`access_token`, and `checkoutId` into the form,
 
 ## Updating a consignment
 
-The [Update a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) requires the `checkoutId` and the `consignmentId`. You can find the consignment ID in the response from the preceding API call. The checkout ID is the same as the cart ID.
+The [Update a consignment endpoint](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) requires the `checkoutId` and the `consignmentId`. You can find the consignment ID in the response from the preceding API call. The checkout ID is the same as the cart ID.
 
 There are two distinct kinds of consignment updates. The first selects a fulfillment option. The second can update the recipient's shipping address and adjust the list of included line items. 
 
@@ -159,7 +159,7 @@ There are two distinct kinds of consignment updates. The first selects a fulfill
 
 <!-- theme: warning -->
 
-> You must choose one type of consignment update because changing the shipping address and weight can change available fulfillment options. You can't do both in the same call to the [Update a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput).
+> You must choose one type of consignment update because changing the shipping address and weight can change available fulfillment options. You can't do both in the same call to the [Update a consignment endpoint](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput).
 
 </div>
 </div>
