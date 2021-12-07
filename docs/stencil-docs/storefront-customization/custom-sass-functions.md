@@ -41,7 +41,7 @@ To add a custom Sass file, place it at this path location, using an arbitrary fi
 
 <span class="fp">/assets/scss/foobar.scss</span>
 
-Next, import the custom file into `theme.css`.
+Next, import the custom file into `theme.scss`.
 
 ```scss
 @import "foobar";

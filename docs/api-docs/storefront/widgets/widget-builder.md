@@ -27,7 +27,7 @@ This article is a guide to help you learn how to use Widget Builder.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+
 
 <!-- theme: warn -->
 
