@@ -2523,6 +2523,27 @@ definitions:
         name:
           type: string
           description: 'Optionally, provide a value to override the product name'
+        gift_wrapping:
+          type: object
+          properties:
+            wrap_together:
+              type: boolean
+              description: 'Indicates whether we want to wrap items together or separately'
+              example: true
+            wrap_details:
+              type: array
+              description: 'Details of the Gift Wrapping option selected. This can be specified for each line items.'
+              items:
+                type: object
+                properties:
+                  id:
+                    type: number
+                    description: 'Identifier of the Gift Wrapping Option selected'
+                    example: 0
+                  message:
+                    type: string
+                    description: 'Custom gift message'
+                    example: 'Happy Birthday'
       required:
         - quantity
         - product_id
