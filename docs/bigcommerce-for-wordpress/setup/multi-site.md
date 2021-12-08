@@ -13,7 +13,7 @@
 
 When connecting more than one WordPress site to your BigCommerce store, you need to use an API account to link them. If you try to connect using the 'connect your store' flow, which uses a BigCommerce app to streamline the connection, your first WordPress site will lose its connection to BigCommerce.
 
-Multiple sites can share the same API credentials or you can choose to create a new set of credentials for each site.
+Multiple sites can share the same API credentials, or you can choose to create a new set of credentials for each site.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
@@ -65,27 +65,27 @@ Multiple sites can share the same API credentials or you can choose to create a 
 
 3. For the OAuth Scopes, select the following default settings:
 
-**OAuth Scope**|**Default Selection**
-:-----:|:-----:
-Content|None
-Checkout Content|None
-Customers|Modify
-Customers Login|Login
-Information & Settings|Modify
-Marketing|Read-Only
-Orders|Read-Only
-Order Transactions|Read-Only
-Create Payments|None
-Get Payment Methods|Read-Only
-Products|Read-Only
-Themes|None
-Carts|Modify
-Checkouts|Modify
-Sites & Routes|Modify
-Channel Settings|Modify
-Channel Listings|Modify
-Storefront API Tokens|None
-Storefront API Customer Impersonation Tokens|None
+|               **OAuth Scope**                | **Default Selection** |
+|:--------------------------------------------:|:---------------------:|
+|                   Content                    |         None          |
+|               Checkout Content               |         None          |
+|                  Customers                   |        Modify         |
+|               Customers Login                |         Login         |
+|            Information & Settings            |        Modify         |
+|                  Marketing                   |       Read-Only       |
+|                    Orders                    |       Read-Only       |
+|              Order Transactions              |       Read-Only       |
+|               Create Payments                |         None          |
+|             Get Payment Methods              |       Read-Only       |
+|                   Products                   |       Read-Only       |
+|                    Themes                    |         None          |
+|                    Carts                     |        Modify         |
+|                  Checkouts                   |        Modify         |
+|                Sites & Routes                |        Modify         |
+|               Channel Settings               |        Modify         |
+|               Channel Listings               |        Modify         |
+|            Storefront API Tokens             |         None          |
+| Storefront API Customer Impersonation Tokens |         None          |
 
 <!--
 * Checkout Content: `none`
@@ -115,7 +115,7 @@ The screen will also contain your API Path, which you will need for the WordPres
 -->
 
 #### API credentials
-![#### API Credentials
+![#### API credentials
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044553372 "#### API Credentials
 ")
 
@@ -148,14 +148,14 @@ The screen will also contain your API Path, which you will need for the WordPres
 1. To set up a WordPress site using this method, click `Enter your API credentials` on the welcome screen in the plugin. 
 
 <!--
-    title: #### Wordpress Plugin Welcome Screen
+    title: #### WordPress Plugin Welcome Screen
 
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1544043727239
 -->
 
-#### Wordpress plugin welcome screen
-![#### Wordpress Plugin Welcome Screen
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1544043727239 "#### Wordpress Plugin Welcome Screen
+#### WordPress plugin welcome screen
+![#### WordPress Plugin Welcome Screen
+](//s3.amazonaws.com/user-content.stoplight.io/6116/1544043727239 "#### WordPress Plugin Welcome Screen
 ")
 
 After clicking the text, you will be asked for your store's API credentials and base path.
@@ -171,7 +171,6 @@ After clicking the text, you will be asked for your store's API credentials and 
 
 _Congratulations, you're done setting up your additional site!_ 
 
-<div class="HubBlock--callout">
 <div class="CalloutBlock--">
 <div class="HubBlock-content">
 
@@ -186,4 +185,4 @@ _Congratulations, you're done setting up your additional site!_
 
 ## Additional resources
 
-* [Multisite Ecommerce with Wordpress and BigCommerce](https://medium.com/bigcommerce-developer-blog/multi-site-ecommerce-with-wordpress-and-bigcommerce-40dee194f8a) (Developer Blog)
+* [Multisite Ecommerce with WordPress and BigCommerce](https://medium.com/bigcommerce-developer-blog/multi-site-ecommerce-with-wordpress-and-bigcommerce-40dee194f8a) (Developer Blog)
