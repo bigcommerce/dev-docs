@@ -30,7 +30,7 @@ Multiple sites can share the same API credentials, or you can choose to create a
 
 ## Getting your API credentials
 
-1. To get your store's API credentials, log into your BigCommerce store and head to `Advanced Settings` > `API Accounts`. Then, click the blue `Create API Account` button on the top left hand side.
+To get your store’s API credentials, log into your BigCommerce store and head to `Advanced Settings` > `API Accounts`. Then, click the blue `Create API Account` button on the top left-hand side.
 
 <!--
     title: #### Click 'Create API Account' to get credentials
@@ -43,7 +43,7 @@ Multiple sites can share the same API credentials, or you can choose to create a
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044020003 "#### Click 'Create API Account' to get credentials
 ")
 
-2. Click `Create API Account`. This opens up a screen that will ask you to enter a name for the API account.
+2. Click `Create API Account` to open up a screen that will ask you to enter a name for the API account.
 
 #### Fill in the Name and OAuth Scopes.
 ![#### Fill in the Name and OAuth Scopes.
@@ -158,7 +158,7 @@ The screen will also contain your API Path, which you will need for the WordPres
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1544043727239 "#### WordPress Plugin Welcome Screen
 ")
 
-After clicking the text, you will be asked for your store's API credentials and base path.
+You will be asked for your store's API credentials and base path.
 
 <!--
     title: 
@@ -167,7 +167,7 @@ After clicking the text, you will be asked for your store's API credentials and 
 
 ![](//s3.amazonaws.com/user-content.stoplight.io/6116/1544043952871 "")
 
-2. Enter the API credentials on your WordPress site. Saving the API credentials on your WordPress site will direct you to name the channel that the plugin will create. This allows you to list product to the channel from within BigCommerce and link orders back to the channel that come from the WordPress site. You can also link to an existing channel.
+2. Enter the API credentials on your WordPress site. Saving the API credentials on your WordPress site will direct you to name the channel that the plugin will create. This allows you to list product to the channel from within BigCommerce and link orders back to the channel that comes from the WordPress site. You can also link to an existing channel.
 
 _Congratulations, you're done setting up your additional site!_ 
 
