@@ -33,6 +33,12 @@ properties:
     allOf:
       - $ref: ./create_account_email.yml
     type: object
+  Account Created Guest Email Template Objects:
+    title: Create Guest Account Template
+    description: Data available to the create guest account email template.
+    allOf:
+      - $ref: ./create_guest_account_email.yml
+    type: object  
   Gift Certificate Recipient Email Template Objects:
     title: Gift Certificate Email Template
     description: Data available to the gift certificate email template.
