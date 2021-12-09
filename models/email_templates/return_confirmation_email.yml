@@ -11,8 +11,6 @@ properties:
         type: string
       comments:
         type: string
-      order_id:
-        type: string
       products:
         type: array
         items:
@@ -22,6 +20,17 @@ properties:
               type: string
             quantity:
               type: integer
+            price:
+              type: string
+            sku:
+              type: string
+            thumbnail:
+              type: string
+  order:
+    type: object
+    properties:
+      id:
+        type: integer
   store:
     type: object
     properties:
@@ -70,6 +79,13 @@ properties:
         type: string
       email:
         type: string
+      group:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
   misc:
     type: object
     properties:

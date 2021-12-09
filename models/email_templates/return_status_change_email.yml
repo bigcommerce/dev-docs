@@ -19,7 +19,11 @@ properties:
             type: string
           quantity:
             type: integer
-          thumbnail_url:
+          price:
+            type: string
+          sku:
+            type: string
+          thumbnail:
             type: string
       status:
         type: object
@@ -92,6 +96,13 @@ properties:
         type: string
       email:
         type: string
+      group:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
   misc:
     type: object
     properties:

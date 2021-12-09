@@ -146,7 +146,7 @@ properties:
               formatted:
                 type: string
               value:
-                type: integer
+                type: float
       billing:
         type: object
         properties:
@@ -205,13 +205,16 @@ properties:
           formatted:
             type: string
           value:
-            type: integer
+            type: float
       meta:
         type: object
         properties:
           mandate_url:
             type: string
-            description: Link to the confirmation page in the Stripe.
+            description: Link to the confirmation page in Stripe
+          mandate_tag:
+            type: string
+            description: Short name of the payment document
           shipping_addresses_num:
             type: integer
           show_immediate_download:
@@ -264,6 +267,13 @@ properties:
         type: string
       email:
         type: string
+      group:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
   misc:
     type: object
     properties:
