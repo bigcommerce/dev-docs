@@ -26,18 +26,6 @@ To successfully complete this tutorial, you will need the following things to th
 * Experience using [npm](https://www.npmjs.com/)
 * Node.js version 10.13+
 
-## Get started
-
-1. Start by forking the [sample-app-nodejs](https://github.com/bigcommerce/sample-app-nodejs) repository.
-2. Navigate to the root directory of your project and install npm packages.
-
-```shell
-npm install
-```
-
-## Add and start ngrok
-
-You will need a publicly accessible URL to connect the draft app to BigCommerce. To add network access while in the development phase, you can use [ngrok](https://ngrok.com/docs), a free tool that lets you expose local servers like `localhost:3000` to the public internet over secure tunnels.
 
 1. In a new terminal window, install [ngrok](https://www.npmjs.com/package/ngrok#usage).
 
