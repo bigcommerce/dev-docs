@@ -70,7 +70,7 @@ Keep this tab open for the next step.
 
 ## Configure environment variables
 
-After registering the draft app, add its credentials and auth callback URL to your project's environment variables file.
+After registering the draft app, add its credentials as file.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
