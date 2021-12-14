@@ -21,12 +21,10 @@ Multiple sites can share the same API credentials, or you can choose to create a
 | Subdirectories           | No               |
 | Subdomains               | Yes              |
 | Separate Domains         | Yes*             |
-Note that embedded checkout is only supported on a single domain at a time. See the [Big Commerce for WordPress documentation](#bigcommerce-for-wordpress-documentation).*
+Note that embedded checkout is only supported on a single domain at a time. See the [Big Commerce for WordPress ](https://support.bigcommerce.com/s/article/BigCommerce-for-WordPress-Checkout?language=en_US#subdomain-setup) documentation.*
 
+</div>
 
-</div>
-</div>
-</div>
 
 ## Getting your API credentials
 
@@ -177,6 +175,8 @@ _Congratulations, you're done setting up your additional site!_
 >### WordPress currency processing
 > The WordPress sites you connect to your BigCommerce store will process in the same currency as the BigCommerce store.
 
+</div>
+</div>
 
 ## Additional resources
 
