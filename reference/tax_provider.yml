@@ -261,7 +261,7 @@ paths:
       parameters:
         - name: id
           in: query
-          description: 'Unique ID identifying the existing, persisted Tax Quote that will be voided. When provided, this value will be the External ID.'
+          description: 'Unique ID identifying the existing, persisted Tax Quote that will be voided.'
           required: true
           schema:
             type: string
@@ -608,7 +608,7 @@ paths:
         - in: query
           name: id
           required: true
-          description: 'Unique ID identifying the existing, persisted Tax Quote that will be adjusted. When provided, this value will be the External ID.'
+          description: 'Unique ID identifying the existing, persisted Tax Quote that will be adjusted.'
           schema:
             type: string
       requestBody:
