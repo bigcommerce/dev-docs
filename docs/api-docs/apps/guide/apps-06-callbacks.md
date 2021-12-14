@@ -21,18 +21,18 @@ After a store owner installs your single-click app, they and their authorized us
 
 ## Overview
 
-The table below contains a brief description of each callback. Note that only the `load` callback is required.
+The following table lists the app management events and corresponding callback endpoints for which our servers return JWTs. Your app is only required to handle the `load` endpoint, but we recommend provisioning all of them.
 
-| Event | Required? | Description |
-|-|-|-|
-| `load`  | yes | called when the store owner or user clicks to load the app |
-| `uninstall`  | no | called when the store owner clicks to uninstall the app |
-| `remove User` | no | called when the store admin revokes a user's access to the app |
+| Endpoint      | Required? | Event Description                                         |
+|:--------------|:---------:|:----------------------------------------------------------|
+| `load`        | yes       | The store owner or authorized user clicks to load the app |
+| `uninstall`   | no        | The store owner clicks to uninstall the app               |
+| `remove_user` | no        | The store owner revokes a user's access to the app        |
 
-Each event triggers a `GET` request from BigCommerce containing a `signed_payload` that allows the app to:
-- Verify that the request came from BigCommerce.
+Decoding the supplied JWT lets your app do the following:
 - Identify the store.
-- Identify the store owner or user.
+- Identify the requesting user.
+- Verify that the request came from BigCommerce.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
