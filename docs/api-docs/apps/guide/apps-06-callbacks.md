@@ -123,7 +123,7 @@ encoded_token_header.encoded_claim_payload.encoded_algorithmic_signature
 
 ## Identifying users
 
-After decoding and verifying the `signed_playload`, parse the JSON string into an object. Here's an example payload:
+After decoding and verifying the `signed_payload_jwt`, parse the JSON string into an object. The following is an example payload:
 
 ```json
 {
@@ -141,27 +141,27 @@ After decoding and verifying the `signed_playload`, parse the JSON string into a
 }
 ```
 
-| Name | Data Type | Value Description |
-|-|-|-|
-| `user.id` | int | ID of user initiating callback |
-| `user.email `| str | email of the user initiating callback |
-| `owner.id` | int | ID of store owner |
-| `owner.email` | str | email address of store owner. |
-| `context` | str | `stores/` + `store_hash`; ex: `stores/store_hash` |
-| `store_hash` | str | unique identified for store used in API requests |
-| `timestamp` | float | Unix time when callback generated|
+| Name          | Data Type | Value Description                                 |
+|:--------------|:----------|:--------------------------------------------------|
+| `user.id`     | integer   | ID of user initiating callback                    |
+| `user.email`  | string    | email of the user initiating callback             |
+| `owner.id`    | integer   | ID of store owner                                 |
+| `owner.email` | string    | email address of store owner.                     |
+| `context`     | string    | `stores/` + `store_hash`; ex: `stores/store_hash` |
+| `store_hash`  | string    | unique identified for store used in API requests  |
+| `timestamp`   | float     | Unix time when callback generated                 |
 
-Use the data contained in the payload object to identify the store and user. What your app should do with this information is dependent on whether [**Multiple Users**](https://developer.bigcommerce.com/api-docs/apps/guide/users) is enabled in the [Developer Portal](https://devtools.bigcommerce.com/). Refer to the table below for instructions.
+Use the data contained in the payload object to identify the store and user. What your app should do with this information depends on whether [**Multiple Users**](https://developer.bigcommerce.com/api-docs/apps/guide/users) is enabled in the [Developer Portal](https://devtools.bigcommerce.com/). Refer to the following table for instructions.
 
-| Callback | Multiple Users Enabled | Multiple Users Not Enabled |
-|-|-|-|
-| `Load` | Compare user to store owner or existing user; if no match, it's a new users; add them app's database. | should match store owner|
-| `Uninstall` | Compare user to store owner or existing user; only store owner can uninstall an app. | should match store owner |
-| `Remove user` | Compare user to users stored in app database; remove matching user from database. | `n/a` |
+| Callback      | Multiple Users Enabled                                                                                      | Multiple Users Not Enabled |
+|:--------------|:------------------------------------------------------------------------------------------------------------|:---------------------------|
+| `Load`        | Compare user to store owner or existing user; if no match, it's a new user; add them to the app's database. | Will match store owner     |
+| `Uninstall`   | Compare user to store owner or existing user; only store owner can uninstall an app.                        | Will match store owner     |
+| `Remove user` | Compare user to users stored in app database; remove matching user from database.                           | N/A                        |
 
 ## Code samples
 
-### Verifying signed_payload in PHP
+### Verifying signed_payload_jwt in PHP
 
 ```php
 function verifySignedRequest($signedRequest)
@@ -170,7 +170,7 @@ function verifySignedRequest($signedRequest)
 
     // decode the data
     $signature = base64_decode($encodedSignature);
-        $jsonStr = base64_decode($encodedData);
+    $jsonStr = base64_decode($encodedData);
     $data = json_decode($jsonStr, true);
 
     // confirm the signature
@@ -183,19 +183,19 @@ function verifySignedRequest($signedRequest)
 }
 ```
 
-### Verifying signed_payload in Ruby
+### Verifying signed_payload_jwt in Ruby
 ```ruby
 require "base64"
 require "openssl"
 
-def verify(signed_payload, client_secret)
-  message_parts = signed_payload.split(".")
+def verify(signed_payload_jwt, client_secret)
+  message_parts = signed_payload_jwt.split(".")
 
   encoded_json_payload = message_parts[0]
-  encoded_hmac_signature = message_parts[1]
+  encoded_algorithmic_signature = message_parts[1]
 
   payload_object = Base64.strict_decode(encoded_json_payload)
-  provided_signature = Base64.strict_decode(encoded_hmac_signature)
+  provided_signature = Base64.strict_decode(encoded_algorithmic_signature)
 
   expected_signature = OpenSSL::HMAC::hexdigest("sha256", client_secret, payload_object)
 
@@ -215,13 +215,13 @@ end
 ```
 
 ## Helpful tools
-The following BigCommerce API clients expose helper methods for verifying the `signed_payload`:
+The following BigCommerce API clients expose helper methods for verifying the `signed_payload_jwt`:
 * [bigcommerce/bigcommerce-api-python](https://github.com/bigcommerce/bigcommerce-api-python)
   * Fetches `access_token`
-  * Verifies `signed_payload`
+  * Verifies `signed_payload_jwt`
 * [bigcommerce/node-bigcommerce](https://github.com/bigcommerce/node-bigcommerce/)
   * Fetches `access_token`
-  * Verifies `signed_payload`
+  * Verifies `signed_payload_jwt`
 
 ## Next steps
 * [Support multiple users](https://developer.bigcommerce.com/api-docs/apps/guide/users)
