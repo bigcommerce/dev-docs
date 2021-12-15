@@ -92,20 +92,20 @@ Host: your_app.example.com
 Once you've [verified the signed payload](#verifying-the-signed-payload) and [identified the requesting user](#identifying-users), handle any business internal to your app, such as removing the user's data from your app's database. You do not need to send a response.
 ## Verifying the signed payload
 
-The `signed_payload_jwt` is composed of three distinct **base64URL**-encoded strings concatenated with the `.` character.
+BigCommerce's payload JWTs implement the JWT-JWS specification that the [IETF's](https://www.ietf.org/) [RFC 7515 standard](https://datatracker.ietf.org/doc/html/rfc7515) defines. The `signed_payload_jwt` is composed of three distinct **base64URL**-encoded strings concatenated with the `.` character.
 
 ```javascript
-encoded_token_header.encoded_claim_payload.encoded_algorithmic_signature
+b64_jose_header.b64_claim_payload.b64_algorithmic_signature
 ```
 
 **To verify**:
 1. Split the `signed_payload_jwt` by the `.` delimiter.
-2. Decode the **base64url** `encoded_token_header`.
-3. Convert the decoded `token_header` from a JSON string to an object and locate the signing algorithm.
-4. Decode the **base64url** `encoded_claim_payload`.
+2. Decode the **base64url** `b64_jose_header`.
+3. To identify the signing algorithm, convert the decoded `jose_header` from a JSON string to an object and use the value of `jose_header.alg`.
+4. Decode the **base64url** `b64_claim_payload`.
 5. Convert the decoded `claim_payload` from a JSON string to an object.
-6. Decode the **base64url** `encoded_algorithmic_signature`.
-7. Use the `encoded_token_header`, `encoded_claim_payload`, your app's `client_secret`, and the signing algorithm from the decoded `token_header` to verify the decoded `algorithmic_signature`. >>>(this is the shape of a guess informed by [jwt.io](https://jwt.io/introduction) -- verify)<<< 
+6. Decode the **base64url** `b64_algorithmic_signature`.
+7. Use the `b64_claim_payload`, your app's `client_secret`, and the signing algorithm from the decoded `jose_header` to verify the decoded `algorithmic_signature`. >>>(this is the shape of a guess informed by [jwt.io](https://jwt.io/introduction) -- verify)<<< 
 8. Sign the decoded `claim_payload` with your app's `client_secret`. >>>(this is also going to be different)<<<
 9. Match<sup>1</sup> signed `claim_payload` against decoded `algorithmic_signature`. >>>(revise pending resolution of preceding questions)<<<
 
@@ -191,11 +191,11 @@ require "openssl"
 def verify(signed_payload_jwt, client_secret)
   message_parts = signed_payload_jwt.split(".")
 
-  encoded_json_payload = message_parts[0]
-  encoded_algorithmic_signature = message_parts[1]
+  b64_json_payload = message_parts[0]
+  b64_algorithmic_signature = message_parts[1]
 
-  payload_object = Base64.strict_decode(encoded_json_payload)
-  provided_signature = Base64.strict_decode(encoded_algorithmic_signature)
+  payload_object = Base64.strict_decode(b64_json_payload)
+  provided_signature = Base64.strict_decode(b64_algorithmic_signature)
 
   expected_signature = OpenSSL::HMAC::hexdigest("sha256", client_secret, payload_object)
 
