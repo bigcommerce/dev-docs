@@ -47,9 +47,18 @@ Decoding the supplied JWT lets your app do the following:
 - Identify the requesting user.
 - Verify that the request came from BigCommerce.
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
+<!-- theme: info -->
 
+### Note
+> We strongly recommend that each of your callback handlers decode `signed_payload_jwt` to [verify the signed payload](#verifying-the-signed-payload) and [identify the requesting user](#identifying-users) before taking any action.
 
+</div>
+</div>
+</div>
 
 ## Opening app settings: the `/load` callback
 
