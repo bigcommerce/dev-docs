@@ -92,20 +92,22 @@ Host: your_app.example.com
 Once you've [verified the signed payload](#verifying-the-signed-payload) and [identified the requesting user](#identifying-users), handle any business internal to your app, such as removing the user's data from your app's database. You do not need to send a response.
 ## Verifying the signed payload
 
-The `signed_payload` is comprised of two `.` separated **base64URL** encoded strings:
+The `signed_payload_jwt` is composed of three distinct **base64URL**-encoded strings concatenated with the `.` character.
 
 ```javascript
-encoded_json_string.encoded_hmac_signature
+encoded_token_header.encoded_claim_payload.encoded_algorithmic_signature
 ```
 
 **To verify**:
-1. Split the `signed_payload` by the `.` delimiter.
-2. Decode the **base64url** `encoded_json_string`.
-3. Convert the decoded string into an object.
-4. Decode the **base64url** `encoded_hmac_signature`.
-5. Use your app's `client_secret` to verify the decoded `hmac_signature`.
-6. Sign the decoded `json_string` with your app's `client_secret`.
-7. Match<sup>1</sup> signed `json_string` against decoded `hmac_signature`.
+1. Split the `signed_payload_jwt` by the `.` delimiter.
+2. Decode the **base64url** `encoded_token_header`.
+3. Convert the decoded `token_header` from a JSON string to an object and locate the signing algorithm.
+4. Decode the **base64url** `encoded_claim_payload`.
+5. Convert the decoded `claim_payload` from a JSON string to an object.
+6. Decode the **base64url** `encoded_algorithmic_signature`.
+7. Use the `encoded_token_header`, `encoded_claim_payload`, your app's `client_secret`, and the signing algorithm from the decoded `token_header` to verify the decoded `algorithmic_signature`. >>>(this is the shape of a guess informed by [jwt.io](https://jwt.io/introduction) -- verify)<<< 
+8. Sign the decoded `claim_payload` with your app's `client_secret`. >>>(this is also going to be different)<<<
+9. Match<sup>1</sup> signed `claim_payload` against decoded `algorithmic_signature`. >>>(revise pending resolution of preceding questions)<<<
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
