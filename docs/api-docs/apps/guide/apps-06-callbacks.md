@@ -62,10 +62,10 @@ Decoding the supplied JWT lets your app do the following:
 
 ## Opening app settings: the `/load` callback
 
-BigCommerce sends a `GET` request to your app's `load` URL when the store owner or user clicks to load the app.
+Once the store owner or an authorized user has installed your app, they will see it listed in the **Apps** sub-menu of their store's control panel. When the user clicks your app's listing, BigCommerce will dispatch a `GET` request to the `/load` route you've written.  The following is an example request:
 
 ```http
-GET /load?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
+GET /load?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
 
@@ -73,26 +73,23 @@ Once you've [verified the signed payload](#verifying-the-signed-payload), [ident
 
 ## Removing the app: the `/uninstall` callback
 
-BigCommerce sends a `GET` request to your app's `uninstall` URL when the store owner clicks to uninstall the app.
+When the store owner >>>(maybe also auth users; can they uninstall?)<<< clicks **Uninstall** in >>>PLACE(s)<<<, BigCommerce dispatches a `GET` request to the `/uninstall` route you've written.  The following is an example request:
 
 ```http
-GET /uninstall?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
+GET /uninstall?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
 Once you've [verified the signed payload](#verifying-the-signed-payload) and [identified the requesting user](#identifying-users), handle any business internal to your app, such as marking the user inactive in your app's database or decrementing the number of active installations. You do not need to send a response.
-
-
-
-BigCommerce sends a `GET` request to your app's `remove user` callback when a store admin revokes a user's access to the app.
 ## Removing a user: the `/remove_user` callback
 
+When the store owner >>>(or admin?)<<< revokes a user's authorization to access your app >>>(in PLACE in the **Users** section of the control panel)<<<, BigCommerce dispatches a `GET` request to the `/remove_user` route you've written.
+
 ```http
-GET /remove_user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
+GET /remove_user?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
 
 Once you've [verified the signed payload](#verifying-the-signed-payload) and [identified the requesting user](#identifying-users), handle any business internal to your app, such as removing the user's data from your app's database. You do not need to send a response.
-
 ## Verifying the signed payload
 
 The `signed_payload` is comprised of two `.` separated **base64URL** encoded strings:
