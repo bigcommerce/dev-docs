@@ -1,4 +1,4 @@
-# Single-Click App Callbacks
+# Handling Single-Click App Callbacks
 
 
 <div class="otp" id="no-index">
