@@ -26,7 +26,7 @@ After a store owner installs your single-click app, they and their authorized us
 <!-- theme: info -->
 
 ### Note
-> * In a production, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
+> In production, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
 
 </div>
 </div>
@@ -114,8 +114,9 @@ encoded_json_string.encoded_hmac_signature
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
 
+<!-- theme: warning -->
 > ### Note
-> 1. To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. How to accomplish this varies by programming language. For code samples in Ruby and PHP, see [Code samples](#code-samples) below; search for "constant time string comparison {lang}" using your preferred search engine for more information.
+> 1. To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. How to accomplish this varies by programming language. Ruby and PHP [code samples](#code-samples) follow. For more information, use your preferred search engine to find "constant time string comparison {lang}".
 
 </div>
 </div>
