@@ -19,6 +19,19 @@
 
 After a store owner installs your single-click app, they and their authorized users will need to manage it and configure any settings. Because your app's users will be working in the BigCommerce control panel, certain user-initiated events that might be important to your internal logic will prompt our servers to send your app `GET` requests at predictable endpoints. Each of these requests will return a JSON web token, or _JWT_, as the value of the `signed_payload_jwt` parameter.  This article is both a reference and a guide for developing callbacks to handle these events and authenticate our `GET` requests to these endpoints.
 
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
+
+<!-- theme: info -->
+
+### Note
+> * In a production, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
+
+</div>
+</div>
+</div>
+
 ## Overview
 
 The following table lists the app management events and corresponding callback endpoints for which our servers return JWTs. Your app is only required to handle the `load` endpoint, but we recommend provisioning all of them.
@@ -34,18 +47,9 @@ Decoding the supplied JWT lets your app do the following:
 - Identify the requesting user.
 - Verify that the request came from BigCommerce.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
 
-<!-- theme: info -->
 
-### Note
-> * In a production, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
 
-</div>
-</div>
-</div>
 
 ## Load callback
 
