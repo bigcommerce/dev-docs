@@ -5,9 +5,9 @@
 
 ### On this page
 - [Overview](#overview)
-- [Load callback](#load-callback)
-- [Uninstall callback](#uninstall-callback)
-- [Remove user callback](#remove-user-callback)
+- [Opening app settings: the `/load` callback](#opening-app-settings-the-load-callback)
+- [Removing the app: the `/uninstall` callback](#removing-the-app-the-uninstall-callback)
+- [Removing a user: the `/remove_user` callback](#removing-a-user-the-remove_user-callback)
 - [Verifying the signed payload](#verifying-the-signed-payload)
 - [Identifying users](#identifying-users)
 - [Code samples](#code-samples)
@@ -51,7 +51,7 @@ Decoding the supplied JWT lets your app do the following:
 
 
 
-## Load callback
+## Opening app settings: the `/load` callback
 
 BigCommerce sends a `GET` request to your app's `load` URL when the store owner or user clicks to load the app.
 
@@ -60,12 +60,9 @@ GET /load?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
 
-The steps steps to handle this callback are as follows:
-1. [Verify the signed payload](#verifying-the-signed-payload).
-2. [Identify the user](#identifying-users).
-3. Respond with HTML for the control panel iFrame.
+Once you've [verified the signed payload](#verifying-the-signed-payload), [identified the requesting user](#identifying-users), and handled any internal business, your app should respond with the markup and assets for the view that you want BigCommerce to render in the control panel.
 
-## Uninstall callback
+## Removing the app: the `/uninstall` callback
 
 BigCommerce sends a `GET` request to your app's `uninstall` URL when the store owner clicks to uninstall the app.
 
@@ -73,25 +70,19 @@ BigCommerce sends a `GET` request to your app's `uninstall` URL when the store o
 GET /uninstall?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
+Once you've [verified the signed payload](#verifying-the-signed-payload) and [identified the requesting user](#identifying-users), handle any business internal to your app, such as marking the user inactive in your app's database or decrementing the number of active installations. You do not need to send a response.
 
-The steps steps to handle this callback are as follows:
-1. [Verify the signed payload](#verifying-the-signed-payload).
-2. [Identify the user](#identifying-users).
-3. Remove the user's data from your app's database.
 
-## Remove user callback
 
 BigCommerce sends a `GET` request to your app's `remove user` callback when a store admin revokes a user's access to the app.
+## Removing a user: the `/remove_user` callback
 
 ```http
 GET /remove_user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
 
-The steps steps to handle this callback are as follows:
-1. [Verify the signed payload](#verifying-the-signed-payload).
-2. [Identify the user](#identifying-users).
-3. Remove the user's data from your app's database.
+Once you've [verified the signed payload](#verifying-the-signed-payload) and [identified the requesting user](#identifying-users), handle any business internal to your app, such as removing the user's data from your app's database. You do not need to send a response.
 
 ## Verifying the signed payload
 
