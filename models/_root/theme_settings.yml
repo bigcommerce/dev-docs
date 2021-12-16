@@ -519,7 +519,7 @@ properties:
     type: boolean
   show_product_quick_view:
     type: boolean
-  show_product_reviews_tabs:
+  show_product_reviews:
     type: boolean
   show_product_weight:
     type: boolean
