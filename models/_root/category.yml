@@ -9,8 +9,6 @@ properties:
     type: array
     items:
       type: object
-  count:
-    type: integer
   description:
     type: string
     description: Merchant-defined description of the category.
