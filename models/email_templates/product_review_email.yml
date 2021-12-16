@@ -14,6 +14,10 @@ properties:
               type: string
             link:
               type: string
+            price:
+              type: string
+            thumbnail:
+              type: string
       unsubscribe_link:
         type: string
   store:
@@ -64,6 +68,13 @@ properties:
         type: string
       email:
         type: string
+      group:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
   misc:
     type: object
     properties:

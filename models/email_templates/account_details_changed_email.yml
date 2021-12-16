@@ -56,6 +56,13 @@ properties:
         type: string
       email:
         type: string
+      group:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
   misc:
     type: object
     properties:

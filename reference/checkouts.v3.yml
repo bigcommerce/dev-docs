@@ -199,10 +199,11 @@ paths:
       description: |-
         Adds a new consignment to a checkout.
 
+        **Limits:**
+        * 50 line item limit for guest shoppers
+        * 600 line item limit for logged-in shoppers
 
-        There are two steps to create a new consignment with a shipping address, line items, and shipping option. 
-        1. Add a new consignment to a checkout. Append the following query parameter to your `POST` request to also return `available_shipping_options` necessary for step two: `?include=consignments.available_shipping_options`. 
-        2. [Update the consignment](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) with one of the available shipping options returned from your `POST` request.
+        For more information about working with consignments, see [Checkout consignment](https://developer.bigcommerce.com/api-docs/checkouts/checkout-consignment).  
 
         Though the only required `shipping_address` properties to create a consignment are `email` and `country_code`, to successfully [create an order](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-orders/createanorder) the `shipping_address` requires the following properties:
         * `first_name`
@@ -343,36 +344,28 @@ paths:
           schema:
             $ref: '#/definitions/UpdateConsignmentRequest'
           x-examples:
-            application/json: |-
-              {
-                "shipping_address": {
-                  "email": "jane2@example.com",
-                  "country_code": "US",
-                  "first_name": "Testing",
-                  "last_name": "BigCommerce",
-                  "company": "BigCommerce",
-                  "address1": "1234 Main Street",
-                  "address2": "1234",
-                  "city": "Austin",
-                  "state_or_province": "Texas",
-                  "state_or_province_code": "TX",
-                  "postal_code": "78751",
-                  "phone": "+481526687548x4{1-5}",
-                  "custom_fields": [
-                    {
-                      "field_id": "field_25",
-                      "field_value": "You're Welcome"
-                    },
-                  ]
-                },
-                "line_items": [
-                  {
-                    "item_id": "15429582-222e-499e-8d22-d2930a0cfc0e",
-                    "quantity": 1
-                  },
-                ],
-                "shipping_option_id": "156fb123-68e1-40a2-8a48-98ceb04031c1"
-              }
+            Updating shipping optionID:
+              shipping_option_id: 9241669174884c2f2e83b3adabf03f83
+            Updating shipping address:
+              shipping_address:
+                email: jane2@example.com
+                country_code: US
+                first_name: Testing
+                last_name: BigCommerce
+                company: BigCommerce
+                address1: 1234 Main Street
+                address2: '1234'
+                city: Austin
+                state_or_province: Texas
+                state_or_province_code: TX
+                postal_code: '78751'
+                phone: '+481526687548x4{1-5}'
+                custom_fields:
+                  - field_id: field_25
+                    field_value: You're Welcome
+              line_items:
+                - item_id: 15429582-222e-499e-8d22-d2930a0cfc0e
+                  quantity: 1
         - name: include
           in: query
           required: false
@@ -567,7 +560,7 @@ definitions:
             type: integer
             format: int32
           email:
-            description: The cart's email. This is the same email that is used in the billing address
+            description: The cart's email. This is the same email that is used in the billing address.
             type: string
           currency:
             title: Currency
@@ -689,7 +682,7 @@ definitions:
                             type: number
                             format: double
                     coupons:
-                      description: When the line item uses a coupon, returns a number indicating the total discounted amount.  Otherwise, returns an empty array.
+                      description: 'When the line item uses a coupon, returns a number indicating the total discounted amount.  Otherwise, returns an empty array.'
                       type:
                         - number
                         - array
@@ -812,7 +805,7 @@ definitions:
                             type: number
                             format: double
                     coupons:
-                      description: When the line item uses a coupon, returns a number indicating the total discounted amount.  Otherwise, returns an empty array.
+                      description: 'When the line item uses a coupon, returns a number indicating the total discounted amount.  Otherwise, returns an empty array.'
                       type:
                         - number
                         - array
