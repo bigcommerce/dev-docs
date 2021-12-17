@@ -51,12 +51,13 @@ Note that embedded checkout is only supported on a single domain at a time. See 
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
-
+<div class="HubBlock-content">
 <!-- theme: info -->
 
 >### API account name field
 > We suggest 'WordPress' for the name, although you can name it anything you'd like as long as it's unique within your API accounts and is more than three characters.
 
+</div>
 </div>
 </div>
 
@@ -118,12 +119,13 @@ The screen will also contain your API Path, which you will need for the WordPres
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
-    
+<div class="HubBlock-content">
 <!-- theme: info -->
 
 >### .txt file download
 > You'll also see a `.txt` file download in your browser that contains the same information in an easy-to-read format, once again including your API Path in case you didn't copy it before.
 
+</div>
 </div>
 </div>
 
@@ -166,12 +168,13 @@ _Congratulations, you're done setting up your additional site!_
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
-
+<div class="HubBlock-content">
 <!-- theme: info -->
 
 >### WordPress currency processing
 > The WordPress sites you connect to your BigCommerce store will process in the same currency as the BigCommerce store.
 
+</div>
 </div>
 </div>
 
