@@ -21,7 +21,8 @@ Multiple sites can share the same API credentials, or you can choose to create a
 | Subdirectories           | No               |
 | Subdomains               | Yes              |
 | Separate Domains         | Yes*             |
-Note that embedded checkout is only supported on a single domain at a time. See the [BigCommerce for WordPress ](https://support.bigcommerce.com/s/article/BigCommerce-for-WordPress-Checkout?language=en_US#subdomain-setup) documentation.*
+Note that embedded checkout is only supported on a single domain at a time. See the [BigCommerce for WordPress](https://support.bigcommerce.com/s/article/BigCommerce-for-WordPress-Checkout?language=en_US#subdomain-setup) documentation.*
+
 
 </div>
 
