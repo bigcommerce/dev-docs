@@ -109,15 +109,16 @@ Use the following steps to parse, validate, and verify the JWTs that BigCommerce
 4. Decode the **base64url** `algorithmic_signature_b64`.  `algorithmic_signature_hash` is a cryptographic hash.
 5. Use the algorithm specified at `jose_header_obj.alg` and your app's `client_secret` to validate `algorithmic_signature_hash`.  
 
-**Sign the payload claims string**
-6. Decode the **base64url** `payload_claims_b64`. `payload_claims_str` is a JSON string.
-7. Use the algorithm specified at `jose_header_obj.alg` to sign `payload_claims_str` with your app's `client_secret`. `payload_claims_hash` is a cryptographic hash.
+**Concatenate and sign the header and payload claims**
+6. Concatenate `jose_header_b64` and `payload_claims_b64` with a `.` delimiter to create `header_payload_concat_b64`.
+7. Use the algorithm specified at `jose_header_obj.alg` to sign `header_payload_concat_b64` with your app's `client_secret`. `header_payload_concat_hash` is a cryptographic hash.
 
 **Verify the payload claims hash**
-8. Compare `algorithmic_signature_hash` with `payload_claims_hash`.  If BigCommerce sent your app this JWT, they will match. 
+8. Compare `header_payload_concat_hash` with `algorithmic_signature_hash`.  If BigCommerce sent your app this JWT, the two hashes will match. 
 
 **Parse and use the payload**
-1. Parse `payload_claims_str` into a JSON object. The following section is a reference for working with the values in `payload_claims_obj`.
+9. Decode the **base64url** `payload_claims_b64`. `payload_claims_str` is a JSON string.
+10. Parse `payload_claims_str` into a JSON object. The following section is a reference for working with the values in `payload_claims_obj`.
 
 
 <div class="HubBlock--callout">
@@ -145,7 +146,7 @@ The following is an example of the payload claims in a BigCommerce app callback 
   "iat": 1640037763,
   "nbf": 1640037758,
   "exp": 1640124163,
-  "jti": "c5f0bcf5-a504-4ae6-8dcc-0e40eaa5a070",
+  "jti": "c5f0bcf5-a504-4ae6-8dcc-0e40eaa5a070", // JWT unique identifier
   "sub": "stores/z4zn3wo", // STORE_HASH
   "user": {
     "id": 9128,
