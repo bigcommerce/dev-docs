@@ -92,22 +92,32 @@ Host: your_app.example.com
 Once you've [verified the payload](#verifying-the-payload) and [identified the requesting user](#working-with-payload-claims), handle any business internal to your app, such as removing the user's data from your app's database. You do not need to send a response.
 ## Verifying the payload
 
-BigCommerce's payload JWTs implement the JWT-JWS specification that the [IETF's](https://www.ietf.org/) [RFC 7515 standard](https://datatracker.ietf.org/doc/html/rfc7515) defines. The `signed_payload_jwt` is composed of three distinct **base64URL**-encoded strings concatenated with the `.` character.
+BigCommerce's payload JWTs implement the JWT-JWS specification that the [IETF's](https://www.ietf.org/) open standard [RFC 7515](https://datatracker.ietf.org/doc/html/rfc7515) defines. The `signed_payload_jwt` is composed of three distinct **base64URL**-encoded strings concatenated with the `.` character.
 
 ```javascript
-b64_jose_header.b64_claim_payload.b64_algorithmic_signature
+jose_header_b64.payload_claim_b64.algorithmic_signature_b64
 ```
 
 **To verify**:
+_Identify the signing algorithm_
 1. Split the `signed_payload_jwt` by the `.` delimiter.
-2. Decode the **base64url** `b64_jose_header`.
-3. To identify the signing algorithm, convert the decoded `jose_header` from a JSON string to an object and use the value of `jose_header.alg`.
-4. Decode the **base64url** `b64_claim_payload`.
-5. Convert the decoded `claim_payload` from a JSON string to an object.
-6. Decode the **base64url** `b64_algorithmic_signature`.
-7. Use the `b64_claim_payload`, your app's `client_secret`, and the signing algorithm from the decoded `jose_header` to verify the decoded `algorithmic_signature`. >>>(this is the shape of a guess informed by [jwt.io](https://jwt.io/introduction) -- verify)<<< 
-8. Sign the decoded `claim_payload` with your app's `client_secret`. >>>(this is also going to be different)<<<
-9. Match<sup>1</sup> signed `claim_payload` against decoded `algorithmic_signature`. >>>(revise pending resolution of preceding questions)<<<
+2. Decode the **base64url** `jose_header_b64`. `jose_header_str` is a JSON string.
+3. Parse `jose_header_str` into a JSON object. Locate the signing algorithm's name at `jose_header_obj.alg`.
+
+_Validate the signature_
+4. Decode the **base64url** `algorithmic_signature_b64`.  `algorithmic_signature_hash` is a cryptographic hash.
+5. Use the algorithm specified at `jose_header_obj.alg` and your app's `client_secret` to validate `algorithmic_signature_hash`.  
+
+_Sign the payload claim_
+6. Decode the **base64url** `payload_claim_b64`. `payload_claim_str` is a JSON string.
+7. Use the algorithm specified at `jose_header_obj.alg` to sign `payload_claim_str` with your app's `client_secret`. `payload_claim_hash` is a cryptographic hash.
+
+_Verify the payload claim_
+8. Compare `algorithmic_signature_hash` with `payload_claim_hash`.  If BigCommerce sent your app this JWT, they will match. 
+
+_Expand and use the payload claim_
+9. Parse `payload_claim_str` into a JSON object. The following section is a reference for working with the values in `payload_claim_obj`.
+
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -161,7 +171,7 @@ Use the data contained in the payload object to identify the store and user. Wha
 
 ## Code samples
 
-### Verifying signed_payload_jwt in PHP
+### Verifying `signed_payload_jwt` in PHP
 
 ```php
 function verifySignedRequest($signedRequest)
@@ -192,10 +202,10 @@ def verify(signed_payload_jwt, client_secret)
   message_parts = signed_payload_jwt.split(".")
 
   b64_json_payload = message_parts[0]
-  b64_algorithmic_signature = message_parts[1]
+  algorithmic_signature_b64 = message_parts[1]
 
   payload_object = Base64.strict_decode(b64_json_payload)
-  provided_signature = Base64.strict_decode(b64_algorithmic_signature)
+  provided_signature = Base64.strict_decode(algorithmic_signature_b64)
 
   expected_signature = OpenSSL::HMAC::hexdigest("sha256", client_secret, payload_object)
 
