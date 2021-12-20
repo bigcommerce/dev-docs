@@ -9,7 +9,7 @@
 - [Removing the app: the `/uninstall` callback](#removing-the-app-the-uninstall-callback)
 - [Removing a user: the `/remove_user` callback](#removing-a-user-the-remove_user-callback)
 - [Verifying the payload](#verifying-the-payload)
-- [Identifying users](#identifying-users)
+- [Working with payload claims](#working-with-payload-claims)
 - [Code samples](#code-samples)
 - [Helpful tools](#helpful-tools)
 - [Next steps](#next-steps)
@@ -54,7 +54,7 @@ Decoding the supplied JWT lets your app do the following:
 <!-- theme: info -->
 
 ### Note
-> We strongly recommend that each of your callback handlers decode `signed_payload_jwt` to [verify the payload](#verifying-the-signed-payload) and [identify the requesting user](#identifying-users) before taking any action.
+> We strongly recommend that each of your callback handlers decode `signed_payload_jwt` to [verify the payload](#verifying-the-payload) before taking any action.
 
 </div>
 </div>
@@ -69,7 +69,7 @@ GET /load?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
 
-Once you've [verified the payload](#verifying-the-signed-payload), [identified the requesting user](#identifying-users), and handled any internal business, your app should respond with the markup and assets for the view that you want BigCommerce to render in the control panel.
+Once you've [verified the payload](#verifying-the-payload), [identified the requesting user](#working-with-payload-claims), and handled any internal business, your app should respond with the markup and assets for the view that you want BigCommerce to render in the control panel.
 
 ## Removing the app: the `/uninstall` callback
 
@@ -79,7 +79,7 @@ When the store owner >>>(maybe also auth users; can they uninstall?)<<< clicks *
 GET /uninstall?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
-Once you've [verified the payload](#verifying-the-signed-payload) and [identified the requesting user](#identifying-users), handle any business internal to your app, such as marking the user inactive in your app's database or decrementing the number of active installations. You do not need to send a response.
+Once you've [verified the payload](#verifying-the-payload) and [identified the requesting user](#working-with-payload-claims), handle any business internal to your app, such as marking the user inactive in your app's database or decrementing the number of active installations. You do not need to send a response.
 ## Removing a user: the `/remove_user` callback
 
 When the store owner >>>(or admin?)<<< revokes a user's authorization to access your app >>>(in PLACE in the **Users** section of the control panel)<<<, BigCommerce dispatches a `GET` request to the `/remove_user` route you've written.
@@ -89,7 +89,7 @@ GET /remove_user?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
 
-Once you've [verified the payload](#verifying-the-signed-payload) and [identified the requesting user](#identifying-users), handle any business internal to your app, such as removing the user's data from your app's database. You do not need to send a response.
+Once you've [verified the payload](#verifying-the-payload) and [identified the requesting user](#working-with-payload-claims), handle any business internal to your app, such as removing the user's data from your app's database. You do not need to send a response.
 ## Verifying the payload
 
 BigCommerce's payload JWTs implement the JWT-JWS specification that the [IETF's](https://www.ietf.org/) [RFC 7515 standard](https://datatracker.ietf.org/doc/html/rfc7515) defines. The `signed_payload_jwt` is composed of three distinct **base64URL**-encoded strings concatenated with the `.` character.
@@ -121,7 +121,7 @@ b64_jose_header.b64_claim_payload.b64_algorithmic_signature
 </div>
 </div>
 
-## Identifying users
+## Working with payload claims
 
 After decoding and verifying the `signed_payload_jwt`, parse the JSON string into an object. The following is an example payload:
 
