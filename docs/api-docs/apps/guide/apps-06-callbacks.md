@@ -124,8 +124,10 @@ _Expand and use the payload claim_
 <div class="HubBlock-content">
 
 <!-- theme: warning -->
-> ### Note
-> 1. To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. How to accomplish this varies by programming language. Ruby and PHP [code samples](#code-samples) follow. For more information, use your preferred search engine to find "constant time string comparison {lang}".
+> ### Security precautions
+> Your production code should never work with values from a payload claim whose hash does not match its signature.
+> To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. How to accomplish this varies by programming language and signing algorithm. Ruby and PHP [code samples](#code-samples) for HS256 hashes follow. For more information, use your preferred search engine to find "constant time string comparison {lang}".
+> We recommend writing middleware or using an existing [library in your language of choice](https://jwt.io/libraries) to help you parse, validate, and verify JWTs.
 
 </div>
 </div>
