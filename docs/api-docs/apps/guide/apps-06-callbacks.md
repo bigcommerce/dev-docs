@@ -183,22 +183,34 @@ Use the payload claims' data to identify the store and user. What your app shoul
 ### Verifying `signed_payload_jwt` in PHP
 
 ```php
-function verifySignedRequest($signedRequest)
+function verifySignedPayload($signedPayloadJwt)
 {
-    list($encodedData, $encodedSignature) = explode('.', $signedRequest, 2);
+    list($joseHeaderB64, $payloadClaimsB64, $algorithmicSignatureB64) = explode('.', $signedPayloadJwt, 3);
 
-    // decode the data
-    $signature = base64_decode($encodedSignature);
-    $jsonStr = base64_decode($encodedData);
-    $data = json_decode($jsonStr, true);
+    // identify the signing algorithm
+    $joseHeaderStr = base64_decode($joseHeaderB64);
+    $algorithm = json_decode($joseHeaderStr, true);
+
+
+    // validate the signature
+    $algorithmicSignatureHash = base64_decode($algorithmicSignatureB64);
+
+
+    // sign the payload claims string
+    $payloadClaimsStr = base64_decode($payloadClaimsB64);
+    
+    // verify the payload claims hash
 
     // confirm the signature
-    $expectedSignature = hash_hmac('sha256', $jsonStr, $clientSecret(), $raw = false);
-    if (!hash_equals($expectedSignature, $signature)) {
+    $expectedSignature = hash_hmac('sha256', $payloadClaimsStr, $clientSecret(), $raw = false);
+    if (!hash_equals($expectedSignature, $algorithmicSignatureHash)) {
         error_log('Bad signed request from BigCommerce!');
         return null;
     }
-    return $data;
+
+    // parse & use the payload
+    $payloadClaimsObj = json_decode($payloadClaimsStr, true);
+    return $payloadClaimsObj;
 }
 ```
 
