@@ -126,7 +126,7 @@ Use the following steps to parse, validate, and verify the JWTs that BigCommerce
 
 <!-- theme: warning -->
 > ### Security precautions
-> Your production code should never work with values from a payload claim whose hash does not match its signature.
+> Your production code should never work with claims from a payload whose hash does not match its signature.
 > To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. How to accomplish this varies by programming language and signing algorithm. Ruby and PHP [code samples](#code-samples) for HS256 hashes follow. For more information, use your preferred search engine to find "constant time string comparison {lang}".
 > We recommend writing middleware or using an existing [library in your language of choice](https://jwt.io/libraries) to help you parse, validate, and verify JWTs.
 
@@ -170,13 +170,13 @@ The following is an example of the payload claims in a BigCommerce app callback 
 | `timestamp`   | float     | Unix time when callback generated                 |
 
 
-Use the payload claim data to identify the store and user. What your app should do with this information typically depends on whether it supports [multiple users](https://developer.bigcommerce.com/api-docs/apps/guide/users). Refer to the following table for instructions.
+Use the payload claims' data to identify the store and user. What your app should do with this information typically depends on whether it supports [multiple users](https://developer.bigcommerce.com/api-docs/apps/guide/users). Refer to the following table for instructions.
 
-| Callback      | Multiple Users Enabled                                                                                      | Multiple Users Not Enabled |
+| Endpoint      | Multiple Users Enabled                                                                                      | Multiple Users Not Enabled |
 |:--------------|:------------------------------------------------------------------------------------------------------------|:---------------------------|
-| `Load`        | Compare user to store owner or existing user; if no match, it's a new user; add them to the app's database. | Will match store owner     |
-| `Uninstall`   | Compare user to store owner or existing user; only store owner can uninstall an app.                        | Will match store owner     |
-| `Remove user` | Compare user to users stored in app database; remove matching user from database.                           | N/A                        |
+| `load`        | Compare user to store owner or existing user; if no match, it's a new user; add them to the app's database. | Will match store owner     |
+| `uninstall`   | Compare user to store owner or existing user; only store owner can uninstall an app.                        | Will match store owner     |
+| `remove_user` | Compare user to users stored in app database; remove matching user from database.                           | N/A                        |
 
 ## Code samples
 
@@ -202,7 +202,8 @@ function verifySignedRequest($signedRequest)
 }
 ```
 
-### Verifying signed_payload_jwt in Ruby
+### Verifying `signed_payload_jwt` in Ruby
+
 ```ruby
 require "base64"
 require "openssl"
