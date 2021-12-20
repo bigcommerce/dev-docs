@@ -136,10 +136,17 @@ Use the following steps to parse, validate, and verify the JWTs that BigCommerce
 
 ## Working with payload claims
 
-After decoding and verifying the `signed_payload_jwt`, parse the JSON string into an object. The following is an example payload:
+The following is an example of the payload claims in a BigCommerce app callback JWT:
 
 ```json
 {
+  "aud": "<your app's CLIENT_ID>",
+  "iss": "bc",
+  "iat": 1640037763,
+  "nbf": 1640037758,
+  "exp": 1640124163,
+  "jti": "c5f0bcf5-a504-4ae6-8dcc-0e40eaa5a070",
+  "sub": "stores/z4zn3wo", // STORE_HASH
   "user": {
     "id": 9128,
     "email": "user@mybigcommerce.com"
@@ -148,9 +155,7 @@ After decoding and verifying the `signed_payload_jwt`, parse the JSON string int
     "id": 9128,
     "email": "user@mybigcommerce.com"
   },
-  "context": "stores/z4zn3wo",
-  "store_hash": "z4zn3wo",
-  "timestamp": 1469823892.9123988
+  "url": "/"
 }
 ```
 
