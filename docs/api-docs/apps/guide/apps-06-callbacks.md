@@ -163,7 +163,8 @@ After decoding and verifying the `signed_payload_jwt`, parse the JSON string int
 | `store_hash`  | string    | unique identified for store used in API requests  |
 | `timestamp`   | float     | Unix time when callback generated                 |
 
-Use the data contained in the payload object to identify the store and user. What your app should do with this information depends on whether [**Multiple Users**](https://developer.bigcommerce.com/api-docs/apps/guide/users) is enabled in the [Developer Portal](https://devtools.bigcommerce.com/). Refer to the following table for instructions.
+
+Use the payload claim data to identify the store and user. What your app should do with this information typically depends on whether it supports [multiple users](https://developer.bigcommerce.com/api-docs/apps/guide/users). Refer to the following table for instructions.
 
 | Callback      | Multiple Users Enabled                                                                                      | Multiple Users Not Enabled |
 |:--------------|:------------------------------------------------------------------------------------------------------------|:---------------------------|
