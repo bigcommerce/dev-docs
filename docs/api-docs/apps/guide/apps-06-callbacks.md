@@ -95,28 +95,29 @@ Once you've [verified the payload](#verifying-the-payload) and [identified the r
 BigCommerce's payload JWTs implement the JWT-JWS specification that the [IETF's](https://www.ietf.org/) open standard [RFC 7515](https://datatracker.ietf.org/doc/html/rfc7515) defines. The `signed_payload_jwt` is composed of three distinct **base64URL**-encoded strings concatenated with the `.` character.
 
 ```javascript
-jose_header_b64.payload_claim_b64.algorithmic_signature_b64
+jose_header_b64.payload_claims_b64.algorithmic_signature_b64
 ```
 
-**To verify**:
-_Identify the signing algorithm_
+Use the following steps to parse, validate, and verify the JWTs that BigCommerce sends to your app's callback endpoints.
+
+**Identify the signing algorithm**
 1. Split the `signed_payload_jwt` by the `.` delimiter.
 2. Decode the **base64url** `jose_header_b64`. `jose_header_str` is a JSON string.
 3. Parse `jose_header_str` into a JSON object. Locate the signing algorithm's name at `jose_header_obj.alg`.
 
-_Validate the signature_
+**Validate the signature**
 4. Decode the **base64url** `algorithmic_signature_b64`.  `algorithmic_signature_hash` is a cryptographic hash.
 5. Use the algorithm specified at `jose_header_obj.alg` and your app's `client_secret` to validate `algorithmic_signature_hash`.  
 
-_Sign the payload claim_
-6. Decode the **base64url** `payload_claim_b64`. `payload_claim_str` is a JSON string.
-7. Use the algorithm specified at `jose_header_obj.alg` to sign `payload_claim_str` with your app's `client_secret`. `payload_claim_hash` is a cryptographic hash.
+**Sign the payload claims string**
+6. Decode the **base64url** `payload_claims_b64`. `payload_claims_str` is a JSON string.
+7. Use the algorithm specified at `jose_header_obj.alg` to sign `payload_claims_str` with your app's `client_secret`. `payload_claims_hash` is a cryptographic hash.
 
-_Verify the payload claim_
-8. Compare `algorithmic_signature_hash` with `payload_claim_hash`.  If BigCommerce sent your app this JWT, they will match. 
+**Verify the payload claims hash**
+8. Compare `algorithmic_signature_hash` with `payload_claims_hash`.  If BigCommerce sent your app this JWT, they will match. 
 
-_Expand and use the payload claim_
-9. Parse `payload_claim_str` into a JSON object. The following section is a reference for working with the values in `payload_claim_obj`.
+**Parse and use the payload**
+1. Parse `payload_claims_str` into a JSON object. The following section is a reference for working with the values in `payload_claims_obj`.
 
 
 <div class="HubBlock--callout">
