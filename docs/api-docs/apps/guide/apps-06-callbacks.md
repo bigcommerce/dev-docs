@@ -184,35 +184,46 @@ Use the payload claims' data to identify the store and user. What your app shoul
 ### Verifying `signed_payload_jwt` in PHP
 
 ```php
-function verifySignedPayload($signedPayloadJwt)
+function clientSecret() { 
+    // return the client secret;
+}
+
+function verifySignedPayload($signed_payload_jwt)
 {
-    list($joseHeaderB64, $payloadClaimsB64, $algorithmicSignatureB64) = explode('.', $signedPayloadJwt, 3);
+    // decompose the jwt 
+    list($jose_header_b64, $payload_claims_b64, $algorithmic_signature_b64) = explode('.', $signed_payload_jwt, 3);
 
     // identify the signing algorithm
-    $joseHeaderStr = base64_decode($joseHeaderB64);
-    $algorithm = json_decode($joseHeaderStr, true);
+    $jose_header_str = base64_decode($jose_header_b64);
+    $jose_header_arr = json_decode($jose_header_str, true);
+    $algorithm = $jose_header_arr['alg'];
 
+    // decode the signature
+    $algorithmic_signature_hash = base64_decode($algorithmic_signature_b64);
 
-    // validate the signature
-    $algorithmicSignatureHash = base64_decode($algorithmicSignatureB64);
-
-
-    // sign the payload claims string
-    $payloadClaimsStr = base64_decode($payloadClaimsB64);
-    
-    // verify the payload claims hash
-
-    // confirm the signature
-    $expectedSignature = hash_hmac('sha256', $payloadClaimsStr, $clientSecret(), $raw = false);
-    if (!hash_equals($expectedSignature, $algorithmicSignatureHash)) {
-        error_log('Bad signed request from BigCommerce!');
+    // concatenate and sign the header and payload claims
+    $header_payload_concat_b64 = $jose_header_b64 . "." . $payload_claims_b64;
+    if($algorithm != "HS256") {
+        error_log('Unknown signature algorithm. Please review documentation and contact support.');
         return null;
+    } else {
+        $header_payload_concat_hash = hash_hmac('sha256', $header_payload_concat_b64, clientSecret(), $raw = true);
     }
 
-    // parse & use the payload
-    $payloadClaimsObj = json_decode($payloadClaimsStr, true);
-    return $payloadClaimsObj;
+    // verify the payload claims hash
+    if (!hash_equals($header_payload_concat_hash, $algorithmic_signature_hash)) {
+        error_log('Bad signed request from BigCommerce!');
+        return null;
+    } else {
+        echo 'JWT is valid, proceed to use claims!';
+    }
+
+    // parse and use the payload
+    $payload_claims_str = base64_decode($payload_claims_b64);
+    $payload_claims_arr = json_decode($payload_claims_str, true);
+    return $payload_claims_arr;
 }
+
 ```
 
 ### Verifying `signed_payload_jwt` in Ruby
