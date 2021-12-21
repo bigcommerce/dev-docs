@@ -141,7 +141,7 @@ The following is an example of the payload claims in a BigCommerce app callback 
 
 ```json
 {
-  "aud": "<your app's CLIENT_ID>",
+  "aud": "U8RphZeDjQc4kLVSzNjePo0CMjq7yOg", // your app's CLIENT_ID
   "iss": "bc",
   "iat": 1640037763,
   "nbf": 1640037758,
