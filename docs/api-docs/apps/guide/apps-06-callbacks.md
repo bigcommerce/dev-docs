@@ -98,7 +98,7 @@ BigCommerce's payload JWTs implement the JWT-JWS specification that the [IETF's]
 jose_header_b64.payload_claims_b64.algorithmic_signature_b64
 ```
 
-Use the following steps to parse, validate, and verify the JWTs that BigCommerce sends to your app's callback endpoints.
+Use the following steps to decode, verify, and parse the JWTs that BigCommerce sends to your app's callback endpoints.
 
 **Identify the signing algorithm**
 1. Split the `signed_payload_jwt` by the `.` delimiter.
@@ -129,7 +129,7 @@ Use the following steps to parse, validate, and verify the JWTs that BigCommerce
 > ### Security precautions
 > Your production code should never work with claims from a payload whose hash does not match its signature.
 > To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. How to accomplish this varies by programming language and signing algorithm. Ruby and PHP [code samples](#code-samples) for HS256 hashes follow. For more information, use your preferred search engine to find "constant time string comparison {lang}".
-> We recommend writing middleware or using an existing [library in your language of choice](https://jwt.io/libraries) to help you parse, validate, and verify JWTs.
+> We recommend writing middleware or using an existing [library in your language of choice](https://jwt.io/libraries) to help you decode, verify, and parse JWTs.
 
 </div>
 </div>
