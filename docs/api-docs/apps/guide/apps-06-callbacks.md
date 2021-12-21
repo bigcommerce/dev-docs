@@ -108,14 +108,14 @@ Use the following steps to decode, verify, and parse the JWTs that BigCommerce s
 3. Parse `jose_header_str` into a JSON object. Locate the signing algorithm's name at `jose_header_obj.alg`.
 
 **Decode the signature** 
-4. Decode the **base64url** `algorithmic_signature_b64`.  `algorithmic_signature_hash` is a cryptographic hash.
+4. Decode the **base64url** `algorithmic_signature_b64`.  `algorithmic_signature_crypt` is a cryptographic hash.
 
 **Concatenate and sign the header and payload claims**
-5. Concatenate `jose_header_b64` and `payload_claims_b64` with a `.` delimiter to create `header_payload_concat_b64`.
-6. Use the algorithm specified at `jose_header_obj.alg` to sign `header_payload_concat_b64` with your app's `CLIENT_SECRET`. `header_payload_concat_hash` is a cryptographic hash.
+5. Concatenate `jose_header_b64` and `payload_claims_b64` with a `.` delimiter to create `header_payload_b64`.
+6. Use the algorithm specified at `jose_header_obj.alg` to sign `header_payload_b64` with your app's `CLIENT_SECRET`. `header_payload_crypt` is a cryptographic hash.
 
-**Verify the payload claims hash**
-7. Compare `header_payload_concat_hash` with `algorithmic_signature_hash`.  If BigCommerce sent your app this JWT, the two hashes will match. _We strongly recommend using a constant time string comparison function.  See the following warning about security precautions for further information._
+**Verify the payload claims**
+7. Compare `header_payload_crypt` with `algorithmic_signature_crypt`. If BigCommerce sent your app this JWT, the two hashes will match. _We strongly recommend using a constant time string comparison function.  See the following warning about security precautions for further information._
 
 **Parse and use the payload**
 8. Decode the **base64url** `payload_claims_b64`. `payload_claims_str` is a JSON string.
@@ -128,7 +128,7 @@ Use the following steps to decode, verify, and parse the JWTs that BigCommerce s
 
 <!-- theme: warning -->
 > ### Security precautions
-> Your production code should never work with claims from a payload whose hash does not match its signature.
+> Your production code should never work with claims from a payload you can't verify.
 > To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. How to accomplish this varies by programming language and signing algorithm. Ruby and PHP [code samples](#code-samples) for HS256 hashes follow. For more information, use your preferred search engine to find "constant time string comparison {lang}".
 > We recommend writing middleware or using an existing [library in your language of choice](https://jwt.io/libraries) to help you decode, verify, and parse JWTs.
 
@@ -185,11 +185,7 @@ Use the payload claims' data to identify the store and user. What your app shoul
 ### Verifying `signed_payload_jwt` in PHP
 
 ```php
-function clientSecret() { 
-    // return the client secret;
-}
-
-function verifySignedPayload($signed_payload_jwt)
+function verifySignedPayload($signed_payload_jwt, $client_secret)
 {
     // decompose the jwt 
     list($jose_header_b64, $payload_claims_b64, $algorithmic_signature_b64) = explode('.', $signed_payload_jwt, 3);
@@ -200,19 +196,19 @@ function verifySignedPayload($signed_payload_jwt)
     $algorithm = $jose_header_arr['alg'];
 
     // decode the signature
-    $algorithmic_signature_hash = base64_decode($algorithmic_signature_b64);
+    $algorithmic_signature_crypt = base64_decode($algorithmic_signature_b64);
 
     // concatenate and sign the header and payload claims
-    $header_payload_concat_b64 = $jose_header_b64 . "." . $payload_claims_b64;
+    $header_payload_b64 = $jose_header_b64 . "." . $payload_claims_b64;
     if($algorithm != "HS256") {
         error_log('Unknown signature algorithm. Please review documentation and contact support.');
         return null;
     } else {
-        $header_payload_concat_hash = hash_hmac('sha256', $header_payload_concat_b64, clientSecret(), $raw = true);
+        $header_payload_crypt = hash_hmac('sha256', $header_payload_b64, $client_secret, $raw = true);
     }
 
-    // verify the payload claims hash
-    if (!hash_equals($header_payload_concat_hash, $algorithmic_signature_hash)) {
+    // verify the payload claims
+    if (!hash_equals($header_payload_crypt, $algorithmic_signature_crypt)) {
         error_log('Bad signed request from BigCommerce!');
         return null;
     } else {
