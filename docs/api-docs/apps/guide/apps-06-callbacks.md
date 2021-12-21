@@ -100,25 +100,26 @@ jose_header_b64.payload_claims_b64.algorithmic_signature_b64
 
 Use the following steps to decode, verify, and parse the JWTs that BigCommerce sends to your app's callback endpoints.
 
-**Identify the signing algorithm**
+**Decompose the JWT**
 1. Split the `signed_payload_jwt` by the `.` delimiter.
+
+**Identify the signing algorithm**
 2. Decode the **base64url** `jose_header_b64`. `jose_header_str` is a JSON string.
 3. Parse `jose_header_str` into a JSON object. Locate the signing algorithm's name at `jose_header_obj.alg`.
 
-**Validate the signature**
+**Decode the signature** 
 4. Decode the **base64url** `algorithmic_signature_b64`.  `algorithmic_signature_hash` is a cryptographic hash.
-5. Use the algorithm specified at `jose_header_obj.alg` and your app's `client_secret` to validate `algorithmic_signature_hash`.  
 
 **Concatenate and sign the header and payload claims**
-6. Concatenate `jose_header_b64` and `payload_claims_b64` with a `.` delimiter to create `header_payload_concat_b64`.
-7. Use the algorithm specified at `jose_header_obj.alg` to sign `header_payload_concat_b64` with your app's `client_secret`. `header_payload_concat_hash` is a cryptographic hash.
+5. Concatenate `jose_header_b64` and `payload_claims_b64` with a `.` delimiter to create `header_payload_concat_b64`.
+6. Use the algorithm specified at `jose_header_obj.alg` to sign `header_payload_concat_b64` with your app's `CLIENT_SECRET`. `header_payload_concat_hash` is a cryptographic hash.
 
 **Verify the payload claims hash**
-8. Compare `header_payload_concat_hash` with `algorithmic_signature_hash`.  If BigCommerce sent your app this JWT, the two hashes will match. 
+7. Compare `header_payload_concat_hash` with `algorithmic_signature_hash`.  If BigCommerce sent your app this JWT, the two hashes will match. _We strongly recommend using a constant time string comparison function.  See the following warning about security precautions for further information._
 
 **Parse and use the payload**
-9. Decode the **base64url** `payload_claims_b64`. `payload_claims_str` is a JSON string.
-10. Parse `payload_claims_str` into a JSON object. The following section is a reference for working with the values in `payload_claims_obj`.
+8. Decode the **base64url** `payload_claims_b64`. `payload_claims_str` is a JSON string.
+9. Parse `payload_claims_str` into your language's version of a JSON object. The following section is a reference for working with the values in `payload_claims_obj`.
 
 
 <div class="HubBlock--callout">
