@@ -228,30 +228,54 @@ function verifySignedPayload($signed_payload_jwt, $client_secret)
 ```ruby
 require "base64"
 require "openssl"
+require "json"
 
-def verify(signed_payload_jwt, client_secret)
+def verify_signed_payload(signed_payload_jwt, client_secret)
+  # decompose the jwt 
   message_parts = signed_payload_jwt.split(".")
+  jose_header_b64 = message_parts[0]
+  payload_claims_b64 = message_parts[1]
+  algorithmic_signature_b64 = message_parts[2]
 
-  b64_json_payload = message_parts[0]
-  algorithmic_signature_b64 = message_parts[1]
+  # identify the signing algorithm
+  jose_header_str = Base64.decode64(jose_header_b64)
+  jose_header_hash = JSON.parse(jose_header_str)
+  algorithm = jose_header_hash['alg']
 
-  payload_object = Base64.strict_decode(b64_json_payload)
-  provided_signature = Base64.strict_decode(algorithmic_signature_b64)
+  # decode the signature
+  algorithmic_signature_crypt = Base64.decode64(algorithmic_signature_b64)
 
-  expected_signature = OpenSSL::HMAC::hexdigest("sha256", client_secret, payload_object)
+  # concatenate and sign the header and payload claims
+  header_payload_b64 = message_parts[0..1].join(".")
+  unless algorithm == "HS256"
+    begin
+      raise NotImplementedError, 'Unknown signature algorithm. Please review documentation and contact support.'
+    rescue => e
+      puts e.message
+      return e.message
+    end
+  end
+  header_payload_crypt = OpenSSL::HMAC.digest("SHA256", client_secret, header_payload_b64)
 
-  return false unless secure_compare(expected_signature, provided_signature)
-
-  JSON.parse(payload_object)
+  # verify the payload claims 
+  crypt_match = secure_compare(header_payload_crypt, algorithmic_signature_crypt)
+  unless crypt_match
+    begin
+      raise StandardError, 'Bad signed request from BigCommerce!'
+    rescue => e
+        puts e.message
+        return e.message
+    end
+  end
+  puts 'JWT is valid, proceed to use claims!'
+  payload_claims_str = Base64.decode64(payload_claims_b64)
+  payload_claims_hash = JSON.parse(payload_claims_str)
+  return payload_claims_hash
 end
 
 def secure_compare(a, b)
-  return false if a.blank? || b.blank? || a.bytesize != b.bytesize
-  l = a.unpack "C#{a.bytesize}"
-
-  res = 0
-  b.each_byte { |byte| res |= byte ^ l.shift }
-  res == 0
+  #  ruby's hmac comparison implementation uses constant time
+  a == b
 end
 ```
 
