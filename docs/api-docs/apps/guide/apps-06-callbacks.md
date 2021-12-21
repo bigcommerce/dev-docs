@@ -73,7 +73,7 @@ Once you've [verified the payload](#verifying-the-payload), [identified the requ
 
 ## Removing the app: the `/uninstall` callback
 
-When the store owner >>>(maybe also auth users; can they uninstall?)<<< clicks **Uninstall** in >>>PLACE(s)<<<, BigCommerce dispatches a `GET` request to the `/uninstall` route you've written.  The following is an example request:
+When the store owner clicks the **Uninstall** button on your app's card in their store's control panel, BigCommerce dispatches a `GET` request to the `/uninstall` route you've written.  The following is an example request:
 
 ```http
 GET /uninstall?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
@@ -82,7 +82,7 @@ Host: your_app.example.com
 Once you've [verified the payload](#verifying-the-payload) and [identified the requesting user](#working-with-payload-claims), handle any business internal to your app, such as marking the user inactive in your app's database or decrementing the number of active installations. You do not need to send a response.
 ## Removing a user: the `/remove_user` callback
 
-When the store owner >>>(or admin?)<<< revokes a user's authorization to access your app >>>(in PLACE in the **Users** section of the control panel)<<<, BigCommerce dispatches a `GET` request to the `/remove_user` route you've written.
+When the store owner revokes a user's authorization to access your app at **Account Settings** **>** **Users** in the store control panel, BigCommerce dispatches a `GET` request to the `/remove_user` route you've written.
 
 ```http
 GET /remove_user?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
