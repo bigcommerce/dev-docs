@@ -22,9 +22,112 @@ items:
         name:
           type: string
           description: Brand name for this product.
-    remove_url:
-      type: string
-      description: URL to remove this product/column from the comparison.
+    category:
+      type: array
+      items:
+        type: object
     custom_fields:
-      type: string
+      type: array
       description: 'Array of additional product details – size, color, book''s ISBN, DVD''s release date, etc. – as name/value pairs.'
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+          value:
+            type: string
+    date_added:
+      type: string
+    demo:
+      type: boolean
+    has_options:
+      type: boolean
+    id:
+      type: number
+    image:
+      type: object
+      properties:
+        alt:
+          type: string
+        data:
+          type: string
+    images:
+      type: array
+      items:
+        type: object
+        properties:
+          alt:
+            type: string
+          data:
+            type: string
+    low_stock_level:
+      type: 'null'
+    name:
+      type: string
+    num_reviews:
+      type: number
+    pre_order:
+      type: boolean
+    price:
+      type: object
+      properties:
+        rrp_without_tax:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: number
+        sale_price_without_tax:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: number
+        saved:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: number
+        tax_label:
+          type: string
+        without_tax:
+          type: object
+          properties:
+            currency:
+              type: string
+            formatted:
+              type: string
+            value:
+              type: number
+    qty_in_cart:
+      type: number
+    rating:
+      type: number
+    show_cart_action:
+      type: boolean
+    sku:
+      type: string
+    stock_level:
+      type: 'null'
+    summary:
+      type: string
+    url:
+      type: string
+    weight:
+      type: object
+      description: URL to remove this product/column from the comparison.
+      properties:
+        formatted:
+          type: string
+        value:
+          type: number
