@@ -16,12 +16,14 @@ When connecting more than one WordPress site to your BigCommerce store, you need
 ### Multi-site and subdirectories
 Multiple sites can share the same API credentials, or you can choose to create a new set of credentials for each site.
 
+
 | **Configuration Method** | **Is Supported** |
 |:-------------------------|:-----------------|
 | Subdirectories           | No               |
 | Subdomains               | Yes              |
 | Separate Domains         | Yes*             |
 Note that embedded checkout is only supported on a single domain at a time. See the [BigCommerce for WordPress](https://support.bigcommerce.com/s/article/BigCommerce-for-WordPress-Checkout?language=en_US#subdomain-setup) documentation.*
+
 
 
 </div>
@@ -38,11 +40,11 @@ Note that embedded checkout is only supported on a single domain at a time. See 
 -->
 
 #### Click 'Create API Account' to get credentials
-![#### Click 'Create API Account' to get credentials
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044020003 "#### Click 'Create API Account' to get credentials
-")
+![#### Click 'Create API Account' to get credentials](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044020003 "#### Click 'Create API Account' to get credentials")
+
 
 2. Click the blue `Create API Account` button on the top left-hand side. This opens up a screen that will ask you to enter a name and select scopes for the API account.
+
 
 #### Fill in the Name and OAuth Scopes.
 ![#### Fill in the Name and OAuth Scopes.
@@ -113,9 +115,7 @@ The screen will also contain your API Path, which you will need for the WordPres
 -->
 
 #### API credentials
-![#### API credentials
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044553372 "#### API Credentials
-")
+![#### API credentials](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044553372 "#### API Credentials")
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -150,10 +150,10 @@ The screen will also contain your API Path, which you will need for the WordPres
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1544043727239
 -->
 
+
 #### WordPress plugin welcome screen
 ![#### WordPress Plugin Welcome Screen
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1544043727239 "#### WordPress Plugin Welcome Screen
-")
+](//s3.amazonaws.com/user-content.stoplight.io/6116/1544043727239 "#### WordPress Plugin Welcome Screen")
 
 <!--
     title: 
@@ -162,14 +162,18 @@ The screen will also contain your API Path, which you will need for the WordPres
 
 ![](//s3.amazonaws.com/user-content.stoplight.io/6116/1544043952871 "")
 
+
 2. Enter your API credentials on your WordPress site. Saving the API credentials on your WordPress site will direct you to name the channel that the plugin will create. This allows you to list product to the channel from within BigCommerce and link orders back to the channel that comes from the WordPress site. You can also link to an existing channel.
+
 
 _Congratulations, you're done setting up your additional site!_ 
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
+
 <!-- theme: info -->
+
 
 >### WordPress currency processing
 > The WordPress sites you connect to your BigCommerce store will process in the same currency as the BigCommerce store.
