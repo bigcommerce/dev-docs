@@ -3,6 +3,7 @@
 <div class="otp" id="no-index">
 
 ### On This Page
+- [What's in an API account?](#whats-in-an-api-account)
 - [Obtaining store API credentials](#obtaining-store-api-credentials)
 - [Revoking store API credentials](#revoking-store-api-credentials)
 - [Obtaining app API credentials](#obtaining-app-api-credentials)
@@ -22,6 +23,38 @@ Store API credentials are generated when a store API account is created in a sto
 ### App API credentials
 
 Developers can create app API credentials in the BigCommerce [Developer Portal](https://devtools.bigcommerce.com). App API credentials are used during the OAuth flow to request authorization “on behalf” of a store owner, allowing the app to make API requests against store data. App API credentials are OAuth only, and the store owner must install the app before the app is granted access to the store.
+
+## What's in an API account?
+
+Every set of API credentials that you request for your store is its own **API Account**. An API account consists of an `access_token`, a `client_id`, a `client_secret`, your `api_path` and a `client_name` that you define to help tell your API accounts apart. It's best practice to create separate API accounts for each app, store API user, and/or function, so that you can limit the [OAuth scope](#oauth-scopes) of each account to only the privileges needed to complete that app or user's designated tasks.
+
+### All API accounts
+
+The **client ID** value uniquely identifies the app or user making a request. 
+
+The **client secret** value is a secret that your app and BigCommerce share. 
+### Store API accounts
+
+Most of the time, you will use the **access token** to authenticate your requests to BigCommerce.  However, `access_token`s can expire or be invalidated, so the authentication library or middleware that your software uses should use the `client_id` and `client_secret` to request new `access_token`s when necessary.
+
+Although the **client ID** value uniquely identifies the app or user making a request, you no longer need to pass it in the header of each API request. Typically, the `access_token` will suffice. For more particulars about when BigCommerce will need your `client_id` rather than just your `access_token`, or bearer token, read more about [OAuth 2.0](https://oauth.net/2/) or its standard, [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749).
+
+The **API path** for your store will not change, but it will have `/v3/` or `/v2/` appended to it, depending on which version is current for the endpoint you're querying.
+
+The **client name** is for your convenience and is not currently required to send or receive requests.
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--warning">
+<div class="HubBlock-content">
+
+<!-- theme: warning -->
+
+### Be careful with `client_secret`s
+> Although you never want to send your `client_id`, `client_secret`, or `access_token` (if any) in the body or an unencrypted payload of a request, **be particularly careful with the `client_secret`.**  An attacker can use your `client_secret` to both sign and decrypt JWTs sent between you and BigCommerce.
+
+</div>
+</div>
+</div>
 
 ## Obtaining store API credentials
 
@@ -62,7 +95,7 @@ To get started making requests, see [API Requests](/api-docs/getting-started/bas
 To revoke Store API Credentials:
 1. Log into the store, using the store owner’s username/password.
 2. Navigate to **Advanced Settings** > **API Accounts** and click the check box next to the account you want to delete.
-3. In the Actions column at right, click the trash can icon.
+3. In the **Actions** column at right, click the trash can icon.
 
 ![#### Revoking API Credentials](//s3.amazonaws.com/user-content.stoplight.io/6012/1537388177603 "#### Revoking API Credentials")
 
@@ -103,16 +136,13 @@ To get app API credentials, create and log into your BigCommerce [Developer Port
 8. Copy your client ID and client secret. The client ID and client secret can be accessed by clicking **View Client ID**.
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-<!-- theme:  -->
-
-### Client ID and client secret
+<!-- theme: info -->
+### Client IDs and client secrets in apps
 > The client ID value uniquely identifies your app. However, you no longer need to pass it in the header of all your requests to the API.
-
-The client secret value is a secret that your app and BigCommerce share. You only need to pass the client secret value once, during the app installation sequence. Thereafter, BigCommerce uses it to sign payloads in load, uninstall, and remove user requests, and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.
-
+> You only need to pass the client secret value once, during the app installation sequence. Thereafter, BigCommerce uses it to sign payloads in load, uninstall, and remove user requests, and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.
 </div>
 </div>
 </div>
@@ -206,10 +236,13 @@ Scope limits ability to read or write to data. Set the scopes to the minimum lev
 All OAuth scopes except `default` have `read_only` scopes that allow only `GET` and `HEAD` requests.
 
 <div class="HubBlock--callout">
-<div class="CalloutBlock--">
+<div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
+<!-- theme: info -->
+
 > Webhooks are accessible from the default scope that is available when API Credentials are created.
+> 
 </div>
 </div>
 </div>
