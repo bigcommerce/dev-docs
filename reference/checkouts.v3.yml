@@ -49,10 +49,12 @@ paths:
             * `cart.line_items.physical_items.options` - physical options
             * `cart.line_items.digital_items.options` - digital options
             * `consignments.available_shipping_options` - shipping options
+            * `promotions.banners` - promotion options
           enum:
             - cart.line_items.physical_items.options
             - cart.line_items.digital_items.options
             - consignments.available_shipping_options
+            - promotions.banners
       responses:
         '200':
           $ref: '#/responses/CheckoutResponse'
@@ -1217,6 +1219,28 @@ definitions:
       customer_message:
         description: Shopper's message provided as details for the order to be created from this checkout.
         type: string
+      promotions:
+        description: ''
+        type: object
+        properties:
+          banners:
+            title: Banner
+            type: object
+            properties:
+              id:
+                description: Id of the promotion.
+                type: string
+              type:
+                description: Type of the banner
+                type: string
+              page:
+                description: An array of the locations where the banner will display
+                type: array
+                items:
+                  type: string
+              text:
+                description: Text of the banner
+                type: string
   AppliedCoupon:
     title: Applied Coupon
     type: object
@@ -2013,6 +2037,101 @@ responses:
           created_time: '2021-11-08T22:46:23+00:00'
           updated_time: '2021-11-09T16:06:56+00:00'
           customer_message: ''
+        meta: {}
+      Include promotions:
+        data:
+          id: 267c5d6f-0d27-48ea-b731-e7832a4c5537
+          cart:
+            id: 267c5d6f-0d27-48ea-b731-e7832a4c5537
+            customer_id: 0
+            channel_id: 1
+            email: ''
+            currency:
+              code: USD
+            base_amount: 67
+            discount_amount: 0
+            cart_amount_inc_tax: 67
+            cart_amount_ex_tax: 67
+            coupons: []
+            discounts:
+              - id: 985c79a3-4c94-4104-923a-2e3d4572e72d
+                discounted_amount: 0
+              - id: b0adf3a7-7a92-44d9-ad46-87235b118e48
+                discounted_amount: 0
+            line_items:
+              physical_items:
+                - id: b0adf3a7-7a92-44d9-ad46-87235b118e48
+                  parent_id: null
+                  variant_id: 528
+                  product_id: 145
+                  sku: htltwl-001
+                  name: Hotel Towel
+                  url: 'https://example.com/hotel-towel/'
+                  quantity: 1
+                  is_taxable: true
+                  image_url: 'https://cdn11.bigcommerce.com/s-29iql3rwa6/products/145/images/422/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg__70357.1636473771.220.290.jpg?c=1'
+                  discounts: []
+                  coupons: []
+                  discount_amount: 0
+                  coupon_amount: 0
+                  list_price: 32
+                  sale_price: 32
+                  extended_list_price: 32
+                  extended_sale_price: 32
+                  is_require_shipping: true
+                  gift_wrapping: null
+                  is_mutable: true
+              digital_items:
+                - id: 985c79a3-4c94-4104-923a-2e3d4572e72d
+                  parent_id: null
+                  variant_id: 182
+                  product_id: 138
+                  sku: ebk-001
+                  name: eBook Download
+                  url: 'https://example.com/digital/'
+                  quantity: 1
+                  is_taxable: true
+                  image_url: 'https://cdn11.bigcommerce.com/s-29iql3rwa6/products/138/images/420/thebridgebetween__54934.1636473557.220.290.png?c=1'
+                  discounts: []
+                  coupons: []
+                  discount_amount: 0
+                  coupon_amount: 0
+                  list_price: 35
+                  sale_price: 35
+                  extended_list_price: 35
+                  extended_sale_price: 35
+                  is_require_shipping: false
+                  is_mutable: true
+              gift_certificates: []
+              custom_items: []
+            created_time: '2021-11-08T22:46:23+00:00'
+            updated_time: '2021-11-09T16:06:56+00:00'
+          billing_address: {}
+          consignments: []
+          taxes:
+            - name: Tax
+              amount: 0
+          coupons: []
+          order_id: null
+          shipping_cost_total_inc_tax: 0
+          shipping_cost_total_ex_tax: 0
+          handling_cost_total_inc_tax: 0
+          handling_cost_total_ex_tax: 0
+          tax_total: 0
+          subtotal_inc_tax: 67
+          subtotal_ex_tax: 67
+          grand_total: 67
+          created_time: '2021-11-08T22:46:23+00:00'
+          updated_time: '2021-11-09T16:06:56+00:00'
+          customer_message: ''
+          promotions:
+            - banners:
+              - id: '3'
+                type: 'applied'
+                page: 
+                  - 'homepage'
+                  - 'cartpage'
+                text: 'Some text'
         meta: {}
   order_Resp:
     description: ''

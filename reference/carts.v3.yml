@@ -34,6 +34,7 @@ paths:
         * Redirect URLs can only be generated from carts created using the **Server-to-Server Carts API**. 
         * To get cart `redirect_urls` in the response, append the following query parameter to the request URL: `include=redirect_urls`.
         * To restore a cart that was created by a shopper or via the Storefront Cart API, first recreate the cart using the Server to Server Cart API.
+        * To get cart `promotions` in the response, append the following query parameter to the request URL: `include=promotions.banners`.
       parameters:
         - name: cartData
           in: body
@@ -141,10 +142,12 @@ paths:
             * `redirect_urls`: Create a direct link to a Cart. This can be used during the /POST request for Carts.
             * `line_items.physical_items.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
             * `line_items.digital_items.options`: The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
+            * `promotions.banners`: Returns a list of eligible banners.
           enum:
             - redirect_urls
             - line_items.physical_items.options
             - line_items.digital_items.options
+            - promotions.banners
         - in: header
           type: string
           default: application/json
@@ -222,10 +225,12 @@ paths:
             * `redirect_urls`: Create a direct link to a Cart. This can be used during the /POST request for Carts.
             * `line_items.physical_items.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
             * `line_items.digital_items.options`: The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
+            * `promotions.banners`: Returns a list of eligible banners.
           enum:
             - redirect_urls
             - line_items.physical_items.options
             - line_items.digital_items.options
+            - promotions.banners
         - in: header
           type: string
           default: application/json
@@ -324,10 +329,12 @@ paths:
             * `redirect_urls`: Create a direct link to a Cart. This can be used during the /POST request for Carts.
             * `line_items.physical_items.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
             * `line_items.digital_items.options`: The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
+            * `promotions.banners`: Returns a list of eligible banners.
           enum:
             - redirect_urls
             - line_items.physical_items.options
             - line_items.digital_items.options
+            - promotions.banners
         - in: header
           type: string
           default: application/json
@@ -380,10 +387,12 @@ paths:
             * `redirect_urls`: Create a direct link to a Cart. This can be used during the /POST request for Carts.
             * `line_items.physical_items.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
             * `line_items.digital_items.options`: The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
+            * `promotions.banners`: Returns a list of eligible banners.
           enum:
             - redirect_urls
             - line_items.physical_items.options
             - line_items.digital_items.options
+            - promotions.banners
       tags:
         - Cart Items
       responses:
@@ -476,10 +485,12 @@ paths:
             * `redirect_urls`: Create a direct link to a Cart. This can be used during the /POST request for Carts.
             * `line_items.physical_items.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
             * `line_items.digital_items.options`: The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
+            * `promotions.banners`: Returns a list of eligible banners.
           enum:
             - redirect_urls
             - line_items.physical_items.options
             - line_items.digital_items.options
+            - promotions.banners
         - in: header
           type: string
           default: application/json
@@ -527,10 +538,12 @@ paths:
             * `redirect_urls`: Create a direct link to a Cart. This can be used during the /POST request for Carts.
             * `line_items.physical_items.options`: The Cart returns an abbreviated result. Use this to return physical items product options. Can also be used in a /POST to have the extended Cart object return.
             * `line_items.digital_items.options`: The Cart returns an abbreviated result. Use this to return digital items product options.  Can also be used in a /POST to have the extended Cart object return.
+            * `promotions.banners`: Returns a list of eligible banners.
           enum:
             - redirect_urls
             - line_items.physical_items.options
             - line_items.digital_items.options
+            - promotions.banners
         - in: header
           type: string
           default: application/json
@@ -1414,6 +1427,28 @@ definitions:
       locale:
         type: string
         description: Locale of the cart.
+      promotions:
+        type: object
+        description: 'This is available only when "include=promotions.banners" is presented in the URL.'
+        properties:
+          banners:
+            title: Banner
+            type: object
+            properties:
+              id:
+                description: Id of the promotion.
+                type: string
+              type:
+                description: Type of the banner
+                type: string
+              page:
+                description: An array of the locations where the banner will display
+                type: array
+                items:
+                  type: string
+              text:
+                description: Text of the banner
+                type: string
   Currency:
     type: object
     description: This will always be the same between cart and checkout.
