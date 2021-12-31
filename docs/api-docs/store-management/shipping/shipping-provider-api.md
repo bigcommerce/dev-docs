@@ -135,10 +135,9 @@ Response:
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-<!-- theme:  -->
+<!-- theme: info -->
 
-
-> The step of validating the credentials is optional. It does not change how the app operates. It is best practice to authenticate the user against your database or the downstream provider service.
+> It is best practice to authenticate the user and store against your database or the downstream provider service.
 
 </div>
 </div>
