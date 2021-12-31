@@ -4,16 +4,15 @@
 
 ### On this page
 
-- [Sign-up](#sign-up)
+- [Shipping app overview](#shipping-app-overview)
+- [Sign up](#sign-up)
 - [Before development](#before-development)
 - [Developing the app](#developing-the-app)
 - [Control Panel installation workflow](#control-panel-installation-workflow)
-- [Validation credentials](#validation-credentials)
 - [API installation workflow](#api-installation-workflow)
 - [Returning shipping quotes](#returning-shipping-quotes)
-- [Including product metatadata in rate requests](#including-product-metatadata-in-rate-requests)
+- [Including product metadata in rate requests](#including-product-metadata-in-rate-requests)
 - [Submitting the app](#submitting-the-app)
-- [App diagram](#app-diagram)
 - [Definitions](#definitions)
 - [FAQ](#faq)
 - [Related resources](#related-resources)
@@ -36,7 +35,7 @@ Some use cases for the Shipping Provider API are:
 * Required [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes: `Information and Settings`
 * BigCommerce [single-click app](https://developer.bigcommerce.com/api-docs/apps/guide/types#single-click)
 
-## Sign-up
+## Shipping app overview
 
 When creating your app, add the shipping data to our Carrier Registry, so it returns to shoppers on the front-end.
 
@@ -51,6 +50,7 @@ Please include:
 - Email
 - Description of the app
 - [Your service URLs](#your-service-urls) 
+## Sign up
 
 
 To get your app ID, create an app in [Developer Tools](https://devtools.bigcommerce.com/), and fill out the information on [Step 3 Technical](https://developer.bigcommerce.com/api-docs/apps/guide/publishing#add-technical-information). In the URL, the app will have a unique ID. Send the unique ID in exchange for a carrier ID to test the app.
@@ -137,7 +137,6 @@ Response:
 
 <!-- theme:  -->
 
-## Validation credentials
 
 > The step of validating the credentials is optional. It does not change how the app operates. It is best practice to authenticate the user against your database or the downstream provider service.
 
@@ -437,7 +436,7 @@ When you uninstall an app with an associated shipping carrier, you also automati
 </div>
 </div>
 
-## Including product metatadata in rate requests
+## Including product metadata in rate requests
 
 BigCommerce passes carrier-specific product metadata to a carrier service in a rate request via product and variant metafields. This product metadata can be useful if your service depends on specific fields that are not existent on BigCommerce products or variants by default.
 
@@ -476,7 +475,6 @@ Any shipping zone-specific or connection-specific fields to be made available to
 
 To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
 
-## App diagram
 
 <!--
     title: #### Carrier Service API
