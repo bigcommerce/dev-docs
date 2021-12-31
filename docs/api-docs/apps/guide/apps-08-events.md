@@ -62,7 +62,7 @@ Accept: application/json
 * [Webhooks Events](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events)
 
 ### Sample apps
-* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)

@@ -52,7 +52,7 @@ For details about remove user and load requests, see [Single-click App Callbacks
 * [Single-click App Callbacks](https://developer.bigcommerce.com/api-docs/apps/guide/callbacks)
 
 ### Sample apps
-* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
