@@ -73,13 +73,13 @@ Replace your host and rate with your own host and path.
 
 You should create a URL to provide shipping quotes on your API and check the available shipping rates. The second URL (optional) checks to ensure the merchant’s connection settings are valid. It can perform any checks necessary to do so, such as looking up credentials in your database or calling a downstream service to verify them.
 
-### Requests and responses
+### Request and response bodies
 
 BigCommerce will send and receive data using JSON. The request for rates will always be formatted using the [Base Rate Request Model](https://developer.bigcommerce.com/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). The response for rates should be formatted using the [Carrier Quote Object](https://developer.bigcommerce.com/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). Format the request to check for merchant app credentials as Check Connection Options request payload, and the response should be formatted using the Check Connection Options response payload.
 
 ### Error handling
 
-In the case of errors, include error messages in the response payload under the messages key.
+In the case of errors, include human-readable error messages in the response payload under the messages key.
 
 Example:
 
