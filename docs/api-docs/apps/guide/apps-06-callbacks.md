@@ -62,7 +62,7 @@ Decoding the supplied JWT lets your app do the following:
 
 ## Open the app with /load
 
-Once the store owner or an authorized user has installed your app, they will see it listed in the **Apps** sub-menu of their store's control panel. When the user clicks your app's listing, BigCommerce will dispatch a `GET` request to the `/load` route you've written.  The following is an example request:
+Once the store owner installs your app, it appears on the **Apps** sub-menu list in their store's control panel, as well as their authorized users' control panels. When a user clicks your app's listing, BigCommerce dispatches a `GET` request to the `/load` route you've written.  The following is an example request:
 
 ```http
 GET /load?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
