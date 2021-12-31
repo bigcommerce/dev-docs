@@ -38,9 +38,7 @@ properties:
         type: string
         description: Customer billing ZIP
   comments:
-    type: array
-    items:
-      type: object
+    type: string
   date:
     type: string
     description: Date of the order
