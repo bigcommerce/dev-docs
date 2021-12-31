@@ -129,7 +129,7 @@ Use the following steps to decode, verify, and parse the JWTs that BigCommerce s
 <!-- theme: warning -->
 > ### Security precautions
 > Your production code should never work with claims from a payload you can't verify.
-> To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. How to accomplish this varies by programming language and signing algorithm. Ruby and PHP [code samples](#code-samples) for HS256 hashes follow. For more information, use your preferred search engine to find "constant time string comparison {lang}".
+> To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. Comparison techniques vary by programming language and signing algorithm. Ruby and PHP [code samples](#code-samples) for HS256 hashes follow. 
 > We recommend writing middleware or using an existing [library in your language of choice](https://jwt.io/libraries) to help you decode, verify, and parse JWTs.
 
 </div>
