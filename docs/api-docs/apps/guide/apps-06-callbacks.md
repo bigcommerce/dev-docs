@@ -19,7 +19,7 @@
 
 After a store owner installs your single-click app, they and their authorized users will need to use it and configure any settings. In turn, your app will likely need to store and manage information about the stores and users you're supporting.
 
-Your app's front-end views render inside an iFrame in the store control panel, so your app has no native ability to listen for a few high-level events. To support your work, BigCommerce sends `GET` requests to callback routes in your app that correspond to three events: opening the app, uninstalling the app, and revoking a user's access to the app. Each request includes a signed JSON web token (_JWT_), which contains identifying information about the store and the user.  This article is a reference for endpoints to which we send event-driven callbacks, and a guide to writing handlers that verify and use our JWT payloads.
+Your app's front-end views render inside an iFrame in the store control panel, so your app has no native ability to listen for a few high-level events. To support your work, BigCommerce sends `GET` requests to callback routes in your app that correspond to three events: opening the app, uninstalling the app, and revoking a user's access to the app. Each request includes a signed JSON web token (_JWT_), which contains identifying information about the store and the user. This article is a reference for endpoints to which we send event-driven callbacks, and a guide to writing handlers that verify and use our JWT payloads.
 
 
 <div class="HubBlock--callout">
@@ -65,7 +65,7 @@ Decoding the supplied JWT lets your app do the following:
 
 ## Open the app with /load
 
-Once the store owner installs your app, it appears on the **Apps** sub-menu list in their store's control panel, as well as their authorized users' control panels. When a user clicks your app's listing, BigCommerce dispatches a `GET` request to the `/load` route you've written.  The following is an example request:
+Once the store owner installs your app, it appears on the **Apps** sub-menu list in their store's control panel, as well as their authorized users' control panels. When a user clicks your app's listing, BigCommerce dispatches a `GET` request to the `/load` route you've written. The following is an example request:
 
 ```http
 GET /load?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
@@ -76,7 +76,7 @@ Once you've [verified the payload](#decode-and-verify-the-jwt), [identified the 
 
 ## Remove the app with /uninstall
 
-When the store owner clicks the **Uninstall** button on your app's card in their store's control panel, BigCommerce dispatches a `GET` request to the `/uninstall` route you've written.  The following is an example request:
+When the store owner clicks the **Uninstall** button on your app's card in their store's control panel, BigCommerce dispatches a `GET` request to the `/uninstall` route you've written. The following is an example request:
 
 ```http
 GET /uninstall?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
@@ -111,14 +111,14 @@ Use the following steps to decode, verify, and parse the JWTs that BigCommerce s
 3. Parse `header_str` into a JSON object. Locate the signing algorithm's name at `header_obj.alg`.
 
 **Decode the signature** 
-4. Decode the **base64url** `signature_b64`.  `signature_crypt` is a cryptographic hash.
+4. Decode the **base64url** `signature_b64`. `signature_crypt` is a cryptographic hash.
 
 **Concatenate and sign the header and payload claims**
 5. Concatenate `header_b64` and `payload_claims_b64` with a `.` delimiter to create `header_payload_b64`.
 6. Use the algorithm specified at `header_obj.alg` to sign `header_payload_b64` with your app's `CLIENT_SECRET`. `header_payload_crypt` is a cryptographic hash.
 
 **Verify the payload claims**
-7. Compare `header_payload_crypt` with `signature_crypt`. If BigCommerce sent your app this JWT, the two hashes will match. _We strongly recommend using a constant time string comparison function.  See the following warning about security precautions for further information._
+7. Compare `header_payload_crypt` with `signature_crypt`. If BigCommerce sent your app this JWT, the two hashes will match. _We strongly recommend using a constant time string comparison function. See the following warning about security precautions for further information._
 
 **Parse and use the payload**
 8. Decode the **base64url** `payload_claims_b64`. `payload_claims_str` is a JSON string.
@@ -169,18 +169,17 @@ The following is an example of the payload claims in a BigCommerce app callback 
 | `user.id`     | integer   | ID of user initiating callback                    |
 | `user.email`  | string    | email of the user initiating callback             |
 | `owner.id`    | integer   | ID of store owner                                 |
-| `owner.email` | string    | email address of store owner.                     |
+| `owner.email` | string    | email address of store owner                      |
 | `context`     | string    | `stores/` + `store_hash`; ex: `stores/store_hash` |
 | `store_hash`  | string    | unique identified for store used in API requests  |
 | `timestamp`   | float     | Unix time when callback generated                 |
-
 
 Use the payload claims' data to identify the store and user. What your app should do with this information typically depends on whether it supports [multiple users](https://developer.bigcommerce.com/api-docs/apps/guide/users). Refer to the following table for instructions.
 
 | Endpoint           | Multiple Users Enabled                                                                                      | Multiple Users Not Enabled |
 |:-------------------|:------------------------------------------------------------------------------------------------------------|:---------------------------|
-| `GET /load`        | Compare user to store owner or existing user; if no match, it's a new user; add them to the app's database. | Matches store owner     |
-| `GET /uninstall`   | Compare user to store owner or existing user; only store owner can uninstall an app.                        | Matches store owner     |
+| `GET /load`        | Compare user to store owner or existing user; if no match, it's a new user; add them to the app's database. | Matches store owner        |
+| `GET /uninstall`   | Compare user to store owner or existing user; only store owner can uninstall an app.                        | Matches store owner        |
 | `GET /remove_user` | Compare user to users stored in app database; remove matching user from database.                           | N/A                        |
 
 ## Code samples
