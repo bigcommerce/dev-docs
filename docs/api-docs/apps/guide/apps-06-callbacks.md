@@ -17,7 +17,10 @@
 
 </div>
 
-After a store owner installs your single-click app, they and their authorized users will need to manage it and configure any settings. Because your app's users will be working in the BigCommerce control panel, certain user-initiated events that might be important to your internal logic will prompt our servers to send your app `GET` requests at predictable endpoints. Each of these requests will return a JSON web token, or _JWT_, as the value of the `signed_payload_jwt` parameter.  This article is both a reference and a guide for developing callbacks to handle these events and authenticate our `GET` requests to these endpoints.
+After a store owner installs your single-click app, they and their authorized users will need to use it and configure any settings. In turn, your app will likely need to store and manage information about the stores and users you're supporting.
+
+Your app's front-end views render inside an iFrame in the store control panel, so your app has no native ability to listen for a few high-level events. To support your work, BigCommerce sends `GET` requests to callback routes in your app that correspond to three events: opening the app, uninstalling the app, and revoking a user's access to the app. Each request includes a signed JSON web token (_JWT_), which contains identifying information about the store and the user.  This article is a reference for endpoints to which we send event-driven callbacks, and a guide to writing handlers that verify and use our JWT payloads.
+
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
