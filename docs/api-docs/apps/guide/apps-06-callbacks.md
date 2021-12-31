@@ -1,4 +1,4 @@
-# Handling Single-Click App Callbacks
+# Single-Click App Callback Handlers
 
 
 <div class="otp" id="no-index">
@@ -37,7 +37,7 @@ Your app's front-end views render inside an iFrame in the store control panel, s
 
 ## Overview
 
-The following table lists the app management events and corresponding endpoints to which our servers dispatch callbacks. Your app is only required to handle the `GET /load` endpoint, but we recommend writing handlers for all of them.
+The following table lists the app management events and corresponding endpoints to which our servers dispatch callbacks. Your app is only required to handle the `GET /load` endpoint, but we recommend writing handlers for all of them. Please see the corresponding detail sections that follow for more about the consequences of not handling optional callback endpoints.
 
 | Endpoint           | Required? | Event Description                                         |
 |:-------------------|:---------:|:----------------------------------------------------------|
@@ -57,7 +57,7 @@ Decoding the supplied JWT lets your app do the following:
 <!-- theme: info -->
 
 ### Note
-> We strongly recommend that each of your callback handlers decode `signed_payload_jwt` to [verify the payload](#decode-and-verify-the-jwt) before taking any action.
+> We strongly recommend that each callback handler decode `signed_payload_jwt` to [verify the payload](#decode-and-verify-the-jwt) before taking any action.
 
 </div>
 </div>
@@ -72,7 +72,7 @@ GET /load?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
 
-Once you've [verified the payload](#decode-and-verify-the-jwt), [identified the requesting user](#work-with-payload-claims), and handled any internal business, your app should respond with the markup and assets for the view that you want BigCommerce to render in the control panel.
+After you [verify the payload](#decode-and-verify-the-jwt), [identify the requesting user](#work-with-payload-claims), and handle any internal business, your app should respond with the markup and assets for the view that you want BigCommerce to render in the control panel.
 
 ## Remove the app with /uninstall
 
@@ -82,7 +82,7 @@ When the store owner clicks the **Uninstall** button on your app's card in their
 GET /uninstall?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
-Once you've [verified the payload](#decode-and-verify-the-jwt) and [identified the requesting user](#work-with-payload-claims), handle any business internal to your app, such as marking the user inactive in your app's database or decrementing the number of active installations. You do not need to send a response.
+After you [verify the payload](#decode-and-verify-the-jwt) and [identify the requesting user](#work-with-payload-claims), handle any business internal to your app, such as marking the user inactive in your app's database or decrementing the number of active installations. You do not need to send a response. If you do not write a handler for the `GET /uninstall` endpoint, BigCommerce will still uninstall your app from the owner's store, but your app will not know that.
 ## Revoke user access with /remove_user
 
 When the store owner revokes a user's authorization to access your app at **Account Settings** **>** **Users** in the store control panel, BigCommerce dispatches a `GET` request to the `/remove_user` route you've written.
@@ -92,7 +92,7 @@ GET /remove_user?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
 
-Once you've [verified the payload](#decode-and-verify-the-jwt) and [identified the requesting user](#work-with-payload-claims), handle any business internal to your app, such as removing the user's data from your app's database. You do not need to send a response.
+After you [verify the payload](#decode-and-verify-the-jwt) and [identify the requesting user](#work-with-payload-claims), handle any business internal to your app, such as removing the user's data from your app's database. You do not need to send a response. If you do not write a handler for the `GET /remove_user` endpoint, BigCommerce will still revoke the user's access to your app in the store control panel, but your app will not know that.
 ## Decode and verify the JWT
 
 BigCommerce's payload JWTs implement the JWT-JWS specification that the [IETF's](https://www.ietf.org/) open standard [RFC 7515](https://datatracker.ietf.org/doc/html/rfc7515) defines. The `signed_payload_jwt` is composed of three distinct **base64URL**-encoded strings concatenated with the `.` character.
