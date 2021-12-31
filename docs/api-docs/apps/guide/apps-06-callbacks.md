@@ -143,7 +143,7 @@ Use the following steps to decode, verify, and parse the JWTs that BigCommerce s
 
 The following is an example of the payload claims in a BigCommerce app callback JWT:
 
-```json
+```jsonc
 {
   "aud": "U8RphZeDjQc4kLVSzNjePo0CMjq7yOg", // your app's CLIENT_ID
   "iss": "bc",
