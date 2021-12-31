@@ -30,6 +30,8 @@ Some use cases for the Shipping Provider API are:
 - Third-party logistics
 - Create a combination of in-store pickup and shipping options for shoppers
 
+This article is a guide to developing an app that will make your shipping rates available to merchants and shoppers on demand.
+
 ### Prerequisites
 
 * Required [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes: `Information and Settings`
