@@ -34,13 +34,13 @@ After a store owner installs your single-click app, they and their authorized us
 
 ## Overview
 
-The following table lists the app management events and corresponding callback endpoints for which our servers return JWTs. Your app is only required to handle the `load` endpoint, but we recommend provisioning all of them.
+The following table lists the app management events and corresponding endpoints to which our servers dispatch callbacks. Your app is only required to handle the `GET /load` endpoint, but we recommend writing handlers for all of them.
 
-| Endpoint      | Required? | Event Description                                         |
-|:--------------|:---------:|:----------------------------------------------------------|
-| `load`        | yes       | The store owner or authorized user clicks to load the app |
-| `uninstall`   | no        | The store owner clicks to uninstall the app               |
-| `remove_user` | no        | The store owner revokes a user's access to the app        |
+| Endpoint           | Required? | Event Description                                         |
+|:-------------------|:---------:|:----------------------------------------------------------|
+| `GET /load`        | yes       | The store owner or authorized user clicks to load the app |
+| `GET /uninstall`   | no        | The store owner clicks to uninstall the app               |
+| `GET /remove_user` | no        | The store owner revokes a user's access to the app        |
 
 Decoding the supplied JWT lets your app do the following:
 - Identify the store.
@@ -174,11 +174,11 @@ The following is an example of the payload claims in a BigCommerce app callback 
 
 Use the payload claims' data to identify the store and user. What your app should do with this information typically depends on whether it supports [multiple users](https://developer.bigcommerce.com/api-docs/apps/guide/users). Refer to the following table for instructions.
 
-| Endpoint      | Multiple Users Enabled                                                                                      | Multiple Users Not Enabled |
-|:--------------|:------------------------------------------------------------------------------------------------------------|:---------------------------|
-| `load`        | Compare user to store owner or existing user; if no match, it's a new user; add them to the app's database. | Will match store owner     |
-| `uninstall`   | Compare user to store owner or existing user; only store owner can uninstall an app.                        | Will match store owner     |
-| `remove_user` | Compare user to users stored in app database; remove matching user from database.                           | N/A                        |
+| Endpoint           | Multiple Users Enabled                                                                                      | Multiple Users Not Enabled |
+|:-------------------|:------------------------------------------------------------------------------------------------------------|:---------------------------|
+| `GET /load`        | Compare user to store owner or existing user; if no match, it's a new user; add them to the app's database. | Matches store owner     |
+| `GET /uninstall`   | Compare user to store owner or existing user; only store owner can uninstall an app.                        | Matches store owner     |
+| `GET /remove_user` | Compare user to users stored in app database; remove matching user from database.                           | N/A                        |
 
 ## Code samples
 
