@@ -86,7 +86,7 @@ To load inside the control panel iFrame, your app must do the following:
 
 ## Next steps
 * [Create external installation buttons](https://developer.bigcommerce.com/api-docs/apps/guide/buttons).
-* [Follow best practices](https://developer.bigcommerce.com/api-docs/apps/guid/best-practices).
+* [Follow best practices](https://developer.bigcommerce.com/api-docs/apps/guide/best-practices).
 * [Check requirements](https://developer.bigcommerce.com/api-docs/apps/guide/requirements).
 * [Publish your app](https://developer.bigcommerce.com/api-docs/apps/guide/publish).
 
