@@ -8,7 +8,7 @@
 - [Testing locally with ngrok](#testing-locally-with-ngrok)
 - [Registering a draft app](#registering-a-draft-app)
 - [Installing a draft app](#installing-a-draft-app)
-- [Next steps](#next-steps)
+- [Next step](#next-step)
 - [Resources](#resources)
 
 </div>
@@ -76,7 +76,7 @@ Any store registered to the same email as your [Developer Portal](https://devtoo
 2. Click the draft app thumbnail to install the draft. 
 3. Once you click **Install**, BigCommerce will begin the OAauth flow by making a `GET` request to the app's `/auth` callback URL. If the app handles all the requests successfully, the app has been installed and you can begin feature development.
 
-## Next steps
+## Next step
 * [Learn How Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf)
 
 ## Resources

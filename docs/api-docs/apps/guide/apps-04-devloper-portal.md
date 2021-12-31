@@ -9,7 +9,7 @@
 - [Editing technical details](#editing-technical-details)
 - [Viewing credentials](#viewing-credentials)
 - [Submitting apps](#submitting-apps)
-- [Next steps](#next-steps)
+- [Next step](#next-step)
 - [Resources](#resources)
 
 </div>
@@ -120,9 +120,8 @@ Submit apps for [Apps Marketplace](https://www.bigcommerce.com/apps) approval by
 
 [Learn more about completing app registration fields and submitting apps for approval](https://developer.bigcommerce.com/api-docs/apps/guide/publishing).
 
-## Next steps
+## Next step
 * [Implement the OAuth flow](https://developer.bigcommerce.com/api-docs/apps/guide/auth).
-* [Handle app callbacks](https://developer.bigcommerce.com/api-docs/apps/guide/callbacks).
 
 ## Resources
 

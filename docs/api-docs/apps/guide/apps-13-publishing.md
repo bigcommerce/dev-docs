@@ -11,7 +11,7 @@
 - [Review submission](#review-submission)
 - [Submit your app for approval](#submit-your-app-for-approval)
 - [FAQ](#faq)
-- [Next steps](#next-steps)
+- [Next step](#next-step)
 - [Resources](#resources)
 
 </div>
@@ -129,8 +129,8 @@ You may have logged in with the wrong account. Each listing can only be owned by
 The changes will be effective immediately in your control panel app card, but the updates
 can take up to 24 hours to appear on the Apps Marketplace. Feel free to use this as a grace period to make edits as needed.
 
-## Next steps
-[Review the Apps Marketplace listing guide (PDF)](https://grow.bigcommerce.com/rs/695-JJT-333/images/Updated_List_of_App_Fields_for_Tech_Partners.pdf).
+## Next step
+* [Review the Apps Marketplace listing guide (PDF)](https://grow.bigcommerce.com/rs/695-JJT-333/images/Updated_List_of_App_Fields_for_Tech_Partners.pdf).
 
 ## Resources
 

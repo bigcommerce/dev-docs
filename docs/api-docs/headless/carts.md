@@ -7,7 +7,7 @@
 - [Redirecting to checkout](#redirecting-to-checkout)
 - [Deleting a line item](#deleting-a-line-item)
 - [Clearing the cart](#clearing-the-cart)
-- [Next steps](#next-steps)
+- [Next step](#next-step)
 - [Resources](#resources)
 
 </div>
@@ -167,7 +167,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/carts/cart/deleteacart#requestrunner)
 
-## Next steps
+## Next step
 
 - [Learn how to move a cart to checkout](https://developer.bigcommerce.com/api-docs/storefronts/guide/checkout)
 

@@ -12,7 +12,7 @@
 - [Work with payload claims](#work-with-payload-claims)
 - [Code samples](#code-samples)
 - [Helpful tools](#helpful-tools)
-- [Next steps](#next-steps)
+- [Next step](#next-step)
 - [Resources](#resources)
 
 </div>
@@ -290,7 +290,7 @@ The following BigCommerce API clients expose helper methods for verifying the `s
   * Fetches `access_token`
   * Verifies `signed_payload_jwt`
 
-## Next steps
+## Next step
 * [Support multiple users](https://developer.bigcommerce.com/api-docs/apps/guide/users)
 
 ## Resources

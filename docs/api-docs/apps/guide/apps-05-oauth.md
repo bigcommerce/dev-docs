@@ -12,7 +12,7 @@
 - [Receiving the POST response](#receiving-the-post-response)
 - [Code samples](#code-samples)
 - [Security considerations](#security-considerations)
-- [Next steps](#next-steps)
+- [Next step](#next-step)
 - [Resources](#resources)
 
 </div>
@@ -207,7 +207,7 @@ $token = $response->access_token;
 
 For additional details, see [Security Considerations in RC6749](https://tools.ietf.org/html/rfc6749#section-10). For a list of the top web application security risks and best practices for avoiding them, see [OWASP Top Ten](https://owasp.org/www-project-top-ten/).
 
-## Next steps
+## Next step
 * [Handle load, uninstall, and remove user callbacks](https://developer.bigcommerce.com/api-docs/apps/guide/callbacks)
 
 ## Resources

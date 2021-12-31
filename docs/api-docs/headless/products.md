@@ -5,7 +5,7 @@
 ### On this page
 - [Retrieving product data](#retrieving-product-data)
 - [Managing products](#managing-products)
-- [Next steps](#next-steps)
+- [Next step](#next-step)
 - [Resources](#resources)
 
 </div>
@@ -161,7 +161,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 It is best practice to cache product details in a database to improve performance and increase operational efficiency. Caching product information will allow you to implement search functionality and control the information displayed to the customers.
  
-## Next steps
+## Next step
 
 - [Learn how to create a cart](https://developer.bigcommerce.com/api-docs/storefronts/guide/carts)
 

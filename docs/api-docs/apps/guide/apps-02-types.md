@@ -6,7 +6,7 @@
 - [Single-Click](#single-click)
 - [Connector](#connector)
 - [Visibility](#visibility)
-- [Next steps](#next-steps)
+- [Next step](#next-step)
 - [Resources](#resources)
 </div>
 
@@ -54,7 +54,7 @@ There are three visibility options for apps: **Draft**, **Unlisted**, and **Publ
 </div>
 </div>
 
-## Next steps
+## Next step
 [Begin app development](https://developer.bigcommerce.com/api-docs/apps/guide/development).
 
 ## Resources

@@ -5,7 +5,7 @@
 ### On This Page
 - [Available webhooks](#available-webhooks)
 - [Creating webhooks](#creating-webhooks)
-- [Next steps](#next-steps)
+- [Next step](#next-step)
 - [Resources](#resources)
 
 </div>
@@ -51,7 +51,7 @@ Accept: application/json
 
 [Learn more about creating webhooks](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks).
 
-## Next steps
+## Next step
 * [Design your app's user interface](https://developer.bigcommerce.com/api-docs/apps/guide/ui).
 
 ## Resources

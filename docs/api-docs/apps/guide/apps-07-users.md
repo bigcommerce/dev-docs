@@ -7,7 +7,7 @@
 - [The control panel experience](#the-control-panel-experience)
 - [The load request](#the-load-request)
 - [The remove user request](#the-remove-user-request)
-- [Next steps](#next-steps)
+- [Next step](#next-step)
 - [Resources](#resources)
 - [Related articles](#related-articles)
 
@@ -42,7 +42,7 @@ Store owners can also remove users. This action generates a `GET` request to the
 
 For details about remove user and load requests, see [Single-click App Callbacks](https://developer.bigcommerce.com/api-docs/apps/guide/callbacks).
 
-## Next steps
+## Next step
 
 * [Learn how to handle store events](https://developer.bigcommerce.com/api-docs/apps/guide/users).
 

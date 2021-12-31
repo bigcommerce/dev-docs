@@ -9,7 +9,7 @@
 - [Functionality](#functionality)
 - [Installation](#installation)
 - [FAQ](#faq)
-- [Next steps](#next-steps)
+- [Next step](#next-step)
 - [Resources](#resources)
 
 </div>
@@ -74,7 +74,7 @@ Don't reference competitor platforms in the app's listing information or dashboa
 **Are all fields required?**
 For Marketplace approval, you'll need to fill out all fields on your listing with applicable content and links. These will be reviewed as part of the Marketplace approval process. **Case Studies** and **Videos** are optional.
 
-## Next steps
+## Next step
 * [Publish your app](https://developer.bigcommerce.com/api-docs/apps/guide/publishing).
 
 ## Resources

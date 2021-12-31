@@ -7,7 +7,7 @@
 - [Customer Single Sign-on](#customer-single-sign-on)
 - [Identifying logged-in customers](#identifying-logged-in-customers)
 - [Surfacing customer group pricing](#surfacing-customer-group-pricing)
-- [Next steps](#next-steps)
+- [Next step](#next-step)
 
 </div>
 
@@ -125,6 +125,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-## Next steps
+## Next step
 
 - [Learn how to create an order](https://developer.bigcommerce.com/api-docs/storefronts/guide/orders)

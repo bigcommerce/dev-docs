@@ -6,7 +6,7 @@
 - [About BigCommerce apps](#about-bigcommerce-apps)
 - [Use cases](#use-cases)
 - [Getting started](#getting-started)
-- [Next steps](#next-steps)
+- [Next step](#next-step)
 - [Resources](#resources)
 
 </div>
@@ -73,11 +73,10 @@ Here's how to get started with BigCommerce development:
 5. [Check out the Marketplace](https://www.bigcommerce.com/marketplace/) to get inspiration on what to build.
 
 
-## Next steps
-* [Decide which type of app to build](https://developer.bigcommerce.com/api-docs/apps/guide/types)
 
-* [Start building apps with Node, React, Next.js, and BigDesign](https://developer.bigcommerce.com/api-docs/apps/quick-start)
 
+## Next step
+* [Learn more about different types of apps](https://developer.bigcommerce.com/api-docs/apps/guide/types)
 
 ## Resources
 
