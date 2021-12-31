@@ -49,7 +49,7 @@ For details about remove user and load requests, see [Single-click App Callbacks
 ## Resources
 
 ## Related articles
-* [Single-click App Callbacks](https://developer.bigcommerce.com/api-docs/apps/guide/callbacks)
+* [Single-click App Callback Handlers](https://developer.bigcommerce.com/api-docs/apps/guide/callbacks)
 
 ### Sample apps
 * [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start)
