@@ -101,7 +101,7 @@ BigCommerce's payload JWTs implement the JWT-JWS specification that the [IETF's]
 header_b64.payload_claims_b64.signature_b64
 ```
 
-Use the following steps to decode, verify, and parse the JWTs that BigCommerce sends to your app's callback endpoints.
+Use the following steps to decode, verify, and parse the JWTs that BigCommerce sends to your app's callback endpoints:
 
 **Decompose the JWT**
 1. Split the `signed_payload_jwt` by the `.` delimiter.
@@ -174,7 +174,7 @@ The following is an example of the payload claims in a BigCommerce app callback 
 | `store_hash`  | string    | unique identified for store used in API requests  |
 | `timestamp`   | float     | Unix time when callback generated                 |
 
-Use the payload claims' data to identify the store and user. What your app should do with this information typically depends on whether it supports [multiple users](https://developer.bigcommerce.com/api-docs/apps/guide/users). Refer to the following table for instructions.
+Use the payload claims' data to identify the store and user. What your app should do with this information typically depends on whether it supports [multiple users](https://developer.bigcommerce.com/api-docs/apps/guide/users). Refer to the following table for instructions:
 
 | Endpoint           | Multiple Users Enabled                                                                                      | Multiple Users Not Enabled |
 |:-------------------|:------------------------------------------------------------------------------------------------------------|:---------------------------|
