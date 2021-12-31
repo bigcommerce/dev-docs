@@ -39,25 +39,70 @@ This article is a guide to developing an app that will make your shipping rates 
 
 ## Shipping app overview
 
-When creating your app, add the shipping data to our Carrier Registry, so it returns to shoppers on the front-end.
+<!--
+    title: ### Carrier Service API
 
-To get your app setup, send an email to
-<a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
+    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1552664566834
+-->
 
-Please include:
+### Carrier Service API
 
-- Name
-- Partner ID
-- App ID (see below)
-- Email
-- Description of the app
-- [Your service URLs](#your-service-urls) 
+![### Carrier Service API
+](//s3.amazonaws.com/user-content.stoplight.io/6012/1552664566834 "### Carrier Service API
+")
+
+### Single-carrier vs multi-carrier apps
+
+Only one registered shipping carrier can be associated with an app. This [registered carrier](#definitions) can provide quotes from multiple downstream carriers. 
+
+BigCommerce makes a distinction between single-carrier and multi-carrier shipping providers, but because only one registered shipping carrier can be associated with an app, the primary difference that this distinction makes is in how the quote displays in the customer's cart at checkout.  If your app is registered as a single carrier, the name of the carrier providing the quote will appear beside the name of the shipping quote in the customer's list of shipping rate options. The carrier name will not appear in quotes from multi-carrier apps. The following images illustrate the difference:
+
+<!--
+    title: #### Single-Carrier Quote Example
+
+    data: //raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-single-carrier-ui.png
+-->
+
+#### Single-Carrier Quote Example
+
+![#### Single-Carrier Quote Example](//raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-single-carrier-ui.png "#### Single-Carrier Quote Example
+")
+
+<!--
+    title: #### Multi-Carrier Quote Example
+
+    data: //raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-multi-carrier-ui.png
+-->
+
+#### Multi-Carrier Quote Example
+
+![#### Multi-Carrier Quote Example](//raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-multi-carrier-ui.png "#### Multi-Carrier Quote Example
+")
+
 ## Sign up
 
+When your app is complete, it will be listed in our Carrier Registry, so that your shipping rates are available for merchants and shopper to use.  Register your app and get a carrier ID to get started.
 
-To get your app ID, create an app in [Developer Tools](https://devtools.bigcommerce.com/), and fill out the information on [Step 3 Technical](https://developer.bigcommerce.com/api-docs/apps/guide/publishing#add-technical-information). In the URL, the app will have a unique ID. Send the unique ID in exchange for a carrier ID to test the app.
+### Register your app
+
+We need your app ID to generate a carrier ID for your shipping service. To get your app ID, [create a draft app](https://developer.bigcommerce.com/api-docs/apps/guide/development#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Step 3: Technical tab](https://developer.bigcommerce.com/api-docs/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID. 
 
 ![#### App ID](//s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224 "#### App ID")
+
+### Request a carrier ID
+
+To get your app set up and request a carrier ID, send an email to
+<a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
+
+Please include the following information:
+
+- Your name
+- Your partner ID
+- Your app's ID (see the following)
+- Your email
+- A description of the app
+- [Your service URLs](#your-service-urls) 
+- [Whether you prefer single-carrier or multi-carrier status](#single-carrier-vs-multi-carrier-apps)
 
 ## Before development
 
@@ -476,20 +521,6 @@ Any shipping zone-specific or connection-specific fields to be made available to
 
 To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
 
-
-<!--
-    title: #### Carrier Service API
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1552664566834
--->
-
-#### Carrier Service API
-
-![#### Carrier Service API
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1552664566834 "#### Carrier Service API
-")
-
-Only one registered shipping carrier may be associated with an app. This [registered carrier](#shipping_provider-definitions) can provide quotes from multiple downstream carriers if desired. In this case, it will become a multi-carrier aggregator.
 
 ## Definitions
 
