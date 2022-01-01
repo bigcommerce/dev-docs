@@ -35,7 +35,7 @@ When a merchant clicks an installed app's listing or **Launch** button in the **
 ![App Display](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-01-introduction-03.png  "App Display")
 
 ## Use cases
-What can developers and merchants do with BigCommerce apps?
+What can developers help merchants do with BigCommerce apps?
 
 ### Integrate with business systems
 Use [BigCommerce APIs](https://developer.bigcommerce.com/api-reference) to integrate stores with core business systems, including but not limited to the following:
@@ -46,17 +46,17 @@ Use [BigCommerce APIs](https://developer.bigcommerce.com/api-reference) to integ
 
 [Learn more about BigCommerce's powerful APIs.](https://developer.bigcommerce.com/api-reference)
 
-### Connect to sales channels
-List products on external [sales channels](https://www.bigcommerce.com/apps/sales-channels/) with [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference).
+### Coordinate external sales channels
+List products on multiple [sales channels](https://www.bigcommerce.com/apps/sales-channels/) and manage external order fulfillment with the [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/guide/channels-toolkit-reference).
 
 [Learn more about connecting apps to sales channels.](https://developer.bigcommerce.com/api-docs/channels/overview)
 
-### Add and manage scripts
-Create and manage scripts with [Scripts API](https://developer.bigcommerce.com/api-reference/store-management/scripts) and [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
+### Automate complex script management
+Programmatically add scripts with merchant-customizable variables using our [Scripts API](https://developer.bigcommerce.com/api-reference/store-management/scripts) and [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
 
-[Learn more about creating scripts](https://developer.bigcommerce.com/api-docs/storefront/scripts-overview).
+[Learn more about creating scripts](https://developer.bigcommerce.com/api-docs/store-management/scripts).
 
-### Create dynamic widgets
+### Design dynamic widgets
 Build [widgets](https://support.bigcommerce.com/s/article/Page-Builder#builder), or storefront content blocks, that merchants can install and configure to display store and third-party content to their customers.
 
 [Learn more about creating widgets](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview).
