@@ -81,7 +81,7 @@ BigCommerce makes a distinction between single-carrier and multi-carrier shippin
 
 ## Sign up
 
-When your app is complete, it will be listed in our Carrier Registry, so that your shipping rates are available for merchants and shopper to use.  Register your app and get a carrier ID to get started.
+When your app is complete, it will be listed in our Carrier Registry, so that your shipping rates are available for merchants and shoppers to use. Register your app and get a carrier ID to get started.
 
 ### Register your app
 
@@ -146,7 +146,7 @@ Example:
 
 To use the Shipping Provider API to provide shipping quotes, shipping providers must build a BigCommerce [single-click app](https://developer.bigcommerce.com/api-docs/apps/guide/types#single-click). 
 
-Using a BigCommerce app enables shipping providers to promote their solution in the BigCommerce apps marketplace, request merchant authorization of API scopes during app install, and enable configuration of shipping provider settings and/or order fulfilment via an iFrame in the BigCommerce control panel.
+Using a BigCommerce app enables shipping providers to promote their solution in the BigCommerce apps marketplace, request merchant authorization of API scopes during app install, and enable configuration of shipping provider settings and/or order fulfillment via an iFrame in the BigCommerce control panel.
 
 For more information, see our [Introduction to Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro).
 
@@ -486,13 +486,13 @@ When you uninstall an app with an associated shipping carrier, you also automati
 
 BigCommerce passes carrier-specific product metadata to a carrier service in a rate request via product and variant metafields. This product metadata can be useful if your service depends on specific fields that are not existent on BigCommerce products or variants by default.
 
-To pass metadata in a rate request, the metafields must meet the following requirements:
+To pass metadata in a rate request, the metafield must meet the following requirements:
 
-- must be a product or variant metafields (you cannot pass category, brand, and other metafields in rate requests)
-- `permission_set` on the metafield must be `read` or `write`
-- `namespace` on the metafield must match this format: `shipping_carrier_carrier_id` (example: `shipping_carrier_72`)
+- it must be a product or variant metafield (you cannot pass category, brand, or other metafields in rate requests)
+- the metafield `permission_set` must be `read` or `write`
+- the metafield `namespace` must match this format: `shipping_carrier_<carrier_id>` (example: `shipping_carrier_72`)
 
-The carrier registration process described in the [sign up](#sign-up) section provides the `carrier_id`.
+The carrier registration process described in the [Sign up](#sign-up) section provides the `carrier_id`.
 
 For more information on product and variant metafields, see:
 
