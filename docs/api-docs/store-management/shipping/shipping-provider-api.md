@@ -34,7 +34,7 @@ This article is a guide to developing an app that will make your shipping rates 
 
 ### Prerequisites
 
-* Required [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes: `Information and Settings`
+* Required [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) scopes: `Information and Settings`
 * BigCommerce [single-click app](https://developer.bigcommerce.com/api-docs/apps/guide/types#single-click)
 
 ## Shipping app overview
@@ -496,8 +496,8 @@ The carrier registration process described in the [sign up](#sign-up) section pr
 
 For more information on product and variant metafields, see:
 
-- [API Reference > Store Management > Catalog > Product Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields)
-- [API Reference > Store Management > Catalog > Product Variant Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields)
+- [API Reference > Store Management > Catalog > Product Metafields](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-metafields)
+- [API Reference > Store Management > Catalog > Product Variant Metafields](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants-metafields)
 
 ## Submitting the app
 
@@ -547,15 +547,15 @@ No, you can only publish one app at a time. The others can be for use as testing
 
 ### Articles
 
-- [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
+- [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/apps/guide/requirements)
 
 ### Endpoints
 
-- [Shipping Providers](/api-reference/store-management/shipping-provider-api)
-- [Shipping Zones](/api-reference/store-management/shipping-api/shipping-zones)
-- [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method)
-- [Shipping Carriers](/api-reference/store-management/shipping-api/shipping-carrier)
+- [Shipping Providers](https://developer.bigcommerce.com/api-reference/providers/shipping-provider-api)
+- [Shipping Zones](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-zones)
+- [Shipping Methods](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-method)
+- [Shipping Carriers](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-carrier)
 
 ### Webhooks
 
-- [Webhooks](/api-docs/getting-started/webhooks/webhook-events#webhook-events_shipment)
+- [Webhooks](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#shipment)
