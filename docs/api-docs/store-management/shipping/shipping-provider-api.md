@@ -55,7 +55,7 @@ This article is a guide to developing an app that will make your shipping rates 
 
 Only one registered shipping carrier can be associated with an app. This [registered carrier](#definitions) can provide quotes from multiple downstream carriers. 
 
-BigCommerce makes a distinction between single-carrier and multi-carrier shipping providers, but because only one registered shipping carrier can be associated with an app, the primary difference that this distinction makes is in how the quote displays in the customer's cart at checkout.  If your app is registered as a single carrier, the name of the carrier providing the quote will appear beside the name of the shipping quote in the customer's list of shipping rate options. The carrier name will not appear in quotes from multi-carrier apps. The following images illustrate the difference:
+BigCommerce makes a distinction between single-carrier and multi-carrier shipping providers. The primary difference that this distinction makes is in how the quote displays in the customer's cart at checkout. If your app is registered as a single carrier, the name of the carrier providing the quote will appear beside the name of the shipping quote in the customer's list of shipping rate options. The carrier name will not appear in quotes from multi-carrier apps. The following images illustrate the difference:
 
 <!--
     title: #### Single-Carrier Quote Example
