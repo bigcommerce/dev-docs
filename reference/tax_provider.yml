@@ -4,7 +4,7 @@ info:
   version: '1.0'
   contact: {}
 
-  description: "Use BigCommerce's platform-to-platform Tax Provider API to integrate a tax calculation engine into the BigCommerce storefront and control panel. Supports [estimate](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/estimate), [adjust](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/adjust), [commit](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/commit), and [void](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/void) operations. For more information, see [Tax Provider API Overview](https://developer.bigcommerce.com/api-docs/providers/tax)."
+  description: "Use BigCommerce’s platform-to-platform Tax Provider API to integrate a tax calculation engine into the BigCommerce storefront and control panel. Supports [estimate](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/estimate), [adjust](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/adjust), [commit](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/commit), and [void](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/void) operations. For more information, see [Tax Provider API Overview](https://developer.bigcommerce.com/api-docs/providers/tax)."
 tags:
   - name: Tax Provider
 servers:
@@ -19,9 +19,9 @@ paths:
       tags:
         - Tax Provider
       description: |-
-        Submit the quote request to retrieve a estimate from the enabled third party tax provider. Estimates are not expected to be persisted by the tax provider.
+        Submit the quote request to retrieve an estimate from the enabled third-party tax provider. Estimates are not expected to be persisted by the tax provider.
 
-        The following actions can trigger tax estimate requests multiple times during a standard checkout on a BigCommerce storefront, depending on the BigCommerce merchant's settings.
+        The following actions can trigger tax estimate requests multiple times during a standard checkout on a BigCommerce storefront, depending on the BigCommerce merchant’s settings.
 
         - After selecting a Shipping Method during the “Estimate Shipping & Tax” facility on the Cart page.
         - After specifying a Shipping Address during a Checkout.
@@ -48,7 +48,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/request-quote'
-        description: 'Estimates may not always contain complete data as these requests will be fired at different stages of the shopper checkout. For example, with the **Estimate Shipping & Tax** function on the **Cart** page is not expected to provide any billing address data, but the tax provider will still be expected to return a valid estimate.'
+        description: 'Estimates may not always contain complete data as these requests will be fired at different stages of the shopper checkout. For example, the **Estimate Shipping & Tax** function on the **Cart** page is not expected to provide any billing address data, but the tax provider will still be expected to return a valid estimate.'
         required: true
         x-examples:
           application/json:
@@ -250,7 +250,7 @@ paths:
         '400':
           description: Fallback Tax will be used for this transaction. General response that points to an issue with the incoming request that means a valid response is unable to be returned.
         '401':
-          description: Response to indicate that the merchant's authentication credentials are invalid. The merchant will receive an update in their Store Logs.
+          description: Response to indicate that the merchant’s authentication credentials are invalid. The merchant will receive an update in their Store Logs.
         '500':
           description: Fallback Tax will be used for this transaction. General response that points to an error on the tax provider side. These types of errors should be promptly resolved by the tax provider.
   /void:
@@ -272,7 +272,7 @@ paths:
         '400':
           description: General response that points to an issue with the incoming request that means a valid response is unable to be returned.
         '401':
-          description: Response to indicate that the merchant's authentication credentials are invalid. The merchant will receive an update in their Store Logs.
+          description: Response to indicate that the merchant’s authentication credentials are invalid. The merchant will receive an update in their Store Logs.
         '500':
           description: General response that points to an error on the tax provider side. These types of errors should be promptly resolved by the tax provider.
       tags:
@@ -280,7 +280,7 @@ paths:
   /commit:
     post:
       summary: Commit Tax Quote
-      description: 'Submit the quote request to be persisted by the enabled third party tax provider. A commit operation is intended to be submitted once only, when the Order has been confirmed and paid.'
+      description: 'Submit the quote request to be persisted by the enabled third-party tax provider. A commit operation is intended to be submitted once only, when the Order has been confirmed and paid.'
       operationId: commit
       parameters:
         - $ref: '#/components/parameters/header-storehash'
@@ -491,7 +491,7 @@ paths:
         '400':
           description: General response that points to an issue with the incoming request that means a valid response is unable to be returned.
         '401':
-          description: Response to indicate that the merchant's authentication credentials are invalid. The merchant will receive an update in their Store Logs.
+          description: Response to indicate that the merchant’s authentication credentials are invalid. The merchant will receive an update in their Store Logs.
         '500':
           description: General response that points to an error on the tax provider side. These types of errors should be promptly resolved by the tax provider.
       tags:
@@ -508,7 +508,7 @@ paths:
         '400':
           description: General response that points to an issue with the incoming request that means a valid response is unable to be returned.
         '401':
-          description: Response to indicate that the merchant's authentication credentials are invalid. The merchant will receive an update in their Store Logs.
+          description: Response to indicate that the merchant’s authentication credentials are invalid. The merchant will receive an update in their Store Logs.
         '500':
           description: General response that points to an error on the tax provider side. These types of errors should be promptly resolved by the tax provider.
           content:
@@ -597,7 +597,7 @@ paths:
       description: |-
         Replace the persisted tax quote (identified by the given unique ID) with the provided quote request (represented by the **AdjustRequest**).
 
-        Relevant for partial refunds, full refunds, returns and other Order modifications where there have been changes to the tax liabilities.
+        Relevant for partial refunds, full refunds, returns, and other Order modifications where there have been changes to the tax liabilities.
 
         The returned **Tax Quote** response is expected to be the same to a response returned by an equivalent response to **estimate** or **commit** methods.
       operationId: adjust
@@ -621,14 +621,14 @@ components:
     header-storehash:
       name: X-BC-Store-Hash
       in: header
-      description: BigCommerce will send through the Store Hash as part of all Tax Provider API operations. Each BigCommerce store on the platform has a unique Store Hash value for the lifetime of the store. This value can assist in account verification or profile matching responsibilities.
+      description: BigCommerce will send through the Store Hash as part of all Tax Provider API operations. Each BigCommerce store on the platform has a unique Store Hash value for the store’s lifetime. This value can assist in account verification or profile matching responsibilities.
       required: true
       schema:
         type: string
   schemas:
     request-item:
       type: object
-      description: An **ItemRequest** represents required information relating to being able to complete tax calculations for a specific line item.
+      description: An **ItemRequest** represents required information relating to completing tax calculations for a specific line item.
       properties:
         id:
           type: string
@@ -641,7 +641,7 @@ components:
           description: A display name for this item.
         price:
           type: object
-          description: 'The final sale price (after discounts, bulk pricing, price lists, etc) prior to having taxes calculated. If the merchant lists prices inclusive of tax this price will already be tax inclusive, and so the tax provider will instead by calculating the amount of tax that was already included in this price. For multiple quantities, this price includes that multiplication.'
+          description: 'The final sale price (after discounts, bulk pricing, price lists, etc.) prior to having taxes calculated. If the merchant lists prices inclusive of tax, this price will already be tax inclusive, and so the tax provider will instead calculate the amount of tax that was already included in this price. For multiple quantities, this price includes that multiplication.'
           properties:
             amount:
               type: number
@@ -661,12 +661,12 @@ components:
           $ref: '#/components/schemas/TaxClass'
         tax_exempt:
           type: boolean
-          description: Flag whether or not this item is always tax exempt. For example, gift certificate purchases and order-level refunds are tax exempt. Tax exempt items are included in the request for auditing purposes.
+          description: Flag whether or not this item is always tax-exempt. For example, gift certificate purchases and order-level refunds are tax-exempt. Tax-exempt items are included in the request for auditing purposes.
           default: false
         type:
           type: string
           description: |-
-            The type of line item this request represents. This will depend on the items position in the request hirearchy, for example a collection of items (which may or may not also have wrapping attached) are contained within the document request. Seperately, each document request has a single shipping and a single handling line item (to capture these values).
+            The type of line item this request represents. This will depend on the item’s position in the request hierarchy. For example, the document request contains a collection of items (which may or may not also have wrapping attached). In addition, each document request also has a shipping line item and handling line item.
 
             The type refund is used when the tax estimate request is for an order-level refund.
           enum:
@@ -685,7 +685,7 @@ components:
       title: ItemRequest
     request-document:
       type: object
-      description: 'Each **DocumentRequest** contains a collection of items (represented by an array of 1+ **ItemRequest** objects) the shopper has purchased, shipped to a specific address. Multi-address orders (where shoppers select to ship items to differrent addresses). These are equivalent to "consignment" or "shipment" in other parts of the BigCommerce platform.'
+      description: 'Each **DocumentRequest** represents an order or part of an order of items fulfilled from a single origin address to a single destination address. In addition to shipping and billing details, it contains an `items` array of one or more **ItemRequest** objects, which represent the shipment’s tax-relevant contents. Multi-address orders, in which items ship to or from multiple addresses, require at least one **DocumentRequest** per combination of sender-recipient addresses. These are similar to "consignments" or "shipments" in other BigCommerce APIs.'
       properties:
         id:
           type: string
@@ -715,7 +715,7 @@ components:
       title: DocumentRequest
     request-quote:
       type: object
-      description: A **QuoteRequest** contains all of the tax relevant items that a shopper is placing an order for divided into documents (represented by an array of 1+ **DocumentRequest** objects) corresponding to each of the shipping addresses a shopper is sending items to (as multi-address orders may be taxed differently based on shipping address).
+      description: 'Each **QuoteRequest** represents an order. In addition to transaction details, it contains a `documents` array of one or more **DocumentRequest** objects, which represent distinct combinations of origin and fulfillment addresses and the tax-relevant contents of those consignments. This is similar to an "order" in other BigCommerce APIs.'
       title: QuoteRequest
       properties:
         id:
@@ -726,7 +726,7 @@ components:
           description: ISO 4217 3 character currency code that all prices on this request are in.
         customer:
           type: object
-          description: 'If the shopper is a registered customer in the merchants store, basic details for that customer.'
+          description: If the shopper is a registered customer in the merchant’s store, basic details for that customer.
           required:
             - customer_id
             - customer_group_id
@@ -740,7 +740,7 @@ components:
               default: '0'
             taxability_code:
               type: string
-              description: 'If applicable, the tax exemption code of the shoppers customer account. A taxability code is expected to be able to be applied to multiple customers. This code should match the exemption codes provided by the third party integration.'
+              description: "If applicable, the tax exemption code of the shopper’s customer account. A taxability code is intended to apply to multiple customers. This code should match the exemption codes provided by the third-party integration."
         transaction_date:
           type: string
           format: date-time
@@ -763,7 +763,7 @@ components:
           properties:
             adjust_description:
               type: string
-              description: 'Specifies the reason for the adjustment operation, for auditing purposes. May be a custom, user entered description.'
+              description: Specifies the reason for the adjustment operation, for auditing purposes. May be a custom, user-entered description.
         - $ref: '#/components/schemas/request-quote'
       title: AdjustRequest
     Address:
@@ -786,7 +786,7 @@ components:
           example: New South Wales
         region_code:
           type: string
-          description: 'If available, the short code/acronym for the region. For example "CA" for "California" or "NSW" for "New South Wales".'
+          description: 'If available, the short code/acronym for the region. For example, "CA" for "California" or "NSW" for "New South Wales".'
           example: NSW
         country_name:
           type: string
@@ -802,7 +802,7 @@ components:
           example: '2007'
         company_name:
           type: string
-          description: 'If this is a commercial address, the name of the company this address is for.'
+          description: If this is a commercial address, the associated company’s name.
           deprecated: true
         type:
           type: string
@@ -814,13 +814,13 @@ components:
       properties:
         code:
           type: string
-          description: 'The provider specific tax code for this item. Items can be classified with tax codes relevant to each Tax Provider, configured by the merchant and assigned to their products within BigCommerce. A tax code is expected to be able to be applied to multiple products. This code should match the tax codes provided by the third party intergation.'
+          description: The provider-specific tax code for this item. Items can be classified with tax codes relevant to each Tax Provider, configured by the merchant, and assigned to their products within BigCommerce. A tax code is intended to apply to multiple products. This code should match the tax codes provided by the third-party integration.
         class_id:
           type: string
-          description: The ID of the tax class defined in the merchants BigCommerce store. May have a UUID value.
+          description: "The ID of the tax class defined in the merchant’s BigCommerce store. May have a UUID value."
         name:
           type: string
-          description: The human readable name of this tax class in the merchants BigCommerce store.
+          description: "The human-readable name of this tax class in the merchant’s BigCommerce store."
       required:
         - code
         - class_id
@@ -833,7 +833,7 @@ components:
           description: The unique identifier of the tax quote that was requested. This must match the ID of the requested quote.
         documents:
           type: array
-          description: 'One or more consignments containing items being purchased by the shopper, including shipping and handling fees that are charged for each consignment. Most orders will contain a single consignment (to a single shipping address), however the BigCommerce platform also supports "Multi-address orders" which allow shoppers to place a single order with items shipped to different addresses.'
+          description: 'Represents an order quote or part of an order quote of tax-relevant items fulfilled from a single origin address to a single destination address, including arrays of shipping and handling fee objects for each item. Most order quotes contain a single document; however, BigCommerce supports "multi-address orders", which may come from or go to distinct sets of addresses and thus require multiple documents per quote.'
           items:
             $ref: '#/components/schemas/response-document'
       required:
@@ -848,7 +848,7 @@ components:
           description: A unique identifier for this consignment. Must match the ID of the corresponding Document Request.
         external_id:
           type: string
-          description: 'An optional unique identifier for the document stored in the external providers system. Currently unused in any end to end operation, but may be logged by BigCommerce and hence helpful in issue resolution.'
+          description: "An optional unique identifier for the document stored in the external provider’s system. Currently not used in any end-to-end operation, but may be logged by BigCommerce and thus be helpful when resolving issues."
         items:
           type: array
           description: Collection of items contained within this consignment that have had tax liabilities calculated.
@@ -924,7 +924,7 @@ components:
       properties:
         name:
           type: string
-          description: The human readable name of this tax. Used for reporting or if enabled under certain store configurations a break down of taxes during checkout.
+          description: The human-readable name of this tax. Used for reporting. Depending on store configuration, may also be visible in the itemization of taxes at checkout, on invoices, and in control panel views. May not be empty.
         rate:
           type: number
           format: double
