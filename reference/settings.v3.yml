@@ -955,6 +955,7 @@ components:
         default_shopper_language:
           type: string
           default: en
+          example: 'en, en-us'
         store_country:
           type: string
           default: United States
@@ -971,6 +972,8 @@ components:
             Available values:
             * `browser` - language updates automatically based on the shopper browser language. Multiple languages are supported.
             * `default_shopper_language` - content is displayed in a single language based on the set `default_shopper_language`. Only the selected language is supported.
+      required:
+        - default_shopper_language
     StorefrontStatus:
       title: ''
       type: object
