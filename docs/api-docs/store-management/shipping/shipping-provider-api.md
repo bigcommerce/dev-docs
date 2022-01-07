@@ -47,9 +47,7 @@ This article is a guide to developing an app that will make your shipping rates 
 
 ### Carrier Service API
 
-![### Carrier Service API
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1552664566834 "### Carrier Service API
-")
+![Carrier Service API](https://s3.amazonaws.com/user-content.stoplight.io/6012/1552664566834 "Carrier Service API")
 
 ### Single-carrier vs multi-carrier apps
 
@@ -60,13 +58,12 @@ BigCommerce makes a distinction between single-carrier and multi-carrier shippin
 <!--
     title: #### Single-Carrier Quote Example
 
-    data: //raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-single-carrier-ui.png
+    data: https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-single-carrier-ui.png
 -->
 
 #### Single-Carrier Quote Example
 
-![#### Single-Carrier Quote Example](//raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-single-carrier-ui.png "#### Single-Carrier Quote Example
-")
+![Single-Carrier Quote Example](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-single-carrier-ui.png "Single-Carrier Quote Example")
 
 <!--
     title: #### Multi-Carrier Quote Example
@@ -76,7 +73,7 @@ BigCommerce makes a distinction between single-carrier and multi-carrier shippin
 
 #### Multi-Carrier Quote Example
 
-![#### Multi-Carrier Quote Example](//raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-multi-carrier-ui.png "#### Multi-Carrier Quote Example
+![Multi-Carrier Quote Example](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-multi-carrier-ui.png "Multi-Carrier Quote Example
 ")
 
 ## Sign up
@@ -87,7 +84,7 @@ When your app is complete, it will be listed in our Carrier Registry, so that yo
 
 We need your app ID to generate a carrier ID for your shipping service. To get your app ID, [create a draft app](https://developer.bigcommerce.com/api-docs/apps/guide/development#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Step 3: Technical tab](https://developer.bigcommerce.com/api-docs/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID. 
 
-![#### App ID](//s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224 "#### App ID")
+![App ID](https://s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224 "App ID")
 
 ### Request a carrier ID
 
