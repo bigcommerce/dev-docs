@@ -1354,29 +1354,13 @@
         },
         {
           "type": "item",
-          "title": "Widget UI Schema",
-          "uri": "docs/stencil-docs/page-builder/widget-ui-schema.md"
+          "title": "Widget-UI-Input",
+          "uri": "docs/stencil-docs/page-builder/widget-input.md"
         },
         {
-          "type": "group",
-          "title": "Widget UI Input Types",
-          "items": [
-            {
-              "type": "item",
-              "title": "range",
-              "uri": "docs/stencil-docs/page-builder/widget_range.yaml"
-            },
-            {
-              "type": "item",
-              "title": "Widget UI",
-              "uri": "docs/stencil-docs/page-builder/widget_ui.yaml"
-            },
-            {
-              "type": "item",
-              "title": "Widget UI MD",
-              "uri": "docs/stencil-docs/page-builder/Widget-UI-Input.md"
-            }
-          ]
+          "type": "item",
+          "title": "Widget UI Schema",
+          "uri": "docs/stencil-docs/page-builder/widget-ui-schema.md"
         }
       ]
     },
@@ -1507,7 +1491,7 @@
     },
     {
       "type": "item",
-      "title": "widget_range",
+      "title": "range",
       "uri": "docs/stencil-docs/page-builder/widget_range.yaml"
     }
   ]

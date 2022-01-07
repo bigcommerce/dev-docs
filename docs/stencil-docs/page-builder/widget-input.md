@@ -2,34 +2,34 @@
 
 The beginning of an awesome article...
 
- Allows you to display input controls for your widget.
+Allows you to display input controls for your widget.
 
-  <hr>
+<hr>
 
-  **Widget Configuration Output**
+**Widget Configuration Output**
 
-  ```json
-  {
-    "lineWidth": 100
-  }
-  ```
+```json
+{
+  "lineWidth": 100
+}
+```
 
-  >**Note**
-  >
-  >Units are not currently stored in the widget configuration.
+>**Note**
+>
+>Units are not currently stored in the widget configuration.
 
-  <hr>
+<hr>
 
-  **User Interface Output**
+**User Interface Output**
 
 
-  ![output](https://s3.amazonaws.com/user-content.stoplight.io/26545/1586307107888)
+![output](https://s3.amazonaws.com/user-content.stoplight.io/26545/1586307107888)
 
-  <hr>
+<hr>
 
-  **JSON Schema**
+**JSON Schema**
 
-  
+
 ```json json_schema
 {
     "widget_range": null,
