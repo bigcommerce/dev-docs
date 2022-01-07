@@ -1363,7 +1363,7 @@
           "items": [
             {
               "type": "item",
-              "title": "widget_range",
+              "title": "range",
               "uri": "docs/stencil-docs/page-builder/widget_range.yaml"
             },
             {
@@ -1374,7 +1374,7 @@
             {
               "type": "item",
               "title": "Widget UI MD",
-              "uri": "docs/stencil-docs/page-builder/widget-ui-input.md"
+              "uri": "docs/stencil-docs/page-builder/Widget-UI-Input.md"
             }
           ]
         }
