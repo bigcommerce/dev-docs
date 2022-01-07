@@ -1477,8 +1477,13 @@
     },
     {
       "type": "item",
+      "title": "test",
+      "uri": "docs/stencil-docs/page-builder/test.yaml"
+    },
+    {
+      "type": "item",
       "title": "Theme Objects",
-      "uri": "docs/stencil-docs/page-builder/widget-ui.yml.yaml"
+      "uri": "docs/stencil-docs/page-builder/widget-ui.yaml"
     },
     {
       "type": "divider",
