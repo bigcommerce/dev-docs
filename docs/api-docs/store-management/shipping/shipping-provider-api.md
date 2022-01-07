@@ -19,7 +19,7 @@
 
 </div>
 
-Shipping service providers wishing to offer shipping services and rates to BigCommerce merchants and shoppers can implement BigCommerce Shipping Provider endpoints. Once they implement and accept their service into BigCommerce's shipping Carrier Registry, merchants will have access to enable and configure the service through their BigCommerce control panel. Once enabled on a store, BigCommerce will automatically retrieve the service options and rates using the provider's endpoints and display them to merchants in the store's control panel and to shoppers on the storefront.
+Shipping service providers wishing to offer shipping services and rates to BigCommerce merchants and shoppers can implement BigCommerce Shipping Provider endpoints. Once they implement and accept their service into BigCommerce's shipping carrier registry, merchants will have access to enable and configure the service through their BigCommerce control panel. Once enabled on a store, BigCommerce will automatically retrieve the service options and rates using the provider's endpoints and display them to merchants in the store's control panel and to shoppers on the storefront.
 
 Merchants can also use shipping provider endpoints to retrieve rates from custom shipping tables or an in-house shipping rate calculation service.
 
@@ -78,7 +78,7 @@ BigCommerce makes a distinction between single-carrier and multi-carrier shippin
 
 ## Sign up
 
-When your app is complete, it will be listed in our Carrier Registry, so that your shipping rates are available for merchants and shoppers to use. Register your app and get a carrier ID to get started.
+When your app is complete, it will be listed in our carrier registry, so that your shipping rates are available for merchants and shoppers to use. Register your app and get a carrier ID to get started.
 
 ### Register your app
 
