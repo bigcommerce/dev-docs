@@ -1354,13 +1354,24 @@
         },
         {
           "type": "item",
-          "title": "Widget Ui Input Types",
-          "uri": "docs/stencil-docs/page-builder/widget-ui-input-types.md"
-        },
-        {
-          "type": "item",
           "title": "Widget UI Schema",
           "uri": "docs/stencil-docs/page-builder/widget-ui-schema.md"
+        },
+        {
+          "type": "group",
+          "title": "Widget UI Input Types",
+          "items": [
+            {
+              "type": "item",
+              "title": "widget_range",
+              "uri": "docs/stencil-docs/page-builder/widget_range.yaml"
+            },
+            {
+              "type": "item",
+              "title": "Widget UI",
+              "uri": "docs/stencil-docs/page-builder/widget_ui.yaml"
+            }
+          ]
         }
       ]
     },
