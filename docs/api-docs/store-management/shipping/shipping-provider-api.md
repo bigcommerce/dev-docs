@@ -130,7 +130,7 @@ In the case of errors, include human-readable error messages in the response pay
 
 Example:
 
-```jsonc
+```json
 {
   "valid": false,
   "messages": [
@@ -156,7 +156,7 @@ During the app setup, if you configure the Check Connection Options URL for the 
 
 To validate connection options, send a `POST` request to `https://<yourserver.com>/check_connection_options`:
 
-```jsonc
+```json
 {
   "connection_options": {
     "account_id": "a1ty"
@@ -166,7 +166,7 @@ To validate connection options, send a `POST` request to `https://<yourserver.co
 
 Response:
 
-```jsonc
+```json
 {
   "valid": false,
   "messages": [
@@ -204,7 +204,7 @@ lineNumbers: true
 
 To create a carrier connection, send a `POST` request. For example:
 
-```jsonc
+```json
 {
   "carrier_id": "carrier_33",
   "connection": {
@@ -222,7 +222,7 @@ lineNumbers: true
 
 **Example request with empty object**
 
-```jsonc
+```json
 {
   "carrier_id": "carrier_33",
   "connection": {}
@@ -241,7 +241,7 @@ To create a shipping method, send a `POST` request. For example:
 
 `POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods`
 
-```jsonc
+```json
 {
   "name": "Example Shipping Carrier",
   "type": "carrier_33",
@@ -264,7 +264,7 @@ Response:
 
 `POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods`
 
-```jsonc
+```json
 {
   "id": 24,
   "name": "Per Order Test",
@@ -294,7 +294,7 @@ To request shipping rates, send a `POST` request. For example:
 
 `POST https://<yourserver.com>/rate`
 
-```jsonc
+```json
 {
   "base_options": {
     "origin": {
@@ -389,7 +389,7 @@ Response:
 
 `POST https://<yourserver.com>/rate`
 
-```jsonc
+```json
 {
   "quote_id": "sample_quote",
   "messages": [],
