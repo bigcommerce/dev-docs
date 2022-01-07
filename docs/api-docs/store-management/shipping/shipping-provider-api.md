@@ -125,7 +125,7 @@ BigCommerce will send and receive data using JSON. The request for rates will al
 
 In the case of errors, include human-readable error messages in the response payload under the messages key.
 
-Example:
+**Example error response**
 
 ```json
 {
@@ -151,7 +151,10 @@ For more information, see our [Introduction to Building Apps](https://developer.
 
 During the app setup, if you configure the Check Connection Options URL for the carrier, an attempt to connect the carrier via the Shipping Manager UI or the Connect Carrier API causes a request to be made to that URL with the provided options. The resource should respond by indicating if the credentials are valid and explain what is wrong. If you did not configure this URL, this check is not required and the credentials are assumed valid as long as they pass type checks.
 
-To validate connection options, send a `POST` request to `https://example.com/check_connection_options`:
+
+**Example request to validate connection options**
+
+`https://example.com/check_connection_options`
 
 ```json
 {
@@ -161,7 +164,7 @@ To validate connection options, send a `POST` request to `https://example.com/ch
 }
 ```
 
-Response:
+**Example response**
 
 ```json
 {
@@ -194,12 +197,14 @@ Once you install the app, it will be made available for configuration by merchan
 To set up a carrier using the API, first, connect it using the Connect Carrier API. Make a request containing the connection settings required by your carrier. The ID of the carrier is required. The carrier ID will be issued by BigCommerce when your carrier is registered. All connection fields are unique per carrier. If your carrier doesn’t require any connection settings, then this object can be left empty.
 
 <!--
-title: "Sample Request "
-subtitle: "POST https://example.com/shipping/carrier/connection"
-lineNumbers: true
+  title: "Example carrier connection request with connection settings"
+  subtitle: "POST https://example.com/shipping/carrier/connection"
+  lineNumbers: true
 -->
 
-To create a carrier connection, send a `POST` request. For example:
+**Example carrier connection request with connection settings**
+
+`POST https://example.com/shipping/carrier/connection`
 
 ```json
 {
@@ -212,12 +217,14 @@ To create a carrier connection, send a `POST` request. For example:
 ```
 
 <!--
-title: "Sample Request with Empty Object"
-subtitle: "POST https://example.com/shipping/carrier/connection"
-lineNumbers: true
+  title: "Example carrier connection request without connection settings"
+  subtitle: "POST https://example.com/shipping/carrier/connection"
+  lineNumbers: true
 -->
 
-**Example request with empty object**
+**Example carrier connection request without connection settings**
+
+`POST https://example.com/shipping/carrier/connection`
 
 ```json
 {
@@ -229,12 +236,12 @@ lineNumbers: true
 Once connected, it’s possible to create shipping methods for a connected carrier in any shipping zone. You can query shipping zones using the Shipping Zones resource. For any zone, a request can be made to the Shipping Methods resource using the zone ID from the Shipping Zones resource to create a new method for the connected carrier. You are required to enter the shipping carrier’s ID in the type field.
 
 <!--
-title: "Sample Request"
-subtitle: "POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods"
-lineNumbers: true
+  title: "Example request to create a shipping method in a specified zone"
+  subtitle: "POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods"
+  lineNumbers: true
 -->
 
-To create a shipping method, send a `POST` request. For example:
+**Example request to create a shipping method in a specified zone**
 
 `POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods`
 
@@ -252,12 +259,12 @@ To create a shipping method, send a `POST` request. For example:
 ```
 
 <!--
-title: "Sample Response"
-subtitle: "POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods"
-lineNumbers: true
+  title: "Example response"
+  subtitle: "POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods"
+  lineNumbers: true
 -->
 
-Response:
+**Example response**
 
 `POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods`
 
@@ -282,12 +289,12 @@ Response:
 Whenever shipping rates are required, BigCommerce checks its internal cache for valid entries. BigCommerce uses valid entries and does not call the shipping carrier. If a valid cache entry does not exist, BigCommerce makes a request to the Quote URL with details of the items to be shipped, the shipping origin, and the shipping destination. If you configured any connection settings or zone settings, include these. The shipping carrier must then respond with zero or more shipping quotes.
 
 <!--
-title: "Sample Request"
-subtitle: "POST https://example.com/rate"
-lineNumbers: true
+  title: "Example request for shipping rates"
+  subtitle: "POST https://example.com/rate"
+  lineNumbers: true
 -->
 
-To request shipping rates, send a `POST` request. For example:
+**Example request for shipping rates**
 
 `POST https://example.com/rate`
 
@@ -377,18 +384,18 @@ To request shipping rates, send a `POST` request. For example:
 ```
 
 <!--
-title: "Sample Response"
-subtitle: "POST https://example.com/rate"
-lineNumbers: true
+  title: "Example response to request for shipping rates"
+  subtitle: "POST https://example.com/rate"
+  lineNumbers: true
 -->
 
-Response:
+**Example response**
 
 `POST https://example.com/rate`
 
 ```json
 {
-  "quote_id": "sample_quote",
+  "quote_id": "example_quote",
   "messages": [],
   "carrier_quotes": [
     {
