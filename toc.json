@@ -10,7 +10,7 @@
       "items": [
         {
           "type": "item",
-          "title": "BigCommerce Apps Quick Start Tutorial",
+          "title": "BigCommerce Apps Quick Start",
           "uri": "docs/api-docs/apps/apps-quick-start.md"
         },
         {
@@ -102,8 +102,60 @@
               "type": "item",
               "title": "Building an App with Laravel and React",
               "uri": "docs/api-docs/apps/tutorials/apps-node-react.md"
+            },
+            {
+              "type": "group",
+              "title": "sample-app-next",
+              "items": [
+                {
+                  "type": "item",
+                  "title": "Quick Start: Deploy to Heroku Install Flow",
+                  "uri": "docs/api-docs/apps/tutorials/sample-app-next/heroku-deploy.md"
+                },
+                {
+                  "type": "item",
+                  "title": "Introduction",
+                  "uri": "docs/api-docs/apps/tutorials/sample-app-next/introduction.md"
+                },
+                {
+                  "type": "item",
+                  "title": "Step 1: Set up Your Local Environment",
+                  "uri": "docs/api-docs/apps/tutorials/sample-app-next/step-1-setup.md"
+                },
+                {
+                  "type": "item",
+                  "title": "Step 2: Connect Your App to BigCommerce",
+                  "uri": "docs/api-docs/apps/tutorials/sample-app-next/step-2-connect-to-bc.md"
+                },
+                {
+                  "type": "item",
+                  "title": "Step 3: Integrate the BigCommerce API and Add a Database",
+                  "uri": "docs/api-docs/apps/tutorials/sample-app-next/step-3-integrate-api.md"
+                },
+                {
+                  "type": "item",
+                  "title": "Step 4: Enhance the User Experience with BigDesign",
+                  "uri": "docs/api-docs/apps/tutorials/sample-app-next/step-4-enhance-ux.md"
+                }
+              ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "building-checkouts",
+      "items": [
+        {
+          "type": "item",
+          "title": "Checkout Consignment API",
+          "uri": "docs/api-docs/building-checkouts/checkout-consignment.md"
+        },
+        {
+          "type": "item",
+          "title": "Checkout Customizability",
+          "uri": "docs/api-docs/building-checkouts/checkout-customizability.md"
         }
       ]
     },
@@ -113,7 +165,12 @@
       "items": [
         {
           "type": "item",
-          "title": "Next.js Commerce Quick Start Guide",
+          "title": "Recovering Abandoned Carts",
+          "uri": "docs/api-docs/building-storefronts/abandoned-carts.md"
+        },
+        {
+          "type": "item",
+          "title": "Next.js Commerce Quick Start",
           "uri": "docs/api-docs/building-storefronts/nextjs-commerce-guide.md"
         }
       ]
@@ -141,6 +198,11 @@
           "type": "item",
           "title": "Checkout SDK",
           "uri": "docs/api-docs/cart-and-checkout/checkout-sdk.md"
+        },
+        {
+          "type": "item",
+          "title": "Installing a Custom Order Confirmation Page",
+          "uri": "docs/api-docs/cart-and-checkout/custom-order-confirmation.md"
         },
         {
           "type": "item",
@@ -201,6 +263,11 @@
         },
         {
           "type": "item",
+          "title": "V2 to V3 Catalog Operations Comparison",
+          "uri": "docs/api-docs/catalog/v2-v3-examples.md"
+        },
+        {
+          "type": "item",
           "title": "Difference between V2 and V3 Catalog REST APIs",
           "uri": "docs/api-docs/catalog/v2-vs-v3.md"
         }
@@ -224,6 +291,11 @@
           "type": "item",
           "title": "Channel App Requirements",
           "uri": "docs/api-docs/channels/channel-app-requirements.md"
+        },
+        {
+          "type": "item",
+          "title": "Channel Webhooks",
+          "uri": "docs/api-docs/channels/channel-webhooks.md"
         },
         {
           "type": "item",
@@ -261,6 +333,11 @@
       "type": "group",
       "title": "customers",
       "items": [
+        {
+          "type": "item",
+          "title": "Creating Channel-Specific Customers",
+          "uri": "docs/api-docs/customers/channel-specific-customers.md"
+        },
         {
           "type": "item",
           "title": "Current customer API",
@@ -319,7 +396,7 @@
         },
         {
           "type": "item",
-          "title": "building-apps-bigcommerce",
+          "title": "Building Apps Bigcommerce",
           "uri": "docs/api-docs/getting-started/building-apps-bigcommerce.md"
         },
         {
@@ -340,6 +417,11 @@
         },
         {
           "type": "item",
+          "title": "Deprecations and Sunsets",
+          "uri": "docs/api-docs/getting-started/deprecations-and-sunsets.md"
+        },
+        {
+          "type": "item",
           "title": "Filtering",
           "uri": "docs/api-docs/getting-started/filtering.md"
         },
@@ -352,11 +434,6 @@
           "type": "item",
           "title": "Authenticating BigCommerce's REST APIs",
           "uri": "docs/api-docs/getting-started/rest-api-authentication.md"
-        },
-        {
-          "type": "item",
-          "title": "webhooks",
-          "uri": "docs/api-docs/getting-started/webhooks.md"
         },
         {
           "type": "group",
@@ -374,7 +451,7 @@
             },
             {
               "type": "item",
-              "title": "Webhooks",
+              "title": "Webhook Events",
               "uri": "docs/api-docs/getting-started/webhooks/webhook-events.md"
             }
           ]
@@ -428,12 +505,74 @@
     },
     {
       "type": "group",
+      "title": "headless",
+      "items": [
+        {
+          "type": "item",
+          "title": "Managing Carts",
+          "uri": "docs/api-docs/headless/carts.md"
+        },
+        {
+          "type": "item",
+          "title": "Creating Channels",
+          "uri": "docs/api-docs/headless/channels.md"
+        },
+        {
+          "type": "item",
+          "title": "Creating Checkouts",
+          "uri": "docs/api-docs/headless/checkout.md"
+        },
+        {
+          "type": "item",
+          "title": "Managing Customers",
+          "uri": "docs/api-docs/headless/customers.md"
+        },
+        {
+          "type": "item",
+          "title": "Handling Orders",
+          "uri": "docs/api-docs/headless/orders.md"
+        },
+        {
+          "type": "item",
+          "title": "Introduction to Headless Commerce",
+          "uri": "docs/api-docs/headless/overview.md"
+        },
+        {
+          "type": "item",
+          "title": "PCI Compliance",
+          "uri": "docs/api-docs/headless/pci-compliance.md"
+        },
+        {
+          "type": "item",
+          "title": "Working with Products",
+          "uri": "docs/api-docs/headless/products.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
       "title": "management-apis",
       "items": [
         {
           "type": "item",
           "title": "Contextual Filters",
           "uri": "docs/api-docs/management-apis/contextual-filters.md"
+        },
+        {
+          "type": "group",
+          "title": "email-templates",
+          "items": [
+            {
+              "type": "item",
+              "title": "Email Templates Code Examples",
+              "uri": "docs/api-docs/management-apis/email-templates/email-template-examples.md"
+            },
+            {
+              "type": "item",
+              "title": "Email Templates Overview",
+              "uri": "docs/api-docs/management-apis/email-templates/overview.md"
+            }
+          ]
         }
       ]
     },
@@ -494,6 +633,11 @@
         },
         {
           "type": "item",
+          "title": "Staying Current with Platform Changes",
+          "uri": "docs/api-docs/partner/staying-current.md"
+        },
+        {
+          "type": "item",
           "title": "Support",
           "uri": "docs/api-docs/partner/support.md"
         },
@@ -517,11 +661,28 @@
     },
     {
       "type": "group",
+      "title": "provider-apis",
+      "items": [
+        {
+          "type": "group",
+          "title": "tax",
+          "items": [
+            {
+              "type": "item",
+              "title": "Tax Provider API",
+              "uri": "docs/api-docs/provider-apis/tax/overview.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
       "title": "store-management",
       "items": [
         {
           "type": "item",
-          "title": "shipping",
+          "title": "Shipping",
           "uri": "docs/api-docs/store-management/shipping.md"
         },
         {
@@ -564,6 +725,11 @@
               "type": "item",
               "title": "GraphQL Storefront API Overview",
               "uri": "docs/api-docs/storefront/graphql/graphql-api-overview.md"
+            },
+            {
+              "type": "item",
+              "title": "Rendering Headless Widgets",
+              "uri": "docs/api-docs/storefront/graphql/rendering-widgets.md"
             }
           ]
         },
@@ -574,7 +740,7 @@
         },
         {
           "type": "item",
-          "title": "widgets",
+          "title": "Widgets",
           "uri": "docs/api-docs/storefront/widgets.md"
         },
         {
@@ -583,7 +749,7 @@
           "items": [
             {
               "type": "item",
-              "title": "Global Regions Tutorial",
+              "title": "Global Regions",
               "uri": "docs/api-docs/storefront/widgets/global-regions-tutorial.md"
             },
             {
@@ -593,7 +759,12 @@
             },
             {
               "type": "item",
-              "title": "Widget Versioning Tutorial",
+              "title": "Widget Builder",
+              "uri": "docs/api-docs/storefront/widgets/widget-builder.md"
+            },
+            {
+              "type": "item",
+              "title": "Widget Versioning",
               "uri": "docs/api-docs/storefront/widgets/widget-versioning-tutorial.md"
             },
             {
@@ -603,12 +774,17 @@
             },
             {
               "type": "item",
+              "title": "Localizing Widget Template Settings",
+              "uri": "docs/api-docs/storefront/widgets/widgets-localizing-settings.md"
+            },
+            {
+              "type": "item",
               "title": "Widgets API",
               "uri": "docs/api-docs/storefront/widgets/widgets-overview.md"
             },
             {
               "type": "item",
-              "title": "Widgets Tutorial",
+              "title": "Create and Place a Widget",
               "uri": "docs/api-docs/storefront/widgets/widgets-tutorial.md"
             }
           ]
@@ -625,7 +801,7 @@
       "items": [
         {
           "type": "item",
-          "title": "plugin-changelog",
+          "title": "Plugin Changelog",
           "uri": "docs/bigcommerce-for-wordpress/changelog/plugin-changelog.md"
         }
       ]
@@ -898,6 +1074,21 @@
     },
     {
       "type": "divider",
+      "title": "partner-apps"
+    },
+    {
+      "type": "group",
+      "title": "bundleb2b",
+      "items": [
+        {
+          "type": "item",
+          "title": "The B2B Edition of BigCommerce",
+          "uri": "docs/partner-apps/bundleb2b/b2b-edition.md"
+        }
+      ]
+    },
+    {
+      "type": "divider",
       "title": "stencil-docs"
     },
     {
@@ -978,6 +1169,11 @@
         },
         {
           "type": "item",
+          "title": "Theme Development Best Practices Tutorial",
+          "uri": "docs/stencil-docs/deploying-a-theme/theme-best-practices.md"
+        },
+        {
+          "type": "item",
           "title": "Troubleshooting Theme Uploads",
           "uri": "docs/stencil-docs/deploying-a-theme/troubleshooting-theme-uploads.md"
         }
@@ -994,12 +1190,12 @@
         },
         {
           "type": "item",
-          "title": "catalog-price-object",
+          "title": "Catalog Price Object Examples",
           "uri": "docs/stencil-docs/developing-further/catalog-price-object.md"
         },
         {
           "type": "item",
-          "title": "BigCommerce Email Templates",
+          "title": "BigCommerce Legacy Email Templates",
           "uri": "docs/stencil-docs/developing-further/customizing-emails.md"
         },
         {
@@ -1112,6 +1308,11 @@
       "items": [
         {
           "type": "item",
+          "title": "Localization Tutorial",
+          "uri": "docs/stencil-docs/localization/localization-tutorial.md"
+        },
+        {
+          "type": "item",
           "title": "Localizing Stores",
           "uri": "docs/stencil-docs/localization/localizing-stores.md"
         },
@@ -1119,6 +1320,11 @@
           "type": "item",
           "title": "Multi-Language Checkout",
           "uri": "docs/stencil-docs/localization/multi-language-checkout.md"
+        },
+        {
+          "type": "item",
+          "title": "Translating Regions",
+          "uri": "docs/stencil-docs/localization/translating-regions.md"
         },
         {
           "type": "item",
@@ -1145,6 +1351,11 @@
           "type": "item",
           "title": "Third-Party Widgets",
           "uri": "docs/stencil-docs/page-builder/third-party-widgets.md"
+        },
+        {
+          "type": "item",
+          "title": "Widget Ui Input Types",
+          "uri": "docs/stencil-docs/page-builder/widget-ui-input-types.md"
         },
         {
           "type": "item",
@@ -1186,6 +1397,16 @@
           "type": "item",
           "title": "Stencil Utils Reference",
           "uri": "docs/stencil-docs/reference-docs/stencil-utils-api-reference.md"
+        },
+        {
+          "type": "item",
+          "title": "Theme Styles and Properties",
+          "uri": "docs/stencil-docs/reference-docs/styles-and-properties.md"
+        },
+        {
+          "type": "item",
+          "title": "Theme Objects",
+          "uri": "docs/stencil-docs/reference-docs/theme-objects.md"
         }
       ]
     },
@@ -1205,12 +1426,22 @@
         },
         {
           "type": "item",
+          "title": "Implementing WCAG Guidelines - Examples",
+          "uri": "docs/stencil-docs/storefront-customization/implementing-WCAG-guidelines.md"
+        },
+        {
+          "type": "item",
+          "title": "Localizing Variation Descriptions",
+          "uri": "docs/stencil-docs/storefront-customization/localizing-variation-descriptions.md"
+        },
+        {
+          "type": "item",
           "title": "Page Composition and Styling",
           "uri": "docs/stencil-docs/storefront-customization/page-composition-and-styling.md"
         },
         {
           "type": "item",
-          "title": "Developing Themes for Accessibility",
+          "title": "Developing Accessible Themes",
           "uri": "docs/stencil-docs/storefront-customization/theme-accessibility.md"
         },
         {
@@ -1232,6 +1463,11 @@
           "type": "item",
           "title": "Using Front Matter",
           "uri": "docs/stencil-docs/storefront-customization/using-front-matter.md"
+        },
+        {
+          "type": "item",
+          "title": "WCAG Compliance Levels",
+          "uri": "docs/stencil-docs/storefront-customization/WCAG-compliance-levels.md"
         }
       ]
     },
@@ -1240,18 +1476,18 @@
       "title": "APIS"
     },
     {
+      "type": "item",
+      "title": "Theme Objects",
+      "uri": "docs/stencil-docs/page-builder/widget-ui.yml.yaml"
+    },
+    {
       "type": "divider",
       "title": "Schemas"
     },
     {
       "type": "item",
-      "title": "Collection Meta",
-      "uri": "models/collectionmeta.json"
-    },
-    {
-      "type": "item",
-      "title": "Pagination",
-      "uri": "models/pagination.json"
+      "title": "widget_range",
+      "uri": "docs/stencil-docs/page-builder/widget_range.yaml"
     }
   ]
 }

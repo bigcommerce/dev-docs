@@ -4180,13 +4180,16 @@ components:
         >**Note**
         >
         >Units are not currently stored in the widget configuration.
+
         <hr>
+
         **User Interface Output**
 
 
         ![output](https://s3.amazonaws.com/user-content.stoplight.io/26545/1586307107888)
 
         <hr>
+
         **JSON Schema**
     widget_regex_input:
       title: regex_input
