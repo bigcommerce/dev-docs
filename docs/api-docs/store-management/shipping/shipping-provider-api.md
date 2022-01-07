@@ -112,9 +112,9 @@ BigCommerce will send requests to your server to get information back about ship
 
 Since BigCommerce will be sending requests, you will need to provide BigCommerce with URLs that can accept quote requests and optionally a URL to check and validate connection options during app registration. These can be any valid HTTPS URL using port `443`, for example:
 
-`https://yourserver.com/rate`
+`https://example.com/rate`
 
-Replace `yourserver.com` and `rate` with your own host and path.
+Replace `example.com` and `rate` with your own host and path.
 
 ### Routes
 
@@ -154,7 +154,7 @@ For more information, see our [Introduction to Building Apps](https://developer.
 
 During the app setup, if you configure the Check Connection Options URL for the carrier, an attempt to connect the carrier via the Shipping Manager UI or the Connect Carrier API causes a request to be made to that URL with the provided options. The resource should respond by indicating if the credentials are valid and explain what is wrong. If you did not configure this URL, this check is not required and the credentials are assumed valid as long as they pass type checks.
 
-To validate connection options, send a `POST` request to `https://<yourserver.com>/check_connection_options`:
+To validate connection options, send a `POST` request to `https://example.com/check_connection_options`:
 
 ```json
 {
@@ -198,7 +198,7 @@ To set up a carrier using the API, first, connect it using the Connect Carrier A
 
 <!--
 title: "Sample Request "
-subtitle: "POST https://<yourserver.com>/shipping/carrier/connection"
+subtitle: "POST https://example.com/shipping/carrier/connection"
 lineNumbers: true
 -->
 
@@ -216,7 +216,7 @@ To create a carrier connection, send a `POST` request. For example:
 
 <!--
 title: "Sample Request with Empty Object"
-subtitle: "POST https://<yourserver.com>/shipping/carrier/connection"
+subtitle: "POST https://example.com/shipping/carrier/connection"
 lineNumbers: true
 -->
 
@@ -286,13 +286,13 @@ Whenever shipping rates are required, BigCommerce checks its internal cache for 
 
 <!--
 title: "Sample Request"
-subtitle: "POST https://<yourserver.com>/rate"
+subtitle: "POST https://example.com/rate"
 lineNumbers: true
 -->
 
 To request shipping rates, send a `POST` request. For example:
 
-`POST https://<yourserver.com>/rate`
+`POST https://example.com/rate`
 
 ```json
 {
@@ -381,13 +381,13 @@ To request shipping rates, send a `POST` request. For example:
 
 <!--
 title: "Sample Response"
-subtitle: "POST https://<yourserver.com>/rate"
+subtitle: "POST https://example.com/rate"
 lineNumbers: true
 -->
 
 Response:
 
-`POST https://<yourserver.com>/rate`
+`POST https://example.com/rate`
 
 ```json
 {
