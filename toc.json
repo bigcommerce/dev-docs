@@ -1370,6 +1370,11 @@
               "type": "item",
               "title": "Widget UI",
               "uri": "docs/stencil-docs/page-builder/widget_ui.yaml"
+            },
+            {
+              "type": "item",
+              "title": "Widget UI MD",
+              "uri": "docs/stencil-docs/page-builder/widget-ui-input.md"
             }
           ]
         }
