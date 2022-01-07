@@ -1,0 +1,5 @@
+title: widget_range
+type: object
+properties:
+  id:
+    type: string
