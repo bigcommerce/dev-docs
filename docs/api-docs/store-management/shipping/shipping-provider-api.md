@@ -95,7 +95,7 @@ Please include the following information:
 
 - Your name
 - Your partner ID
-- Your app's ID (see the following)
+- Your app's ID
 - Your email
 - A description of the app
 - [Your service URLs](#your-service-urls) 
