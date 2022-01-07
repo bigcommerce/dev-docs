@@ -49,7 +49,7 @@ This article is a guide to developing an app that will make your shipping rates 
 
 ![Carrier Service API](https://s3.amazonaws.com/user-content.stoplight.io/6012/1552664566834 "Carrier Service API")
 
-### Single-carrier vs multi-carrier apps
+### Single-carrier versus multi-carrier apps
 
 Only one registered shipping carrier can be associated with an app. This [registered carrier](#definitions) can provide quotes from multiple downstream carriers. 
 
@@ -99,7 +99,7 @@ Please include the following information:
 - Your email
 - A description of the app
 - [Your service URLs](#your-service-urls) 
-- [Whether you prefer single-carrier or multi-carrier status](#single-carrier-vs-multi-carrier-apps)
+- [Whether you prefer single-carrier or multi-carrier status](#single-carrier-versus-multi-carrier-apps)
 
 ## Before development
 
@@ -502,7 +502,7 @@ For more information on product and variant metafields, see:
 
 Before submitting your app, make sure you have the following information.
 
-**Single-carrier vs. multi-carrier**
+**Single-carrier or multi-carrier**
 
 A single-carrier app will offer one service, such as USPS. A multi-carrier app will offer more than one carrier such as USPS, DHL, and Canada Post.
 
@@ -527,7 +527,7 @@ To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcomm
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Configuration Fields            | The fields the merchant will see in the control panel. Merchants can navigate to the Shipping Manager and enable, configure, and disable the carrier for any defined zone. They will also be able to activate the app using the Carrier Connection API. Then use the Shipping Zones API and Shipping Methods API to configure the app from there.                                                                                                                                                                               |
 | Quote URL                       | A URL for a resource of the shipping carrier that accepts quote requests and responds with shipping quotes. For more on the Quote URL, see a typical app workflow below.                                                                                                                                                                                                                                                                                                                                                        |
-| Single Carrier vs. Multi Carrier | A single carrier app will offer only one shipping provider. A multi carrier app will aggregate multiple shipping carriers in one app.                                                                                                                                                                                                                                                                                                                                                                                           |
+| Single Carrier or Multi Carrier | A single carrier app will offer only one shipping provider. A multi carrier app will aggregate multiple shipping carriers in one app.                                                                                                                                                                                                                                                                                                                                                                                           |
 | Countries Available             | A list of countries where you can use the shipping carrier. The default behavior is that the carrier is available for every shipping origin. In most cases, this list should be as broad as possible. For example, if your carrier operates worldwide, make it available worldwide. You can limit the countries further than what the shipping carrier has provided. If the service is worldwide, then leave this field blank to specify that it is worldwide. Specifying the use of the shipping carrier is an optional step. |
 | Shipping Carrier                | A shipping carrier provides quotes to BigCommerce. If a shipping carrier uses more than one shipping provider, then it becomes a multi carrier aggregator. A carrier includes a name, a description, and a logo.                                                                                                                                                                                                                                                                                                                |
 | Multi-Carrier Aggregator        | A shipping solution that provides shipping quotes for multiple carriers.                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
