@@ -194,7 +194,7 @@ Once you install the app, it will be made available for configuration by merchan
 
 ## API installation workflow
 
-To set up a carrier using the API, first, connect it using the Connect Carrier API. Make a request containing the connection settings required by your carrier. The ID of the carrier is required. The carrier ID will be issued by BigCommerce when your carrier is registered. All connection fields are unique per carrier. If your carrier doesn’t require any connection settings, then this object can be left empty.
+To set up a carrier using the API, first, connect it using the Connect Carrier API. Make a request containing the connection settings required by your carrier. The ID of the carrier is required. The carrier ID will be issued by BigCommerce when your carrier is registered. All connection fields are unique to each carrier. If your carrier doesn’t require any connection settings, send an empty object for the `connection` settings property.
 
 <!--
   title: "Example carrier connection request with connection settings"
@@ -474,7 +474,7 @@ Whenever shipping rates are required, BigCommerce checks its internal cache for 
 }
 ```
 
-When you uninstall an app with an associated shipping carrier, you also automatically remove all of the shipping methods and connection info for that carrier from the store. You can no longer make quote requests, and users will no longer see shipping quotes for that carrier.
+When you uninstall an app with an associated shipping carrier, you also automatically remove all the shipping methods and connection info for that carrier from the store. You can no longer make quote requests, and users will no longer see shipping quotes for that carrier.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
