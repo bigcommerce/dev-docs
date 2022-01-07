@@ -1,0 +1,93 @@
+# Widget-UI-Input
+
+The beginning of an awesome article...
+
+ Allows you to display input controls for your widget.
+
+  <hr>
+
+  **Widget Configuration Output**
+
+  ```json
+  {
+    "lineWidth": 100
+  }
+  ```
+
+  >**Note**
+  >
+  >Units are not currently stored in the widget configuration.
+
+  <hr>
+
+  **User Interface Output**
+
+
+  ![output](https://s3.amazonaws.com/user-content.stoplight.io/26545/1586307107888)
+
+  <hr>
+
+  **JSON Schema**
+
+  
+```json json_schema
+{
+    "widget_range": null,
+    "title": "range",
+    "type": "object",
+    "properties": {
+        "type": {
+            "type": "string",
+            "description": "The type of setting component to display.",
+            "example": "\"range\""
+        },
+        "label": {
+            "type": "string",
+            "description": "The user friendly message to inform the user how this setting will be used.",
+            "example": "\"Line width\""
+        },
+        "id": {
+            "type": "string",
+            "description": "The variable name where the setting value will be available in the widget template.",
+            "example": "\"lineWidth\""
+        },
+        "default": {
+            "type": "integer",
+            "description": "The default value to use when rendering the widget for the first time. ",
+            "example": 100
+        },
+        "typeMeta": {
+            "type": "object",
+            "properties": {
+                "rangeValues": {
+                    "type": "object",
+                    "properties": {
+                        "min": {
+                            "type": "integer",
+                            "description": "Minimum value in the range.",
+                            "example": 0
+                        },
+                        "max": {
+                            "type": "integer",
+                            "description": "Maximum value in the range.",
+                            "example": 100
+                        },
+                        "step": {
+                            "type": "integer",
+                            "description": "Incrementation of the range values.",
+                            "example": 1
+                        },
+                        "unit": {
+                            "type": "string",
+                            "description": "Unit of the range values.",
+                            "example": "\"%\""
+                        }
+                    }
+                }
+            },
+            "description": "Additional information needed based on the selected setting type."
+        }
+    },
+    "description": "Allows you to display input controls for your widget.\n\n<hr>\n\n**Widget Configuration Output**\n\n```json\n{\n  \"lineWidth\": 100\n}\n```\n\n>**Note**\n>\n>Units are not currently stored in the widget configuration.\n\n<hr>\n\n**User Interface Output**\n\n\n![output](https://s3.amazonaws.com/user-content.stoplight.io/26545/1586307107888)\n\n<hr>\n\n**JSON Schema**"
+}
+```
