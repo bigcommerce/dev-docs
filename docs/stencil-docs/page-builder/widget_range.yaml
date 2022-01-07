@@ -1,4 +1,4 @@
-widget_range:
+widget_range: null
 title: range
 type: object
 properties:
@@ -63,7 +63,7 @@ description: |-
   **User Interface Output**
 
 
-  ![output](https://s3.amazonaws.com/user-content.stoplight.io/26545/1586307107888)
+  ![output](//s3.amazonaws.com/user-content.stoplight.io/26545/1586307107888)
 
   <hr>
 
