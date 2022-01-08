@@ -106,7 +106,7 @@ BigCommerce sends requests to your server to get information back about shipping
 
 ### Your service URLs
 
-Since BigCommerce will be sending requests, you will need to provide BigCommerce with URLs that can accept quote requests and optionally a URL to check and validate connection options during app registration. These can be any valid HTTPS URL using port `443`, for example:
+Because BigCommerce sends your app requests, you need to provide BigCommerce with a URL that accepts quote requests and, optionally, a URL to check and validate connection options during app registration. These can be any valid HTTPS URLs that use port `443`, for example:
 
 `https://example.com/rate`
 
