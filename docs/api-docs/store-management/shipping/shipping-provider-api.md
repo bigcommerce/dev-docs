@@ -102,7 +102,7 @@ Please include the following information:
 
 ## Before development
 
-BigCommerce will send requests to your server to get information back about shipping quotes, credential validation, and configuration.
+BigCommerce sends requests to your server to get information back about shipping quotes, credential validation, and configuration.  To handle these requests smoothly, consider the following:
 
 ### Your service URLs
 
