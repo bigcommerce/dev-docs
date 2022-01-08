@@ -56,24 +56,24 @@ Only one registered shipping carrier can be associated with an app. This [regist
 BigCommerce makes a distinction between single-carrier and multi-carrier shipping providers. The primary difference that this distinction makes is in how the quote displays in the customer's cart at checkout. If your app is registered as a single carrier, the name of the carrier providing the quote will appear beside the name of the shipping quote in the customer's list of shipping rate options. The carrier name will not appear in quotes from multi-carrier apps. The following images illustrate the difference:
 
 <!--
-    title: #### Single-Carrier Quote Example
+    title: Single-carrier quote example
 
     data: https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-single-carrier-ui.png
 -->
 
-#### Single-Carrier Quote Example
+**Single-carrier quote example**
 
-![Single-Carrier Quote Example](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-single-carrier-ui.png "Single-Carrier Quote Example")
+![Single-carrier quote example](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-single-carrier-ui.png "Single-carrier quote example")
 
 <!--
-    title: #### Multi-Carrier Quote Example
+    title: Multi-carrier quote example
 
     data: //raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-multi-carrier-ui.png
 -->
 
-#### Multi-Carrier Quote Example
+**Multi-carrier quote example**
 
-![Multi-Carrier Quote Example](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-multi-carrier-ui.png "Multi-Carrier Quote Example
+![Multi-carrier quote example](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-multi-carrier-ui.png "Multi-carrier quote example
 ")
 
 ## Sign up
