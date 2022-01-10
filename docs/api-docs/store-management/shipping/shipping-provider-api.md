@@ -33,7 +33,7 @@ Some use cases for the Shipping Provider API are:
 
 ### Prerequisites
 
-* Required [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes: `Information and Settings`
+* Required [OAuth](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) scopes: `Information and Settings`
 * BigCommerce [single-click app](https://developer.bigcommerce.com/api-docs/apps/guide/types#single-click)
 
 ## Sign-up

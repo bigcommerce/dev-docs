@@ -3,10 +3,9 @@
 	
 ### On this page
 - [What is a price list?](#what-is-a-price-list)
-
-- [Price list definitions](#price-list-definitions)
-- [Price list assignments](#price-list-assignments)
-- [Price list notes](#price-list-notes)      
+- [Price List definitions](#price-list-definitions)
+- [Price List assignments](#price-list-assignments)
+- [Price List notes](#price-list-notes)
 - [Related resources](#related-resources)
 
        
@@ -24,7 +23,7 @@ Price Lists will provide overridden price values to the Stencil storefront. You 
 
 ### OAuth scopes
 The following OAuth Scopes are required:
-* [Products](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes)
+* [Products](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
 
 ## Price List definitions
 
@@ -134,7 +133,7 @@ lineNumbers: true
 
 Under `discount_rules` the `type` is set to `price_list` and the `price_list_id` is 1. Which is the id of the price list the group has been assigned to.
 
-## Price list assignments
+## Price List assignments
 
 The price list assignment assigns a price list to a specific sales channel. This association lets you define custom pricing for shoppers only on a specific external site or platform. Price list assignments combined with a customer group assignment allows you to target specifically more logged in customers shopping on that channel.
 
