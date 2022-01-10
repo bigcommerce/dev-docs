@@ -8,7 +8,7 @@ description: |-
   |Attribute|Description|
   |---|---|
   |`visibility`|Displays an eyeball icon similar to the [Visibility](docs/stencil-docs/page-builder/widget_visibility.yaml) setting type|
-  |`advanced`|Displays a brush icon that reveals a list of settings when clicked|\n\n## Widget Configuration Output"
+  |`advanced`|Displays a brush icon that reveals a list of settings when clicked|
 
   <hr>
 

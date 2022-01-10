@@ -1,5 +1,5 @@
 widget_range: null
-title: range
+title: Range
 type: object
 properties:
   type:
