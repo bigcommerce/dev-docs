@@ -3,33 +3,48 @@
 <div class="otp" id="no-index">
 
 ### On this page
-- [Single-Click](#single-click)
-- [Connector](#connector)
+
+- [Installation and authentication method](#installation-and-authentication-method)
 - [Visibility](#visibility)
+- [Control panel locations](#control-panel-locations)
+- [Access type](#access-type)
 - [Next step](#next-step)
 - [Resources](#resources)
 </div>
 
-The first step when developing an app is deciding which type of app to develop. The two types of apps, single-click and connector, are defined by the method of authentication. [Single-click](#single-click) apps use an OAuth Authorization Code Grant flow. [Connector apps](#connector) require store owners to manually generate and configure store API credentials. In addition to the authentication method, apps can differ by [visibility](#visibility).
+The first step when developing an app is deciding which type of app to develop. In addition to the authentication method, apps can differ by [visibility](#visibility). 
 
-## Single-Click
+## Installation and authentication method
 
-Single-click apps are the recommended app type. They use [OAuth 2.0 Authorization Code Grant](https://oauth.net/2/grant-types/authorization-code/) (oauth2.net) flow. Users initiate installation by clicking **Install**.
+All BigCommerce apps use OAuth-based API Accounts. Each request to any of our APIs must contain an `X-Auth-Token` header with a BigCommerce-generated bearer token as its value. When a token is marked invalid, BigCommerce can use the account's client ID and client secret to generate a fresh token. However, apps can implement OAuth in two main ways. [Single-click](#single-click) apps use authorization code grants to request bearer tokens. [Manually configured connector apps](#connector) require the installing merchant to define an API Account valid for their store alone, and manage their own bearer tokens. 
 
-![Install App](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-02-types-01.png "Install App")
+For security, transparency, and ease of use by non-developer merchants, **we strongly recommend that you write only single-click apps**. If your use case requires merchants to work with their own API Accounts or encourages them to work extensively with third-party accounts outside the store control panel, the best practice is to write a [single-click wrapper app](#single-click-wrapper) to manage the connection.
+### Single-click
 
-The app requests the user to grant permissions associated to scopes configured for the app in the [Developer Portal](https://devtools.bigcommerce.com/my/apps):
+Single-click apps install in a few clicks and provide a GUI front end embedded in the control panel with which merchants can interact. They use [OAuth 2.0 authorization code grants](https://oauth.net/2/grant-types/authorization-code/) to request and set bearer tokens. Each single-click app generates bearer tokens using a single API Account that belongs to the developer, and issues one unique token to each store that installs it. Merchants install new single-click apps in one of two ways: either by clicking through from the app's listing in the [Apps Marketplace](), or by navigating to the app's direct [installation URL]().
 
-![App Permissions](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-02-types-02.png "App Permissions")
+![Install an app from the marketplace](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-02-types-01.png "Install an app from the marketplace")
 
-Once granted, the app can request a permanent `access_token` for making REST API requests on the user's behalf.
+[Learn more about the installation process for single-click apps](https://developer.bigcommerce.com/api-docs/apps/guide/auth).
 
-## Connector
-Connector apps use manual OAuth token creation instead of the single-click app flow. Store owners generate [store API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#revoking-store-api-credentials) manually and enter them into the app's configuration. While single-click apps are recommended, the following use cases might not be compatible:
+### Connector
+True connector apps will not show up anywhere in the merchant's store control panel. Connector apps use [store-only API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#store-api-accounts) that the merchant manually creates in their store control panel's **Advanced Settings** **>** **API Accounts** view. The merchant then enters those API credentials when they configure the connector app and manually manages the app's access tokens. The merchant is responsible for revoking or changing the app's access when they stop using it, or it requests a change in the scope of its permissions. Although connector apps may seem like good solutions for the following use cases, we recommend that you handle them with a [single-click wrapper app](#single-click-wrapper) instead: 
 
-- Customized integrations that vary per store.
-- Integrations that do not provide any content for an iFrame.
-- Apps that do not provide web services for OAuth exchange (ex: native order sync app).
+- Integrations with OAuth scopes that vary from store to store
+- Integrations that do not have user settings
+- Direct connections to legacy third-party apps that cannot be modified to manage OAuth tokens with authorization code grants
+
+### Single-click wrapper
+
+A single-click wrapper app brings the discoverability and transparent merchant user experience of a single-click app to the use cases for a connector app. They install, load, and behave just like traditional single-click apps. The difference is that their functionality complements and enables the work of a related connector app. If you choose to implement your app's core functionality with merchants' manually created API accounts, use a single-click wrapper to remind merchants they're using your connector and keep them informed about the status of their connection.  Single-click wrapper apps can add value in the following ways:
+
+- They can list a connector app's potential OAuth scopes and describe the benefits of enabling each one
+- They can remind the merchant that they have enabled your integration and describe what it does
+- They can connect the merchant with troubleshooting resources and contact information
+- They can display details of the merchant's subscription to the connector app's services
+- They can describe how to reauthorize the related connector app or modify the scope of the store API account that it requires
+- They can manage user accounts for a third-party service 
+
 
 ## Visibility
 There are three visibility options for apps: **Draft**, **Unlisted**, and **Public**.
@@ -54,8 +69,13 @@ There are three visibility options for apps: **Draft**, **Unlisted**, and **Publ
 </div>
 </div>
 
+## Control panel locations
+
+## Access type
+
 ## Next step
-[Begin app development](https://developer.bigcommerce.com/api-docs/apps/guide/development).
+* [Next: Begin app development](https://developer.bigcommerce.com/api-docs/apps/guide/development)
+* [Previous: Introduction](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
 
 ## Resources
 
