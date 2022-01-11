@@ -73,7 +73,6 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 * Ayden
 * Barclaycard Fuse
 * Bolt
-* CardConnect
 * Chase integrated payments
 * Chase merchant services
 * Checkout.com
