@@ -35,7 +35,7 @@ Your button will link merchants to BigCommerce's install endpoint for your appli
 
 ## Rendering success and failure pages
 
-Modify your web site's server-side code to serve either a success or failure page, depending on whether the external installation was successful or unsuccessful.
+Modify your website's server-side code to serve either a success or failure page, depending on whether the external installation was successful or unsuccessful.
 
 If you skip this step, your application will load in the iFrame created by your button. To ensure a good experience for your users, we strongly recommend that you return a confirmation page, instead of allowing your application to be loaded in that modal.
 
