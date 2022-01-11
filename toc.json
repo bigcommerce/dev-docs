@@ -1,0 +1,795 @@
+{
+  "items": [
+    {
+      "type": "divider",
+      "title": "API Docs",
+      "slug": "/api-docs"
+    }, 
+    {
+      "type": "group",
+      "title": "Getting Started",
+      "slug": "/getting-started",
+      "items": [
+        {
+          "type": "item",
+          "title": "Quick Start",
+          "slug": "/making-requests",
+          "href": "/api-docs/getting-started/making-requests",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "item",
+          "title": "About Our APIs",
+          "slug": "/about-our-api",
+          "href": "/api-docs/getting-started/about-our-api",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "group",
+          "title": "Authentication",
+          "slug": "/authentication",
+          "href": "/api-docs/getting-started/authentication",
+          "uri": "{PATH}", 
+          "items": [
+            {
+              "type": "item",
+              "title": "Authenticating BigCommerce APIs",
+              "slug": "/authenticating-bigcommerce-apis",
+              "href": "/api-docs/getting-started/authentication/authenticating-bigcommerce-apis",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "V2 and V3 REST API Authentication",
+              "slug": "/rest-api-authentication",
+              "href": "/api-docs/getting-started/authentication/rest-api-authentication",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "title": "Filtering",
+          "slug": "/filtering",
+          "href": "/api-docs/getting-started/filtering",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "item",
+          "title": "Best Practices",
+          "slug": "/best-practices",
+          "href": "/api-docs/getting-started/best-practices",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "item",
+          "title": "API Status Codes",
+          "slug": "/api-status-codes",
+          "href": "/api-docs/getting-started/api-status-codes",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "item",
+          "title": "Deprecations and Sunsets",
+          "slug": "/deprecations-and-sunsets",
+          "href": "/api-docs/getting-started/deprecations-and-sunsets",
+          "uri": "{PATH}"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "Storefront APIs",
+      "slug": "/storefront",
+      "items": [
+        {
+          "type": "item",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "item",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "item",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "item",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "item",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "Management APIs",
+      "slug": "{SLUG}",
+      "items": [
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "item",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "item",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "item",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "item",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "item",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "Provider APIs",
+      "slug": "/providers",
+      "items": [
+        {
+          "type": "item",
+          "href": "/api-docs/providers/shipping",
+          "title": "Shipping Providers",
+          "slug": "/shipping",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "item",
+          "href": "/api-docs/providers/tax",
+          "title": "Tax Providers",
+          "tag": "new",
+          "slug": "/tax",
+          "uri": "{PATH}"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "Building Apps",
+      "slug": "{SLUG}",
+      "items": [
+        {
+          "type": "item",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "Building Channels",
+      "slug": "{SLUG}",
+      "items": [
+        {
+          "type": "item",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "Building Headless Storefronts",
+      "slug": "{SLUG}",
+      "items": [
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "Building Checkouts",
+      "slug": "/checkouts",
+      "items": [
+        {
+          "type": "item",
+          "href": "/api-docs/checkouts/checkouts",
+          "slug": "/checkouts",
+          "title": "Checkout Customizability",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "item",
+          "href": "/api-docs/checkouts/checkout-consignment",
+          "slug": "/checkout-consignment",
+          "title": "Checkout Consignment",
+          "uri": "{PATH}"
+        }        
+      ]
+    },
+    {
+      "type": "group",
+      "title": "Managing Currencies",
+      "slug": "{SLUG}",
+      "items": [
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "Partner Information",
+      "slug": "{SLUG}",
+      "items": [
+        {
+          "type": "item",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}"
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "{TITLE}",
+          "slug": "{SLUG}",
+          "uri": "{PATH}", // {QUESTION} can a group have a URI?  how else to handle when there's content at a title node?
+          "items": [
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            },
+            {
+              "type": "item",
+              "title": "{TITLE}",
+              "slug": "{SLUG}",
+              "uri": "{PATH}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
