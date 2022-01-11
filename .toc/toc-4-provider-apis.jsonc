@@ -4,7 +4,7 @@
     "href": "/api-docs/providers/shipping",
     "title": "Shipping Providers",
     "slug": "/shipping",
-    "uri": "{PATH}"
+    "uri": "/api-docs/store-management/shipping/shipping-provider-api.md"
   },
   {
     "type": "item",
@@ -12,6 +12,6 @@
     "title": "Tax Providers",
     "tag": "new",
     "slug": "/tax",
-    "uri": "{PATH}"
+    "uri": "/api-docs/provider-apis/tax/overview.md"
   }
 ]
