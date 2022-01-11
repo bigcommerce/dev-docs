@@ -35,19 +35,19 @@ When a merchant clicks an installed app's listing or **Launch** button in the **
 ![App Display](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-01-introduction-03.png  "App Display")
 
 ## Use cases
-What can developers help merchants do with BigCommerce apps?
+What can developers help merchants and technology partners do with BigCommerce apps?
 
 ### Integrate with business systems
-Use [BigCommerce APIs](https://developer.bigcommerce.com/api-reference) to integrate stores with core business systems, including but not limited to the following:
+Use [BigCommerce APIs](https://developer.bigcommerce.com/api-reference) to integrate merchant stores with core business systems, including but not limited to the following:
 * [ERP systems](https://www.bigcommerce.com/apps/erp/)
 * [Order management platforms](https://www.bigcommerce.com/apps/catalog-order-management/)
 * [Accounting software](https://www.bigcommerce.com/apps/accounting-tax/)
-* [Shipping and Fulfillment services](https://www.bigcommerce.com/apps/shipping-fulfillment/)
+* [Shipping and fulfillment services](https://www.bigcommerce.com/apps/shipping-fulfillment/)
 
 [Learn more about BigCommerce's powerful APIs.](https://developer.bigcommerce.com/api-reference)
 
-### Coordinate external sales channels
-List products on multiple [sales channels](https://www.bigcommerce.com/apps/sales-channels/) and manage external order fulfillment with the [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/guide/channels-toolkit-reference).
+### Coordinate external sales and marketing channels
+List and manage products on multiple [sales](https://www.bigcommerce.com/apps/sales-channels/), including marketplaces, point-of-sale systems, and both third-party and BigCommerce storefronts.  Manage channel-based pricing, external order fulfillment, and ads and social marketing placements using the [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/guide/channels-toolkit-reference).
 
 [Learn more about connecting apps to sales channels.](https://developer.bigcommerce.com/api-docs/channels/overview)
 
@@ -61,6 +61,10 @@ Build [widgets](https://support.bigcommerce.com/s/article/Page-Builder#builder),
 
 [Learn more about creating widgets](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview).
 
+### Offer merchants innovative eCommerce solutions
+Harness the power of BigCommerce Provider APIs to integrate your third-party tax or shipping service into merchants' stores.
+
+Learn more about our [Tax Provider](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api) and [Shipping Provider](https://developer.bigcommerce.com/api-reference/providers/shipping-provider-api) APIs.
 ## Getting started
 Here's how to get started with BigCommerce development:
 1. [Create a BigCommerce sandbox store](https://developer.bigcommerce.com/api-docs/partner/getting-started/create-a-sandbox-store).
