@@ -1,0 +1,16 @@
+[
+  {
+    "type": "item",
+    "href": "/api-docs/checkouts/checkouts",
+    "slug": "/checkouts",
+    "title": "Checkout Customizability",
+    "uri": "{PATH}"
+  },
+  {
+    "type": "item",
+    "href": "/api-docs/checkouts/checkout-consignment",
+    "slug": "/checkout-consignment",
+    "title": "Checkout Consignment",
+    "uri": "{PATH}"
+  }
+]

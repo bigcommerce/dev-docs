@@ -1,0 +1,17 @@
+[
+  {
+    "type": "item",
+    "href": "/api-docs/providers/shipping",
+    "title": "Shipping Providers",
+    "slug": "/shipping",
+    "uri": "{PATH}"
+  },
+  {
+    "type": "item",
+    "href": "/api-docs/providers/tax",
+    "title": "Tax Providers",
+    "tag": "new",
+    "slug": "/tax",
+    "uri": "{PATH}"
+  }
+]
