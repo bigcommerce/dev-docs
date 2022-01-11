@@ -4,35 +4,35 @@
     "title": "Quick Start",
     "slug": "/making-requests",
     "href": "/api-docs/getting-started/making-requests",
-    "uri": "{PATH}"
+    "uri": "/api-docs/getting-started/making-requests.md"
   },
   {
     "type": "item",
     "title": "About Our APIs",
     "slug": "/about-our-api",
     "href": "/api-docs/getting-started/about-our-api",
-    "uri": "{PATH}"
+    "uri": "/api-docs/getting-started/about-our-api.md"
   },
   {
     "type": "group",
     "title": "Authentication",
     "slug": "/authentication",
     "href": "/api-docs/getting-started/authentication",
-    "uri": "{PATH}", 
+    "uri": "/api-docs/getting-started/authentication.md", 
     "items": [
       {
         "type": "item",
         "title": "Authenticating BigCommerce APIs",
         "slug": "/authenticating-bigcommerce-apis",
         "href": "/api-docs/getting-started/authentication/authenticating-bigcommerce-apis",
-        "uri": "{PATH}"
+        "uri": "/api-docs/getting-started/authentication.md"
       },
       {
         "type": "item",
         "title": "V2 and V3 REST API Authentication",
         "slug": "/rest-api-authentication",
         "href": "/api-docs/getting-started/authentication/rest-api-authentication",
-        "uri": "{PATH}"
+        "uri": "/api-docs/getting-started/rest-api-authentication.md"
       }
     ]
   },
@@ -41,27 +41,27 @@
     "title": "Filtering",
     "slug": "/filtering",
     "href": "/api-docs/getting-started/filtering",
-    "uri": "{PATH}"
+    "uri": "/api-docs/getting-started/filtering.md"
   },
   {
     "type": "item",
     "title": "Best Practices",
     "slug": "/best-practices",
     "href": "/api-docs/getting-started/best-practices",
-    "uri": "{PATH}"
+    "uri": "/api-docs/getting-started/best-practices.md"
   },
   {
     "type": "item",
     "title": "API Status Codes",
     "slug": "/api-status-codes",
     "href": "/api-docs/getting-started/api-status-codes",
-    "uri": "{PATH}"
+    "uri": "/api-docs/getting-started/api-status-codes.md"
   },
   {
     "type": "item",
     "title": "Deprecations and Sunsets",
     "slug": "/deprecations-and-sunsets",
     "href": "/api-docs/getting-started/deprecations-and-sunsets",
-    "uri": "{PATH}"
+    "uri": "/api-docs/getting-started/deprecations-and-sunsets.md"
   }
 ]
