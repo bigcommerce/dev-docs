@@ -204,7 +204,7 @@
     {
       "type": "group",
       "title": "Management APIs",
-      "slug": "{SLUG}",
+      "slug": "/store-management",
       "items": [
         {
           "type": "group",
@@ -409,7 +409,7 @@
     {
       "type": "group",
       "title": "Building Apps",
-      "slug": "{SLUG}",
+      "slug": "/apps",
       "items": [
         {
           "type": "item",
@@ -462,7 +462,7 @@
     {
       "type": "group",
       "title": "Building Channels",
-      "slug": "{SLUG}",
+      "slug": "/channels",
       "items": [
         {
           "type": "item",
@@ -515,7 +515,7 @@
     {
       "type": "group",
       "title": "Building Headless Storefronts",
-      "slug": "{SLUG}",
+      "slug": "/storefronts",
       "items": [
         {
           "type": "group",
@@ -589,7 +589,7 @@
     {
       "type": "group",
       "title": "Managing Currencies",
-      "slug": "{SLUG}",
+      "slug": "/multi-currency",
       "items": [
         {
           "type": "group",
@@ -616,7 +616,7 @@
     {
       "type": "group",
       "title": "Partner Information",
-      "slug": "{SLUG}",
+      "slug": "/partner",
       "items": [
         {
           "type": "item",
