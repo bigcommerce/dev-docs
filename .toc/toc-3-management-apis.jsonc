@@ -1,0 +1,255 @@
+[
+  {
+    "type": "group",
+    "title": "Catalog",
+    "slug": "/catalog",
+    "items": [
+      {
+        "type": "item",
+        "title": "Overview",
+        "slug": "/catalog-overview",
+        "href": "/api-docs/store-management/catalog/catalog-overview",
+        "uri": "/api-docs/catalog/products-overview.md"
+      },
+      {
+        "type": "item",
+        "title": "Difference between V2 and V3 Catalog REST APIs",
+        "slug": "/v2-vs-v3",
+        "href": "/api-docs/store-management/catalog/v2-vs-v3",
+        "uri": "/api-docs/catalog/v2-vs-v3.md"
+      },
+      {
+        "type": "item",
+        "title": "V2 to V3 Catalog Operations Comparison",
+        "slug": "/v2-v3-examples",
+        "href": "/api-docs/store-management/catalog/v2-v3-examples",
+        "uri": "/api-docs/catalog/v2-v3-examples.md"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "Customers",
+    "slug": "/customers",
+    // GROUP ROOT HAD PAGE CONTENT, reorganized
+    "href": "/api-docs/store-management/customers",
+    "items": [
+      {
+        "type": "item",
+        "title": "Customers Overview",
+        // GROUP ROOT HAS PAGE CONTENT, reorganized
+        "slug": "/overview",
+        "href": "/api-docs/store-management/customers/overview",
+        "uri": "/api-docs/customers/customers-subscribers-overview.md"
+      },
+      {
+        "type": "item",
+        "title": "Creating Channel-Specific Customers",
+        "slug": "/creating-channel-specific-customers",
+        "href": "/api-docs/store-management/customers/creating-channel-specific-customers",
+        "uri": "/api-docs/customers/channel-specific-customers.md"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "Email Templates",
+    "slug": "/email-templates",
+    "flag": "new",
+    "items": [
+      {
+        "type": "item",
+        "title": "Overview",
+        "slug": "/overview",
+        "href": "/api-docs/store-management/email-templates/overview",
+        "uri": "/api-docs/management-apis/email-templates/overview.md"
+      },
+      {
+        "type": "item",
+        "title": "Email Templates Examples",
+        "slug": "/email-template-examples",
+        "href": "/api-docs/store-management/email-templates/email-template-examples",
+        "uri": "/api-docs/management-apis/email-templates/email-template-examples.md"
+      },
+      {
+        "type": "item",
+        "title": "Handlebars Reference",
+        "slug": "/handlebars",
+        "href": "/api-docs/store-management/email-templates/handlebars",
+        "flag": "reference",
+        "uri": "https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/models/email_templates/_all.yml?branch=master&deref=all&format=jsonl"
+      }
+    ]
+  },
+  {
+    "type": "item",
+    "title": "Orders",
+    "slug": "/orders",
+    "href": "/api-docs/store-management/orders",
+    "uri": "/api-docs/orders/orders-api-overview.md"
+  },
+  {
+    "type": "item",
+    "title": "Order Refunds",
+    "slug": "/order-refunds",
+    "href": "/api-docs/store-management/order-refunds",
+    "uri": "/api-docs/orders/order-refunds.md"
+  },
+  {
+    "type": "item",
+    "title": "Payment Processing",
+    "slug": "/payment-processing",
+    "href": "/api-docs/store-management/payment-processing",
+    "uri": "/api-docs/payments/payments-api-overview.md"
+  },
+  {
+    "type": "item",
+    "title": "Price Lists",
+    "slug": "/price-list-overview",
+    "href": "/api-docs/store-management/price-list-overview",
+    "uri": "/api-docs/catalog/price-list-overview.md"
+  },
+  {
+    "type": "item",
+    "title": "Pricing Order",
+    "slug": "/pricing-order-operation",
+    "href": "/api-docs/store-management/pricing-order-operation",
+    "flag": "reference",
+    "uri": "/api-docs/catalog/pricing-order-operation.md"
+  },
+  {
+    "type": "item",
+    "title": "Scripts",
+    "slug": "/scripts",
+    "href": "/api-docs/store-management/scripts",
+    "uri": "/api-docs/storefront/scripts-overview.md"
+  },
+  {
+    "type": "group",
+    "title": "Settings",
+    "slug": "/settings",
+    "items": [
+      {
+        "type": "item",
+        "title": "Contextual Filters",
+        "slug": "/contextual-filters",
+        "href": "/api-docs/store-management/settings/contextual-filters",
+        "uri": "/api-docs/management-apis/contextual-filters.md"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "Shipping",
+    "slug": "/shipping",
+    "items": [
+      {
+        "type": "item",
+        "title": "Overview",
+        "slug": "/shipping-overview",
+        "href": "/api-docs/store-management/shipping/shipping-overview",
+        "uri": "api-docs/store-management/shipping/shipping-overview.md"
+      },
+      {
+        "type": "item",
+        "title": "Shipper HQ",
+        "slug": "/shipper-hq",
+        "href": "/api-docs/store-management/shipping/shipper-hq",
+        "uri": "/api-docs/store-management/shipping/shipper-hq.md"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "Widgets",
+    "slug": "/widgets",
+    "items": [
+      {
+        "type": "item",
+        "title": "Overview",
+        "slug": "/overview",
+        "href": "/api-docs/store-management/widgets/overview",
+        "uri": "/api-docs/storefront/widgets/widgets-overview.md"
+      },
+      {
+        "type": "item",
+        "title": "Widgets Code Samples",
+        "slug": "/samples",
+        "href": "/api-docs/store-management/widgets/samples",
+        "flag": "code samples",
+        "uri": "/api-docs/storefront/widgets/widgets-code-samples.md"
+      },
+      {
+        "type": "item",
+        "title": "Localizing Widget Template Settings",
+        "slug": "/localizing-settings",
+        "href": "/api-docs/storefront/widgets/widgets-localizing-settings.md",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "group",
+        "title": "Tutorials",
+        "slug": "/tutorials",
+        "items": [
+          {
+            "type": "item",
+            "title": "Widgets Tutorial",
+            "slug": "/tutorial",
+            "href": "/api-docs/store-management/widgets/tutorials/tutorial",
+            "uri": "/api-docs/storefront/widgets/widgets-tutorial.md"
+          },
+          {
+            "type": "item",
+            "title": "Widget Versioning Tutorial",
+            "slug": "/widget-versioning-tutorial",
+            "href": "/api-docs/store-management/widgets/tutorials/widget-versioning-tutorial",
+            "uri": "/api-docs/storefront/widgets/widget-versioning-tutorial.md"
+          },
+          {
+            "type": "item",
+            "title": "Global Regions Tutorial",
+            "slug": "/global-regions-tutorial",
+            "href": "/api-docs/store-management/widgets/tutorials/global-regions-tutorial",
+            "uri": "/api-docs/storefront/widgets/global-regions-tutorial.md"
+          },
+          {
+            "type": "item",
+            "title": "Create Widgets Powered by GraphQL",
+            "slug": "/dynamic-widgets",
+            "href": "/api-docs/store-management/widgets/tutorials/dynamic-widgets",
+            "uri": "/api-docs/storefront/widgets/product-widget-tutorial.md"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "Webhooks",
+    "slug": "/webhooks",
+    "items": [
+      {
+        "type": "item",
+        "title": "Overview",
+        "slug": "/overview",
+        "href": "/api-docs/store-management/webhooks/overview",
+        "uri": "/api-docs/getting-started/webhooks/about-webhooks.md"
+      },
+      {
+        "type": "item",
+        "title": "Webhook Events",
+        "slug": "/webhook-events",
+        "href": "/api-docs/store-management/webhooks/webhook-events",
+        "uri": "/api-docs/getting-started/webhooks/webhook-events.md"
+      },
+      {
+        "type": "item",
+        "title": "Webhooks Tutorial",
+        "slug": "/tutorial",
+        "href": "/api-docs/store-management/webhooks/tutorial",
+        "flag": : "tutorial",
+        "uri": "/api-docs/getting-started/webhooks/setting-up-webhooks.md"
+      }
+    ]
+  }
+]
