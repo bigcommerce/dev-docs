@@ -22,7 +22,7 @@
       "type": "group",
       "title": "Management APIs",
       "slug": "/store-management",
-      "items": ["uris still needed, structure done. see .toc/toc-3-management-apis"]
+      "items": ["complete. uris in place. see .toc/toc-3-management-apis"]
     },
     {
       "type": "group",
