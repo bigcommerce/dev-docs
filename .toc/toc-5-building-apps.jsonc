@@ -1,0 +1,170 @@
+[
+  {
+    "type": "item",
+    "title": "Quick Start",
+    "slug": "/quick-start",
+    "href": "/api-docs/apps/quick-start",
+    "uri": "{PATH}"
+  },
+  {
+    "type": "group",
+    "title": "Guide",
+    "slug": "/guide",
+    "items": [
+      {
+        "type": "item",
+        "title": "Introduction",
+        "slug": "/intro",
+        "href": "/api-docs/apps/guide/intro",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Types of Apps",
+        "slug": "/types",
+        "href": "/api-docs/apps/guide/types",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Beginning Development",
+        "slug": "/development",
+        "href": "/api-docs/apps/guide/development",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Managing Apps in Dev Portal",
+        "slug": "/developer-portal",
+        "href": "/api-docs/apps/guide/developer-portal",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Implementing OAuth",
+        "slug": "/auth",
+        "href": "/api-docs/apps/guide/auth",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Handling Callbacks",
+        "slug": "/callbacks",
+        "href": "/api-docs/apps/guide/callbacks",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Supporting Multiple Users",
+        "slug": "/users",
+        "href": "/api-docs/apps/guide/users",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Listening for Events",
+        "slug": "/events",
+        "href": "/api-docs/apps/guide/events",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Designing the UI",
+        "slug": "/ui",
+        "href": "/api-docs/apps/guide/ui",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Creating Install Buttons",
+        "slug": "/buttons",
+        "href": "/api-docs/apps/guide/buttons",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Following Best Practices",
+        "slug": "/best-practices",
+        "href": "/api-docs/apps/guide/best-practices",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Approval Requirements",
+        "slug": "/requirements",
+        "href": "/api-docs/apps/guide/requirements",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Publishing Apps",
+        "slug": "/publishing",
+        "href": "/api-docs/apps/guide/publishing",
+        "uri": "{PATH}"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "Tutorials",
+    "slug": "/tutorials",
+    "items": [
+      {
+        "type": "group",
+        "title": "Build a Next.js Sample App",
+        "slug": "/sample-app-nextjs",
+        "items": [
+          {
+            "type": "item",
+            "title": "Quick Start: Deploy to Heroku Install Flow",
+            "slug": "/deploy-to-heroku",
+            "href": "/api-docs/apps/tutorials/sample-app-nextjs/deploy-to-heroku",
+            "uri": "{PATH}"
+          },
+          {
+            "type": "item",
+            "title": "Introduction",
+            "slug": "/introduction",
+            "href": "/api-docs/apps/tutorials/sample-app-nextjs/introduction",
+            "uri": "{PATH}"
+          },
+          {
+            "type": "item",
+            "title": "Step 1: Set up Your Local Environment",
+            "slug": "/step-1-setup",
+            "href": "/api-docs/apps/tutorials/sample-app-nextjs/step-1-setup",
+            "uri": "{PATH}"
+          },
+          {
+            "type": "item",
+            "title": "Step 2: Connect Your App to BigCommerce",
+            "slug": "/step-2-connect",
+            "href": "/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect",
+            "uri": "{PATH}"
+          },
+          {
+            "type": "item",
+            "title": "Step 3: Integrate the BigCommerce API and Add a Database",
+            "slug": "/step-3-integrate",
+            "href": "/api-docs/apps/tutorials/sample-app-nextjs/step-3-integrate",
+            "uri": "{PATH}"
+          },
+          {
+            "type": "item",
+            "title": "Step 4: Enhance the User Experience with BigDesign",
+            "slug": "/step-4-enhance",
+            "href": "/api-docs/apps/tutorials/sample-app-nextjs/step-4-enhance",
+            "uri": "{PATH}"
+          }
+        ]
+      },
+      {
+        "type": "item",
+        "title": "Find an App's ID",
+        "slug": "/id",
+        "href": "/api-docs/apps/tutorials/id",
+        "uri": "{PATH}"
+      }
+    ]
+  }
+]
