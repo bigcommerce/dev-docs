@@ -1,0 +1,87 @@
+[
+  {
+    "type": "item",
+    "title": "Quick Start",
+    "slug": "/quick-start",
+    "href": "/api-docs/channels/quick-start",
+    "uri": "{PATH}"
+  },
+  {
+    "type": "group",
+    "title": "Guide",
+    "slug": "/guide",
+    "items": [
+      {
+        "type": "item",
+        "title": "Introduction",
+        "slug": "/overview",
+        "href": "/api-docs/channels/guide/overview",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Building Channel Apps",
+        "slug": "/building-channel-apps",
+        "href": "/api-docs/channels/guide/",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Extending Existing Apps",
+        "slug": "/extending-existing-apps",
+        "href": "/api-docs/channels/guide/extending-existing-apps",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Creating Channel Webooks",
+        "slug": "/webhooks",
+        "href": "/api-docs/channels/guide/webhooks",
+        "flag": "new",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Following Best Practices",
+        "slug": "/channel-app-best-practices",
+        "href": "/api-docs/channels/guide/",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Approval Requirements",
+        "slug": "/channel-app-requirements",
+        "href": "/api-docs/channels/guide/channel-app-requirements",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Channels Toolkit Reference",
+        "slug": "/channels-toolkit-reference",
+        "href": "/api-docs/channels/guide/channels-toolkit-reference",
+        "uri": "{PATH}"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "Tutorials",
+    "slug": "/tutorials",
+    "items": [
+      {
+        "type": "item",
+        "title": "Build a Storefront Channel",
+        "slug": "/storefront",
+        "href": "/api-docs/channels/tutorials/storefront",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Extend an Existing App",
+        "slug": "/extend-existing-apps",
+        "href": "/api-docs/channels/tutorials/extend-existing-apps",
+        "uri": "{PATH}"
+      }
+    ]
+  }
+]
