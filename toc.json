@@ -34,7 +34,7 @@
       "type": "group",
       "title": "Building Apps",
       "slug": "/apps",
-      "items": ["uris still needed, structure done. see .toc/toc-5-building-apps.jsonc"]
+      "items": ["complete. uris in place. see .toc/toc-5-building-apps.jsonc"]
     },
     {
       "type": "group",
