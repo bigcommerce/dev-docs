@@ -90,6 +90,52 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
+    put:
+      description: |-
+        Change customer message to an existing *Checkout*.
+
+        **Limits:**
+        * 2000 characters for customer message
+      tags:
+        - Checkout
+      operationId: CheckoutsByCheckoutIdPut
+      produces:
+        - application/json
+      parameters:
+        - name: checkoutId
+          in: path
+          type: string
+          required: true
+          description: ID of the Checkout
+        - name: Accept
+          in: header
+          type: string
+          default: application/json
+          required: true
+        - name: Content-Type
+          in: header
+          type: string
+          default: application/json
+          required: true
+        - name: body
+          in: body
+          required: true
+          description: "`customer_message` is required (max length is 2000)."
+          schema:
+            $ref: '#/definitions/Checkout_Put'
+          x-examples:
+            application/json:
+              customer_message: Ship Now!
+      responses:
+        '200':
+          $ref: '#/responses/CheckoutResponse'
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      summary: Update Customer Messages 
   '/checkouts/{checkoutId}/billing-address':
     post:
       description: |-
@@ -1241,6 +1287,15 @@ definitions:
               text:
                 description: Text of the banner
                 type: string
+  Checkout_Put:
+    title: Checkout_Put
+    type: object
+    properties:
+      customer_message:
+        description: ''
+        type: string
+    required:
+      - customer_message
   AppliedCoupon:
     title: Applied Coupon
     type: object
