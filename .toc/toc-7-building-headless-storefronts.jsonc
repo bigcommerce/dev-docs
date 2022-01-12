@@ -1,0 +1,100 @@
+[
+  {
+    "type": "group",
+    "title": "Guide",
+    "slug": "/guide",
+    "items": [
+      {
+        "type": "item",
+        "title": "Introduction to Headless Commerce",
+        "slug": "/overview",
+        "href": "/api-docs/storefronts/guide/overview",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Creating Channels",
+        "slug": "/channels",
+        "href": "/api-docs/storefronts/guide/channels",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Working with Products",
+        "slug": "/products",
+        "href": "/api-docs/storefronts/guide/products",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Managing Carts",
+        "slug": "/carts",
+        "href": "/api-docs/storefronts/guide/carts",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Recovering Abandoned Carts",
+        "slug": "/abandoned-carts",
+        "href": "/api-docs/storefronts/guide/abandoned-carts",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Creating Checkouts",
+        "slug": "/checkout",
+        "href": "/api-docs/storefronts/guide/checkout",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Managing Customers",
+        "slug": "/customers",
+        "href": "/api-docs/storefronts/guide/customers",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Handling Orders",
+        "slug": "/orders",
+        "href": "/api-docs/storefronts/guide/orders",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "PCI Compliance",
+        "slug": "/pci-compliance",
+        "href": "/api-docs/storefronts/guide/pci-compliance",
+        "uri": "{PATH}"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "Embedded Checkout",
+    "slug": "/embedded-checkout",
+    "items": [
+      {
+        "type": "item",
+        "title": "Overview",
+        "slug": "/embedded-checkout-overview",
+        "href": "/api-docs/storefronts/embedded-checkout/embedded-checkout-overview",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Embedded Checkout Tutorial",
+        "slug": "/embedded-checkout-tutorial",
+        "href": "/api-docs/storefronts/embedded-checkout/embedded-checkout-tutorial",
+        "uri": "{PATH}"
+      }
+    ]
+  },
+  {
+    "type": "item",
+    "title": "Next.js Commerce",
+    "slug": "/nextjs-commerce",
+    "href": "/api-docs/storefronts/nextjs-commerce",
+    "uri": "{PATH}"
+  }
+]

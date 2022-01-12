@@ -1,0 +1,87 @@
+[
+  {
+    "type": "item",
+    "title": "Quick Start",
+    "slug": "/quick-start",
+    "href": "/api-docs/channels/quick-start",
+    "uri": "/api-docs/channels/channels-quick-start.md"
+  },
+  {
+    "type": "group",
+    "title": "Guide",
+    "slug": "/guide",
+    "items": [
+      {
+        "type": "item",
+        "title": "Introduction",
+        "slug": "/overview",
+        "href": "/api-docs/channels/guide/overview",
+        "uri": "/api-docs/channels/channels-overview.md"
+      },
+      {
+        "type": "item",
+        "title": "Building Channel Apps",
+        "slug": "/building-channel-apps",
+        "href": "/api-docs/channels/guide/",
+        "uri": "/api-docs/channels/building-channel-apps.md"
+      },
+      {
+        "type": "item",
+        "title": "Extending Existing Apps",
+        "slug": "/extending-existing-apps",
+        "href": "/api-docs/channels/guide/extending-existing-apps",
+        "uri": "/api-docs/channels/channels-extending-existing.md"
+      },
+      {
+        "type": "item",
+        "title": "Creating Channel Webooks",
+        "slug": "/webhooks",
+        "href": "/api-docs/channels/guide/webhooks",
+        "flag": "new",
+        "uri": "/api-docs/channels/channel-webhooks.md"
+      },
+      {
+        "type": "item",
+        "title": "Following Best Practices",
+        "slug": "/channel-app-best-practices",
+        "href": "/api-docs/channels/guide/",
+        "uri": "/api-docs/channels/channel-app-best-practices.md"
+      },
+      {
+        "type": "item",
+        "title": "Approval Requirements",
+        "slug": "/channel-app-requirements",
+        "href": "/api-docs/channels/guide/channel-app-requirements",
+        "uri": "/api-docs/channels/channel-app-requirements.md"
+      },
+      {
+        "type": "item",
+        "title": "Channels Toolkit Reference",
+        "slug": "/channels-toolkit-reference",
+        "href": "/api-docs/channels/guide/channels-toolkit-reference",
+        "uri": "/api-docs/channels/channels-toolkit-reference.md"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "Tutorials",
+    "slug": "/tutorials",
+    "items": [
+      {
+        "type": "item",
+        "title": "Build a Storefront Channel",
+        "slug": "/storefront",
+        "href": "/api-docs/channels/tutorials/storefront",
+        "uri": "/api-docs/channels/channels-storefront-tutorial.md"
+      },
+      {
+        "type": "item",
+        "title": "Extend an Existing App",
+        "slug": "/extend-existing-apps",
+        "href": "/api-docs/channels/tutorials/extend-existing-apps",
+        "uri": "/api-docs/channels/channels-extending-existing.md"
+      }
+    ]
+  }
+]

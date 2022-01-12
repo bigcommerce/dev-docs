@@ -1,0 +1,158 @@
+[
+  {
+    "type": "item",
+    "title": "Overview",
+    "slug": "/overview",
+    "href": "/api-docs/storefront/overview", 
+    "uri": "{PATH}"
+  },
+  {
+    "type": "group",
+    "title": "GraphQL",
+    "slug": "/graphql",
+    "uri": "{PATH}", 
+    "items": [
+      {
+        "type": "item",
+        "title": "Overview",
+        "slug": "/graphql-storefront-api-overview",
+        "href": "/api-docs/storefront/graphql/graphql-storefront-api-overview",
+        "uri": "{PATH}" 
+      },
+      {
+        "type": "item",
+        "title": "Code Samples",
+        "slug": "{SLUG}",
+        "href": "/api-docs/storefront/graphql/graphql-storefront-api-samples", 
+        "flag": "code samples",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "GraphQL Playground",
+        "slug": "{SLUG}",
+        "href": "/api-docs/storefront/graphql/playground", 
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "GraphQL Explorer",
+        "slug": "/explorer",
+        "href": "/api-docs/storefront/graphql/explorer", 
+        "uri": "{PATH}"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "REST",
+    "slug": "/rest",
+    "items": [
+      {
+        "type": "group",
+        "title": "Carts",
+        "slug": "/carts",
+        "href": "/api-docs/storefront/rest/carts",
+        "redirect": "/api-reference/storefront/carts"
+      },
+      {
+        "type": "group",
+        "title": "Checkouts",
+        "slug": "/checkouts",
+        "href": "/api-docs/storefront/rest/checkouts", 
+        "redirect": "/api-reference/storefront/checkouts"
+      },
+      {
+        "type": "group",
+        "title": "Form Fields",
+        "slug": "/form-fields",
+        "href": "/api-docs/storefront/rest/form-fields", 
+        "redirect": "/api-reference/storefront/form-fields"
+      },
+      {
+        "type": "group",
+        "title": "Orders",
+        "slug": "/orders",
+        "href": "/api-docs/storefront/rest/orders",
+        "redirect": "/api-reference/storefront/orders"
+      },
+      {
+        "type": "group",
+        "title": "Subscriptions",
+        "slug": "/subscriptions",
+        "href": "/api-docs/storefront/rest/subscriptions",
+        "redirect": "/api-reference/storefront/storefront-subscriptions"
+      }
+    ]
+  },
+  {
+    "type": "item",
+    "title": "Add to Cart URLs",
+    "slug": "/add-to-cart-urls",
+    "href": "/api-docs/storefront/add-to-cart-urls", 
+    "uri": "{PATH}"
+  },
+  {
+    "type": "item",
+    "title": "Customer Login API",
+    "slug": "/customer-login-api",
+    "href": "/api-docs/storefront/customer-login-api", 
+    "uri": "{PATH}"
+  },
+  {
+    "type": "item",
+    "title": "Current Customer API",
+    "slug": "/current-customer-api",
+    "href": "/api-docs/storefront/current-customer-api", 
+    "uri": "{PATH}"
+  },
+  {
+    "type": "item",
+    "title": "Passwordless Login",
+    "slug": "/passwordless-login",
+    "href": "/api-docs/storefront/passwordless-login", 
+    "uri": "{PATH}"
+  },
+  {
+    "type": "group",
+    "title": "Tutorials",
+    "slug": "/tutorials",
+    "items": [
+      {
+        "type": "item",
+        "title": "Carts and Checkouts",
+        "slug": "/carts",
+        "href": "/api-docs/storefront/tutorials/carts", 
+        "flag": "tutorial",
+        "uri": "{PATH}"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "Widgets",
+    "slug": "/widgets",
+    "items": [
+      {
+        "type": "item",
+        "title": "Widget Builder", 
+        "slug": "/widget-builder",
+        "href": "/api-docs/storefront/widgets/widget-builder", 
+        "uri": "{PATH}"
+      }
+    ]
+  }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
