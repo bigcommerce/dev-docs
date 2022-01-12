@@ -1,0 +1,27 @@
+[
+  {
+    "type": "group",
+    "title": "Guide",
+    "slug": "/guide",
+    "items": [
+      {
+        "type": "item",
+        "title": "Introduction", 
+        "slug": "/introduction",
+        "href": "/api-docs/multi-currency/guide/introduction", 
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "How Currencies Work", 
+        "slug": "/how-currencies-work",
+        "href": "/api-docs/multi-currency/guide/how-currencies-work", 
+        "uri": "{PATH}"
+      }
+    ]
+  }
+]
+
+
+
+
