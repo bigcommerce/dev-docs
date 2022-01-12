@@ -1,0 +1,255 @@
+[
+  {
+    "type": "group",
+    "title": "Catalog",
+    "slug": "/catalog",
+    "items": [
+      {
+        "type": "item",
+        "title": "Overview",
+        "slug": "/catalog-overview",
+        "href": "/api-docs/store-management/catalog/catalog-overview",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Difference between V2 and V3 Catalog REST APIs",
+        "slug": "/v2-vs-v3",
+        "href": "/api-docs/store-management/catalog/v2-vs-v3",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "V2 to V3 Catalog Operations Comparison",
+        "slug": "/v2-v3-examples",
+        "href": "/api-docs/store-management/catalog/v2-v3-examples",
+        "uri": "{PATH}"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "Customers",
+    "slug": "/customers",
+    // GROUP ROOT HAD PAGE CONTENT, reorganized
+    "href": "/api-docs/store-management/customers",
+    "items": [
+      {
+        "type": "item",
+        "title": "Customers Overview",
+        // GROUP ROOT HAS PAGE CONTENT, reorganized
+        "slug": "/overview",
+        "href": "/api-docs/store-management/customers/overview",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Creating Channel-Specific Customers",
+        "slug": "/creating-channel-specific-customers",
+        "href": "/api-docs/store-management/customers/creating-channel-specific-customers",
+        "uri": "{PATH}"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "Email Templates",
+    "slug": "/email-templates",
+    "flag": "new",
+    "items": [
+      {
+        "type": "item",
+        "title": "Overview",
+        "slug": "/overview",
+        "href": "/api-docs/store-management/email-templates/overview",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Email Templates Examples",
+        "slug": "/email-template-examples",
+        "href": "/api-docs/store-management/email-templates/email-template-examples",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Handlebars Reference",
+        "slug": "/handlebars",
+        "href": "/api-docs/store-management/email-templates/handlebars",
+        "flag": "reference",
+        "uri": "{PATH}"
+      }
+    ]
+  },
+  {
+    "type": "item",
+    "title": "Orders",
+    "slug": "/orders",
+    "href": "/api-docs/store-management/orders",
+    "uri": "{PATH}"
+  },
+  {
+    "type": "item",
+    "title": "Order Refunds",
+    "slug": "/order-refunds",
+    "href": "/api-docs/store-management/order-refunds",
+    "uri": "{PATH}"
+  },
+  {
+    "type": "item",
+    "title": "Payment Processing",
+    "slug": "/payment-processing",
+    "href": "/api-docs/store-management/payment-processing",
+    "uri": "{PATH}"
+  },
+  {
+    "type": "item",
+    "title": "Price Lists",
+    "slug": "/price-list-overview",
+    "href": "/api-docs/store-management/price-list-overview",
+    "uri": "{PATH}"
+  },
+  {
+    "type": "item",
+    "title": "Pricing Order",
+    "slug": "/pricing-order-operation",
+    "href": "/api-docs/store-management/pricing-order-operation",
+    "flag": "reference",
+    "uri": "{PATH}"
+  },
+  {
+    "type": "item",
+    "title": "Scripts",
+    "slug": "/scripts",
+    "href": "/api-docs/store-management/scripts",
+    "uri": "{PATH}"
+  },
+  {
+    "type": "group",
+    "title": "Settings",
+    "slug": "/settings",
+    "items": [
+      {
+        "type": "item",
+        "title": "Contextual Filters",
+        "slug": "/contextual-filters",
+        "href": "/api-docs/store-management/settings/contextual-filters",
+        "uri": "{PATH}"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "Shipping",
+    "slug": "/shipping",
+    "items": [
+      {
+        "type": "item",
+        "title": "Overview",
+        "slug": "/shipping-overview",
+        "href": "/api-docs/store-management/shipping/shipping-overview",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Shipper HQ",
+        "slug": "/shipper-hq",
+        "href": "/api-docs/store-management/shipping/shipper-hq",
+        "uri": "{PATH}"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "Widgets",
+    "slug": "/widgets",
+    "items": [
+      {
+        "type": "item",
+        "title": "Overview",
+        "slug": "/overview",
+        "href": "/api-docs/store-management/widgets/overview",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Widgets Code Samples",
+        "slug": "/samples",
+        "href": "/api-docs/store-management/widgets/samples",
+        "flag": "code samples",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Localizing Widget Template Settings",
+        "slug": "/localizing-settings",
+        "href": "/api-docs/store-management/widgets/localizing-settings",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "group",
+        "title": "Tutorials",
+        "slug": "/tutorials",
+        "items": [
+          {
+            "type": "item",
+            "title": "Widgets Tutorial",
+            "slug": "/tutorial",
+            "href": "/api-docs/store-management/widgets/tutorials/tutorial",
+            "uri": "{PATH}"
+          },
+          {
+            "type": "item",
+            "title": "Widget Versioning Tutorial",
+            "slug": "/widget-versioning-tutorial",
+            "href": "/api-docs/store-management/widgets/tutorials/widget-versioning-tutorial",
+            "uri": "{PATH}"
+          },
+          {
+            "type": "item",
+            "title": "Global Regions Tutorial",
+            "slug": "/global-regions-tutorial",
+            "href": "/api-docs/store-management/widgets/tutorials/global-regions-tutorial",
+            "uri": "{PATH}"
+          },
+          {
+            "type": "item",
+            "title": "Create Widgets Powered by GraphQL",
+            "slug": "/dynamic-widgets",
+            "href": "/api-docs/store-management/widgets/tutorials/dynamic-widgets",
+            "uri": "{PATH}"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "Webhooks",
+    "slug": "/webhooks",
+    "items": [
+      {
+        "type": "item",
+        "title": "Overview",
+        "slug": "/overview",
+        "href": "/api-docs/store-management/webhooks/overview",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Webhook Events",
+        "slug": "/webhook-events",
+        "href": "/api-docs/store-management/webhooks/webhook-events",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Webhooks Tutorial",
+        "slug": "/tutorial",
+        "href": "/api-docs/store-management/webhooks/tutorial",
+        "flag": : "tutorial",
+        "uri": "{PATH}"
+      }
+    ]
+  }
+]
