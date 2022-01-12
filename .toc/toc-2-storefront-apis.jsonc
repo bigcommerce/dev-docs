@@ -4,7 +4,7 @@
     "title": "Overview",
     "slug": "/overview",
     "href": "/api-docs/storefront/overview", 
-    "uri": "{PATH}"
+    "uri": "{api-docs/storefront/scripts-overview.md}"
   },
   {
     "type": "group",
@@ -17,7 +17,7 @@
         "title": "Overview",
         "slug": "/graphql-storefront-api-overview",
         "href": "/api-docs/storefront/graphql/graphql-storefront-api-overview",
-        "uri": "{PATH}" 
+        "uri": "{api-docs/storefront/graphql/graphql-api-overview.md}"
       },
       {
         "type": "item",
@@ -25,23 +25,21 @@
         "slug": "{SLUG}",
         "href": "/api-docs/storefront/graphql/graphql-storefront-api-samples", 
         "flag": "code samples",
-        "uri": "{PATH}"
+        "uri": "{api-docs/storefront/graphql/graphql-api-examples.md}"
       },
       {
         "type": "item",
         "title": "GraphQL Playground",
         "slug": "{SLUG}",
         "href": "/api-docs/storefront/graphql/playground", 
-        "uri": "{PATH}"
+        "uri": "{https://developer.bigcommerce.com/graphql-playground}"
       },
       {
         "type": "item",
         "title": "GraphQL Explorer",
         "slug": "/explorer",
         "href": "/api-docs/storefront/graphql/explorer", 
-        "uri": "{PATH}"
-      }
-    ]
+        "uri": "{api-docs/storefront/graphql/explorer.md}"
   },
   {
     "type": "group",
@@ -53,35 +51,35 @@
         "title": "Carts",
         "slug": "/carts",
         "href": "/api-docs/storefront/rest/carts",
-        "redirect": "/api-reference/storefront/carts"
+        "redirect": "/api-docs/storefront/rest/carts.md"
       },
       {
         "type": "group",
         "title": "Checkouts",
         "slug": "/checkouts",
         "href": "/api-docs/storefront/rest/checkouts", 
-        "redirect": "/api-reference/storefront/checkouts"
+        "redirect": "/api-docs/storefront/checkouts.md"
       },
       {
         "type": "group",
         "title": "Form Fields",
         "slug": "/form-fields",
         "href": "/api-docs/storefront/rest/form-fields", 
-        "redirect": "/api-reference/storefront/form-fields"
+        "redirect": "/api-docs/storefront/form-fields.md"
       },
       {
         "type": "group",
         "title": "Orders",
         "slug": "/orders",
         "href": "/api-docs/storefront/rest/orders",
-        "redirect": "/api-reference/storefront/orders"
+        "redirect": "/api-docs/storefront/orders.md"
       },
       {
         "type": "group",
         "title": "Subscriptions",
         "slug": "/subscriptions",
         "href": "/api-docs/storefront/rest/subscriptions",
-        "redirect": "/api-reference/storefront/storefront-subscriptions"
+        "redirect": "/api-docs/storefront/storefront-subscriptions.md"
       }
     ]
   },
@@ -90,28 +88,28 @@
     "title": "Add to Cart URLs",
     "slug": "/add-to-cart-urls",
     "href": "/api-docs/storefront/add-to-cart-urls", 
-    "uri": "{PATH}"
+    "uri": "{/api-docs/storefront/add-to-cart-urls.md}"
   },
   {
     "type": "item",
     "title": "Customer Login API",
     "slug": "/customer-login-api",
-    "href": "/api-docs/storefront/customer-login-api", 
-    "uri": "{PATH}"
+    "href": "/api-docs/storefront/customer-login-api",
+    "uri": "{/api-docs/storefront/customer-login-api.md}"
   },
   {
     "type": "item",
     "title": "Current Customer API",
     "slug": "/current-customer-api",
     "href": "/api-docs/storefront/current-customer-api", 
-    "uri": "{PATH}"
+    "uri": "{/api-reference/storefront/customer-login-api.md}"
   },
   {
     "type": "item",
     "title": "Passwordless Login",
     "slug": "/passwordless-login",
     "href": "/api-docs/storefront/passwordless-login", 
-    "uri": "{PATH}"
+    "uri": "{/api-docs/storefront/passwordless-login.md}"
   },
   {
     "type": "group",
@@ -124,7 +122,7 @@
         "slug": "/carts",
         "href": "/api-docs/storefront/tutorials/carts", 
         "flag": "tutorial",
-        "uri": "{PATH}"
+        "uri": "{/api-docs/storefront/tutorials/carts.md}"
       }
     ]
   },
@@ -138,7 +136,7 @@
         "title": "Widget Builder", 
         "slug": "/widget-builder",
         "href": "/api-docs/storefront/widgets/widget-builder", 
-        "uri": "{PATH}"
+        "uri": "{/api-docs/storefront/widgets/widget-builder.md}"
       }
     ]
   }
