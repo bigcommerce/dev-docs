@@ -1,0 +1,457 @@
+[
+  {
+    "type": "item",
+    "title": "Becoming A Partner", 
+    "slug": "/becoming-a-partner", 
+    "href": "/api-docs/partner/becoming-a-partner", 
+    "uri": "{PATH}"
+  },
+  {
+    "type": "group",
+    "title": "Getting Started", 
+    "slug": "/getting-started",
+    "items": [
+      {
+        "type": "item",
+        "title": "Create a Sandbox Store", 
+        "slug": "/create-a-sandbox-store", 
+        "href": "/api-docs/partner/getting-started/create-a-sandbox-store", 
+        "uri": "{PATH}"
+      },
+      {
+        "type": "group",
+        "title": "BigCommerce API Basics",
+        "slug": "/api-basics",
+        "items": [
+          {
+            "type": "item",
+            "title": "Quick Start",
+            "slug": "/quick-start",
+            "href": "/api-docs/partner/getting-started/api-basics/quick-start",
+            "uri": "{PATH}"
+          },
+          {
+            "type": "item",
+            "title": "Authentication",
+            "slug": "/authentication",
+            "href": "/api-docs/partner/getting-started/api-basics/authentication",
+            "uri": "{PATH}"
+          },
+          {
+            "type": "item",
+            "title": "API Best Practices",
+            "slug": "/api-best-practices",
+            "href": "/api-docs/partner/getting-started/api-basics/api-best-practices",
+            "uri": "{PATH}"
+          }
+        ]
+      },
+      {
+        "type": "group",
+        "title": "Application Development", 
+        "slug": "/app-development",
+        "items": [
+          {
+            "type": "item",        
+            "title": "Developer Portal Overview", 
+            "slug": "/dev-portal-overview", 
+            "href": "/api-docs/partner/getting-started/app-development/dev-portal-overview", 
+            "uri": "{PATH}"
+          },
+          {
+            "type": "group",
+            "title": "Development Guidelines", 
+            "slug": "/development-guidelines",
+            "items": [
+              {
+                "type": "item",
+                "title": "Approval Requirements",
+                "slug": "/approval-requirements",
+                "href": "/api-docs/partner/getting-started/app-development/development-guidelines/approval-requirements",
+                "uri": "{PATH}"
+              },
+              {
+                "type": "item",
+                "title": "App Development Best Practices",
+                "slug": "/best-practices",
+                "href": "/api-docs/partner/getting-started/app-development/development-guidelines/best-practices",
+                "uri": "{PATH}"
+              }
+            ]
+          },
+          {
+            "type": "group",
+            "title": "Single-Click Apps",
+            "slug": "/single-click-apps",
+            "items": [
+              {
+                "type": "item",
+                "title": "Types of Apps",
+                "slug": "/types-of-apps",
+                "href": "/api-docs/partner/getting-started/app-development/single-click-apps/types-of-apps",
+                "uri": "{PATH}"
+              },
+              {
+                "type": "item",
+                "title": "Single-Click App OAuth Flow",
+                "slug": "/single-click-app-oauth-flow",
+                "href": "/api-docs/partner/getting-started/app-development/single-click-apps/single-click-app-oauth-flow",
+                "uri": "{PATH}"
+              }
+            ]
+          },
+          {
+            "type": "group",
+            "title": "Tutorials",
+            "slug": "/tutorials",
+            "items": [
+              {
+                "type": "item",
+                "title": "Quick Start",
+                "slug": "/quick-start",
+                "href": "/api-docs/partner/getting-started/app-development/tutorials/quick-start",
+                "uri": "{PATH}"
+              },
+              {
+                "type": "item",
+                "title": "Beginning App Development",
+                "slug": "/beginning-app-development",
+                "href": "/api-docs/partner/getting-started/app-development/tutorials/beginning-app-development",
+                "uri": "{PATH}"
+              },
+              {
+                "type": "item",
+                "title": "Publishing an App",
+                "slug": "/publishing-an-app",
+                "href": "/api-docs/partner/getting-started/app-development/tutorials/publishing-an-app",
+                "uri": "{PATH}"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "item",
+        "title": "Resources", 
+        "slug": "/resources", 
+        "href": "/api-docs/partner/getting-started/resources", 
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Support", 
+        "slug": "/support", 
+        "href": "/api-docs/partner/getting-started/support", 
+        "uri": "{PATH}"
+      }
+    ]
+  },
+  {
+    "type": "item",
+    "title": "Staying Current with Platform Changes", 
+    "slug": "/staying-current", 
+    "href": "/api-docs/partner/staying-current", 
+    "uri": "{PATH}"
+  },
+  {
+    "type": "group",
+    "title": "POS Solutions",
+    "slug": "/pos-solutions",
+    "items": [
+      {
+        "type": "item",
+        "title": "Catalog",
+        "slug": "/catalog",
+        "href": "/api-docs/partner/pos-solutions/catalog",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Channels",
+        "slug": "/channels",
+        "href": "/api-docs/partner/pos-solutions/channels",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Customers &amp; Subscribers",
+        "slug": "/customers-subscribers",
+        "href": "/api-docs/partner/pos-solutions/customers-subscribers",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Orders",
+        "slug": "/orders",
+        "href": "/api-docs/partner/pos-solutions/orders",
+        "uri": "{PATH}"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "ERP Solutions",
+    "slug": "/erp-solutions",
+    "items": [
+      {
+        "type": "item",
+        "title": "Capture",
+        "slug": "/capture",
+        "href": "/api-docs/partner/erp-solutions/capture",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Catalog",
+        "slug": "/catalog",
+        "href": "/api-docs/partner/erp-solutions/catalog",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Channels",
+        "slug": "/channels",
+        "href": "/api-docs/partner/erp-solutions/channels",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Customers &amp; Subscribers",
+        "slug": "/customers-subscribers",
+        "href": "/api-docs/partner/erp-solutions/customers-subscribers",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Orders",
+        "slug": "/orders",
+        "href": "/api-docs/partner/erp-solutions/orders",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Payments",
+        "slug": "/payments",
+        "href": "/api-docs/partner/erp-solutions/payments",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Shipping",
+        "slug": "/shipping",
+        "href": "/api-docs/partner/erp-solutions/shipping",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Void",
+        "slug": "/void",
+        "href": "/api-docs/partner/erp-solutions/void",
+        "uri": "{PATH}"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "PIM Solutions",
+    "slug": "/pim-solutions",
+    "items": [
+      {
+        "type": "item",
+        "title": "Catalog",
+        "slug": "/catalog",
+        "href": "/api-docs/partner/pim-solutions/catalog",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Channels",
+        "slug": "/channels",
+        "href": "/api-docs/partner/pim-solutions/channels",
+        "uri": "{PATH}"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "OMS Solutions",
+    "slug": "/oms-solutions",
+    "items": [
+      {
+        "type": "item",
+        "title": "Capture",
+        "slug": "/capture",
+        "href": "/api-docs/partner/oms-solutions/capture",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Channels",
+        "slug": "/channels",
+        "href": "/api-docs/partner/oms-solutions/channels",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Customers &amp; Subscribers",
+        "slug": "/customers-subscribers",
+        "href": "/api-docs/partner/oms-solutions/customers-subscribers",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Orders",
+        "slug": "/orders",
+        "href": "/api-docs/partner/oms-solutions/orders",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Shipping",
+        "slug": "/shipping",
+        "href": "/api-docs/partner/oms-solutions/shipping",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Void",
+        "slug": "/void",
+        "href": "/api-docs/partner/oms-solutions/void",
+        "uri": "{PATH}"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "Marketing Solutions",
+    "slug": "/marketing-solutions",
+    "items": [
+      {
+        "type": "item",
+        "title": "Channels",
+        "slug": "/channels",
+        "href": "/api-docs/partner/marketing-solutions/channels",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Customers &amp; Subscribers",
+        "slug": "/customers-subscribers",
+        "href": "/api-docs/partner/marketing-solutions/customers-subscribers",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "slug": "/",
+        "href": "/api-docs/partner/marketing-solutions/marketing",
+        "title": "Marketing",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Scripts",
+        "slug": "/scripts",
+        "href": "/api-docs/partner/marketing-solutions/scripts",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Widgets",
+        "slug": "/widgets",
+        "href": "/api-docs/partner/marketing-solutions/widgets",
+        "uri": "{PATH}"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "Shipping Solutions", 
+    "slug": "/shipping-solutions",
+    "items": [
+      {
+        "type": "item",
+        "title": "Capture", 
+        "slug": "/capture", 
+        "href": "/api-docs/partner/shipping-solutions/capture", 
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Channels", 
+        "slug": "/channels", 
+        "href": "/api-docs/partner/shipping-solutions/channels", 
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Checkout", 
+        "slug": "/checkout", 
+        "href": "/api-docs/partner/shipping-solutions/checkout", 
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Orders", 
+        "slug": "/orders", 
+        "href": "/api-docs/partner/shipping-solutions/orders", 
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Scripts", 
+        "slug": "/scripts", 
+        "href": "/api-docs/partner/shipping-solutions/scripts", 
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Shipping", 
+        "slug": "/shipping", 
+        "href": "/api-docs/partner/shipping-solutions/shipping", 
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Widgets", 
+        "slug": "/widgets", 
+        "href": "/api-docs/partner/shipping-solutions/widgets", 
+        "uri": "{PATH}"
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "title": "Payment Solutions",
+    "slug": "/payment-solutions",
+    "items": [
+      {
+        "type": "item",
+        "title": "Checkout",
+        "slug": "/checkout",
+        "href": "/api-docs/partner/payment-solutions/checkout",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Payments",
+        "slug": "/payments",
+        "href": "/api-docs/partner/payment-solutions/payments",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Scripts",
+        "slug": "/scripts",
+        "href": "/api-docs/partner/payment-solutions/scripts",
+        "uri": "{PATH}"
+      },
+      {
+        "type": "item",
+        "title": "Widgets",
+        "slug": "/widgets",
+        "href": "/api-docs/partner/payment-solutions/widgets",
+        "uri": "{PATH}"
+      }
+    ]
+  }  
+]
