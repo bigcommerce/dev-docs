@@ -9,14 +9,14 @@
         "title": "Introduction", 
         "slug": "/introduction",
         "href": "/api-docs/multi-currency/guide/introduction", 
-        "uri": "{PATH}"
+        "uri": "/api-docs/catalog/currencies/currencies-overview.md"
       },
       {
         "type": "item",
         "title": "How Currencies Work", 
         "slug": "/how-currencies-work",
-        "href": "/api-docs/multi-currency/guide/how-currencies-work", 
-        "uri": "{PATH}"
+        "href": "/api-docs/catalog/currencies/how-currencies-work.md", 
+        "uri": "/api-docs/catalog/currencies/how-currencies-work.md"
       }
     ]
   }
