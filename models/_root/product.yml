@@ -142,10 +142,13 @@ properties:
   show_quantity_input:
     type: integer
   sku:
-    description: Default product variant when no options are selected
+    description: Default product variant when no options are selected.
+    type: string
+  stock_level:
+    description: Indicates the number of items available for sale. Visible only when inventory tracking is turned on.
     type: string
   tags:
-    description: Keywords by which this product can also be identified
+    description: Keywords by which this product can also be identified.
     type: array
     items:
       type: object
