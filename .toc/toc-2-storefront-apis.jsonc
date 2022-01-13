@@ -4,7 +4,7 @@
     "title": "Overview",
     "slug": "/overview",
     "href": "/api-docs/storefront/overview", 
-    "uri": "{api-docs/storefront/scripts-overview.md}"
+    "uri": "{/api-docs/cart-and-checkout/cart-and-checkout-overview.md}"
   },
   {
     "type": "group",
@@ -17,7 +17,7 @@
         "title": "Overview",
         "slug": "/graphql-storefront-api-overview",
         "href": "/api-docs/storefront/graphql/graphql-storefront-api-overview",
-        "uri": "{api-docs/storefront/graphql/graphql-api-overview.md}"
+        "uri": "{/api-docs/storefront/graphql/graphql-api-overview.md}"
       },
       {
         "type": "item",
@@ -39,7 +39,7 @@
         "title": "GraphQL Explorer",
         "slug": "/explorer",
         "href": "/api-docs/storefront/graphql/explorer", 
-        "uri": "{api-docs/storefront/graphql/explorer.md}"
+        "uri": "{https://developer.bigcommerce.com/graphql-explorer}"
   },
   {
     "type": "group",
@@ -51,35 +51,35 @@
         "title": "Carts",
         "slug": "/carts",
         "href": "/api-docs/storefront/rest/carts",
-        "redirect": "/api-docs/storefront/rest/carts.md"
+        "redirect": "{https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/carts.sf.yml?branch=master&deref=all&format=json}"
       },
       {
         "type": "group",
         "title": "Checkouts",
         "slug": "/checkouts",
         "href": "/api-docs/storefront/rest/checkouts", 
-        "redirect": "/api-docs/storefront/checkouts.md"
+        "redirect": "https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/checkouts.sf.yml?branch=master&deref=all&format=jsond"
       },
       {
         "type": "group",
         "title": "Form Fields",
         "slug": "/form-fields",
         "href": "/api-docs/storefront/rest/form-fields", 
-        "redirect": "/api-docs/storefront/form-fields.md"
+        "redirect": "https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/form_fields.sf.yml?branch=master&deref=all&format=json"
       },
       {
         "type": "group",
         "title": "Orders",
         "slug": "/orders",
         "href": "/api-docs/storefront/rest/orders",
-        "redirect": "/api-docs/storefront/orders.md"
+        "redirect": "https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/orders.sf.yml?branch=master&deref=all&format=json"
       },
       {
         "type": "group",
         "title": "Subscriptions",
         "slug": "/subscriptions",
         "href": "/api-docs/storefront/rest/subscriptions",
-        "redirect": "/api-docs/storefront/storefront-subscriptions.md"
+        "redirect": "https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/subscriptions.sf.yml?branch=master&deref=all&format=json"
       }
     ]
   },
@@ -88,28 +88,28 @@
     "title": "Add to Cart URLs",
     "slug": "/add-to-cart-urls",
     "href": "/api-docs/storefront/add-to-cart-urls", 
-    "uri": "{/api-docs/storefront/add-to-cart-urls.md}"
+    "uri": "{/api-docs/cart-and-checkout/add-to-cart-url.md}"
   },
   {
     "type": "item",
     "title": "Customer Login API",
     "slug": "/customer-login-api",
     "href": "/api-docs/storefront/customer-login-api",
-    "uri": "{/api-docs/storefront/customer-login-api.md}"
+    "uri": "{/api-docs/customers/customer-login-api.md}"
   },
   {
     "type": "item",
     "title": "Current Customer API",
     "slug": "/current-customer-api",
     "href": "/api-docs/storefront/current-customer-api", 
-    "uri": "{/api-reference/storefront/customer-login-api.md}"
+    "uri": "{/api-docs/customers/current-customer-api.md}"
   },
   {
     "type": "item",
     "title": "Passwordless Login",
     "slug": "/passwordless-login",
     "href": "/api-docs/storefront/passwordless-login", 
-    "uri": "{/api-docs/storefront/passwordless-login.md}"
+    "uri": "{/api-docs/customers/passwordless-login.md}"
   },
   {
     "type": "group",
@@ -122,7 +122,7 @@
         "slug": "/carts",
         "href": "/api-docs/storefront/tutorials/carts", 
         "flag": "tutorial",
-        "uri": "{/api-docs/storefront/tutorials/carts.md}"
+        "uri": "{/api-docs/cart-and-checkout/working-sf-apis.md}"
       }
     ]
   },
