@@ -640,6 +640,11 @@ paths:
               meta_title: ''
               search_keywords: ''
               meta_keywords: ''
+        '207':
+          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+          schema:
+            type: object
+            properties: {}
       operationId: createAPage
       deprecated: true
   '/pages/{id}':
@@ -754,6 +759,11 @@ paths:
               has_mobile_version: false
               mobile_body: ''
               url: /shipping-returns/
+        '207':
+          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+          schema:
+            type: object
+            properties: {}
       summary: Update a Page
       description: |-
         Updates a *Page*. The payload limit is 1MB. This endpoint is deprecated.
