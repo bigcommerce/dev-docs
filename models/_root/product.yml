@@ -145,7 +145,7 @@ properties:
     description: Default product variant when no options are selected.
     type: string
   stock_level:
-    description: Quantity of goods kept on the premises of a shop or business.
+    description: If inventory tracking is turned on. The number of items available for sale (0 or more).
     type: string
   tags:
     description: Keywords by which this product can also be identified.
