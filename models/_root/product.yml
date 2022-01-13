@@ -142,10 +142,13 @@ properties:
   show_quantity_input:
     type: integer
   sku:
-    description: Default product variant when no options are selected
+    description: Default product variant when no options are selected.
+    type: string
+  stock_level:
+    description: Quantity of goods kept on the premises of a shop or business.
     type: string
   tags:
-    description: Keywords by which this product can also be identified
+    description: Keywords by which this product can also be identified.
     type: array
     items:
       type: object
