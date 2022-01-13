@@ -6,16 +6,22 @@
     },
     {
       "type": "group",
+      "slug": "/quick-start",
+    "href": "/api-docs/apps/quick-start",
       "title": "apps",
       "items": [
         {
           "type": "item",
           "title": "BigCommerce Apps Quick Start",
+          "slug": "/quick-start",
+    "href": "/api-docs/apps/quick-start",
           "uri": "docs/api-docs/apps/apps-quick-start.md"
         },
         {
           "type": "item",
           "title": "Building Apps",
+          "slug": "/quick-start",
+    "href": "/api-docs/apps/quick-start",
           "uri": "docs/api-docs/apps/building-apps-guide.md"
         },
         {
@@ -24,22 +30,28 @@
           "items": [
             {
               "type": "item",
-              "title": "Introduction to Building Apps",
+              "title": "Introduction to Building Apps","slug": "/quick-start",
+    "href": "/api-docs/apps/quick-start",
               "uri": "docs/api-docs/apps/guide/apps-01-introduction.md"
             },
             {
               "type": "item",
-              "title": "Types of Apps",
+              "title": "Types of Apps","slug": "/quick-start",
+    "href": "/api-docs/apps/quick-start",
               "uri": "docs/api-docs/apps/guide/apps-02-types.md"
             },
             {
               "type": "item",
               "title": "Beginning App Development",
+              "slug": "/quick-start",
+    "href": "/api-docs/apps/quick-start",
               "uri": "docs/api-docs/apps/guide/apps-03-developing.md"
             },
             {
               "type": "item",
               "title": "Managing Apps in the Developer Portal",
+              "slug": "/quick-start",
+    "href": "/api-docs/apps/quick-start",
               "uri": "docs/api-docs/apps/guide/apps-04-devloper-portal.md"
             },
             {
