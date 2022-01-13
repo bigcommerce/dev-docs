@@ -1417,7 +1417,7 @@ components:
     error_409_resp_example:
       value:
         status: 409
-        title: 'Channel already exists with name: ''Facebook'', platform: ''facebook'' and type ''marketplace'''
+        title: 'Channel already exists with name: "Facebook", platform: "facebook", and type: "marketplace"'
         type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors: {}
     error_422_invalid_filter_value_resp_example:
@@ -1474,14 +1474,14 @@ components:
     error_422_invalid_enabled_currencies_resp_example:
       value:
         status: 422
-        title: 'The following fields are invalid: enabled_currencies'
+        title: 'The following fields are invalid: `enabled_currencies`'
         type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors:
-          enabled_currencies: 'The field ''enabled_currencies'' contains the following currencies that have not been enabled [AWG]'
+          enabled_currencies: The field `enabled_currencies` contains the following currencies that have not been enabled [AWG]
     error_422_invalid_channel_id_resp_example:
       value:
         status: 422
-        title: 'The following channel_id''s [123456789] are not valid for store 1000000000.'
+        title: The following `channel_id`s [123456789] are not valid for store 1000000000.
         type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         errors: {}
     error_422_invalid_filters_resp_example:
@@ -1705,11 +1705,11 @@ components:
       properties:
         app:
           type: object
-          description: 'A [channel app](https://developer.bigcommerce.com/api-docs/channels/overview#channel-apps) config object for optionally configuring the channel''s user interface in the control panel. '
+          description: "A [channel app](https://developer.bigcommerce.com/api-docs/channels/overview#channel-apps) config object for optionally configuring the channel's user interface in the control panel."
           properties:
             id:
               type: integer
-              description: 'The unique `id` given to an app registered in [DevTools](https://devtools.bigcommerce.com/); used to create links to the app in channel manager. `app.id` is optional; however, if you''re building an app that creates or manages a channel, we recommend including it to ensure the user interface in the control panel works properly. Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request. [Learn how to find an App''''s ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).'
+              description: The unique `id` given to an app registered in [DevTools](https://devtools.bigcommerce.com/); used to create links to the app in channel manager. `app.id` is optional; however, if you're building an app that creates or manages a channel, we recommend including it to ensure the user interface in the control panel works properly. Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request. [Learn how to find an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
             sections:
               type: array
               description: 'If set, when the app is loaded within the control panel, the navigation `sections` will be directly embedded in the control panel navigation.'

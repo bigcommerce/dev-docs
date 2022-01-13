@@ -29,7 +29,9 @@ paths:
         '204':
           description: Customer succesfully created
         '400':
-          description: ' Could not create customer'
+          description: Could not create customer
+        '409':
+          description: There's already an account for the provided email. Please enter a different email address or sign-in.
         '422':
           description: Missing Required Fields
         '429':

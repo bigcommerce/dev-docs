@@ -76,7 +76,7 @@ definitions:
         description: Whether this item is taxable.
         type: boolean
       baseAmount:
-        description: 'Cost of cart''s contents, before applying discounts.'
+        description: Cost of cart's contents, before applying discounts.
         type: number
         format: double
       discountAmount:
@@ -269,7 +269,7 @@ definitions:
         type: number
         format: double
       listPrice:
-        description: 'Item''s list price, as quoted by the manufacturer/distributor.'
+        description: Item's list price, as quoted by the manufacturer/distributor.
         type: number
         format: double
       salePrice:
@@ -366,7 +366,7 @@ definitions:
         type: number
         format: double
       listPrice:
-        description: 'Item''s list price, as quoted by the manufacturer/distributor.'
+        description: Item's list price, as quoted by the manufacturer/distributor.
         type: number
         format: double
       salePrice:
@@ -564,7 +564,7 @@ definitions:
         type: number
         format: double
       listPrice:
-        description: 'Item''s list price, as quoted by the manufacturer/distributor.'
+        description: Item's list price, as quoted by the manufacturer/distributor.
         type: number
         format: double
       salePrice:
