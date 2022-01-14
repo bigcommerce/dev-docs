@@ -251,20 +251,18 @@
     {
       "type": "group",
       "title": "Customers",
-      "slug": "/customers",
-      "href": "/api-docs/store-management/customers",
       "items": [
         {
           "type": "item",
-          "title": "Customers Overview",
-          "slug": "/overview",
-          "href": "/api-docs/store-management/customers/overview",
+          "title": "Customers &amp; Subscribers",
+          "slug": "/customers",
+          "href": "/api-docs/store-management/customers",
           "uri": "/api-docs/customers/customers-subscribers-overview.md"
         },
         {
           "type": "item",
           "title": "Creating Channel-Specific Customers",
-          "slug": "/creating-channel-specific-customers",
+          "slug": "/customers/creating-channel-specific-customers",
           "href": "/api-docs/store-management/customers/creating-channel-specific-customers",
           "uri": "/api-docs/customers/channel-specific-customers.md"
         }
