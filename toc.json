@@ -99,7 +99,7 @@
           "slug": "/graphql-storefront-api-samples",
           "href": "/api-docs/storefront/graphql/graphql-storefront-api-samples",
           "flag": "code samples",
-          "uri": "api-docs/storefront/graphql/graphql-api-examples.md"
+          "uri": "/api-docs/storefront/graphql/graphql-api-examples.md"
         },
         {
           "type": "item",
@@ -362,7 +362,7 @@
           "title": "Overview",
           "slug": "/shipping-overview",
           "href": "/api-docs/store-management/shipping/shipping-overview",
-          "uri": "api-docs/store-management/shipping/shipping-overview.md"
+          "uri": "/api-docs/store-management/shipping/shipping-overview.md"
         },
         {
           "type": "item",
@@ -1064,7 +1064,7 @@
           "title": "Channels",
           "slug": "/channels",
           "href": "/api-docs/partner/pos-solutions/channels",
-          "uri": "/docs/api-docs/channels/channels-overview.md"
+          "uri": "/api-docs/channels/channels-overview.md"
         },
         {
           "type": "item",
