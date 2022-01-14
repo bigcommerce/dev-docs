@@ -9,63 +9,63 @@
         "title": "Introduction to Headless Commerce",
         "slug": "/overview",
         "href": "/api-docs/storefronts/guide/overview",
-        "uri": "{/api-docs/headless/overview.md}"
+        "uri": "/api-docs/headless/overview.md"
       },
       {
         "type": "item",
         "title": "Creating Channels",
         "slug": "/channels",
         "href": "/api-docs/storefronts/guide/channels",
-        "uri": "{/api-docs/headless/channels.md}"
+        "uri": "/api-docs/headless/channels.md"
       },
       {
         "type": "item",
         "title": "Working with Products",
         "slug": "/products",
         "href": "/api-docs/storefronts/guide/products",
-        "uri": "{/api-docs/headless/products.md}"
+        "uri": "/api-docs/headless/products.md"
       },
       {
         "type": "item",
         "title": "Managing Carts",
         "slug": "/carts",
         "href": "/api-docs/storefronts/guide/carts",
-        "uri": "{/api-docs/headless/carts.md}"
+        "uri": "/api-docs/headless/carts.md"
       },
       {
         "type": "item",
         "title": "Recovering Abandoned Carts",
         "slug": "/abandoned-carts",
         "href": "/api-docs/storefronts/guide/abandoned-carts",
-        "uri": "{/api-docs/building-storefronts/abandoned-carts.md}"
+        "uri": "/api-docs/building-storefronts/abandoned-carts.md"
       },
       {
         "type": "item",
         "title": "Creating Checkouts",
         "slug": "/checkout",
         "href": "/api-docs/storefronts/guide/checkout",
-        "uri": "{/api-docs/headless/checkout.md}"
+        "uri": "/api-docs/headless/checkout.md"
       },
       {
         "type": "item",
         "title": "Managing Customers",
         "slug": "/customers",
         "href": "/api-docs/storefronts/guide/customers",
-        "uri": "{/api-docs/headless/customers.md}"
+        "uri": "/api-docs/headless/customers.md"
       },
       {
         "type": "item",
         "title": "Handling Orders",
         "slug": "/orders",
         "href": "/api-docs/storefronts/guide/orders",
-        "uri": "{/api-docs/headless/orders.md}"
+        "uri": "/api-docs/headless/orders.md"
       },
       {
         "type": "item",
         "title": "PCI Compliance",
         "slug": "/pci-compliance",
         "href": "/api-docs/storefronts/guide/pci-compliance",
-        "uri": "{/api-docs/headless/pci-compliance.md}"
+        "uri": "/api-docs/headless/pci-compliance.md"
       }
     ]
   },
@@ -79,14 +79,14 @@
         "title": "Overview",
         "slug": "/embedded-checkout-overview",
         "href": "/api-docs/storefronts/embedded-checkout/embedded-checkout-overview",
-        "uri": "{/api-docs/cart-and-checkout/embedded-checkout-overview.md}"
+        "uri": "/api-docs/cart-and-checkout/embedded-checkout-overview.md"
       },
       {
         "type": "item",
         "title": "Embedded Checkout Tutorial",
         "slug": "/embedded-checkout-tutorial",
         "href": "/api-docs/storefronts/embedded-checkout/embedded-checkout-tutorial",
-        "uri": "{/api-docs/cart-and-checkout/embedded-checkout-tutorial.md}"
+        "uri": "/api-docs/cart-and-checkout/embedded-checkout-tutorial.md"
       }
     ]
   },
@@ -95,6 +95,6 @@
     "title": "Next.js Commerce",
     "slug": "/nextjs-commerce",
     "href": "/api-docs/storefronts/nextjs-commerce",
-    "uri": "{/api-docs/building-storefronts/nextjs-commerce-guide.md}"
+    "uri": "/api-docs/building-storefronts/nextjs-commerce-guide.md"
   }
 ]

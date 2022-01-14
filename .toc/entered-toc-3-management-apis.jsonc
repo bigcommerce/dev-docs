@@ -31,13 +31,11 @@
     "type": "group",
     "title": "Customers",
     "slug": "/customers",
-    // GROUP ROOT HAD PAGE CONTENT, reorganized
     "href": "/api-docs/store-management/customers",
     "items": [
       {
         "type": "item",
         "title": "Customers Overview",
-        // GROUP ROOT HAS PAGE CONTENT, reorganized
         "slug": "/overview",
         "href": "/api-docs/store-management/customers/overview",
         "uri": "/api-docs/customers/customers-subscribers-overview.md"
@@ -55,7 +53,6 @@
     "type": "group",
     "title": "Email Templates",
     "slug": "/email-templates",
-    "flag": "new",
     "items": [
       {
         "type": "item",
@@ -76,7 +73,6 @@
         "title": "Handlebars Reference",
         "slug": "/handlebars",
         "href": "/api-docs/store-management/email-templates/handlebars",
-        "flag": "reference",
         "uri": "https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/models/email_templates/_all.yml?branch=master&deref=all&format=jsonl"
       }
     ]
@@ -114,7 +110,6 @@
     "title": "Pricing Order",
     "slug": "/pricing-order-operation",
     "href": "/api-docs/store-management/pricing-order-operation",
-    "flag": "reference",
     "uri": "/api-docs/catalog/pricing-order-operation.md"
   },
   {
@@ -176,15 +171,15 @@
         "title": "Widgets Code Samples",
         "slug": "/samples",
         "href": "/api-docs/store-management/widgets/samples",
-        "flag": "code samples",
         "uri": "/api-docs/storefront/widgets/widgets-code-samples.md"
       },
       {
         "type": "item",
         "title": "Localizing Widget Template Settings",
         "slug": "/localizing-settings",
-        "href": "/api-docs/storefront/widgets/widgets-localizing-settings.md",
-        "uri": "{PATH}"
+        "href": "/api-docs/store-management/widgets/localizing-settings",
+        "uri": "/api-docs/storefront/widgets/widgets-localizing-settings.md",
+
       },
       {
         "type": "group",
@@ -247,7 +242,6 @@
         "title": "Webhooks Tutorial",
         "slug": "/tutorial",
         "href": "/api-docs/store-management/webhooks/tutorial",
-        "flag": : "tutorial",
         "uri": "/api-docs/getting-started/webhooks/setting-up-webhooks.md"
       }
     ]

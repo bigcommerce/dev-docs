@@ -4,42 +4,43 @@
     "title": "Overview",
     "slug": "/overview",
     "href": "/api-docs/storefront/overview", 
-    "uri": "{/api-docs/cart-and-checkout/cart-and-checkout-overview.md}"
+    "uri": "/api-docs/cart-and-checkout/cart-and-checkout-overview.md"
   },
   {
     "type": "group",
     "title": "GraphQL",
     "slug": "/graphql",
-    "uri": "{PATH}", 
     "items": [
       {
         "type": "item",
         "title": "Overview",
         "slug": "/graphql-storefront-api-overview",
         "href": "/api-docs/storefront/graphql/graphql-storefront-api-overview",
-        "uri": "{/api-docs/storefront/graphql/graphql-api-overview.md}"
+        "uri": "/api-docs/storefront/graphql/graphql-api-overview.md"
       },
       {
         "type": "item",
         "title": "Code Samples",
-        "slug": "{SLUG}",
+        "slug": "/graphql-storefront-api-samples",
         "href": "/api-docs/storefront/graphql/graphql-storefront-api-samples", 
         "flag": "code samples",
-        "uri": "{api-docs/storefront/graphql/graphql-api-examples.md}"
+        "uri": "api-docs/storefront/graphql/graphql-api-examples.md"
       },
       {
         "type": "item",
         "title": "GraphQL Playground",
-        "slug": "{SLUG}",
+        "slug": "/playground",
         "href": "/api-docs/storefront/graphql/playground", 
-        "uri": "{https://developer.bigcommerce.com/graphql-playground}"
+        "uri": "https://developer.bigcommerce.com/graphql-playground"
       },
       {
         "type": "item",
         "title": "GraphQL Explorer",
         "slug": "/explorer",
         "href": "/api-docs/storefront/graphql/explorer", 
-        "uri": "{https://developer.bigcommerce.com/graphql-explorer}"
+        "uri": "https://developer.bigcommerce.com/graphql-explorer"
+      }
+    ]
   },
   {
     "type": "group",
@@ -51,7 +52,7 @@
         "title": "Carts",
         "slug": "/carts",
         "href": "/api-docs/storefront/rest/carts",
-        "redirect": "{https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/carts.sf.yml?branch=master&deref=all&format=json}"
+        "redirect": "https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/carts.sf.yml?branch=master&deref=all&format=json"
       },
       {
         "type": "group",
@@ -88,28 +89,28 @@
     "title": "Add to Cart URLs",
     "slug": "/add-to-cart-urls",
     "href": "/api-docs/storefront/add-to-cart-urls", 
-    "uri": "{/api-docs/cart-and-checkout/add-to-cart-url.md}"
+    "uri": "/api-docs/cart-and-checkout/add-to-cart-url.md"
   },
   {
     "type": "item",
     "title": "Customer Login API",
     "slug": "/customer-login-api",
     "href": "/api-docs/storefront/customer-login-api",
-    "uri": "{/api-docs/customers/customer-login-api.md}"
+    "uri": "/api-docs/customers/customer-login-api.md"
   },
   {
     "type": "item",
     "title": "Current Customer API",
     "slug": "/current-customer-api",
     "href": "/api-docs/storefront/current-customer-api", 
-    "uri": "{/api-docs/customers/current-customer-api.md}"
+    "uri": "/api-docs/customers/current-customer-api.md"
   },
   {
     "type": "item",
     "title": "Passwordless Login",
     "slug": "/passwordless-login",
     "href": "/api-docs/storefront/passwordless-login", 
-    "uri": "{/api-docs/customers/passwordless-login.md}"
+    "uri": "/api-docs/customers/passwordless-login.md"
   },
   {
     "type": "group",
@@ -122,7 +123,7 @@
         "slug": "/carts",
         "href": "/api-docs/storefront/tutorials/carts", 
         "flag": "tutorial",
-        "uri": "{/api-docs/cart-and-checkout/working-sf-apis.md}"
+        "uri": "/api-docs/cart-and-checkout/working-sf-apis.md"
       }
     ]
   },
@@ -136,21 +137,8 @@
         "title": "Widget Builder", 
         "slug": "/widget-builder",
         "href": "/api-docs/storefront/widgets/widget-builder", 
-        "uri": "{/api-docs/storefront/widgets/widget-builder.md}"
+        "uri": "/api-docs/storefront/widgets/widget-builder.md"
       }
     ]
   }
 ]
-
-
-
-
-
-
-
-
-
-
-
-
-
