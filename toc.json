@@ -10,35 +10,35 @@
       "title": "Quick Start",
       "slug": "/making-requests",
       "href": "/api-docs/getting-started/making-requests",
-      "uri": "/api-docs/getting-started/making-requests.md"
+      "uri": "docs/api-docs/getting-started/making-requests.md"
     },
     {
       "type": "item",
       "title": "About Our APIs",
       "slug": "/about-our-api",
       "href": "/api-docs/getting-started/about-our-api",
-      "uri": "/api-docs/getting-started/about-our-api.md"
+      "uri": "docs/api-docs/getting-started/about-our-api.md"
     },
     {
       "type": "group",
       "title": "Authentication",
       "slug": "/authentication",
       "href": "/api-docs/getting-started/authentication",
-      "uri": "/api-docs/getting-started/authentication.md",
+      "uri": "docs/api-docs/getting-started/authentication.md",
       "items": [
         {
           "type": "item",
           "title": "Authenticating BigCommerce APIs",
           "slug": "/authenticating-bigcommerce-apis",
           "href": "/api-docs/getting-started/authentication/authenticating-bigcommerce-apis",
-          "uri": "/api-docs/getting-started/authentication.md"
+          "uri": "docs/api-docs/getting-started/authentication.md"
         },
         {
           "type": "item",
           "title": "V2 and V3 REST API Authentication",
           "slug": "/rest-api-authentication",
           "href": "/api-docs/getting-started/authentication/rest-api-authentication",
-          "uri": "/api-docs/getting-started/rest-api-authentication.md"
+          "uri": "docs/api-docs/getting-started/rest-api-authentication.md"
         }
       ]
     },
@@ -47,28 +47,28 @@
       "title": "Filtering",
       "slug": "/filtering",
       "href": "/api-docs/getting-started/filtering",
-      "uri": "/api-docs/getting-started/filtering.md"
+      "uri": "docs/api-docs/getting-started/filtering.md"
     },
     {
       "type": "item",
       "title": "Best Practices",
       "slug": "/best-practices",
       "href": "/api-docs/getting-started/best-practices",
-      "uri": "/api-docs/getting-started/best-practices.md"
+      "uri": "docs/api-docs/getting-started/best-practices.md"
     },
     {
       "type": "item",
       "title": "API Status Codes",
       "slug": "/api-status-codes",
       "href": "/api-docs/getting-started/api-status-codes",
-      "uri": "/api-docs/getting-started/api-status-codes.md"
+      "uri": "docs/api-docs/getting-started/api-status-codes.md"
     },
     {
       "type": "item",
       "title": "Deprecations and Sunsets",
       "slug": "/deprecations-and-sunsets",
       "href": "/api-docs/getting-started/deprecations-and-sunsets",
-      "uri": "/api-docs/getting-started/deprecations-and-sunsets.md"
+      "uri": "docs/api-docs/getting-started/deprecations-and-sunsets.md"
     },
     {
       "type": "divider",
@@ -79,7 +79,7 @@
       "title": "Overview",
       "slug": "/overview",
       "href": "/api-docs/storefront/overview",
-      "uri": "/api-docs/cart-and-checkout/cart-and-checkout-overview.md"
+      "uri": "docs/api-docs/cart-and-checkout/cart-and-checkout-overview.md"
     },
     {
       "type": "group",
@@ -91,7 +91,7 @@
           "title": "Overview",
           "slug": "/graphql-storefront-api-overview",
           "href": "/api-docs/storefront/graphql/graphql-storefront-api-overview",
-          "uri": "/api-docs/storefront/graphql/graphql-api-overview.md"
+          "uri": "docs/api-docs/storefront/graphql/graphql-api-overview.md"
         },
         {
           "type": "item",
@@ -99,7 +99,7 @@
           "slug": "/graphql-storefront-api-samples",
           "href": "/api-docs/storefront/graphql/graphql-storefront-api-samples",
           "flag": "code samples",
-          "uri": "/api-docs/storefront/graphql/graphql-api-examples.md"
+          "uri": "docs/api-docs/storefront/graphql/graphql-api-examples.md"
         },
         {
           "type": "item",
@@ -164,28 +164,28 @@
       "title": "Add to Cart URLs",
       "slug": "/add-to-cart-urls",
       "href": "/api-docs/storefront/add-to-cart-urls",
-      "uri": "/api-docs/cart-and-checkout/add-to-cart-url.md"
+      "uri": "docs/api-docs/cart-and-checkout/add-to-cart-url.md"
     },
     {
       "type": "item",
       "title": "Customer Login API",
       "slug": "/customer-login-api",
       "href": "/api-docs/storefront/customer-login-api",
-      "uri": "/api-docs/customers/customer-login-api.md"
+      "uri": "docs/api-docs/customers/customer-login-api.md"
     },
     {
       "type": "item",
       "title": "Current Customer API",
       "slug": "/current-customer-api",
       "href": "/api-docs/storefront/current-customer-api",
-      "uri": "/api-docs/customers/current-customer-api.md"
+      "uri": "docs/api-docs/customers/current-customer-api.md"
     },
     {
       "type": "item",
       "title": "Passwordless Login",
       "slug": "/passwordless-login",
       "href": "/api-docs/storefront/passwordless-login",
-      "uri": "/api-docs/customers/passwordless-login.md"
+      "uri": "docs/api-docs/customers/passwordless-login.md"
     },
     {
       "type": "group",
@@ -198,7 +198,7 @@
           "slug": "/carts",
           "href": "/api-docs/storefront/tutorials/carts",
           "flag": "tutorial",
-          "uri": "/api-docs/cart-and-checkout/working-sf-apis.md"
+          "uri": "docs/api-docs/cart-and-checkout/working-sf-apis.md"
         }
       ]
     },
@@ -212,7 +212,7 @@
           "title": "Widget Builder",
           "slug": "/widget-builder",
           "href": "/api-docs/storefront/widgets/widget-builder",
-          "uri": "/api-docs/storefront/widgets/widget-builder.md"
+          "uri": "docs/api-docs/storefront/widgets/widget-builder.md"
         }
       ]
     },
@@ -230,21 +230,21 @@
           "title": "Overview",
           "slug": "/catalog-overview",
           "href": "/api-docs/store-management/catalog/catalog-overview",
-          "uri": "/api-docs/catalog/products-overview.md"
+          "uri": "docs/api-docs/catalog/products-overview.md"
         },
         {
           "type": "item",
           "title": "Difference between V2 and V3 Catalog REST APIs",
           "slug": "/v2-vs-v3",
           "href": "/api-docs/store-management/catalog/v2-vs-v3",
-          "uri": "/api-docs/catalog/v2-vs-v3.md"
+          "uri": "docs/api-docs/catalog/v2-vs-v3.md"
         },
         {
           "type": "item",
           "title": "V2 to V3 Catalog Operations Comparison",
           "slug": "/v2-v3-examples",
           "href": "/api-docs/store-management/catalog/v2-v3-examples",
-          "uri": "/api-docs/catalog/v2-v3-examples.md"
+          "uri": "docs/api-docs/catalog/v2-v3-examples.md"
         }
       ]
     },
@@ -257,14 +257,14 @@
           "title": "Customers &amp; Subscribers",
           "slug": "/customers",
           "href": "/api-docs/store-management/customers",
-          "uri": "/api-docs/customers/customers-subscribers-overview.md"
+          "uri": "docs/api-docs/customers/customers-subscribers-overview.md"
         },
         {
           "type": "item",
           "title": "Creating Channel-Specific Customers",
           "slug": "/customers/creating-channel-specific-customers",
           "href": "/api-docs/store-management/customers/creating-channel-specific-customers",
-          "uri": "/api-docs/customers/channel-specific-customers.md"
+          "uri": "docs/api-docs/customers/channel-specific-customers.md"
         }
       ]
     },
@@ -278,14 +278,14 @@
           "title": "Overview",
           "slug": "/overview",
           "href": "/api-docs/store-management/email-templates/overview",
-          "uri": "/api-docs/management-apis/email-templates/overview.md"
+          "uri": "docs/api-docs/management-apis/email-templates/overview.md"
         },
         {
           "type": "item",
           "title": "Email Templates Examples",
           "slug": "/email-template-examples",
           "href": "/api-docs/store-management/email-templates/email-template-examples",
-          "uri": "/api-docs/management-apis/email-templates/email-template-examples.md"
+          "uri": "docs/api-docs/management-apis/email-templates/email-template-examples.md"
         },
         {
           "type": "item",
@@ -301,42 +301,42 @@
       "title": "Orders",
       "slug": "/orders",
       "href": "/api-docs/store-management/orders",
-      "uri": "/api-docs/orders/orders-api-overview.md"
+      "uri": "docs/api-docs/orders/orders-api-overview.md"
     },
     {
       "type": "item",
       "title": "Order Refunds",
       "slug": "/order-refunds",
       "href": "/api-docs/store-management/order-refunds",
-      "uri": "/api-docs/orders/order-refunds.md"
+      "uri": "docs/api-docs/orders/order-refunds.md"
     },
     {
       "type": "item",
       "title": "Payment Processing",
       "slug": "/payment-processing",
       "href": "/api-docs/store-management/payment-processing",
-      "uri": "/api-docs/payments/payments-api-overview.md"
+      "uri": "docs/api-docs/payments/payments-api-overview.md"
     },
     {
       "type": "item",
       "title": "Price Lists",
       "slug": "/price-list-overview",
       "href": "/api-docs/store-management/price-list-overview",
-      "uri": "/api-docs/catalog/price-list-overview.md"
+      "uri": "docs/api-docs/catalog/price-list-overview.md"
     },
     {
       "type": "item",
       "title": "Pricing Order",
       "slug": "/pricing-order-operation",
       "href": "/api-docs/store-management/pricing-order-operation",
-      "uri": "/api-docs/catalog/pricing-order-operation.md"
+      "uri": "docs/api-docs/catalog/pricing-order-operation.md"
     },
     {
       "type": "item",
       "title": "Scripts",
       "slug": "/scripts",
       "href": "/api-docs/store-management/scripts",
-      "uri": "/api-docs/storefront/scripts-overview.md"
+      "uri": "docs/api-docs/storefront/scripts-overview.md"
     },
     {
       "type": "group",
@@ -348,7 +348,7 @@
           "title": "Contextual Filters",
           "slug": "/contextual-filters",
           "href": "/api-docs/store-management/settings/contextual-filters",
-          "uri": "/api-docs/management-apis/contextual-filters.md"
+          "uri": "docs/api-docs/management-apis/contextual-filters.md"
         }
       ]
     },
@@ -362,14 +362,14 @@
           "title": "Overview",
           "slug": "/shipping-overview",
           "href": "/api-docs/store-management/shipping/shipping-overview",
-          "uri": "/api-docs/store-management/shipping/shipping-overview.md"
+          "uri": "docs/api-docs/store-management/shipping/shipping-overview.md"
         },
         {
           "type": "item",
           "title": "Shipper HQ",
           "slug": "/shipper-hq",
           "href": "/api-docs/store-management/shipping/shipper-hq",
-          "uri": "/api-docs/store-management/shipping/shipper-hq.md"
+          "uri": "docs/api-docs/store-management/shipping/shipper-hq.md"
         }
       ]
     },
@@ -383,21 +383,21 @@
           "title": "Overview",
           "slug": "/overview",
           "href": "/api-docs/store-management/widgets/overview",
-          "uri": "/api-docs/storefront/widgets/widgets-overview.md"
+          "uri": "docs/api-docs/storefront/widgets/widgets-overview.md"
         },
         {
           "type": "item",
           "title": "Widgets Code Samples",
           "slug": "/samples",
           "href": "/api-docs/store-management/widgets/samples",
-          "uri": "/api-docs/storefront/widgets/widgets-code-samples.md"
+          "uri": "docs/api-docs/storefront/widgets/widgets-code-samples.md"
         },
         {
           "type": "item",
           "title": "Localizing Widget Template Settings",
           "slug": "/localizing-settings",
           "href": "/api-docs/store-management/widgets/localizing-settings",
-          "uri": "/api-docs/storefront/widgets/widgets-localizing-settings.md"
+          "uri": "docs/api-docs/storefront/widgets/widgets-localizing-settings.md"
         },
         {
           "type": "group",
@@ -409,28 +409,28 @@
               "title": "Widgets Tutorial",
               "slug": "/tutorial",
               "href": "/api-docs/store-management/widgets/tutorials/tutorial",
-              "uri": "/api-docs/storefront/widgets/widgets-tutorial.md"
+              "uri": "docs/api-docs/storefront/widgets/widgets-tutorial.md"
             },
             {
               "type": "item",
               "title": "Widget Versioning Tutorial",
               "slug": "/widget-versioning-tutorial",
               "href": "/api-docs/store-management/widgets/tutorials/widget-versioning-tutorial",
-              "uri": "/api-docs/storefront/widgets/widget-versioning-tutorial.md"
+              "uri": "docs/api-docs/storefront/widgets/widget-versioning-tutorial.md"
             },
             {
               "type": "item",
               "title": "Global Regions Tutorial",
               "slug": "/global-regions-tutorial",
               "href": "/api-docs/store-management/widgets/tutorials/global-regions-tutorial",
-              "uri": "/api-docs/storefront/widgets/global-regions-tutorial.md"
+              "uri": "docs/api-docs/storefront/widgets/global-regions-tutorial.md"
             },
             {
               "type": "item",
               "title": "Create Widgets Powered by GraphQL",
               "slug": "/dynamic-widgets",
               "href": "/api-docs/store-management/widgets/tutorials/dynamic-widgets",
-              "uri": "/api-docs/storefront/widgets/product-widget-tutorial.md"
+              "uri": "docs/api-docs/storefront/widgets/product-widget-tutorial.md"
             }
           ]
         }
@@ -446,21 +446,21 @@
           "title": "Overview",
           "slug": "/overview",
           "href": "/api-docs/store-management/webhooks/overview",
-          "uri": "/api-docs/getting-started/webhooks/about-webhooks.md"
+          "uri": "docs/api-docs/getting-started/webhooks/about-webhooks.md"
         },
         {
           "type": "item",
           "title": "Webhook Events",
           "slug": "/webhook-events",
           "href": "/api-docs/store-management/webhooks/webhook-events",
-          "uri": "/api-docs/getting-started/webhooks/webhook-events.md"
+          "uri": "docs/api-docs/getting-started/webhooks/webhook-events.md"
         },
         {
           "type": "item",
           "title": "Webhooks Tutorial",
           "slug": "/tutorial",
           "href": "/api-docs/store-management/webhooks/tutorial",
-          "uri": "/api-docs/getting-started/webhooks/setting-up-webhooks.md"
+          "uri": "docs/api-docs/getting-started/webhooks/setting-up-webhooks.md"
         }
       ]
     },
@@ -473,7 +473,7 @@
       "href": "/api-docs/providers/shipping",
       "title": "Shipping Providers",
       "slug": "/shipping",
-      "uri": "/api-docs/store-management/shipping/shipping-provider-api.md"
+      "uri": "docs/api-docs/store-management/shipping/shipping-provider-api.md"
     },
     {
       "type": "item",
@@ -481,7 +481,7 @@
       "title": "Tax Providers",
       "tag": "new",
       "slug": "/tax",
-      "uri": "/api-docs/provider-apis/tax/overview.md"
+      "uri": "docs/api-docs/provider-apis/tax/overview.md"
     },
     {
       "type": "divider",
@@ -492,7 +492,7 @@
       "title": "Quick Start",
       "slug": "/quick-start",
       "href": "/api-docs/apps/quick-start",
-      "uri": "/api-docs/apps/apps-quick-start.md"
+      "uri": "docs/api-docs/apps/apps-quick-start.md"
     },
     {
       "type": "group",
@@ -504,91 +504,91 @@
           "title": "Introduction",
           "slug": "/intro",
           "href": "/api-docs/apps/guide/intro",
-          "uri": "/api-docs/apps/guide/apps-01-introduction.md"
+          "uri": "docs/api-docs/apps/guide/apps-01-introduction.md"
         },
         {
           "type": "item",
           "title": "Types of Apps",
           "slug": "/types",
           "href": "/api-docs/apps/guide/types",
-          "uri": "/api-docs/apps/guide/apps-02-types.md"
+          "uri": "docs/api-docs/apps/guide/apps-02-types.md"
         },
         {
           "type": "item",
           "title": "Beginning Development",
           "slug": "/development",
           "href": "/api-docs/apps/guide/development",
-          "uri": "/api-docs/apps/guide/apps-03-developing.md"
+          "uri": "docs/api-docs/apps/guide/apps-03-developing.md"
         },
         {
           "type": "item",
           "title": "Managing Apps in Dev Portal",
           "slug": "/developer-portal",
           "href": "/api-docs/apps/guide/developer-portal",
-          "uri": "/api-docs/apps/guide/apps-04-devloper-portal.md"
+          "uri": "docs/api-docs/apps/guide/apps-04-devloper-portal.md"
         },
         {
           "type": "item",
           "title": "Implementing OAuth",
           "slug": "/auth",
           "href": "/api-docs/apps/guide/auth",
-          "uri": "/api-docs/apps/guide/apps-05-oauth.md"
+          "uri": "docs/api-docs/apps/guide/apps-05-oauth.md"
         },
         {
           "type": "item",
           "title": "Handling Callbacks",
           "slug": "/callbacks",
           "href": "/api-docs/apps/guide/callbacks",
-          "uri": "/api-docs/apps/guide/apps-06-callbacks.md"
+          "uri": "docs/api-docs/apps/guide/apps-06-callbacks.md"
         },
         {
           "type": "item",
           "title": "Supporting Multiple Users",
           "slug": "/users",
           "href": "/api-docs/apps/guide/users",
-          "uri": "/api-docs/apps/guide/apps-07-users.md"
+          "uri": "docs/api-docs/apps/guide/apps-07-users.md"
         },
         {
           "type": "item",
           "title": "Listening for Events",
           "slug": "/events",
           "href": "/api-docs/apps/guide/events",
-          "uri": "/api-docs/apps/guide/apps-08-events.md"
+          "uri": "docs/api-docs/apps/guide/apps-08-events.md"
         },
         {
           "type": "item",
           "title": "Designing the UI",
           "slug": "/ui",
           "href": "/api-docs/apps/guide/ui",
-          "uri": "/api-docs/apps/guide/apps-09-ui.md"
+          "uri": "docs/api-docs/apps/guide/apps-09-ui.md"
         },
         {
           "type": "item",
           "title": "Creating Install Buttons",
           "slug": "/buttons",
           "href": "/api-docs/apps/guide/buttons",
-          "uri": "/api-docs/apps/guide/apps-10-buttons.md"
+          "uri": "docs/api-docs/apps/guide/apps-10-buttons.md"
         },
         {
           "type": "item",
           "title": "Following Best Practices",
           "slug": "/best-practices",
           "href": "/api-docs/apps/guide/best-practices",
-          "uri": "/api-docs/apps/guide/apps-11-best-practices.md"
+          "uri": "docs/api-docs/apps/guide/apps-11-best-practices.md"
         },
         {
           "type": "item",
           "title": "Approval Requirements",
           "slug": "/requirements",
           "href": "/api-docs/apps/guide/requirements",
-          "uri": "/api-docs/apps/guide/apps-12-requirements.md"
+          "uri": "docs/api-docs/apps/guide/apps-12-requirements.md"
         },
         {
           "type": "item",
           "title": "Publishing Apps",
           "slug": "/publishing",
           "href": "/api-docs/apps/guide/publishing",
-          "uri": "/api-docs/apps/guide/apps-13-publishing.md"
+          "uri": "docs/api-docs/apps/guide/apps-13-publishing.md"
         }
       ]
     },
@@ -607,42 +607,42 @@
               "title": "Quick Start: Deploy to Heroku Install Flow",
               "slug": "/deploy-to-heroku",
               "href": "/api-docs/apps/tutorials/sample-app-nextjs/deploy-to-heroku",
-              "uri": "/api-docs/apps/tutorials/sample-app-next/heroku-deploy.md"
+              "uri": "docs/api-docs/apps/tutorials/sample-app-next/heroku-deploy.md"
             },
             {
               "type": "item",
               "title": "Introduction",
               "slug": "/introduction",
               "href": "/api-docs/apps/tutorials/sample-app-nextjs/introduction",
-              "uri": "/api-docs/apps/tutorials/sample-app-next/introduction.md"
+              "uri": "docs/api-docs/apps/tutorials/sample-app-next/introduction.md"
             },
             {
               "type": "item",
               "title": "Step 1: Set up Your Local Environment",
               "slug": "/step-1-setup",
               "href": "/api-docs/apps/tutorials/sample-app-nextjs/step-1-setup",
-              "uri": "/api-docs/apps/tutorials/sample-app-next/step-1-setup.md"
+              "uri": "docs/api-docs/apps/tutorials/sample-app-next/step-1-setup.md"
             },
             {
               "type": "item",
               "title": "Step 2: Connect Your App to BigCommerce",
               "slug": "/step-2-connect",
               "href": "/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect",
-              "uri": "/api-docs/apps/tutorials/sample-app-next/step-2-connect-to-bc.md"
+              "uri": "docs/api-docs/apps/tutorials/sample-app-next/step-2-connect-to-bc.md"
             },
             {
               "type": "item",
               "title": "Step 3: Integrate the BigCommerce API and Add a Database",
               "slug": "/step-3-integrate",
               "href": "/api-docs/apps/tutorials/sample-app-nextjs/step-3-integrate",
-              "uri": "/api-docs/apps/tutorials/sample-app-next/step-3-integrate-api.md"
+              "uri": "docs/api-docs/apps/tutorials/sample-app-next/step-3-integrate-api.md"
             },
             {
               "type": "item",
               "title": "Step 4: Enhance the User Experience with BigDesign",
               "slug": "/step-4-enhance",
               "href": "/api-docs/apps/tutorials/sample-app-nextjs/step-4-enhance",
-              "uri": "/api-docs/apps/tutorials/sample-app-next/step-4-enhance-ux.md"
+              "uri": "docs/api-docs/apps/tutorials/sample-app-next/step-4-enhance-ux.md"
             }
           ]
         },
@@ -651,7 +651,7 @@
           "title": "Find an App's ID",
           "slug": "/id",
           "href": "/api-docs/apps/tutorials/id",
-          "uri": "/api-docs/apps/tutorials/apps-id.md"
+          "uri": "docs/api-docs/apps/tutorials/apps-id.md"
         }
       ]
     },
@@ -664,7 +664,7 @@
       "title": "Quick Start",
       "slug": "/quick-start",
       "href": "/api-docs/channels/quick-start",
-      "uri": "/api-docs/channels/channels-quick-start.md"
+      "uri": "docs/api-docs/channels/channels-quick-start.md"
     },
     {
       "type": "group",
@@ -676,21 +676,21 @@
           "title": "Introduction",
           "slug": "/overview",
           "href": "/api-docs/channels/guide/overview",
-          "uri": "/api-docs/channels/channels-overview.md"
+          "uri": "docs/api-docs/channels/channels-overview.md"
         },
         {
           "type": "item",
           "title": "Building Channel Apps",
           "slug": "/building-channel-apps",
           "href": "/api-docs/channels/guide/",
-          "uri": "/api-docs/channels/building-channel-apps.md"
+          "uri": "docs/api-docs/channels/building-channel-apps.md"
         },
         {
           "type": "item",
           "title": "Extending Existing Apps",
           "slug": "/extending-existing-apps",
           "href": "/api-docs/channels/guide/extending-existing-apps",
-          "uri": "/api-docs/channels/channels-extending-existing.md"
+          "uri": "docs/api-docs/channels/channels-extending-existing.md"
         },
         {
           "type": "item",
@@ -698,28 +698,28 @@
           "slug": "/webhooks",
           "href": "/api-docs/channels/guide/webhooks",
           "flag": "new",
-          "uri": "/api-docs/channels/channel-webhooks.md"
+          "uri": "docs/api-docs/channels/channel-webhooks.md"
         },
         {
           "type": "item",
           "title": "Following Best Practices",
           "slug": "/channel-app-best-practices",
           "href": "/api-docs/channels/guide/",
-          "uri": "/api-docs/channels/channel-app-best-practices.md"
+          "uri": "docs/api-docs/channels/channel-app-best-practices.md"
         },
         {
           "type": "item",
           "title": "Approval Requirements",
           "slug": "/channel-app-requirements",
           "href": "/api-docs/channels/guide/channel-app-requirements",
-          "uri": "/api-docs/channels/channel-app-requirements.md"
+          "uri": "docs/api-docs/channels/channel-app-requirements.md"
         },
         {
           "type": "item",
           "title": "Channels Toolkit Reference",
           "slug": "/channels-toolkit-reference",
           "href": "/api-docs/channels/guide/channels-toolkit-reference",
-          "uri": "/api-docs/channels/channels-toolkit-reference.md"
+          "uri": "docs/api-docs/channels/channels-toolkit-reference.md"
         }
       ]
     },
@@ -733,14 +733,14 @@
           "title": "Build a Storefront Channel",
           "slug": "/storefront",
           "href": "/api-docs/channels/tutorials/storefront",
-          "uri": "/api-docs/channels/channels-storefront-tutorial.md"
+          "uri": "docs/api-docs/channels/channels-storefront-tutorial.md"
         },
         {
           "type": "item",
           "title": "Extend an Existing App",
           "slug": "/extend-existing-apps",
           "href": "/api-docs/channels/tutorials/extend-existing-apps",
-          "uri": "/api-docs/channels/channels-extending-existing.md"
+          "uri": "docs/api-docs/channels/channels-extending-existing.md"
         }
       ]
     },
@@ -758,63 +758,63 @@
           "title": "Introduction to Headless Commerce",
           "slug": "/overview",
           "href": "/api-docs/storefronts/guide/overview",
-          "uri": "/api-docs/headless/overview.md"
+          "uri": "docs/api-docs/headless/overview.md"
         },
         {
           "type": "item",
           "title": "Creating Channels",
           "slug": "/channels",
           "href": "/api-docs/storefronts/guide/channels",
-          "uri": "/api-docs/headless/channels.md"
+          "uri": "docs/api-docs/headless/channels.md"
         },
         {
           "type": "item",
           "title": "Working with Products",
           "slug": "/products",
           "href": "/api-docs/storefronts/guide/products",
-          "uri": "/api-docs/headless/products.md"
+          "uri": "docs/api-docs/headless/products.md"
         },
         {
           "type": "item",
           "title": "Managing Carts",
           "slug": "/carts",
           "href": "/api-docs/storefronts/guide/carts",
-          "uri": "/api-docs/headless/carts.md"
+          "uri": "docs/api-docs/headless/carts.md"
         },
         {
           "type": "item",
           "title": "Recovering Abandoned Carts",
           "slug": "/abandoned-carts",
           "href": "/api-docs/storefronts/guide/abandoned-carts",
-          "uri": "/api-docs/building-storefronts/abandoned-carts.md"
+          "uri": "docs/api-docs/building-storefronts/abandoned-carts.md"
         },
         {
           "type": "item",
           "title": "Creating Checkouts",
           "slug": "/checkout",
           "href": "/api-docs/storefronts/guide/checkout",
-          "uri": "/api-docs/headless/checkout.md"
+          "uri": "docs/api-docs/headless/checkout.md"
         },
         {
           "type": "item",
           "title": "Managing Customers",
           "slug": "/customers",
           "href": "/api-docs/storefronts/guide/customers",
-          "uri": "/api-docs/headless/customers.md"
+          "uri": "docs/api-docs/headless/customers.md"
         },
         {
           "type": "item",
           "title": "Handling Orders",
           "slug": "/orders",
           "href": "/api-docs/storefronts/guide/orders",
-          "uri": "/api-docs/headless/orders.md"
+          "uri": "docs/api-docs/headless/orders.md"
         },
         {
           "type": "item",
           "title": "PCI Compliance",
           "slug": "/pci-compliance",
           "href": "/api-docs/storefronts/guide/pci-compliance",
-          "uri": "/api-docs/headless/pci-compliance.md"
+          "uri": "docs/api-docs/headless/pci-compliance.md"
         }
       ]
     },
@@ -828,14 +828,14 @@
           "title": "Overview",
           "slug": "/embedded-checkout-overview",
           "href": "/api-docs/storefronts/embedded-checkout/embedded-checkout-overview",
-          "uri": "/api-docs/cart-and-checkout/embedded-checkout-overview.md"
+          "uri": "docs/api-docs/cart-and-checkout/embedded-checkout-overview.md"
         },
         {
           "type": "item",
           "title": "Embedded Checkout Tutorial",
           "slug": "/embedded-checkout-tutorial",
           "href": "/api-docs/storefronts/embedded-checkout/embedded-checkout-tutorial",
-          "uri": "/api-docs/cart-and-checkout/embedded-checkout-tutorial.md"
+          "uri": "docs/api-docs/cart-and-checkout/embedded-checkout-tutorial.md"
         }
       ]
     },
@@ -844,7 +844,7 @@
       "title": "Next.js Commerce",
       "slug": "/nextjs-commerce",
       "href": "/api-docs/storefronts/nextjs-commerce",
-      "uri": "/api-docs/building-storefronts/nextjs-commerce-guide.md"
+      "uri": "docs/api-docs/building-storefronts/nextjs-commerce-guide.md"
     },
     {
       "type": "divider",
@@ -855,14 +855,14 @@
       "href": "/api-docs/checkouts/checkouts",
       "slug": "/checkouts",
       "title": "Checkout Customizability",
-      "uri": "/api-docs/building-checkouts/checkout-customizability.md"
+      "uri": "docs/api-docs/building-checkouts/checkout-customizability.md"
     },
     {
       "type": "item",
       "href": "/api-docs/checkouts/checkout-consignment",
       "slug": "/checkout-consignment",
       "title": "Checkout Consignment",
-      "uri": "/api-docs/building-checkouts/checkout-consignment.md"
+      "uri": "docs/api-docs/building-checkouts/checkout-consignment.md"
     },
     {
       "type": "divider",
@@ -878,14 +878,14 @@
           "title": "Introduction",
           "slug": "/introduction",
           "href": "/api-docs/multi-currency/guide/introduction",
-          "uri": "/api-docs/catalog/currencies/currencies-overview.md"
+          "uri": "docs/api-docs/catalog/currencies/currencies-overview.md"
         },
         {
           "type": "item",
           "title": "How Currencies Work",
           "slug": "/how-currencies-work",
           "href": "/api-docs/catalog/currencies/how-currencies-work.md",
-          "uri": "/api-docs/catalog/currencies/how-currencies-work.md"
+          "uri": "docs/api-docs/catalog/currencies/how-currencies-work.md"
         }
       ]
     },
@@ -898,7 +898,7 @@
       "title": "Becoming A Partner",
       "slug": "/becoming-a-partner",
       "href": "/api-docs/partner/becoming-a-partner",
-      "uri": "/api-docs/partner/becoming-a-partner.md"
+      "uri": "docs/api-docs/partner/becoming-a-partner.md"
     },
     {
       "type": "group",
@@ -910,7 +910,7 @@
           "title": "Create a Sandbox Store",
           "slug": "/create-a-sandbox-store",
           "href": "/api-docs/partner/getting-started/create-a-sandbox-store",
-          "uri": "/api-docs/partner/create-a-sandbox.md"
+          "uri": "docs/api-docs/partner/create-a-sandbox.md"
         },
         {
           "type": "group",
@@ -922,21 +922,21 @@
               "title": "Quick Start",
               "slug": "/quick-start",
               "href": "/api-docs/partner/getting-started/api-basics/quick-start",
-              "uri": "/api-docs/getting-started/making-requests.md"
+              "uri": "docs/api-docs/getting-started/making-requests.md"
             },
             {
               "type": "item",
               "title": "Authentication",
               "slug": "/authentication",
               "href": "/api-docs/partner/getting-started/api-basics/authentication",
-              "uri": "/api-docs/getting-started/authentication.md"
+              "uri": "docs/api-docs/getting-started/authentication.md"
             },
             {
               "type": "item",
               "title": "API Best Practices",
               "slug": "/api-best-practices",
               "href": "/api-docs/partner/getting-started/api-basics/api-best-practices",
-              "uri": "/api-docs/getting-started/best-practices.md"
+              "uri": "docs/api-docs/getting-started/best-practices.md"
             }
           ]
         },
@@ -950,7 +950,7 @@
               "title": "Developer Portal Overview",
               "slug": "/dev-portal-overview",
               "href": "/api-docs/partner/getting-started/app-development/dev-portal-overview",
-              "uri": "/api-docs/partner/dev-portal-overview.md"
+              "uri": "docs/api-docs/partner/dev-portal-overview.md"
             },
             {
               "type": "group",
@@ -962,14 +962,14 @@
                   "title": "Approval Requirements",
                   "slug": "/approval-requirements",
                   "href": "/api-docs/partner/getting-started/app-development/development-guidelines/approval-requirements",
-                  "uri": "/api-docs/apps/guide/apps-12-requirements.md"
+                  "uri": "docs/api-docs/apps/guide/apps-12-requirements.md"
                 },
                 {
                   "type": "item",
                   "title": "App Development Best Practices",
                   "slug": "/best-practices",
                   "href": "/api-docs/partner/getting-started/app-development/development-guidelines/best-practices",
-                  "uri": "/api-docs/apps/guide/apps-11-best-practices.md"
+                  "uri": "docs/api-docs/apps/guide/apps-11-best-practices.md"
                 }
               ]
             },
@@ -983,14 +983,14 @@
                   "title": "Types of Apps",
                   "slug": "/types-of-apps",
                   "href": "/api-docs/partner/getting-started/app-development/single-click-apps/types-of-apps",
-                  "uri": "/api-docs/apps/guide/apps-02-types.md"
+                  "uri": "docs/api-docs/apps/guide/apps-02-types.md"
                 },
                 {
                   "type": "item",
                   "title": "Single-Click App OAuth Flow",
                   "slug": "/single-click-app-oauth-flow",
                   "href": "/api-docs/partner/getting-started/app-development/single-click-apps/single-click-app-oauth-flow",
-                  "uri": "/api-docs/apps/guide/apps-05-oauth.md"
+                  "uri": "docs/api-docs/apps/guide/apps-05-oauth.md"
                 }
               ]
             },
@@ -1004,21 +1004,21 @@
                   "title": "Quick Start",
                   "slug": "/quick-start",
                   "href": "/api-docs/partner/getting-started/app-development/tutorials/quick-start",
-                  "uri": "/api-docs/apps/apps-quick-start.md"
+                  "uri": "docs/api-docs/apps/apps-quick-start.md"
                 },
                 {
                   "type": "item",
                   "title": "Beginning App Development",
                   "slug": "/beginning-app-development",
                   "href": "/api-docs/partner/getting-started/app-development/tutorials/beginning-app-development",
-                  "uri": "/api-docs/apps/guide/apps-03-developing.md"
+                  "uri": "docs/api-docs/apps/guide/apps-03-developing.md"
                 },
                 {
                   "type": "item",
                   "title": "Publishing an App",
                   "slug": "/publishing-an-app",
                   "href": "/api-docs/partner/getting-started/app-development/tutorials/publishing-an-app",
-                  "uri": "/api-docs/apps/guide/apps-13-publishing.md"
+                  "uri": "docs/api-docs/apps/guide/apps-13-publishing.md"
                 }
               ]
             }
@@ -1029,14 +1029,14 @@
           "title": "Resources",
           "slug": "/resources",
           "href": "/api-docs/partner/getting-started/resources",
-          "uri": "/api-docs/partner/resources.md"
+          "uri": "docs/api-docs/partner/resources.md"
         },
         {
           "type": "item",
           "title": "Support",
           "slug": "/support",
           "href": "/api-docs/partner/getting-started/support",
-          "uri": "/api-docs/partner/support.md"
+          "uri": "docs/api-docs/partner/support.md"
         }
       ]
     },
@@ -1045,7 +1045,7 @@
       "title": "Staying Current with Platform Changes",
       "slug": "/staying-current",
       "href": "/api-docs/partner/staying-current",
-      "uri": "/api-docs/partner/staying-current.md"
+      "uri": "docs/api-docs/partner/staying-current.md"
     },
     {
       "type": "group",
@@ -1057,28 +1057,28 @@
           "title": "Catalog",
           "slug": "/catalog",
           "href": "/api-docs/partner/pos-solutions/catalog",
-          "uri": "/api-docs/catalog/products-overview.md"
+          "uri": "docs/api-docs/catalog/products-overview.md"
         },
         {
           "type": "item",
           "title": "Channels",
           "slug": "/channels",
           "href": "/api-docs/partner/pos-solutions/channels",
-          "uri": "/api-docs/channels/channels-overview.md"
+          "uri": "docs/api-docs/channels/channels-overview.md"
         },
         {
           "type": "item",
           "title": "Customers &amp; Subscribers",
           "slug": "/customers-subscribers",
           "href": "/api-docs/partner/pos-solutions/customers-subscribers",
-          "uri": "/api-docs/customers/customers-subscribers-overview.md"
+          "uri": "docs/api-docs/customers/customers-subscribers-overview.md"
         },
         {
           "type": "item",
           "title": "Orders",
           "slug": "/orders",
           "href": "/api-docs/partner/pos-solutions/orders",
-          "uri": "/api-docs/orders/orders-api-overview.md"
+          "uri": "docs/api-docs/orders/orders-api-overview.md"
         }
       ]
     },
@@ -1092,56 +1092,56 @@
           "title": "Capture",
           "slug": "/capture",
           "href": "/api-docs/partner/erp-solutions/capture",
-          "uri": "/api-docs/capture/capture.md"
+          "uri": "docs/api-docs/capture/capture.md"
         },
         {
           "type": "item",
           "title": "Catalog",
           "slug": "/catalog",
           "href": "/api-docs/partner/erp-solutions/catalog",
-          "uri": "/api-docs/catalog/products-overview.md"
+          "uri": "docs/api-docs/catalog/products-overview.md"
         },
         {
           "type": "item",
           "title": "Channels",
           "slug": "/channels",
           "href": "/api-docs/partner/erp-solutions/channels",
-          "uri": "/api-docs/channels/channels-overview.md"
+          "uri": "docs/api-docs/channels/channels-overview.md"
         },
         {
           "type": "item",
           "title": "Customers &amp; Subscribers",
           "slug": "/customers-subscribers",
           "href": "/api-docs/partner/erp-solutions/customers-subscribers",
-          "uri": "/api-docs/customers/customers-subscribers-overview.md"
+          "uri": "docs/api-docs/customers/customers-subscribers-overview.md"
         },
         {
           "type": "item",
           "title": "Orders",
           "slug": "/orders",
           "href": "/api-docs/partner/erp-solutions/orders",
-          "uri": "/api-docs/orders/orders-api-overview.md"
+          "uri": "docs/api-docs/orders/orders-api-overview.md"
         },
         {
           "type": "item",
           "title": "Payments",
           "slug": "/payments",
           "href": "/api-docs/partner/erp-solutions/payments",
-          "uri": "/api-docs/payments/payments-api-overview.md"
+          "uri": "docs/api-docs/payments/payments-api-overview.md"
         },
         {
           "type": "item",
           "title": "Shipping",
           "slug": "/shipping",
           "href": "/api-docs/partner/erp-solutions/shipping",
-          "uri": "/api-docs/store-management/shipping/shipping-overview.md"
+          "uri": "docs/api-docs/store-management/shipping/shipping-overview.md"
         },
         {
           "type": "item",
           "title": "Void",
           "slug": "/void",
           "href": "/api-docs/partner/erp-solutions/void",
-          "uri": "/api-docs/void/void.md"
+          "uri": "docs/api-docs/void/void.md"
         }
       ]
     },
@@ -1155,14 +1155,14 @@
           "title": "Catalog",
           "slug": "/catalog",
           "href": "/api-docs/partner/pim-solutions/catalog",
-          "uri": "/api-docs/catalog/products-overview.md"
+          "uri": "docs/api-docs/catalog/products-overview.md"
         },
         {
           "type": "item",
           "title": "Channels",
           "slug": "/channels",
           "href": "/api-docs/partner/pim-solutions/channels",
-          "uri": "/api-docs/channels/channels-overview.md"
+          "uri": "docs/api-docs/channels/channels-overview.md"
         }
       ]
     },
@@ -1176,42 +1176,42 @@
           "title": "Capture",
           "slug": "/capture",
           "href": "/api-docs/partner/oms-solutions/capture",
-          "uri": "/api-docs/capture/capture.md"
+          "uri": "docs/api-docs/capture/capture.md"
         },
         {
           "type": "item",
           "title": "Channels",
           "slug": "/channels",
           "href": "/api-docs/partner/oms-solutions/channels",
-          "uri": "/api-docs/channels/channels-overview.md"
+          "uri": "docs/api-docs/channels/channels-overview.md"
         },
         {
           "type": "item",
           "title": "Customers &amp; Subscribers",
           "slug": "/customers-subscribers",
           "href": "/api-docs/partner/oms-solutions/customers-subscribers",
-          "uri": "/api-docs/customers/customers-subscribers-overview.md"
+          "uri": "docs/api-docs/customers/customers-subscribers-overview.md"
         },
         {
           "type": "item",
           "title": "Orders",
           "slug": "/orders",
           "href": "/api-docs/partner/oms-solutions/orders",
-          "uri": "/api-docs/orders/orders-api-overview.md"
+          "uri": "docs/api-docs/orders/orders-api-overview.md"
         },
         {
           "type": "item",
           "title": "Shipping",
           "slug": "/shipping",
           "href": "/api-docs/partner/oms-solutions/shipping",
-          "uri": "/api-docs/store-management/shipping/shipping-overview.md"
+          "uri": "docs/api-docs/store-management/shipping/shipping-overview.md"
         },
         {
           "type": "item",
           "title": "Void",
           "slug": "/void",
           "href": "/api-docs/partner/oms-solutions/void",
-          "uri": "/api-docs/void/void.md"
+          "uri": "docs/api-docs/void/void.md"
         }
       ]
     },
@@ -1225,35 +1225,35 @@
           "title": "Channels",
           "slug": "/channels",
           "href": "/api-docs/partner/marketing-solutions/channels",
-          "uri": "/api-docs/channels/channels-overview.md"
+          "uri": "docs/api-docs/channels/channels-overview.md"
         },
         {
           "type": "item",
           "title": "Customers &amp; Subscribers",
           "slug": "/customers-subscribers",
           "href": "/api-docs/partner/marketing-solutions/customers-subscribers",
-          "uri": "/api-docs/customers/customers-subscribers-overview.md"
+          "uri": "docs/api-docs/customers/customers-subscribers-overview.md"
         },
         {
           "type": "item",
           "slug": "/",
           "href": "/api-docs/partner/marketing-solutions/marketing",
           "title": "Marketing",
-          "uri": "/api-docs/partner/marketing-api-overview.md"
+          "uri": "docs/api-docs/partner/marketing-api-overview.md"
         },
         {
           "type": "item",
           "title": "Scripts",
           "slug": "/scripts",
           "href": "/api-docs/partner/marketing-solutions/scripts",
-          "uri": "/api-docs/storefront/scripts-overview.md"
+          "uri": "docs/api-docs/storefront/scripts-overview.md"
         },
         {
           "type": "item",
           "title": "Widgets",
           "slug": "/widgets",
           "href": "/api-docs/partner/marketing-solutions/widgets",
-          "uri": "/api-docs/storefront/widgets/widgets-overview.md"
+          "uri": "docs/api-docs/storefront/widgets/widgets-overview.md"
         }
       ]
     },
@@ -1267,49 +1267,49 @@
           "title": "Capture",
           "slug": "/capture",
           "href": "/api-docs/partner/shipping-solutions/capture",
-          "uri": "/api-docs/capture/capture.md"
+          "uri": "docs/api-docs/capture/capture.md"
         },
         {
           "type": "item",
           "title": "Channels",
           "slug": "/channels",
           "href": "/api-docs/partner/shipping-solutions/channels",
-          "uri": "/api-docs/channels/channels-overview.md"
+          "uri": "docs/api-docs/channels/channels-overview.md"
         },
         {
           "type": "item",
           "title": "Checkout",
           "slug": "/checkout",
           "href": "/api-docs/partner/shipping-solutions/checkout",
-          "uri": "/api-docs/cart-and-checkout/cart-and-checkout-overview.md"
+          "uri": "docs/api-docs/cart-and-checkout/cart-and-checkout-overview.md"
         },
         {
           "type": "item",
           "title": "Orders",
           "slug": "/orders",
           "href": "/api-docs/partner/shipping-solutions/orders",
-          "uri": "/api-docs/orders/orders-api-overview.md"
+          "uri": "docs/api-docs/orders/orders-api-overview.md"
         },
         {
           "type": "item",
           "title": "Scripts",
           "slug": "/scripts",
           "href": "/api-docs/partner/shipping-solutions/scripts",
-          "uri": "/api-docs/storefront/scripts-overview.md"
+          "uri": "docs/api-docs/storefront/scripts-overview.md"
         },
         {
           "type": "item",
           "title": "Shipping",
           "slug": "/shipping",
           "href": "/api-docs/partner/shipping-solutions/shipping",
-          "uri": "/api-docs/store-management/shipping/shipping-overview.md"
+          "uri": "docs/api-docs/store-management/shipping/shipping-overview.md"
         },
         {
           "type": "item",
           "title": "Widgets",
           "slug": "/widgets",
           "href": "/api-docs/partner/shipping-solutions/widgets",
-          "uri": "/api-docs/storefront/widgets/widgets-overview.md"
+          "uri": "docs/api-docs/storefront/widgets/widgets-overview.md"
         }
       ]
     },
@@ -1323,28 +1323,28 @@
           "title": "Checkout",
           "slug": "/checkout",
           "href": "/api-docs/partner/payment-solutions/checkout",
-          "uri": "/api-docs/cart-and-checkout/cart-and-checkout-overview.md"
+          "uri": "docs/api-docs/cart-and-checkout/cart-and-checkout-overview.md"
         },
         {
           "type": "item",
           "title": "Payments",
           "slug": "/payments",
           "href": "/api-docs/partner/payment-solutions/payments",
-          "uri": "/api-docs/payments/payments-api-overview.md"
+          "uri": "docs/api-docs/payments/payments-api-overview.md"
         },
         {
           "type": "item",
           "title": "Scripts",
           "slug": "/scripts",
           "href": "/api-docs/partner/payment-solutions/scripts",
-          "uri": "/api-docs/storefront/scripts-overview.md"
+          "uri": "docs/api-docs/storefront/scripts-overview.md"
         },
         {
           "type": "item",
           "title": "Widgets",
           "slug": "/widgets",
           "href": "/api-docs/partner/payment-solutions/widgets",
-          "uri": "/api-docs/storefront/widgets/widgets-overview.md"
+          "uri": "docs/api-docs/storefront/widgets/widgets-overview.md"
         }
       ]
     }
