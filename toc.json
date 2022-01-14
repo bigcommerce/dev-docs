@@ -106,14 +106,14 @@
           "title": "GraphQL Playground",
           "slug": "/playground",
           "href": "/api-docs/storefront/graphql/playground",
-          "uri": "https://developer.bigcommerce.com/graphql-playground"
+          "uri": "assets/html/graphql/playground.html"
         },
         {
           "type": "item",
           "title": "GraphQL Explorer",
           "slug": "/explorer",
           "href": "/api-docs/storefront/graphql/explorer",
-          "uri": "https://developer.bigcommerce.com/graphql-explorer"
+          "uri": "assets/html/graphql/voyager.html"
         }
       ]
     },
@@ -127,35 +127,35 @@
           "title": "Carts",
           "slug": "/carts",
           "href": "/api-docs/storefront/rest/carts",
-          "redirect": "https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/carts.sf.yml?branch=master&deref=all&format=json"
+          "uri": "../../api-reference/nodes/reference/carts.sf.yml"
         },
         {
           "type": "group",
           "title": "Checkouts",
           "slug": "/checkouts",
           "href": "/api-docs/storefront/rest/checkouts",
-          "redirect": "https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/checkouts.sf.yml?branch=master&deref=all&format=jsond"
+          "uri": "../../api-reference/nodes/reference/checkouts.sf.yml"
         },
         {
           "type": "group",
           "title": "Form Fields",
           "slug": "/form-fields",
           "href": "/api-docs/storefront/rest/form-fields",
-          "redirect": "https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/form_fields.sf.yml?branch=master&deref=all&format=json"
+          "uri": "../../api-reference/nodes/reference/form_fields.sf.yml"
         },
         {
           "type": "group",
           "title": "Orders",
           "slug": "/orders",
           "href": "/api-docs/storefront/rest/orders",
-          "redirect": "https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/orders.sf.yml?branch=master&deref=all&format=json"
+          "uri": "../../api-reference/nodes/reference/orders.sf.yml"
         },
         {
           "type": "group",
           "title": "Subscriptions",
           "slug": "/subscriptions",
           "href": "/api-docs/storefront/rest/subscriptions",
-          "redirect": "https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/subscriptions.sf.yml?branch=master&deref=all&format=json"
+          "uri": ".../../api-reference/nodes/reference/subscriptions.sf.yml"
         }
       ]
     },
@@ -292,7 +292,7 @@
           "title": "Handlebars Reference",
           "slug": "/handlebars",
           "href": "/api-docs/store-management/email-templates/handlebars",
-          "uri": "https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/models/email_templates/_all.yml?branch=master&deref=all&format=jsonl"
+          "uri": "../../api-reference/nodes/models/email_templates/_all.yml"
         }
       ]
     },
