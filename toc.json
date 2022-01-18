@@ -116,49 +116,7 @@
           "uri": "assets/html/graphql/voyager.html"
         }
       ]
-    },
-    {
-      "type": "group",
-      "title": "REST",
-      "slug": "/rest",
-      "items": [
-        {
-          "type": "group",
-          "title": "Carts",
-          "slug": "/carts",
-          "href": "/api-docs/storefront/rest/carts",
-          "uri": "../../api-reference/nodes/reference/carts.sf.yml"
-        },
-        {
-          "type": "group",
-          "title": "Checkouts",
-          "slug": "/checkouts",
-          "href": "/api-docs/storefront/rest/checkouts",
-          "uri": "../../api-reference/nodes/reference/checkouts.sf.yml"
-        },
-        {
-          "type": "group",
-          "title": "Form Fields",
-          "slug": "/form-fields",
-          "href": "/api-docs/storefront/rest/form-fields",
-          "uri": "../../api-reference/nodes/reference/form_fields.sf.yml"
-        },
-        {
-          "type": "group",
-          "title": "Orders",
-          "slug": "/orders",
-          "href": "/api-docs/storefront/rest/orders",
-          "uri": "../../api-reference/nodes/reference/orders.sf.yml"
-        },
-        {
-          "type": "group",
-          "title": "Subscriptions",
-          "slug": "/subscriptions",
-          "href": "/api-docs/storefront/rest/subscriptions",
-          "uri": ".../../api-reference/nodes/reference/subscriptions.sf.yml"
-        }
-      ]
-    },
+    },    
     {
       "type": "item",
       "title": "Add to Cart URLs",
@@ -254,7 +212,7 @@
       "items": [
         {
           "type": "item",
-          "title": "Customers &amp; Subscribers",
+          "title": "Customers and Subscribers",
           "slug": "/customers",
           "href": "/api-docs/store-management/customers",
           "uri": "docs/api-docs/customers/customers-subscribers-overview.md"
