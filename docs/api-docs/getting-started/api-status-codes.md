@@ -10,7 +10,7 @@
 	</ul>
 </div>
 
-The BigCommerce API responds to requests with different HTTP status codes depending on the result from the request. Error responses might also include an error message in the body to assist in resolving the problem.
+The BigCommerce API responds to a request with different HTTP status codes depending on the result from the request. Error responses might also include an error message in the body to assist in resolving the problem.
 
 ## 2xx Success 
 
@@ -22,7 +22,7 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 | **201** | **Created** | For a successful `POST` request. |
 | **202** | **Accepted** | For a request that resulted in a scheduled task being created to perform the actual request. |
 | **204** | **No Content** | For a successful request that produced no response (such as `DELETE` requests). |
-| **207** | **Multi-Status** | Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured.|
+| **207** | **Multi-Status** | Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occurred.|
 
 ## 3xx Redirection 
 
@@ -39,15 +39,16 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 
 | Code | Text | Purpose |
 |-|-|-|
-| **400** | **Bad Request** | Issued when a malformed request was sent.
+| **400** | **Bad Request** | Issued when a malformed request was sent. |
+||| The request can not be completed due to a URL restriction. |
 | **401** | **Unauthorized** | This response is sent when your client failed to provide credentials or its credentials were invalid. |
-| **403** | **Forbidden** | Returned when permissions do not allow the operation. 
-| **404** | **Not Found** | When a particular resource doesn’t exist or couldn’t be found. |
-| **405** | **Method Not Allowed** | The resource was found, but doesn’t support the request method. Issued when either a specific method isn’t yet implemented on a resource, or the resource doesn’t support the method at all. For example, a `PUT` on `/orders` is invalid, but a `PUT` on `/orders/{_id_}` is valid. |
+| **403** | **Forbidden** | Returned when permissions do not allow the operation. |
+| **404** | **Not Found** | When a particular resource doesn't exist or couldn't be found. |
+| **405** | **Method Not Allowed** | The resource was found, but doesn't support the request method. Issued when either a specific method isn’t yet implemented on a resource, or the resource doesn’t support the method at all. For example, a `PUT` on `/orders` is invalid, but a `PUT` on `/orders/{_id_}` is valid. |
 | **406** | **Not Acceptable** | When the client specifies a response content type in the `Accept` header that is not supported. |
 | **409** | **Conflict** | A change requested by the client is being rejected, due to a condition imposed by the server. The exact reasons for this response will vary from one resource to the next. An example might be attempting to delete a category whose deletion would cause products to be orphaned. Additional information about the conflict, and about how to resolve it, might be available in the response's `details` section. |
 | **413** | **Request Entity Too Large** | When the client requests too many objects. For example, the `limit` parameter exceeded the maximum. |
-| **415** | **Unsupported Media Type** | Returned due to issues with the `Content-Type` header.
+| **415** | **Unsupported Media Type** | Returned due to issues with the `Content-Type` header.  |
 | **422** | **Missing or Invalid Data** | The request cannot be processed either because it omitted required fields or because it contained invalid data. See the response for more details. |
 | **429** | **Too Many Requests** | When an OAuth client exceeds the [rate limit](/api-docs/getting-started/basics/best-practices#best-practices_rate-limits) for API requests to a store. |
 
@@ -75,5 +76,5 @@ The BigCommerce API responds to requests with different HTTP status codes depend
 |||Ensure [platform limits](https://support.bigcommerce.com/s/article/Platform-Limits#product-catalog-limits) have not been reached.
 |**415**| Request headers specify an unsupported `content-type` (or header is missing).|Double-check `content-type` request header.
 |**500**|Expensive API calls or an internal server error in BigCommerce.|Re-attempt the request three to five times, with increasing delays of at least a minute between attempts.
-|||Try reducing the number of objects being requested. You can request fewer objects in the in the v2 API, by using `?limit={count}`. In  `v2` and `v3` API, fewer objects can be requested by excluding certain fields or only requesting certain fields).
+|||Try reducing the number of objects being requested. You can request fewer objects in the v2 API, by using `?limit={count}`. In  `v2` and `v3` API, fewer objects can be requested by excluding certain fields or only requesting certain fields.
 ||| Check the BigCommerce [Status Page](https://status.bigcommerce.com/).
