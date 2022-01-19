@@ -1,20 +1,6 @@
 # Stencil CLI Options and Commands
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Commands overview](#commands-overview)
-- [`stencil help`](#stencil-help)
-- [`stencil init`](#stencil-init)
-- [`stencil start`](#stencil-start)
-- [`stencil bundle`](#stencil-bundle)
-- [`stencil pull`](#stencil-pull)
-- [`stencil download`](#stencil-download)
-- [`stencil push`](#stencil-push)
-- [`stencil release`](#stencil-release)
-- [Resources](#resources)
-
-</div>
 
 This article is a comprehensive command reference for Stencil CLI, BigCommerce's powerful theme development and deployment tool. For installation instructions for your OS, see [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil). For more information on BigCommerce's Stencil Theme Engine, see [About Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil). Continue reading below for detailed information on each Stencil CLI command and option.
 

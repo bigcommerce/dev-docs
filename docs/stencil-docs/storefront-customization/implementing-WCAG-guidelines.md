@@ -1,13 +1,7 @@
 
 # Implementing WCAG Guidelines - Examples
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Bypass blocks](#bypass-blocks)
-- [Location](#location)
-- [Unusual words](#unusual-words)
-</div>
 
 This article provides Cornerstone code snippets which satisfy current WCAG guidelines or code you can add to meet a WCAG requirement.
 

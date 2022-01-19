@@ -1,15 +1,6 @@
 # About Our APIs
 
-<div class="otp" id="no-index">
 
-### On this Page
-- [Available APIs](#available-apis)
-- [API environments](#api-environments)
-- [Available store resources](#available-store-resources)
-- [REST API (V2 & V3)](#rest-api-v2--v3)
-- [Support](#support)
-- [Resources](#resources)
-</div>
 
 
 

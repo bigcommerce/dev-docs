@@ -1,12 +1,6 @@
 # Passwordless Customer Login
 
-<div class="otp" id="no-index">
 
-### On this Page
-- [Logging in customers via email link](#logging-in-customers-via-email-link)
-- [Sending the request](#sending-the-request)
-- [Related resources](#related-resources)
-</div>
 
 ## Logging in customers via email link
 Your application can send shoppers a one-time link via email that will sign them in to their [storefront account](https://support.bigcommerce.com/s/article/Customer-Account-Creation).

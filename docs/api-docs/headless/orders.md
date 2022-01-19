@@ -1,14 +1,6 @@
 # Handling Orders
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Creating an order from a cart](#creating-an-order-from-a-cart)
-- [Processing payments](#processing-payments)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
-</div>
 
 This section explains how to create and manage orders for headless storefronts.
 

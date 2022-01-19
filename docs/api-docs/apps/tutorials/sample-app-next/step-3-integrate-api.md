@@ -1,26 +1,6 @@
 # Step 3: Integrate the BigCommerce API and Add a Database
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Install npm packages](#install-npm-packages)
-- [Add TypeScript definitions](#add-typescript-definitions)
-- [Initialize React Context](#initialize-react-context)
-- [Update environment variables](#update-environment-variables)
-- [Update the auth lib page](#update-the-auth-lib-page)
-- [Add a database](#add-a-database)
-- [Set up Firebase database](#set-up-firebase-database)
-- [Set up MySQL database](#set-up-mysql-database)
-- [Set up a db lib page](#set-up-a-db-lib-page)
-- [Upgrade the endpoints](#upgrade-the-endpoints)
-- [Add the Products endpoint](#add-the-products-endpoint)
-- [Create a custom hook](#create-a-custom-hook)
-- [Create a header component](#create-a-header-component)
-- [Update the homepage](#update-the-homepage)
-- [Update the user interface](#update-the-user-interface)
-- [Test your app](#test-your-app)
-
-</div>
 
 Now that you have embedded your app in the BigCommerce platform, you're ready to integrate the BigCommerce API.
 

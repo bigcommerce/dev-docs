@@ -1,17 +1,6 @@
 # Product Reviews
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Product Reviews](#product-reviews)
-- [List Product Reviews](#list-product-reviews)
-- [Get a Product Review](#get-a-product-review)
-- [Create a Product Review](#create-a-product-review)
-- [Update a Product Review](#update-a-product-review)
-- [Delete a Product Review](#delete-a-product-review)
-- [Delete All Product Reviews](#delete-all-product-reviews)
-
-</div> 
+ 
 
 ## Product Reviews 
 

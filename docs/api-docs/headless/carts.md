@@ -1,16 +1,6 @@
 # Managing Carts
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Creating a cart](#creating-a-cart)
-- [Redirecting to checkout](#redirecting-to-checkout)
-- [Deleting a line item](#deleting-a-line-item)
-- [Clearing the cart](#clearing-the-cart)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
-</div>
 
 In this section, we will explain how to use the Carts API to create and manage carts. Additionally, we will discuss how to redirect shoppers from a headless storefront to the BigCommerce hosted cart and checkout pages.
 

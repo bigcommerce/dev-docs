@@ -1,14 +1,6 @@
 # Google Analytics Enhanced ECommerce
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Adding data attributes](#adding-data-attributes)
-- [Data attribute reference](#data-attribute-reference)
-- [Custom dimensions and metrics](#custom-dimensions-and-metrics)
-- [Resources](#resources)
-
-</div>
 
 Google Analytics is a free analytics tool that helps you track visitors and conversions on your store. BigCommerce has updated the Google Analytics integration to support Enhanced Ecommerce.  As apart of the Enhanced ECommerce feature, Stencil themes now support data attributes.
 

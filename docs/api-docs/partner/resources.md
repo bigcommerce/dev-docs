@@ -1,17 +1,6 @@
 # Resources
 
-<div class="otp" id="no-index">
-
-### On this page
-
-- [API clients](#api-clients)
-- [Sample apps](#sample-apps)
-- [BigDesign](#bigdesign)
-- [Checkout SDK](#checkout-sdk)
-- [Page Builder](#page-builder)
-- [Stencil references](#stencil-references)
-
-</div> 
+ 
 
 ## API clients
 

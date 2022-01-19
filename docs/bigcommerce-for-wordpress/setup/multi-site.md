@@ -2,14 +2,7 @@
 
 # Multisite Setup
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Getting your API credentials](#getting-your-api-credentials)
-- [Setting up a WordPress site using API account credentials](#setting-up-a-wordpress-site-using-api-account-credentials)
-- [Additional resources](#additional-resources)
-
-</div>
 
 When connecting more than one WordPress site to your BigCommerce store, you need to use an API account to link them. If you try to connect using the 'connect your store' flow, which uses a BigCommerce app to streamline the connection, your first WordPress site will lose its connection to BigCommerce.
 

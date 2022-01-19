@@ -1,17 +1,6 @@
 # Bundling and Pushing a Theme
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Confirm dependencies](#confirm-dependencies)
-- [Verify directory and file permissions](#verify-directory-and-file-permissions)
-- [Bundling your theme](#bundling-your-theme)
-- [Pushing your theme](#pushing-your-theme)
-- [Theme quota warning](#theme-quota-warning)
-- [Other bundling or upload errors](#other-bundling-or-upload-errors)
-- [Resources](#resources)
-
-</div> 
+ 
 
 ## Confirm dependencies
 

@@ -2,18 +2,6 @@
 
 <!-- Dev Center URL: https://developer.bigcommerce.com/api-docs/channels/guide/overview -->
 
-## On this page
-
-<div class="otp" id="no-index">
-
- - [Channels Toolkit](#channels-toolkit)
- - [Channel apps](#channel-apps)
- - [Types of channels](#types-of-channels)
- - [Building a channel app](#building-a-channel-app)
- - [Related resources](#related-resources)
-
-</div>
-
 BigCommerce's Channel Manager is the central place for merchants to discover, connect to, and manage their sales channels, including external channels like eBay, Amazon, Facebook, and Instagram. These external sales channels can extend the merchant's control panel experience in a number of ways, such as pushing orders from these external channels into the control panel alongside their BigCommerce storefront orders, allowing them to be fulfilled in the same way, and managing products on these channel from within the control panel in many of the same ways as they do for their BigCommerce storefronts.
 
 Using BigCommerce's [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference), any BigCommerce [partner](https://www.bigcommerce.com/partners/) can create and list a sales channel app on BigCommerce's [App Marketplace](https://www.bigcommerce.com/apps/) for any merchant to install. Additionally, approved apps developed by [select partners](https://www.bigcommerce.com/partners/) are marketed and discoverable from within the Channel Manager in every BigCommerce store's control panel.

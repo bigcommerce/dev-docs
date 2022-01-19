@@ -1,15 +1,6 @@
 # Managing Customers
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Customer login using GraphQL](#customer-login-using-graphql)
-- [Customer Single Sign-on](#customer-single-sign-on)
-- [Identifying logged-in customers](#identifying-logged-in-customers)
-- [Surfacing customer group pricing](#surfacing-customer-group-pricing)
-- [Next steps](#next-steps)
-
-</div>
 
 This section covers different ways to associate customers to headless carts.
 

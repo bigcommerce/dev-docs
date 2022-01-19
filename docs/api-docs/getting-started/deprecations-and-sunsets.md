@@ -1,13 +1,6 @@
 # Deprecations and Sunsets
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Deprecations](#deprecations)
-- [Sunsets](#sunsets)
-- [Related resources](#related-resources)
-
-</div>
 
 This article provides a reference for deprecated APIs and exposes BigCommerce's plans to sunset specific API operations and properties. We recommend setting up a feed alert for our [Developer Changelog](https://developer.bigcommerce.com/changelog) to receive the most up-to-date information about API changes.
 

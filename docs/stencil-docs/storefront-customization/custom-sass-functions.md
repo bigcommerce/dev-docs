@@ -1,12 +1,6 @@
 # Custom Sass Functions
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Custom Sass functions](#custom-sass-functions)
-- [Compiling custom Sass files](#compiling-custom-sass-files)
-
-</div>
 
 ## Custom Sass functions
 

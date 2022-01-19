@@ -1,15 +1,6 @@
 # Customizing Invoices
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Email invoice template](#email-invoice-template)
-- [Merchant printable invoice](#merchant-printable-invoice)
-- [Customizing the customer printable invoice](#customizing-the-customer-printable-invoice)
-- [Customizing the detailed customer printable invoice](#customizing-the-detailed-customer-printable-invoice)
-- [Resources](#resources)
-
-</div>
 
 There are four editable invoices in BigCommerce:
 

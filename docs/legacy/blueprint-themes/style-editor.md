@@ -1,13 +1,6 @@
 # Style Editor
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [What Is Less.js?](#what-is-lessjs)
-- [Integrating a Theme with the Style Editor](#integrating-a-theme-with-the-style-editor)
-- [Testing Style Editor with Your Theme](#testing-style-editor-with-your-theme)
-
-</div> 
+ 
 
 Style Editor allows users to customize the look and feel of their BigCommerce store, without needing to know HTML or CSS conventions. Using a simple WYSIWYG interface, users can edit colors and fonts, then see the changes simultaneously in a live preview.
 

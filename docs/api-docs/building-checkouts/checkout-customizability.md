@@ -1,12 +1,6 @@
 # Checkout Customizability
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Checkout options](#checkout-options)
-- [Resources](#resources)
-
-</div> 
+ 
 
 BigCommerce provides significant levels of checkout customizability. There are two paths that a developer can choose to use. 
 		

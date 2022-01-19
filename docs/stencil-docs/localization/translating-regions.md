@@ -1,12 +1,6 @@
 # Translating Regions
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Translating regions example](#translating-regions-example)
-- [Resources](#resources)
-
-</div>
 
 Themes now support translations for a specific region, which localizes the region name within Page Builder. Within the region HTML, we can now add a translation field to point to the correct localization from `schema_translations.json`. 
 

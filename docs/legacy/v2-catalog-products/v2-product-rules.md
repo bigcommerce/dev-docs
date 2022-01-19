@@ -1,18 +1,6 @@
 # Product Rules
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Product Rules](#product-rules)
-- [List Product Rules](#list-product-rules)
-- [Get a Product Rule](#get-a-product-rule)
-- [Get a Count of Product Rules](#get-a-count-of-product-rules)
-- [Create a Product Rule](#create-a-product-rule)
-- [Update a Product Rule](#update-a-product-rule)
-- [Delete a Product Rule](#delete-a-product-rule)
-- [Delete Multiple Product Rules](#delete-multiple-product-rules)
-
-</div> 
+ 
 
 ## Product Rules 
 

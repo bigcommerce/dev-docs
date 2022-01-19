@@ -1,15 +1,6 @@
 # Channel Webhooks
 
-<div class="otp" id="no-index">
 
-### On this page
-
-- [Channel webhook events](#channel-webhook-events)
-- [Channel webhook callbacks](#channel-webhook-callbacks)
-- [Creating a channel webhook](#creating-a-channel-webhook)
-- [Resources](#resources)
-
-</div>
 
 Developers building third-party sales channels or multi-storefront capabilities might need notification when a channel in BigCommerce changes so that they can perform downstream actions required to set up or deactivate the channel. To facilitate this, we've added `store/channel` webhook events that fire when you create or update a channel. We'll assume you're familiar with webhooks and briefly introduce the channel events in this article; however, if you would like an introduction to webhooks, see [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/about-webhooks).
 

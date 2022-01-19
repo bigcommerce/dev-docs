@@ -1,13 +1,6 @@
 # PCI Compliance
 
-<div class="otp" id="no-index">
 
-### On this page
-- [What is PCI DSS](#what-is-pci-dss)
-- [Who is responsible](#who-is-responsible)
-- [Resources](#resources)
-
-</div>
 
 This section covers the Payment Card Industry Data Security Standard compliance and your responsibilities as a third-party developer.
 

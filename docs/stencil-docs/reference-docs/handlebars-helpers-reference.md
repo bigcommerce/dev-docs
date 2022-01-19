@@ -1,14 +1,6 @@
 # Handlebars Helpers Reference
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Custom helpers](#custom-helpers)
-- [Standard helpers](#standard-helpers)
-- [Contributing to helpers](#contributing-to-helpers)
-- [Resources](#resources)
-
-</div>
 
 This article is a reference for [Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of whitelisted [standard helpers](#standard-helpers).
 

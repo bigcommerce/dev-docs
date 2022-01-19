@@ -1,21 +1,7 @@
 # Single-Click App OAuth Flow
 
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Helpful tools](#helpful-tools)
-- [OAuth summary](#oauth-summary)
-- [Receiving the GET request](#receiving-the-get-request)
-- [Responding to the GET request](#responding-to-the-get-request)
-- [Making the POST request](#making-the-post-request)
-- [Receiving the POST response](#receiving-the-post-response)
-- [Code samples](#code-samples)
-- [Security considerations](#security-considerations)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
-</div>
 
 If you're developing a single-click app, you'll need to handle the OAuth flow that begins when a merchant clicks **Install**. This article contains the technical details necessary to do so. If you don't want to start from scratch, see [Helpful tools](#helpful-tools) for a list of API clients that expose OAuth related helper methods. This documentation assumes you're an experienced developer familiar with web app authentication. If this is your first time approaching OAuth, see [Additional resources](#additional-resources) for links to introductory articles on the [OAuth framework](https://tools.ietf.org/html/rfc6749) (tools.ietf.org).
 

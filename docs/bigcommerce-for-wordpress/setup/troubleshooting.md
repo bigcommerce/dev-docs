@@ -2,13 +2,7 @@
 
 # Troubleshooting
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Error on "Add to Cart" button, 404 error](#error-on-%22add-to-cart%22-button-404-error)
-- [PHP getenv() Errors](#php-getenv-errors)
-
-</div> 
+ 
 
 ## Error on "Add to Cart" button, 404 error
 

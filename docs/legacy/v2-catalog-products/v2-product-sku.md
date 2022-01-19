@@ -1,16 +1,6 @@
 # Product SKU
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [SKUs](#skus)
-- [List Product SKUs](#list-product-skus)
-- [Get a Product SKU](#get-a-product-sku)
-- [Update a Product SKU](#update-a-product-sku)
-- [Delete a Product SKU](#delete-a-product-sku)
-- [Delete Multiple Product SKUs](#delete-multiple-product-skus)
-
-</div> 
+ 
 
 ## SKUs 
 
