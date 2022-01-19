@@ -13,11 +13,11 @@ x-stoplight:
     includeDownloadLink: true
     showModels: false
 servers:
-  - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3'
+  - url: 'https://api.bigcommerce.com'
     variables:
       $$.env.store_hash:
         default: store_hash
-  - url: 'https://payments.bigcommerce.com/stores/{$$.env.store_hash}'
+  - url: 'https://payments.bigcommerce.com'
     variables:
       $$.env.store_hash:
         default: store_hash
@@ -25,7 +25,7 @@ security:
   - X-Auth-Client: []
   - X-Auth-Token: []
 paths:
-  /payments:
+  '/stores/{store_hash}/v3/payments':
     post:
       summary: Process Payment
       tags:
@@ -324,7 +324,13 @@ paths:
                   - status
                   - title
                   - type
-  /payments/access_tokens:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/payments/access_tokens':
     post:
       description: |-
         This endpoint provides the capability to create a payment access token. The payment access token is required when making request to Payment API for submitting payment for an order.
@@ -604,7 +610,13 @@ paths:
                   - status
                   - title
                   - type
-  /payments/methods:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/payments/methods':
     get:
       description: |-
         Returns a list of accepted payment methods based on the `order_id`.
@@ -830,6 +842,12 @@ paths:
               type: object
               properties: {}
         description: ''
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
 components:
   parameters:
     Accept:

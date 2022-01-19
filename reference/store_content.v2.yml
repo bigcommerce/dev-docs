@@ -16,7 +16,7 @@ info:
     </div>
     </div>
 host: api.bigcommerce.com
-basePath: '/stores/{$$.env.store_hash}/v2'
+basePath: '/'
 schemes:
   - https
 consumes:
@@ -24,7 +24,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /blog/tags:
+  '/stores/{store_hash}/v2/blog/tags':
     get:
       responses:
         '200':
@@ -57,7 +57,12 @@ paths:
         - Blog Tags
       description: Returns a list of *Blog Tags*.
       operationId: getAllBlogTags
-  /blog/posts:
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/blog/posts':
     get:
       description: 'Returns all *Blog Posts*. Default sorting is by published_date, beginning with the most recent post.'
       summary: Get All Blog Posts
@@ -306,7 +311,12 @@ paths:
       tags:
         - Blog Posts
       operationId: deleteAllBlogPosts
-  '/blog/posts/{id}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/blog/posts/{id}':
     get:
       description: Returns a single *Blog Post*.
       summary: Get a Blog Post
@@ -468,7 +478,11 @@ paths:
         in: path
         type: string
         required: true
-  /blog/posts/count:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/blog/posts/count':
     get:
       description: Returns a count of all *Blog Posts*.
       summary: Get A Count of All Blog Posts
@@ -496,7 +510,12 @@ paths:
       tags:
         - Blog Posts
       operationId: getACountOfAllBlogPosts
-  /pages:
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/pages':
     get:
       description: 'Returns a list of *Pages*. Default sorting is by auto-generated ID from oldests to newest. This endpoint is deprecated. '
       summary: Get All Pages
@@ -647,7 +666,12 @@ paths:
             properties: {}
       operationId: createAPage
       deprecated: true
-  '/pages/{id}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/pages/{id}':
     get:
       description: Returns a *Page*. This endpoint is deprecated.
       summary: Get A Page
@@ -734,6 +758,10 @@ paths:
         in: path
         type: string
         required: true
+      - type: string
+        name: store_hash
+        in: path
+        required: true
     put:
       responses:
         '200':
@@ -802,7 +830,7 @@ paths:
       tags:
         - Pages
       deprecated: true
-  /redirects:
+  '/stores/{store_hash}/v2/redirects':
     get:
       description: |-
         Returns a list all *Redirect URLs*. 
@@ -955,7 +983,12 @@ paths:
         '204':
           description: ''
       operationId: deleteAllRedirects
-  '/redirects/{id}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/redirects/{id}':
     get:
       description: |
         Returns a single *Redirect URL*.
@@ -1152,7 +1185,11 @@ paths:
         in: path
         type: string
         required: true
-  /redirects/count:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/redirects/count':
     get:
       description: |-
         Gets a count of *Redirect URLs* in a store.
@@ -1195,6 +1232,11 @@ paths:
               count: 27
       operationId: getACountOfRedirects
       deprecated: true
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
 definitions:
   blogPost_Full:
     title: blogPost_Full

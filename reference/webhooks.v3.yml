@@ -4,7 +4,7 @@ info:
   version: ''
   description: 'Get notified when specific events occur on a BigCommerce store. For more information, see [Webhooks Overview](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview).'
 paths:
-  /hooks:
+  '/stores/{store_hash}/v3/hooks':
     post:
       responses:
         '200':
@@ -56,7 +56,13 @@ paths:
         - $ref: '#/components/parameters/IsActive'
         - $ref: '#/components/parameters/FilterByScope'
         - $ref: '#/components/parameters/FilterByDestination'
-  '/hooks/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/hooks/{id}':
     get:
       responses:
         '200':
@@ -75,6 +81,11 @@ paths:
         required: true
         schema:
           type: string
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
     put:
       responses:
         '200':
@@ -122,11 +133,11 @@ x-stoplight:
     includeDownloadLink: true
     showModels: true
 servers:
-  - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3'
+  - url: 'https://api.bigcommerce.com'
     variables:
       $$.env.store_hash:
         default: '{$$.env.store_hash}'
-  - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2'
+  - url: 'https://api.bigcommerce.com'
     variables:
       $$.env.store_hash:
         default: '{$$.env.store_hash}'

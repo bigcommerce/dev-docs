@@ -82,7 +82,7 @@ info:
     name: ''
     url: ''
 host: api.bigcommerce.com
-basePath: '/stores/{$$.env.store_hash}/v3'
+basePath: ''
 tags:
   - name: Price Lists
     description: BigCommerce Price Lists API Definition.
@@ -95,7 +95,7 @@ produces:
 consumes:
   - application/json
 paths:
-  /pricelists:
+  '/stores/{store_hash}/v3/pricelists':
     get:
       description: Returns a list of *Price Lists*. Optional parameters can be passed in.
       operationId: getPriceListCollection
@@ -501,13 +501,22 @@ paths:
       tags:
         - Price Lists
       summary: Delete All Price Lists
-  '/pricelists/{price_list_id}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/pricelists/{price_list_id}':
     parameters:
       - type: integer
         name: price_list_id
         in: path
         description: |
           The ID of the `Price List` requested.
+        required: true
+      - type: string
+        name: store_hash
+        in: path
         required: true
     get:
       description: ' Returns a single *Price List*.'
@@ -787,7 +796,7 @@ paths:
         - Price Lists
       summary: Update a Price List
     delete:
-      description: |- 
+      description: |-
         Deletes a *Price List*. All associated price records are also removed.
 
         **Limits**
@@ -803,13 +812,17 @@ paths:
         - Price Lists
       summary: Delete a Price List
       parameters: []
-  '/pricelists/{price_list_id}/records':
+  '/stores/{store_hash}/v3/pricelists/{price_list_id}/records':
     parameters:
       - type: integer
         name: price_list_id
         in: path
         description: |
           The ID of the `Price List` requested.
+        required: true
+      - type: string
+        name: store_hash
+        in: path
         required: true
     get:
       description: Returns a list of *Price List Records* associated with a *Price List*.
@@ -1604,7 +1617,7 @@ paths:
       summary: Delete a Price List Record
       tags:
         - Price Lists Records
-  '/pricelists/{price_list_id}/records/{variant_id}':
+  '/stores/{store_hash}/v3/pricelists/{price_list_id}/records/{variant_id}':
     parameters:
       - type: integer
         name: price_list_id
@@ -1618,6 +1631,10 @@ paths:
           ID of the variant on a product, or on an associated Price List Record.
         required: true
         type: integer
+      - type: string
+        name: store_hash
+        in: path
+        required: true
     get:
       description: Returns *Price List Records* using the variant ID. Will also contain currency records.
       operationId: getPriceListRecordsByVariantId
@@ -1850,7 +1867,7 @@ paths:
           default: application/json
       tags:
         - Price Lists Records
-  '/pricelists/{price_list_id}/records/{variant_id}/{currency_code}':
+  '/stores/{store_hash}/v3/pricelists/{price_list_id}/records/{variant_id}/{currency_code}':
     parameters:
       - type: integer
         name: price_list_id
@@ -1871,6 +1888,10 @@ paths:
           The currency code associated with the price record being acted upon.
         required: true
         format: ISO-4217
+      - type: string
+        name: store_hash
+        in: path
+        required: true
     get:
       description: Returns a *Price List Record* using the currency code. Optional parameters can be used.
       operationId: getPriceListRecord
@@ -2395,7 +2416,7 @@ paths:
           default: application/json
       tags:
         - Price Lists Records
-  /pricelists/assignments:
+  '/stores/{store_hash}/v3/pricelists/assignments':
     post:
       tags:
         - Price Lists Assignments
@@ -2478,6 +2499,11 @@ paths:
           schema:
             $ref: '#/definitions/NoContent'
       summary: Delete Price List Assignments
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
 parameters:
   FilterIdParam:
     name: id

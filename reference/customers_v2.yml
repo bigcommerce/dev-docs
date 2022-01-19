@@ -15,7 +15,7 @@ info:
     Requests can be authenticated by sending an `access_token` via `X-Auth-Token` HTTP header:
 
     ```http
-    GET /stores/{$$.env.store_hash}/v3/catalog/summary
+    GET /stores/{store_hash}/v3/catalog/summary
     host: api.bigcommerce.com
     Accept: application/json
     X-Auth-Token: {access_token}
@@ -62,7 +62,7 @@ info:
     ### Webhooks
     - [Customers](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_customer)
 host: api.bigcommerce.com
-basePath: '/stores/{$$.env.store_hash}/v2'
+basePath: '/'
 schemes:
   - https
 consumes:
@@ -70,7 +70,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /customers:
+  '/stores/{store_hash}/v2/customers':
     get:
       description: 'Returns a list of all *Customers*. Default sorting is by customer id, from lowest to highest. Optional parameters can be passed in.'
       summary: Get All Customers
@@ -161,7 +161,7 @@ paths:
                 reset_pass_on_login: false
                 accepts_marketing: true
                 addresses:
-                  url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/1/addresses'
+                  url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/customers/1/addresses'
                   resource: /customers/1/addresses
               - id: 2
                 company: ''
@@ -180,7 +180,7 @@ paths:
                 reset_pass_on_login: false
                 accepts_marketing: true
                 addresses:
-                  url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/2/addresses'
+                  url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/customers/2/addresses'
                   resource: /customers/2/addresses
             Response Schema:
               - first_name: in
@@ -477,7 +477,7 @@ paths:
               tax_exempt_category: ''
               accepts_marketing: true
               addresses:
-                url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses'
+                url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses'
                 resource: /customers/5/addresses
               form_fields:
                 - name: ''
@@ -541,7 +541,7 @@ paths:
       x-unitTests:
         - request:
             method: DELETE
-            uri: '/stores/{$$.env.store_hash}/v2/customers'
+            uri: '/stores/{store_hash}/v2/customers'
             headers:
               Accept: application/json
               Content-Type: application/json
@@ -566,7 +566,12 @@ paths:
         IsMultiContentStreaming: false
       operationId: deleteAllCustomers
       deprecated: true
-  '/customers/{customer_id}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/customers/{customer_id}':
     get:
       description: Returns a single *Customer*.
       summary: Get a Customer
@@ -617,7 +622,7 @@ paths:
               tax_exempt_category: ''
               accepts_marketing: true
               addresses:
-                url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses'
+                url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses'
                 resource: /customers/5/addresses
               form_fields:
                 - name: ''
@@ -695,6 +700,10 @@ paths:
         type: integer
         required: true
         description: Id of the customer
+      - type: string
+        name: store_hash
+        in: path
+        required: true
     put:
       responses:
         '200':
@@ -722,7 +731,7 @@ paths:
               reset_pass_on_login: false
               accepts_marketing: true
               addresses:
-                url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/1/addresses'
+                url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/customers/1/addresses'
                 resource: /customers/1/addresses
             Response Schema:
               first_name: ut tempor aute consectetur
@@ -796,7 +805,7 @@ paths:
               tax_exempt_category: ''
               accepts_marketing: true
               addresses:
-                url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses'
+                url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses'
                 resource: /customers/5/addresses
               form_fields:
                 - name: ''
@@ -878,7 +887,7 @@ paths:
                 properties:
                   url:
                     description: Full URL of where the resource is located.
-                    example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses'
+                    example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses'
                     type: string
                   resource:
                     description: Resource being accessed.
@@ -919,6 +928,15 @@ paths:
                 }
               }
             password-confirm: |2-
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1039,7 +1057,7 @@ paths:
         ```
       operationId: updateACustomer
       deprecated: true
-  /customers/count:
+  '/stores/{store_hash}/v2/customers/count':
     get:
       description: 'Returns a count of all *Customers*. '
       summary: Get a Count of Customers
@@ -1071,7 +1089,7 @@ paths:
       x-unitTests:
         - request:
             method: GET
-            uri: '/stores/{$$.env.store_hash}/v2/customers/count'
+            uri: '/stores/{store_hash}/v2/customers/count'
             headers:
               Accept: application/json
               Content-Type: application/json
@@ -1097,7 +1115,12 @@ paths:
         IsMultiContentStreaming: false
       operationId: getACountOfCustomers
       deprecated: true
-  '/customers/{customer_id}/validate':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/customers/{customer_id}/validate':
     post:
       description: |-
         **This endpoint has special rate limiting protections to protect against abuse.**
@@ -1168,7 +1191,11 @@ paths:
         type: integer
         required: true
         description: Id of the customer
-  '/customers/{customer_id}/addresses':
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/customers/{customer_id}/addresses':
     get:
       description: |-
         Returns a list of *Customer Addresses*. Returns the addresses belonging to a customer. Default sorting is by address id, from lowest to highest.
@@ -1493,7 +1520,11 @@ paths:
         type: integer
         required: true
         description: Id of the customer
-  '/customers/{customer_id}/addresses/{customer_address_id}':
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/customers/{customer_id}/addresses/{customer_address_id}':
     get:
       description: Returns a *Customer Address*.
       summary: Get a Customer Address
@@ -1799,7 +1830,11 @@ paths:
         type: integer
         description: Id of the customer address.
         required: true
-  '/customers/{customer_id}/addresses/count':
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/customers/{customer_id}/addresses/count':
     get:
       description: Returns a count of addresses for a customer.
       summary: Get a Count of Customer Addresses
@@ -1855,7 +1890,11 @@ paths:
         type: integer
         required: true
         description: Id of the customer
-  /customer_groups:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/customer_groups':
     get:
       description: 'Returns a list of *Customer Groups*. Default sorting is by customer-group id, from lowest to highest.'
       summary: Get All Customer Groups
@@ -2073,7 +2112,12 @@ paths:
       tags:
         - Customer Groups
       operationId: deleteAllCustomerGroups
-  '/customer_groups/{customer_group_id}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/customer_groups/{customer_group_id}':
     get:
       description: Returns a *Customer Group*.
       summary: Get a Customer Group
@@ -2184,6 +2228,10 @@ paths:
         type: integer
         required: true
         description: Id of the customer group
+      - type: string
+        name: store_hash
+        in: path
+        required: true
     put:
       responses:
         '200':
@@ -2277,7 +2325,7 @@ paths:
       tags:
         - Customer Groups
       operationId: updateACustomerGroup
-  /customer_groups/count:
+  '/stores/{store_hash}/v2/customer_groups/count':
     get:
       description: 'Returns a count of all *Customer Groups*. '
       summary: Get a Count of Customer Groups
@@ -2311,6 +2359,11 @@ paths:
       tags:
         - Customer Groups
       operationId: getACountOfCustomerGroups
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
 definitions:
   billingAddress_Full:
     title: billingAddress_Full
@@ -2394,7 +2447,7 @@ definitions:
     properties:
       url:
         description: URL of the shipping address for api requests
-        example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/shippingaddresses'
+        example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/shippingaddresses'
         type: string
       resource:
         description: ''
@@ -2419,7 +2472,7 @@ definitions:
       tax_exempt_category: ''
       accepts_marketing: true
       addresses:
-        url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses'
+        url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses'
         resource: /customers/5/addresses
       form_fields:
         - name: ''
@@ -2566,7 +2619,7 @@ definitions:
       country_iso2: AU
       country_iso3: AUS
       states:
-        url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states'
+        url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states'
         resource: /countries/13/states
     type: object
     properties:
@@ -2592,7 +2645,7 @@ definitions:
         properties:
           url:
             description: ''
-            example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states'
+            example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states'
             type: string
           resource:
             description: ''
@@ -2604,7 +2657,7 @@ definitions:
     properties:
       url:
         description: ''
-        example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states'
+        example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states'
         type: string
       resource:
         description: ''
@@ -2711,7 +2764,7 @@ definitions:
       tax_exempt_category: ''
       accepts_marketing: true
       addresses:
-        url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses'
+        url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses'
         resource: /customers/5/addresses
       form_fields:
         - name: ''
@@ -2778,7 +2831,7 @@ definitions:
         properties:
           url:
             description: Full URL of where the resource is located.
-            example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses'
+            example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses'
             type: string
           resource:
             description: Resource being accessed.
@@ -2910,7 +2963,7 @@ securityDefinitions:
       ### Example
 
       ```http
-      GET /stores/{$$.env.store_hash}/v3/catalog/summary
+      GET /stores/{store_hash}/v3/catalog/summary
       host: api.bigcommerce.com
       Content-Type: application/json
       X-Auth-Token: {access_token}

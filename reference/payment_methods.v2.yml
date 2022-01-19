@@ -27,7 +27,7 @@ info:
   license:
     name: ''
 host: api.bigcommerce.com
-basePath: '/stores/{$$.env.store_hash}/v2'
+basePath: '/'
 schemes:
   - https
 consumes:
@@ -35,7 +35,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /payments/methods:
+  '/stores/{store_hash}/v2/payments/methods':
     get:
       description: |-
         Gets the list of enabled payment methods. Default sorting is by payment method, alphabetically from A to Z.
@@ -91,6 +91,11 @@ paths:
         IsMultiContentStreaming: false
       tags:
         - Payment Methods
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
 definitions:
   payment_Base:
     title: payment_Base

@@ -134,7 +134,7 @@ tags:
   - name: API Token
   - name: Customer Impersonation Token
 paths:
-  /storefront/api-token:
+  '/stores/{store_hash}/v3/storefront/api-token':
     post:
       tags:
         - API Token
@@ -191,7 +191,12 @@ paths:
         '422':
           description: Invalid JWT Token provided or missing JWT token header
       summary: Revoke a Token
-  /storefront/api-token-customer-impersonation:
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/storefront/api-token-customer-impersonation':
     post:
       tags:
         - Customer Impersonation Token
@@ -222,6 +227,11 @@ paths:
                 "expires_at": {$$.env.expires_at}
               }
       summary: Create a Token
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
@@ -295,7 +305,7 @@ definitions:
     additionalProperties:
       type: string
 host: api.bigcommerce.com
-basePath: '/stores/{$$.env.store_hash}/v3'
+basePath: '/'
 schemes:
   - https
 consumes:

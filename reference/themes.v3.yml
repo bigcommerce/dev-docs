@@ -33,7 +33,7 @@ tags:
   - name: Theme Custom Templates
   - name: Theme Jobs
 paths:
-  /themes:
+  '/stores/{store_hash}/v3/themes':
     get:
       tags:
         - Themes
@@ -198,7 +198,13 @@ paths:
 
         **Required Fields**
         * file
-  '/themes/{uuid}':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/themes/{uuid}':
     get:
       tags:
         - Themes
@@ -346,10 +352,30 @@ paths:
         Deletes a store *Theme*.
         Theme variations can not be deleted using this endpoint. This will delete the theme and all variations.
     parameters:
-      - $ref: '#/components/parameters/ThemeIdParam'
-  '/themes/{uuid}/actions/download':
+      - name: uuid
+        description: The theme identifier.
+        in: path
+        required: true
+        schema:
+          type: string
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/themes/{uuid}/actions/download':
     parameters:
-      - $ref: '#/components/parameters/ThemeIdParam'
+      - name: uuid
+        description: The theme identifier.
+        in: path
+        required: true
+        schema:
+          type: string
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
     post:
       tags:
         - Theme Actions
@@ -420,7 +446,7 @@ paths:
                         title: DetailedErrors
                 title: Error Response
       description: Downloads a stores *Theme*.
-  /themes/actions/activate:
+  '/stores/{store_hash}/v3/themes/actions/activate':
     post:
       tags:
         - Theme Actions
@@ -492,7 +518,13 @@ paths:
         Actives a store *Theme*.
 
         This returns a 204 response upon success.
-  '/themes/jobs/{job_id}':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/themes/jobs/{job_id}':
     get:
       tags:
         - Theme Jobs
@@ -569,7 +601,18 @@ paths:
                         title: DetailedErrors
                 title: Error Response
       description: 'Returns a theme *Job*. If job is completed, the result is included in the response.'
-  '/themes/{uuid}/configurations':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: job_id
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/themes/{uuid}/configurations':
     get:
       responses:
         '200':
@@ -598,7 +641,7 @@ paths:
           in: query
           name: 'channel_id:in'
           description: Filter configurations by a list of channel_ids.
-        - $ref:  '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/PageParam'
         - $ref: '#/components/parameters/LimitParam'
         - schema:
             type: string
@@ -606,6 +649,16 @@ paths:
           name: variation_uuid
           description: Filter configurations by a variation_uuid.
     parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: uuid
+        in: path
+        required: true
       - in: query
         name: 'site_id:in'
         description: Filter configurations by a list of site_ids
@@ -630,9 +683,21 @@ paths:
         description: Filter configurations by a variation_uuid
         schema:
           type: string
-      - $ref: '#/components/parameters/PageParam'
-      - $ref: '#/components/parameters/LimitParam'
-  '/themes/{uuid}/configurations/validate':
+      - name: page
+        description: |
+          Specifies the page number in a limited (paginated) list.
+        required: false
+        in: query
+        schema:
+          type: integer
+      - name: limit
+        description: |
+          Controls the number of items per page in a limited (paginated) list of products.
+        required: false
+        in: query
+        schema:
+          type: integer
+  '/stores/{store_hash}/v3/themes/{uuid}/configurations/validate':
     post:
       responses:
         '200':
@@ -658,12 +723,27 @@ paths:
             schema:
               $ref: '#/components/schemas/themeConfiguration_Write'
     parameters:
-      - $ref: '#/components/parameters/ThemeIdParam'
-  '/themes/custom-templates/{version_uuid}':
+      - name: uuid
+        description: The theme identifier.
+        in: path
+        required: true
+        schema:
+          type: string
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/themes/custom-templates/{version_uuid}':
     parameters:
       - schema:
           type: string
         name: version_uuid
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: store_hash
         in: path
         required: true
     get:
@@ -722,7 +802,7 @@ x-stoplight:
     includeDownloadLink: true
     showModels: false
 servers:
-  - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3'
+  - url: 'https://api.bigcommerce.com'
     variables:
       $$.env.store_hash:
         default: unknown

@@ -14,7 +14,7 @@ info:
     ### Shipping Carrier Connections
     Carrier connections refer to specific settings required to connect to a specific shipping carrier. Each carrier requires your app to supply a unique set of properties/fields to establish a connection with that carrier.
 host: api.bigcommerce.com
-basePath: '/stores/{$$.env.store_hash}/v2'
+basePath: '/'
 schemes:
   - https
 consumes:
@@ -22,7 +22,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /shipping/zones:
+  '/stores/{store_hash}/v2/shipping/zones':
     get:
       description: Returns a list of all *Shipping Zones*.
       summary: Get All Shipping Zones
@@ -468,7 +468,12 @@ paths:
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
       operationId: createAShippingZones
-  '/shipping/zones/{id}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/shipping/zones/{id}':
     get:
       description: Returns a single *Shipping Zone*.
       summary: Get a Shipping Zones
@@ -946,7 +951,16 @@ paths:
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
       operationId: deleteAShippingZone
-  '/shipping/zones/{zone_id}/methods':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: id
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods':
     get:
       description: 'Returns a list of *Shipping Methods* in a zone. Default sorting is by shipping-method id, from lowest to highest.'
       summary: Get All Shipping Methods in a Zone
@@ -1136,7 +1150,16 @@ paths:
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
       operationId: createAShippingMethod
-  '/shipping/zones/{zone_id}/methods/{method_id}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: zone_id
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods/{method_id}':
     get:
       description: |-
         Returns a single *Shipping Method* in a zone. Real Time Carrier Connections are also supported by this endpoint.
@@ -1540,7 +1563,20 @@ paths:
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
       operationId: deleteAShippingMethod
-  /shipping/carrier/connection:
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: zone_id
+        in: path
+        required: true
+      - type: string
+        name: method_id
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/shipping/carrier/connection':
     put:
       description: |-
         Updates a *Carrier Connection*.
@@ -1707,6 +1743,11 @@ paths:
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
       operationId: deleteCarrierConnection
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
 definitions:
   TrackingCarrier:
     title: Tracking Carrier

@@ -4,7 +4,6 @@ info:
   title: Store Information
   description: 'Get Store Information endpoint, manage store profile settings.'
 host: api.bigcommerce.com
-basePath: '/stores/{$$.env.store_hash}/v2'
 schemes:
   - https
 consumes:
@@ -12,7 +11,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /store:
+  '/stores/{store_hash}/v2/store':
     get:
       description: Returns metadata about a store.
       summary: Get Store Information
@@ -52,8 +51,7 @@ paths:
               phone: ''
               admin_email: jane.does@example.com
               order_email: info@janedoes.mybigcommerce.com
-              favicon_url: >-
-                https://cdn8.bigcommerce.com/r-8816ba2f48b0bcf4bec0c1a954c00e0fc36b/img/bc_favicon.ico
+              favicon_url: 'https://cdn8.bigcommerce.com/r-8816ba2f48b0bcf4bec0c1a954c00e0fc36b/img/bc_favicon.ico'
               timezone:
                 name: America/Chicago
                 raw_offset: -21600
@@ -79,8 +77,7 @@ paths:
               plan_level: Standard
               industry: ''
               logo:
-                url: >-
-                  https://cdn8.bigcommerce.com/s-{store_hash}/product_images/screen_shot_2018-05-15_at_12.22.26_pm__05547_1529512135.png
+                url: 'https://cdn8.bigcommerce.com/s-{store_hash}/product_images/screen_shot_2018-05-15_at_12.22.26_pm__05547_1529512135.png'
               is_price_entered_with_tax: false
               active_comparison_modules: []
               features:
@@ -140,12 +137,14 @@ paths:
         IsMultiContentStreaming: false
       produces:
         - Time
-  /time:
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/time':
     get:
-      description: >-
-        Returns the system timestamp at the time of the request. The time
-        resource is useful for validating API authentication details and testing
-        client connections.
+      description: Returns the system timestamp at the time of the request. The time resource is useful for validating API authentication details and testing client connections.
       summary: Get System Timestamp
       parameters:
         - name: Accept
@@ -174,6 +173,11 @@ paths:
         IsMultiContentStreaming: false
       tags:
         - Time Zone
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
 definitions:
   StoreInformation:
     title: Store Information
@@ -200,15 +204,11 @@ definitions:
         example: BigCommerce
         type: string
       first_name:
-        description: >-
-          Primary contact’s first name (as defined during the store sign-up
-          process).
+        description: Primary contact’s first name (as defined during the store sign-up process).
         example: Jane
         type: string
       last_name:
-        description: >-
-          Primary contact’s last name (as defined during the store sign-up
-          process).
+        description: Primary contact’s last name (as defined during the store sign-up process).
         example: Doe
         type: string
       address:
@@ -216,9 +216,7 @@ definitions:
         example: BigCommerce
         type: string
       country:
-        description: >-
-          Country where the store is located (as defined during the store
-          sign-up process).
+        description: Country where the store is located (as defined during the store sign-up process).
         example: United States
         type: string
       phone:
@@ -290,9 +288,7 @@ definitions:
         example: Standard
         type: string
       industry:
-        description: >-
-          Industry, or vertical category, in which the business operates. (As
-          selected from drop-down list during the store sign-up process.)
+        description: 'Industry, or vertical category, in which the business operates. (As selected from drop-down list during the store sign-up process.)'
         example: Technology
         type: string
       logo:
@@ -300,12 +296,9 @@ definitions:
         properties:
           url:
             type: string
-            example: >-
-              https://cdn8.bigcommerce.com/s-{store_hash}/product_images/screen_shot_2018-05-15_at_12.22.26_pm__05547_1529512135.png"
+            example: 'https://cdn8.bigcommerce.com/s-{store_hash}/product_images/screen_shot_2018-05-15_at_12.22.26_pm__05547_1529512135.png"'
       is_price_entered_with_tax:
-        description: >-
-          A Boolean value that indicates whether or not prices are entered with
-          tax.
+        description: A Boolean value that indicates whether or not prices are entered with tax.
         example: false
         type: boolean
       active_comparison_modules:
@@ -329,42 +322,29 @@ definitions:
             description: Indicates if there is sitewide https.
           facebook_catalog_id:
             type: string
-            description: >-
-              Id of the facebook catalog. If there is none, it returns an empty
-              string. 
+            description: 'Id of the facebook catalog. If there is none, it returns an empty string. '
           checkout_type:
             type: string
             example: optimized
-            description: >-
-              What type of checkout is enabled on the store. Possible values
-              returned are optimized, single (one page), single_customizable
-              (one page for developers), klarna.
+            description: 'What type of checkout is enabled on the store. Possible values returned are optimized, single (one page), single_customizable (one page for developers), klarna.'
   Timezone:
     title: Time Zone
     type: object
     properties:
       name:
-        description: >-
-          a string identifying the time zone, in the format:
-          <Continent-name>/<City-name>.
+        description: 'a string identifying the time zone, in the format: <Continent-name>/<City-name>.'
         example: America/Chicago
         type: string
       raw_offset:
-        description: >-
-          a negative or positive number, identifying the offset from UTC/GMT, in
-          seconds, during winter/standard time.
+        description: 'a negative or positive number, identifying the offset from UTC/GMT, in seconds, during winter/standard time.'
         example: -21600
         type: integer
       dst_offset:
-        description: >-
-          "-/+" offset from UTC/GMT, in seconds, during summer/daylight saving
-          time.
+        description: '"-/+" offset from UTC/GMT, in seconds, during summer/daylight saving time.'
         example: -18000
         type: integer
       dst_correction:
-        description: >-
-          a boolean indicating whether this time zone observes daylight saving
-          time.
+        description: a boolean indicating whether this time zone observes daylight saving time.
         example: true
         type: boolean
       date_format:
@@ -378,15 +358,11 @@ definitions:
         example: M jS Y
         type: string
       export:
-        description: >-
-          string that defines the CSV export format for orders, customers, and
-          products, in the pattern: M jS Y
+        description: 'string that defines the CSV export format for orders, customers, and products, in the pattern: M jS Y'
         example: M jS Y
         type: string
       extended_display:
-        description: >-
-          string that defines dates’ extended-display format, in the pattern: M
-          jS Y @ g:i A.
+        description: 'string that defines dates’ extended-display format, in the pattern: M jS Y @ g:i A.'
         example: 'M jS Y @ g:i A'
         type: string
   timeStamp_Full:
@@ -406,47 +382,29 @@ securityDefinitions:
     type: apiKey
     name: X-Auth-Token
     in: header
-    description: >-
+    description: |-
       ### OAuth Scopes
-
       |  **UI Name** | **Permission** | **Parameter** |
-
       | --- | --- | --- |
-
       |  Information & Settings | modify | `store_v2_information` |
-
       |  Information & Settings | read-only | `store_v2_information_read_only` |
-
 
       ### Headers
 
-
       |Header|Parameter|Description|
-
       |-|-|-|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
       ### Example
 
-
       ```http
-
       GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
       host: api.bigcommerce.com
-
       Content-Type: application/json
-
       X-Auth-Token: {access_token}
-
       ```
 
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []

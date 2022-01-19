@@ -2,82 +2,49 @@ swagger: '2.0'
 info:
   version: ''
   title: Shipping Providers
-  description: >-
-    Implement endpoints consumed by BigCommerce for custom shipping
-    integrations. To learn more, see [Shipping Provider API
-    Overview](/api-docs/store-management/shipping/shipping-provider-api).
-
+  description: |-
+    Implement endpoints consumed by BigCommerce for custom shipping integrations. To learn more, see [Shipping Provider API Overview](/api-docs/store-management/shipping/shipping-provider-api).
 
     <div class="otp" id="no-index">
 
-
     ### On this Page
-
     - [Authentication](#authentication)
-
     - [Subresources](#subresources)
-
     - [Additional Information](#additional-information)
-
 
     </div>
 
-
     ## Authentication
-
-    This specification file describes API requests BigCommerce will make to a
-    registered shipping carrier's server to check connection options and
-    retrieve rates. As such, the method of authentication is determined by the
-    carrier's server.
-
+    This specification file describes API requests BigCommerce will make to a registered shipping carrier's server to check connection options and retrieve rates. As such, the method of authentication is determined by the carrier's server.
 
     ## Subresources
 
-
     ### Check Connection Options
-
-    The Check Connection Options request is made by BigCommerce when checking
-    for available shipping options. Each Shipping Provider will have different
-    configurations for the payload.
-
+    The Check Connection Options request is made by BigCommerce when checking for available shipping options. Each Shipping Provider will have different configurations for the payload.
 
     ### Rate
-
-    The Rate request is made by BigCommerce to get shipping quotes from the
-    provider.
-
+    The Rate request is made by BigCommerce to get shipping quotes from the provider.
 
     ## Additional Information
 
-
     **Webhooks**
-
-    -
-    [Shipment](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#shipment)
-
+    - [Shipment](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#shipment)
 
     **Related API Resources**
-
     - [Shipping Provider](/api-reference/store-management/shipping-provider-api)
-
-    - [Shipping
-    Zones](/api-reference/store-management/shipping-api/shipping-zones)
-
-    - [Shipping
-    Methods](/api-reference/store-management/shipping-api/shipping-method)
-
-    - [Shipping
-    Carriers](/api-reference/store-management/shipping-api/shipping-carrier)
+    - [Shipping Zones](/api-reference/store-management/shipping-api/shipping-zones)
+    - [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method)
+    - [Shipping Carriers](/api-reference/store-management/shipping-api/shipping-carrier)
   termsOfService: ''
-host: '{$$.env.host}'
+host: 'api.bigcommerce.com'
 schemes:
-  - http
+  - https
 consumes:
   - application/json
 produces:
   - application/json
 paths:
-  /rate:
+  '/stores/{store_hash}/v3/rate':
     post:
       description: Request shipping rates.
       parameters:
@@ -381,7 +348,12 @@ paths:
       tags:
         - Shipping Provider
       operationId: requestShippingRates
-  /check_connection_options:
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/check_connection_options':
     post:
       description: Validate connection options.
       parameters:
@@ -410,6 +382,11 @@ paths:
       tags:
         - Shipping Provider
       operationId: validateConnectionOptions
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
 tags:
   - name: Shipping Provider
 x-stoplight:
@@ -426,15 +403,11 @@ definitions:
         $ref: '#/definitions/BaseOptions'
       zone_options:
         type: object
-        description: >-
-          Optional, any zone specific request options declared by the carrier
-          and configued by the merchant to retrieve rates
+        description: 'Optional, any zone specific request options declared by the carrier and configued by the merchant to retrieve rates'
         title: Zone Options Instance
       connection_options:
         type: object
-        description: >-
-          Optional, any global request options declared by the carrier and
-          configued by the merchant to retrieve rates
+        description: 'Optional, any global request options declared by the carrier and configued by the merchant to retrieve rates'
         title: Connection Options Instance
     required:
       - base_options
@@ -639,10 +612,7 @@ definitions:
                   type: number
                   format: int32
                 attributes:
-                  description: >-
-                    A list of arbitrary properties stored as part of the product
-                    or product variant meta fields. These consist of public
-                    fields specific to the carrier integration.
+                  description: A list of arbitrary properties stored as part of the product or product variant meta fields. These consist of public fields specific to the carrier integration.
                   type: array
                   items:
                     type: object
@@ -656,23 +626,13 @@ definitions:
                         description: The value associated with the meta field
                       namespace:
                         type: string
-                        description: >-
-                          The namespace associated with
-                          product(https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield)
-                          or product variant
-                          (https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield)
-                          meta fields. The meta field namespace should be saved
-                          under this format 'shipping_carrier_{yourCarrierId}'
-                          otherwise it will not be recognized as an attribute.
+                        description: 'The namespace associated with product(https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format ''shipping_carrier_{yourCarrierId}'' otherwise it will not be recognized as an attribute.'
                       resource_type:
                         type: string
                         enum:
                           - product
                           - variant
-                        description: >-
-                          Resource type associated with the meta field.
-                          Currently the only values available are 'product' or
-                          'variant'
+                        description: Resource type associated with the meta field. Currently the only values available are 'product' or 'variant'
                       resource_id:
                         type: string
                         description: The resource id of the meta field
@@ -680,10 +640,7 @@ definitions:
                         type: string
                         enum:
                           - metafield
-                        description: >-
-                          Attribute type associated with the product or product
-                          variant meta field. Currently the only value for this
-                          is 'metafield'
+                        description: Attribute type associated with the product or product variant meta field. Currently the only value for this is 'metafield'
           customer:
             type: object
             title: Customer Details
@@ -694,10 +651,7 @@ definitions:
                 items:
                   type: object
                   title: Customer Group
-                  description: >-
-                    The Group (if any) that this customer is in. This will be
-                    default to zero if the customer is not in a group or is a
-                    guest.
+                  description: The Group (if any) that this customer is in. This will be default to zero if the customer is not in a group or is a guest.
                   properties:
                     customer_group_id:
                       type: integer
@@ -727,15 +681,11 @@ definitions:
                       type: string
       zone_options:
         type: object
-        description: >-
-          Optional, any zone specific request options declared by the carrier
-          and configued by the merchant to retrieve rates
+        description: 'Optional, any zone specific request options declared by the carrier and configued by the merchant to retrieve rates'
         title: Zone Options Instance
       connection_options:
         type: object
-        description: >-
-          Optional, any global request options declared by the carrier and
-          configued by the merchant to retrieve rates
+        description: 'Optional, any global request options declared by the carrier and configued by the merchant to retrieve rates'
         title: Connection Options Instance
     required:
       - base_options
@@ -752,24 +702,18 @@ definitions:
             customer_group_name:
               type: string
           title: Customer Group
-          description: >-
-            The Group (if any) that this customer is in. This will be default to
-            zero if the customer is not in a group or is a guest.
+          description: The Group (if any) that this customer is in. This will be default to zero if the customer is not in a group or is a guest.
       customer_id:
         type: integer
     title: Customer Details
     description: The details of the Customer that has made the purchase.
   ZoneOptionsInstance:
     type: object
-    description: >-
-      Optional, any zone specific request options declared by the carrier and
-      configued by the merchant to retrieve rates
+    description: 'Optional, any zone specific request options declared by the carrier and configued by the merchant to retrieve rates'
     title: Zone Options Instance
   ConnectionOptionsInstance:
     type: object
-    description: >-
-      Optional, any global request options declared by the carrier and configued
-      by the merchant to retrieve rates
+    description: 'Optional, any global request options declared by the carrier and configued by the merchant to retrieve rates'
     title: Connection Options Instance
   RateOptionsInstance:
     description: 'Optional, any checkout specific request options to retrieve rates'
@@ -794,9 +738,7 @@ definitions:
       customer_group_name:
         type: string
     title: Customer Group
-    description: >-
-      The Group (if any) that this customer is in. This will be default to zero
-      if the customer is not in a group or is a guest.
+    description: The Group (if any) that this customer is in. This will be default to zero if the customer is not in a group or is a guest.
   KeyValuePair:
     type: object
     properties:
@@ -1176,42 +1118,25 @@ definitions:
         format: int32
       attributes:
         type: array
-        description: >-
-          A list of arbitrary properties stored as part of the product or
-          product variant meta fields. These consist of any public fields
-          specific to the carrier integration.
+        description: A list of arbitrary properties stored as part of the product or product variant meta fields. These consist of any public fields specific to the carrier integration.
         items:
           type: object
           properties:
             key:
               type: string
-              description: >-
-                The key associated with the product or product variant meta
-                field
+              description: The key associated with the product or product variant meta field
             value:
               type: string
-              description: >-
-                The value associated with the product or product variant meta
-                field
+              description: The value associated with the product or product variant meta field
             namespace:
               type: string
-              description: >-
-                The namespace associated with
-                product(https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield)
-                or product variant
-                (https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield)
-                meta fields. The meta field namespace should be saved under this
-                format 'shipping_carrier_{yourCarrierId}' otherwise it will not
-                be recognized as an attribute.
+              description: 'The namespace associated with product(https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format ''shipping_carrier_{yourCarrierId}'' otherwise it will not be recognized as an attribute.'
             resource_type:
               type: string
               enum:
                 - product
                 - variant
-              description: >-
-                Resource type associated with the product or product variant
-                meta field. Currently the only values available are 'product' or
-                'variant'
+              description: Resource type associated with the product or product variant meta field. Currently the only values available are 'product' or 'variant'
             resource_id:
               type: string
               description: The resource id of the product or product variant meta field
@@ -1219,9 +1144,7 @@ definitions:
               type: string
               enum:
                 - metafield
-              description: >-
-                Attribute type associated with the product or product variant
-                meta field. Currently the only value for this is 'metafield'
+              description: Attribute type associated with the product or product variant meta field. Currently the only value for this is 'metafield'
           title: Attribute Value
     title: Rate Request Item
   RequestContext:
@@ -1373,9 +1296,7 @@ definitions:
     title: Transit Time Object
     description: Value object for the length of time in transit
   AttributeValue:
-    description: >-
-      Value object for an attribute. This represents a product or product
-      variant meta field.
+    description: Value object for an attribute. This represents a product or product variant meta field.
     type: object
     properties:
       key:
@@ -1386,19 +1307,10 @@ definitions:
         description: The value associated with the product or product variant meta field
       namespace:
         type: string
-        description: >-
-          The namespace associated with
-          product(https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield)
-          or product variant
-          (https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield)
-          meta fields. The meta field namespace should be saved under this
-          format 'shipping_carrier_{yourCarrierId}' otherwise it will not be
-          recognized as an attribute.
+        description: 'The namespace associated with product(https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format ''shipping_carrier_{yourCarrierId}'' otherwise it will not be recognized as an attribute.'
       resource_type:
         type: string
-        description: >-
-          Resource type associated with the product or product variant meta
-          field. Currently the only values available are 'product' or 'variant'
+        description: Resource type associated with the product or product variant meta field. Currently the only values available are 'product' or 'variant'
         enum:
           - product
           - variant
@@ -1406,9 +1318,7 @@ definitions:
         type: string
       attribute_type:
         type: string
-        description: >-
-          Attribute type associated with the product or product variant meta
-          field. Currently the only value for this is 'metafield'
+        description: Attribute type associated with the product or product variant meta field. Currently the only value for this is 'metafield'
         enum:
           - metafield
     title: Attribute Value
@@ -1459,14 +1369,10 @@ definitions:
       - value
     title: Weight Value
   RateOptionsSchema:
-    description: >-
-      A set of carrier specific fields that will be displayed to shoppers at
-      checkout
+    description: A set of carrier specific fields that will be displayed to shoppers at checkout
     type: array
     items:
-      description: >-
-        An individual carrier defined field to display at checkout, along with
-        any defaults and validation
+      description: 'An individual carrier defined field to display at checkout, along with any defaults and validation'
       type: object
       properties:
         code:
@@ -1498,9 +1404,7 @@ definitions:
           items:
             type: string
         date_ranges:
-          description: >-
-            For date type fields, a set of valid date ranges available to choose
-            from
+          description: 'For date type fields, a set of valid date ranges available to choose from'
           type: array
           items:
             type: object
@@ -1535,9 +1439,7 @@ definitions:
       title: Key Value Pair Schema
     title: Rate Options Schema
   KeyValuePairSchema:
-    description: >-
-      An individual carrier defined field to display at checkout, along with any
-      defaults and validation
+    description: 'An individual carrier defined field to display at checkout, along with any defaults and validation'
     type: object
     properties:
       code:
@@ -1569,9 +1471,7 @@ definitions:
         items:
           type: string
       date_ranges:
-        description: >-
-          For date type fields, a set of valid date ranges available to choose
-          from
+        description: 'For date type fields, a set of valid date ranges available to choose from'
         type: array
         items:
           type: object
@@ -1646,17 +1546,13 @@ definitions:
     properties:
       connection_options:
         type: object
-        description: >-
-          Optional, any global request options declared by the carrier and
-          configued by the merchant to retrieve rates
+        description: 'Optional, any global request options declared by the carrier and configued by the merchant to retrieve rates'
         title: Connection Options Instance
     required:
       - connection_options
     title: Check Connection Options Request Payload
-    description: >-
-      The payload sent to a Shipping Provider to check that the store is
-      connected to this provider.
-
+    description: |-
+      The payload sent to a Shipping Provider to check that the store is connected to this provider.
       Each Shipping Provider will have different configurations for the payload.
   CheckConnectionOptionsResponsePayload:
     type: object
@@ -1685,9 +1581,7 @@ definitions:
           title: Message
           description: A simple string/type response for returning information.
     title: Check Connection Options Response Payload
-    description: >-
-      The response recieved back from the Shipping Provider connection check
-      this allows the store to understand if the connection was successful.
+    description: The response recieved back from the Shipping Provider connection check this allows the store to understand if the connection was successful.
   DateRange:
     type: object
     properties:
@@ -1919,10 +1813,7 @@ definitions:
               type: number
               format: int32
             attributes:
-              description: >-
-                A list of arbitrary properties stored as part of the product or
-                product variant meta fields. These consist of public fields
-                specific to the carrier integration.
+              description: A list of arbitrary properties stored as part of the product or product variant meta fields. These consist of public fields specific to the carrier integration.
               type: array
               items:
                 type: object
@@ -1936,22 +1827,13 @@ definitions:
                     description: The value associated with the meta field
                   namespace:
                     type: string
-                    description: >-
-                      The namespace associated with
-                      product(https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield)
-                      or product variant
-                      (https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield)
-                      meta fields. The meta field namespace should be saved
-                      under this format 'shipping_carrier_{yourCarrierId}'
-                      otherwise it will not be recognized as an attribute.
+                    description: 'The namespace associated with product(https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format ''shipping_carrier_{yourCarrierId}'' otherwise it will not be recognized as an attribute.'
                   resource_type:
                     type: string
                     enum:
                       - product
                       - variant
-                    description: >-
-                      Resource type associated with the meta field. Currently
-                      the only values available are 'product' or 'variant'
+                    description: Resource type associated with the meta field. Currently the only values available are 'product' or 'variant'
                   resource_id:
                     type: string
                     description: The resource id of the meta field
@@ -1959,10 +1841,7 @@ definitions:
                     type: string
                     enum:
                       - metafield
-                    description: >-
-                      Attribute type associated with the product or product
-                      variant meta field. Currently the only value for this is
-                      'metafield'
+                    description: Attribute type associated with the product or product variant meta field. Currently the only value for this is 'metafield'
       customer:
         type: object
         title: Customer Details
@@ -1973,10 +1852,7 @@ definitions:
             items:
               type: object
               title: Customer Group
-              description: >-
-                The Group (if any) that this customer is in. This will be
-                default to zero if the customer is not in a group or is a
-                guest.
+              description: The Group (if any) that this customer is in. This will be default to zero if the customer is not in a group or is a guest.
               properties:
                 customer_group_id:
                   type: integer

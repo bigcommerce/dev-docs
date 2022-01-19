@@ -4,13 +4,13 @@ info:
   version: ''
   description: Create a cart using BigCommerce cart logic.
 host: api.bigcommerce.com
-basePath: '/stores/{$$.env.store_hash}/v3'
+basePath: '/'
 consumes:
   - application/json
 produces:
   - application/json
 paths:
-  /carts:
+  '/stores/{store_hash}/v3/carts':
     post:
       description: |-
         Creates a **Cart**. 
@@ -165,7 +165,12 @@ paths:
           $ref: '#/responses/CartResponse'
       summary: Create a Cart
       operationId: createACart
-  '/carts/{cartId}/items':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/carts/{cartId}/items':
     post:
       description: |-
         Adds line items to the *Cart*.
@@ -248,7 +253,16 @@ paths:
           $ref: '#/responses/CartResponse'
       summary: Add Cart Line Items
       operationId: addCartLineItem
-  '/carts/{cartId}/redirect_urls':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: cartId
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/carts/{cartId}/redirect_urls':
     post:
       description: |-
         Creates a **Cart** redirect URL for redirecting a shopper to an already created cart using the `cartId`.
@@ -284,7 +298,16 @@ paths:
           $ref: '#/responses/CartRedirectResponse'
       summary: Create Cart Redirect URL
       operationId: createCartRedirectURL
-  '/carts/{cartId}/items/{itemId}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: cartId
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/carts/{cartId}/items/{itemId}':
     put:
       description: |-
         Updates an existing, single line item in the *Cart*. 
@@ -468,7 +491,20 @@ paths:
           description: 'If the action''s result is an empty cart, the cart gets automatically deleted.'
       summary: Delete Cart Line Item
       operationId: deleteCartLineItem
-  '/carts/{cartId}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: cartId
+        in: path
+        required: true
+      - type: string
+        name: itemId
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/carts/{cartId}':
     get:
       description: Returns a stores *Cart*.
       parameters:
@@ -587,6 +623,15 @@ paths:
           description: ''
       summary: Delete a Cart
       operationId: deleteACart
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: cartId
+        in: path
+        required: true
 definitions:
   CartUpdateRequest:
     type: object
@@ -1017,10 +1062,10 @@ definitions:
                               example: 10
                             id:
                               type: string
-                              example: "abc-123"
+                              example: abc-123
                             name:
                               type: string
-                              example: "jane"
+                              example: jane
                             quantity:
                               type: number
                               example: 1
@@ -1029,16 +1074,16 @@ definitions:
                               properties:
                                 email:
                                   type: string
-                                  example: "janedoe@example.com"
+                                  example: janedoe@example.com
                                 name:
                                   type: string
-                                  example: "Jane Doe"
+                                  example: Jane Doe
                             taxable:
                               type: boolean
                               example: true
                             theme:
                               type: string
-                              example: "birthday"
+                              example: birthday
                       discounts:
                         type: array
                         items:
@@ -1429,7 +1474,7 @@ definitions:
         description: Locale of the cart.
       promotions:
         type: object
-        description: 'This is available only when "include=promotions.banners" is presented in the URL.'
+        description: This is available only when "include=promotions.banners" is presented in the URL.
         properties:
           banners:
             title: Banner
@@ -1833,7 +1878,7 @@ definitions:
               description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
             amount:
               type: number
-              description: 'Value must be between 1.00 and 1,000.00 in the store''s default currency.'
+              description: 'Value must be between 1.00 and 1,000.00 in the stores default currency.'
             is_taxable:
               type: boolean
             sender:
@@ -2563,22 +2608,22 @@ definitions:
           properties:
             wrap_together:
               type: boolean
-              description: 'Indicates whether we want to wrap items together or separately'
+              description: Indicates whether we want to wrap items together or separately
               example: true
             wrap_details:
               type: array
-              description: 'Details of the Gift Wrapping option selected. This can be specified for each line items.'
+              description: Details of the Gift Wrapping option selected. This can be specified for each line items.
               items:
                 type: object
                 properties:
                   id:
                     type: number
-                    description: 'Identifier of the Gift Wrapping Option selected'
+                    description: Identifier of the Gift Wrapping Option selected
                     example: 0
                   message:
                     type: string
-                    description: 'Custom gift message'
-                    example: 'Happy Birthday'
+                    description: Custom gift message
+                    example: Happy Birthday
       required:
         - quantity
         - product_id

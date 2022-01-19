@@ -2,74 +2,42 @@ swagger: '2.0'
 info:
   version: ''
   title: Abandoned Carts
-  description: >-
-    Use `/abandoned-carts/{token}` on headless storefronts to retrieve the
-    `cart_id` via the abandoned cart `token` passed in to headless storefront
-    via an abandoned cart email link clicked on by a shopper. Once the `cart_id`
-    has been retrieved, it can be used to fetch and display information about
-    the cart to the shopper via the storefront cart and/or server-to-server cart
-    APIs.
-
+  description: |-
+    Use `/abandoned-carts/{token}` on headless storefronts to retrieve the `cart_id` via the abandoned cart `token` passed in to headless storefront via an abandoned cart email link clicked on by a shopper. Once the `cart_id` has been retrieved, it can be used to fetch and display information about the cart to the shopper via the storefront cart and/or server-to-server cart APIs.
 
     - [OAuth Scopes](#oauth-scopes)
-
     - [Authentication](#authentication)
 
-
     ## OAuth Scopes
-
-    | UI Name                                      | Permission |
-    Parameter                                     |
-
+    | UI Name                                      | Permission | Parameter                                     |
     |----------------------------------------------|------------|-----------------------------------------------|
+    | Carts                                        | modify     | `store_cart`                                  |
+    | Carts                                        | read-only  | `store_cart_read_only`                        |
 
-    | Carts                                        | modify     |
-    `store_cart`                                  |
-
-    | Carts                                        | read-only  |
-    `store_cart_read_only`                        |
-
-
-    For more information on OAuth Scopes, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
-
+    For more information on OAuth Scopes, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 
     ## Authentication
 
-
-    Requests can be authenticated by sending an `access_token` via
-    `X-Auth-Token` HTTP header:
-
+    Requests can be authenticated by sending an `access_token` via `X-Auth-Token` HTTP header:
 
     ```http
-
     GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
     host: api.bigcommerce.com
-
     Accept: application/json
-
     X-Auth-Token: {access_token}
-
     ```
 
-
     |Header|Parameter|Description|
-
     |-|-|-|
+    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
-    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-    installing an app in a BigCommerce control panel.|
-
-
-    For more information on Authenticating BigCommerce APIs, see:
-    [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+    For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
   license:
     name: ''
   termsOfService: ''
 host: api.bigcommerce.com
 paths:
-  '/abandoned-carts/{token}':
+  '/stores/{store_hash}/v3/abandoned-carts/{token}':
     get:
       responses:
         '200':
@@ -89,15 +57,11 @@ paths:
         default:
           description: ''
       summary: Get an Abandoned Cart
-      description: >-
-        Returns the `cart_id` corresponding to the abandoned cart `{token}`
-        passed in.
-
+      description: |-
+        Returns the `cart_id` corresponding to the abandoned cart `{token}` passed in.
 
         **Usage Notes**:
-
-        * `{token}` is the token in the query string of the abandoned cart link
-        found in abandoned cart email notifications to shoppers
+        * `{token}` is the token in the query string of the abandoned cart link found in abandoned cart email notifications to shoppers
       operationId: getAbandonedCarts
       tags:
         - Abandoned Carts
@@ -110,6 +74,10 @@ paths:
           Unique cart `UUID`.
 
           Unique cart `UUID` token that is generated for abandoned cart emails.
+      - type: string
+        name: store_hash
+        in: path
+        required: true
 definitions:
   metaEmpty_Full:
     type: object
@@ -143,9 +111,7 @@ definitions:
     properties:
       cart_id:
         type: string
-        description: >-
-          The `cart_id` of the abandoned cart. Can be used to display the
-          abanded cart to the customer via storefront cart or
+        description: The `cart_id` of the abandoned cart. Can be used to display the abanded cart to the customer via storefront cart or
 schemes:
   - https
 parameters:
@@ -168,47 +134,29 @@ securityDefinitions:
     type: apiKey
     in: header
     name: X-Auth-Token
-    description: >-
+    description: |-
       ### OAuth Scopes
-
       |  **UI Name** | **Permission** | **Parameter** |
-
       | --- | --- | --- |
-
       |  Carts | modify | `store_cart` |
-
       |  Carts | read-only | `store_cart_read_only` |
-
 
       ### Headers
 
-
       |Header|Parameter|Description|
-
       |-|-|-|
-
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-      installing an app in a BigCommerce control panel.|
-
+      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
       ### Example
 
-
       ```http
-
-      GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
+      GET /stores/{store_hash}/v3/catalog/summary
       host: api.bigcommerce.com
-
       Content-Type: application/json
-
       X-Auth-Token: {access_token}
-
       ```
 
-
-      * For more information on Authenticating BigCommerce APIs, see:
-      [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
@@ -217,15 +165,12 @@ consumes:
   - application/json
 produces:
   - application/json
-basePath: '/stores/{$$.env.store_hash}/v3'
+basePath: /
 tags:
   - name: Abandoned Carts
 responses:
   502_GatewayError:
-    description: >-
-      If something happens during the request that causes it to fail, a 502
-      response will be returned. A new request should be made; however, it could
-      fail.
+    description: 'If something happens during the request that causes it to fail, a 502 response will be returned. A new request should be made; however, it could fail.'
     schema:
       $ref: '#/definitions/error_Full'
     examples:
@@ -234,13 +179,7 @@ responses:
         title: A login URL could not be generated. Please try another request.
         type: 'https://developer.bigcommerce.com/api#api-status-codes'
   504_GatewayTimeout:
-    description: >-
-      If this occurs, you should retry the request. Typically retrying the
-      request several times will result in a successful request; However, if you
-      are unable to successfully make a request, please check the BigCommerce
-      system status [here](https://status.bigcommerce.com/). A service is likely
-      down and the request will need to be made again when it is back up (in
-      several hours usually)
+    description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
     schema:
       $ref: '#/definitions/errorDetailed_Full'
     examples:
@@ -270,9 +209,7 @@ responses:
         title: Input is invalid.
         type: 'https://developer.bigcommerce.com/api#api-status-codes'
   404_NotFound:
-    description: >-
-      If the requested account resource is not found for the franchise, return a
-      404 Not Found.
+    description: 'If the requested account resource is not found for the franchise, return a 404 Not Found.'
     schema:
       $ref: '#/definitions/error_Full'
     examples:
@@ -281,10 +218,7 @@ responses:
         title: 'Account with {id} not found'
         type: 'https://developer.bigcommerce.com/api#api-status-codes'
   422_UnprocessableEntity:
-    description: >-
-      This occurs when missing or unacceptable data is passed for one or more
-      fields. Please correct the values for the fields listed in the errors
-      object.
+    description: This occurs when missing or unacceptable data is passed for one or more fields. Please correct the values for the fields listed in the errors object.
     schema:
       $ref: '#/definitions/errorDetailed_Full'
     examples:
@@ -296,12 +230,7 @@ responses:
           name: error.expected.jsstring
           primary_contact.district: error.expected.jsstring.
   503_ServiceUnavailable:
-    description: >-
-      If this occurs, you should retry the request. If you are unable to
-      successfully make a request, please check the BigCommerce system status
-      [here](https://status.bigcommerce.com/). A service is likely down and the
-      request will need to be made again when it is back up (in several hours
-      usually)
+    description: 'If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
     schema:
       $ref: '#/definitions/error_Full'
     examples:

@@ -156,14 +156,14 @@ info:
     * [Store Content API](https://developer.bigcommerce.com/api-reference/store-management/store-content)
     * [Channels API](https://developer.bigcommerce.com/api-reference/store-management/channels)
 servers:
-  - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3'
+  - url: 'https://api.bigcommerce.com'
     description: Production API Gateway
     variables:
       store_hash:
         default: abc123
         description: Store hash used to identify the store.
 paths:
-  /storefront/custom-template-associations:
+  '/stores/{store_hash}/v3/storefront/custom-template-associations':
     get:
       summary: Get Custom Template Associations
       tags:
@@ -322,7 +322,12 @@ paths:
           description: Filter associations by type
       description: Delete custom template associations. At least one query parameter must be used.
       operationId: DeleteCustomTemplateAssociations
-    parameters: []
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
 components:
   schemas:
     Error:

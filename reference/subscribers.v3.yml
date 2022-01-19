@@ -33,7 +33,7 @@ info:
   license:
     name: ''
 host: api.bigcommerce.com
-basePath: '/stores/{$$.env.store_hash}/v3'
+basePath: '/'
 tags:
   - name: Subscribers
     description: BigCommerce Customers API Definition.
@@ -44,7 +44,7 @@ produces:
 consumes:
   - application/json
 paths:
-  /customers/subscribers:
+  '/stores/{store_hash}/v3/customers/subscribers':
     get:
       description: Returns a list of *Subscribers*. Optional filter parameters can be passed in.
       operationId: getSubscribers
@@ -279,7 +279,12 @@ paths:
       tags:
         - Subscribers
       summary: Delete Subscribers
-  '/customers/subscribers/{subscriber_id}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/customers/subscribers/{subscriber_id}':
     parameters:
       - name: subscriber_id
         in: path
@@ -287,6 +292,10 @@ paths:
           The ID of the `Subscriber` requested.
         required: true
         type: integer
+      - type: string
+        name: store_hash
+        in: path
+        required: true
     get:
       description: Returns a *Subscriber*.
       operationId: getSubscriberById

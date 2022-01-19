@@ -4,7 +4,7 @@ info:
   title: Checkouts
   description: Create checkouts from existing carts using BigCommerce checkout logic.
 host: api.bigcommerce.com
-basePath: '/stores/{$$.env.store_hash}/v3'
+basePath: /
 schemes:
   - https
 consumes:
@@ -12,7 +12,7 @@ consumes:
 produces:
   - application/json
 paths:
-  '/checkouts/{checkoutId}':
+  'stores/{store_hash}/v3/checkouts/{checkoutId}':
     get:
       description: |-
         Returns a *Checkout*.
@@ -120,7 +120,7 @@ paths:
         - name: body
           in: body
           required: true
-          description: "`customer_message` is required (max length is 2000)."
+          description: '`customer_message` is required (max length is 2000).'
           schema:
             $ref: '#/definitions/Checkout_Put'
           x-examples:
@@ -135,8 +135,17 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-      summary: Update Customer Messages 
-  '/checkouts/{checkoutId}/billing-address':
+      summary: Update Customer Messages
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: checkoutId
+        in: path
+        required: true
+  'stores/{store_hash}/v3/checkouts/{checkoutId}/billing-address':
     post:
       description: |-
         Adds a billing address to an existing *Checkout*.
@@ -194,7 +203,16 @@ paths:
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
       summary: Add Checkout Billing Address
-  '/checkouts/{checkoutId}/billing-address/{addressId}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: checkoutId
+        in: path
+        required: true
+  'stores/{store_hash}/v3/checkouts/{checkoutId}/billing-address/{addressId}':
     put:
       description: Updates an existing billing address on *Checkout*.
       summary: Update Checkout Billing Address
@@ -242,7 +260,20 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  '/checkouts/{checkoutId}/consignments':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: checkoutId
+        in: path
+        required: true
+      - type: string
+        name: addressId
+        in: path
+        required: true
+  'stores/{store_hash}/v3/checkouts/{checkoutId}/consignments':
     post:
       description: |-
         Adds a new consignment to a checkout.
@@ -351,7 +382,16 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  '/checkouts/{checkoutId}/consignments/{consignmentId}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: checkoutId
+        in: path
+        required: true
+  'stores/{store_hash}/v3/checkouts/{checkoutId}/consignments/{consignmentId}':
     put:
       description: |-
         Updates an existing consignment. Shipping address, line item IDs or the shipping option ID can be updated using this endpoint.
@@ -461,7 +501,20 @@ paths:
       responses:
         '200':
           $ref: '#/responses/CheckoutResponse'
-  '/checkouts/{checkoutId}/coupons':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: checkoutId
+        in: path
+        required: true
+      - type: string
+        name: consignmentId
+        in: path
+        required: true
+  'stores/{store_hash}/v3/checkouts/{checkoutId}/coupons':
     post:
       description: |-
         Adds a *Coupon Code* to *Checkout*.
@@ -508,7 +561,16 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  '/checkouts/{checkoutId}/coupons/{couponCode}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: checkoutId
+        in: path
+        required: true
+  'stores/{store_hash}/v3/checkouts/{checkoutId}/coupons/{couponCode}':
     delete:
       description: Deletes a *Coupon Code* from *Checkout*.
       summary: Delete Checkout Coupon
@@ -547,7 +609,20 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-  '/checkouts/{checkoutId}/orders':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: checkoutId
+        in: path
+        required: true
+      - type: string
+        name: couponCode
+        in: path
+        required: true
+  'stores/{store_hash}/v3/checkouts/{checkoutId}/orders':
     post:
       responses:
         '200':
@@ -585,6 +660,10 @@ paths:
       - name: checkoutId
         in: path
         type: string
+        required: true
+      - type: string
+        name: store_hash
+        in: path
         required: true
 definitions:
   Checkout:
@@ -744,7 +823,7 @@ definitions:
                       type: number
                       format: double
                     list_price:
-                      description: Item's list price, as quoted by the manufacturer/distributor.
+                      description: 'Item''s list price, as quoted by the manufacturer/distributor.'
                       type: number
                       format: double
                     sale_price:
@@ -867,7 +946,7 @@ definitions:
                       type: number
                       format: double
                     list_price:
-                      description: Item's list price, as quoted by the manufacturer/distributor.
+                      description: 'Item''s list price, as quoted by the manufacturer/distributor.'
                       type: number
                       format: double
                     sale_price:
@@ -895,7 +974,7 @@ definitions:
                       description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
                       type: string
                     amount:
-                      description: Value must be between 1.00 and 1,000.00 in the store's default currency.
+                      description: 'Value must be between 1.00 and 1,000.00 in the store''s default currency.'
                       type: number
                       format: double
                     sender:
@@ -2181,12 +2260,12 @@ responses:
           customer_message: ''
           promotions:
             - banners:
-              - id: '3'
-                type: 'applied'
-                page: 
-                  - 'homepage'
-                  - 'cartpage'
-                text: 'Some text'
+                - id: '3'
+                  type: applied
+                  page:
+                    - homepage
+                    - cartpage
+                  text: Some text
         meta: {}
   order_Resp:
     description: ''

@@ -4,7 +4,7 @@ info:
   title: Storefront Carts
   description: Manage cart operations and data via front-end JavaScript on BigCommerce stencil powered storefronts.
 servers:
-  - url: 'https://{$$.env.store_domain}/api/storefront'
+  - url: 'https://{store_domain}/api/storefront'
 tags:
   - name: Cart
   - name: Cart Items
@@ -706,7 +706,7 @@ components:
       properties:
         amount:
           type: number
-          description: 'Value must be between 1.00 and 1,000.00 in the store''s default currency.'
+          description: Value must be between 1.00 and 1,000.00 in the store's default currency.
         id:
           type: string
           description: ID of this gift certificate.

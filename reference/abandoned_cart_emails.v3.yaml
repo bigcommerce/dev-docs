@@ -9,22 +9,22 @@ info:
     url: 'https://www.bigcommerce.com'
     email: support@bigcommerce.com
   schemes:
-  - https
+    - https
 consumes:
   - application/json
 produces:
   - application/json
 servers:
-  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+  - url: 'https://api.bigcommerce.com'
     description: BigCommerce API Gateway
     variables:
       store_hash:
         default: abc123
         description: Store hash used to identify the store.
 paths:
-  /marketing/abandoned-cart-emails:
+  '/stores/{store_hash}/v3/settings/marketing/abandoned-cart-emails':
     get:
-      description:  An array of abandoned cart emails on the store.
+      description: An array of abandoned cart emails on the store.
       parameters:
         - $ref: '#/components/parameters/ChannelIdOptional'
       responses:
@@ -56,16 +56,18 @@ paths:
                                 hello_phrase: 'Welcome back,'
                     meta: {}
           produces:
-          - application/json
-      tags: [Abandoned Cart Emails]
+            - application/json
+      tags:
+        - Abandoned Cart Emails
       summary: Get all email templates
       operationId: getAbandonedCartEmails
     post:
-      summary: 'Create email template'
+      summary: Create email template
       operationId: createEmailTemplate
       produces:
         - application/json
-      tags: [Abandoned Cart Emails]
+      tags:
+        - Abandoned Cart Emails
       responses:
         '200':
           description: OK
@@ -105,7 +107,13 @@ paths:
                           hello_phrase: Welcome
       parameters:
         - $ref: '#/components/parameters/ChannelIdOptional'
-  '/marketing/abandoned-cart-emails/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/marketing/abandoned-cart-emails/{id}':
     get:
       summary: Get an email template
       description: Get a single Abandoned Cart Email template.
@@ -123,15 +131,17 @@ paths:
                     type: object
       produces:
         - application/json
-      tags: [Abandoned Cart Emails]
-      operationId: 'getAbandonedCartEmailTemplateId'
+      tags:
+        - Abandoned Cart Emails
+      operationId: getAbandonedCartEmailTemplateId
     put:
       summary: Update an email template
       description: Update an email template.
-      operationId: 'updateAbandonedCartEmailsId'
+      operationId: updateAbandonedCartEmailsId
       produces:
         - application/json
-      tags: [Abandoned Cart Emails]
+      tags:
+        - Abandoned Cart Emails
       responses:
         '200':
           description: OK
@@ -179,10 +189,11 @@ paths:
                   coupon_code: FF11-22X4
                   notify_at_minutes: 60
     delete:
-      tags: [Abandoned Cart Emails]
+      tags:
+        - Abandoned Cart Emails
       description: Delete Abandoned Cart Email template.
       summary: Delete email template
-      operationId: 'deleteAbandonedCartEmailTemplateId'
+      operationId: deleteAbandonedCartEmailTemplateId
       responses:
         '204':
           description: No Content
@@ -196,11 +207,17 @@ paths:
         in: path
         required: true
         description: Abandoned Cart email template ID
-  /marketing/abandoned-cart-emails/default:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/marketing/abandoned-cart-emails/default':
     get:
       summary: Get default email template
       description: Return default Abandoned Cart Email template.
-      tags: [Abandoned Cart Emails]
+      tags:
+        - Abandoned Cart Emails
       produces:
         - application/json
       operationId: GetDefaultAbandonedCartEmailTemplate
@@ -250,10 +267,17 @@ paths:
                       - locale: en
                         keys:
                           hello_phrase: Welcome back
-  /marketing/abandoned-cart-emails/settings:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/marketing/abandoned-cart-emails/settings':
     get:
       summary: Get email template settings
-      tags: [Template settings]
+      tags:
+        - Template settings
       responses:
         '200':
           description: OK
@@ -270,7 +294,8 @@ paths:
     put:
       summary: Update email template settings
       operationId: updateEmailTemplateSettings
-      tags: [Template settings]
+      tags:
+        - Template settings
       responses:
         '200':
           description: OK
@@ -288,6 +313,12 @@ paths:
         - application/json
       parameters:
         - $ref: '#/components/parameters/ChannelIdOptional'
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
 components:
   schemas:
     SaveError:

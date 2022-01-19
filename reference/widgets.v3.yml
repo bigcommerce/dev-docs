@@ -48,7 +48,6 @@ info:
     * [Widget UI Input Types](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings)
   termsOfService: ''
 host: api.bigcommerce.com
-basePath: '/stores/{$$.env.store_hash}/v3'
 tags:
   - name: Regions
   - name: Widget Template
@@ -66,7 +65,7 @@ produces:
 consumes:
   - application/json
 paths:
-  /content/widget-templates:
+  '/stores/{store_hash}/v3/content/widget-templates':
     post:
       tags:
         - Widget Template
@@ -187,7 +186,12 @@ paths:
           $ref: '#/responses/Error422_Resp'
       description: Returns a list of **Widget Templates**.
       summary: Get All Widget Templates
-  '/content/widget-templates/{uuid}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/content/widget-templates/{uuid}':
     get:
       tags:
         - Widget Template
@@ -282,7 +286,16 @@ paths:
         '422':
           $ref: '#/responses/Error422_Resp'
       description: Deletes a **Widget Template**.
-  /content/widgets:
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: uuid
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/content/widgets':
     post:
       tags:
         - Widget
@@ -380,7 +393,12 @@ paths:
         '422':
           $ref: '#/responses/Error422_Resp'
       description: Returns a list of **Widgets**. Optional parameters can be passed in.
-  '/content/widgets/{uuid}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/content/widgets/{uuid}':
     get:
       tags:
         - Widget
@@ -479,7 +497,16 @@ paths:
         '422':
           $ref: '#/responses/Error422_Resp'
       description: Deletes a **Widget**.
-  /content/placements:
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: uuid
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/content/placements':
     post:
       tags:
         - Placement
@@ -576,7 +603,12 @@ paths:
         '422':
           $ref: '#/responses/Error422_Resp'
       description: Returns a list of **Placements**. Optional parameters can be passed in.
-  '/content/placements/{uuid}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/content/placements/{uuid}':
     get:
       tags:
         - Placement
@@ -672,7 +704,16 @@ paths:
         '422':
           $ref: '#/responses/Error422_Resp'
       description: Deletes a **Placement**.
-  /content/regions:
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: uuid
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/content/regions':
     get:
       responses:
         '200':
@@ -696,6 +737,11 @@ paths:
           description: 'The template file, for example: `templateFile=pages/home`.'
           type: string
           required: true
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
 parameters:
   TemplateUUID:
     name: uuid

@@ -2,22 +2,18 @@ openapi: 3.0.0
 info:
   version: 1.0.0-oas3
   title: Geography
-  description: >-
-    Get countries, states, and provinces. - [Authentication](#authentication) ##
-    Authentication Authenticate requests by including an
-    [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
-    `access_token` in the request header. ```http GET
-    https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
-    Content-Type: application/json X-Auth-Token: {{ACCESS_TOKEN}} ``` ### OAuth
-    Scopes |  **UI Name** | **Permission** | **Parameter** | | --- | --- | --- |
-    |  Information & Settings | modify | `store_v2_information` | |  Information
-    & Settings | read-only | `store_v2_information_read_only` |
+  description: |-
+    Get countries, states, and provinces.
+    ### OAuth Scopes 
+
+    |  **UI Name** | **Permission** | **Parameter** |
+    | --- | --- | --- | 
+    |  Information & Settings | modify | `store_v2_information` | 
+    |  Information & Settings | read-only | `store_v2_information_read_only` |
 paths:
-  /countries:
+  '/stores/{store_hash}/v2/countries':
     get:
-      description: >-
-        Get a list of all countries available. A country or territory,
-        identifiable by an ISO 3166 country code.
+      description: 'Get a list of all countries available. A country or territory, identifiable by an ISO 3166 country code.'
       summary: Get All Countries
       parameters:
         - name: Accept
@@ -67,11 +63,15 @@ paths:
           $ref: '#/components/responses/countryCollection_Resp'
       tags:
         - Countries
-  /countries/{id}:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/countries/{id}':
     get:
-      description: >-
-        Returns a single *Country*.  Gets a country. A country or territory,
-        identifiable by an ISO 3166 country code.
+      description: 'Returns a single *Country*.  Gets a country. A country or territory, identifiable by an ISO 3166 country code.'
       summary: Get a Country
       parameters:
         - name: id
@@ -107,7 +107,12 @@ paths:
         required: true
         schema:
           type: string
-  /countries/{country_id}/states:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/countries/{country_id}/states':
     get:
       description: |-
         Returns a list of *States* belonging to a *Country*. 
@@ -173,7 +178,12 @@ paths:
         required: true
         schema:
           type: string
-  /countries/{country_id}/states{id}:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/countries/{country_id}/states{id}':
     get:
       description: |-
         Returns a *State*. 
@@ -232,7 +242,12 @@ paths:
         required: true
         schema:
           type: string
-  /countries/count:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/countries/count':
     get:
       responses:
         '200':
@@ -242,7 +257,13 @@ paths:
         - Countries
       operationId: countriesCount
       description: Returns a count of all countries.
-  /countries/states/count:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/countries/states/count':
     get:
       responses:
         '200':
@@ -251,7 +272,13 @@ paths:
       tags:
         - States
       description: Returns a count of all states.
-  /countries/states:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/countries/states':
     get:
       responses:
         '200':
@@ -260,7 +287,13 @@ paths:
       tags:
         - States
       description: Returns a list of all states.
-  /countries/{country_id}/states/count:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/countries/{country_id}/states/count':
     get:
       responses:
         '200':
@@ -275,6 +308,11 @@ paths:
         required: true
         schema:
           type: string
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
 security:
   - X-Auth-Token: []
 tags:
@@ -285,7 +323,7 @@ x-stoplight:
     includeDownloadLink: true
     showModels: false
 servers:
-  - url: https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2
+  - url: 'https://api.bigcommerce.com'
     variables:
       $$.env.store_hash:
         default: unknown
@@ -305,8 +343,7 @@ components:
                 country_iso2: AF
                 country_iso3: AFG
                 states:
-                  url: >-
-                    https://api.bigcommerce.com/stores/h10wocxy6s/v2/countries/1/states
+                  url: 'https://api.bigcommerce.com/stores/h10wocxy6s/v2/countries/1/states'
                   resource: /countries/1/states
     countriesStatesResponse:
       description: ''
@@ -323,28 +360,20 @@ components:
             items:
               $ref: '#/components/schemas/country_Full'
           example:
-                [
-                  {
-                    "id": 1,
-                    "country": "Afghanistan",
-                    "country_iso2": "AF",
-                    "country_iso3": "AFG",
-                    "states": {
-                      "url": "https:\/\/api.bigcommerce.com\/stores\/store_hash\/v2\/countries\/1\/states",
-                      "resource": "\/countries\/1\/states"
-                    }
-                  },
-                  {
-                    "id": 2,
-                    "country": "Albania",
-                    "country_iso2": "AL",
-                    "country_iso3": "ALB",
-                    "states": {
-                      "url": "https:\/\/api.bigcommerce.com\/stores\/store_hash\/v2\/countries\/2\/states",
-                      "resource": "\/countries\/2\/states"
-                    }
-                  }
-                  ]
+            - id: 1
+              country: Afghanistan
+              country_iso2: AF
+              country_iso3: AFG
+              states:
+                url: 'https://api.bigcommerce.com/stores/store_hash/v2/countries/1/states'
+                resource: /countries/1/states
+            - id: 2
+              country: Albania
+              country_iso2: AL
+              country_iso3: ALB
+              states:
+                url: 'https://api.bigcommerce.com/stores/store_hash/v2/countries/2/states'
+                resource: /countries/2/states
     countriesStatesCollectionResponse:
       description: ''
       content:
@@ -368,18 +397,7 @@ components:
       type: apiKey
       name: X-Auth-Token
       in: header
-      description: >-
-        ### OAuth Scopes |  **UI Name** | **Permission** | **Parameter** | | ---
-        | --- | --- | |  Information & Settings | modify |
-        `store_v2_information` | |  Information & Settings | read-only |
-        `store_v2_information_read_only` | ### Headers
-        |Header|Parameter|Description| |-|-|-| |`X-Auth-Token`|`access_token
-        `|Obtained by creating an API account or installing an app in a
-        BigCommerce control panel.| ### Example ```http GET
-        /stores/{$$.env.store_hash}/v3/catalog/summary host: api.bigcommerce.com
-        Content-Type: application/json X-Auth-Token: {access_token} ``` * For
-        more information on Authenticating BigCommerce APIs, see:
-        [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+      description: ''
   schemas:
     country_Full:
       title: country_Full
@@ -389,8 +407,7 @@ components:
         country_iso2: AU
         country_iso3: AUS
         states:
-          url: >-
-            https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states
+          url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states'
           resource: /countries/13/states
       allOf:
         - type: object
@@ -410,8 +427,7 @@ components:
       properties:
         url:
           description: ''
-          example: >-
-            https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/countries/13/states
+          example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/countries/13/states'
           type: string
         resource:
           description: ''

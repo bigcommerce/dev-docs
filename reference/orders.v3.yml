@@ -55,7 +55,7 @@ info:
   license:
     name: ''
 host: api.bigcommerce.com
-basePath: '/stores/{$$.env.store_hash}/v3'
+basePath: '/'
 tags:
   - name: Metafields
   - name: Payment Actions
@@ -67,7 +67,7 @@ produces:
 consumes:
   - application/json
 paths:
-  '/orders/{order_id}/payment_actions/capture':
+  '/stores/{store_hash}/v3/orders/{order_id}/payment_actions/capture':
     post:
       summary: Capture
       description: |-
@@ -102,7 +102,16 @@ paths:
           $ref: '#/responses/504_GatewayTimeout'
       tags:
         - Payment Actions
-  '/orders/{order_id}/payment_actions/void':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: order_id
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/orders/{order_id}/payment_actions/void':
     post:
       summary: Void
       description: |-
@@ -137,7 +146,16 @@ paths:
           $ref: '#/responses/504_GatewayTimeout'
       tags:
         - Payment Actions
-  '/orders/{order_id}/transactions':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: order_id
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/orders/{order_id}/transactions':
     parameters:
       - name: order_id
         in: path
@@ -145,6 +163,10 @@ paths:
           The ID of the `Order` to which the transactions belong.
         required: true
         type: integer
+      - type: string
+        name: store_hash
+        in: path
+        required: true
     get:
       tags:
         - Transactions
@@ -220,7 +242,7 @@ paths:
           in: header
           type: string
           default: application/json
-  '/orders/{order_id}/payment_actions/refund_quotes':
+  '/stores/{store_hash}/v3/orders/{order_id}/payment_actions/refund_quotes':
     post:
       summary: Create a Refund Quote
       description: |-
@@ -281,7 +303,11 @@ paths:
         in: path
         type: string
         required: true
-  '/orders/{order_id}/payment_actions/refunds':
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/orders/{order_id}/payment_actions/refunds':
     post:
       summary: Create a Refund
       description: |-
@@ -402,7 +428,11 @@ paths:
         in: path
         type: string
         required: true
-  /orders/payment_actions/refund_quotes:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/orders/payment_actions/refund_quotes':
     post:
       summary: Create Refund Quotes - BATCH
       description: |-
@@ -508,7 +538,12 @@ paths:
       tags:
         - Payment Actions
       x-private: true
-  /orders/payment_actions/refunds:
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/orders/payment_actions/refunds':
     get:
       summary: Get All Refunds
       description: |-
@@ -710,9 +745,23 @@ paths:
       tags:
         - Payment Actions
       x-private: true
-  '/orders/{order_id}/metafields':
     parameters:
-      - $ref: '#/parameters/OrderIdParam'
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/orders/{order_id}/metafields':
+    parameters:
+      - name: order_id
+        in: path
+        description: |
+          The ID of the `Order` to which the transactions belong.
+        required: true
+        type: integer
+      - type: string
+        name: store_hash
+        in: path
+        required: true
     get:
       summary: Get Metafields
       tags:
@@ -767,10 +816,24 @@ paths:
             The `Metafield` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
           schema:
             $ref: '#/definitions/ErrorResponse'
-  '/orders/{order_id}/metafields/{metafield_id}':
+  '/stores/{store_hash}/v3/orders/{order_id}/metafields/{metafield_id}':
     parameters:
-      - $ref: '#/parameters/OrderIdParam'
-      - $ref: '#/parameters/MetafieldIdParam'
+      - name: order_id
+        in: path
+        description: |
+          The ID of the `Order` to which the transactions belong.
+        required: true
+        type: integer
+      - name: metafield_id
+        in: path
+        description: |
+          The ID of the `Metafield`.
+        required: true
+        type: integer
+      - type: string
+        name: store_hash
+        in: path
+        required: true
     get:
       summary: Get a Metafield
       tags:
@@ -911,7 +974,7 @@ securityDefinitions:
       ### Example
 
       ```http
-      GET /stores/{$$.env.store_hash}/v3/catalog/summary
+      GET /stores/{store_hash}/v3/catalog/summary
       host: api.bigcommerce.com
       Content-Type: application/json
       X-Auth-Token: {access_token}
@@ -2329,7 +2392,7 @@ definitions:
           - ORDER
       item_id:
         type: integer
-        description: order_product.id corresponding to the item_types of PRODUCT, GIFT_WRAPPING. order_address.id corresponding to the item_types of SHIPPING, HANDLING. order.id corresponding to the item_type of ORDER.
+        description: 'order_product.id corresponding to the item_types of PRODUCT, GIFT_WRAPPING. order_address.id corresponding to the item_types of SHIPPING, HANDLING. order.id corresponding to the item_type of ORDER.'
       reason:
         type: string
         description: Reason for refunding an item

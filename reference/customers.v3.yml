@@ -1,6 +1,6 @@
 openapi: 3.0.0
 servers:
-  - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3'
+  - url: 'https://api.bigcommerce.com'
     variables:
       $$.env.store_hash:
         default: store_hash
@@ -38,7 +38,7 @@ info:
     Requests can be authenticated by sending an `access_token` via `X-Auth-Token` HTTP header:
 
     ```http
-    GET /stores/{$$.env.store_hash}/v3/customers
+    GET /stores/{store_hash}/v3/customers
     host: api.bigcommerce.com
     Accept: application/json
     X-Auth-Token: {access_token}
@@ -63,7 +63,7 @@ info:
     * [Customer and Subscribers Overview](/api-docs/customers/customers-subscribers-overview).
   contact: {}
 paths:
-  /customers:
+  '/stores/{store_hash}/v3/customers':
     get:
       description: |-
         Returns a list of Customers. Optional filter parameters can be passed in.
@@ -444,7 +444,13 @@ paths:
         '204':
           description: ''
           headers: {}
-  /customers/addresses:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/customers/addresses':
     get:
       description: Returns a list of Customer Addresses. Optional filter parameters can be passed in.
       summary: Get All Customer Addresses
@@ -704,7 +710,13 @@ paths:
           headers: {}
       tags:
         - Customer Addresses
-  /customers/validate-credentials:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/customers/validate-credentials':
     post:
       tags:
         - Customer Validate Credentials
@@ -784,7 +796,13 @@ paths:
                     additionalProperties:
                       type: string
                     example: {}
-  /customers/settings:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/customers/settings':
     get:
       tags:
         - Customer Settings
@@ -845,7 +863,13 @@ paths:
                     customer_group_settings:
                       guest_customer_group_id: 0
                       default_customer_group_id: 0
-  '/customers/settings/channels/{channel_id}':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/customers/settings/channels/{channel_id}':
     get:
       tags:
         - Customer Settings Channel
@@ -934,7 +958,18 @@ paths:
                       guest_customer_group_id: 0
                       default_customer_group_id: 0
                     allow_global_logins: true
-  /customers/attributes:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: channel_id
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/customers/attributes':
     get:
       description: Returns a list of Customer Attributes. You can pass in optional filter parameters.
       summary: Get All Customer Attributes
@@ -1202,7 +1237,13 @@ paths:
           headers: {}
       tags:
         - Customer Attributes
-  /customers/attribute-values:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/customers/attribute-values':
     get:
       description: Returns a list of Customer Attribute Values. Optional filter parameters can be passed in.
       summary: Get All Customer Attribute Values
@@ -1414,7 +1455,13 @@ paths:
           headers: {}
       tags:
         - Customer Attribute Values
-  /customers/form-field-values:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/customers/form-field-values':
     get:
       responses:
         '200':
@@ -1568,7 +1615,13 @@ paths:
                   - customer_id: 12
                     name: What is your favorite pizza topping?
                     value: Mushrooms
-  '/customers/{customerId}/consent':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/customers/{customerId}/consent':
     get:
       description: Gets the status of a customer's consent to allow data collection by cookies and scripts while shopping on a storefront.
       summary: Get Customer Consent
@@ -1646,7 +1699,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-  '/customers/{customerId}/stored-instruments':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: customerId
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/customers/{customerId}/stored-instruments':
     get:
       summary: Get Stored Instruments (Beta)
       tags:
@@ -1727,6 +1791,17 @@ paths:
               example:
                 code: 403
                 message: Missing scope
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: customerId
+        in: path
+        required: true
 components:
   parameters:
     customerId:
@@ -2526,7 +2601,7 @@ components:
         ### Example
 
         ```http
-        GET /stores/{$$.env.store_hash}/v3/catalog/summary
+        GET /stores/{store_hash}/v3/catalog/summary
         host: api.bigcommerce.com
         Content-Type: application/json
         X-Auth-Token: {access_token}
@@ -2753,7 +2828,9 @@ components:
           description: Array of channels the customer can access
           type: array
           items:
-            example: [1,2]
+            example:
+              - 1
+              - 2
       required:
         - email
         - first_name
@@ -3431,7 +3508,9 @@ components:
       title: customerChannelIds
       description: Array of channel ids the Customer has access to.
       items:
-        example: [1,2]
+        example:
+          - 1
+          - 2
     CardInstrument:
       type: object
       properties:

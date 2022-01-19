@@ -63,7 +63,7 @@ info:
     }
     ```
 paths:
-  '/orders/{order_id}':
+  '/stores/{store_hash}/v2/orders/{order_id}':
     get:
       description: 'Gets an *Order*. To learn more about creating or updating orders, see [Orders Overview](/api-docs/orders/orders-api-overview).'
       summary: Get an Order
@@ -204,8 +204,18 @@ paths:
           description: ''
       operationId: deleteAnOrder
     parameters:
-      - $ref: '#/components/parameters/order_id_path'
-  /orders/count:
+      - in: path
+        name: order_id
+        description: ID of the order
+        required: true
+        schema:
+          type: integer
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/orders/count':
     get:
       description: Gets an array of orders in the store organized by order status.
       summary: Get a Count of Orders
@@ -218,7 +228,13 @@ paths:
         '200':
           $ref: '#/components/responses/ordersCount_Resp'
       operationId: getCountOrder
-  /orders:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/orders':
     get:
       description: |-
         Gets a list of orders using the filter query.
@@ -416,7 +432,13 @@ paths:
         '204':
           description: ''
       operationId: deleteAllOrders
-  '/orders/{order_id}/coupons':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/orders/{order_id}/coupons':
     get:
       description: |-
         Lists all order coupons. Optional parameters can be passed in.
@@ -454,7 +476,18 @@ paths:
       tags:
         - Order Coupons
       operationId: getAllOrderCoupons
-  '/orders/{order_id}/products':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: order_id
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/orders/{order_id}/products':
     get:
       description: 'Lists all order products on an order using `order_id`. By default, items sort from lowest to highest according to a newly created ID, separate from the `order_id` and the `product_id`.'
       summary: List Order Products
@@ -470,7 +503,18 @@ paths:
       tags:
         - Order Products
       operationId: getAllOrderProducts
-  '/orders/{order_id}/shipping_addresses':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: order_id
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/orders/{order_id}/shipping_addresses':
     get:
       description: |-
         Get all shipping addresses on an order using the `order_id`.
@@ -489,8 +533,18 @@ paths:
         - Order Shipping Addresses
       operationId: getAllShippingAddresses
     parameters:
-      - $ref: '#/components/parameters/order_id_path'
-  /order_statuses:
+      - in: path
+        name: order_id
+        description: ID of the order
+        required: true
+        schema:
+          type: integer
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/order_statuses':
     get:
       description: |-
         Returns a Collection of All Order Statuses.
@@ -523,7 +577,13 @@ paths:
       tags:
         - Order Status
       operationId: getOrderStatus
-  '/order_statuses/{status_id}':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/order_statuses/{status_id}':
     get:
       description: |-
         Returns a single order status.
@@ -557,8 +617,18 @@ paths:
       tags:
         - Order Status
       operationId: getAOrderStatus
-    parameters: []
-  '/orders/{order_id}/taxes':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: status_id
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/orders/{order_id}/taxes':
     get:
       description: |-
         Gets all order taxes using `order_id`.
@@ -586,8 +656,18 @@ paths:
         - Order Taxes
       operationId: getOrderTaxes
     parameters:
-      - $ref: '#/components/parameters/order_id_path'
-  '/orders/{order_id}/shipments':
+      - in: path
+        name: order_id
+        description: ID of the order
+        required: true
+        schema:
+          type: integer
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/orders/{order_id}/shipments':
     get:
       description: Gets a list of all shipments on an order.
       summary: Get Order Shipments
@@ -660,8 +740,18 @@ paths:
         - Order Shipments
       operationId: deleteAllOrderShipments
     parameters:
-      - $ref: '#/components/parameters/order_id_path'
-  '/orders/{order_id}/shipments/count':
+      - in: path
+        name: order_id
+        description: ID of the order
+        required: true
+        schema:
+          type: integer
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/orders/{order_id}/shipments/count':
     get:
       description: Gets a count of the number of shipments that have been made for a single order.
       summary: Get Count of Order Shipments
@@ -675,8 +765,18 @@ paths:
         - Order Shipments
       operationId: getCountShipments
     parameters:
-      - $ref: '#/components/parameters/order_id_path'
-  '/orders/{order_id}/shipments/{shipment_id}':
+      - in: path
+        name: order_id
+        description: ID of the order
+        required: true
+        schema:
+          type: integer
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/orders/{order_id}/shipments/{shipment_id}':
     get:
       tags:
         - Order Shipments
@@ -729,9 +829,24 @@ paths:
         - Order Shipments
       operationId: deleteOrderShipment
     parameters:
-      - $ref: '#/components/parameters/order_id_path'
-      - $ref: '#/components/parameters/shipment_id'
-  '/orders/{order_id}/messages':
+      - in: path
+        name: order_id
+        description: ID of the order
+        required: true
+        schema:
+          type: integer
+      - name: shipment_id
+        in: path
+        required: true
+        description: Shipment ID
+        schema:
+          type: integer
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/orders/{order_id}/messages':
     get:
       responses:
         '200':
@@ -754,8 +869,18 @@ paths:
         - $ref: '#/components/parameters/limit'
       operationId: getOrderMessages
     parameters:
-      - $ref: '#/components/parameters/order_id_path'
-  '/orders/{order_id}/products/{product_id}':
+      - in: path
+        name: order_id
+        description: ID of the order
+        required: true
+        schema:
+          type: integer
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/orders/{order_id}/products/{product_id}':
     get:
       responses:
         '200':
@@ -769,9 +894,24 @@ paths:
         - $ref: '#/components/parameters/Content-Type'
       operationId: getAnOrderProduct
     parameters:
-      - $ref: '#/components/parameters/order_id_path'
-      - $ref: '#/components/parameters/product_id'
-  '/orders/{order_id}/shipping_addresses/{id}':
+      - in: path
+        name: order_id
+        description: ID of the order
+        required: true
+        schema:
+          type: integer
+      - name: product_id
+        in: path
+        required: true
+        description: ID of the product
+        schema:
+          type: integer
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/orders/{order_id}/shipping_addresses/{id}':
     get:
       responses:
         '200':
@@ -798,12 +938,22 @@ paths:
             default: application/json
       operationId: getAShippingAddress
     parameters:
-      - $ref: '#/components/parameters/order_id_path'
+      - in: path
+        name: order_id
+        description: ID of the order
+        required: true
+        schema:
+          type: integer
       - name: id
         in: path
         required: true
         schema:
           type: string
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
     put:
       summary: Update a Shipping Address
       operationId: updateAShippingAddress
@@ -925,7 +1075,7 @@ paths:
         **Note**: Updating will NOT trigger the recalculation of shipping cost and tax
       tags:
         - Order Shipping Addresses
-  '/orders/{order_id}/shipping_addresses/{shipping_address_id}/shipping_quotes':
+  '/stores/{store_hash}/v2/orders/{order_id}/shipping_addresses/{shipping_address_id}/shipping_quotes':
     get:
       responses:
         '200':
@@ -942,8 +1092,23 @@ paths:
         - Order Shipping Addresses Quotes
       operationId: getShippingQuotes
     parameters:
-      - $ref: '#/components/parameters/order_id_path'
-      - $ref: '#/components/parameters/shipping_address_id'
+      - in: path
+        name: order_id
+        description: ID of the order
+        required: true
+        schema:
+          type: integer
+      - name: shipping_address_id
+        in: path
+        required: true
+        description: Shipping address ID
+        schema:
+          type: integer
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
 tags:
   - name: Orders
   - name: Order Coupons
@@ -962,7 +1127,7 @@ x-stoplight:
     includeDownloadLink: true
     showModels: false
 servers:
-  - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2'
+  - url: 'https://api.bigcommerce.com'
     variables:
       $$.env.store_hash:
         default: unknown
@@ -1378,13 +1543,13 @@ components:
                   channel_id: 1
                   external_source: POS
                   products:
-                    url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/100/products'
+                    url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/100/products'
                     resource: /orders/100/products
                   shipping_addresses:
-                    url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/100/shippingaddresses'
+                    url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/100/shippingaddresses'
                     resource: /orders/100/shippingaddresses
                   coupons:
-                    url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/100/coupons'
+                    url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/100/coupons'
                     resource: /orders/100/coupons
                   external_id: null
                   external_merchant_id: {}
@@ -1594,13 +1759,13 @@ components:
                 channel_id: 1
                 external_source: null
                 products:
-                  url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/218/products'
+                  url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/218/products'
                   resource: /orders/218/products
                 shipping_addresses:
-                  url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/218/shippingaddresses'
+                  url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/218/shippingaddresses'
                   resource: /orders/218/shippingaddresses
                 coupons:
-                  url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/218/coupons'
+                  url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/218/coupons'
                   resource: /orders/218/coupons
                 external_id: null
                 external_merchant_id: null
@@ -1685,13 +1850,13 @@ components:
                 channel_id: 1
                 external_source: {}
                 products:
-                  url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/247/products'
+                  url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/247/products'
                   resource: /orders/247/products
                 shipping_addresses:
-                  url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/247/shippingaddresses'
+                  url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/247/shippingaddresses'
                   resource: /orders/247/shippingaddresses
                 coupons:
-                  url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/247/coupons'
+                  url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/247/coupons'
                   resource: /orders/247/coupons
                 external_id: {}
                 external_merchant_id: {}
@@ -2338,7 +2503,7 @@ components:
                   shipping_zone_id: 1
                   shipping_zone_name: United States -1
                   shipping_quotes:
-                    url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/229/shippingaddresses/132/shippingquotes'
+                    url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/229/shippingaddresses/132/shippingquotes'
                     resource: /orders/229/shippingaddresses/132/shippingquotes
                   form_fields: []
                 - id: 133
@@ -2371,7 +2536,7 @@ components:
                   shipping_zone_id: 1
                   shipping_zone_name: United States -1
                   shipping_quotes:
-                    url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/229/shippingaddresses/133/shippingquotes'
+                    url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/229/shippingaddresses/133/shippingquotes'
                     resource: /orders/229/shippingaddresses/133/shippingquotes
                   form_fields: []
     orderShippingAddress_Resp:
@@ -2413,7 +2578,7 @@ components:
                 shipping_zone_id: 1
                 shipping_zone_name: United States
                 shipping_quotes:
-                  url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/140/shippingaddresses/42/shippingquotes'
+                  url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/140/shippingaddresses/42/shippingquotes'
                   resource: /orders/140/shippingaddresses/42/shippingquotes
                 form_fields:
                   - name: Wholesale ID
@@ -2576,13 +2741,13 @@ components:
               order_source: www
               external_source: null
               products:
-                url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/113/products'
+                url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/113/products'
                 resource: /orders/113/products
               shipping_addresses:
-                url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/113/shippingaddresses'
+                url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/113/shippingaddresses'
                 resource: /orders/113/shippingaddresses
               coupons:
-                url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/113/coupons'
+                url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/113/coupons'
                 resource: /orders/113/coupons
               external_id: null
               external_merchant_id: null
@@ -3505,7 +3670,7 @@ components:
         url:
           description: ''
           readOnly: true
-          example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/products'
+          example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/products'
           type: string
         resource:
           description: ''
@@ -3520,7 +3685,7 @@ components:
         url:
           description: URL of the shipping address for api requests
           readOnly: true
-          example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/shippingaddresses'
+          example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/shippingaddresses'
           type: string
         resource:
           description: ''
@@ -3535,7 +3700,7 @@ components:
         url:
           description: URL of the coupons for api requests
           readOnly: true
-          example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/coupons'
+          example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/coupons'
           type: string
         resource:
           description: resource of the coupons
@@ -3701,7 +3866,7 @@ components:
           description: |-
             This URL will return a 204 for shipping quotes. To return shipping quotes:
             `/shipping_addresses/shipping_address_id/shipping_quotes`
-          example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/163/shippingaddresses/64/shippingquotes'
+          example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/163/shippingaddresses/64/shippingquotes'
         resource:
           type: string
           readOnly: true

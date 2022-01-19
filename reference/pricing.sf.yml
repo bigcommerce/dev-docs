@@ -1,5 +1,5 @@
 swagger: '2.0'
-basePath: '/stores/{$$.env.store_hash}/v3'
+basePath: '/stores/{store_hash}/v3'
 info:
   title: Pricing
   description: |-
@@ -148,7 +148,7 @@ paths:
                           type: number
                     minimum_advertised_price:
                       type: object
-                      description: 'The minimum advertised price (MAP) allowed to be shown on a storefront. A value supplied by the merchant and used for display purposes.'
+                      description: The minimum advertised price (MAP) allowed to be shown on a storefront. A value supplied by the merchant and used for display purposes.
                       properties:
                         as_entered:
                           description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
@@ -181,7 +181,6 @@ paths:
                     calculated_price:
                       type: object
                       description: 'The shopper price for a product including modifier, option, and option set rules.  Calculated_price may include or exclude estimates for tax.'
-
                       properties:
                         as_entered:
                           description: The price provided by the merchant as entered in their catalog/price list (may be inc or ex)
@@ -234,7 +233,6 @@ paths:
                     retail_price_range:
                       type: object
                       description: The product's variants that will typically apply to this product.
-
                       properties:
                         minimum:
                           type: object

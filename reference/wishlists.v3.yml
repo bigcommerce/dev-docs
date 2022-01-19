@@ -30,7 +30,7 @@ info:
     ## Additional Information
     * [Wishlists](https://support.bigcommerce.com/s/article/Wishlists)
 host: api.bigcommerce.com
-basePath: '/stores/{$$.env.store_hash}/v3'
+basePath: '/'
 schemes:
   - https
 consumes:
@@ -38,7 +38,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /wishlists:
+  '/stores/{store_hash}/v3/wishlists':
     post:
       description: |-
         Creates a wishlist and wishlist item. More than one item can be added in the POST.
@@ -169,7 +169,12 @@ paths:
                 type: string
               type:
                 type: string
-  '/wishlists/{wishlist_id}/items/{item_id}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/wishlists/{wishlist_id}/items/{item_id}':
     delete:
       description: Deletes a wishlist item.
       summary: Delete Wishlist Item
@@ -237,7 +242,11 @@ paths:
         in: path
         type: string
         required: true
-  '/wishlists/{wishlist_id}':
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/wishlists/{wishlist_id}':
     get:
       description: Returns a single wishlist.
       summary: Get a Wishlist
@@ -415,11 +424,19 @@ paths:
         in: path
         type: string
         required: true
-  '/wishlists/{wishlist_id}/items':
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/wishlists/{wishlist_id}/items':
     parameters:
       - name: wishlist_id
         in: path
         type: string
+        required: true
+      - type: string
+        name: store_hash
+        in: path
         required: true
     post:
       responses:

@@ -16,6 +16,8 @@ info:
 
     Authenticate requests by sending an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` via `X-Auth-Token` HTTP header.
 
+    ### Example
+
     ```http
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites
     Content-Type: application/json
@@ -147,9 +149,9 @@ info:
     * [Building Headless Storefronts Guide](https://developer.bigcommerce.com/api-docs/storefronts/developers-guide-headless)
   contact: {}
 host: api.bigcommerce.com
-basePath: '/stores/{$$.env.store_hash}/v3'
+basePath: '/'
 paths:
-  /sites:
+  '/stores/{store_hash}/v3/sites':
     post:
       summary: Create a Site
       operationId: post-site
@@ -208,7 +210,12 @@ paths:
           name: limit
           type: integer
           description: Controls the number of items per page in a limited (paginated) list of items.
-  '/sites/{site_id}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/sites/{site_id}':
     get:
       summary: Get a Site
       operationId: get-site
@@ -285,11 +292,24 @@ paths:
         - [Request Parameters](#request-parameters)
         - [Responses](#responses)
         - [Send a Test Request](#send-a-test-request)
-  '/sites/{site_id}/routes':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: site_id
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/sites/{site_id}/routes':
     parameters:
       - name: site_id
         in: path
         type: integer
+        required: true
+      - type: string
+        name: store_hash
+        in: path
         required: true
     get:
       summary: Get a Site's Routes
@@ -466,7 +486,7 @@ paths:
           required: true
       tags:
         - Site Routes
-  '/sites/{site_id}/routes/{route_id}':
+  '/stores/{store_hash}/v2/sites/{site_id}/routes/{route_id}':
     get:
       summary: Get a Site Route
       operationId: get-site-route
@@ -566,6 +586,19 @@ paths:
         - [Request Parameters](#request-parameters)
         - [Responses](#responses)
         - [Send a Test Request](#send-a-test-request)
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: site_id
+        in: path
+        required: true
+      - type: string
+        name: route_id
+        in: path
+        required: true
 definitions:
   _metaCollection:
     title: metaCollection

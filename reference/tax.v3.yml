@@ -4,7 +4,7 @@ info:
   version: '3'
   description: 'Manage the connection between a merchant''s BigCommerce store and a third party tax provider. For more information, see [Tax Provider API Overview](https://developer.bigcommerce.com/api-docs/providers/tax).'
 paths:
-  '/tax/providers/{provider_id}/connection':
+  '/stores/{store_hash}/v3/tax/providers/{provider_id}/connection':
     get:
       summary: Get Connection Status
       description: |
@@ -143,12 +143,17 @@ paths:
         schema:
           type: string
         description: 'The Tax Provider''s `provider_id` provided by BigCommerce after the provider [shares their provider details](https://developer.bigcommerce.com/api-docs/providers/tax#sharing-provider-details-with-bigcommerce). '
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
 security:
   - X-Auth-Token: []
 tags:
   - name: Tax Provider Connection
 servers:
-  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+  - url: 'https://api.bigcommerce.com'
     variables:
       store_hash:
         default: unknown

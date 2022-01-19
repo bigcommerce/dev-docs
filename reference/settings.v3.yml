@@ -37,7 +37,7 @@ tags:
   - name: Storefront SEO
   - name: Storefront Status
 paths:
-  /settings/storefront/status:
+  '/stores/{store_hash}/v3/settings/storefront/status':
     get:
       summary: Get Status
       responses:
@@ -108,7 +108,13 @@ paths:
       tags:
         - Storefront Status
       description: Update storefront status.
-  /settings/storefront/seo:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/settings/storefront/seo':
     get:
       summary: Get SEO Settings
       responses:
@@ -195,7 +201,13 @@ paths:
         - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
         - $ref: '#/components/parameters/KeysToDelete'
       description: Delete storefront SEO settings.
-  /settings/storefront/robotstxt:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/settings/storefront/robotstxt':
     get:
       summary: Get Robots.txt Settings
       responses:
@@ -263,7 +275,13 @@ paths:
         - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
         - $ref: '#/components/parameters/KeysToDelete'
       description: Delete storefront robots.txt.
-  /settings/storefront/search:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/settings/storefront/search':
     get:
       summary: Get Search Settings
       responses:
@@ -351,7 +369,13 @@ paths:
         - $ref: '#/components/parameters/RequiredChannelIdParamForDelete'
         - $ref: '#/components/parameters/KeysToDelete'
       description: Delete storefront search settings.
-  /settings/search/filters:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/settings/search/filters':
     get:
       summary: Get Enabled Filters
       responses:
@@ -505,7 +529,13 @@ paths:
                     type: other
       tags:
         - Search Filters
-  /settings/search/filters/available:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/settings/search/filters/available':
     get:
       summary: Get Available Filters
       responses:
@@ -570,7 +600,13 @@ paths:
           description: Narrows the list of available filters based on category ID. Only products within the provided Category will be considered.
       tags:
         - Search Filters
-  /settings/search/filters/contexts:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/settings/search/filters/contexts':
     get:
       summary: Get Contextual Filters
       responses:
@@ -664,7 +700,13 @@ paths:
           description: Delete contextual overrides related to this category ID
       tags:
         - Search Filters
-  /settings/email-statuses:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/settings/email-statuses':
     get:
       summary: Get Email Statuses
       description: Get global transactional email settings or channel specific overrides by `channel_id`.
@@ -810,7 +852,13 @@ paths:
                 value:
                   invoice_email: null
                   product_review_email: null
-  /settings/store/locale:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/settings/store/locale':
     get:
       summary: Get Locale Settings
       description: Returns global locale settings.
@@ -884,6 +932,12 @@ paths:
       tags:
         - Store Locale
       description: Updates global locale settings.
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
 components:
   schemas:
     AnalyticsProvider:
@@ -1455,7 +1509,7 @@ components:
       required: true
       description: Array of strings (CSV) representing which configuration keys should be cleared (un-overridden) for the Channel.
 servers:
-  - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3'
+  - url: 'https://api.bigcommerce.com'
     description: Production API Gateway
     variables:
       store_hash:

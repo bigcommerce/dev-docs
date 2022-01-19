@@ -110,7 +110,7 @@ tags:
   - name: Channel Listings
   - name: Channel Site
 paths:
-  /channels:
+  '/stores/{store_hash}/v3/channels':
     get:
       tags:
         - Channels
@@ -159,9 +159,26 @@ paths:
           $ref: '#/components/responses/single_channel_without_currencies_resp'
         '422':
           $ref: '#/components/responses/missing_or_invalid_channel_data_resp'
-  '/channels/{channel_id}':
     parameters:
-      - $ref: '#/components/parameters/channel_id_path_param'
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/channels/{channel_id}':
+    parameters:
+      - name: channel_id
+        description: The ID of a channel
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
     get:
       tags:
         - Channels
@@ -217,7 +234,7 @@ paths:
           $ref: '#/components/responses/duplicate_channel_resp'
         '422':
           $ref: '#/components/responses/invalid_channel_update_field_resp'
-  '/channels/{channel_id}/active-theme':
+  '/stores/{store_hash}/v3/channels/{channel_id}/active-theme':
     get:
       tags:
         - Channel Active Theme
@@ -233,7 +250,18 @@ paths:
           $ref: '#/components/responses/channel_active_theme_resp'
         '404':
           $ref: '#/components/responses/active_theme_not_found_resp'
-  /channels/currency-assignments:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: channel_id
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/channels/currency-assignments':
     get:
       tags:
         - Channel Currency Assignments
@@ -283,9 +311,26 @@ paths:
           $ref: '#/components/responses/multiple_channels_currency_assignments_resp'
         '422':
           $ref: '#/components/responses/missing_or_invalid_multiple_channels_currency_assignments_data_resp'
-  '/channels/{channel_id}/currency-assignments':
     parameters:
-      - $ref: '#/components/parameters/channel_id_path_param'
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/channels/{channel_id}/currency-assignments':
+    parameters:
+      - name: channel_id
+        description: The ID of a channel
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
     get:
       tags:
         - Channel Currency Assignments
@@ -348,9 +393,20 @@ paths:
           $ref: '#/components/responses/delete_currency_assignments_resp'
         '404':
           $ref: '#/components/responses/channel_not_found_resp'
-  '/channels/{channel_id}/listings':
+  '/stores/{store_hash}/v3/channels/{channel_id}/listings':
     parameters:
-      - $ref: '#/components/parameters/channel_id_path_param'
+      - name: channel_id
+        description: The ID of a channel
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
     get:
       tags:
         - Channel Listings
@@ -427,10 +483,27 @@ paths:
           $ref: '#/components/responses/single_and_multiple_listings_resp'
         '422':
           $ref: '#/components/responses/missing_or_invalid_multiple_listings_data_for_put_resp'
-  '/channels/{channel_id}/listings/{listing_id}':
+  '/stores/{store_hash}/v3/channels/{channel_id}/listings/{listing_id}':
     parameters:
-      - $ref: '#/components/parameters/channel_id_path_param'
-      - $ref: '#/components/parameters/listing_id_path_param'
+      - name: channel_id
+        description: The ID of a channel
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: listing_id
+        description: The ID of a channel listing.
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
     get:
       tags:
         - Channel Listings
@@ -442,7 +515,7 @@ paths:
           $ref: '#/components/responses/single_listing_resp'
         '404':
           $ref: '#/components/responses/listing_not_found_resp'
-  '/channels/{channel_id}/site':
+  '/stores/{store_hash}/v3/channels/{channel_id}/site':
     get:
       summary: Get a Channel Site
       description: |
@@ -484,6 +557,11 @@ paths:
         required: true
         schema:
           type: string
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
     post:
       responses:
         '200':
@@ -522,7 +600,7 @@ x-stoplight:
     includeDownloadLink: true
     showModels: false
 servers:
-  - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3'
+  - url: 'https://api.bigcommerce.com'
     variables:
       $$.env.store_hash:
         default: store_hash
@@ -1552,7 +1630,7 @@ components:
         ### Example
 
         ```http
-        GET /stores/{$$.env.store_hash}/v3/catalog/summary
+        GET /stores/{store_hash}/v3/catalog/summary
         host: api.bigcommerce.com
         Content-Type: application/json
         X-Auth-Token: {access_token}

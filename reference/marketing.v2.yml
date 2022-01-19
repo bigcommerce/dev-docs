@@ -35,7 +35,7 @@ info:
     ### Gift Certificates
     Gift certificates available to offer to a store’s customers.
 host: api.bigcommerce.com
-basePath: '/stores/{$$.env.store_hash}/v2'
+basePath: '/'
 schemes:
   - https
 consumes:
@@ -43,7 +43,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /coupons:
+  '/stores/{store_hash}/v2/coupons':
     get:
       description: |-
         Returns a list of *Coupons*. Default sorting is by coupon/discount id, from lowest to highest. Optional filter parameters can be passed in.
@@ -246,7 +246,12 @@ paths:
       tags:
         - Coupons
       operationId: deleteAllCoupons
-  /coupons/count:
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/coupons/count':
     get:
       description: Returns a count of all *Coupons* in the store.
       summary: Get a Count of Coupons
@@ -269,7 +274,12 @@ paths:
       tags:
         - Coupons
       operationId: getACountOfCoupons
-  '/coupons/{id}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/coupons/{id}':
     put:
       description: |-
         Updates a *Coupon*.
@@ -368,7 +378,11 @@ paths:
         in: path
         type: string
         required: true
-  /banners:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/banners':
     get:
       description: 'Returns a list of *Banners*. Default sorting is by banner id, from lowest to highest.'
       summary: Get All Banners
@@ -491,7 +505,12 @@ paths:
       tags:
         - Banners
       operationId: deleteAllBanners
-  '/banners/{id}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/banners/{id}':
     get:
       description: Returns a single *Banner*
       summary: Get a Banner
@@ -596,7 +615,11 @@ paths:
         in: path
         type: string
         required: true
-  /banners/count:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/banners/count':
     get:
       description: Returns a count of *Banners*.
       summary: Get a Count of Store Banners
@@ -619,7 +642,12 @@ paths:
       tags:
         - Banners
       operationId: getACountOfBanners
-  '/gift_certificates/{id}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/gift_certificates/{id}':
     get:
       description: Returns a single *Gift Certificate*.
       summary: Get a Gift Certificate
@@ -683,6 +711,10 @@ paths:
         in: path
         type: string
         required: true
+      - type: string
+        name: store_hash
+        in: path
+        required: true
     put:
       responses:
         '200':
@@ -715,7 +747,7 @@ paths:
       tags:
         - Gift Certificates
       operationId: updateAGiftCertificate
-  /gift_certificates:
+  '/stores/{store_hash}/v2/gift_certificates':
     get:
       responses:
         '200':
@@ -844,6 +876,11 @@ paths:
         - Gift Certificates
       description: 'By default, it deletes all *Gift Certificates*.'
       operationId: deleteAllGiftCertificates
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
 definitions:
   CouponsResource:
     title: Coupon Resource
@@ -851,7 +888,7 @@ definitions:
     properties:
       url:
         description: URL of the coupons for api requests
-        example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/129/coupons'
+        example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/coupons'
         type: string
       resource:
         description: resource of the coupons
@@ -1300,7 +1337,7 @@ securityDefinitions:
       ### Example
 
       ```http
-      GET /stores/{$$.env.store_hash}/v3/catalog/summary
+      GET /stores/{store_hash}/v3/catalog/summary
       host: api.bigcommerce.com
       Content-Type: application/json
       X-Auth-Token: {access_token}

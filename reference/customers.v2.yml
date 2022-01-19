@@ -62,7 +62,7 @@ info:
     ### Webhooks
     - [Customers](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_customer)
 host: api.bigcommerce.com
-basePath: '/stores/{$$.env.store_hash}/v2'
+basePath: '/'
 schemes:
   - https
 consumes:
@@ -70,7 +70,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /customers:
+  '/stores/{store_hash}/v2/customers':
     get:
       description: 'Returns a list of all *Customers*. Default sorting is by customer id, from lowest to highest. Optional parameters can be passed in.'
       summary: Get All Customers
@@ -566,7 +566,12 @@ paths:
         IsMultiContentStreaming: false
       operationId: deleteAllCustomers
       deprecated: true
-  '/customers/{customer_id}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/customers/{customer_id}':
     get:
       description: Returns a single *Customer*.
       summary: Get a Customer
@@ -695,6 +700,10 @@ paths:
         type: integer
         required: true
         description: Id of the customer
+      - type: string
+        name: store_hash
+        in: path
+        required: true
     put:
       responses:
         '200':
@@ -933,6 +942,15 @@ paths:
 
 
 
+
+
+
+
+
+
+
+
+
                  {
                       "_authentication": {
                          "password": "12w69Y217PYR96J",
@@ -997,7 +1015,7 @@ paths:
         ```
       operationId: updateACustomer
       deprecated: true
-  /customers/count:
+  '/stores/{store_hash}/v2/customers/count':
     get:
       description: 'Returns a count of all *Customers*. '
       summary: Get a Count of Customers
@@ -1055,7 +1073,12 @@ paths:
         IsMultiContentStreaming: false
       operationId: getACountOfCustomers
       deprecated: true
-  '/customers/{customer_id}/validate':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/customers/{customer_id}/validate':
     post:
       description: |-
         **This endpoint has special rate limiting protections to protect against abuse.**
@@ -1126,7 +1149,11 @@ paths:
         type: integer
         required: true
         description: Id of the customer
-  '/customers/{customer_id}/addresses':
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/customers/{customer_id}/addresses':
     get:
       description: |-
         Returns a list of *Customer Addresses*. Returns the addresses belonging to a customer. Default sorting is by address id, from lowest to highest. 
@@ -1451,7 +1478,11 @@ paths:
         type: integer
         required: true
         description: Id of the customer
-  '/customers/{customer_id}/addresses/{customer_address_id}':
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/customers/{customer_id}/addresses/{customer_address_id}':
     get:
       description: Returns a *Customer Address*.
       summary: Get a Customer Address
@@ -1757,7 +1788,11 @@ paths:
         type: integer
         description: Id of the customer address.
         required: true
-  '/customers/{customer_id}/addresses/count':
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/customers/{customer_id}/addresses/count':
     get:
       description: Returns a count of addresses for a customer.
       summary: Get a Count of Customer Addresses
@@ -1813,7 +1848,11 @@ paths:
         type: integer
         required: true
         description: Id of the customer
-  /customer_groups:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/customer_groups':
     get:
       description: 'Returns a list of *Customer Groups*. Default sorting is by customer-group id, from lowest to highest.'
       summary: Get All Customer Groups
@@ -2046,7 +2085,12 @@ paths:
       tags:
         - Customer Groups
       operationId: deleteAllCustomerGroups
-  '/customer_groups/{customer_group_id}':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v2/customer_groups/{customer_group_id}':
     get:
       description: Returns a *Customer Group*.
       summary: Get a Customer Group
@@ -2157,6 +2201,10 @@ paths:
         type: integer
         required: true
         description: Id of the customer group
+      - type: string
+        name: store_hash
+        in: path
+        required: true
     put:
       responses:
         '200':
@@ -2268,7 +2316,7 @@ paths:
       tags:
         - Customer Groups
       operationId: updateACustomerGroup
-  /customer_groups/count:
+  '/stores/{store_hash}/v2/customer_groups/count':
     get:
       description: 'Returns a count of all *Customer Groups*. '
       summary: Get a Count of Customer Groups
@@ -2302,6 +2350,11 @@ paths:
       tags:
         - Customer Groups
       operationId: getACountOfCustomerGroups
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
 definitions:
   billingAddress_Full:
     title: billingAddress_Full

@@ -4,7 +4,6 @@ info:
   title: Shipping V3
   description: V3 REST API shipping endpoints.
 host: api.bigcommerce.com
-basePath: '/stores/{$$.env.store_hash}/v3'
 schemes:
   - https
 consumes:
@@ -12,7 +11,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /shipping/products/customs-information:
+  '/stores/{store_hash}/v3/shipping/products/customs-information':
     get:
       responses:
         '200':
@@ -127,6 +126,11 @@ paths:
                   CA: '508313'
                   AU: '817355'
                   ALL: '501000'
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
 definitions:
   shippingMethod_Full:
     title: shippingMethod_Full
