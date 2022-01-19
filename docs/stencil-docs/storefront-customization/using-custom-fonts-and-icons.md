@@ -1,15 +1,5 @@
 # Custom Fonts and Icons
 
-<div class="otp">
-
-### On this page
-- [Applying custom fonts](#applying-custom-fonts)
-- [Sass stylesheet support for theme fonts](#sass-stylesheet-support-for-theme-fonts)
-- [Applying custom icons](#applying-custom-icons)
-- [Resources](#resources)
-
-</div>
-
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">

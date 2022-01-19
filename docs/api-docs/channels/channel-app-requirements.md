@@ -2,17 +2,6 @@
 
 <!-- Dev Center URL: https://developer.bigcommerce.com/api-docs/channels/guide/channel-app-requirements -->
 
-<div class="otp" id="no-in">
-
-## On this page
-
- - [General requirements](#general-requirements)
- - [Storefronts](#storefronts)
- - [Marketplaces and marketing](#marketplaces-and-marketing)
- - [Related resources](#related-resources)
-
-</div>
-
 Once approved, channel apps are discoverable on BigCommerce's App Marketplace. Additionally, apps developed by [select partners](https://www.bigcommerce.com/partners/) are marketed in the Channel Manager within the Control Panel of every store. To be approved, channel apps must meet certain requirements. This article lists the requirements for publishing channel apps to both locations.
 
 ## General requirements
