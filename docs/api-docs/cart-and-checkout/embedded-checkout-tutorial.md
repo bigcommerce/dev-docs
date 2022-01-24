@@ -258,7 +258,7 @@ Read more about the [JSON object](https://github.com/bigcommerce/checkout-sdk-js
 You can use ngrok to test Embedded Checkout locally. 
 Steps:
 1. Run your app on localhost.
-2. Create a ngrok tunnel for the localhost port to your app.
+2. Create a [ngrok](https://ngrok.com/docs#getting-started-expose) tunnel for the localhost port to your app.
 3. Set your Channel Site URL to the HTTPS URL of the ngrok tunnel.
 4. View your app from the ngrok URL.
 
