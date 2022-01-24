@@ -124,7 +124,7 @@ To make sure revisions to your theme are backward-compatible, we recommend manag
 
 ## Persistent settings storage
 
-When store administrators use Theme Styles to customize your store's theme, they save the store's resulting configuration settings to a separate configuration service at BigCommerce.
+When store administrators use Theme Styles to customize your store's theme, they save the store's resulting configuration settings to a separate configuration service at BigCommerce. However, if you download your current theme from the dropdown in the control panel, the theme styles settings will appear in config.json.
 
 ## Theme upgrades and settings
 
