@@ -55,7 +55,7 @@ info:
   license:
     name: ''
 host: api.bigcommerce.com
-basePath: '/'
+basePath: /
 tags:
   - name: Metafields
   - name: Payment Actions
@@ -768,6 +768,8 @@ paths:
         - Metafields
       description: |
         Gets a `Metafield` object list, by `order_id`.
+
+        The maxiumum number of metafields is 50 per order.
       operationId: getOrderMetafieldsByOrderId
       parameters:
         - $ref: '#/parameters/PageParam'
@@ -790,7 +792,10 @@ paths:
       summary: Create Metafields
       tags:
         - Metafields
-      description: Creates an order `Metafield`.
+      description: |-
+        Creates an order `Metafield`.
+
+        The maxiumum number of metafields is 50 per order.
       operationId: createOrderMetafield
       parameters:
         - name: Metafield
@@ -856,7 +861,10 @@ paths:
       summary: Update a Metafield
       tags:
         - Metafields
-      description: Updates a `Metafield` object.
+      description: |-
+        Updates a `Metafield` object.
+
+        The maxiumum number of metafields is 50 per order.
       operationId: updateOrderMetafield
       parameters:
         - name: Metafield
