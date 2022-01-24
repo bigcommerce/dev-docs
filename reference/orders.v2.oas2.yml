@@ -3759,7 +3759,7 @@ components:
           example: 53
           type: integer
         product_option_id:
-          description: ''
+          description: Numeric ID of an option applied to the product from a list of options available to the product.
           example: 120
           type: integer
         display_name:
@@ -4532,6 +4532,7 @@ components:
             properties:
               id:
                 type: integer
+                description: Numeric ID of an option applied to the product from a list of options available to the product. This field has the same value as `product_option_id` when [retrieving products in an order](https://developer.bigcommerce.com/api-reference/store-management/orders/order-products/getallorderproducts).
               value:
                 type: string
                 description: |-
