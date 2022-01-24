@@ -209,6 +209,10 @@ paths:
       description: |-
         Updates *Checkout* customer messages.
 
+        **Limits**
+
+        * 2000 character limit
+
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
         <div class="HubBlock-content">
