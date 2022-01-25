@@ -1,0 +1,297 @@
+{
+  "items": [
+    {
+      "type": "divider",
+      "title": "Theme Styles"
+    },
+    {
+       "type": "item",
+        "title": "checkbox",
+        "uri": "theme-styles/_root/checkbox.md"
+    },
+    {
+        "type": "item",
+        "title": "color",
+        "uri": "theme-styles/_root/color.md"
+    },
+    {
+        "type": "item",
+        "title": "font",
+        "uri": "theme-styles/_root/font.md"
+    },
+    {
+        "type": "item",
+        "title": "heading",
+        "uri": "theme-styles/_root/heading.md"
+    },
+    {
+        "type": "item",
+        "title": "imageDimension",
+        "uri": "theme-styles/_root/imageDimension.md"
+    },
+    {
+        "type": "item",
+        "title": "optimizedCheckout-image",
+        "uri": "theme-styles/_root/optimizedCheckout-image.md"
+    },
+    {
+        "type": "item",
+        "title": "reference",
+        "uri": "theme-styles/_root/reference.md"
+    },
+    {
+        "type": "item",
+        "title": "select",
+        "uri": "theme-styles/_root/select.md"
+    },
+    {
+        "type": "item",
+        "title": "text",
+        "uri": "theme-styles/_root/text.md"
+    },
+    {
+      "type": "divider",
+      "title": "Schemas"
+    },
+    {
+      "type": "item",
+      "title": "banners",
+      "uri": "models/_root/banners.yml"
+    },
+    {
+      "type": "item",
+      "title": "blog",
+      "uri": "models/_root/blog.yml"
+    },
+    {
+      "type": "item",
+      "title": "brand",
+      "uri": "models/_root/brand.yml"
+    },
+    {
+      "type": "item",
+      "title": "brand_results",
+      "uri": "models/_root/brand_results.yaml"
+    },
+    {
+      "type": "item",
+      "title": "brands",
+      "uri": "models/_root/brands.yml"
+    },
+    {
+      "type": "item",
+      "title": "breadcrumbs",
+      "uri": "models/_root/breadcrumbs.yml"
+    },
+    {
+      "type": "item",
+      "title": "carousel",
+      "uri": "models/_root/carousel.yml"
+    },
+    {
+      "type": "item",
+      "title": "cart",
+      "uri": "models/_root/cart.yml"
+    },
+    {
+      "type": "item",
+      "title": "cart_id",
+      "uri": "models/_root/cart_id.yml"
+    },
+    {
+      "type": "item",
+      "title": "categories",
+      "uri": "models/_root/categories.yml"
+    },
+    {
+      "type": "item",
+      "title": "category",
+      "uri": "models/_root/category.yml"
+    },
+    {
+      "type": "item",
+      "title": "category_results",
+      "uri": "models/_root/category_results.yaml"
+    },
+    {
+      "type": "item",
+      "title": "checkout",
+      "uri": "models/_root/checkout.yml"
+    },
+    {
+      "type": "item",
+      "title": "comparisons",
+      "uri": "models/_root/comparisons.yml"
+    },
+    {
+      "type": "item",
+      "title": "content_results",
+      "uri": "models/_root/content_results.yaml"
+    },
+    {
+      "type": "item",
+      "title": "countries",
+      "uri": "models/_root/countries.yml"
+    },
+    {
+      "type": "item",
+      "title": "create_account",
+      "uri": "models/_root/create_account.yml"
+    },
+    {
+      "type": "item",
+      "title": "currency_selector",
+      "uri": "models/_root/currency_selector.yml"
+    },
+    {
+      "type": "item",
+      "title": "customer",
+      "uri": "models/_root/customer.yml"
+    },
+    {
+      "type": "item",
+      "title": "customer_group_id",
+      "uri": "models/_root/customer_group_id.yml"
+    },
+    {
+      "type": "item",
+      "title": "customer_group_name",
+      "uri": "models/_root/customer_group_name.yml"
+    },
+    {
+      "type": "item",
+      "title": "downloads",
+      "uri": "models/_root/downloads.yml"
+    },
+    {
+      "type": "item",
+      "title": "faceted_search",
+      "uri": "models/_root/faceted_search.yml"
+    },
+    {
+      "type": "item",
+      "title": "footer",
+      "uri": "models/_root/footer.yml"
+    },
+    {
+      "type": "item",
+      "title": "forms",
+      "uri": "models/_root/forms.yml"
+    },
+    {
+      "type": "item",
+      "title": "forms_contact",
+      "uri": "models/_root/forms_contact.yaml"
+    },
+    {
+      "type": "item",
+      "title": "head",
+      "uri": "models/_root/head.yml"
+    },
+    {
+      "type": "item",
+      "title": "is_ajax",
+      "uri": "models/_root/is_ajax.yml"
+    },
+    {
+      "type": "item",
+      "title": "order",
+      "uri": "models/_root/order.yml"
+    },
+    {
+      "type": "item",
+      "title": "page",
+      "uri": "models/_root/page.yml"
+    },
+    {
+      "type": "item",
+      "title": "page_type",
+      "uri": "models/_root/page_type.yml"
+    },
+    {
+      "type": "item",
+      "title": "pages",
+      "uri": "models/_root/pages.yml"
+    },
+    {
+      "type": "item",
+      "title": "pagination",
+      "uri": "models/_root/pagination.yml"
+    },
+    {
+      "type": "item",
+      "title": "product",
+      "uri": "models/_root/product.yml"
+    },
+    {
+      "type": "item",
+      "title": "product_results",
+      "uri": "models/_root/product_results.yaml"
+    },
+    {
+      "type": "item",
+      "title": "products",
+      "uri": "models/_root/products.yml"
+    },
+    {
+      "type": "item",
+      "title": "remote_api_scripts",
+      "uri": "models/_root/remote_api_scripts.yml"
+    },
+    {
+      "type": "item",
+      "title": "settings",
+      "uri": "models/_root/settings.yml"
+    },
+    {
+      "type": "item",
+      "title": "shipments",
+      "uri": "models/_root/shipments.yml"
+    },
+    {
+      "type": "item",
+      "title": "shipping_messages",
+      "uri": "models/_root/shipping_messages.yml"
+    },
+    {
+      "type": "item",
+      "title": "shop_by_brand",
+      "uri": "models/_root/shop_by_brand.yml"
+    },
+    {
+      "type": "item",
+      "title": "sitemap",
+      "uri": "models/_root/sitemap.yml"
+    },
+    {
+      "type": "item",
+      "title": "social_media",
+      "uri": "models/_root/social_media.yml"
+    },
+    {
+      "type": "item",
+      "title": "template_file",
+      "uri": "models/_root/template_file.yml"
+    },
+    {
+      "type": "item",
+      "title": "theme_settings",
+      "uri": "models/_root/theme_settings.yml"
+    },
+    {
+      "type": "item",
+      "title": "urls",
+      "uri": "models/_root/urls.yml"
+    },
+    {
+      "type": "item",
+      "title": "vault",
+      "uri": "models/_root/vault.yml"
+    },
+    {
+      "type": "item",
+      "title": "wishlist",
+      "uri": "models/_root/wishlist.yml"
+    }
+  ]
+}
