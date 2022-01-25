@@ -1025,7 +1025,7 @@
         },
         {
           "type": "item",
-          "title": "Customers &amp; Subscribers",
+          "title": "Customers & Subscribers",
           "slug": "/customers-subscribers",
           "href": "/api-docs/partner/pos-solutions/customers-subscribers",
           "uri": "docs/api-docs/customers/customers-subscribers-overview.md"
@@ -1067,7 +1067,7 @@
         },
         {
           "type": "item",
-          "title": "Customers &amp; Subscribers",
+          "title": "Customers & Subscribers",
           "slug": "/customers-subscribers",
           "href": "/api-docs/partner/erp-solutions/customers-subscribers",
           "uri": "docs/api-docs/customers/customers-subscribers-overview.md"
@@ -1144,7 +1144,7 @@
         },
         {
           "type": "item",
-          "title": "Customers &amp; Subscribers",
+          "title": "Customers & Subscribers",
           "slug": "/customers-subscribers",
           "href": "/api-docs/partner/oms-solutions/customers-subscribers",
           "uri": "docs/api-docs/customers/customers-subscribers-overview.md"
@@ -1186,7 +1186,7 @@
         },
         {
           "type": "item",
-          "title": "Customers &amp; Subscribers",
+          "title": "Customers & Subscribers",
           "slug": "/customers-subscribers",
           "href": "/api-docs/partner/marketing-solutions/customers-subscribers",
           "uri": "docs/api-docs/customers/customers-subscribers-overview.md"
