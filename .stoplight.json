@@ -1,12 +1,11 @@
 {
   "exclude": [],
   "formats": {
-    "openapi": {
-      "rootDir": "reference",
-      "include": [
-        "**"
-      ]
-    },
+    // "openapi": {
+    //   "rootDir": ".",
+    //   "include": [
+    //   ]
+    // },
     "json_schema": {
       "rootDir": "models",
       "include": [
@@ -14,10 +13,13 @@
       ]
     },
     "markdown": {
-      "rootDir": "docs"
+      "rootDir": "theme-styles",
+      "include": [
+        "theme-styles/**"
+      ]
     },
-    "image": {
-      "rootDir": "assets/images"
-    }
+    // "image": {
+    //   "rootDir": "."
+    // }
   }
 }
