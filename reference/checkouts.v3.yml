@@ -521,6 +521,9 @@ paths:
 
         **Required Fields**
         * coupon_code
+
+        **Limits**
+        * Coupon codes have a 50 character limit. 
       summary: Add Coupon to Checkout
       tags:
         - Checkout Coupons
@@ -1630,7 +1633,7 @@ definitions:
     type: object
     properties:
       coupon_code:
-        description: ''
+        description: Coupon codes have a 50 character limit.
         type: string
   Order:
     type: object
