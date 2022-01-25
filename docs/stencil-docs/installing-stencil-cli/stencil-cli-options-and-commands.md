@@ -207,6 +207,8 @@ Usage: stencil push [<OPTIONS>]
 |`--save [<FILENAME]`           |`-s` | Specify the filename of the saved bundle                                          |
 |`--channel_id [<CHANNEL_ID>]`  |`-c` | Specify the channel ID of the storefront, if the store has multiple storefronts    |
 |`--activate [<VARIATIONNAME>]` |`-a` | Skip activation prompt; specify variation or leave blank to select first variation  |
+|                               |`-a -c 123 456`| Allows you to apply a theme to selected channels                           |
+|                               |`a -allc`| Allows you to apply a theme to all available channels.
 |`--delete`                     |`-d` | Delete oldest private, non-active theme if upload limit reached                     |
 |`--help`                       |`-h` | Output usage information                                                            |
 
@@ -224,6 +226,8 @@ stencil push -f Cornerstone-2.3.2.zip # uploads specified file, skips bundling i
 ### --filename:
 > You can use the `-f` or `--filename` option in cases where you have already run `stencil bundle` to bundle your theme, but the resulting .zip file has not yet been uploaded to BigCommerce. Use the generated .zip file's **filename** as a parameter to identify the generated file in your theme directory. An example of the command is outlined below.
 
+>When you run `stencil push`, you can apply one theme to multiple storefront or channels.
+    
 >When you run `stencil push` with the `-f` or `--filename` option, Stencil CLI skips all its bundling steps and diagnostics. It proceeds directly to uploading the specified file, displaying its processing progress bar to show upload status.
 
 </div>
