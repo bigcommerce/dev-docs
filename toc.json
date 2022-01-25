@@ -31,6 +31,11 @@
     },
     {
         "type": "item",
+        "title": "optimizedCheckout-image",
+        "uri": "theme-styles/_root/optimizedCheckout-image.md"
+    },
+    {
+        "type": "item",
         "title": "reference",
         "uri": "theme-styles/_root/reference.md"
     },
