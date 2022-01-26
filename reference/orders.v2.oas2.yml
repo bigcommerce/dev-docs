@@ -2889,9 +2889,8 @@ components:
               payment_provider_id:
                 description: The external Transaction ID/Payment ID within this order's payment provider (if a payment provider was used).
                 example: null
-                type:
-                  - string
-                  - 'null'
+                type: string
+                nullable: true
               payment_status:
                 description: A read-only value. Do not attempt to set or modify this value in a POST or PUT operation.
                 type: string
@@ -2944,9 +2943,10 @@ components:
                 type: string
                 example: USD
               staff_notes:
+                type: string
                 description: Any additional notes for staff.
                 example: Send Saturday
-                type: string
+                maxLength: 65535
               customer_message:
                 description: 'Message that the customer entered (number, optiona) -o the `Order Comments` box during checkout.'
                 example: Thank you
@@ -2973,9 +2973,8 @@ components:
               credit_card_type:
                 description: Credit card type
                 example: 0
-                type:
-                  - integer
-                  - 'null'
+                type: integer
+                nullable: true
               ebay_order_id:
                 description: 'If the order was placed through eBay, the eBay order number will be included. Otherwise, the value will be `0`.'
                 example: '0'
@@ -3036,19 +3035,19 @@ components:
                     items:
                       title: Form Fields
                       type: object
-                      readOnly: true
                       description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order via API.
                       properties:
                         name:
                           description: Name of the form field
-                          readOnly: true
                           type: string
                           example: License Id
+                          readOnly: true
                         value:
                           description: Value of the form field
-                          readOnly: true
                           type: string
                           example: 123BAF
+                          readOnly: true
+                      readOnly: true
               order_source:
                 description: Orders submitted via the store's website will include a `www` value. Orders submitted via the API will be set to `external`. A read-only value. Do not pass in a POST or PUT.
                 example: www
@@ -3072,15 +3071,13 @@ components:
               external_id:
                 description: 'ID of the order in another system. For example, the Amazon Order ID if this is an Amazon order.This field can be updated in a /POST, but using a /PUT to update the order will return a 400 error. The field ''external_id'' cannot be written to. Please remove it from your request before trying again. It can not be overwritten once set.'
                 example: 'null'
-                type:
-                  - string
-                  - 'null'
+                type: string
+                nullable: true
               external_merchant_id:
                 description: ID of the merchant
                 example: 'null'
-                type:
-                  - string
-                  - 'null'
+                type: string
+                nullable: true
               channel_id:
                 type: integer
                 example: 1
@@ -4181,9 +4178,10 @@ components:
           example: '0.0000'
           type: string
         staff_notes:
+          type: string
           description: Any additional notes for staff.
           example: Send Saturday
-          type: string
+          maxLength: 65535
         status_id:
           description: The status ID of the order.
           type: integer
