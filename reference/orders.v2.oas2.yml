@@ -3627,8 +3627,9 @@ components:
           type: string
           description: Returns a tracking link from the shipping service.
         comments:
-          description: Comments the shipper wishes to add.
           type: string
+          description: Comments the shipper wishes to add.
+          maxLength: 65535
         billing_address:
           $ref: '#/components/schemas/billingAddress_Base'
         shipping_address:
@@ -3949,8 +3950,9 @@ components:
             Tracking carrier for the shipment.
             Acceptable values include an empty string (`""`) or one of the valid tracking-carrier values viewable [here](https://docs.google.com/spreadsheets/d/1w9c_aECSCGyf-oOrvGeUniDl-ARGKemfZl0qSsav8D4/pubhtml?gid=0&single=true) and downloadable as a .CSV file [here](https://docs.google.com/spreadsheets/d/1mTueEynfcEmwsU2y2Jd2MX-8GKwNZrmlRMBcIElg9aY/pub?gid=0&single=true&output=csv).
         comments:
-          description: Comments the shipper wishes to add.
           type: string
+          description: Comments the shipper wishes to add.
+          maxLength: 65535
         items:
           description: 'The items in the shipment. This object has the following members, all integer: order_product_id (required), quantity (required), product_id (read-only). A sample items value might be: [ {"order_product_id":16,"product_id": 0,"quantity":2} ]'
           type: array
@@ -4001,8 +4003,9 @@ components:
             Tracking carrier for the shipment.
             Acceptable values include an empty string (`""`) or one of the valid tracking-carrier values viewable and downloadable as a .CSV file [here](https://github.com/bigcommerce/dev-docs/blob/master/assets/csv/tracking_carrier_values.csv).
         comments:
-          description: Comments the shipper wishes to add.
           type: string
+          description: Comments the shipper wishes to add.
+          maxLength: 65535
     orderStatus_Base:
       title: orderStatus_Base
       type: object
