@@ -72,7 +72,7 @@ You can upload a custom checkout to your store's server using WebDAV. The instru
 <div class="HubBlock-content">
   
   <!-- theme: note -->
-> 1. Please get in touch with support if you wish to customize checkout. Our support team will enable the experiment until there is a long-term solution.
+> 1. Please get in touch with support if you wish to customize checkout. 
 > 2. Enter your CSS into the [optimized-checkout.scss](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss) in Cornerstone or the [scss folder](https://github.com/bigcommerce/checkout-js/tree/master/src/scss) in checkout.js. We suggest moving content from "optimized-checkout.scss to the scss folder or vice-versa to ensure there is a single source of truth for handling styles. NOTE: "optimized-checkout.scss" will always override the CSS rules defined in checkout-js.
  
 </div>
