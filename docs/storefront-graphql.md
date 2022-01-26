@@ -9,16 +9,18 @@ Download Spec: [storefront_tokens.v3.yml](https://bigcommerce.stoplight.io/api/v
 
 Use GraphQL to query data for headless storefronts and BigCommerce [Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil)-powered storefronts.
 
+<div class="otp" id="no-index">
 
-- [GraphQL Storefront API](#graphql-storefront-api)
-  - [GraphQL Playground](#graphql-playground)
-  - [GraphQL Explorer](#graphql-explorer)
-  - [Authentication](#authentication)
-    - [Tokens via API](#tokens-via-api)
-    - [Tokens via handlebars](#tokens-via-handlebars)
-    - [Customer impersonation tokens](#customer-impersonation-tokens)
-  - [Logging in a customer](#logging-in-a-customer)
-  - [Resources](#resources)
+### On this page
+- [GraphQL Playground](#graphql-playground)
+- [GraphQL Explorer](#graphql-explorer)
+- [Authentication](#authentication)
+  - [Tokens via API](#tokens-via-api)
+  - [Tokens via handlebars](#tokens-via-handlebars)
+  - [Customer impersonation tokens](#customer-impersonation-tokens)
+- [Logging in a customer](#logging-in-a-customer)
+- [Resources](#resources)
+</div>
 
 ## GraphQL Playground
 

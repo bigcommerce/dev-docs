@@ -56,7 +56,7 @@
     {
       "type": "item",
       "title": "GraphQL Storefront API",
-      "uri": "assets/html/graphql-explorer.html"
+      "uri": "docs/storefront-graphql.md"
     },
     {
       "type": "item",
