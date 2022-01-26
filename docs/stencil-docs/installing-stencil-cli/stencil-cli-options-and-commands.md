@@ -204,11 +204,11 @@ Usage: stencil push [<OPTIONS>]
 |`--version`                    |`-V` | Output the version number                                                           |
 |`--host [HOSTNAME]`            |     | Specify the API host (default: `api.bigcommerce.com`)                               |
 |`--file [<FILENAME>]`          |`-f` | Specify the filename of the bundle to upload                                        |
-|`--save [<FILENAME]`           |`-s` | Specify the filename of the saved bundle                                          |
-|`--channel_id [<CHANNEL_ID>]`  |`-c` | Specify the channel ID of the storefront, if the store has multiple storefronts    |
+|`--save [<FILENAME]`           |`-s` | Specify the filename of the saved bundle                                            |
+|`--channel_ids [<CHANNEL_ID>]`  |`-c` | Specify the channel ID(s) of the storefront, if the store has multiple storefronts |
 |`--activate [<VARIATIONNAME>]` |`-a` | Skip activation prompt; specify variation or leave blank to select first variation  |
-|                               |`-a -c 123 456`| Allows you to apply a theme to selected channels                           |
-|                               |`a -allc`| Allows you to apply a theme to all available channels.
+|                               |`-a -c {{channel_id_1 channel_id_2 ... channel_id_n}}`| Allows you to apply a theme to selected channels (at least one channel id should be provided)                                                                                      |                 
+|                               |`-a -all_channels` or `a -allc`| Allows you to apply a theme to all available channels.     |   
 |`--delete`                     |`-d` | Delete oldest private, non-active theme if upload limit reached                     |
 |`--help`                       |`-h` | Output usage information                                                            |
 
