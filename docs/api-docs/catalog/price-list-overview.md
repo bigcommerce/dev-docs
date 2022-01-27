@@ -143,7 +143,7 @@ The price list assignment assigns a price list to a specific sales channel. This
 See [Channels, Sites, and Routes](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) for further documentation.
 
 **Example Price List assigned to channel**
-`https://api.bigcommerce.com/stores/{store_hash}/v2/pricelists/assignments`
+`https://api.bigcommerce.com/stores/{store_hash}/v3/pricelists/assignments`
 
 ```js
 {
