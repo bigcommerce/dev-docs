@@ -15,9 +15,9 @@
 ## What is a price list?
 
 
-A Price List allows you to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level.
+A Price List allows you to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level. If an active Price List does not contain prices for a variant, then the Catalog pricing will be used. 
 
-If an active Price List does not contain prices for a variant, then the Catalog pricing will be used. You can associate a Price List to a Customer Group via the Control Panel or the [Customer Groups API.](/api-reference/customer-subscribers/customers-api)
+You can assign a Price List to a specific sales channel using price list assignments via the [Price List Assignment API](https://developer.bigcommerce.com/api-reference/store-management/price-lists/price-lists-assignments/createpricelistassignments). You can also associate a Price List to a Customer Group via the Control Panel or the [Customer Groups API](/api-reference/customer-subscribers/customers-api). Price list assignments combined with a customer group assignment allows you to target specifically more logged in customers shopping on that channel.
 
 Price Lists will provide overridden price values to the Stencil storefront. You can further customize the final price display within the Stencil template. For more information, see the [Theme Objects](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties).
 
@@ -106,9 +106,7 @@ lineNumbers: true
 
 ## Price list assignments
 
-The price list assignment assigns a price list to a specific sales channel. This association lets you define custom pricing for shoppers only on a specific external site or platform. Price list assignments combined with a customer group assignment allows you to target specifically more logged in customers shopping on that channel.
-
-
+The price list assignment assigns a price list to a specific sales channel. This association lets you define custom pricing for shoppers only on a specific external site or platform. 
 
 See [Channels, Sites, and Routes](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) for further documentation.
 
