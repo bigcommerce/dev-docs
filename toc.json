@@ -2,10 +2,19 @@
   "items": [
     {
       "type": "divider",
+      "title": "Configuration"
+    },
+    {
+      "type": "item",
+      "title": "config.json",
+      "uri": "configuration/config.json.yml"
+    },
+    {
+      "type": "divider",
       "title": "Theme Styles"
     },
     {
-       "type": "item",
+        "type": "item",
         "title": "checkbox",
         "uri": "theme-styles/_root/checkbox.md"
     },
