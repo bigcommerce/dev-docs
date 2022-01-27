@@ -3,13 +3,13 @@
   "formats": {
     // "openapi": {
     //   "rootDir": ".",
-    //   "include": [
-    //   ]
+    //   "include": ["**"]
     // },
     "json_schema": {
       "rootDir": "models",
       "include": [
-        "models/_root/*"
+        "models/_root/*",
+        "configuration/**",
       ]
     },
     "markdown": {
