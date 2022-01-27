@@ -32,6 +32,11 @@
     {
       "type": "item",
       "title": "Customer Login SSO",
+      "uri": "docs/customer-login-sso.md"
+    },
+    {
+      "type": "item",
+      "title": "Customer Login",
       "uri": "reference/customer_login.yml"
     },
     {
