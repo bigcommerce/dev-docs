@@ -211,7 +211,7 @@ lineNumbers: true
 
 ## Support
 
-### [Developer Community](https://forum.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers)
+### [Developer Community](https://support.bigcommerce.com/s/community?language=en_US)
 The developer community is a great place to get help from other developers who work on the BigCommerce platform. If you have BigCommerce-specific questions, this online forum is the best place to ask. It's also an excellent place for beginners to get assistance.
 
 
@@ -219,6 +219,6 @@ The developer community is a great place to get help from other developers who w
 Are you a more experienced developer or have a programming language specific question? This online forum is a good place to ask questions and get help. The developer community is the best place to get answers about the BigCommerce platform specifically.
 
 ## Resources
-* [Developer Community](https://forum.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers)
+* [Developer Community](https://support.bigcommerce.com/s/community?language=en_US)
 * [Terms of Service](https://www.bigcommerce.com/terms/api-terms/)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/bigcommerce)
