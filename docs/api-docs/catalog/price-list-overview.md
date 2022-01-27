@@ -103,11 +103,34 @@ lineNumbers: true
 }]
 ```
 
+
+## Price list assignments
+
+The price list assignment assigns a price list to a specific sales channel. This association lets you define custom pricing for shoppers only on a specific external site or platform. Price list assignments combined with a customer group assignment allows you to target specifically more logged in customers shopping on that channel.
+
+
+
+See [Channels, Sites, and Routes](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) for further documentation.
+
+**Example Price List assigned to channel**
+`https://api.bigcommerce.com/stores/{store_hash}/v3/pricelists/assignments`
+
+```js
+{
+  "customer_group_id": 3,
+  "price_list_id": 2,
+  "channel_id": 1
+}
+
+```
+
 <!--
 title: "Example Price List assigned to a customer group"
 subtitle: ""
 lineNumbers: true
 -->
+
+## Price Lists assigned to customer groups 
 
 **Example Price List assigned to a customer group**
 `https://api.bigcommerce.com/stores/{store_hash}/v2/customer_groups/{customer_group_id}`
@@ -133,27 +156,6 @@ lineNumbers: true
 ```
 
 Under `discount_rules` the `type` is set to `price_list` and the `price_list_id` is 1. Which is the id of the price list the group has been assigned to.
-
-## Price list assignments
-
-The price list assignment assigns a price list to a specific sales channel. This association lets you define custom pricing for shoppers only on a specific external site or platform. Price list assignments combined with a customer group assignment allows you to target specifically more logged in customers shopping on that channel.
-
-
-
-See [Channels, Sites, and Routes](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) for further documentation.
-
-**Example Price List assigned to channel**
-`https://api.bigcommerce.com/stores/{store_hash}/v3/pricelists/assignments`
-
-```js
-{
-  "customer_group_id": 3,
-  "price_list_id": 2,
-  "channel_id": 1
-}
-
-```
-
 
 ## Price List notes
 
