@@ -557,7 +557,7 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 - Product Type
 - Sort Order
 - Tax Price
-- Thumbnail Changed
+- Thumbnail (new images only)
 - Variant (deleted)
 - Visibility
 
