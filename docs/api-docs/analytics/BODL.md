@@ -1,0 +1,432 @@
+# Big Open Data Layer (BODL)
+
+<div class="otp" id="no-index">
+
+### On this page
+- [Overview](#overview)
+- [Pixel example snippets](#pixel-example-snippets)
+</div> 
+
+## Overview
+The Big Open Data Layer (shortened as BODL, pronounced 'Bottle') is a standard for obtaining data points necessary to drive storefront analytics and personalization. By moving all BigCommerce and headless storefronts to use this standard over time, merchants will benefit from increased site speed and more consistent third-party analytics integrations.
+
+## Pixel example snippets
+Below is a series of example snippets of code to build on when using BODL data for your integration.
+
+### Initialize script
+This larger code snippet has a lot of detection built-in to identify where it is running within the environment; then, the code injects objects based on this detection.
+
+<div class="HubBlock--callout">
+<div class="CalloutBlock--">
+<div class="HubBlock-content">
+  
+ <!-- theme:  -->
+
+The check for BODL is fetched once per page render instead of once for each analytics integration. If you want to make an alternate custom version of this data layer object with a unique schema, please use a unique object name. A unique object name ensures other apps depending on this default BODL schema do not break. We recommend using BODL_YOUR_APP_NAME, so it's unique and easy to determine its purpose.
+
+</div>
+</div>
+</div>
+
+```javascript
+<!-- Sample Pixel Code Start: Initialization Script & Page Event -->
+<script>
+if (typeof BODL === 'undefined') {
+  // https://developer.bigcommerce.com/theme-objects/breadcrumbs
+  {{inject "breadcrumbs" breadcrumbs}}
+  // https://developer.bigcommerce.com/theme-objects/brand
+  {{inject "brand" brand}}
+  // https://developer.bigcommerce.com/theme-objects/category
+  {{inject "categoryProducts" category.products}}
+  {{inject "categoryName" category.name}}
+  // https://developer.bigcommerce.com/theme-objects/product
+  {{inject "productId" product.id}}
+  {{inject "productTitle" product.title}}
+  {{inject "productCurrency" product.price.without_tax.currency}}
+  {{inject "productPrice" product.price.without_tax.value}}
+  // https://developer.bigcommerce.com/theme-objects/products
+  {{inject "products" products}}
+  // https://developer.bigcommerce.com/theme-objects/product_results
+  {{inject "search" product_results}}
+  // https://developer.bigcommerce.com/theme-objects/order
+  {{inject "order" order}}
+  // https://developer.bigcommerce.com/theme-objects/wishlist
+  {{inject "wishlist" wishlist}}
+  // https://developer.bigcommerce.com/theme-objects/wishlist
+  {{inject "cartItemAdded" cart.added_item}}
+  // https://developer.bigcommerce.com/theme-objects/cart
+  // (Fetching selective cart data to prevent additional payment button object html from causing JS parse error)
+  var BODL = JSON.parse({{jsContext}});
+
+  if (BODL.categoryName) {
+    BODL.category = {
+      name: BODL.categoryName,
+      products: BODL.categoryProducts,
+    }
+  }
+
+  if (BODL.productTitle) {
+    BODL.product = {
+      id: BODL.productId,
+      title: BODL.productTitle,
+      price: {
+        without_tax: {
+          currency: BODL.productCurrency,
+          value: BODL.productPrice,
+        },
+      },
+    }
+  }
+}
+
+BODL.getCartItemContentId = (item) => {
+  switch(item.type) {
+    case 'GiftCertificate':
+      return item.type;
+      break;
+    default:
+      return item.product_id;
+  }
+}
+
+BODL.getQueryParamValue = function (name) {
+  var cleanName = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+  var regex = new RegExp('[\\?&]' + cleanName + '=([^&#]*)');
+  var results = regex.exec(window.location.search);
+  return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
+
+!function (w, d, t) {
+  w.SampleAnalyticsObject=t;var sampleAnalyticsProvider=w[t]=w[t]||[];sampleAnalyticsProvider.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],sampleAnalyticsProvider.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<sampleAnalyticsProvider.methods.length;i++)sampleAnalyticsProvider.setAndDefer(sampleAnalyticsProvider,sampleAnalyticsProvider.methods[i]);sampleAnalyticsProvider.instance=function(t){for(var e=sampleAnalyticsProvider._i[t]||[],n=0;n<sampleAnalyticsProvider.methods.length;n++)sampleAnalyticsProvider.setAndDefer(e,sampleAnalyticsProvider.methods[n]);return e},sampleAnalyticsProvider.load=function(e,n){var i="https://analytics.Sample.com/i18n/pixel/events.js";sampleAnalyticsProvider._i=sampleAnalyticsProvider._i||{},sampleAnalyticsProvider._i[e]=[],sampleAnalyticsProvider._i[e]._u=i,sampleAnalyticsProvider._t=sampleAnalyticsProvider._t||{},sampleAnalyticsProvider._t[e]=+new Date,sampleAnalyticsProvider._o=sampleAnalyticsProvider._o||{},sampleAnalyticsProvider._o[e]=n||{},sampleAnalyticsProvider._partner=sampleAnalyticsProvider._partner||"BigCommerce";var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+
+  sampleAnalyticsProvider.load('<%= property_id %>');
+  sampleAnalyticsProvider.page();
+
+  // Advanced Matching
+  if (BODL.customer && BODL.customer.id) {
+    var customerObj = {
+      email: BODL.customer.email,
+    }
+
+    if (BODL.customer.phone) {
+      var phoneNumber = BODL.customer.phone;
+      if (BODL.customer.phone.indexOf('+') === -1) {
+        // No country code, so default to US code
+        phoneNumber = `+1${phoneNumber}`;  
+      }
+
+      customerObj.phone = phoneNumber;
+    }
+
+    sampleAnalyticsProvider.identify(BODL.customer.id, customerObj);
+  }
+}(window, document, 'sampleAnalyticsProvider');
+</script>
+```
+
+### Add to cart
+
+The following snippet covers tracking the Add to Cart event, actively tracking each new product ID, and quantity added.
+
+```javascript
+<!-- Sample Pixel Code Start: Product Detail Page Add to Cart Event -->
+<script>
+document.querySelectorAll('[data-cart-item-add]').forEach(form => form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const formData = new FormData(event.target);
+  let productId, productQty;
+  for (const pair of formData.entries()) {
+    if (pair[0] === 'product_id') {
+      productId = pair[1];
+    } else if (pair[0] === 'qty[]') {
+      productQty = pair[1];
+    }
+  }
+
+  // References:
+  // https://developer.bigcommerce.com/theme-objects/product
+  // https://developer.bigcommerce.com/stencil-docs/developing-further/catalog-price-object
+  sampleAnalyticsProvider.instance('<%= property_id %>').track('AddToCart', {
+    content_id: BODL.product.id,
+    content_category: BODL.breadcrumbs[1] ? BODL.breadcrumbs[1].name : '',
+    content_type: 'product_group',
+    content_name: BODL.product.title,
+    quantity: productQty,
+    price: BODL.product.price.without_tax.value,
+    value: (BODL.product.price.without_tax.value * productQty),
+    currency: BODL.product.price.without_tax.currency,
+  });
+}}));
+
+if (BODL.cartItemAdded) {
+  sampleAnalyticsProvider.instance('<%= property_id %>').track('AddToCart', {
+    content_id: BODL.cartItemAdded.product_id,
+    content_type: 'product_group',
+    content_name: BODL.cartItemAdded.name,
+    quantity: BODL.cartItemAdded.quantity,
+    price: BODL.cartItemAdded.price.value,
+    value: BODL.cartItemAdded.total.value,
+    currency: BODL.cartItemAdded.price.currency,
+  });
+</script>
+<!-- Sample Pixel Code End: Product Detail Page Add to Cart Event -->
+  ```
+
+### Add to wishlist
+The following snippet is for tracking when users add an item to their wishlist. Note that this sends individual products specified by the 'added_product_id' and a commented section regarding category data. We do not track category data on the wishlist, but we included it for future-proofing.
+
+```javascript
+<!-- Sample Pixel Code Start: Add to Wishlist -->
+<script>
+// This only sends one wishlist product: the one that was just added based on the 'added_product_id' param in the url
+if (BODL.wishlist) {
+  var addedWishlistItem = BODL.wishlist.items.filter((i) => i.product_id === parseInt(BODL.getQueryParamValue('added_product_id'))).map((p) => ({
+    content_id: p.product_id,
+    // Commenting out as category data doesn't exist on wishlist items
+    // content_category: p.does_not_exist, 
+    content_name: p.name,
+    content_type: "product_group",
+    currency: p.price.without_tax.currency,
+    price: p.price.without_tax.value,
+    value: p.price.without_tax.value,
+  }));
+  
+  sampleAnalyticsProvider.instance('<%= property_id %>').track('AddToWishlist', addedWishlistItem[0]);
+}
+</script>
+<!-- Sample Pixel Code End: Add to Wishlist -->
+```
+### Order complete
+This snippet pulls down a series of objects from a completed order, splitting them into nested arrays for physical items, digital items, and gift certificates.
+
+```javascript
+<!-- Sample Pixel Code Start: Purchase Event -->
+<script>
+fetch('/api/storefront/order/{{checkout.order.id}}', {
+  credentials: 'same-origin'
+})
+.then(function(response) {
+  return response.json();
+})
+.then(function(orderJson) {
+  var orderQty = 0;
+	var lineItems = [];
+
+	for (i = 0; i < orderJson.lineItems.physicalItems.length; i++) {
+    var thisItem = orderJson.lineItems.physicalItems[i];
+    orderQty += thisItem.quantity;
+    lineItems.push({
+      "content_id": thisItem.productId,
+      "content_name": thisItem.name,
+      "currency": orderJson.currency.code,
+      "price": thisItem.salePrice,
+      "value": thisItem.extendedSalePrice,
+      "quantity": thisItem.quantity,
+      "content_type": "product_group"
+    });
+	}
+
+	for (i = 0; i < orderJson.lineItems.digitalItems.length; i++) {
+    var thisItem = orderJson.lineItems.digitalItems[i];
+    orderQty += thisItem.quantity;
+    lineItems.push({
+      "content_id": thisItem.productId,
+      "content_name": thisItem.name,
+      "currency": orderJson.currency.code,
+      "price": thisItem.salePrice,
+      "value": thisItem.extendedSalePrice,
+      "quantity": thisItem.quantity,
+      "content_type": "product_group"
+    });
+	}
+
+	for (i = 0; i < orderJson.lineItems.giftCertificates.length; i++) {
+    var thisItem = orderJson.lineItems.giftCertificates[i];
+    orderQty += thisItem.quantity;
+    lineItems.push({
+      "content_id": thisItem.type,
+      "content_name": thisItem.name,
+      "currency": orderJson.currency.code,
+      "price": thisItem.amount,
+      "value": thisItem.amount,
+      "quantity": thisItem.quantity,
+      "content_type": "product_group"
+    });
+	}
+
+  sampleAnalyticsProvider.instance('<%= property_id %>').track('Purchase', {
+      "contents": lineItems,
+      "value": orderJson.orderAmount,
+      "quantity": orderQty,
+      "currency": orderJson.currency.code
+  });
+});
+</script>
+<!-- Sample Pixel Code End: Purchase Event -->
+```
+
+### Registration
+
+This simple snippet tracks account creation.
+
+```javascript
+<!-- Sample Pixel Code Start: Registration -->
+<script>
+if (window.location.pathname.indexOf('/login.php') === 0 && BODL.getQueryParamValue('action') === 'account_created') {
+  sampleAnalyticsProvider.instance('<%= property_id %>').track('Registration');
+}
+</script>
+<!-- Sample Pixel Code End: Registration -->
+```
+
+### Search
+This snippet tracks when an end-user searches for products. Please take note that there is a built-in tracker for the category. However, we have commented out the tracker due to known distortions, which cause reporting of only the first category ID. Only reactivate if needed; use it at your own risk.
+
+```javascript
+<!-- Sample Pixel Code Start: Search -->
+<script>
+if (BODL.search) {
+  sampleAnalyticsProvider.instance('<%= property_id %>').track('Search', {
+    query: BODL.getQueryParamValue('search_query'),
+    contents: BODL.search.products.map((p) => ({
+      content_id: p.id,
+      // Products can be in multiple categories.
+      // Commenting out as this might distort category reports if only the first one is used.
+      // content_category: p.category[0], 
+      content_name: p.name,
+      content_type: "product_group",
+      currency: p.price.without_tax.currency,
+      price: p.price.without_tax.value,
+      value: p.price.without_tax.value,
+    }))
+  });
+}
+</script>
+<!-- Sample Pixel Code End: Search -->
+```
+
+### Start checkout
+This snippet is very similar to the Order Complete snippet above in the formatting, grabbing information about all items in the cart, and separating them into physical items, digital items, and gift certificates.
+
+```javascript
+<!-- Sample Pixel Code Start: Start Checkout Event -->
+<script>
+fetch('/api/storefront/carts/{{cart_id}}', {
+  credentials: 'same-origin'
+})
+.then(function(response) {
+  return response.json();
+})
+.then(function(orderJson) {
+  var orderQty = 0;
+	var lineItems = [];
+
+	for (i = 0; i < orderJson.lineItems.physicalItems.length; i++) {
+    var thisItem = orderJson.lineItems.physicalItems[i];
+    orderQty += thisItem.quantity;
+    lineItems.push({
+      "content_id": thisItem.productId,
+      "content_name": thisItem.name,
+      "currency": orderJson.currency.code,
+      "price": thisItem.salePrice,
+      "value": thisItem.extendedSalePrice,
+      "quantity": thisItem.quantity,
+      "content_type": "product_group"
+    });
+	}
+
+	for (i = 0; i < orderJson.lineItems.digitalItems.length; i++) {
+    var thisItem = orderJson.lineItems.digitalItems[i];
+    orderQty += thisItem.quantity;
+    lineItems.push({
+      "content_id": thisItem.productId,
+      "content_name": thisItem.name,
+      "currency": orderJson.currency.code,
+      "price": thisItem.salePrice,
+      "value": thisItem.extendedSalePrice,
+      "quantity": thisItem.quantity,
+      "content_type": "product_group"
+    });
+	}
+
+	for (i = 0; i < orderJson.lineItems.giftCertificates.length; i++) {
+    var thisItem = orderJson.lineItems.giftCertificates[i];
+    orderQty += thisItem.quantity;
+    lineItems.push({
+      "content_id": thisItem.type,
+      "content_name": thisItem.name,
+      "currency": orderJson.currency.code,
+      "price": thisItem.amount,
+      "value": thisItem.amount,
+      "quantity": thisItem.quantity,
+      "content_type": "product_group"
+    });
+	}
+
+  sampleAnalyticsProvider.instance('<%= property_id %>').track('StartCheckout', {
+      "contents": lineItems,
+      "value": orderJson.orderAmount,
+      "quantity": orderQty,
+      "currency": orderJson.currency.code
+  });
+});
+</script>
+<!-- Sample Pixel Code End: Start Checkout Event -->
+```
+
+### Subscribe to newsletter
+A super simple snippet that tracks anytime the user successfully subscribes to a newsletter.
+
+```javascript
+<!-- Sample Pixel Code Start: Subscribe to Newsletter -->
+<script>
+if (window.location.pathname.indexOf('/subscribe.php') === 0 && BODL.getQueryParamValue('result') === 'success') {
+  sampleAnalyticsProvider.instance('<%= property_id %>').track('Subscribe');
+}
+</script>
+<!-- Sample Pixel Code End: Subscribe to Newsletter -->
+```
+
+### View category
+A small snippet that tracks when the user views a category.
+
+```javascript
+<!-- Sample Pixel Code Start: View Category Content -->
+<script>
+if (BODL.category) {
+  sampleAnalyticsProvider.instance('<%= property_id %>').track('ViewContent', {
+    contents: BODL.category.products.map((p) => ({
+      content_id: p.id,
+      content_category: BODL.category.name,
+      content_name: p.name,
+      content_type: "product_group",
+      currency: p.price.without_tax.currency,
+      price: p.price.without_tax.value,
+      value: p.price.without_tax.value,
+    }))
+  });
+}
+</script>
+<!-- Sample Pixel Code End: View Category Content -->
+```
+
+### View product
+A simple snippet that tracks the viewing of a product.
+
+```javascript
+<!-- Sample Pixel Code Start: View Product Content -->
+<script>
+if (BODL.product) {
+  sampleAnalyticsProvider.instance('<%= property_id %>').track('ViewContent', {
+    content_id: BODL.product.id,
+    content_category: BODL.breadcrumbs[1] ? BODL.breadcrumbs[1].name : '',
+    content_name: BODL.product.title,
+    content_type: "product_group",
+    currency: BODL.product.price.without_tax.currency,
+    price: BODL.product.price.without_tax.value,
+    value: BODL.product.price.without_tax.value,
+  });
+}
+</script>
+<!-- Sample Pixel Code End: View Product Content -->
+```
