@@ -102,7 +102,7 @@ The following table details the full list of parameters and values included in t
 
 | Parameter | Description |
 |-|-|
-| code | Temporary code to exchange for a permanent OAuth token. See [Making the POST request](#building-apps_making-post-request) below for more information about this exchange. |
+| code | Temporary code to exchange for a permanent OAuth token. See [Making the POST request](#making-the-post-request) below for more information about this exchange. |
 | scope | List of scopes authorized by the user. As a best practice, your app should validate this list to ensure that it matches the app&#39;s needs, and fail if it does not. However, at this time, the user does not have any opportunity to pick and choose between scopes. The dialog presented to the user requires the user to approve all scopes or none. |
 | context | The store hash: a unique value that identifies the store on which a logged-in user has clicked to install or your app. BigCommerce passes this along with a context path as follows: `stores/{store_hash}`. Save the store hash value, because you will need to pass it in all your requests to the API. |
 
