@@ -26,7 +26,7 @@ Refunding an order consists of two API requests.
 
 |Request|Operation|Endpoint|Description|
 |-|-|-|-|
-|1|`POST`|[`/v3/orders/{id}/payment_actions/refund_quotes`](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefundquote)|Calculate amounts and get payment methods|
+|1|`POST`|[`/v3/orders/{id}/payment_actions/refund_quotes`](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/payment-actions/postrefundquote)|Calculate amounts and get payment methods|
 |2|`POST`|[`/v3/orders/{id}/payment_actions/refund`](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/postrefund)|Create the refund|
 
 The example requests in this article use an order with the following properties:
