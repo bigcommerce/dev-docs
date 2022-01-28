@@ -271,7 +271,7 @@ Content-Type: application/json
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants/getvariantbyid#requestrunner)
 
 **[Response:](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants/getvariantbyid#responses)**
 
