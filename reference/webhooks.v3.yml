@@ -1985,8 +1985,8 @@ components:
                       type: string
                       description: |-
                         How the inventory was adjusted. Value will be one of the following:
-                        - `absolute` - inventory updated by an order
-                        - `relative` - inventory updated using the API or the control panel
+                        - `absolute` - inventory updated using the API or the control panel
+                        - `relative` - inventory updated by an order
                       enum:
                         - absolute
                         - relative
@@ -2052,8 +2052,8 @@ components:
                       type: string
                       description: |-
                         How the inventory was adjusted. Value will be one of the following:
-                        - `absolute` - inventory updated by an order
-                        - `relative` - inventory updated using the API or the control panel
+                        - `absolute` - inventory updated using the API or the control panel
+                        - `relative` - inventory updated by an order
                       enum:
                         - absolute
                         - relative
