@@ -2,7 +2,7 @@
 <div class="otp" id="no-index">
 
 ### On this page
-- [ShipperHQ object properties](#shipper-hq-object-properties)
+- [ShipperHQ object properties](#shipperhq-object-properties)
 - [Control panel behavior](#control-panel-behavior)
 - [Add ShipperHQ metafield](#add-shipperhq-metafield)
        
