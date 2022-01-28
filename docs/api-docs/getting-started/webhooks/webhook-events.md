@@ -557,10 +557,11 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 - Product Type
 - Sort Order
 - Tax Price
-- Thumbnail (new images only)
+- Thumbnail (new images only)*
 - Variant (deleted)
 - Visibility
 
+*Note that setting a thumbnail triggers an updated event only when that thumbnail is the first to be set. For example, setting an image as a thumbnail **after deleting all images** will trigger an updated event. However, changing the current thumbnail, uploading a new image and setting it as the thumbnail (while other thumbnails images exist), or even deleting all thumbnails does not generate an update event. 
 
 ## Shipment
 
