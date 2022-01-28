@@ -89,7 +89,7 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 |  [Customer Addresses](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-addresses) | Create and manage customer addresses | `/customers/addresses` |
 |  [Customer Attribute Values](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-attribute-values) | Create and manage customer attribute values | `/customers/attribute-values` |
 |  [Customer Attributes](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-attributes) | Create and manage customer attributes | `/customers/attributes` |
-|  [Customer Form Field Values](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-form-field-values/customerformfieldsget) | Create an manage customer form field values | `/customers/form-field-values` |
+|  [Customer Form Field Values](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-form-field-values/customerformfieldsget) | Create and manage customer form field values | `/customers/form-field-values` |
 |  [Customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers) | Create and manage customers and their addresses | `/customers` |
 |  [Order Transactions](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) | View order payment information | `/orders/{id}/transactions` |
 |  [Payment Processing Methods](https://developer.bigcommerce.com/api-reference/payments/payments-create-payment-token-api/payment-methods) | Get order payment methods for processing | `/payments/methods` |
