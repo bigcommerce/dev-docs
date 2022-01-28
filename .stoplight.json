@@ -16,7 +16,7 @@
     "markdown": {
       "rootDir": "docs",
       "include": [
-        "docs/stencil-docs/**"
+        "docs/bigcommerce-for-wordpress/**"
       ]
     },
     "image": {
