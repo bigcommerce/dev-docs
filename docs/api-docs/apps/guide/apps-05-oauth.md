@@ -215,7 +215,7 @@ For additional details, see [Security Considerations in RC6749](https://tools.ie
 ### Related articles
 * [About Our APIs](https://developer.bigcommerce.com/api-docs/getting-started/about-our-api)
 * [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication/authenticating-bigcommerce-apis)
-* [Types of Apps](https://developer.bigcommerce.com/api-docs/apps/guide/types-of-apps)
+* [Types of Apps](https://developer.bigcommerce.com/api-docs/apps/guide/types)
 
 ### Sample apps
 * [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
