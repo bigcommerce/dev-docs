@@ -1,0 +1,105 @@
+{
+  "items": [
+    {
+      "type": "divider",
+      "title": "Getting Started"
+    },
+    {
+      "type": "item",
+      "title": "Introduction",
+      "uri": "docs/bigcommerce-for-wordpress/getting-started/introduction.md"
+    },
+    {
+      "type": "item",
+      "title": "Install",
+      "uri": "docs/bigcommerce-for-wordpress/getting-started/install.md"
+    },
+    {
+      "type": "item",
+      "title": "App Compatibility",
+      "uri": "docs/bigcommerce-for-wordpress/getting-started/app-compatibility.md"
+    },
+    {
+      "type": "item",
+      "title": "Supported Features",
+      "uri": "docs/bigcommerce-for-wordpress/getting-started/supported-features.md"
+    },
+    {
+      "type": "item",
+      "title": "Gutenberg Support",
+      "uri": "docs/bigcommerce-for-wordpress/getting-started/gutenberg-support.md"
+    },
+    {
+      "type": "item",
+      "title": "Site Launch Checklist",
+      "uri": "docs/bigcommerce-for-wordpress/getting-started/site-launch-checklist.md"
+    },
+    {
+      "type": "divider",
+      "title": "Setup"
+    },
+    {
+      "type": "item",
+      "title": "Plugin Settings",
+      "uri": "docs/bigcommerce-for-wordpress/setup/plugin-settings.md"
+    },
+    {
+      "type": "item",
+      "title": "Product Import",
+      "uri": "docs/bigcommerce-for-wordpress/setup/product-import.md"
+    },
+    {
+      "type": "item",
+      "title": "Multisite",
+      "uri": "docs/bigcommerce-for-wordpress/setup/multi-site.md"
+    },
+    {
+      "type": "item",
+      "title": "Shortcodes",
+      "uri": "docs/bigcommerce-for-wordpress/setup/shortcodes.md"
+    },
+    {
+      "type": "item",
+      "title": "Troubleshooting",
+      "uri": "docs/bigcommerce-for-wordpress/setup/troubleshooting.md"
+    },
+    {
+      "type": "divider",
+      "title": "Extending the Plugin"
+    },
+    {
+      "type": "item",
+      "title": "AMP for the Plugin",
+      "uri": "docs/bigcommerce-for-wordpress/extending-the-plugin/amp-for-the-plugin.md"
+    },
+    {
+      "type": "item",
+      "title": "Customization Guide",
+      "uri": "docs/bigcommerce-for-wordpress/extending-the-plugin/customization-guide.md"
+    },
+    {
+      "type": "item",
+      "title": "Proxy REST API Endpoints",
+      "uri": "docs/bigcommerce-for-wordpress/extending-the-plugin/proxy-rest-api-endpoints.md"
+    },
+    {
+      "type": "item",
+      "title": "Code Reference",
+      "uri": "docs/bigcommerce-for-wordpress/extending-the-plugin/code-reference.md"
+    },
+    {
+      "type": "item",
+      "title": "Multi-Channel Capabilities",
+      "uri": "docs/bigcommerce-for-wordpress/extending-the-plugin/multi-channel-capabilities.md"
+    },
+    {
+      "type": "divider",
+      "title": "changelog"
+    },
+    {
+      "type": "item",
+      "title": "BigCommerce for Wordpress Changelog",
+      "uri": "docs/bigcommerce-for-wordpress/changelog/plugin-changelog.md"
+    }
+  ]
+}

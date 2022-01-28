@@ -19,9 +19,9 @@
         "docs/bigcommerce-for-wordpress/**"
       ]
     },
-    "image": {
-      "rootDir": "assets/images",
+    // "image": {
+    //   "rootDir": "assets/images",
       // "exclude": ["**"]
-    }
+    // }
   }
 }
