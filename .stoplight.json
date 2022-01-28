@@ -16,7 +16,7 @@
     "markdown": {
       "rootDir": "docs",
       "include": [
-        "docs/bigcommerce-for-wordpress/**"
+        "docs/legacy/**"
       ]
     },
     // "image": {
