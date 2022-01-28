@@ -297,11 +297,6 @@
     },
     {
       "type": "item",
-      "title": "Modify the Login Form",
-      "uri": "docs/stencil-docs/developing-further/modifying-forms.md"
-    },
-    {
-      "type": "item",
       "title": "BundleB2B",
       "uri": "docs/partner-apps/bundleb2b/b2b-edition.md"
     },
