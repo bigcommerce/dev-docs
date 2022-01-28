@@ -490,7 +490,7 @@ To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcomm
 ](//s3.amazonaws.com/user-content.stoplight.io/6012/1552664566834 "#### Carrier Service API
 ")
 
-Only one registered shipping carrier may be associated with an app. This [registered carrier](#shipping_provider-definitions) can provide quotes from multiple downstream carriers if desired. In this case, it will become a multi-carrier aggregator.
+Only one registered shipping carrier may be associated with an app. This [registered carrier](#definitions) can provide quotes from multiple downstream carriers if desired. In this case, it will become a multi-carrier aggregator.
 
 ## Definitions
 
