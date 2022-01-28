@@ -8,7 +8,7 @@
 - [Prerequisites](#prerequisites)
 - [Enable single sign-on](#enable-single-sign-on)
 - [Troubleshooting](#troubleshooting)
-- [Related resources](#related-resourcess)
+- [Related resources](#related-resources)
 
 </div> 
 
