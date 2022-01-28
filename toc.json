@@ -295,7 +295,11 @@
       "title": "Modify the Login Form",
       "uri": "docs/stencil-docs/developing-further/modifying-forms.md"
     },
-    //NEED BUNDLEB2B
+    {
+      "type": "item",
+      "title": "BundleB2B",
+      "uri": "docs/partner-apps/bundleb2b/b2b-edition.md"
+    },
     {
       "type": "group",
       "title": "Apply Updates",
@@ -360,7 +364,11 @@
       "title": "Open Checkout Tutorial",
       "uri": "docs/stencil-docs/customizing-checkout/open-checkout-quick-start.md"
     },
-    //installing custom checkouts
+    {
+      "type": "item",
+      "title": "Installing Custom Checkouts",
+      "uri": "docs/api-docs/cart-and-checkout/open-source-checkout.md"
+    },
     {
       "type": "divider",
       "title": "Localization"
