@@ -80,7 +80,7 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 |  [Brand Images](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brand-images) | Create and manage brand images | `/catalog/brands/{id}/images` |
 |  [Brand Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brand-metafields) | Create and manage brand metafields | `/catalog/brands/{id}/metafields` |
 |  [Brands](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brands) | Create and manage brands | `/catalog/brands` |
-|  [Carts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api) | Create an manage store carts headlessly | `/carts` |
+|  [Carts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api) | Create a manage store carts headlessly | `/carts` |
 |  [Categories](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category) | Create and manage categories | `/catalog/categories` |
 |  [Category Images](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category-images) | Create and manage category images | `/catalog/categories/{id}/images` |
 |  [Category Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category-metafields) | Create and manage category metafields | `/catalog/categories/{id}/metafields` |
