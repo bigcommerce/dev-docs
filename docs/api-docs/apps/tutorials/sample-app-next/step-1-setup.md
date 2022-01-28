@@ -5,7 +5,7 @@
 ### On this page
 - [Install Node](#install-node)
 - [Set up a project directory](#set-up-a-project-directory)
-- [Generate a package.json file](#generate-a-package-json-file)
+- [Generate a package.json file](#generate-a-packagejson-file)
 - [Install npm packages](#install-npm-packages)
 - [Add scripts](#add-scripts)
 - [Create a starter page](#create-a-starter-page)
