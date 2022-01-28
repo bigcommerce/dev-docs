@@ -8,13 +8,13 @@
 </div> 
 
 ## Overview
-The Big Open Data Layer (shortened as BODL, pronounced 'Bottle') is a standard for obtaining data points necessary to drive storefront analytics and personalization. By moving all BigCommerce and headless storefronts to use this standard over time, merchants will benefit from increased site speed and more consistent third-party analytics integrations.
+The Big Open Data Layer (shortened as BODL, pronounced 'Bottle') is a standard used to obtain data points needed for driving storefront analytics and personalization. Having all BigCommerce and headless storefronts use this standard over time allows merchants to benefit from increased site speed and more consistent third-party analytics integrations.
 
 ## Pixel example snippets
 Below is a series of example snippets of code to build on when using BODL data for your integration.
 
 ### Initialize script
-This larger code snippet has a lot of detection built-in to identify where it is running within the environment; then, the code injects objects based on this detection.
+This larger code snippet has a lot of built-in detection to identify where it is running within the environment; then, the code injects objects based on this detection.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
@@ -22,7 +22,7 @@ This larger code snippet has a lot of detection built-in to identify where it is
   
  <!-- theme:  -->
 
-The check for BODL is fetched once per page render instead of once for each analytics integration. If you want to make an alternate custom version of this data layer object with a unique schema, please use a unique object name. A unique object name ensures other apps depending on this default BODL schema do not break. We recommend using BODL_YOUR_APP_NAME, so it's unique and easy to determine its purpose.
+The check for BODL is fetched once per page render instead of once for each analytics integration. If you want to make an alternate custom version of this data layer object with a unique schema, please use a unique object name. A unique object name ensures other apps depending on this default BODL schema do not break. We recommend using BODL_YOUR_APP_NAME as the object name so it's unique and easy to understand.
 
 </div>
 </div>
@@ -126,7 +126,7 @@ BODL.getQueryParamValue = function (name) {
 
 ### Add to cart
 
-The following snippet covers tracking the Add to Cart event, actively tracking each new product ID, and quantity added.
+The following snippet covers tracking the Add to Cart event, actively tracking each new product ID and quantity added.
 
 ```javascript
 <!-- Sample Pixel Code Start: Product Detail Page Add to Cart Event -->
@@ -173,7 +173,7 @@ if (BODL.cartItemAdded) {
   ```
 
 ### Add to wishlist
-The following snippet is for tracking when users add an item to their wishlist. Note that this sends individual products specified by the 'added_product_id' and a commented section regarding category data. We do not track category data on the wishlist, but we included it for future-proofing.
+The following snippet is for tracking when users add an item to their wishlist. Note that this sends individual products specified by the 'added_product_id' and a commented section regarding category data. We do not track category data on the wishlist, but the snippet includes it for future-proofing.
 
 ```javascript
 <!-- Sample Pixel Code Start: Add to Wishlist -->
@@ -197,7 +197,7 @@ if (BODL.wishlist) {
 <!-- Sample Pixel Code End: Add to Wishlist -->
 ```
 ### Order complete
-This snippet pulls down a series of objects from a completed order, splitting them into nested arrays for physical items, digital items, and gift certificates.
+This snippet pulls down a series of objects from a completed order and splits them into nested arrays for physical items, digital items, and gift certificates.
 
 ```javascript
 <!-- Sample Pixel Code Start: Purchase Event -->
@@ -267,7 +267,7 @@ fetch('/api/storefront/order/{{checkout.order.id}}', {
 
 ### Registration
 
-This simple snippet tracks account creation.
+This snippet tracks account creation.
 
 ```javascript
 <!-- Sample Pixel Code Start: Registration -->
@@ -375,7 +375,7 @@ fetch('/api/storefront/carts/{{cart_id}}', {
 ```
 
 ### Subscribe to newsletter
-A super simple snippet that tracks anytime the user successfully subscribes to a newsletter.
+A snippet that tracks anytime the user successfully subscribes to a newsletter.
 
 ```javascript
 <!-- Sample Pixel Code Start: Subscribe to Newsletter -->
@@ -388,7 +388,7 @@ if (window.location.pathname.indexOf('/subscribe.php') === 0 && BODL.getQueryPar
 ```
 
 ### View category
-A small snippet that tracks when the user views a category.
+A snippet that tracks when the user views a category.
 
 ```javascript
 <!-- Sample Pixel Code Start: View Category Content -->
@@ -411,7 +411,7 @@ if (BODL.category) {
 ```
 
 ### View product
-A simple snippet that tracks the viewing of a product.
+A snippet that tracks the viewing of a product.
 
 ```javascript
 <!-- Sample Pixel Code Start: View Product Content -->
