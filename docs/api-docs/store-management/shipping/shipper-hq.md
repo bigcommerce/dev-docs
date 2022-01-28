@@ -136,6 +136,6 @@ Response:
 ## Resources
 ### Related endpoints
 * [Product Metafield](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield)
-* [Variant Metafield](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield)
+* [Variant Metafield](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield)
 ### Related articles
 * [ShipperHQ](https://support.bigcommerce.com/s/article/ShipperHQ) (Knowledge Base)
