@@ -245,5 +245,4 @@ Password validation is only available on the V2 Customers API at this time. We r
 - [Storefront Subscriptions](https://developer.bigcommerce.com/api-reference/storefront/storefront-subscriptions)
 - [Subscribers API](https://developer.bigcommerce.com/api-reference/store-management/subscribers)
 
-### Webhooks
-- [Customer](https://developer.bigcommerce.com/api-docs/store-management/webhooks/events#customer)
+
