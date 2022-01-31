@@ -17,7 +17,7 @@
 
 A Price List allows you to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level. If an active Price List does not contain prices for a variant, then the Catalog pricing will be used. 
 
-You can assign a Price List to a specific sales channel using price list assignments via the [Price List Assignment API](https://developer.bigcommerce.com/api-reference/store-management/price-lists/price-lists-assignments/createpricelistassignments). You can also associate a Price List to a Customer Group via the Control Panel or the [Customer Groups API](/api-reference/customer-subscribers/customers-api). Price list assignments combined with a customer group assignment allows you to better target specifically the logged-in customers shopping on that channel.
+You can assign a Price List to a specific sales channel using price list assignments via the [Price List Assignment API](https://developer.bigcommerce.com/api-reference/store-management/price-lists/price-lists-assignments/createpricelistassignments). You can also associate a Price List to a Customer Group via the Control Panel or the [Customer Groups API](/api-reference/customer-subscribers/customers-api). Price list assignments combined with a customer group assignment allow you to better target specifically the logged-in customers shopping on that channel.
 
 Price Lists will provide overridden price values to the Stencil storefront. You can further customize the final price display within the Stencil template. For more information, see the [Theme Objects](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties).
 
@@ -153,7 +153,7 @@ lineNumbers: true
 ]
 ```
 
-Under `discount_rules` the `type` is set to `price_list`. The `price_list_id` is 1, which is the id of the price list the group has been assigned to.
+Under `discount_rules` the `type` is set to `price_list`. The `price_list_id` is 1, which is the id of the price list assigned to the group.
 
 ## Price List notes
 
