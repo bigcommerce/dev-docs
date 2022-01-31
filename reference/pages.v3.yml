@@ -45,7 +45,6 @@ paths:
                         is_visible: false
                         parent_id: 0
                         sort_order: 0
-                        description: null
                         type: page
                         meta_keywords: ''
                         meta_description: string
@@ -62,7 +61,6 @@ paths:
                         is_visible: false
                         parent_id: 0
                         sort_order: 3
-                        description: null
                         feed: 'https://bigcommerce.com/feed/'
                         type: feed
                         meta_keywords: ''
@@ -80,7 +78,6 @@ paths:
                         is_visible: false
                         parent_id: 0
                         sort_order: 0
-                        description: null
                         link: '1'
                         type: link
                         meta_keywords: ''
