@@ -1,25 +1,7 @@
 
 # Webhook Events
 
-<div class="otp" id="no-index">
 
-### On this Page
-
-- [Callback structure](#callback-structure)
-- [Cart](#cart)
-- [Cart line item](#cart-line-item)
-- [Category](#category)
-- [Channel](#channel)
-- [Customer](#customer)
-- [Orders](#orders)
-- [Products](#products)
-- [Shipment](#shipment)
-- [SKU](#sku)
-- [Store](#store)
-- [Subscriber](#subscriber)
-- [Resources](#resources)
-
-</div>
 
 This article contains a complete reference of all BigCommerce webhook events and their callback payloads. For an introduction to webhooks on BigCommerce, see [Webhooks Overview](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview#callback-payload).
 

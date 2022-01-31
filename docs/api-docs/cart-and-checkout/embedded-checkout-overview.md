@@ -1,15 +1,6 @@
 # Embedded Checkout Overview
 
-<div class="otp" id="no-index">
 
-### On this page
-- [How it works](#how-it-works)
-- [Channels, Sites, and Routes APIs](#channels-sites-and-routes-apis)
-- [BigCommerce Checkout SDK](#bigcommerce-checkout-sdk)
-- [Logged-In customers](#logged-in-customers)
-- [FAQ](#faq)
-
-</div>
 
 The [Checkout SDK's`embedded-checkout` sub-module](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/README.md#embedcheckout) can be used to embed [BigCommerce's Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout) into non-native storefronts like WordPress. You can see this in action within the BigCommerce for WordPress plugin, which uses the same process described here as a checkout option for merchants. For more information about the plugin, see [BigCommerce for Wordpress](https://developer.bigcommerce.com/bigcommerce-for-wordpress/getting-started/introduction).
 

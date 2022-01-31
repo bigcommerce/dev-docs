@@ -1,14 +1,6 @@
 # Theme Updates and Version Control
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Version control](#version-control)
-- [Theme updates](#theme-updates)
-- [Maintaining customizations](#maintaining-customizations)
-- [Resources](#resources)
-
-</div>
 
 When developing BigCommerce themes, there are a few steps you can take to ensure your custom theme stays up to date with BigCommerce theme updates and version releases.
 

@@ -1,16 +1,5 @@
 # Introduction to Building Apps
 
-<div class="otp" id="no-index">
-
-### On this page
-- [About BigCommerce apps](#about-bigcommerce-apps)
-- [Use cases](#use-cases)
-- [Getting started](#getting-started)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
-</div>
-
 Using BigCommerce's powerful APIs, SDKs, and toolkits, developers can build apps that are installable on BigCommerce stores. Once approved, apps can be sold (or made available free of charge) to all BigCommerce merchants on the [Apps Marketplace](https://www.bigcommerce.com/apps). This is the first article in a comprehensive developer's guide to building BigCommerce apps. It provides a brief, high-level introduction for developers new to the platform. If you already have experience developing for BigCommerce, feel free to [skip ahead](#next-steps) or check out the [quick start tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start).
 
 

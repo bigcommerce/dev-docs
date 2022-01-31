@@ -1,16 +1,6 @@
 # Contextual Filters
 
-<div class="otp" id="no-index">
 
-### On this page
-- [View active storefront filters](#view-active-storefront-filters)
-- [View available storefront filters](#view-available-storefront-filters)
-- [View available category-level filters](#view-available-category-level-filters)
-- [View contextual filters](#view-contextual-filters)
-- [Configure contextual filters](#configure-contextual-filters)
-- [Related resources](#related-resources)
-
-</div>
 
 The [Settings API](https://developer.bigcommerce.com/api-reference/store-management/settings) allows you to manage settings and configurations for BigCommerce-hosted stores and headless storefronts. 
 

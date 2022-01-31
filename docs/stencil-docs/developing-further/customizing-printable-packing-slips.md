@@ -1,12 +1,6 @@
 # Customizing Printable Packing Slips
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Customizing printable packing slips](#customizing-printable-packing-slips)
-- [Resources](#resources)
-
-</div> 
+ 
 
 Developers are commonly asked to modify the default content of packing slips in order to satisfy specific business requirements and industry demands. This article contains instructions on how to edit the HTML file of a printable packing slip.
 

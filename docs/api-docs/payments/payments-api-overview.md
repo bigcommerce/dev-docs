@@ -1,20 +1,6 @@
 # Payments API
 
-<div class="otp" id="no-index">
 
-### On this page
-- [PCI compliance](#pci-compliance)
-- [Processing a payment](#processing-a-payment)
-- [Stored cards](#stored-cards)
-- [Credit cards](#credit-cards)
-- [Using the Orders API](#using-the-orders-api)
-- [Technical details](#technical-details)
-- [Sample app diagram](#sample-app-diagram)
-- [Error codes](#error-codes)
-- [FAQ](#faq)
-- [Related resources](#related-resources)
-
-</div>
 
 The Payments API enables you to process payments through the store’s connected payment gateway. Merchants can receive a payment for an order that was created using either the [Server to Server Checkout API Orders](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api) endpoint or the [V2 Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/createanorder) endpoint.
 

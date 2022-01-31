@@ -1,14 +1,6 @@
 # Becoming a Partner
 
-<div class="otp" id="no-index">
-
-### On this page
-
-- [Applying to the Partner Program](#applying-to-the-partner-program)
-- [Partner Portal training](#partner-portal-training)
-- [Ongoing support](#ongoing-support)
-- [Resources](#resources)
-</div> 
+ 
 
 
 The BigCommerce Partner Program includes access to resources, training, sales enablement, partner support, and a referral network to increase your client base and build better ecommerce experiences.

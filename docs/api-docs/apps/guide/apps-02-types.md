@@ -1,14 +1,6 @@
 # Types of Apps
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Single-Click](#single-click)
-- [Connector](#connector)
-- [Visibility](#visibility)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-</div>
 
 The first step when developing an app is deciding which type of app to develop. The two types of apps, single-click and connector, are defined by the method of authentication. [Single-click](#single-click) apps use an OAuth Authorization Code Grant flow. [Connector apps](#connector) require store owners to manually generate and configure store API credentials. In addition to the authentication method, apps can differ by [visibility](#visibility).
 

@@ -1,16 +1,6 @@
 # Embedded Checkout
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Creating a channel](#creating-a-channel)
-- [Creating a site](#creating-a-site)
-- [Creating a cart](#creating-a-cart)
-- [Embedding the checkout](#embedding-the-checkout)
-- [FAQ](#faq)
-- [Related resources](#related-resources)
-
-</div>
 
 Embedded Checkout lets you place BigCommerce’s Optimized One-Page checkout onto an external site. This tutorial will walk you through the sequence of API calls your application should make to create a working Embedded Checkout.
 

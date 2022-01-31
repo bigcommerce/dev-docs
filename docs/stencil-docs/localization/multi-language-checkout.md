@@ -1,17 +1,7 @@
 # Multi-Language Checkout
 
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Multi-language setup](#multi-language-setup)
-- [Browsing hidden translation keys](#browsing-hidden-translation-keys)
-- [Adding your own translation values](#adding-your-own-translation-values)
-- [Localized country and state names](#localized-country-and-state-names)
-- [Limits on translation](#limits-on-translation)
-- [Resources](#resources)
-
-</div>
 
 ## Multi-language setup
 

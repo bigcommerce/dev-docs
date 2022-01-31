@@ -1,16 +1,6 @@
 # Checkout/Confirmation Injection Options
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Adding Storewide Styles](#adding-storewide-styles)
-- [Applying Storewide Header](#applying-storewide-header)
-- [Applying Storewide Scripts](#applying-storewide-scripts)
-- [Adding Trust Seals](#adding-trust-seals)
-- [Checkout App Injection](#checkout-app-injection)
-- [Resources](#resources)
-
-</div>
 
 ## Adding Storewide Styles
 

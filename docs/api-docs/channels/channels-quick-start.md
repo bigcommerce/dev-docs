@@ -2,17 +2,7 @@
 
 # Building Channels Quick Start
 
-<div class="otp" id="no-index">
 
-### On this page
-
-
- - [Prerequisites](#prerequisites)
- - [Create a channel](#create-a-channel)
- - [Create a channel with navigation](#create-a-channel-with-navigation)
- - [Related resources](#related-resources)
-
-</div>
 
 This advanced, quick-start tutorial is for [BigCommerce partners](https://www.bigcommerce.com/partners/) wishing to market their solution within [Channel Manager's](https://developer.bigcommerce.com/api-docs/channels/overview#resources) **Create Channel** flow. For an introduction to channels on BigCommerce, see [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/overview).
 

@@ -1,15 +1,6 @@
 # Next.js Commerce Quick Start
 
-<div class="otp" id="no-index">
 
-### On this page
-
-- [Overview](#overview)
-- [Getting started](#getting-started)
-- [Application](#application)
-- [Application settings](#application-settings)
-- [Resources](#resources)
-</div>
 
 ## Overview
 

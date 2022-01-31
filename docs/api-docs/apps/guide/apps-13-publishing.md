@@ -1,20 +1,6 @@
 # Publishing an App
 
-<div class="otp" id="no-index">
 
-### On this page
-
-- [Before you begin](#before-you-begin)
-- [Provide a summary](#provide-a-summary)
-- [Add technical information](#add-technical-information)
-- [Fill in details](#fill-in-details)
-- [Review submission](#review-submission)
-- [Submit your app for approval](#submit-your-app-for-approval)
-- [FAQ](#faq)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
-</div>
 
 After completing development, verifying best practices, and checking approval requirements, you may submit your app for Marketplace approval in the [Developer Portal](https://devtools.bigcommerce.com/). This article takes you step-by-step through the submission form and provides descriptions for each field.
 

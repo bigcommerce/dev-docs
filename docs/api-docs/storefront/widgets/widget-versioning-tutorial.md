@@ -1,14 +1,6 @@
 # Widget Versioning
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Create a widget template](#create-a-widget-template)
-- [Update the widget template](#update-the-widget-template)
-- [Upgrade the widget](#upgrade-the-widget)
-- [Related resources](#related-resources)
-
-</div>
 
 This article documents how to use [widget versioning](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#widget-versioning) to update a widget template without updating its widgets.
 

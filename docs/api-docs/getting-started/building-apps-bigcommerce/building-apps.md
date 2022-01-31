@@ -1,26 +1,6 @@
 # Building an App
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [OAuth Summary](#oauth-summary)
-- [Request Headers](#request-headers)
-- [Managing Users Session Timeouts](#managing-users-session-timeouts)
-- [Installation and Update Sequence](#installation-and-update-sequence)
-- [Receiving the GET Request](#receiving-the-get-request)
-- [Responding to the GET Request](#responding-to-the-get-request)
-- [Making the POST Request](#making-the-post-request)
-- [Receiving the POST Response](#receiving-the-post-response)
-- [Required URIs](#required-uris)
-- [Processing the Signed Payload](#processing-the-signed-payload)
-- [Multi-User Support](#multi-user-support)
-- [External App Installation](#external-app-installation)
-- [Designing the User Interface](#designing-the-user-interface)
-- [Hosting Your App](#hosting-your-app)
-- [FAQ](#faq)
-- [Resources](#resources)
-
-</div>
 
 ## OAuth Summary
 

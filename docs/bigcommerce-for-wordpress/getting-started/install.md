@@ -2,14 +2,7 @@
 
 # Install
 
-<div class="otp" id="no-index">
 
-### On this page
-- [System requirements](#system-requirements)
-- [Installation](#installation)
-- [Setting your channel name](#setting-your-channel-name)
-
-</div>
 
 
 ## System requirements

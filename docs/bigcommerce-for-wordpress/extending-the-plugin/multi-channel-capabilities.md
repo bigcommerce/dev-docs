@@ -1,19 +1,6 @@
 # Multi-Channel Capabilities
 
-<div class="otp" id="no-index">
 
-### On this Page
-- [Enabling Multiple Channels](#enabling-multiple-channels)
-- [Switching Channels](#switching-channels)
-- [Plugin Example](#plugin-example)
-- [Step 1: Setup Directory Structure](#step-1-setup-directory-structure)
-- [Step 2: Connect Channels](#step-2-connect-channels)
-- [Step 2: Add the Plugin Code](#step-2-add-the-plugin-code)
-- [Developing Further](#developing-further)
-- [FAQ](#faq)
-- [Resources](#resources)
-
-</div>
 
 Since version `3.1.0`, BigCommerce for WordPress is capable of managing multiple channels (and displaying different product listings for each channel) from within a single WordPress site. This makes it possible to have multiple storefronts on a single WordPress instance with BigCommerce serving as headless commerce back-end.
 

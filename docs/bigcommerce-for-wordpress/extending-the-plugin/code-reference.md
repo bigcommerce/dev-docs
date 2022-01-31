@@ -1,13 +1,6 @@
 # Code Reference
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Code reference](#code-reference)
-- [Usage notes](#usage-notes)
-
-
-</div> 
+ 
 
 ## Code reference
 To search the BigCommerce for WordPress (BC4WP) codebase for detailed entries on available hooks, functions, classes, and methods, visit the [BigCommerce Plugin Code Reference](https://bigcommerce.moderntribe.qa/).

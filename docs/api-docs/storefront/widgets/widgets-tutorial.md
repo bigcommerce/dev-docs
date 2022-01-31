@@ -1,17 +1,6 @@
 # Create and Place a Widget
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Create a region](#create-a-region)
-- [Create a widget template](#create-a-widget-template)
-- [Create a widget](#create-a-widget)
-- [Create a placement](#create-a-placement)
-- [Create a custom template placement](#create-a-custom-template-placement)
-- [Create a user interface](#create-a-user-interface)
-- [Related resources](#related-resources)
-
-</div>
 
 BigCommerce's [Widgets API](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview) allows you to create, manage, and apply widgets to your storefront. 
 

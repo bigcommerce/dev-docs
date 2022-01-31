@@ -1,14 +1,6 @@
 # V2 to V3 Catalog Operations Comparison
 
-<div class="otp" id="no-index">
 
-### On This Page
-
-- [V2 and V3 operations](#v2-and-v3-operations)
-- [Interoperability between V2 and V3](#interoperability-between-v2-and-v3)
-- [Related resources](#related-resources)
-
-</div>
 
 This article illustrates the difference between V2 and V3 Catalog APIs by comparing major operations. 
 

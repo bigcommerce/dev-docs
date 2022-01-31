@@ -1,14 +1,6 @@
 # Localizing Widget Template Settings
 
-<div class="otp" id="no-index">
 
-### On this page
-
-- [Mapping settings to translations](#mapping-settings-to-translations)
-- [Supported language code schemes](#supported-language-code-schemes)
-- [Resources](#resources)
-  
-</div>
 
 You can localize widget template settings to the provided language translations using the internationalization (**i18n**) system.
 

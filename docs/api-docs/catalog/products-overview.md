@@ -1,30 +1,6 @@
 # Catalog Overview
 
-<div class="otp" id="no-index">
 
-### On this page
-- [OAuth scopes](#oauth-scopes)
-- [Products overview](#products-overview)
-- [Creating products with variant options](#creating-products-with-variant-options)
-- [Creating digital products](#creating-digital-products)
-- [Adding product images](#adding-product-images)
-- [Adding product videos](#adding-product-videos)
-- [Adding custom fields](#adding-custom-fields)
-- [Adding bulk pricing rules](#adding-bulk-pricing-rules)
-- [Pricing precision](#pricing-precision)
-- [Adding product metafields](#adding-product-metafields)
-- [Adding product reviews](#adding-product-reviews)
-- [Variant options](#variant-options)
-- [Variants](#variants)
-- [Creating variants](#creating-variants)
-- [Modifier options](#modifier-options)
-- [Complex rules](#complex-rules)
-- [Creating brands](#creating-brands)
-- [Categories](#categories)
-- [Product Sort Order](#product-sort-order)
-- [Related resources](#related-resources)
-
-</div>
 
 The Catalog refers to a store's collection of physical and digital products. The Catalog includes all the information about a product such as MPN, warranty, price, and images.
 
