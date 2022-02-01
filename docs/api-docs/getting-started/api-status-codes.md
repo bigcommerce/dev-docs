@@ -40,8 +40,7 @@ The BigCommerce API responds to a request with different HTTP status codes depen
 | Code | Text | Purpose |
 |-|-|-|
 | **400** | **Bad Request** | Issued when a malformed request was sent. |
-||| The request can not be completed due to a URL restriction. Check the URL for ports that may conflict with site permissions. |
-
+||| The request can not be completed due to a URL restriction. Check the URL for ports that may conflict with site permissions.
 | **401** | **Unauthorized** | This response is sent when your client failed to provide credentials or its credentials were invalid. |
 | **403** | **Forbidden** | Returned when permissions do not allow the operation. |
 | **404** | **Not Found** | When a particular resource doesn't exist or couldn't be found. |
