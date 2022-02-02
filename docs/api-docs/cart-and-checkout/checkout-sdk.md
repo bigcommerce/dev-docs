@@ -62,4 +62,4 @@ The Checkout JS SDK and associated documentation is available from the [BigComme
 
 ## Support and customization
 - Enterprise clients can reach out to their account manager to review services and resources available.
-- For more on our design policy, please visit [Design Support](https://forum.bigcommerce.com/s/article/BigCommerce-Design-Policy#support).
+- For more on our design policy, please visit [Design Support](https://support.bigcommerce.com/s/article/BigCommerce-Design-Policy#support).
