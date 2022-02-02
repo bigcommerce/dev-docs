@@ -35,7 +35,7 @@ Stencil translation files are not supported by Embedded Checkout. To display tra
 
 The [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api) allows you to manage customers in two steps. First, you need to pass the `customer_id` when creating the cart. Second, you need to log in the customer, so the session is active when the checkout loads.
 
-You are required to include the `channel_id` when using the login JWTs to embed checkout for headless storefronts. Default value = 1
+You are required to include the `channel_id` in the login JWTs to embed checkout for headless storefronts. Default value = 1. For more information, see the [Embedded Checkout Overview](https://developer.bigcommerce.com/api-docs/storefronts/embedded-checkout/embedded-checkout-overview).
 
 
 ## FAQ
