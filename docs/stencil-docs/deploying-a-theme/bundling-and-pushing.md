@@ -116,6 +116,7 @@ Stencil CLI displays the same notifications, prompts, and selection options you 
 
 To push a theme and activate a particular variation without being prompted, use `stencil push -a VARIATION_NAME` with the name of the variation. For example, `stencil push -a Light` will activate the "Light" variation. If you simply use `stencil push -a` without a variation name, the first variation will be applied.
 
+To push a theme and apply it to selected channels, use `stencil push -a -c 123 456`. To apply a theme to all available channels, use `stencil push -a -allc`.
 
 If you are already at your theme limit, you can automatically delete the oldest theme on your store using `stencil push -d`. You can use the combination, `stencil push -a -d`, to give the best chance of the upload working without any interaction, which is desirable for automated deployments of Stencil CLI.
 
