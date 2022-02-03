@@ -2,7 +2,7 @@
 
  
 
-BigCommerce provides significant levels of checkout customizability. There are two paths that a developer can choose to use. 
+BigCommerce provides significant levels of checkout customizability. If you just want to modify the theme by overriding the style of BigCommerce’s Optimized One-Page Checkout, please see [Restyle Optimized One-Page Checkout](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/optimized-one-page-checkout). However, if you want to build a custom checkout, there are two paths that a developer can choose to use.
 		
 The first path is to render the checkout on the BigCommerce storefront. With the storefront suite of APIs and SDKs, BigCommerce as a platform maintains responsibility for managing shopper sessions using cookies and all our standard mechanisms. 
 		
