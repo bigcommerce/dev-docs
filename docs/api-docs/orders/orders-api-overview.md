@@ -344,6 +344,7 @@ Accept: application/json
 
 > ### Note
 > * Create multiple shipments by specifying a subset of products and quantities in each `POST` request.
+> * Create an order shipment with product variants by using the `id` returned in each `GET` request.
 > * Creating order shipments triggers email notifications; adjust [Order Notification](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) settings in the [control panel](https://login.bigcommerce.com/deep-links/manage) to change this behavior.
 > * Deleting a shipment does **not** move the order out of `shipped` status.
 
@@ -577,8 +578,8 @@ Order `subtotal` and `total` calculate automatically; edits to the following pro
 |`shipping_cost_inc_tax`|`float`|Shipping cost, including tax|
 |`handling_cost_ex_tax`|`float`|Value of handling cost, excluding tax|
 |`handling_cost_inc_tax`|`float`|Value of handling cost, including tax|
-|`wrapping_cost_ex_tax`|`float`|Value of wrapping cost, excluding tax |
-|`wrapping_cost_inc_tax`|`float`|Value of wrapping cost, including tax |
+|`wrapping_cost_ex_tax`|`float`|Value of wrapping cost, excluding tax|
+|`wrapping_cost_inc_tax`|`float`|Value of wrapping cost, including tax|
 |`billing_address`|`obj`|Used to calculate shipping and taxes|
 |`shipping_addresses`|`array[obj]`|Used to calculate shipping and taxes|
 
