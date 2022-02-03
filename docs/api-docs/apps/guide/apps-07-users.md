@@ -1,17 +1,6 @@
 # Supporting Multiple Users
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Enabling multiple users](#enabling-multiple-users)
-- [The control panel experience](#the-control-panel-experience)
-- [The load request](#the-load-request)
-- [The remove user request](#the-remove-user-request)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-- [Related articles](#related-articles)
-
-</div>
 
 When you register your app in the [Developer Portal](https://devtools.bigcommerce.com/), you'll have the option of enabling **Multiple Users**. This allows store administrators to manually authorize users to load the app. This article describes how enabling **Multiple Users** impacts the app's user experience in the control panel, and discusses important implications for app developers to consider before enabling the feature.
 

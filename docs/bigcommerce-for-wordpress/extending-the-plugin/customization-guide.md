@@ -2,21 +2,7 @@
 
 # Customization Guide
 
-<div class="otp" id="no-index">
 
-### On This Page
-
-- [Overview](#overview)
-- [Styling BC4WP templates](#Styling-BC4WP-templates)
-- [Accessing BigCommerce data](#accessing-bigcommerce-data)
-- [Custom CSS](#custom-css)
-- [Hooks](#hooks)
-- [Localizing strings displayed on the storefront](#localizing-strings-displayed-on-the-storefront)
-- [Styling checkout](#styling-checkout)
-- [Email templates](#email-templates)
-- [Related resources](#related-resources)
-
-</div>
 
 ## Overview
 

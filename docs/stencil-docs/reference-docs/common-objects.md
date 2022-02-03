@@ -1,15 +1,6 @@
 # Common Objects
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Catalog Price](#catalog-price)
-- [Price](#price)
-- [Price Range](#price-range)
-- [Stencil Image](#stencil-image)
-- [Common Product Card Model](#common-product-card-model)
-
-</div> 
+ 
 
 Certain Stencil objects can be accessed through multiple other Stencil objects. For example, the image object is exposed through the Category, Product, Product Options, and other objects. Its structure is consistent for all objects/properties that access it.
 

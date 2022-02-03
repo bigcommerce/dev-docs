@@ -1,15 +1,6 @@
 # Checkout Consignment API
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Overview](#overview)
-- [Creating a consignment](#creating-a-consignment)
-- [Updating a consignment](#updating-a-consignment)
-- [Further reading](#further-reading)
-- [Related documentation](#related-documentation)
-
-</div> 
+ 
 
 This article discusses how to create and update a consignment.
 

@@ -1,13 +1,6 @@
 # Creating Channels
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Creating channels](#creating-channels)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
-</div>
 
 This section demonstrates how to create a channel and a channel site for a headless storefront.
 

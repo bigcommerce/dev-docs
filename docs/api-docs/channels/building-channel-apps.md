@@ -2,26 +2,7 @@
 
 # Building Channel Apps
 
-<div class="otp" id="no-index">
 
-## On this page
-
-  - [Getting started](#getting-started)
-  - [Beginning development](#beginning-development)
-  - [Gathering materials](#gathering-materials)
-  - [Creating a channel](#creating-a-channel)
-  - [Getting catalog data](#getting-catalog-data)
-  - [Creating listings](#creating-listings)
-  - [Importing and exporting sales](#importing-and-exporting-sales)
-  - [Managing orders and inventory](#managing-orders-and-inventory)
-  - [Syncing gift card balances](#syncing-gift-card-balances)
-  - [B2B and wholesale integration](#b2b-and-wholesale-integration)
-  - [Handling notifications](#handling-notifications)
-  - [Developing the UI](#developing-the-ui)
-  - [Next steps](#next-steps)
-  - [Related resources](#related-resources)
-
-</div>
 
 Using BigCommerce's [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference), developers can create channel apps that integrate with point-of-sale devices, [headless storefronts](https://developer.bigcommerce.com/api-docs/storefronts/developers-guide-headless), online marketplaces, marketing platforms, and social networking sites. BigCommerce lists all approved channel apps on the [Apps Marketplace](https://www.bigcommerce.com/apps/) and markets channel apps developed by [select partners](https://www.bigcommerce.com/partners/) in [Channel Manager](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager).
 

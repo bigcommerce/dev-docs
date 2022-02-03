@@ -1,14 +1,6 @@
 # Page Builder Overview
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Theme Styles](#theme-styles)
-- [Widgets](#widgets)
-- [Layers](#layers)
-- [Related resources](#related-resources)
-
-</div>
 
 Page Builder is a browser-based tool that offers merchants visual editing and content management capabilities to design their stores. The Page Builder interface consists of [Theme Styles](https://support.bigcommerce.com/s/article/Page-Builder#styles), [Widgets](https://support.bigcommerce.com/s/article/Page-Builder#builder), and [Layers](https://support.bigcommerce.com/s/article/Page-Builder#layers).
 

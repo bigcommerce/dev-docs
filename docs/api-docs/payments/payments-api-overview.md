@@ -1,20 +1,6 @@
 # Payments API
 
-<div class="otp" id="no-index">
 
-### On this page
-- [PCI compliance](#pci-compliance)
-- [Processing a payment](#processing-a-payment)
-- [Stored cards](#stored-cards)
-- [Credit cards](#credit-cards)
-- [Using the Orders API](#using-the-orders-api)
-- [Technical details](#technical-details)
-- [Sample app diagram](#sample-app-diagram)
-- [Error codes](#error-codes)
-- [FAQ](#faq)
-- [Related resources](#related-resources)
-
-</div>
 
 The Payments API enables you to process payments through the store’s connected payment gateway. Merchants can receive a payment for an order that was created using either the [Server to Server Checkout API Orders](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api) endpoint or the [V2 Orders](https://developer.bigcommerce.com/api-reference/orders/orders-api/orders/createanorder) endpoint.
 
@@ -51,55 +37,6 @@ Merchants or shoppers' personal identifiable information (PII) collected by recu
 ## Processing a payment
 
 You can process payments using cards stored with the BigCommerce Stored Credit Cards feature or by providing a credit card number.
-
-**BigCommerce supports the following gateways for stored cards:**
-
-* AdyenV2
-* Authorize.net
-* Barclaycard Fuse
-* Bolt
-* Checkout.com
-* CyberSource
-* Mollie
-* MyVirtualMerchant
-* Paymetric
-* PayPal powered by Braintree
-* Stripe
-* StripeV3
-
-**BigCommerce supports the following gateways for credit cards:**
-
-* Authorize.net
-* Ayden
-* Barclaycard Fuse
-* Bolt
-* Chase integrated payments
-* Chase merchant services
-* Checkout.com
-* Cybersource
-* eWAY rapid
-* First data payeezy gateway
-* Heartland payment systems
-* MIGS
-* MyVirtualMerchant
-* NMI
-* Orbital
-* Paymetric
-* PayPal(Commerce Platform)
-* PayPal powered by Braintree
-* PayPal Payments Pro (Payflow Edition) UK
-* PayPal Payments Pro (Payflow Edition) US
-* QuickBooks Payments
-* Sage Pay/Protx VSP Direct
-* SecureNet
-* Stripe
-* StripeV3
-* USA ePay
-* Vantiv
-* Vantiv Core
-* Windcave
-* Worldpay Core
-* WorldPay
 
 Attempting to process a payment through the API using the full credit card information may fail if the provider requires 3DS authentication. The card must be saved through a shopper-initiated transaction before it can be charged through the Payments API. For a list of payment gateways that support 3DS, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available).
 

@@ -1,15 +1,6 @@
 # Email Templates Overview
 
-<div class="otp" id="no-index">
 
-### On This Page
-
-- [Editing](#editing)
-- [API](#api)
-- [Overrides](#overrides)
-- [Resources](#resources)
-
-</div>
 
 This article provides an overview of BigCommerce's transactional email templates and API.
 

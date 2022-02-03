@@ -1,11 +1,6 @@
 # Create a Sandbox Store
 
-<div class="otp" id="no-index"> 
-
-### On this page
-- [Creating a sandbox store](#creating-a-sandbox-store)
-- [Resources](#resources)
-</div> 
+ 
 
 A sandbox store cannot process transactions and is for developing and testing apps without the 15-day time limit of a trial store. 
 

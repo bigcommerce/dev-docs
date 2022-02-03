@@ -1,15 +1,6 @@
 # Channels, Sites and Routes APIs
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [How They Work](#how-they-work)
-- [Channels and Listings](#channels-and-listings)
-- [Sites and Routes](#sites-and-routes)
-- [Channel Manager vs. App Marketplace](#channel-manager-vs-app-marketplace)
-- [What Do I Need to Build a Channel App?](#what-do-i-need-to-build-a-channel-app)
-
-</div>
 
 <a id="channels-sites-routes-how"></a>
 

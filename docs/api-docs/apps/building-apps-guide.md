@@ -1,29 +1,5 @@
 # Building Apps
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Get Started](#get-started)
-- [Decide App Type](#decide-app-type)
-- [Start with Hello World](#start-with-hello-world)
-- [Test Locally](#test-locally)
-- [Register the App](#register-the-app)
-- [Install Draft App](#install-draft-app)
-- [Implement OAuth Flow](#implement-oauth-flow)
-- [Test OAuth Locally](#test-oauth-locally)
-- [Handle Callbacks](#handle-callbacks)
-- [Support Multiple Users](#support-multiple-users)
-- [Listen for Events](#listen-for-events)
-- [Design the UI](#design-the-ui)
-- [Create Install Buttons](#create-install-buttons)
-- [Follow Best Practices](#follow-best-practices)
-- [Check Requirements](#check-requirements)
-- [Deploy the App](#deploy-the-app)
-- [Publish to Marketplace](#publish-to-marketplace)
-- [Resources](#resources)
-
-</div>
-
 This article is an in-depth, comprehensive guide to building apps on BigCommerce. For a step-by-step tutorial, see []().
 
 ## Get Started

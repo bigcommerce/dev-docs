@@ -1,16 +1,6 @@
 # Installing a Custom Checkout
 
-<div class="otp" id="no-index">
 
-
-### On this page
-
-- [Obtaining the JavaScript loader file](#obtaining-the-javascript-loader-file)
-- [Hosting a custom checkout](#hosting-a-custom-checkout)
-- [Installing custom checkouts](#installing-custom-checkouts)
-- [Related resources](#related-resources)
-
-</div>
 
 You can create unique shopping experiences that fit the look and feel of a store's brand using custom checkouts. This article will outline how to package a custom checkout file, and install a custom checkout via the control panel.
 

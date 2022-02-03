@@ -1,16 +1,6 @@
 # Embedded Checkout
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Creating a channel](#creating-a-channel)
-- [Creating a site](#creating-a-site)
-- [Creating a cart](#creating-a-cart)
-- [Embedding the checkout](#embedding-the-checkout)
-- [FAQ](#faq)
-- [Related resources](#related-resources)
-
-</div>
 
 Embedded Checkout lets you place BigCommerce’s Optimized One-Page checkout onto an external site. This tutorial will walk you through the sequence of API calls your application should make to create a working Embedded Checkout.
 
@@ -255,9 +245,14 @@ Read more about the [JSON object](https://github.com/bigcommerce/checkout-sdk-js
 
 ### How can I work with Embedded Checkout locally?
 
-One option for working locally is to install an SSL on your local machine, and then send `https://localhost.com` as the Channel site. Use the default port 443 to be able to preview your site locally.
+You can use ngrok to test Embedded Checkout locally. 
+Steps:
+1. Run your app on localhost.
+2. Create a [ngrok](https://ngrok.com/docs#getting-started-expose) tunnel for the localhost port to your app.
+3. Set your Channel Site URL to the HTTPS URL of the ngrok tunnel.
+4. View your app from the ngrok URL.
 
-If your channel site doesn't match the URL from which you're making a request to BigCommerce, you will get a security error in the browser and the checkout will not load. Additionally, if requests to your BigCommerce store aren't served over HTTPS, you will also see an error.
+NOTE: Use https://127.0.0.1 as the Channel site URL if you do not want to use ngrok.
 
 ### Are hosted payment gateways supported with Embedded Checkout?
 At this time, you cannot embed a checkout using a hosted payment gateway. See [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) to determine which type of gateway you're using.

@@ -1,10 +1,4 @@
 # The B2B Edition of BigCommerce
-### On this page
-- [B3 integration with BigCommerce](#b3-integration-with-bigcommerce)
-- [Customizing B3](#customizing-b3)
-- [Overwriting and injecting JavaScript](#overwriting-and-injecting-javascript)
-- [B3 REST API](#b3-rest-api)
-- [Additional BundleB2B resources](#additional-bundleb2b-resources)
 
 BundleB2B (B3) adds business-to-business (B2B) functionality to the BigCommerce platform, allowing businesses to easily facilitate B2B operations online. B3 provides a comprehensive suite of key B2B features to improve the B2B self-service experience for BigCommerce store owners and their customers.
 

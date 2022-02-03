@@ -1,15 +1,6 @@
 # Theme Objects
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Viewing a page's context](#viewing-a-pages-context)
-- [Using Handlebars](#using-handlebars)
-- [Using PageManager JavaScript](#using-pagemanager-javascript)
-- [Client-side injection](#client-side-injection)
-- [Resources](#resources)
-
-</div> 
+ 
 
 Stencil template objects expose dynamic page data. Not all objects are available on every page; which objects are present depends on page type. Below are instructions on viewing a page’s context while developing locally and how to access that context’s data via Handlebars expressions and JavaScript. For a complete template object reference, see [Models](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties/models).
 

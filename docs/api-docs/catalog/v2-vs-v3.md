@@ -1,13 +1,6 @@
 # Difference between V2 and V3 Catalog REST APIs
 
-<div class="otp" id="no-index">
 
-### On this page
-- [V3 improvements](#v3-improvements)
-- [Difference between V2 and V3 Catalog APIs](#difference-between-v2-and-v3-catalog-apis)
-- [Related resources](#related-resources)
-
-</div>
 
 V2 and V3 Catalog REST APIs allow you to manage your store's products, categories, and brands, along with their sub-resources.
 

@@ -1,14 +1,6 @@
 # BigCommerce APIs Quick Start
 
-<div class="otp" id="no-index">
 
-### On this page
-- [REST API](#rest-api)
-- [Storefront API quick start](#storefront-api-quick-start)
-- [GraphQL API](#graphql-api)
-- [Customer Login API](#customer-login-api)
-
-</div>
 
 This quick start guide will take you through making your first requests with BigCommerce's APIs.
 

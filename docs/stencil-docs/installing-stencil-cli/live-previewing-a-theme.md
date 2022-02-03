@@ -1,15 +1,6 @@
 # Live Previewing a Theme
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Obtaining store API credentials](#obtaining-store-api-credentials)
-- [Downloading a theme](#downloading-a-theme)
-- [Installing theme modules](#installing-theme-modules)
-- [Serving a live preview](#serving-a-live-preview)
-- [Resources](#resources)
-
-</div>
 
 Once you've installed the Stencil CLI, the next steps are downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. This article walks you through the process of downloading a theme for development, installing theme modules, and serving a live preview using Stencil CLI's `stencil start` command.
 

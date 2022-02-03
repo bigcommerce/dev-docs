@@ -1,17 +1,7 @@
 
 # Using Front Matter
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Declaring front matter objects](#declaring-front-matter-objects)
-- [Filtering attributes](#filtering-attributes)
-- [Combining front matter and Handlebars](#combining-front-matter-and-handlebars)
-- [Default vs custom attributes](#default-vs-custom-attributes)
-- [Declaring multiple attributes](#declaring-multiple-attributes)
-- [Resources](#resources)
-
-</div>
 
 ## Declaring front matter objects
 

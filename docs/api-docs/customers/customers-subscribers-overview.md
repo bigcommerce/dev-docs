@@ -1,22 +1,6 @@
 # Customers and Subscribers
 
-<div class="otp" id="no-index">
-
-### On this page
-- [OAuth scopes](#oauth-scopes)
-- [What is a customer?](#what-is-a-customer)
-- [What is a subscriber?](#what-is-a-subscriber)
-- [Subscribers vs. customers](#subscribers-vs-customers)
-- [What is a guest?](#what-is-a-guest)
-- [Customer Login API](#customer-login-api)
-- [Current Customer API](#current-customer-api)
-- [Customers API](#customers-api)
-- [Differences between V2 and V3 Customers APIs](#differences-between-v2-and-v3-customers-apis)
-- [Subscribers API](#subscribers-api)
-- [FAQ](#faq)
-- [Related resources](#related-resources)
-
-</div> 
+ 
 
 ## OAuth scopes
 

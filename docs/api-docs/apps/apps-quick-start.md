@@ -1,20 +1,5 @@
 # BigCommerce Apps Quick Start
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Prerequisites](#prerequisites)
-- [Get started](#get-started)
-- [Add and start ngrok](#add-and-start-ngrok)
-- [Register the app](#register-the-app)
-- [Configure environment variables](#configure-environment-variables)
-- [Start dev environment](#start-dev-environment)
-- [Install the app](#install-the-app)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
-</div>
-
 In this quick start tutorial, you will create a [single-click app](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/types-of-apps) using [Node.js](https://nodejs.org/en/), [React](https://www.reactjs.org/), [Next.js](https://nextjs.org/), and [BigDesign](https://developer.bigcommerce.com/big-design/). 
 
 ## Prerequisites

@@ -2,17 +2,7 @@
 
 <!-- Dev Center URL: https://developer.bigcommerce.com/api-docs/channels/guide/channels-toolkit-reference -->
 
-<div class="otp" id="no-index">
 
-## On this page
-
- - [Required endpoints](#required-endpoints)
- - [Recommended endpoints](#recommended-endpoints)
- - [Extended functionality endpoints](#extended-functionality-endpoints)
- - [UI components](#ui-components)
- - [Documentation](#documentation)
-
-</div>
 
 This article serves as a comprehensive list of all the tools in Channels Toolkit for quick reference. For a general overview of channels and developing channel apps on BigCommerce, see [Channels Introduction](https://developer.bigcommerce.com/api-docs/channels/overview).
 

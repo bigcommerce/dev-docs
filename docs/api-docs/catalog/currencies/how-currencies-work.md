@@ -1,23 +1,6 @@
 # How Currencies Work
 
-<div class="otp" id="no-index">
 
-### On this Page
-- [Catalog pricing](#catalog-pricing)
-- [Currencies](#currencies)
-- [Price Lists](#price-lists)
-- [Price list modifiers](#price-list-modifiers)
-- [Price records](#price-records)
-- [S-2-S cart and checkout](#s-2-s-cart-and-checkout)
-- [Storefront cart and checkout](#storefront-cart-and-checkout)
-- [Orders](#orders)
-- [Promotions](#promotions)
-- [Shipping](#shipping)
-- [Refunds](#refunds)
-- [Payment methods supported](#payment-methods-supported)
-- [Gift certificates](#gift-certificates)
-
-</div>
 
 This article details how you can surface currencies throughout BigCommerce APIs, user interfaces, and storefront components. It assumes you're already familiar with the core concepts behind BigCommerce's multi-currency settings. For a high-level overview and instructions on how to add currencies to a BigCommerce store, see [Currencies Overview](https://developer.bigcommerce.com/api-docs/catalog/currencies/currencies-overview).
 

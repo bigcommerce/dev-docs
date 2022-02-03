@@ -1,18 +1,7 @@
 # Creating an External Installation Button
 
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Creating an install button](#creating-an-install-button)
-- [Configuring the button](#configuring-the-button)
-- [Rendering success and failure pages](#rendering-success-and-failure-pages)
-- [Handling errors](#handling-errors)
-- [Code samples](#code-samples)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
-</div>
 
 Single-click apps can be installed from outside the BigCommerce control panel. For example, an install button on your company's site that directs the merchant to download your app. This tutorial provides step-by-step instructions for creating an external install button for BigCommerce single-click apps.
 

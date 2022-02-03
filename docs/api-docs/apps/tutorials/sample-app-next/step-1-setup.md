@@ -1,19 +1,6 @@
 # Step 1: Set up Your Local Environment
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Install Node](#install-node)
-- [Set up a project directory](#set-up-a-project-directory)
-- [Generate a package.json file](#generate-a-packagejson-file)
-- [Install npm packages](#install-npm-packages)
-- [Add scripts](#add-scripts)
-- [Create a starter page](#create-a-starter-page)
-- [Initialize BigDesign](#initialize-bigdesign)
-- [Initialize styled-components](#initialize-styled-components)
-- [Start the development server](#start-the-development-server)
-
-</div>
 
 Start by setting up your local development environment.
 

@@ -1,11 +1,6 @@
 # Introduction
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Prerequisites](#prerequisites)
-
-</div>
 
 This tutorial demonstrates how to build and embed a BigCommerce app using Node.js, React, Next.js, and BigDesign, BigCommerce's library of React components. 
 

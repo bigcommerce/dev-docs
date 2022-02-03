@@ -1,18 +1,6 @@
 # Transitioning to Stencil
 
-<div class="otp" id="no-index">
 
-### On this page
-- [What is Stencil?](#what-is-stencil)
-- [Why transition to Stencil?](#why-transition-to-stencil)
-- [Technical differences](#technical-differences)
-  - [Developing locally on Stencil CLI](#developing-locally-on-stencil-cli)
-  - [Using Handlebars](#using-handlebars)
-  - [Customize Page Builder mode](#customize-page-builder-mode)
-  - [Create custom templates](#create-custom-templates)
-- [Resources](#resources)
-
-</div>
 
 This article outlines the key differences between Blueprint and Stencil for developers, agency partners, and anyone interested in Stencil's enhanced capabilities.
 

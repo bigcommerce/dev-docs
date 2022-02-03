@@ -1,19 +1,6 @@
 # Front Matter Reference
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Supported templates](#supported-templates)
-- [Global attributes](#global-attributes)
-- [Category attributes](#category-attributes)
-- [Blog attributes](#blog-attributes)
-- [Product attributes](#product-attributes)
-- [Brand attributes](#brand-attributes)
-- [Brand list attributes](#brand-list-attributes)
-- [Search attributes](#search-attributes)
-- [GraphQL attributes](#graphql-attributes)
-  
-</div>
 
 Front matter defines which store resources are available to be rendered within a Stencil template. Front matter is declared at the top of each template and uses [YAML](https://yaml.org/) syntax. For more information, see [Declaring Front Matter Objects](https://developer.bigcommerce.com/stencil-docs/storefront-customization/using-front-matter#declaring-front-matter-objects).
 
