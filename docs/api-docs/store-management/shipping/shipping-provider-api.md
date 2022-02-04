@@ -73,7 +73,7 @@ BigCommerce makes a distinction between single-carrier and multi-carrier shippin
 
 **Multi-carrier quote example**
 
-![Multi-carrier quote example](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-multi-carrier-ui.png "Multi-carrier quote example")
+![Multi-carrier quote example](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Multi%20Carrier%20Example.png)
 
 ## Sign up
 
