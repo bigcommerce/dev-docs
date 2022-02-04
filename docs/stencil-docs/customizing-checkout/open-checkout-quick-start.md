@@ -1,17 +1,5 @@
 # Open Checkout Quick Start
 
-<div class="otp" id="no-index">
-
-### On this Page
-
-- [Fork and install checkout-js](#fork-and-install-checkout-js)
-- [Start development server](#start-development-server)
-- [Configure your sandbox](#configure-your-sandbox)
-- [Make a code change](#make-a-code-change)
-- [Resources](#resources)
-
-</div>
-
 In this quick start tutorial, we'll configure our development environment and make a code change to a fork of BigCommerce's [Open Checkout](https://github.com/bigcommerce/checkout-js) (also known as [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout)).
 
 ### Prerequisites
