@@ -1,10 +1,9 @@
-openapi: 3.0.0
+openapi: 3.1.0
 info:
   title: Tax Provider API
   version: '1.0'
   contact: {}
-
-  description: "Use BigCommerce’s platform-to-platform Tax Provider API to integrate a tax calculation engine into the BigCommerce storefront and control panel. Supports [estimate](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/estimate), [adjust](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/adjust), [commit](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/commit), and [void](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/void) operations. For more information, see [Tax Provider API Overview](https://developer.bigcommerce.com/api-docs/providers/tax)."
+  description: 'Use BigCommerce’s platform-to-platform Tax Provider API to integrate a tax calculation engine into the BigCommerce storefront and control panel. Supports [estimate](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/estimate), [adjust](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/adjust), [commit](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/commit), and [void](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/void) operations. For more information, see [Tax Provider API Overview](https://developer.bigcommerce.com/api-docs/providers/tax).'
 tags:
   - name: Tax Provider
 servers:
@@ -136,6 +135,20 @@ paths:
                       name: Default Tax Class
                     tax_exempt: false
                     type: item
+                    wrapping:
+                      id: d2675662-6326-4a23-9107-ab71fa6a21a1
+                      item_code: ''
+                      name: 'Wrapping: [Sample] Canvas Laundry Cart'
+                      price:
+                        amount: 5
+                        tax_inclusive: false
+                      quantity: 1
+                      tax_class:
+                        code: ''
+                        class_id: '6'
+                        name: Wrapping
+                      tax_exempt: false
+                      type: wrapping
                   - id: d2675662-6326-4a23-9107-ab71fa6a21a1
                     item_code: CLC
                     name: '[Sample] Canvas Laundry Cart'
@@ -192,7 +205,23 @@ paths:
                                     code: US
                                   id: Brutal Tax
                             type: item
-                            wrapping: null
+                            wrapping:
+                              id: d2675662-6326-4a23-9107-ab71fa6a21a1
+                              price:
+                                amount_exclusive: 5
+                                amount_inclusive: 7.5
+                                sales_tax_summary:
+                                  - amount: 2.5
+                                    id: '1'
+                                    name: BRUTAL TAX
+                                    rate: 0.5
+                                    tax_class:
+                                      class_id: '6'
+                                      code: US
+                                      name: Wrapping
+                                tax_rate: 0.5
+                                total_tax: 2.5
+                              type: wrapping
                           - id: d2675662-6326-4a23-9107-ab71fa6a21a1
                             price:
                               amount_inclusive: 300
@@ -209,7 +238,23 @@ paths:
                                     code: US
                                   id: Brutal Tax
                             type: item
-                            wrapping: null
+                            wrapping:
+                              id: d2675662-6326-4a23-9107-ab71fa6a21a1
+                              price:
+                                amount_exclusive: 5
+                                amount_inclusive: 7.5
+                                sales_tax_summary:
+                                  - amount: 2.5
+                                    id: '1'
+                                    name: BRUTAL TAX
+                                    rate: 0.5
+                                    tax_class:
+                                      class_id: '6'
+                                      code: US
+                                      name: Wrapping
+                                tax_rate: 0.5
+                                total_tax: 2.5
+                              type: wrapping
                         shipping:
                           id: 5d522b889d3d9
                           price:
@@ -227,7 +272,6 @@ paths:
                                   code: US
                                 id: Brutal Tax
                           type: shipping
-                          wrapping: null
                         handling:
                           id: 5d522b889d3d9
                           price:
@@ -245,7 +289,6 @@ paths:
                                   code: US
                                 id: Brutal Tax
                           type: handling
-                          wrapping: null
                     id: 3f0c857e-2c55-443e-a89b-c3c4d8a29605
         '400':
           description: Fallback Tax will be used for this transaction. General response that points to an issue with the incoming request that means a valid response is unable to be returned.
@@ -376,6 +419,20 @@ paths:
                       name: Default Tax Class
                     tax_exempt: false
                     type: item
+                    wrapping:
+                      id: product_14
+                      item_code: ''
+                      name: 'Wrapping: Holiday'
+                      price:
+                        amount: 5
+                        tax_inclusive: false
+                      quantity: 1
+                      tax_class:
+                        code: ''
+                        class_id: '6'
+                        name: Wrapping
+                      tax_exempt: false
+                      type: wrapping
                   - id: product_14
                     item_code: CLC
                     name: '[Sample] Canvas Laundry Cart'
@@ -433,7 +490,23 @@ paths:
                                     code: US
                                   id: Brutal Tax
                             type: item
-                            wrapping: null
+                            wrapping:
+                              id: product_14
+                              price:
+                                amount_exclusive: 5
+                                amount_inclusive: 7.5
+                                sales_tax_summary:
+                                  - amount: 2.5
+                                    id: '1'
+                                    name: BRUTAL TAX
+                                    rate: 0.5
+                                    tax_class:
+                                      class_id: '6'
+                                      code: US
+                                      name: Wrapping
+                                tax_rate: 0.5
+                                total_tax: 2.5
+                              type: wrapping
                           - id: product_14
                             price:
                               amount_inclusive: 300
@@ -450,7 +523,23 @@ paths:
                                     code: US
                                   id: Brutal Tax
                             type: item
-                            wrapping: null
+                            wrapping:
+                              id: product_14
+                              price:
+                                amount_exclusive: 5
+                                amount_inclusive: 7.5
+                                sales_tax_summary:
+                                  - amount: 2.5
+                                    id: '1'
+                                    name: BRUTAL TAX
+                                    rate: 0.5
+                                    tax_class:
+                                      class_id: '6'
+                                      code: US
+                                      name: Wrapping
+                                tax_rate: 0.5
+                                total_tax: 2.5
+                              type: wrapping
                         shipping:
                           id: shipping_14
                           price:
@@ -468,7 +557,6 @@ paths:
                                   code: US
                                 id: Brutal Tax
                           type: shipping
-                          wrapping: null
                         handling:
                           id: handling_14
                           price:
@@ -486,7 +574,6 @@ paths:
                                   code: US
                                 id: Brutal Tax
                           type: handling
-                          wrapping: null
                     id: '113'
         '400':
           description: General response that points to an issue with the incoming request that means a valid response is unable to be returned.
@@ -505,6 +592,108 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/request-adjust'
+              examples:
+                example-1:
+                  value:
+                    adjust_description: string
+                    id: string
+                    currency_code: string
+                    customer:
+                      customer_id: string
+                      customer_group_id: '0'
+                      taxability_code: string
+                    transaction_date: '2019-08-24T14:15:22Z'
+                    documents:
+                      - id: string
+                        billing_address:
+                          line1: string
+                          line2: string
+                          city: Sydney
+                          region_name: New South Wales
+                          region_code: NSW
+                          country_name: Australia
+                          country_code: AU
+                          postal_code: '2007'
+                          company_name: string
+                          type: RESIDENTIAL
+                        destination_address:
+                          line1: string
+                          line2: string
+                          city: Sydney
+                          region_name: New South Wales
+                          region_code: NSW
+                          country_name: Australia
+                          country_code: AU
+                          postal_code: '2007'
+                          company_name: string
+                          type: RESIDENTIAL
+                        origin_address:
+                          line1: string
+                          line2: string
+                          city: Sydney
+                          region_name: New South Wales
+                          region_code: NSW
+                          country_name: Australia
+                          country_code: AU
+                          postal_code: '2007'
+                          company_name: string
+                          type: RESIDENTIAL
+                        shipping:
+                          id: string
+                          item_code: string
+                          name: string
+                          price:
+                            amount: 0
+                            tax_inclusive: false
+                          quantity: 0
+                          tax_class:
+                            code: string
+                            class_id: string
+                            name: string
+                          tax_exempt: false
+                          type: item
+                        handling:
+                          id: string
+                          item_code: string
+                          name: string
+                          price:
+                            amount: 0
+                            tax_inclusive: false
+                          quantity: 0
+                          tax_class:
+                            code: string
+                            class_id: string
+                            name: string
+                          tax_exempt: false
+                          type: item
+                        items:
+                          - id: string
+                            item_code: string
+                            name: string
+                            price:
+                              amount: 0
+                              tax_inclusive: false
+                            quantity: 0
+                            tax_class:
+                              code: string
+                              class_id: string
+                              name: string
+                            tax_exempt: false
+                            type: item
+                            wrapping:
+                              id: string
+                              item_code: string
+                              name: string
+                              price:
+                                amount: 0
+                                tax_inclusive: false
+                              quantity: 0
+                              tax_class:
+                                code: string
+                                class_id: string
+                                name: string
+                              tax_exempt: false
+                              type: item
         '400':
           description: General response that points to an issue with the incoming request that means a valid response is unable to be returned.
         '401':
@@ -538,7 +727,23 @@ paths:
                                     code: US
                                   id: Brutal Tax
                             type: item
-                            wrapping: null
+                            wrapping:
+                              id: d2675662-6326-4a23-9107-ab71fa6a21a1
+                              price:
+                                amount_exclusive: 5
+                                amount_inclusive: 7.5
+                                sales_tax_summary:
+                                  - amount: 2.5
+                                    id: '1'
+                                    name: BRUTAL TAX
+                                    rate: 0.5
+                                    tax_class:
+                                      class_id: '6'
+                                      code: US
+                                      name: Wrapping
+                                tax_rate: 0.5
+                                total_tax: 2.5
+                              type: wrapping
                           - id: product_14
                             price:
                               amount_inclusive: 300
@@ -555,7 +760,23 @@ paths:
                                     code: US
                                   id: Brutal Tax
                             type: item
-                            wrapping: null
+                            wrapping:
+                              id: d2675662-6326-4a23-9107-ab71fa6a21a1
+                              price:
+                                amount_exclusive: 5
+                                amount_inclusive: 7.5
+                                sales_tax_summary:
+                                  - amount: 2.5
+                                    id: '1'
+                                    name: BRUTAL TAX
+                                    rate: 0.5
+                                    tax_class:
+                                      class_id: '6'
+                                      code: US
+                                      name: Wrapping
+                                tax_rate: 0.5
+                                total_tax: 2.5
+                              type: wrapping
                         shipping:
                           id: shipping_14
                           price:
@@ -573,7 +794,6 @@ paths:
                                   code: US
                                 id: Brutal Tax
                           type: shipping
-                          wrapping: null
                         handling:
                           id: handling_14
                           price:
@@ -591,7 +811,6 @@ paths:
                                   code: US
                                 id: Brutal Tax
                           type: handling
-                          wrapping: null
                     id: '113'
       summary: Adjust Tax Quote
       description: |-
@@ -629,6 +848,7 @@ components:
     request-item:
       type: object
       description: An **ItemRequest** represents required information relating to completing tax calculations for a specific line item.
+      title: ItemRequest
       properties:
         id:
           type: string
@@ -642,6 +862,9 @@ components:
         price:
           type: object
           description: 'The final sale price (after discounts, bulk pricing, price lists, etc.) prior to having taxes calculated. If the merchant lists prices inclusive of tax, this price will already be tax inclusive, and so the tax provider will instead calculate the amount of tax that was already included in this price. For multiple quantities, this price includes that multiplication.'
+          required:
+            - amount
+            - tax_inclusive
           properties:
             amount:
               type: number
@@ -651,9 +874,6 @@ components:
               type: boolean
               description: 'Note: **Tax Inclusive** and **Tax Exclusive** prices cannot be added together.'
               default: false
-          required:
-            - amount
-            - tax_inclusive
         quantity:
           type: integer
           minimum: 0
@@ -661,7 +881,62 @@ components:
           $ref: '#/components/schemas/TaxClass'
         tax_exempt:
           type: boolean
-          description: Flag whether or not this item is always tax-exempt. For example, gift certificate purchases and order-level refunds are tax-exempt. Tax-exempt items are included in the request for auditing purposes.
+          description: 'Flag whether or not this item is always tax-exempt. For example, gift certificate purchases and order-level refunds are tax-exempt. Tax-exempt items are included in the request for auditing purposes.'
+          default: false
+        type:
+          type: string
+          description: |-
+            The type of line item this request represents. This will depend on the item’s position in the request hierarchy. For example, the document request contains a collection of items (which may or may not also have wrapping attached). In addition, each document request also has a shipping line item and handling line item.
+
+            The type refund is used when the tax estimate request is for an order-level refund.
+          enum:
+            - item
+            - wrapping
+            - handling
+            - shipping
+            - refund
+      required:
+        - id
+        - price
+        - quantity
+        - type
+    request-item-wrapping:
+      type: object
+      description: 'An **ItemRequestWrapping** represents required information relating to completing tax calculations for a specific line item, including the information used to calculate wrapping tax.'
+      title: ItemRequestWrapping
+      properties:
+        id:
+          type: string
+          description: A unique identifier for this item used to map responses back to the corresponding item on the order.
+        item_code:
+          type: string
+          description: 'The SKU/UPC of the item, if available.'
+        name:
+          type: string
+          description: A display name for this item.
+        price:
+          type: object
+          description: 'The final sale price (after discounts, bulk pricing, price lists, etc.) prior to having taxes calculated. If the merchant lists prices inclusive of tax, this price will already be tax inclusive, and so the tax provider will instead calculate the amount of tax that was already included in this price. For multiple quantities, this price includes that multiplication.'
+          required:
+            - amount
+            - tax_inclusive
+          properties:
+            amount:
+              type: number
+              description: 'Note: This amount will be **negative** for order-level refunds and may be **zero** for line-item refunds.'
+              format: double
+            tax_inclusive:
+              type: boolean
+              description: 'Note: **Tax Inclusive** and **Tax Exclusive** prices cannot be added together.'
+              default: false
+        quantity:
+          type: integer
+          minimum: 0
+        tax_class:
+          $ref: '#/components/schemas/TaxClass'
+        tax_exempt:
+          type: boolean
+          description: 'Flag whether or not this item is always tax-exempt. For example, gift certificate purchases and order-level refunds are tax-exempt. Tax-exempt items are included in the request for auditing purposes.'
           default: false
         type:
           type: string
@@ -676,16 +951,18 @@ components:
             - shipping
             - refund
         wrapping:
-          $ref: '#/components/schemas/request-item'
+          anyOf:
+            - $ref: '#/components/schemas/request-item'
+            - type: 'null'
       required:
         - id
         - price
         - quantity
         - type
-      title: ItemRequest
     request-document:
       type: object
       description: 'Each **DocumentRequest** represents an order or part of an order of items fulfilled from a single origin address to a single destination address. In addition to shipping and billing details, it contains an `items` array of one or more **ItemRequest** objects, which represent the shipment’s tax-relevant contents. Multi-address orders, in which items ship to or from multiple addresses, require at least one **DocumentRequest** per combination of sender-recipient addresses. These are similar to "consignments" or "shipments" in other BigCommerce APIs.'
+      title: DocumentRequest
       properties:
         id:
           type: string
@@ -704,7 +981,7 @@ components:
           type: array
           description: Collection of one or more items contained within this consignment that need to be assessed for tax liabilities.
           items:
-            $ref: '#/components/schemas/request-item'
+            $ref: '#/components/schemas/request-item-wrapping'
       required:
         - id
         - destination_address
@@ -712,7 +989,6 @@ components:
         - shipping
         - handling
         - items
-      title: DocumentRequest
     request-quote:
       type: object
       description: 'Each **QuoteRequest** represents an order. In addition to transaction details, it contains a `documents` array of one or more **DocumentRequest** objects, which represent distinct combinations of origin and fulfillment addresses and the tax-relevant contents of those consignments. This is similar to an "order" in other BigCommerce APIs.'
@@ -726,7 +1002,7 @@ components:
           description: ISO 4217 3 character currency code that all prices on this request are in.
         customer:
           type: object
-          description: If the shopper is a registered customer in the merchant’s store, basic details for that customer.
+          description: 'If the shopper is a registered customer in the merchant’s store, basic details for that customer.'
           required:
             - customer_id
             - customer_group_id
@@ -740,7 +1016,7 @@ components:
               default: '0'
             taxability_code:
               type: string
-              description: "If applicable, the tax exemption code of the shopper’s customer account. A taxability code is intended to apply to multiple customers. This code should match the exemption codes provided by the third-party integration."
+              description: 'If applicable, the tax exemption code of the shopper’s customer account. A taxability code is intended to apply to multiple customers. This code should match the exemption codes provided by the third-party integration.'
         transaction_date:
           type: string
           format: date-time
@@ -763,7 +1039,7 @@ components:
           properties:
             adjust_description:
               type: string
-              description: Specifies the reason for the adjustment operation, for auditing purposes. May be a custom, user-entered description.
+              description: 'Specifies the reason for the adjustment operation, for auditing purposes. May be a custom, user-entered description.'
         - $ref: '#/components/schemas/request-quote'
       title: AdjustRequest
     Address:
@@ -802,7 +1078,7 @@ components:
           example: '2007'
         company_name:
           type: string
-          description: If this is a commercial address, the associated company’s name.
+          description: 'If this is a commercial address, the associated company’s name.'
           deprecated: true
         type:
           type: string
@@ -814,13 +1090,13 @@ components:
       properties:
         code:
           type: string
-          description: The provider-specific tax code for this item. Items can be classified with tax codes relevant to each Tax Provider, configured by the merchant, and assigned to their products within BigCommerce. A tax code is intended to apply to multiple products. This code should match the tax codes provided by the third-party integration.
+          description: 'The provider-specific tax code for this item. Items can be classified with tax codes relevant to each Tax Provider, configured by the merchant, and assigned to their products within BigCommerce. A tax code is intended to apply to multiple products. This code should match the tax codes provided by the third-party integration.'
         class_id:
           type: string
-          description: "The ID of the tax class defined in the merchant’s BigCommerce store. May have a UUID value."
+          description: The ID of the tax class defined in the merchant’s BigCommerce store. May have a UUID value.
         name:
           type: string
-          description: "The human-readable name of this tax class in the merchant’s BigCommerce store."
+          description: The human-readable name of this tax class in the merchant’s BigCommerce store.
       required:
         - code
         - class_id
@@ -842,18 +1118,19 @@ components:
       title: Quote
     response-document:
       type: object
+      title: Document
       properties:
         id:
           type: string
           description: A unique identifier for this consignment. Must match the ID of the corresponding Document Request.
         external_id:
           type: string
-          description: "An optional unique identifier for the document stored in the external provider’s system. Currently not used in any end-to-end operation, but may be logged by BigCommerce and thus be helpful when resolving issues."
+          description: 'An optional unique identifier for the document stored in the external provider’s system. Currently not used in any end-to-end operation, but may be logged by BigCommerce and thus be helpful when resolving issues.'
         items:
           type: array
           description: Collection of items contained within this consignment that have had tax liabilities calculated.
           items:
-            $ref: '#/components/schemas/response-item'
+            $ref: '#/components/schemas/response-item-wrapping'
         shipping:
           $ref: '#/components/schemas/response-item'
         handling:
@@ -863,13 +1140,38 @@ components:
         - items
         - shipping
         - handling
-      title: Document
     response-item:
       type: object
       description: |-
         The tax liabilities calculated for a specific item.
 
         Note: Tax liabilities should be calculated with **quantity** accounted for.
+      title: Item
+      properties:
+        id:
+          type: string
+          description: A unique identifier for the line item these tax liabilities are calculated for. Must match the corresponding request line item ID.
+        price:
+          $ref: '#/components/schemas/response-taxprice'
+        type:
+          type: string
+          enum:
+            - item
+            - wrapping
+            - shipping
+            - handling
+            - refund
+      required:
+        - id
+        - price
+        - type
+    response-item-wrapping:
+      type: object
+      description: |-
+        The tax liabilities calculated for a specific item, including the liabilities for wrapping tax.
+
+        Note: Tax liabilities should be calculated with **quantity** accounted for.
+      title: ItemWrapping
       properties:
         id:
           type: string
@@ -890,7 +1192,6 @@ components:
         - id
         - price
         - type
-      title: Item
     response-taxprice:
       type: object
       properties:
@@ -924,7 +1225,7 @@ components:
       properties:
         name:
           type: string
-          description: The human-readable name of this tax. Used for reporting. Depending on store configuration, may also be visible in the itemization of taxes at checkout, on invoices, and in control panel views. May not be empty.
+          description: 'The human-readable name of this tax. Used for reporting. Depending on store configuration, may also be visible in the itemization of taxes at checkout, on invoices, and in control panel views. May not be empty.'
         rate:
           type: number
           format: double
