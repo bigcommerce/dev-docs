@@ -1,33 +1,32 @@
 # API Best Practices
 
+## Keep your integration up-to-date
 
-
-## Ensure your integration is up-to-date
-
-BigCommerce frequently enhances its core product and is actively developing v3 API endpoints. By using the newest API version, you will ensure that your app has access to the latest resources. You will also be better positioned to provide a user experience consistent with what merchants will see in their BigCommerce store’s control panel. To stay up to date, bookmark our [changelog](/changelog).
+BigCommerce frequently enhances its core product and is actively developing v3 API endpoints. By using the newest API version, you will ensure that your app has access to the latest resources. You will also be better positioned to provide a user experience consistent with what merchants see in their BigCommerce store’s control panel. To stay up to date, bookmark our [changelog](/changelog).
 
 ## Anticipate changes to BigCommerce APIs
 
 At BigCommerce, we make a distinction between "breaking" and "non-breaking" changes. 
 
-Any "breaking" changes listed below will always be made with early warning via our developer [changelog](/changelog) and other channels. There are several exceptional cases. BigCommerce will make breaking changes without warning to non-production (alpha/beta) APIs, or when we know the usage of a particular endpoint is zero.
+In most cases, we will give advance notice in our developer [changelog](/changelog) when we make any of the following "breaking" changes. However, we will make breaking changes without warning to non-production (alpha/beta) APIs, or when analytics indicate that an endpoint has no traffic.
 
-Breaking changes:
+Examples of breaking changes include:
 
+- Removing fields from API responses
+- Changing the data type of request or response fields
+- Changing the structure of request or response objects
+- Adding new required fields to `POST` and `PUT` request bodies
+- Removing endpoints
 
-- Removal of a field from an API response
-- Changing the data type of a field
-- Changing the structure of an object
-- Removal of an entire endpoint
-- Adding a new required field to a `POST`/`PUT` body
+We will push "non-breaking" changes to the code base without warning as part of our normal development.
 
-We encourage developers to write code against our APIs that will not break if an endpoint begins returning additional fields. We will push these "non-breaking" changes to the code base without warning as part of our normal development.
+Examples of non-breaking changes include:
 
-Non-breaking changes:
-
-- Adding a new field to a `GET` response
-- Adding a new optional field to a `POST`/`PUT` body
+- Adding new fields to `GET` request responses
+- Adding new optional fields to `POST` and `PUT` request bodies
 - Adding new endpoints
+
+We encourage you to write robust, resilient code that will not break or leak memory if an endpoint begins to return additional fields.
 
 ## Use webhooks effectively
 
