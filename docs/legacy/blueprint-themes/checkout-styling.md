@@ -4,9 +4,7 @@
 
 To support stores that enable BigCommerce's Optimized One-Page Checkout feature, you can customize the Optimized Checkout page's styling within your theme. You do this by adding custom CSS to the `optimized-checkout-webdav.css` template file that we provide. You can copy the CSS [below](#css-skeleton).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--success">
-<div class="HubBlock-content">
+<!-- theme: success -->
     
 <!-- theme: success -->
 

@@ -34,9 +34,7 @@ git clone https://github.com/bigcommerce/cornerstone.git
 
 Cornerstone and other themes can also be downloaded from the BigCommerce control panel. For instructions on doing so, see [Downloading and Uploading Custom Themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload) (BigCommerce Knowledge Base). 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 
@@ -47,9 +45,7 @@ Downloading a theme does not include the current configuration of a theme. Run a
 </div>
 </div>
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 
@@ -60,9 +56,7 @@ Downloading a theme does not include the current configuration of a theme. Run a
 </div>
 </div>
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 
@@ -105,9 +99,7 @@ The Browsersync preview is launched by executing the `stencil start` command in 
 * an API access token
 * a local port number
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 
@@ -156,9 +148,7 @@ Browse to the local URL to preview the theme and see changes updated in real-tim
 
 For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands). For help troubleshooting errors or installation issues, see [Troubleshooting Your Setup](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/troubleshooting-your-setup).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 
@@ -169,9 +159,7 @@ For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](
 </div>
 </div>
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 

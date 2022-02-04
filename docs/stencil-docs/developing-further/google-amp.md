@@ -12,9 +12,7 @@ Google AMP (Accelerated Mobile Pages) is an open-source project to improve page 
 
 The article will walk you through enabling Google AMP pages in your theme. 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
     
 <!-- theme:info  -->
 #### Cornerstone

@@ -9,9 +9,7 @@ The Stencil framework allows theme developers and merchants to assign custom lay
 * Product
 * Page
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 
@@ -36,9 +34,7 @@ As a theme developer, you must first create a custom page. Create the custom pag
 
 Next, create the template HTML files, and then place them in the appropriate `templates/pages/custom/` subdirectories corresponding to the types listed above.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 

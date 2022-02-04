@@ -33,9 +33,7 @@ To get started making requests, see [API Requests](/api-docs/getting-started/bas
 
 ![#### Create an API Account](//s3.amazonaws.com/user-content.stoplight.io/6012/1536087816482 "#### Create an API Account")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 
@@ -55,9 +53,7 @@ To revoke Store API Credentials:
 
 ![#### Revoking API Credentials](//s3.amazonaws.com/user-content.stoplight.io/6012/1537388177603 "#### Revoking API Credentials")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
+<!-- theme: danger  -->
 
 <!-- theme: error -->
 
@@ -91,9 +87,7 @@ To get app API credentials, create and log into your BigCommerce [Developer Port
 
 8. Copy your client ID and client secret. The client ID and client secret can be accessed by clicking **View Client ID**.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:  -->
 
@@ -108,9 +102,7 @@ The client secret value is a secret that your app and BigCommerce share. You onl
 
 ![#### Client Id and Client Secret](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390135692 "#### Client Id and Client Secret")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 
@@ -144,9 +136,7 @@ During the app installation process, your app will use the client ID and client 
 
 ## Migrating from legacy to OAuth
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
+<!-- theme: danger  -->
 
 <!-- theme: error -->
 
@@ -194,9 +184,7 @@ Scope limits ability to read or write to data. Set the scopes to the minimum lev
 
 All OAuth scopes except `default` have `read_only` scopes that allow only `GET` and `HEAD` requests.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > Webhooks are accessible from the default scope that is available when API Credentials are created.
 </div>

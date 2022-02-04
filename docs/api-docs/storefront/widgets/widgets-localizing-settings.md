@@ -175,9 +175,7 @@ Accept: application/json
 
 Widget templates support both [ISO 639‑1](https://en.wikipedia.org/wiki/ISO_639-1) and [IETF language tag](https://en.wikipedia.org/wiki/IETF_language_tag) code schemes. The language code must follow a set format of two lowercase letters for a two-letter code system or two lowercase letters, a dash, and at least two alphanumeric characters for a multiple-character code system.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * Translations must start with the `i18n.` prefix.

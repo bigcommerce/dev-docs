@@ -41,9 +41,7 @@ On your local machine, move the large static assets to a location where the `ste
 
 Run the `stencil bundle` command from inside your streamlined `theme‑name` directory. Once your resulting ZIP file is 50 MB or smaller, you are ready to upload it to BigCommerce. For more information, see [Bundling and Pushing a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 
@@ -86,9 +84,7 @@ As you develop your theme, reference each of these assets using Stencil's `{{cdn
 <img src="{{cdn "webdav:img/image.jpg"}}">
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:  -->
 

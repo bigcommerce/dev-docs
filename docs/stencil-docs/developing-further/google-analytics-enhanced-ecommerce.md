@@ -8,9 +8,7 @@ Data attributes provide detailed data on the way shoppers interact with your sto
 
 Cornerstone versions 2.6.0+ will have data attributes already included in the theme.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
+<!-- theme: danger  -->
 
 <!-- theme: error -->
 
@@ -135,9 +133,7 @@ In the above snippet, the data attribute is embedded in a `<form>` HTML tag in l
 
 Currently, BigCommerce supports 11 different data attributes. Below is a table with a breakdown of each attribute and its description.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 
@@ -274,9 +270,7 @@ Custom dimensions and metrics are also supported. To add them in the `config.jso
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 
@@ -300,9 +294,7 @@ Next, add the custom metrics/dimensions to the desired theme template:
 <!--...-->
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 #### Dimensions and metrics

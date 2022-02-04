@@ -107,9 +107,7 @@ stencil start --open # opens live theme preview in default browser
 | `--no-cache`                 |`-n` | Turn off caching for API resource data (cache refreshes every 5 minutes)             |
 | `--help`                     |`-h` | Output usage information                                                              |
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: {{callout_type}} -->
 
@@ -121,9 +119,7 @@ stencil start --open # opens live theme preview in default browser
 </div>
 </div>
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 
@@ -203,9 +199,7 @@ Usage: stencil push [<OPTIONS>]
 ```shell
 stencil push -f Cornerstone-2.3.2.zip # uploads specified file, skips bundling if file already exists
 ```
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: {{callout_type}} -->
 

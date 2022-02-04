@@ -15,9 +15,7 @@ Stored Credit Card management gives customer’s the ability to manage their sto
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1541629003006 "#### Stored Credit Card Management
 ")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:info  -->
 
@@ -163,9 +161,7 @@ First, the click will trigger window confirm. The confirmation modal has been ad
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1541655424566 "#### Add default instrument checkbox to edit and add form
 ")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:  -->
 

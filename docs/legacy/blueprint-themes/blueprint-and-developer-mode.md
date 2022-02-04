@@ -2,9 +2,7 @@
 
  
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
     
 <!-- theme: warning -->
 

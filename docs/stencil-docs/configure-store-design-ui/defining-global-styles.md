@@ -25,9 +25,7 @@ The `config.json` file must meet the following requirements:
 
 Apart from the aforementioned size constraints, there is no limit on the number of keys and values you can place in a theme's `config.json`.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 

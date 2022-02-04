@@ -24,9 +24,7 @@ Apps that modify the storefront are currently not supported. This includes [Cust
 
 Although a specific BigCommerce app may not be available, you may be able to find an alternative in the WordPress Plugin Directory. For example, some companies, like [Mailchimp](https://mailchimp.com/), build both BigCommerce apps and WordPress plugins. Keep that in mind when searching for a solution.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
+<!-- theme: info -->
     
 <!-- theme:  -->
 

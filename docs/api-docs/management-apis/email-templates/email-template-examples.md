@@ -6,9 +6,7 @@ This article provides examples of how to customize email templates. The examples
 
 The following code examples demonstrate how to update text, add a button, change logo size, and change the font size.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
   
   **Note** 
   It is important to write your emails for [accessibility](https://www.w3.org/WAI/tips/writing/) and preview changes.  
@@ -44,9 +42,7 @@ Go to **Transactional Emails> Email Templates**. Click **...** next to **Account
 </table>
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
   
   **Note** 
   You can select a different button background and text color. We suggest adhering to the [minimum color contrast standards](https://webaim.org/articles/contrast/) set by WCAG. 
@@ -67,9 +63,7 @@ with
 ```html
 <img src="{{store.logo.url}}" alt="{{store.logo.title}}" width="200" height="200">
 ```
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
   
   **Note**  
   You can also add width and height values to images.

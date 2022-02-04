@@ -9,9 +9,7 @@ Cornerstone includes a SCSS file that styles the Optimized Checkout page. In you
 You can access the most recent version of this file in the [Cornerstone repository](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss). All themes share the same stylesheet for the Optimized One-Page checkout, even those not based on Cornerstone, so this stylesheet applies universally across Stencil themes.
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
+<!-- theme: danger  -->
 
 <!-- theme: error -->
 
@@ -72,9 +70,7 @@ In Cornerstone's `optimized-checkout.scss`, each SCSS class and property availab
 
 You can enable the display of alternate currencies on your Stencil theme's Optimized One-Page Checkout and order confirmation pages.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 

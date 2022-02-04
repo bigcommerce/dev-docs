@@ -4,9 +4,7 @@
 
 Global objects and properties are common components shared across the entire BigCommerce storefront.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
     
 <!-- theme: info -->
 
@@ -49,9 +47,7 @@ Global objects and properties are common components shared across the entire Big
   </tr>
 </table>
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 

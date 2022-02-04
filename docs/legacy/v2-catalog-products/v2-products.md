@@ -2,9 +2,7 @@
 
  
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
+<!-- theme: danger  -->
 
 <!-- theme: error -->
 
@@ -17,9 +15,7 @@
 ## Products
 A product object represents a saleable item in the catalog.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 

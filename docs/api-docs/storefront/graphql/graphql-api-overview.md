@@ -16,9 +16,7 @@ Additionally, by leveraging the power of [GraphQL](https://graphql.org/), data f
 
 This article is a general overview of BigCommerce's GraphQL Storefront API; it includes sections on authentication and how to access a store's GraphQL Playground. To see specific examples of how GraphQL can be used to query storefront data, see [GraphQL Storefront API Example Queries](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-samples).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 
@@ -52,9 +50,7 @@ The GraphQL Storefront API Playground will be opened.
 
 ![GraphQL Storefront API Playground](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-storefront-api-playground.png "GraphQL Storefront API Playground")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 
@@ -166,9 +162,7 @@ fetch('/graphql', {
 });
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 <!-- theme: warning -->
 
 **Note**
@@ -294,9 +288,7 @@ In addition to using `fetch()`, there's a other ways to query the API:
 * **Using [Apollo Client](https://www.apollographql.com/docs/react/)** - Apollo is a popular GraphQL client that's easy to use in BigCommerce themes. For a quick example of adding Apollo Client to cornerstone, checkout this [Cornerstone commit](https://github.com/bigcommerce/cornerstone/commit/508feeb1b00d2bb2940771e5e91250a08b6be4d9) on GitHub.
 * **Using any GraphQL Client** - GraphQL is a standard with client libraries in many languages, so feel free to explore your options.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 

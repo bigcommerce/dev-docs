@@ -75,9 +75,7 @@ The following example demonstrates how to localize each variation description by
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * Translations can only contain `i18n.description` at the moment.

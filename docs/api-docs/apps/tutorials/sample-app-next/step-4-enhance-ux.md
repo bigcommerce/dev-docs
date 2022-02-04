@@ -97,9 +97,7 @@ import { useRouter } from 'next/router';
 import { ReactElement } from 'react';
 import { useProductList } from '../../lib/hooks';
 ```
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > Because BigDesign and Next.js both have a component called `Link`, you need to import BigDesign's `Link` as `StyledLink` to avoid TypeScript errors.
@@ -643,9 +641,7 @@ export default ProductInfo;
 
 The `ProductInfo` functional component uses the `Form` component defined in `/components/form`. When you click on a product from the products list, it takes you to the corresponding page containing information about that particular product.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > Because you fetch all of the products data with the initial Catalog API call, you do not need to make additional calls to retrieve individual product data.

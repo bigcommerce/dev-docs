@@ -14,9 +14,7 @@ Stencil automatically detects the `Accept-Language` request HTTP header from the
 
 Stencil's multi-language capabilities are limited to the particular key-value pairs you specify in the theme. Stencil themes do not translate content rendered from a store's catalog database (for example, the name of a product).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:  -->
 
@@ -165,9 +163,7 @@ lineNumbers: true
 
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 

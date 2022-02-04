@@ -2,9 +2,7 @@
 
  
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 
@@ -2740,9 +2738,7 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
   </tr>
 </table>
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:  -->
 

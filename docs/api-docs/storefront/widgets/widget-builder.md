@@ -13,11 +13,7 @@ This article is a guide to help you learn how to use Widget Builder.
 * A BigCommerce [store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial) or [sandbox store](https://developer.bigcommerce.com/api-docs/partner/getting-started/create-a-sandbox-store).
 * Store API OAuth credentials for `content` resources with scope `modify`. For information on how to generate store API credentials, see [Obtaining store API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-
-
-<!-- theme: warn -->
+<!-- theme: warning -->
 
 > Because the OAuth scope of these API credentials permits you to modify store content, we strongly recommend that you develop widgets using a [sandbox store](https://developer.bigcommerce.com/api-docs/partner/getting-started/create-a-sandbox-store).
 
@@ -33,9 +29,7 @@ To install Widget Builder and its dependencies, follow these instructions:
 
 1. Open a terminal, and verify that you are using supported versions of Node.js and `npm`.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 
@@ -126,9 +120,7 @@ If you need to reset the configuration, you can run the `widget-builder init` co
 Initializing Widget Builder at multiple levels of a single file hierarchy can have unpredictable results and is not recommended.
  
  
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 

@@ -115,9 +115,7 @@ GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders+store_v2_products&context=
 Host: app.example.com
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:  -->
 
@@ -144,9 +142,7 @@ Make the POST request to the following address: `https://login.bigcommerce.com/o
 
 Upon receiving the POST request during inital installation, BigCommerce marks the status of your app as “Installed”, removes the progress-indicator overlay, and places your app icon in the control panel’s left-hand navigation. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your GET response.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:  -->
 
@@ -401,9 +397,7 @@ Host: app.example.com
 
 Upon receiving the GET request, your app will need to process the signed payload.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 
@@ -436,9 +430,7 @@ To decode the signed payload, complete the following steps:
 
 To verify the payload, you need to sign the payload using your client secret, and confirm that it matches the signature that was sent in the request.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme:  -->
 
@@ -481,9 +473,7 @@ function verifySignedRequest($signedRequest)
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:  -->
 
@@ -718,9 +708,7 @@ Internet Explorer is one of the browsers that BigCommerce [supports](https://sup
 *   <a href="http://www.techrepublic.com/blog/software-engineer/craft-a-p3p-policy-to-make-ie-behave/" target="_blank">Craft a P3P policy to make IE behave</a>
 *   <a href="http://blogs.msdn.com/b/ieinternals/archive/2013/09/17/simple-introduction-to-p3p-cookie-blocking-frame.aspx" target="_blank">MSDN Intro to P3P Cookie Blocking</a>
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:  -->
 

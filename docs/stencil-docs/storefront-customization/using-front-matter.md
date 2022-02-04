@@ -65,9 +65,7 @@ products:
 
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:info  -->
 
@@ -94,9 +92,7 @@ products:
 {{/each}}
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:info  -->
 

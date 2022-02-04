@@ -38,9 +38,7 @@ Make sure you’ve applied and been approved for our [Technology Partner Program
 -   When the app is installed, a styled HTML page must be returned in the iframe of the BigCommerce control panel - this content cannot be blank and must follow our [user-interface constraints](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_user-interface-constraints).
 -   During the OAuth handshake, be sure to store the user’s token against their store hash - rather than their email address - to avoid any problems with ownership changes or multi-user support.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:  -->
 ### Meeting the requirements
@@ -97,9 +95,7 @@ Select one of our pre-formatted pricing options to call out your app’s startin
 - If you need to specify more detail on your pricing options, save it for your app description.  
 Choose the most appropriate category for your app.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 
@@ -119,9 +115,7 @@ The app icon will be included on the main app detail page and the sidebar in the
 ### Price
 Select one of our pre-formatted pricing options to call out your app’s starting price. If you offer a forever-free plan, choose the “Free” option. If your app does not fit one of our options, specify your details in a few words in the “Other” selection.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 
@@ -181,9 +175,7 @@ Product demos and tutorials
 ### Case Studies
 These can either be “Thought Leadership” case studies and/or traditional case studies that demonstrate how BigCommerce merchants have benefited from using your solution with their business. Use the + ​icon to add a case study, and the x ​icon to remove. Four case studies maximum.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 
@@ -207,9 +199,7 @@ Links to your privacy policy and terms of service. This requirement is in place 
 ### International Optimization
 Please add the countries for which your solution is optimized and those which your solution does not currently support.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 

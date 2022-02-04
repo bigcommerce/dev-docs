@@ -147,9 +147,7 @@ Accept: application/json
 The `storefront_api_query` field allows you to query store data that widgets can use. The widget configuration provides the values for the `storefront_api_query` parameters.
 For example, the `$productId` parameter comes from the widget configuration when a user selects a product. The `mappings` object from the widget template schema `settings` tells the widget to map the value of the widget configuration’s `productId` setting to the GraphQL parameter called `productId`.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * You can use the `activeCurrencyCode` query parameter to return user-selected currency.
@@ -257,9 +255,7 @@ The [response](https://developer.bigcommerce.com/api-reference/store-management/
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 >

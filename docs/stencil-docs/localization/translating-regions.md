@@ -11,9 +11,7 @@ In this example, we will translate several regions on the home page. The followi
 
 1. Add `translation` fields to the home page (/templates/pages/home.html).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 
@@ -55,9 +53,7 @@ translation="i18n.RegionName.HomeBelowContentGlobal"}}}
 
 2. Add region translations to the `schema_translations.json` file. 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 

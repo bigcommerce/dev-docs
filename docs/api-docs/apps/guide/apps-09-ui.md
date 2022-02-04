@@ -61,9 +61,7 @@ To load inside the control panel iFrame, your app must do the following:
 1. **Serve app resources over HTTPS:** BigCommerce's control panel is served over HTTPS. Your app must also be served over HTTPS, including any remote resources referenced (such as CSS, JS, and image files). If any resources are served over HTTP, the user's browser will display a mixed content error and refuse to render your app's UI in the control panel iFrame.
 2. **Support browser same-origin policies:** Same-origin policities restrict apps running within iFrames from performing certain activities, such as interacting with other services. If your app requires this, open a new tab for actions that cannot occur in an iFrame<sup>1</sup>. [Learn more about same-origin policies](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) (developer.mozilla.org).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 

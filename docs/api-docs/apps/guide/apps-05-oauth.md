@@ -39,9 +39,7 @@ Single click app authorization and authentication occurs via [OAuth2 authorizati
 
 ![App Installation Sequence](https://s3.amazonaws.com/user-content.stoplight.io/6012/1536263813949 "App Installation Sequence")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * API token creation is a permission reserved for the [store owner](https://forum.bigcommerce.com/s/article/Store-API-Accounts#creating) user account.
@@ -66,9 +64,7 @@ GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders&context=stores/g5cd38 HTTP
 | `scope` | List of scopes authorized by the user. |
 | `context` | The `store_hash` in the form of `stores/{{STORE_HASH}}`; required in API requests.|
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 >
@@ -146,9 +142,7 @@ Update requests refresh the `access_token` and `scope`:
 | `user.email` | string | The user’s email address. Store this value to identify the user at load and uninstall. |
 | `context` | string | The store hash, as well as a base path: `stores/{_store_hash_}` |
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * Store the `access_token` securely for future use.

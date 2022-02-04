@@ -113,9 +113,7 @@ Response:
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:  -->
 
@@ -409,9 +407,7 @@ Response:
 
 When you uninstall an app with an associated shipping carrier, you also automatically remove all of the shipping methods and connection info for that carrier from the store. You can no longer make quote requests, and users will no longer see shipping quotes for that carrier.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 >The response payload will display shipping quotes from lowest to highest price.

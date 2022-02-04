@@ -9,9 +9,7 @@ In this quick start tutorial, we'll configure our development environment and ma
 - NPM v3 and later
 - [Unix-based OS](https://github.com/bigcommerce/checkout-js#requirements) (Linux or Mac OS X)
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 >
@@ -42,9 +40,7 @@ Start webpack in watch mode and launch dev server.
 npm run dev & npm run dev:server
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 >

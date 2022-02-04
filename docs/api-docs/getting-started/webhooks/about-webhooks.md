@@ -46,9 +46,7 @@ Accept: application/json
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 
@@ -123,9 +121,7 @@ The webhook dispatcher will then attempt several retries (at increasing interval
 
 After the final retry attempt (cumulatively **48 hours** after the first delivery attempt), the webhook will be deactivated, and an email will be sent to the email address registered for the subscribing app. To reactivate the webhook, set `is_active`  back to `true` by making a `PUT` request to `/hooks/{id}`.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 **Note**
 > * A domain's success rate for a given sliding window is not calculated until `100` webhook requests are sent - this means the domain will not be blacklisted for the first `100` webhooks sent within the time window (regardless of response), as all webhooks are sent until the minimum threshold has been reached for the current time window.
@@ -139,9 +135,7 @@ After the final retry attempt (cumulatively **48 hours** after the first deliver
 
 To avoid accumulating unused webhooks, BigCommerce automatically deletes registered webhooks on app uninstall.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 **Note**
 > You can not delete a webhook by deleting the account token used to create it. The associated webhook will continue to run after you delete the token, and you will be unable to edit, delete, or manage the webhook. For information on how to manually delete a webhook, see [Delete a Webhook](https://developer.bigcommerce.com/api-reference/store-management/webhooks/webhooks/deleteawebhook).

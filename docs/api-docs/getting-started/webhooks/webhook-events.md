@@ -65,9 +65,7 @@ The same response is returned for the following events.
 * `store/cart/deleted`
 * `store/cart/abandoned`
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 **Note**
 > The `store/cart/abandoned` hook is triggered independently of the Abandoned Cart Saver feature, which is only available on [select plans](https://www.bigcommerce.com/essentials/pricing/). To learn more about the Abandoned Cart Saver, see [Using the Abandoned Cart Saver](https://support.bigcommerce.com/s/article/Using-the-Abandoned-Cart-Saver).

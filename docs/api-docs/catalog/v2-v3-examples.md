@@ -8,9 +8,7 @@ This article illustrates the difference between V2 and V3 Catalog APIs by compar
 
 In this section, we will look at using V2 and V3 Catalog APIs to work with simple and complex products.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * **Simple products** are products that do not have variants, options, or modifiers.
@@ -666,9 +664,7 @@ In V3, it is best practice to either assign values directly to a variant or use 
 
 In the following V2 example, we will add a complex rule to increase the product's price by $5 if the checkbox is selected.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > In V2, you cannot add a complex rule without an option.
@@ -876,9 +872,7 @@ The product used in this example is a t-shirt with a global option set of **Size
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * `option_values` IDs for **Color** are 180, 181, and 182.

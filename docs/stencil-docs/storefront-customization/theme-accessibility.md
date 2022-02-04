@@ -16,9 +16,7 @@ Alternative (alt) text is an image description read aloud by a screen reader. Ad
 **Alt image text using HTML**
 
 In Cornerstone, go to `templates/components/common/store-logo.html`. In the `<img>` tag, provide descriptive alt text for your store logo.
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
  
 **Note** 
 
@@ -79,9 +77,7 @@ Text accessibility involves making content readable and understandable. You can 
 ### Color contrast
 Color contrast is an essential factor in visual accessibility.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > According to [WCAG 2.1](https://www.w3.org/TR/WCAG21/), your ecommerce website must have minimum color contrast ratios of 4.5.1 for standard text and 3:1 for large text. To ensure you meet WCAG 2.1 guidelines, we recommend presetting these guidelines, using [Lighthouse](https://developers.google.com/web/tools/lighthouse) or Chrome's [Accessibility Developer Tools](https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb/reviews?hl=en).

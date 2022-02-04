@@ -18,9 +18,7 @@ To complete this tutorial, you should be familiar with the following concepts:
 ## Adding a language file
 1. After downloading and extracting your Stencil theme, open the folder containing your theme files and navigate to the `/lang` subfolder. 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:  -->
 **Note**
@@ -103,9 +101,7 @@ Update your language browser to display the translation on the storefront. The f
 5. Drag the newly selected language to the top of the list.
 6. Refresh your browser to see the translations.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:  -->
 **Note**

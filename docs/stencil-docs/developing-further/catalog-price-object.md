@@ -258,9 +258,7 @@ In this example:
 | `with_tax` | This property represents the `without_tax` value plus a 10% tax markup.|
 | `rrp_with_tax` | This property represents the `rrp_without_tax` value plus a 10% tax markup.|
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 

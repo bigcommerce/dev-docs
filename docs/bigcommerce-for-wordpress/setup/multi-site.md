@@ -44,9 +44,7 @@ Note that embedded checkout is only supported on a single domain at a time. See 
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044197137 "#### Fill in the Name and OAuth Scopes.
 ")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 <!-- theme: info -->
 
 >### API account name field
@@ -110,9 +108,7 @@ The screen will also contain your API Path, which you will need for the WordPres
 #### API credentials
 ![#### API credentials](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044553372 "#### API Credentials")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 <!-- theme: info -->
 
 >### .txt file download
@@ -161,9 +157,7 @@ The screen will also contain your API Path, which you will need for the WordPres
 
 _Congratulations, you're done setting up your additional site!_ 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 

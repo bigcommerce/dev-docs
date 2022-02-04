@@ -16,9 +16,7 @@ To incorporate reCAPTCHA v2, you will need to update script references in these 
 * `page_contact_form.html`
 * `product_comments.html`
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
+<!-- theme: danger  -->
     
 <!-- theme: error -->
 

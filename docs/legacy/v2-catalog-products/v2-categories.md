@@ -6,9 +6,7 @@
 
 Index of hierarchical categories used to organize and group products.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 
@@ -257,9 +255,7 @@ Deletes a category.
 
 >`DELETE /stores/{store_hash}/v2/categories/{id}`
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
+<!-- theme: danger  -->
     
 <!-- theme: error -->
 

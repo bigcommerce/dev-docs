@@ -58,9 +58,7 @@ The response will contain an `id` which we will use as the `channel_id` in futur
     "meta": {}
 }
 ```
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:  -->
 > Channels created via API are visible in the BigCommerce store's Control Panel in **Products** > **Listed On**. The Orders section will now also include a filter for your channel.
@@ -190,9 +188,7 @@ Next, include the `embedded_checkout_url` as part of the request payload you sen
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 The `request_ip` field is optional.
 </div>
 </div>
@@ -202,9 +198,7 @@ The `request_ip` field is optional.
 
 Use the `embedded_checkout_url` that is returned from generating redirect URLs and assemble a JSON object. It will be used by the Checkout JS SDK to determine how to render the checkout.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 	
 When the shopper is logged in, use the https://{{store-url}}/login/token/{{token}} URL as the `url` option for `embedCheckout`. For unauthenticated shoppers, use the `embedded_checkout_url` as the `url` option instead.
 	

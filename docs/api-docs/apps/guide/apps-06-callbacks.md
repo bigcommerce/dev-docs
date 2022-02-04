@@ -20,9 +20,7 @@ Each event triggers a `GET` request from BigCommerce containing a `signed_payloa
 - Identify the store.
 - Identify the store owner or user.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 
@@ -92,9 +90,7 @@ encoded_json_string.encoded_hmac_signature
 6. Sign the decoded `json_string` with your app's `client_secret`.
 7. Match<sup>1</sup> signed `json_string` against decoded `hmac_signature`.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 > **Note**
 > 1. To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. How to accomplish this varies by programming language. For code samples in Ruby and PHP, see [Code samples](#code-samples) below; search for "constant time string comparison {lang}" using your preferred search engine for more information.

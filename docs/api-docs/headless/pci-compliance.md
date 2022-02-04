@@ -14,9 +14,7 @@ BigCommerce is a PCI DSS compliant service provider and certifies annually [all 
 
 Merchants can use BigCommerce's PCI DSS AOC to satisfy the compliance requirements for the part that outlines its responsibilities. To learn more about showing proof of compliance, see [Showing Compliance](https://support.bigcommerce.com/s/article/PCI-Compliance#how).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > If your application handles credit card data, you will need to be PCI compliant. Self-assessment questionnaires (**SAQs**) can be submitted to [compliance@bigcommerce.com](mailto:compliance@bigcommerce.com).
@@ -40,9 +38,7 @@ The following table outlines PCI compliance responsibilities based on the type o
 | Checkout and Payments SDK | Not responsible. </br> The way your business consumes the SDKs (either BigCommerce as a storefront and backend, or BigCommerce as a backend) would determine BigCommerce's responsibilities. | Responsible for the PCI DSS compliance requirements applicable, as stated in BigCommerce as a storefront or BigCommerce as a backend.|
 | Checkout and Payments API | Not responsible. </br> The way your business consumes the SDKs (either BigCommerce as a storefront and backend, or BigCommerce as a backend) would determine BigCommerce's responsibilities. |  Responsible for the PCI DSS compliance requirements applicable, as stated in BigCommerce as a storefront or BigCommerce as a backend. |
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > The way your business consumes the SDKs (either BigCommerce as a storefront and backend or BigCommerce as a backend ) determines BigCommerce's  responsibilities; It is possible to use one more of BigCommerce's technology stack at the same time. Your PCI DSS compliance responsibilities will be a combination of each stack consumed.

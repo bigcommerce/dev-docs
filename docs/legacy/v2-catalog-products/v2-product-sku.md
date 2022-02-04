@@ -6,9 +6,7 @@
 
 Stock Keeping Unit identifiers associated with products or product options.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 

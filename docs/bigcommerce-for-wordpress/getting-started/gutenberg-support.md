@@ -22,9 +22,7 @@ The WordPress Gutenberg Visual Editor provides users the ability to easily compo
 | BigCommerce Product Reviews          | displays product reviews for a product                                          | Product ID, Additional CSS Class                    |
 | BigCommerce Product Components       | displays a product's component(s) (sku, image, title, description, add to cart) | Product ID, Product Component, Additional CSS Class |
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
     
 <!-- theme: {{callout_type}} -->
 

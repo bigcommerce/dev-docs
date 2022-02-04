@@ -22,9 +22,7 @@ Use Cases:
 - Apps that do not provide Web services for OAuth exchange. (For example: offline sync apps.)
 - Apps that do not provide Web or cloud-hosted components for a dashboard.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
     
 <!-- theme:  -->
 

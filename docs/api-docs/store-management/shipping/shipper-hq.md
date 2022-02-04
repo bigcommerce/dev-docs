@@ -27,9 +27,7 @@ These field values can be set in the control panel by the merchant as well as us
 | id | number | ID of the metafield. | read only |
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
     
 <!-- theme: warning -->
 ### Entering metafield data

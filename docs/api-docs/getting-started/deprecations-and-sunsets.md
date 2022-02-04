@@ -19,9 +19,7 @@ The following V2 APIs are deprecated. We discourage using these APIs as BigComme
 |`/v2/redirects`|[V3 Redirects](https://developer.bigcommerce.com/api-reference/storefront/redirects)|
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * In V3, `options` and `modifiers` attach directly to products. Use `options` and `modifiers` together to access the contents of the former V2 `options` response.

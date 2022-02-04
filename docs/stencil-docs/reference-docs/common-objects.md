@@ -6,9 +6,7 @@ Certain Stencil objects can be accessed through multiple other Stencil objects. 
 
 This consistent behavior is true for each of the common objects documented in the following subsection.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
     
 <!-- theme: info -->
 

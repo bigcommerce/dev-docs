@@ -12,9 +12,7 @@ Integrating a partner's theme changes requires these preconditions:
 
 *   BigCommerce sets up a Theme Development store (or converts an existing regular store) and applies the theme. All theme files will automatically be copied into the WebDAV `/template/` directory.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
+<!-- theme: info -->
     
 <!-- theme:  -->
 
@@ -31,9 +29,7 @@ Integrating a partner's theme changes requires these preconditions:
 `http://<STORE>/admin/index.php?ToDo=viewTemplates&dev=enable`.
 2.  The partner asks BigCommerce to switch a theme. (Partners currently cannot switch it directly, because it’s a paid theme.)
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
+<!-- theme: danger  -->
     
 <!-- theme: error -->
 
@@ -47,9 +43,7 @@ Integrating a partner's theme changes requires these preconditions:
 4.  The partner makes appropriate changes to CSS/HTML files.
 5.  The partner commits their changes into the feature branch, and opens a pull request against the BigCommerce fork.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
     
 <!-- theme: warning -->
 

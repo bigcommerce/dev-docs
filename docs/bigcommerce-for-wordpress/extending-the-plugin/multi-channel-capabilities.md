@@ -59,9 +59,7 @@ Once finished, the directory structure should look as follows:
 │    |   |   └── query-string-region-activation.php
 |    |   ├── ...
 ```
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 
@@ -82,9 +80,7 @@ In the example screenshot above, we've created and connected two channels:
 1. a `US` channel with `term_id` `32` (primary), and
 1. a `UK` channel with `term_id` `31`
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 
@@ -137,9 +133,7 @@ if ( $_GET[ 'region' ] !== 'us' && ($_GET[ 'region' ] === 'uk' || strpos($_SERVE
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 

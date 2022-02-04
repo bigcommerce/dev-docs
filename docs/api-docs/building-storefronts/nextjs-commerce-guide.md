@@ -113,9 +113,7 @@ BIGCOMMERCE_STORE_API_STORE_HASH=${STORE_HASH}
 
 5. To see your Next.js Commerce storefront running locally, open `localhost:3000` in your browser.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 >

@@ -11,9 +11,7 @@ A BigCommerce storefront can be customized to display in any one language of you
 
 * [**Storefront content.**](#localizing-your-storefront-content) Adjust other localization details in the BigCommerce control panel.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 
@@ -54,9 +52,7 @@ You can review these strings by downloading the language files we have made avai
 Localizing your theme's checkout and order confirmation pages requires customizations within the default checkout page and the order confirmation HTML file. See [Multi-language setup](https://developer.bigcommerce.com/stencil-docs/localization/multi-language-checkout) for details.
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 

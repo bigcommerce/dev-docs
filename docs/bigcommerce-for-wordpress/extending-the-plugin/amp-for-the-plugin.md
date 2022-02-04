@@ -59,9 +59,7 @@ For more technical details on how the 3 modes are differentiated, please check o
 
 ### Classic mode (v0.1+) - Legacy
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
     
 <!-- theme: warning -->
 

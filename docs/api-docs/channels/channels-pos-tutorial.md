@@ -55,9 +55,7 @@ Accept: application/json
 
 [View reference documentation for this request](https://developer.bigcommerce.com/api-reference/store-management/channels/channels/createchannel).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 >

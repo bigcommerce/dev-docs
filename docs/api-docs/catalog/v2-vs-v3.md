@@ -9,9 +9,7 @@ Both the V2 and V3 Catalog APIs authenticate with OAuth and can be used concurre
 While every effort has been made to provide reasonable forwards and backwards compatibility between V2 and V3 REST APIs, there are important differences between the APIs which may result in undesirable behavior when both API versions are used for write actions on a given store. When resources are available through both APIs, we recommend using the V3 API as it contains performance optimizations and usability improvements.
 For differences in resources, see the [Difference between V2 and V3 Catalog APIs](#difference-between-v2-and-v3-catalog-apis) section of this article.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 >
@@ -57,9 +55,7 @@ You can now create variants and modifiers in one call without having to create o
 [Modifiers](https://developer.bigcommerce.com/api-docs/store-management/catalog/catalog-overview#modifier-options) represent options used for additional product customization such as gift wrapping, engraving, text to be printed on a t-shirt, or a warranty. Unlike variant options, modifiers do not generate variants, and you can display them as *required* or *optional* on the storefront. You can use modifiers along with [rules](https://developer.bigcommerce.com/api-docs/store-management/catalog/catalog-overview#complex-rules) to change a product's price or weight.
 Modifiers include multiple-choice types such as swatch, rectangle, radio button, and dropdown, and non-multiple-choice types such as text, multi-line text, date picker, file upload, and pick list.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 >
@@ -89,9 +85,7 @@ In V3, every purchasable entity in the catalog is a variant including the produc
 
 To reduce the number of API calls made, you can include variants with a `GET` request using the `?include=variants` query parameter.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 

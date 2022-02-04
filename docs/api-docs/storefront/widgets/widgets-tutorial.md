@@ -35,9 +35,7 @@ In `templates/pages/category.html`, add a new region `{{{region name="category_h
 
 If you are using [Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil) and editing theme files locally, run a `stencil push` command to apply your changes before proceeding to the next step. `stencil push` will bundle your theme into a zip file and upload the zip to BigCommerce. You can find more information on Stencil CLI commands in our [Stencil CLI Option and Commands](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands) article.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * You can add regions to templates in the [`templates/pages/`](https://developer.bigcommerce.com/stencil-docs/storefront-customization/directory-structure) folder.
@@ -120,9 +118,7 @@ Accept: application/json
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * Make a note of the `uuid` of the widget template in the response. You will use it to create the widget in the next step.
@@ -174,9 +170,7 @@ Accept: application/json
 | `widget_configuration` | data for Handlebars context |
 | `widget_template_uuid` | default template `uuid` |
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * Make a note of the widget's `uuid` in the response. You will use it to create a placement in the next step.

@@ -20,9 +20,7 @@ A customer is anyone who makes a purchase on a store and creates an account. Big
 
 Customer groups allow you to organize your customers, give them discounts, and restrict access to specific products or categories. For more information, see [Customer Groups](https://support.bigcommerce.com/s/article/Customer-Groups).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
+<!-- theme: info -->
     
 <!-- theme:  -->
 ### Customer groups by plan
@@ -77,9 +75,7 @@ A customer makes a purchase on a store and creates an account. The customers obj
 [Customer Attributes](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-attributes/) and [Customer Attribute Values](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-attribute-values/) let you store additional information against a customer. Customer Attributes define the name of a name-value pair and the type of information stored (for example, `"name": "Shoe size"`, `"type": "number"`). The Customer Attribute Values endpoint lets you define the values for the attributes.
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
     
 <!-- theme:  -->
 

@@ -27,9 +27,7 @@ Example:
 "redirect_url": "/checkout"
 }
 ```
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
+<!-- theme: info -->
     
 <!-- theme:  -->
 ### Redirect URL

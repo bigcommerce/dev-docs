@@ -1,8 +1,6 @@
 # Custom Fonts and Icons
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 
@@ -37,9 +35,7 @@ You can update the fonts in `config.json`; make sure to follow the `Google_FontN
 "body-font": "Google_Lato_700"
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 
@@ -96,9 +92,7 @@ display: block;
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: {{callout_type}} -->
 

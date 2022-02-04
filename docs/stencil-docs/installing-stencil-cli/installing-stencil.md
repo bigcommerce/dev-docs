@@ -11,9 +11,7 @@ This article contains the detailed instructions needed to install and configure 
 To install Stencil CLI and its dependencies on Mac, open a terminal and run the following commands. Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 
@@ -45,9 +43,7 @@ npm install -g @bigcommerce/stencil-cli
 Installing Stencil CLI and its dependencies on Macs that use Apple silicon, such as the M1 chip, requires Rosetta. Rosetta allows a Mac with Apple silicon to use apps built for a Mac with an Intel processor. The following steps will guide you through opening a Rosetta terminal and installing Stencil CLI and its dependencies.
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 
@@ -110,9 +106,7 @@ npm config set python python2.7
 npm install -g @bigcommerce/stencil-cli
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 
@@ -142,9 +136,7 @@ Once they're installed and configured, use `npm` to install Stencil CLI:
 npm install -g @bigcommerce/stencil-cli
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 
@@ -182,9 +174,7 @@ npm install -g @bigcommerce/stencil-cli
 * [libsass](https://sass-lang.com/libsass)
 * git
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme: info -->
 

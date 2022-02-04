@@ -51,9 +51,7 @@ We encourage you to create your sandbox store and your Developer Portal account 
 > **Note**
 > Your Developer Portal account is an entirely separate account outside of the Partner Portal.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
     
 <!-- theme: warning -->
 

@@ -21,9 +21,7 @@ BigCommerce is only responsible for the security of credit cards to the extent t
 Merchants or shoppers' personal identifiable information (PII) collected by recurring billing apps that consume the BigCommerce Payments API must have its own Privacy Policy sufficient to the requirements of the European Union General Data Protection Requirements (GDPR). The GDPR must be available and displayed to the general public.
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 ### PCI compliance
@@ -40,9 +38,7 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 
 Attempting to process a payment through the API using the full credit card information may fail if the provider requires 3DS authentication. The card must be saved through a shopper-initiated transaction before it can be charged through the Payments API. For a list of payment gateways that support 3DS, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:  -->
 ### Hosted providers
@@ -193,9 +189,7 @@ The headers to process a payment are different than the headers you normally sen
 * Authorization: PAT {your-access-token}
 * Content-Type: application/json
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 
@@ -320,9 +314,7 @@ Send the request with the following fields from the credit card:
 
 If any of these fields are incorrect, you may be unable to process the payment.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 

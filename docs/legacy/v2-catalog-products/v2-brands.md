@@ -6,9 +6,7 @@
 
 Brand facets for identifying and categorizing products according to their manufacturer or company metonym.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 

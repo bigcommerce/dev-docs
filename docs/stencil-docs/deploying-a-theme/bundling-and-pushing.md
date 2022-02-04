@@ -12,9 +12,7 @@ Follow the link for your scenario:
 If you downloaded a refreshed version of Stencil's default Cornerstone theme: Run `npm install` in the theme directory to install refreshed JavaScript dependencies, as outlined in [Installing Stencil](/stencil-docs/getting-started/installing-stencil#installing_installing-stencils-js-utilities).
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 
@@ -32,9 +30,7 @@ If you have added any new subdirectories or files to your base theme, verify tha
 * Set newly added directories to permission `755` (`drwxr-xr-x`).
 * Set newly added files to permission `644` (`rw-r--r--`).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 
@@ -177,9 +173,7 @@ Use your arrow keys to move the selection caret to each theme/version that you w
 If you are certain of your selections, you can press **Enter** to delete the themes.
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
+<!-- theme: danger  -->
 
 <!-- theme: error -->
 

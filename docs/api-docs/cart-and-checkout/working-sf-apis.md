@@ -133,9 +133,7 @@ Response:
  ...
 }
 ```
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 >Note: Please take note of the value of the `cartId` as it will be used later in the tutorial.
 
@@ -429,9 +427,7 @@ In this section, we will add a billing address to a checkout, create a consignme
 
 Before proceeding, make sure you have added two different line items to your cart.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:  -->
 >Note: `checkoutId` is the `cartId`.

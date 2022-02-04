@@ -25,11 +25,6 @@ To use Disqus blog comments in Stencil, follow the steps below:
 5. Paste your Disqus Universal Code before the closing {{/partial}} tag.
 6. In the Disqus Universal Code that you have posted, there is a function that reads like below:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Disqus Universal Code</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
 title: "Disqus Universal Code"
@@ -65,5 +60,5 @@ var disqus_config = function () {
 };
 ```
 
-7. Save your files.
-8. Apply your theme.
+1. Save your files.
+2. Apply your theme.

@@ -46,9 +46,7 @@ Accept: application/json
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder#requestrunner)
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * The example above contains the minimum required fields for a [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request.
@@ -102,9 +100,7 @@ Accept: application/json
 ]
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * If not specified, `status_id` defaults to `1`.
@@ -146,9 +142,7 @@ Accept: application/json
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customersget#requestrunner)
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * Set `customer_id` to `0` to create a guest order.
@@ -193,9 +187,7 @@ Accept: application/json
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder#requestrunner)
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * Add multiple shipping addresses to [ship to multiple locations](#shipping-to-multiple-locations).
@@ -284,9 +276,7 @@ Accept: application/json
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * Custom products do not get added to the catalog.
@@ -338,9 +328,7 @@ Accept: application/json
 |`shipping_provider`| Optional; used to create tracking link; see [Create Order Shipment](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipments/createordershipments) for accepted values|
 |`items.order_product_id`|Obtainable via [Get Order Products](https://developer.bigcommerce.com/api-reference/store-management/orders/order-products/getallorderproducts)|
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * Create multiple shipments by specifying a subset of products and quantities in each `POST` request.
@@ -487,9 +475,7 @@ BigCommerce submits tax documents to Avalara when an order moves from an **unpai
 | Paid or `Refunded` | Unpaid | Unpaid | Tax document voided |
 | Unpaid or `Refunded` | Paid | Paid | Tax document submitted |
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * Abbreviated state names (ex: `CA` instead of `California`) in an order address will cause tax document submission to fail.
@@ -547,9 +533,7 @@ Accept: application/json
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * Not all payment gateways return the full card or fraud detail. Depending on the payment method, different information will be available.
@@ -584,9 +568,7 @@ Order `subtotal` and `total` calculate automatically; edits to the following pro
 
 You can override calculated values such as product prices, subtotals, and totals by sending a fixed value in the request. If you do not supply values for these properties, you will automatically calculate them based on the preset store values and tax rules.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > * If you override `subtotal` or `total`, override both; the system will not re-calculate the other.

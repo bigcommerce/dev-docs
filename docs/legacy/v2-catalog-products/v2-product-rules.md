@@ -6,9 +6,7 @@
 
 Rules that modify the properties of a product, such as weight, price, and product image.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
 
 <!-- theme: warning -->
 

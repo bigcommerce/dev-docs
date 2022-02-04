@@ -176,9 +176,7 @@ $group_info = $group-&gt;get_info();
 <h3 id="architectural-guidelines">Architectural Guidelines</h3>
 <p>All actions and filters called by the plugin begin with the <code>bigcommerce/</code> prefix (e.g., <code>bigcommerce/init</code>). If there is a dynamic component to the hook, it should be preceded by an equal sign (e.g., <code>bigcommerce/template=' . $template . '/path</code>).</p>
 <p>The entire plugin operates through closures wrapped around calls to classes instantiated via a dependency injection container. In the event that you need to modify the core behavior of the plugin, there are several methods to get access to these closures.</p>
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
+<!-- theme: danger  -->
 <!-- theme: error -->
 <h3 id="warning">Warning</h3>
 <blockquote>

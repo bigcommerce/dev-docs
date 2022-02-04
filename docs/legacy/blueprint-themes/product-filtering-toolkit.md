@@ -4,9 +4,7 @@
 
 Product filtering (also known as faceted search) enables shoppers to refine product searches based on multiple attributes like price, size, ratings, etc. For a store owner's view of administering this feature, please see <a href="https://forum.bigcommerce.com/s/article/Product-Filtering-Settings" target="_blank">this KB article</a>. 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
     
 <!-- theme: warning -->
 
@@ -29,9 +27,7 @@ As noted below, we recommend implementing product filtering on a temporary sandb
 
 Product filtering is fully functional in the Blueprint base theme. Once you’ve enabled [Developer Mode](#blueprint-and-developer-mode), you’ll be able to access this base theme and add product filtering to your developer store.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
     
 <!-- theme: warning -->
 
@@ -50,9 +46,7 @@ For information about developing on the current Stencil platform, please see <a 
 
 To enable product filtering, just enable [Developer Mode](#devmode) on your store. This will enable product filtering on your store by default, regardless of whether or not your theme and plan support it.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
     
 <!-- theme: warning -->
 
@@ -69,9 +63,7 @@ If you are working with a new store, product filtering might already work out-of
 
 Once you’ve enabled product filtering for your sandbox store, you’ll need to get the most up-to-date Blueprint files and copy them into your own theme. Here is how to do so.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
     
 <!-- theme: warning -->
 
@@ -125,9 +117,7 @@ When switched off:
 *   Search page > `search.html`
 *   Category pages > `category.html`
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
     
 <!-- theme: warning -->
 

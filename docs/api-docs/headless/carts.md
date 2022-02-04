@@ -50,9 +50,7 @@ To create a cart for an existing customer, include the `customer_id` in your `PO
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/carts/cart/createacart#requestrunner)
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 > **Note**
 > The `id` returned in the response will correspond to the `cart_id` required to generate a cart redirect URL.

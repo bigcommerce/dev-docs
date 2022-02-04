@@ -54,9 +54,7 @@ We enable this through our Channels API endpoints:
 
 ![Channels in Channel Manager](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-channel-overview.png "Channels in Channel Manager")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 <!-- theme: info -->
 
 > **Note**
@@ -75,9 +73,7 @@ Once installed, merchants manage channel apps via Channel Manager in the control
 
 ![Edit Channel Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-edit-settings.png "Edit Channel Settings")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
  
 > **Note**
 >
@@ -95,9 +91,7 @@ Merchants can also list products from the product edit page.
 
 ![Manage Channel Assignment](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-all-assignments.png "Manage Channel Assignment")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
  
 > **Note**
 >
