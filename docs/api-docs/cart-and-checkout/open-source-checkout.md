@@ -6,6 +6,7 @@
 ### On this page
 
 - [Obtaining the JavaScript loader file](#obtaining-the-javascript-loader-file)
+- [Developing a custom checkout](#developing-a-custom-checkout)
 - [Hosting a custom checkout](#hosting-a-custom-checkout)
 - [Installing custom checkouts](#installing-custom-checkouts)
 - [Related resources](#related-resources)
@@ -21,6 +22,13 @@ Custom checkouts must have a single JS loader file. The first step to using a cu
 
 * Loading all the required assets, including CSS files
 * Running the app
+
+## Developing a custom checkout
+
+If you wish to customize a checkout, follow the steps below:
+
+1. Please get in touch with support to prevent the CSS of default checkout from overriding the CSS of custom checkout. 
+2. Enter your CSS into the [optimized-checkout.scss](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss) in Cornerstone or the [scss folder](https://github.com/bigcommerce/checkout-js/tree/master/src/scss) in checkout.js. We suggest moving content from "optimized-checkout.scss to the scss folder or vice-versa to ensure there is a single source of truth for handling styles. NOTE: "optimized-checkout.scss" will always override the CSS rules defined in checkout-js.
 
 ### Packaging custom checkouts with Open Source Checkout
 
@@ -66,19 +74,6 @@ You can upload a custom checkout to your store's server using WebDAV. The instru
 5. Copy the contents of the `/dist` folder and paste it into the checkout folder.
 
 ## Installing custom checkouts  
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--note">
-<div class="HubBlock-content">
-  
-  <!-- theme: note -->
-> 1. Please get in touch with support if you wish to customize checkout. 
-> 2. Enter your CSS into the [optimized-checkout.scss](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss) in Cornerstone or the [scss folder](https://github.com/bigcommerce/checkout-js/tree/master/src/scss) in checkout.js. We suggest moving content from "optimized-checkout.scss to the scss folder or vice-versa to ensure there is a single source of truth for handling styles. NOTE: "optimized-checkout.scss" will always override the CSS rules defined in checkout-js.
- 
-</div>
-</div>
-</div>
-  
   
 To install a custom checkout on a store, follow these steps:
 
