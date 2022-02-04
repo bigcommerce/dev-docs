@@ -1,14 +1,5 @@
 # Shipping
-<div class="otp" id="no-index">
-	
-### On this page 
-- [Checkout APIs](#checkout-apis)
-- [Order shipping addresses](#order-shipping-addresses)
-- [Shipping zone and shipping methods](#shipping-zone-and-shipping-methods)
-- [Real-time carriers](#real-time-carriers)
-- [Related resources](#related-resources)
-    	
-</div>
+
 
 You can create shipments from orders, and it is possible to create multiple shipments from a single order. A [shipment](/api-reference/orders/orders-api/order-shipments/createordershipments) represents a grouping of order line items that you can ship to a customer. 
 

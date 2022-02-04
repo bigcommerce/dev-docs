@@ -1,15 +1,6 @@
 # Create Widgets Powered by GraphQL
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Prerequisites](#prerequisites)
-- [Create the widget template](#create-the-widget-template)
-- [Place the widget using Page Builder](#place-the-widget-using-page-builder)
-- [Place the widget using the API](#place-the-widget-using-the-api)
-- [Related resources](#related-resources)
-
-</div>
 
 Widgets are configurable and reusable components of content that merchants can display on their storefront. Widgets consist of a combination of HTML/CSS, JavaScript, and Handlebars, and are rendered as part of the storefront’s HTML.
 

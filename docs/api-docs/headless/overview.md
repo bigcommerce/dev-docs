@@ -1,14 +1,6 @@
 # Introduction to Headless Commerce
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Ways to implement headless commerce](#ways-to-implement-headless-commerce)
-- [Sample integration](#sample-integration)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
-</div>
 
 This is the first article in a comprehensive developer's guide to using BigCommerce as a commerce backend for headless storefronts. If you are not familiar with headless commerce as a concept, start by reviewing our whitepaper, [A New Era of Ecommerce: Headless Commerce](https://www.bigcommerce.com/new-era-headless-caas/), or the Help Center's [Headless Commerce Guide](https://support.bigcommerce.com/s/article/The-Headless-Approach).
 

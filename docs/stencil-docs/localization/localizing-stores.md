@@ -1,14 +1,6 @@
 # Localizing Stores
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Localizing theme files](#localizing-theme-files)
-- [Localizing checkout](#localizing-checkout)
-- [Localizing your storefront content](#localizing-your-storefront-content)
-- [Resources](#resources)
-
-</div>
 
 A BigCommerce storefront can be customized to display in any one language of your choice. To fully localize a store for a language or region, you will need to customize three areas:
 

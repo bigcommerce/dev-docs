@@ -1,18 +1,6 @@
 # Brands
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Brands](#brands)
-- [List Brands](#list-brands)
-- [Get a Brand](#get-a-brand)
-- [Get a Count of Brands](#get-a-count-of-brands)
-- [Create a Brand](#create-a-brand)
-- [Update a Brand](#update-a-brand)
-- [Delete a Brand](#delete-a-brand)
-- [Delete All Brands](#delete-all-brands)
-
-</div> 
+ 
 
 ## Brands 
 

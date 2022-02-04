@@ -1,18 +1,6 @@
 # Widget Builder
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Prerequisites](#prerequisites)
-- [Install Widget Builder](#install-widget-builder)
-- [Configure Widget Builder](#configure-widget-builder)
-- [Reset or create parallel configurations](#reset-or-create-parallel-configurations)
-- [Generate a scaffold with `create`](#generate-a-scaffold-with-create)
-- [Continue development with `start`](#continue-development-with-start)
-- [Publish to store](#publish-to-store)
-- [Resources](#resources)
-
-</div>
 
 Widget Builder is a command-line tool that lets you build, edit, and preview custom storefront widgets in real time, outside the context of your BigCommerce store.
 

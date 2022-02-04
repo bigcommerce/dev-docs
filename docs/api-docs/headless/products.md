@@ -1,14 +1,6 @@
 # Working with Products
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Retrieving product data](#retrieving-product-data)
-- [Managing products](#managing-products)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
-</div>
 
 This section demonstrates how to use BigCommerce's GraphQL Storefront API and REST Products API to query and manage product data for headless storefronts.
 

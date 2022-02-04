@@ -1,16 +1,5 @@
 # Price List API
-<div class="otp" id="no-index">
-	
-### On this page
-- [What is a price list?](#what-is-a-price-list)
 
-- [Price list definitions](#price-list-definitions)
-- [Price list assignments](#price-list-assignments)
-- [Price list notes](#price-list-notes)      
-- [Related resources](#related-resources)
-
-       
-</div>
 
 ## What is a price list?
 

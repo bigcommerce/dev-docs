@@ -1,18 +1,6 @@
 # Products
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Products](#products)
-- [List Products](#list-products)
-- [Get a Product](#get-a-product)
-- [Get a Product Count](#get-a-product-count)
-- [Create a Product](#create-a-product)
-- [Update a Product](#update-a-product)
-- [Delete a Product](#delete-a-product)
-- [Delete All Products](#delete-all-products)
-
-</div> 
+ 
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">

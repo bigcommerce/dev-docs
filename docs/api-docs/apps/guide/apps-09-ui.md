@@ -1,15 +1,6 @@
 # Designing a Single-Click App's UI
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Installing BigDesign React components](#installing-bigdesign-react-components)
-- [Using BigDesign tools](#using-bigdesign-tools)
-- [Developing for the iFrame](#developing-for-the-iframe)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
-</div>
 
 Your app's user interface is loaded inside an iFrame in a store's control panel after a user clicks the app's icon in the left nav and tirggers the [`load` callback](https://developer.bigcommerce.com/api-docs/apps/guide/callbacks). To ensure a seamless user experience, you should design your app's UI to match the design of BigCommerce's control panel. We've built a collection of reusable React components, design guidelines, and UI patterns (known collectively as *BigDesign*) that you can use to rapidly develop an app front-end that's consistent with BigCommerce's UI.
 

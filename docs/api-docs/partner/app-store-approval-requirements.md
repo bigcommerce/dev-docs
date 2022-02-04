@@ -1,23 +1,6 @@
 # App Store Approval Requirements
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Prerequisites](#prerequisites)
-- [General Requirements](#general-requirements)
-- [Functionality](#functionality)
-- [Installation](#installation)
-- [Recommendations](#recommendations)
-- [Dev Tools Walkthrough](#dev-tools-walkthrough)
-- [App Summary](#app-summary)
-- [Details](#details)
-- [Technical](#technical)
-- [Review](#review)
-- [Preview](#preview)
-- [Payment and Submission](#payment-and-submission)
-- [Resources](#resources)
-
-</div> 
+ 
 
 Dev Tools is the BigCommerce workspace for developing single-click apps. Within Dev Tools, you'll create the Client Id and Client Secret to authenticate your apps, submit new apps to the App Marketplace, and manage existing Marketplace listings.
 

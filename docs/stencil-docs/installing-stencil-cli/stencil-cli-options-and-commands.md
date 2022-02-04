@@ -1,20 +1,6 @@
 # Stencil CLI Options and Commands
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Commands overview](#commands-overview)
-- [`stencil help`](#stencil-help)
-- [`stencil init`](#stencil-init)
-- [`stencil start`](#stencil-start)
-- [`stencil bundle`](#stencil-bundle)
-- [`stencil pull`](#stencil-pull)
-- [`stencil download`](#stencil-download)
-- [`stencil push`](#stencil-push)
-- [`stencil release`](#stencil-release)
-- [Resources](#resources)
-
-</div>
 
 This article is a comprehensive command reference for Stencil CLI, BigCommerce's powerful theme development and deployment tool. For installation instructions for your OS, see [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil). For more information on BigCommerce's Stencil Theme Engine, see [About Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil). Continue reading below for detailed information on each Stencil CLI command and option.
 
@@ -204,9 +190,11 @@ Usage: stencil push [<OPTIONS>]
 |`--version`                    |`-V` | Output the version number                                                           |
 |`--host [HOSTNAME]`            |     | Specify the API host (default: `api.bigcommerce.com`)                               |
 |`--file [<FILENAME>]`          |`-f` | Specify the filename of the bundle to upload                                        |
-|`--save [<FILENAME]`           |`-s` | Specify the filename of the saved bundle                                          |
-|`--channel_id [<CHANNEL_ID>]`  |`-c` | Specify the channel ID of the storefront, if the store has multiple storefronts    |
+|`--save [<FILENAME]`           |`-s` | Specify the filename of the saved bundle                                            |
+|`--channel_ids [<CHANNEL_ID>]`  |`-c` | Specify the channel ID(s) of the storefront, if the store has multiple storefronts |
 |`--activate [<VARIATIONNAME>]` |`-a` | Skip activation prompt; specify variation or leave blank to select first variation  |
+|                               |`-a -c {{channel_id_1 channel_id_2 ... channel_id_n}}`| Allows you to apply a theme to selected channels (at least one channel id should be provided)                                                                                      |                 
+|                               |`-a -all_channels` or `a -allc`| Allows you to apply a theme to all available channels.     |   
 |`--delete`                     |`-d` | Delete oldest private, non-active theme if upload limit reached                     |
 |`--help`                       |`-h` | Output usage information                                                            |
 
@@ -224,6 +212,8 @@ stencil push -f Cornerstone-2.3.2.zip # uploads specified file, skips bundling i
 ### --filename:
 > You can use the `-f` or `--filename` option in cases where you have already run `stencil bundle` to bundle your theme, but the resulting .zip file has not yet been uploaded to BigCommerce. Use the generated .zip file's **filename** as a parameter to identify the generated file in your theme directory. An example of the command is outlined below.
 
+>When you run `stencil push`, you can apply one theme to multiple storefront or channels.
+    
 >When you run `stencil push` with the `-f` or `--filename` option, Stencil CLI skips all its bundling steps and diagnostics. It proceeds directly to uploading the specified file, displaying its processing progress bar to show upload status.
 
 </div>

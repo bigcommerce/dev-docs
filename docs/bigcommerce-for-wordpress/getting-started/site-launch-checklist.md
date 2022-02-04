@@ -2,14 +2,7 @@
 
 # Site Launch Checklist
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Required steps](#required-steps)
-- [Optional steps](#optional-steps)
-- [Resources](#resources)
-
-</div>
 
 This document outlines our recommended steps for launching a BigCommerce for WordPress site. It assumes that you have a reasonable understanding of WordPress and BigCommerce and know how to install the BigCommerce for WordPress plugin. For an overview of BigCommerce and the BigCommerce for WordPress plugin, see the following articles:
 

@@ -1,16 +1,6 @@
 # Cart and Checkout
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Storefront Cart and Checkout](#storefront-cart-and-checkout)
-- [Server-to-Server Cart and Checkout](#server-to-server-cart-and-checkout)
-- [When to use](#when-to-use)
-- [Persistent cart](#persistent-cart)
-- [Troubleshooting cart errors](#troubleshooting-cart-errors)
-- [Related resources](#related-resources)
-
-</div>
 
 ## Storefront Cart and Checkout
 

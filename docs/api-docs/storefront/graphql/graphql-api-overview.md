@@ -1,20 +1,6 @@
 # GraphQL Storefront API Overview
 
-<div class="otp" id="no-index">
 
-### On this page
-
-- [See it in action](#see-it-in-action)
-- [Accessing the GraphQL Playground](#accessing-the-graphql-playground)
-- [Using the GraphQL Playground](#using-the-graphql-playground)
-- [Authentication](#authentication)
-- [Querying within a BigCommerce storefront](#querying-within-a-bigcommerce-storefront)
-- [Querying from external systems](#querying-from-external-systems)
-- [Pagination](#pagination)
-- [Complexity limits](#complexity-limits)
-- [Related resources](#related-resources)
-
-</div>
 
 BigCommerce's GraphQL Storefront API makes it possible to query storefront data from within a [Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil) theme or remote site. This means information previously only available on the back-end via [Stencil's template logic](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties) can now be accessed via front-end JavaScript. For example, with the Storefront API, it is possible to do the following:
 

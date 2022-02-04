@@ -1,13 +1,6 @@
 # Current customer API
 
-<div class="otp" id="no-index">
 
-### On this page
-
-- [Identifying logged-in customers securely](#identifying-logged-in-customers-securely)
-- [Example JavaScript](#example-javascript)
-
-</div>
 
 ## Identifying logged-in customers securely
 

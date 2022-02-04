@@ -1,21 +1,7 @@
 # Single-Click App Callbacks
 
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Overview](#overview)
-- [Load callback](#load-callback)
-- [Uninstall callback](#uninstall-callback)
-- [Remove user callback](#remove-user-callback)
-- [Verifying the signed payload](#verifying-the-signed-payload)
-- [Identifying users](#identifying-users)
-- [Code samples](#code-samples)
-- [Helpful tools](#helpful-tools)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
-</div>
 
 After installing a single-click app, store owners and authorized users *load* the app by clicking the app's icon in the control panel. Store owners can also *uninstall* your app and *remove users* they've authorized to use it. Each of these events triggers a `GET` request (or "callback") from BigCommerce to your app's callback URL configured in the [Developer Portal](https://devtools.bigcommerce.com/my/apps). This article describes how your app should handle each callback and explains how to [verify the `signed_payload`](#verifying-the-signed-payload) and [identify users](#identifying-users).
 

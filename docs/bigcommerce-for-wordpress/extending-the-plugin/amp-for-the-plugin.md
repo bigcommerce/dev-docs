@@ -3,20 +3,7 @@
 # AMP for the BigCommerce WordPress plugin
 #### Prepared by XWP for BigCommerce
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [What's AMP?](#whats-amp)
-- [AMP real world example](#amp-real-world-example)
-- [How to enable AMP](#how-to-enable-amp)
-- [WordPress AMP plugin support](#wordpress-amp-plugin-support)
-- [Choosing an AMP mode](#choosing-an-amp-mode)
-- [Previewing AMP](#previewing-amp)
-- [AMP Tools](#amp-tools)
-- [AMP for SEO](#amp-for-seo)
-- [Customizing AMP templates](#customizing-amp-templates)
-
-</div> 
+ 
 
 ## What's AMP?
 

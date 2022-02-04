@@ -1,23 +1,6 @@
 # API Reference
 
-<div class="otp" id="no-index">
 
-### On this page
-- [BigCommerce APIs at a glance](#bigcommerce-apis-at-a-glance)
-- [V2 REST API](#v2-rest-api)
-- [V3 REST API](#v3-rest-api)
-- [Webhooks](#webhooks)
-- [Payment Processing API](#payment-processing-api)
-- [Storefront API](#storefront-api)
-- [Storefront GraphQL API](#storefront-graphql-api)
-- [Customer Login API](#customer-login-api)
-- [Current Customer API](#current-customer-api)
-- [Provider APIs](#provider-apis)
-- [Add to cart URLs](#add-to-cart-urls)
-- [API spec files](#api-spec-files)
-- [Deprecations and sunsets](#deprecations-and-sunsets)
-
-</div>
 
 ## BigCommerce APIs at a glance
 |API|Server|Description|

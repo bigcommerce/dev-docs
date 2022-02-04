@@ -1,13 +1,6 @@
 # Partner Program
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Program overview](#program-overview)
-- [Application requirements](#application-requirements)
-- [App Marketplace](#app-marketplace)
-- [Resources](#resources)
-</div> 
+ 
 
 ## Program overview
 Join the BigCommerce Partner Program to become an official BigCommerce partner. As an official partner, you will have access to training, sales enablement, and a referral network to get more clients and build better ecommerce experiences.

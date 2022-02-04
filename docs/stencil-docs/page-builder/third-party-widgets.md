@@ -1,15 +1,6 @@
 # Third-Party Widgets
 
-<div class="otp" id="no-index">
 
-### On this page
-
-- [Creating third-party widgets](#creating-third-party-widgets)
-- [Modifying BigCommerce widgets](#modifying-bigcommerce-widgets)
-- [Exposing third-party widget templates](#exposing-third-party-widget-templates)
-- [Resources](#resources)
-
-</div>
 
 A third-party widget is a configurable, reusable component created and maintained by developers outside of BigCommerce. You can use third-party widgets to display custom content in a Stencil storefront. 
 

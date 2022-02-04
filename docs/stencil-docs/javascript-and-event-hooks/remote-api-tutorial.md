@@ -1,11 +1,6 @@
 # Remote API Tutorial
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Remote API Example](#remote-api-example)
-
-</div>
 
 ## Remote API Example
 

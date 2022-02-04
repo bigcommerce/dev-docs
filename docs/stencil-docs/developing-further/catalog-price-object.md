@@ -1,14 +1,6 @@
 # Catalog Price Object Examples
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Catalog price object examples excluding tax](#catalog-price-object-examples-excluding-tax)
-- [Catalog price object examples including and excluding tax](#catalog-price-object-examples-including-and-excluding-tax)
-- [Control panel quick reference](#control-panel-quick-reference)
-- [Resources](#resources)
-
-</div> 
+ 
 
 As a theme developer, you can use the catalog price object to highlight the savings that a merchant is offering over the MSRP directly on the storefront by referencing the product's `price` object and the correct property for the product.
 

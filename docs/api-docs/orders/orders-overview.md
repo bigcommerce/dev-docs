@@ -1,18 +1,6 @@
 # Orders
 
-<div class="otp" id="no-index">
 
-### On this page
-- [What is an order?](#what-is-an-order)
-- [Available endpoints](#available-endpoints)
-- [Storefront Orders API](#storefront-orders-api)
-- [Server-to-Server Checkout API](#server-to-server-checkout-api)
-- [Orders API](#orders-api)
-- [Order transactions](#order-transactions)
-- [OAuth scopes](#oauth-scopes)
-- [Related resources](#related-resources)
-
-</div>
 
 ## What is an order?
 An order is a collection of items, customer information, and shipping information of customers that have finalized with a payment or attempted payment.

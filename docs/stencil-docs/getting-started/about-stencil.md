@@ -1,20 +1,6 @@
 # About Stencil
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Cornerstone](#cornerstone)
-- [Stencil CLI](#stencil-cli)
-- [Flexible templates](#flexible-templates)
-- [Powerful CSS stack](#powerful-css-stack)
-- [Front Matter](#front-matter)
-- [JavaScript event hooks](#javascript-event-hooks)
-- [Blueprint (Legacy framework)](#blueprint-legacy-framework)
-
-- [Support](#support)
-- [Resources](#resources)
-
-</div>
 
 Stencil is BigCommerce's theme engine. It incorporates industry best practices in technology, design standards, SEO, and allows developers to build a stunning storefront that engages shoppers and encourages checkouts on any device. Stencil themes are supported on the [following browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers). Stencil is responsible for powering the BigCommerce [Cornerstone theme](#cornerstone).
 

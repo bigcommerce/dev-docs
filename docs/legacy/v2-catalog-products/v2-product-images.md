@@ -1,17 +1,6 @@
 # Product Images
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Product Images](#product-images)
-- [Get a Product Image](#get-a-product-image)
-- [Get a Count of Product Images](#get-a-count-of-product-images)
-- [Create a Product Image](#create-a-product-image)
-- [Update a Product Image](#update-a-product-image)
-- [Delete a Product Image](#delete-a-product-image)
-- [Delete Multiple Product Images](#delete-multiple-product-images)
-
-</div> 
+ 
 
 ## Product Images 
 

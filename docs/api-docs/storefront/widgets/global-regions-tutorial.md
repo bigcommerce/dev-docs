@@ -1,13 +1,6 @@
 # Global Regions
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Create a global region](#create-a-global-region)
-- [Place a widget in the global region](#place-a-widget-in-the-global-region)
-- [Related resources](#related-resources)
-
-</div>
 
 [Global regions](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#global-regions) are special regions you can use to place and manage content sitewide. 
 In this tutorial, we will explore the concept of global regions by creating a global region and placing a widget in it using Page Builder.

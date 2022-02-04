@@ -2,19 +2,7 @@
 
 <!-- Dev Center URL: https://developer.bigcommerce.com/api-docs/channels/tutorials/extend-existing-apps -->
 
-<div class="otp" id="no-index">
 
-## On this page
-
- - [Step 1: Update API credentials](#step-1-update-api-credentials)
- - [Step 2: Integrate channel API](#step-2-integrate-channel-api)
- - [Step 3: Migrate existing data](#step-3-migrate-existing-data)
- - [App requirements](#app-requirements)
- - [Sample configuration](#sample-configuration)
- - [Terminology](#terminology)
- - [Related resources](#related-resources)
-
-</div>
 
 This article provides a guide to partners who would like to update or replace their existing sales channel apps to leverage new functionality available via Channels Toolkit.
 

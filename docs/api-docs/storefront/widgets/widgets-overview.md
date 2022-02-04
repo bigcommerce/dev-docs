@@ -1,20 +1,7 @@
 # Widgets API
 
 
-<div class="otp" id="no-index">
 
-### On this page
-
-- [Regions](#regions)
-- [Widget templates](#widget-templates)
-- [Widgets](#widgets)
-- [Widget versioning](#widget-versioning)
-- [Placements](#placements)
-- [Widgets on the storefront](#widgets-on-the-storefront)
-- [Definitions](#definitions)
-- [Related resources](#related-resources)
-
-</div>
 
 The Widgets API allows developers to create units of content and programmatically place them on specific pages of a BigCommerce storefront. The content can consist of HTML, CSS, and JavaScript, and is configurable using [Handlebars](https://handlebarsjs.com/) variables. The Widgets API supports various content types, such as YouTube videos, image sliders, and chat apps. 
 

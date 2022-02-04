@@ -1,17 +1,6 @@
 # App Development Best Practices
 
-<div class="otp" id="no-index">
 
-### On this page
-- [OAuth flow](#oauth-flow)
-- [API requests](#api-requests)
-- [Webhook events](#webhook-events)
-- [User interface](#user-interface)
-- [Deployment](#deployment)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
-</div>
 
 Review the following best practices before submitting your app to the [Apps Marketplace](https://www.bigcommerce.com/apps/).
 

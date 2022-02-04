@@ -1,18 +1,6 @@
 # Building Point-of-Sale Channels
 
-<div class="otp" id="no-index">
 
-### On this page
-
-
- - [Prerequisites](#prerequisites)
- - [Creating a channel](#creating-a-channel)
- - [Specifying the platform](#specifying-the-platform)
- - [Configuring UI sections](#configuring-ui-sections)
- - [Rendering UI sections](#rendering-ui-sections)
- - [Related resources](#related-resources)
-
-</div>
 
 This article documents how to use [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/guide/channels-toolkit-reference) to install a POS channel into [Channel Manager](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager) during a [single-click app's](https://developer.bigcommerce.com/api-docs/apps/guide/types) installation. We'll assume you're an experienced app and POS developer familiar with channels on BigCommerce.
 

@@ -1,12 +1,6 @@
 # Page Composition and Styling
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Referencing a CSS stylesheet](#referencing-a-css-stylesheet)
-- [Template composition](#template-composition)
-
-</div>
 
 ## Referencing a CSS stylesheet
 

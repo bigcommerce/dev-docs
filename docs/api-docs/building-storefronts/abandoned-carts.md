@@ -1,16 +1,6 @@
 # Recovering Abandoned Carts
 
-<div class="otp" id="no-index">
 
-### On this page
-
-- [Abandoned Cart Saver](#abandoned-cart-saver)
-- [Setting up the abandoned cart route](#setting-up-the-abandoned-cart-route)
-- [Leveraging the Abandoned Carts API](#leveraging-the-abandoned-carts-api)
-- [Implementing cart recovery on headless storefronts](#implementing-cart-recovery-on-headless-storefronts)
-- [Resources](#resources)
-
-</div>
 
 BigCommerce offers a powerful cart recovery system to help merchants recover lost business by effectively converting abandoned carts into orders. Using BigCommerce's built-in [Abandoned Cart Saver](https://support.bigcommerce.com/s/article/Using-the-Abandoned-Cart-Saver?language=en_US) tool, merchants can automate email campaigns to encourage customers to complete transactions after leaving items in their cart.
 

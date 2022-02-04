@@ -1,24 +1,6 @@
 # Shipping Providers
 
-<div class="otp" id="no-index">
 
-### On this page
-
-- [Sign-up](#sign-up)
-- [Before development](#before-development)
-- [Developing the app](#developing-the-app)
-- [Control Panel installation workflow](#control-panel-installation-workflow)
-- [Validation credentials](#validation-credentials)
-- [API installation workflow](#api-installation-workflow)
-- [Returning shipping quotes](#returning-shipping-quotes)
-- [Including product metatadata in rate requests](#including-product-metatadata-in-rate-requests)
-- [Submitting the app](#submitting-the-app)
-- [App diagram](#app-diagram)
-- [Definitions](#definitions)
-- [FAQ](#faq)
-- [Related resources](#related-resources)
-
-</div>
 
 Shipping service providers wishing to offer shipping services and rates to BigCommerce merchants and shoppers can implement BigCommerce Shipping Provider endpoints. Once they implement and accept their service into BigCommerce's shipping Carrier Registry, merchants will have access to enable and configure the service through their BigCommerce control panel. Once enabled on a store, BigCommerce will automatically retrieve the service options and rates using the provider's endpoints and display them to merchants in the store's control panel and to shoppers on the storefront.
 

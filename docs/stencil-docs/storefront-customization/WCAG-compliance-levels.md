@@ -1,11 +1,5 @@
 # WCAG Compliance Levels
-<div class="otp" id="no-index">
 
-### On this page
-- [Accessibility principles](#accessibility-principles)
-- [Accessibility guidelines](#accessibility-guidelines)
-- [Related resources](#related-resources)
-</div>
 
 This article demonstrates how Cornerstone satisfies [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/#guidelines) across compliance levels. You can perform similar techniques to your site regardless of your compliance level. For detailed implementation information, see [Implementing WCAG Guidelines](https://developer.bigcommerce.com/stencil-docs/accessibility/implementing-WCAG-guidelines).
 

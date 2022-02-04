@@ -1,11 +1,6 @@
 # Developer Portal Overview
 
-<div class="otp" id="no-index">
-
-### On this page
-- [About the Developer Portal](#about-the-developer-portal)
-- [Resources](#resources)
-</div> 
+ 
 
 ## About the Developer Portal
 

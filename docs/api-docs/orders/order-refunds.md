@@ -1,20 +1,6 @@
 # Order Refunds
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Single order refund example](#single-order-refund-example)
-- [Creating refund quotes](#creating-refund-quotes)
-- [Creating a refund](#creating-a-refund)
-- [Creating order level refunds](#creating-order-level-refunds)
-- [Refunding shipping and handling](#refunding-shipping-and-handling)
-- [Refunding products and gift wrapping](#refunding-products-and-gift-wrapping)
-- [Offline order refunds](#offline-order-refunds)
-- [FAQ](#faq)
-- [Troubleshooting](#troubleshooting)
-- [Related resources](#related-resources)
-
-</div>
 
 [Order V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) exposes endpoints for creating refunds against orders with settled payments. These endpoints are useful when building order management or payment integrations as they make embedding refund functionality directly into the application possible without requiring merchants to return to their BigCommerce control panel.
 

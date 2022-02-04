@@ -1,17 +1,6 @@
 # Custom Fields
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Custom Fields](#custom-fields)
-- [List Custom Fields](#list-custom-fields)
-- [Get a Custom Field](#get-a-custom-field)
-- [Get a Count of Custom Fields](#get-a-count-of-custom-fields)
-- [Create a Custom Field](#create-a-custom-field)
-- [Delete a Custom Field](#delete-a-custom-field)
-- [Delete Multiple Custom Fields](#delete-multiple-custom-fields)
-
-</div> 
+ 
 
 ## Custom Fields 
 
