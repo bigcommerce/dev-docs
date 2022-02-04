@@ -151,7 +151,7 @@ For example, the `$productId` parameter comes from the widget configuration when
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * You can use the `activeCurrencyCode` query parameter to return user-selected currency.
 > * There is no need to provide the mapping for the `activeCurrencyCode` property as it is auto-populated with the shopper’s active currency at the time of page load.
 
@@ -261,7 +261,7 @@ The [response](https://developer.bigcommerce.com/api-reference/store-management/
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 >
 > The value of the `productId` inside of the `widget_configuration` object is mapped to the `productId` parameter of the `storefront_api_query_params` object.
 

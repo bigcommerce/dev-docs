@@ -22,7 +22,7 @@ This article is a general overview of BigCommerce's GraphQL Storefront API; it i
 
 <!-- theme: warning -->
 
-### Note
+**Note**
 
 > * The GraphQL Storefront API is in early access and is feature-incomplete; it will remain in early access until we reach the minimum amount of functionality necessary to power an end-to-end shopping experience.
 > * As new features are added to the API, they will be called out in our [Developer Changelog](https://developer.bigcommerce.com/changelog#labels/storefront-api).
@@ -58,7 +58,7 @@ The GraphQL Storefront API Playground will be opened.
 
 <!-- theme: info -->
 
-### Note
+**Note**
 
 > * GraphQL Playground is a [GraphQL IDE](https://github.com/andev-software/graphql-ide) built on Electron. For more information, see [GraphQL Playground](https://electronjs.org/apps/graphql-playground) on [electrongjs.org](https://electronjs.org)
 > * If the **Storefront API Playground** link is not visible, the store may not be using a Stencil theme. Apply a Stencil theme to use the Storefront GraphQL API.
@@ -171,7 +171,7 @@ fetch('/graphql', {
 <div class="HubBlock-content">
 <!-- theme: warning -->
 
-### Note
+**Note**
 > * `1` can be passed in for the `channel_id` for generating tokens for use on the default Stencil storefront.
 > * To create a channel for a remote site, see [Create Channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) in the API Reference.
 > * `allowed_cors_origins` array accepts only a single origin currently -- one token must be generated for each origin.
@@ -300,7 +300,7 @@ In addition to using `fetch()`, there's a other ways to query the API:
 
 <!-- theme: info -->
 
-### Note
+**Note**
 
 > * If pasted directly into a script in [**Storefront** > **Script Manager**](https://support.bigcommerce.com/s/article/Using-Script-Manager), the output from `console.log(json)` will be viewable in the browser's Javascript Console.
 > * The above code must be used in a place where the `{{settings.storefront_api.token}}` handlebars variable can be accessed in order to get credentials for the API request.

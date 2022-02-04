@@ -280,7 +280,7 @@ Custom dimensions and metrics are also supported. To add them in the `config.jso
 
 <!-- theme: info -->
 
-#### Note:
+#**Note**:
 > * Spelling must be exact
 > * Names may not have spaces
 

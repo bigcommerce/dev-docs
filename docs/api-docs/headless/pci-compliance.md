@@ -18,7 +18,7 @@ Merchants can use BigCommerce's PCI DSS AOC to satisfy the compliance requiremen
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > If your application handles credit card data, you will need to be PCI compliant. Self-assessment questionnaires (**SAQs**) can be submitted to [compliance@bigcommerce.com](mailto:compliance@bigcommerce.com).
 
 </div>
@@ -44,7 +44,7 @@ The following table outlines PCI compliance responsibilities based on the type o
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > The way your business consumes the SDKs (either BigCommerce as a storefront and backend or BigCommerce as a backend ) determines BigCommerce's  responsibilities; It is possible to use one more of BigCommerce's technology stack at the same time. Your PCI DSS compliance responsibilities will be a combination of each stack consumed.
 
 </div>

@@ -50,7 +50,7 @@ Accept: application/json
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * The example above contains the minimum required fields for a [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request.
 > * The product ordered is a *custom* product; custom products do not exist in the catalog.
 
@@ -106,7 +106,7 @@ Accept: application/json
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * If not specified, `status_id` defaults to `1`.
 > * The refunded status is neither paid nor unpaid.
 > * For information on changing `custom_label` in the control panel, see [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
@@ -150,7 +150,7 @@ Accept: application/json
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * Set `customer_id` to `0` to create a guest order.
 
 </div>
@@ -197,7 +197,7 @@ Accept: application/json
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * Add multiple shipping addresses to [ship to multiple locations](#shipping-to-multiple-locations).
 
 </div>
@@ -288,7 +288,7 @@ Accept: application/json
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * Custom products do not get added to the catalog.
 > * If the product's price is not specfied in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request, BigCommmerce's pricing service calculates the price by applying applicable currency conversions and [pricing operations](https://developer.bigcommerce.com/api-docs/store-management/pricing-order-operation) (such as [price lists](https://support.bigcommerce.com/s/article/Price-Lists) and [customer group discounts](https://support.bigcommerce.com/s/article/Customer-Groups#pricing)) to the product's catalog price; use `price_inc_tax` and `price_ex_tax` to override the calculated price.
 > * Marketing promotions currently do not apply to orders created via the Orders API.
@@ -342,7 +342,7 @@ Accept: application/json
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * Create multiple shipments by specifying a subset of products and quantities in each `POST` request.
 > * Creating order shipments triggers email notifications; adjust [Order Notification](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) settings in the [control panel](https://login.bigcommerce.com/deep-links/manage) to change this behavior.
 > * Deleting a shipment does **not** move the order out of `shipped` status.
@@ -491,7 +491,7 @@ BigCommerce submits tax documents to Avalara when an order moves from an **unpai
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * Abbreviated state names (ex: `CA` instead of `California`) in an order address will cause tax document submission to fail.
 > * You can calculate taxes using rules specified in the store unless [automatic taxes](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) are enabled.
 > * You can optionally override tax values by specifying `price_inc_tax` and `price_ex_tax` in an [update order request](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/updateanorder).
@@ -551,7 +551,7 @@ Accept: application/json
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * Not all payment gateways return the full card or fraud detail. Depending on the payment method, different information will be available.
 > * You cannot create transactions for the following payment methods:
 >   * Test Payment Gateway
@@ -588,7 +588,7 @@ You can override calculated values such as product prices, subtotals, and totals
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * If you override `subtotal` or `total`, override both; the system will not re-calculate the other.
 > * To add a manual discount, overwrite the product price or `discount_amount`.
 

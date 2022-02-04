@@ -54,7 +54,7 @@ To access the training modules, log into the [Partner Portal](https://partners.b
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Certifications and the BigDev Bootcamp
+> **Certifications and the BigDev Bootcamp**
 > Advanced training is available through the BigDev Bootcamp. The BigDev Bootcamp delivers sessions focused on the Catalog API, Orders API, Cart and Checkout APIs, Storefront API, and Stencil. Please reach out to your Account Manager if you are interested in registering for these sessions.
 
 </div>

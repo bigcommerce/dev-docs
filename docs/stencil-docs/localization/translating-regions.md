@@ -17,7 +17,7 @@ In this example, we will translate several regions on the home page. The followi
 
 <!-- theme: info -->
 
-### Notes 
+**Note**s 
 * Translation must follow prefix “i18n.RegionName.” 
 * You can only add a translation field to a `{{{ region }}}` field.
     
@@ -61,7 +61,7 @@ translation="i18n.RegionName.HomeBelowContentGlobal"}}}
 
 <!-- theme: info -->
 
-### Notes 
+**Note**s 
     
 * Region translations must live within the schema_translations.json file.
 * Language code must contain a default value.

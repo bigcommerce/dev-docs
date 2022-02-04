@@ -124,7 +124,7 @@ The following properties of the discount rule are required. The request won’t 
 *   type
 *   type_value
 
-### Notes 
+**Note**s 
 
 To specify that a `min` or `max` value is unbounded, these properties must be explicitly set with a value of `0`. If neither `min` nor `max` properties are included in the request, the existing value will remain unchanged.
 
@@ -177,7 +177,7 @@ The following properties of the discount rule are required. The request won’t 
 *   type
 *   type_value
 
-### Notes 
+**Note**s 
 
 To specify that a `min` or `max` value is unbounded, these properties must be explicitly set with a value of `0`. If neither `min` nor `max` properties are included in the request, the existing value will remain unchanged.
 

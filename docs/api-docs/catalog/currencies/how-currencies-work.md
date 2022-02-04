@@ -61,7 +61,7 @@ You can create price lists in any currency setup in the store. Both transactiona
     
 <!-- theme: error -->
 
-### Note
+**Note**
 > This feature is limited to Enterprise plans and requires a Stencil theme.
 
 </div>

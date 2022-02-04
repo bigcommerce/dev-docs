@@ -61,7 +61,7 @@ After registering the draft app, add its credentials and auth callback URL to yo
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > If deploying on Heroku, skip the `.env` setup. Instead, enter `env` variables in the Heroku App Dashboard under **Settings** > **Config Vars**.
 
 </div>
@@ -111,7 +111,7 @@ MYSQL_PORT={mysql port *optional*}
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > JWT key should be at least 32 random characters (256 bits) for HS256.
 
 </div>
@@ -134,7 +134,7 @@ npm run dev
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > Although you can use the `ngrok` npm package without creating an account, any unauthenticated tunnels you create will expire after two hours. For the best development experience, [create a free ngrok account](https://dashboard.ngrok.com/signup), [find your ngrok authtoken](https://dashboard.ngrok.com/get-started/your-authtoken), and [add the authtoken](https://ngrok.com/docs#getting-started-authtoken) to your global `ngrok` configuration.
 
 </div>

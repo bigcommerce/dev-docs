@@ -38,7 +38,7 @@ There are three visibility options for apps: **Draft**, **Unlisted**, and **Publ
 
 <!-- theme: info -->
 
-### Note
+**Note**
 > * Only approved [partners](https://www.bigcommerce.com/partners/) can create unlisted apps.
 > * To have an app unlisted, contact <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a>.
 

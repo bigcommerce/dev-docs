@@ -8,7 +8,7 @@ Below are example GraphQL queries for use with the BigCommerce GraphQL Storefron
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * The GraphQL Storefront API is in early access and is feature-incomplete; it will remain in early access until we reach the minimum amount of functionality necessary to power an end-to-end shopping experience.
 
 </div>

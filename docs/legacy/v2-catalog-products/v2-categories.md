@@ -162,7 +162,7 @@ The following properties of the category are required. The request won’t be fu
 
 *   name
 
-### Notes 
+**Note**s 
 
 To maximize system performance, BigCommerce caps the number of categories that can be added to a store at 16,000. If your `POST` causes the store to exceed the maximum of 16,000 categories, BigCommerce will return a 403 error.
 
@@ -221,7 +221,7 @@ The following properties of the category are read-only. If one or more of these 
 
 The following properties of the category are required. The request won’t be fulfilled unless these properties are valid.
 
-### Notes 
+**Note**s 
 
 To maximize system performance, BigCommerce caps the total number of parent categories at seven. If your `PUT` includes the ID of a parent category in the `parent_id` field, BigCommerce will check the parent and any children of the current category to determine the total number of parent categories. If your `PUT` would cause the total number of parent categories to exceed the maximum of seven, BigCommerce will return a 403 error.
 

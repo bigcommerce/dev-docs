@@ -39,7 +39,7 @@ If you are using [Stencil CLI](https://developer.bigcommerce.com/stencil-docs/in
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * You can add regions to templates in the [`templates/pages/`](https://developer.bigcommerce.com/stencil-docs/storefront-customization/directory-structure) folder.
 > * To edit theme files locally, use [Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil).
 > * To edit theme files in the control panel, use [Page Builder](https://support.bigcommerce.com/s/article/Stencil-Themes#edit).
@@ -124,7 +124,7 @@ Accept: application/json
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * Make a note of the `uuid` of the widget template in the response. You will use it to create the widget in the next step.
 > * Multiple widgets can use the same widget template.
 
@@ -178,7 +178,7 @@ Accept: application/json
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * Make a note of the widget's `uuid` in the response. You will use it to create a placement in the next step.
 
 </div>

@@ -30,7 +30,7 @@ Products can be physical or digital:
 
 <!-- theme:  -->
 
-### Note
+**Note**
 > Only one product can be created at a time.
 
 </div>
@@ -112,7 +112,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- theme:  -->
 
-### Note
+**Note**
 > When you create options via `/products`, `display_type` defaults to a radio button (displayed as selectable boxes in some themes).
 
 </div>
@@ -154,7 +154,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- theme:  -->
 
-### Note
+**Note**
 > Files can only be added to digital products via [control panel or WebDav](https://support.bigcommerce.com/s/article/Creating-Downloadable-Products) -- attaching via the API is not supported. You can also set additional settings such as file description and maximum downloads in the control panel.
 
 </div>
@@ -186,7 +186,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-### Note
+**Note**
 > * If using `image_file`, set `Content-Type` header to `multipart/form-data` -- otherwise, you will be unable to add subsequent requests.
 > * Set `is_thumbmail` to true to set the image as the thumbnail used on product listing pages.
 > * A product can have only one thumbnail image at a time.
@@ -222,7 +222,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-### Note
+**Note**
 > * A product can have more than one video.
 > * You must host product videos on YouTube.
 > * `video_id` corresponds to the `v` parameter in the URL (Ex: `https://www.youtube.com/watch?v=R12345677`).
@@ -255,7 +255,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- theme:  -->
 
-### Note
+**Note**
 > Custom field values are limited to **250** characters. For additional information on custom fields and their use cases, see [Custom Fields](https://support.bigcommerce.com/s/article/Custom-Fields).
 
 
@@ -334,7 +334,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-### Note
+**Note**
 > You can add metafields to variants, products, categories, and brands.
 
 </div>
@@ -368,7 +368,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-### Note
+**Note**
 > You cannot create reviews in the control panel.
 
 </div>
@@ -574,7 +574,7 @@ To combine the variant option values into variants and build out SKUs use the fo
 
 <!-- theme:  -->
 
-### Note
+**Note**
 > * Variants need to be created one at a time using this endpoint.
 > * You can create only one variant option at a time; individual variant options will contain an array of multiple values.
 > * To use a variant array and create variants in the same call as the base product, use the [/catalog/product](/api-reference/store-management/catalog/products/createproduct) endpoint during product creation.
@@ -1021,7 +1021,7 @@ Product sorting methods:
 
 <!-- theme:  -->
 
-### Note
+**Note**
 > Products with the same sort order value either on a category or a product level are sorted by `product id` as a second criterion.
 
 </div>

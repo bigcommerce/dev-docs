@@ -115,7 +115,7 @@ export * from './db';
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > If ngrok stops working or your ngrok session expires, restart the tunnel to get the new `ngrok_id` and update the callback URLs in the Developer Portal and the `AUTH_CALLBACK` in the `.env` file.
 
 </div>
@@ -172,7 +172,7 @@ JWT_KEY={SECRET}
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > The JWT key should be at least 32 random characters (256 bits) for HS256.
 
 </div>
@@ -353,7 +353,7 @@ FIRE_PROJECT_ID={firebaseConfig.projectId}
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > In the development mode, every time you modify your environment variables, make sure to restart the process (`npm run dev`) to capture the changes.
 
 </div>
@@ -478,7 +478,7 @@ MYSQL_PORT={mysql port}
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > In the development mode, every time you modify your environment variables, make sure to restart the process (`npm run dev`) to capture the changes.
 
 </div>

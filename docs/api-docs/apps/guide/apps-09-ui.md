@@ -67,7 +67,7 @@ To load inside the control panel iFrame, your app must do the following:
 
 <!-- theme: info -->
 
-> ### Note
+> **Note**
 > Apps that operate in the iFrame get strong preference during [Apps Marketplace](https://www.bigcommerce.com/apps/) consideration; however, we sometimes make exceptions for apps that need to interact with other services.
 
 

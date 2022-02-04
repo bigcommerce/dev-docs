@@ -205,7 +205,7 @@ Example JSON returned in the response:
 
 Updates an existing product rule. 
 
-### Notes 
+**Note**s 
 
 If you include a conditions object array, its contents will be appended to any existing conditions. This operation does not overwrite existing conditions.
 

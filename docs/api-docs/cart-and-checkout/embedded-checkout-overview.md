@@ -24,7 +24,7 @@ Embedded Checkout requires the BigCommerce Checkout SDK to invoke a method to re
 
 <!-- theme: info -->
 
-### Note 
+**Note** 
 Stencil translation files are not supported by Embedded Checkout. To display translated strings at checkout, we suggest [Installing a Custom Checkout](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/installing-custom-checkouts). 
 
 </div>

@@ -40,7 +40,7 @@ Cornerstone and other themes can also be downloaded from the BigCommerce control
 
 <!-- theme: info -->
 
-### Note  
+**Note**  
 Downloading a theme does not include the current configuration of a theme. Run a [stencil pull](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands#stencil-pull) command to obtain the theme's most recently saved version (appears only for themes customized for this store).
 
 </div>
@@ -111,7 +111,7 @@ The Browsersync preview is launched by executing the `stencil start` command in 
 
 <!-- theme: info -->
 
-### Note  
+**Note**  
 The store's URL should be a vanity URL.
 
 </div>

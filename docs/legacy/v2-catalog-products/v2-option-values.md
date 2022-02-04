@@ -113,7 +113,7 @@ The following properties of the option value are required. The request won’t b
 *   label
 *   value
 
-### Notes 
+**Note**s 
 
 To maximize system performance, BigCommerce caps the total number of values per option at 250. IF the option has 250 values and you try to create another one, BigCommerce will return a 403 error.
 

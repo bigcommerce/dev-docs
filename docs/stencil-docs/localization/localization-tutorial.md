@@ -23,7 +23,7 @@ To complete this tutorial, you should be familiar with the following concepts:
 <div class="HubBlock-content">
 
 <!-- theme:  -->
-### Note
+**Note**
 
 The `/lang` subfolder includes the `en.json` file and example language files. The `en.json` file and your language file must be present for a localized Stencil theme to work. Each language requires its own JSON file. 
 
@@ -108,7 +108,7 @@ Update your language browser to display the translation on the storefront. The f
 <div class="HubBlock-content">
 
 <!-- theme:  -->
-### Note
+**Note**
 
 Other browsers may look and act differently. We suggest previewing your site to ensure the localization is working as expected.
 

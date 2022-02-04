@@ -26,7 +26,7 @@ If you do not have Node.js installed, you can download it from [Node.js Download
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * Make sure that you are using Node.js version 10.13+.
 > * This sample app uses custom dependencies and does not rely on the `create-next-app` CLI tool.
 

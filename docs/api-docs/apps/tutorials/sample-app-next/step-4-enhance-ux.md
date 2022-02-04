@@ -101,7 +101,7 @@ import { useProductList } from '../../lib/hooks';
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > Because BigDesign and Next.js both have a component called `Link`, you need to import BigDesign's `Link` as `StyledLink` to avoid TypeScript errors.
 
 </div>
@@ -647,7 +647,7 @@ The `ProductInfo` functional component uses the `Form` component defined in `/co
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > Because you fetch all of the products data with the initial Catalog API call, you do not need to make additional calls to retrieve individual product data.
 
 </div>

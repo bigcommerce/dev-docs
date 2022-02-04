@@ -24,7 +24,7 @@ In BigCommerce, there are two types of currency that can be set up: a **display 
 
 <!-- theme: info -->
 
-### Note
+**Note**
 > * If the shopper’s card-issuing bank differs from the merchant's bank account country, additional cross-border fees may apply that can change the final settlement amount.
 > * You can choose whether a currency should be display-only or transactional when adding or editing a currency.
 
@@ -49,7 +49,7 @@ Additionally, review the [Currency API reference](https://developer.bigcommerce.
 
 <!-- theme: info -->
 
-### Note 
+**Note** 
 >Make sure to not change the store’s default currency. This could cause the currency to malfunction.
 
 </div>
@@ -75,7 +75,7 @@ For more in-depth instructions and helpful screenshots, see [Adding a Currency](
 
 <!-- theme: error -->
 
-### Note
+**Note**
 > Do not change the default currency -- this may lead to unintended currency conversion issues.
 For instance, changing the default currency will not trigger price recalculation for the catalog.
 Additionally, changing the default currency will enable the newly assigned currency as transactional.

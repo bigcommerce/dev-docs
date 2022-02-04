@@ -10,7 +10,7 @@ The following code examples demonstrate how to update text, add a button, change
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
   
-  ### Note 
+  **Note** 
   It is important to write your emails for [accessibility](https://www.w3.org/WAI/tips/writing/) and preview changes.  
   
 </div>
@@ -48,7 +48,7 @@ Go to **Transactional Emails> Email Templates**. Click **...** next to **Account
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
   
-  ### Note 
+  **Note** 
   You can select a different button background and text color. We suggest adhering to the [minimum color contrast standards](https://webaim.org/articles/contrast/) set by WCAG. 
 </div>
 </div>
@@ -71,7 +71,7 @@ with
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
   
-  ### Note  
+  **Note**  
   You can also add width and height values to images.
 </div>
 </div>

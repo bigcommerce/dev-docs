@@ -115,7 +115,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- theme:  -->
 
-### Note
+**Note**
 > A gift certificate created using the Marketing API will not trigger an email notification to the specified recipient.
 
 </div>

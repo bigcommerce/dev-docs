@@ -14,7 +14,7 @@ This article documents how to use [widget versioning](https://developer.bigcomme
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > This tutorial uses [Cornerstone](https://github.com/bigcommerce/cornerstone) theme.
 
 </div>
@@ -65,7 +65,7 @@ Accept: application/json
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * Make a note of `uuid` and `current_version_uuid`. We will use them in the steps that follow.
 
 </div>
@@ -243,7 +243,7 @@ To upgrade the widget derived from the original widget template, send `"upgrade"
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * If the newer version of your widget template contains different schema settings, you need to provide the necessary configuration values along with the `upgrade` flag to make sure the widget is updated correctly. 
 
 </div>

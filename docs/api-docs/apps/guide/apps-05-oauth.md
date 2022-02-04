@@ -43,7 +43,7 @@ Single click app authorization and authentication occurs via [OAuth2 authorizati
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * API token creation is a permission reserved for the [store owner](https://forum.bigcommerce.com/s/article/Store-API-Accounts#creating) user account.
 > * An app can request authentication *on behalf* of a store owner, allowing your app to make API requests against store data.
 > * All app callbacks must be served over `https` (you should also have access to your app's server logs which will allow you to see the information in the request).
@@ -70,7 +70,7 @@ GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders&context=stores/g5cd38 HTTP
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 >
 > * When your app receives a new token, any previously issued token is invalidated.
 
@@ -150,7 +150,7 @@ Update requests refresh the `access_token` and `scope`:
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * Store the `access_token` securely for future use.
 > * Store `user` and `store_hash` values to identify the user and store at `load` and `uninstall`.
 

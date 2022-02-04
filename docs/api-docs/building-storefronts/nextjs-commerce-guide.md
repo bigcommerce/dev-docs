@@ -117,7 +117,7 @@ BIGCOMMERCE_STORE_API_STORE_HASH=${STORE_HASH}
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 >
 > Any saved changes you push to your Git repository will trigger a redeployment at Vercel. You can also trigger a redeployment manually through the Vercel dashboard.
 

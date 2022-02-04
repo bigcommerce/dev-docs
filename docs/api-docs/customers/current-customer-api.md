@@ -14,7 +14,7 @@ To address this need, BigCommerce provides a Current Customer endpoint that your
 
 <!-- theme: info  -->
 
-### Note
+**Note**
 
 > - An app client ID is required in requests to `/customer/current.jwt`.
 > - To generate an app client ID, create an app in the [BigCommerce Developer Portal](https://devtools.bigcommerce.com/).

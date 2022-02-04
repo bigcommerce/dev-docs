@@ -181,7 +181,7 @@ ngrok http 3000
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > Although you can use the `ngrok` npm package without creating an account, any unauthenticated tunnels you create will expire after two hours. For the best development experience, [create a free ngrok account](https://dashboard.ngrok.com/signup), [find your ngrok authtoken](https://dashboard.ngrok.com/get-started/your-authtoken), and [add the authtoken](https://ngrok.com/docs#getting-started-authtoken) to your global `ngrok` configuration.
 
 </div>
@@ -210,7 +210,7 @@ To register an app, you need a BigCommerce store. If you do not have a BigCommer
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
 
-> ### Warning
+> **Warning**
 > Avoid using the HTTP URL to prevent security policy errors.
 
 </div>
@@ -227,7 +227,7 @@ To register an app, you need a BigCommerce store. If you do not have a BigCommer
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > Next.js maps all APIs that are part of the Next.js application to the `/api/*` route. To learn more about Next.js API routes, see [API Routes](https://nextjs.org/docs/api-routes/introduction).
 
 </div>
@@ -265,7 +265,7 @@ AUTH_CALLBACK=https://{ngrok_id}.ngrok.io/api/auth
 <div class="CalloutBlock--warning">
 <div class="HubBlock-content">
 
-> ### Warning
+> **Warning**
 > Never share sensitive data such as API keys and passwords publicly.
 
 </div>
@@ -285,7 +285,7 @@ npm run dev
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > If ngrok stops working or your ngrok session expires, restart the tunnel to get the new `ngrok_id` and update the callback URLs in the Developer Portal and the `AUTH_CALLBACK` in the `.env` file.
 
 </div>

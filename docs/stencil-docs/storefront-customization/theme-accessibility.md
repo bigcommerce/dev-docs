@@ -20,7 +20,7 @@ In Cornerstone, go to `templates/components/common/store-logo.html`. In the `<im
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
  
-### Note 
+**Note** 
 
 You can update the `title` attribute with the same text as the `alt` attribute to create a tooltip, or remove it if you do not need it.
 </div>
@@ -83,7 +83,7 @@ Color contrast is an essential factor in visual accessibility.
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > According to [WCAG 2.1](https://www.w3.org/TR/WCAG21/), your ecommerce website must have minimum color contrast ratios of 4.5.1 for standard text and 3:1 for large text. To ensure you meet WCAG 2.1 guidelines, we recommend presetting these guidelines, using [Lighthouse](https://developers.google.com/web/tools/lighthouse) or Chrome's [Accessibility Developer Tools](https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb/reviews?hl=en).
 
 </div>

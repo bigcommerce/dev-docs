@@ -48,7 +48,7 @@ Gets the collection of SKUs associated with a product.
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/skus`
 
-### Notes 
+**Note**s 
 
 BigCommerce has updated the SKU schema to include additional price, weight, image, and purchasable properties. We will eventually remove the ability to manage these properties via SKU rules. (Merchants are already constrained from creating SKU-only rules in the BigCommerce control panel.)
 
@@ -220,7 +220,7 @@ The following properties of the sku are required. The request won’t be fulfill
 *   sku
 *   options
 
-### Notes 
+**Note**s 
 
 To maximize system performance, BigCommerce caps the number of SKUs associated with a product at 500. If you attempt to add a SKU to a product that has 500 SKUs, BigCommerce will return a 403 error.
 

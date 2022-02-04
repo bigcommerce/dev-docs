@@ -68,7 +68,7 @@ To install a custom order confirmation page on a store, follow these steps:
 <div class="HubBlock-content">
   
  <!-- theme: info -->
-### Note
+**Note**
   
 `webdav:checkout/auto-loader-<version>.js` 
   

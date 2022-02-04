@@ -12,7 +12,7 @@ In this section, we will look at using V2 and V3 Catalog APIs to work with simpl
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * **Simple products** are products that do not have variants, options, or modifiers.
 > * **Complex products** are products that have variants, options, or modifiers.
 
@@ -670,7 +670,7 @@ In the following V2 example, we will add a complex rule to increase the product'
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > In V2, you cannot add a complex rule without an option.
 
 </div>
@@ -880,7 +880,7 @@ The product used in this example is a t-shirt with a global option set of **Size
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * `option_values` IDs for **Color** are 180, 181, and 182.
 > * `option_values` IDs for **Size** are 192, 193, and 194.
 

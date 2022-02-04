@@ -13,7 +13,7 @@ For differences in resources, see the [Difference between V2 and V3 Catalog APIs
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 >
 > * All V2 Catalog REST APIs are deprecated. For information on deprecated endpoints, see [Deprecations and sunsets](https://developer.bigcommerce.com/api-reference#deprecations-and-sunsets).
 > * BigCommerce will not introduce new resources in V2 APIs.
@@ -61,7 +61,7 @@ Modifiers include multiple-choice types such as swatch, rectangle, radio button,
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 >
 > Product [variant options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-options/getoptionbyid) and [modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/getmodifierbyid) created using the V3 Catalog API belong to a single product instance and cannot be attached to other products in the catalog.
 

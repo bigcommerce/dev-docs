@@ -413,7 +413,7 @@ When you uninstall an app with an associated shipping carrier, you also automati
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 >The response payload will display shipping quotes from lowest to highest price.
 </div>
 </div>

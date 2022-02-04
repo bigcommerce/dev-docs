@@ -101,7 +101,7 @@ The following properties of the product video are required. The request won’t 
 
 *   url
 
-### Notes 
+**Note**s 
 
 Only YouTube videos are supported. To create a new video, pass the full `url` in the request body.
 
@@ -132,7 +132,7 @@ The following properties of the product video are read-only. If one or more of t
 
 There are no required properties when updating a product video. 
 
-### Notes 
+**Note**s 
 
 The `name`, `sort_order` and `url` properties of the product video are editable.
 

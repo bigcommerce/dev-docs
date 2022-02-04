@@ -179,7 +179,7 @@ Widget templates support both [ISO 639‑1](https://en.wikipedia.org/wiki/ISO_63
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > * Translations must start with the `i18n.` prefix.
 > * Language code must contain a default value.
 > * You can reuse translations within the widget template schema, but translations within the `schema_translations.json` file must be unique.

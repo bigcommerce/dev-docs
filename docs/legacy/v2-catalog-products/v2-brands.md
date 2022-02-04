@@ -141,7 +141,7 @@ The following properties of the brand are required. The request won’t be fulfi
 
 *   name
 
-### Notes 
+**Note**s 
 
 To maximize system performance, BigCommerce caps the number of brands that can be added to a store at 30,000. If your POST causes the store to exceed the maximum of 30,000 brands, BigCommerce will return a 403 error.
 

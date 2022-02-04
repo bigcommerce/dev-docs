@@ -31,7 +31,7 @@ Use [Handlebars expressions](https://developer.bigcommerce.com/api-docs/store-ma
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
-> ### Note
+> **Note**
 > Saving an email template that exceeds 65,536 characters returns an "Email body too large" error message and truncates extra characters.
 </div>
 </div>
@@ -121,7 +121,7 @@ Accept: application/json
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-> ### Note
+> **Note**
 > Omit `?channel_id` to interact with global email templates.
 
 </div>
