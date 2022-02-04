@@ -4,6 +4,8 @@ rules:
   oas3-unused-component: off
   oas2-unused-definition: off
 except:
+  'reference/tax_provider.yml':
+    - oas3-schema
   'reference/carts.v3.yml':
     - oas2-oneOf
     - oas2-valid-schema-example
