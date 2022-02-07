@@ -11538,7 +11538,7 @@ paths:
         **Usage Notes**
 
         - Sending a `DELETE`request without specifying a filter parameter will result in a `422` error. 
-        - Sending a `DELETE` request for a category that contains products will result in a `422` error. Move products to a new category by sending a `PUT` requst to the `/catalog/products/{product_id}` endpoint before deleting a category.
+        - Sending a `DELETE` request for a category that contains products will result in a `422` error. Move products to a new category by sending a `PUT` request to the `/catalog/products/{product_id}` endpoint before deleting a category.
       operationId: deleteCategories
       parameters:
         - type: integer
