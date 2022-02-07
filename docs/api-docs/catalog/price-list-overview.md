@@ -106,7 +106,7 @@ lineNumbers: true
 
 ## Price list assignments
 
-The price list assignment assigns a price list to a specific sales channel. This association lets you define custom pricing for shoppers only on a specific external site or platform. 
+The price list assignment assigns a price list to a specific sales channel. This association lets you define custom pricing for shoppers on storefront channels, but doesn't affect pricing in different omnichannel environments (Facebook, Amazon, Instagram, eBay, etc). 
 
 See [Channels, Sites, and Routes](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) for further documentation.
 
