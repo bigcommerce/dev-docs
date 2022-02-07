@@ -114,16 +114,9 @@ Response:
 ```
 
 <!-- theme: info -->
-
-<!-- theme:  -->
-
-## Validation credentials
-
+> #### Credential validation
 > The step of validating the credentials is optional. It does not change how the app operates. It is best practice to authenticate the user against your database or the downstream provider service.
 
-</div>
-</div>
-</div>
 
 Once you install the app, it will be made available for configuration by merchants and API users. A merchant can navigate to the Shipping Manager and enable, configure, and disable the carrier for any defined zone.
 
@@ -409,11 +402,9 @@ When you uninstall an app with an associated shipping carrier, you also automati
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 >The response payload will display shipping quotes from lowest to highest price.
-</div>
-</div>
-</div>
+
 
 ## Including product metatadata in rate requests
 

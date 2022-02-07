@@ -22,9 +22,7 @@ Stored Credit Card management gives customer’s the ability to manage their sto
 #### Theme Versions
 > 1. Cornerstone versions 2.6.0+ include the ability to manage [Stored Credit Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards) (BigCommerce Support).
 
-</div>
-</div>
-</div>
+
 
 <a id="stored-cc-mgmt_prerequisites"></a>
 
@@ -163,15 +161,11 @@ First, the click will trigger window confirm. The confirmation modal has been ad
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-### Utilizing Github Automation to Merge the Changes
+> #### Utilizing Github Automation to Merge the Changes
 
 > Since this feature involves heavy code changes, it may be easier to merge the necessary code into your theme by utilizing Github's automated process for syncing a fork. See Github's documentation on [Syncing a Fork](https://help.github.com/articles/syncing-a-fork/) for more details on this method.
 
-</div>
-</div>
-</div>
+
 
 ## FAQ
 **Where is the card data stored?**

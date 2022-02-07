@@ -7,13 +7,10 @@ This article provides examples of how to customize email templates. The examples
 The following code examples demonstrate how to update text, add a button, change logo size, and change the font size.
 
 <!-- theme: info -->
+> #### Note
+> It is important to write your emails for [accessibility](https://www.w3.org/WAI/tips/writing/) and preview changes.  
   
-  **Note** 
-  It is important to write your emails for [accessibility](https://www.w3.org/WAI/tips/writing/) and preview changes.  
-  
-</div>
-</div>
-</div> 
+ 
 
 ## Updating text
 To change existing text in an email template, update information in the **Phrases** and **Code** tabs. For detailed instructions, see [Editing Template Phrases](https://support.bigcommerce.com/s/article/Customizing-Emails?language=en_US#phrases). 
@@ -44,11 +41,9 @@ Go to **Transactional Emails> Email Templates**. Click **...** next to **Account
 
 <!-- theme: info -->
   
-  **Note** 
-  You can select a different button background and text color. We suggest adhering to the [minimum color contrast standards](https://webaim.org/articles/contrast/) set by WCAG. 
-</div>
-</div>
-</div> 
+> #### Note
+> You can select a different button background and text color. We suggest adhering to the [minimum color contrast standards](https://webaim.org/articles/contrast/) set by WCAG. 
+ 
 
 ![Add button](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/email-templates-add-button.png "Button with white text on a blue background")
 
@@ -64,12 +59,9 @@ with
 <img src="{{store.logo.url}}" alt="{{store.logo.title}}" width="200" height="200">
 ```
 <!-- theme: info -->
-  
-  **Note**  
-  You can also add width and height values to images.
-</div>
-</div>
-</div> 
+> #### Note
+>You can also add width and height values to images.
+ 
   
 ![Change logo size](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/email-templates-change-logo-size.png "Change logo size")
 

@@ -29,11 +29,9 @@ Use [Handlebars expressions](https://developer.bigcommerce.com/api-docs/store-ma
 [Learn how to edit, test, and preview transactional email templates in the control panel](https://support.bigcommerce.com/s/article/Customizing-Emails).
 
 <!-- theme: info -->
-> **Note**
+> #### Note
 > Saving an email template that exceeds 65,536 characters returns an "Email body too large" error message and truncates extra characters.
-</div>
-</div>
-</div>
+
 
 ## API
 
@@ -117,12 +115,10 @@ Accept: application/json
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > Omit `?channel_id` to interact with global email templates.
 
-</div>
-</div>
-</div>
+
 
 ## Resources
 

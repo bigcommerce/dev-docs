@@ -64,12 +64,10 @@ To modify the styling of a B3 module, follow these steps:
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > Since the CSS is written in a JavaScript object, properties with two names, like `background-color`, must be written with camel case syntax: `backgroundColor: "lightblue"`
 
-</div>
-</div>
-</div>
+
 
 When done, the object will resemble the following:
 

@@ -23,14 +23,12 @@ This article demonstrates how to use [Contextual Filters](https://developer.bigc
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > * Your store plan must support Product Filtering to use contextual filters. 
 > * Product Filtering is available for Pro and Enterprise plans. To upgrade, see [Changing Your Store's Plan](https://support.bigcommerce.com/s/article/How-do-I-upgrade-my-stores-plan).
 > * Enterprise accounts have the ability to use [custom fields](https://support.bigcommerce.com/s/article/Custom-Fields) as product filters to provide shoppers with additional ways to customize their search. 
 
-</div>
-</div>
-</div>
+
 
 ## View active storefront filters
 
@@ -197,12 +195,10 @@ The filters returned from completing this `GET` request are the filters availabl
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > To get a list of your store's categories, send a `GET` request to [`/v3/catalog/categories`](https://developer.bigcommerce.com/api-reference/store-management/catalog/category/getcategories).
 
-</div>
-</div>
-</div>
+
 
 ## View contextual filters
 
@@ -270,12 +266,10 @@ The order and names of returned filters should match the filters listed under **
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > The order of the data you send implicitly determines the sort order of the filters on the storefront. You can change the order of the filters on the live site by changing the order of the array's data.
 
-</div>
-</div>
-</div>
+
 
 ## Configure contextual filters
 
@@ -367,14 +361,12 @@ You can also view the changes on the storefront.
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > * You can add new filters using [custom fields](https://support.bigcommerce.com/s/article/Custom-Fields).
 > * For information on how to manage filters using the control panel, see [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings). 
 > * A storefront can display up to 12 filters per page.
 
-</div>
-</div>
-</div> 
+ 
 
 ## Related resources
 

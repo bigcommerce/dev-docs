@@ -1400,12 +1400,10 @@ Parse data with JSONparse.
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > The information presented in this section was borrowed from [helpers/handlebars-helpers](https://github.com/helpers/handlebars-helpers).
 
-</div>
-</div>
-</div>
+
 
 The following table contains whitelisted standard Handlebars helpers available to all Stencil themes. Each helper is linked to its GitHub documentation including parameters and examples.
 

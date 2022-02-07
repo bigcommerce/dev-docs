@@ -17,9 +17,7 @@ This article is a guide to help you learn how to use Widget Builder.
 
 > Because the OAuth scope of these API credentials permits you to modify store content, we strongly recommend that you develop widgets using a [sandbox store](https://developer.bigcommerce.com/api-docs/partner/getting-started/create-a-sandbox-store).
 
-</div>
-</div>
-</div>
+
 
 For more information on OAuth Scopes and authentication, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
 
@@ -31,13 +29,9 @@ To install Widget Builder and its dependencies, follow these instructions:
 
 <!-- theme: info -->
 
-<!-- theme: info -->
-
 > Refer to the [Widget Builder README.md](https://github.com/bigcommerce/widget-builder) for the latest supported Node.js and `npm` versions.
 
-</div>
-</div>
-</div>
+
 
 2. Clone the [widget-builder](https://github.com/bigcommerce/widget-builder) GitHub repository.
 
@@ -122,13 +116,9 @@ Initializing Widget Builder at multiple levels of a single file hierarchy can ha
  
 <!-- theme: info -->
 
-<!-- theme: info -->
-
 > To use Widget Builder as a development tool, you must run `widget-builder` commands from the same directory where you ran `widget-builder init`.
 
-</div>
-</div>
-</div>
+
   
 ## Generate a scaffold with `create`
 

@@ -87,12 +87,10 @@ export default class Blog extends PageManager {
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > * Page types correspond to the HTML pages in [templates/pages/](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages).
 
-</div>
-</div>
-</div>
+
 
 ## JavaScript template context injection
 

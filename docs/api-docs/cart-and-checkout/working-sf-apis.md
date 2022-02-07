@@ -134,12 +134,10 @@ Response:
 }
 ```
 <!-- theme: info -->
+> #### Note
+> Please take note of the value of the `cartId` as it will be used later in the tutorial.
 
->Note: Please take note of the value of the `cartId` as it will be used later in the tutorial.
 
-</div>
-</div>
-</div>
 
 ### Get a cart
 
@@ -428,13 +426,8 @@ In this section, we will add a billing address to a checkout, create a consignme
 Before proceeding, make sure you have added two different line items to your cart.
 
 <!-- theme: info -->
-
-<!-- theme:  -->
->Note: `checkoutId` is the `cartId`.
-
-</div>
-</div>
-</div>
+> #### Note
+> The `checkoutId` is the same as the `cartId`.
 
 ### Add a billing address
 

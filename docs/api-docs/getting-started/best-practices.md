@@ -66,12 +66,10 @@ Apps that authenticate with OAuth are rate-limited based on a quota that is refr
 
 <!-- theme: info -->
 
-**Note**
+> #### Note
 The **Unlimited** rate limit on BigCommerce Enterprise plans means that stores on this plan will not be artificially rate-limited on the basis of API-requests-per-unit-of-time. However, there are physical limits to the infrastructure which may limit the maximum throughput of requests on any given API endpoint. BigCommerce also reserves the right to limit unreasonable or abusive API activity in the interest of platform stability, per our [Terms of Service](https://www.bigcommerce.com/terms/api-terms/).
 
-</div>
-</div>
-</div>
+
 
 
 Each request to the API consumes one available request from the quota. When an app hits the quota limit, subsequent requests are rejected until the quota is refreshed.
@@ -140,14 +138,10 @@ You might wish to increase the amount of work your application can do in a given
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
-**Note**
+> #### Note
 > Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to [`/pricelists/{price_list_id}/records`](/api-reference/store-management/price-lists/price-lists-records/setpricelistrecordcollection) will result in a `429` error response -- these limitations are documented at the operation level in the API reference.
 
-</div>
-</div>
-</div>
+
 
 ### Making requests with the Storefront Cart API 
 Client-side applications should avoid polling the [Storefront Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api) on interval. Hundreds of thousands of browsers could potentially poll the Storefront Cart API at any given time, causing a significant load increase to BigCommerce's servers. We may take action against a store using this practice to prevent interruptions in service to other stores.

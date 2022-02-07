@@ -255,16 +255,12 @@ Deletes a category.
 
 >`DELETE /stores/{store_hash}/v2/categories/{id}`
 
-<!-- theme: danger  -->
-    
-<!-- theme: error -->
+<!-- theme: danger -->
 
-### Delete Products before Categories
+> #### Delete Products before Categories
 > The Delete All Categories operation will not succeed unless the store has zero products. If any products in the store belong to any categories, the entire operation will fail. Therefore, if you really want to delete all the categories of the store, you must first delete all of the products in the store.
 
-</div>
-</div>
-</div>
+
 
 ## Delete All Categories 
 

@@ -27,12 +27,8 @@ Apart from the aforementioned size constraints, there is no limit on the number 
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
 > Carefully check your theme against all the listed requirements – including the required keys within the `meta` object and `variations` array. While some requirements are not enforced in local development, they will be validated when you upload your theme to BigCommerce.
-</div>
-</div>
-</div>
+
 
 ### Required config.json keys
 

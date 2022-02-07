@@ -54,14 +54,10 @@ lineNumbers: true
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
-### Page Builder Customization
+> #### Page Builder Customization
 > Adding the above keys to the <span class="fn">config.json</span> file will enable Smart Buttons on a Stencil theme, however, the merchant will **not** be able to customize button styles with Page Builder unless setting configurations are added to the <span class="fn">schema.json</span> file.
 
-</div>
-</div>
-</div>
+
 
 <a id="page-builder"></a>
 

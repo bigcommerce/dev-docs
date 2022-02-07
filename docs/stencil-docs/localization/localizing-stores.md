@@ -13,14 +13,10 @@ A BigCommerce storefront can be customized to display in any one language of you
 
 <!-- theme: info -->
 
-<!-- theme: info -->
-
-### Storefront language support
+> #### Storefront language support
 > Each storefront can only support a single language. To display multiple languages, we recommend setting up a separate store for each language.
 
-</div>
-</div>
-</div>
+
 
 ## Localizing theme files
 
@@ -54,14 +50,10 @@ Localizing your theme's checkout and order confirmation pages requires customiza
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
-### Checkout localization
+> #### Checkout localization
 > Checkout localization is only available for [Optimized One-Page Checkout](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/optimized-one-page-checkout).
 
-</div>
-</div>
-</div>
+
 
 ## Localizing your storefront content
 

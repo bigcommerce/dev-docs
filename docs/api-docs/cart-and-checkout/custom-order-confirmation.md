@@ -66,13 +66,12 @@ To install a custom order confirmation page on a store, follow these steps:
 <!-- theme: info -->
   
  <!-- theme: info -->
-**Note**
+
+> #### Note
   
 `webdav:checkout/auto-loader-<version>.js` 
   
-</div>
-</div>
-</div>
+
 
 ![order-confirmation-page](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/order-confirmation-page.png "Custom Order Confirmation Page")
 

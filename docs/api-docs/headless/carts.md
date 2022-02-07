@@ -52,12 +52,10 @@ To create a cart for an existing customer, include the `customer_id` in your `PO
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > The `id` returned in the response will correspond to the `cart_id` required to generate a cart redirect URL.
 
-</div>
-</div>
-</div>
+
 
 ### Guest cart
 

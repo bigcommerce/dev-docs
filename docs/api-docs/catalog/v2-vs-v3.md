@@ -11,16 +11,14 @@ For differences in resources, see the [Difference between V2 and V3 Catalog APIs
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 >
 > * All V2 Catalog REST APIs are deprecated. For information on deprecated endpoints, see [Deprecations and sunsets](https://developer.bigcommerce.com/api-reference#deprecations-and-sunsets).
 > * BigCommerce will not introduce new resources in V2 APIs.
 > * BigCommerce will eventually migrate all existing V2 resources to V3.
 > * Not all V2 resources have V3 counterparts. 
 
-</div>
-</div>
-</div>
+
 
 ## V3 improvements
 
@@ -57,13 +55,11 @@ Modifiers include multiple-choice types such as swatch, rectangle, radio button,
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 >
 > Product [variant options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-options/getoptionbyid) and [modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/getmodifierbyid) created using the V3 Catalog API belong to a single product instance and cannot be attached to other products in the catalog.
 
-</div>
-</div>
-</div>
+
 
 The following workflows demonstrate the difference between creating a product with variants using V2 and V3 Catalog APIs.
 
@@ -87,15 +83,11 @@ To reduce the number of API calls made, you can include variants with a `GET` re
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
-### V2 SKU rules will override variant pricing
+> #### V2 SKU rules will override variant pricing
 >
 > Creating SKU rules via the V2 API or CSV import will alter or override any variant price or sale price added to a product using the control panel, the V3 API, or [Price Lists UI](https://support.bigcommerce.com/s/article/Price-Lists).
 
-</div>
-</div>
-</div>
+
 
 ### Product option sets
 

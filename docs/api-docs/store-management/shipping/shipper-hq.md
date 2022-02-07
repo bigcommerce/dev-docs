@@ -28,15 +28,11 @@ These field values can be set in the control panel by the merchant as well as us
 
 
 <!-- theme: warning -->
-    
-<!-- theme: warning -->
-### Entering metafield data
+> #### Entering metafield data
 > You must enter the metafields exactly, otherwise, they will not work. Since metafields can store information against a product, if the `namespace` for example is set to shipping and not `shipping.shipperhq`, it will not update the shipping information.
 
 
-</div>
-</div>
-</div>
+
 
 ## Control panel behavior
 

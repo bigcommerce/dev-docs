@@ -8,14 +8,10 @@ A reusable set of option facets that can be applied to products.
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
 
-</div>
-</div>
-</div>
+
 
 ### Option Set Object – Properties 
 

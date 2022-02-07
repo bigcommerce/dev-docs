@@ -10,12 +10,10 @@ At the end of this tutorial, you will have a functional single-click app that ca
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > To get the app up and running quickly, follow the steps described in [Quick Start: Deploy to Heroku Install Flow](https://developer.bigcommerce.com/api-docs/apps/tutorials/sample-app-nextjs/deploy-to-heroku). 
 
-</div>
-</div>
-</div>
+
 
 ## Prerequisites
 

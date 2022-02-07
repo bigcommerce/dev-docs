@@ -1,7 +1,5 @@
 # Partner Program
 
- 
-
 ## Program overview
 Join the BigCommerce Partner Program to become an official BigCommerce partner. As an official partner, you will have access to training, sales enablement, and a referral network to get more clients and build better ecommerce experiences.
 
@@ -48,20 +46,14 @@ A sandbox store cannot process transactions and is for developing and testing ap
 
 We encourage you to create your sandbox store and your Developer Portal account using the same login credentials.
 
-> **Note**
+<!-- theme: info -->
+> #### Note
 > Your Developer Portal account is an entirely separate account outside of the Partner Portal.
 
-<!-- theme: warning -->
-    
-<!-- theme: warning -->
 
-### Trials erased after 15 days
+<!-- theme: warning -->
+> #### Trials erased after 15 days
 > Although you do not need a sandbox store for app development, it is best practice. If you opt to develop on a trial store, keep in mind the store and data will be erased after 15 days, and you will have to create a new trial store to proceed.
-
-
-</div>
-</div>
-</div>
 
 ## Resources
 

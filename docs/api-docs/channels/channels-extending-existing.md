@@ -109,17 +109,13 @@ Accept: application/json
 
 <!-- theme: info -->
 
-<!-- theme: info -->
-
-> **Note**
+> #### Note
 >
 > - You can find the app ID in the URL when editing the app in the [Developer Portal](https://devtools.bigcommerce.com/). For more information, see [Finding an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
 > - `config_meta.app.id` is optional; however, if you're building an app that creates or manages a channel, we recommend including the app ID to ensure the user interface in the BigCommerce control panel works properly.
 > - Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request.
 
-</div>
-</div>
-</div>
+
 
 **Properties**
 |  Property | Type | Description |
@@ -156,13 +152,11 @@ Accept: application/json
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 >
 > \* We discourage using `google_shopping` as BigCommerce has deprecated this platform. Instead, we have added support for `marketing` and `marketplace` types on the `google` platform.
 
-</div>
-</div>
-</div>
+
 
 For a complete Channel API reference (including request schemas and property descriptions), see: [API Reference > Channels and Listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api).
 
@@ -175,13 +169,11 @@ For a complete Channel API reference (including request schemas and property des
 <!-- theme: info -->
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 >
 > - Select partners have slightly more stringent requirements for their sales channel apps due to the high visibility and marketability of their apps directly within the BigCommerce control panel.
 
-</div>
-</div>
-</div>
+
 
 For a high-level overview and more information on Channels Toolkit, see [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/overview).
 

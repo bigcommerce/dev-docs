@@ -109,15 +109,11 @@ In the following example, we define the `list_items` array and supply values for
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-### Reusing widget configuration
+> #### Reusing widget configuration
 > You set the widget configuration name when creating the widget template.
 > When reusing the widget configuration, the objects array must use the name established during the initial configuration. Otherwise, you will create the widget on the frontend, but there will be no data, and nothing displayed.
 
-</div>
-</div>
-</div>
+
 
 When reusing the widget configuration from our list example, you must call the items array `list_items`, because you defined the `list_items` array when creating the widget template.
 
@@ -183,14 +179,10 @@ Widget versioning introduced `current_version_uuid` and `version_uuid` propertie
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-**Note**
+> #### Note
 >  Although a widget template can have multiple versions; there can only be one active version at a time. This setup means that a template can have multiple `version_uuid`’s associated with it, but it cannot have more than one `current_version_uuid`.
 
-</div>
-</div>
-</div>
+
 
 **Widget template definitions**
 
@@ -215,14 +207,10 @@ Updating the widget template with `create_new_version` set to `true` will change
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-**Note**
+> #### Note
 >  It is possible to update your widget template without creating a new version. To do so, exclude the `create_new_version` field or set it to `false` when making a `PUT` request to [update the widget template](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/updatewidgettemplate). 
 
-</div>
-</div>
-</div>
+
 
 ## Placements
 
@@ -285,15 +273,11 @@ It is also possible to place widgets on the following custom templates, where `<
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-**Note**
+> #### Note
 > - To display a widget on the storefront, you must create a placement.
 > - A region can contain multiple placements with widgets.
 
-</div>
-</div>
-</div>
+
 
 ### Placements sort_order
 
@@ -301,14 +285,10 @@ When creating a placement with a widget, the widget content takes the full regio
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-**Note**
+> #### Note
 > If you are creating marketplace applications that create placements directly, you do not need to use the `sort_order` property.
 
-</div>
-</div>
-</div>
+
 
 ### Placements entity_id
 

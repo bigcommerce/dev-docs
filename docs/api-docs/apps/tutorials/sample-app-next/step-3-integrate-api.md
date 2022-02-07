@@ -23,13 +23,9 @@ npm install --save mysql jsonwebtoken swr
 ```
 <!-- theme: info -->
 
-<!-- theme: info -->
-
 > These instructions have been tested using the **firebase v8** package.  You can view a list of all the tested package versions in the [package.json file on the Step 3 branch](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/package.json) of this sample app's repo.
 
-</div>
-</div>
-</div>
+
 ## Add TypeScript definitions
 
 1. In the root directory of your project, add a `types` folder.
@@ -111,12 +107,10 @@ export * from './db';
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > If ngrok stops working or your ngrok session expires, restart the tunnel to get the new `ngrok_id` and update the callback URLs in the Developer Portal and the `AUTH_CALLBACK` in the `.env` file.
 
-</div>
-</div>
-</div>
+
 
 ## Initialize React Context
 
@@ -166,12 +160,10 @@ JWT_KEY={SECRET}
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > The JWT key should be at least 32 random characters (256 bits) for HS256.
 
-</div>
-</div>
-</div>
+
 
 ## Update the auth lib page
 
@@ -345,12 +337,10 @@ FIRE_PROJECT_ID={firebaseConfig.projectId}
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > In the development mode, every time you modify your environment variables, make sure to restart the process (`npm run dev`) to capture the changes.
 
-</div>
-</div>
-</div>
+
 
 ### Configure the Firebase database
 
@@ -468,12 +458,10 @@ MYSQL_PORT={mysql port}
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > In the development mode, every time you modify your environment variables, make sure to restart the process (`npm run dev`) to capture the changes.
 
-</div>
-</div>
-</div>
+
 
 ### Configure MySQL
 

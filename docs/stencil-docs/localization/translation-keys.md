@@ -16,14 +16,10 @@ Stencil's multi-language capabilities are limited to the particular key-value pa
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-### Full support for multiple languages
+> #### Full support for multiple languages
 > If you want to fully support multiple languages, we recommend you set up a separate storefront for each language. This will enable you to completely customize your content, including your product catalog, for each target audience.
 
-</div>
-</div>
-</div>
+
 
 ## Required subdirectory
 
@@ -171,9 +167,7 @@ lineNumbers: true
 
 > Be sure to give any new translation files default access permissions of `644 (rw-r--r--)`. Without these permissions, running your theme locally will fail with multiple error messages. Bundling your theme will also fail, blocking its upload to a store.
 
-</div>
-</div>
-</div>
+
 
 <a id="basis_localization-example"></a>
 

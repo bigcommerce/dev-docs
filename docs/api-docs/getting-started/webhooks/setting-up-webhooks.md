@@ -63,14 +63,12 @@ This app listens to requests on port `3000`, then responds with a `200` status o
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > * Ngrok is a helpful tool for viewing webhook callbacks BigCommerce sends to your app. Ngrok creates a publicly accessible tunnel URL to an application running on your machine. When using ngrok you can view HTTP request details in its web interface.
 > * For simplicity, this tutorial uses an [npm package](https://www.npmjs.com/package/ngrok) to install and run ngrok. For official ngrok usage and installation instructions, visit [ngrok.com](https://ngrok.com/).
 
 
-</div>
-</div>
-</div>
+
 
 ## Start the app
 
@@ -107,13 +105,11 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > * Be sure to replace `6a35e97b.ngrok.io` with your ngrok HTTPS tunnel URL.
 > * Currently, BigCommerce does not support desination URLs served over custom HTTPS ports. Use the default HTTPS port 443.
 
-</div>
-</div>
-</div>
+
 
 ## Trigger the webhook event
 
@@ -132,13 +128,11 @@ The summary shows the webhook fired and our Express app returned a `200` respons
 
 <!-- theme: warning -->
 
-> **Note**
+> #### Note
 >
 > * Unless you have a paid ngrok account, the destination URL will only be valid for a few hours. After that, the webhook will stop working. Send a `DELETE` request to the specific webhook ID to disable the hook.
 
-</div>
-</div>
-</div>
+
 
 ## Adding custom headers
 

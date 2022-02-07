@@ -8,16 +8,12 @@ Data attributes provide detailed data on the way shoppers interact with your sto
 
 Cornerstone versions 2.6.0+ will have data attributes already included in the theme.
 
-<!-- theme: danger  -->
+<!-- theme: danger -->
 
-<!-- theme: error -->
-
-### GAEE for Blueprint Themes
+> #### GAEE for Blueprint Themes
 > While you can implement data attributes with Blueprint themes, we do not currently have specific documentation on how to do this. The data attribute HTML structure, however, will be the same as it is in a Stencil theme.
 
-</div>
-</div>
-</div>
+
 
 ### Downloading a theme
 Data attributes will work on any theme. For this tutorial, we will be adding data attributes to the Cornerstone theme. If you do not already have a local copy of Cornerstone on your machine, see [Downloading Cornerstone](/stencil-docs/installing-stencil-cli/installing-stencil#authorizing_download).
@@ -25,7 +21,9 @@ Data attributes will work on any theme. For this tutorial, we will be adding dat
 
 If you would like to implement data attributes on your custom theme and do not already have a copy of your custom theme downloaded, see [Downloading a Marketplace Theme](/stencil-docs/installing-stencil-cli/installing-stencil#authorizing_download).
 
-**Note**: The remainder of this tutorial will be working off the theme’s base folder `cornerstone`.
+<!-- theme: info -->
+> #### Note 
+> The remainder of this tutorial will be working off the theme’s base folder `cornerstone`.
 
 
 ## Adding data attributes
@@ -134,19 +132,13 @@ In the above snippet, the data attribute is embedded in a `<form>` HTML tag in l
 Currently, BigCommerce supports 11 different data attributes. Below is a table with a breakdown of each attribute and its description.
 
 <!-- theme: warning -->
+> #### Mandatory data
+> * If tracking promotions data, either `data-banner-id` or `data-name` are required.
+> * If tracking data for a product, either `data-entity-id` or `data-name` are required.
+> * If tracking data for a product list, `data-product-list` or `data-entity-id` are required.
 
-<!-- theme: warning -->
+The “tracked product” refers to the product on which you are inserting the data attribute.
 
-### Mandatory data
-* If tracking promotions data, either `data-banner-id` or `data-name` are required.
-* If tracking data for a product, either `data-entity-id` or `data-name` are required.
-* If tracking data for a product list, `data-product-list` or `data-entity-id` are required.
-
-The “tracked product” refers to the product on which you are inserting the data attribute on.
-
-</div>
-</div>
-</div>
 
 <table>
   <tr>
@@ -271,16 +263,10 @@ Custom dimensions and metrics are also supported. To add them in the `config.jso
 ```
 
 <!-- theme: info -->
-
-<!-- theme: info -->
-
-#**Note**:
+> #### Notes
 > * Spelling must be exact
 > * Names may not have spaces
 
-</div>
-</div>
-</div>
 
 Next, add the custom metrics/dimensions to the desired theme template:
 
@@ -295,14 +281,10 @@ Next, add the custom metrics/dimensions to the desired theme template:
 ```
 
 <!-- theme: info -->
-
-<!-- theme: info -->
-#### Dimensions and metrics
+> #### Dimensions and metrics
 > Dimensions are typically strings; metrics are usually integers.
 
-</div>
-</div>
-</div>
+
 
 ## Resources
 

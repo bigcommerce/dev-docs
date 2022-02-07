@@ -182,20 +182,16 @@ Merchants can use BigCommerce's [PCI DSS AOC](https://support.mybigcommerce.com/
 <!-- theme: info -->
 
 
-> **Note**
+> #### Note
 > 1. The way your business consumes the SDKs (either BigCommerce as a storefront and backend or BigCommerce as a backend) determines BigCommerce's  responsibilities; It is possible to use one more of BigCommerce's technology stack at the same time. Your PCI DSS compliance responsibilities will be a combination of each stack consumed.
 
-</div>
-</div>
-</div>
+
 
 <!-- theme: warning -->
 
 > If your application handles credit card data, it must be PCI Compliant. self-assessment questionnaires can be submitted to <a href="mailto:compliance@bigcommerce.com">compliance@bigcommerce.com</a>.
 
-</div>
-</div>
-</div>
+
 
 ## Sample API workflows
 

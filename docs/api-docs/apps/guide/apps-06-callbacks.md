@@ -22,14 +22,10 @@ Each event triggers a `GET` request from BigCommerce containing a `signed_payloa
 
 <!-- theme: info -->
 
-<!-- theme: info -->
-
-**Note**
+> #### Note
 > * In a production, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
 
-</div>
-</div>
-</div>
+
 
 ## Load callback
 
@@ -92,12 +88,10 @@ encoded_json_string.encoded_hmac_signature
 
 <!-- theme: warning -->
 
-> **Note**
+> #### Note
 > 1. To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. How to accomplish this varies by programming language. For code samples in Ruby and PHP, see [Code samples](#code-samples) below; search for "constant time string comparison {lang}" using your preferred search engine for more information.
 
-</div>
-</div>
-</div>
+
 
 ## Identifying users
 

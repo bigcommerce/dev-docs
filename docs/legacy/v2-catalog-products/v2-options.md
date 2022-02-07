@@ -8,14 +8,10 @@ Shared attributes that control value facets on a product.
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
 
-</div>
-</div>
-</div>
+
 
 ### Options Object – Properties 
 

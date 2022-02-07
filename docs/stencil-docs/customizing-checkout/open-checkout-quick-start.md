@@ -11,13 +11,11 @@ In this quick start tutorial, we'll configure our development environment and ma
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 >
 > We recommend Windows 10 users to use [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/).
 
-</div>
-</div>
-</div>
+
 
 ## Fork and install checkout-js
 
@@ -42,14 +40,12 @@ npm run dev & npm run dev:server
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 >
 > - Open your browser and navigate to `http://127.0.0.1:8080/` to confirm the dev server is running (you should see content from `build/`).
 > - To serve files over HTTPS, install an SSL on your development machine, or use [ngrok](https://ngrok.com/).
 
-</div>
-</div>
-</div>
+
 
 ## Configure your sandbox
 

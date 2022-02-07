@@ -8,14 +8,10 @@ Options belonging to an option set.
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
 
-</div>
-</div>
-</div>
+
 
 ### Option Set Option: Object – Properties 
 

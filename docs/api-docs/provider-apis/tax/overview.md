@@ -58,12 +58,10 @@ Additionally, when providing the details for a sandbox tax provider configuratio
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > * We recommend tax providers request to create only one sandbox tax provider within their production tax provider configuration, any development procedures related to testing different estimate, commit, adjust and void Tax Provider API endpoints should be performed externally and decoupled from the BigCommerce platform to avoid unnecessary dependencies.
 
-</div>
-</div>
-</div>
+
 
 ## Building the app
 
@@ -75,12 +73,10 @@ Make sure to also review our [app development best practices](https://developer.
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > * If you have registered your app in the Developer Portal but have not submitted it for approval because it's still in development, the app will be in a Draft state. This means your app can only be installed on stores owned by the same email address as the Developer Portal account email.
 
-</div>
-</div>
-</div>
+
 
 ## Installing the app
 
@@ -144,12 +140,10 @@ Estimate calls will also be made in the control panel when using flows like the 
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > * Tax estimate requests sent by BigCommerce may not always contain complete data as these requests will be fired at different stages of the shopper checkout. For example, the **Estimate Shipping & Tax** functionality on the cart page does not provide any billing address data, but the tax provider will still be expected to return a valid tax estimate.
 
-</div>
-</div>
-</div>
+
 
 ### Responding to tax estimate requests
 

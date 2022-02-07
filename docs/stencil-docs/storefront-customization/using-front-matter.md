@@ -72,9 +72,7 @@ products:
 ### Filtering for Faster Page Loads
 > To keep your pages lightweight, specify only the attributes you need per page. Also, use the limit key (with appropriate values) for attributes that accept it.
 
-</div>
-</div>
-</div>
+
 
 ## Combining front matter and Handlebars
 
@@ -99,9 +97,7 @@ products:
 ### Reading the Handlebars
 > In the above HTML, the {{ name }} identifier calls an attribute of Stencil’s common product card model, which consolidates details about a given product. For this and other objects that you can access through HTML, please see our [reference](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#Front-Matter-overview_declaring-objects) section on Handlebars objects.
 
-</div>
-</div>
-</div>
+
 
 ## Default vs custom attributes
 

@@ -16,19 +16,16 @@ To incorporate reCAPTCHA v2, you will need to update script references in these 
 * `page_contact_form.html`
 * `product_comments.html`
 
-<!-- theme: danger  -->
     
-<!-- theme: error -->
+<!-- theme: danger -->
 
-###  Updating Safely 
+> ####  Updating Safely 
 
 > Please back up each file before making any changes. 
 
 The instructions below are based on the default Blueprint theme (Classic Next), as it was last published in BigCommerce’s Theme Marketplace. Therefore, the HTML markup will vary, based on customizations you have already made to this theme, or to other Marketplace themes.
 
-</div>
-</div>
-</div>
+
 
 ### Script Tag to Remove
 Search each of the three template files for a ``<script>`` tag like the following. If you find it, delete the whole tag. (This script invokes a legacy reCAPTCHA v1 challenge:)

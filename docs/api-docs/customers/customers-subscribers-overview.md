@@ -21,14 +21,10 @@ A customer is anyone who makes a purchase on a store and creates an account. Big
 Customer groups allow you to organize your customers, give them discounts, and restrict access to specific products or categories. For more information, see [Customer Groups](https://support.bigcommerce.com/s/article/Customer-Groups).
 
 <!-- theme: info -->
-    
-<!-- theme:  -->
-### Customer groups by plan
+> #### Customer groups by plan
 > Customer groups are only available on specific plans. See [BigCommerce Pricing](https://support.bigcommerce.com/s/article/Pricing) to learn more.
 
-</div>
-</div>
-</div>
+
 
 ## What is a subscriber?
 
@@ -76,16 +72,12 @@ A customer makes a purchase on a store and creates an account. The customers obj
 
 
 <!-- theme: info -->
-    
-<!-- theme:  -->
 
-### Name-value pairs
+> #### Name-value pairs
 
 > Each customer can have up to 50 name-value pairs stored.
 
-</div>
-</div>
-</div>
+
 
 Customer attributes are created separately from the customer. After the name and type are created, then the attributes can be added to the customer using the name-value pair.
 

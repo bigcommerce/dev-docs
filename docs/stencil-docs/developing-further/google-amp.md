@@ -13,14 +13,10 @@ Google AMP (Accelerated Mobile Pages) is an open-source project to improve page 
 The article will walk you through enabling Google AMP pages in your theme. 
 
 <!-- theme: info -->
-    
-<!-- theme:info  -->
-#### Cornerstone
+> #### Cornerstone
 > This example uses Cornerstone.
 
-</div>
-</div>
-</div>
+
 
 ## Implementing AMP
 

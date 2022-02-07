@@ -35,14 +35,10 @@ To get started making requests, see [API Requests](/api-docs/getting-started/bas
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
-### Save your credentials
+> #### Save your credentials
 > There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before exiting this screen.
 
-</div>
-</div>
-</div>
+
 
 ## Revoking store API credentials
 
@@ -53,16 +49,12 @@ To revoke Store API Credentials:
 
 ![#### Revoking API Credentials](//s3.amazonaws.com/user-content.stoplight.io/6012/1537388177603 "#### Revoking API Credentials")
 
-<!-- theme: danger  -->
+<!-- theme: danger -->
 
-<!-- theme: error -->
-
-### Delete carefully
+> #### Delete carefully
 > Deleting an account cannot be undone, so be sure before clicking the trash can icon. You can also use the checkboxes on the left side to delete multiple accounts at once – but be especially careful when using this option.
 
-</div>
-</div>
-</div>
+
 
 ## Obtaining app API credentials
 
@@ -89,29 +81,21 @@ To get app API credentials, create and log into your BigCommerce [Developer Port
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-### Client ID and client secret
+> #### Client ID and client secret
 > The client ID value uniquely identifies your app. However, you no longer need to pass it in the header of all your requests to the API.
 
 The client secret value is a secret that your app and BigCommerce share. You only need to pass the client secret value once, during the app installation sequence. Thereafter, BigCommerce uses it to sign payloads in load, uninstall, and remove user requests, and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.
 
-</div>
-</div>
-</div>
+
 
 ![#### Client Id and Client Secret](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390135692 "#### Client Id and Client Secret")
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
-### Delete apps carefully
+> #### Delete apps carefully
 > If you delete the app, there is no way to recover the client ID and client secret.
 
-</div>
-</div>
-</div>
+
 
 
 ### Next steps
@@ -136,16 +120,12 @@ During the app installation process, your app will use the client ID and client 
 
 ## Migrating from legacy to OAuth
 
-<!-- theme: danger  -->
+<!-- theme: danger -->
 
-<!-- theme: error -->
-
-### Legacy API Accounts
+> #### Legacy API Accounts
 > As of July 31, 2018, new BigCommerce stores are no longer able to create legacy API Accounts (accounts using HTTP basic auth) within their control panels. Existing legacy API Accounts will continue to work until further notice, but we strongly recommend migrating to OAuth as soon as possible.
 
-</div>
-</div>
-</div>
+
 
 ### Benefits of migrating to OAuth:
 
@@ -187,9 +167,7 @@ All OAuth scopes except `default` have `read_only` scopes that allow only `GET` 
 <!-- theme: info -->
 
 > Webhooks are accessible from the default scope that is available when API Credentials are created.
-</div>
-</div>
-</div>
+
 
 | Scope GUI Name | Resources  | Description |
 |-|-|-|

@@ -22,15 +22,11 @@ Merchants or shoppers' personal identifiable information (PII) collected by recu
 
 
 <!-- theme: warning -->
-
-<!-- theme: warning -->
-### PCI compliance
+> #### PCI compliance
 > If your application handles credit card data, you will need to be PCI compliant. SAQs (self-assessment questionnaires) can be submitted to
 <a href="mailto:compliance@bigcommerce.com">compliance@bigcommerce.com</a>.
 
-</div>
-</div>
-</div>
+
 
 ## Processing a payment
 
@@ -39,14 +35,10 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 Attempting to process a payment through the API using the full credit card information may fail if the provider requires 3DS authentication. The card must be saved through a shopper-initiated transaction before it can be charged through the Payments API. For a list of payment gateways that support 3DS, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available).
 
 <!-- theme: info -->
-
-<!-- theme:  -->
-### Hosted providers
+> #### Hosted providers
 > The API flow does not currently support hosted/offsite providers, such as PayPal, and wallet type payments, such as Amazon Pay.
 
-</div>
-</div>
-</div>
+
 
 ## Stored cards
 There are three steps to using a stored card to make a payment.
@@ -191,14 +183,10 @@ The headers to process a payment are different than the headers you normally sen
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
-### PAT
+> #### PAT
 > There is a space between PAT {your-access-token}.
 
-</div>
-</div>
-</div>
+
 
 <!--
 title: "Sample Request"
@@ -316,14 +304,10 @@ If any of these fields are incorrect, you may be unable to process the payment.
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
-### PAT
+> #### PAT
 > There is a space between PAT {your-access-token}.
 
-</div>
-</div>
-</div>
+
 
 <!--
 title: "Sample Request"

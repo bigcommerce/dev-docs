@@ -177,14 +177,12 @@ Widget templates support both [ISO 639‑1](https://en.wikipedia.org/wiki/ISO_63
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > * Translations must start with the `i18n.` prefix.
 > * Language code must contain a default value.
 > * You can reuse translations within the widget template schema, but translations within the `schema_translations.json` file must be unique.
 
-</div>
-</div>
-</div>
+
 
 ## Resources
 

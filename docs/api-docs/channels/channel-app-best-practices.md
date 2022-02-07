@@ -43,7 +43,7 @@ To provide merchants with a positive integration experience, we expect point of 
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 >
 > This volume of requests per second may hit the rate limits of lower tier BigCommerce plans - logic should be implemented around the response headers to ensure your application does not exceed the allowable number of requests for a given storefront.
 

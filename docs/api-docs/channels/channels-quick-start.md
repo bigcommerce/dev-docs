@@ -48,15 +48,13 @@ Accept: application/json
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 
 >
 > - For a list of accepted `type` and `platform` values, see [Channels API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#platform).
 > - For instructions on finding your app's ID, see [Find and App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
 
-</div>
-</div>
-</div>
+
 
 ## Create a channel with navigation
 
@@ -106,7 +104,7 @@ Accept: application/json
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 
 >
 > - For additional information on [channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels) `config_meta` properties, see the [create a channel request body schema](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel#request-body).

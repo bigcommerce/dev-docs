@@ -176,16 +176,12 @@ npm install -g @bigcommerce/stencil-cli
 
 <!-- theme: info -->
 
-<!-- theme: info -->
-
-**Note**
+> #### Note
 > * These instructions have been tested on **Ubuntu 18.04**.
 > * Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
 > * Refer to [nvm](https://github.com/nvm-sh/nvm) for latest `nvm` install instructions.
 
-</div>
-</div>
-</div>
+
 
 ## Live previewing a theme
 

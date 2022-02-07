@@ -15,12 +15,8 @@ The import runs in several stages:
 4. Currency and other store information from the API updates settings in WordPress.
 
 <!-- theme: info -->
-    
-<!-- theme:  -->
 
-### WordPress Currency Processing
+> #### WordPress Currency Processing
 > The WordPress sites you connect to your BigCommerce store will process in the same default currency as the BigCommerce store.
 
-</div>
-</div>
-</div>
+

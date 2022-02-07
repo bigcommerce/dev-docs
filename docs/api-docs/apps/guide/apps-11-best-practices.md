@@ -83,12 +83,10 @@ BigCommerce's REST endpoints accept requests made in parallel. Applications maki
 
 <!-- theme: warning -->
 
-> **Note**
+> #### Note
 > * Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to [`/pricelists/{price_list_id}/records`](https://developer.bigcommerce.com/api-reference/store-management/price-lists/price-lists-records/setpricelistrecordcollection) will result in a `429` error response -- these limitations are documented at the operation level in the API Reference.
 
-</div>
-</div>
-</div>
+
 
 ### Respect platform limits
 

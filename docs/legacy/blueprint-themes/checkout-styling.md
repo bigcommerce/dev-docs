@@ -5,15 +5,11 @@
 To support stores that enable BigCommerce's Optimized One-Page Checkout feature, you can customize the Optimized Checkout page's styling within your theme. You do this by adding custom CSS to the `optimized-checkout-webdav.css` template file that we provide. You can copy the CSS [below](#css-skeleton).
 
 <!-- theme: success -->
-    
-<!-- theme: success -->
 
-### Function Names
+> #### Function Names
 > Although you will see references to "Stencil" functions throughout this template file's CSS, this version of the CSS is designed to be fully compatible with Blueprint themes.
 
-</div>
-</div>
-</div>
+
 
 ## Customization Options/Restrictions 
 

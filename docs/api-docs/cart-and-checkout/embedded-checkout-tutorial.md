@@ -59,13 +59,9 @@ The response will contain an `id` which we will use as the `channel_id` in futur
 }
 ```
 <!-- theme: info -->
-
-<!-- theme:  -->
 > Channels created via API are visible in the BigCommerce store's Control Panel in **Products** > **Listed On**. The Orders section will now also include a filter for your channel.
 
-</div>
-</div>
-</div>
+
 
 
 ## Creating a site
@@ -190,9 +186,7 @@ Next, include the `embedded_checkout_url` as part of the request payload you sen
 
 <!-- theme: info -->
 The `request_ip` field is optional.
-</div>
-</div>
-</div>
+
 
 ## Embedding the checkout
 
@@ -200,11 +194,9 @@ Use the `embedded_checkout_url` that is returned from generating redirect URLs a
 
 <!-- theme: info -->
 	
-When the shopper is logged in, use the https://{{store-url}}/login/token/{{token}} URL as the `url` option for `embedCheckout`. For unauthenticated shoppers, use the `embedded_checkout_url` as the `url` option instead.
+> When the shopper is logged in, use the `https://{{store-url}}/login/token/{{token}}` URL as the `url` option for `embedCheckout`. For unauthenticated shoppers, use the `embedded_checkout_url` as the `url` option instead.
 	
-</div>
-</div>
-</div>
+
 
 **JSON object**
 ```json

@@ -99,12 +99,10 @@ import { useProductList } from '../../lib/hooks';
 ```
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > Because BigDesign and Next.js both have a component called `Link`, you need to import BigDesign's `Link` as `StyledLink` to avoid TypeScript errors.
 
-</div>
-</div>
-</div>
+
 
 4. Add the `Products` functional component. The `Products` component uses the BigDesign's [StatefulTable](https://developer.bigcommerce.com/big-design/statefulTable), a wrapper of the [Table](https://developer.bigcommerce.com/big-design/table) component that supports pagination, row selection, and sorting.
 
@@ -643,12 +641,10 @@ The `ProductInfo` functional component uses the `Form` component defined in `/co
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > Because you fetch all of the products data with the initial Catalog API call, you do not need to make additional calls to retrieve individual product data.
 
-</div>
-</div>
-</div>
+
 
 The following image illustrates the `Form` input types:
 

@@ -60,14 +60,10 @@ For more technical details on how the 3 modes are differentiated, please check o
 ### Classic mode (v0.1+) - Legacy
 
 <!-- theme: warning -->
-    
-<!-- theme: warning -->
 
 > Classic is now considered legacy -- Paired and Native are the recommended AMP Plugin modes.
 
-</div>
-</div>
-</div>
+
 
 This is the original mode for rendering AMP pages and it renders an AMP theme that is separate and different from your WordPress theme. Think of it as a whole new WordPress theme that is only displayed when the site is being viewed as AMP. The AMP theme is customizable and can be branded to align with your brand.
 

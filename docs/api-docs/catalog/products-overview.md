@@ -26,14 +26,10 @@ Products can be physical or digital:
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-**Note**
+> #### Note
 > Only one product can be created at a time.
 
-</div>
-</div>
-</div>
+
 
 ### Creating a product
 
@@ -106,14 +102,10 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-**Note**
+> #### Note
 > When you create options via `/products`, `display_type` defaults to a radio button (displayed as selectable boxes in some themes).
 
-</div>
-</div>
-</div>
+
 
 ## Creating digital products
 
@@ -146,14 +138,10 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-**Note**
+> #### Note
 > Files can only be added to digital products via [control panel or WebDav](https://support.bigcommerce.com/s/article/Creating-Downloadable-Products) -- attaching via the API is not supported. You can also set additional settings such as file description and maximum downloads in the control panel.
 
-</div>
-</div>
-</div>
+
 
 
 ## Adding product images
@@ -178,16 +166,14 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- theme: info -->
 
-**Note**
+> #### Note
 > * If using `image_file`, set `Content-Type` header to `multipart/form-data` -- otherwise, you will be unable to add subsequent requests.
 > * Set `is_thumbmail` to true to set the image as the thumbnail used on product listing pages.
 > * A product can have only one thumbnail image at a time.
 > * If only one image is on the product, it becomes both the thumbnail and the main product image.
 > * You can also add images to [variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid).
 
-</div>
-</div>
-</div>
+
 
 ## Adding product videos
 
@@ -212,14 +198,12 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- theme: info -->
 
-**Note**
+> #### Note
 > * A product can have more than one video.
 > * You must host product videos on YouTube.
 > * `video_id` corresponds to the `v` parameter in the URL (Ex: `https://www.youtube.com/watch?v=R12345677`).
 
-</div>
-</div>
-</div>
+
 
 ## Adding custom fields
 
@@ -241,15 +225,11 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-**Note**
+> #### Note
 > Custom field values are limited to **250** characters. For additional information on custom fields and their use cases, see [Custom Fields](https://support.bigcommerce.com/s/article/Custom-Fields).
 
 
-</div>
-</div>
-</div>
+
 
 ## Adding bulk pricing rules
 
@@ -320,12 +300,10 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- theme: info -->
 
-**Note**
+> #### Note
 > You can add metafields to variants, products, categories, and brands.
 
-</div>
-</div>
-</div>
+
 
 ## Adding product reviews
 
@@ -352,12 +330,10 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- theme: info -->
 
-**Note**
+> #### Note
 > You cannot create reviews in the control panel.
 
-</div>
-</div>
-</div>
+
 
 ## Variant options
 
@@ -397,14 +373,10 @@ This example results in selecting a combination of small and red on the storefro
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-### Create a variant option
+> #### Create a variant option
 > Creating a variant option does not automatically create SKUs or build out variants. You can build out SKUs later using the [Variants](/api-reference/store-management/catalog/product-variants/createvariant) endpoint.
 
-</div>
-</div>
-</div>
+
 
 ### Create variant options
 
@@ -463,15 +435,11 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
-### V2 SKU rules will override variant pricing
+> #### V2 SKU rules will override variant pricing
 > Creating SKU rules via the V2 API or via CSV import will alter or override any variant price or sale price added to a product via the control panel, V3 API, or Price Lists UI.
 
 
-</div>
-</div>
-</div>
+
 
 ### Variant examples:
 
@@ -550,16 +518,12 @@ To combine the variant option values into variants and build out SKUs use the fo
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-**Note**
+> #### Note
 > * Variants need to be created one at a time using this endpoint.
 > * You can create only one variant option at a time; individual variant options will contain an array of multiple values.
 > * To use a variant array and create variants in the same call as the base product, use the [/catalog/product](/api-reference/store-management/catalog/products/createproduct) endpoint during product creation.
 
-</div>
-</div>
-</div>
+
 
 The `option_values` array combines the options small and blue to create the SKU SMALL-BLUE. The ID in the `option_values` array is the ID from the variant option response `option_values > id`. The `option_id` is the ID of the option.
 
@@ -633,15 +597,11 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-### Supported types
+> #### Supported types
 > Swatch, radio button, rectangle, dropdown, product list, and product list with images.
 
 
-</div>
-</div>
-</div>
+
 
 ## Modifier options
 
@@ -669,15 +629,11 @@ You can add an adjuster to a modifier option to change things, such as increasin
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-### Modifiers that support adjusters
+> #### Modifiers that support adjusters
 > Swatch, radio button, rectangle list, drop-down, product list, and product list with images.
 
 
-</div>
-</div>
-</div>
+
 
 ### Add a modifier with price adjuster to an existing product
 
@@ -687,15 +643,11 @@ Creating a checkbox with an adjuster requires two separate calls: one to create 
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-### Modifiers that require a second step to add an adjuster
+> #### Modifiers that require a second step to add an adjuster
 > Swatch, radio button, drop-down, rectangle list, product list, product list with images, and checkbox.
 
 
-</div>
-</div>
-</div>
+
 
 To [create a modifier](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/createmodifier), send a `POST` request to `/v3/catalog/products/{{product_id}}/modifiers`.
 
@@ -989,14 +941,10 @@ Product sorting methods:
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-**Note**
+> #### Note
 > Products with the same sort order value either on a category or a product level are sorted by `product id` as a second criterion.
 
-</div>
-</div>
-</div>
+
 
 ## Related resources
 

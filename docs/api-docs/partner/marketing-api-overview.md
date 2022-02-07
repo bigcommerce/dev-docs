@@ -12,14 +12,10 @@ When to use:
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
-### Intent to deprecate 
+> #### Intent to deprecate 
 > As BigCommerce moves operations to the V3 API, the endpoints outlined in this article will be deprecated. For a complete list of deprecated endpoints, see [Deprecations and sunsets](https://developer.bigcommerce.com/api-reference#deprecations-and-sunsets).
 
-</div>
-</div>
-</div>
+
 
 ## OAuth scopes
 
@@ -109,14 +105,10 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-**Note**
+> #### Note
 > A gift certificate created using the Marketing API will not trigger an email notification to the specified recipient.
 
-</div>
-</div>
-</div>
+
 
 ## Resources
 

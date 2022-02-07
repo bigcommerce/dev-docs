@@ -41,14 +41,12 @@ Single click app authorization and authentication occurs via [OAuth2 authorizati
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > * API token creation is a permission reserved for the [store owner](https://forum.bigcommerce.com/s/article/Store-API-Accounts#creating) user account.
 > * An app can request authentication *on behalf* of a store owner, allowing your app to make API requests against store data.
 > * All app callbacks must be served over `https` (you should also have access to your app's server logs which will allow you to see the information in the request).
 
-</div>
-</div>
-</div>
+
 
 ## Receiving the GET request
 
@@ -66,7 +64,7 @@ GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders&context=stores/g5cd38 HTTP
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 >
 > * When your app receives a new token, any previously issued token is invalidated.
 
@@ -74,9 +72,7 @@ GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders&context=stores/g5cd38 HTTP
 
 > * The request comes from the client browser, rather than directly from BigCommerce. This request allows you to use a non-publicly available auth callback URL while testing your app.
 
-</div>
-</div>
-</div>
+
 
 ## Responding to the GET request
 
@@ -144,13 +140,11 @@ Update requests refresh the `access_token` and `scope`:
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 > * Store the `access_token` securely for future use.
 > * Store `user` and `store_hash` values to identify the user and store at `load` and `uninstall`.
 
-</div>
-</div>
-</div>
+
 
 ## Code samples
 

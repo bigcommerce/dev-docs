@@ -117,14 +117,10 @@ Host: app.example.com
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-### Token Invalidation
+> #### Token Invalidation
 > When your app receives a new token, any previously issued token is invalidated.
 
-</div>
-</div>
-</div>
+
 
 ## Responding to the GET Request
 
@@ -144,14 +140,10 @@ Upon receiving the POST request during inital installation, BigCommerce marks th
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-### Receiving the POST request
+> #### Receiving the POST request
 > Upon receiving the POST request during initial installation BigCommerce removes the update prompt from the control panel.
 
-</div>
-</div>
-</div>
+
 
 ### Parameters
 
@@ -399,13 +391,9 @@ Upon receiving the GET request, your app will need to process the signed payload
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
 > Any HTML that you return in your response for uninstalling an app or removing a user will not render in the response.
 
-</div>
-</div>
-</div>
+
 
 ## Processing the Signed Payload
 
@@ -431,15 +419,9 @@ To decode the signed payload, complete the following steps:
 To verify the payload, you need to sign the payload using your client secret, and confirm that it matches the signature that was sent in the request.
 
 <!-- theme: warning -->
-
-<!-- theme:  -->
-
-### Timing Attacks
+> #### Timing Attacks
 > To limit the vulnerability of your app to timing attacks, we recommend using a constant time-string comparison function, rather than the equality operator, to check that the signatures match.
 
-</div>
-</div>
-</div>
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -475,14 +457,9 @@ function verifySignedRequest($signedRequest)
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-### !hash_equals
+> #### !hash_equals
 > !hash_equals is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: https://packagist.org/packages/realityking/hash_equals. BigCommerce’s sample app hello-world-app-php-silex app does this automatically.
 
-</div>
-</div>
-</div>
 
 <div class="HubBlock-header">
     <div class="HubBlock-header-title flex items-center">
@@ -710,14 +687,10 @@ Internet Explorer is one of the browsers that BigCommerce [supports](https://sup
 
 <!-- theme: info -->
 
-<!-- theme:  -->
-
-### Microsoft No Longer Supports P3P
+> #### Microsoft No Longer Supports P3P
 > Support for P3P 1.0 has been removed in Windows 10 and will have minimal ongoing servicing for previous versions of Windows. [_Microsoft_](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/mt146424(v=vs.85)?redirectedfrom=MSDN)
 
-</div>
-</div>
-</div>
+
 
 ## Hosting Your App
 BigCommerce stores are hosted on [Google Cloud Platform](https://cloud.google.com/) in the [us-central1](https://cloud.google.com/compute/docs/regions-zones/) region.

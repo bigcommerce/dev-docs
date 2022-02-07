@@ -14,14 +14,10 @@ If you downloaded a refreshed version of Stencil's default Cornerstone theme: Ru
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
-### No automatic check for dependencies
+> #### No automatic check for dependencies
 > The `stencil bundle` and `stencil push` commands do not check for the dependencies that these build systems install. So if those dependencies are missing, these commands will not immediately report errors. However, your resulting .zip file will not properly upload to BigCommerce, and will not run properly on a storefront.
 
-</div>
-</div>
-</div>
+
 
 ## Verify directory and file permissions
 
@@ -32,14 +28,10 @@ If you have added any new subdirectories or files to your base theme, verify tha
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
-### Writable permissions are required
+> #### Writable permissions are required
 > Without these writable permissions, bundling your theme will fail, blocking its upload to BigCommerce.
 
-</div>
-</div>
-</div>
+
 
 ## Bundling your theme
 

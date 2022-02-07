@@ -57,13 +57,11 @@ Accept: application/json
 
 <!-- theme: info -->
 
-> **Note**
+> #### Note
 >
 > You can [find an app's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id) in the URL when editing the app in the [Developer Portal](https://developer.bigcommerce.com/api-docs/apps/guide/developer-portal).
 
-</div>
-</div>
-</div>
+
 
 ## Specifying the platform
 

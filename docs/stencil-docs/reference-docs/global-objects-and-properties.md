@@ -49,15 +49,11 @@ Global objects and properties are common components shared across the entire Big
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
-###  Handlebars Formatting Exception
+> ####  Handlebars Formatting Exception
 > Where a banner contains HTML, the banner helper must be placed in triple braces, as in this
 example: `{{{banner}}}`. (Double braces would escape the HTML.)
 
-</div>
-</div>
-</div>
+
 
 ## Breadcrumbs
 

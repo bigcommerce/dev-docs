@@ -260,14 +260,10 @@ In this example:
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
-### Tax display configurations
+> #### Tax display configurations
 > The same properties and values are returned for **Including tax** and **Including and excluding tax** display settings. These properties and values are not available for a control panel setting of **Excluding tax**.
 
-</div>
-</div>
-</div>
+
 
 ### Sale price defined in control panel
 

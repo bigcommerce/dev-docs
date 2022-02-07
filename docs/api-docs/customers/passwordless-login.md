@@ -28,17 +28,13 @@ Example:
 }
 ```
 <!-- theme: info -->
-    
-<!-- theme:  -->
-### Redirect URL
+> #### Redirect URL
 > If the request body does not include a `redirect_url`, customers will be redirected as follows:
 > <br>
 > - **Failed sign-in:** Sign-in page
 > - **Successful sign-in:** User account page
 
-</div>
-</div>
-</div>
+
 
 ### Response
 Upon receiving a successful `POST` request, BigCommerce will send a response that contains:

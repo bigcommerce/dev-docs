@@ -128,13 +128,11 @@ Accept: application/json
  
 <!-- theme:info -->
 
-> **Note**
+> #### Note
 >
 > You can [find an app's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id) in the URL when editing the app in the [Developer Portal](https://developer.bigcommerce.com/api-docs/apps/guide/developer-portal).
 
-</div>
-</div>
-</div>
+
 
 ## Protected UI sections
 
@@ -190,13 +188,11 @@ Included protected sections display above custom sections.
 
 <!-- theme: warning -->
 
-> **Note**
+> #### Note
 >
 > - Any content an app attempts to render to the control panel iFrame for a protected section will be overridden by the BigCommerce provided content.
 
-</div>
-</div>
-</div>
+
 
 ## Storefront settings
 

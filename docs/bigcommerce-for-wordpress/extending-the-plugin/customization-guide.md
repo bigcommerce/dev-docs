@@ -241,17 +241,13 @@ All actions and filters called by the plugin begin with the `bigcommerce/` prefi
 
 The entire plugin operates through closures wrapped around calls to classes instantiated via a dependency injection container. In the event that you need to modify the core behavior of the plugin, there are several methods to get access to these closures.
 
-<!-- theme: danger  -->
-    
-<!-- theme: error -->
+<!-- theme: danger -->
 
-### Warning
+> #### Warning
 
 > Modifying core plugin functionality can lead to security vulnerabilities, data corruption, broken user workflows, and an overall unpleasant experience for you and your customers. Proceed at your own risk.
 
-</div>
-</div>
-</div>
+
 
 The `bigcommerce/init` action fires after the plugin has completed initializing all of its service providers and hooked them into WordPress. It passes two arguments: the primary plugin controller (an instance of the BigCommerce\Plugin class) and the dependency injection container itself. The former is also available at any time after initialization by calling the function `bigcommerce()`.
 

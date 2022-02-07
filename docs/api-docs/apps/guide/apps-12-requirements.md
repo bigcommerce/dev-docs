@@ -48,12 +48,10 @@ Don't reference competitor platforms in the app's listing information or dashboa
 
 <!-- theme: info -->
 
-**Note**
+> #### Note
 > 1. If your app cannot meet these requirements, email <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a> to discuss your options for approval.
 
-</div>
-</div>
-</div>
+
 
 ## FAQ
 
