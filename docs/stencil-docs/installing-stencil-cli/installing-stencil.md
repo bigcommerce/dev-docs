@@ -12,14 +12,8 @@ To install Stencil CLI and its dependencies on Mac, open a terminal and run the 
 
 
 <!-- theme: info -->
-
-<!-- theme: info -->
-
 > These instructions have been tested on **Mac OS X Yosemite**.
 
-</div>
-</div>
-</div>
 
 ```shell
 # For ARM based macs
@@ -44,15 +38,8 @@ Installing Stencil CLI and its dependencies on Macs that use Apple silicon, such
 
 
 <!-- theme: info -->
-
-<!-- theme: info -->
-
 > These instructions have been tested on a **MacBook Air** with an M1 chip.
 
-
-</div>
-</div>
-</div>
 
 To open the Rosetta terminal:
 
@@ -107,18 +94,13 @@ npm install -g @bigcommerce/stencil-cli
 ```
 
 <!-- theme: warning -->
-
-<!-- theme: warning -->
-
-### Execution policy errors
+> #### Execution policy errors
 > If you receive an execution policy error while attempting to install chocolatey, refer to [Microsoft's Documentation](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6) and/or consult with your organization's system administrator to determine the appropriate course of action.
->
-### Chocolatey installation alternatives
-> For additional information on installing Chocolatey and alternative installation options, see [the installation page on chocolatey.org](https://chocolatey.org/install).
 
-</div>
-</div>
-</div>
+
+<!-- theme: info -->
+> #### Chocolatey installation alternatives
+> For additional information on installing Chocolatey and alternative installation options, see [the installation page on chocolatey.org](https://chocolatey.org/install).
 
 ### Method 2: Install dependencies manually
 
@@ -137,17 +119,8 @@ npm install -g @bigcommerce/stencil-cli
 ```
 
 <!-- theme: info -->
-
-<!-- theme: info -->
-
 > These instructions have been tested successfully on **Windows 10**.
-
 > Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
-
-
-</div>
-</div>
-</div>
 
 ## Installing on Linux
 
@@ -175,12 +148,10 @@ npm install -g @bigcommerce/stencil-cli
 * git
 
 <!-- theme: info -->
-
 > #### Note
 > * These instructions have been tested on **Ubuntu 18.04**.
 > * Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
 > * Refer to [nvm](https://github.com/nvm-sh/nvm) for latest `nvm` install instructions.
-
 
 
 ## Live previewing a theme

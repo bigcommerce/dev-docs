@@ -108,18 +108,13 @@ stencil start --open # opens live theme preview in default browser
 | `--help`                     |`-h` | Output usage information                                                              |
 
 <!-- theme: info -->
-
 > #### --theme-editor and --theme-editor-port [port]:
 > BigCommerce deprecated `-theme-editor` and `--theme-editor-port [port]` options as of v1.23.1. Please use [Page Builder](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview) instead.
 
 
-
-
 <!-- theme: warning -->
-
-> #### Authentication Errors
+> #### Authentication errors
 > If you receive an `Unauthorized, please use a valid username/token` error, authentication has failed. Make sure the API token you supplied is correct. For more information on creating store API accounts and generating tokens, see [Obtaining Store API Credentials](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/live-previewing-a-theme#step-3-serve-live-preview).
-
 
 
 
@@ -192,19 +187,12 @@ Usage: stencil push [<OPTIONS>]
 stencil push -f Cornerstone-2.3.2.zip # uploads specified file, skips bundling if file already exists
 ```
 <!-- theme: info -->
-
-<!-- theme: {{callout_type}} -->
-
-### --filename:
+> #### --filename:
 > You can use the `-f` or `--filename` option in cases where you have already run `stencil bundle` to bundle your theme, but the resulting .zip file has not yet been uploaded to BigCommerce. Use the generated .zip file's **filename** as a parameter to identify the generated file in your theme directory. An example of the command is outlined below.
+> When you run `stencil push`, you can apply one theme to multiple storefront or channels. 
+> When you run `stencil push` with the `-f` or `--filename` option, Stencil CLI skips all its bundling steps and diagnostics. It proceeds directly to uploading the specified file, displaying its processing progress bar to show upload status.
 
->When you run `stencil push`, you can apply one theme to multiple storefront or channels.
-    
->When you run `stencil push` with the `-f` or `--filename` option, Stencil CLI skips all its bundling steps and diagnostics. It proceeds directly to uploading the specified file, displaying its processing progress bar to show upload status.
 
-</div>
-</div>
-</div>
 
 <a id="stencil-download"></a>
 

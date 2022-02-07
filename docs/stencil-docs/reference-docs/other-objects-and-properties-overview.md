@@ -1,20 +1,12 @@
 # Other Objects and Properties Overview
-
  
 
 <!-- theme: info -->
+> #### Debugging Your Theme
+> The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. For example:
+> `http://localhost:3000/product/this-is-a-sample-product?debug=context` will return a list of all the objects available on the page, in JSON syntax.
+> If you want to view the available JSON objects and rendered page at the same time, change the debug value to "bar": `http://localhost:3000/product/this-is-a-sample-product?debug=bar`
 
-<!-- theme: info -->
-
-### Debugging Your Theme
-> The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. Here is an example:
-> ```http://localhost:3000/product/this-is-a-sample-product?debug=context```
-> This will return a list of all the objects available on the page, in JSON syntax. If you want to view the available JSON objects and rendered page at the same time, simply change the debug value to bar. Below is an example:
-> ```http://localhost:3000/product/this-is-a-sample-product?debug=bar```
-
-</div>
-</div>
-</div>
 
 ## Product
 
@@ -2739,15 +2731,8 @@ https://github.com/bigcommerce/cornerstone/tree/master/templates/components/comm
 </table>
 
 <!-- theme: info -->
-
-<!-- theme:  -->
-
-### Customizing Login Form Content
+> #### Customizing Login Form Content
 > Login form content can be customized in templates/components/common/alert-success.html
-
-</div>
-</div>
-</div>
 
 ## Order Confirmation Objects
 

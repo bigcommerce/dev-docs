@@ -5,20 +5,10 @@
 Global objects and properties are common components shared across the entire BigCommerce storefront.
 
 <!-- theme: info -->
-    
-<!-- theme: info -->
-
-### Debugging Your Theme
-> The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. Here is an example:
-
-> `http://localhost:3000/product/this-is-a-sample-product?debug=context`
-> This will return a list of all the objects available on the page, in JSON syntax. If you want to view the available JSON objects and rendered page at the same time, simply change the debug value to bar. Below is an example:
-
-> `http://localhost:3000/product/this-is-a-sample-product?debug=bar`
-
-</div>
-</div>
-</div>
+> #### Debugging Your Theme
+> The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. For example:
+> `http://localhost:3000/product/this-is-a-sample-product?debug=context` will return a list of all the objects available on the page, in JSON syntax. 
+> If you want to view the available JSON objects and rendered page at the same time, simply change the debug value to "bar": `http://localhost:3000/product/this-is-a-sample-product?debug=bar`
 
 ## Banner
 
@@ -48,12 +38,8 @@ Global objects and properties are common components shared across the entire Big
 </table>
 
 <!-- theme: warning -->
-
 > ####  Handlebars Formatting Exception
-> Where a banner contains HTML, the banner helper must be placed in triple braces, as in this
-example: `{{{banner}}}`. (Double braces would escape the HTML.)
-
-
+> Where a banner contains HTML, the banner helper must be placed in triple braces, as in this example: `{{{banner}}}`. (Double braces would escape the HTML.)
 
 ## Breadcrumbs
 

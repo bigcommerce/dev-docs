@@ -12,16 +12,9 @@ In this example, we will translate several regions on the home page. The followi
 1. Add `translation` fields to the home page (/templates/pages/home.html).
 
 <!-- theme: info -->
-
-<!-- theme: info -->
-
-**Note**s 
-* Translation must follow prefix “i18n.RegionName.” 
-* You can only add a translation field to a `{{{ region }}}` field.
-    
-</div>
-</div>
-</div>
+> #### Notes 
+> * Translation must follow prefix “i18n.RegionName.” 
+> * You can only add a translation field to a `{{{ region }}}` field.
 
 home.html
 ```html
@@ -54,20 +47,12 @@ translation="i18n.RegionName.HomeBelowContentGlobal"}}}
 2. Add region translations to the `schema_translations.json` file. 
 
 <!-- theme: info -->
-
-<!-- theme: info -->
-
-**Note**s 
-    
-* Region translations must live within the schema_translations.json file.
-* Language code must contain a default value.
-> * Language code outside of default will support two character language code as well as multiple character language code (which is formatted by two lowercase letters, a dash, and at least two alphanumeric characters after). Example provided below:<br/>
-        - Example of two character language code “en”, “fr”, “uk”, “zh”.<br />
-        - Example of multiple character language code “fr-FR”, “zh-CN”, “en-US”, “uk-UA”, “es-419”.
-
-</div>
-</div>
-</div>
+> #### Notes 
+> * Region translations must live within the `schema_translations.json` file.
+> * Language code must contain a default value.
+> * Language code outside of default will support two character language code as well as multiple character language code (which is formatted by two lowercase letters, a dash, and at least two alphanumeric characters after). Example provided below:
+>   - Example of two character language code “en”, “fr”, “uk”, “zh”.
+>   - Example of multiple character language code “fr-FR”, “zh-CN”, “en-US”, “uk-UA”, “es-419”.
 
 
 schemaTranslations.json
