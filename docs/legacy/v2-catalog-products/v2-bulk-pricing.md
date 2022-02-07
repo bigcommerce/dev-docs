@@ -1,23 +1,12 @@
 # Bulk Pricing Rules
-
- 
-
 ##  Bulk Pricing 
 
 Bulk pricing rules applied to a product.
 
 <!-- theme: warning -->
-
-<!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-
-For the most up-to-date version of this API, see [Product Bulk Pricing Rules](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-bulk-pricing-rules).
-
-</div>
-</div>
-</div>
+> For the most up-to-date version of this API, see [Product Bulk Pricing Rules](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-bulk-pricing-rules).
 
 ###  Bulk Pricing Object – Properties 
 

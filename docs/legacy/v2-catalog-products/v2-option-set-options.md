@@ -1,16 +1,13 @@
 # Option Set Options
 
- 
 
 ##  Option Set Options 
 
 Options belonging to an option set.
 
 <!-- theme: warning -->
-
 > #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-
 
 
 ### Option Set Option: Object – Properties 

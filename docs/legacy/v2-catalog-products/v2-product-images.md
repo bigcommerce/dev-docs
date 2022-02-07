@@ -7,17 +7,9 @@
 Images associated with a product.
 
 <!-- theme: warning -->
-
-<!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-
-For the most up-to-date version of this API, see [Product Images](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-images).
-
-</div>
-</div>
-</div>
+> For the most up-to-date version of this API, see [Product Images](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-images).
 
 ### Product Image Object – Properties 
 

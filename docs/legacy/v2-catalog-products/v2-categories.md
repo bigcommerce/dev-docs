@@ -1,24 +1,14 @@
 # Categories
 
-
-
 ## Categories 
 
 Index of hierarchical categories used to organize and group products.
 
 <!-- theme: warning -->
-
-<!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
+> For the most up-to-date version of this API, see [Category](https://developer.bigcommerce.com/api-reference/store-management/catalog/category).
 
-For the most up-to-date version of this API, see [Category](https://developer.bigcommerce.com/api-reference/store-management/catalog/category).
-
-
-</div>
-</div>
-</div>
 
 ### Category Object – Properties 
 
@@ -256,10 +246,8 @@ Deletes a category.
 >`DELETE /stores/{store_hash}/v2/categories/{id}`
 
 <!-- theme: danger -->
-
 > #### Delete Products before Categories
 > The Delete All Categories operation will not succeed unless the store has zero products. If any products in the store belong to any categories, the entire operation will fail. Therefore, if you really want to delete all the categories of the store, you must first delete all of the products in the store.
-
 
 
 ## Delete All Categories 

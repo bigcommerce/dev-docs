@@ -1,30 +1,17 @@
 # Products
-
  
 
-<!-- theme: danger  -->
-
-<!-- theme: error -->
-
+<!-- theme: danger -->
 > It is recommended to use the new [Catalog Products](/api-reference/catalog/catalog-api).
-
-</div>
-</div>
-</div>
 
 ## Products
 A product object represents a saleable item in the catalog.
 
 <!-- theme: warning -->
-
-<!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
 
-</div>
-</div>
-</div>
+
 
 ### Product Object – Properties
 

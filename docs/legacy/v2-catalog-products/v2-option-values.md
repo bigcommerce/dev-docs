@@ -7,17 +7,11 @@
 Values that can be selected for an option.
 
 <!-- theme: warning -->
-
-<!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
+> For the most up-to-date version of this API, see [Product Option Values](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-option-values).
 
-For the most up-to-date version of this API, see [Product Option Values](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-option-values).
 
-</div>
-</div>
-</div>
 
 ### Option Value Object – Properties 
 

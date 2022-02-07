@@ -7,7 +7,6 @@
 A reusable set of option facets that can be applied to products.
 
 <!-- theme: warning -->
-
 > #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
 

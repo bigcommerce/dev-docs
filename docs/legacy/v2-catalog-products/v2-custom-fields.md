@@ -7,17 +7,9 @@
 Custom fields associated with a product.
 
 <!-- theme: warning -->
-
-<!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-
-For the most up-to-date version of this API, see [Product Custom Fields](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-custom-fields).
-
-</div>
-</div>
-</div>
+> For the most up-to-date version of this API, see [Product Custom Fields](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-custom-fields).
 
 ### Custom Field Object – Properties 
 

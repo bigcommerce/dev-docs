@@ -1,16 +1,12 @@
 # Product Options
 
- 
-
 ## Options 
 
 Shared attributes that control value facets on a product.
 
 <!-- theme: warning -->
-
 > #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-
 
 
 ### Options Object – Properties 
