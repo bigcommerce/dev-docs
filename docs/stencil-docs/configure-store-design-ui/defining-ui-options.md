@@ -60,15 +60,9 @@ Store Design supports these data types:
 
 Within <span class="fn">schema.json</span>, each object's data type is declared in a statement like the one highlighted here:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
-title: ""
-subtitle: ""
+title: "Example object data type declaration"
+subtitle: "schema.json"
 lineNumbers: true
 -->
 
@@ -84,16 +78,11 @@ lineNumbers: true
 
 Within <span class="fn">schema.json</span>, you will also see `"type": "heading"` statements like this one – highlighted earlier in the same object used for the above example:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
-title: ""
-subtitle: ""
+title: "'Heading' type settings"
+subtitle: "schema.json"
 lineNumbers: true
+highlightLines: [[5]]
 -->
 
 ```json

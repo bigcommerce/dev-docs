@@ -20,14 +20,8 @@ Here is the signature of the cart.getContent function used further down:
 
 This first complete code snippet calls cart.itemAdd, catches any errors, and displays the cart contents in a modal dialog:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
-title: ""
+title: "cart.itemAdd"
 subtitle: ""
 lineNumbers: true
 -->
@@ -67,14 +61,8 @@ lineNumbers: true
 
 This final code snippet calls `cart.getContent` to fetch the cart contents, then display it in a preview format, which is specified by a template option with a value of `cart/preview`:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
-title: ""
+title: "cart.getContent"
 subtitle: ""
 lineNumbers: true
 -->

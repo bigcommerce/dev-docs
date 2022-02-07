@@ -10,7 +10,7 @@
 
 ## Product
 
-<b>Description:</b> Default property that provides detailed product data. Called on the default `templates/pages/product.html`and `templates/pages/amp/product.html` templates, and on several partials in the `templates/components/` subdirectory:
+**Description:** Default property that provides detailed product data. Called on the default `templates/pages/product.html`and `templates/pages/amp/product.html` templates, and on several partials in the `templates/components/` subdirectory:
 
 * `account/returns-list.html`,
 * `cart/item-options.html`,

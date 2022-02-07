@@ -58,12 +58,6 @@ If you design your theme’s storefront pages to refer to this message by its ge
 
 Key-value pairs are grouped into objects, for example:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Objects with translation key-value pairs</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
 title: "Objects with translation key-value pairs"
 subtitle: ""
@@ -106,50 +100,34 @@ Once keys and values are defined in the [JSON translation file](https://github.c
 
 To invoke a defined translation key, follow this generic format:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Syntax to invoke a defined translation key</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
 title: "Syntax to invoke a defined translation key"
 subtitle: ""
 lineNumbers: true
 -->
 
-```html
-{{lang "translation.key" optionalVariable="someValue"}}
+```handlebars
+  {{lang "translation.key" optionalVariable="someValue"}}
 ```
 
 In a non-internationalized theme, a storefront page might include a string like this:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Non-internationalized theme example</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
-title: "Non-internationalized theme example"
+title: "Example snippet from a non-internationalized theme"
 subtitle: ""
 lineNumbers: true
 -->
 
-```html
-<a href="{{ urls.account }}">Welcome Back <span>{{ customer.name }}</span></a>
+```handlebars
+  <a href="{{ urls.account }}">Welcome Back <span>{{ customer.name }}</span></a>
 ```
 
 The corresponding internationalized version would substitute the text with the fully dynamic `{{ lang }}` Handlebars helper as shown below:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
-title: ""
+title: "Example snippet from an internationalized theme"
 subtitle: ""
 lineNumbers: true
 -->
@@ -161,9 +139,7 @@ lineNumbers: true
 
 <!-- theme: warning -->
 
-<!-- theme: warning -->
-
-### File permissions required
+> #### File permissions required
 
 > Be sure to give any new translation files default access permissions of `644 (rw-r--r--)`. Without these permissions, running your theme locally will fail with multiple error messages. Bundling your theme will also fail, blocking its upload to a store.
 
@@ -175,58 +151,48 @@ lineNumbers: true
 
 Below is an example based on the Cornerstone’s `templates/components/cart/shipping-estimator.html` file. Here, each highlighted `{{lang...}}` statement abstracts the message indicated by its English-language key to enable internationalization of that message:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
-title: ""
-subtitle: ""
+title: "Example of an internationalized template"
+subtitle: "templates/components/cart/shipping-estimator.html, Cornerstone theme"
 lineNumbers: true
 -->
 
-```html
+```handlebars
 <div class="shipping-estimator" style="display: none;">
-    <form class="estimator-form">
-      <button class="shipping-estimate-hide">{{lang 'cancel'}}</button>
-      <select name="shipping-country">
+  <form class="estimator-form">
+    <button class="shipping-estimate-hide">{{lang 'cancel'}}</button>
+    <select name="shipping-country">
       <option>{{lang 'cart.shipping_estimator.select_a_country'}}</option>
       {{#each countries}}
           <option value="{{id}}" {{#if selected}}selected="selected"{{/if}}>
                 {{name}}
           </option>
       {{/each}}
-      </select>
-      <select name="shipping-state">
+    </select>
+    <select name="shipping-state">
       <option>{{lang 'cart.shipping_estimator.select_a_state'}}</option>
       {{#each states}}
           <option value="{{id}}" {{#if selected}}selected="selected"{{/if}}>
               {{name}}
           </option>
       {{/each}}
-      </select>
-      <input type="text" name="shipping-zip" value="{{selected_zip}}">
-      <button class="shipping-estimate-submit">{{lang 'cart.shipping_estimator.estimate_shipping'}}
-      </button>
-    </form>
-    <div class="shipping-quotes"></div>
+    </select>
+    <input type="text" name="shipping-zip" value="{{selected_zip}}">
+    <button class="shipping-estimate-submit">{{lang 'cart.shipping_estimator.estimate_shipping'}}
+    </button>
+  </form>
+  <div class="shipping-quotes"></div>
 </div>
 
 ```
 
 In the example below, the default theme’s `lang/en.json` file includes matches and value definitions for each of the translation keys.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
-title: ""
-subtitle: ""
+title: "Example translation key definitions"
+subtitle: "lang/en.json"
 lineNumbers: true
 -->
 

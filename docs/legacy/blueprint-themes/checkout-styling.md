@@ -21,23 +21,14 @@ The structure and class naming are reserved because each class here maps to mult
 
 Within the CSS file, to set up Optimized Checkout's responsive features, you should configure the following breakpoint to define your preferred desktop viewport size:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
-title: ""
+title: "Configure media query to be 'desktop' breakpoint size"
 subtitle: ""
 lineNumbers: true
 -->
 
 ```css
-
-// TODO:
-// Configure media query to be 'desktop' breakpoint size
-// --
 @media (min-width: 801px) {
     text-align: stencilString("optimizedCheckout-logo-position");
 }
@@ -76,16 +67,10 @@ Below is a summary of the classes provided in the template CSS, with correspondi
 
 You can copy and modify the template `optimized-checkout-webdav.css` file's current contents directly from this documentation, below: 
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
-title: ""
-subtitle: ""
-lineNumbers: true
+    title: "optimized-checkout-webdav.css"
+    subtitle: ""
+    lineNumbers: true
 -->
 
 ```css

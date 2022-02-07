@@ -87,8 +87,3 @@ $("button#addToCart").click(function() {
 
 Alternatively, the [Storefront Cart APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis#working-sf-apis_storefront-cart) `/api/storefront/cart` endpoint accepts an array of `lineItems` -- depending on the complexities and specifics of the use case, using Storefront Cart APIs may be a better solution than adding to cart URLs.
 
-
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNjk3NjY0NTJdfQ==
--->

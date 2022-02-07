@@ -18,14 +18,8 @@ Stencil CLI is required to begin this walkthrough. For installation instructions
 
 The React app used to demonstrate the Checkout SDK has a few additional dependencies; install them with `npm`:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
-title: ""
+title: "Install dependencies"
 subtitle: ""
 lineNumbers: true
 -->
@@ -34,25 +28,20 @@ lineNumbers: true
 # move into your theme's dir
 cd ~/path/to/theme/dir
 
-# install depencies
+# install dependencies
 npm install --save react react-dom react-text-mask classnames accounting @babel/preset-react css-loader node-sass sass-loader style-loader @bigcommerce/checkout-sdk
 ```
 
-### Edit `webpack.common.js`
+### Edit webpack.common.js
 
 The React app includes `.jsx` files which will not be resolved using the default webpack configuration in Cornerstone. Additionally, loaders must be registered for `.jsx` and `.scss` files.
 
-In `webpack.common.js`, add the following objects to the `rules` arraypr:
+In `webpack.common.js`, add the following objects to the `rules` array:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
-title: ""
-subtitle: ""
+title: "Add objects to the 'rules' array"
+subtitle: "webpack.common.js"
 lineNumbers: true
 -->
 
@@ -84,15 +73,10 @@ lineNumbers: true
 
 Next, in `webpack.common.js`, add the following property to the `resolve` object:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
-title: ""
-subtitle: ""
+title: "Add property to 'resolve' object"
+subtitle: "webpack.common.js"
 lineNumbers: true
 -->
 

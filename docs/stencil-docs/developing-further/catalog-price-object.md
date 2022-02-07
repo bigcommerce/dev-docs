@@ -28,15 +28,9 @@ Assume that a merchant has defined the following for a product in the control pa
 
 A corresponding catalog price object for the product will be structured as shown below:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Catalog price object (no sale price defined)</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
-title: "Catalog price object (no sale price defined)"
-subtitle: ""
+title: "Catalog price object"
+subtitle: "No sale price defined"
 lineNumbers: true
 -->
 
@@ -94,15 +88,10 @@ Assume that a merchant has defined the following for a product in the control pa
 
 A corresponding catalog price object for the product will be structured as shown below:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Catalog price object (sale price defined)</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
-title: "Catalog price object (sale price defined)"
-subtitle: ""
+title: "Catalog price object"
+subtitle: "sale price defined"
 lineNumbers: true
 -->
 
@@ -165,19 +154,14 @@ The example below tests for the presence of the `sale_price_without_tax` propert
 
 With the logic below, the page will display a strikeout standard price next to the **Sale Price** field, indicating the current selling price of the product.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Conditional logic </div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
-title: "Conditional logic "
+title: "Conditional logic"
 subtitle: ""
 lineNumbers: true
 -->
 
-```
+```handlebars
   {{#or price.sale_price_without_tax price.sale_price_with_tax}}
      ... [code to display on-sale strikeout pricing or content for a discounted product]  ...
   {{/or}}
@@ -185,7 +169,7 @@ lineNumbers: true
 
 ## Catalog price object examples including and excluding tax
 
-Depending on the store’s  [**Tax Display Settings**](https://login.bigcommerce.com/deep-links/manage/settings/tax/settings), the `price` object will display prices in one of the following ways:
+Depending on the store’s [**Tax Display Settings**](https://login.bigcommerce.com/deep-links/manage/settings/tax/settings), the `price` object will display prices in one of the following ways:
 
 * **Including tax**
 * **Excluding tax**
@@ -211,15 +195,9 @@ There is no defined sale price for the product.
 
 A corresponding catalog price object will be structured as shown below:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Product including and excluding tax (no sale price defined)</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
-title: "Product including and excluding tax (no sale price defined)"
-subtitle: ""
+title: "Product including and excluding tax"
+subtitle: "No sale price defined"
 lineNumbers: true
 -->
 
@@ -269,15 +247,9 @@ Assume that a merchant has defined the following tax configurations for a produc
 * Show prices on product pages including and excluding tax
 * Use a flat rate of 10% tax
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Product including and excluding tax (sale price defined)</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
-title: "Product Including and Excluding Tax (Sale Price defined)"
-subtitle: ""
+title: "Product including and excluding tax"
+subtitle: "Sale price defined"
 lineNumbers: true
 -->
 

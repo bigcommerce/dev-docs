@@ -9,15 +9,9 @@ The basic details of the Cornerstone theme are outlined in the theme's configura
 
 Here are the first key-value sets in Cornerstone's `config.json`: 
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
-title: "Cornerstone config.json settings"
-subtitle: ""
+title: "Cornerstone settings"
+subtitle: "config.json"
 lineNumbers: true
 -->
 
@@ -35,16 +29,9 @@ lineNumbers: true
 
 The following example shows how to change Cornerstone's configurations to reflect your own theme's name, version number, price on Theme Marketplace, and documentation URL:
 
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
-title: ""
-subtitle: ""
+title: "Cornerstone settings"
+subtitle: "config.json"
 lineNumbers: true
 -->
 
@@ -65,15 +52,9 @@ lineNumbers: true
 You define variations in your theme's `config.json` file. Below is the Cornerstone Light variation's definition from Cornerstone's `config.json`:
 
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
-title: ""
-subtitle: ""
+title: "Cornerstone Light theme variation settings"
+subtitle: "config.json"
 lineNumbers: true
 -->
 
@@ -102,15 +83,9 @@ lineNumbers: true
 Try inserting your custom variation into the `variations` object of Cornerstone's `config.json`. Your variation's definition might look something like this:
 
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
-title: ""
-subtitle: ""
+title: "Example theme variation definition"
+subtitle: "config.json"
 lineNumbers: true
 -->
 
@@ -137,17 +112,12 @@ lineNumbers: true
 
 To learn more about defining variations, see [Defining Global Styles](/stencil-docs/configure-store-design-ui/defining-global-styles). In particular, note the option to configure settings and variables that are scoped to each variation.
 
-The following example shows how to set the body of a theme variation to a specific typeface/family by inserting the `body-font-family` key into the `settings` object:
+The following example shows how to set the body font of a theme variation to a specific typeface/family by inserting the `body-font-family` key into the `settings` object:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
-title: ""
-subtitle: ""
+title: "Example body font variation"
+subtitle: "config.json"
 lineNumbers: true
 -->
 

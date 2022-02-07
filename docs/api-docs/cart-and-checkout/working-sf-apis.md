@@ -1,20 +1,14 @@
 # Working with the Storefront Cart and Checkout APIs
 
-
-
 BigCommerce's [Storefront API](https://developer.bigcommerce.com/api-reference#storefront-api) exposes storefront data to Stencil themes. You can use this client API to manage a shopper's cart, checkout, and order data via client-side JavaScript.
-
 
 This tutorial exhibits common use cases to help you get started with the Storefront API. Each use case contains JavaScript code snippets you can paste into your browser's console, allowing you to test in the context of your storefront session.
 
-
 By the end of this tutorial, you should be familiar enough with some of the Storefront API endpoints to test them.
-
 
 ## Prerequisites
 
 For this tutorial, you will need a BigCommerce store with at least two products and a shipping option.
-
 
 ## Getting started
 
@@ -22,7 +16,6 @@ To begin, navigate to your storefront and open your browser’s developer consol
 
 
 For this tutorial, set the credentials option to `same-origin` and the content-type fetch request option to `application/json`. In production, your credentials will depend on your app setup. See [Request.credentials](https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials) to learn more about other possible values.
-
 
 ## Storefront Cart
 
