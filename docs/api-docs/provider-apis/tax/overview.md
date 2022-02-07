@@ -1,22 +1,6 @@
 # Tax Provider API
 
-<div class="otp" id="no-index">
 
-### On this Page
-
-- [Obtaining an app ID](#obtaining-an-app-id)
-- [Sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce)
-- [Building the app](#building-the-app)
-- [Installing the app](#installing-the-app)
-- [Establishing a connection](#establishing-a-connection)
-- [Enabling tax providers in the control panel](#enabling-tax-providers-in-the-control-panel)
-- [Tax estimation](#tax-estimation)
-- [Document submission](#document-submission)
-- [Testing](#testing)
-- [Support](#support)
-- [Related resources](#related-resources)
-
-</div>
 
 The [Tax Provider API](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api) allows you to provide business-to-consumer sales tax estimates to shoppers on the storefront and to merchants in the control panel; it can also be used to submit documents for tax reconciliation purposes.
 

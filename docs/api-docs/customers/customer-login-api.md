@@ -1,16 +1,6 @@
 # Customer Login API
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Introduction](#introduction)
-- [Overview](#overview)
-- [Prerequisites](#prerequisites)
-- [Enable single sign-on](#enable-single-sign-on)
-- [Troubleshooting](#troubleshooting)
-- [Related resources](#related-resourcess)
-
-</div> 
+ 
 
 ## Introduction
 In this tutorial, you will learn how to enable single sign-on for storefront customers using the Customer Login API and JSON Web Tokens.
@@ -52,7 +42,7 @@ To enable SSO using the Customer Login API, you will need the following:
 * API client ID and client secret with the OAuth Scope set to Customers Login
 * [Node.js](https://nodejs.org/en/) installed on your machine if you plan to use JavaScript
 
-If you do not know your client ID and client secret, obtain the credentials by following the steps outlined in [Creating an API Account](https://support.bigcommerce.com/articles/Public/Store-API-Accounts/#creating). 
+If you do not know your client ID and client secret, obtain the credentials by following the steps outlined in [Creating an API Account](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating). 
 
 Be sure to set the Customers Login scope to Login. 
 

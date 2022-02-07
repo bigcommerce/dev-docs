@@ -1,18 +1,6 @@
 # Stencil Utils Reference
 
-<div class="otp" id="no-index">
 
-###  On this Page
-- [Installing](#installing)
-- [api.js](#apijs)
-- [Cart API](#cart-api)
-- [Countries Resource](#countries-resource)
-- [Product Attributes Resource](#product-attributes-resource)
-- [Product Resource](#product-resource)
-- [Search Resource](#search-resource)
-- [Config Object](#config-object)
-- [Resources](#resources)
-</div>
 
 [Stencil Utils](https://github.com/bigcommerce/stencil-utils) is a utility library that contains the BigCommerce Stencil Events system and other functions that make building a theme with the Stencil framework a breeze.
 

@@ -1,12 +1,6 @@
 # BigCommerce Legacy Email Templates
 
-<div class="otp" id="no-index">
 
-### On this page
-- [BigCommerce Legacy Email Templates](#bigcommerce-legacy-email-templates)
-- [Accessing and Editing Legacy Email Templates](#accessing-and-editing-legacy-email-templates)
-
-</div>
 This article provides information on how to create your own unique email templates using our legacy framework. 
 
 <div class="HubBlock--callout">

@@ -1,14 +1,6 @@
 # Theme Development Best Practices Tutorial
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Importing images](#importing-images)
-- [Injecting variables](#injecting-variables)
-- [Using Lighthouse](#using-lighthouse)
-- [Designing for accessibility](#designing-for-accessibility)
-- [Related resources](#related-resources)
-</div>
 
 In this tutorial, you will learn the correct way to import theme images and inject theme variables. Also, you will learn how to improve theme designs using [Lighthouse](https://developers.google.com/web/tools/lighthouse) and [accessibility best practices](https://developer.bigcommerce.com/stencil-docs/theme-accessibility).
 

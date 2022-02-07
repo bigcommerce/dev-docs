@@ -1,13 +1,6 @@
 # Localizing Variation Descriptions
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Adding translations](#adding-translations)
-- [Supported language code schemes](#supported-language-code-schemes)
-- [Resources](#resources)
-
-</div>
 
 Stencil themes support translations for variation descriptions enabling you to customize the display language of your theme.
 

@@ -1,22 +1,5 @@
 # Developers Guide to Headless Commerce
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Ways to implement headless](#ways-to-implement-headless)
-- [Storefront channels](#storefront-channels)
-- [Multisite](#multisite)
-- [Catalog Management](#catalog-management)
-- [Cart management](#cart-management)
-- [Checkout management](#checkout-management)
-- [Customer login](#customer-login)
-- [Sample integration](#sample-integration)
-- [PCI compliance](#pci-compliance)
-- [Sample API workflows](#sample-api-workflows)
-- [Related resources](#related-resources)
-
-</div>
-
 This article provides a high level guide to using BigCommerce to power headless storefronts; we'll assume you're already familiar with headless commerce as a concept; if you're not, check out our whitepaper, [A New Era of Ecommerce: Headless Commerce](https://www.bigcommerce.com/new-era-headless-caas/) or the Help Center's [Headless Commerce Guide](https://support.bigcommerce.com/s/article/The-Headless-Approach).
 
 ## Ways to implement headless

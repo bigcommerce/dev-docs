@@ -1,15 +1,6 @@
 # Staying Current with Platform Changes
 
-<div class="otp" id="no-index">
-
-### On this page
-
-- [General updates](#general-updates)
-- [Cornerstone theme updates](#cornerstone-theme-updates)
-- [API updates](#api-updates)
-- [Checkout SDK updates](#checkout-sdk-updates)
-
-</div> 
+ 
 
 
 At BigCommerce, we strive to offer the best ecommerce experience to our customers. Occasionally, we make updates to our platform to improve performance, add new features, or fix bugs. This article provides general information on how to stay current with the latest changes.

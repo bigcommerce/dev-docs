@@ -1,17 +1,6 @@
 # Beginning App Development
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Getting started](#getting-started)
-- [Beginning quickly](#beginning-quickly)
-- [Testing locally with ngrok](#testing-locally-with-ngrok)
-- [Registering a draft app](#registering-a-draft-app)
-- [Installing a draft app](#installing-a-draft-app)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
-</div>
 
 The BigCommerce team has developed an array of sample apps and tools to assist developers in the initial phase of app development. In this article, we'll introduce those tools and go over how to begin app development by installing and registering a draft app.
 

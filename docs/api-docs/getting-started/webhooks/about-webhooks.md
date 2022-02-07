@@ -1,19 +1,6 @@
 # Webhooks Overview
 
-<div class="otp" id="no-index">
 
-### On this page
-
-- [Creating a webhook](#creating-a-webhook)
-- [Callback payload](#callback-payload)
-- [Handling callbacks](#handling-callbacks)
-- [Callback retry mechanism](#callback-retry-mechanism)
-- [Security](#security)
-- [Troubleshooting](#troubleshooting)
-- [Tools](#tools)
-- [Related resources](#related-resources)
-
-</div>
 
 Webhooks notify applications when specific events occur on a BigCommerce store. For example, when:
 

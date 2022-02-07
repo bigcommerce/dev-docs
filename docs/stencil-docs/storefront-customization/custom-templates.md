@@ -1,17 +1,6 @@
 # Custom Templates
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Authoring a custom template](#authoring-a-custom-template)
-- [Local mapping and testing](#local-mapping-and-testing)
-- [Specifying custom front matter](#specifying-custom-front-matter)
-- [Theme upload](#theme-upload)
-- [Troubleshooting template authoring](#troubleshooting-template-authoring)
-- [Applying custom templates to pages](#applying-custom-templates-to-pages)
-- [Resources](#resources)
-
-</div>
 
 The Stencil framework allows theme developers and merchants to assign custom layout templates to storefront pages of the following types:
 

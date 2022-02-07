@@ -1,14 +1,6 @@
 # Authentication
 
-<div class="otp" id="no-index">
 
-### On this page
-- [REST APIs](#rest-apis)
-- [Storefront API](#storefront-api)
-- [GraphQL Storefront API](#graphql-storefront-api)
-- [Customer Login API](#customer-login-api)
-- [Current Customer API](#current-customer-api)
-</div>
 
 BigCommerce has five different APIs that let you manage store data, log in customers, make client-side queries for product information, and more. Each requires a different authentication method.
 

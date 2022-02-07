@@ -1,12 +1,5 @@
 # ShipperHQ Metafields
-<div class="otp" id="no-index">
 
-### On this page
-- [ShipperHQ object properties](#shipper-hq-object-properties)
-- [Control panel behavior](#control-panel-behavior)
-- [Add ShipperHQ metafield](#add-shipperhq-metafield)
-       
-</div>
 
 When you enable ShipperHQ on a store, additional fields become available on the product level:
 * [Shipping Groups](https://support.bigcommerce.com/s/article/ShipperHQ#ship-groups)

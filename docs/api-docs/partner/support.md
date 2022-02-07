@@ -1,17 +1,6 @@
 # Support
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Developer community](#developer-community)
-- [Developer blog](#developer-blog)
-- [Developer library](#developer-library)
-- [Developer Slack](#developer-slack)
-- [Changelog](#changelog)
-- [BigCommerce Status](#bigcommerce-status)
-- [Town Hall](#town-hall)
-- [Partner Support Team](#partner-support-team)
-</div> 
+ 
 
 As a BigCommerce partner, you have access to a wide variety of support resources. This article outlines the different types of resources available to you.
 

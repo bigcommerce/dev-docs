@@ -1,18 +1,6 @@
 # Categories
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Categories](#categories)
-- [List Categories](#list-categories)
-- [Get a Category](#get-a-category)
-- [Get a Count of Categories](#get-a-count-of-categories)
-- [Create a Category](#create-a-category)
-- [Update a Category](#update-a-category)
-- [Delete a Category](#delete-a-category)
-- [Delete All Categories](#delete-all-categories)
-
-</div>
 
 ## Categories 
 

@@ -1,15 +1,6 @@
 # Widget UI Schema
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Tabs and sections](#tabs-and-sections)
-- [Array type](#array-type)
-- [Hidden settings](#hidden-settings)
-- [Schema settings fields](#schema-settings-fields)
-- [Resources](#resources)
-
-</div>
 
 This document outlines the different schema settings you can use in your custom widget template. For a tutorial on creating widget templates, see [Widgets Tutorial](https://developer.bigcommerce.com/api-docs/store-management/widgets/tutorial). 
 

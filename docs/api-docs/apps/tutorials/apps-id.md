@@ -1,14 +1,6 @@
 # Find an App's ID
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Find in control panel](#find-in-control-panel)
-- [Find in Developer Portal](#find-in-developer-portal)
-- [Usage](#usage)
-- [Resources](#resources)
-
-</div>
 
 Select partners [building channel apps](https://developer.bigcommerce.com/api-docs/channels/building-channel-apps) need to know their app's ID in order to create and modify the channel's configuration. This tutorial demonstrates how to find an app's ID in the [Developer Portal](#find-in-devtools) and the [control panel](#find-in-control-panel).
 

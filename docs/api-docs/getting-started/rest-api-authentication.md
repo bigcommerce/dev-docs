@@ -1,17 +1,6 @@
 # Authenticating BigCommerce's REST APIs
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Obtaining store API credentials](#obtaining-store-api-credentials)
-- [Revoking store API credentials](#revoking-store-api-credentials)
-- [Obtaining app API credentials](#obtaining-app-api-credentials)
-- [Use cases by credential type](#use-cases-by-credential-type)
-- [Migrating from legacy to OAuth](#migrating-from-legacy-to-oauth)
-- [OAuth scopes](#oauth-scopes)
-- [Resources](#resources)
-
-</div>
 
 Two types of API credentials are available to developers wishing to make requests against BigCommerce's REST APIs.
 

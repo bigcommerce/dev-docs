@@ -1,17 +1,6 @@
 # Option Values
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Option Values](#option-values)
-- [List Option Values](#list-option-values)
-- [Get an Option Value](#get-an-option-value)
-- [Create an Option Value](#create-an-option-value)
-- [Update an Option Value](#update-an-option-value)
-- [Delete an Option Value](#delete-an-option-value)
-- [Delete Multiple Option Values](#delete-multiple-option-values)
-
-</div> 
+ 
 
 ## Option Values 
 

@@ -1,17 +1,6 @@
 # Step 2: Connect Your App to BigCommerce
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Install node-bigcommerce](#install-node-bigcommerce)
-- [Setup the auth lib page](#setup-the-auth-lib-page)
-- [Add API endpoints](#add-api-endpoints)
-- [Create an HTTPS tunnel](#create-an-https-tunnel)
-- [Register the draft app](#register-the-draft-app)
-- [Add your Client ID and Client Secret Key](#add-your-client-id-and-client-secret-key)
-- [Install and launch the app](#install-and-launch-the-app)
-
-</div>
 
 In this step, you connect your app to the BigCommerce ecosystem embedding it into **Draft Apps**.
 

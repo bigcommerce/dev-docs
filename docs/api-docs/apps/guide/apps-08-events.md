@@ -1,14 +1,6 @@
 # Listening for Events
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Available webhooks](#available-webhooks)
-- [Creating webhooks](#creating-webhooks)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
-</div>
 
 Your app may need to be notified when specific events occur on a BigCommerce store (for example, when an order is created). Your app can programmatically subscribe to such events via [webhooks](https://developer.bigcommerce.com/api-reference/webhooks/webhooks/createwebhooks). We'll briefly introduce webhooks in this article (for visibility); to take a deeper dive, see [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/about-webhooks).
 

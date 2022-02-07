@@ -1,18 +1,6 @@
 # Managing Apps in the Developer Portal
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Signing in](#signing-in)
-- [Creating apps](#creating-apps)
-- [Editing apps](#editing-apps)
-- [Editing technical details](#editing-technical-details)
-- [Viewing credentials](#viewing-credentials)
-- [Submitting apps](#submitting-apps)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
-</div>
 
 App developers create, edit, and submit apps for approval using the [Developer Portal](https://devtools.bigcommerce.com/). In [Beginning App Development](https://developer.bigcommerce.com/api-docs/apps/guide/development) we briefly touched on how to create a draft app. In this article, we'll go over how to perform other common app management tasks in the [Developer Portal](https://devtools.bigcommerce.com/). For detailed instructions on submitting apps for approval, see [Publishing Apps](https://developer.bigcommerce.com/api-docs/apps/guide/publishing).
 

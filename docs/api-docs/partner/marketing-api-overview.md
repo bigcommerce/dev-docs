@@ -1,15 +1,6 @@
 # Marketing API
 
-<div class="otp" id="no-index">
 
-### On this page
-- [OAuth scopes](#oauth-scopes)
-- [Banners](#banners)
-- [Coupons](#coupons)
-- [Gift certificates](#gift-certificates)
-- [Resources](#resources)
-
-</div>
 
 The Marketing API enables you to generate product discounts, issue gift certificates, and convey marketing information using storefront banners.  
 

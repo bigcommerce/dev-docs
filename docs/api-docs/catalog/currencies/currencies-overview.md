@@ -1,18 +1,6 @@
 # Currencies Overview
 
-<div class="otp" id="no-index">
 
-### On this Page
-- [Display vs. transactional](#display-vs-transactional)
-- [Preconfiguring the store](#preconfiguring-the-store)
-- [Adding a currency](#adding-a-currency)
-- [How currencies work](#how-currencies-work)
-- [Supported and unsupported features](#supported-and-unsupported-features)
-- [Multi-currency definitions](#multi-currency-definitions)
-- [FAQ](#faq)
-- [Related resources](#related-resources)
-
-</div>
 
 BigCommerce’s flexible Currency settings assist developers in building Multi-Currency storefronts that empower shoppers and merchants to do business in their currency of choice. Allowing customers to shop and check out in their native currency provides a more consistent and positive shopping experience, and maintaining price expectations throughout the shopping process encourages conversions for merchants.
 
