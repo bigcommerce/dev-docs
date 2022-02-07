@@ -5,11 +5,8 @@
 This tutorial demonstrates how to implement a custom checkout built with React on the Cornerstone theme. The checkout will utilize BigCommerce's Checkout SDK. This tutorial assumes [Cornerstone 3.4.0](https://github.com/bigcommerce/cornerstone/releases/tag/3.4.0) as a starting point.
 
 <!-- theme: danger -->
-
 > #### Checkout example not intended for production
 > The checkout example below is a good starting point; however it is **NOT intended for use in production**. Developers should test and make appropriate modifications before deploying.
-
-
 
 ### Prerequisites
 

@@ -9,7 +9,6 @@ Data attributes provide detailed data on the way shoppers interact with your sto
 Cornerstone versions 2.6.0+ will have data attributes already included in the theme.
 
 <!-- theme: danger -->
-
 > #### GAEE for Blueprint Themes
 > While you can implement data attributes with Blueprint themes, we do not currently have specific documentation on how to do this. The data attribute HTML structure, however, will be the same as it is in a Stencil theme.
 

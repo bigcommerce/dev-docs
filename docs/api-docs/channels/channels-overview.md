@@ -55,12 +55,8 @@ We enable this through our Channels API endpoints:
 ![Channels in Channel Manager](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-channel-overview.png "Channels in Channel Manager")
 
 <!-- theme: info -->
-<!-- theme: info -->
-
 > #### Note
->
 > - BigCommerce has control of which platforms and types are available to create. It is currently a manual process to add new platforms. A channel instance can be only 1 type; however, a channel app can register multiple different channels.
->
 > - For channel apps that are strategically approved ([select partners](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner)), the app appears as an option when adding a new channel. This starts the app install process.
 
 
@@ -72,9 +68,7 @@ Once installed, merchants manage channel apps via Channel Manager in the control
 ![Edit Channel Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-edit-settings.png "Edit Channel Settings")
 
 <!-- theme: info -->
- 
 > #### Note
->
 > Apps provided by partners who don't use the Channel API will only appear in the App Marketplace and **My Apps**.
 
 On the **View Products** page, merchants can list products on any installed channel that supports per-product listing capabilities.
@@ -88,11 +82,8 @@ Merchants can also list products from the product edit page.
 ![Manage Channel Assignment](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-all-assignments.png "Manage Channel Assignment")
 
 <!-- theme: info -->
- 
 > #### Note
->
 > Not all channel apps can or should support per product listing capabilities; determining if this functionality is appropriate and useful is up to the app developer.
-
 
 
 ## Types of channels

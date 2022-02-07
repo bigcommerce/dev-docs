@@ -60,13 +60,8 @@ We recommend that you use Lighthouse to focus on the following metrics for optim
 Largest Contentful Paint (LCP) is the metric that reports the time it takes to display the largest image on the screen. This metric is important because page speed ensures visitors receive the best performance and presentation of the site.
 
 <!-- theme: info -->
-
-**Good score:**
-The optimal LCP score is 2.5 seconds or faster. 
-
-</div>
-</div>
-</div>
+> #### Good score
+> The optimal LCP score is 2.5 seconds or faster. 
 
 To improve LCP:
 * Make images smaller or remove anything preventing a quick download.
@@ -78,13 +73,8 @@ To improve LCP:
 First Input Delay (FID) is the metric that measures the delay users experience when interacting with a page. It is the time it takes for the site to respond when a user clicks a link, selects a button, taps on the screen, etc.
 
 <!-- theme: info -->
-
-**Good score:**
-The optimal FID score is 100 milliseconds or less. 
-
-</div>
-</div>
-</div>
+> #### Good score
+> The optimal FID score is 100 milliseconds or less. 
 
 To improve FID:
 * Reduce the effect of third-party code.
@@ -100,13 +90,8 @@ A good TBT score is 300 milliseconds or less.
 Cumulative Layout Shift (CLS) is the metric that measures visual stability. This metric measures how often users experience unexpected layout shifts. A layout shift is when a visible element changes its position from one rendered frame to the next. For example, a layout shift can occur when a user views a page and a video moves on top of the home carousel. These unexpected movements can result in an unpleasant experience for the user.
 
 <!-- theme: info -->
-
-**Good score:**
-The optimal CLS score is 0.1 seconds or less. 
-
-</div>
-</div>
-</div>
+> #### Good score
+> The optimal CLS score is 0.1 seconds or less. 
 
 To improve CLS:
 * Add size attributes to elements.

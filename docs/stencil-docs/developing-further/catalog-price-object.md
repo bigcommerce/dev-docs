@@ -259,11 +259,8 @@ In this example:
 | `rrp_with_tax` | This property represents the `rrp_without_tax` value plus a 10% tax markup.|
 
 <!-- theme: warning -->
-
 > #### Tax display configurations
 > The same properties and values are returned for **Including tax** and **Including and excluding tax** display settings. These properties and values are not available for a control panel setting of **Excluding tax**.
-
-
 
 ### Sale price defined in control panel
 

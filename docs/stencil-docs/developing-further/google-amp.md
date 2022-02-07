@@ -1,7 +1,5 @@
 # Google AMP
 
- 
-
 Google AMP (Accelerated Mobile Pages) is an open-source project to improve page speed on mobile devices by using a specific framework for a page’s code. The improved performance on mobile devices provides a better browsing experience for shoppers and boosts ranking on Google search. To learn more about the Google AMP project, see [AMP Overview](https://www.ampproject.org/support/faqs/overview) on the Google AMP project site.
 
 ### Benefits of using Stencil with Google AMP
@@ -15,7 +13,6 @@ The article will walk you through enabling Google AMP pages in your theme.
 <!-- theme: info -->
 > #### Cornerstone
 > This example uses Cornerstone.
-
 
 
 ## Implementing AMP

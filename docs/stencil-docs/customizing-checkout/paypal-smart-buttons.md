@@ -1,6 +1,5 @@
 # PayPal Smart Buttons
 
- 
 
 PayPal Smart Buttons are available on Cornerstone versions 2.6.0+ for merchants who have **PayPal powered by Braintree** or **PayPal Express Checkout** enabled on their store.
 
@@ -53,9 +52,8 @@ lineNumbers: true
 ```
 
 <!-- theme: warning -->
-
 > #### Page Builder Customization
-> Adding the above keys to the <span class="fn">config.json</span> file will enable Smart Buttons on a Stencil theme, however, the merchant will **not** be able to customize button styles with Page Builder unless setting configurations are added to the <span class="fn">schema.json</span> file.
+> Adding the above keys to the `config.json` file will enable Smart Buttons on a Stencil theme, however, the merchant will **not** be able to customize button styles with Page Builder unless setting configurations are added to the `schema.json` file.
 
 
 
@@ -199,23 +197,14 @@ lineNumbers: true
             ]
 ```
 
-<!-- theme: danger  -->
-
-<!-- theme: error -->
-
-### Mutually Exclusive Options
+<!-- theme: danger -->
+> #### Mutually exclusive options
 > Some customization options are mutually exclusive, meaning when used in combination with other customization options, the smart button will completely fail to render on the page.
-
-All mutually exclusive options are tied to the layout setting `vertical.` If your layout setting is `vertical,` take note of the following customization **restrictions**:
-
-* If you have a layout setting of `vertical`, you **can not** have a button size of `small`.
-* If you have a layout setting of `vertical`, you **can not** customize the `branding` of the button.
-* If you have a layout setting of `vertical`, you **can not** customize the `tagline` of the button.
-* If you have a layout setting of `vertical`, you **can not** customize the `funding icons` settings.
-
-</div>
-</div>
-</div>
+> All mutually exclusive options are tied to the layout setting `vertical.` If your layout setting is `vertical,` take note of the following customization **restrictions**:
+> * If you have a layout setting of `vertical`, you **can not** have a button size of `small`.
+> * If you have a layout setting of `vertical`, you **can not** customize the `branding` of the button.
+> * If you have a layout setting of `vertical`, you **can not** customize the `tagline` of the button.
+> * If you have a layout setting of `vertical`, you **can not** customize the `funding icons` settings.
 
 ## Resources
 
