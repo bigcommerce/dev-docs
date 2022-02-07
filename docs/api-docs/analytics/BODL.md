@@ -1,32 +1,18 @@
-# Big Open Data Layer (BODL)
-
-<div class="otp" id="no-index">
-
-### On this page
-- [Overview](#overview)
-- [Pixel example snippets](#pixel-example-snippets)
-</div> 
+# Big Open Data Layer (BODL) 
 
 ## Overview
 The Big Open Data Layer (shortened as BODL, pronounced 'Bottle') is a standard used to obtain data points needed for driving storefront analytics and personalization. Having all BigCommerce and headless storefronts use this standard over time allows merchants to benefit from increased site speed and more consistent third-party analytics integrations.
 
 ## Pixel example snippets
-Below is a series of example snippets of code to build on when using BODL data for your integration.
+The following is a series of example snippets of code to build on when using BODL data for your integration.
 
 ### Initialize script
 This larger code snippet has a lot of built-in detection to identify where it is running within the environment; then, the code injects objects based on this detection.
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
   
- <!-- theme:  -->
+ <!-- theme: info -->
 
-The check for BODL is fetched once per page render instead of once for each analytics integration. If you want to make an alternate custom version of this data layer object with a unique schema, please use a unique object name. A unique object name ensures other apps depending on this default BODL schema do not break. We recommend using BODL_YOUR_APP_NAME as the object name so it's unique and easy to understand.
+>The check for BODL is fetched once per page render instead of once for each analytics integration. If you want to make an alternate custom version of this data layer object with a unique schema, please use a unique object name. A unique object name ensures other apps depending on this default BODL schema do not break. We recommend using `BODL_YOUR_APP_NAME` as the object name so it's unique and easy to understand.
 
-</div>
-</div>
-</div>
 
 ```javascript
 <!-- Sample Pixel Code Start: Initialization Script & Page Event -->
@@ -173,7 +159,7 @@ if (BODL.cartItemAdded) {
   ```
 
 ### Add to wishlist
-The following snippet is for tracking when users add an item to their wishlist. Note that this sends individual products specified by the 'added_product_id' and a commented section regarding category data. We do not track category data on the wishlist, but the snippet includes it for future-proofing.
+The following snippet is for tracking when users add an item to their wishlist. Note that this sends individual products specified by the `added_product_id` and a commented section regarding category data. We do not track category data on the wishlist, but the snippet includes it for future-proofing.
 
 ```javascript
 <!-- Sample Pixel Code Start: Add to Wishlist -->
