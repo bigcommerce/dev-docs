@@ -4091,7 +4091,13 @@ components:
           example: '0'
           type: string
         external_id:
-          description: 'ID of the order in another system. For example, the Amazon Order ID if this is an Amazon order.This field can be updated in a /POST, but using a /PUT to update the order will return a 400 error. The field ''external_id'' cannot be written to. Please remove it from your request before trying again. It can not be overwritten once set.'
+          description: 'The order ID in another system, such as the Amazon Order ID if this is an Amazon order. After setting it, you can not write to or update the `external_id`. You can update this field using a /POST request, but a /PUT request to update the order will return a 400 error.  Please remove it from your request before trying again.'
+          example: null
+          oneOf:
+            - type: string
+            - type: null
+        external_merchant_id:
+          description: 'The merchant ID represents an upstream order from an external system. It is the source of truth for orders. After setting it, you can not write to or update the `external_merchant_id`. For example, you can update the Facebook page ID in a /POST request, but a /PUT request to update the order will return a 400 error. Please remove it from your request before trying again.'
           example: null
           oneOf:
             - type: string
@@ -4533,7 +4539,7 @@ components:
             properties:
               id:
                 type: integer
-                description: Numeric ID of an option applied to the product from a list of options available to the product. This field has the same value as `product_option_id` when [retrieving products in an order](https://developer.bigcommerce.com/api-reference/store-management/orders/order-products/getallorderproducts).
+                description: 'Numeric ID of an option applied to the product from a list of options available to the product. This field has the same value as `product_option_id` when [retrieving products in an order](https://developer.bigcommerce.com/api-reference/store-management/orders/order-products/getallorderproducts).'
               value:
                 type: string
                 description: |-
