@@ -67,5 +67,6 @@ Accept: application/json
 
 ## Resources
 * [Building Apps Guide](/api-docs/getting-started/building-apps-bigcommerce/building-apps)
-* [Building Channel Apps](/api-docs/channels/building-channel-apps)
+* [Building Channel Apps](/api-docs/channels/guide/building-channel-apps)
+
 * [Extending Existing Apps with Channels Toolkit](/api-docs/channels/extending-existing-apps)
