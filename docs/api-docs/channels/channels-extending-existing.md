@@ -196,7 +196,7 @@ For a high-level overview and more information on Channels Toolkit, see [Channel
 ### Articles
 
 - [Channels Overview](/api-docs/channels/overview)
-- [Building Channel Apps](/api-docs/channels/building-channel-apps)
+- [Building Channel Apps](/api-docs/channels/guide/building-channel-apps)
 - [Becoming a Partner](/api-docs/partner/becoming-a-partner)
 - [Types of Apps](/api-docs/getting-started/building-apps-bigcommerce/types-of-apps)
 - [Authenticating BigCommerce's REST APIs](/api-docs/getting-started/authentication/rest-api-authentication)
