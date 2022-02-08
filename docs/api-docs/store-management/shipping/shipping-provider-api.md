@@ -63,7 +63,7 @@ When your app is complete, it will be listed in our carrier registry, so that yo
 
 ### Register your app
 
-We need your app ID to generate a carrier ID for your shipping service. To get your app ID, [create a draft app](https://developer.bigcommerce.com/api-docs/apps/guide/development#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Step 3: Technical tab](https://developer.bigcommerce.com/api-docs/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID. 
+We need your app ID to generate a carrier ID for your shipping service. To get your app ID, [create a draft app](/api-docs/apps/guide/development#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Step 3: Technical tab](/api-docs/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID. 
 
 ![App ID](https://s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224 "App ID")
 
@@ -539,11 +539,11 @@ No, you can only publish one app at a time. The others can be for use as testing
 
 ### Endpoints
 
-- [Shipping Providers](https://developer.bigcommerce.com/api-reference/providers/shipping-provider-api)
-- [Shipping Zones](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-zones)
-- [Shipping Methods](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-method)
-- [Shipping Carriers](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-carrier)
+- [Shipping Providers](/api-reference/providers/shipping-provider-api)
+- [Shipping Zones](/api-reference/store-management/shipping-api/shipping-zones)
+- [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method)
+- [Shipping Carriers](/api-reference/store-management/shipping-api/shipping-carrier)
 
 ### Webhooks
 
-- [Webhooks](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#shipment)
+- [Webhooks](/api-docs/store-management/webhooks/webhook-events#shipment)
