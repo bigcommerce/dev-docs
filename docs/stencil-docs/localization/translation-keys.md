@@ -108,7 +108,7 @@ lineNumbers: true
 
 ## Invoking a translation key
 
-Once keys and values are defined in the [JSON translation file](https://github.com/bigcommerce/cornerstone/tree/master/lang), you can invoke dynamic translation strings using the custom `{{lang}}` [Handlebars string helper](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers). 
+Once keys and values are defined in the [JSON translation file](https://github.com/bigcommerce/cornerstone/tree/master/lang), you can invoke dynamic translation strings using the custom `{{lang}}` [Handlebars string helper](/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers). 
 
 To invoke a defined translation key, follow this generic format:
 
@@ -285,5 +285,5 @@ Translation files for other languages would use a similar format to define key-v
 ### Additional resources
 
 * [Customizing a Theme - lang directory Video Demo](https://www.youtube.com/embed/ygiRGfSrmnA) (YouTube)
-* [Handlebars String Helpers](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers)
+* [Handlebars String Helpers](/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers)
 * [JSON translation file](https://github.com/bigcommerce/cornerstone/tree/master/lang) (BigCommerce GitHub)
