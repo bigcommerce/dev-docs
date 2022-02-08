@@ -75,7 +75,8 @@ These logs would provide more granular details on the event that took place and 
 ### Articles
 
 - [Channels Overview](/api-docs/channels/channels-overview)
-- [Channels Toolkit Reference](/api-docs/channels-toolkit-reference)
+- [Channels Toolkit Reference](/api-docs/channels/guide/channels-toolkit-reference)
+
 - [Channel App Best Practices](/api-docs/getting-started/best-practices)
 - [Becoming a Partner](/api-docs/partner/becoming-a-partner)
 - [Authenticating BigCommerce's REST APIs](/api-docs/getting-started/authentication/rest-api-authentication)
