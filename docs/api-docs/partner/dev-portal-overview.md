@@ -21,7 +21,7 @@ For instructions on how to use the Developer Portal to create an app, see [Manag
 * [Webhooks Overview](/api-docs/store-management/webhooks/overview)
 
 ### Tools
-* [BigDesign Developer Playground](/big-design/)
+* [BigDesign Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

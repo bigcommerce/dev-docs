@@ -19,7 +19,7 @@ All Partners:
 
 Select Partners:
 
-- Uses [Big Design](/big-design/).
+- Uses [Big Design](https://developer.bigcommerce.com/big-design).
 
 - Includes `config_meta.app.id` in the [create channel](/api-reference/cart-checkout/channels-listings-api/channels/createchannel) request.
 

@@ -693,7 +693,7 @@ Depending on which endpoint you call, we will render one of the following succes
 
 ## Designing the User Interface
 
-BigDesign is a collection of reusable React components, design guidelines, and UI patterns that can be used to build interfaces matching the BigCommerce control panel. It is available as an [npm package](https://www.npmjs.com/package/@bigcommerce/big-design), which can be installed as a dependency in third-party apps, and as an [open source repository on GitHub.](https://github.com/bigcommerce) BigDesign includes all the essential elements you need to construct a UI: buttons, forms, headings, and more. To get started using the components see our [BigDesign Playground](/big-design/).
+BigDesign is a collection of reusable React components, design guidelines, and UI patterns that can be used to build interfaces matching the BigCommerce control panel. It is available as an [npm package](https://www.npmjs.com/package/@bigcommerce/big-design), which can be installed as a dependency in third-party apps, and as an [open source repository on GitHub.](https://github.com/bigcommerce) BigDesign includes all the essential elements you need to construct a UI: buttons, forms, headings, and more. To get started using the components see our [BigDesign Playground](https://developer.bigcommerce.com/big-design).
 
 ### User Interface Constraints
 
@@ -756,7 +756,7 @@ For more details on including your app in the Marketplace, see [App Store Approv
 * [Ruby Hello World](https://github.com/bigcommerce/omniauth-bigcommerce) (BigCommerce GitHub)
 * [Python Hello World](https://github.com/bigcommerce/hello-world-app-python-flask) (BigCommerce GitHub)
 ### Related Articles
-* [Big Design Developer Playground](/big-design/)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Authentication](/api-docs/getting-started/authentication)
 * [Customer Login API](/api-docs/customers/customer-login-api)
 * [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements)

@@ -35,7 +35,7 @@ To be visible in Channel Manager once installed, apps must meet certain requirem
 
 ### Select partners
 
-- Update UI to use [BigDesign](/big-design/) and the general design patterns and user flows demonstrated in the sample app (shown in the screenshots below) with channel name, icon, and menu nav sections.
+- Update UI to use [BigDesign](https://developer.bigcommerce.com/big-design) and the general design patterns and user flows demonstrated in the sample app (shown in the screenshots below) with channel name, icon, and menu nav sections.
 
 - Include sections in the [Channel API](/api-reference/cart-checkout/channels-listings-api) request in the [app config object](#sample-configuration).
 

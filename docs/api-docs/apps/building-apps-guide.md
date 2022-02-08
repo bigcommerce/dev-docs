@@ -99,7 +99,7 @@ content
 * [Ruby Hello World](https://github.com/bigcommerce/omniauth-bigcommerce) (BigCommerce GitHub)
 * [Python Hello World](https://github.com/bigcommerce/hello-world-app-python-flask) (BigCommerce GitHub)
 ### Related Articles
-* [Big Design Developer Playground](/big-design/)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Authentication](/api-docs/getting-started/authentication)
 * [Customer Login API](/api-docs/customers/customer-login-api)
 * [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements)

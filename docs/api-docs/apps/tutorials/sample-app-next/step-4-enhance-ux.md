@@ -2,7 +2,7 @@
 
 
 
-[BigDesign](/big-design/) plays a pivotal part in the BigCommerce control panel and ecosystem. App developers are encouraged to use BigDesign to develop apps that have a native BigCommerce look and feel.
+[BigDesign](https://developer.bigcommerce.com/big-design) plays a pivotal part in the BigCommerce control panel and ecosystem. App developers are encouraged to use BigDesign to develop apps that have a native BigCommerce look and feel.
 
 This step focuses on expanding functionality and integrating advanced design elements available as part of the BigDesign library.
 
@@ -108,7 +108,7 @@ import { useProductList } from '../../lib/hooks';
 </div>
 </div>
 
-4. Add the `Products` functional component. The `Products` component uses the BigDesign's [StatefulTable](/big-design/statefulTable), a wrapper of the [Table](/big-design/table) component that supports pagination, row selection, and sorting.
+4. Add the `Products` functional component. The `Products` component uses the BigDesign's [StatefulTable](https://developer.bigcommerce.com/big-design/statefulTable), a wrapper of the [Table](https://developer.bigcommerce.com/big-design/table) component that supports pagination, row selection, and sorting.
 
 ```js
 const Products = () => {
@@ -210,9 +210,9 @@ export default InnerHeader;
 
 [View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-big-design/components/innerHeader.tsx)
 
-The `InnerHeader` component uses BigDesign's `Button` component with the `variant` property set to `subtle`. By setting the variant type to `subtle`, you remove the button's border and simultaneously add a hover effect. To learn more about the BigDesign's `Button` component, see [Buttons Design Guidelines](/big-design/button).
+The `InnerHeader` component uses BigDesign's `Button` component with the `variant` property set to `subtle`. By setting the variant type to `subtle`, you remove the button's border and simultaneously add a hover effect. To learn more about the BigDesign's `Button` component, see [Buttons Design Guidelines](https://developer.bigcommerce.com/big-design/button).
 
-The `ArrowBackIcon` component is part of the BigDesign's Icons package. You can modify the look of the icon by setting its color and size. To learn more about BigDesign's Icons, see [Icons](/big-design/icons).
+The `ArrowBackIcon` component is part of the BigDesign's Icons package. You can modify the look of the icon by setting its color and size. To learn more about BigDesign's Icons, see [Icons](https://developer.bigcommerce.com/big-design/icons).
 
 ## Update the Header component
 
@@ -353,7 +353,7 @@ export default ErrorMessage;
 
 ## Create the Loading component
 
-The `Loading` component makes use of the BigDesign's indeterminant ProgressCircle indicator. The indeterminant [ProgressCircle](/big-design/progress-circle) represents an unknown amount of time for a task to complete. To learn more about BigDesign's progress indicators, see [Progress Indicator Design Guidelines](https://design.bigcommerce.com/components/progress-indicators).
+The `Loading` component makes use of the BigDesign's indeterminant ProgressCircle indicator. The indeterminant [ProgressCircle](https://developer.bigcommerce.com/big-design/progress-circle) represents an unknown amount of time for a task to complete. To learn more about BigDesign's progress indicators, see [Progress Indicator Design Guidelines](https://design.bigcommerce.com/components/progress-indicators).
 
 In the `components` folder, create a `loading.tsx` file.
 
@@ -717,7 +717,7 @@ import { useSession } from '../context/session';
 import { useProducts } from '../lib/hooks';
 ```
 
-3. In the [Flex](/big-design/flex) component, extend the styles of the [Box](/big-design/box) component by specifying the `border`, `borderRadius`, `marginRight`, and `padding` attributes. Replace the `Text` component with `H4` and `H1` components. To learn more about BigDesign's typographic palette, see [Typography](https://design.bigcommerce.com/components/typography). 
+3. In the [Flex](https://developer.bigcommerce.com/big-design/flex) component, extend the styles of the [Box](https://developer.bigcommerce.com/big-design/box) component by specifying the `border`, `borderRadius`, `marginRight`, and `padding` attributes. Replace the `Text` component with `H4` and `H1` components. To learn more about BigDesign's typographic palette, see [Typography](https://design.bigcommerce.com/components/typography). 
 
 ```js
 const Index = ({ context }: { context: string }) => {

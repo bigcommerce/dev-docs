@@ -40,7 +40,7 @@ The BigCommerce team has developed a collection of tools to help you design your
 ### Developer playground
 The BigDesign Playground demonstrates the visual style and behavior of each BigDesign component. Each component has props that you can pass to the components for further configuration.
 
-[Go to the BigDesign Developer Playground](/big-design/).
+[Go to the BigDesign Developer Playground](https://developer.bigcommerce.com/big-design).
 
 ### Example app
 We've built a channels app that serves as a reference implementation for BigDesign React Components. You can install it on your store [here](https://apps.bigcommerce.com/details/18212) (apps.bigcommerce.com) to view the components.
@@ -97,7 +97,7 @@ To load inside the control panel iFrame, your app must do the following:
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
-* [Big Design Developer Playground](/big-design/)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

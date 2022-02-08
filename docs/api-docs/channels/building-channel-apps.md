@@ -42,7 +42,7 @@ BigCommerce provides webhooks for third-party developers, enabling them to respo
 
 ### UI components
 
-BigCommerce provides publicly available UI components and design guidelines to third parties via [BigDesign](/big-design/). BigDesign enables developers to create apps embedded directly within the BigCommerce control panel, as the UX and UI look and feel native to BigCommerce.
+BigCommerce provides publicly available UI components and design guidelines to third parties via [BigDesign](https://developer.bigcommerce.com/big-design). BigDesign enables developers to create apps embedded directly within the BigCommerce control panel, as the UX and UI look and feel native to BigCommerce.
 
 These components can dramatically accelerate the development process by providing dynamic, responsive, and accessible UI components that are fully functional. The UI components you need to build your channel app will vary depending on the app's type and functionality.
 
@@ -326,7 +326,7 @@ This functionality is not supported yet, so notifications will likely need to be
 
 ## Developing the UI
 
-Channel apps are embedded in the BigCommerce control panel. As such, they need to look and feel native to the rest of the BigCommerce user interface. To assist developers in the rapid creation of frontends that meet required design standards, we have developed a library of publicly available React components. For more information, see the [BigDesign Developer Playground](/big-design/).
+Channel apps are embedded in the BigCommerce control panel. As such, they need to look and feel native to the rest of the BigCommerce user interface. To assist developers in the rapid creation of frontends that meet required design standards, we have developed a library of publicly available React components. For more information, see the [BigDesign Developer Playground](https://developer.bigcommerce.com/big-design).
 
 ## Next steps
 
@@ -341,6 +341,6 @@ Channel apps are embedded in the BigCommerce control panel. As such, they need t
 - [Developer's Guide to Building Headless Storefronts](/api-docs/storefronts/developers-guide-headless)
 - [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements)
 - [Channel app approval requirements](/api-docs/channels/guide/channel-app-requirements)
-- [BigDesign Component Library](/big-design/?path=/story/badge--overview)
+- [BigDesign Component Library](https://developer.bigcommerce.com/big-design/?path=/story/badge--overview)
 - [Extending Existing Apps with Channels Toolkit](/api-docs/channels/tutorials/extend-existing-apps)
 - [Building Storefront Channels](/api-docs/channels/tutorials/storefront)

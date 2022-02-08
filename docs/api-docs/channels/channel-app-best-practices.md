@@ -82,7 +82,7 @@ These logs would provide more granular details on the event that took place and 
 - [Types of Apps](/api-docs/getting-started/building-apps-bigcommerce/types-of-apps)
 - [Building an App](/api-docs/getting-started/building-apps-bigcommerce/building-apps)
 - [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements)
-- [BigDesign Component Library](/big-design/?path=/story/badge--overview)
+- [BigDesign Component Library](https://developer.bigcommerce.com/big-design/?path=/story/badge--overview)
 - [Sell Everywhere with Channel Manager](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager)
 
 ### Tools

@@ -51,11 +51,11 @@ The following endpoints provide extended functionality to channels.
 
 ## UI components
 
-To assist in the rapid development of apps that match the native UI and UX of the control panel, BigCommerce provides UI components and design guidelines to developers via [BigDesign](/big-design/) -- BigCommerce’s library of React components.
+To assist in the rapid development of apps that match the native UI and UX of the control panel, BigCommerce provides UI components and design guidelines to developers via [BigDesign](https://developer.bigcommerce.com/big-design) -- BigCommerce’s library of React components.
 
 | Link | Description |
 |-|-|
-|[BigDesign Developer Playground](/big-design/)| BigDesign react component documentation and playground |
+|[BigDesign Developer Playground](https://developer.bigcommerce.com/big-design)| BigDesign react component documentation and playground |
 |[CodeSandbox Example](https://codesandbox.io/s/github/bigcommerce/big-design/tree/%40bigcommerce/examples%400.6.0/packages/examples)| CodeSandbox app show-casing BigDesign components|
 |[Big Design Repo](https://github.com/bigcommerce/big-design)|GitHub repository for BigDesign components|
 |[Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1)|Figma UI kit for BigDesign components|
@@ -64,26 +64,26 @@ To assist in the rapid development of apps that match the native UI and UX of th
 
 The following UI components are required for channels.
 
-- [Typography](/big-design/typography)
-- [Tabs](/big-design/tabs)
-- [Panel](/big-design/panel)
-- [Link](/big-design/link)
-- [Icons](/big-design/icons)
-- [Button](/big-design/button)
-- [Progress Circle](/big-design/progress-circle)
-- [Badge](/big-design/badge)
-- [Dropdown](/big-design/dropdown)
-- [Table](/big-design/table)
-- [Box](/big-design/box)
+- [Typography](https://developer.bigcommerce.com/big-design/typography)
+- [Tabs](https://developer.bigcommerce.com/big-design/tabs)
+- [Panel](https://developer.bigcommerce.com/big-design/panel)
+- [Link](https://developer.bigcommerce.com/big-design/link)
+- [Icons](https://developer.bigcommerce.com/big-design/icons)
+- [Button](https://developer.bigcommerce.com/big-design/button)
+- [Progress Circle](https://developer.bigcommerce.com/big-design/progress-circle)
+- [Badge](https://developer.bigcommerce.com/big-design/badge)
+- [Dropdown](https://developer.bigcommerce.com/big-design/dropdown)
+- [Table](https://developer.bigcommerce.com/big-design/table)
+- [Box](https://developer.bigcommerce.com/big-design/box)
 
 ### Recommended UI components
 
 The following UI components are highly recommended for channels.
 
-- [Alerts](/big-design/alert)
-- [Form](/big-design/form)
-- [Input](/big-design/input)
-- [Tooltip](/big-design/tooltip)
+- [Alerts](https://developer.bigcommerce.com/big-design/alert)
+- [Form](https://developer.bigcommerce.com/big-design/form)
+- [Input](https://developer.bigcommerce.com/big-design/input)
+- [Tooltip](https://developer.bigcommerce.com/big-design/tooltip)
 
 ## Documentation
 
