@@ -90,7 +90,7 @@ The following UI components are highly recommended for channels.
 | Link | Description |
 |-|-|
 |[Channels Overview](/api-docs/channels/channels-overview)|High-level overview of channels and developing channels apps on BigCommerce|
-|[Building Channel Apps](/api-docs/channels/building-channel-apps)|In-depth technical guide to building a channel app|
+|[Building Channel Apps](/api-docs/channels/guide/building-channel-apps)|In-depth technical guide to building a channel app|
 |[Extending Sales Channel Apps with Channels Toolkit](/api-docs/channels/guide/extending-existing-apps)|Tutorial on intregrating Channels Toolkit into existing apps|
 |[Channel App Best Practices](/api-docs/channels/guide/channel-app-best-practices)|List of best practices for channel apps|
 |[Building a Storefront Channel](/api-docs/channels/tutorials/storefront)|Tutorial on creating a channel app for a headless storefront|
