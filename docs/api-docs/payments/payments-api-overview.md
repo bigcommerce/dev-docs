@@ -597,6 +597,6 @@ Payment gateways that use 3D Secure meet the EU's Strong Customer Authentication
 * [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
 
 ### Webhooks
-- [Cart](/api-docs/getting-started/webhooks/webhook-events#webhook-events_cart)
+- [Cart](/api-docs/store-management/webhooks/webhook-events#cart)
 - [Customer Payment Instrument](/api-docs/getting-started/webhooks/webhook-events#webhook-events_customer)
 - [Orders](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders)
