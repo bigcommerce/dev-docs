@@ -1,7 +1,5 @@
 # Google Analytics Enhanced ECommerce
 
-
-
 Google Analytics is a free analytics tool that helps you track visitors and conversions on your store. BigCommerce has updated the Google Analytics integration to support Enhanced Ecommerce.  As apart of the Enhanced ECommerce feature, Stencil themes now support data attributes.
 
 Data attributes provide detailed data on the way shoppers interact with your store’s products. However, data attributes are not only limited to only product data collection. Data attributes can also track your store’s header and footer for promotions and can collect data on whether those promotions were viewed and/or clicked. BigCommerce’s data attributes are powered by [Segment](https://segment.com/docs/destinations/google-analytics/) and [Platform.js](https://github.com/segment-integrations/analytics.js-integration-google-analytics/blob/master/lib/index.js), and will send your store’s product data through to Google Analytics.
