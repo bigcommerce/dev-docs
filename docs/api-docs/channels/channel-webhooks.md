@@ -80,4 +80,5 @@ To learn more about creating webhooks, see [Webhooks Tutorial](/api-docs/store-m
 
 * [Webhooks Tutorial](/api-docs/store-management/webhooks/tutorial)
 
-* [Webhooks Events](/api-docs/getting-started/webhooks/webhook-events)
+* [Webhooks Events](/api-docs/store-management/webhooks/webhook-events)
+
