@@ -89,7 +89,7 @@ Additionally, changing the default currency will enable the newly assigned curre
 
 <a id="how-currencies-work"></a>
 
-For details on how currencies are surfaced throughout BigCommerce APIs, user interfaces, and storefront components, see [How Currencies Works](/api-docs/catalog/currencies/how-currencies-work)
+For details on how currencies are surfaced throughout BigCommerce APIs, user interfaces, and storefront components, see [How Currencies Work](/api-docs/multi-currency/guide/how-currencies-work)
 
 ## Supported and unsupported features
 
