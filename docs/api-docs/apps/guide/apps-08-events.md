@@ -8,7 +8,8 @@ Your app may need to be notified when specific events occur on a BigCommerce sto
 ## Available webhooks
 
 The following resources have webhooks events available to apps:
-* [Carts](/api-docs/getting-started/webhooks/webhook-events#cart)
+* [Carts](/api-docs/store-management/webhooks/webhook-events#cart)
+
 * [Cart Line Items](/api-docs/store-management/webhooks/webhook-events#cart-line-item)
 
 * [Categories](/api-docs/store-management/webhooks/webhook-events#category)
