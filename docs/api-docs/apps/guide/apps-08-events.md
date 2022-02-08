@@ -15,7 +15,8 @@ The following resources have webhooks events available to apps:
 
 * [Customers](/api-docs/store-management/webhooks/webhook-events#customer)
 
-* [Orders](/api-docs/getting-started/webhooks/webhook-events#orders)
+* [Orders](/api-docs/store-management/webhooks/webhook-events#orders)
+
 * [Products](/api-docs/getting-started/webhooks/webhook-events#products)
 * [Shipments](/api-docs/getting-started/webhooks/webhook-events#shipment)
 * [SKUs](/api-docs/getting-started/webhooks/webhook-events#sku)
