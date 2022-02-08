@@ -182,7 +182,7 @@ If you're not already a partner and familiar with the BigCommerce APIs and tools
 
 ### Building the app
 
-Once you're ready to get started developing the channel app, see [Building Channel Apps](/api-docs/channels/building-channel-apps) for a comprehensive guide.
+Once you're ready to get started developing the channel app, see [Building Channel Apps](/api-docs/channels/guide/building-channel-apps) for a comprehensive guide.
 
 ## Related resources
 
