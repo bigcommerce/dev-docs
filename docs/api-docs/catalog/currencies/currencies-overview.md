@@ -152,7 +152,7 @@ Please reach out to Stripe for more information on setting up the account.
 ## Related resources
 
 ### Articles
-- [How Currencies Works](/api-docs/catalog/currencies/how-currencies-work)
+- [How Currencies Work](/api-docs/multi-currency/guide/how-currencies-work)
 - [Using Price Lists](https://support.bigcommerce.com/s/article/Price-Lists)
 - [Managing Currencies](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta)
 - [Tax](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#intro1) 
