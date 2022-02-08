@@ -14,7 +14,7 @@ The [Developer blog](https://medium.com/bigcommerce-developer-blog) provides pro
 
 ## Developer library
 
-The [Developer library](/dev-library/) provides samples, tools, and guides to help jump-start the perfect ecommerce experience. Find examples and starters to help you begin working on BigCommerce.
+The [Developer library](https://developer.bigcommerce.com/dev-library) provides samples, tools, and guides to help jump-start the perfect ecommerce experience. Find examples and starters to help you begin working on BigCommerce.
 
 ## Developer Slack
 
