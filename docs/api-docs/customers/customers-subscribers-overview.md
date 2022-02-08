@@ -230,4 +230,5 @@ Password validation is only available on the V2 Customers API at this time. We r
 - [Subscribers API](/api-reference/store-management/subscribers)
 
 ### Webhooks
-- [Customer](/api-docs/store-management/webhooks/events#customer)
+- [Customer](/api-docs/store-management/webhooks/webhook-events#customer)
+
