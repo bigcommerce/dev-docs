@@ -16,7 +16,7 @@ Some use cases for the Shipping Provider API are:
 ### Prerequisites
 
 * Required [OAuth](/api-docs/getting-started/authentication#authentication_oauth-scopes) scopes: `Information and Settings`
-* BigCommerce [single-click app](https://developer.bigcommerce.com/api-docs/apps/guide/types#single-click)
+* BigCommerce [single-click app](/api-docs/apps/guide/types#single-click)
 
 ## Sign-up
 
@@ -35,7 +35,7 @@ Please include:
 - [Your service URLs](#your-service-urls) 
 
 
-To get your app ID, create an app in [Developer Tools](https://devtools.bigcommerce.com/), and fill out the information on [Step 3 Technical](https://developer.bigcommerce.com/api-docs/apps/guide/publishing#add-technical-information). In the URL, the app will have a unique ID. Send the unique ID in exchange for a carrier ID to test the app.
+To get your app ID, create an app in [Developer Tools](https://devtools.bigcommerce.com/), and fill out the information on [Step 3 Technical](/api-docs/apps/guide/publishing#add-technical-information). In the URL, the app will have a unique ID. Send the unique ID in exchange for a carrier ID to test the app.
 
 ![#### App ID](//s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224 "#### App ID")
 
@@ -57,7 +57,7 @@ You should create a URL to provide shipping quotes on your API and check the ava
 
 ### Requests and responses
 
-BigCommerce will send and receive data using JSON. The request for rates will always be formatted using the [Base Rate Request Model](https://developer.bigcommerce.com/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). The response for rates should be formatted using the [Carrier Quote Object](https://developer.bigcommerce.com/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). Format the request to check for merchant app credentials as Check Connection Options request payload, and the response should be formatted using the Check Connection Options response payload.
+BigCommerce will send and receive data using JSON. The request for rates will always be formatted using the [Base Rate Request Model](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). The response for rates should be formatted using the [Carrier Quote Object](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). Format the request to check for merchant app credentials as Check Connection Options request payload, and the response should be formatted using the Check Connection Options response payload.
 
 ### Error handling
 
@@ -79,11 +79,11 @@ Example:
 
 ## Developing the app
 
-To use the Shipping Provider API to provide shipping quotes, shipping providers must build a BigCommerce [single-click app](https://developer.bigcommerce.com/api-docs/apps/guide/types#single-click). 
+To use the Shipping Provider API to provide shipping quotes, shipping providers must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click). 
 
 Using a BigCommerce app enables shipping providers to promote their solution in the BigCommerce apps marketplace, request merchant authorization of API scopes during app install, and enable configuration of shipping provider settings and/or order fulfilment via an iFrame in the BigCommerce control panel.
 
-For more information, see our [Introduction to Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro).
+For more information, see our [Introduction to Building Apps](/api-docs/apps/guide/intro).
 
 ## Control Panel installation workflow
 
@@ -429,12 +429,12 @@ To pass metadata in a rate request, the metafields must meet the following requi
 - `permission_set` on the metafield must be `read` or `write`
 - `namespace` on the metafield must match this format: `shipping_carrier_carrier_id` (example: `shipping_carrier_72`)
 
-The carrier registration process described in the [Sign-up Section](https://developer.bigcommerce.com/api-docs/providers/shipping#sign-up) provides the `carrier_id`.
+The carrier registration process described in the [Sign-up Section](/api-docs/providers/shipping#sign-up) provides the `carrier_id`.
 
 For more information on product and variant metafields, see:
 
-- [API Reference > Store Management > Catalog > Product Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields)
-- [API Reference > Store Management > Catalog > Product Variant Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields)
+- [API Reference > Store Management > Catalog > Product Metafields](/api-reference/catalog/catalog-api/product-metafields)
+- [API Reference > Store Management > Catalog > Product Variant Metafields](/api-reference/catalog/catalog-api/product-variants-metafields)
 
 ## Submitting the app
 
@@ -499,7 +499,7 @@ No, you can only publish one app at a time. The others can be for use as testing
 
 ### Articles
 
-- [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
+- [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements)
 
 ### Endpoints
 

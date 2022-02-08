@@ -1,6 +1,6 @@
 # Introduction to Building Apps
 
-Using BigCommerce's powerful APIs, SDKs, and toolkits, developers can build apps that are installable on BigCommerce stores. Once approved, apps can be sold (or made available free of charge) to all BigCommerce merchants on the [Apps Marketplace](https://www.bigcommerce.com/apps). This is the first article in a comprehensive developer's guide to building BigCommerce apps. It provides a brief, high-level introduction for developers new to the platform. If you already have experience developing for BigCommerce, feel free to [skip ahead](#next-steps) or check out the [quick start tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start).
+Using BigCommerce's powerful APIs, SDKs, and toolkits, developers can build apps that are installable on BigCommerce stores. Once approved, apps can be sold (or made available free of charge) to all BigCommerce merchants on the [Apps Marketplace](https://www.bigcommerce.com/apps). This is the first article in a comprehensive developer's guide to building BigCommerce apps. It provides a brief, high-level introduction for developers new to the platform. If you already have experience developing for BigCommerce, feel free to [skip ahead](#next-steps) or check out the [quick start tutorial](/api-docs/apps/quick-start).
 
 
 ## About BigCommerce apps
@@ -26,33 +26,33 @@ When a merchant launches an app, BigCommerce makes a request to the app's `/load
 What can developers do with BigCommerce apps?
 
 ### Integrate with business systems
-Use [BigCommerce APIs](https://developer.bigcommerce.com/api-reference) to integrate stores with business systems such as the following:
+Use [BigCommerce APIs](/api-reference) to integrate stores with business systems such as the following:
 * [ERP systems](https://www.bigcommerce.com/apps/erp/)
 * [Order management platforms](https://www.bigcommerce.com/apps/catalog-order-management/)
 * [Accounting software](https://www.bigcommerce.com/apps/accounting-tax/)
 * [Shipping and Fulfillment services](https://www.bigcommerce.com/apps/shipping-fulfillment/)
 
-[Learn more about BigCommerce's APIs](https://developer.bigcommerce.com/api-reference).
+[Learn more about BigCommerce's APIs](/api-reference).
 
 
 ### Connect to sales channels
-List products on external [sales channels](https://www.bigcommerce.com/apps/sales-channels/) with [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference).
+List products on external [sales channels](https://www.bigcommerce.com/apps/sales-channels/) with [Channels Toolkit](/api-docs/channels/channels-toolkit-reference).
 
-[Learn more about connecting apps to sales channels.](https://developer.bigcommerce.com/api-docs/channels/overview).
+[Learn more about connecting apps to sales channels.](/api-docs/channels/overview).
 
 ### Add and manage scripts
-Create and manage scripts with [Scripts API](https://developer.bigcommerce.com/api-reference/store-management/scripts) and [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
+Create and manage scripts with [Scripts API](/api-reference/store-management/scripts) and [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
 
-[Learn more about creating scripts](https://developer.bigcommerce.com/api-docs/storefront/scripts-overview).
+[Learn more about creating scripts](/api-docs/storefront/scripts-overview).
 
 ### Create custom widgets
 Create [widgets](https://support.bigcommerce.com/s/article/Page-Builder#builder) for merchants to install and configure.
 
-[Learn more about creating widgets](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview).
+[Learn more about creating widgets](/api-docs/storefront/widgets/widgets-overview).
 
 ## Getting started
 Here's how to get started with BigCommerce development:
-1. [Create a BigCommerce sandbox store](https://developer.bigcommerce.com/api-docs/partner/getting-started/create-a-sandbox-store).
+1. [Create a BigCommerce sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store).
 
 2. [Apply to be a Partner](https://www.bigcommerce.com/partners) to get paid for your apps.
 
@@ -63,9 +63,9 @@ Here's how to get started with BigCommerce development:
 
 
 ## Next steps
-* [Decide which type of app to build](https://developer.bigcommerce.com/api-docs/apps/guide/types)
+* [Decide which type of app to build](/api-docs/apps/guide/types)
 
-* [Start building apps with Node, React, Next.js, and BigDesign](https://developer.bigcommerce.com/api-docs/apps/quick-start)
+* [Start building apps with Node, React, Next.js, and BigDesign](/api-docs/apps/quick-start)
 
 
 ## Resources
@@ -84,7 +84,7 @@ Here's how to get started with BigCommerce development:
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [Big Design Developer Playground](/big-design/)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

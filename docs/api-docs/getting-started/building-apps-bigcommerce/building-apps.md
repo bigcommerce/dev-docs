@@ -22,7 +22,7 @@ API requests are authenticated by the following HTTP headers:
 * `X-Auth-Client` -- The Client ID of the requesting app.
 * `X-Auth-Token` -- Access token authorizing an app to access store data on behalf of a user.
 
-In addition, while not all resources require the Accept and Content-Type headers, many do. To ensure that your calls succeed, always include these headers. For more details on request headers and their accepted values, see [Request Headers](https://developer.bigcommerce.com/api-docs/getting-started/about-our-api#request-headers).
+In addition, while not all resources require the Accept and Content-Type headers, many do. To ensure that your calls succeed, always include these headers. For more details on request headers and their accepted values, see [Request Headers](/api-docs/getting-started/about-our-api#request-headers).
 
 ## Managing Users Session Timeouts
 
@@ -163,8 +163,8 @@ Include values for each of the following parameters.
 
 | Parameter | Description |
 |-|-|
-| client_id | The Client ID for your app, obtained during [registration](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_client-id-secret). |
-| client_secret | The Client Secret for your app, obtained during [registration](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_client-id-secret). |
+| client_id | The Client ID for your app, obtained during [registration](/api-docs/getting-started/authentication#authentication_client-id-secret). |
+| client_secret | The Client Secret for your app, obtained during [registration](/api-docs/getting-started/authentication#authentication_client-id-secret). |
 | code | Temporary access code received in the [GET request](/api-docs/getting-started/building-apps-bigcommerce/building-apps#receiving-the-get-request) discussed above. |
 | scope | List of OAuth scopes received in the [GET request](/api-docs/getting-started/building-apps-bigcommerce/building-apps#receiving-the-get-request) discussed above. |
 | grant_type | Always use the following: authorization_code. |
@@ -693,7 +693,7 @@ Depending on which endpoint you call, we will render one of the following succes
 
 ## Designing the User Interface
 
-BigDesign is a collection of reusable React components, design guidelines, and UI patterns that can be used to build interfaces matching the BigCommerce control panel. It is available as an [npm package](https://www.npmjs.com/package/@bigcommerce/big-design), which can be installed as a dependency in third-party apps, and as an [open source repository on GitHub.](https://github.com/bigcommerce) BigDesign includes all the essential elements you need to construct a UI: buttons, forms, headings, and more. To get started using the components see our [BigDesign Playground](https://developer.bigcommerce.com/big-design/).
+BigDesign is a collection of reusable React components, design guidelines, and UI patterns that can be used to build interfaces matching the BigCommerce control panel. It is available as an [npm package](https://www.npmjs.com/package/@bigcommerce/big-design), which can be installed as a dependency in third-party apps, and as an [open source repository on GitHub.](https://github.com/bigcommerce) BigDesign includes all the essential elements you need to construct a UI: buttons, forms, headings, and more. To get started using the components see our [BigDesign Playground](/big-design/).
 
 ### User Interface Constraints
 
@@ -739,14 +739,14 @@ Therefore, you can maximize performance of your app (in terms of latency to the 
 ## FAQ
 
 ### How can I make API calls?
-We have built several [Hello World](https://developer.bigcommerce.com/tools-resources) apps to get you started quickly. You can use these apps as a starting point or an example for building a Single-click app.
+We have built several [Hello World](/tools-resources) apps to get you started quickly. You can use these apps as a starting point or an example for building a Single-click app.
 
-If you'd like to make test API requests without the overhead of installing a draft app, you can generate [API Credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_getting-api-credentials) by creating an API Account in your store's control panel.
+If you'd like to make test API requests without the overhead of installing a draft app, you can generate [API Credentials](/api-docs/getting-started/authentication#authentication_getting-api-credentials) by creating an API Account in your store's control panel.
 
 ### How can I sell my app?
 The first step to listing an app in the BigCommerce App Marketplace is to apply to the BigCommerce [partner program](https://www.bigcommerce.com/partners/).
 
-For more details on including your app in the Marketplace, see [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements).
+For more details on including your app in the Marketplace, see [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements).
 
 ## Resources
 
@@ -756,10 +756,10 @@ For more details on including your app in the Marketplace, see [App Store Approv
 * [Ruby Hello World](https://github.com/bigcommerce/omniauth-bigcommerce) (BigCommerce GitHub)
 * [Python Hello World](https://github.com/bigcommerce/hello-world-app-python-flask) (BigCommerce GitHub)
 ### Related Articles
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
-* [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
-* [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
-* [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
+* [Big Design Developer Playground](/big-design/)
+* [Authentication](/api-docs/getting-started/authentication)
+* [Customer Login API](/api-docs/customers/customer-login-api)
+* [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements)
 * [Store Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) (Knowledge Base)
 * [Supported Browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers) (Knowledge Base)
 * [BigCommerce Partners](https://www.bigcommerce.com/partners/) (BigCommerce)

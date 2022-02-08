@@ -7,8 +7,8 @@ In this tutorial, we'll create a Node.js Express app that handless webhook callb
 
 ### Prerequisites
 
-- [API Access Token](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication) with [scope](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) set to **Information & Settings** read-only and **Products** read-only.
-- [Webhooks Overview](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview)
+- [API Access Token](/api-docs/getting-started/authentication/rest-api-authentication) with [scope](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) set to **Information & Settings** read-only and **Products** read-only.
+- [Webhooks Overview](/api-docs/store-management/webhooks/overview)
 - Familiarity with working in the terminal
 - Familiarity working with `node` and `npm`
 ## Create an Express app
@@ -91,7 +91,7 @@ Navigate to `http://localhost:4040/` in your browser. You should see the ngrok w
 
 ## Create a webhook
 
-Now, we'll create a webhook that subscribes to the `store/product/updated` [webhook event](https://developer.bigcommerce.com/api-docs/store-management/webhooks/events). To do so, send a `POST` request to `/stores/{{STORE_HASH}}/v3/hooks`.
+Now, we'll create a webhook that subscribes to the `store/product/updated` [webhook event](/api-docs/store-management/webhooks/events). To do so, send a `POST` request to `/stores/{{STORE_HASH}}/v3/hooks`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
@@ -105,7 +105,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/webhooks/webhooks/createwebhooks#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/webhooks/webhooks/createwebhooks#requestrunner)
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -195,6 +195,6 @@ If you are having trouble getting ngrok started, try setting the PATH.
     - [What are PATH and other environment variables, and how can I set or use them?](https://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them)
 
 ## Resources
-* [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/about-webhooks)
-* [Webhook Events](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events)
-* [Webhooks Reference](https://developer.bigcommerce.com/api-reference/webhooks)
+* [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
+* [Webhook Events](/api-docs/store-management/webhooks/webhook-events)
+* [Webhooks Reference](/api-reference/webhooks)

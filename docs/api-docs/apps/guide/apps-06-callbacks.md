@@ -133,7 +133,7 @@ After decoding and verifying the `signed_playload`, parse the JSON string into a
 | `store_hash` | str | unique identified for store used in API requests |
 | `timestamp` | float | Unix time when callback generated|
 
-Use the data contained in the payload object to identify the store and user. What your app should do with this information is dependent on whether [**Multiple Users**](https://developer.bigcommerce.com/api-docs/apps/guide/users) is enabled in the [Developer Portal](https://devtools.bigcommerce.com/). Refer to the table below for instructions.
+Use the data contained in the payload object to identify the store and user. What your app should do with this information is dependent on whether [**Multiple Users**](/api-docs/apps/guide/users) is enabled in the [Developer Portal](https://devtools.bigcommerce.com/). Refer to the table below for instructions.
 
 | Callback | Multiple Users Enabled | Multiple Users Not Enabled |
 |-|-|-|
@@ -206,7 +206,7 @@ The following BigCommerce API clients expose helper methods for verifying the `s
   * Verifies `signed_payload`
 
 ## Next steps
-* [Support multiple users](https://developer.bigcommerce.com/api-docs/apps/guide/users)
+* [Support multiple users](/api-docs/apps/guide/users)
 
 ## Resources
 
@@ -224,7 +224,7 @@ The following BigCommerce API clients expose helper methods for verifying the `s
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [Big Design Developer Playground](/big-design/)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

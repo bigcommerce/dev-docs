@@ -29,22 +29,22 @@ Don't reference competitor platforms in the app's listing information or dashboa
 * Apps must work as intended and cannot conflict with BigCommerce functionality.
 * Apps must use V3 endpoints in favor of V2 endpoints when feature parity exists.
 * Apps must serve all callback URLs over HTTPS.
-* Apps in the Marketplace must be[ multi-user enabled](https://developer.bigcommerce.com/api-docs/apps/guide/users).
+* Apps in the Marketplace must be[ multi-user enabled](/api-docs/apps/guide/users).
 * Apps that process transactions or handle credit card data must pass a PCI Compliance review by BigCommerce's security team. New payment gateway app submissions may not be accepted for Marketplace review.
 * Apps that access the Checkout Content scope will also be subject to a security assessment by BigCommerce's security team.
-* Apps that modify the checkout experience must use the BigCommerce [Checkout SDK](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk).
-* Apps that add another marketplace or sales channel to a store should make use of the [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/guide/building-channel-apps) and follow [Channel App Requirements](https://developer.bigcommerce.com/api-docs/channels/guide/channel-app-requirements).
+* Apps that modify the checkout experience must use the BigCommerce [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk).
+* Apps that add another marketplace or sales channel to a store should make use of the [Channels Toolkit](/api-docs/channels/guide/building-channel-apps) and follow [Channel App Requirements](/api-docs/channels/guide/channel-app-requirements).
 * Apps that create orders in the BigCommerce store need to properly mark accurate order source, payment method, and other order details.
 
 ## Installation
 
-* Apps should be [single-click](https://developer.bigcommerce.com/api-docs/apps/guide/types#single-click) and use [OAuth flow](https://developer.bigcommerce.com/api-docs/apps/guide/auth) to authenticate.
-* Apps must respond to install [callback](https://developer.bigcommerce.com/api-docs/apps/guide/callbacks) with styled and branded HTML for the control panel iframe; this content cannot be blank and must follow our user-interface constraints. Apps using [BigDesign](https://design.bigcommerce.com/components) are preferred.
+* Apps should be [single-click](/api-docs/apps/guide/types#single-click) and use [OAuth flow](/api-docs/apps/guide/auth) to authenticate.
+* Apps must respond to install [callback](/api-docs/apps/guide/callbacks) with styled and branded HTML for the control panel iframe; this content cannot be blank and must follow our user-interface constraints. Apps using [BigDesign](https://design.bigcommerce.com/components) are preferred.
 * Apps must store user tokens against the store hash, not the user's email address, to avoid problems with ownership changes and multiple user support.
 * Apps need to include options for new user registration as well as existing users.
 * Apps should autofill registration fields such as email address and store URL based on the store's information.
 * Apps should include onboarding instructions and any setup requirements after installing.
-* Apps that install scripts must use the [Scripts API](https://developer.bigcommerce.com/api-reference/store-management/scripts) to insert into Script Manager using proper `consent_category`.
+* Apps that install scripts must use the [Scripts API](/api-reference/store-management/scripts) to insert into Script Manager using proper `consent_category`.
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -63,7 +63,7 @@ Don't reference competitor platforms in the app's listing information or dashboa
 For Marketplace approval, you'll need to fill out all fields on your listing with applicable content and links. These will be reviewed as part of the Marketplace approval process. **Case Studies** and **Videos** are optional.
 
 ## Next steps
-* [Publish your app](https://developer.bigcommerce.com/api-docs/apps/guide/publishing).
+* [Publish your app](/api-docs/apps/guide/publishing).
 
 ## Resources
 
@@ -83,7 +83,7 @@ For Marketplace approval, you'll need to fill out all fields on your listing wit
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
-* [BigDesign Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [BigDesign Developer Playground](/big-design/)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

@@ -29,16 +29,16 @@ Because you know the store owner's `email` and `ID` from the app installation se
 ## The remove user request
 Store owners can also remove users. This action generates a `GET` request to the remove user callback URL that you provided in the [Developer Portal](https://devtools.bigcommerce.com/my/apps). When this occurs, your app should remove the user identified in the request from it's records.
 
-For details about remove user and load requests, see [Single-click App Callbacks](https://developer.bigcommerce.com/api-docs/apps/guide/callbacks).
+For details about remove user and load requests, see [Single-click App Callbacks](/api-docs/apps/guide/callbacks).
 
 ## Next steps
 
-* [Learn how to handle store events](https://developer.bigcommerce.com/api-docs/apps/guide/users).
+* [Learn how to handle store events](/api-docs/apps/guide/users).
 
 ## Resources
 
 ## Related articles
-* [Single-click App Callbacks](https://developer.bigcommerce.com/api-docs/apps/guide/callbacks)
+* [Single-click App Callbacks](/api-docs/apps/guide/callbacks)
 
 ### Sample apps
 * [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
@@ -54,7 +54,7 @@ For details about remove user and load requests, see [Single-click App Callbacks
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [Big Design Developer Playground](/big-design/)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

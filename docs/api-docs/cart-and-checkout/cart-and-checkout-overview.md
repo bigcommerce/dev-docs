@@ -364,7 +364,7 @@ lineNumbers: true
 The `option_id` is incorrect.
 
 ***Resolution:***
-To get the correct `option_id`, make a request to [Get Products](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products) or [Get Options](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-options/getoptions).
+To get the correct `option_id`, make a request to [Get Products](/api-reference/catalog/catalog-api/products) or [Get Options](/api-reference/catalog/catalog-api/product-options/getoptions).
 
 
 <div class="HubBlock-header">
@@ -505,7 +505,7 @@ When you add less than a product’s minimum required purchase or more than the 
 
 
 ***Resolution:***
-Check the product for `order_quantity_minimum` and `order_quantity_maximum` for the correct amount to add to the cart. Use the [Get Product](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproducts) endpoint.
+Check the product for `order_quantity_minimum` and `order_quantity_maximum` for the correct amount to add to the cart. Use the [Get Product](/api-reference/catalog/catalog-api/products/getproducts) endpoint.
 
 
 ### Internal Server Error [500]
@@ -530,7 +530,7 @@ Check the product for order_quantity_minimum and order_quantity_maximum for the 
 ## Related resources
 
 ### Articles
-* [Working with the Storefront Cart and Checkout](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis)
+* [Working with the Storefront Cart and Checkout](/api-docs/cart-and-checkout/working-sf-apis)
 
 ### Endpoints
 * [Storefront Cart](/api-reference/cart-checkout/storefront-cart-api)

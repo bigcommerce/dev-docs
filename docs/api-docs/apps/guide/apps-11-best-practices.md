@@ -24,11 +24,11 @@ For details, see [Security Considerations in RC6749](https://tools.ietf.org/html
 
 ### Use the latest APIs
 
-BigCommerce is actively developing V3 API endpoints. By using the newest endpoints, you will ensure that your app has access to the latest resources. You will also be better positioned to provide a user experience consistent with what merchants will see in their BigCommerce store's control panel. To stay up to date, bookmark our [changelog](https://developer.bigcommerce.com/changelog).
+BigCommerce is actively developing V3 API endpoints. By using the newest endpoints, you will ensure that your app has access to the latest resources. You will also be better positioned to provide a user experience consistent with what merchants will see in their BigCommerce store's control panel. To stay up to date, bookmark our [changelog](/changelog).
 
 ### Plan for API updates
 
-We encourage developers to write code against our API that will not break if an endpoint starts returning additional fields, as these "non-breaking" changes may be made by us without warning as part of our normal development. Breaking changes will be made with early warning, typically via our developer [changelog](https://developer.bigcommerce.com/changelog) and other channels as appropriate. For beta APIs and in exceptional cases where we know using a particular endpoint to be zero, we may make breaking changes without warning.
+We encourage developers to write code against our API that will not break if an endpoint starts returning additional fields, as these "non-breaking" changes may be made by us without warning as part of our normal development. Breaking changes will be made with early warning, typically via our developer [changelog](/changelog) and other channels as appropriate. For beta APIs and in exceptional cases where we know using a particular endpoint to be zero, we may make breaking changes without warning.
 
 ### Thread API requests
 
@@ -86,7 +86,7 @@ BigCommerce's REST endpoints accept requests made in parallel. Applications maki
 <div class="HubBlock-content">
 
 > ### Note
-> * Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to [`/pricelists/{price_list_id}/records`](https://developer.bigcommerce.com/api-reference/store-management/price-lists/price-lists-records/setpricelistrecordcollection) will result in a `429` error response -- these limitations are documented at the operation level in the API Reference.
+> * Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to [`/pricelists/{price_list_id}/records`](/api-reference/store-management/price-lists/price-lists-records/setpricelistrecordcollection) will result in a `429` error response -- these limitations are documented at the operation level in the API Reference.
 
 </div>
 </div>
@@ -125,7 +125,7 @@ Bigcommerce.init({
 
 ### Streamline new user onboarding
 
-- If your app has a new user form, we recommend auto-filling input fields with data from the [stores](https://developer.bigcommerce.com/api-reference/store-management/store-information-api) endpoint, which contains much of the info you need.
+- If your app has a new user form, we recommend auto-filling input fields with data from the [stores](/api-reference/store-management/store-information-api) endpoint, which contains much of the info you need.
 - If your app doesn't have an approval process for new users, consider automatically generating accounts for new stores that install your app.
 - If your app requires the user to sign in at launch, use the information BigCommerce sends to your callback URL to authenticate the user without asking for a username and password each time.
 - If you plan to share user testimonials, add a link to your full case study in the case studies field.
@@ -137,8 +137,8 @@ Bigcommerce.init({
 BigCommerce hosts [Google Cloud Platform](https://cloud.google.com/) in the [us-central1](https://cloud.google.com/compute/docs/regions-zones/) region; maximize performance by hosting in the same region.
 
 ## Next steps
-* [Check requirements](https://developer.bigcommerce.com/api-docs/apps/guide/requirements).
-* [Publish your app](https://developer.bigcommerce.com/api-docs/apps/guide/publish).
+* [Check requirements](/api-docs/apps/guide/requirements).
+* [Publish your app](/api-docs/apps/guide/publish).
 
 ## Resources
 
@@ -156,7 +156,7 @@ BigCommerce hosts [Google Cloud Platform](https://cloud.google.com/) in the [us-
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [Big Design Developer Playground](/big-design/)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 
