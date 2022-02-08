@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.2
       - name: quality-docs-github-check
-        uses: bigcommerce/dev-docs-style-guide-action@v0.beta
+        uses: bigcommerce/dev-docs-style-guide-action@test-112221
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
