@@ -91,7 +91,8 @@ Navigate to `http://localhost:4040/` in your browser. You should see the ngrok w
 
 ## Create a webhook
 
-Now, we'll create a webhook that subscribes to the `store/product/updated` [webhook event](/api-docs/store-management/webhooks/events). To do so, send a `POST` request to `/stores/{{STORE_HASH}}/v3/hooks`.
+Now, we'll create a webhook that subscribes to the `store/product/updated` [webhook event](/api-docs/store-management/webhooks/webhook-events). To do so, send a `POST` request to `/stores/{{STORE_HASH}}/v3/hooks`.
+
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
