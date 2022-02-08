@@ -309,7 +309,7 @@ No, you cannot return items to inventory that you refunded via API. You can eith
 
 ### Articles
 * [Orders Overview](/api-docs/store-management/orders)
-* [Order Webhook Events](/api-docs/store-management/webhooks/events#orders)
+* [Order Webhook Events](/api-docs/store-management/webhooks/webhook-events#orders)
 
 ### Endpoints
 * [Orders V2 Reference](/api-reference/store-management/orders)
