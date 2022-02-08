@@ -11,7 +11,8 @@ The following resources have webhooks events available to apps:
 * [Carts](/api-docs/getting-started/webhooks/webhook-events#cart)
 * [Cart Line Items](/api-docs/store-management/webhooks/webhook-events#cart-line-item)
 
-* [Categories](/api-docs/getting-started/webhooks/webhook-events#category)
+* [Categories](/api-docs/store-management/webhooks/webhook-events#category)
+
 * [Customers](/api-docs/getting-started/webhooks/webhook-events#customer)
 * [Orders](/api-docs/getting-started/webhooks/webhook-events#orders)
 * [Products](/api-docs/getting-started/webhooks/webhook-events#products)
