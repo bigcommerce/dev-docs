@@ -5,7 +5,7 @@
 ### On this page
 - [Prerequisites](#prerequisites)
 - [Installing the Checkout JS SDK](#installing-the-checkout-js-sdk)
-- [Creating a checkout-loader.js file](#creating-a-checkoutjs-file)
+- [Creating a checkout-loader.js file](#creating-a-checkout-loaderjs-file)
 - [Installing your custom checkout](#installing-custom-checkout)
 - [Logging the Checkout Object](#logging-the-checkout-object)
 - [Resources](#resources)
