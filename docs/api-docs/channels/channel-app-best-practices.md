@@ -85,7 +85,7 @@ These logs would provide more granular details on the event that took place and 
 ### Articles
 
 - [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/channels-overview)
-- [Channels Toolkit Reference](https://developer.bigcommerce.com/api-docs/channels-toolkit-reference)
+- [Channels Toolkit Reference](https://developer.bigcommerce.com/api-docs/channels/guide/channels-toolkit-reference)
 - [Channel App Best Practices](https://developer.bigcommerce.com/api-docs/getting-started/best-practices)
 - [Becoming a Partner](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner)
 - [Authenticating BigCommerce's REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication)
