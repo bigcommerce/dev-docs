@@ -10,7 +10,7 @@
 - [Related resources](#related-resources)
 </div>
 
-In this tutorial, you will learn the correct way to import theme images and inject theme variables. Also, you will learn how to improve theme designs using [Lighthouse](https://developers.google.com/web/tools/lighthouse) and [accessibility best practices](https://developer.bigcommerce.com/stencil-docs/theme-accessibility).
+In this tutorial, you will learn the correct way to import theme images and inject theme variables. Also, you will learn how to improve theme designs using [Lighthouse](https://developers.google.com/web/tools/lighthouse) and [accessibility best practices](https://developer.bigcommerce.com/stencil-docs/accessibility/theme-accessibility).
 
 ## Importing images
 There are two ways to import images. The steps below describe the quickest and easiest way to import images.
