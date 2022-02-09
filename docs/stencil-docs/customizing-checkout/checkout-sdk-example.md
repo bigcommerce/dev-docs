@@ -4,7 +4,6 @@
 
 ### On this page
 - [Implementing React Checkout in Cornerstone](#implementing-react-checkout-in-cornerstone)
-- [Additional customizations](#additional-customizations)
 - [Additional resources](#additional-resources)
 
 </div>
