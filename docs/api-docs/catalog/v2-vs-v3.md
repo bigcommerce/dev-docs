@@ -70,7 +70,7 @@ Modifiers include multiple-choice types such as swatch, rectangle, radio button,
 
 > ### Note
 >
-> Product [variant options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-options/getoptionbyid) and [modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/getmodifierbyid) created using the V3 Catalog API belong to a single product instance and cannot be attached to other products in the catalog.
+> Product [variant options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variant-options/getoptionbyid) and [modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/getmodifierbyid) created using the V3 Catalog API belong to a single product instance and cannot be attached to other products in the catalog.
 
 </div>
 </div>
