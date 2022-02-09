@@ -13,7 +13,7 @@
 - [Featured Products](#featured-products)
 - [Footer](#footer)
 - [HTML Head](#html-head)
-- [Is_Ajax](#isajax)
+- [Is_Ajax](#is_ajax)
 - [New Products](#new-products)
 - [Page Content](#page-content)
 - [Pages](#pages)
