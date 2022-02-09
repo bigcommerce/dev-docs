@@ -1531,7 +1531,7 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [decodeURI](https://github.com/helpers/handlebars-helpers#decodeURI) | url | Decodes a Uniform Resource Identifier (URI) component. |
 | [urlResolve](https://github.com/helpers/handlebars-helpers#urlResolve) | url | Takes a `base` URL and a `href` URL and resolves them as a browser would for an anchor tag. |
 | [urlParse](https://github.com/helpers/handlebars-helpers#urlParse) | url | Parses a URL string into an object. |
-| [stripProtocol](https://github.com/helpers/handlebars-helpers#stripProtocol) | url | Strips protocol from a URL. Useful for displaying media that may have an 'http' protocol on secure connections. |
+| [stripProtocol](https://github.com/helpers/handlebars-helpers#stripProtocol) | url | Strips protocol from a URL. Useful for displaying media that may have a 'http' protocol on secure connections. |
 
 ## Contributing to helpers
 
