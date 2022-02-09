@@ -35,7 +35,7 @@ Custom theme uploads must meet these restrictions:
 | TR-800 | There was a problem processing the contained `config.json` file. <b>Please check the `config.json` documentation for the required keys and for keys that require values. |
 | TR-900 | The contained `config.json` file is missing the required developer information. |
 | TR-901 | A theme variation defined in the contained config.json file is missing its required external ID. |
-| TR-902 | Two or more theme variations defined in the contained config.json file share a external ID. All external IDs must be unique. | 
+| TR-902 | Two or more theme variations defined in the contained config.json file share an external ID. All external IDs must be unique. | 
 | TR-1000 | There was a problem processing the contained <a href="/stencil-docs/stencil-theme-editor/schema-json-metadata">schema.json</a> file. |
 | TR-1001 | The theme is missing its required <a href="/stencil-docs/stencil-theme-editor/schema-json-metadata">schema.json</a> file. |
 | TR-1400 | There was a problem processing template <a href="/stencil-docs/front-matter/front-matter-overview">front matter</a>. |
