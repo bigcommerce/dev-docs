@@ -49,17 +49,17 @@ BigCommerce provides webhooks for 3rd-party developers, enabling them to respond
 **Required APIs**
 
 These APIs are required to build a functioning BigCommerce channel app:
-* Catalog: Products ([API docs](/api-docs/store-management/catalog/catalog-overview), [API reference](/api-reference/catalog/catalog-api), [webhooks](/api-docs/getting-started/webhooks/webhook-events#webhook-events_products))
+* Catalog: Products ([API docs](/api-docs/store-management/catalog/catalog-overview), [API reference](/api-reference/catalog/catalog-api), [webhooks](/api-docs/store-management/webhooks/webhook-events#products))
 * [Catalog: Channel & Listings](# add here)
-* Orders: Orders API ([API docs](/api-docs/orders/orders-api-overview), [API reference](/api-reference/orders/orders-api), [webhooks](/api-docs/getting-started/webhooks/webhook-events#webhook-events_orders))
+* Orders: Orders API ([API docs](/api-docs/orders/orders-api-overview), [API reference](/api-reference/orders/orders-api), [webhooks](/api-docs/store-management/webhooks/webhook-events#orders))
 
 **Recommended APIs**
 
 These APIs are not always required, but highly recommended for app developers based on certain use cases:
 * Catalog: Price Lists ([API docs](/api-docs/catalog/price-list-overview), [API reference](/api-reference/catalog/pricelists-api))
 * Store Management: Shipping ([API docs](/api-docs/store-management/shipping/shipping-overview), [API reference](/api-reference/store-management/shipping-api)) 
-* Store Management: Store Information ([API reference](/api-docs/getting-started/webhooks/webhook-events#webhook-events_customer), [webhooks](/api-docs/getting-started/webhooks/webhook-events#webhook-events_store))
-* Customers & Subscribers: Customers ([API docs](/api-docs/customers/customers-subscribers-overview), [v2 API reference](/api-reference/customer-subscribers/customers-api), [v3 API Reference](/api-reference/customer-subscribers/v3-customers-api), [webhooks](/api-docs/getting-started/webhooks/webhook-events#webhook-events_customer))
+* Store Management: Store Information ([API reference](/api-docs/store-management/webhooks/webhook-events#customer), [webhooks](/api-docs/store-management/webhooks/webhook-events#store))
+* Customers & Subscribers: Customers ([API docs](/api-docs/customers/customers-subscribers-overview), [v2 API reference](/api-reference/customer-subscribers/customers-api), [v3 API Reference](/api-reference/customer-subscribers/v3-customers-api), [webhooks](/api-docs/store-management/webhooks/webhook-events#customer))
 * Cart & Checkout: Server to Server Cart ([API Docs](/api-docs/cart-and-checkout/cart-and-checkout-overview), [API Reference](/api-reference/cart-checkout/server-server-cart-api))
 * Cart & Checkout: Server to Server Checkout ([API Docs](/api-docs/cart-and-checkout/cart-and-checkout-overview), [API Reference](/api-reference/cart-checkout/server-server-checkout-api))
 * Cart & Checkout: Checkout SDK ([API Docs](/api-docs/cart-and-checkout/checkout-sdk), [Github](https://github.com/bigcommerce/checkout-sdk-js))

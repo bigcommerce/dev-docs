@@ -6,7 +6,7 @@ BigCommerce's Channel Manager is the central place for merchants to discover, co
 
 Using BigCommerce's [Channels Toolkit](/api-docs/channels/channels-toolkit-reference), any BigCommerce [partner](https://www.bigcommerce.com/partners/) can create and list a sales channel app on BigCommerce's [App Marketplace](https://www.bigcommerce.com/apps/) for any merchant to install. Additionally, approved apps developed by [select partners](https://www.bigcommerce.com/partners/) are marketed and discoverable from within the Channel Manager in every BigCommerce store's control panel.
 
-This article provides a high-level overview of channels and channel apps on BigCommerce and introduces BigCommerce's Channels Toolkit. For an in-depth technical guide to developing BigCommerce sales channel apps, see [Building Channel Apps](/api-docs/channels/building-channel-apps).
+This article provides a high-level overview of channels and channel apps on BigCommerce and introduces BigCommerce's Channels Toolkit. For an in-depth technical guide to developing BigCommerce sales channel apps, see [Building Channel Apps](/api-docs/channels/guide/building-channel-apps).
 
 ## Channels Toolkit
 

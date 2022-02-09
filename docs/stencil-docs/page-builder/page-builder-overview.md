@@ -22,7 +22,7 @@ For settings that you can pass as JSON objects into the `schema` property of the
 
 To learn more about using third-party widgets with Page Builder, see [Third-Party Widgets](/stencil-docs/page-builder/third-party-widgets).
 
-For step-by-step tutorials on creating and managing widgets, see [Widgets API Tutorials](/api-docs/store-management/widgets/tutorials).
+For step-by-step tutorials on creating and managing widgets, see [Widgets API Tutorials](/api-docs/store-management/widgets/tutorials/tutorial).
 
 ## Layers
 
