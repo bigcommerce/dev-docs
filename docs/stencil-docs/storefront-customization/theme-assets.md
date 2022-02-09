@@ -167,7 +167,7 @@ Utility classes are defined as low-level, structural and positional traits. Util
 
 To make HTML patterns as reusable as possible, we have used utility classes sparingly, reserving them for component-level styling.
 
-Our syntax for naming utilities is camel case, prefixed with a u- namespace:
+Our syntax for naming utilities is camel case, prefixed with an u- namespace:
 
 <table>
   <tr>
