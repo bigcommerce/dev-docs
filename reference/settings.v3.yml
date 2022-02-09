@@ -8,7 +8,7 @@ info:
 
     ## Authentication
 
-    Authenticate requests by including an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` in the request header.
+    Authenticate requests by including an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication) `access_token` in the request header.
 
     ```http
     GET /stores/{{STORE_HASH}}/v3/settings/storefront/status
@@ -1185,7 +1185,7 @@ components:
             - price
         collapsed_by_default:
           type: boolean
-      description: 'A filter based on the product''s price, shown as a price range on the storefront.'
+      description: 'A filter based on the product’s price, shown as a price range on the storefront.'
     EnabledCategoryFilter:
       title: EnabledCategoryFilter
       type: object
@@ -1471,7 +1471,7 @@ components:
       type: apiKey
       in: header
       description: |-
-        Authenticate requests by including an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` in the request header.
+        Authenticate requests by including an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication) `access_token` in the request header.
 
         ```http
         GET /stores/{{STORE_HASH}}/v3/settings/storefront/status

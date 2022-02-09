@@ -30,9 +30,6 @@ info:
   description: |-
     Create and manage customers.
 
-    - [Authentication](#authentication)
-    - [Resources](#resources)
-
     ## Authentication
 
     Requests can be authenticated by sending an `access_token` via `X-Auth-Token` HTTP header:
@@ -57,7 +54,7 @@ info:
     | Stored Payment Instruments                   | modify     | `store_stored_payment_instruments`            |
     | Stored Payment Instruments                   | read-only  | `store_stored_payment_instruments_read_only`  |
 
-    For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+    For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
 
     ## Resources
     * [Customer and Subscribers Overview](/api-docs/customers/customers-subscribers-overview).
@@ -238,7 +235,7 @@ paths:
         * postal_code
 
         **Required Fields Attributes**
-        * Attributes must be [created](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customer-attributes/customersattributespost) **BEFORE** creating a customer.
+        * Attributes must be [created](/api-reference/customer-subscribers/v3-customers-api/customer-attributes/customersattributespost) **BEFORE** creating a customer.
         * attribute_id
         * attribute_value -- This is input as a string, regardless of the [Type](/api-reference/customer-subscribers/v3-customers-api/models/type).
 
@@ -249,7 +246,7 @@ paths:
 
         A customer can be created with global access or channel-specific access.
         * **Global access:**
-          * Make sure the channel has `allow_global_logins` enabled. This is on by default only for the default storefront. Find more info at [Customer Settings > Channel](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-settings-channel/customersettingschannelget).
+          * Make sure the channel has `allow_global_logins` enabled. This is on by default only for the default storefront. Find more info at [Customer Settings > Channel](/api-reference/store-management/customers-v3/customer-settings-channel/customersettingschannelget).
           * Omit `channel_ids` field, or provide `channel_ids: null`.
         * **Channel-specific access:**
           * Provide a `channel_ids` array containing the channels accessible by the customer. This array cannot be empty.
@@ -331,7 +328,7 @@ paths:
                   value:
                     status: 422
                     title: Create customers failed.
-                    type: 'https://developer.bigcommerce.com/api#api-status-codes'
+                    type: '/api-docs/getting-started/api-status-codes'
                     errors:
                       .customer_create: Error creating customers
     put:
@@ -350,7 +347,7 @@ paths:
 
         **Notes**
 
-        * Attributes Values can not be updated using Update a Customer. Use the Update a [Customer Attribute Values](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customer-attribute-values/customersattributevaluesput) endpoint.
+        * Attributes Values can not be updated using Update a Customer. Use the Update a [Customer Attribute Values](/api-reference/customer-subscribers/v3-customers-api/customer-attribute-values/customersattributevaluesput) endpoint.
         * channel_ids -- Updating the list of channels a customer can access may create some side effects in a multi-storefront situation. This list determines which customer account we will use to authenticate a shopper given a channel.
       summary: Update Customers
       tags:
@@ -790,7 +787,7 @@ paths:
                     example: Too many requests
                   type:
                     type: string
-                    example: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+                    example: '/api-docs/getting-started/api-status-codes'
                   errors:
                     type: object
                     additionalProperties:
@@ -1718,16 +1715,10 @@ paths:
       description: |-
         Lists all available stored instruments for a customer. This list will include all types of stored instruments namely card, account and bank_account instruments
 
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content">
-
-        > ### Note
+        <!-- theme: info -->
+        > #### Note
         > * This endpoint is in beta.
 
-        </div>
-        </div>
-        </div>
       operationId: liststoredinstruments
       parameters:
         - $ref: '#/components/parameters/customerId'
@@ -2607,7 +2598,7 @@ components:
         X-Auth-Token: {access_token}
         ```
 
-        * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
   schemas:
     Pagination:
       title: Pagination
@@ -3502,7 +3493,7 @@ components:
           example: string
           minLength: 0
           maxLength: 255
-          description: 'Attribute value. This will always be a string, regardless of the attribute''s type.'
+          description: 'Attribute value. This will always be a string, regardless of the attribute’s type.'
     customerChannelIds:
       type: array
       title: customerChannelIds

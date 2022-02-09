@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Webhooks v3
   version: ''
-  description: 'Get notified when specific events occur on a BigCommerce store. For more information, see [Webhooks Overview](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview).'
+  description: 'Get notified when specific events occur on a BigCommerce store. For more information, see [Webhooks Overview](/api-docs/store-management/webhooks/overview).'
 paths:
   '/stores/{store_hash}/v3/hooks':
     post:
@@ -285,7 +285,7 @@ components:
               value:
                 status: 502
                 title: A login URL could not be generated. Please try another request.
-                type: 'https://developer.bigcommerce.com/api#api-status-codes'
+                type: '/api-docs/getting-started/api-status-codes'
     504_GatewayTimeout:
       description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
       content:
@@ -297,7 +297,7 @@ components:
               value:
                 status: 504
                 title: Gateway Timeout
-                type: 'https://developer.bigcommerce.com/api#api-status-codes'
+                type: '/api-docs/getting-started/api-status-codes'
                 errors: {}
     403_Unauthorized:
       description: ''
@@ -310,7 +310,7 @@ components:
               value:
                 status: 403
                 title: Unauthorized Access. You do not have permission to make this request.
-                type: 'https://developer.bigcommerce.com/api#api-status-codes'
+                type: '/api-docs/getting-started/api-status-codes'
     400_BadRequest:
       description: |-
         Malformed request syntax. Typically need to fix the JSON
@@ -324,7 +324,7 @@ components:
               value:
                 status: 400
                 title: Input is invalid.
-                type: 'https://developer.bigcommerce.com/api#api-status-codes'
+                type: '/api-docs/getting-started/api-status-codes'
     404_NotFound:
       description: 'If the requested account resource is not found for the franchise, return a 404 Not Found.'
       content:
@@ -336,7 +336,7 @@ components:
               value:
                 status: 404
                 title: 'Account with {id} not found'
-                type: 'https://developer.bigcommerce.com/api#api-status-codes'
+                type: '/api-docs/getting-started/api-status-codes'
     422_UnprocessableEntity:
       description: This occurs when missing or unacceptable data is passed for one or more fields. Please correct the values for the fields listed in the errors object.
       content:
@@ -362,7 +362,7 @@ components:
               value:
                 status: 422
                 title: JSON data is missing or invalid
-                type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+                type: '/api-docs/getting-started/api-status-codes'
                 errors:
                   destination: error.path.missing.
     503_ServiceUnavailable:
@@ -376,7 +376,7 @@ components:
               value:
                 status: 503
                 title: Service Unavailable
-                type: 'https://developer.bigcommerce.com/api#api-status-codes'
+                type: '/api-docs/getting-started/api-status-codes'
     webhook_Resp:
       description: Example response
       content:
@@ -457,7 +457,7 @@ components:
         X-Auth-Token: {access_token}
         ```
 
-        * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
   schemas:
     store_cart_wildcard:
       description: "Subscribes to the following events:\n- `store/cart/created`\n- `store/cart/updated`\n- `store/cart/deleted`\n- `store/cart/couponApplied`\n- `store/cart/abandoned`\n- `store/cart/converted`\n- `store/cart/lineItem`\n\t\t\t\nSee individual events for more information.\n"
@@ -467,7 +467,7 @@ components:
       description: |-
         This webhook fires on new cart creation when any of the following occur:
         - a storefront shopper adding their first product to a cart during a new session
-        - a successful `POST` request to `/carts` using either the [storefront](https://developer.bigcommerce.com/api-reference/storefront/carts/cart/createacart) or [server-to-server](https://developer.bigcommerce.com/api-reference/store-management/carts/cart/createacart) API 
+        - a successful `POST` request to `/carts` using either the [storefront](/api-reference/storefront/carts/cart/createacart) or [server-to-server](/api-reference/store-management/carts/cart/createacart) API 
 
         Cart creation also fires the `store/cart/updated` webhook.
 
@@ -1992,7 +1992,7 @@ components:
                         - relative
                     value:
                       type: integer
-                      description: 'This value is the difference between an item''s inventory count before and after the inventory updates. This value is negative if an item''s inventory count decreases. For example, reducing inventory by three returns a value of `-3`. This value is positive if an item''s inventory count increases. For example, returning two items to the inventory returns a value of `2`.'
+                      description: 'This value is the difference between an item’s inventory count before and after the inventory updates. This value is negative if an item’s inventory count decreases. For example, reducing inventory by three returns a value of `-3`. This value is positive if an item’s inventory count increases. For example, returning two items to the inventory returns a value of `2`.'
                       example: 2
       x-tags:
         - created
@@ -2059,7 +2059,7 @@ components:
                         - relative
                     value:
                       type: integer
-                      description: 'This value is the difference between an item''s inventory count before and after the inventory updates. This value is negative if an item''s inventory count decreases. For example, reducing inventory by three returns a value of `-3`. This value is positive if an item''s inventory count increases. For example, returning two items to the inventory returns a value of `2`.'
+                      description: 'This value is the difference between an item’s inventory count before and after the inventory updates. This value is negative if an item’s inventory count decreases. For example, reducing inventory by three returns a value of `-3`. This value is positive if an item’s inventory count increases. For example, returning two items to the inventory returns a value of `2`.'
                       example: 2
       x-tags:
         - created

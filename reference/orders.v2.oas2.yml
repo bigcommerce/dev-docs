@@ -5,12 +5,9 @@ info:
   description: |-
     Manage order coupons, messages, products, shipping addresses, statuses, taxes, shipments, and shipping address quotes.
 
-    - [Authentication](#authentication)
-    - [Order](#order)
-
     ## Authentication
 
-    Authenticate requests by including an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` request header.
+    Authenticate requests by including an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication) `access_token` request header.
 
     ```http
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
@@ -2784,7 +2781,7 @@ components:
                 example: Awaiting Fulfillment
                 type: string
               custom_status:
-                description: 'Contains the same (string, optiona) - value as the Order Statuses object''s `custom_label` property.'
+                description: 'Contains the same (string, optiona) - value as the Order Statuses object’s `custom_label` property.'
                 example: Awaiting Fulfillment
                 type: string
               subtotal_ex_tax:
@@ -3127,7 +3124,7 @@ components:
         X-Auth-Token: {access_token}
         ```
 
-        * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
   schemas:
     order_Resp:
       title: order_Resp
@@ -3239,7 +3236,7 @@ components:
           example: physical
           description: Type of product
         base_price:
-          description: 'The product''s base price. (Float, Float-As-String, Integer)'
+          description: 'The product’s base price. (Float, Float-As-String, Integer)'
           example: '54.0000'
           type: string
         price_ex_tax:
@@ -3287,7 +3284,7 @@ components:
           example: 1
           type: number
         base_cost_price:
-          description: 'The product''s cost price.  This can be set using the Catalog API. (Float, Float-As-String, Integer) Read Only'
+          description: 'The product’s cost price.  This can be set using the Catalog API. (Float, Float-As-String, Integer) Read Only'
           example: '0.0000'
           type: string
         cost_price_inc_tax:
@@ -4318,7 +4315,7 @@ components:
         email:
           type: string
           example: janedoe@example.com
-          description: 'Recipient''s email address. '
+          description: 'Recipient’s email address. '
         shipping_method:
           type: string
           description: Text code identifying the BigCommerce shipping module selected by the customer.
@@ -4406,7 +4403,7 @@ components:
           example: USD
           type: string
         currency_exchange_rate:
-          description: 'The exchange rate between the store''s default currency and the display currency. A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
+          description: 'The exchange rate between the store’s default currency and the display currency. A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
           example: '1.0000000000'
           type: string
         default_currency_id:
@@ -4539,7 +4536,7 @@ components:
             properties:
               id:
                 type: integer
-                description: 'Numeric ID of an option applied to the product from a list of options available to the product. This field has the same value as `product_option_id` when [retrieving products in an order](https://developer.bigcommerce.com/api-reference/store-management/orders/order-products/getallorderproducts).'
+                description: 'Numeric ID of an option applied to the product from a list of options available to the product. This field has the same value as `product_option_id` when [retrieving products in an order](/api-reference/store-management/orders/order-products/getallorderproducts).'
               value:
                 type: string
                 description: |-

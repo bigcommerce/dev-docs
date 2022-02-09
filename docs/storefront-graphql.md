@@ -7,31 +7,18 @@
 
 Download Spec: [storefront_tokens.v3.yml](https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/storefront_tokens.v3.yml?branch=master&amp;deref=all&amp;format=json)
 
-Use GraphQL to query data for headless storefronts and BigCommerce [Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil)-powered storefronts.
-
-<div class="otp" id="no-index">
-
-### On this page
-- [GraphQL Playground](#graphql-playground)
-- [GraphQL Explorer](#graphql-explorer)
-- [Authentication](#authentication)
-  - [Tokens via API](#tokens-via-api)
-  - [Tokens via handlebars](#tokens-via-handlebars)
-  - [Customer impersonation tokens](#customer-impersonation-tokens)
-- [Logging in a customer](#logging-in-a-customer)
-- [Resources](#resources)
-</div>
+Use GraphQL to query data for headless storefronts and BigCommerce [Stencil](/stencil-docs/getting-started/about-stencil)-powered storefronts.
 
 ## GraphQL Playground
 
 To access the GraphQL Storefront API Playground and documentation, [log in to your store](https://login.bigcommerce.com/deep-links/manage) and navigate to **Advanced Settings** **>** **Storefront API Playground**.
 
-If you don't yet have a store and would like to experiment making queries against a staging site, [visit the Dev Center's GraphQL Playground directly](https://developer.bigcommerce.com/graphql-playground).
+If you don't yet have a store and would like to experiment making queries against a staging site, [visit the Dev Center's GraphQL Playground directly](/graphql-playground).
 
 
 ## GraphQL Explorer
 
-To explore Storefront nodes in an interactive graph, check out out the [GraphQL Explorer](https://developer.bigcommerce.com/graphql-explorer).
+To explore Storefront nodes in an interactive graph, check out the [GraphQL Explorer](/graphql-explorer).
 
 ## Authentication
 
@@ -54,12 +41,12 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/storefront/graphql-api-tokens/api-token/createtoken#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/storefront/graphql-api-tokens/api-token/createtoken#requestrunner)
 
 
 ### Tokens via handlebars
 
-Client code on BigCommerce  [Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil)-powered storefronts can be passed a token at render time with the `{{settings.storefront_api.token}}` Handlebars object.
+Client code on BigCommerce [Stencil](/stencil-docs/getting-started/about-stencil)-powered storefronts can be passed a token at render time with the `{{settings.storefront_api.token}}` Handlebars object.
 
 ```js
   fetch('/graphql', {
@@ -74,7 +61,7 @@ Client code on BigCommerce  [Stencil](https://developer.bigcommerce.com/stencil-
 
 ### Customer impersonation tokens
 
-It's also possible to generate tokens for use in server-to-server interactions with a trusted consumer. To [create a customer impersonation token](https://developer.bigcommerce.com/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation), send a `POST` request to `/v3/storefront/api-token-customer-impersonation`.
+It's also possible to generate tokens for use in server-to-server interactions with a trusted consumer. To [create a customer impersonation token](/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation), send a `POST` request to `/v3/storefront/api-token-customer-impersonation`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/api-token-customer-impersonation
@@ -89,9 +76,9 @@ Accept: application/json
 
 ```
 
-[![Open in Request Runner](https://developer.bigcommerce.com/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation#requestrunner)
+[![Open in Request Runner](/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation#requestrunner)
 
-[Response](https://developer.bigcommerce.com/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation#responses):
+[Response](/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation#responses):
 
 ```json
 {
@@ -117,7 +104,7 @@ mutation Login($email: String!, $pass: String!) {
 ```
 
 
-As a best practice, you should inject the password using GraphQL query variables. This prevents the password from being exposed in the query itself. In the [GraphQL Playground](https://developer.bigcommerce.com/graphql-playground), you can set the variables for the request. [Learn more about GraphQL Storefront API Authentication](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview#authentication).
+As a best practice, you should inject the password using GraphQL query variables. This prevents the password from being exposed in the query itself. In the [GraphQL Playground](/graphql-playground), you can set the variables for the request. [Learn more about GraphQL Storefront API Authentication](/api-docs/storefront/graphql/graphql-storefront-api-overview#authentication).
 
 
 ## Resources

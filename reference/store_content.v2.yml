@@ -5,16 +5,10 @@ info:
   description: |-
     Manage blog posts, blog tags, content pages, and redirects.
 
-    <div class="HubBlock--callout">
-    <div class="CalloutBlock--warning">
-    <div class="HubBlock-content">
+    <!-- theme: warning -->
+    > #### Note
+    > * Redirects V2 are deprecated; use [V3 Redirects](/api-reference/storefront/redirects/redirects/getredirects) instead. 
 
-    ### Note
-    * Redirects V2 are deprecated; use [V3 Redirects](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/getredirects) instead. 
-
-    </div>
-    </div>
-    </div>
 host: api.bigcommerce.com
 basePath: '/'
 schemes:
@@ -369,7 +363,7 @@ paths:
               thumbnail_path: ''
       operationId: getABlogPost
     put:
-      description: |
+      description: |-
         Updates a *Blog Post*.
 
         **Read Only Fields**
@@ -834,19 +828,12 @@ paths:
     get:
       description: |-
         Returns a list all *Redirect URLs*. 
+        
+        <!-- theme: warning -->
+        > #### Deprecated
+        > Avoid using this API operation if possible. It will be removed in a future version.
+        > For the most up-to-date version of this API, see  [Get Redirects v3](/api-reference/storefront/redirects/redirects/getredirects) to manage redirects URLs.
 
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--warning">
-        <div class="HubBlock-content">
-
-        ### **Deprecated**
-
-        Avoid using this API operation if possible. It will be removed in a future version.
-
-        For the most up-to-date version of this API, see  [Get Redirects v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/getredirects) to manage redirects URLs.
-        </div>
-        </div>
-        </div>
       summary: Get All Redirects
       tags:
         - Redirects
@@ -906,19 +893,12 @@ paths:
         **Read Only**
         *   url
 
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--warning">
-        <div class="HubBlock-content">
+        
+        <!-- theme: warning -->
+        > #### Deprecated
+        > Avoid using this API operation if possible. It will be removed in a future version.
+        > For the most up-to-date version of this API, see [Upsert Redirects v3](/api-reference/store-management/redirects/redirects/upsertredirects) to upsert new redirect data.
 
-        ### **Deprecated**
-
-        Avoid using this API operation if possible. It will be removed in a future version.
-
-        For the most up-to-date version of this API, see [Upsert Redirects v3](https://developer.bigcommerce.com/api-reference/store-management/redirects/redirects/upsertredirects) to upsert new redirect data.
-
-        </div>
-        </div>
-        </div>
       summary: Create a Redirect
       tags:
         - Redirects
@@ -962,7 +942,7 @@ paths:
               url: 'http://store.example.com/mens'
       operationId: createARedirect
     delete:
-      description: "By default, it deletes all *Redirect URLs* in a store. \n\n<div class=\"HubBlock--callout\">\n<div class=\"CalloutBlock--warning\">\n<div class=\"HubBlock-content\">\n\n### **Deprecated**\n\nAvoid using this API operation if possible. It will be removed in a future version.\n\nFor the most up-to-date version of this API, see [Delete Redirects v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/deleteredirects) to delete redirects URLs.\n\t\n</div>\n</div>\n</div>"
+      description: "By default, it deletes all *Redirect URLs* in a store. \n\n<!-- theme: warning -->\n\n> #### Deprecated\n\n> Avoid using this API operation if possible. It will be removed in a future version.\n\n> For the most up-to-date version of this API, see [Delete Redirects v3](/api-reference/store-management/redirects/redirects/deleteredirects) to delete redirects URLs."
       summary: Delete All Redirects
       tags:
         - Redirects
@@ -990,22 +970,14 @@ paths:
         required: true
   '/stores/{store_hash}/v2/redirects/{id}':
     get:
-      description: |
+      description: |-
         Returns a single *Redirect URL*.
 
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--warning">
-        <div class="HubBlock-content">
+        <!-- theme: warning -->
+        > #### Deprecated
+        > Avoid using this API operation if possible. It will be removed in a future version.
+        > For the most up-to-date version of this API, see [Get Redirects v3](/api-reference/storefront/redirects/redirects/getredirects) to get a redirect URL.
 
-        ### **Deprecated**
-
-        Avoid using this API operation if possible. It will be removed in a future version.
-
-        For the most up-to-date version of this API, see [Get Redirects v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/getredirects) to get a redirect URL.
-
-        </div>
-        </div>
-        </div>
       summary: Get a Redirect
       tags:
         - Redirects
@@ -1045,7 +1017,7 @@ paths:
       operationId: getARedirectURL
       deprecated: true
     put:
-      description: |
+      description: |-
         Updates a *Redirect URL*.
 
         **Required Fields**
@@ -1055,19 +1027,11 @@ paths:
         **Read Only Fields**
         *   url
 
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--warning">
-        <div class="HubBlock-content">
-
-        ### **Deprecated**
-
-        Avoid using this API operation if possible. It will be removed in a future version.
-
-        For the most up-to-date version of this API, see [Upsert Redirects v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/upsertredirects) to update redirect data.
-
-        </div>
-        </div>
-        </div>
+        
+        <!-- theme: warning -->
+        > #### Deprecated
+        > Avoid using this API operation if possible. It will be removed in a future version.
+        > For the most up-to-date version of this API, see [Upsert Redirects v3](/api-reference/storefront/redirects/redirects/upsertredirects) to update redirect data.
       summary: Update a Redirect
       tags:
         - Redirects
@@ -1152,7 +1116,14 @@ paths:
               url: 'http://store-url.mybigcommerce.com/towels/bath-towels/hand-towels/'
       operationId: updateARedirectURL
     delete:
-      description: "Deletes a *Redirect URL*.\n\n<div class=\"HubBlock--callout\">\n<div class=\"CalloutBlock--warning\">\n<div class=\"HubBlock-content\">\n\n### **Deprecated**\n\nAvoid using this API operation if possible. It will be removed in a future version.\n\nFor the most up-to-date version of this API, see [Delete Redirects v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/deleteredirects) to delete a redirect URL.\n\t\n</div>\n</div>\n</div>"
+      description: |-
+        Deletes a *Redirect URL*.
+        
+        <!-- theme: warning -->
+        > #### Deprecated
+        > Avoid using this API operation if possible. It will be removed in a future version.
+        > For the most up-to-date version of this API, see [Delete Redirects v3](/api-reference/store-management/redirects/redirects/deleteredirects) to delete a redirect URL.
+
       summary: Delete a Redirect
       tags:
         - Redirects
@@ -1193,19 +1164,12 @@ paths:
     get:
       description: |-
         Gets a count of *Redirect URLs* in a store.
+        
+        <!-- theme: warning -->
+        > #### Deprecated
+        > Avoid using this API operation if possible. It will be removed in a future version.
+        > For the most up-to-date version of this API, see  [Get Redirects v3](/api-reference/storefront/redirects/redirects/getredirects) to get a count of redirects.
 
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--warning">
-        <div class="HubBlock-content">
-
-        ### **Deprecated**
-
-        Avoid using this API operation if possible. It will be removed in a future version.
-
-        For the most up-to-date version of this API, see  [Get Redirects v3](https://developer.bigcommerce.com/api-reference/storefront/redirects/redirects/getredirects) to get a count of redirects.
-        </div>
-        </div>
-        </div>
       summary: Get a Count of Redirects
       tags:
         - Redirects
@@ -1387,7 +1351,7 @@ definitions:
         description: Store-owner notes on the customer.
         type: string
       tax_exempt_category:
-        description: 'If applicable, the tax-exempt category of the shopper''s customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration.'
+        description: "If applicable, the tax-exempt category of the shopper's customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration."
         type: string
       accepts_marketing:
         description: |
@@ -1434,19 +1398,19 @@ definitions:
     type: object
     properties:
       name:
-        description: 'a string identifying the time zone, in the format: <Continent-name>/<City-name>.'
-        example: America/Chicago
+        description: 'A string identifying the time zone, in the format: <Continent-name>/<City-name>.'
+        example: 'America/Chicago'
         type: string
       raw_offset:
-        description: 'a negative or positive number, identifying the offset from UTC/GMT, in seconds, during winter/standard time.'
+        description: 'A negative or positive number, identifying the offset from UTC/GMT, in seconds, during winter/standard time.'
         example: -21600
         type: integer
       dst_offset:
-        description: '"-/+" offset from UTC/GMT, in seconds, during summer/daylight saving time.'
+        description: '“-/+” offset from UTC/GMT, in seconds, during summer/daylight saving time.'
         example: -18000
         type: integer
       dst_correction:
-        description: a boolean indicating whether this time zone observes daylight saving time.
+        description: A boolean indicating whether this time zone observes daylight saving time.
         example: true
         type: boolean
       date_format:
@@ -1466,15 +1430,15 @@ definitions:
     type: object
     properties:
       display:
-        description: 'string that defines dates’ display format, in the pattern: M jS Y'
+        description: 'A string that defines dates’ display formats, in the pattern: M jS Y'
         example: M jS Y
         type: string
       export:
-        description: 'string that defines the CSV export format for orders, customers, and products, in the pattern: M jS Y'
+        description: 'A string that defines the CSV export format for orders, customers, and products, in the pattern: M jS Y'
         example: M jS Y
         type: string
       extended_display:
-        description: 'string that defines dates’ extended-display format, in the pattern: M jS Y @ g:i A.'
+        description: 'A string that defines dates’ extended-display format, in the pattern: M jS Y @ g:i A.'
         example: 'M jS Y @ g:i A'
         type: string
   blogTags:
@@ -1500,12 +1464,12 @@ definitions:
         description: Title of this blog post.
         example: Welcome to BigCommerce
       url:
-        example: /blog/welcome-bigcommerce/
+        example: '/blog/welcome-bigcommerce/'
         type: string
         description: URL for the public blog post.
       preview_url:
         description: URL to preview the blog post. (READ-ONLY)
-        example: /blog/welcome-bigcommerce/
+        example: '/blog/welcome-bigcommerce/'
         type: string
       body:
         type: string
@@ -1518,7 +1482,7 @@ definitions:
           type: string
       summary:
         description: Summary of the blog post. (READ-ONLY)
-        example: <p>We power ecommerce websites for successful retailers all over the world</p>
+        example: '<p>We power ecommerce websites for successful retailers all over the world</p>'
         type: string
       is_published:
         description: Whether the blog post is published.
@@ -1531,11 +1495,11 @@ definitions:
         example: '5/18/2018 1:26:42 PM'
         type: string
       meta_description:
-        description: Description text for this blog post’s `<meta/>` element.
+        description: 'Description text for this blog post’s `<meta/>` element.'
         example: Welcome Post
         type: string
       meta_keywords:
-        description: Keywords for this blog post’s `<meta/>` element.
+        description: 'Keywords for this blog post’s `<meta/>` element.'
         example: 'BigCommerce, welcome, ecommerce'
         type: string
       author:
@@ -1700,7 +1664,7 @@ securityDefinitions:
       X-Auth-Token: {access_token}
       ```
 
-      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
 security:
   - X-Auth-Token: []
   - X-Auth-Client: []

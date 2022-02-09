@@ -14,17 +14,11 @@ paths:
         - Customers
       description: |-
         Creates a *Customer*.
-
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content">
-
-        > ### Note
+        
+        <!-- theme: info -->
+        > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
 
-        </div>
-        </div>
-        </div>
       responses:
         '204':
           description: Customer succesfully created

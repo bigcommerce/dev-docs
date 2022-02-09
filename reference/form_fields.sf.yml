@@ -4,16 +4,10 @@ info:
   description: |-
     Read form fields on a BigCommerce hosted storefront.
 
-    <div class="HubBlock--callout">
-    <div class="CalloutBlock--warning">
-    <div class="HubBlock-content">
-
-    > ### Note
+    <!-- theme: warning -->
+    > #### Note
     > * Breaking changes may be introduced to this endpoint while in beta.
 
-    </div>
-    </div>
-    </div>
   version: ''
 consumes:
   - application/json
@@ -25,16 +19,10 @@ paths:
       description: |-
         Gets form fields.
 
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
-
-        > ### Note
+        <!-- theme: info -->
+        > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
-        </div>
-        </div>
-        </div>
+
       parameters:
         - name: filter
           in: query

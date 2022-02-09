@@ -3,7 +3,7 @@ info:
   title: Tax Provider API
   version: '1.0'
   contact: {}
-  description: 'Use BigCommerce’s platform-to-platform Tax Provider API to integrate a tax calculation engine into the BigCommerce storefront and control panel. Supports [estimate](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/estimate), [adjust](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/adjust), [commit](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/commit), and [void](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api/tax-provider/void) operations. For more information, see [Tax Provider API Overview](https://developer.bigcommerce.com/api-docs/providers/tax).'
+  description: 'Use BigCommerce’s platform-to-platform Tax Provider API to integrate a tax calculation engine into the BigCommerce storefront and control panel. Supports [estimate](/api-reference/providers/tax-provider-api/tax-provider/estimate), [adjust](/api-reference/providers/tax-provider-api/tax-provider/adjust), [commit](/api-reference/providers/tax-provider-api/tax-provider/commit), and [void](/api-reference/providers/tax-provider-api/tax-provider/void) operations. For more information, see [Tax Provider API Overview](/api-docs/providers/tax).'
 tags:
   - name: Tax Provider
 servers:
@@ -1254,6 +1254,6 @@ components:
     Authorization:
       type: http
       scheme: basic
-      description: 'The [HTTP Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) (developer.mozilla.org) credentials used to authenticate each API request to the Tax Provider from the associated store; set and update `username` and `password` using the [Update a Connection](https://developer.bigcommerce.com/api-reference/store-management/tax/tax-provider-connection/provider-connection-put) request.'
+      description: 'The [HTTP Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) (developer.mozilla.org) credentials used to authenticate each API request to the Tax Provider from the associated store; set and update `username` and `password` using the [Update a Connection](/api-reference/store-management/tax/tax-provider-connection/provider-connection-put) request.'
 security:
   - Authorization: []

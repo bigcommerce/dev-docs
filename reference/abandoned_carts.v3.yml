@@ -5,16 +5,13 @@ info:
   description: |-
     Use `/abandoned-carts/{token}` on headless storefronts to retrieve the `cart_id` via the abandoned cart `token` passed in to headless storefront via an abandoned cart email link clicked on by a shopper. Once the `cart_id` has been retrieved, it can be used to fetch and display information about the cart to the shopper via the storefront cart and/or server-to-server cart APIs.
 
-    - [OAuth Scopes](#oauth-scopes)
-    - [Authentication](#authentication)
-
     ## OAuth Scopes
     | UI Name                                      | Permission | Parameter                                     |
     |----------------------------------------------|------------|-----------------------------------------------|
     | Carts                                        | modify     | `store_cart`                                  |
     | Carts                                        | read-only  | `store_cart_read_only`                        |
 
-    For more information on OAuth Scopes, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+    For more information on OAuth Scopes, see: [Authentication](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
     ## Authentication
 
@@ -31,7 +28,7 @@ info:
     |-|-|-|
     |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
-    For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+    For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
   license:
     name: ''
   termsOfService: ''
@@ -156,7 +153,7 @@ securityDefinitions:
       X-Auth-Token: {access_token}
       ```
 
-      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
@@ -177,7 +174,7 @@ responses:
       application/json:
         status: 502
         title: A login URL could not be generated. Please try another request.
-        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
   504_GatewayTimeout:
     description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
     schema:
@@ -186,7 +183,7 @@ responses:
       application/json:
         status: 504
         title: Gateway Timeout
-        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors: {}
   403_Unauthorized:
     description: ''
@@ -196,7 +193,7 @@ responses:
       application/json:
         status: 403
         title: Unauthorized Access. You do not have permission to make this request.
-        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
   400_BadRequest:
     description: |-
       Malformed request syntax. Typically need to fix the JSON
@@ -207,7 +204,7 @@ responses:
       application/json:
         status: 400
         title: Input is invalid.
-        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
   404_NotFound:
     description: 'If the requested account resource is not found for the franchise, return a 404 Not Found.'
     schema:
@@ -216,7 +213,7 @@ responses:
       application/json:
         status: 404
         title: 'Account with {id} not found'
-        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
   422_UnprocessableEntity:
     description: This occurs when missing or unacceptable data is passed for one or more fields. Please correct the values for the fields listed in the errors object.
     schema:
@@ -225,7 +222,7 @@ responses:
       application/json:
         status: 422
         title: JSON data is missing or invalid
-        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors:
           name: error.expected.jsstring
           primary_contact.district: error.expected.jsstring.
@@ -237,7 +234,7 @@ responses:
       application/json:
         status: 503
         title: Service Unavailable
-        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
   abandonedCart_Resp:
     schema:
       type: object

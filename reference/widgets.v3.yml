@@ -5,13 +5,9 @@ info:
   description: |-
     Create and manage widget templates, widgets, regions, and placements.
 
-    - [Authentication](#authentication)
-    - [Subresources](#subresources)
-    - [Additional Information](#additional-information)
-
     ## Authentication
 
-    [Authenticate](https://developer.bigcommerce.com/api-docs/getting-started/authentication) requests by including an OAuth `access_token` in the request header.
+    [Authenticate](/api-docs/getting-started/authentication/rest-api-authentication) requests by including an OAuth `access_token` in the request header.
 
     ```http
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
@@ -25,27 +21,27 @@ info:
     |  Content | modify | `store_v2_content` |
     |  Content | read-only | `store_v2_content_read_only` |
 
-    For more information on OAuth scopes, see [Authenticating BigCommerce's REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+    For more information on OAuth scopes, see [Authenticating BigCommerce's REST APIs](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
     ## Subresources
 
     ### Widget templates
-    [Widget templates](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/getwidgettemplates) are reusable Handlebars-enabled HTML templates that define the structure of the widget on a page.
+    [Widget templates](/api-reference/store-management/widgets/widget-template/getwidgettemplates) are reusable Handlebars-enabled HTML templates that define the structure of the widget on a page.
 
     ### Widgets
-    [Widgets](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget/getwidgets) are units of content placed on specific pages in a Stencil theme. Widgets consist of a widget configuration and a widget template UUID and render as part of the storefront’s HTML.
+    [Widgets](/api-reference/store-management/widgets/widget/getwidgets) are units of content placed on specific pages in a Stencil theme. Widgets consist of a widget configuration and a widget template UUID and render as part of the storefront’s HTML.
 
     ### Regions
-    [Regions](https://developer.bigcommerce.com/api-reference/store-management/widgets/regions/getcontentregions) are specific locations in the Stencil theme template files where you can place a widget.
+    [Regions](/api-reference/store-management/widgets/regions/getcontentregions) are specific locations in the Stencil theme template files where you can place a widget.
 
     ### Placements
-    [Placements](https://developer.bigcommerce.com/api-reference/store-management/widgets/placement/getplacements) determine the region where you place widgets and in what order.
+    [Placements](/api-reference/store-management/widgets/placement/getplacements) determine the region where you place widgets and in what order.
 
     ## Additional Information
 
-    * [Widgets API Overview](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview)
-    * [Widget UI Schema](https://developer.bigcommerce.com/stencil-docs/page-builder/widget-ui-schema)
-    * [Widget UI Input Types](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings)
+    * [Widgets API Overview](/api-docs/store-management/widgets/overview)
+    * [Widget UI Schema](/stencil-docs/page-builder/widget-ui-schema)
+    * [Widget UI Input Types](/stencil-docs/page-builder/schema-settings)
   termsOfService: ''
 host: api.bigcommerce.com
 tags:
@@ -548,7 +544,7 @@ paths:
 
         **Template Files**
 
-        To view the list of values accepted by the `template_file` property, including **custom** templates, see [Placements](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#placements).
+        To view the list of values accepted by the `template_file` property, including **custom** templates, see [Placements](/api-docs/store-management/widgets/overview#placements).
     get:
       tags:
         - Placement
@@ -1171,18 +1167,18 @@ definitions:
               example: Product
             settings:
               type: array
-              description: 'For examples of schema settings, see [Widget UI Input Types](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings).'
+              description: 'For examples of schema settings, see [Widget UI Input Types](/stencil-docs/page-builder/schema-settings).'
               items:
                 type: object
                 title: widgetSchemaSetting_Base
-                description: 'For examples of each type of setting, see [Page Builder > Schema Settings](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
+                description: 'For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
                 properties:
                   type:
                     type: string
                     description: |-
                       The type of setting component to display. You can view the list of elements below to discover which are available to use.
 
-                      For examples of each type of setting, see [Page Builder > Schema Settings](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.
+                      For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.
                     enum:
                       - alignment
                       - boolean
@@ -1254,7 +1250,7 @@ definitions:
         type: string
       settings:
         type: array
-        description: 'For examples of each type of setting, see [Page Builder > Schema Settings](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
+        description: 'For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
         items:
           $ref: '#/definitions/widgetSchemaSetting_Base'
   widgetSchemaArray:
@@ -1296,14 +1292,14 @@ definitions:
   widgetSchemaSetting_Base:
     type: object
     title: widgetSchemaSetting_Base
-    description: 'For examples of each type of setting, see [Page Builder > Schema Settings](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
+    description: 'For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
     properties:
       type:
         type: string
         description: |-
           The type of setting component to display. You can view the list of elements below to discover which are available to use.
 
-          For examples of each type of setting, see [Page Builder > Schema Settings](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.
+          For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.
         enum:
           - alignment
           - boolean
@@ -1348,7 +1344,7 @@ definitions:
         $ref: '#/definitions/widgetSchemaConditional'
   widgetSchema:
     type: array
-    description: 'The schema for the widget''s merchant-facing UI. For more information on the available schema settings, see [Widget UI Schema](https://developer.bigcommerce.com/stencil-docs/page-builder/widget-ui-schema). '
+    description: 'The schema for the widget’s merchant-facing UI. For more information on the available schema settings, see [Widget UI Schema](/stencil-docs/page-builder/widget-ui-schema). '
     title: ''
     items:
       anyOf:
@@ -1369,14 +1365,14 @@ definitions:
         items:
           type: object
           title: widgetSchemaSetting_Base
-          description: 'For examples of each type of setting, see [Page Builder > Schema Settings](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
+          description: 'For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
           properties:
             type:
               type: string
               description: |-
                 The type of setting component to display. You can view the list of elements below to discover which are available to use.
 
-                For examples of each type of setting, see [Page Builder > Schema Settings](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.
+                For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.
               enum:
                 - alignment
                 - boolean
@@ -1493,7 +1489,7 @@ securityDefinitions:
       X-Auth-Token: {access_token}
       ```
 
-      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []

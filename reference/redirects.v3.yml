@@ -5,12 +5,6 @@ info:
   description: |-
     Manage 301 redirects for one or more storefronts powered by a single BigCommerce back-end.
 
-    **On This Page**
-    - [Authentication](#authentication)
-    - [OAuth Scopes](#oauth-scopes)
-    ---
-
-
     ## Authentication
 
     Requests can be authenticated by sending an `access_token` via `X-Auth-Token` HTTP header:
@@ -26,7 +20,7 @@ info:
     |-|-|-|
     |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
-    For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+    For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
 securityDefinitions:
   X-Auth-Token:
     type: apiKey
@@ -54,7 +48,7 @@ securityDefinitions:
       X-Auth-Token: {access_token}
       ```
 
-      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
@@ -232,7 +226,7 @@ definitions:
         $ref: '#/definitions/Error'
   301RedirectUpsert:
     type: object
-    description: 'Data necessary to create or update a redirect. If there''s a conflict on the from_path and site_id, the redirect will be overwritten with new data.'
+    description: 'Data necessary to create or update a redirect. If there’s a conflict on the from_path and site_id, the redirect will be overwritten with new data.'
     properties:
       from_path:
         type: string

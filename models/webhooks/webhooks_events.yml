@@ -3,8 +3,7 @@ info:
   title: Webhook Callbacks
   version: ''
   description: >-
-    For a list of all webhook events see [Webhook
-    Events](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events).
+    For a list of all webhook events, see [Webhook Events](/api-docs/store-management/webhooks/webhook-events).
 paths:
   /store/cart/lineItem/created:
     post:
@@ -1439,8 +1438,7 @@ responses:
       reason), we will retry the callback as described below.
 
 
-      Need to set up a quick destination URL for testing? See [Tools for testing
-      webhooks](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/about-webhooks#about-webhooks_tools-for-debugging-and-testing-webhooks).
+      Need to set up a quick destination URL for testing? See [Tools for testing webhooks](/api-docs/getting-started/webhooks/about-webhooks#about-webhooks_tools-for-debugging-and-testing-webhooks).
     schema:
       type: object
       properties: {}

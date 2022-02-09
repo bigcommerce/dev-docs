@@ -5,11 +5,6 @@ info:
   description: |-
     Create and Manage Customers, Customer Addresses, and Customer Groups. Additionally, validate customer passwords. To learn more about Customers see [here](/api-docs/customers/customers-subscribers-overview). 
 
-    - [Authentication](#authentication)
-    - [Available Endpoints](#available-endpoints)
-    - [Usage Notes](#usage-notes)
-    - [Resources](#resources)
-
     ## Authentication
 
     Requests can be authenticated by sending an `access_token` via `X-Auth-Token` HTTP header:
@@ -31,7 +26,7 @@ info:
     | Customers                                    | modify     | `store_v2_customers`                          |
     | Customers                                    | read-only  | `store_v2_customers_read_only`                |
 
-    For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+    For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
 
     ## Available Endpoints
     | Resource / Endpoint                     | Description                                                                   |
@@ -54,13 +49,13 @@ info:
     ## Resources
 
     ### Related APIs / Endpoints
-      [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
-    - [Current Customer API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api)
-    - [Customers API (v3)](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api)
-    - [Subscribers API](https://developer.bigcommerce.com/api-reference/customer-subscribers/subscribers-api)
+      [Customer Login API](/api-docs/customers/customer-login-api)
+    - [Current Customer API](/api-docs/customers/current-customer-api)
+    - [Customers API (v3)](/api-reference/customer-subscribers/v3-customers-api)
+    - [Subscribers API](/api-reference/customer-subscribers/subscribers-api)
 
     ### Webhooks
-    - [Customers](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#webhook-events_customer)
+    - [Customers](/api-docs/store-management/webhooks/webhook-events#customer)
 host: api.bigcommerce.com
 basePath: '/'
 schemes:
@@ -874,7 +869,7 @@ paths:
                 description: Store-owner notes on the customer.
                 type: string
               tax_exempt_category:
-                description: 'If applicable, the tax-exempt category of the shopper''s customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration. '
+                description: 'If applicable, the tax-exempt category of the shopper’s customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration. '
                 type: string
               accepts_marketing:
                 description: 'If the customer accepts product review emails or abandon cart emails. Read-Only. '
@@ -2797,7 +2792,7 @@ definitions:
         description: Store-owner notes on the customer.
         type: string
       tax_exempt_category:
-        description: 'If applicable, the tax-exempt category of the shopper''s customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration.'
+        description: 'If applicable, the tax-exempt category of the shopper’s customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration.'
         type: string
       accepts_marketing:
         description: 'If the customer accepts product review emails or abandon cart emails. Read-Only. '
@@ -2948,7 +2943,7 @@ securityDefinitions:
       X-Auth-Token: {access_token}
       ```
 
-      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication). 
 security:
   - X-Auth-Token: []
   - X-Auth-Client: []

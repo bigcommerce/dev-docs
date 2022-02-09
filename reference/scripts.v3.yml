@@ -5,10 +5,6 @@ info:
   description: |-
     Inject client-side code onto a BigCommere storefront. To learn more about scripts, see [Scripts API](/api-docs/store-management/scripts). 
 
-    - [OAuth Scopes](#oauth-scopes)
-    - [Authentication](#authentication)
-    - [Available Endpoints](#available-endpoints)
-
     ## OAuth Scopes
     | UI Name                                      | Permission | Parameter                                     |
     |----------------------------------------------|------------|-----------------------------------------------|
@@ -19,7 +15,7 @@ info:
 
     1. `Checkout Content` scopes are required to create or read scripts on the checkout page.
 
-    For more information on OAuth Scopes, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+    For more information on OAuth Scopes, see [Authentication](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
     ## Authentication
 
@@ -35,7 +31,7 @@ info:
     |-|-|-|
     |`X-Auth-Token`|`access_token`|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
-    For more information on Authenticating BigCommerce APIs, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+    For more information on Authenticating BigCommerce APIs, see [Authentication](/api-docs/getting-started/authentication).
 
     ## Available Endpoints
     | Resource / Endpoint                     | Description                                                             |
@@ -163,7 +159,7 @@ paths:
         * If kind is `src` –- Only the `src` property is needed, and you can optionally supply a `load_method`. The `html` field should not be specified.
         * If kind is `script_tag` -- Only the `script_tag` is needed. The `src` field should not be specified.
         * Each app can have 10 scripts installed.
-        * Multiple scripts can be created [per call](https://developer.bigcommerce.com/api-docs/store-management/scripts#notes). 
+        * Multiple scripts can be created [per call](/api-docs/store-management/scripts#notes). 
     get:
       summary: Get All Scripts
       operationId: getScripts
@@ -993,7 +989,7 @@ definitions:
   script_Response:
     type: object
     title: script_Response
-    description: 'For a list of all locations visit [Scripts Visibility](https://developer.bigcommerce.com/api-docs/storefront/scripts-overview#scripts_scripts-visibility).'
+    description: 'For a list of all locations visit [Scripts Visibility](/api-docs/store-management/scripts#script-visibility-locations).'
     properties:
       data:
         $ref: '#/definitions/script_Full'
@@ -1002,7 +998,7 @@ definitions:
   script_responseCollection:
     type: object
     title: script_responseCollection
-    description: 'For a list of all locations visit [Scripts Visibility](https://developer.bigcommerce.com/api-docs/storefront/scripts-overview#scripts_scripts-visibility).'
+    description: 'For a list of all locations visit [Scripts Visibility](/api-docs/store-management/scripts#script-visibility-locations).'
     properties:
       data:
         type: array
@@ -1055,7 +1051,7 @@ definitions:
           - footer
       visibility:
         type: string
-        description: "Which set of pages the script should load on. \n\nPlease note that you need to have `Checkout content` scope to use `all_pages` and `checkout`.\n\n- The current visibility options are `storefront`, `checkout`, `all_pages` and `order_confirmation`.\n\n     `storefront`: All pages that are not `checkout` or `order_confirmation`.\n\t\t \nFor a list of all locations visit [Scripts Visibility](https://developer.bigcommerce.com/api-docs/storefront/scripts-overview#scripts_scripts-visibility)."
+        description: "Which set of pages the script should load on. \n\nPlease note that you need to have `Checkout content` scope to use `all_pages` and `checkout`.\n\n- The current visibility options are `storefront`, `checkout`, `all_pages` and `order_confirmation`.\n\n     `storefront`: All pages that are not `checkout` or `order_confirmation`.\n\t\t \nFor a list of all locations visit [Scripts Visibility](/api-docs/store-management/scripts#script-visibility-locations)."
         enum:
           - storefront
           - all_pages
@@ -1116,7 +1112,7 @@ securityDefinitions:
       X-Auth-Token: {access_token}
       ```
 
-      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication). 
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []

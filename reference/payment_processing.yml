@@ -3,7 +3,7 @@ info:
   version: ''
   title: Payment Processing
   contact: {}
-  description: 'Process payments using payment instrument such as credit card. See [Payments Overview](https://developer.bigcommerce.com/api-docs/store-management/payment-processing) for more information.'
+  description: 'Process payments using payment instrument such as credit card. See [Payments Overview](/api-docs/store-management/payment-processing) for more information.'
 tags:
   - name: Accepted Methods
   - name: Access Tokens
@@ -31,7 +31,7 @@ paths:
       tags:
         - Process Payment
       operationId: PaymentsPost
-      description: 'Process payments for an order. See [Payment Processing](https://developer.bigcommerce.com/api-docs/store-management/payment-processing) for more information.'
+      description: 'Process payments for an order. See [Payment Processing](/api-docs/store-management/payment-processing) for more information.'
       servers:
         - url: 'https://payments.bigcommerce.com/stores/{$$.env.store_hash}'
           variables:
@@ -622,7 +622,7 @@ paths:
         Returns a list of accepted payment methods based on the `order_id`.
 
         **Notes**
-        * Use the [Create an Order](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-orders/createanorder) endpoint, to generate the `order_id`.
+        * Use the [Create an Order](/api-reference/store-management/checkouts/checkout-orders/createanorder) endpoint, to generate the `order_id`.
         * Orders created will be set to incomplete order status.
 
         **Required Fields**
@@ -955,7 +955,7 @@ components:
         Authorization: {PAYMENT_ACCESS_TOKEN}
         ```
 
-        * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
   schemas:
     PaymentRequest:
       title: Payment Request
@@ -1289,7 +1289,7 @@ components:
           minLength: 4
           maxLength: 4
         token:
-          description: 'Identifier representing this stored card. This is used to identify cards within BigCommerce. It is the same as the `payment_access_token` that returns via the [Get Transactions endpoint](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api/orders/gettransactions).'
+          description: 'Identifier representing this stored card. This is used to identify cards within BigCommerce. It is the same as the `payment_access_token` that returns via the [Get Transactions endpoint](/api-reference/store-management/order-transactions/transactions/gettransactions).'
           type: string
           minLength: 64
           maxLength: 64

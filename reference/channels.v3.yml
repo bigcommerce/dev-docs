@@ -3,17 +3,11 @@ info:
   version: ''
   title: Channels
   description: |-
-    Create and manage sales [channels](https://developer.bigcommerce.com/api-docs/channels/overview), their [sites](https://developer.bigcommerce.com/api-reference/store-management/channels/channel-site), and their [product listings](https://developer.bigcommerce.com/api-reference/store-management/channels/channel-listings).
-
-    - [Authentication](#authentication)
-    - [Channels](#channels)
-    - [Channel listings](#channel-listings)
-    - [Channel site](#channel-site)
-    - [Resources](#resources)
+    Create and manage sales [channels](/api-docs/channels/overview), their [sites](/api-reference/store-management/channels/channel-site), and their [product listings](/api-reference/store-management/channels#channel-listings).
 
     ## Authentication
 
-    Authenticate requests by including an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` in the request header.
+    Authenticate requests by including an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication) `access_token` in the request header.
 
     ```http
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
@@ -21,7 +15,7 @@ info:
     X-Auth-Token: {{ACCESS_TOKEN}}
     ```
 
-    ### [OAuth Scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
+    ### [OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
 
     | UI Name                                      | Permission | Parameter                                     |
     |----------------------------------------------|------------|-----------------------------------------------|
@@ -32,7 +26,7 @@ info:
 
     ## Channels
 
-    A [channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels) is anywhere a merchant sells their products. This encompasses headless storefronts, marketplaces, POS systems, and marketing platforms.
+    A [channel](/api-reference/cart-checkout/channels-listings-api/channels) is anywhere a merchant sells their products. This encompasses headless storefronts, marketplaces, POS systems, and marketing platforms.
 
     ### Platform
 
@@ -76,33 +70,26 @@ info:
     |`storefront`|**Is not** `bigcommerce` |`active`, `inactive`, `archived`, `deleted`
     |`marketing`, `marketplace`, `pos`|N/A|`connected`, `disconnected`, `archived`, `deleted`|
 
-    <div class="HubBlock--callout">
-    <div class="CalloutBlock--warning">
-    <div class="HubBlock-content">
-
-    > ### Note
+    <!-- theme: warning -->
+    > #### Note
     > * A Channel with `deleted` status can be restored within 90 days after deleting by contacting BigCommerce support team. Once the 90 days grace period is over, the Channel `status` will become `terminated`.
     > * The `terminated` status is read-only. `terminated` channels cannot be restored.
     > * As of April 2020, `status`  should be used in place of `is_enabled` -- `is_enabled` is deprecated.
 
-    </div>
-    </div>
-    </div>
-
     ## Channel listings
 
-    [Channel listings](https://developer.bigcommerce.com/api-reference/store-management/channels/channel-listings) allow you to manage catalog differences among different storefronts or marketplaces.
+    [Channel listings](/api-reference/store-management/channels/channel-listings) allow you to manage catalog differences among different storefronts or marketplaces.
 
     ## Channel site
 
-    A [Channel site](https://developer.bigcommerce.com/api-reference/store-management/channels/channel-site) refers to the domain associated with a channel.
+    A [Channel site](/api-reference/store-management/channels/channel-site) refers to the domain associated with a channel.
 
     ## Resources
 
-    * [Sites and Routes API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api)
-    * [Building Channels Overview](https://developer.bigcommerce.com/api-docs/channels/overview)
-    * [Building Channel Apps](https://developer.bigcommerce.com/api-docs/channels/building-channel-apps)
-    * [Channels Toolkit Reference](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference)
+    * [Sites and Routes API Reference](/api-reference/cart-checkout/sites-routes-api)
+    * [Building Channels Overview](/api-docs/channels/overview)
+    * [Building Channel Apps](/api-docs/channels/building-channel-apps)
+    * [Channels Toolkit Reference](/api-docs/channels/channels-toolkit-reference)
 tags:
   - name: Channels
   - name: Channel Active Theme
@@ -212,7 +199,7 @@ paths:
         * `config_meta`
 
 
-        > ### Note
+        > #### Note
         > * Partial updates are supported. In most cases, if a field that *cannot* be updated is passed in, the API **will not** respond with an error. It returns a 200 response with the object, in which you will see the field(s) were not updated.
         > * `platform` and `type` cannot be updated after a channel is created.
         > * A channel with status `deleted` or `terminated` cannot be updated.
@@ -460,7 +447,7 @@ paths:
       description: |-
         Updates one or more *Channel Listings* for a specific channel.
 
-        > ### Note
+        > #### Note
         > * Partial updates are supported. In most cases, if a field that *cannot* be updated is passed in, the API **will not** respond with an error. It returns a 200 response with the object, in which you will see the field(s) were not updated.
         > * If a new variant is provided, the API will append the variant to the list. If a variant already exists, the API will update the existing variant. Other variants that are not provided in the payload remains unchanged.
         > * If `listing_id` does not exist, the API will return a 200 response with empty data.
@@ -656,7 +643,7 @@ components:
             - storefront
     platform_in:
       name: 'platform:in'
-      description: 'Filter items by a comma-separated list of platforms. For a list of supported platforms, see [Platform](https://developer.bigcommerce.com/api-reference/store-management/channels#platform).'
+      description: 'Filter items by a comma-separated list of platforms. For a list of supported platforms, see [Platform](/api-reference/store-management/channels#platform).'
       in: query
       required: false
       schema:
@@ -1466,49 +1453,49 @@ components:
       value:
         status: 400
         title: Input is invalid
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors: {}
     error_404_resp_example:
       value:
         status: 404
         title: Not found
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors: {}
     error_404_entity_not_found_resp_example:
       value:
         status: 404
         title: The requested entity was not found.
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors: {}
     error_404_active_theme_not_found_resp_example:
       value:
         status: 404
         title: 'No active theme found with channel_id: 123456789'
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors: {}
     error_404_listing_not_found_resp_example:
       value:
         status: 404
         title: 'Listing [123456789] not found'
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors: {}
     error_409_resp_example:
       value:
         status: 409
         title: 'Channel already exists with name: "Facebook", platform: "facebook", and type: "marketplace"'
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors: {}
     error_422_invalid_filter_value_resp_example:
       value:
         status: 422
         title: 'Query parameter "limit" value must be integer. For input string: "a".'
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors: {}
     error_422_channel_resp_example:
       value:
         status: 422
         title: JSON data is missing or invalid
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors:
           platform: error.path.missing
           name: error.expected.jsstring
@@ -1516,13 +1503,13 @@ components:
       value:
         status: 422
         title: 'Input channel type [marketplace] with platform [bigcommerce] is not supported'
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors: {}
     error_422_prevent_update_type_and_platform_resp_example:
       value:
         status: 422
         title: 'The following fields are invalid: type, platform'
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors:
           type: The field 'type' can not be updated after channel is created.
           platform: The field 'platform' can not be updated after channel is created.
@@ -1530,13 +1517,13 @@ components:
       value:
         status: 422
         title: A deleted channel cannot be updated. Channel can be restored within 90 days after deleting by contacting BigCommerce support team
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors: {}
     error_422_multiple_channels_currency_assignments_resp_example:
       value:
         status: 422
         title: JSON data is missing or invalid
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors:
           0.channel_id: error.expected.jsnumber
           0.enabled_currencies: error.path.missing
@@ -1545,7 +1532,7 @@ components:
       value:
         status: 422
         title: JSON data is missing or invalid
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors:
           enabled_currencies: error.path.missing
           default_currency: error.path.missing
@@ -1553,32 +1540,32 @@ components:
       value:
         status: 422
         title: 'The following fields are invalid: `enabled_currencies`'
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors:
           enabled_currencies: The field `enabled_currencies` contains the following currencies that have not been enabled [AWG]
     error_422_invalid_channel_id_resp_example:
       value:
         status: 422
         title: The following `channel_id`s [123456789] are not valid for store 1000000000.
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors: {}
     error_422_invalid_filters_resp_example:
       value:
         status: 422
         title: 'The filter(s): a, b are not valid filter parameter(s).'
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors: {}
     error_422_product_id_mismatch_resp_example:
       value:
         status: 422
         title: '0/0 product listing group(s) and 0/0 product listing(s) upserted. Invalid fields: '
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors: {}
     error_422_missing_listing_required_fields_resp_example:
       value:
         status: 422
         title: JSON data is missing or invalid
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors:
           0.state: error.path.missing
           0.variants: error.path.missing
@@ -1587,7 +1574,7 @@ components:
       value:
         status: 422
         title: JSON data is missing or invalid
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors:
           0.variants.0.state: error.path.missing
           0.variants.0.product_id: error.path.missing
@@ -1596,13 +1583,13 @@ components:
       value:
         status: 422
         title: Channel id (1000000) is not valid for store (1001808665)!
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors: {}
     error_422_invalid_listing_id_resp_example:
       value:
         status: 422
         title: '0/0 product listing group(s) and 0/0 product listing(s) upserted. Invalid fields: group_id,'
-        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors:
           group_id: Group id (0) for store (1001808665) cannot be less than or equal to zero!
   securitySchemes:
@@ -1675,7 +1662,7 @@ components:
       description: 'This field was originally used to turn on/off a channel but is deprecated. `status` should be used in place of `is_enabled`. Channel with `status` of `prelaunch`, `active`, or `connected` will have `is_enabled` set to `true`. Channel with `status` of `inactive`, `disconnected`, `archived`, `deleted`, or `terminated` will have `is_enabled` set to `false`.'
     ChannelStatus:
       type: string
-      description: 'The status of the channel; channel `type`, `platform`, and `status` must be a [valid combination](https://developer.bigcommerce.com/api-reference/store-management/channels#status). `terminated` is not valid for `PUT` or `POST` requests. `deleted` is not valid for `POST` requests.'
+      description: 'The status of the channel; channel `type`, `platform`, and `status` must be a [valid combination](/api-reference/store-management/channels#status). `terminated` is not valid for `PUT` or `POST` requests. `deleted` is not valid for `POST` requests.'
       enum:
         - active
         - prelaunch
@@ -1691,7 +1678,7 @@ components:
       description: Name of the channel as it will appear to merchants in the control panel.
     ChannelType:
       type: string
-      description: 'The type of channel; channel `platform` and `type` must be a [valid combination](https://developer.bigcommerce.com/api-reference/store-management/channels#platform).'
+      description: 'The type of channel; channel `platform` and `type` must be a [valid combination](/api-reference/store-management/channels#platform).'
       enum:
         - pos
         - marketplace
@@ -1699,7 +1686,7 @@ components:
         - marketing
     ChannelPlatform:
       type: string
-      description: 'The name of the platform for the channel; channel `platform` and `type` must be a [valid combination](https://developer.bigcommerce.com/api-reference/store-management/channels#platform).'
+      description: 'The name of the platform for the channel; channel `platform` and `type` must be a [valid combination](/api-reference/store-management/channels#platform).'
     ChannelDateCreated:
       type: string
       format: date-time
@@ -1783,11 +1770,11 @@ components:
       properties:
         app:
           type: object
-          description: "A [channel app](https://developer.bigcommerce.com/api-docs/channels/overview#channel-apps) config object for optionally configuring the channel's user interface in the control panel."
+          description: "A [channel app](/api-docs/channels/overview#channel-apps) config object for optionally configuring the channel's user interface in the control panel."
           properties:
             id:
               type: integer
-              description: The unique `id` given to an app registered in [DevTools](https://devtools.bigcommerce.com/); used to create links to the app in channel manager. `app.id` is optional; however, if you're building an app that creates or manages a channel, we recommend including it to ensure the user interface in the control panel works properly. Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request. [Learn how to find an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).
+              description: The unique `id` given to an app registered in [DevTools](https://devtools.bigcommerce.com/); used to create links to the app in channel manager. `app.id` is optional; however, if you're building an app that creates or manages a channel, we recommend including it to ensure the user interface in the control panel works properly. Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request. [Learn how to find an App's ID](/api-docs/apps/tutorials/id).
             sections:
               type: array
               description: 'If set, when the app is loaded within the control panel, the navigation `sections` will be directly embedded in the control panel navigation.'

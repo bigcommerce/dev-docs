@@ -5,20 +5,13 @@ info:
   description: |-
     Manage alternate currency display options on the storefront.
 
-    - [OAuth Scopes](#oauth-scopes)
-    - [Authentication](#authentication)
-    - [Available Endpoints](#available-endpoints)
-    - [Definitions](#definitions)
-    - [FAQ](#faq)
-    - [Resources](#resources)
-
     ## OAuth Scopes
     | UI Name                                      | Permission | Parameter                                     |
     |----------------------------------------------|------------|-----------------------------------------------|
     | Information & Settings                       | modify     | `store_v2_information`                        |
     | Information & Settings                       | read-only  | `store_v2_information_read_only`              |
 
-    For more information on OAuth Scopes, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+    For more information on OAuth Scopes, see: [Authentication](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
     ## Authentication
 
@@ -35,7 +28,7 @@ info:
     |-|-|-|
     |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
-    For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+    For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
 
     ## Available Endpoints
     | Resource / Endpoint                     | Description                                                             |
@@ -64,8 +57,8 @@ info:
 
     ## Resources
 
-    - [How Currencies Works](https://developer.bigcommerce.com/api-docs/catalog/currencies/how-currencies-work)
-    - [Price List API](https://developer.bigcommerce.com/api-reference/catalog/pricelists-api)
+    - [How Currencies Work](/api-docs/catalog/currencies/how-currencies-work)
+    - [Price List API](/api-reference/catalog/pricelists-api)
     - [Using Price Lists](https://support.bigcommerce.com/s/article/Price-Lists) (BigCommerce Knowledge Base)
     - [Managing Currencies](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta) (BigCommerce Knowledge Base)
     - [Tax](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#intro1) (BigCommerce Knowledge Base)
@@ -437,7 +430,7 @@ securityDefinitions:
       X-Auth-Token: {access_token}
       ```
 
-      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication). 
 parameters:
   Accept:
     name: Accept

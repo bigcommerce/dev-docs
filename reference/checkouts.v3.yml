@@ -282,9 +282,9 @@ paths:
         * 50 line item limit for guest shoppers
         * 600 line item limit for logged-in shoppers
 
-        For more information about working with consignments, see [Checkout consignment](https://developer.bigcommerce.com/api-docs/checkouts/checkout-consignment).  
+        For more information about working with consignments, see [Checkout consignment](/api-docs/checkouts/checkout-consignment).  
 
-        Though the only required `shipping_address` properties to create a consignment are `email` and `country_code`, to successfully [create an order](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-orders/createanorder) the `shipping_address` requires the following properties:
+        Though the only required `shipping_address` properties to create a consignment are `email` and `country_code`, to successfully [create an order](/api-reference/store-management/checkouts/checkout-orders/createanorder) the `shipping_address` requires the following properties:
         * `first_name`
         * `last_name`
         * `address1`
@@ -826,7 +826,7 @@ definitions:
                       type: number
                       format: double
                     list_price:
-                      description: 'Item''s list price, as quoted by the manufacturer/distributor.'
+                      description: 'Item’s list price, as quoted by the manufacturer/distributor.'
                       type: number
                       format: double
                     sale_price:
@@ -949,7 +949,7 @@ definitions:
                       type: number
                       format: double
                     list_price:
-                      description: 'Item''s list price, as quoted by the manufacturer/distributor.'
+                      description: 'Item’s list price, as quoted by the manufacturer/distributor.'
                       type: number
                       format: double
                     sale_price:
@@ -977,7 +977,7 @@ definitions:
                       description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
                       type: string
                     amount:
-                      description: 'Value must be between 1.00 and 1,000.00 in the store''s default currency.'
+                      description: 'Value must be between 1.00 and 1,000.00 in the store’s default currency.'
                       type: number
                       format: double
                     sender:
@@ -1453,7 +1453,7 @@ definitions:
         type: string
         pattern: '^\+?[1-9]\d{1,14}(x\d{1-5})?$'
       custom_fields:
-        description: 'You can retreive custom fields from the [Get Form Fields](https://developer.bigcommerce.com/api-reference/storefront/form-fields/form-fields/getformfields) endpoint.'
+        description: 'You can retreive custom fields from the [Get Form Fields](/api-reference/storefront/form-fields/form-fields/getformfields) endpoint.'
         type: array
         items:
           title: Custom Field
@@ -1514,7 +1514,7 @@ definitions:
             type: string
             pattern: '^\+?[1-9]\d{1,14}(x\d{1-5})?$'
           custom_fields:
-            description: 'You can retreive custom fields from the [Get Form Fields](https://developer.bigcommerce.com/api-reference/storefront/form-fields/form-fields/getformfields) endpoint.'
+            description: 'You can retreive custom fields from the [Get Form Fields](/api-reference/storefront/form-fields/form-fields/getformfields) endpoint.'
             type: array
             items:
               title: Custom Field
@@ -1711,7 +1711,7 @@ securityDefinitions:
       X-Auth-Token: {access_token}
       ```
 
-      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
 tags:
   - name: Checkout
   - name: Checkout Billing Address

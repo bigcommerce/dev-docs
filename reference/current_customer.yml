@@ -5,18 +5,12 @@ info:
   description: |-
     Identify logged-in customers securely via JavaScript.
 
-    [Learn more about the current customer API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api).
+    [Learn more about the current customer API](/api-docs/customers/current-customer-api).
 
-    <div class="HubBlock--callout">
-    <div class="CalloutBlock--info">
-    <div class="HubBlock-content"> 
-
-    > ### Note
+    <!-- theme: info -->
+    > #### Note
     > The Send a Test Request feature is not currently supported for this endpoint.
-     
-    </div>
-    </div>
-    </div>
+
 host: '{$$.env.store_domain}'
 paths:
   /customer/current.jwt:
@@ -99,16 +93,11 @@ paths:
           type: string
           required: true
       description: |-
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
-
-        > ### Note
+        
+        <!-- theme: info -->
+        > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
-        </div>
-        </div>
-        </div>
+
       operationId: getCurrentCustomer
       tags:
         - Current Customers

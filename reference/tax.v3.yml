@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Tax Provider Connection
   version: '3'
-  description: 'Manage the connection between a merchant''s BigCommerce store and a third party tax provider. For more information, see [Tax Provider API Overview](https://developer.bigcommerce.com/api-docs/providers/tax).'
+  description: Manage the connection between a merchant's BigCommerce store and a third party tax provider. For more information, see [Tax Provider API Overview](/api-docs/providers/tax).
 paths:
   '/stores/{store_hash}/v3/tax/providers/{provider_id}/connection':
     get:
@@ -10,18 +10,10 @@ paths:
       description: |
         Retrieve the connection status of the specified tax provider in the context of a store.
 
-
-
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content">
-
-        > ### Note
+        <!-- theme: info -->
+        > #### Note
         > * Requires **read** permissions on the **Information and Settings** scope.
 
-        </div>
-        </div>
-        </div> 
       operationId: provider-connection-get
       responses:
         '200':
@@ -46,19 +38,14 @@ paths:
     delete:
       summary: Delete a Connection
       description: |
-        Remove any previously set basic connection credentials for the specified provider. If the specified provider is the active tax provider on the store, the store's active tax provider will be reset to BigCommerce Manual Tax. It is suggested to call this endpoint during a single-click app [uninstall callback](https://developer.bigcommerce.com/api-docs/apps/guide/callbacks#uninstall-callback).
-
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content">
-
-        > ### Note
+        Remove any previously set basic connection credentials for the specified provider. If the specified provider is the active tax provider on the store, the store's active tax provider will be reset to BigCommerce Manual Tax. It is suggested to call this endpoint during a single-click app [uninstall callback](/api-docs/apps/guide/callbacks#uninstall-callback).
+        
+        <!-- theme: info -->
+        > #### Note
         > * This operation will be logged in [Store Logs](https://support.bigcommerce.com/s/article/Using-Store-Logs) under **Staff Actions**.
-        > * Requires **write** permissions on the **Information and Settings** [scope](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+        > * Requires **write** permissions on the **Information and Settings** [scope](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
-        </div>
-        </div>
-        </div>
+
       operationId: provider-connection-delete
       responses:
         '200':
@@ -101,17 +88,11 @@ paths:
       description: |-
         Set the HTTP Basic Authentication credentials for the specified provider. The configured `username` and `password` will be used to authenticate each API request to the Tax Provider from the associated store.
 
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content">
-
-        > ### Note
+        <!-- theme: info -->
+        > #### Note
         > * This operation will be logged in [Store Logs](https://support.bigcommerce.com/s/article/Using-Store-Logs) under **Staff Actions**.
-        > * Requires **write** permissions on the **Information and Settings** [scope](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+        > * Requires **write** permissions on the **Information and Settings** [scope](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
-        </div>
-        </div>
-        </div>
       summary: Update a Connection
       operationId: provider-connection-put
       tags:
@@ -131,7 +112,7 @@ paths:
                 password:
                   type: string
                   example: h6eSgKLN72q7jYTW
-        description: 'Basic authentication information, associated with a merchant account on the third party tax provider''s infrastructure. '
+        description: Basic authentication information, associated with a merchant account on the third-party tax provider's infrastructure.
         x-examples:
           application/json:
             username: MyTaxProviderAccount
@@ -142,7 +123,7 @@ paths:
         required: true
         schema:
           type: string
-        description: 'The Tax Provider''s `provider_id` provided by BigCommerce after the provider [shares their provider details](https://developer.bigcommerce.com/api-docs/providers/tax#sharing-provider-details-with-bigcommerce). '
+        description: The Tax Provider's `provider_id` provided by BigCommerce after the provider [shares their provider details](/api-docs/providers/tax#sharing-provider-details-with-bigcommerce).
       - schema:
           type: string
         name: store_hash
@@ -193,7 +174,7 @@ components:
         X-Auth-Token: {access_token}
         ```
 
-        * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication). 
+        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication). 
   schemas:
     response-connection:
       type: object

@@ -5,12 +5,9 @@ info:
   description: |-
     Manage coupons, banners, and gift certificates.
 
-    - [Authentication](#authentication)
-    - [Subresources](#subresources)
-
     ## Authentication
 
-    Authenticate requests by including an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` in the request header.
+    Authenticate requests by including an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication) `access_token` in the request header.
 
     ```http
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
@@ -955,7 +952,7 @@ definitions:
           - promotion
       amount:
         type: string
-        description: 'The discount to apply to an order, as either an amount or a percentage. This field''s usage is determined by the coupon `type`. For example, a `type` of + `percentage_discount` would determine a percentage here.'
+        description: 'The discount to apply to an order, as either an amount or a percentage. This field’s usage is determined by the coupon `type`. For example, a `type` of + `percentage_discount` would determine a percentage here.'
         example: 5
       min_purchase:
         description: Specifies a minimum value that an order must have before the coupon can be applied to it.
@@ -965,7 +962,7 @@ definitions:
         description: 'Specifies when a coupon expires. Coupons need not have an expiry date – you can also control expiry via + `max_uses` or `max_uses_per_customer`. If you do use this date field, the value must be in <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a> format.'
         type: string
       enabled:
-        description: 'If the coupon is enabled, this field''s value is `true`; otherwise, `false`.'
+        description: 'If the coupon is enabled, this field’s value is `true`; otherwise, `false`.'
         example: true
         type: boolean
       code:
@@ -1343,7 +1340,7 @@ securityDefinitions:
       X-Auth-Token: {access_token}
       ```
 
-      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
 security:
   - X-Auth-Token: []
   - X-Auth-Client: []

@@ -6,12 +6,9 @@ info:
   description: |-
     Create and manage customer [wishlists](https://support.bigcommerce.com/s/article/Wishlists).
 
-    - [Authentication](#authentication)
-    - [Additional Information](#additional-information)
-
     ## Authentication
 
-    [Authenticate](https://developer.bigcommerce.com/api-docs/getting-started/authentication) requests by including an OAuth `access_token` in the request header.
+    [Authenticate](/api-docs/getting-started/authentication/rest-api-authentication) requests by including an OAuth `access_token` in the request header.
 
     ```http
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
@@ -25,7 +22,7 @@ info:
     |  Customers | modify | `store_v2_customers` |
     |  Customers | read-only | `store_v2_customers_read_only` |
 
-    For more information on OAuth scopes, see [Authenticating BigCommerce's REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+    For more information on OAuth scopes, see [Authenticating BigCommerce's REST APIs](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
     ## Additional Information
     * [Wishlists](https://support.bigcommerce.com/s/article/Wishlists)
@@ -304,7 +301,7 @@ paths:
       description: |-
         Updates a wishlist.
 
-        Use this endpoint to update existing wishlist items, change the wishlist's name and whether the wishlist is available publicly. To add or delete a wishlist item, see [Wishlist Items](https://developer.bigcommerce.com/api-reference/store-management/wishlists/wishlists-items).
+        Use this endpoint to update existing wishlist items, change the wishlist's name and whether the wishlist is available publicly. To add or delete a wishlist item, see [Wishlist Items](/api-reference/store-management/wishlists/wishlists-items).
       summary: Update a Wishlist
       tags:
         - Wishlists
@@ -853,7 +850,7 @@ securityDefinitions:
       X-Auth-Token: {access_token}
       ```
 
-      * For more information on Authenticating BigCommerce APIs, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+      * For more information on Authenticating BigCommerce APIs, see [Authentication](/api-docs/getting-started/authentication).
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []

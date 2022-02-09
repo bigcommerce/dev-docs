@@ -10,21 +10,6 @@ Download Spec: [customer_login.json](https://bigcommerce.stoplight.io/api/v1/pro
 
 Create a login URL for customer single sign-on.
 
-
-<div class="otp" id="no-index">
-
-### On this page
-
-  * [Authentication](#authentication)
-      * [OAuth scopes](#oauth-scopes)
-      * [Header](#jwt-header)
-      * [Payload](#jwt-payload)
-      * [Signature](#jwt-signature)
-      * [Node.js example](#node-js-example)
-  * [Resources](#resources)
-</div>
-  
-  
 ## Authentication
 
 To log in a customer using the Customer Login API, redirect the customer's browser to the following access point URL:
@@ -36,7 +21,7 @@ To log in a customer using the Customer Login API, redirect the customer's brows
 
 The `{{TOKEN}}` parameter is the `JWT` containing the payload data signed by your app's OAuth client secret. 
 
-We recommend writing a script to generate a login token since the `JWT iat` (issued at) claim is only valid for 30 seconds. BigCommerce supplies helper methods for generating login tokens in our [API Client Libraries](https://developer.bigcommerce.com/tools-resources).
+We recommend writing a script to generate a login token since the `JWT iat` (issued at) claim is only valid for 30 seconds. BigCommerce supplies helper methods for generating login tokens in our [API Client Libraries](/tools-resources).
     
 
 ### OAuth scopes
@@ -129,19 +114,15 @@ Replace `{{CLIENT_ID}}` and other variables with your credentials, then run the 
 ```
 
 You should receive a complete access point URL as an output.
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
 
-  > ### Note
-  > You are required to include the `channel_id` when using the login JWTs to redirect to an embedded checkout. Default value = 1. For more information, see the [Embedded Checkout Overview](https://developer.bigcommerce.com/api-docs/storefronts/embedded-checkout/embedded-checkout-overview).
- </div>
- </div>
- </div>
+<!-- theme: info -->
+> #### Note
+> You are required to include the `channel_id` when using the login JWTs to redirect to an embedded checkout. Default value = 1. For more information, see the [Embedded Checkout Overview](/api-docs/storefronts/embedded-checkout/embedded-checkout-overview).
+
 
 ## Resources
 
 * [Customer Login SSO Generator with Ruby](https://github.com/jordanarldt/ruby-bc-customer-sso-generator/)
-* [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
+* [Customer Login API](/api-docs/customers/customer-login-api)
 * [PHP Example](https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421)
 * [Python Example](https://github.com/bigcommerce/bigcommerce-api-python/blob/master/bigcommerce/customer_login_token.py)

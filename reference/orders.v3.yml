@@ -3,18 +3,11 @@ info:
   title: Orders V3
   version: ''
   description: |-
-    Surfaces endpoints related to payment processing. The `/orders/{id}/transactions` endpoint returns transaction details for the specified order. To programmatically create, update, and delete orders themselves, see [Orders
-    v2](https://developer.bigcommerce.com/api-reference/store-management/orders). To process payments, see [Payment
-    Processing](https://developer.bigcommerce.com/api-reference/payments/payments-process-payments).
-
-    - [Authentication](#authentication)
-    - [Order Transactions](#order-transactions)
-    - [Payment Actions](#payment-actions)
-    - [Resources](#resources)
+    Surfaces endpoints related to payment processing. The `/orders/{id}/transactions` endpoint returns transaction details for the specified order. To programmatically create, update, and delete orders themselves, see [Orders v2](/api-reference/store-management/orders). To process payments, see [Payment Processing](/api-reference/payments/payments-process-payments).
 
     ## Authentication
 
-    Authenticate requests by including an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` in the request header.
+    Authenticate requests by including an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication) `access_token` in the request header.
 
     ```http
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
@@ -47,10 +40,8 @@ info:
     The Order API refund endpoints allow developers to process refunds against orders with settled payments. Refund endpoints are useful when building order management or payment integrations. They make embedding refund functionality directly into the application possible without requiring merchants to return to their BigCommerce Control Panel.
 
     ## Resources
-    * [Orders
-    Overview](https://developer.bigcommerce.com/api-docs/orders/orders-overview)
-    * [Orders
-    V2](https://developer.bigcommerce.com/api-reference/store-management/orders)
+    * [Orders Overview](/api-docs/orders/orders-overview)
+    * [Orders V2](/api-reference/store-management/orders)
   termsOfService: ''
   license:
     name: ''
@@ -988,7 +979,7 @@ securityDefinitions:
       X-Auth-Token: {access_token}
       ```
 
-      * For more information on Authenticating BigCommerce APIs, see: [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+      * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
 security:
   - X-Auth-Token: []
 definitions:
@@ -2710,7 +2701,7 @@ responses:
       application/json:
         status: 502
         title: A login URL could not be generated. Please try another request.
-        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
   504_GatewayTimeout:
     description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
     schema:
@@ -2719,7 +2710,7 @@ responses:
       application/json:
         status: 504
         title: Gateway Timeout
-        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors: {}
   403_Unauthorized:
     description: ''
@@ -2729,7 +2720,7 @@ responses:
       application/json:
         status: 403
         title: Unauthorized Access. You do not have permission to make this request.
-        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
   400_BadRequest:
     description: |-
       Malformed request syntax. Typically need to fix the JSON
@@ -2740,7 +2731,7 @@ responses:
       application/json:
         status: 400
         title: Input is invalid.
-        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
   404_NotFound:
     description: The resource was not found.
     schema:
@@ -2749,7 +2740,7 @@ responses:
       application/json:
         status: 404
         title: 'Account with {id} not found'
-        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
   422_UnprocessableEntity:
     description: This occurs when missing or unacceptable data is passed for one or more fields. Please correct the values for the fields listed in the errors object.
     schema:
@@ -2758,7 +2749,7 @@ responses:
       application/json:
         status: 422
         title: JSON data is missing or invalid
-        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
         errors:
           name: error.expected.jsstring
           primary_contact.district: error.expected.jsstring.
@@ -2770,7 +2761,7 @@ responses:
       application/json:
         status: 503
         title: Service Unavailable
-        type: 'https://developer.bigcommerce.com/api#api-status-codes'
+        type: '/api-docs/getting-started/api-status-codes'
   paymentActionsCapture_Resp:
     description: ''
     schema:

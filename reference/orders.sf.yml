@@ -20,16 +20,10 @@ paths:
       description: |-
         Returns *Order* data. This will return order data immediately after an order is placed on the storefront.
 
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content">
-
-        > ### Note
+        <!-- theme: info -->
+        > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
 
-        </div>
-        </div>
-        </div>
       summary: Get Order
       tags:
         - Order

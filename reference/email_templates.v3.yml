@@ -16,15 +16,10 @@ paths:
       description: |-
         Get a list of email templates.
 
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content">
-
-        >### Note
+        <!-- theme: info -->
+        > #### Note
         >`/marketing/email-templates` endpoints only work after opting into the new email management experience from your store's control panel. You can opt-in by visiting Email Templates. If you have already opted in, visiting the Email Templates page will return a `404` error, and you will be able to access the new Transactional Emails page.
-        </div>
-        </div>
-        </div>
+
       responses:
         '200':
           content:
@@ -78,16 +73,11 @@ paths:
       description: |-
         Get a single global email template or a channel-specific email template override.
 
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content">
-
-        >### Note
+        
+        <!-- theme: info -->
+        > #### Note
         >`/marketing/email-templates` endpoints only work after opting into the new email management experience from your store's control panel. You can opt-in by visiting [Email Templates](https://login.bigcommerce.com/deep-links/manage/marketing/email-templates). If you have already opted in, visiting the [Email Templates](https://login.bigcommerce.com/deep-links/manage/marketing/email-templates) page will return a `404` error, and you will be able to access the new [Transactional Emails](https://login.bigcommerce.com/deep-links/manage/transactional-emails) page.
 
-        </div>
-        </div>
-        </div>
       tags:
         - Email Templates
       responses:
@@ -310,7 +300,7 @@ components:
       type: apiKey
       in: header
       description: |-
-        Authenticate requests by including an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` in the request header.
+        Authenticate requests by including an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) `access_token` in the request header.
 
         ```http
         GET /stores/{{STORE_HASH}}/v3/marketing/email-templates

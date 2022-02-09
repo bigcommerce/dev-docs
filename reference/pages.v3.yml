@@ -15,16 +15,10 @@ paths:
       description: |-
         Returns a list of content pages.
 
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content">
-
-        > ### Note
+        <!-- theme: info -->
+        > #### Note
         > This endpoint is in beta. Any comments on performance should be submitted via the **Docs Feedback** button on this page.
 
-        </div>
-        </div>
-        </div>
       responses:
         '200':
           description: |
@@ -145,15 +139,10 @@ paths:
       description: |-
         Creates a content page.
 
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content">
-
-        > ### Note
+        <!-- theme: info -->
+        > #### Note
         > This endpoint is in beta. Any comments on performance should be submitted via the **Docs Feedback** button on this page.
-        </div>
-        </div>
-        </div>
+
       tags:
         - Pages
       requestBody:
@@ -222,16 +211,11 @@ paths:
       description: |-
         Updates a content page.
 
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content">
-
-        > ### Note
+        
+        <!-- theme: info -->
+        > #### Note
         > This endpoint is in beta. Any comments on performance should be submitted via the **Docs Feedback** button on this page.
 
-        </div>
-        </div>
-        </div>
       tags:
         - Pages
       requestBody:
@@ -305,16 +289,10 @@ paths:
       description: |-
         Deletes a page from a store.
 
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content">
-
-        > ### Note
+        <!-- theme: info -->
+        > #### Note
         > This endpoint is in beta. Any comments on performance should be submitted via the **Docs Feedback** button on this page.
 
-        </div>
-        </div>
-        </div>
       responses:
         '204':
           description: |

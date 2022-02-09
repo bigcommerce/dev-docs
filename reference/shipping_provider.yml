@@ -5,15 +5,6 @@ info:
   description: |-
     Implement endpoints consumed by BigCommerce for custom shipping integrations. To learn more, see [Shipping Provider API Overview](/api-docs/store-management/shipping/shipping-provider-api).
 
-    <div class="otp" id="no-index">
-
-    ### On this Page
-    - [Authentication](#authentication)
-    - [Subresources](#subresources)
-    - [Additional Information](#additional-information)
-
-    </div>
-
     ## Authentication
     This specification file describes API requests BigCommerce will make to a registered shipping carrier's server to check connection options and retrieve rates. As such, the method of authentication is determined by the carrier's server.
 
@@ -28,7 +19,7 @@ info:
     ## Additional Information
 
     **Webhooks**
-    - [Shipment](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#shipment)
+    - [Shipment](/api-docs/store-management/webhooks/webhook-events#shipment)
 
     **Related API Resources**
     - [Shipping Provider](/api-reference/store-management/shipping-provider-api)
@@ -626,7 +617,7 @@ definitions:
                         description: The value associated with the meta field
                       namespace:
                         type: string
-                        description: 'The namespace associated with product(https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format ''shipping_carrier_{yourCarrierId}'' otherwise it will not be recognized as an attribute.'
+                        description: The namespace associated with product(/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format `shipping_carrier_{yourCarrierId}` otherwise it will not be recognized as an attribute.
                       resource_type:
                         type: string
                         enum:
@@ -1130,7 +1121,7 @@ definitions:
               description: The value associated with the product or product variant meta field
             namespace:
               type: string
-              description: 'The namespace associated with product(https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format ''shipping_carrier_{yourCarrierId}'' otherwise it will not be recognized as an attribute.'
+              description: The namespace associated with product(/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format `shipping_carrier_{yourCarrierId}` otherwise it will not be recognized as an attribute.
             resource_type:
               type: string
               enum:
@@ -1307,7 +1298,7 @@ definitions:
         description: The value associated with the product or product variant meta field
       namespace:
         type: string
-        description: 'The namespace associated with product(https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format ''shipping_carrier_{yourCarrierId}'' otherwise it will not be recognized as an attribute.'
+        description: The namespace associated with product(/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format `shipping_carrier_{yourCarrierId}` otherwise it will not be recognized as an attribute.
       resource_type:
         type: string
         description: Resource type associated with the product or product variant meta field. Currently the only values available are 'product' or 'variant'
@@ -1827,7 +1818,7 @@ definitions:
                     description: The value associated with the meta field
                   namespace:
                     type: string
-                    description: 'The namespace associated with product(https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format ''shipping_carrier_{yourCarrierId}'' otherwise it will not be recognized as an attribute.'
+                    description: The namespace associated with product(/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format `shipping_carrier_{yourCarrierId}` otherwise it will not be recognized as an attribute.
                   resource_type:
                     type: string
                     enum:

@@ -5,7 +5,7 @@ info:
   description: |-
     Enable single sign-on for shoppers on BigCommerce hosted storefronts.
 
-    [Learn more about the customer login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api).
+    [Learn more about the customer login API](/api-docs/customers/customer-login-api).
 host: '{$$.env.store_domain}'
 paths:
   '/login/token/{jwt_token}':
@@ -24,7 +24,7 @@ paths:
       description: |-
         The customer login access point URL.
 
-        [Learn more about the Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api).
+        [Learn more about the Customer Login API](/api-docs/customers/customer-login-api).
 
         ## Example
 

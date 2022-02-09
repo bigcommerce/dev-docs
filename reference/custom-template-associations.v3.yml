@@ -5,17 +5,9 @@ info:
   description: |-
     Efficiently associate a stencil theme's custom templates to products, categories, brands, and pages.
 
-    - [Authentication](#authentication)
-    - [Creating template associations](#creating-template-associations)
-    - [Getting entity IDs](#getting-entity-ids)
-    - [Getting available templates](#getting-available-templates)
-    - [Getting theme UUIDs](#getting-theme-uuids)
-    - [Additional information](#additional-information)
-
-
     ## Authentication
 
-    Authenticate requests by including an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` and `client_id` in the request headers.
+    Authenticate requests by including an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) `access_token` and `client_id` in the request headers.
 
     ```http
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/custom-template-associations
@@ -32,7 +24,7 @@ info:
 
     ## Creating template associations
 
-    To [associate custom templates to entities](https://developer.bigcommerce.com/api-reference/store-management/custom-template-associations/custom-template-associations/upsertcustomtemplateassociations), send a `PUT` request to `/v3/storefront/custom-template-associations`.
+    To [associate custom templates to entities](/api-reference/store-management/custom-template-associations/custom-template-associations/upsertcustomtemplateassociations), send a `PUT` request to `/v3/storefront/custom-template-associations`.
 
     ```http
     PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/custom-template-associations
@@ -50,22 +42,15 @@ info:
     ]
     ```
 
-    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/custom-template-associations/custom-template-associations/upsertcustomtemplateassociations#requestrunner)
+    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/custom-template-associations/custom-template-associations/upsertcustomtemplateassociations#requestrunner)
 
-    <div class="HubBlock--callout">
-    <div class="CalloutBlock--info">
-    <div class="HubBlock-content">
-
-    > ### Note
+    <!-- theme: info -->
+    > #### Note
     > * The allowed values for `entity_type` are `product`, `category`, `brand`, and `page`.
-
-    </div>
-    </div>
-    </div>
 
     ## Getting entity IDs
 
-    Use the [Catalog API](https://developer.bigcommerce.com/api-reference/store-management/catalog) to get the `entity_id` for `category`, `product`, and `brand` entity types. For example, to [get all products](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/getproducts), send a `GET` request to `/v3/catalog/products`.
+    Use the [Catalog API](/api-reference/store-management/catalog) to get the `entity_id` for `category`, `product`, and `brand` entity types. For example, to [get all products](/api-reference/store-management/catalog/products/getproducts), send a `GET` request to `/v3/catalog/products`.
 
     ```http
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products
@@ -74,9 +59,9 @@ info:
     Accept: application/json
     ```
 
-    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/getproducts#requestrunner)
+    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/products/getproducts#requestrunner)
 
-    To [get the `entity_id` for a content page](https://developer.bigcommerce.com/api-reference/store-management/store-content/pages/getallpages), send a `GET` request to `/v2/pages`.
+    To [get the `entity_id` for a content page](/api-reference/store-management/store-content/pages/getallpages), send a `GET` request to `/v2/pages`.
 
     ```http
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/pages
@@ -85,11 +70,11 @@ info:
     Accept: application/json
     ```
 
-    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/store-content/pages/getallpages#requestrunner)
+    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/store-content/pages/getallpages#requestrunner)
 
     ## Getting available templates
 
-    To [get available custom templates](https://developer.bigcommerce.com/api-reference/store-management/themes/theme-custom-templates/get-themes-theme-uuid-custom-templates) for each `entity_type`, send a `GET` request to `/v3/themes/custom-templates/{version_uuid}`.
+    To [get available custom templates](/api-reference/store-management/themes/theme-custom-templates/get-themes-theme-uuid-custom-templates) for each `entity_type`, send a `GET` request to `/v3/themes/custom-templates/{version_uuid}`.
 
     ```http
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/themes/custom-templates/{version_uuid}
@@ -98,7 +83,7 @@ info:
     Accept: application/json
     ```
 
-    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/themes/theme-custom-templates/get-themes-theme-uuid-custom-templates#requestrunner)
+    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/themes/theme-custom-templates/get-themes-theme-uuid-custom-templates#requestrunner)
 
     **Response:**
 
@@ -123,7 +108,7 @@ info:
 
     ## Getting theme UUIDs
 
-    To [get the `version_uuid` for an active theme](https://developer.bigcommerce.com/api-reference/store-management/channels/channel-active-theme/get-channel-active-theme), send a `GET` request to `/v3/channels/{channel_id}/active-theme`.
+    To [get the `version_uuid` for an active theme](/api-reference/store-management/channels/channel-active-theme/getchannelactivetheme), send a `GET` request to `/v3/channels/{channel_id}/active-theme`.
 
     ```http
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{channel_id}/active-theme
@@ -132,7 +117,7 @@ info:
     Accept: application/json
     ```
 
-    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/channels/channel-active-theme/get-channel-active-theme#requestrunner)
+    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channel-active-theme/getchannelactivetheme#requestrunner)
 
     **Response:**
 
@@ -150,11 +135,11 @@ info:
 
     ## Additional information
 
-    * [Get Channel Active Theme](https://developer.bigcommerce.com/api-reference/store-management/channels/channel-active-theme/get-channel-active-theme)
-    * [Get Available Custom Templates](https://developer.bigcommerce.com/api-reference/store-management/themes/theme-custom-templates/get-themes-theme-uuid-custom-templates)
-    * [Catalog API](https://developer.bigcommerce.com/api-reference/store-management/catalog)
-    * [Store Content API](https://developer.bigcommerce.com/api-reference/store-management/store-content)
-    * [Channels API](https://developer.bigcommerce.com/api-reference/store-management/channels)
+    * [Get Channel Active Theme](/api-reference/store-management/channels/channel-active-theme/getchannelactivetheme)
+    * [Get Available Custom Templates](/api-reference/store-management/themes/theme-custom-templates/get-themes-theme-uuid-custom-templates)
+    * [Catalog API](/api-reference/store-management/catalog)
+    * [Store Content API](/api-reference/store-management/store-content)
+    * [Channels API](/api-reference/store-management/channels)
 servers:
   - url: 'https://api.bigcommerce.com'
     description: Production API Gateway

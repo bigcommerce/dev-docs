@@ -31,7 +31,7 @@ paths:
                     - 3
                   deny:
                     - 4
-        description: Data sent to the [Update Customer Consent](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-consent/customersconsentbycustomerid-put) Customers V3 endpoint when creating a customer during checkout
+        description: Data sent to the [Update Customer Consent](/api-reference/store-management/customers-v3/customer-consent/customersconsentbycustomerid-put) Customers V3 endpoint when creating a customer during checkout
         required: true
       description: |-
         Sets the status of a customer's consent to allow data collection by cookies and scripts according to the following consent categories:
@@ -44,7 +44,7 @@ paths:
           
         This endpoint only works if the cookie consent feature is enabled. It is assumed the shopper has not consented to anything until a value is explicitly set. The request body must be populated with a complete set of allowed and denied categories.
 
-        Once set, consent preferences will be saved as a cookie for guest shoppers. Consent preferences will be persisted to a shopper's account to be used for future sessions once they have logged in. Consent preferences can also be managed using the [Customer Consent](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-consent/) V3 endpoint.   
+        Once set, consent preferences will be saved as a cookie for guest shoppers. Consent preferences will be persisted to a shopper's account to be used for future sessions once they have logged in. Consent preferences can also be managed using the [Customer Consent](/api-reference/store-management/customers-v3/customer-consent/) V3 endpoint.   
       operationId: postConsent
     parameters: []
 components:
@@ -61,7 +61,7 @@ components:
         3 - Analytics
         4 - Targeting; Advertising
 
-        For further definition of these categories, see [Scripts API](https://developer.bigcommerce.com/api-docs/store-management/scripts).
+        For further definition of these categories, see [Scripts API](/api-docs/store-management/scripts).
       properties:
         allow:
           type: array

@@ -17,16 +17,10 @@ paths:
       description: |-
         Returns a *Cart*.
 
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content">
-
-        > ### Note
+        <!-- theme: info -->
+        > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
 
-        </div>
-        </div>
-        </div>
       operationId: getACart
       parameters:
         - $ref: '#/components/parameters/include'
@@ -39,17 +33,11 @@ paths:
       summary: Create a Cart
       description: |-
         Creates a *Cart*.
-
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content">
-
-        > ### Note
+        
+        <!-- theme: info -->
+        > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
 
-        </div>
-        </div>
-        </div>
       operationId: createACart
       parameters:
         - $ref: '#/components/parameters/include'
@@ -81,16 +69,10 @@ paths:
       description: |-
         Deletes a *Cart*. Once a *Cart* has been deleted it can not be recovered.
 
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content">
-
-        > ### Note
+        <!-- theme: info -->
+        > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
 
-        </div>
-        </div>
-        </div>
       operationId: deleteACart
       parameters:
         - name: cartId
@@ -111,16 +93,9 @@ paths:
       description: |-
         Adds a line items to the *Cart*.
 
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content">
-
-        > ### Note
+        <!-- theme: info -->
+        > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
-        </div>
-        </div>
-        </div>
       operationId: addCartLineItem
       parameters:
         - name: cartId
@@ -175,19 +150,12 @@ paths:
       description: |-
         Updates a *Cart* line item. Updates an existing, single line item quantity and the price of custom items in a cart.
 
-        If a modified product or variant needs to be changed or updated, you can remove and re-add the product to the cart with the correct variants using the [Delete Cart Line Item](https://developer.bigcommerce.com/api-reference/storefront/carts/cart-items/deletecartlineitem) and the [Add Cart Line Items](https://developer.bigcommerce.com/api-reference/storefront/carts/cart-items/addcartlineitem) endpoints.
+        If a modified product or variant needs to be changed or updated, you can remove and re-add the product to the cart with the correct variants using the [Delete Cart Line Item](/api-reference/storefront/carts/cart-items/deletecartlineitem) and the [Add Cart Line Items](/api-reference/storefront/carts/cart-items/addcartlineitem) endpoints.
 
-
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content">
-
-        > ### Note
+        <!-- theme: info -->
+        > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
 
-        </div>
-        </div>
-        </div>
       operationId: updateCartLineItem
       parameters:
         - name: cartId
@@ -246,17 +214,11 @@ paths:
         Deletes a *Cart* line item.
 
         Removing the last `line_item` in the *Cart* deletes the *Cart*.
-
-        <div class="HubBlock--callout">
-        <div class="CalloutBlock--info">
-        <div class="HubBlock-content">
-
-        > ### Note
+        
+        <!-- theme: info -->
+        > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
 
-        </div>
-        </div>
-        </div>
       operationId: deleteCartLineItem
       parameters:
         - name: cartId
@@ -360,7 +322,7 @@ components:
           description: Whether this item is taxable.
         baseAmount:
           type: number
-          description: 'Cost of cart''s contents, before applying discounts.'
+          description: "Cost of cart’s contents, before applying discounts."
         discountAmount:
           type: number
           description: Discounted amount.
@@ -638,7 +600,7 @@ components:
           description: Whether the item is taxable.
         listPrice:
           type: number
-          description: 'Item''s list price, as quoted by the manufacturer/distributor.'
+          description: 'Item’s list price, as quoted by the manufacturer/distributor.'
         name:
           type: string
           description: The item's product name.
