@@ -7,7 +7,7 @@
 - [Best Practices](#best-practices)
 - [How .json Entries Govern Store Design's UI](#how-json-entries-govern-store-designs-ui)
 - [Store Design Data Types](#store-design-data-types)
-- [Store Design Data Structure in schema.json](#store-design-data-structure-in-schemajson)
+- [Store Design Data Structure in schema.json](#store-design-data-structure-in)
 - [Store Design UI Troubleshooting](#store-design-ui-troubleshooting)
 
 </div> 
