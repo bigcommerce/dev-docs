@@ -246,7 +246,7 @@ This subdirectory’s children contain CSS for the following page elements.
 * [Cornerstone Github Repository](https://github.com/bigcommerce/cornerstone) (BigCommerce GitHub)
 
 ### Additonal resources
-* [Getting Started With Foundation 5](https://foundation.zurb.com/sites/docs/v/5.5.3/) (Zurb)
+* [Getting Started With Foundation 5](https://get.foundation/sites/docs-v5/) (Zurb)
 * [BEM](http://getbem.com/) (Get BEM)
 * [SUIT CSS](https://suitcss.github.io/) (GitHub)
 * [Customizing a Theme (Assets Directory)](https://www.youtube.com/embed/zUDNgprOEts) (Youtube)
