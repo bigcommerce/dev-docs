@@ -169,5 +169,5 @@ Accessible sites have benefits, including faster load speed, better SEO, and use
 ## Related resources
 - [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV)(Knowledge Base)
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
-- [Designing for Accessibility](https://developer.bigcommerce.com/stencil-docs/theme-accessibility)
+- [Designing for Accessibility](https://developer.bigcommerce.com/stencil-docs/accessibility/theme-accessibility)
 - [Folder Structure](https://support.bigcommerce.com/s/article/File-Access-WebDAV#folder)
