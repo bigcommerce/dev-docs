@@ -129,7 +129,15 @@ Replace `{{CLIENT_ID}}` and other variables with your credentials, then run the 
 ```
 
 You should receive a complete access point URL as an output.
+<div class="HubBlock--callout">
+<div class="CalloutBlock--info">
+<div class="HubBlock-content">
 
+  > ### Note
+  > You are required to include the `channel_id` when using the login JWTs to redirect to an embedded checkout. Default value = 1. For more information, see the [Embedded Checkout Overview](https://developer.bigcommerce.com/api-docs/storefronts/embedded-checkout/embedded-checkout-overview).
+ </div>
+ </div>
+ </div>
 
 ## Resources
 
