@@ -222,7 +222,7 @@ Include the `Storefront Settings` [protected section](#protected-ui-sections) in
 
 ![Channel Storefront Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-storefront-settings.png "Channel Storefront Settings")
 
-Read channel specific storefront settings using the [Settings API](https://developer.bigcommerce.com/api-reference/store-management/settings). For example, to [get storefront category settings](https://developer.bigcommerce.com/api-reference/store-management/settings/storefront-category/getsettingsstorefrontcategory), send a `GET` request to `/v3/settings/storefront/category`.
+Read channel specific storefront settings using the [Settings API](https://developer.bigcommerce.com/api-reference/store-management/settings). For example, to [get storefront search settings](https://developer.bigcommerce.com/api-reference/store-management/settings/storefront-search/getsettingsstorefrontsearch), send a `GET` request to `/v3/settings/storefront/search`.
 
 ```http
 GET /stores/{{STORE_HASH}}/v3/settings/storefront/category?channel_id={{CHANNEL_ID}}
