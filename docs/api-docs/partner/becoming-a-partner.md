@@ -63,12 +63,12 @@ To access the training modules, log into the [Partner Portal](https://partners.b
 
 ## Ongoing support
 
-BigCommerce provides ongoing support to help you every step of the way. From dedicated account managers to access to the BigCommerce Community, BigCommerce offers a wide variety of resources to assist you. To learn more, see [Support](https://developer.bigcommerce.com/api-docs/partner/getting-started/support).
+BigCommerce provides ongoing support to help you every step of the way. From dedicated account managers to access to the BigCommerce Community, BigCommerce offers a wide variety of resources to assist you. To learn more, see [Support](/api-docs/partner/getting-started/support).
 
 ## Resources
 
 ### Related articles
 
-* [Introduction to Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
-* [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/apps/guide/requirements)
+* [Introduction to Building Apps](/api-docs/apps/guide/intro)
+* [App Store Approval Requirements](/api-docs/apps/guide/requirements)
 * [Video tutorials](https://support.bigcommerce.com/s/videos)

@@ -185,11 +185,11 @@ lineNumbers: true
 
 ## Specifying custom front matter
 
-You can specify front matter on a custom template if you only need to render certain resources (such as 'New Products') on that page. Specifying only the attributes you need will reduce page load time. If you don't explicitly specify front matter for your custom template, the front matter for the default page template will be available. See [Using Front Matter](https://developer.bigcommerce.com/stencil-docs/storefront-customization/using-front-matter) for more information on using front matter.
+You can specify front matter on a custom template if you only need to render certain resources (such as 'New Products') on that page. Specifying only the attributes you need will reduce page load time. If you don't explicitly specify front matter for your custom template, the front matter for the default page template will be available. See [Using Front Matter](/stencil-docs/storefront-customization/using-front-matter) for more information on using front matter.
 
 ## Theme upload
 
-Finally, you must bundle and push the theme to BigCommerce. See [Bundling and Pushing a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing) for instructions on how to achieve this.
+Finally, you must bundle and push the theme to BigCommerce. See [Bundling and Pushing a Theme](/stencil-docs/deploying-a-theme/bundling-and-pushing) for instructions on how to achieve this.
 
 ## Troubleshooting template authoring
 
@@ -214,7 +214,7 @@ If you are ready to apply your custom template to the live BigCommerce storefron
 ## Resources
 
 ### Related Articles
-* [Blueprint Themes](https://developer.bigcommerce.com/legacy/blueprint-themes)
+* [Blueprint Themes](/legacy/blueprint-themes)
 * [Applying a Custom Template](https://support.bigcommerce.com/s/article/Stencil-Themes#custom-templates) (BigCommerce Knowledge Base)
 
 ### Additional Resources

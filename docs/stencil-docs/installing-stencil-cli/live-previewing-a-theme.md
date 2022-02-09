@@ -4,7 +4,7 @@
 
 Once you've installed the Stencil CLI, the next steps are downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. This article walks you through the process of downloading a theme for development, installing theme modules, and serving a live preview using Stencil CLI's `stencil start` command.
 
-The steps in this article assume you've installed Stencil CLI on your system. If you haven't installed it yet, see [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil) for detailed, system-specific instructions.
+The steps in this article assume you've installed Stencil CLI on your system. If you haven't installed it yet, see [Installing Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil) for detailed, system-specific instructions.
 
 
 ## Obtaining store API credentials
@@ -41,7 +41,7 @@ Cornerstone and other themes can also be downloaded from the BigCommerce control
 <!-- theme: info -->
 
 ### Note  
-Downloading a theme does not include the current configuration of a theme. Run a [stencil pull](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands#stencil-pull) command to obtain the theme's most recently saved version (appears only for themes customized for this store).
+Downloading a theme does not include the current configuration of a theme. Run a [stencil pull](/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands#stencil-pull) command to obtain the theme's most recently saved version (appears only for themes customized for this store).
 
 </div>
 </div>
@@ -154,7 +154,7 @@ stencil start
 
 Browse to the local URL to preview the theme and see changes updated in real-time. To preview the theme on multiple devices simultaneously, browse to the external URL on the desired devices. As you navigate through the site, Stencil CLI will use store API token supplied to make API calls to BigCommerce's API and populate the theme preview with live store data in order to mimic production as closely as possible.
 
-For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands). For help troubleshooting errors or installation issues, see [Troubleshooting Your Setup](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/troubleshooting-your-setup).
+For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands). For help troubleshooting errors or installation issues, see [Troubleshooting Your Setup](/stencil-docs/installing-stencil-cli/troubleshooting-your-setup).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">

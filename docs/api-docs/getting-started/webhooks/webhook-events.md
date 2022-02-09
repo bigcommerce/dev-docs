@@ -3,7 +3,7 @@
 
 
 
-This article contains a complete reference of all BigCommerce webhook events and their callback payloads. For an introduction to webhooks on BigCommerce, see [Webhooks Overview](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview#callback-payload).
+This article contains a complete reference of all BigCommerce webhook events and their callback payloads. For an introduction to webhooks on BigCommerce, see [Webhooks Overview](/api-docs/store-management/webhooks/overview#callback-payload).
 
 ## Callback structure
 
@@ -750,6 +750,6 @@ Changes to the following store settings will trigger a `store/information/update
 
 ### Related articles
 
-* [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/about-webhooks)
-* [Webhooks Tutorial](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks)
-* [Webhooks Reference](https://developer.bigcommerce.com/api-reference/webhooks)
+* [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
+* [Webhooks Tutorial](/api-docs/getting-started/webhooks/setting-up-webhooks)
+* [Webhooks Reference](/api-reference/webhooks)

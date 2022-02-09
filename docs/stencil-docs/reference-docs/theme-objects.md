@@ -2,7 +2,7 @@
 
  
 
-Stencil template objects expose dynamic page data. Not all objects are available on every page; which objects are present depends on page type. Below are instructions on viewing a page’s context while developing locally and how to access that context’s data via Handlebars expressions and JavaScript. For a complete template object reference, see [Models](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties/models).
+Stencil template objects expose dynamic page data. Not all objects are available on every page; which objects are present depends on page type. Below are instructions on viewing a page’s context while developing locally and how to access that context’s data via Handlebars expressions and JavaScript. For a complete template object reference, see [Models](/stencil-docs/reference-docs/global-objects-and-properties/models).
 
 ## Viewing a page's context
 
@@ -81,4 +81,4 @@ console.log(jsContext.categoryId);
 ```
 
 ## Resources
-* [Template Object Reference](https://developer.bigcommerce.com/theme-objects)
+* [Template Object Reference](/theme-objects)

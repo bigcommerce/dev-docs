@@ -28,7 +28,7 @@ To help you transition to the Script Manager API, we’ve provided some recommen
 
 As mentioned above, BigCommerce supports two theme engines: Stencil and Blueprint. Stencil is our latest technology, and all new stores only have access to Stencil themes. However, older stores use our legacy theme engine, Blueprint, which cannot render scripts inserted through the Script Manager API.
 
-Because of this, you’ll need to check whether a user is running Stencil to determine if their store supports the Script Manager API. To do this, use the [Get Store Information API](https://developer.bigcommerce.com/api/v2/#store-information-reference) endpoint and check the `stencil_enabled` flag. (requires [store_v2_information_read_only scope](https://developer.bigcommerce.com/api/#oauth-scopes)).
+Because of this, you’ll need to check whether a user is running Stencil to determine if their store supports the Script Manager API. To do this, use the [Get Store Information API](/api/v2/#store-information-reference) endpoint and check the `stencil_enabled` flag. (requires [store_v2_information_read_only scope](/api/#oauth-scopes)).
 
 ## Prerequisites
 This article contains detailed information about the Scripts API and assumes you're familiar with BigCommerce App Installation process. For more information on the app installation process, see [App Installation](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_installation-update-sequence)

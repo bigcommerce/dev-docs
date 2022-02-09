@@ -33,7 +33,7 @@ If you would like to implement data attributes on your custom theme and do not a
 ### Prerequisites
 * [BigCommerce Store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial)
 * [Optimized One-Page Checkout enabled](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout)
-* [Cornerstone theme installed](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil#cornerstone)
+* [Cornerstone theme installed](/stencil-docs/getting-started/about-stencil#cornerstone)
 
 ### Include the Enhanced ECommerce property
 

@@ -7,7 +7,7 @@ This article provides information on how to create your own unique email templat
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
-For information on customizing email templates on our latest theme framework engine, see [Customizing Emails](https://support.bigcommerce.com/s/article/Customizing-Emails) and [Handlebars Email Template Objects](https://developer.bigcommerce.com/api-docs/store-management/email-templates/handlebars).
+For information on customizing email templates on our latest theme framework engine, see [Customizing Emails](https://support.bigcommerce.com/s/article/Customizing-Emails) and [Handlebars Email Template Objects](/api-docs/store-management/email-templates/handlebars).
 
 </div>
 </div>

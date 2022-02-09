@@ -12,14 +12,14 @@ The BigCommerce set of APIs allows you to create apps, automate store processes,
 BigCommerce has several different APIs that let you manage store data, authenticate customers, make client-side queries for product information, and more.
 
 ### REST APIs (V2 & V3)
-BigCommerce's REST APIs (for example, the [Catalog API](https://developer.bigcommerce.com/api-reference/catalog/catalog-api)) allow you to manage store data and take actions that mimic store administrator activity. Some example uses of the REST APIs are:
+BigCommerce's REST APIs (for example, the [Catalog API](/api-reference/catalog/catalog-api)) allow you to manage store data and take actions that mimic store administrator activity. Some example uses of the REST APIs are:
 * Add and update products in a store
 * Update a customer's order and change the order status
 * Create a coupon
 * Manage a customer's store account details
 
 ### Storefront API
-The [Storefront API](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api) allows you to manage customer carts and checkouts and order information client-side. Some example uses of the Storefront API are:
+The [Storefront API](/api-reference/cart-checkout/storefront-cart-api) allows you to manage customer carts and checkouts and order information client-side. Some example uses of the Storefront API are:
 * Add an item with Javascript to a shopper's cart from the Storefront
 * Programmatically retrieve and display information to a customer about their recent order
 * Update the billing address of a checkout
@@ -27,20 +27,20 @@ The [Storefront API](https://developer.bigcommerce.com/api-reference/cart-checko
 
 
 ### GraphQL API
-BigCommerce's [GraphQL API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview) allows you to query product and customer data and store settings remotely or from a store's front end. Some use-case examples are:
+BigCommerce's [GraphQL API](/api-docs/storefront/graphql/graphql-storefront-api-overview) allows you to query product and customer data and store settings remotely or from a store's front end. Some use-case examples are:
 * Pull a product's data with Javascript into a Stencil theme
 * Access customer data via the front end of a site
 * Fetch category and brand details from a store's front end
 
 ### Customer Login API
-The [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api) lets you programmatically log in customers to a BigCommerce storefront. Some example uses of this API are:
+The [Customer Login API](/api-docs/customers/customer-login-api) lets you programmatically log in customers to a BigCommerce storefront. Some example uses of this API are:
 * Log in customers to a BigCommerce store via a third-party system
 * Enable login using credentials other than email and password (i.e., using a phone number)
 * Integrate a BigCommerce store with an SSO provider
 
 
 ### Current Customer API
-BigCommerce's [Current Customer API](https://developer.bigcommerce.com/api-docs/customers/current-customer-api) allows you to determine which customer is logged in to a storefront during a session.
+BigCommerce's [Current Customer API](/api-docs/customers/current-customer-api) allows you to determine which customer is logged in to a storefront during a session.
 * Confirm a customer's identity in the browser
 * Validate a customer's identity to display specific information to them from an external app
 
@@ -76,19 +76,19 @@ Make BigCommerce API requests in the context of the storefront or server-to-serv
 | [Order Transactions](/api-reference/orders/orders-transactions-api) | View order payment information. |
 | [Storefront Orders](/api-reference/orders/storefront-orders-api) | View storefront order information. |
 | [Customers](/api-reference/customer-subscribers/customers-api) | Manage store customers.  |
-| [V3 Customers](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api) |Manage store customers. To learn about using V3 Customers vs V2 Customers, see [Customers Overview](https://developer.bigcommerce.com/api-docs/customers/customers-subscribers-overview). |
+| [V3 Customers](/api-reference/customer-subscribers/v3-customers-api) |Manage store customers. To learn about using V3 Customers vs V2 Customers, see [Customers Overview](/api-docs/customers/customers-subscribers-overview). |
 | [Subscribers](/api-reference/customer-subscribers/subscribers-api) | Manage newsletter subscribers. |
 | [Price Lists](/api-reference/catalog/pricelists-api)| Create variations of catalog pricing. |
 | [Scripts](/api-reference/content/content-scripts-api) | Add a script to a stores page. |
 | [Marketing](/api-reference/marketing/marketing-api) | Create and manage coupons, banners, and gift certificates. |
 | [Enabled Payment Methods](/api-reference/payments/payment-methods-api) | Get a list of available payment methods on a store. |
-| Process Payments | Process payments on orders or checkouts. There are two APIs used to process payments. Get the [payment access token](https://developer.bigcommerce.com/api-reference/payments/payments-create-payment-token-api) then [process the payment](https://developer.bigcommerce.com/api-reference/payments/payments-process-payments).  |
+| Process Payments | Process payments on orders or checkouts. There are two APIs used to process payments. Get the [payment access token](/api-reference/payments/payments-create-payment-token-api) then [process the payment](/api-reference/payments/payments-process-payments).  |
 | [Shipping](/api-reference/shipping/shipping-api) | Create and manage shipping methods and zones. 
 | [Store Content](/api-reference/content/store-content-api) | Manage the store's blog, web pages, and redirects. |
 | [Storefront GraphQL API](/api-docs/storefront/graphql/graphql-storefront-api-overview) | Query storefront data from from within a Stencil theme or remote site. |
 | [Themes](/api-reference/themes/themes-api) | Manage store's themes. |
-| [Widgets](https://developer.bigcommerce.com/api-reference/storefront/widgets-api) | Programmatically inject content into a BigCommerce theme. |
-| [Wishlist](https://developer.bigcommerce.com/api-reference/customer-subscribers/wishlist-api) | Wishlist API allows a developer to create and manage customer wishlists. |
+| [Widgets](/api-reference/storefront/widgets-api) | Programmatically inject content into a BigCommerce theme. |
+| [Wishlist](/api-reference/customer-subscribers/wishlist-api) | Wishlist API allows a developer to create and manage customer wishlists. |
 
 ## REST API (V2 & V3)
 ### Request Headers

@@ -15,8 +15,9 @@ This article is a guide to developing an app that will make your shipping rates 
 
 ### Prerequisites
 
-* Required [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) scopes: `Information and Settings`
-* BigCommerce [single-click app](https://developer.bigcommerce.com/api-docs/apps/guide/types#single-click)
+* Required [OAuth](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) scopes: `Information and Settings`
+* BigCommerce [single-click app](/api-docs/apps/guide/types#single-click)
+
 
 ## Shipping app overview
 
@@ -57,12 +58,12 @@ BigCommerce makes a distinction between single-carrier and multi-carrier shippin
 ![Multi-carrier quote example](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Multi%20Carrier%20Example.png)
 
 ## Sign up
-
 When your app is complete, it will be listed in our carrier registry, so that your shipping rates are available for merchants and shoppers to use. Register your app and get a carrier ID to get started.
+
 
 ### Register your app
 
-We need your app ID to generate a carrier ID for your shipping service. To get your app ID, [create a draft app](https://developer.bigcommerce.com/api-docs/apps/guide/development#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Step 3: Technical tab](https://developer.bigcommerce.com/api-docs/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID. 
+We need your app ID to generate a carrier ID for your shipping service. To get your app ID, [create a draft app](/api-docs/apps/guide/development#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Step 3: Technical tab](/api-docs/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID. 
 
 ![App ID](https://s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224 "App ID")
 
@@ -99,7 +100,7 @@ You should create a URL to provide shipping quotes on your API and check the ava
 
 ### Request and response bodies
 
-BigCommerce will send and receive data using JSON. The request for rates will always be formatted using the [Base Rate Request Model](https://developer.bigcommerce.com/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). The response for rates should be formatted using the [Carrier Quote Object](https://developer.bigcommerce.com/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). Format the request to check for merchant app credentials as Check Connection Options request payload, and the response should be formatted using the Check Connection Options response payload.
+BigCommerce will send and receive data using JSON. The request for rates will always be formatted using the [Base Rate Request Model](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). The response for rates should be formatted using the [Carrier Quote Object](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). Format the request to check for merchant app credentials as Check Connection Options request payload, and the response should be formatted using the Check Connection Options response payload.
 
 ### Error handling
 
@@ -121,11 +122,11 @@ In the case of errors, include human-readable error messages in the response pay
 
 ## Developing the app
 
-To use the Shipping Provider API to provide shipping quotes, shipping providers must build a BigCommerce [single-click app](https://developer.bigcommerce.com/api-docs/apps/guide/types#single-click). 
+To use the Shipping Provider API to provide shipping quotes, shipping providers must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click). 
 
 Using a BigCommerce app enables shipping providers to promote their solution in the BigCommerce apps marketplace, request merchant authorization of API scopes during app install, and enable configuration of shipping provider settings and/or order fulfillment via an iFrame in the BigCommerce control panel.
 
-For more information, see our [Introduction to Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro).
+For more information, see our [Introduction to Building Apps](/api-docs/apps/guide/intro).
 
 ## Control Panel installation workflow
 
@@ -478,12 +479,13 @@ To pass metadata in a rate request, the metafield must meet the following requir
 - the metafield `permission_set` must be `read` or `write`
 - the metafield `namespace` must match this format: `shipping_carrier_<carrier_id>` (example: `shipping_carrier_72`)
 
+
 The carrier registration process described in the [Sign up](#sign-up) section provides the `carrier_id`.
 
 For more information on product and variant metafields, see:
 
-- [API Reference > Store Management > Catalog > Product Metafields](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-metafields)
-- [API Reference > Store Management > Catalog > Product Variant Metafields](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants-metafields)
+- [API Reference > Store Management > Catalog > Product Metafields](/api-reference/store-management/catalog/product-metafields)
+- [API Reference > Store Management > Catalog > Product Variant Metafields](/api-reference/store-management/catalog/product-variants-metafields)
 
 ## Submitting the app
 
@@ -532,16 +534,16 @@ No, you can only publish one app at a time. The others can be for use as testing
 ## Related resources
 
 ### Articles
+- [App Store Approval Requirements](/api-docs/apps/guide/requirements)
 
-- [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/apps/guide/requirements)
 
 ### Endpoints
 
-- [Shipping Providers](https://developer.bigcommerce.com/api-reference/providers/shipping-provider-api)
-- [Shipping Zones](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-zones)
-- [Shipping Methods](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-method)
-- [Shipping Carriers](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-carrier)
+- [Shipping Providers](/api-reference/providers/shipping-provider-api)
+- [Shipping Zones](/api-reference/store-management/shipping-api/shipping-zones)
+- [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method)
+- [Shipping Carriers](/api-reference/store-management/shipping-api/shipping-carrier)
 
 ### Webhooks
 
-- [Webhooks](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#shipment)
+- [Webhooks](/api-docs/store-management/webhooks/webhook-events#shipment)

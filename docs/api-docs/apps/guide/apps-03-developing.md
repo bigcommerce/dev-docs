@@ -6,12 +6,12 @@ The BigCommerce team has developed an array of sample apps and tools to assist d
 
 ## Getting started
 Here's a few things you'll need before beginning app development:
-1. [BigCommerce sandbox store](https://developer.bigcommerce.com/api-docs/partner/getting-started/create-a-sandbox-store) (required to test app installation)
+1. [BigCommerce sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store) (required to test app installation)
 2. [Developer Portal Account](https://devtools.bigcommerce.com/) (required to register apps)
 3. [BigCommerce partnership](https://www.bigcommerce.com/partners/) (required to publish apps to marketplace)
 
 ## Beginning quickly
-The fastest way to begin app development is by starting with one of our sample apps. You can follow our [Building Apps Quick Start Tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start), either alone or in conjunction with [spinning up a Heroku instance](https://heroku.com/deploy?template=https://github.com/bigcommerce/sample-app-nodejs) that runs our [Node / React / Next.js sample app](https://github.com/bigcommerce/sample-app-nodejs/).  
+The fastest way to begin app development is by starting with one of our sample apps. You can follow our [Building Apps Quick Start Tutorial](/api-docs/apps/quick-start), either alone or in conjunction with [spinning up a Heroku instance](https://heroku.com/deploy?template=https://github.com/bigcommerce/sample-app-nodejs) that runs our [Node / React / Next.js sample app](https://github.com/bigcommerce/sample-app-nodejs/).  
 
 Alternatively, you can clone the GitHub repo for your preferred stack:
 
@@ -71,7 +71,7 @@ Any store registered to the same email as your [Developer Portal](https://devtoo
 ## Resources
 
 ### Related articles
-* [Building Apps Quick Start](https://developer.bigcommerce.com/api-docs/apps/quick-start)
+* [Building Apps Quick Start](/api-docs/apps/quick-start)
 
 ### Sample apps
 * [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
@@ -87,7 +87,7 @@ Any store registered to the same email as your [Developer Portal](https://devtoo
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

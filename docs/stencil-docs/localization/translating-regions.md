@@ -141,8 +141,8 @@ schemaTranslations.json
 
 ### Related articles
 
-* [Translation Keys](https://developer.bigcommerce.com/stencil-docs/localization/translation-keys)
-* [Page Builder Overview](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview)
-* [Translation Keys](https://developer.bigcommerce.com/stencil-docs/localization/translation-keys)
-* [schemaTranslations.json](https://developer.bigcommerce.com/stencil-docs/storefront-customization/directory-structure#schematranslationsjson)
+* [Translation Keys](/stencil-docs/localization/translation-keys)
+* [Page Builder Overview](/stencil-docs/page-builder/page-builder-overview)
+* [Translation Keys](/stencil-docs/localization/translation-keys)
+* [schemaTranslations.json](/stencil-docs/storefront-customization/directory-structure#schematranslationsjson)
  

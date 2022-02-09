@@ -64,7 +64,7 @@ Next, configure your sandbox to use the files served up by your dev server.
 3. Under **Custom Checkout Settings**, copy and paste `http://127.0.0.1:8080/auto-loader-dev.js` into **Script URL**.
 4. Save.
 
-[Learn more about installing custom checkouts](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/installing-custom-checkouts).
+[Learn more about installing custom checkouts](/stencil-docs/customizing-checkout/installing-custom-checkouts).
 
 ## Make a code change
 
@@ -92,7 +92,7 @@ class Checkout extends Component<CheckoutProps & WithCheckoutProps & WithLanguag
 ## Resources
 
 - [Open Checkout GitHub Repo](https://github.com/bigcommerce/checkout-js)
-- [Installing Custom Checkouts](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/installing-custom-checkouts)
+- [Installing Custom Checkouts](/stencil-docs/customizing-checkout/installing-custom-checkouts)
 - [File Access (WebDav)](https://support.bigcommerce.com/s/article/File-Access-WebDAV)
 
 ### Additional resources

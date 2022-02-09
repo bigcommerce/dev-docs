@@ -9,7 +9,7 @@
 ### Custom fonts unavailable on Page Builder
 >
 > * BigCommerce widgets come with a list of pre-defined fonts and do not support custom fonts at this time. 
-> * Third-party widgets can support any font available in the theme. To learn more about third-party widgets, see [Third-Party Widgets](https://developer.bigcommerce.com/stencil-docs/page-builder/third-party-widgets).
+> * Third-party widgets can support any font available in the theme. To learn more about third-party widgets, see [Third-Party Widgets](/stencil-docs/page-builder/third-party-widgets).
 
 </div>
 </div>
@@ -194,7 +194,7 @@ Simply add your new icon SVG file to the `assets/icons/ `folder. Then, from your
 ## Resources
 
 ### Additional resources
-* [Stencil Custom Sass Functions](https://developer.bigcommerce.com/stencil-docs/storefront-customization/custom-sass-functions)
+* [Stencil Custom Sass Functions](/stencil-docs/storefront-customization/custom-sass-functions)
 * [Custom Icons Video Tutorial](https://www.youtube.com/watch?v=ZwrVN5QrEZY)  (BigCommerce Youtube)
 * [Custom Fonts Video Tutorial](https://www.youtube.com/watch/-w7Hbn_p_pw) (BigCommerce Youtube)
 * [Google Fonts](https://fonts.google.com/) (Google)
