@@ -1,5 +1,5 @@
 description: |-
-  Returns the cart ID if one exists. To return more cart information use the [Storefront Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api).
+  Returns the cart ID if one exists. To return more cart information use the [Storefront Cart API](/api-reference/storefront/carts).
 
   `global` `{{cart_id}}`
 
