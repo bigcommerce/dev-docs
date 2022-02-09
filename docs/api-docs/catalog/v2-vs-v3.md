@@ -129,6 +129,6 @@ In V3, any variants or modifier adjusters created with non-null core properties 
 
 ### Endpoints
 * [V3 Product Complex Rules](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-complex-rules)
-* [V3 Product Options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-options)
+* [V3 Product Options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variant-options)
 * [V3 Product Modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers)
 * [V3 Product Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants)
