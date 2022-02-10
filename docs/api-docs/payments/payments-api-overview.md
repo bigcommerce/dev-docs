@@ -55,9 +55,9 @@ Attempting to process a payment through the API using the full credit card infor
 ## Stored cards
 There are three steps to using a stored card to make a payment.
 
-1. [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget)
-2. [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)
-3. [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
+1. [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget)
+2. [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost)
+3. [Process Payment](/api-reference/store-management/payment-processing/process-payment/paymentspost)
 
 To use stored cards with the Payments API or the Checkout SDK, make sure you enable stored cards in the store's control panel. To enable stored credit cards on your storefront, navigate to **Store Setup › Payments**, and click the tab for your payment gateway. Toggle the switch to enable Stored Credit Cards and click **Save**. For more on enabling stored cards, see [Enabling Stored Credit Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards).
 
@@ -67,9 +67,9 @@ To use stored cards with the Payments API or the Checkout SDK, make sure you ena
 * Your store needs to be using Optimized One-Page Checkout.
 * Your store needs to be using a compatible payment gateway.
 
-1. Make a call to [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget) for the `stored_instruments > token` to pay with a stored card. The `order_id` passes in as a query parameter.
+1. Make a call to [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget) for the `stored_instruments > token` to pay with a stored card. The `order_id` passes in as a query parameter.
 
-This token is the same as `payment_instrument_token` from [Get Transactions](/api-reference/orders/orders-transactions-api).
+This token is the same as `payment_instrument_token` from [Get Transactions](/api-reference/store-management/order-transactions).
 
 <br>
 
@@ -387,7 +387,7 @@ If the purchase was successful it will return a status of success. The order is 
 
 The payments API allows developers to store a credit card while processing a credit card payment.
 
-When processing a credit payment, set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the [Checkout SDK](/api-docs/cart-and-checkout/checkout-sdk), it can store the credit card as part of the checkout.
+When processing a credit payment, set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk), it can store the credit card as part of the checkout.
 
 *`POST`* `https://payments.bigcommerce.com/stores/{store_hash}/payments`
 
@@ -415,9 +415,7 @@ When processing a credit payment, set `save_instrument: true`. The shopper can a
 
 ## Using the Orders API
 
-It is possible to take payment for an order created using the [Orders API](/api-docs/orders/orders-api-overview). When creating the order using the Orders API make sure the `status_id:0`. If you do not create an order with order status set to `0` or `Incomplete`, the Payments API will return an [error](#error-codes).
-Ensure customers enter their billing address and line items when creating the order. The customer can create the order as a guest order by either setting the
-`customer_id:0`or leaving it blank. After the order is created, then follow the steps for either a [credit card](#payments_credit-cards) or a [stored card](#payments_stored-cards).
+It is possible to take payment for an order created using the [Orders API](/api-docs/store-management/orders). When creating the order using the Orders API make sure the `status_id:0`. If you do not create an order with order status set to `0` or `Incomplete`, the Payments API will return an [error](#error-codes). Ensure customers enter their billing address and line items when creating the order. The customer can create the order as a guest order by either setting the `customer_id:0` or leaving it blank. After the order is created, then follow the steps for either a [credit card](#credit-cards) or a [stored card](#stored-cards).
 
 <!--
 title: "Example Create Order"
@@ -512,7 +510,7 @@ The Payments API rate limit is 50 payment requests per 4 seconds.  Some payment 
 
 The following diagram shows how the `payment_access_token` interacts with BigCommerce API and BigCommerce payments.
 
-You can create orders using the [Server to Server API Endpoints](/api-reference/cart-checkout/server-server-checkout-api/checkout-orders/createanorder) or [Orders API](/api-reference/orders/orders-api).
+You can create orders using the [Server to Server API Endpoints](/api-reference/store-management/checkouts/checkout-orders/createanorder) or [Orders API](/api-reference/store-management/orders).
 
 <!--
     title: Sample App Diagram
@@ -533,10 +531,10 @@ You can create orders using the [Server to Server API Endpoints](/api-reference/
 | `30000` | Merchant payment configuration could not be found. | * The payment provider has not been configured in the store. | Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. |
 | `30001` | Merchant payment configuration is not configured correctly. | The payment gateway rejects the payment configuration. | Check the [payment gateways](https://support.bigcommerce.com/s/article/Online-Payment-Methods#setup) settings in your BigCommerce store. <br> Reach out to the payment gateway to check that the information is correct. |
 | `30002` | Vaulting service is currently not available. |  The vaulting feature is not enabled on this store. | Reach out to the store owner to enable [Stored Credit Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards) |
-| `30003` | Order could not be found. | The order does not exist. <br> The order ID is not correct. |  Check the current orders in the store using [Get All Orders](/api-reference/orders/orders-api/orders/getanorder) |
+| `30003` | Order could not be found. | The order does not exist. <br> The order ID is not correct. |  Check the current orders in the store using [Get All Orders](/api-reference/store-management/orders/orders/getallorders) |
 | `30004` | The validation on line item and grand total does not match. | N/A| Recreate the payment access token <br> Recreate the order <br> Ensure the store settings for taxes and discounts are setup correctly|
 | `30050` | Payment instrument could not be saved. | Credit card information is incorrect. | Check that the card information is correct.<br> * `expiry_month` is two digits<br>* `expiry_year` is four digits |
-| `30051` | That stored payment instrument could not be found. Please try a different payment option. |  The card requested for payment is not associated to the shopper.| Use [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget) to see available vaulted cards |
+| `30051` | That stored payment instrument could not be found. Please try a different payment option. |  The card requested for payment is not associated to the shopper.| Use [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget) to see available vaulted cards |
 | `30100` | Payment access token could not be created. | N/A|N/A|
 | `30101` | Order is invalid. | The order is in the wrong status. | Orders must be in Incomplete Status with a `status_id:0`. <br>  The order must be created by the Checkout SDK, Checkout API, or V2 Orders API. Orders created in the control panel and set to an incomplete status will return this error. |
 | `30102` | Your card details could not be verified. Please double check them and try again. | The card information provided was incorrect.<br>The token provided was incorrect. | Check that the shopper information provided is correct.<br>Make sure the token in the authorization header field is correct. |
