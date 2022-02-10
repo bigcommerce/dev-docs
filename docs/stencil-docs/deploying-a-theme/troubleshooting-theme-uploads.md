@@ -1,14 +1,6 @@
 # Troubleshooting Theme Uploads
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Restrictions](#restrictions)
-- [Error codes](#error-codes)
-- [Warnings](#warnings)
-- [Workarounds and further info](#workarounds-and-further-info)
-
-</div> 
+ 
 
 ## Restrictions
 

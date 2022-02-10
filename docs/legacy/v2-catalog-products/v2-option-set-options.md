@@ -1,17 +1,6 @@
 # Option Set Options
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Option Set Options](#option-set-options)
-- [List Option Set Options](#list-option-set-options)
-- [Get an Option Set Option](#get-an-option-set-option)
-- [Create an Option Set Option](#create-an-option-set-option)
-- [Update an Option Set Option](#update-an-option-set-option)
-- [Delete an Option Set Option](#delete-an-option-set-option)
-- [Delete Multiple Option Set Options](#delete-multiple-option-set-options)
-
-</div> 
+ 
 
 ##  Option Set Options 
 

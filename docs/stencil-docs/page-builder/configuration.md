@@ -1,19 +1,6 @@
 # Theme Styles Configuration
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Enabling Page Builder Theme Styles options](#enabling-page-builder-theme-styles-options)
-- [How .json entries govern Page Builder's UI](#how-json-entries-govern-page-builders-ui)
-- [Theme Styles data types](#theme-styles-data-types)
-- [Theme Styles data structure in schema.json](#theme-styles-data-structure-in-schemajson)
-- [Best practices](#best-practices)
-- [Managing keys between versions](#managing-keys-between-versions)
-- [Persistent settings storage](#persistent-settings-storage)
-- [Theme upgrades and settings](#theme-upgrades-and-settings)
-- [Troubleshooting](#troubleshooting)
-
-</div>
 
 ## Enabling Page Builder Theme Styles options
 
@@ -51,7 +38,7 @@ In all, the structure that you give your theme's `config.json` and `schema.json`
 
 ## Theme Styles data types
 
-You are free to decide which properties of your theme to make editable in [Theme Styles](https://developer.bigcommerce.com/stencil-docs/reference-docs/styles-and-properties/) and in which order to display them. Theme Styles can expose any set of properties as long as your `schema.json` declares them using the data types that Theme Styles supports.
+You are free to decide which properties of your theme to make editable in [Theme Styles](/stencil-docs/reference-docs/styles-and-properties/) and in which order to display them. Theme Styles can expose any set of properties as long as your `schema.json` declares them using the data types that Theme Styles supports.
 
 Theme Styles supports the following data types:
 * checkbox

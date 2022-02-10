@@ -1,15 +1,6 @@
 # Installing Stencil CLI
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Installing on Mac](#installing-on-mac)
-- [Installing on Windows](#installing-on-windows)
-- [Installing on Linux](#installing-on-linux)
-- [Live previewing a theme](#live-previewing-a-theme)
-- [Resources](#resources)
-
-</div>
 
 Stencil CLI gives developers the power to locally edit and preview themes with no impact to a merchant’s live storefront, and it's built-in [Browsersync](https://github.com/bigcommerce/browser-sync) capabilities make simultaneous testing across desktop, mobile, and tablet devices a breeze. Once work is complete, developers can push themes to BigCommerce storefronts (and set them live) using Stencil CLI's simple, yet powerful commands.
 
@@ -208,7 +199,7 @@ npm install -g @bigcommerce/stencil-cli
 
 ## Live previewing a theme
 
-Once you've installed Stencil CLI, the next step on the road to theme development is downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. For detailed instructions on doing so, see [Live Previewing a Theme](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/live-previewing-a-theme). Here's the gist:
+Once you've installed Stencil CLI, the next step on the road to theme development is downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. For detailed instructions on doing so, see [Live Previewing a Theme](/stencil-docs/installing-stencil-cli/live-previewing-a-theme). Here's the gist:
 
 
 ```shell

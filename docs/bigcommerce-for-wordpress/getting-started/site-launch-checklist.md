@@ -2,14 +2,7 @@
 
 # Site Launch Checklist
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Required steps](#required-steps)
-- [Optional steps](#optional-steps)
-- [Resources](#resources)
-
-</div>
 
 This document outlines our recommended steps for launching a BigCommerce for WordPress site. It assumes that you have a reasonable understanding of WordPress and BigCommerce and know how to install the BigCommerce for WordPress plugin. For an overview of BigCommerce and the BigCommerce for WordPress plugin, see the following articles:
 
@@ -18,7 +11,7 @@ This document outlines our recommended steps for launching a BigCommerce for Wor
 - [Taxes](https://support.bigcommerce.com/s/article/Tax-Overview)
 - [Shipping](https://support.bigcommerce.com/s/article/Shipping-Setup)
 - [Payment methods](https://support.bigcommerce.com/s/article/Online-Payment-Methods)
-- [BigCommerce for WordPress Overview](https://developer.bigcommerce.com/bigcommerce-for-wordpress/getting-started/introduction) 
+- [BigCommerce for WordPress Overview](/bigcommerce-for-wordpress/getting-started/introduction) 
 
 ## Required steps
 
@@ -38,7 +31,7 @@ While you can use BigCommerce for WordPress on a vast majority of WordPress host
 
 BigCommerce for WordPress connects to the BigCommerce API with a set of API credentials. These credentials are for a single BigCommerce app. For production sites, you will need to create a separate set of API credentials to ensure proper rate limits are applied. 
 
-A separate set of API credentials is required if you want more than one WordPress channel configured in your account, as using the standard **connect to BC** flow in the plugin will disconnect previous app connections from your other sites. For instructions on how to create additional API credentials, see [Multisite Setup](https://developer.bigcommerce.com/bigcommerce-for-wordpress/setup/multi-site).
+A separate set of API credentials is required if you want more than one WordPress channel configured in your account, as using the standard **connect to BC** flow in the plugin will disconnect previous app connections from your other sites. For instructions on how to create additional API credentials, see [Multisite Setup](/bigcommerce-for-wordpress/setup/multi-site).
 
 API credentials can be set using constants in the site's `wp-config.php` file, as shown below. Values set in `wp-config.php` will override options in the database.
 
@@ -85,7 +78,7 @@ The checkout type determines which payment methods and checkout customizations a
 
 **Redirected Checkout** unlocks the full checkout experience of BigCommerce, including hosted wallets and ability to customize the checkout layout through the Stencil framework and Checkout SDK. To make the hand off from WordPress to BigCommerce seamless, set up a subdomain such as checkout.your-domain.com. For details on how to change your store domain, see [Changing Domains](https://support.bigcommerce.com/s/article/Changing-Domains).
 
-Note that in either case, the links within checkout, such as **Register Account** and **Edit Cart**, will be automatically set by the plugin to link back to the correct pages on the WordPress site using the [Sites and Routes API](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api). 
+Note that in either case, the links within checkout, such as **Register Account** and **Edit Cart**, will be automatically set by the plugin to link back to the correct pages on the WordPress site using the [Sites and Routes API](/api-reference/cart-checkout/sites-routes-api). 
 
 ### Enable user registration on WordPress
 
@@ -158,7 +151,7 @@ Once you install BigCommerce for WordPress, you can access the BigCommerce secti
 
 To set up a staging site on WordPress without affecting the main site, you need to set up an additional channel for the staging site. This will ensure you can test the shopper experience end-to-end with all the URLs linking back to the staging instance and an independent set of products listed.
 
-You can do this by installing BigCommerce for WordPress on a second WordPress site using the [API credentials](https://developer.bigcommerce.com/bigcommerce-for-wordpress/setup/multi-site#setting-up-a-wordpress-site-using-api-account-credentials) connection method and choosing to create a new channel during the setup process.
+You can do this by installing BigCommerce for WordPress on a second WordPress site using the [API credentials](/bigcommerce-for-wordpress/setup/multi-site#setting-up-a-wordpress-site-using-api-account-credentials) connection method and choosing to create a new channel during the setup process.
 
 ### Hide WordPress admin bar for customers
 
@@ -168,7 +161,7 @@ For a BigCommerce for WordPress child plugin that hides the bar for customers, s
 
 ### Stop unnecessary webhooks
 
-BigCommerce contains a number of webhooks that your site may benefit from. We recommend disabling unused webhooks to enhance performance. To disable the webhooks you do not need, use the [Webhooks API](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview) and update the `is_active` fields to false.
+BigCommerce contains a number of webhooks that your site may benefit from. We recommend disabling unused webhooks to enhance performance. To disable the webhooks you do not need, use the [Webhooks API](/api-docs/store-management/webhooks/overview) and update the `is_active` fields to false.
 
 Because webhooks are associated by client ID, make sure you are using BigCommerce for WordPress API credentials to make these Webhook API calls.
 
@@ -270,7 +263,7 @@ There is a growing list of plugins that support BigCommerce either through added
 
 ## Resources
 
-- [Customization Guide](https://developer.bigcommerce.com/bigcommerce-for-wordpress/extending-the-plugin/customization-guide)
-- [Proxy REST API Endpoints](https://developer.bigcommerce.com/bigcommerce-for-wordpress/extending-the-plugin/proxy-rest-api-endpoints)
+- [Customization Guide](/bigcommerce-for-wordpress/extending-the-plugin/customization-guide)
+- [Proxy REST API Endpoints](/bigcommerce-for-wordpress/extending-the-plugin/proxy-rest-api-endpoints)
 - [BigCommerce Plugin Code Reference](https://bigcommerce.moderntribe.qa/)
 - [BigCommerce for WordPress Changelog](https://github.com/bigcommerce/bigcommerce-for-wordpress/releases) (GitHub)

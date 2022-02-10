@@ -1,13 +1,5 @@
 # Localization Tutorial
-<div class="otp" id="no-index">
 
-### On this page
-- [Adding a language file](#adding-a-language-file)
-- [Creating translation keys](#creating-translation-keys)
-- [Updating browser settings](#updating-browser-settings)
-- [Related resources](#related-resources)
-
-</div>
 
 You can localize your Stencil theme for your desired target language. This tutorial describes how to localize a storefront in Spanish. By following this method, you can display a specific language based on the language selected in the viewer's browser. By the end of this tutorial, you will have the tools to localize most areas of your theme.
 
@@ -17,10 +9,10 @@ In this tutorial, we will use Stencil CLI and [Browsersync](https://github.com/b
 
 To complete this tutorial, you should be familiar with the following concepts:
 
-* [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil)
+* [Installing Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil)
 * [Creating a Stencil CLI Token](https://support.bigcommerce.com/s/article/Store-API-Accounts)
 * [Downloading and uploading custom themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload)
-* [Serving a live preview](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/live-previewing-a-theme#serving-a-live-preview)
+* [Serving a live preview](/stencil-docs/installing-stencil-cli/live-previewing-a-theme#serving-a-live-preview)
 
 
 ## Adding a language file
@@ -125,7 +117,7 @@ Other browsers may look and act differently. We suggest previewing your site to 
 </div>
 
 ## Related resources
-* [Translation Keys](https://developer.bigcommerce.com/stencil-docs/localization/translation-keys)
+* [Translation Keys](/stencil-docs/localization/translation-keys)
 * [Customizing a Theme - lang directory Video Demo (YouTube)](https://www.youtube.com/watch?v=ygiRGfSrmnA)
 * [JSON translation files (BigCommerce GitHub)](https://github.com/bigcommerce/cornerstone/tree/master/lang)
-* [Handlebars helpers reference](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers)
+* [Handlebars helpers reference](/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers)

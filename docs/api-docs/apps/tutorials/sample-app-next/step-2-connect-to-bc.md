@@ -1,17 +1,6 @@
 # Step 2: Connect Your App to BigCommerce
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Install node-bigcommerce](#install-node-bigcommerce)
-- [Setup the auth lib page](#setup-the-auth-lib-page)
-- [Add API endpoints](#add-api-endpoints)
-- [Create an HTTPS tunnel](#create-an-https-tunnel)
-- [Register the draft app](#register-the-draft-app)
-- [Add your Client ID and Client Secret Key](#add-your-client-id-and-client-secret-key)
-- [Install and launch the app](#install-and-launch-the-app)
-
-</div>
 
 In this step, you connect your app to the BigCommerce ecosystem embedding it into **Draft Apps**.
 
@@ -92,7 +81,7 @@ export function getBCVerify({ signed_payload_jwt }: QueryParams) {
 }
 ```
 
-The `verifyJWT` method employs the `signed_payload_jwt` query parameter to authenticate requests. You use the `verifyJWT` method for both `/load` and `/uninstall` API endpoints. To learn more about the OAuth flow, see [Single-Click App OAuth Flow](https://developer.bigcommerce.com/api-docs/apps/guide/auth).
+The `verifyJWT` method employs the `signed_payload_jwt` query parameter to authenticate requests. You use the `verifyJWT` method for both `/load` and `/uninstall` API endpoints. To learn more about the OAuth flow, see [Single-Click App OAuth Flow](/api-docs/apps/guide/auth).
 
 [View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-2-connect-app-to-bc/lib/auth.ts)
 
@@ -207,7 +196,7 @@ To register an app, you need a BigCommerce store. If you do not have a BigCommer
 
 ![Create an app](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-03.png "Create an app")
 
-2. Enter app details at the prompts. Because you are building a sample app, you can name it anything you want. Production-level apps should meet the general requirements outlined in [Approval Requirements](https://developer.bigcommerce.com/api-docs/apps/guide/requirements). 
+2. Enter app details at the prompts. Because you are building a sample app, you can name it anything you want. Production-level apps should meet the general requirements outlined in [Approval Requirements](/api-docs/apps/guide/requirements). 
 
 3. Click **Technical**. 
 
@@ -245,7 +234,7 @@ To register an app, you need a BigCommerce store. If you do not have a BigCommer
 </div>
 </div>
 
-6. Because you will be modifying the Products API resource, set the Products OAuth scope to **MODIFY**. To learn more about the available OAuth scopes, see [OAuth scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+6. Because you will be modifying the Products API resource, set the Products OAuth scope to **MODIFY**. To learn more about the available OAuth scopes, see [OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
 ![OAuth scopes](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-07.png "OAuth Scopes")
 
@@ -319,4 +308,4 @@ You should see your app embedded in the BigCommerce platform.
 
 ![Embedded app](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-09.png "Embedded app")
 
-[Next: Integrate the BigCommerce API and Add a Database](https://developer.bigcommerce.com/api-docs/apps/tutorials/sample-app-nextjs/step-3-integrate)
+[Next: Integrate the BigCommerce API and Add a Database](/api-docs/apps/tutorials/sample-app-nextjs/step-3-integrate)

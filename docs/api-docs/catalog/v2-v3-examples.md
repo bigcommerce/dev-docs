@@ -1,14 +1,6 @@
 # V2 to V3 Catalog Operations Comparison
 
-<div class="otp" id="no-index">
 
-### On This Page
-
-- [V2 and V3 operations](#v2-and-v3-operations)
-- [Interoperability between V2 and V3](#interoperability-between-v2-and-v3)
-- [Related resources](#related-resources)
-
-</div>
 
 This article illustrates the difference between V2 and V3 Catalog APIs by comparing major operations. 
 
@@ -645,7 +637,7 @@ Modifiers are considered an option on V2. They follow the same workflow as descr
 
 ### Create a product with complex rules
 
-In V3, it is best practice to either assign values directly to a variant or use adjusters on the modifier option itself. Complex rules should be reserved for rare cases where a rule condition is too complex to express. To learn more, see [Complex rules](https://developer.bigcommerce.com/api-docs/store-management/catalog/catalog-overview#complex-rules).
+In V3, it is best practice to either assign values directly to a variant or use adjusters on the modifier option itself. Complex rules should be reserved for rare cases where a rule condition is too complex to express. To learn more, see [Complex rules](/api-docs/store-management/catalog/catalog-overview#complex-rules).
 
 **V3 example**
 
@@ -765,7 +757,7 @@ In V3, you can update stock levels on multiple variants and SKUs in one call by 
 
 ## Interoperability between V2 and V3
 
-When a product option is created in V2 and assigned to a product, editing the global option using the V3 Catalog API will automatically copy the V2 global product option to a local product variant, option, or modifier. This is triggered by an `UPDATE` or a `DELETE` call to either the [Product Options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variant-options/getoptions) or [Product Modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/getmodifiers) endpoints.
+When a product option is created in V2 and assigned to a product, editing the global option using the V3 Catalog API will automatically copy the V2 global product option to a local product variant, option, or modifier. This is triggered by an `UPDATE` or a `DELETE` call to either the [Product Options](/api-reference/store-management/catalog/product-variant-options/getoptions) or [Product Modifiers](/api-reference/store-management/catalog/product-modifiers/getmodifiers) endpoints.
 
 Editing the V2 global product option using the V3 Catalog API will do the following:
 
@@ -1036,5 +1028,5 @@ Even though we edited only one option value, option value IDs for all other opti
 
 ### Articles
 
-* [Catalog Overview](https://developer.bigcommerce.com/api-docs/store-management/products-overview)
-* [Deprecations and sunsets](https://developer.bigcommerce.com/api-reference#deprecations-and-sunsets)
+* [Catalog Overview](/api-docs/store-management/products-overview)
+* [Deprecations and sunsets](/api-reference#deprecations-and-sunsets)

@@ -1,19 +1,13 @@
 # Passwordless Customer Login
 
-<div class="otp" id="no-index">
 
-### On this Page
-- [Logging in customers via email link](#logging-in-customers-via-email-link)
-- [Sending the request](#sending-the-request)
-- [Related resources](#related-resources)
-</div>
 
 ## Logging in customers via email link
 Your application can send shoppers a one-time link via email that will sign them in to their [storefront account](https://support.bigcommerce.com/s/article/Customer-Account-Creation).
 
 Use cases for this include:
 * Reducing friction for customers, allowing them to proceed without needing to reset their passwords
-* Providing an alternate method for signing in customers versus using the [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
+* Providing an alternate method for signing in customers versus using the [Customer Login API](/api-docs/customers/customer-login-api)
 
 ## Sending the request
 
@@ -92,5 +86,5 @@ This email uses the same email templates as other emails in your store.
 ## Related resources
 
 ### Endpoints
-* [Customer Login SSO](https://developer.bigcommerce.com/api-reference/storefront/customer-login-sso)
-* [Customers V3](https://developer.bigcommerce.com/api-reference/store-management/customers-v3)
+* [Customer Login SSO](/api-reference/storefront/customer-login-sso)
+* [Customers V3](/api-reference/store-management/customers-v3)

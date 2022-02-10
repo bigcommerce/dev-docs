@@ -1,18 +1,6 @@
 # Products
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Products](#products)
-- [List Products](#list-products)
-- [Get a Product](#get-a-product)
-- [Get a Product Count](#get-a-product-count)
-- [Create a Product](#create-a-product)
-- [Update a Product](#update-a-product)
-- [Delete a Product](#delete-a-product)
-- [Delete All Products](#delete-all-products)
-
-</div> 
+ 
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
@@ -124,7 +112,7 @@ A product object represents a saleable item in the catalog.
 | videos | resource | See the [Videos resource](/api/v2/#videos) for information. |
 | skus | resource | Stock Keeping Units for the product. See the [Product SKUs](/api/v2/#skus) resource for the definition of a sku object. |
 | rules | resource | Rules that apply only to this product, based on the product's [option set](/v2#product-option-sets). See [Product Rules](/api/v2/#product-rules) resource for information. |
-| option_set | resource | See the [Product Option Sets](https://developer.bigcommerce.com/legacy/v2-catalog-products/v2-option-sets) resource for information. |
+| option_set | resource | See the [Product Option Sets](/legacy/v2-catalog-products/v2-option-sets) resource for information. |
 | options | resource | Options from the [option set](/api/v2/#option-sets) applied to the product. See the [Product Options](/api/v2/#product-options) resource for information. |
 | tax_class | resource | Assigned tax class, when using a manual tax setup. This can be a number matching one of the tax classes set up in your store. |
 | avalara_product_tax_code | resource | Accepts AvaTax System Tax Codes, which identify products and services that fall into special sales-tax categories. By using these codes, merchants who subscribe to Avalara Premium can calculate sales taxes more accurately.<br><br> Stores without Avalara Premium will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive.<br><br> For details, please see Avalara's <a href="https://help.avalara.com/000_Avalara_AvaTax/Manage_Product_Taxability/010_Select_AvaTax_System_Tax_Codes" target="_blank">overview</a> and <a href="https://help.avalara.com/000_Avalara_AvaTax/Manage_Product_Taxability/Tax_Codes_-_Frequently_Asked_Questions" target="_blank">FAQ</a> on AvaTax System Tax Codes. You can also <a href="https://help.avalara.com/@api/deki/files/1675/AvaTax_System_Tax_Codes_Toolkit.zip?revision=37" target="_blank">download codes</a> as a zipfile of spreadsheets, or <a href="https://taxcode.avatax.avalara.com/" target="_blank">search or browse codes</a> in Avalara's Tax Code Search Tool. (These external links are subject to change.) |

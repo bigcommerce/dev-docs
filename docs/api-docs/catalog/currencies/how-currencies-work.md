@@ -1,25 +1,8 @@
 # How Currencies Work
 
-<div class="otp" id="no-index">
 
-### On this Page
-- [Catalog pricing](#catalog-pricing)
-- [Currencies](#currencies)
-- [Price Lists](#price-lists)
-- [Price list modifiers](#price-list-modifiers)
-- [Price records](#price-records)
-- [S-2-S cart and checkout](#s-2-s-cart-and-checkout)
-- [Storefront cart and checkout](#storefront-cart-and-checkout)
-- [Orders](#orders)
-- [Promotions](#promotions)
-- [Shipping](#shipping)
-- [Refunds](#refunds)
-- [Payment methods supported](#payment-methods-supported)
-- [Gift certificates](#gift-certificates)
 
-</div>
-
-This article details how you can surface currencies throughout BigCommerce APIs, user interfaces, and storefront components. It assumes you're already familiar with the core concepts behind BigCommerce's multi-currency settings. For a high-level overview and instructions on how to add currencies to a BigCommerce store, see [Currencies Overview](https://developer.bigcommerce.com/api-docs/catalog/currencies/currencies-overview).
+This article details how you can surface currencies throughout BigCommerce APIs, user interfaces, and storefront components. It assumes you're already familiar with the core concepts behind BigCommerce's multi-currency settings. For a high-level overview and instructions on how to add currencies to a BigCommerce store, see [Currencies Overview](/api-docs/catalog/currencies/currencies-overview).
 
 ## Catalog pricing
 
@@ -39,7 +22,7 @@ BigCommerce does not dynamically convert currency. To convert, the merchant will
 ## Currencies
 
 **Details:**
-* There was a new field added to [/v2/currencies](https://developer.bigcommerce.com/api-reference/store-management/currency-api):
+* There was a new field added to [/v2/currencies](/api-reference/store-management/currency-api):
   * `is_transactional` - Boolean indicating if the currency is transactional or not; false means display only currency.
 
 **Example:**
@@ -99,7 +82,7 @@ The above example assumes a default currency of USD.
 
 To create a price record in multiple currencies via API, send a `POST` request to the [Set Price Records](/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection) endpoint -- as long as the currency is available in the store, you can set multiple currencies in the request.
 
-[**Create Price Record** ](https://developer.bigcommerce.com/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection):
+[**Create Price Record** ](/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection):
 
 ```json
 [
@@ -120,7 +103,7 @@ To create a price record in multiple currencies via API, send a `POST` request t
 ]
 ```
 
-[**Price List Sample Response** ](https://developer.bigcommerce.com/api-reference/catalog/pricelists-api/price-lists/getpricelistcollection):
+[**Price List Sample Response** ](/api-reference/catalog/pricelists-api/price-lists/getpricelistcollection):
 
 ```json
 {
@@ -181,10 +164,10 @@ To create a price record in multiple currencies via API, send a `POST` request t
 
 <a id="server-to-server-cart-and-checkout"></a>
 
-You can set up the cart currency when creating a [Server to Server Cart](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api/cart/createacart). You can set up the currency in the [control panel](https://developer.bigcommerce.com/api-docs/multi-currency/guide/introduction#adding-a-currency) first. 
+You can set up the cart currency when creating a [Server to Server Cart](/api-reference/cart-checkout/server-server-cart-api/cart/createacart). You can set up the currency in the [control panel](/api-docs/multi-currency/guide/introduction#adding-a-currency) first. 
 
 **Example POST Create a Cart** 
-*[https://api.bigcommerce.com/stores/{storehash}/v3/carts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api/cart/createacart)*
+*[https://api.bigcommerce.com/stores/{storehash}/v3/carts](/api-reference/cart-checkout/server-server-cart-api/cart/createacart)*
 
 ```json
 {
@@ -362,7 +345,7 @@ You can create cart level discounts in your currency of choice. The shopper must
 
 ## Gift certificates
 
-[**Create a Gift Certificate**](https://developer.bigcommerce.com/api-reference/marketing/marketing-api/gift-certificates/createagiftcertificate)
+[**Create a Gift Certificate**](/api-reference/marketing/marketing-api/gift-certificates/createagiftcertificate)
 
 ```json
 {

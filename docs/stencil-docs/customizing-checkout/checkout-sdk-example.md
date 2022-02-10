@@ -1,6 +1,5 @@
 # Checkout SDK Tutorial
 
-<div class="otp" id="no-index">
 
 ### On this page
 - [Implementing React Checkout in Cornerstone](#implementing-react-checkout-in-cornerstone)
@@ -118,7 +117,7 @@ extensions: ['.js', '.jsx']
 ### Creating a checkout-loader.js file
 
 
-In your text editor, create a file called checkout-loader.js.  Add content from the [Checkout SDK Quickstart](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk-quickstart#creating-a-checkoutjs-file) to the file.
+In your text editor, create a file called checkout-loader.js.  Add content from the [Checkout SDK Quickstart](/stencil-docs/customizing-checkout/checkout-sdk-quickstart#creating-a-checkoutjs-file) to the file.
 
 ### Congratulations!
 

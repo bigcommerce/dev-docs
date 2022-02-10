@@ -1,17 +1,8 @@
 # Channel Webhooks
 
-<div class="otp" id="no-index">
 
-### On this page
 
-- [Channel webhook events](#channel-webhook-events)
-- [Channel webhook callbacks](#channel-webhook-callbacks)
-- [Creating a channel webhook](#creating-a-channel-webhook)
-- [Resources](#resources)
-
-</div>
-
-Developers building third-party sales channels or multi-storefront capabilities might need notification when a channel in BigCommerce changes so that they can perform downstream actions required to set up or deactivate the channel. To facilitate this, we've added `store/channel` webhook events that fire when you create or update a channel. We'll assume you're familiar with webhooks and briefly introduce the channel events in this article; however, if you would like an introduction to webhooks, see [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/about-webhooks).
+Developers building third-party sales channels or multi-storefront capabilities might need notification when a channel in BigCommerce changes so that they can perform downstream actions required to set up or deactivate the channel. To facilitate this, we've added `store/channel` webhook events that fire when you create or update a channel. We'll assume you're familiar with webhooks and briefly introduce the channel events in this article; however, if you would like an introduction to webhooks, see [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks).
 
 
 
@@ -61,7 +52,7 @@ The following is an example of a callback BigCommerce sends to the `destination`
 
 ## Creating a channel webhook
 
-To create a webhook that subscribes to channel events, send a `POST` request to [/stores/{{STORE_HASH}}/v2/hooks](https://developer.bigcommerce.com/api-reference/webhooks/webhooks/createwebhooks) with `scope` set to `store/channel/created`, `store/channel/updated`, or `store/channel/*`.
+To create a webhook that subscribes to channel events, send a `POST` request to [/stores/{{STORE_HASH}}/v2/hooks](/api-reference/webhooks/webhooks/createwebhooks) with `scope` set to `store/channel/created`, `store/channel/updated`, or `store/channel/*`.
 
 
 
@@ -78,15 +69,16 @@ Accept: application/json
 }
 ```
 
-To learn more about creating webhooks, see [Webhooks Tutorial](https://developer.bigcommerce.com/api-docs/store-management/webhooks/tutorial).
+To learn more about creating webhooks, see [Webhooks Tutorial](/api-docs/store-management/webhooks/tutorial).
 
 
 ## Resources
 
 ### Related articles
 
-* [Webhooks Overview](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview)
+* [Webhooks Overview](/api-docs/store-management/webhooks/overview)
 
-* [Webhooks Tutorial](https://developer.bigcommerce.com/api-docs/store-management/webhooks/tutorial)
+* [Webhooks Tutorial](/api-docs/store-management/webhooks/tutorial)
 
-* [Webhooks Events](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events)
+* [Webhooks Events](/api-docs/store-management/webhooks/webhook-events)
+
