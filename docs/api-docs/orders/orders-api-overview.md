@@ -2,7 +2,7 @@
 
 
 
-This article introduces BigCommerce's [Orders V2](https://developer.bigcommerce.com/api-reference/store-management/orders) and [Orders V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) REST API resources. [Orders V2](https://developer.bigcommerce.com/api-reference/store-management/orders) exposes endpoints for [creating](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder), [reading](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/getallorders), [updating](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/updateanorder), and [deleting](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/deleteallorders) orders; it also includes endpoints for managing [order shipments](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipments) and [order shipping addresses](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses). [Orders V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) surfaces [order transactions](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/transactions/gettransactions) and [order refunds](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/payment-actions/getrefunds) endpoints. For information on processing order payments via API, see [Payments API Overview](https://developer.bigcommerce.com/api-docs/payments/payments-api-overview).
+This article introduces BigCommerce's [Orders V2](/api-reference/store-management/orders) and [Orders V3](/api-reference/store-management/order-transactions) REST API resources. [Orders V2](/api-reference/store-management/orders) exposes endpoints for [creating](/api-reference/store-management/orders/orders/createanorder), [reading](/api-reference/store-management/orders/orders/getallorders), [updating](/api-reference/store-management/orders/orders/updateanorder), and [deleting](/api-reference/store-management/orders/orders/deleteallorders) orders; it also includes endpoints for managing [order shipments](/api-reference/store-management/orders/order-shipments) and [order shipping addresses](/api-reference/store-management/orders/order-shipping-addresses). [Orders V3](/api-reference/store-management/order-transactions) surfaces [order transactions](/api-reference/store-management/order-transactions/transactions/gettransactions) and [order refunds](/api-reference/store-management/order-transactions/payment-actions/getrefunds) endpoints. For information on processing order payments via API, see [Payments API Overview](/api-docs/payments/payments-api-overview).
 
 ### Prerequisites:
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial)
@@ -253,9 +253,9 @@ Content-Type: application/json
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants/getvariantbyid#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/product-variants/getvariantbyid#requestrunner)
 
-**[Response:](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants/getvariantbyid#responses)**
+**[Response:](/api-reference/store-management/catalog/product-variants/getvariantbyid#responses)**
 
 ```json
 {
@@ -564,7 +564,7 @@ Accept: application/json
 
 ## Handling refunds
 
-[Orders V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) exposes endpoints for managing [order refunds](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/payment-actions/getrefunds). For an overview on using these endpoints, see [Order Refunds in API Docs](https://developer.bigcommerce.com/api-docs/orders/payment-actions).
+[Orders V3](/api-reference/store-management/order-transactions) exposes endpoints for managing [order refunds](/api-reference/store-management/order-transactions/payment-actions/getrefunds). For an overview on using these endpoints, see [Order Refunds in API Docs](/api-docs/orders/payment-actions).
 
 ## Calculating totals
 
