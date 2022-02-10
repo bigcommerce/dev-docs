@@ -1,15 +1,6 @@
 # Next.js Commerce Quick Start
 
-<div class="otp" id="no-index">
 
-### On this page
-
-- [Overview](#overview)
-- [Getting started](#getting-started)
-- [Application](#application)
-- [Application settings](#application-settings)
-- [Resources](#resources)
-</div>
 
 ## Overview
 
@@ -37,7 +28,7 @@ To get started with Next.js Commerce, you'll need to deploy a live version direc
 
 - An IDE
 - Knowledge of [Next.js](https://nextjs.org/)
-- Knowledge of [BigCommerce APIs](https://developer.bigcommerce.com/api-docs)
+- Knowledge of [BigCommerce APIs](/api-docs)
 - Git provider (GitHub, Bitbucket, GitLab)
 - NPM
 
@@ -112,9 +103,9 @@ BIGCOMMERCE_STORE_API_STORE_HASH=${STORE_HASH}
 
   ![STORE-HASH location in URL](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-15.png)
 
-- `STORE_TOKEN|STORE_CLIENT`: For instructions on generating Store API credentials, visit [Obtaining Store API Credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
-- `STOREFRONT_API_TOKEN`: For instructions on generating the Storefront API token, visit [Create a Token](https://developer.bigcommerce.com/api-reference/store-management/tokens/api-token/createtoken).
-- `CHANNEL_ID`: Use the channel ID of the channel created by Vercel during deployment. For information on how to retrieve channel information, visit [Get All Channels](https://developer.bigcommerce.com/api-reference/store-management/channels/channels/listchannels).
+- `STORE_TOKEN|STORE_CLIENT`: For instructions on generating Store API credentials, visit [Obtaining Store API Credentials](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
+- `STOREFRONT_API_TOKEN`: For instructions on generating the Storefront API token, visit [Create a Token](/api-reference/store-management/tokens/api-token/createtoken).
+- `CHANNEL_ID`: Use the channel ID of the channel created by Vercel during deployment. For information on how to retrieve channel information, visit [Get All Channels](/api-reference/store-management/channels/channels/listchannels).
 
 3. Open a terminal in your repository's root directory. To install the project's dependencies, run `npm install`.
 

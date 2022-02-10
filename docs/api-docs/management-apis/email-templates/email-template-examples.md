@@ -1,15 +1,6 @@
 # Email Templates Code Examples
 
-<div class="otp" id="no-index">
 
-### On this page
-
-- [Updating text](#updating-text)
-- [Adding a button](#adding-a-button)
-- [Changing logo size](#changing-logo-size)
-- [Changing font size](#changing-font-size)
-
-</div>
 
 This article provides examples of how to customize email templates. The examples are for use in the recently updated templates. You can enable the new version of transactional emails by going to **Marketing > Transactional Emails** and clicking **Try New Experience**. When you are ready to use a template, make sure to **Enable** the template from the respective dropdown. 
 

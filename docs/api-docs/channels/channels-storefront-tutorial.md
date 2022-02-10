@@ -2,34 +2,20 @@
 
 <!-- Dev Center URL: https://developer.bigcommerce.com/api-docs/channels/tutorials/storefront#building-a-channel-app -->
 
-<div class="otp" id="no-index">
 
-## On this page
 
- - [Prerequisites](#prerequisites)
- - [Creating a channel](#creating-a-channel)
- - [Specifying the platform](#specifying-the-platform)
- - [Configuring UI sections](#configuring-ui-sections)
- - [Protected UI sections](#protected-ui-sections)
- - [Storefront settings](#storefront-settings)
- - [Currencies settings](#currencies-settings)
- - [Notification settings](#notification-settings)
- - [Related resources](#related-resources)
-
-</div>
-
-This article documents how to use [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/guide/channels-toolkit-reference) to install a storefront channel into [Channel Manager](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager) during a [single-click app's](https://developer.bigcommerce.com/api-docs/apps/guide/types) installation. We'll assume you're an experienced app and headless storefront developer familiar with channels on BigCommerce.
+This article documents how to use [Channels Toolkit](/api-docs/channels/guide/channels-toolkit-reference) to install a storefront channel into [Channel Manager](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager) during a [single-click app's](/api-docs/apps/guide/types) installation. We'll assume you're an experienced app and headless storefront developer familiar with channels on BigCommerce.
 
 ### Prerequisites
 
 
-- [Familiarity with channels on BigCommerce](https://developer.bigcommerce.com/api-docs/channels/guide/overview)
-- [Experience building apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
-- [Experience building headless storefronts](https://developer.bigcommerce.com/api-docs/storefronts/developers-guide-headless)
+- [Familiarity with channels on BigCommerce](/api-docs/channels/guide/overview)
+- [Experience building apps](/api-docs/apps/guide/intro)
+- [Experience building headless storefronts](/api-docs/storefronts/developers-guide-headless)
 
 ## Creating a channel
 
-After receiving the [POST response](https://developer.bigcommerce.com/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the [single-click app OAuth flow](https://developer.bigcommerce.com/api-docs/apps/guide/auth#receiving-the-post-response), create a channel on the merchant's store. This allows merchants to assign product listings to the storefront and configure storefront specific settings. To create a storefront channel, set `type` to `storefront` in the [create a channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) request.
+After receiving the [POST response](/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the [single-click app OAuth flow](/api-docs/apps/guide/auth#receiving-the-post-response), create a channel on the merchant's store. This allows merchants to assign product listings to the storefront and configure storefront specific settings. To create a storefront channel, set `type` to `storefront` in the [create a channel](/api-reference/cart-checkout/channels-listings-api/channels/createchannel) request.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
@@ -75,13 +61,13 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/cart-checkout/channels-listings-api/channels/createchannel#requestrunner)
 
-[View reference documentation for this request](https://developer.bigcommerce.com/api-reference/store-management/channels/channels/createchannel).
+[View reference documentation for this request](/api-reference/store-management/channels/channels/createchannel).
 
 ## Specifying the platform
 
-Specify the headless storefront's platform by assigning an [accepted value for `platform`](#accepted-values) in the [create channel request](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel).
+Specify the headless storefront's platform by assigning an [accepted value for `platform`](#accepted-values) in the [create channel request](/api-reference/cart-checkout/channels-listings-api/channels/createchannel).
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
@@ -97,7 +83,7 @@ Accept: application/json
   }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/cart-checkout/channels-listings-api/channels/createchannel#requestrunner)
 
 ### Accepted values
 
@@ -146,7 +132,7 @@ Accept: application/json
 
 > **Note**
 >
-> You can [find an app's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id) in the URL when editing the app in the [Developer Portal](https://developer.bigcommerce.com/api-docs/apps/guide/developer-portal).
+> You can [find an app's ID](/api-docs/apps/tutorials/id) in the URL when editing the app in the [Developer Portal](/api-docs/apps/guide/developer-portal).
 
 </div>
 </div>
@@ -163,7 +149,7 @@ The following protected sections are provided by BigCommerce.
 | `Notifications`       | `notifications`       | Renders channel specific notification settings |
 | [`Currencies`](#currencies-settings)          | `currencies`          | Renders channel specific currency settings     |
 
-Include protected sections in the [create channel request](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) to display BigCommerce provided channel specific settings.
+Include protected sections in the [create channel request](/api-reference/cart-checkout/channels-listings-api/channels/createchannel) to display BigCommerce provided channel specific settings.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
@@ -232,7 +218,7 @@ Content-Type: application/json
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/settings/storefront-category/getsettingsstorefrontcategory#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/settings/storefront-category/getsettingsstorefrontcategory#requestrunner)
 
 **Response:**
 
@@ -247,7 +233,7 @@ Accept: application/json
 }
 ```
 
-[View the settings API Reference](https://developer.bigcommerce.com/api-reference/store-management/settings).
+[View the settings API Reference](/api-reference/store-management/settings).
 
 ## Currencies settings
 
@@ -265,7 +251,7 @@ Content-Type: application/json
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/channels/channel-currency-assignments/get-channels-channel-id-currency-assignments#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channel-currency-assignments/get-channels-channel-id-currency-assignments#requestrunner)
 
 **Response:**
 
@@ -280,7 +266,7 @@ Accept: application/json
 }
 ```
 
-[View the Channels API reference](https://developer.bigcommerce.com/api-reference/store-management/channels).
+[View the Channels API reference](/api-reference/store-management/channels).
 
 ## Notification settings
 
@@ -292,11 +278,11 @@ Include the `Notifications` [protected section](#protected-ui-sections) in the c
 
 ### Articles
 
-- [Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
-- [Building Channels](https://developer.bigcommerce.com/api-docs/channels/guide/overview)
-- [Find an App's ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id)
+- [Building Apps](/api-docs/apps/guide/intro)
+- [Building Channels](/api-docs/channels/guide/overview)
+- [Find an App's ID](/api-docs/apps/tutorials/id)
 
 ### Endpoints
 
-- [Channels API Reference](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api)
-- [Settings API Reference](https://developer.bigcommerce.com/api-reference/store-management/settings)
+- [Channels API Reference](/api-reference/cart-checkout/channels-listings-api)
+- [Settings API Reference](/api-reference/store-management/settings)

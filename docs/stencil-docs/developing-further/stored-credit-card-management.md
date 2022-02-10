@@ -1,6 +1,5 @@
 # Stored Payment Methods
 
-<div class="otp" id="no-index">
 
 ### On This Page
 - [FAQ](#faq)
@@ -106,6 +105,6 @@ After adding a card, shoppers can modify the billing address. To modify other th
 ## Resources
 
 ### Related Articles
-* [Payments API](https://developer.bigcommerce.com/api-docs/payments/payments-api-overview)
+* [Payments API](/api-docs/payments/payments-api-overview)
 * [Enabling Stored Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards) (BigCommerce Knowledge Base)
 * [The Complete Guide to Checkout Customization on BigCommerce](https://medium.com/bigcommerce-developer-blog/the-complete-guide-to-checkout-customization-on-bigcommerce-6b566bc36fa9) (Developer Blog)

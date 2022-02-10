@@ -1,14 +1,5 @@
 # Theme Development Best Practices Tutorial
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Importing images](#importing-images)
-- [Injecting variables](#injecting-variables)
-- [Using Lighthouse](#using-lighthouse)
-- [Designing for accessibility](#designing-for-accessibility)
-- [Related resources](#related-resources)
-</div>
 
 In this tutorial, you will learn the correct way to import theme images and inject theme variables. Also, you will learn how to improve theme designs using [Lighthouse](https://developers.google.com/web/tools/lighthouse) and [accessibility best practices](https://developer.bigcommerce.com/stencil-docs/accessibility/theme-accessibility).
 
@@ -37,7 +28,7 @@ When importing images, ensure your images are high quality, the appropriate dime
 
 Injecting JavaScript context variables allow you to access store data through your theme. You can inject JavaScript context variables using the `{{inject}}` Handlebars helper. Be sure to assign a custom variable name to the injected variable.
 
-You can then use the `{{jsContext}}` Handlebars helper to access a stringified JSON object containing all injected data with your assigned custom variable names as keys in the key-value pairs. For more information, see [injection helpers](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#inject). 
+You can then use the `{{jsContext}}` Handlebars helper to access a stringified JSON object containing all injected data with your assigned custom variable names as keys in the key-value pairs. For more information, see [injection helpers](/stencil-docs/reference-docs/handlebars-helpers-reference#inject). 
 
 The code example below uses `{{inject}}` and `{{jsContext}}` to log the product name to your browser's console when added to Cornerstone's `product.html` file: 
 

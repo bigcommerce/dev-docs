@@ -1,21 +1,7 @@
 # Single-Click App OAuth Flow
 
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Helpful tools](#helpful-tools)
-- [OAuth summary](#oauth-summary)
-- [Receiving the GET request](#receiving-the-get-request)
-- [Responding to the GET request](#responding-to-the-get-request)
-- [Making the POST request](#making-the-post-request)
-- [Receiving the POST response](#receiving-the-post-response)
-- [Code samples](#code-samples)
-- [Security considerations](#security-considerations)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
-</div>
 
 If you're developing a single-click app, you'll need to handle the OAuth flow that begins when a merchant clicks **Install**. This article contains the technical details necessary to do so. If you don't want to start from scratch, see [Helpful tools](#helpful-tools) for a list of API clients that expose OAuth related helper methods. This documentation assumes you're an experienced developer familiar with web app authentication. If this is your first time approaching OAuth, see [Additional resources](#additional-resources) for links to introductory articles on the [OAuth framework](https://tools.ietf.org/html/rfc6749) (tools.ietf.org).
 
@@ -88,7 +74,7 @@ GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders&context=stores/g5cd38 HTTP
 >
 > * When your app receives a new token, any previously issued token is invalidated.
 
-> * As a best practice, your app should validate the list of scopes to ensure that it matches your app's needs and fails if it does not. At this time, the user cannot pick and choose scopes. The dialog presented to the user requires the user to approve all scopes or none. For more information about available scopes, see [OAuth scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+> * As a best practice, your app should validate the list of scopes to ensure that it matches your app's needs and fails if it does not. At this time, the user cannot pick and choose scopes. The dialog presented to the user requires the user to approve all scopes or none. For more information about available scopes, see [OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
 > * The request comes from the client browser, rather than directly from BigCommerce. This request allows you to use a non-publicly available auth callback URL while testing your app.
 
@@ -116,7 +102,7 @@ client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&code=qr6h3thvbvag2ffq&scope=
 | `client_id` | The Client ID for your app obtained in the [Developer Portal](https://devtools.bigcommerce.com/my/apps). |
 | `client_secret` | The Client Secret for your app obtained in the [Developer Portal](https://devtools.bigcommerce.com/my/apps). |
 | `code` | Temporary access code received in the `GET` request.|
-| `scope` | List of OAuth scopes received in the `GET` request. For more information about available scopes, see [OAuth scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).|
+| `scope` | List of OAuth scopes received in the `GET` request. For more information about available scopes, see [OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).|
 | `grant_type` | Always set to `authorization_code`. |
 | `redirect_uri` | Must be identical to your registered auth callback URI. |
 | `context` | Store hash received in the `GET` request.|
@@ -208,7 +194,7 @@ $token = $response->access_token;
 For additional details, see [Security Considerations in RC6749](https://tools.ietf.org/html/rfc6749#section-10). For a list of the top web application security risks and best practices for avoiding them, see [OWASP Top Ten](https://owasp.org/www-project-top-ten/).
 
 ## Next steps
-* [Handle load, uninstall, and remove user callbacks](https://developer.bigcommerce.com/api-docs/apps/guide/callbacks)
+* [Handle load, uninstall, and remove user callbacks](/api-docs/apps/guide/callbacks)
 
 ## Resources
 
@@ -231,7 +217,7 @@ For additional details, see [Security Considerations in RC6749](https://tools.ie
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

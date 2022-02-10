@@ -1,23 +1,6 @@
 # API Reference
 
-<div class="otp" id="no-index">
 
-### On this page
-- [BigCommerce APIs at a glance](#bigcommerce-apis-at-a-glance)
-- [V2 REST API](#v2-rest-api)
-- [V3 REST API](#v3-rest-api)
-- [Webhooks](#webhooks)
-- [Payment Processing API](#payment-processing-api)
-- [Storefront API](#storefront-api)
-- [Storefront GraphQL API](#storefront-graphql-api)
-- [Customer Login API](#customer-login-api)
-- [Current Customer API](#current-customer-api)
-- [Provider APIs](#provider-apis)
-- [Add to cart URLs](#add-to-cart-urls)
-- [API spec files](#api-spec-files)
-- [Deprecations and sunsets](#deprecations-and-sunsets)
-
-</div>
 
 ## BigCommerce APIs at a glance
 |API|Server|Description|
@@ -33,7 +16,7 @@
 |[Providers](#provider-apis)|`{provider_server}`|Implemented by partners and consumed by BigCommerce for custom integrations |
 |[Add to Cart URLs](#add-to-cart-urls)|`{store_domain}`| Query string params that can be used to pre-select SKUs and add to cart|
 
-**Additional Information:** [About our APIs](https://developer.bigcommerce.com/api-docs/getting-started/about-our-api) | [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication) | [API Status Codes](https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes)
+**Additional Information:** [About our APIs](/api-docs/getting-started/about-our-api) | [Authentication](/api-docs/getting-started/authentication) | [API Status Codes](/api-docs/getting-started/api-status-codes)
 
 ## V2 REST API
 
@@ -43,34 +26,34 @@ BigCommerce's **V2 REST API** exposes many endpoints developers can use to progr
 
 |  Resources | Description | Endpoint |
 | --- | --- | --- |
-|  [Banners](https://developer.bigcommerce.com/api-reference/store-management/marketing/banners) | Create / manage banners | `/banners` |
-|  [Blog Posts](https://developer.bigcommerce.com/api-reference/store-management/store-content/blog-posts) | Create / manage blog posts | `/blog/posts` |
-|  [Blog Tags](https://developer.bigcommerce.com/api-reference/store-management/store-content/blog-tags) | Create / manage blog tags | `/blog/tags` |
-|  [Coupons](https://developer.bigcommerce.com/api-reference/store-management/marketing/coupons) | Create / manage coupons | `/coupons` |
-|  [Currencies](https://developer.bigcommerce.com/api-reference/store-management/currency-api/currencies) | Create / manage currencies | `/currencies` |
-|  [Customer Addresses](https://developer.bigcommerce.com/api-reference/store-management/customers-v2/customer-addresses) | Create / manage customer addresses | `/customers/{id}/addresses` |
-|  [Customer Groups](https://developer.bigcommerce.com/api-reference/store-management/customers-v2/customer-groups) | Create / manage customer groups | `/customer_groups` |
-|  [Customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v2/customers) | Create / manage customers | `/customers` |
-|  [Customers Validate Password](https://developer.bigcommerce.com/api-reference/store-management/customers-v2/customer-passwords) | Validate customer passwords | `/customers/{id}/validate` |
-|  [Countries](https://developer.bigcommerce.com/api-reference/store-management/geography-api/countries) | List of states, provinces, and countries | `/countries` |
-|  [Gift Certificates](https://developer.bigcommerce.com/api-reference/store-management/marketing/gift-certificates) | Create / manage gift certificates | `/gift_certificates` |
-|  [Orders](https://developer.bigcommerce.com/api-reference/store-management/orders) | Create / manage orders | `/orders` |
-|  [Pages](https://developer.bigcommerce.com/api-reference/store-management/store-content/pages) | Create / manage content pages | `/pages` |
-|  [Payment Methods](https://developer.bigcommerce.com/api-reference/payments/payment-methods-api/payment-methods) | Create / manage enabled payment methods | `/payments/methods` |
-|  [Redirects](https://developer.bigcommerce.com/api-reference/store-management/store-content/redirects) | Create / manage URL redirects | `/redirects` |
-|  [Shipping Carriers](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-carrier) | Create / manage shipping carriers | `/shipping/carrier/connection` |
-|  [Shipping Methods](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-method) | Create / manage shipping methods | `/shipping` |
-|  [Shipping Zones](https://developer.bigcommerce.com/api-reference/store-management/shipping-api/shipping-zones) | Create / manage shipping Zones | `/shipping` |
-|  [Store Information](https://developer.bigcommerce.com/api-reference/store-management/store-information-api/store-information) | Create / manage metadata | `/store` |
-|  [Tax Class](https://developer.bigcommerce.com/api-reference/store-management/tax-classes-api) | Get available tax classes | `/tax_classes` |
-|  [Time Zone](https://developer.bigcommerce.com/api-reference/store-management/store-information-api/time-zone) | Get system timestamp | `/time` |
+|  [Banners](/api-reference/store-management/marketing/banners) | Create / manage banners | `/banners` |
+|  [Blog Posts](/api-reference/store-management/store-content/blog-posts) | Create / manage blog posts | `/blog/posts` |
+|  [Blog Tags](/api-reference/store-management/store-content/blog-tags) | Create / manage blog tags | `/blog/tags` |
+|  [Coupons](/api-reference/store-management/marketing/coupons) | Create / manage coupons | `/coupons` |
+|  [Currencies](/api-reference/store-management/currency-api/currencies) | Create / manage currencies | `/currencies` |
+|  [Customer Addresses](/api-reference/store-management/customers-v2/customer-addresses) | Create / manage customer addresses | `/customers/{id}/addresses` |
+|  [Customer Groups](/api-reference/store-management/customers-v2/customer-groups) | Create / manage customer groups | `/customer_groups` |
+|  [Customers](/api-reference/store-management/customers-v2/customers) | Create / manage customers | `/customers` |
+|  [Customers Validate Password](/api-reference/store-management/customers-v2/customer-passwords) | Validate customer passwords | `/customers/{id}/validate` |
+|  [Countries](/api-reference/store-management/geography-api/countries) | List of states, provinces, and countries | `/countries` |
+|  [Gift Certificates](/api-reference/store-management/marketing/gift-certificates) | Create / manage gift certificates | `/gift_certificates` |
+|  [Orders](/api-reference/store-management/orders) | Create / manage orders | `/orders` |
+|  [Pages](/api-reference/store-management/store-content/pages) | Create / manage content pages | `/pages` |
+|  [Payment Methods](/api-reference/payments/payment-methods-api/payment-methods) | Create / manage enabled payment methods | `/payments/methods` |
+|  [Redirects](/api-reference/store-management/store-content/redirects) | Create / manage URL redirects | `/redirects` |
+|  [Shipping Carriers](/api-reference/store-management/shipping-api/shipping-carrier) | Create / manage shipping carriers | `/shipping/carrier/connection` |
+|  [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method) | Create / manage shipping methods | `/shipping` |
+|  [Shipping Zones](/api-reference/store-management/shipping-api/shipping-zones) | Create / manage shipping Zones | `/shipping` |
+|  [Store Information](/api-reference/store-management/store-information-api/store-information) | Create / manage metadata | `/store` |
+|  [Tax Class](/api-reference/store-management/tax-classes-api) | Get available tax classes | `/tax_classes` |
+|  [Time Zone](/api-reference/store-management/store-information-api/time-zone) | Get system timestamp | `/time` |
 
 ## V3 REST API
 
-Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints developers can use to programmatically interact with store resources (including [server-to-server carts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api) and [checkouts](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api) for using BigCommerce headlessly). Interactions with the **V3** API are very similar to that of the **V2** API; however, the **V3** API introduces a number of improvements:
+Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints developers can use to programmatically interact with store resources (including [server-to-server carts](/api-reference/cart-checkout/server-server-cart-api) and [checkouts](/api-reference/cart-checkout/storefront-checkout-api) for using BigCommerce headlessly). Interactions with the **V3** API are very similar to that of the **V2** API; however, the **V3** API introduces a number of improvements:
 * Most tasks can be performed with fewer API calls (for example, a product with variants and custom fields can be created in a single request)
 * Each **V3** resource includes a `meta` object, simplifying pagination
-* **V3** Brands, Categories, Products, and Product Variants expose a [metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) resource for use by developers to store custom data.
+* **V3** Brands, Categories, Products, and Product Variants expose a [metafields](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) resource for use by developers to store custom data.
 * **V3** API is optimized for performance (in general, data can be sent, received, and processed faster via **V3**, relative to **V2**).
 
 **Server**: `api.bigcommerce.com/stores/{store_hash}/v3`
@@ -136,9 +119,9 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 
 |  Resource | Description | Endpoint |
 | --- | --- | --- |
-|  [Webhooks](https://developer.bigcommerce.com/api-reference/webhooks) | Manage store Webhooks | `/hooks` |
+|  [Webhooks](/api-reference/webhooks) | Manage store Webhooks | `/hooks` |
 
-**Additional Information**: [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/about-webhooks)
+**Additional Information**: [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
 
 ## Payment Processing API
 
@@ -148,16 +131,16 @@ Using the Payment Processing API, developers can programmatically process paymen
 
 |  Resource               | Description                              | Endpoint                            |
 |-------------------------|------------------------------------------|-------------------------------------|
-|  [Payment Processing](https://developer.bigcommerce.com/api-reference/payments/payments-process-payments) | Process payments on orders and checkouts | `payments.bigcommerce.com/payments` |
+|  [Payment Processing](/api-reference/payments/payments-process-payments) | Process payments on orders and checkouts | `payments.bigcommerce.com/payments` |
 
 In addition to the payment processing API's `/payments` endpoint, there are two **v3** API endpoints related to payment processing. The first (`/v3/payments/access_tokens`) is required to retrieve a payment access token for authenticating requests against `payments.bigcommerce.com`. Requests to the second endpoint (`/v3/payments/methods`) are optional, and can be used to retrieve an order's accepted payment methods, when necessary.
 
 | Request                                   | Endpoint                                                                    |
 |-------------------------------------------|-----------------------------------------------------------------------------|
-| [Create the payment token](https://developer.bigcommerce.com/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)              | `api.bigcommerce.com/stores/{store_hash}}/v3/payments/access_tokens` |
-| [Get order accepted payment methods](https://developer.bigcommerce.com/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget)    | `api.bigcommerce.com/stores/{store_hash}/v3/payments/methods`        |
+| [Create the payment token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)              | `api.bigcommerce.com/stores/{store_hash}}/v3/payments/access_tokens` |
+| [Get order accepted payment methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget)    | `api.bigcommerce.com/stores/{store_hash}/v3/payments/methods`        |
 
-**Additional Information:** [Payment Processing API Overview](https://developer.bigcommerce.com/api-docs/payments/payments-api-overview)
+**Additional Information:** [Payment Processing API Overview](/api-docs/payments/payments-api-overview)
 
 ## Storefront API
 
@@ -167,11 +150,11 @@ BigCommerce's **Storefront API** is a client API that exposes storefront data to
 
 |  Resource                                                                                                        | Description                               | Endpoint                            |
 |------------------------------------------------------------------------------------------------------------------|-------------------------------------------|-------------------------------------|
-| [Storefront Carts](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api)            | Create and get carts                      | `/carts`             |
-| [Storefront Checkouts](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api)    | Create and get checkouts on the front-end | `/checkouts`         |
-| [Storefront Orders](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-orders)             | Get order data after order is placed      | `/orders`            |
+| [Storefront Carts](/api-reference/cart-checkout/storefront-cart-api)            | Create and get carts                      | `/carts`             |
+| [Storefront Checkouts](/api-reference/cart-checkout/storefront-checkout-api)    | Create and get checkouts on the front-end | `/checkouts`         |
+| [Storefront Orders](/api-reference/cart-checkout/storefront-orders)             | Get order data after order is placed      | `/orders`            |
 
-**Additional Information:** [Storefront Cart and Checkout Overview](https://developer.bigcommerce.com/api-docs/cart-and-checkout/cart-and-checkout-overview) | [Working with Storefront APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis) |
+**Additional Information:** [Storefront Cart and Checkout Overview](/api-docs/cart-and-checkout/cart-and-checkout-overview) | [Working with Storefront APIs](/api-docs/cart-and-checkout/working-sf-apis) |
 
 ## Storefront GraphQL API
 
@@ -181,10 +164,10 @@ BigCommerce’s **GraphQL Storefront API** makes it possible to query storefront
 
 | Reference Documentation |
 |-------------------------|
-| [GraphQL PlayGround](https://developer.bigcommerce.com/graphql-playground)  |
-| [GraphQL Explorer](https://developer.bigcommerce.com/graphql-explorer)    |
+| [GraphQL PlayGround](/graphql-playground)  |
+| [GraphQL Explorer](/graphql-explorer)    |
 
-**Additional Information:** [GraphQL Storefront API Overview](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview)
+**Additional Information:** [GraphQL Storefront API Overview](/api-docs/storefront/graphql/graphql-storefront-api-overview)
 
 ## Customer Login API
 
@@ -194,9 +177,9 @@ The **Customer Login API** enables single sign-on (SSO). It allows apps to progr
 
 |  Resource | Description | Endpoint|
 |-|-|-|
-| [Customer Login](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)| Use JWT & SSO to login a customer| `/login/token/{token}` |
+| [Customer Login](/api-docs/customers/customer-login-api)| Use JWT & SSO to login a customer| `/login/token/{token}` |
 
-**Additional Information**: [Customers & Subscribers Overview](https://developer.bigcommerce.com/api-docs/customers/customers-subscribers-overview)
+**Additional Information**: [Customers & Subscribers Overview](/api-docs/customers/customers-subscribers-overview)
 
 ## Current Customer API
 
@@ -208,9 +191,9 @@ To address this need, BigCommerce provides a Current Customer endpoint accessibl
 
 |  Resource | Description | Endpoint|
 |-|-|-|
-| [Current Customer](https://developer.bigcommerce.com/api-docs/customers/current-customer-api)| Securely identify customer on the front-end  | `/customer/current.jwt?app_client_id=`|
+| [Current Customer](/api-docs/customers/current-customer-api)| Securely identify customer on the front-end  | `/customer/current.jwt?app_client_id=`|
 
-**Additional Information**: [Customers & Subscribers Overview](https://developer.bigcommerce.com/api-docs/customers/customers-subscribers-overview)
+**Additional Information**: [Customers & Subscribers Overview](/api-docs/customers/customers-subscribers-overview)
 
 
 ## Provider APIs
@@ -221,9 +204,9 @@ Provider API references describe endpoints, responses, and requests that can be 
 
 | Provider API | Description |
 |-|-|
-|[Shipping Provider API](https://developer.bigcommerce.com/api-reference/store-management/shipping-provider-api)|Allows third parties to integrate their own shipping carriers into the BigCommerce checkout and control panel.|
+|[Shipping Provider API](/api-reference/store-management/shipping-provider-api)|Allows third parties to integrate their own shipping carriers into the BigCommerce checkout and control panel.|
 
-**Additional Information:** [Shipping Provider API Overview](https://developer.bigcommerce.com/api-docs/store-management/shipping/shipping-provider-api)
+**Additional Information:** [Shipping Provider API Overview](/api-docs/store-management/shipping/shipping-provider-api)
 
 
 ## Add to cart URLs
@@ -243,7 +226,7 @@ Query string parameters can be appended to BigCommerce product and `/cart.php` U
 
 
 **Additional Information:**
-[Add to Cart URLs Overview](https://developer.bigcommerce.com/api-docs/cart-and-checkout/add-to-cart-url)
+[Add to Cart URLs Overview](/api-docs/cart-and-checkout/add-to-cart-url)
 
 ## API spec files
 
@@ -308,21 +291,21 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 
 |Endpoint|Alternative |
 |-|-|
-|`/v2/brands`| [`/v3/catalog/brands`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brands/getbrands)|
-|`/v2/categories`| [`/v3/catalog/categories`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category/getcategories)|
-|`/v2/customers`| [`/v3/customers`](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api)|
+|`/v2/brands`| [`/v3/catalog/brands`](/api-reference/catalog/catalog-api/brands/getbrands)|
+|`/v2/categories`| [`/v3/catalog/categories`](/api-reference/catalog/catalog-api/category/getcategories)|
+|`/v2/customers`| [`/v3/customers`](/api-reference/customer-subscribers/v3-customers-api)|
 |`/v2/options`| In V3, `options` and `modifiers` are attached directly to the product. Use `options` and `modifiers` together to access the contents of the former V2 `options` response.|
-|`/v2/option_sets`| `option_sets` endpoint is intentionally not available in the V3 API. See [V2 vs V3 Catalog APIs](https://developer.bigcommerce.com/legacy/v2-products/v2-v3) for more information.|
-|`/v2/products `| [`/v3/catalog/products`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproducts)|
-|`/v2/redirects/`|[`/v3/storefront/redirects`](https://developer.bigcommerce.com/api-reference/storefront/redirects)|
+|`/v2/option_sets`| `option_sets` endpoint is intentionally not available in the V3 API. See [V2 vs V3 Catalog APIs](/legacy/v2-products/v2-v3) for more information.|
+|`/v2/products `| [`/v3/catalog/products`](/api-reference/catalog/catalog-api/products/getproducts)|
+|`/v2/redirects/`|[`/v3/storefront/redirects`](/api-reference/storefront/redirects)|
 
 **V2 Sunsets**
 
 |Endpoint|Date of Deactivation| Alternative |
 |-|-|-|
-|`DELETE /v2/customers`| May 10, 2020| [`DELETE /v3/customers`](https://developer.bigcommerce.com/api-reference/customer-subscribers/v3-customers-api/customers/customersdelete)|
+|`DELETE /v2/customers`| May 10, 2020| [`DELETE /v3/customers`](/api-reference/customer-subscribers/v3-customers-api/customers/customersdelete)|
 |`DELETE /v2/option_sets`| May 10, 2020| No equivalent available. However, `option_sets` can still be deleted individually by their ID.|
-|`DELETE /v2/products`| May 10, 2020| [`DELETE /v3/catalog/products`](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/deleteproducts)|
+|`DELETE /v2/products`| May 10, 2020| [`DELETE /v3/catalog/products`](/api-reference/catalog/catalog-api/products/deleteproducts)|
 
 **V2 DELETE Sunsets**
 > These changes **ONLY** affect the “collection delete” capability which deletes the collection of objects from the system. The “single object” version of these endpoints, such as `DELETE /v2/products/123`, will continue to function normally.
@@ -330,7 +313,7 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 **V3 Sunsets**
 |Endpoint|Date of Deactivation| Alternative |
 |-|-|-|
-|Channels API `is_activated` property| May, 10, 2020|[Channels API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/listchannels) `status` property
+|Channels API `is_activated` property| May, 10, 2020|[Channels API](/api-reference/cart-checkout/channels-listings-api/channels/listchannels) `status` property
 
 
-**Additional Information:** [V2 versus V3 API](https://developer.bigcommerce.com/legacy/v2-products/v2-v3#Whats-not-in-V3)
+**Additional Information:** [V2 versus V3 API](/legacy/v2-products/v2-v3#Whats-not-in-V3)

@@ -1,13 +1,6 @@
 # Product Options
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Product Options](#product-options)
-- [List Product Options](#list-product-options)
-- [Get a Product Option](#get-a-product-option)
-
-</div> 
+ 
 
 ## Product Options 
 

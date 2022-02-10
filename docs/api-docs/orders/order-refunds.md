@@ -1,22 +1,8 @@
 # Order Refunds
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Single order refund example](#single-order-refund-example)
-- [Creating refund quotes](#creating-refund-quotes)
-- [Creating a refund](#creating-a-refund)
-- [Creating order level refunds](#creating-order-level-refunds)
-- [Refunding shipping and handling](#refunding-shipping-and-handling)
-- [Refunding products and gift wrapping](#refunding-products-and-gift-wrapping)
-- [Offline order refunds](#offline-order-refunds)
-- [FAQ](#faq)
-- [Troubleshooting](#troubleshooting)
-- [Related resources](#related-resources)
 
-</div>
-
-[Order V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) exposes endpoints for creating refunds against orders with settled payments. These endpoints are useful when building order management or payment integrations as they make embedding refund functionality directly into the application possible without requiring merchants to return to their BigCommerce control panel.
+[Order V3](/api-reference/store-management/order-transactions) exposes endpoints for creating refunds against orders with settled payments. These endpoints are useful when building order management or payment integrations as they make embedding refund functionality directly into the application possible without requiring merchants to return to their BigCommerce control panel.
 
 This article provides an overview of Order's V3 refund capabilities and includes a step-by-step example for creating a [single order refund](#single-order-refund-example).
 
@@ -105,8 +91,8 @@ Accept: application/json
 <div class="HubBlock-content">
 
 > ### Note
-> * To get an `item_id`, make a `GET` request to `v2/orders/{order_id}/products`. The returned `id` value is the `item_id` needed to create a `PRODUCT` refund quote. The returned `order_address_id` value is the `item_id` needed to create a `SHIPPING` refund quote. To read more about using the `v2/orders/{order_id}/products` endpoint, visit [List Order Products](https://developer.bigcommerce.com/api-reference/store-management/orders/order-products/getallorderproducts#requestrunner).
-> * To get a list of orders and their `id`s, make a request to [get all orders](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/getallorders#requestrunner).
+> * To get an `item_id`, make a `GET` request to `v2/orders/{order_id}/products`. The returned `id` value is the `item_id` needed to create a `PRODUCT` refund quote. The returned `order_address_id` value is the `item_id` needed to create a `SHIPPING` refund quote. To read more about using the `v2/orders/{order_id}/products` endpoint, visit [List Order Products](/api-reference/store-management/orders/order-products/getallorderproducts#requestrunner).
+> * To get a list of orders and their `id`s, make a request to [get all orders](/api-reference/store-management/orders/orders/getallorders#requestrunner).
 
 </div>
 </div>
@@ -326,5 +312,5 @@ No, you cannot return items to inventory that you refunded via API. You can eith
 * [Order Webhook Events](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#orders)
 
 ### Endpoints
-* [Orders V2 Reference](https://developer.bigcommerce.com/api-reference/store-management/orders)
-* [Orders V3 Reference](https://developer.bigcommerce.com/api-reference/store-management/order-transactions)
+* [Orders V2 Reference](/api-reference/store-management/orders)
+* [Orders V3 Reference](/api-reference/store-management/order-transactions)

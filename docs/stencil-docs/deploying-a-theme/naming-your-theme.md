@@ -175,7 +175,7 @@ lineNumbers: true
 ## Preparing a variation's thumbnails
 
 
-For details on preparing screenshots that enable merchants to preview each variation, and to preview your theme as a whole in the BigCommerce control panel and Theme Marketplace, see [Preparing Thumbnail Images](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/preparing-thumbnail-images).
+For details on preparing screenshots that enable merchants to preview each variation, and to preview your theme as a whole in the BigCommerce control panel and Theme Marketplace, see [Preparing Thumbnail Images](/stencil-docs/deploying-a-theme/preparing-thumbnail-images).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--">
@@ -196,6 +196,6 @@ For details on preparing screenshots that enable merchants to preview each varia
 ## Resources
 
 ### Related articles
-* [Checking a Theme's Size](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/checking-a-themes-size)
-* [Preparing Thumbnail Images](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/preparing-thumbnail-images)
-* [Bundling and Pushing a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing)
+* [Checking a Theme's Size](/stencil-docs/deploying-a-theme/checking-a-themes-size)
+* [Preparing Thumbnail Images](/stencil-docs/deploying-a-theme/preparing-thumbnail-images)
+* [Bundling and Pushing a Theme](/stencil-docs/deploying-a-theme/bundling-and-pushing)

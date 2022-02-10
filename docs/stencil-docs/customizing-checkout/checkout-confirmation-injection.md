@@ -1,16 +1,6 @@
 # Checkout/Confirmation Injection Options
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Adding Storewide Styles](#adding-storewide-styles)
-- [Applying Storewide Header](#applying-storewide-header)
-- [Applying Storewide Scripts](#applying-storewide-scripts)
-- [Adding Trust Seals](#adding-trust-seals)
-- [Checkout App Injection](#checkout-app-injection)
-- [Resources](#resources)
-
-</div>
 
 ## Adding Storewide Styles
 
@@ -246,7 +236,7 @@ loadaddrexx();
 ## Resources
 
 ### Related Endpoints
-* [Scripts API](https://developer.bigcommerce.com/api-reference/storefront/content-scripts-api)
+* [Scripts API](/api-reference/storefront/content-scripts-api)
 
 ### Related Articles
 * [Adding a GeoTrust SSL Seal to Your Store's Footer](https://support.bigcommerce.com/s/article/Adding-a-GeoTrust-SSL-seal-to-your--footer) (BigCommerce Knowledge Base)

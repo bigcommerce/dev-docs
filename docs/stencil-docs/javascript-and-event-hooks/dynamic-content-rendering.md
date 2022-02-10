@@ -1,16 +1,6 @@
 # Dynamic Content Rendering on Stencil Storefronts
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Why Dynamic Content?](#why-dynamic-content)
-- [Dropzones](#dropzones)
-- [Dynamic Tabs](#dynamic-tabs)
-- [Snippets](#snippets)
-- [Snippets HTML](#snippets-html)
-- [Recap](#recap)
-
-</div>
 
 _We're gratefully sharing techniques devised by Ken Utting, Web Developer for BigCommerce client goruck.com_.
 

@@ -2,17 +2,7 @@
 
 <!-- Dev Center URL: https://developer.bigcommerce.com/api-docs/channels/guide/channel-app-best-practices -->
 
-<div class="otp" id="no-index">
 
-## On this page
-
-  - [Modular features](#modular-features)
-  - [Syncing](#syncing)
-  - [Performance](#performance)
-  - [Logging](#logging)
-  - [Related resources](#related-resources)
-
-</div>
 
 To enable the best user experience, below are a few items to keep in mind when developing a BigCommerce Channel App.
 

@@ -1,16 +1,6 @@
 # Product SKU
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [SKUs](#skus)
-- [List Product SKUs](#list-product-skus)
-- [Get a Product SKU](#get-a-product-sku)
-- [Update a Product SKU](#update-a-product-sku)
-- [Delete a Product SKU](#delete-a-product-sku)
-- [Delete Multiple Product SKUs](#delete-multiple-product-skus)
-
-</div> 
+ 
 
 ## SKUs 
 
@@ -25,7 +15,7 @@ Stock Keeping Unit identifiers associated with products or product options.
 ### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
 
-For the most up-to-date version of this API, see [Product Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants).
+For the most up-to-date version of this API, see [Product Variants](/api-reference/store-management/catalog/product-variants).
 
 </div>
 </div>

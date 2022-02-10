@@ -1,17 +1,6 @@
 # Product Reviews
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Product Reviews](#product-reviews)
-- [List Product Reviews](#list-product-reviews)
-- [Get a Product Review](#get-a-product-review)
-- [Create a Product Review](#create-a-product-review)
-- [Update a Product Review](#update-a-product-review)
-- [Delete a Product Review](#delete-a-product-review)
-- [Delete All Product Reviews](#delete-all-product-reviews)
-
-</div> 
+ 
 
 ## Product Reviews 
 
@@ -26,7 +15,7 @@ Reviews associated with a product.
 ### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
 
-For the most up-to-date version of this API, see [Product Reviews](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-reviews).
+For the most up-to-date version of this API, see [Product Reviews](/api-reference/store-management/catalog/product-reviews).
 
 </div>
 </div>

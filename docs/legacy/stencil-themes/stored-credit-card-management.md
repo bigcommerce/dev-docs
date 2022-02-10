@@ -1,22 +1,6 @@
 # Stored Credit Card Management
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Prerequisites](#prerequisites)
-- [Adding Stored Credit Card Management](#adding-stored-credit-card-management)
-- [Step 1: Add Payment Methods Page](#step-1-add-payment-methods-page)
-- [Step 2: Add Translations](#step-2-add-translations)
-- [Step 3: Include Credit Card Listing](#step-3-include-credit-card-listing)
-- [Step 4: Add Credit Card Actions](#step-4-add-credit-card-actions)
-- [Step 5: Implement `Delete Payment` Method](#step-5-implement-delete-payment-method)
-- [Step 6: Implement `Edit Payment` Method](#step-6-implement-edit-payment-method)
-- [Step 7: Implement `Add Payment` Method](#step-7-implement-add-payment-method)
-- [Step 8: Add Default Instrument](#step-8-add-default-instrument)
-- [FAQ](#faq)
-- [Resources](#resources)
-
-</div>
 
 Stored Credit Card management gives customer’s the ability to manage their stored credit cards from the My Account page of the storefront. In the Cornerstone theme, shoppers with store accounts will have the ability to add new cards, delete cards, select a default card, and edit the billing details of existing cards from their customer account area of the storefront.
 
@@ -209,6 +193,6 @@ After adding a card, shoppers will only be able to modify the billing address. I
 ## Resources
 
 ### Related Articles
-* [Payments API](https://developer.bigcommerce.com/api-docs/payments/payments-api-overview)
+* [Payments API](/api-docs/payments/payments-api-overview)
 * [Enabling Stored Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards) (BigCommerce Knowledge Base)
 * [The Complete Guide to Checkout Customization on BigCommerce](https://medium.com/bigcommerce-developer-blog/the-complete-guide-to-checkout-customization-on-bigcommerce-6b566bc36fa9) (Developer Blog)

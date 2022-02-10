@@ -25,7 +25,7 @@ This tutorial will walk you through the first steps of building a custom checkou
 
 ## Prerequisites
 * This tutorial uses [Cornerstone](https://github.com/bigcommerce/cornerstone). Your theme may differ.
-* The theme should be set up for [local development](https://developer.bigcommerce.com/stencil-docs/getting-started/installing-stencil).
+* The theme should be set up for [local development](/stencil-docs/getting-started/installing-stencil).
 
 ## Installing the Checkout JS SDK
 
@@ -58,7 +58,7 @@ document.head.appendChild(script);
 ```
 
 ## Installing your custom checkout
-For information on installing the checkout file generated in the previous step, see [Installing Custom Checkouts](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/installing-custom-checkouts#prerequisites). 
+For information on installing the checkout file generated in the previous step, see [Installing Custom Checkouts](/stencil-docs/customizing-checkout/installing-custom-checkouts#prerequisites). 
 
 On the checkout page, you will see the script, the checkout ID on the screen, and in the developer console, you will see the entire available checkout object.
 
@@ -75,4 +75,4 @@ On the checkout page, you will see the script, the checkout ID on the screen, an
 * [Checkout SDK Source Code](https://github.com/bigcommerce/checkout-sdk-js) (BigCommerce GitHub)
 
 ## Related articles
-* [Installling Stencil CLI](https://developer.bigcommerce.com/stencil-docs/getting-started/installing-stencil)
+* [Installling Stencil CLI](/stencil-docs/getting-started/installing-stencil)

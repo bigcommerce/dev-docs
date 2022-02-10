@@ -1,13 +1,6 @@
 # Adding npm Packages to a Theme
 
-<div class="otp" id="no-index">
 
-### On this page
-
-- [Installing React and npm packages](#installing-react-and-npm-packages)
-- [Final product](#final-product)
-
-</div>
 
 Stencil's architecture allows for organized customization using npm and React. In production, you can use these tools for stylizing seasonally themed products, temporary promotions, or event tickets. Below is a short tutorial on using npm and React to customize your Stencil theme.
 

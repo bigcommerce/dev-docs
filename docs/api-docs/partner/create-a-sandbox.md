@@ -1,11 +1,6 @@
 # Create a Sandbox Store
 
-<div class="otp" id="no-index"> 
-
-### On this page
-- [Creating a sandbox store](#creating-a-sandbox-store)
-- [Resources](#resources)
-</div> 
+ 
 
 A sandbox store cannot process transactions and is for developing and testing apps without the 15-day time limit of a trial store. 
 
@@ -28,6 +23,6 @@ This article will walk you through the steps of creating a sandbox store.
 
 ### Related articles
 
-* [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
+* [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements)
 * [Partner Portal](https://partners.bigcommerce.com/) (BigCommerce)
 * [Getting Started with the Control Panel](https://support.bigcommerce.com/s/article/Getting-Started-with-the-New-Control-Panel)
