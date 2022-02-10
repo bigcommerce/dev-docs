@@ -1,7 +1,7 @@
 # Theme Development Best Practices Tutorial
 
 
-In this tutorial, you will learn the correct way to import theme images and inject theme variables. Also, you will learn how to improve theme designs using [Lighthouse](https://developers.google.com/web/tools/lighthouse) and [accessibility best practices](https://developer.bigcommerce.com/stencil-docs/accessibility/theme-accessibility).
+In this tutorial, you will learn the correct way to import theme images and inject theme variables. Also, you will learn how to improve theme designs using [Lighthouse](https://developers.google.com/web/tools/lighthouse) and [accessibility best practices](/stencil-docs/accessibility/theme-accessibility).
 
 ## Importing images
 There are two ways to import images. The steps below describe the quickest and easiest way to import images.
@@ -155,10 +155,10 @@ Using Lighthouse is an important step in optimizing your site and improving the 
 
 ## Designing for accessibility
 
-Accessible sites have benefits, including faster load speed, better SEO, and useful for marketing your product. See [Developing Themes for Accessibility](https://developer.bigcommerce.com/stencil-docs/accessibility/theme-accessibility) for more information.
+Accessible sites have benefits, including faster load speed, better SEO, and useful for marketing your product. See [Developing Themes for Accessibility](/stencil-docs/accessibility/theme-accessibility) for more information.
 
 ## Related resources
 - [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV)(Knowledge Base)
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
-- [Designing for Accessibility](https://developer.bigcommerce.com/stencil-docs/accessibility/theme-accessibility)
+- [Designing for Accessibility](/stencil-docs/accessibility/theme-accessibility)
 - [Folder Structure](https://support.bigcommerce.com/s/article/File-Access-WebDAV#folder)

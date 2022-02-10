@@ -63,7 +63,7 @@ Modifiers include multiple-choice types such as swatch, rectangle, radio button,
 
 > ### Note
 >
-> Product [variant options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variant-options/getoptionbyid) and [modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/getmodifierbyid) created using the V3 Catalog API belong to a single product instance and cannot be attached to other products in the catalog.
+> Product [variant options](/api-reference/store-management/catalog/product-variant-options/getoptionbyid) and [modifiers](/api-reference/store-management/catalog/product-modifiers/getmodifierbyid) created using the V3 Catalog API belong to a single product instance and cannot be attached to other products in the catalog.
 
 </div>
 </div>
@@ -121,7 +121,7 @@ In V3, any variants or modifier adjusters created with non-null core properties 
 * [Deprecations and sunsets](/api-docs/getting-started/deprecations-and-sunsets)
 
 ### Endpoints
-* [V3 Product Complex Rules](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-complex-rules)
-* [V3 Product Options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variant-options)
-* [V3 Product Modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers)
-* [V3 Product Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants)
+* [V3 Product Complex Rules](/api-reference/store-management/catalog/product-complex-rules)
+* [V3 Product Options](/api-reference/store-management/catalog/product-variant-options)
+* [V3 Product Modifiers](/api-reference/store-management/catalog/product-modifiers)
+* [V3 Product Variants](/api-reference/store-management/catalog/product-variants)

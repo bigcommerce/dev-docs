@@ -219,8 +219,8 @@ To log out a customer, set the `redirect_to` field of the JWT’s payload to `/l
 ## Related resources 
 
 ### Articles
-* [Authenticating BigCommerce’s REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials)
-* [BigCommerce APIs Quick Start](https://developer.bigcommerce.com/api-docs/getting-started/making-requests)
+* [Authenticating BigCommerce’s REST APIs](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials)
+* [BigCommerce APIs Quick Start](/api-docs/getting-started/making-requests)
 * [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US)
 * [Introduction to JSON Web Tokens](https://jwt.io/introduction/)
 

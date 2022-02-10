@@ -60,56 +60,56 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 
 |  Resource | Description | Endpoint |
 | --- | --- | --- |
-|  [Brand Images](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brand-images) | Create and manage brand images | `/catalog/brands/{id}/images` |
-|  [Brand Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brand-metafields) | Create and manage brand metafields | `/catalog/brands/{id}/metafields` |
-|  [Brands](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brands) | Create and manage brands | `/catalog/brands` |
-|  [Carts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api) | Create and manage store carts headlessly | `/carts` |
-|  [Categories](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category) | Create and manage categories | `/catalog/categories` |
-|  [Category Images](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category-images) | Create and manage category images | `/catalog/categories/{id}/images` |
-|  [Category Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category-metafields) | Create and manage category metafields | `/catalog/categories/{id}/metafields` |
-|  [Channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels) | Create and manage catalog listings and channels | `/channels` |
-|  [Checkouts](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api) | Create checkouts headlessly | `/checkouts` |
-|  [Customer Addresses](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-addresses) | Create and manage customer addresses | `/customers/addresses` |
-|  [Customer Attribute Values](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-attribute-values) | Create and manage customer attribute values | `/customers/attribute-values` |
-|  [Customer Attributes](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-attributes) | Create and manage customer attributes | `/customers/attributes` |
-|  [Customer Form Field Values](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-form-field-values) | Create and manage customer form field values | `/customers/form-field-values` |
-|  [Customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers) | Create and manage customers and their addresses | `/customers` |
-|  [Order Transactions](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) | View order payment information | `/orders/{id}/transactions` |
-|  [Payment Processing Methods](https://developer.bigcommerce.com/api-reference/payments/payments-create-payment-token-api/payment-methods) | Get order payment methods for processing | `/payments/methods` |
-|  [Payment Processing Token](https://developer.bigcommerce.com/api-reference/payments/payments-create-payment-token-api/payment-access-token) | Get an access token for payment processing | `/payments/accsess_tokens` |
-|  [Price List Records](https://developer.bigcommerce.com/api-reference/store-management/price-lists/price-lists-records) | Create and manage price list records | `/pricelists/records` |
-|  [Price Lists](https://developer.bigcommerce.com/api-reference/store-management/price-lists/price-lists) | Create and manage catalog pricing variations | `/pricelists` |
-|  [Products](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products) | Create and manage products | `/catalog/products` |
-|  [Product Bulk Pricing Rules](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-bulk-pricing-rules) | Create and manage product bulk pricing rules | `/catalog/products/{id}/bulk-pricing-rules` |
-|  [Product Complex Rules](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-complex-rules) | Create and manage product complex rules | `/catalog/products/{id}/complex-rules` |
-|  [Product Custom Fields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-custom-fields) | Create and manage product custom fields | `/catalog/products/{id}/custom-fields` |
-|  [Product Images](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-images) | Create and manage product images | `/catalog/products/{id}/images` |
-|  [Product Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields) | Create and manage product meta fields | `/catalog/products/{id}/metafields` |
-|  [Product Modifier Images](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-modifier-images) | Create and manage product modifier images | `/catalog/products/{id}/modifiers/{id}/images` |
-|  [Product Modifier Values](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-modifier-values) | Create and manage product modifier values | `/catalog/products/{id}/modifers/{id}/values` |
-|  [Product Modifiers](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-modifiers) | Create and manage product modifiers | `/catalog/products/{id}/modifiers` |
-|  [Product Reviews](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-reviews) | Create and manage product reviews | `/catalog/products/{id}/reviews` |
-|  [Product Variant Metafields](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants-metafields) | Create and manage product meta fields | `/catalog/products/{id}/variants/{id}/metafields` |
-|  [Product Option Values](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-option-values) | Create and manage product variant option values | `/catalog/products/{id}/options/{id}/values` |
-|  [Product Options](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-options) | Create and manage product variant options | `/catalog/products/{id}/options` |
-|  [Product Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants) | Create and manage product variants | `/catalog/products/{id}/variants` |
-|  [Product Videos](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-videos) | Create and manage product videos | `/catalog/products/{id}/videos` |
-|  [Redirects](https://developer.bigcommerce.com/api-reference/storefront/redirects) | Manage 301 Redirects for Storefronts | `/storefront/redirects` |
-|  [Scripts](https://developer.bigcommerce.com/api-reference/store-management/scripts) | Add client-side code to a store | `/content/scripts` |
-|  [Sites](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api) | Manage sites and routing for headless storefronts | `/sites` |
-|  [Storefront API Token](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-api-token/api-token) | Create Auth Tokens for use with Storefront APIs | `/api-token` |
-|  [Storefront Customer Impersonation Token](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-api-token/customer-impersonation-token) | Create a storefront API token for customer impersonation | `/api-token-customer-impersonation` |
-|  [Subscribers](https://developer.bigcommerce.com/api-reference/store-management/subscribers) | Create and manage store newsletter subscribers | `/customers/subscribers` |
-|  [Themes](https://developer.bigcommerce.com/api-reference/store-management/themes) | Create and manage store theme's | `/themes` |
-|  [Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/variants) | Get and update all variants | `/catalog/variants` |
-|  [Webhooks](https://developer.bigcommerce.com/api-reference/webhooks) | Manage store Webhooks | `/hooks` |
-|  [Widgets](https://developer.bigcommerce.com/api-reference/store-management/widgets) | Create and manage store widgets | `/content/widgets` |
-|  [Widgets Placements](https://developer.bigcommerce.com/api-reference/store-management/widgets/placement) | Place, move, and remove store widgets | `/content/placements` |
-|  [Widgets Regions](https://developer.bigcommerce.com/api-reference/store-management/widgets/regions) | Get list of regions widgets can be placed for a specified template file | `/content/regions` |
-|  [Widgets Templates](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template) | Create and manage widget templates | `/content/widget-templates` |
-|  [Wishlist](https://developer.bigcommerce.com/api-reference/cart-checkout/wishlists) | Create and manage customer wishlists | `/wishlists` |
+|  [Brand Images](/api-reference/catalog/catalog-api/brand-images) | Create and manage brand images | `/catalog/brands/{id}/images` |
+|  [Brand Metafields](/api-reference/catalog/catalog-api/brand-metafields) | Create and manage brand metafields | `/catalog/brands/{id}/metafields` |
+|  [Brands](/api-reference/catalog/catalog-api/brands) | Create and manage brands | `/catalog/brands` |
+|  [Carts](/api-reference/cart-checkout/server-server-cart-api) | Create and manage store carts headlessly | `/carts` |
+|  [Categories](/api-reference/catalog/catalog-api/category) | Create and manage categories | `/catalog/categories` |
+|  [Category Images](/api-reference/catalog/catalog-api/category-images) | Create and manage category images | `/catalog/categories/{id}/images` |
+|  [Category Metafields](/api-reference/catalog/catalog-api/category-metafields) | Create and manage category metafields | `/catalog/categories/{id}/metafields` |
+|  [Channels](/api-reference/cart-checkout/channels-listings-api/channels) | Create and manage catalog listings and channels | `/channels` |
+|  [Checkouts](/api-reference/cart-checkout/server-server-checkout-api) | Create checkouts headlessly | `/checkouts` |
+|  [Customer Addresses](/api-reference/store-management/customers-v3/customer-addresses) | Create and manage customer addresses | `/customers/addresses` |
+|  [Customer Attribute Values](/api-reference/store-management/customers-v3/customer-attribute-values) | Create and manage customer attribute values | `/customers/attribute-values` |
+|  [Customer Attributes](/api-reference/store-management/customers-v3/customer-attributes) | Create and manage customer attributes | `/customers/attributes` |
+|  [Customer Form Field Values](/api-reference/store-management/customers-v3/customer-form-field-values) | Create and manage customer form field values | `/customers/form-field-values` |
+|  [Customers](/api-reference/store-management/customers-v3/customers) | Create and manage customers and their addresses | `/customers` |
+|  [Order Transactions](/api-reference/store-management/order-transactions) | View order payment information | `/orders/{id}/transactions` |
+|  [Payment Processing Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods) | Get order payment methods for processing | `/payments/methods` |
+|  [Payment Processing Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token) | Get an access token for payment processing | `/payments/accsess_tokens` |
+|  [Price List Records](/api-reference/store-management/price-lists/price-lists-records) | Create and manage price list records | `/pricelists/records` |
+|  [Price Lists](/api-reference/store-management/price-lists/price-lists) | Create and manage catalog pricing variations | `/pricelists` |
+|  [Products](/api-reference/catalog/catalog-api/products) | Create and manage products | `/catalog/products` |
+|  [Product Bulk Pricing Rules](/api-reference/catalog/catalog-api/product-bulk-pricing-rules) | Create and manage product bulk pricing rules | `/catalog/products/{id}/bulk-pricing-rules` |
+|  [Product Complex Rules](/api-reference/catalog/catalog-api/product-complex-rules) | Create and manage product complex rules | `/catalog/products/{id}/complex-rules` |
+|  [Product Custom Fields](/api-reference/catalog/catalog-api/product-custom-fields) | Create and manage product custom fields | `/catalog/products/{id}/custom-fields` |
+|  [Product Images](/api-reference/catalog/catalog-api/product-images) | Create and manage product images | `/catalog/products/{id}/images` |
+|  [Product Metafields](/api-reference/catalog/catalog-api/product-metafields) | Create and manage product meta fields | `/catalog/products/{id}/metafields` |
+|  [Product Modifier Images](/api-reference/catalog/catalog-api/product-modifier-images) | Create and manage product modifier images | `/catalog/products/{id}/modifiers/{id}/images` |
+|  [Product Modifier Values](/api-reference/catalog/catalog-api/product-modifier-values) | Create and manage product modifier values | `/catalog/products/{id}/modifers/{id}/values` |
+|  [Product Modifiers](/api-reference/catalog/catalog-api/product-modifiers) | Create and manage product modifiers | `/catalog/products/{id}/modifiers` |
+|  [Product Reviews](/api-reference/catalog/catalog-api/product-reviews) | Create and manage product reviews | `/catalog/products/{id}/reviews` |
+|  [Product Variant Metafields](/api-reference/store-management/catalog/product-variants-metafields) | Create and manage product meta fields | `/catalog/products/{id}/variants/{id}/metafields` |
+|  [Product Option Values](/api-reference/catalog/catalog-api/product-option-values) | Create and manage product variant option values | `/catalog/products/{id}/options/{id}/values` |
+|  [Product Options](/api-reference/catalog/catalog-api/product-options) | Create and manage product variant options | `/catalog/products/{id}/options` |
+|  [Product Variants](/api-reference/store-management/catalog/product-variants) | Create and manage product variants | `/catalog/products/{id}/variants` |
+|  [Product Videos](/api-reference/store-management/catalog/product-videos) | Create and manage product videos | `/catalog/products/{id}/videos` |
+|  [Redirects](/api-reference/storefront/redirects) | Manage 301 Redirects for Storefronts | `/storefront/redirects` |
+|  [Scripts](/api-reference/store-management/scripts) | Add client-side code to a store | `/content/scripts` |
+|  [Sites](/api-reference/cart-checkout/sites-routes-api) | Manage sites and routing for headless storefronts | `/sites` |
+|  [Storefront API Token](/api-reference/cart-checkout/storefront-api-token/api-token) | Create Auth Tokens for use with Storefront APIs | `/api-token` |
+|  [Storefront Customer Impersonation Token](/api-reference/cart-checkout/storefront-api-token/customer-impersonation-token) | Create a storefront API token for customer impersonation | `/api-token-customer-impersonation` |
+|  [Subscribers](/api-reference/store-management/subscribers) | Create and manage store newsletter subscribers | `/customers/subscribers` |
+|  [Themes](/api-reference/store-management/themes) | Create and manage store theme's | `/themes` |
+|  [Variants](/api-reference/store-management/catalog/variants) | Get and update all variants | `/catalog/variants` |
+|  [Webhooks](/api-reference/webhooks) | Manage store Webhooks | `/hooks` |
+|  [Widgets](/api-reference/store-management/widgets) | Create and manage store widgets | `/content/widgets` |
+|  [Widgets Placements](/api-reference/store-management/widgets/placement) | Place, move, and remove store widgets | `/content/placements` |
+|  [Widgets Regions](/api-reference/store-management/widgets/regions) | Get list of regions widgets can be placed for a specified template file | `/content/regions` |
+|  [Widgets Templates](/api-reference/store-management/widgets/widget-template) | Create and manage widget templates | `/content/widget-templates` |
+|  [Wishlist](/api-reference/cart-checkout/wishlists) | Create and manage customer wishlists | `/wishlists` |
 
-**Additional Information:** [About our APIs](https://developer.bigcommerce.com/api-docs/getting-started/about-our-api) | [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication) | [API Status Codes](https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes)
+**Additional Information:** [About our APIs](/api-docs/getting-started/about-our-api) | [Authentication](/api-docs/getting-started/authentication) | [API Status Codes](/api-docs/getting-started/api-status-codes)
 
 ## Webhooks
 

@@ -12,21 +12,21 @@ Refunding an order consists of two API requests.
 
 |Request|Operation|Endpoint|Description|
 |-|-|-|-|
-|1|`POST`|[`/v3/orders/{id}/payment_actions/refund_quotes`](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/payment-actions/postrefundquote)|Calculate amounts and get payment methods|
-|2|`POST`|[`/v3/orders/{id}/payment_actions/refund`](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/payment-actions/postrefund)|Create the refund|
+|1|`POST`|[`/v3/orders/{id}/payment_actions/refund_quotes`](/api-reference/store-management/order-transactions/payment-actions/postrefundquote)|Calculate amounts and get payment methods|
+|2|`POST`|[`/v3/orders/{id}/payment_actions/refund`](/api-reference/store-management/order-transactions/payment-actions/postrefund)|Create the refund|
 
 The example requests in this article use an order with the following properties:
 * **Products**: Single product priced at `$10.00`
 * **Tax:** `$0.83`
 * **Shipping:** `$10.00`
 
-The refunded amount will include the shipping, tax, and product cost (a total of `$20.83`). We will [create a refund quote](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/payment-actions/postrefundquote). Then, we will [create a refund](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/payment-actions/postrefund) using the information contained in the [create refund quote response](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/payment-actions/postrefundquote#responses).
+The refunded amount will include the shipping, tax, and product cost (a total of `$20.83`). We will [create a refund quote](/api-reference/store-management/order-transactions/payment-actions/postrefundquote). Then, we will [create a refund](/api-reference/store-management/order-transactions/payment-actions/postrefund) using the information contained in the [create refund quote response](/api-reference/store-management/order-transactions/payment-actions/postrefundquote#responses).
 
 ## Creating refund quotes
 
 A refund quote provides the tax amount, total refund amount, and a list of available payment methods for order refunds.
 
-To [create a refund quote](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/payment-actions/postrefundquote), send a `POST` request to `/v3/orders/{order_id}/payment_actions/refund_quotes`.
+To [create a refund quote](/api-reference/store-management/order-transactions/payment-actions/postrefundquote), send a `POST` request to `/v3/orders/{order_id}/payment_actions/refund_quotes`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refund_quotes
@@ -55,9 +55,9 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/payment-actions/postrefundquote#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/payment-actions/postrefundquote#requestrunner)
 
-**[Response:](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/payment-actions/postrefundquote#responses)**
+**[Response:](/api-reference/store-management/order-transactions/payment-actions/postrefundquote#responses)**
 
 ```json
 {
@@ -101,7 +101,7 @@ Accept: application/json
 
 ## Creating a refund
 
-Use the `provider_id`, the `amount`, and `items` from the [refund quote](#creating-refund-quotes) to [create a refund](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/payment-actions/postrefund).
+Use the `provider_id`, the `amount`, and `items` from the [refund quote](#creating-refund-quotes) to [create a refund](/api-reference/store-management/order-transactions/payment-actions/postrefund).
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refunds
@@ -137,9 +137,9 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/payment-actions/postrefund#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/payment-actions/postrefund#requestrunner)
 
-**[Response:](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/payment-actions/postrefund#responses)**
+**[Response:](/api-reference/store-management/order-transactions/payment-actions/postrefund#responses)**
 
 ```json
 {
@@ -181,7 +181,7 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/payment-actions/postrefund#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/payment-actions/postrefund#requestrunner)
 
 ## Creating order level refunds
 
@@ -206,7 +206,7 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/payment-actions/postrefund#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/payment-actions/postrefund#requestrunner)
 
 ## Refunding shipping and handling
 
@@ -231,7 +231,7 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/payment-actions/postrefund#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/payment-actions/postrefund#requestrunner)
 
 ## Refunding products and gift wrapping
 
@@ -261,7 +261,7 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/payment-actions/postrefund#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/payment-actions/postrefund#requestrunner)
 
 ## Offline order refunds
 
@@ -308,8 +308,8 @@ No, you cannot return items to inventory that you refunded via API. You can eith
 ## Related resources
 
 ### Articles
-* [Orders Overview](https://developer.bigcommerce.com/api-docs/store-management/orders)
-* [Order Webhook Events](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#orders)
+* [Orders Overview](/api-docs/store-management/orders)
+* [Order Webhook Events](/api-docs/store-management/webhooks/webhook-events#orders)
 
 ### Endpoints
 * [Orders V2 Reference](/api-reference/store-management/orders)

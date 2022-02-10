@@ -208,7 +208,7 @@ Include the `Storefront Settings` [protected section](#protected-ui-sections) in
 
 ![Channel Storefront Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-storefront-settings.png "Channel Storefront Settings")
 
-Read channel specific storefront settings using the [Settings API](https://developer.bigcommerce.com/api-reference/store-management/settings). For example, to [get storefront search settings](https://developer.bigcommerce.com/api-reference/store-management/settings/storefront-search/getsettingsstorefrontsearch), send a `GET` request to `/v3/settings/storefront/search`.
+Read channel specific storefront settings using the [Settings API](/api-reference/store-management/settings). For example, to [get storefront search settings](/api-reference/store-management/settings/storefront-search/getsettingsstorefrontsearch), send a `GET` request to `/v3/settings/storefront/search`.
 
 ```http
 GET /stores/{{STORE_HASH}}/v3/settings/storefront/category?channel_id={{CHANNEL_ID}}
@@ -241,7 +241,7 @@ Include the `Currencies` [protected section](#protected-ui-sections) in the chan
 
 ![Channel Currency Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-currencies.png "Channel Currency Settings")
 
-You can manage channel specific currency settings using the Channel API [Currency Assignments](https://developer.bigcommerce.com/api-reference/store-management/channels/channel-currency-assignments) endpoints. For example, To [get a channel's currency assignments](https://developer.bigcommerce.com/api-reference/store-management/channels/channel-currency-assignments/getsinglechannelcurrencyassignments), send a `GET` request to `/v3/channels/{channel_id}/currency-assignments`.
+You can manage channel specific currency settings using the Channel API [Currency Assignments](/api-reference/store-management/channels/channel-currency-assignments) endpoints. For example, To [get a channel's currency assignments](/api-reference/store-management/channels/channel-currency-assignments/getsinglechannelcurrencyassignments), send a `GET` request to `/v3/channels/{channel_id}/currency-assignments`.
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v3/channels/{channel_id}/currency-assignments
