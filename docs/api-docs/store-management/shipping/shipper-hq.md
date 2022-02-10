@@ -1,11 +1,5 @@
 # ShipperHQ Metafields
 
-### On this page
-- [ShipperHQ object properties](#shipperhq-object-properties)
-- [Control panel behavior](#control-panel-behavior)
-- [Add ShipperHQ metafield](#add-shipperhq-metafield)
-       
-</div>
 
 When you enable ShipperHQ on a store, additional fields become available on the product level:
 * [Shipping Groups](https://support.bigcommerce.com/s/article/ShipperHQ#ship-groups)
@@ -134,7 +128,7 @@ Response:
 
 ## Resources
 ### Related endpoints
-* [Product Metafield](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield)
-* [Variant Metafield](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield)
+* [Product Metafield](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield)
+* [Variant Metafield](/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield)
 ### Related articles
 * [ShipperHQ](https://support.bigcommerce.com/s/article/ShipperHQ) (Knowledge Base)

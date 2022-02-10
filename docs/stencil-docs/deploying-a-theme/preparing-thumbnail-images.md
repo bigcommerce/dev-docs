@@ -1,14 +1,6 @@
 # Preparing Thumbnail Images
 
 
-### On this page
-- [Where merchants see your theme's thumbnail images](#displaying-theme-thumbnail-images)
-- [General image requirements](#general-image-requirements)
-- [Theme-wide composite image](#theme-wide-composite-image)
-- [Variations: desktop and mobile screenshots](#variations-desktop-and-mobile-screenshots)
-- [Resources](#resources)
-
-</div>
 
 ## Displaying theme thumbnail images
 

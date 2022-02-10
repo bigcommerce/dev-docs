@@ -1,32 +1,6 @@
 # Global Objects and Properties
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Banner](#banner)
-- [Breadcrumbs](#breadcrumbs)
-- [Carousel](#carousel)
-- [Cart](#cart)
-- [Currency Selector](#currency-selector)
-- [Categories](#categories)
-- [Faceted Search](#faceted-search)
-- [Featured Products](#featured-products)
-- [Footer](#footer)
-- [HTML Head](#html-head)
-- [Is_Ajax](#is_ajax)
-- [New Products](#new-products)
-- [Page Content](#page-content)
-- [Pages](#pages)
-- [Page Type Property](#page-type-property)
-- [Pagination](#pagination)
-- [Search](#search)
-- [Settings](#settings)
-- [Sitemap](#sitemap)
-- [Social Links](#social-links)
-- [Template Property](#template-property)
-- [Top Sellers](#top-sellers)
-
-</div> 
+ 
 
 Global objects and properties are common components shared across the entire BigCommerce storefront.
 

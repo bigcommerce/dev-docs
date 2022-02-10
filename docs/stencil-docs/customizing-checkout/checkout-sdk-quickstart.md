@@ -1,17 +1,6 @@
 # Checkout SDK Quickstart
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Prerequisites](#prerequisites)
-- [Installing the Checkout JS SDK](#installing-the-checkout-js-sdk)
-- [Creating a checkout-loader.js file](#creating-a-checkout-loaderjs-file)
-- [Installing your custom checkout](#installing-your-custom-checkout)
-- [Logging the Checkout Object](#logging-the-checkout-object)
-- [Resources](#resources)
-- [Related articles](#related-articles)
-
-</div> 
+ 
 
 The Checkout JS SDK is a JavaScript library of methods for performing actions related to checkout. It includes methods for logging in a customer, adding addresses to the checkout object, and surfacing the shipping and payment methods that a merchant has configured. It’s everything you need to build your own custom checkout page on BigCommerce.
 

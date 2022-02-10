@@ -241,7 +241,11 @@ Include the `Currencies` [protected section](#protected-ui-sections) in the chan
 
 ![Channel Currency Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-currencies.png "Channel Currency Settings")
 
+<<<<<<< HEAD
 You can manage channel specific currency settings using the Channel API [Currency Assignments](/api-reference/store-management/channels/channel-currency-assignments) endpoints. For example, To [get a channel's currency assignments](/api-reference/store-management/channels/channel-currency-assignments/getsinglechannelcurrencyassignments), send a `GET` request to `/v3/channels/{channel_id}/currency-assignments`.
+=======
+You can manage channel specific currency settings using the Channel API [Currency Assignments](/api-reference/store-management/channels/channel-currency-assignments) endpoints. For example, To [get a channel's currency assignments](/api-reference/store-management/channels/channel-currency-assignments/get-channels-channel-id-currency-assignments), send a `GET` request to `/v3/channels/{channel_id}/currency-assignments`.
+>>>>>>> master
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v3/channels/{channel_id}/currency-assignments

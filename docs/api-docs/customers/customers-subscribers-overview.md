@@ -51,7 +51,7 @@ Where possible, the API indicates the origin of the subscriber. When customers s
 
 ## What is a guest?
 
-Store [settings](https://support.bigcommerce.com/s/article/Guest-Customers-and-Checkout) can be configured to allow a shopper to complete checkout without creating an account. These shoppers are not captured as customers or stored on BigCommerce. If you want to capture guest data, using the [Storefront APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/cart-and-checkout-overview) can help.
+Store [settings](https://support.bigcommerce.com/s/article/Guest-Customers-and-Checkout) can be configured to allow a shopper to complete checkout without creating an account. These shoppers are not captured as customers or stored on BigCommerce. If you want to capture guest data, using the [Storefront APIs](/api-docs/cart-and-checkout/cart-and-checkout-overview) can help.
 
 ## Customer Login API
 
@@ -229,4 +229,9 @@ Password validation is only available on the V2 Customers API at this time. We r
 - [Storefront Subscriptions](/api-reference/storefront/storefront-subscriptions)
 - [Subscribers API](/api-reference/store-management/subscribers)
 
+<<<<<<< HEAD
+=======
+### Webhooks
+- [Customer](/api-docs/store-management/webhooks/webhook-events#customer)
+>>>>>>> master
 

@@ -54,6 +54,7 @@ BigCommerce makes a distinction between single-carrier and multi-carrier shippin
 -->
 
 **Multi-carrier quote example**
+<<<<<<< HEAD
 
 ![Multi-carrier quote example](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Multi%20Carrier%20Example.png)
 
@@ -74,6 +75,28 @@ To get your app set up and request a carrier ID, send an email to
 
 Please include the following information:
 
+=======
+
+![Multi-carrier quote example](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Multi%20Carrier%20Example.png)
+
+## Sign up
+When your app is complete, it will be listed in our carrier registry, so that your shipping rates are available for merchants and shoppers to use. Register your app and get a carrier ID to get started.
+
+
+### Register your app
+
+We need your app ID to generate a carrier ID for your shipping service. To get your app ID, [create a draft app](/api-docs/apps/guide/development#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Step 3: Technical tab](/api-docs/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID. 
+
+![App ID](https://s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224 "App ID")
+
+### Request a carrier ID
+
+To get your app set up and request a carrier ID, send an email to
+<a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
+
+Please include the following information:
+
+>>>>>>> master
 - Your name
 - Your partner ID
 - Your app's ID
@@ -484,7 +507,7 @@ The carrier registration process described in the [Sign up](#sign-up) section pr
 
 For more information on product and variant metafields, see:
 
-- [API Reference > Store Management > Catalog > Product Metafields](/api-reference/catalog/catalog-api/product-metafields)
+- [API Reference > Store Management > Catalog > Product Metafields](/api-reference/store-management/catalog/product-metafields)
 - [API Reference > Store Management > Catalog > Product Variant Metafields](/api-reference/store-management/catalog/product-variants-metafields)
 
 ## Submitting the app
@@ -509,6 +532,7 @@ Any shipping zone-specific or connection-specific fields to be made available to
 
 To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
 
+<<<<<<< HEAD
 ## App diagram
 
 <!--
@@ -524,6 +548,8 @@ To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcomm
 ")
 
 Only one registered shipping carrier may be associated with an app. This [registered carrier](#definitions) can provide quotes from multiple downstream carriers if desired. In this case, it will become a multi-carrier aggregator.
+=======
+>>>>>>> master
 
 ## Definitions
 

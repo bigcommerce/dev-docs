@@ -1,16 +1,6 @@
 # Customer Login API
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Introduction](#introduction)
-- [Overview](#overview)
-- [Prerequisites](#prerequisites)
-- [Enable single sign-on](#enable-single-sign-on)
-- [Troubleshooting](#troubleshooting)
-- [Related resources](#related-resources)
-
-</div> 
+ 
 
 ## Introduction
 In this tutorial, you will learn how to enable single sign-on for storefront customers using the Customer Login API and JSON Web Tokens.

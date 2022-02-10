@@ -1,15 +1,6 @@
 # Naming Your Theme and Theme Variations
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Naming your theme](#naming-your-theme)
-- [Creating and naming a new theme variation](#creating-and-naming-a-new-theme-variation)
-- [Changing a theme variation’s font family](#changing-a-theme-variations-font-family)
-- [Preparing a variation’s thumbnails](#preparing-a-variations-thumbnails)
-- [Resources](#resources)
-
-</div> 
+ 
 
 ## Naming your theme
 
