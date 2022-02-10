@@ -118,7 +118,7 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 |  [Storefront Customer Impersonation Token](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-api-token/customer-impersonation-token) | Create a storefront API token for customer impersonation | `/api-token-customer-impersonation` |
 |  [Subscribers](https://developer.bigcommerce.com/api-reference/store-management/subscribers) | Create and manage store newsletter subscribers | `/customers/subscribers` |
 |  [Themes](https://developer.bigcommerce.com/api-reference/store-management/themes) | Create and manage store theme's | `/themes` |
-|  [Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/variants/getvariants) | Get and update all variants | `/catalog/variants` |
+|  [Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/variants) | Get and update all variants | `/catalog/variants` |
 |  [Webhooks](https://developer.bigcommerce.com/api-reference/webhooks) | Manage store Webhooks | `/hooks` |
 |  [Widgets](https://developer.bigcommerce.com/api-reference/store-management/widgets) | Create and manage store widgets | `/content/widgets` |
 |  [Widgets Placements](https://developer.bigcommerce.com/api-reference/store-management/widgets/placement) | Place, move, and remove store widgets | `/content/placements` |
