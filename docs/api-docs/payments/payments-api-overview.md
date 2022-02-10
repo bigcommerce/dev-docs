@@ -34,21 +34,12 @@ Merchants or shoppers' personal identifiable information (PII) collected by recu
 
 ## Processing a payment
 
-You can process payments using cards stored with the BigCommerce Stored Credit Cards feature or by providing a credit card number.
+You can process payments charged to either of two main forms of payment: newly-entered credit cards, or stored cards. For a list of supported payment gateways and their feature sets, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available). 
 
-Attempting to process a payment through the API using the full credit card information may fail if the provider requires 3DS authentication. The card must be saved through a shopper-initiated transaction before it can be charged through the Payments API. For a list of payment gateways that support 3DS, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available).
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-### Hosted providers
-> The API flow does not currently support hosted/offsite providers, such as PayPal, and wallet type payments, such as Amazon Pay.
-
-</div>
-</div>
-</div>
+<!-- theme: info -->
+> #### Notes
+> * Attempting to process a payment through the API using the full credit card information may fail if the provider requires 3DS authentication. The card must be saved through a shopper-initiated transaction before it can be charged through the Payments API. 
+> * The API flow does not currently support hosted, offsite, or wallet-type providers, such as PayPal and Amazon Pay.
 
 ## Stored cards
 There are three steps to using a stored card to make a payment.
