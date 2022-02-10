@@ -27,5 +27,5 @@ Customizing your Stencil theme’s printable packing slip currently relies on a 
 
 * [Checking a Theme's Size](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/checking-a-themes-size)
 * [Blueprint Theme Email Templates](https://developer.bigcommerce.com/legacy/blueprint-themes/blueprint-email-templates)
-* [File Access (WebDAV)](https://support.bigcommerce.com/articles/Public/File-Access-WebDAV/) (Knowledge Base)
+* [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV) (Knowledge Base)
 * [Uploading and Linking to a File in Your Store](https://support.bigcommerce.com/s/article/How-do-I-add-and-link-to-a-file-in-my-store#upload-a-file) (Knowledge Base)
