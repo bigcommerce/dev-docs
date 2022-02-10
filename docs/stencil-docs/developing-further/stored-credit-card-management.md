@@ -3,7 +3,6 @@
 <div class="otp" id="no-index">
 
 ### On This Page
-- [Adding Stored Credit Cards](#adding-stored-credit-cards)
 - [FAQ](#faq)
 - [Resources](#resources)
 
