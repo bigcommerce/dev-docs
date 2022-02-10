@@ -452,7 +452,7 @@ The carrier registration process described in the [Sign-up Section](https://deve
 For more information on product and variant metafields, see:
 
 - [API Reference > Store Management > Catalog > Product Metafields](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields)
-- [API Reference > Store Management > Catalog > Product Variant Metafields](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants-metafields/getvariantmetafieldsbyproductidandvariantid)
+- [API Reference > Store Management > Catalog > Product Variant Metafields](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants-metafields)
 
 ## Submitting the app
 
