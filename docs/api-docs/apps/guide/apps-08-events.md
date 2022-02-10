@@ -9,22 +9,17 @@ Your app may need to be notified when specific events occur on a BigCommerce sto
 
 The following resources have webhooks events available to apps:
 * [Carts](/api-docs/store-management/webhooks/webhook-events#cart)
-
 * [Cart Line Items](/api-docs/store-management/webhooks/webhook-events#cart-line-item)
-
 * [Categories](/api-docs/store-management/webhooks/webhook-events#category)
-
 * [Customers](/api-docs/store-management/webhooks/webhook-events#customer)
-
 * [Orders](/api-docs/store-management/webhooks/webhook-events#orders)
+* [Products](/api-docs/store-management/webhooks/webhook-events#products)
+* [Shipments](/api-docs/store-management/webhooks/webhook-events#shipment)
+* [SKUs](/api-docs/store-management/webhooks/webhook-events#sku)
+* [Stores](/api-docs/store-management/webhooks/webhook-events#store)
+* [Subscribers](/api-docs/store-management/webhooks/webhook-events#subscriber)
 
-* [Products](/api-docs/getting-started/webhooks/webhook-events#products)
-* [Shipments](/api-docs/getting-started/webhooks/webhook-events#shipment)
-* [SKUs](/api-docs/getting-started/webhooks/webhook-events#sku)
-* [Stores](/api-docs/getting-started/webhooks/webhook-events#store)
-* [Subscribers](/api-docs/getting-started/webhooks/webhook-events#subscriber)
-
-[Learn more about webhook events](/api-docs/getting-started/webhooks/webhook-events#orders).
+[Learn more about webhook events](/api-docs/store-management/webhooks/webhook-events).
 
 ## Creating webhooks
 
