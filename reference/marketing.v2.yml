@@ -32,7 +32,7 @@ info:
     ### Gift Certificates
     Gift certificates available to offer to a store’s customers.
 host: api.bigcommerce.com
-basePath: '/'
+basePath: /
 schemes:
   - https
 consumes:
@@ -1285,6 +1285,7 @@ definitions:
             type: string
             description: 'Text that will be sent to the recipient, such as “Congratulations.”'
             example: Congratulations!
+            maxLength: 250
           code:
             type: string
             description: |-
