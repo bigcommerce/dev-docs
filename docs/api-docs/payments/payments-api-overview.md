@@ -130,9 +130,8 @@ lineNumbers: true
 Make a note of the `token` to use as part of processing the payment in the request body.
 
 ### Create access token
-2. Make a request to [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
 
-<!--
+2. Make a request to [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
 title: "Sample Request"
 subtitle: "Create Payment Access Token"
 lineNumbers: true
@@ -247,11 +246,11 @@ If the purchase was successful, it would return a status of success. The order i
 
 There are two steps to using a credit card to make a payment.
 
-1. [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)
+1. [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost)
 2. [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
 
 ### Create access token
-1. Make a request to [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
+1. Make a request to [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
 
 <!--
 title: "Sample Request"
@@ -579,8 +578,8 @@ Payment gateways that use 3D Secure meet the EU's Strong Customer Authentication
 
 
 ### Endpoints
-* [Create Access Token](/api-reference/payments/payments-create-payment-token-api/payment-access-token/paymentsaccesstokenspost)
-* [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget)
+* [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost)
+* [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget)
 * [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
 
 ### Webhooks
