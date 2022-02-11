@@ -1,18 +1,6 @@
 # Orders
 
-<div class="otp" id="no-index">
 
-### On this page
-- [What is an order?](#what-is-an-order)
-- [Available endpoints](#available-endpoints)
-- [Storefront Orders API](#storefront-orders-api)
-- [Server-to-Server Checkout API](#server-to-server-checkout-api)
-- [Orders API](#orders-api)
-- [Order transactions](#order-transactions)
-- [OAuth scopes](#oauth-scopes)
-- [Related resources](#related-resources)
-
-</div>
 
 ## What is an order?
 An order is a collection of items, customer information, and shipping information of customers that have finalized with a payment or attempted payment.
@@ -35,7 +23,7 @@ BigCommerce offers two possible workflows for creating orders via the API: the S
 ##  Storefront Orders API
 The Storefront Orders API allows you to return information about a just-placed order on the order confirmation page. You can interact with the Storefront Orders API using an app or a browser API.
 
-For an example using the Fetch API to log order information to the console, see [Storefront Orders API](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis).
+For an example using the Fetch API to log order information to the console, see [Storefront Orders API](/api-docs/cart-and-checkout/working-sf-apis).
 
 ### When to use:
 * Scrape order information
@@ -63,7 +51,7 @@ console.log(myJson);
 
 ## Server-to-Server Checkout API
 
-The Server-to-Server Checkout API allows you to create a checkout programmatically and then convert it to an order. From there, you can manage the order in the Control Panel or use the V2 Orders API. [See Server-to-Server Checkout](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api/checkout-orders/createanorder) for more information.
+The Server-to-Server Checkout API allows you to create a checkout programmatically and then convert it to an order. From there, you can manage the order in the Control Panel or use the V2 Orders API. [See Server-to-Server Checkout](/api-reference/cart-checkout/server-server-checkout-api/checkout-orders/createanorder) for more information.
 
 ### When to use:
 * Create an order from an existing checkout
@@ -95,7 +83,7 @@ For more details and a full list of available scopes, see [Oauth Scopes](/api-do
 ## Related resources
 
 ### Articles
-- [Working with the Storefront Cart and Checkout APIs](https://developer.bigcommerce.com/api-docs/cart-and-checkout/working-sf-apis)
+- [Working with the Storefront Cart and Checkout APIs](/api-docs/cart-and-checkout/working-sf-apis)
 - [How To Embed a Shipping Location Map on the BigCommerce Order Confirmation Page](https://medium.com/bigcommerce-developer-blog/how-to-embed-a-google-map-on-the-bigcommerce-order-confirmation-page-8264747e654d)
 
 ### Webhooks

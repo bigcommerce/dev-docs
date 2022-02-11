@@ -1,18 +1,6 @@
 # Brands
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Brands](#brands)
-- [List Brands](#list-brands)
-- [Get a Brand](#get-a-brand)
-- [Get a Count of Brands](#get-a-count-of-brands)
-- [Create a Brand](#create-a-brand)
-- [Update a Brand](#update-a-brand)
-- [Delete a Brand](#delete-a-brand)
-- [Delete All Brands](#delete-all-brands)
-
-</div> 
+ 
 
 ## Brands 
 
@@ -27,7 +15,7 @@ Brand facets for identifying and categorizing products according to their manufa
 ### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
 
-For the most up-to-date version of this API, see [Brands](https://developer.bigcommerce.com/api-reference/store-management/catalog/brands).
+For the most up-to-date version of this API, see [Brands](/api-reference/store-management/catalog/brands).
 
 </div>
 </div>

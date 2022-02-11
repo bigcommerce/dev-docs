@@ -3,13 +3,7 @@
 
 # App Compatibility
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Supported Apps](#supported-apps)
-- [Unsupported Apps](#unsupported-apps)
-
-</div> 
+ 
 
 When you use BigCommerce for WordPress, your storefront is rendered by WordPress rather than BigCommerce, so some apps that you use for a BigCommerce-powered storefront may no longer be compatible.
 

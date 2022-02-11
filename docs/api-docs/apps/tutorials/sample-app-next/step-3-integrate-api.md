@@ -1,26 +1,6 @@
 # Step 3: Integrate the BigCommerce API and Add a Database
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Install npm packages](#install-npm-packages)
-- [Add TypeScript definitions](#add-typescript-definitions)
-- [Initialize React Context](#initialize-react-context)
-- [Update environment variables](#update-environment-variables)
-- [Update the auth lib page](#update-the-auth-lib-page)
-- [Add a database](#add-a-database)
-- [Set up Firebase database](#set-up-firebase-database)
-- [Set up MySQL database](#set-up-mysql-database)
-- [Set up a db lib page](#set-up-a-db-lib-page)
-- [Upgrade the endpoints](#upgrade-the-endpoints)
-- [Add the Products endpoint](#add-the-products-endpoint)
-- [Create a custom hook](#create-a-custom-hook)
-- [Create a header component](#create-a-header-component)
-- [Update the homepage](#update-the-homepage)
-- [Update the user interface](#update-the-user-interface)
-- [Test your app](#test-your-app)
-
-</div>
 
 Now that you have embedded your app in the BigCommerce platform, you're ready to integrate the BigCommerce API.
 
@@ -699,7 +679,7 @@ export default async function uninstall(req: NextApiRequest, res: NextApiRespons
 
 ## Add the Products endpoint
 
-The Products endpoint retrieves your products summary from the [Catalog API](https://developer.bigcommerce.com/api-reference/store-management/catalog/summary/getcatalogsummary).
+The Products endpoint retrieves your products summary from the [Catalog API](/api-reference/store-management/catalog/summary/getcatalogsummary).
 
 1. In the `pages/api` folder, create a new folder called `products`.
 
@@ -866,7 +846,7 @@ export default Index;
 
 `summary` creates the `Flex` component with three `Box` components inside of it. `inventory_count`, `variant_count`, and `primary_category_name` are populated with data returned from calling the `/catalog/summary` endpoint added in [Add the Products endpoint](#add-the-products-endpoint). 
 
-For the complete list of properties returned by the `/catalog/summary` endpoint, see [Get a Catalog Summary](https://developer.bigcommerce.com/api-reference/store-management/catalog/summary/getcatalogsummary). 
+For the complete list of properties returned by the `/catalog/summary` endpoint, see [Get a Catalog Summary](/api-reference/store-management/catalog/summary/getcatalogsummary). 
 
 ## Update the user interface
 
@@ -938,4 +918,4 @@ Now that you have synced up the database, your app should display information un
 
 ![Sample app](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-13.png "Sample app")
 
-[Next: Enhance the User Experience with BigDesign](https://developer.bigcommerce.com/api-docs/apps/tutorials/sample-app-nextjs/step-4-enhance)
+[Next: Enhance the User Experience with BigDesign](/api-docs/apps/tutorials/sample-app-nextjs/step-4-enhance)

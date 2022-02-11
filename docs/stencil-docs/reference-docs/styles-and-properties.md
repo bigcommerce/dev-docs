@@ -1,17 +1,5 @@
 # Theme Styles and Properties
-<div class="otp" id="no-index">
-
-### On This Page
-- [Checkbox](#checkbox)
-- [Color](#color)
-- [Font](#font)
-- [Heading](#heading)
-- [imageDimension](#imageDimension)
-- [Reference](#reference)
-- [Select](#select)
-- [Text](#text)
-
-</div> 
+ 
 
 ## Checkbox
 

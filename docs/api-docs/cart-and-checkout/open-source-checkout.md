@@ -1,16 +1,6 @@
 # Installing a Custom Checkout
 
-<div class="otp" id="no-index">
 
-
-### On this page
-
-- [Obtaining the JavaScript loader file](#obtaining-the-javascript-loader-file)
-- [Hosting a custom checkout](#hosting-a-custom-checkout)
-- [Installing custom checkouts](#installing-custom-checkouts)
-- [Related resources](#related-resources)
-
-</div>
 
 You can create unique shopping experiences that fit the look and feel of a store's brand using custom checkouts. This article will outline how to package a custom checkout file, and install a custom checkout via the control panel.
 
@@ -89,6 +79,6 @@ To install a custom checkout on a store, follow these steps:
 ## Related resources
 
 ### Articles
-- [Checkout SDK](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/checkout-sdk)
+- [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk)
 - [File Access (WebDav)](https://support.bigcommerce.com/s/article/File-Access-WebDAV)
 - [Installing Custom Checkouts in the Control Panel](https://support.bigcommerce.com/s/blog-article/aAn4O000000CdFGSA0/installing-custom-checkouts-in-the-control-panel)

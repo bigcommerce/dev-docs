@@ -1,13 +1,6 @@
 # Theme Update Process
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Prerequisites](#prerequisites)
-- [Update Process](#update-process)
-- [Other Requirements](#other-requirements)
-
-</div> 
+ 
 
 Here is how BigCommerce and our partners collaborate to integrate a partner's theme changes/updates into the BigCommerce Theme Marketplace (which merchants also know as our "theme store"):
 
