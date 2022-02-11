@@ -183,8 +183,9 @@ lineNumbers: true
 **Get payment methods = process payment**
 * type = type
 * token = token
-* last_four = verification_value
 * id = payment_method_id
+
+When paying with a stored card, you can send the card's CVV in the `verification_value` field. When included, it will be sent to the payment provider wherever possible and used for verification. If you do not have the CVV, then exclude this field.
 
 The headers to process a payment are different than the headers you normally send with a BigCommerce API. The authorization token is the ID returned in Get Payment Access Token (step two).
 
@@ -226,7 +227,7 @@ curl -X POST \
     "instrument": {
       "type": "stored_card",
       "token": "050a1e5c982e5905288ec5ec33f292772762033a0704f46fccb16bf1940b51ef", // from Get Payment Methods
-      "verification_value": "4242"
+      "verification_value": "900"
     },
     "payment_method_id": "stripe.card"
   }
