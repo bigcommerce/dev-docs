@@ -12,7 +12,7 @@ This article is a comprehensive command reference for Stencil CLI, BigCommerce's
 The syntax to run a Stencil CLI command is as follows:
 
 ```shell
-stencil <COMMANDS> [<OPTIONS>] <PARAMETERS>
+stencil COMMANDS [OPTIONS] <PARAMETERS>
 ```
 
 Running `stencil help` outputs a full list of commands and their descriptions. For more detailed information and usage examples, click a link in the table below:
@@ -43,14 +43,14 @@ Displays help and returns all options available for the specified command.
 **Usage:**
 
 ```shell
-stencil help [<COMMAND>]
+stencil help COMMAND
 ```
 
 **Example:**
 
 ```shell
 ~ $ stencil help
-Usage: stencil [options] [command]
+Usage: stencil [OPTIONS] COMMAND
 
 Options:
   -V, --version  output the version number
@@ -69,14 +69,14 @@ NOTE: For custom templates, use only the `config.stencil.json` file. The `config
 **Usage:**
 
 ```shell
-stencil init [--url <STORE_URL>] [--token <API_TOKEN>]
+stencil init [--url STORE_URL] [--token API_TOKEN]
 ```
 
 | Option                  | Alias | Description                                                                               |
 |-|-|-|
-| `--port [<HTTP_PORT>]`  |`-p`   | The `HTTP` port number to use when serving the live theme preview.                         |
-| `--token [<API_TOKEN>]` |`-t`   | The [BigCommerce API Token](https://support.bigcommerce.com/s/article/Store-API-Accounts). |
-| `--url [<STORE_URL>]`   |`-u`   | The BigCommerce storefront URL.                                                            |
+| `--port HTTP_PORT`  |`-p`   | The `HTTP` port number to use when serving the live theme preview.                         |
+| `--token API_TOKEN` |`-t`   | The [BigCommerce API Token](https://support.bigcommerce.com/s/article/Store-API-Accounts). |
+| `--url STORE_URL`   |`-u`   | The BigCommerce storefront URL.                                                            |
 
 <a id="stencil-start"></a>
 
@@ -101,7 +101,7 @@ stencil start --open # opens live theme preview in default browser
 |-|-|-|
 | `--version`                  |`-V` | Output the version number                                                            |
 | `--open`                     |`-o` | Automatically open default browser                                                    |
-| `--variation [<NAME>]`       |`-v` | Set which theme variation to use while developing                                     |
+| `--variation NAME`       |`-v` | Set which theme variation to use while developing                                     |
 | `--test`                     |`-t` | Enable QA mode which will bundle all javascript for speed to test locally             |
 | `--tunnel`                   |     | Create a tunnel URL which points to your local server which anyone can use            |
 | `--no-cache`                 |`-n` | Turn off caching for API resource data (cache refreshes every 5 minutes)             |
@@ -156,15 +156,15 @@ Pulls the configuration from the active theme on your live store and updates you
 **Usage:**
 
 ```shell
-Usage: stencil pull [<OPTIONS>]
+stencil pull [OPTIONS]
 ```
 
 | Option                        |Alias| Description                                                                         |
 |-|--|--|
-|`--host [HOSTNAME]`            |`-h` | Specify the API host (default: `api.bigcommerce.com`)                               |
-|`--filename [<FILENAME>]`      |`-f` | Specify the filename to use for the merged configuration (default: `config.json`)   |
+|`--host HOSTNAME`            |`-h` | Specify the API host (default: `api.bigcommerce.com`)                               |
+|`--filename FILENAME`      |`-f` | Specify the filename to use for the merged configuration (default: `config.json`)   |
 |`--saved`                      |`-s` | Downloads the most recently saved configuration instead of the live one.            |
-|`--channel_id [<CHANNEL_ID>]`  |`-c` | Specify the channel ID of the storefront, if the store has multiple storefronts.    |
+|`--channel_id CHANNEL_ID`  |`-c` | Specify the channel ID of the storefront, if the store has multiple storefronts.    |
 |`--help`                       |`-h` | Output usage information                                                            |
 
 **Example:**
@@ -188,11 +188,11 @@ Usage: stencil push [<OPTIONS>]
 | Option                        |Alias| Description                                                                         |
 |-|--|--|
 |`--version`                    |`-V` | Output the version number                                                           |
-|`--host [HOSTNAME]`            |     | Specify the API host (default: `api.bigcommerce.com`)                               |
-|`--file [<FILENAME>]`          |`-f` | Specify the filename of the bundle to upload                                        |
-|`--save [<FILENAME]`           |`-s` | Specify the filename of the saved bundle                                            |
-|`--channel_ids [<CHANNEL_ID>]`  |`-c` | Specify the channel ID(s) of the storefront, if the store has multiple storefronts |
-|`--activate [<VARIATIONNAME>]` |`-a` | Skip activation prompt; specify variation or leave blank to select first variation  |
+|`--host HOSTNAME`            |     | Specify the API host (default: `api.bigcommerce.com`)                               |
+|`--file FILENAME`          |`-f` | Specify the filename of the bundle to upload                                        |
+|`--save FILENAME`           |`-s` | Specify the filename of the saved bundle                                            |
+|`--channel_ids CHANNEL_ID`  |`-c` | Specify the channel ID(s) of the storefront, if the store has multiple storefronts |
+|`--activate VARIATIONNAME` |`-a` | Skip activation prompt; specify variation or leave blank to select first variation  |
 |                               |`-a -c {{channel_id_1 channel_id_2 ... channel_id_n}}`| Allows you to apply a theme to selected channels (at least one channel id should be provided)                                                                                      |                 
 |                               |`-a -all_channels` or `a -allc`| Allows you to apply a theme to all available channels.     |   
 |`--delete`                     |`-d` | Delete oldest private, non-active theme if upload limit reached                     |
@@ -229,15 +229,15 @@ Download the theme files from your live store, overwriting files in your local d
 **Usage:**
 
 ```shell
-Usage: stencil download [<OPTIONS>]
+stencil download [OPTIONS]
 ```
 
 | Option                        |Alias| Description                                                                         |
 |-|--|--|
-|`--host [HOSTNAME]`            |`-h` | Specify the API host (default: `api.bigcommerce.com`)                               |
-|`--file [<FILENAME>]`          |`-f` | Specify a single file to download from the theme, e.g. `templates/layout/base.html` |
+|`--host HOSTNAME`            |`-h` | Specify the API host (default: `api.bigcommerce.com`)                               |
+|`--file FILENAME`          |`-f` | Specify a single file to download from the theme, e.g. `templates/layout/base.html` |
 |`--exclude`                    |`-e` | Specify a directory to exclude from the download.                                   |
-|`--channel_id [<CHANNEL_ID>]`  |`-c` | Specify the channel ID of the storefront, if the store has multiple storefronts.    |
+|`--channel_id CHANNEL_ID`  |`-c` | Specify the channel ID of the storefront, if the store has multiple storefronts.    |
 |`--help`                       |`-h` | Output usage information                                                            |
 
 **Example:**
@@ -255,7 +255,7 @@ Creates a new release in a theme’s GitHub repository. Developers outside BigCo
 **Usage:**
 
 ```shell
-stencil release [<OPTIONS>]
+stencil release [OPTIONS]
 ```
 
 | Option      | Alias | Description                |
