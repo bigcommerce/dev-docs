@@ -40,6 +40,9 @@ Save and you'll see the **send request** link above `GET`. Click **send request*
 
 Alternatively, you can import the [Specification File](https://github.com/bigcommerce/api-specs/blob/master/reference/catalog.v3.yml) into [Postman](https://www.getpostman.com/) (or any other tool that can import [Open API Specification](https://swagger.io/specification/) files).
 
+<!-- theme: note -->
+>Currently, not all of our API specification file formatting is readily compatible with Postman. 
+
 To view sample JSON request bodies for each REST API resource, see the [API Reference](/api-reference) for that resource.
 
 ## Storefront API quick start
