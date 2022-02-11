@@ -38,7 +38,7 @@ Save and you'll see the **send request** link above `GET`. Click **send request*
 
 ### Import API spec file with Postman
 
-Alternatively, you can import the [Specification File](https://github.com/bigcommerce/api-specs/blob/master/reference/catalog.v3.yml) into [Postman](https://www.getpostman.com/) (or any other tool that can import [Open API Specification](https://swagger.io/specification/) files).
+You can import many of our API Specification Files into [Postman](https://www.getpostman.com/) (or any other tool that can import [Open API Specification](https://swagger.io/specification/) files) to try out endpoints and view responses.
 
 To view sample JSON request bodies for each REST API resource, see the [API Reference](/api-reference) for that resource.
 
