@@ -18,7 +18,7 @@ This article assumes you have familiarity with the following concepts:
 	- **Sites & Routes:** `Modify`
 	- **Products:** `Read Only`
 
-For more information, see [OAuth Scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+For more information, see [OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
 * The [BigCommerce JS Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js) must be accessible in the browser.
 
@@ -106,7 +106,7 @@ This returns `id` which you will use as the `site_id` in future requests. The `u
 
 ## Creating a cart
 
-To proceed to checkout, we'll need an active cart. To create one, send a `POST` request to the [Server-to-Server Cart API's](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api)  `/cart` endpoint.
+To proceed to checkout, we'll need an active cart. To create one, send a `POST` request to the [Server-to-Server Cart API's](/api-reference/cart-checkout/server-server-cart-api)  `/cart` endpoint.
 
 **`POST`**  `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts`
 
@@ -168,9 +168,9 @@ Next, generate cart redirect URLs by sending a `POST` request to `/carts/{{cart_
 
 For some use cases, you may want your customer to log in before they can begin the checkout process.
 
-Customers can log in using the [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api#logging-in-a-customer).
+Customers can log in using the [Customer Login API](/api-docs/customers/customer-login-api#logging-in-a-customer).
 
-You will first need to use JSON Web Token Standard to create a new token. Use a [JWT library](https://jwt.io/#libraries-io) to accomplish this. For more information, see [Create JWT Using the Debugger Tool](https://developer.bigcommerce.com/api-docs/customers/customer-login-api#create-jwt-using-the-debugger-tool).
+You will first need to use JSON Web Token Standard to create a new token. Use a [JWT library](https://jwt.io/#libraries-io) to accomplish this. For more information, see [Create JWT Using the Debugger Tool](/api-docs/customers/customer-login-api#create-jwt-using-the-debugger-tool).
 
 Next, include the `embedded_checkout_url` as part of the request payload you send to BigCommerce.
 
@@ -268,4 +268,4 @@ To ensure you log shoppers off from the checkout page and the headless storefron
 ## Related resources
 
 ### Endpoints
-- [Channels API reference](https://developer.bigcommerce.com/api-reference/store-management/channels/)
+- [Channels API reference](/api-reference/store-management/channels/)

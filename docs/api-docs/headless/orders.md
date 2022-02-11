@@ -10,7 +10,7 @@ To successfully complete this section, you must first create a cart with a **red
 
 ### Adding a billing address
 
-You can change a cart to a checkout by adding a billing address. To add a checkout billing address, send a `POST` request to the [Add Checkout Billing Address](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost) endpoint. Your `checkoutId` will correspond with the cart `id` returned in response to [Create a Cart](https://developer.bigcommerce.com/api-reference/store-management/carts/cart/createacart).
+You can change a cart to a checkout by adding a billing address. To add a checkout billing address, send a `POST` request to the [Add Checkout Billing Address](/api-reference/store-management/checkouts/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost) endpoint. Your `checkoutId` will correspond with the cart `id` returned in response to [Create a Cart](/api-reference/store-management/carts/cart/createacart).
 
 ```http
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/checkouts/{checkoutId}/billing-address
@@ -33,7 +33,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/checkouts/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost#requestrunner)
 
 ### Adding a consignment
 
@@ -41,7 +41,7 @@ Now that you have transformed your headless cart into a checkout, you need to ad
 
 **Step 1: Add a new consignment to the checkout**
 
-Send a `POST` request to the [Add Consignment to Checkout](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) endpoint. Append the `include=consignments.available_shipping_options` query parameter to your `POST` request to return `available_shipping_options` (required for step two).
+Send a `POST` request to the [Add Consignment to Checkout](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) endpoint. Append the `include=consignments.available_shipping_options` query parameter to your `POST` request to return `available_shipping_options` (required for step two).
 
 ```http
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/checkouts/{checkoutId}/consignments?include=consignments.available_shipping_options
@@ -120,7 +120,7 @@ The response will contain an array of `available_shipping_options`. You will use
 **Step 2: Update the consignment**
 
 Use one of the available shipping options to update the consignment you created in Step 1.
-Send a `PUT` request to the [Update Checkout Consignment](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) endpoint.
+Send a `PUT` request to the [Update Checkout Consignment](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) endpoint.
 
 ```http
 PUT https://api.bigcommerce.com/stores/{store_hash}/v3/checkouts/{checkoutId}/consignments/{consignmentId}
@@ -133,11 +133,11 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput#requestrunner)
 
 ### Creating an order
 
-Now that you have added a billing address and a consignment to your checkout, you can create an order by sending a `POST` request to the [Create an Order](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-orders/createanorder) endpoint. The order status will be set to incomplete.
+Now that you have added a billing address and a consignment to your checkout, you can create an order by sending a `POST` request to the [Create an Order](/api-reference/store-management/checkouts/checkout-orders/createanorder) endpoint. The order status will be set to incomplete.
 
 ```http
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/checkouts/{checkoutId}/orders
@@ -146,7 +146,7 @@ Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-orders/createanorder#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/checkouts/checkout-orders/createanorder#requestrunner)
 
 **Response example**
 
@@ -177,9 +177,9 @@ Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget#requestrunner)
 
-2. To process a payment for an order, you will need to make a call to the Payments API which requires an access token. To generate an access token, send a `POST` request to the [Create Payment Access Token](https://developer.bigcommerce.com/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) endpoint. 
+2. To process a payment for an order, you will need to make a call to the Payments API which requires an access token. To generate an access token, send a `POST` request to the [Create Payment Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) endpoint. 
 
 ```http
 POST https://api.bigcommerce.com/stores/{store_hash}/v3/payments/access_tokens
@@ -195,11 +195,11 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost#requestrunner)
 
-Make a note of the access token `id`. This token is required in subsequent payment request to the [Process Payment](https://developer.bigcommerce.com/api-reference/store-management/payment-processing/process-payment/paymentspost) endpoint.
+Make a note of the access token `id`. This token is required in subsequent payment request to the [Process Payment](/api-reference/store-management/payment-processing/process-payment/paymentspost) endpoint.
 
-3. Send a `POST` request to the [Process Payment](https://developer.bigcommerce.com/api-reference/store-management/payment-processing/process-payment/paymentspost) endpoint. The headers to process a payment are different than the headers you normally send with a BigCommerce API. The authorization token is the ID returned in Create Payment Access Token (step two). To learn more, see [Stored cards](https://developer.bigcommerce.com/api-docs/store-management/payment-processing#stored-cards).
+3. Send a `POST` request to the [Process Payment](/api-reference/store-management/payment-processing/process-payment/paymentspost) endpoint. The headers to process a payment are different than the headers you normally send with a BigCommerce API. The authorization token is the ID returned in Create Payment Access Token (step two). To learn more, see [Stored cards](/api-docs/store-management/payment-processing#stored-cards).
 
 ```http
 POST https://api.bigcommerce.com/stores/{store_hash}/payments
@@ -236,9 +236,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 If a shopper does not have a payment method saved on file, you can process a payment using a credit card. There are two steps to this method:
 
-1. Send a `POST` request to the [Create Payment Access Token](https://developer.bigcommerce.com/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) endpoint to get the authorization token that needs to be passed in the header when processing the payment.
+1. Send a `POST` request to the [Create Payment Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) endpoint to get the authorization token that needs to be passed in the header when processing the payment.
 
-2. Send a `POST` request to the [Process Payment](https://developer.bigcommerce.com/api-reference/store-management/payment-processing/process-payment/paymentspost) endpoint. The headers to process a payment are different than the headers you normally send with a BigCommerce API. The Authorization token is the ID returned in Create Payment Access Token (step one). To learn more, see [Credit cards](https://developer.bigcommerce.com/api-docs/store-management/payment-processing#credit-cards).
+2. Send a `POST` request to the [Process Payment](/api-reference/store-management/payment-processing/process-payment/paymentspost) endpoint. The headers to process a payment are different than the headers you normally send with a BigCommerce API. The Authorization token is the ID returned in Create Payment Access Token (step one). To learn more, see [Credit cards](/api-docs/store-management/payment-processing#credit-cards).
 
 **Example response**
 
@@ -252,12 +252,12 @@ If a shopper does not have a payment method saved on file, you can process a pay
 }
 ```
 
-A successful transaction will return a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error Codes](https://developer.bigcommerce.com/api-docs/store-management/payment-processing#error-codes) for troubleshooting.
+A successful transaction will return a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error Codes](/api-docs/store-management/payment-processing#error-codes) for troubleshooting.
 
 ## Next steps
 
-- [Learn more about PCI compliance](https://developer.bigcommerce.com/api-docs/storefronts/guide/pci-compliance)
+- [Learn more about PCI compliance](/api-docs/storefronts/guide/pci-compliance)
 
 ## Resources
 
-- [Payments API Overview](https://developer.bigcommerce.com/api-docs/store-management/payment-processing)
+- [Payments API Overview](/api-docs/store-management/payment-processing)
