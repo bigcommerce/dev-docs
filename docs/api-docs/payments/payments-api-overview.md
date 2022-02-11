@@ -3,8 +3,8 @@
 The Payments API enables you to process payments through the store’s connected payment gateway. Merchants can receive a payment for an order that was created using either the [Server to Server Checkout API Orders](/api-reference/store-management/checkouts) endpoint or the [V2 Orders](/api-reference/store-management/orders/orders/createanorder) endpoint.
 
 Process payments using a sequence of requests to two API hosts:
-* Create the payment token:  `https://api.bigcommerce.com/stores/{store_hash}/v3/payments/access_tokens`
-* Process the payment:  `https://payments.bigcommerce.com/stores/{store_hash}/payments`
+* Create the payment token:  `https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens`
+* Process the payment:  `https://payments.bigcommerce.com/stores/{{store_hash}}/payments`
 
 ### Required [OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
 * `Create Payments`
@@ -14,23 +14,15 @@ Process payments using a sequence of requests to two API hosts:
 
 ## PCI compliance
 
-BigCommerce is only responsible for the security of credit cards to the extent that secure handling is maintained while the payment is en route from payment request to payment processors. As a third-party developer, you are responsible for developing the storefronts or recurring billing apps in a PCI compliant manner. You will also need to maintain a PCI compliance certification for third-party service providers certified by an external Qualified Security Assessor (QSA).
+BigCommerce is only responsible for the security of credit cards to the extent that secure handling is maintained while the payment is en route from payment request to payment processors. As a third-party developer, you are responsible for developing the storefronts or recurring billing apps in a PCI-compliant manner. You will also need to maintain a PCI compliance certification for third-party service providers certified by an external Qualified Security Assessor (QSA).
 
 Merchants or shoppers' personal identifiable information (PII) collected by recurring billing apps that consume the BigCommerce Payments API must have its own Privacy Policy sufficient to the requirements of the European Union General Data Protection Requirements (GDPR). The GDPR must be available and displayed to the general public.
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-### PCI compliance
+> #### PCI compliance
 > If your application handles credit card data, you will need to be PCI compliant. SAQs (self-assessment questionnaires) can be submitted to
 <a href="mailto:compliance@bigcommerce.com">compliance@bigcommerce.com</a>.
-
-</div>
-</div>
-</div>
 
 ## Processing a payment
 
@@ -50,28 +42,26 @@ There are three steps to using a stored card to make a payment.
 
 To use stored cards with the Payments API or the Checkout SDK, make sure you enable stored cards in the store's control panel. To enable stored credit cards on your storefront, navigate to **Store Setup › Payments**, and click the tab for your payment gateway. Toggle the switch to enable Stored Credit Cards and click **Save**. For more on enabling stored cards, see [Enabling Stored Credit Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards).
 
-**Requirements for stored cards**
+<!-- theme: info -->
+> #### Requirements for stored cards
+> * Your store must be on a Plus plan or higher.
+> * Your store needs to be using Optimized One-Page Checkout.
+> * Your store needs to be using a compatible payment gateway.
 
-* Your store must be on a Plus plan or higher.
-* Your store needs to be using Optimized One-Page Checkout.
-* Your store needs to be using a compatible payment gateway.
 
 1. Make a call to [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget) for the `stored_instruments > token` to pay with a stored card. The `order_id` passes in as a query parameter.
 
 This token is the same as `payment_instrument_token` from [Get Transactions](/api-reference/store-management/order-transactions).
 
-<br>
+```http title="Get payment methods" subtitle="Example request" lineNumbers
+GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/methods?order_id={{order_id}}
+X-Auth-Token: {{ACCESS_TOKEN}}
+Accept: application/json
+```
+```http title="Get payment methods" subtitle="Example response" lineNumbers
+GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/methods?order_id={{order_id}}
+Content-Type: application/json
 
-<!--
-title: "Sample Response"
-subtitle: "Get Payment Methods"
-lineNumbers: true
--->
-
-**Example response get payment methods**
-`/GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/methods?order_id={{order_id}}`
-
-```json
 {
   "data": [
     {
@@ -127,36 +117,27 @@ lineNumbers: true
 }
 ```
 
-Make a note of the `token` to use as part of processing the payment in the request body.
+Make a note of the `token` for the target payment method to use as part of processing the payment in the request body.
 
-### Create access token
 
 2. Make a request to [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
-title: "Sample Request"
-subtitle: "Create Payment Access Token"
-lineNumbers: true
--->
 
-**Example request create payment access token**
-`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens`
+```http title="Create payment access token" subtitle="Example request" lineNumbers
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
 
-```json
 {
   "order": {
     "id": 215
   }
 }
 ```
+```http title="Create payment access token" subtitle="Example response" lineNumbers
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens
+Content-Type: application/json
 
-<!--
-title: "Sample Response"
-subtitle: "Create Payment Access Token"
-lineNumbers: true
--->
-
-**Example response create payment access token**
-
-```json
 {
   "data": {
     "id": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTEzOTQxNDIsIm5iZiI6MTU1MTM5MDU0MiwiaXNzIjoicGF5bWVudHMuYmlnY29tbWVyY2UuY29tIiwic3ViIjoianJhaDZnbW4iLCJqdGkiOiI3Nzg3ZmU1Zi01OWJmLTQ3ZWMtYTFmZC00ZDQ3ZTkwNjFlNWMiLCJpYXd4gJ8uHDk3kDhhuyefsrtr45mRhdGEiOnsic3RvcmVfaWQiOjEwMjU2NDYsIm9yZGVyX2lkIjoyMTUsImFtb3VudCI6OTgwMCwiY3VycmVuY3kiOiJVU0QifX0.WbR90d8m4gn8wK7kPMDEoVq8B0hHC5Ul5H4Hpqq6Yvo"
@@ -165,72 +146,34 @@ lineNumbers: true
 }
 ```
 
-### Process the payment
-3. To process the payment, send a POST to [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost). You will need the following information from [Get Payment Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods/paymentsmethodsget) in step one.
+3. To process the payment, send a POST to [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost). You will need several values retrieved with the [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget) request you made in the preceding step. Additionally, this request contains different headers than a typical BigCommerce API request.  Consult the following for more information:
 
-**Get payment methods = process payment**
-* type = type
-* token = token
-* last_four = verification_value
-* id = payment_method_id
+<!-- theme: info -->
+> #### Authorization header
+> The `pat_token` is the `data.id` value returned in preceding step.
+> To be valid, the header value string should contain a space between "PAT" and the {{pat_token}}.
 
-The headers to process a payment are different than the headers you normally send with a BigCommerce API. The authorization token is the ID returned in Get Payment Access Token (step two).
+```http title="Process payment with a stored card" subtitle="Example request" lineNumbers
+POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
+Accept: application/vnd.bc.v1+json
+Authorization: PAT {{pat_token}}
+Content-Type: application/json
 
-**Headers**
-* Accept: application/vnd.bc.v1+json
-* Authorization: PAT {your-access-token}
-* Content-Type: application/json
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
-<!-- theme: warning -->
-
-### PAT
-> There is a space between PAT {your-access-token}.
-
-</div>
-</div>
-</div>
-
-<!--
-title: "Sample Request"
-subtitle: "Process Payment"
-lineNumbers: true
--->
-
-**Example request process payment**
-`/POST https://payments.bigcommerce.com/stores/{store_hash}/payments`
-
-```curl
-curl -X POST \
-  https://payments.bigcommerce.com/stores/{store_hash}/payments \
-  -H 'Accept: application/vnd.bc.v1+json' \
-  -H 'Authorization: PAT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTEzOTQxNDIsIm5iZiI6MTU1MTM5MDU0MiwiaXNzIjoicGF5bWVudHMuYmlnY29tbWVyY2UuY29tIiwic3ViIjoianJhaDZnbW4iLCJqdGkiOiI3Nzg3ZmU1Zi01OWJmLTQ3ZWMtYTFmZC00ZDQ3ZTkwNjFlNWMiLCJpYXQiOjE1NTEzOTA1NDIsImRhdGEiOnsic3RvcmVfaWQiOjEwMjU2NDYsIm9yZGVyX2lkIjoyMTUsImFtb3VudCI6OTgwMCwiY3VycmVuY3kiOiJVU0QifX0.WbR90d8m4gn8wK7kPMDEoVq8B0hHC5Ul5H4Hpqq6Yvo' \
-  -H 'Content-Type: application/json' \
-  -d '{
+{
   "payment": {
     "instrument": {
-      "type": "stored_card",
-      "token": "050a1e5c982e5905288ec5ec33f292772762033a0704f46fccb16bf1940b51ef", // from Get Payment Methods
-      "verification_value": "4242"
+      "type": "stored_card", // type from Get Payment Methods
+      "token": "050a1e5c982e5905288ec5ec33f292772762033a0704f46fccb16bf1940b51ef", // token from Get Payment Methods
+      "verification_value": "4242" // last_four from Get Payment Methods
     },
-    "payment_method_id": "stripe.card"
+    "payment_method_id": "stripe.card" // id from Get Payment Methods
   }
-}'
-
+}
 ```
+```http title="Process payment with a stored card" subtitle="Example response" lineNumbers
+POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
+Content-Type: application/vnd.bc.v1+json
 
-<!--
-title: "Sample Response"
-subtitle: "Process Payment"
-lineNumbers: true
--->
-
-**Example response process payment**
-
-```json
 {
   "data": {
     "id": "693bb4cd-3f20-444a-8315-6369f582c68a",
@@ -240,7 +183,7 @@ lineNumbers: true
 }
 ```
 
-If the purchase was successful, it would return a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error Codes](#error-codes) for troubleshooting.
+If the purchase was successful, the response returns a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error codes](#error-codes) for troubleshooting.
 
 ## Credit cards
 
@@ -252,32 +195,22 @@ There are two steps to using a credit card to make a payment.
 ### Create access token
 1. Make a request to [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
 
-<!--
-title: "Sample Request"
-subtitle: "Create Payment Access Token"
-lineNumbers: true
--->
+```http title="Create payment access token" subtitle="Example request" lineNumbers
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
 
-**Example request create payment access token**
-`/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens`
-
-```json
 {
   "order": {
     "id": 215
   }
 }
 ```
+```http title="Create payment access token" subtitle="Example response" lineNumbers
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens
+Content-Type: application/json
 
-<!--
-title: "Sample Response"
-subtitle: "Create Payment Access Token"
-lineNumbers: true
--->
-
-**Example response create payment access token**
-
-```json
 {
   "data": {
     "id": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTEzOTQxNDIsIm5iZiI6MTU1MTM5MDU0MiwiaXNzIjoicGF5bWVudHMuYmlnY29tbWVyY2UuY29tIiwic3ViIjoianJhaDZnbW4iLCJqdGkiOiI3Nzg3ZmU1Zi01OWJmLTQ3ZWMtYTFmZC00ZDQ3ZTkwNjFlNWMiLCJpYXd4gJ8uHDk3kDhhuyefsrtr45mRhdGEiOnsic3RvcmVfaWQiOjEwMjU2NDYsIm9yZGVyX2lkIjoyMTUsImFtb3VudCI6OTgwMCwiY3VycmVuY3kiOiJVU0QifX0.WbR90d8m4gn8wK7kPMDEoVq8B0hHC5Ul5H4Hpqq6Yvo"
@@ -288,58 +221,24 @@ lineNumbers: true
 
 ### Process the payment
 
-2. To process the payment, send a `POST` request to [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost).
+2. To process the payment, send a POST request to [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost). You will need several values from the customer's credit card. All the example request body values are required.  If any of these values are incorrect, you may be unable to process the payment. Additionally, this request contains different headers than a typical BigCommerce API request.  Consult the following for more information:
 
-The headers to process a payment are different than the headers you normally send with a BigCommerce API. The Authorization token is the ID returned in Get Payment Access Token(step two).
+<!-- theme: info -->
+> #### Authorization header
+> The `pat_token` is the `data.id` value returned in preceding step.
+> To be valid, the header value string should contain a space between "PAT" and the {{pat_token}}.
 
-**Headers**
-* Accept: application/vnd.bc.v1+json
-* Authorization: PAT {your-access-token}
-* Content-Type: application/json
 
-Send the request with the following fields from the credit card:
-* type -- Will always be card
-* payment_method_id -- The name of the card in the format `payment-provider.card`
-* number
-* cardholder_name
-* expiry_month
-* expiry_year
-* verification_value
+```http title="Process payment with a credit card" subtitle="Example request" lineNumbers
+POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
+Accept: application/vnd.bc.v1+json
+Authorization: PAT {{pat_token}}
+Content-Type: application/json
 
-If any of these fields are incorrect, you may be unable to process the payment.
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
-<!-- theme: warning -->
-
-### PAT
-> There is a space between PAT {your-access-token}.
-
-</div>
-</div>
-</div>
-
-<!--
-title: "Sample Request"
-subtitle: "Process Payment"
-lineNumbers: true
--->
-
-**Example request process payment**
-`/POST https://payments.bigcommerce.com/stores/{store_hash}/payments`
-
-```curl
-curl -X POST \
-  https://payments.bigcommerce.com/stores/{store_hash}/payments \
-  -H 'Accept: application/vnd.bc.v1+json' \
-  -H 'Authorization: PAT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTEzOTQxNDIsIm5iZiI6MTU1MTM5MDU0MiwiaXNzIjoicGF5bWVudHMuYmlnY29tbWVyY2UuY29tIiwic3ViIjoianJhaDZnbW4iLCJqdGkiOiI3Nzgadskfjua451OWJmLTQ3ZWMtYTFmZC00ZDQ3ZTkwNjFlNWMiLCJpYXQiOjE1NTEzOTr4gk78dhshehdGEiOnsic3RvcmVfaWQiOjEwMjU2NDYsIm9yZGVyX2lkIjoyMTUsImFtb3VudCI6OTgwMCwiY3VycmVuY3kiOiJVU0QifX0.WbR90d8m4gn8wK7kPMDEoVq8B0hHC5Ul5H4Hpqq6Yvo' \
-  -H 'Content-Type: application/json' \
-  -d '{
+{
   "payment": {
     "instrument": {
-      "type": "card",
+      "type": "card", // will always be card
       "number": "4242424242424242",
       "cardholder_name": "Jane Doe",
       "expiry_month": 12,
@@ -348,18 +247,12 @@ curl -X POST \
     },
     "payment_method_id": "stripe.card"
   }
-}'
+}
 ```
+```http title="Process payment with a credit card" subtitle="Example response" lineNumbers
+POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
+Content-Type: application/vnd.bc.v1+json
 
-<!--
-title: "Sample Response"
-subtitle: "Process Payment"
-lineNumbers: true
--->
-
-**Example response process payment**
-
-```json
 {
   "data": {
     "id": "693bb4cd-3f20-444a-8315-6369f582c68a",
@@ -369,7 +262,7 @@ lineNumbers: true
 }
 ```
 
-If the purchase was successful it will return a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error Codes](#error-codes) for troubleshooting.
+If the purchase was successful, the response returns a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error codes](#error-codes) for troubleshooting.
 
 ### Storing credit cards
 
@@ -377,11 +270,12 @@ The payments API allows developers to store a credit card while processing a cre
 
 When processing a credit payment, set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk), it can store the credit card as part of the checkout.
 
-*`POST`* `https://payments.bigcommerce.com/stores/{store_hash}/payments`
+```http title="Process payment and save credit card" subtitle="Example request" lineNumbers
+POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
+Accept: application/vnd.bc.v1+json
+Authorization: PAT {{pat_token}}
+Content-Type: application/json
 
-**Process payment example POST**
-
-```json
 {
   "payment": {
     "instrument": {
@@ -397,70 +291,64 @@ When processing a credit payment, set `save_instrument: true`. The shopper can a
   }
 }
 ```
----
-
-<a href='#payments_orders-api' aria-hidden='true' class='block-anchor'  id='payments_orders-api'><i aria-hidden='true' class='linkify icon'></i></a>
 
 ## Using the Orders API
 
 It is possible to take payment for an order created using the [Orders API](/api-docs/store-management/orders). When creating the order using the Orders API make sure the `status_id:0`. If you do not create an order with order status set to `0` or `Incomplete`, the Payments API will return an [error](#error-codes). Ensure customers enter their billing address and line items when creating the order. The customer can create the order as a guest order by either setting the `customer_id:0` or leaving it blank. After the order is created, then follow the steps for either a [credit card](#credit-cards) or a [stored card](#stored-cards).
 
-<!--
-title: "Example Create Order"
-subtitle: ""
-lineNumbers: true
--->
 
-**Example create an order**
-`/POST https://api.bigcommerce.com/stores/{store_hash}/v2/orders`
+```http title="Create an order" subtitle="Example request" lineNumbers
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v2/orders
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
 
-```json
 {
-    "status_id": 0,
-    "customer_id": 11,
-    "billing_address": {
-        "first_name": "Jane",
-        "last_name": "Does",
-        "company": "",
-        "street_1": "123 Main Street",
-        "street_2": "",
-        "city": "Austin",
-        "state": "Texas",
-        "zip": "78751",
-        "country": "United States",
-        "country_iso2": "US",
-        "email": "janedoe@email.com"
+  "status_id": 0,
+  "customer_id": 11,
+  "billing_address": {
+    "first_name": "Jane",
+    "last_name": "Does",
+    "company": "",
+    "street_1": "123 Main Street",
+    "street_2": "",
+    "city": "Austin",
+    "state": "Texas",
+    "zip": "78751",
+    "country": "United States",
+    "country_iso2": "US",
+    "email": "janedoe@email.com"
+  },
+  "shipping_addresses": [
+    {
+      "first_name": "Trishy",
+      "last_name": "Test",
+      "company": "Acme Pty Ltd",
+      "street_1": "666 Sussex St",
+      "street_2": "",
+      "city": "Anywhere",
+      "state": "Some State",
+      "zip": "12345",
+      "country": "United States",
+      "country_iso2": "US",
+      "phone": "",
+      "email": "janedoe@email.com"
+    }
+  ],
+  "products": [
+    {
+      "name": "BigCommerce Poster",
+      "quantity": 1,
+      "price_inc_tax": 10.98,
+      "price_ex_tax": 10
     },
-    "shipping_addresses": [
-        {
-            "first_name": "Trishy",
-            "last_name": "Test",
-            "company": "Acme Pty Ltd",
-            "street_1": "666 Sussex St",
-            "street_2": "",
-            "city": "Anywhere",
-            "state": "Some State",
-            "zip": "12345",
-            "country": "United States",
-            "country_iso2": "US",
-            "phone": "",
-            "email": "janedoe@email.com"
-        }
-    ],
-    "products": [
-        {
-            "name": "BigCommerce Poster",
-            "quantity": 1,
-            "price_inc_tax": 10.98,
-            "price_ex_tax": 10
-        },
-        {
-            "name": "BigCommerce Poster II",
-            "quantity": 1,
-            "price_inc_tax": 50,
-            "price_ex_tax": 45
-        }
-    ]
+    {
+      "name": "BigCommerce Poster II",
+      "quantity": 1,
+      "price_inc_tax": 50,
+      "price_ex_tax": 45
+    }
+  ]
 }
 ```
 
@@ -500,15 +388,7 @@ The following diagram shows how the `payment_access_token` interacts with BigCom
 
 You can create orders using the [Server to Server API Endpoints](/api-reference/store-management/checkouts/checkout-orders/createanorder) or [Orders API](/api-reference/store-management/orders).
 
-<!--
-    title: Sample App Diagram
-
-    data: https://storage.googleapis.com/bigcommerce-production-dev-center/images/Payments%20API%20sequence%20diagram.png
--->
-
-#### Sample app diagram
-![Sample App Diagram
-](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Payments%20API%20sequence%20diagram.png "Sample App Diagram")
+![Sample App Diagram](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Payments%20API%20sequence%20diagram.png "Sample App Diagram")
 
 ## Error codes
 
@@ -583,6 +463,6 @@ Payment gateways that use 3D Secure meet the EU's Strong Customer Authentication
 * [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
 
 ### Webhooks
-- [Cart](/api-docs/store-management/webhooks/webhook-events#cart)
-- [Customer Payment Instrument](/api-docs/store-management/webhooks/webhook-events#customer)
-- [Orders](/api-docs/store-management/webhooks/webhook-events#orders)
+* [Cart](/api-docs/store-management/webhooks/webhook-events#cart)
+* [Customer Payment Instrument](/api-docs/store-management/webhooks/webhook-events#customer)
+* [Orders](/api-docs/store-management/webhooks/webhook-events#orders)
