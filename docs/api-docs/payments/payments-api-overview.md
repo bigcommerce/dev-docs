@@ -6,9 +6,11 @@ Process payments using a sequence of requests to two API hosts:
 * Create the payment token:  `https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens`
 * Process the payment:  `https://payments.bigcommerce.com/stores/{{store_hash}}/payments`
 
-### Required [OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
-* `Create Payments`
-* `Get Payment Methods`
+<!-- theme: success -->
+> #### Required OAuth scopes
+> * `Create Payments`
+> * `Get Payment Methods`
+> Learn more about BigCommerce API [OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
 
