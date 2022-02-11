@@ -1,18 +1,6 @@
 # API Best Practices
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Ensure your integration is up-to-date](#ensure-your-integration-is-up-to-date)
-- [Anticipate changes to BigCommerce APIs](#anticipate-changes-to-bigcommerce-apis)
-- [Use webhooks effectively](#use-webhooks-effectively)
-- [Thread API requests](#thread-api-requests)
-- [Marketplace apps](#marketplace-apps)
-- [API rate limits](#api-rate-limits)
-- [Platform limits](#platform-limits)
-- [Resources](#resources)
-
-</div>
 
 ## Ensure your integration is up-to-date
 
@@ -58,7 +46,7 @@ The [BigCommerce Ruby API](https://github.com/bigcommerce/bigcommerce-api-ruby) 
 
 Merchants often have more than one person who can access a store's control panel. BigCommerce allows additional users to access an app when the store owner has granted them appropriate permissions. The requirements for supporting multi-user app access are:
 * Tokens must be stored against the `store_hash` and not against user info.
-* Within the [Developer Portal](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-app-api-credentials) workspace, you must enable your app’s **Technical** > **Multiple Users** option.
+* Within the [Developer Portal](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-app-api-credentials) workspace, you must enable your app’s **Technical** > **Multiple Users** option.
 
 In the payload returned when a user launches an app, users are distinguished by `owner_email` versus `user_email`. If these two emails match, the user is the store owner.
 
@@ -166,9 +154,10 @@ You might wish to increase the amount of work your application can do in a given
 </div>
 
 ### Making requests with the Storefront Cart API 
-Client-side applications should avoid polling the [Storefront Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api) on interval. Hundreds of thousands of browsers could potentially poll the Storefront Cart API at any given time, causing a significant load increase to BigCommerce's servers. We may take action against a store using this practice to prevent interruptions in service to other stores.
+Client-side applications should avoid polling the [Storefront Cart API](/api-reference/cart-checkout/storefront-cart-api) on interval. Hundreds of thousands of browsers could potentially poll the Storefront Cart API at any given time, causing a significant load increase to BigCommerce's servers. We may take action against a store using this practice to prevent interruptions in service to other stores.
 
-Consider subscribing to the [Cart Webhook](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#cart) via a server-side application as an alternative to polling the Storefront Cart API at an interval, and only query the Storefront Cart API as a response to user input. Storing cart information in the browser cache is also an alternative method for keeping cart information up to date across browser tabs.
+Consider subscribing to the [Cart Webhook](/api-docs/store-management/webhooks/webhook-events#cart) via a server-side application as an alternative to polling the Storefront Cart API at an interval, and only query the Storefront Cart API as a response to user input. Storing cart information in the browser cache is also an alternative method for keeping cart information up to date across browser tabs.
+
 
 ## Platform limits
 
@@ -176,6 +165,6 @@ BigCommerce does have limits on the number of products, categories, brands, etc.
 
 ## Resources
 ### Related articles
-* [API Status Codes](https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes)
-* [Filtering](https://developer.bigcommerce.com/api-docs/getting-started/filtering)
+* [API Status Codes](/api-docs/getting-started/api-status-codes)
+* [Filtering](/api-docs/getting-started/filtering)
 * [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits)

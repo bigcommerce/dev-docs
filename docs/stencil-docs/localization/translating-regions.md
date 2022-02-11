@@ -1,12 +1,6 @@
 # Translating Regions
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Translating regions example](#translating-regions-example)
-- [Resources](#resources)
-
-</div>
 
 Themes now support translations for a specific region, which localizes the region name within Page Builder. Within the region HTML, we can now add a translation field to point to the correct localization from `schema_translations.json`. 
 
@@ -147,8 +141,8 @@ schemaTranslations.json
 
 ### Related articles
 
-* [Translation Keys](https://developer.bigcommerce.com/stencil-docs/localization/translation-keys)
-* [Page Builder Overview](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview)
-* [Translation Keys](https://developer.bigcommerce.com/stencil-docs/localization/translation-keys)
-* [schemaTranslations.json](https://developer.bigcommerce.com/stencil-docs/storefront-customization/directory-structure#schematranslationsjson)
+* [Translation Keys](/stencil-docs/localization/translation-keys)
+* [Page Builder Overview](/stencil-docs/page-builder/page-builder-overview)
+* [Translation Keys](/stencil-docs/localization/translation-keys)
+* [schemaTranslations.json](/stencil-docs/storefront-customization/directory-structure#schematranslationsjson)
  

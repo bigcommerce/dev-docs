@@ -1,12 +1,6 @@
 # Blueprint and Developer Mode
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [A Foundation for Creating Themes](#a-foundation-for-creating-themes)
-- [Setting Up Your Environment](#setting-up-your-environment)
-
-</div> 
+ 
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">

@@ -1,13 +1,6 @@
 # Partner Program
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Program overview](#program-overview)
-- [Application requirements](#application-requirements)
-- [App Marketplace](#app-marketplace)
-- [Resources](#resources)
-</div> 
+ 
 
 ## Program overview
 Join the BigCommerce Partner Program to become an official BigCommerce partner. As an official partner, you will have access to training, sales enablement, and a referral network to get more clients and build better ecommerce experiences.
@@ -22,7 +15,7 @@ Only official partners can submit an app to the BigCommerce App Marketplace, als
 * Ability to support your app's users
 * Evidence of expertise in app development
 
-For a list of general requirements and to verify that your application meets BigCommerce listing standards, see [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements).
+For a list of general requirements and to verify that your application meets BigCommerce listing standards, see [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements).
 
 How to apply:
 1. Go to the [Partner Portal](https://partners.bigcommerce.com/).
@@ -75,5 +68,5 @@ We encourage you to create your sandbox store and your Developer Portal account 
 ## Resources
 
 ### Related articles
-* [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
+* [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements)
 * [Using the App Marketplace](https://support.bigcommerce.com/s/article/How-do-I-access-and-install-the-new-single-click-apps-within-my-Bigcommerce-store-control-panel)(Knowledge Base)

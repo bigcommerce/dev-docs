@@ -1,18 +1,6 @@
 # Bulk Pricing Rules
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Bulk Pricing](#bulk-pricing)
-- [List Bulk Pricing Rules](#list-bulk-pricing-rules)
-- [Get a Product Bulk Pricing Rule](#get-a-product-bulk-pricing-rule)
-- [Get a Count of Bulk Pricing Rules](#get-a-count-of-bulk-pricing-rules)
-- [Create a Product Bulk Pricing Rule](#create-a-product-bulk-pricing-rule)
-- [Update a Product Bulk Pricing Rule](#update-a-product-bulk-pricing-rule)
-- [Delete a Product Bulk Pricing Rule](#delete-a-product-bulk-pricing-rule)
-- [Delete Multiple Product Bulk Pricing Rules](#delete-multiple-product-bulk-pricing-rules)
-
-</div> 
+ 
 
 ##  Bulk Pricing 
 
@@ -27,7 +15,7 @@ Bulk pricing rules applied to a product.
 ### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
 
-For the most up-to-date version of this API, see [Product Bulk Pricing Rules](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-bulk-pricing-rules).
+For the most up-to-date version of this API, see [Product Bulk Pricing Rules](/api-reference/store-management/catalog/product-bulk-pricing-rules).
 
 </div>
 </div>

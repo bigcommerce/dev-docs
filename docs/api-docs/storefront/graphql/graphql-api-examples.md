@@ -1,23 +1,8 @@
 # GraphQL Storefront API Example Queries
 
-<div class="otp" id="no-index">
 
-### On this Page
 
-- [Get a customer's details](#get-a-customers-details)
-- [Get first three levels of category tree](#get-first-three-levels-of-category-tree)
-- [Get category and products within by URL](#get-category-and-products-within-by-url)
-- [Look up an object by URL](#look-up-an-object-by-url)
-- [Get product images at different resolutions](#get-product-images-at-different-resolutions)
-- [Get a product](#get-a-product)
-- [Get variant details as a product object](#get-variant-details-as-a-product-object)
-- [Get product option details by product ID](#get-product-option-details-by-product-id)
-- [Get refined product object for given options](#get-refined-product-object-for-given-options)
-- [Get product swatch option values](#get-product-swatch-option-values)
-
-</div>
-
-Below are example GraphQL queries for use with the BigCommerce GraphQL Storefront API. The purpose of these examples is to assist developers in getting familiar with the API. For a general overview of it's usage and capabilities, see [GraphQL Storefront API Overview](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview).
+Below are example GraphQL queries for use with the BigCommerce GraphQL Storefront API. The purpose of these examples is to assist developers in getting familiar with the API. For a general overview of it's usage and capabilities, see [GraphQL Storefront API Overview](/api-docs/storefront/graphql/graphql-storefront-api-overview).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">

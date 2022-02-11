@@ -1,14 +1,6 @@
 # Developing Accessible Themes 
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Image alt text](#image-alt-text)
-- [Text accessibility](#text-accessibility)
-- [Keyboard accessibility](#keyboard-accessibility)
-- [Customization](#customization)
-- [Related resources](#related-resources)
-</div>
 
 Designing for accessibility means being inclusive to the needs of all users. This article outlines the basic accessibility requirements BigCommerce would recommend for all themes.
 

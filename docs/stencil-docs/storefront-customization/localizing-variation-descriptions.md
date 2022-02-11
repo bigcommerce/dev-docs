@@ -1,13 +1,6 @@
 # Localizing Variation Descriptions
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Adding translations](#adding-translations)
-- [Supported language code schemes](#supported-language-code-schemes)
-- [Resources](#resources)
-
-</div>
 
 Stencil themes support translations for variation descriptions enabling you to customize the display language of your theme.
 
@@ -101,5 +94,5 @@ The language code must follow a set format of two lowercase letters for a two-le
 
 ## Resources
 
-* [Directory Structure](https://developer.bigcommerce.com/stencil-docs/storefront-customization/directory-structure)
+* [Directory Structure](/stencil-docs/storefront-customization/directory-structure)
 * [The BigCommerce Theme Marketplace](https://support.bigcommerce.com/s/article/The-Bigcommerce-Themes-Marketplace?language=en_US)

@@ -1,18 +1,6 @@
 # Product Videos
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Videos](#videos)
-- [List Product Videos](#list-product-videos)
-- [Get a Product Video](#get-a-product-video)
-- [Get a Count of Product Videos](#get-a-count-of-product-videos)
-- [Create a Product Video](#create-a-product-video)
-- [Update Product Video Metadata](#update-product-video-metadata)
-- [Delete a Product Video](#delete-a-product-video)
-- [Delete All Product Videos](#delete-all-product-videos)
-
-</div> 
+ 
 
 ## Videos 
 
@@ -27,7 +15,7 @@ Embedded videos displayed on product listings.
 ### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
 
-For the most up-to-date version of this API, see [Product Videos](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-videos).
+For the most up-to-date version of this API, see [Product Videos](/api-reference/store-management/catalog/product-videos).
 
 </div>
 </div>
