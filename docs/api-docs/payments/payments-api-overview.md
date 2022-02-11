@@ -21,8 +21,7 @@ Merchants or shoppers' personal identifiable information (PII) collected by recu
 
 <!-- theme: warning -->
 > #### PCI compliance
-> If your application handles credit card data, you will need to be PCI compliant. SAQs (self-assessment questionnaires) can be submitted to
-<a href="mailto:compliance@bigcommerce.com">compliance@bigcommerce.com</a>.
+> If your application handles credit card data, you will need to be PCI compliant. SAQs (self-assessment questionnaires) can be submitted to <a href="mailto:compliance@bigcommerce.com">compliance@bigcommerce.com</a>.
 
 ## Processing a payment
 
@@ -53,15 +52,13 @@ To use stored cards with the Payments API or the Checkout SDK, make sure you ena
 
 This token is the same as `payment_instrument_token` from [Get Transactions](/api-reference/store-management/order-transactions).
 
-```http title="Get payment methods" subtitle="Example request" lineNumbers
+```http title="Example request: Get payment methods" lineNumbers
 GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/methods?order_id={{order_id}}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
-```http title="Get payment methods" subtitle="Example response" lineNumbers
-GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/methods?order_id={{order_id}}
-Content-Type: application/json
-
+&nbsp;
+```json title="Example response: Get payment methods" lineNumbers
 {
   "data": [
     {
@@ -122,7 +119,7 @@ Make a note of the `token` for the target payment method to use as part of proce
 
 2. Make a request to [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
 
-```http title="Create payment access token" subtitle="Example request" lineNumbers
+```http title="Example request: Create payment access token" lineNumbers
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -134,10 +131,8 @@ Accept: application/json
   }
 }
 ```
-```http title="Create payment access token" subtitle="Example response" lineNumbers
-POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens
-Content-Type: application/json
-
+&nbsp;
+```json title="Example response: Create payment access token" lineNumbers
 {
   "data": {
     "id": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTEzOTQxNDIsIm5iZiI6MTU1MTM5MDU0MiwiaXNzIjoicGF5bWVudHMuYmlnY29tbWVyY2UuY29tIiwic3ViIjoianJhaDZnbW4iLCJqdGkiOiI3Nzg3ZmU1Zi01OWJmLTQ3ZWMtYTFmZC00ZDQ3ZTkwNjFlNWMiLCJpYXd4gJ8uHDk3kDhhuyefsrtr45mRhdGEiOnsic3RvcmVfaWQiOjEwMjU2NDYsIm9yZGVyX2lkIjoyMTUsImFtb3VudCI6OTgwMCwiY3VycmVuY3kiOiJVU0QifX0.WbR90d8m4gn8wK7kPMDEoVq8B0hHC5Ul5H4Hpqq6Yvo"
@@ -151,9 +146,9 @@ Content-Type: application/json
 <!-- theme: info -->
 > #### Authorization header
 > The `pat_token` is the `data.id` value returned in preceding step.
-> To be valid, the header value string should contain a space between "PAT" and the {{pat_token}}.
+> To be valid, the header value string should contain a space between "PAT" and the `{{pat_token}}`.
 
-```http title="Process payment with a stored card" subtitle="Example request" lineNumbers
+```http title="Example request: Process payment with a stored card" lineNumbers
 POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
 Accept: application/vnd.bc.v1+json
 Authorization: PAT {{pat_token}}
@@ -170,10 +165,8 @@ Content-Type: application/json
   }
 }
 ```
-```http title="Process payment with a stored card" subtitle="Example response" lineNumbers
-POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
-Content-Type: application/vnd.bc.v1+json
-
+&nbsp;
+```json title="Example response: Process payment with a stored card" lineNumbers
 {
   "data": {
     "id": "693bb4cd-3f20-444a-8315-6369f582c68a",
@@ -195,7 +188,7 @@ There are two steps to using a credit card to make a payment.
 ### Create access token
 1. Make a request to [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
 
-```http title="Create payment access token" subtitle="Example request" lineNumbers
+```http title="Example request: Create payment access token" lineNumbers
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -207,10 +200,8 @@ Accept: application/json
   }
 }
 ```
-```http title="Create payment access token" subtitle="Example response" lineNumbers
-POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens
-Content-Type: application/json
-
+&nbsp;
+```json title="Example response: Create payment access token" lineNumbers
 {
   "data": {
     "id": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTEzOTQxNDIsIm5iZiI6MTU1MTM5MDU0MiwiaXNzIjoicGF5bWVudHMuYmlnY29tbWVyY2UuY29tIiwic3ViIjoianJhaDZnbW4iLCJqdGkiOiI3Nzg3ZmU1Zi01OWJmLTQ3ZWMtYTFmZC00ZDQ3ZTkwNjFlNWMiLCJpYXd4gJ8uHDk3kDhhuyefsrtr45mRhdGEiOnsic3RvcmVfaWQiOjEwMjU2NDYsIm9yZGVyX2lkIjoyMTUsImFtb3VudCI6OTgwMCwiY3VycmVuY3kiOiJVU0QifX0.WbR90d8m4gn8wK7kPMDEoVq8B0hHC5Ul5H4Hpqq6Yvo"
@@ -226,10 +217,10 @@ Content-Type: application/json
 <!-- theme: info -->
 > #### Authorization header
 > The `pat_token` is the `data.id` value returned in preceding step.
-> To be valid, the header value string should contain a space between "PAT" and the {{pat_token}}.
+> To be valid, the header value string should contain a space between "PAT" and the `{{pat_token}}`.
 
 
-```http title="Process payment with a credit card" subtitle="Example request" lineNumbers
+```http title="Example request: Process payment with a credit card" lineNumbers
 POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
 Accept: application/vnd.bc.v1+json
 Authorization: PAT {{pat_token}}
@@ -249,10 +240,8 @@ Content-Type: application/json
   }
 }
 ```
-```http title="Process payment with a credit card" subtitle="Example response" lineNumbers
-POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
-Content-Type: application/vnd.bc.v1+json
-
+&nbsp;
+```json title="Example response: Process payment with a credit card" lineNumbers
 {
   "data": {
     "id": "693bb4cd-3f20-444a-8315-6369f582c68a",
@@ -270,7 +259,7 @@ The payments API allows developers to store a credit card while processing a cre
 
 When processing a credit payment, set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk), it can store the credit card as part of the checkout.
 
-```http title="Process payment and save credit card" subtitle="Example request" lineNumbers
+```http title="Example request: Process payment and save credit card" lineNumbers
 POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
 Accept: application/vnd.bc.v1+json
 Authorization: PAT {{pat_token}}
@@ -297,7 +286,7 @@ Content-Type: application/json
 It is possible to take payment for an order created using the [Orders API](/api-docs/store-management/orders). When creating the order using the Orders API make sure the `status_id:0`. If you do not create an order with order status set to `0` or `Incomplete`, the Payments API will return an [error](#error-codes). Ensure customers enter their billing address and line items when creating the order. The customer can create the order as a guest order by either setting the `customer_id:0` or leaving it blank. After the order is created, then follow the steps for either a [credit card](#credit-cards) or a [stored card](#stored-cards).
 
 
-```http title="Create an order" subtitle="Example request" lineNumbers
+```http title="Example request: Create an order" lineNumbers
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
