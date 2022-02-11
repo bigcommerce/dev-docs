@@ -1,12 +1,6 @@
 # Using Disqus
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Integrating Disqus with your Stencil blog](#integrating-disqus-with-your-stencil-blog)
-- [Integrating Disqus with your Stencil product pages](#integrating-disqus-with-your-stencil-product-pages)
-
-</div>
 
 Stencil themes have the ability to integrate with Disqus, a third-party commenting system that allows users to leave blog comments on blog posts made with Stencil’s built-in blog. Disqus can also be used on Stencil product pages to allow comment and review threads on individual products.
 

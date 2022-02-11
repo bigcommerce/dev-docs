@@ -1,17 +1,6 @@
 # Custom Fields
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Custom Fields](#custom-fields)
-- [List Custom Fields](#list-custom-fields)
-- [Get a Custom Field](#get-a-custom-field)
-- [Get a Count of Custom Fields](#get-a-count-of-custom-fields)
-- [Create a Custom Field](#create-a-custom-field)
-- [Delete a Custom Field](#delete-a-custom-field)
-- [Delete Multiple Custom Fields](#delete-multiple-custom-fields)
-
-</div> 
+ 
 
 ## Custom Fields 
 
@@ -26,7 +15,7 @@ Custom fields associated with a product.
 ### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
 
-For the most up-to-date version of this API, see [Product Custom Fields](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-custom-fields).
+For the most up-to-date version of this API, see [Product Custom Fields](/api-reference/store-management/catalog/product-custom-fields).
 
 </div>
 </div>

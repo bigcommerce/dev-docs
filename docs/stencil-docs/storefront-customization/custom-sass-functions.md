@@ -1,12 +1,6 @@
 # Custom Sass Functions
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Custom Sass functions](#custom-sass-functions)
-- [Compiling custom Sass files](#compiling-custom-sass-files)
-
-</div>
 
 ## Custom Sass functions
 
@@ -26,7 +20,7 @@
 <!-- theme: info -->
 
 ### NOTE
-> The [config.json](https://developer.bigcommerce.com/stencil-docs/storefront-customization/directory-structure#configjson) file is the main configuration file for Stencil themes and exists in the theme root directory. Use Stencil CLI to edit this file.
+> The [config.json](/stencil-docs/storefront-customization/directory-structure#configjson) file is the main configuration file for Stencil themes and exists in the theme root directory. Use Stencil CLI to edit this file.
 
 </div>
 </div>

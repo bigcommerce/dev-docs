@@ -1,9 +1,5 @@
 # Modify the Login Form
-<div class="otp" id="no-index">
 
-### On this page
-- [Modifying the template](#modifying-the-template)
-</div>
 
 ## Modifying the template
 You can customize the login experience by modifying the theme's `templates/pages/auth/login.html` file.

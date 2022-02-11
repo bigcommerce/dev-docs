@@ -55,7 +55,7 @@ Now that you have seen how channel settings affect customer login access, we wil
 
 #### Determine if a channel allows for global customer login
 
-You can get a list of your store's channels by sending a `GET` request to the `/v3/channels` endpoint. For more information on how to retrieve this list, see [Get All Channels](https://developer.bigcommerce.com/api-reference/store-management/channels/channels/listchannels). Once you receive a server response, note the returned `id`s as you will use them in some of the following sections.
+You can get a list of your store's channels by sending a `GET` request to the `/v3/channels` endpoint. For more information on how to retrieve this list, see [Get All Channels](/api-reference/store-management/channels/channels/listchannels). Once you receive a server response, note the returned `id`s as you will use them in some of the following sections.
 
 Now that you have the `channel_id` value for one or more channels, we can determine if a channel allows for global customer login. Send a `GET` request to `/v3/customers/settings/channels/{channel_id}` using the `id` retrieved in the previous step for the `{channel_id}` segment of the path.
 
@@ -101,7 +101,7 @@ Body:
 	}
 ```
 
-For more information on this step, see [Update the customer settings per channel](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-settings-channel/customersettingschannelput).
+For more information on this step, see [Update the customer settings per channel](/api-reference/store-management/customers-v3/customer-settings-channel/customersettingschannelput).
 
 ### Customers access guide
 
@@ -109,7 +109,7 @@ Once you configure your channels to allow or disallow global logins, you can con
 
 #### Determine the channels accessible to a customer
 
-To retrieve a list of all customers, send a `GET` request to `/v3/customers`. To retrieve information for one or more specific customers, you can append the `?id:in=` query parameter to your request. For more information on how to get a list of all customers, visit [Get All Customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customersget).
+To retrieve a list of all customers, send a `GET` request to `/v3/customers`. To retrieve information for one or more specific customers, you can append the `?id:in=` query parameter to your request. For more information on how to get a list of all customers, visit [Get All Customers](/api-reference/store-management/customers-v3/customers/customersget).
 
 Each returned customer has a `channel_ids` property with either an array of channels to which the customer has login access or a `null` value. If this is your first time setting up channel-specific customer access, the `channel_ids` value will be `null`, meaning that a customer only has access to channels with `"allow_global_logins": true`.
 
@@ -130,7 +130,7 @@ By default, the value of `channel_ids` is `null`, granting login access to any s
 }
 ```
 
-For more information on creating a customer, visit [Create Customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customerspost).
+For more information on creating a customer, visit [Create Customers](/api-reference/store-management/customers-v3/customers/customerspost).
 
 ##### Update customer channel access for existing customer
 
@@ -143,4 +143,4 @@ To change the channels that an existing customer can access, send a `PUT` reques
 }
 ```
 
-For more information on updating customers, see [Update Customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customersput).
+For more information on updating customers, see [Update Customers](/api-reference/store-management/customers-v3/customers/customersput).

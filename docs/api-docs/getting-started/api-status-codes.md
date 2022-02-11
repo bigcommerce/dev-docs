@@ -1,14 +1,5 @@
 # API Status Codes
-<div class="otp" id="no-index">
-	<h3> On This Page </h3>
-	<ul>
-        <li><a href="#api-status-codes_2-success">2xx Success</a></li>
-        <li><a href="#api-status-codes_3-redirection">3xx Redirection</a></li>
-        <li><a href="#api-status-codes_4-client-error">4xx Client Error</a></li>
-        <li><a href="#api-status-codes_5-server-error">5xx Server Error</a></li>
-        <li><a href="#api-status-codes_troubleshooting">Troubleshooting</a></li>
-	</ul>
-</div>
+
 
 The BigCommerce API responds to requests with different HTTP status codes depending on the result from the request. Error responses might also include an error message in the body to assist in resolving the problem.
 
