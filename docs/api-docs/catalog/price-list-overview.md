@@ -8,7 +8,7 @@ A Price List allows you to populate different versions of catalog pricing and as
 
 If an active Price List does not contain prices for a variant, then the Catalog pricing will be used. You can associate a Price List to a Customer Group via the Control Panel or the [Customer Groups API.](/api-reference/customer-subscribers/customers-api)
 
-Price Lists will provide overridden price values to the Stencil storefront. You can further customize the final price display within the Stencil template. For more information, see the [Theme Objects](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties).
+Price Lists will provide overridden price values to the Stencil storefront. You can further customize the final price display within the Stencil template. For more information, see the [Theme Objects](/stencil-docs/reference-docs/global-objects-and-properties).
 
 
 ### OAuth scopes
@@ -40,7 +40,7 @@ The following OAuth Scopes are required:
 
 
 
-- **Currency:** a price list can contain records for multiple currencies. If you use a [transactional currency](https://developer.bigcommerce.com/api-docs/multi-currency/guide/introduction#display-vs-transactional), the customer group or channel will use price records in that currency. If a multi-currency price list is unavailable, BigCommerce auto converts the catalog price. The customer group or channel uses price records in the default currency and performs a currency conversion for [display-only currencies](https://developer.bigcommerce.com/api-docs/multi-currency/guide/introduction#display-vs-transactional).
+- **Currency:** a price list can contain records for multiple currencies. If you use a [transactional currency](/api-docs/multi-currency/guide/introduction#display-vs-transactional), the customer group or channel will use price records in that currency. If a multi-currency price list is unavailable, BigCommerce auto converts the catalog price. The customer group or channel uses price records in the default currency and performs a currency conversion for [display-only currencies](/api-docs/multi-currency/guide/introduction#display-vs-transactional).
 
 
 <!--
@@ -129,7 +129,7 @@ The price list assignment assigns a price list to a specific sales channel. This
 
 
 
-See [Channels, Sites, and Routes](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) for further documentation.
+See [Channels, Sites, and Routes](/api-reference/cart-checkout/channels-listings-api) for further documentation.
 
 **Example Price List assigned to channel**
 `https://api.bigcommerce.com/stores/{store_hash}/v2/pricelists/assignments`
@@ -150,7 +150,7 @@ See [Channels, Sites, and Routes](https://developer.bigcommerce.com/api-referenc
 
 - If a variant has a `Price Record`, any existing product-level bulk pricing will not apply in the cart.  For variants without `Price Records`, any existing product bulk pricing will apply.
 
-- `Price Lists Records` accepts bulk upsert. You can only do one [Bulk upsert](https://developer.bigcommerce.com/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection) at a time. Running more than one in parallel on the **same store** will cause a 429 error, and the request will fail.
+- `Price Lists Records` accepts bulk upsert. You can only do one [Bulk upsert](/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection) at a time. Running more than one in parallel on the **same store** will cause a 429 error, and the request will fail.
 
 ## Related resources
 

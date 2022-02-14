@@ -345,7 +345,7 @@ Once you save the file, WordPress will now localize the modified string when an 
 
 BigCommerce for WordPress offers two possible checkout experiences, depending on whether the WordPress site has an installed SSL certificate.
 
-If no SSL is detected, WordPress redirects shoppers to your BigCommerce checkout page to finish their transaction over a secure connection. If using the redirected checkout, visit our [Stencil documentation](https://developer.bigcommerce.com/stencil-docs/template-files/customize-stencil-checkout/optimized-one-page-checkout) to review all available options for styling the checkout page.
+If no SSL is detected, WordPress redirects shoppers to your BigCommerce checkout page to finish their transaction over a secure connection. If using the redirected checkout, visit our [Stencil documentation](/stencil-docs/customizing-checkout/optimized-one-page-checkout) to review all available options for styling the checkout page.
 
 If an SSL is detected, BC4WP seamlessly embeds BigCommerce’s secure one-page checkout through an iFrame on your WordPress checkout page.
 

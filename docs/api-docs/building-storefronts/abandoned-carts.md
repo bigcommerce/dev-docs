@@ -30,7 +30,7 @@ The Abandoned Cart Saver will trigger under the following circumstances:
 
 The Abandoned Cart Saver email link points to the Stencil storefront (channel ID 1) by default. To point the Abandoned Cart Saver email link to your headless storefront, you need to set up a `recover_abandoned_cart` site route.
 
-This operation requires a channel site ID. If you do not know your channel site ID, you can retrieve it by sending a `GET` request to the [Get a Channel Site](https://developer.bigcommerce.com/api-reference/store-management/channels/channel-site/get-channel-site) endpoint.
+This operation requires a channel site ID. If you do not know your channel site ID, you can retrieve it by sending a `GET` request to the [Get a Channel Site](/api-reference/store-management/channels/channel-site/get-channel-site) endpoint.
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{channel_id}/site
@@ -40,7 +40,7 @@ Accept: application/json
 
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/channels/channel-site/get-channel-site#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channel-site/get-channel-site#requestrunner)
 
 **Example response**
 
@@ -63,9 +63,9 @@ You can locate your channel ID by:
 
 **or**
 
-- sending a `GET` request to the [Get All Channels](https://developer.bigcommerce.com/api-reference/store-management/channels/channels/listchannels) endpoint.
+- sending a `GET` request to the [Get All Channels](/api-reference/store-management/channels/channels/listchannels) endpoint.
 
-To create a `recover_abandoned_cart` site route, send a `POST` request to the [Create a Site Route](https://developer.bigcommerce.com/api-reference/store-management/sites/site-routes/post-site-route) endpoint.
+To create a `recover_abandoned_cart` site route, send a `POST` request to the [Create a Site Route](/api-reference/store-management/sites/site-routes/post-site-route) endpoint.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes
@@ -80,7 +80,7 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/sites/site-routes/post-site-route#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/sites/site-routes/post-site-route#requestrunner)
 
 **Example response**
 
@@ -98,17 +98,17 @@ Accept: application/json
 }
 ```
 
-To test the route creation, send a `GET` request to the [Get a Site's Routes](https://developer.bigcommerce.com/api-reference/store-management/sites/site-routes/index-site-routes) endpoint. The response will contain all of the routes associated with your headless storefront's domain.
+To test the route creation, send a `GET` request to the [Get a Site's Routes](/api-reference/store-management/sites/site-routes/index-site-routes) endpoint. The response will contain all of the routes associated with your headless storefront's domain.
 
 ## Leveraging the Abandoned Carts API
 
-The Abandoned Cart Saver email link contains a token in the form of a `t` parameter that you can use to call the [Abandoned Carts API](https://developer.bigcommerce.com/api-reference/store-management/abandoned-carts/abandoned-carts/getabandonedcarts) to get the corresponding cart ID. A headless storefront can then use this cart ID to request the cart details from the [Carts API](https://developer.bigcommerce.com/api-reference/store-management/carts).
+The Abandoned Cart Saver email link contains a token in the form of a `t` parameter that you can use to call the [Abandoned Carts API](/api-reference/store-management/abandoned-carts/abandoned-carts/getabandonedcarts) to get the corresponding cart ID. A headless storefront can then use this cart ID to request the cart details from the [Carts API](/api-reference/store-management/carts).
 
 **Abandoned Cart Saver email link example**:
 
 `http://commerce-zr8y-teststore-bigcommerce.vercel.app/my-abandoned-cart-page/?t=305c6c15f6f0a3c0929770a538cf1ff7`
 
-To get the abandoned cart ID, send a `GET` request to the [Get an Abandoned Cart](https://developer.bigcommerce.com/api-reference/store-management/abandoned-carts/abandoned-carts/getabandonedcarts) endpoint.
+To get the abandoned cart ID, send a `GET` request to the [Get an Abandoned Cart](/api-reference/store-management/abandoned-carts/abandoned-carts/getabandonedcarts) endpoint.
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/abandoned-carts/{token}
@@ -118,7 +118,7 @@ Accept: application/json
 
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/abandoned-carts/abandoned-carts/getabandonedcarts#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/abandoned-carts/abandoned-carts/getabandonedcarts#requestrunner)
 
 The response will contain the corresponding cart ID.
 
@@ -131,7 +131,7 @@ The response will contain the corresponding cart ID.
 }
 ```
 
-To retrieve the cart details, send a `GET` request to the [Get a Cart](https://developer.bigcommerce.com/api-reference/store-management/carts/cart/getacart) endpoint.
+To retrieve the cart details, send a `GET` request to the [Get a Cart](/api-reference/store-management/carts/cart/getacart) endpoint.
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/carts/{cartId}
@@ -141,17 +141,17 @@ Accept: application/json
 
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/carts/cart/getacart#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart/getacart#requestrunner)
 
 The response will contain the cart details.
 
 ## Implementing cart recovery on headless storefronts
 
-To trigger the abandoned cart recovery sequence, the cart must be associated with a channel ID and be aware of the shopper's email address. Headless storefronts using custom checkout solutions can leverage BigCommerce's [Customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v3) and [Carts](https://developer.bigcommerce.com/api-reference/store-management/carts) APIs to initiate the abandoned cart recovery sequence.
+To trigger the abandoned cart recovery sequence, the cart must be associated with a channel ID and be aware of the shopper's email address. Headless storefronts using custom checkout solutions can leverage BigCommerce's [Customers](/api-reference/store-management/customers-v3) and [Carts](/api-reference/store-management/carts) APIs to initiate the abandoned cart recovery sequence.
 
 The following example demonstrates how a headless storefront can recover abandoned cart details without relying on Optimized One-Page Checkout.
 
-1. Link your headless storefront to your sales channel by sending a `POST` request to the [Create a Site](https://developer.bigcommerce.com/api-reference/store-management/sites/sites/post-site) endpoint.
+1. Link your headless storefront to your sales channel by sending a `POST` request to the [Create a Site](/api-reference/store-management/sites/sites/post-site) endpoint.
 
    ```http
    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites
@@ -165,9 +165,9 @@ The following example demonstrates how a headless storefront can recover abandon
    }
    ```
 
-   [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/sites/sites/post-site#requestrunner)
+   [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/sites/sites/post-site#requestrunner)
 
-2. Using the [Site Routes](https://developer.bigcommerce.com/api-reference/store-management/sites/site-routes/post-site-route) endpoint, create a `recover_abandoned_cart` route.
+2. Using the [Site Routes](/api-reference/store-management/sites/site-routes/post-site-route) endpoint, create a `recover_abandoned_cart` route.
 
    ```http
    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes
@@ -183,11 +183,11 @@ The following example demonstrates how a headless storefront can recover abandon
 
    ```
 
-   [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/sites/site-routes/post-site-route#requestrunner)
+   [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/sites/site-routes/post-site-route#requestrunner)
 
 ### Create cart with customer
 
-1. To create a customer, send a `POST` request to the [Create Customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customerspost) endpoint. In the request body, set `accepts_product_review_abandoned_cart_emails` to `true` to enable Abandoned Cart Saver notifications. This will create a customer account optimized to receive Abandoned Cart Saver emails.
+1. To create a customer, send a `POST` request to the [Create Customers](/api-reference/store-management/customers-v3/customers/customerspost) endpoint. In the request body, set `accepts_product_review_abandoned_cart_emails` to `true` to enable Abandoned Cart Saver notifications. This will create a customer account optimized to receive Abandoned Cart Saver emails.
 
    ```http
    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/customers
@@ -223,9 +223,9 @@ The following example demonstrates how a headless storefront can recover abandon
    ]
    ```
 
-   [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customerspost#requestrunner)
+   [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/customers-v3/customers/customerspost#requestrunner)
 
-2. Send a `POST` request to the [Create a Cart](https://developer.bigcommerce.com/api-reference/store-management/carts/cart/createacart) endpoint to create a cart. Include the customer ID and channel ID in the request body so that the URL inserted in transactional emails contains the correct site and routes.
+2. Send a `POST` request to the [Create a Cart](/api-reference/store-management/carts/cart/createacart) endpoint to create a cart. Include the customer ID and channel ID in the request body so that the URL inserted in transactional emails contains the correct site and routes.
 
    ```http
    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/carts
@@ -271,11 +271,11 @@ The following example demonstrates how a headless storefront can recover abandon
    }
    ```
 
-   [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/carts/cart/createacart#requestrunner)
+   [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart/createacart#requestrunner)
 
 ### Create cart with guest customer
 
-1. Send a `POST` request to the [Create a Cart](https://developer.bigcommerce.com/api-reference/store-management/carts/cart/createacart) endpoint to create a cart.
+1. Send a `POST` request to the [Create a Cart](/api-reference/store-management/carts/cart/createacart) endpoint to create a cart.
 
    ```http
    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/carts
@@ -294,9 +294,9 @@ The following example demonstrates how a headless storefront can recover abandon
    }
    ```
 
-   [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/carts/cart/createacart#requestrunner)
+   [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart/createacart#requestrunner)
 
-2. Send a `POST` request to the [Add Checkout Billing Address](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost) endpoint to add checkout billing address. Include the email address in the request body so that the abandoned cart saver notification could be triggered.
+2. Send a `POST` request to the [Add Checkout Billing Address](/api-reference/store-management/checkouts/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost) endpoint to add checkout billing address. Include the email address in the request body so that the abandoned cart saver notification could be triggered.
 
    ```http
    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/checkouts/{checkoutId}/billing-address
@@ -319,13 +319,13 @@ The following example demonstrates how a headless storefront can recover abandon
    }
    ```
 
-   [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost#requestrunner)
+   [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/checkouts/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost#requestrunner)
 
 This request creates a cart associated with the headless storefront without using BigCommerce's Optimized One-Page Checkout. Because the checkout is incomplete, the store treats this cart as abandoned and initiates the abandoned cart recovery sequence.
 
 ## Resources
 
-- [Building Storefront Channels](https://developer.bigcommerce.com/api-docs/channels/tutorials/storefront)
-- [Open Checkout Quick Start](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/open-checkout-quick-start)
+- [Building Storefront Channels](/api-docs/channels/tutorials/storefront)
+- [Open Checkout Quick Start](/stencil-docs/customizing-checkout/open-checkout-quick-start)
 - [Selling Everywhere with Channel Manager](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager?language=en_US)
 - [Using the Abandoned Cart Saver](https://support.bigcommerce.com/s/article/Using-the-Abandoned-Cart-Saver?language=en_US)
