@@ -20,7 +20,6 @@ paths:
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
       operationId: getACart
       parameters:
         - $ref: '#/components/parameters/include'
@@ -33,11 +32,10 @@ paths:
       summary: Create a Cart
       description: |-
         Creates a *Cart*.
-        
+
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
       operationId: createACart
       parameters:
         - $ref: '#/components/parameters/include'
@@ -72,7 +70,6 @@ paths:
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
       operationId: deleteACart
       parameters:
         - name: cartId
@@ -155,7 +152,6 @@ paths:
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
       operationId: updateCartLineItem
       parameters:
         - name: cartId
@@ -214,11 +210,10 @@ paths:
         Deletes a *Cart* line item.
 
         Removing the last `line_item` in the *Cart* deletes the *Cart*.
-        
+
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
       operationId: deleteCartLineItem
       parameters:
         - name: cartId
@@ -286,6 +281,7 @@ components:
           id:
             type: string
             description: The coupon ID.
+      x-internal: true
     responseCartDiscounts:
       title: responseCartDiscounts
       type: array
@@ -300,6 +296,7 @@ components:
           id:
             type: string
             description: ID of the applied discount.
+      x-internal: true
     responseCart:
       description: Cart object used in storefront cart responses.
       title: Cart Read
@@ -322,7 +319,7 @@ components:
           description: Whether this item is taxable.
         baseAmount:
           type: number
-          description: "Cost of cart’s contents, before applying discounts."
+          description: 'Cost of cart’s contents, before applying discounts.'
         discountAmount:
           type: number
           description: Discounted amount.
@@ -347,6 +344,7 @@ components:
         locale:
           type: string
           description: Locale of the cart.
+      x-internal: true
     requestCart:
       title: Create Cart Request Object
       description: Cart object used in create cart requests.
@@ -382,6 +380,7 @@ components:
             - lineItems
             - giftCertificates
       type: object
+      x-internal: true
     responseCartLineItemsPhysicalItemGiftWrapping:
       title: Gift Wrapping
       type: object
@@ -396,6 +395,7 @@ components:
           type: string
           description: Name of the gift-wrapping option.
       nullable: true
+      x-internal: true
     requestLineItemGiftCertificate:
       title: Line Item Gift Certificate Request Data
       required:
@@ -429,6 +429,7 @@ components:
         theme:
           type: string
           description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
+      x-internal: true
     LineItemsRequest:
       title: requestLineItems
       oneOf:
@@ -459,6 +460,7 @@ components:
       x-examples: {}
       type: object
       description: Cart object used in add items requests.
+      x-internal: true
     requestLineItemPut:
       title: requestLineItemPut
       oneOf:
@@ -483,6 +485,7 @@ components:
       x-examples: {}
       description: ''
       type: object
+      x-internal: true
     responseCartCurrency:
       title: Currency
       type: object
@@ -493,6 +496,7 @@ components:
           format: ISO-4217
       description: This will always be the same between cart and checkout.
       x-go-gen-location: models
+      x-internal: true
     responseCartLineItems:
       title: Response Line Items Object
       type: object
@@ -516,6 +520,7 @@ components:
           description: Array of `ItemPhysical` objects.
           items:
             $ref: '#/components/schemas/responseCartLineItemsItemsPhysicalItemsItems'
+      x-internal: true
     responseCartLineItemsCustomItems:
       title: Item Custom
       type: object
@@ -551,10 +556,12 @@ components:
         **Read Only**
 
         This will return in the Cart Response if the Cart was created using the [Server to Server Cart API](/api-reference/cart-checkout/server-server-cart-api). A custom item can only be added to a cart using the Server to Server API.
+      x-internal: true
     responseCartLineItemsDigitalItems:
       title: Item Digital
       allOf:
         - $ref: '#/components/schemas/responseCartLineItemsDigitalItemsAllOf0'
+      x-internal: true
     responseCartLineItemsDigitalItemsAllOf0:
       title: Base Item
       required:
@@ -628,6 +635,7 @@ components:
           type: number
           description: ID of the variant.
           example: 7
+      x-internal: true
     responseCartLineItemsDigitalItemsAllOf0DiscountsItems:
       title: Applied Discount
       type: object
@@ -639,6 +647,7 @@ components:
         id:
           type: number
           description: ID of the applied discount.
+      x-internal: true
     responseCartLineItemsDigitalItemsAllOf0OptionsItems:
       title: Product Option
       type: object
@@ -657,6 +666,7 @@ components:
           type: number
           description: The product option value identifier. It is the same as the `optionValue` used in the request.
           example: 127
+      x-internal: true
     responseCartLineItemsGiftCertificates:
       title: Item Gift Certificate
       required:
@@ -668,7 +678,7 @@ components:
       properties:
         amount:
           type: number
-          description: Value must be between 1.00 and 1,000.00 in the store's default currency.
+          description: 'Value must be between 1.00 and 1,000.00 in the storeʼs default currency.'
         id:
           type: string
           description: ID of this gift certificate.
@@ -688,6 +698,7 @@ components:
         theme:
           type: string
           description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
+      x-internal: true
     responseCartLineItemsGiftCertificatesRecipient:
       title: Contact Entity
       type: object
@@ -699,6 +710,7 @@ components:
         name:
           type: string
           description: Contact's name.
+      x-internal: true
     responseCartLineItemsGiftCertificatesSender:
       title: Contact Entity
       type: object
@@ -710,11 +722,13 @@ components:
         name:
           type: string
           description: Contact's name.
+      x-internal: true
     responseCartLineItemsItemsPhysicalItemsItems:
       title: Item Physical
       allOf:
         - $ref: '#/components/schemas/responseCartBaseItem'
         - $ref: '#/components/schemas/responseCartLineItemsItemsPhysicalItemsItemsAllOf1'
+      x-internal: true
     responseCartBaseItem:
       title: Base Item
       type: object
@@ -785,6 +799,7 @@ components:
           example: 7
       required:
         - quantity
+      x-internal: true
     responseCartLineItemsItemsPhysicalItemsItemsAllOf0OptionsItems:
       title: Product Option
       type: object
@@ -803,6 +818,7 @@ components:
           type: number
           description: The product option value identifier. It is the same as the `optionValue` used in the request.
           example: 127
+      x-internal: true
     responseCartLineItemsItemsPhysicalItemsItemsAllOf1:
       type: object
       properties:
@@ -811,6 +827,7 @@ components:
         isShippingRequired:
           type: boolean
           description: Whether this item requires shipping to a physical address.
+      x-internal: true
     requestCartPostLineItem:
       title: Line Item Request Data
       anyOf:
@@ -881,6 +898,7 @@ components:
           productId: 0
           quantity: 0
       type: object
+      x-internal: true
     requestLineItemGiftCertificateRecipient:
       title: Contact Entity
       type: object
@@ -892,6 +910,7 @@ components:
         name:
           type: string
           description: Contact's name.
+      x-internal: true
     requestLineItemGiftCertificateSender:
       title: Contact Entity
       type: object
@@ -903,6 +922,7 @@ components:
         name:
           type: string
           description: Contact's name.
+      x-internal: true
   responses:
     postCarts:
       description: Post Carts Response
