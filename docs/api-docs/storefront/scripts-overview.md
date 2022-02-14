@@ -1,13 +1,22 @@
 # Scripts API
 
-
-
 The BigCommerce Scripts API gives developers the ability to inject scripts into a store's template files programmatically. This ability means that apps and integrations can insert scripts into a user’s storefront without requiring the user to paste a snippet of code into their control panel manually. You can insert many types of scripts using this API, including the following:
 
 * Analytics scripts
 * Single-click app scripts
 * Live chat and support plugins
 * Theme extensions or connector apps
+
+```json http
+{
+  "method": "GET",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products",
+  "headers": {
+    "Content-Type": "application/json",
+    "x-auth-token": ""
+  }
+}
+```
 
 
 ## Script Manager API partner guidelines
