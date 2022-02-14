@@ -40,12 +40,15 @@ BigCommerce rate limits all API requests made to a store in a thirty-second wind
 
 | Plan                     | Requests per Hour | Requests per 30 Seconds     |
 | ------------------------ | ----------------- | --------------------------- |
-| Enterprise               | -                 | `7,000,000`                 |
-| Enterprise Sandboxes     | -                 | `7,000,000`                 |
+| Enterprise               | -                 | Unlimited\*                 |
+| Enterprise Sandboxes     | -                 | Unlimited\*                 |
 | Pro                      | `60,000`          | `450`                       |
 | Plus                     | `20,000`          | `150`                       |
 | Standard                 | `20,000`          | `150`                       |
 | Non-Enterprise Sandboxes | `20,000`          | `150`                       |
+
+<!-- info: note -->
+> \* The **Unlimited** rate limit on BigCommerce Enterprise plans means that stores on this plan will not be artificially rate-limited on the basis of API-requests-per-unit-of-time. However, there are physical limits to the infrastructure which may limit the maximum throughput of requests on any given API endpoint. BigCommerce also reserves the right to limit unreasonable or abusive API activity in the interest of platform stability, per our [Terms of Service](https://www.bigcommerce.com/terms/api-terms/).
 
 Apps making API requests to a store share the store's rate limit. This promotes fairness between apps accessing the API simultaneously, and prevents a single app from consuming the store's entire limit.
 
