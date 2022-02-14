@@ -7,17 +7,6 @@ The BigCommerce Scripts API gives developers the ability to inject scripts into 
 * Live chat and support plugins
 * Theme extensions or connector apps
 
-```json http
-{
-  "method": "GET",
-  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products",
-  "headers": {
-    "Content-Type": "application/json",
-    "X-Auth-Token": ""
-  }
-}
-```
-
 
 ## Script Manager API partner guidelines
 
