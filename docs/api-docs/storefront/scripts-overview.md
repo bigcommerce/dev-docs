@@ -13,7 +13,7 @@ The BigCommerce Scripts API gives developers the ability to inject scripts into 
   "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products",
   "headers": {
     "Content-Type": "application/json",
-    "x-auth-token": ""
+    "X-Auth-Token": ""
   }
 }
 ```
