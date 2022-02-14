@@ -1,0 +1,47 @@
+{
+    "exclude": [
+      "docs/api-docs/apps/building-apps-guide.md",
+      "docs/api-docs/apps/tutorials/apps-node-react.md",
+      "docs/api-docs/cart-and-checkout/channels-sites-routes.md",
+      "docs/api-docs/cart-and-checkout/checkout-sdk.md",
+      "docs/api-docs/cart-and-checkout/custom-order-confirmation.md",
+      "docs/api-docs/channels/channels-pos-tutorial.md",
+      "docs/api-docs/developers-guide-headless.md",
+      "docs/api-docs/getting-started/available-apis.md",
+      "docs/api-docs/getting-started/building-apps-bigcommerce.md",
+      "docs/api-docs/getting-started/building-apps-bigcommerce/building-apps.md",
+      "docs/api-docs/getting-started/building-apps-bigcommerce/types-of-apps.md",
+      "docs/api-docs/orders/orders-overview.md",
+      "docs/api-docs/partner/app-store-approval-requirements.md",
+      "docs/api-docs/partner/technology-program.md",
+      "docs/api-docs/store-management/shipping.md",
+      "docs/api-docs/store-management/shipping/test.md",
+      "docs/api-docs/storefront/graphql/rendering-widgets.md",
+      "docs/api-docs/storefront/widgets.md",
+      "docs/available-apis.md",
+      "docs/legacy/stencil-themes/installing-legacy-theme-modules.md",
+      "docs/stencil-docs/configure-store-design-ui/defining-ui-options.md",
+      "docs/stencil-docs/configure-store-design-ui/store-design-overview.md",
+      "docs/stencil-docs/javascript-and-event-hooks/dynamic-content-rendering.md"
+    ],
+  "formats": {
+    "openapi": {
+      "rootDir": "reference",
+      "include": [
+        "**"
+      ]
+    },
+    "json_schema": {
+      "rootDir": "models",
+      "include": [
+        "**"
+      ]
+    },
+    "markdown": {
+      "rootDir": "docs"
+    },
+    "image": {
+      "rootDir": "assets/images"
+    }
+  }
+}
