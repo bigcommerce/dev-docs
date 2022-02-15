@@ -161,7 +161,7 @@ Content-Type: application/json
     "instrument": {
       "type": "stored_card", // type from Get Payment Methods
       "token": "050a1e5c982e5905288ec5ec33f292772762033a0704f46fccb16bf1940b51ef", // token from Get Payment Methods
-      "verification_value": "900" // optional: card CVV/CVC
+      "verification_value": "900" // card CVV/CVC, if Get Payment Methods indicates it's required
     },
     "payment_method_id": "stripe.card" // id from Get Payment Methods
   }
