@@ -143,7 +143,7 @@ Accept: application/json
 }
 ```
 
-3. To process the payment, send a POST to [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost). You will need several values retrieved with the [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget) request you made in the preceding step. Additionally, this request contains different headers than a typical BigCommerce API request.  Consult the following for more information:
+3. To process the payment, send a POST request to [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost). You will need several values retrieved with the [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget) request you made in a preceding step. Additionally, this request contains different headers than a typical BigCommerce API request.  Consult the following for more information:
 
 <!-- theme: info -->
 > #### Authorization header
@@ -161,7 +161,7 @@ Content-Type: application/json
     "instrument": {
       "type": "stored_card", // type from Get Payment Methods
       "token": "050a1e5c982e5905288ec5ec33f292772762033a0704f46fccb16bf1940b51ef", // token from Get Payment Methods
-      "verification_value": "4242" // last_four from Get Payment Methods
+      "verification_value": "900" // optional: card CVV/CVC
     },
     "payment_method_id": "stripe.card" // id from Get Payment Methods
   }
@@ -231,12 +231,12 @@ Content-Type: application/json
 {
   "payment": {
     "instrument": {
-      "type": "card", // will always be card
+      "type": "card", // does not vary with card brand
       "number": "4242424242424242",
       "cardholder_name": "Jane Doe",
       "expiry_month": 12,
       "expiry_year": 2020,
-      "verification_value": "422"
+      "verification_value": "422" // card CVV/CVC
     },
     "payment_method_id": "stripe.card"
   }
