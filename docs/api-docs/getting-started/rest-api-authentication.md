@@ -1,18 +1,6 @@
 # Authenticating BigCommerce's REST APIs
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [What is an API account?](#what-is-an-api-account)
-- [Obtaining store API credentials](#obtaining-store-api-credentials)
-- [Revoking or modifying store API credentials](#revoking-or-modifying-store-api-credentials)
-- [Obtaining app API credentials](#obtaining-app-api-credentials)
-- [Use cases by credential type](#use-cases-by-credential-type)
-- [Migrating from legacy to OAuth](#migrating-from-legacy-to-oauth)
-- [OAuth scopes](#oauth-scopes)
-- [Resources](#resources)
-
-</div>
 
 BigCommerce offers two types of API accounts to developers who wish to use BigCommerce's REST APIs: store credentials and app credentials. This article describes the difference between the two, how to obtain and revoke account credentials, and the use cases for each.  It also contains a reference for available OAuth scopes, and provides a compelling list of reasons to migrate from legacy API tokens to OAuth credentials.
 
@@ -228,7 +216,7 @@ Consider whether your application should reside within the public [App Marketpla
 If you would like to update your API connection from basic authentication to OAuth, you will need to make the following changes:
 
 - Get an access token, by creating an API account within the control panel. Make sure the account has the correct scopes for the API endpoints you need to access. We recommend that you provide the minimum scopes that your application requires to function, as a good security practice.
-- If you use one of the [client libraries](https://developer.bigcommerce.com/tools-resources), follow the relevant guide within the library’s documentation for establishing an OAuth connection.
+- If you use one of the [client libraries](/tools-resources), follow the relevant guide within the library’s documentation for establishing an OAuth connection.
 - If you have created your connection, you’ll want to update your connection parameters:
 	- Where you previously used the BigCommerce store’s secure hostname, you will instead use the `https://api.bigcommerce.com` gateway URL. As an example, requests to `https://store-abc123.mybigcommerce.com/api/v2/orders/123` or `https://my-custom-store-domain.com/api/v2/orders/123` would instead go to `https://api.bigcommerce.com/stores/{store_hash}/v2/orders/123`.
 - With basic auth, you use an authentication HTTP header to authenticate your connection. With OAuth, you’ll want to use the header:
@@ -348,5 +336,5 @@ All OAuth scopes except `default` have `read_only` scopes that allow only `GET` 
 ||| [/v3/storefront/api-token-customer-impersonation](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-api-token) |
 
 ## Resources
-* [Building An App](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)
-* [Rate Limits](https://developer.bigcommerce.com/api-docs/getting-started/best-practices#best-practices_rate-limits)
+* [Building An App](/api-docs/getting-started/building-apps-bigcommerce/building-apps)
+* [Rate Limits](/api-docs/getting-started/best-practices#best-practices_rate-limits)

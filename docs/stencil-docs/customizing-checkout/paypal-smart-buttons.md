@@ -1,13 +1,6 @@
 # PayPal Smart Buttons
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Enable Smart Buttons on Your Stencil Theme](#enable-smart-buttons-on-your-stencil-theme)
-- [Enabling Smart Buttons Customization via Page Builder](#enabling-smart-buttons-customization-via-page-builder)
-- [Resources](#resources)
-
-</div> 
+ 
 
 PayPal Smart Buttons are available on Cornerstone versions 2.6.0+ for merchants who have **PayPal powered by Braintree** or **PayPal Express Checkout** enabled on their store.
 

@@ -1,18 +1,6 @@
 # Defining Global Styles
 
-<div class="otp" id="no-index">
 
-### On this page
-
-- [Configuration file](#configuration-file)
-- [Requirements and restrictions](#requirements-and-restrictions)
-- [New products example](#new-products-example)
-- [Changing page layout using local front matter](#changing-page-layout-using-local-front-matter)
-- [Retrieving specific config.json values through Sass](#retrieving-specific-configjson-values-through-sass)
-- [Adding and removing components](#adding-and-removing-components)
-- [Resources](#resources)
-
-</div>
 
 ## Configuration file
 
@@ -25,7 +13,7 @@ You can manage your theme's front-end components by configuring its `config.json
 * Provides metadata for your theme's listing in the Theme Marketplace.
 * Defines variations included in your theme.
 
-For a list of all available keys and values in `config.json`, see [Models](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties/models/configjson).
+For a list of all available keys and values in `config.json`, see [Theme Objects](/theme-objects).
 
 ## Requirements and restrictions
 

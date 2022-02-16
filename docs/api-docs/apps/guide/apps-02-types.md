@@ -1,16 +1,6 @@
 # Types of Apps
 
-<div class="otp" id="no-index">
 
-### On this page
-
-- [Installation and authentication method](#installation-and-authentication-method)
-- [Visibility](#visibility)
-- [Control panel locations](#control-panel-locations)
-- [Access type](#access-type)
-- [Next step](#next-step)
-- [Resources](#resources)
-</div>
 
 The first step when developing an app is deciding which type of app to develop. In addition to the authentication method, apps can differ by [visibility](#visibility). 
 
@@ -27,8 +17,8 @@ Single-click apps install in a few clicks and provide a GUI front end embedded i
 
 [Learn more about the installation process for single-click apps](https://developer.bigcommerce.com/api-docs/apps/guide/auth).
 
-### Connector
-True connector apps will not show up anywhere in the merchant's store control panel. Connector apps use [store-only API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#store-api-accounts) that the merchant manually creates in their store control panel's **Advanced Settings** **>** **API Accounts** view. The merchant then enters those API credentials when they configure the connector app and manually manages the app's access tokens. The merchant is responsible for revoking or changing the app's access when they stop using it, or it requests a change in the scope of its permissions. Although connector apps may seem like good solutions for the following use cases, we recommend that you handle them with a [single-click wrapper app](#single-click-wrapper) instead: 
+## Connector
+Connector apps use manual OAuth token creation instead of the single-click app flow. Store owners generate [store API credentials](/api-docs/getting-started/authentication/rest-api-authentication#revoking-store-api-credentials) manually and enter them into the app's configuration. While single-click apps are recommended, the following use cases might not be compatible:
 
 - Integrations with OAuth scopes that vary from store to store
 - Integrations that do not have user settings
@@ -69,7 +59,8 @@ There are three visibility options for apps: **Draft**, **Unlisted**, and **Publ
 </div>
 </div>
 
-## Control panel locations
+## Next steps
+[Begin app development](/api-docs/apps/guide/development).
 
 ## Access type
 
@@ -80,7 +71,7 @@ There are three visibility options for apps: **Draft**, **Unlisted**, and **Publ
 ## Resources
 
 ### Related articles
-* [Building Apps Quick Start](https://developer.bigcommerce.com/api-docs/apps/quick-start)
+* [Building Apps Quick Start](/api-docs/apps/quick-start)
 
 ### Sample apps
 * [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start)
@@ -96,7 +87,7 @@ There are three visibility options for apps: **Draft**, **Unlisted**, and **Publ
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

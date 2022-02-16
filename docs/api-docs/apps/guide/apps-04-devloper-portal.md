@@ -1,20 +1,8 @@
 # Managing Apps in the Developer Portal
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Signing in](#signing-in)
-- [Creating apps](#creating-apps)
-- [Editing apps](#editing-apps)
-- [Editing technical details](#editing-technical-details)
-- [Viewing credentials](#viewing-credentials)
-- [Submitting apps](#submitting-apps)
-- [Next step](#next-step)
-- [Resources](#resources)
 
-</div>
-
-App developers create, edit, and submit apps for approval using the [Developer Portal](https://devtools.bigcommerce.com/). In [Beginning App Development](https://developer.bigcommerce.com/api-docs/apps/guide/development) we briefly touched on how to create a draft app. In this article, we'll go over how to perform other common app management tasks in the [Developer Portal](https://devtools.bigcommerce.com/). For detailed instructions on submitting apps for approval, see [Publishing Apps](https://developer.bigcommerce.com/api-docs/apps/guide/publishing).
+App developers create, edit, and submit apps for approval using the [Developer Portal](https://devtools.bigcommerce.com/). In [Beginning App Development](/api-docs/apps/guide/development) we briefly touched on how to create a draft app. In this article, we'll go over how to perform other common app management tasks in the [Developer Portal](https://devtools.bigcommerce.com/). For detailed instructions on submitting apps for approval, see [Publishing Apps](/api-docs/apps/guide/publishing).
 
 ## Signing in
 
@@ -42,7 +30,7 @@ To create an app, do the following:
 
 ![Developer Portal](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps-04-developer-portal-01.png "Developer Portal")
 
-[Learn more about completing registration fields and submitting apps for approval](https://developer.bigcommerce.com/api-docs/apps/guide/publishing).
+[Learn more about completing registration fields and submitting apps for approval](/api-docs/apps/guide/publishing).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -61,7 +49,7 @@ Edit an app by clicking **Edit App**.
 
 ![Developer Portal](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps-04-developer-portal-01.png "Developer Portal")
 
-[Learn more about completing registration fields and submitting apps for approval](https://developer.bigcommerce.com/api-docs/apps/guide/publishing).
+[Learn more about completing registration fields and submitting apps for approval](/api-docs/apps/guide/publishing).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warnings">
@@ -80,7 +68,7 @@ Click **Edit App**, then navigate to the technical tab to edit enabled features,
 
 ![Technical Details](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps-04-developer-portal-04.png "Technical Details")
 
-[Learn more about completing registration fields and submitting apps for approval](https://developer.bigcommerce.com/api-docs/apps/guide/publishing).
+[Learn more about completing registration fields and submitting apps for approval](/api-docs/apps/guide/publishing).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -99,14 +87,14 @@ Click **View Client ID** to view an app's API credentials.
 
 ![Developer Portal](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps-04-developer-portal-01.png "Developer Portal")
 
-[Learn how to use app credentials in the app OAuth flow](https://developer.bigcommerce.com/api-docs/apps/guide/auth).
+[Learn how to use app credentials in the app OAuth flow](/api-docs/apps/guide/auth).
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
 <div class="HubBlock-content">
 
 > ### Note
-> * [OAuth Client ID is no longer required to authenticate requests to api.bigcommerce.com](https://developer.bigcommerce.com/changelog#posts/o-auth-client-id-is-no-longer-required-for-requests-to-api-bigcommerce-com).
+> * [OAuth Client ID is no longer required to authenticate requests to api.bigcommerce.com](/changelog#posts/o-auth-client-id-is-no-longer-required-for-requests-to-api-bigcommerce-com).
 
 </div>
 </div>
@@ -118,20 +106,21 @@ Submit apps for [Apps Marketplace](https://www.bigcommerce.com/apps) approval by
 
 ![Developer Portal](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps-04-developer-portal-01.png "Developer Portal")
 
-[Learn more about completing app registration fields and submitting apps for approval](https://developer.bigcommerce.com/api-docs/apps/guide/publishing).
+[Learn more about completing app registration fields and submitting apps for approval](/api-docs/apps/guide/publishing).
 
-## Next step
-* [Implement the OAuth flow](https://developer.bigcommerce.com/api-docs/apps/guide/auth).
+## Next steps
+* [Implement the OAuth flow](/api-docs/apps/guide/auth).
+* [Handle app callbacks](/api-docs/apps/guide/callbacks).
 
 ## Resources
 
 ### Related articles
 
-* [Introduction to Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
-* [Beginning App Development](https://developer.bigcommerce.com/api-docs/apps/guide/development)
-* [Implementing App OAuth](https://developer.bigcommerce.com/api-docs/apps/guide/auth)
-* [App Approval Requirements](https://developer.bigcommerce.com/api-docs/apps/guide/requirements)
-* [Publishing an App](https://developer.bigcommerce.com/api-docs/apps/guide/publishing)
+* [Introduction to Building Apps](/api-docs/apps/guide/intro)
+* [Beginning App Development](/api-docs/apps/guide/development)
+* [Implementing App OAuth](/api-docs/apps/guide/auth)
+* [App Approval Requirements](/api-docs/apps/guide/requirements)
+* [Publishing an App](/api-docs/apps/guide/publishing)
 
 ### Other resources
 

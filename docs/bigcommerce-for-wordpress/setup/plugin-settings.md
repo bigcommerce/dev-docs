@@ -2,17 +2,7 @@
 
 # Plugin Settings
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Product Sync](#product-sync)
-- [Cart Settings](#cart-settings)
-- [Theme Customizer](#theme-customizer)
-- [Navigation Menus](#navigation-menus)
-- [Reviews](#reviews)
-- [Gift Certificate Settings](#gift-certificate-settings)
-
-</div>
 
 BigCommerce settings for WordPress are found in the left admin menu in WordPress, under the BigCommerce menu item.
 

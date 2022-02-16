@@ -1,16 +1,6 @@
 # Embedded Checkout
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Creating a channel](#creating-a-channel)
-- [Creating a site](#creating-a-site)
-- [Creating a cart](#creating-a-cart)
-- [Embedding the checkout](#embedding-the-checkout)
-- [FAQ](#faq)
-- [Related resources](#related-resources)
-
-</div>
 
 Embedded Checkout lets you place BigCommerce’s Optimized One-Page checkout onto an external site. This tutorial will walk you through the sequence of API calls your application should make to create a working Embedded Checkout.
 
@@ -28,7 +18,7 @@ This article assumes you have familiarity with the following concepts:
 	- **Sites & Routes:** `Modify`
 	- **Products:** `Read Only`
 
-For more information, see [OAuth Scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+For more information, see [OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
 * The [BigCommerce JS Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js) must be accessible in the browser.
 
@@ -116,7 +106,7 @@ This returns `id` which you will use as the `site_id` in future requests. The `u
 
 ## Creating a cart
 
-To proceed to checkout, we'll need an active cart. To create one, send a `POST` request to the [Server-to-Server Cart API's](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api)  `/cart` endpoint.
+To proceed to checkout, we'll need an active cart. To create one, send a `POST` request to the [Server-to-Server Cart API's](/api-reference/cart-checkout/server-server-cart-api)  `/cart` endpoint.
 
 **`POST`**  `https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts`
 
@@ -178,9 +168,9 @@ Next, generate cart redirect URLs by sending a `POST` request to `/carts/{{cart_
 
 For some use cases, you may want your customer to log in before they can begin the checkout process.
 
-Customers can log in using the [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api#logging-in-a-customer).
+Customers can log in using the [Customer Login API](/api-docs/customers/customer-login-api#logging-in-a-customer).
 
-You will first need to use JSON Web Token Standard to create a new token. Use a [JWT library](https://jwt.io/#libraries-io) to accomplish this. For more information, see [Create JWT Using the Debugger Tool](https://developer.bigcommerce.com/api-docs/customers/customer-login-api#create-jwt-using-the-debugger-tool).
+You will first need to use JSON Web Token Standard to create a new token. Use a [JWT library](https://jwt.io/#libraries-io) to accomplish this. For more information, see [Create JWT Using the Debugger Tool](/api-docs/customers/customer-login-api#create-jwt-using-the-debugger-tool).
 
 Next, include the `embedded_checkout_url` as part of the request payload you send to BigCommerce.
 
@@ -255,9 +245,14 @@ Read more about the [JSON object](https://github.com/bigcommerce/checkout-sdk-js
 
 ### How can I work with Embedded Checkout locally?
 
-One option for working locally is to install an SSL on your local machine, and then send `https://localhost.com` as the Channel site. Use the default port 443 to be able to preview your site locally.
+You can use ngrok to test Embedded Checkout locally. 
+Steps:
+1. Run your app on localhost.
+2. Create a [ngrok](https://ngrok.com/docs#getting-started-expose) tunnel for the localhost port to your app.
+3. Set your Channel Site URL to the HTTPS URL of the ngrok tunnel.
+4. View your app from the ngrok URL.
 
-If your channel site doesn't match the URL from which you're making a request to BigCommerce, you will get a security error in the browser and the checkout will not load. Additionally, if requests to your BigCommerce store aren't served over HTTPS, you will also see an error.
+NOTE: Use https://127.0.0.1 as the Channel site URL if you do not want to use ngrok.
 
 ### Are hosted payment gateways supported with Embedded Checkout?
 At this time, you cannot embed a checkout using a hosted payment gateway. See [Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available) to determine which type of gateway you're using.
@@ -273,4 +268,4 @@ To ensure you log shoppers off from the checkout page and the headless storefron
 ## Related resources
 
 ### Endpoints
-- [Channels API reference](https://developer.bigcommerce.com/api-reference/store-management/channels/)
+- [Channels API reference](/api-reference/store-management/channels/)

@@ -1,18 +1,7 @@
 # Creating an External Installation Button
 
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Creating an install button](#creating-an-install-button)
-- [Configuring the button](#configuring-the-button)
-- [Rendering success and failure pages](#rendering-success-and-failure-pages)
-- [Handling errors](#handling-errors)
-- [Code samples](#code-samples)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
-</div>
 
 Single-click apps can be installed from outside the BigCommerce control panel. For example, an install button on your company's site that directs the merchant to download your app. This tutorial provides step-by-step instructions for creating an external install button for BigCommerce single-click apps.
 
@@ -78,9 +67,9 @@ end
 ```
 
 ## Next steps
-* [Follow best practices](https://developer.bigcommerce.com/api-docs/apps/guide/best-practices).
-* [Check requirements](https://developer.bigcommerce.com/api-docs/apps/guide/requirements).
-* [Publish your app](https://developer.bigcommerce.com/api-docs/apps/guide/publish).
+* [Follow best practices](/api-docs/apps/guid/best-practices).
+* [Check requirements](/api-docs/apps/guide/requirements).
+* [Publish your app](/api-docs/apps/guide/publish).
 
 ## Resources
 
@@ -98,7 +87,7 @@ end
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

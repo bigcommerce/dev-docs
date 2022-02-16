@@ -1,11 +1,6 @@
 # Rendering HTML with Ajax
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Rendering HTML with Ajax](#rendering-html-with-ajax)
-
-</div> 
+ 
 
 ## Rendering HTML with Ajax
 

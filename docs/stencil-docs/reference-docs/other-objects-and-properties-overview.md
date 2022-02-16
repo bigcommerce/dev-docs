@@ -1,43 +1,6 @@
 # Other Objects and Properties Overview
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Product](#product)
-- [Product Reviews](#product-reviews)
-- [Related Products](#related-products)
-- [Similar Products by Customer Views](#similar-products-by-customer-views)
-- [Product Videos](#product-videos)
-- [Compare](#compare)
-- [Download Item](#download-item)
-- [Product Other Details](#product-other-details)
-- [Category](#category)
-- [Category Products](#category-products)
-- [Category Shop by Price](#category-shop-by-price)
-- [Brand](#brand)
-- [Brand List](#brand-list)
-- [Shop by Brand](#shop-by-brand)
-- [Cart](#cart)
-- [Customer](#customer)
-- [Order Details](#order-details)
-- [Recent Items](#recent-items)
-- [Customer Wishlists](#customer-wishlists)
-- [Wishlist Details](#wishlist-details)
-- [Account Order Shipments](#account-order-shipments)
-- [Account Orders](#account-orders)
-- [Account Returns](#account-returns)
-- [Account New Return](#account-new-return)
-- [Create Account](#create-account)
-- [Shipping Addresses](#shipping-addresses)
-- [Payment Methods](#payment-methods)
-- [Edit Payment Methods](#edit-payment-methods)
-- [Add Payment Methods](#add-payment-methods)
-- [Blog](#blog)
-- [Blog Post](#blog-post)
-- [Forms](#forms)
-- [Order Confirmation Objects](#order-confirmation-objects)
-
-</div> 
+ 
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">

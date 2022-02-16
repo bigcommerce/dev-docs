@@ -1,37 +1,34 @@
 # Listening for Events
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Available webhooks](#available-webhooks)
-- [Creating webhooks](#creating-webhooks)
-- [Next step](#next-step)
-- [Resources](#resources)
 
-</div>
-
-Your app may need to be notified when specific events occur on a BigCommerce store (for example, when an order is created). Your app can programmatically subscribe to such events via [webhooks](https://developer.bigcommerce.com/api-reference/webhooks/webhooks/createwebhooks). We'll briefly introduce webhooks in this article (for visibility); to take a deeper dive, see [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/about-webhooks).
+Your app may need to be notified when specific events occur on a BigCommerce store (for example, when an order is created). Your app can programmatically subscribe to such events via [webhooks](/api-reference/webhooks/webhooks/createwebhooks). We'll briefly introduce webhooks in this article (for visibility); to take a deeper dive, see [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks).
 
 
 ## Available webhooks
 
 The following resources have webhooks events available to apps:
-* [Carts](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#cart)
-* [Cart Line Items](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#cart-line-item)
-* [Categories](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#category)
-* [Customers](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#customer)
-* [Orders](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#orders)
-* [Products](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#products)
-* [Shipments](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#shipment)
-* [SKUs](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#sku)
-* [Stores](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#store)
-* [Subscribers](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#subscriber)
+* [Carts](/api-docs/store-management/webhooks/webhook-events#cart)
 
-[Learn more about webhook events](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#orders).
+* [Cart Line Items](/api-docs/store-management/webhooks/webhook-events#cart-line-item)
+
+* [Categories](/api-docs/store-management/webhooks/webhook-events#category)
+
+* [Customers](/api-docs/store-management/webhooks/webhook-events#customer)
+
+* [Orders](/api-docs/store-management/webhooks/webhook-events#orders)
+
+* [Products](/api-docs/getting-started/webhooks/webhook-events#products)
+* [Shipments](/api-docs/getting-started/webhooks/webhook-events#shipment)
+* [SKUs](/api-docs/getting-started/webhooks/webhook-events#sku)
+* [Stores](/api-docs/getting-started/webhooks/webhook-events#store)
+* [Subscribers](/api-docs/getting-started/webhooks/webhook-events#subscriber)
+
+[Learn more about webhook events](/api-docs/getting-started/webhooks/webhook-events#orders).
 
 ## Creating webhooks
 
-To create a webhook, send a `POST` request to [/stores/{{STORE_HASH}}/v2/hooks](https://developer.bigcommerce.com/api-reference/webhooks/webhooks/createwebhooks).
+To create a webhook, send a `POST` request to [/stores/{{STORE_HASH}}/v2/hooks](/api-reference/webhooks/webhooks/createwebhooks).
 
 
 ```http
@@ -47,19 +44,19 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/webhooks/webhooks/createwebhooks#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/webhooks/webhooks/createwebhooks#requestrunner)
 
-[Learn more about creating webhooks](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks).
+[Learn more about creating webhooks](/api-docs/getting-started/webhooks/setting-up-webhooks).
 
-## Next step
-* [Design your app's user interface](https://developer.bigcommerce.com/api-docs/apps/guide/ui).
+## Next steps
+* [Design your app's user interface](/api-docs/apps/guide/ui).
 
 ## Resources
 
 ### Related articles
-* [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks)
-* [Webhooks Tutorial](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks)
-* [Webhooks Events](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events)
+* [Webhooks Overview](/api-docs/getting-started/webhooks/setting-up-webhooks)
+* [Webhooks Tutorial](/api-docs/getting-started/webhooks/setting-up-webhooks)
+* [Webhooks Events](/api-docs/getting-started/webhooks/webhook-events)
 
 ### Sample apps
 * [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start)
@@ -75,7 +72,7 @@ Accept: application/json
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

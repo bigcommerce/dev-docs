@@ -1,21 +1,9 @@
 # Introduction to Building Apps
 
-<div class="otp" id="no-index">
+Using BigCommerce's powerful APIs, SDKs, and toolkits, developers can build apps that are installable on BigCommerce stores. Once approved, apps can be sold (or made available free of charge) to all BigCommerce merchants on the [Apps Marketplace](https://www.bigcommerce.com/apps). This is the first article in a comprehensive developer's guide to building BigCommerce apps. It provides a brief, high-level introduction for developers new to the platform. If you already have experience developing for BigCommerce, feel free to [skip ahead](#next-steps) or check out the [quick start tutorial](/api-docs/apps/quick-start).
 
-### On this page
-- [About single-click apps](#about-single-click-apps)
-- [Use cases](#use-cases)
-- [Getting started](#getting-started)
-- [Next step](#next-step)
-- [Resources](#resources)
 
-</div>
-
-BigCommerce's powerful APIs, SDKs, and toolkits let developers build apps that BigCommerce merchants can install on their stores. If you'd like to sell your app or make it available free of charge, you can submit it to our Marketplace team for approval so that any BigCommerce merchant can find and install it on our [Apps Marketplace](https://www.bigcommerce.com/apps). This is the first in a series of articles intended to guide you through the process of building apps for BigCommerce stores, particularly _single-click apps_. 
-
-If you already have experience developing for BigCommerce, feel free to [skip ahead](#next-step) or check out the [quick start tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start).
-
-## About single-click apps
+## About BigCommerce apps
 
 Merchants discover, manage, and interact with single-click apps from the convenience of their stores' control panels.
 
@@ -38,28 +26,31 @@ When a merchant clicks an installed app's listing or **Launch** button in the **
 What can developers help merchants and technology partners do with BigCommerce apps?
 
 ### Integrate with business systems
-Use [BigCommerce APIs](https://developer.bigcommerce.com/api-reference) to integrate merchant stores with core business systems, including but not limited to the following:
+Use [BigCommerce APIs](/api-reference) to integrate stores with business systems such as the following:
 * [ERP systems](https://www.bigcommerce.com/apps/erp/)
 * [Order management platforms](https://www.bigcommerce.com/apps/catalog-order-management/)
 * [Accounting software](https://www.bigcommerce.com/apps/accounting-tax/)
 * [Shipping and fulfillment services](https://www.bigcommerce.com/apps/shipping-fulfillment/)
 
-[Learn more about BigCommerce's powerful APIs.](https://developer.bigcommerce.com/api-reference)
+[Learn more about BigCommerce's APIs](/api-reference).
 
 ### Coordinate external sales and marketing channels
 List and manage products on multiple [sales](https://www.bigcommerce.com/apps/sales-channels/), including marketplaces, point-of-sale systems, and both third-party and BigCommerce storefronts.  Manage channel-based pricing, external order fulfillment, and ads and social marketing placements using the [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/guide/channels-toolkit-reference).
 
-[Learn more about connecting apps to sales channels.](https://developer.bigcommerce.com/api-docs/channels/overview)
+### Connect to sales channels
+List products on external [sales channels](https://www.bigcommerce.com/apps/sales-channels/) with [Channels Toolkit](/api-docs/channels/channels-toolkit-reference).
 
-### Automate complex script management
-Programmatically add scripts with merchant-customizable variables using our [Scripts API](https://developer.bigcommerce.com/api-reference/store-management/scripts) and [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
+[Learn more about connecting apps to sales channels.](/api-docs/channels/overview).
 
-[Learn more about creating scripts](https://developer.bigcommerce.com/api-docs/store-management/scripts).
+### Add and manage scripts
+Create and manage scripts with [Scripts API](/api-reference/store-management/scripts) and [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
 
-### Design dynamic widgets
-Build [widgets](https://support.bigcommerce.com/s/article/Page-Builder#builder), or storefront content blocks, that merchants can install and configure to display store and third-party content to their customers.
+[Learn more about creating scripts](/api-docs/storefront/scripts-overview).
 
-[Learn more about creating widgets](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview).
+### Create custom widgets
+Create [widgets](https://support.bigcommerce.com/s/article/Page-Builder#builder) for merchants to install and configure.
+
+[Learn more about creating widgets](/api-docs/storefront/widgets/widgets-overview).
 
 ### Offer merchants innovative eCommerce solutions
 Harness the power of BigCommerce Provider APIs to integrate your third-party tax or shipping service into merchants' stores.
@@ -67,14 +58,22 @@ Harness the power of BigCommerce Provider APIs to integrate your third-party tax
 Learn more about our [Tax Provider](https://developer.bigcommerce.com/api-reference/providers/tax-provider-api) and [Shipping Provider](https://developer.bigcommerce.com/api-reference/providers/shipping-provider-api) APIs.
 ## Getting started
 Here's how to get started with BigCommerce development:
-1. [Create a BigCommerce sandbox store](https://developer.bigcommerce.com/api-docs/partner/getting-started/create-a-sandbox-store).
-2. [Create a Developer Portal account](https://devtools.bigcommerce.com/) to register draft apps and submit production apps for marketplace approval.
-3. [Join the Developer Community](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers) to get help from other BigCommerce developers.
-4. [Check out the Marketplace](https://www.bigcommerce.com/marketplace/) to get inspiration on what to build.
-5. [Apply to be a Partner](https://www.bigcommerce.com/partners) to get paid for your apps.
+1. [Create a BigCommerce sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store).
 
 ## Next step
 * [Learn more about different types of apps](https://developer.bigcommerce.com/api-docs/apps/guide/types)
+
+3. [Create a Developer Portal account](https://devtools.bigcommerce.com/) to register and submit apps.
+
+4. [Join the Developer Community](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers) to get help from other BigCommerce developers.
+5. [Check out the Marketplace](https://www.bigcommerce.com/marketplace/) to get inspiration on what to build.
+
+
+## Next steps
+* [Decide which type of app to build](/api-docs/apps/guide/types)
+
+* [Start building apps with Node, React, Next.js, and BigDesign](/api-docs/apps/quick-start)
+
 
 ## Resources
 
@@ -92,7 +91,7 @@ Here's how to get started with BigCommerce development:
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

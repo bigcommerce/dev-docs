@@ -1,30 +1,22 @@
 # Introduction to Headless Commerce
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Ways to implement headless commerce](#ways-to-implement-headless-commerce)
-- [Sample integration](#sample-integration)
-- [Next step](#next-step)
-- [Resources](#resources)
-
-</div>
 
 This is the first article in a comprehensive developer's guide to using BigCommerce as a commerce backend for headless storefronts. If you are not familiar with headless commerce as a concept, start by reviewing our whitepaper, [A New Era of Ecommerce: Headless Commerce](https://www.bigcommerce.com/new-era-headless-caas/), or the Help Center's [Headless Commerce Guide](https://support.bigcommerce.com/s/article/The-Headless-Approach).
 
 ## Ways to implement headless commerce
 
-If you are looking to build a headless storefront powered by a BigCommerce backend without starting from scratch, BigCommerce offers multiple starter apps and pre-built solutions to choose from. For headless storefront solutions and tools, see [Headless Integrations](https://developer.bigcommerce.com/tools-resources#headless-integrations).
+If you are looking to build a headless storefront powered by a BigCommerce backend without starting from scratch, BigCommerce offers multiple starter apps and pre-built solutions to choose from. For headless storefront solutions and tools, see [Headless Integrations](/tools-resources#headless-integrations).
 
-If you need to build a custom solution, BigCommerce has APIs and [SDKs](https://developer.bigcommerce.com/tools-resources#sdks) available to support your headless architecture. For specific use cases, see the following sections of the guide:
+If you need to build a custom solution, BigCommerce has APIs and [SDKs](/tools-resources#sdks) available to support your headless architecture. For specific use cases, see the following sections of the guide:
 
-* [Create a channel and a channel site](https://developer.bigcommerce.com/api-docs/storefronts/guide/channels)
-* [Fetch and manage product data](https://developer.bigcommerce.com/api-docs/storefronts/guide/products)
-* [Create a cart](https://developer.bigcommerce.com/api-docs/storefronts/guide/carts)
-* [Move a cart to checkout](https://developer.bigcommerce.com/api-docs/storefronts/guide/checkout)
-* [Log in a customer](https://developer.bigcommerce.com/api-docs/storefronts/guide/customers)
-* [Create an order](https://developer.bigcommerce.com/api-docs/storefronts/guide/orders)
-* [Learn about PCI compliance](https://developer.bigcommerce.com/api-docs/storefronts/guide/pci-compliance)
+* [Create a channel and a channel site](/api-docs/storefronts/guide/channels)
+* [Fetch and manage product data](/api-docs/storefronts/guide/products)
+* [Create a cart](/api-docs/storefronts/guide/carts)
+* [Move a cart to checkout](/api-docs/storefronts/guide/checkout)
+* [Log in a customer](/api-docs/storefronts/guide/customers)
+* [Create an order](/api-docs/storefronts/guide/orders)
+* [Learn about PCI compliance](/api-docs/storefronts/guide/pci-compliance)
 
 ## Sample integration
 
@@ -40,7 +32,7 @@ In the diagram below, the storefront is where the shopper interacts with product
 
 ## Next step
 
-- [Learn how to create a channel and a channel site](https://developer.bigcommerce.com/api-docs/storefronts/guide/channels)
+- [Learn how to create a channel and a channel site](/api-docs/storefronts/guide/channels)
 
 ## Resources
 

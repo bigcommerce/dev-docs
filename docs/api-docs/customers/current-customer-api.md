@@ -1,13 +1,6 @@
 # Current customer API
 
-<div class="otp" id="no-index">
 
-### On this page
-
-- [Identifying logged-in customers securely](#identifying-logged-in-customers-securely)
-- [Example JavaScript](#example-javascript)
-
-</div>
 
 ## Identifying logged-in customers securely
 
@@ -64,7 +57,7 @@ Below is an example JavaScript code snippet that will access this JWT. To test t
 
 The above JavaScript should alert the browser with a JWT token after logging into the storefront with a customer account. The JWT returned from this endpoint (example below) can be decoded on [JWT.IO](https://jwt.io/).
 
-If a shopper is browsing as a guest, BigCommerce will return a `404` response, and you will see an error message. Wrapping your script in a `{{#if customer}}` Handlebars helper will check for a logged-in customer before running the request. For more information, visit Handlebars Helpers. [Handlebars Helpers](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#if).
+If a shopper is browsing as a guest, BigCommerce will return a `404` response, and you will see an error message. Wrapping your script in a `{{#if customer}}` Handlebars helper will check for a logged-in customer before running the request. For more information, visit Handlebars Helpers. [Handlebars Helpers](/stencil-docs/reference-docs/handlebars-helpers-reference#if).
 
 **Example Logged In Customers Response**
 
