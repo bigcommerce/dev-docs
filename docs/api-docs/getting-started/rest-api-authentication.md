@@ -58,7 +58,7 @@ In this example, the store hash is `123456`. The store hash is part of most API 
 
 ![Create an API Account](https://s3.amazonaws.com/user-content.stoplight.io/6012/1536087816482 "Create an API Account")
 
-To get started making requests, see [API Requests](https://developer.bigcommerce.com/api-docs/getting-started/basics/making-requests).
+To get started making requests, see [API Requests](/api-docs/getting-started/basics/making-requests).
 
 ## Revoking or modifying store API credentials
 
@@ -116,7 +116,7 @@ To get app API credentials, create and sign in to your BigCommerce [Developer Po
 > If you delete the app, there is no way to recover the client ID and client secret.
 ### Next steps
 
-During the app installation process, your app uses the client ID and client secret to obtain an OAuth token authorized against the store installing the app. For a detailed look at this process, see [Authenticating an app](https://developer.bigcommerce.com/api-docs/apps/guide/auth).
+During the app installation process, your app uses the client ID and client secret to obtain an OAuth token authorized against the store installing the app. For a detailed look at this process, see [Authenticating an app](/api-docs/apps/guide/auth).
 
 ## Use cases by credential type
 
@@ -159,7 +159,7 @@ We recommend that you migrate from legacy API credentials to OAuth. Some benefit
 
 ### How to migrate
 
-Consider whether your application should reside within the public [App Marketplace](https://www.bigcommerce.com/apps/), where any BigCommerce merchant can quickly discover and install it. To learn more about how to set up this kind of app, see [Becoming a Partner](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner).
+Consider whether your application should reside within the public [App Marketplace](https://www.bigcommerce.com/apps/), where any BigCommerce merchant can quickly discover and install it. To learn more about how to set up this kind of app, see [Becoming a Partner](/api-docs/partner/becoming-a-partner).
 
 If you would like to update your API connection from basic authentication to OAuth, you will need to make the following changes:
 
@@ -168,9 +168,9 @@ If you would like to update your API connection from basic authentication to OAu
 - If you have created your connection, you’ll want to update your connection parameters:
 	- Where you previously used the BigCommerce store’s secure hostname, you will instead use the `https://api.bigcommerce.com` gateway URL. As an example, requests to `https://store-abc123.mybigcommerce.com/api/v2/orders/123` or `https://my-custom-store-domain.com/api/v2/orders/123` would instead go to `https://api.bigcommerce.com/stores/{store_hash}/v2/orders/123`.
 - With basic auth, you use an authentication HTTP header to authenticate your connection. With OAuth, you’ll want to use the header:
-	- X-Auth-Token header for your access token. For more information see the article [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+	- X-Auth-Token header for your access token. For more information see the article [Authentication](/api-docs/getting-started/authentication).
 
-Rate limiting of API requests works differently for OAuth API connections. To become familiar with OAuth limitations, please see the [Rate Limits](https://developer.bigcommerce.com/api-docs/getting-started/basics/best-practices#best-practices_rate-limits).
+Rate limiting of API requests works differently for OAuth API connections. To become familiar with OAuth limitations, please see the [Rate Limits](/api-docs/getting-started/basics/best-practices#best-practices_rate-limits).
 
 ## OAuth scopes
 
@@ -185,95 +185,95 @@ All OAuth scopes except `default` have `read_only` scopes that allow only `GET` 
 | Scope GUI Name | Resources  | Description |
 |-|-|-|
 | Content | store_v2_content | View and modify store content |
-||| [/v2/pages](https://developer.bigcommerce.com/api-reference/content/store-content-api) |
-||| [/v2/blog](https://developer.bigcommerce.com/api-reference/content/store-content-api) |
-||| [/v2/redirects](https://developer.bigcommerce.com/api-reference/content/store-content-api) |
+||| [/v2/pages](/api-reference/content/store-content-api) |
+||| [/v2/blog](/api-reference/content/store-content-api) |
+||| [/v2/redirects](/api-reference/content/store-content-api) |
 ||| /v3/widgets |
 ||store_v2_content_read_only| View Site Content |
-||| [/v2/pages](https://developer.bigcommerce.com/api-reference/content/store-content-api) |
-||| [/v2/blog](https://developer.bigcommerce.com/api-reference/content/store-content-api) |
-||| [/v2/redirects](https://developer.bigcommerce.com/api-reference/content/store-content-api)  |
+||| [/v2/pages](/api-reference/content/store-content-api) |
+||| [/v2/blog](/api-reference/content/store-content-api) |
+||| [/v2/redirects](/api-reference/content/store-content-api)  |
 ||| /v3/widgets |
 | Checkout Content | store_content_checkout | View and modify content on checkout pages |
-||| [/v3/scripts](https://developer.bigcommerce.com/api-reference/content/store-content-api) |
+||| [/v3/scripts](/api-reference/content/store-content-api) |
 ||store_content_checkout_read_only|View content on checkout pages|
-||| [/v3/scripts](https://developer.bigcommerce.com/api-reference/content/store-content-api)|
+||| [/v3/scripts](/api-reference/content/store-content-api)|
 | Customers | store_v2_customers | View and modify customer information |
-||| [/v2/customers](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api) |
-||| [/v2/customer_groups](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api) |
-||| [/v3/customers/subscribers](https://developer.bigcommerce.com/api-reference/customer-subscribers/subscribers-api) |
-||| [/v3/customers/subscribers/wishlist](https://developer.bigcommerce.com/api-reference/customer-subscribers/wishlist-api) |
+||| [/v2/customers](/api-reference/customer-subscribers/customers-api) |
+||| [/v2/customer_groups](/api-reference/customer-subscribers/customers-api) |
+||| [/v3/customers/subscribers](/api-reference/customer-subscribers/subscribers-api) |
+||| [/v3/customers/subscribers/wishlist](/api-reference/customer-subscribers/wishlist-api) |
 ||store_v2_customers_read_only|View customer information |
-||| [/v2/customers](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api) |
-||| [/v2/customer_groups](https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api) |
-||| [/v3/customers/subscribers](https://developer.bigcommerce.com/api-reference/customer-subscribers/subscribers-api) |
-||| [/v3/customers/subscribers/wishlist](https://developer.bigcommerce.com/api-reference/customer-subscribers/wishlist-api) |
+||| [/v2/customers](/api-reference/customer-subscribers/customers-api) |
+||| [/v2/customer_groups](/api-reference/customer-subscribers/customers-api) |
+||| [/v3/customers/subscribers](/api-reference/customer-subscribers/subscribers-api) |
+||| [/v3/customers/subscribers/wishlist](/api-reference/customer-subscribers/wishlist-api) |
 | Customers Login | store_v2_customers_login | Sign customers in to your storefront |
-||| [Access to the Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
+||| [Access to the Customer Login API](/api-docs/customers/customer-login-api)
 | Information & Settings| store_v2_information | View and modify general store information and settings |
-||| [/v2/store](https://developer.bigcommerce.com/api-reference/store-management/store-information-api/store-information/) |
-||| [/v2/time](https://developer.bigcommerce.com/api-reference/store-management/store-information-api/time-zone/) |
+||| [/v2/store](/api-reference/store-management/store-information-api/store-information/) |
+||| [/v2/time](/api-reference/store-management/store-information-api/time-zone/) |
 || store_v2_information_read_only | View general store information and settings |
-||| [/v2/store](https://developer.bigcommerce.com/api-reference/store-management/store-information-api/store-information/) |
-||| [/v2/shipping/time](https://developer.bigcommerce.com/api-reference/store-management/store-information-api/time-zone/) |
+||| [/v2/store](/api-reference/store-management/store-information-api/store-information/) |
+||| [/v2/shipping/time](/api-reference/store-management/store-information-api/time-zone/) |
 | Marketing | store_v2_marketing | View and modify marketing information |
-||| [/v2/coupons](https://developer.bigcommerce.com/api-reference/marketing/marketing-api) |
-||| [/v2/gift_certificates](https://developer.bigcommerce.com/api-reference/marketing/marketing-api) |
-||| [/v2/banners](https://developer.bigcommerce.com/api-reference/marketing/marketing-api) |
+||| [/v2/coupons](/api-reference/marketing/marketing-api) |
+||| [/v2/gift_certificates](/api-reference/marketing/marketing-api) |
+||| [/v2/banners](/api-reference/marketing/marketing-api) |
 || store_v2_marketing_read_only | View marketing information |
-||| [/v2/coupons](https://developer.bigcommerce.com/api-reference/marketing/marketing-api) |
-||| [/v2/gift_certificates](https://developer.bigcommerce.com/api-reference/marketing/marketing-api) |
-||| [/v2/banners](https://developer.bigcommerce.com/api-reference/marketing/marketing-api) |
+||| [/v2/coupons](/api-reference/marketing/marketing-api) |
+||| [/v2/gift_certificates](/api-reference/marketing/marketing-api) |
+||| [/v2/banners](/api-reference/marketing/marketing-api) |
 | Orders | store_v2_orders | View and modify orders |
-||| [/v2/orders](https://developer.bigcommerce.com/api-reference/orders/orders-api) |
-||| [/v2/order_statuses](https://developer.bigcommerce.com/api-reference/orders/orders-api) |
+||| [/v2/orders](/api-reference/orders/orders-api) |
+||| [/v2/order_statuses](/api-reference/orders/orders-api) |
 || store_v2_orders_read_only | View orders |
-||| [/v2/orders](https://developer.bigcommerce.com/api-reference/orders/orders-api) |
-||| [/v2/order_statuses](https://developer.bigcommerce.com/api-reference/orders/orders-api) |
+||| [/v2/orders](/api-reference/orders/orders-api) |
+||| [/v2/order_statuses](/api-reference/orders/orders-api) |
 | Order Transactions | store_v2_transactions | View and modify order transactions |
-||| [/v3/orders/{id}/transactions](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api) |
+||| [/v3/orders/{id}/transactions](/api-reference/orders/orders-transactions-api) |
 || store_v2_transactions_read_only | View order transactions |
-||| [/v3/orders/{id}/transactions](https://developer.bigcommerce.com/api-reference/orders/orders-transactions-api) |
+||| [/v3/orders/{id}/transactions](/api-reference/orders/orders-transactions-api) |
 | Create Payments  | store_payments_access_token_create | Process Payments |
-||| [/payments/access_tokens](https://developer.bigcommerce.com/api-reference/payments/payments-create-payment-token-api)|
+||| [/payments/access_tokens](/api-reference/payments/payments-create-payment-token-api)|
 | Get Payment Methods | store_payments_methods_read | Get Order Payment Methods |
-||| [/payments](https://developer.bigcommerce.com/api-reference/payments/payments-process-payments)|
+||| [/payments](/api-reference/payments/payments-process-payments)|
 | Products | store_v2_products | View and modify products, brands, categories and other product information. |
-||| [/v3/catalog](https://developer.bigcommerce.com/api-reference/catalog/catalog-api) |
-||| [/v3/pricelists](https://developer.bigcommerce.com/api-reference/price-lists/pricelists-api) |
+||| [/v3/catalog](/api-reference/catalog/catalog-api) |
+||| [/v3/pricelists](/api-reference/price-lists/pricelists-api) |
 || store_v2_products_read_only | View products |
-||| [/v3/catalog](https://developer.bigcommerce.com/api-reference/catalog/catalog-api) |
-||| [/v3/pricelists](https://developer.bigcommerce.com/api-reference/price-lists/pricelists-api) |
+||| [/v3/catalog](/api-reference/catalog/catalog-api) |
+||| [/v3/pricelists](/api-reference/price-lists/pricelists-api) |
 | Themes | store_themes_manage | View and modify themes |
-||| [/v3/themes](https://developer.bigcommerce.com/api-reference/themes/themes-api) |
+||| [/v3/themes](/api-reference/themes/themes-api) |
 || store_themes_read_only | View themes |
-||| [/v3/themes](https://developer.bigcommerce.com/api-reference/themes/themes-api) |
+||| [/v3/themes](/api-reference/themes/themes-api) |
 | Carts | store_cart | View and Modify carts |
-||| [/v3/carts](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api) |
+||| [/v3/carts](/api-reference/cart-checkout/storefront-cart-api) |
 || store_cart_read_only | View Carts |
-||| [/v3/carts](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api) |
+||| [/v3/carts](/api-reference/cart-checkout/storefront-cart-api) |
 | Checkouts | store_checkout | View and modify a checkout |
-||| [/v3/checkouts](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api) |
+||| [/v3/checkouts](/api-reference/cart-checkout/storefront-checkout-api) |
 || store_checkout_read_only | View checkout content |
-||| [/v3/checkouts](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api) |
+||| [/v3/checkouts](/api-reference/cart-checkout/storefront-checkout-api) |
 | Sites & Routes | store_sites | View and modify sites and routes |
-||| [/v3/channels/{channel_id}/site](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api) |
-||| [/v3/sites/{site_id}/routes](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api) |
+||| [/v3/channels/{channel_id}/site](/api-reference/cart-checkout/sites-routes-api) |
+||| [/v3/sites/{site_id}/routes](/api-reference/cart-checkout/sites-routes-api) |
 || store_sites_read_only | View external storefronts with Non-BigCommerce URLs |
-||| [/v3/channels/{channel_id}/site](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api) |
-||| [/v3/sites/{site_id}/routes](https://developer.bigcommerce.com/api-reference/cart-checkout/sites-routes-api) |
+||| [/v3/channels/{channel_id}/site](/api-reference/cart-checkout/sites-routes-api) |
+||| [/v3/sites/{site_id}/routes](/api-reference/cart-checkout/sites-routes-api) |
 | Channel Settings | store_channel_settings | View and modify a list of channels |
-||| [/v3/channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) |
+||| [/v3/channels](/api-reference/cart-checkout/channels-listings-api) |
 || store_channel_settings_read_only | View a list of channels |
-||| [/v3/channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) |
+||| [/v3/channels](/api-reference/cart-checkout/channels-listings-api) |
 | Channel Listings | store_channel_listings | View and modify a list of all channel listings for a particular channel |
-||| [/v3/channels/listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) |
+||| [/v3/channels/listings](/api-reference/cart-checkout/channels-listings-api) |
 || store_channel_listings_read_only | View a list of all channel listings for a particular channel |
-||| [/v3/channels/listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) |
+||| [/v3/channels/listings](/api-reference/cart-checkout/channels-listings-api) |
 | Storefront API Tokens | store_storefront_api | Create a storefront API token |
-||| [/v3/storefront/api-token](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-api-token)
+||| [/v3/storefront/api-token](/api-reference/cart-checkout/storefront-api-token)
 | Storefront API Customer Impersonation Tokens | store_storefront_api_customer_impersonation | Create a storefront API token that allows for customer impersonation |
-||| [/v3/storefront/api-token-customer-impersonation](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-api-token) |
+||| [/v3/storefront/api-token-customer-impersonation](/api-reference/cart-checkout/storefront-api-token) |
 
 ## Resources
 * [Building An App](/api-docs/getting-started/building-apps-bigcommerce/building-apps)
