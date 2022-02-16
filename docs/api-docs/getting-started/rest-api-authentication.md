@@ -138,8 +138,8 @@ During the app installation process, your app uses the client ID and client secr
 
 <!-- theme: error -->
 > #### Legacy API Accounts
-### Legacy API Accounts
-> As of July 31, 2018, new BigCommerce stores are no longer able to create legacy API Accounts (accounts using HTTP basic auth) within their control panels. Existing legacy API Accounts will continue to work until further notice, but we strongly recommend migrating to OAuth as soon as possible.
+> As of February 2022, BigCommerce no longer issues legacy API Accounts (accounts using HTTP basic auth) to new stores. Starting July 2018, new BigCommerce stores were no longer able to create legacy API Accounts (accounts using HTTP basic auth) within their control panels. 
+> We strongly recommend migrating to OAuth as soon as possible. Existing legacy API Accounts will continue to work until further notice.
 
 ### Benefits of migrating to OAuth:
 
