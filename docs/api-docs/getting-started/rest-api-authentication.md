@@ -29,18 +29,10 @@ The **API path** for your store will not change, but it will have `/v3/` or `/v2
 
 The **client name** is for your convenience and is not currently required to send or receive requests.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
 
 <!-- theme: warning -->
-
-### Be careful with `client_secret`s
+> #### Be careful with client secrets
 > Although you never want to send your `client_id`, `client_secret`, or `access_token` in plain text or an unencrypted payload, **be particularly careful with the `client_secret`.**  An attacker can use your `client_secret` to both sign and decrypt JWTs sent between you and BigCommerce.
-
-</div>
-</div>
-</div>
 
 ## Obtaining store API credentials
 
@@ -59,18 +51,10 @@ The API path will look something like this:
 
 In this example, the store hash is `123456`. The store hash is part of most API requests.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Save your credentials
+> #### Save your credentials
 > There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before exiting this screen.
 
-</div>
-</div>
-</div>
 
 ![Create an API Account](https://s3.amazonaws.com/user-content.stoplight.io/6012/1536087816482 "Create an API Account")
 
@@ -85,18 +69,9 @@ If the `client_id` and `client_secret` are compromised, or the account has becom
 ### Invalidating a store API access token
 ### Deleting a store API account
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
-
 <!-- theme: error -->
-
-### Delete carefully
+> #### Delete carefully
 > Deleting an account cannot be undone, so be sure before clicking the trash can icon. You can also use the checkboxes on the left side to delete multiple accounts at once – but be especially careful when using this option.
-
-</div>
-</div>
-</div>
 
 To delete a store API account:
 1. Sign in to the store, using the store owner’s username and password.
@@ -104,8 +79,6 @@ To delete a store API account:
 3. In the **Actions** column on the right, click the trash can icon.
 
 ![Revoking API Credentials](https://s3.amazonaws.com/user-content.stoplight.io/6012/1537388177603 "Revoking API Credentials")
-
-
 
 ## Obtaining app API credentials
 
@@ -130,34 +103,17 @@ To get app API credentials, create and sign in to your BigCommerce [Developer Po
 
 8. Copy your client ID and client secret. The client ID and client secret can be accessed by clicking **View Client ID**.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-### Client IDs and client secrets in apps
+> #### Client IDs and client secrets in apps
 > The client ID value uniquely identifies your app. However, you no longer need to pass it in the header of all your requests to the API.
 > You only need to pass the client secret value once, during the app installation sequence. Thereafter, BigCommerce uses it to sign payloads in load, uninstall, and remove user requests, and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.
-</div>
-</div>
-</div>
+
 
 ![Client ID and client secret](https://s3.amazonaws.com/user-content.stoplight.io/6012/1537390135692 "Client ID and client secret")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Delete apps carefully
+> #### Delete apps carefully
 > If you delete the app, there is no way to recover the client ID and client secret.
-
-</div>
-</div>
-</div>
-
-
 ### Next steps
 
 During the app installation process, your app uses the client ID and client secret to obtain an OAuth token authorized against the store installing the app. For a detailed look at this process, see [Authenticating an app](https://developer.bigcommerce.com/api-docs/apps/guide/auth).
@@ -180,18 +136,10 @@ During the app installation process, your app uses the client ID and client secr
 
 ## Migrating from legacy to OAuth
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
-
 <!-- theme: error -->
-
+> #### Legacy API Accounts
 ### Legacy API Accounts
 > As of July 31, 2018, new BigCommerce stores are no longer able to create legacy API Accounts (accounts using HTTP basic auth) within their control panels. Existing legacy API Accounts will continue to work until further notice, but we strongly recommend migrating to OAuth as soon as possible.
-
-</div>
-</div>
-</div>
 
 ### Benefits of migrating to OAuth:
 
@@ -230,17 +178,9 @@ Scope limits ability to read or write to data. Set the scopes to the minimum lev
 
 All OAuth scopes except `default` have `read_only` scopes that allow only `GET` and `HEAD` requests.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
 > Webhooks are accessible from the default scope that is available when API Accounts are created.
 
-</div>
-</div>
-</div>
 
 | Scope GUI Name | Resources  | Description |
 |-|-|-|
