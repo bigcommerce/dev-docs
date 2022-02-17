@@ -7,7 +7,7 @@ This article will address using both [Open Source Checkout](https://github.com/b
 ## Obtaining the JavaScript loader file
 Custom checkouts must have a single JS loader file. The first step to using a custom checkout is generating this file. The loader file must be responsible for the following:
 
-* Loading all the required assets, including CSS files
+* Loading all the required assets, including all CSS files no matter the location
 * Running the app
 
 ## Developing a custom checkout
