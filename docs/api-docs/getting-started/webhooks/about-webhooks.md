@@ -157,7 +157,7 @@ To ensure webhook callback requests are secure, BigCommerce takes the following 
 * Webhook payloads are sent over **TLS-encrypted** connection.
 * Create Webhook requests to accept an optional header object which can be used to authenticate callbacks requests.
 
-**POST requests that includes header object**
+**POST request that includes header object**
 
 ```json
 {
