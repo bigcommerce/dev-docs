@@ -1,4 +1,4 @@
-# Authenticating BigCommerce's REST APIs
+# Guide to OAuth API Accounts for REST Endpoints
 
 
 
@@ -120,7 +120,7 @@ During the app installation process, your app uses the client ID and client secr
 
 ## Use cases by credential type
 
-|  | App API Credentials | Store API Credentials |
+| Use Case | App API Credentials | Store API Credentials |
 |:---|:---:|:---:|
 | From Developer Portal | **x** | |
 | From Store Control Panel | | **x** |
@@ -141,7 +141,7 @@ During the app installation process, your app uses the client ID and client secr
 > As of February 2022, BigCommerce no longer issues legacy API Accounts (accounts using HTTP basic auth) to new stores. Starting July 2018, new BigCommerce stores were no longer able to create legacy API Accounts (accounts using HTTP basic auth) within their control panels. 
 > We strongly recommend migrating to OAuth as soon as possible. Existing legacy API Accounts will continue to work until further notice.
 
-### Benefits of migrating to OAuth:
+### Benefits of migrating to OAuth
 
 We recommend that you migrate from legacy API credentials to OAuth. Some benefits include the following:
 
@@ -209,7 +209,7 @@ All OAuth scopes except `default` have `read_only` scopes that allow only `GET` 
 ||| [/v3/customers/subscribers](/api-reference/customer-subscribers/subscribers-api) |
 ||| [/v3/customers/subscribers/wishlist](/api-reference/customer-subscribers/wishlist-api) |
 | Customers Login | store_v2_customers_login | Sign customers in to your storefront |
-||| [Access to the Customer Login API](/api-docs/customers/customer-login-api)
+||| [Access to the Customer Login API](/api-docs/storefront/customer-login-api)
 | Information & Settings| store_v2_information | View and modify general store information and settings |
 ||| [/v2/store](/api-reference/store-management/store-information-api/store-information/) |
 ||| [/v2/time](/api-reference/store-management/store-information-api/time-zone/) |
@@ -271,9 +271,9 @@ All OAuth scopes except `default` have `read_only` scopes that allow only `GET` 
 || store_channel_listings_read_only | View a list of all channel listings for a particular channel |
 ||| [/v3/channels/listings](/api-reference/cart-checkout/channels-listings-api) |
 | Storefront API Tokens | store_storefront_api | Create a storefront API token |
-||| [/v3/storefront/api-token](/api-reference/cart-checkout/storefront-api-token)
+||| [/v3/storefront/api-token](/api-reference/store-management/tokens/createtoken)
 | Storefront API Customer Impersonation Tokens | store_storefront_api_customer_impersonation | Create a storefront API token that allows for customer impersonation |
-||| [/v3/storefront/api-token-customer-impersonation](/api-reference/cart-checkout/storefront-api-token) |
+||| [/v3/storefront/api-token-customer-impersonation](/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation) |
 
 ## Resources
 * [Building An App](/api-docs/getting-started/building-apps-bigcommerce/building-apps)
