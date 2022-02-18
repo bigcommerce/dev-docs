@@ -322,7 +322,7 @@ Accept: application/json
 
 You can create multiple shipments for orders, and each shipment can have a different `order_address_id`.
 
-```http
+```http title="Example 1: order_address_id"
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v2/orders/{{order_id}}/shipments
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -339,8 +339,8 @@ Accept: application/json
   ]
 }
 ```
-
-```http
+&nbsp;
+```http title="Example 2: different order_address_id"
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v2/orders/{{order_id}}/shipments
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json

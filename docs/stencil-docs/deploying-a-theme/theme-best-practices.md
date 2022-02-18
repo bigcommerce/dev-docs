@@ -1,7 +1,5 @@
 # Theme Development Best Practices Tutorial
 
-
-
 In this tutorial, you will learn the correct way to import theme images and inject theme variables. Also, you will learn how to improve theme designs using [Lighthouse](https://developers.google.com/web/tools/lighthouse) and [accessibility best practices](/stencil-docs/theme-accessibility).
 
 ## Importing images
@@ -10,7 +8,7 @@ There are two ways to import images. The steps below describe the quickest and e
 2. Add images to the `/content` directory.
 3. Upload the images using a WebDAV client. You can access the images within the theme using the `cdn` Handlebars helper as follows:
 
-```json
+```handlebars title="cdn helper"
 {{cdn "webdav:/img/image.jpg"}}
 ```
 The WebDAV import option allows you to upload images in bulk. However, we recommend that you only select the specific files needed. Importing the entire markup folder or unessential files can affect page load time.
@@ -33,15 +31,15 @@ You can then use the `{{jsContext}}` Handlebars helper to access a stringified J
 
 The code example below uses `{{inject}}` and `{{jsContext}}` to log the product name to your browser's console when added to Cornerstone's `product.html` file: 
 
-```javascript
+```handlebars title="product.html" lineNumbers
 {{inject "myProductName" product.title}}
 
 <script>
-// Note the lack of quotes around the jsContext handlebars helper, it becomes a string automatically.
-var jsContext = JSON.parse({{jsContext}});
-/* jsContext would output "{\"myProductName\": \"Sample Product\"}" which can feed directly into
-your JavaScript. */
-console.log(jsContext.myProductName); // Will output: Sample Product
+    console.log({{jsContext}}); //type: string
+    // {{jsContext}} outputs the string {"myProductName": "Sample Product"}
+    console.log(jsContext); //type: object
+    console.log(jsContext.myProductName)
+    // Will output: Sample Product
 </script>
 ```
 
@@ -111,17 +109,15 @@ To improve performance, let's start by measuring usused JavaScript. In Chrome De
 
 In addition to removing unused code, you can minify, compress, and refactor CSS and JavaScript files by removing line breaks, whitespace, and comments.
 
-**Minification example**
-
-```css
+```css title="Example, Part 1: Not minified" lineNumbers
 .element-class {
 padding: 1px 5px 1px 5px;
 font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, 
     Bitstream Vera Sans Mono, Courier New, monospace, serif;
 background-color: #eeeeee;}
 ```
-
-```css
+&nbsp;
+```css title="Example, Part 2: Minified" lineNumbers
 .element-class{padding: 1px 5px 1px 5px;font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;background-color: #eee;}
 ```
 

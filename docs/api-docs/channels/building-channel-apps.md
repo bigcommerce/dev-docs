@@ -229,8 +229,7 @@ Accept: application/json
 
 <!-- theme: info -->
 > #### Note
->
-> - If the external channel does not have a concept of customers, an order can be created with a `customer_id` of `0` (this value is used for "guest" shoppers).
+> If the external channel does not have a concept of customers, an order can be created with a `customer_id` of `0` (this value is used for "guest" shoppers).
 
 
 
