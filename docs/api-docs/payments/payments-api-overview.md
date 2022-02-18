@@ -275,7 +275,7 @@ Content-Type: application/json
       "cardholder_name": "BP",
       "expiry_month": 12,
       "expiry_year": 2020,
-      "verification_value": "411"
+      "verification_value": "411" // card CVV/CVC
     },
     "payment_method_id": "authorizenet.card",
     "save_instrument": true
