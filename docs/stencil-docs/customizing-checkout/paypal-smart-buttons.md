@@ -11,14 +11,8 @@ Merchants will have the ability to customize some style aspects of the PayPal pa
 
 Smart Buttons are included on Cornerstone versions 2.6.0+. If your theme does not already include Smart Buttons, append the `paymentbuttons` settings to the _Settings_ object within your <span class="fn">config.json</span> file. See the code sample below.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">addition of `payment buttons` to "settings" object</div>
-    </div><div class="HubBlock-header-subtitle">config.json</div>
-</div>
-
 <!--
-title: "addition of `payment buttons` to "settings" object"
+title: "addition of paymentbuttons to 'settings' object"
 subtitle: "config.json"
 lineNumbers: true
 -->
@@ -62,12 +56,6 @@ lineNumbers: true
 ## Enabling Smart Buttons Customization via Page Builder
 
 Merchants who enable PayPal powered by Braintree and PayPal Express Checkout can also customize PayPal Smart Buttons via Page Builder. As a theme developer, you can enable PayPal Smart Buttons customization via [Page Builder](/stencil-docs/stencil-theme-editor/schema-json-metadata), by appending the following object to the <span class="fn">schema.json</span> file:
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Addition to schema.json file in order to enable Page Builder customization</div>
-    </div><div class="HubBlock-header-subtitle">schema.json</div>
-</div>
 
 <!--
 title: "Addition to schema.json file in order to enable Page Builder customization"

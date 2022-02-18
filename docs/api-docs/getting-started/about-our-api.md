@@ -140,14 +140,8 @@ The priority in which you can process these methods are:
 ### Request Structure
 The body of a JSON request is an object containing a set of key-value pairs. A simple representation of a product object is:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
-title: ""
+title: "Example JSON request body"
 subtitle: ""
 lineNumbers: true
 -->

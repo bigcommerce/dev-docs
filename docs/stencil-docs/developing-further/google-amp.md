@@ -29,42 +29,28 @@ Ensure the Google Analytics ID has been added in the control panel. This is what
 
 In the `/amp/category.html`, `layout/amp.html` and `amp/product.html` template files replace `theme_settings` with `settings`.
 
-Example: In `layout/amp.html` (referenced below) replace `theme_settings.amp_analytics_id` with
-`settings.amp_analytics_id`.
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">templates/layout/amp.html</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
-title: "templates/layout/amp.html"
-subtitle: ""
+title: "Example replacement of amp_analytics_id property"
+subtitle: "templates/layout/amp.html"
 lineNumbers: true
 -->
 
 ```js
 {{{snippet 'htmlhead'}}}
-         <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
-         <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
-			  {{#if settings.amp_analytics_id}}
-         			<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-         {{/if}}
-         {{#block "amp-scripts"}}{{/block}}
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    {{#if settings.amp_analytics_id}}
+        <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    {{/if}}
+    {{#block "amp-scripts"}}{{/block}}
 ```
 
 In [config.json](https://github.com/bigcommerce/cornerstone/blob/master/config.json) (referenced below) make sure `google_amp` is still in the features array. See below for code snippet.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">config.json</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
-title: "config.json"
-subtitle: ""
+title: "Ensure google_amp appears in the 'features' array"
+subtitle: "config.json"
 lineNumbers: true
 -->
 

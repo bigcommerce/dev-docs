@@ -133,16 +133,16 @@ Get customer address by name and company on V2:
 V3 Customers `POST` and `PUT` requests require an array object.
 
 <!--
-title: "Update a Customer V3"
+title: "Example, Update a customer V3"
 subtitle: "/customer"
 lineNumbers: true
 -->
 
-**Example Update a Customer (V3)**  
 
+
+
+```http
 `/PUT https://api.bigcommerce.com/stores/{store_hash}/v3/customers`
-
-```json
 [
   {
     "id": 12,

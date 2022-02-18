@@ -37,15 +37,10 @@ Next, create the template HTML files, and then place them in the appropriate `te
 
 To test your custom templates locally, you must edit your `.stencil` or `config.stencil.json` file (if using Stencil V3.1 release or later) to create mappings between each local template and a corresponding URL. Within the `.stencil` file or `config.stencil.json` file, look for the following section:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
-title: ""
-subtitle: ""
+title: "customLayouts properties"
+subtitle: "config.stencil.json"
 lineNumbers: true
 -->
 
@@ -60,14 +55,8 @@ lineNumbers: true
 
 In this section, you would populate keys to create mappings. As a simple example, assume that you have a product custom template named alternate-product.html, and you want to see that template locally at the URL: http://localhost:3000/test-url/. In this case, you must populate the product key as follows:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
-title: ""
+title: "Populate product key"
 subtitle: ""
 lineNumbers: true
 -->
@@ -82,14 +71,9 @@ lineNumbers: true
 
 Here is a more-complete example in which the brand, page, and category keys are also populated:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
-title: ""
+title: "Populated brand, page, and category keys"
 subtitle: ""
 lineNumbers: true
 -->
@@ -136,19 +120,14 @@ The requirements and options for the `.stencil` or `config.stencil.json` (if usi
 ### Why these URL Requirements?
 When you create a local custom template page for products, you expect that page to have access to all Stencil product objects. However, the server cannot readily determine the page type of each local custom template. So we give it a hint by instructing the server to look at the page type of the URL where you mapped the template.
 
-In the above .stencil or `config.stencil.json` (if using Stencil V3.1 release or later) configuration example’s final entry, the server will look at the URL /custom‑category/ within the store, deduce that the page type is category, and return a category context to Stencil CLI. This allows Stencil CLI to properly display the page in the browser when you visit http://localhost:3000/custom‑category/ locally, or when shoppers visit the corresponding public store page.
+In the above `.stencil` or `config.stencil.json` (if using Stencil V3.1 release or later) configuration example’s final entry, the server will look at the URL `/custom‑category/` within the store, deduce that the page type is category, and return a category context to Stencil CLI. This allows Stencil CLI to properly display the page in the browser when you visit `http://localhost:3000/custom‑category/` locally, or when shoppers visit the corresponding public store page.
 
 ### Mapping Multiple URLs
 Beyond the single URL mapped to each template in the above examples, you have the option of mapping an array of URLs to each template. This is shown in the following example for the product template:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
-title: ""
+title: "Map multiple URLs"
 subtitle: ""
 lineNumbers: true
 -->

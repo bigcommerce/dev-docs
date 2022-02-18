@@ -108,8 +108,8 @@ Rather than polling endpoints, get notified when updates occur by subscribing to
 
 Add BigCommerce's JavaScript SDK to your single-click app's front-end to prevent users from getting logged out of the control panel while using your app. To do so, reference the following script in your app's client-side code:
 
-```html
-https://cdn.bigcommerce.com/jssdk/bc-sdk.js
+```javascript
+      https://cdn.bigcommerce.com/jssdk/bc-sdk.js
 ```
 
 To perform some action when a logout occurs, specify an `onLogout` callback:

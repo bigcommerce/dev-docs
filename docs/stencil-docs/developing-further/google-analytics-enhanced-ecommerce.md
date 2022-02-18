@@ -34,16 +34,10 @@ If you would like to implement data attributes on your custom theme and do not a
 
 1. Open your local copy of your theme and navigate to the theme’s <span class="fn">cornerstone/config.json</span> file.
 
-2. In the config.json file, navigate to the features array. There should be a property in this array called `enhanced ecommerce`. If the `enhanced ecommerce` property is not present in the features array, add it. The features object should then look similar to the image below.
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Enhanced ECommerce Feature</div>
-    </div><div class="HubBlock-header-subtitle">config.json</div>
-</div>
+2. In the `config.json` file, navigate to the features array. There should be a property in this array called `enhanced ecommerce`. If the `enhanced ecommerce` property is not present in the features array, add it. The features object should then look similar to the image below.
 
 <!--
-title: "Enhanced ECommerce Feature"
+title: "Enhanced eCommerce feature"
 subtitle: "config.json"
 lineNumbers: true
 -->
@@ -98,11 +92,6 @@ See [Pull Request #1377](https://github.com/bigcommerce/cornerstone/pull/1377/co
 
 You can see a data attribute implemented in the HTML form tag in the code sample below:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Data Attribute HTML</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
 title: "Data Attribute HTML"
@@ -110,7 +99,7 @@ subtitle: ""
 lineNumbers: true
 -->
 
-```html
+```handlebars
 <form action="{{urls.compare}}" method='POST' data-list-name="Brand: {{brand.name}}" data-product-compare>
     {{#if theme_settings.product_list_display_mode '===' 'grid'}}
         {{> components/products/grid products=brand.products show_compare=brand.show_compare theme_settings=theme_settings event="list"}}

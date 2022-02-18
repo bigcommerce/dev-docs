@@ -17,14 +17,9 @@ First, ensure you have loaded the `stencil-utils` package with the following com
 European websites must notify users of cookies to comply with European Union law.
 The following code implements a hook that will alert shoppers that the website uses cookies.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
-title: ""
+title: "Example cookie notification hook"
 subtitle: ""
 lineNumbers: true
 -->
@@ -54,15 +49,10 @@ A theme would listen for the `cookie-privacy-notification` event to override the
 
 In the following code snippet from Cornerstone in [templates/components/products/product-view.html](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/products/product-view.html), note the data tag named `data‑cart‑item‑add`:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
-title: ""
-subtitle: ""
+title: "data‑cart‑item‑add in Cornerstone"
+subtitle: "templates/components/products/product-view.html"
 lineNumbers: true
 -->
 
@@ -73,14 +63,9 @@ lineNumbers: true
 
 This data tag enables the emission of the `cart‑item‑add` event in this next snippet:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
-title: ""
+title: "Emitter, cart‑item‑add event"
 subtitle: ""
 lineNumbers: true
 -->

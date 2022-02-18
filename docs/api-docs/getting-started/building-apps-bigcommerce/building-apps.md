@@ -31,12 +31,6 @@ We recommend that you add BigCommerce’s JavaScript SDK to your Single-Click Ap
 
 Optionally, you can pass a logout callback function within the initialization call:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Logout Callback</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
 title: "Logout Callback"
 subtitle: ""
@@ -159,11 +153,6 @@ Include values for each of the following parameters.
 
 **Examples – Initial Installation**
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">HTTP</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
 title: "HTTP"
@@ -179,11 +168,6 @@ Content-Length: 186
 client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&code=qr6h3thvbvag2ffq&scope=store_v2_orders&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/{STORE_HASH}
 ```
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">PHP</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
 title: "PHP"
@@ -212,12 +196,6 @@ $token = $response->access_token;
 
 The following examples request a scope of store_v2_products, in addition to the initially requested scope of store_v2_orders:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">HTTP</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
 title: "HTTP"
 subtitle: ""
@@ -232,11 +210,6 @@ Content-Length: 186
 client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&scope=store_v2_orders+store_v2_products&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/{STORE_HASH}
 ```
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">PHP</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
 title: "PHP"
@@ -275,12 +248,6 @@ The POST response will include a JSON object containing the permanent OAuth toke
 | email | string | The user’s email address. Store this value to identify the user at load and uninstall. |
 | context | string | The store hash, as well as a base path: `stores/{_store_hash_}` |
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Initial Installation</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
 title: "Initial Installation"
 subtitle: ""
@@ -300,12 +267,6 @@ lineNumbers: true
 ```
 
 Update requests will refresh the payload’s access_token and scope values. Here again, the following example requests a scope of store_v2_products, in addition to the initially requested scope of store_v2_orders:
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Updating Scopes</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
 title: "Updating Scopes"
@@ -420,11 +381,7 @@ To verify the payload, you need to sign the payload using your client secret, an
 > To limit the vulnerability of your app to timing attacks, we recommend using a constant time-string comparison function, rather than the equality operator, to check that the signatures match.
 
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">verifySignedRequest</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
+
 
 <!--
 title: "verifySignedRequest"
@@ -457,11 +414,7 @@ function verifySignedRequest($signedRequest)
 > !hash_equals is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: https://packagist.org/packages/realityking/hash_equals. BigCommerce’s sample app hello-world-app-php-silex app does this automatically.
 
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">verify()</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
+
 
 <!--
 title: "verify()"
@@ -527,11 +480,6 @@ Use the store information endpoint to identify the store to which the request pe
 | store_hash | string |Unique identifier for the store. |
 | timestamp | float | The time (in Unix time) when the callback was generated.|
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">User Information</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
 <!--
 title: "User Information"

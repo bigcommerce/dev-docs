@@ -1,12 +1,8 @@
 # How Currencies Work
 
-
-
 This article details how you can surface currencies throughout BigCommerce APIs, user interfaces, and storefront components. It assumes you're already familiar with the core concepts behind BigCommerce's multi-currency settings. For a high-level overview and instructions on how to add currencies to a BigCommerce store, see [Currencies Overview](/api-docs/catalog/currencies/currencies-overview).
 
 ## Catalog pricing
-
-<a id="catalog-pricing"></a>
 
 When you configure multiple currencies, BigCommerce will convert the catalog default currency price of items into the selected non-default currency on the storefront. It does not change the default catalog pricing of products. 
 
@@ -49,7 +45,6 @@ BigCommerce does not dynamically convert currency. To convert, the merchant will
 
 ## Price Lists
 
-<a id="price-lists"></a>
 
 You can create price lists in any currency setup in the store. Both transactional and display currencies are available in price lists. BigCommerce does not copy price records from one currency to another; you must create the price record for each currency.
 
@@ -63,15 +58,12 @@ You can create price lists in any currency setup in the store. Both transactiona
 
 ## Price list modifiers
 
-<a id="price-list-modifiers"></a>
 
 Modifiers use the auto conversion rate. For example, if the keychain is €30, and there's a modifier for engraving, the price is: €30 + ($5 * auto conversion rate).
 
 The above example assumes a default currency of USD.
 
 ## Price records
-
-<a id="multi-currency-price-records"></a>
 
 To create a price record in multiple currencies via API, send a `POST` request to the [Set Price Records](/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection) endpoint -- as long as the currency is available in the store, you can set multiple currencies in the request.
 
@@ -155,8 +147,6 @@ To create a price record in multiple currencies via API, send a `POST` request t
 
 ## S-2-S Cart and Checkout
 
-<a id="server-to-server-cart-and-checkout"></a>
-
 You can set up the cart currency when creating a [Server to Server Cart](/api-reference/cart-checkout/server-server-cart-api/cart/createacart). You can set up the currency in the [control panel](#multi-currency_setup) first. 
 
 **Example POST Create a Cart** 
@@ -187,8 +177,6 @@ You can set up the cart currency when creating a [Server to Server Cart](/api-re
 The API will return the item price and the currency of the item price in the store’s current transactional currency. 
 
 ## Storefront Cart and Checkout
-
-<a id="storefront-cart-and-checkout"></a>
 
 In the example below, the store’s default currency is `USD`, and the item is `$7.95`. Since the shopper has switched to Euros as the transactional currency, we now convert the line item price and taxes to Euros:
 
@@ -255,8 +243,6 @@ To change the transactional currency of their cart, the shopper will need to emp
 
 ## Orders
 
-<a id="orders"></a>
-
 **Details:**
 * The order history page shows the currency of the transaction.
 * Invoices show item prices and the currency of the transaction.
@@ -297,8 +283,6 @@ To change the transactional currency of their cart, the shopper will need to emp
 
 ## Promotions
 
-<a id="promotions"></a>
-
 Coupons are available in the default currency only. Attempting to use a coupon with a different currency will return an invalid coupon error. If a customer is checking out in the default currency and then changes to a different currency, the coupon code will still work in the cart. The coupon code works because once you create the cart, it is “locked” into the default currency until being deleted.
 
 You can create cart level discounts in your currency of choice. The shopper must have the currency selected for the promotion to apply.
@@ -307,16 +291,12 @@ You can create cart level discounts in your currency of choice. The shopper must
 
 ## Shipping
 
-<a id="shipping"></a>
-
 **Details:**
 * **Product Level Fixed Shipping** - Shipping is set at the product level in the store's default currency. During checkout, BigCommerce converts shipping costs using the store's exchange rate and displays that value to the shopper.  
 * **Flat Rate Shipping** - Flat rate shipping is converted based on the store's currency. 
 * **Shipping Carriers** - The currency is sent to the carrier and, depending on the carrier, quotes are returned in the store's transactional currency. If the shipping carrier can not return in the transactional currency, the store will convert it using the transactional currency exchange rate set by the merchant. If you've set the checkout to be viewed in a display currency, the store will convert it to the transactional currency for payment. Shipping providers that support multiple currencies can supply quotes straight in shopper's transactional currency, so no currency conversion needed. ShipperHQ does not support multiple currencies.
 
 ## Refunds
-
-<a id="refunds"></a>
 
 * **Default Currency** - Works as normal; no changes made. 
 
@@ -325,8 +305,6 @@ You can create cart level discounts in your currency of choice. The shopper must
 * **Display Currency** - The refund is shown in the store's default currency. When processing refunds, the shopper is refunded the transactional currency amount. For example, if an order was purchased with a display currency of $36 AUD, where the AUD exchange rate is set to 1.384615 and a store has USD currency set as a default, the shopper will get $26 USD back when the refund is processed.
 
 ## Payment methods supported
-
-<a id="payment-methods-supported"></a>
 
 | Payment Method    | Details                                                                                                                                                |
 |-|--|

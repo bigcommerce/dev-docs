@@ -11,14 +11,8 @@ Stencil's use of Handlebars.js, Javascript, and YAML Front Matter on the front e
 A Handlebars expression begins and end with curly braces.
 Below is a basic example that accesses the `` and `` variables.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Using handlebars to access the {{title}} variable</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
 <!--
-title: "Using handlebars to access the {{title}}  variable"
+title: "Using handlebars to access the {{title}} variable"
 subtitle: ""
 lineNumbers: true
 -->
@@ -38,16 +32,9 @@ View the [full Handlebars Helpers Reference](/stencil-docs/reference-docs/handle
 
 Stencil objects are the individual JavaScript objects that are rendered onto a Stencil storefront. The following example is the JavaScript Object Notation (JSON) for a [Banner object](/stencil-docs/reference-docs/global-objects-and-properties#global-objects_banner) rendered on a category page of a storefront.
 
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Banners Object </div>
-    </div><div class="HubBlock-header-subtitle">JSON for a banners object, accessible through Handlebars.js</div>
-</div>
-
 <!--
-title: "Banners Object "
-subtitle: "JSON for a banners object, accessible through Handlebars.js"
+title: "Example banners object"
+subtitle: "JSON for a banner object, accessible through Handlebars.js"
 lineNumbers: true
 -->
 
@@ -92,15 +79,10 @@ When utilized, Front Matter must be the opening text of a file and must take the
 
 See our [Front Matter Reference](/stencil-docs/reference-docs/front-matter-reference) to see what Front Matter attributes are available on a Stencil storefront. Below is a snippet from the base Cornerstone theme's <span class="fn">home.html</span> file, showing how Front Matter can be used in a theme.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">home.html</div>
-    </div><div class="HubBlock-header-subtitle">The YAML Front Matter below is present in the Cornerstone's home.html file </div>
-</div>
 
 <!--
-title: "home.html"
-subtitle: "The YAML Front Matter below is present in the Cornerstone's home.html file "
+title: "YAML Front Matter"
+subtitle: "home.html, Cornerstone theme"
 lineNumbers: true
 -->
 
