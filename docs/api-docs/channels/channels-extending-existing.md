@@ -160,7 +160,7 @@ For a complete Channel API reference (including request schemas and property des
 |Term|Definition|
 |-|-|
 | **Channels Toolkit** | Channels Toolkit is a set of tools, UI patterns, guidelines, and APIs provided by BigCommerce to enable partners and developers to extend the BigCommerce ecosystem by building sales channel integrations (whether they are point of sale, marketing, marketplace, social, or headless storefronts) that are more deeply embedded within the BigCommerce control panel. |
-| **Select Partners**  | Partners approved by BigCommerce to be marketed and discoverable as sales channel providers within the new Channel Manager. These are partners who offer what we know to be best in breed integrations to key sales channels that help merchants grow their business.                                                                                                    |
+| **Select Partners**  | Partners approved by BigCommerce to be marketed and discoverable as sales channel providers within the new Channel Manager. These are partners who offer what we know to be best in breed integrations to key sales channels that help merchants grow their business.|
 
 <!-- theme: info -->
 > #### Note

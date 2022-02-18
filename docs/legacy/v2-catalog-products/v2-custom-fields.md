@@ -19,7 +19,7 @@ Custom fields associated with a product.
 | name | string | key; limited to 250 characters |
 | text | string | value; limited to 250 characters |
 
-| **Manages** | **OAuth Scopes** |
+| Manages | OAuth Scopes |
 |-|-|
 | store_v2_products|store_v2_products_read_only
 

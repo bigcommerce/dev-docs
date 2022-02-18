@@ -85,8 +85,8 @@ BIGCOMMERCE_STOREFRONT_API_TOKEN=${STOREFRONT_TOKEN}
 BIGCOMMERCE_STORE_API_URL=https://api.bigcommerce.com/stores/${STORE_ID}
 BIGCOMMERCE_STORE_API_TOKEN=${STORE_TOKEN}
 BIGCOMMERCE_STORE_API_CLIENT_ID=${STORE_CLIENT}
-```
-
+``
+&nbsp;
 ```bash
 COMMERCE_PROVIDER=bigcommerce
 BIGCOMMERCE_STOREFRONT_API_URL=https://store-${STORE_HASH}-${CHANNEL_ID}.mybigcommerce.com/graphql
@@ -172,9 +172,9 @@ Next.js supports internationalized (i18n) routing and Next.js Commerce uses [sub
 
 ```json
 i18n: {
-locales: ['en-US', 'es'],
-defaultLocale: 'en-US',
-},
+   locales: ['en-US', 'es'],
+   defaultLocale: 'en-US',
+}
 ```
 
 For more information on i18n routing in Next.js, see the Next.js documentation on [internationalized routing](https://nextjs.org/docs/advanced-features/i18n-routing).
