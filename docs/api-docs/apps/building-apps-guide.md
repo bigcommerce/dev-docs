@@ -101,7 +101,7 @@ content
 ### Related Articles
 * [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Authentication](/api-docs/getting-started/authentication)
-* [Customer Login API](/api-docs/customers/customer-login-api)
+* [Customer Login API](/api-docs/storefront/customer-login-api)
 * [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements)
 * [Store Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) (Knowledge Base)
 * [Supported Browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers) (Knowledge Base)

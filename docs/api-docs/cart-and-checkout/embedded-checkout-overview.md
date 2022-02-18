@@ -33,7 +33,7 @@ Stencil translation files are not supported by Embedded Checkout. To display tra
 
 ## Logged-In customers
 
-The [Customer Login API](/api-docs/customers/customer-login-api) allows you to manage customers in two steps. First, you need to pass the `customer_id` when creating the cart. Second, you need to log in the customer, so the session is active when the checkout loads.
+The [Customer Login API](/api-docs/storefront/customer-login-api) allows you to manage customers in two steps. First, you need to pass the `customer_id` when creating the cart. Second, you need to log in the customer, so the session is active when the checkout loads.
 
 ## FAQ
 

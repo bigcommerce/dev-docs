@@ -134,7 +134,7 @@ Update requests refresh the `access_token` and `scope`:
     "id": 24654,
     "email": "merchant@mybigcommerce.com"
   },
-  "context": "stores/{STORE_HASH}"
+  "context": "stores/{{STORE_HASH}}"
 }
 ```
 

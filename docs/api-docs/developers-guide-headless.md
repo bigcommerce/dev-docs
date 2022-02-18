@@ -134,7 +134,7 @@ If you need complete control over the checkout page, you have the option to buil
 
 If a shopper creates a cart as a guest then logs into the store, you can use the following process to associate the cart to the customer and log them in at the same time. The [Server to Server Cart API](/api-reference/cart-checkout/server-server-cart-api) is used since it allows for the front end to be bypassed when creating a cart.
 
-When a cart is created, your app should store the `cart_id`.  The `cart_id` is used to generated a `redirect_url`. Using the [Customer Login API](/api-docs/customers/customer-login-api) set the `redirect_to` parameter as the generated cart or checkout redirect url. This will both log the customer in and show them either the cart or checkout depending on which url was used.  To make sure the cart is matched to the right customer you should compare the entered email address to what is the store’s database.
+When a cart is created, your app should store the `cart_id`.  The `cart_id` is used to generated a `redirect_url`. Using the [Customer Login API](/api-docs/storefront/customer-login-api) set the `redirect_to` parameter as the generated cart or checkout redirect url. This will both log the customer in and show them either the cart or checkout depending on which url was used.  To make sure the cart is matched to the right customer you should compare the entered email address to what is the store’s database.
 
 To populate the `customer_id` on the cart with the correct data, use the email address entered to match against the [Customers API](/api-reference/customer-subscribers/v3-customers-api). If the email address matches what the customer input and what is in the BigCommerce database then proceed with login. If a match is not found then direct the customer to a [sign up](/api-reference/customer-subscribers/v3-customers-api/customers/customerspost) screen.
 
@@ -237,7 +237,7 @@ Merchants can use BigCommerce's [PCI DSS AOC](https://support.mybigcommerce.com/
 
 ### Articles
 - [Customers Overview](/api-docs/customers/customers-subscribers-overview)
-- [Customer Login API](/api-docs/customers/customer-login-api)
+- [Customer Login API](/api-docs/storefront/customer-login-api)
 - [Launching your store](https://support.bigcommerce.com/s/article/Launching-Your-Store)
 - [PCI Compliance](https://support.bigcommerce.com/s/article/PCI-Compliance)
 - [Multisite Ecommerce with WordPress and BigCommerce](https://medium.com/bigcommerce-developer-blog/multi-site-ecommerce-with-wordpress-and-bigcommerce-40dee194f8a)
