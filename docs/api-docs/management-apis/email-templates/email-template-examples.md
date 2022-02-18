@@ -22,25 +22,24 @@ You can create an email button using HTML. The following code example adds a blu
 
 Go to **Transactional Emails> Email Templates**. Click **...** next to **Account Created** and select **Edit Template**. Copy and paste the contents below into the Content editor. Ensure you paste the text outside the open `<table>` and closed `</table>` tags. 
   
-```html
+```handlebars title="Add an email button"
 <table class="row">
-  <tr>
-    <th class="column">
-       <table>
-          <tr>
-             <th>
-                <a href="{{store.path}}" style = "background-color:blue; color:white" class="sigh-in">{{lang 'sign_in'}}</a>
-             </th>
-             <th class="expander"></th>
-          </tr>
-      </table>
-  </th>
- </tr>
+   <tr>
+      <th class="column">
+         <table>
+            <tr>
+               <th>
+                  <a href="{{store.path}}" style = "background-color:blue; color:white" class="sign-in">{{lang 'sign_in'}}</a>
+               </th>
+               <th class="expander"></th>
+            </tr>
+         </table>
+      </th>
+   </tr>
 </table>
 ```
 
 <!-- theme: info -->
-  
 > #### Note
 > You can select a different button background and text color. We suggest adhering to the [minimum color contrast standards](https://webaim.org/articles/contrast/) set by WCAG. 
  
