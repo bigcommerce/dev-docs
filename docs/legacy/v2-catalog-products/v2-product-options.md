@@ -5,8 +5,7 @@
 <!-- theme: warning -->
 > #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-> For the most up-to-date version of this API, see [Product Options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-options).
-
+> For the most up-to-date version of this API, see [Product Options](/api-reference/store-management/catalog/product-options).
 
 
 ### Product Options Object – Properties 

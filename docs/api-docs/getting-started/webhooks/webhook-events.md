@@ -3,7 +3,7 @@
 
 
 
-This article contains a complete reference of all BigCommerce webhook events and their callback payloads. For an introduction to webhooks on BigCommerce, see [Webhooks Overview](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview#callback-payload).
+This article contains a complete reference of all BigCommerce webhook events and their callback payloads. For an introduction to webhooks on BigCommerce, see [Webhooks Overview](/api-docs/store-management/webhooks/overview#callback-payload).
 
 ## Callback structure
 
@@ -535,10 +535,11 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 - Product Type
 - Sort Order
 - Tax Price
-- Thumbnail Changed
+- Thumbnail (new images only)*
 - Variant (deleted)
 - Visibility
 
+\*Note that setting a thumbnail triggers an updated event only when that thumbnail is the first to be set. For example, setting an image as a thumbnail **after deleting all images** will trigger an updated event. However, changing the current thumbnail, uploading a new image and setting it as the thumbnail (while other thumbnails images exist), or even deleting all thumbnails does not generate an update event. 
 
 ## Shipment
 
@@ -746,6 +747,6 @@ Changes to the following store settings will trigger a `store/information/update
 
 ### Related articles
 
-* [Webhooks Overview](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/about-webhooks)
-* [Webhooks Tutorial](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks)
-* [Webhooks Reference](https://developer.bigcommerce.com/api-reference/webhooks)
+* [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
+* [Webhooks Tutorial](/api-docs/getting-started/webhooks/setting-up-webhooks)
+* [Webhooks Reference](/api-reference/webhooks)

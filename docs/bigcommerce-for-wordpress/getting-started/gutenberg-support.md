@@ -24,7 +24,7 @@ The WordPress Gutenberg Visual Editor provides users the ability to easily compo
 
 <!-- theme: info -->
 > #### Shortcodes
-> BigCommerce blocks can also be added to a wordpress page or post by using Short Codes in Gutenberg's Code Editor. For more information and a list of available shortcodes, see: [Shortcodes](https://developer.bigcommerce.com/bigcommerce-for-wordpress/setup/shortcodes)
+> BigCommerce blocks can also be added to a wordpress page or post by using Short Codes in Gutenberg's Code Editor. For more information and a list of available shortcodes, see: [Shortcodes](/bigcommerce-for-wordpress/setup/shortcodes)
 
 
 

@@ -26,16 +26,16 @@ Make sure you’ve applied and been approved for our [Technology Partner Program
 -   Your app must work as intended, be free of defects, and not conflict with or break any default BigCommerce functionality, including the BigCommerce storefront and checkout.
 -   Utilize any V3 API resources that are currently available for the data you need from a BigCommerce store.
 -   The dashboard and callback URLs for your app should operate strictly over HTTPS using a valid SSL certificate.
--   Apps should offer [multi-user support](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_multi-user-support) so that permissions for the app can be distributed by the store owner to additional users, from the BigCommerce control panel.
+-   Apps should offer [multi-user support](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_multi-user-support) so that permissions for the app can be distributed by the store owner to additional users, from the BigCommerce control panel.
 -   Any apps that process transactions or handle credit card data will need to pass a PCI Compliance review with our Security team, and also be compatible with our Optimized One-Page Checkout.
--   Avoid copy/paste for storefront code - use the [Scripts API](https://developer.bigcommerce.com/api-reference/storefront/content-scripts-api) to programmatically inject code snippets into a store’s Script Manager and storefront theme.
+-   Avoid copy/paste for storefront code - use the [Scripts API](/api-reference/storefront/content-scripts-api) to programmatically inject code snippets into a store’s Script Manager and storefront theme.
 -   If your app requires payment, you’ll need to collect payment from the user within your app. See Pricing & Categorization under App Summary for more information.
 
 ## Installation
 
 -   Apps should be Single-Click and use our OAuth token exchange flow to authenticate the user
 -   Single-Click does not mean everything  completed in one click, but that authentication is handled in that click - other tasks can be handled post-auth with the user
--   When the app is installed, a styled HTML page must be returned in the iframe of the BigCommerce control panel - this content cannot be blank and must follow our [user-interface constraints](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_user-interface-constraints).
+-   When the app is installed, a styled HTML page must be returned in the iframe of the BigCommerce control panel - this content cannot be blank and must follow our [user-interface constraints](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_user-interface-constraints).
 -   During the OAuth handshake, be sure to store the user’s token against their store hash - rather than their email address - to avoid any problems with ownership changes or multi-user support.
 
 <!-- theme: info -->
@@ -46,7 +46,7 @@ Make sure you’ve applied and been approved for our [Technology Partner Program
 
 ## Recommendations
 
--   Have a form to fill out for new users? We recommend auto-filling user input fields with data from the [Store Information API resource](https://developer.bigcommerce.com/api-reference/store-management/store-information-api), which already contains much of the info you might need from a new user.
+-   Have a form to fill out for new users? We recommend auto-filling user input fields with data from the [Store Information API resource](/api-reference/store-management/store-information-api), which already contains much of the info you might need from a new user.
 -   No account approval process needed for your app? Consider automatically generating accounts for stores that install your app and don’t match an existing store in your database.
 -   Require login on launch? Use the information in the BigCommerce payload to your callback URL to authenticate the user without asking for a username and password each time.
 -   Want to share user testimonials? Add a link to your full case study in the Case Studies field, with a title and short description.
@@ -238,7 +238,7 @@ If you want to receive a callback when the store owner uninstalls your app, you 
 ### OAuth Scopes
 If you know the [OAuth scopes](/api-docs/getting-started/authentication#authentication_oauth-scopes) that your app requires, you should select these. If you do not yet know the scopes that you need, you can just request minimal permissions (such as Information: Read-Only) to get started. However, once you determine the scopes you need, you must:
 - Modify the scopes of your app in My Apps and save the changes.
-- Obtain the new OAuth token during the [App Installation or Update flow](https://developer.bigcommerce.com/api/#app-installation-and-update-sequence).
+- Obtain the new OAuth token during the [App Installation or Update flow](/api/#app-installation-and-update-sequence).
 - Retest your app to make sure it still functions properly with the new token.
 
 ![Dev Tools App Testing](https://s3.amazonaws.com/user-content.stoplight.io/6012/1536260650757)
@@ -270,11 +270,11 @@ At this point you make sure the information has been filled out completely and t
 
 ## Resources
 ### Related Endpoints
-* [Store Information API resource](https://developer.bigcommerce.com/api-reference/store-management/store-information-api)
-* [Scripts API](https://developer.bigcommerce.com/api-reference/storefront/content-scripts-api)
+* [Store Information API resource](/api-reference/store-management/store-information-api)
+* [Scripts API](/api-reference/storefront/content-scripts-api)
 
 ### Related Articles
-* [Building Apps](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)
+* [Building Apps](/api-docs/getting-started/building-apps-bigcommerce/building-apps)
 * [Support Browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers) (Knowledge Base)
 * [Media Kit](https://www.bigcommerce.com/press/media-kit/) (BigCommerce)
 * [Partner Portal](https://partners.bigcommerce.com/English/) (BigCommerce)

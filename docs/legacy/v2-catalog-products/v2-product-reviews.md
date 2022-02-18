@@ -9,8 +9,7 @@ Reviews associated with a product.
 <!-- theme: warning -->
 > #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-> For the most up-to-date version of this API, see [Product Reviews](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-reviews).
-
+> For the most up-to-date version of this API, see [Product Reviews](/api-reference/store-management/catalog/product-reviews).
 ### Product Review Object – Properties 
 
 | Name | Type | Description |

@@ -116,7 +116,7 @@ Next.js associates each file in the pages folder with a route based on the file'
 
 ## Initialize BigDesign
 
-Next.js allows you to use a theme provider and import CSS files from `node_modules`. In this tutorial, you integrate [BigDesign](https://developer.bigcommerce.com/) to give your app a distinct BigCommerce look and feel.
+Next.js allows you to use a theme provider and import CSS files from `node_modules`. In this tutorial, you integrate [BigDesign](/) to give your app a distinct BigCommerce look and feel.
 
 1. Next.js uses the `App` component to initialize pages. To override the default `App` component, add the `_app.tsx` file to the `pages` folder. This is where you initialize BigDesign. 
 
@@ -210,4 +210,4 @@ npm run dev
 
 ![Hello world](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-01.png "Hello world")
 
-[Next: Connect Your App to BigCommerce](https://developer.bigcommerce.com/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect)
+[Next: Connect Your App to BigCommerce](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect)

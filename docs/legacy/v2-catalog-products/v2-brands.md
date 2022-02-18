@@ -9,8 +9,7 @@ Brand facets for identifying and categorizing products according to their manufa
 <!-- theme: warning -->
 > #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-> For the most up-to-date version of this API, see [Brands](https://developer.bigcommerce.com/api-reference/store-management/catalog/brands).
-
+> For the most up-to-date version of this API, see [Brands](/api-reference/store-management/catalog/brands).
 ### Brand Object – Properties 
 
 | Name | Type | Description |

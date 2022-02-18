@@ -2,7 +2,7 @@
 
 
 
-This article is a reference for [Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of whitelisted [standard helpers](#standard-helpers).
+This article is a reference for [Stencil](/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of whitelisted [standard helpers](#standard-helpers).
 
 ## Custom helpers
 
@@ -1279,7 +1279,7 @@ Overrides content defined by the [block](#block) helper.
 {{region name}}
 ```
 
-Specifies a [widget](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#widgets) region.
+Specifies a [widget](/api-docs/store-management/widgets/overview#widgets) region.
 
 #### Parameters
 
@@ -1527,8 +1527,8 @@ BigCommerce's [custom Handlebars helpers](https://github.com/bigcommerce/paper-h
 
 ## Resources
 
-* [Widgets](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview)
-* [Theme Objects](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties)
+* [Widgets](/api-docs/store-management/widgets/overview)
+* [Theme Objects](/stencil-docs/reference-docs/global-objects-and-properties)
 * [Cornerstone](https://github.com/bigcommerce/cornerstone)
 * [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/tree/master/helpers)
 * [Handlebars.js](https://handlebarsjs.com/)

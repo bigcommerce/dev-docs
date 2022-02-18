@@ -13,7 +13,7 @@ Only official partners can submit an app to the BigCommerce App Marketplace, als
 * Ability to support your app's users
 * Evidence of expertise in app development
 
-For a list of general requirements and to verify that your application meets BigCommerce listing standards, see [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements).
+For a list of general requirements and to verify that your application meets BigCommerce listing standards, see [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements).
 
 How to apply:
 1. Go to the [Partner Portal](https://partners.bigcommerce.com/).
@@ -58,5 +58,5 @@ We encourage you to create your sandbox store and your Developer Portal account 
 ## Resources
 
 ### Related articles
-* [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
+* [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements)
 * [Using the App Marketplace](https://support.bigcommerce.com/s/article/How-do-I-access-and-install-the-new-single-click-apps-within-my-Bigcommerce-store-control-panel)(Knowledge Base)

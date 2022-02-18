@@ -2,7 +2,7 @@
 
 
 
-[BigDesign](https://developer.bigcommerce.com/big-design/) plays a pivotal part in the BigCommerce control panel and ecosystem. App developers are encouraged to use BigDesign to develop apps that have a native BigCommerce look and feel.
+[BigDesign](https://developer.bigcommerce.com/big-design) plays a pivotal part in the BigCommerce control panel and ecosystem. App developers are encouraged to use BigDesign to develop apps that have a native BigCommerce look and feel.
 
 This step focuses on expanding functionality and integrating advanced design elements available as part of the BigDesign library.
 
@@ -19,7 +19,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { bigcommerceClient, getSession } from '../../../lib/auth';
 ```
 
-4. Add the logic to call the Products endpoint of BigCommerce's [Catalog API](https://developer.bigcommerce.com/api-reference/store-management/catalog).
+4. Add the logic to call the Products endpoint of BigCommerce's [Catalog API](/api-reference/store-management/catalog).
 
 ```js
 export default async function list(req: NextApiRequest, res: NextApiResponse) {
@@ -787,6 +787,4 @@ You should now have a fully functional app that pulls data from BigCommerce's Ca
 
 This concludes our Next.js Sample App tutorial. To continue developing with BigCommerce, consider working through these supplemental materials:
 
-* [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/apps/guide/requirements)
-* [Managing Apps in the Developer Portal](https://developer.bigcommerce.com/api-docs/apps/guide/developer-portal)
-* [Publishing an App](https://developer.bigcommerce.com/api-docs/apps/guide/publishing)
+* [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal)

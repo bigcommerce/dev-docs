@@ -10,10 +10,8 @@ In this quick start tutorial, we'll configure our development environment and ma
 - [Unix-based OS](https://github.com/bigcommerce/checkout-js#requirements) (Linux or Mac OS X)
 
 <!-- theme: info -->
-
 > #### Note
->
-> We recommend Windows 10 users to use [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/).
+> We recommend that Windows 10 users use [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/).
 
 
 
@@ -39,9 +37,7 @@ npm run dev & npm run dev:server
 ```
 
 <!-- theme: info -->
-
 > #### Note
->
 > - Open your browser and navigate to `http://127.0.0.1:8080/` to confirm the dev server is running (you should see content from `build/`).
 > - To serve files over HTTPS, install an SSL on your development machine, or use [ngrok](https://ngrok.com/).
 
@@ -56,7 +52,7 @@ Next, configure your sandbox to use the files served up by your dev server.
 3. Under **Custom Checkout Settings**, copy and paste `http://127.0.0.1:8080/auto-loader-dev.js` into **Script URL**.
 4. Save.
 
-[Learn more about installing custom checkouts](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/installing-custom-checkouts).
+[Learn more about installing custom checkouts](/stencil-docs/customizing-checkout/installing-custom-checkouts).
 
 ## Make a code change
 
@@ -84,7 +80,7 @@ class Checkout extends Component<CheckoutProps & WithCheckoutProps & WithLanguag
 ## Resources
 
 - [Open Checkout GitHub Repo](https://github.com/bigcommerce/checkout-js)
-- [Installing Custom Checkouts](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/installing-custom-checkouts)
+- [Installing Custom Checkouts](/stencil-docs/customizing-checkout/installing-custom-checkouts)
 - [File Access (WebDav)](https://support.bigcommerce.com/s/article/File-Access-WebDAV)
 
 ### Additional resources

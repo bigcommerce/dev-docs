@@ -9,10 +9,10 @@ In this tutorial, we will use Stencil CLI and [Browsersync](https://github.com/b
 
 To complete this tutorial, you should be familiar with the following concepts:
 
-* [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil)
+* [Installing Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil)
 * [Creating a Stencil CLI Token](https://support.bigcommerce.com/s/article/Store-API-Accounts)
 * [Downloading and uploading custom themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload)
-* [Serving a live preview](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/live-previewing-a-theme#serving-a-live-preview)
+* [Serving a live preview](/stencil-docs/installing-stencil-cli/live-previewing-a-theme#serving-a-live-preview)
 
 
 ## Adding a language file
@@ -102,7 +102,7 @@ Update your language browser to display the translation on the storefront. The f
 
 
 ## Related resources
-* [Translation Keys](https://developer.bigcommerce.com/stencil-docs/localization/translation-keys)
+* [Translation Keys](/stencil-docs/localization/translation-keys)
 * [Customizing a Theme - lang directory Video Demo (YouTube)](https://www.youtube.com/watch?v=ygiRGfSrmnA)
 * [JSON translation files (BigCommerce GitHub)](https://github.com/bigcommerce/cornerstone/tree/master/lang)
-* [Handlebars helpers reference](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers)
+* [Handlebars helpers reference](/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers)

@@ -2,18 +2,18 @@
 
 
 
-This article introduces BigCommerce's [Orders V2](https://developer.bigcommerce.com/api-reference/store-management/orders) and [Orders V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) REST API resources. [Orders V2](https://developer.bigcommerce.com/api-reference/store-management/orders) exposes endpoints for [creating](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder), [reading](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/getallorders), [updating](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/updateanorder), and [deleting](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/deleteallorders) orders; it also includes endpoints for managing [order shipments](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipments) and [order shipping addresses](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses). [Orders V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) surfaces [order transactions](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/transactions/gettransactions) and [order refunds](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds/) endpoints. For information on processing order payments via API, see [Payments API Overview](https://developer.bigcommerce.com/api-docs/payments/payments-api-overview).
+This article introduces BigCommerce's [Orders V2](/api-reference/store-management/orders) and [Orders V3](/api-reference/store-management/order-transactions) REST API resources. [Orders V2](/api-reference/store-management/orders) exposes endpoints for [creating](/api-reference/store-management/orders/orders/createanorder), [reading](/api-reference/store-management/orders/orders/getallorders), [updating](/api-reference/store-management/orders/orders/updateanorder), and [deleting](/api-reference/store-management/orders/orders/deleteallorders) orders; it also includes endpoints for managing [order shipments](/api-reference/store-management/orders/order-shipments) and [order shipping addresses](/api-reference/store-management/orders/order-shipping-addresses). [Orders V3](/api-reference/store-management/order-transactions) surfaces [order transactions](/api-reference/store-management/order-transactions/transactions/gettransactions) and [order refunds](/api-reference/store-management/order-transactions/order-refunds/) endpoints. For information on processing order payments via API, see [Payments API Overview](/api-docs/payments/payments-api-overview).
 
 ### Prerequisites:
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial)
-* Access token for [API authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication) with the following [scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes):
+* Access token for [API authentication](/api-docs/getting-started/authentication/rest-api-authentication) with the following [scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes):
   * Orders - **Modify**
   * Products - **Read**
-* [Product](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/createproduct) with [variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants/createvariant).
+* [Product](/api-reference/catalog/catalog-api/products/createproduct) with [variants](/api-reference/store-management/catalog/product-variants/createvariant).
 
 ## Creating an order
 
-To [create an order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder), send a `POST` request to `/stores/{{STORE_HASH}}/v2/orders`.
+To [create an order](/api-reference/store-management/orders/orders/createanorder), send a `POST` request to `/stores/{{STORE_HASH}}/v2/orders`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
@@ -44,19 +44,19 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/orders/createanorder#requestrunner)
 
 <!-- theme: info -->
 
 > #### Note
-> * The example above contains the minimum required fields for a [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request.
+> * The example above contains the minimum required fields for a [create order](/api-reference/store-management/orders/orders/createanorder) request.
 > * The product ordered is a *custom* product; custom products do not exist in the catalog.
 
 
 
 ## Changing order status
 
-Specify [order status](https://developer.bigcommerce.com/api-reference/store-management/orders/order-status/getorderstatus) by including the `status_id` property in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request. To [update an order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/updateanorder) and change its status, send a `PUT` request to `/v2/orders/{order_id}`.
+Specify [order status](/api-reference/store-management/orders/order-status/getorderstatus) by including the `status_id` property in the [create order](/api-reference/store-management/orders/orders/createanorder) request. To [update an order](/api-reference/store-management/orders/orders/updateanorder) and change its status, send a `PUT` request to `/v2/orders/{order_id}`.
 
 ```http
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{order_id}
@@ -69,9 +69,9 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/orders/createanorder#requestrunner)
 
-To [get a list of order statuses](https://developer.bigcommerce.com/api-reference/store-management/orders/order-status/getorderstatus), send a `GET` request to `/stores/{{STORE_HASH}}/v2/order_statuses`.
+To [get a list of order statuses](/api-reference/store-management/orders/order-status/getorderstatus), send a `GET` request to `/stores/{{STORE_HASH}}/v2/order_statuses`.
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/order_statuses
@@ -80,7 +80,7 @@ Content-Type: application/json
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/order-status/getorderstatus#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/order-status/getorderstatus#requestrunner)
 
 **Response:**
 
@@ -110,7 +110,7 @@ Accept: application/json
 
 ## Specifying order customer
 
-Specify the [customer](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customersget#responses) by including a `customer_id` in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request.
+Specify the [customer](/api-reference/store-management/customers-v3/customers/customersget#responses) by including a `customer_id` in the [create order](/api-reference/store-management/orders/orders/createanorder) request.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
@@ -126,9 +126,9 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/orders/createanorder#requestrunner)
 
-To [get a list of customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customersget), send a `GET` request to `/stores/{{STORE_HASH}}/v3/customers`.
+To [get a list of customers](/api-reference/store-management/customers-v3/customers/customersget), send a `GET` request to `/stores/{{STORE_HASH}}/v3/customers`.
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/customers
@@ -136,7 +136,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customersget#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/customers-v3/customers/customersget#requestrunner)
 
 <!-- theme: info -->
 
@@ -147,7 +147,7 @@ Accept: application/json
 
 ## Including shipping addresses
 
-Add [shipping addresses](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [`shipping_address` array](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request.
+Add [shipping addresses](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [`shipping_address` array](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in the [create order](/api-reference/store-management/orders/orders/createanorder) request.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
@@ -178,7 +178,7 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/orders/createanorder#requestrunner)
 
 
 <!-- theme: info -->
@@ -190,7 +190,7 @@ Accept: application/json
 
 ## Adding products
 
-Specify [products from the catalog](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [`products` array](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request.
+Specify [products from the catalog](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [`products` array](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in the [create order](/api-reference/store-management/orders/orders/createanorder) request.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
@@ -226,7 +226,7 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/orders/createanorder#requestrunner)
 
 To get the `product_options.id` and `product_options.value` of a product for the order `products` array, send a `GET` request to `/stores/{{STORE_HASH}}/v3/catalog/products/{product_id}/variants`.
 
@@ -237,9 +237,9 @@ Content-Type: application/json
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid#requestrunner)
 
-**[Response:](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants/getvariantbyid#responses)**
+**[Response:](/api-reference/catalog/catalog-api/product-variants/getvariantbyid#responses)**
 
 ```json
 {
@@ -272,7 +272,7 @@ Accept: application/json
 
 > #### Note
 > * Custom products do not get added to the catalog.
-> * If the product's price is not specfied in the [create order](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/createanorder) request, BigCommmerce's pricing service calculates the price by applying applicable currency conversions and [pricing operations](https://developer.bigcommerce.com/api-docs/store-management/pricing-order-operation) (such as [price lists](https://support.bigcommerce.com/s/article/Price-Lists) and [customer group discounts](https://support.bigcommerce.com/s/article/Customer-Groups#pricing)) to the product's catalog price; use `price_inc_tax` and `price_ex_tax` to override the calculated price.
+> * If the product's price is not specfied in the [create order](/api-reference/store-management/orders/orders/createanorder) request, BigCommmerce's pricing service calculates the price by applying applicable currency conversions and [pricing operations](/api-docs/store-management/pricing-order-operation) (such as [price lists](https://support.bigcommerce.com/s/article/Price-Lists) and [customer group discounts](https://support.bigcommerce.com/s/article/Customer-Groups#pricing)) to the product's catalog price; use `price_inc_tax` and `price_ex_tax` to override the calculated price.
 > * Marketing promotions currently do not apply to orders created via the Orders API.
 > * If you override `price_ex_tax` or `price_inc_tax`, override both; otherwise, order totals will not calculate correctly.
 > * Overriding `price_inc_tax` or `price_ex_tax` does not change variant pricing.
@@ -283,7 +283,7 @@ Accept: application/json
 
 Once an order has products, a billing address, and a shipping address, you can create an order shipment.
 
-To [create an order shipment](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipments/createordershipments), send a `POST` request to `/stores/{{STORE_HASH}}/v2/orders/{{order_id}}/shipments`.
+To [create an order shipment](/api-reference/store-management/orders/order-shipments/createordershipments), send a `POST` request to `/stores/{{STORE_HASH}}/v2/orders/{{order_id}}/shipments`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v2/orders/{{order_id}}/shipments
@@ -308,15 +308,15 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipments/createordershipments#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/order-shipments/createordershipments#requestrunner)
 
 |Property|Description|
 |-|-|
 |`tracking_number`|Shipping provider tracking number; used to generate tracking link|
 |`comments`|Optional comments|
-|`order_address_id`|Obtainable via [Get Order Shipping Address](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/getallshippingaddresses)|
-|`shipping_provider`| Optional; used to create tracking link; see [Create Order Shipment](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipments/createordershipments) for accepted values|
-|`items.order_product_id`|Obtainable via [Get Order Products](https://developer.bigcommerce.com/api-reference/store-management/orders/order-products/getallorderproducts)|
+|`order_address_id`|Obtainable via [Get Order Shipping Address](/api-reference/store-management/orders/order-shipping-addresses/getallshippingaddresses)|
+|`shipping_provider`| Optional; used to create tracking link; see [Create Order Shipment](/api-reference/store-management/orders/order-shipments/createordershipments) for accepted values|
+|`items.order_product_id`|Obtainable via [Get Order Products](/api-reference/store-management/orders/order-products/getallorderproducts)|
 
 <!-- theme: info -->
 
@@ -367,17 +367,17 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipments/createordershipments#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/order-shipments/createordershipments#requestrunner)
 
 |Property|Description|
 |-|-|
-|`order_address_id`|Obtainable via [Get Order Shipping Address](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses/getallshippingaddresses)|
-|`shipping_provider`| Optional; used to create tracking link; see [Create Order Shipment](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipments/createordershipments) for accepted values|
-|`items.order_product_id`|Obtainable via [Get Order Products](https://developer.bigcommerce.com/api-reference/store-management/orders/order-products/getallorderproducts)|
+|`order_address_id`|Obtainable via [Get Order Shipping Address](/api-reference/store-management/orders/order-shipping-addresses/getallshippingaddresses)|
+|`shipping_provider`| Optional; used to create tracking link; see [Create Order Shipment](/api-reference/store-management/orders/order-shipments/createordershipments) for accepted values|
+|`items.order_product_id`|Obtainable via [Get Order Products](/api-reference/store-management/orders/order-products/getallorderproducts)|
 
 ## Getting shipping quotes
 
-To [get shipping quotes](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes), send a `GET` request to `/v2/orders/{order_id}/shipping_addresses/{shipping_address_id}/shipping_quotes`.
+To [get shipping quotes](/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes), send a `GET` request to `/v2/orders/{order_id}/shipping_addresses/{shipping_address_id}/shipping_quotes`.
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{order_id}/shipping_addresses/{shipping_address_id}/shipping_quotes
@@ -385,9 +385,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes#requestrunner)
 
-**[Response:](https://developer.bigcommerce.com/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes#responses)**
+**[Response:](/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes#responses)**
 
 ```json
 {
@@ -407,7 +407,7 @@ Generating a quote through a shipping carrier is not supported. You can specify 
 
 ## Getting order taxes
 
-To [get order taxes](https://developer.bigcommerce.com/api-reference/store-management/orders/order-taxes/getordertaxes), send a `GET` request to `/stores/{{STORE_HASH}}/v2/orders/{order_id}/taxes`.
+To [get order taxes](/api-reference/store-management/orders/order-taxes/getordertaxes), send a `GET` request to `/stores/{{STORE_HASH}}/v2/orders/{order_id}/taxes`.
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{order_id}/taxes
@@ -415,9 +415,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/orders/order-taxes/getordertaxes#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/order-taxes/getordertaxes#requestrunner)
 
-**[Response:](https://developer.bigcommerce.com/api-reference/store-management/orders/order-taxes/getordertaxes#responses)**
+**[Response:](/api-reference/store-management/orders/order-taxes/getordertaxes#responses)**
 
 ```json
 [
@@ -437,7 +437,7 @@ Accept: application/json
 ]
 ```
 
-The response's [order tax object](https://developer.bigcommerce.com/api-reference/store-management/orders/order-taxes/getordertaxes) `name` property gets set to `API Tax Override` when generated by third-party tax services like [Avalara Premium](https://www.bigcommerce.com/apps/avalara-avatax/?search=avalara).
+The response's [order tax object](/api-reference/store-management/orders/order-taxes/getordertaxes) `name` property gets set to `API Tax Override` when generated by third-party tax services like [Avalara Premium](https://www.bigcommerce.com/apps/avalara-avatax/?search=avalara).
 
 ```json
 [
@@ -468,14 +468,14 @@ BigCommerce submits tax documents to Avalara when an order moves from an **unpai
 > #### Note
 > * Abbreviated state names (ex: `CA` instead of `California`) in an order address will cause tax document submission to fail.
 > * You can calculate taxes using rules specified in the store unless [automatic taxes](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) are enabled.
-> * You can optionally override tax values by specifying `price_inc_tax` and `price_ex_tax` in an [update order request](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/updateanorder).
+> * You can optionally override tax values by specifying `price_inc_tax` and `price_ex_tax` in an [update order request](/api-reference/store-management/orders/orders/updateanorder).
 > * If a store has [automatic tax](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) enabled, BigCommerce does not compute sales tax on orders created via the API.
 
 
 
 ## Getting order transactions
 
-To [get order transactions](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/transactions/gettransactions), send a `GET` request to `/stores/{{STORE_HASH}}/v3/orders/{order_id}/transactions`.
+To [get order transactions](/api-reference/store-management/order-transactions/transactions/gettransactions), send a `GET` request to `/stores/{{STORE_HASH}}/v3/orders/{order_id}/transactions`.
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/transactions
@@ -483,9 +483,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/transactions/gettransactions#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/transactions/gettransactions#requestrunner)
 
-**[Response:](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/transactions/gettransactions#responses)**
+**[Response:](/api-reference/store-management/order-transactions/transactions/gettransactions#responses)**
 
 ```json
 {
@@ -532,7 +532,7 @@ Accept: application/json
 
 ## Handling refunds
 
-[Orders V3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions) exposes endpoints for managing [order refunds](https://developer.bigcommerce.com/api-reference/store-management/order-transactions/order-refunds). For an overview on using these endpoints, see [Order Refunds in API Docs](https://developer.bigcommerce.com/api-docs/orders/payment-actions).
+[Orders V3](/api-reference/store-management/order-transactions) exposes endpoints for managing [order refunds](/api-reference/store-management/order-transactions/order-refunds). For an overview on using these endpoints, see [Order Refunds in API Docs](/api-docs/orders/payment-actions).
 
 ## Calculating totals
 
@@ -593,15 +593,15 @@ Not at this time. If you create an order either in the control panel or via API,
 ## Related resources
 
 ### Articles
-- [Payments API Overview](https://developer.bigcommerce.com/api-docs/payments/payments-api-overview)
-- [Order Refunds](https://developer.bigcommerce.com/api-docs/orders/payment-actions)
+- [Payments API Overview](/api-docs/payments/payments-api-overview)
+- [Order Refunds](/api-docs/orders/payment-actions)
 - [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses)
 - [Order Notifications](https://support.bigcommerce.com/s/article/Customer-Order-Notifications)
 
 ### Endpoints
-- [Storefront Orders](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-orders)
-- [Orders v2](https://developer.bigcommerce.com/api-reference/store-management/orders)
-- [Orders v3](https://developer.bigcommerce.com/api-reference/store-management/order-transactions)
+- [Storefront Orders](/api-reference/cart-checkout/storefront-orders)
+- [Orders v2](/api-reference/store-management/orders)
+- [Orders v3](/api-reference/store-management/order-transactions)
 
 ### Webhooks
 - [Orders](/api-docs/store-management/webhooks/events#orders)

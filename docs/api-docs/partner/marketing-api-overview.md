@@ -13,7 +13,7 @@ When to use:
 <!-- theme: warning -->
 
 > #### Intent to deprecate 
-> As BigCommerce moves operations to the V3 API, the endpoints outlined in this article will be deprecated. For a complete list of deprecated endpoints, see [Deprecations and sunsets](https://developer.bigcommerce.com/api-reference#deprecations-and-sunsets).
+> As BigCommerce moves operations to the V3 API, the endpoints outlined in this article will be deprecated. For a complete list of deprecated endpoints, see [Deprecations and sunsets](/api-reference#deprecations-and-sunsets).
 
 
 
@@ -24,7 +24,7 @@ When to use:
 | Marketing | modify | `store_v2_marketing` |
 | Marketing | read-only | `store_v2_marketing_read_only` |
 
-For more information on available authentication methods, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+For more information on available authentication methods, see [Authentication](/api-docs/getting-started/authentication).
 
 ## Banners
 You can use banners to convey information to customers. 
@@ -47,7 +47,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/marketing/banners/createabanner#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/marketing/banners/createabanner#requestrunner)
 
 ## Coupons
 You can use coupons to issue category or product discounts for customers who apply a given code.
@@ -75,7 +75,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/marketing/coupons/postcoupons#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/marketing/coupons/postcoupons#requestrunner)
 
 ## Gift certificates
 You can use gift certificates to offer customers prepaid vouchers as an alternative to cash for purchases within the store. 
@@ -101,7 +101,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/marketing/gift-certificates/createagiftcertificate#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/marketing/gift-certificates/createagiftcertificate#requestrunner)
 
 <!-- theme: info -->
 
@@ -113,4 +113,4 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ## Resources
 
 ### Related endpoints
-- [Marketing API](https://developer.bigcommerce.com/api-reference/store-management/marketing)
+- [Marketing API](/api-reference/store-management/marketing)

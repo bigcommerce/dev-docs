@@ -7,8 +7,7 @@ Stock Keeping Unit identifiers associated with products or product options.
 <!-- theme: warning -->
 > #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-> For the most up-to-date version of this API, see [Product Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants).
-
+> For the most up-to-date version of this API, see [Product Variants](/api-reference/store-management/catalog/product-variants).
 
 ### SKU Object – Properties 
 

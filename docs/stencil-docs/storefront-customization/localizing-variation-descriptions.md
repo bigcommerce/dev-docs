@@ -90,5 +90,5 @@ The language code must follow a set format of two lowercase letters for a two-le
 
 ## Resources
 
-* [Directory Structure](https://developer.bigcommerce.com/stencil-docs/storefront-customization/directory-structure)
+* [Directory Structure](/stencil-docs/storefront-customization/directory-structure)
 * [The BigCommerce Theme Marketplace](https://support.bigcommerce.com/s/article/The-Bigcommerce-Themes-Marketplace?language=en_US)

@@ -657,7 +657,7 @@ export default async function uninstall(req: NextApiRequest, res: NextApiRespons
 
 ## Add the Products endpoint
 
-The Products endpoint retrieves your products summary from the [Catalog API](https://developer.bigcommerce.com/api-reference/store-management/catalog/summary/getcatalogsummary).
+The Products endpoint retrieves your products summary from the [Catalog API](/api-reference/store-management/catalog/summary/getcatalogsummary).
 
 1. In the `pages/api` folder, create a new folder called `products`.
 
@@ -824,7 +824,7 @@ export default Index;
 
 `summary` creates the `Flex` component with three `Box` components inside of it. `inventory_count`, `variant_count`, and `primary_category_name` are populated with data returned from calling the `/catalog/summary` endpoint added in [Add the Products endpoint](#add-the-products-endpoint). 
 
-For the complete list of properties returned by the `/catalog/summary` endpoint, see [Get a Catalog Summary](https://developer.bigcommerce.com/api-reference/store-management/catalog/summary/getcatalogsummary). 
+For the complete list of properties returned by the `/catalog/summary` endpoint, see [Get a Catalog Summary](/api-reference/store-management/catalog/summary/getcatalogsummary). 
 
 ## Update the user interface
 
@@ -896,4 +896,4 @@ Now that you have synced up the database, your app should display information un
 
 ![Sample app](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-13.png "Sample app")
 
-[Next: Enhance the User Experience with BigDesign](https://developer.bigcommerce.com/api-docs/apps/tutorials/sample-app-nextjs/step-4-enhance)
+[Next: Enhance the User Experience with BigDesign](/api-docs/apps/tutorials/sample-app-nextjs/step-4-enhance)

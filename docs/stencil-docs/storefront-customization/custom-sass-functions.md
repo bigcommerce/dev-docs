@@ -14,11 +14,8 @@
 | stencilImage  | `stencilImage` accepts (as a string) a key name for an image url that you have defined in <span class="fn">config.json</span>. It also accepts (as a string) the key name for the image size that you have defined in <span class="fn">config.json</span>. It returns the string value of the image URL and the size.  |
 
 <!-- theme: info -->
-
 > #### Note
-> The [config.json](https://developer.bigcommerce.com/stencil-docs/storefront-customization/directory-structure#configjson) file is the main configuration file for Stencil themes and exists in the theme root directory. Use Stencil CLI to edit this file.
-
-
+> The [config.json](/stencil-docs/storefront-customization/directory-structure#configjson) file is the main configuration file for Stencil themes and exists in the theme root directory. Use Stencil CLI to edit this file.
 
 
 ## Compiling custom Sass files

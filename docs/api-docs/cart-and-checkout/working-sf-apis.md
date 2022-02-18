@@ -2,7 +2,7 @@
 
 
 
-BigCommerce's [Storefront API](https://developer.bigcommerce.com/api-reference#storefront-api) exposes storefront data to Stencil themes. You can use this client API to manage a shopper's cart, checkout, and order data via client-side JavaScript.
+BigCommerce's [Storefront API](/api-reference#storefront-api) exposes storefront data to Stencil themes. You can use this client API to manage a shopper's cart, checkout, and order data via client-side JavaScript.
 
 
 This tutorial exhibits common use cases to help you get started with the Storefront API. Each use case contains JavaScript code snippets you can paste into your browser's console, allowing you to test in the context of your storefront session.
@@ -26,11 +26,11 @@ For this tutorial, set the credentials option to `same-origin` and the content-t
 
 ## Storefront Cart
 
-The first part of this tutorial will cover using the [Storefront Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api) to create a cart, add a line item, and delete a line item directly from the storefront.
+The first part of this tutorial will cover using the [Storefront Cart API](/api-reference/cart-checkout/storefront-cart-api) to create a cart, add a line item, and delete a line item directly from the storefront.
 
 ### Create a cart
 
-You can create a cart by sending a POST request to the [Create Cart](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api/cart/createacart) endpoint.
+You can create a cart by sending a POST request to the [Create Cart](/api-reference/cart-checkout/storefront-cart-api/cart/createacart) endpoint.
 
 
 We will create the `createCart()` helper function to accomplish this POST request. Copy and execute the code below to create the function.
@@ -141,7 +141,7 @@ Response:
 
 ### Get a cart
 
-To display the contents of a cart, we need to send a GET request to the [Get a Cart](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api/cart/getacart) endpoint. By default, the cart response returns abbreviated product details. To get the full product details, we need to add the `include` query parameter.
+To display the contents of a cart, we need to send a GET request to the [Get a Cart](/api-reference/cart-checkout/storefront-cart-api/cart/getacart) endpoint. By default, the cart response returns abbreviated product details. To get the full product details, we need to add the `include` query parameter.
 
 
 Copy and execute the code below to create and subsequently call the `getCart()` helper function.
@@ -227,7 +227,7 @@ Response:
 ### Add a cart item
 
 To add a new line item to the existing cart, the ID of the cart must be included in the endpoint. The card ID was returned as part of the “Create a cart” POST request. Alternatively, you can retrieve the cart ID by making a “Get a cart” GET request.
-See [Add Cart Line Items](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api/cart-items/addcartlineitem) for more information.
+See [Add Cart Line Items](/api-reference/cart-checkout/storefront-cart-api/cart-items/addcartlineitem) for more information.
 
 Copy and execute the code below to create the `addCartItem()` helper function.
 
@@ -336,7 +336,7 @@ Response:
 
 ### Delete a cart item
 
-To delete a line item from a cart, send a DELETE request to the [Delete Cart Line Item](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api/cart-items/deletecartlineitem) endpoint and pass in the `cartId` and `itemId` to be deleted.
+To delete a line item from a cart, send a DELETE request to the [Delete Cart Line Item](/api-reference/cart-checkout/storefront-cart-api/cart-items/deletecartlineitem) endpoint and pass in the `cartId` and `itemId` to be deleted.
 
 
 ```js
@@ -421,7 +421,7 @@ Response:
 
 ## Storefront Checkout
 
-In this section, we will add a billing address to a checkout, create a consignment, and update a consignment to add a shipping option directly from the storefront. See [Storefront Checkout](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api) for more information.
+In this section, we will add a billing address to a checkout, create a consignment, and update a consignment to add a shipping option directly from the storefront. See [Storefront Checkout](/api-reference/cart-checkout/storefront-checkout-api) for more information.
 
 Before proceeding, make sure you have added two different line items to your cart.
 
@@ -431,7 +431,7 @@ Before proceeding, make sure you have added two different line items to your car
 
 ### Add a billing address
 
-To add a billing address to a checkout, send a POST request to the [Add Checkout Billing Address](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost) endpoint.
+To add a billing address to a checkout, send a POST request to the [Add Checkout Billing Address](/api-reference/cart-checkout/storefront-checkout-api/checkout-billing-address/checkoutsbillingaddressbycheckoutidpost) endpoint.
 
 
 Copy and execute the code below to create the `addBillingAddress()` helper function.
@@ -571,7 +571,7 @@ Response:
 
 A consignment consists of a shipping address with the associated line items. At a minimum, you must include one shipping address with line items and shipping options in the checkout. If you use multiple shipping locations, match each `lineItem` with the correct shipping address.  When adding a shipping address to the checkout, include the `?include=consignments.availableShippingOptions` query parameter to return the shipping options available for any address.
 
-See [Add New Consignment to Checkout](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) for more information.
+See [Add New Consignment to Checkout](/api-reference/cart-checkout/storefront-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) for more information.
 
 
 Create the `createConsignment()`helper function to test this functionality.
@@ -834,7 +834,7 @@ Response:
 
 ### Update a consignment to add a shipping option
 
-To update a consignment, add your `consignmentId` and the appropriate `shippingOptionId` (located inside the `availableShippingOptions` object) to the PUT request parameters. See [Update Checkout Consignment](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-checkout-api/checkout-consignments) for more information.
+To update a consignment, add your `consignmentId` and the appropriate `shippingOptionId` (located inside the `availableShippingOptions` object) to the PUT request parameters. See [Update Checkout Consignment](/api-reference/cart-checkout/server-server-checkout-api/checkout-consignments) for more information.
 
 >**Note:** Only one consignment can be updated at a time.
 

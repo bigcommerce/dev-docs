@@ -11,7 +11,7 @@ The Catalog refers to a store's collection of physical and digital products. The
 | Products | modify     | `store_v2_products`           |
 | Products | read-only  | `store_v2_products_read_only` |
 
-For more information on OAuth Scopes and authentication, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+For more information on OAuth Scopes and authentication, see [Authentication](/api-docs/getting-started/authentication).
 
 ## Products overview
 
@@ -54,7 +54,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/createproduct#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/createproduct#requestrunner)
 
 ## Creating products with variant options
 
@@ -98,7 +98,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/createproduct#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/createproduct#requestrunner)
 
 <!-- theme: info -->
 
@@ -134,7 +134,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/createproduct#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/createproduct#requestrunner)
 
 <!-- theme: info -->
 
@@ -162,7 +162,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-images/createproductimage#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/product-images/createproductimage#requestrunner)
 
 <!-- theme: info -->
 
@@ -194,7 +194,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-videos/createproductvideo#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/product-videos/createproductvideo#requestrunner)
 
 <!-- theme: info -->
 
@@ -221,7 +221,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-custom-fields/createcustomfield#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-custom-fields/createcustomfield#requestrunner)
 
 <!-- theme: info -->
 
@@ -259,7 +259,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-bulk-pricing-rules/updatebulkpricingrule#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-bulk-pricing-rules/updatebulkpricingrule#requestrunner)
 
 For general information and use cases for product bulk pricing, see [Bulk Pricing](https://support.bigcommerce.com/s/article/Bulk-Pricing).
 
@@ -296,7 +296,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/updateproductmetafield#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-metafields/updateproductmetafield#requestrunner)
 
 <!-- theme: info -->
 
@@ -326,7 +326,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-reviews/createproductreview#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/product-reviews/createproductreview#requestrunner)
 
 <!-- theme: info -->
 
@@ -337,7 +337,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Variant options
 
-[Variant options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variant-options) are any choices that the shopper needs to make that will result in selecting a variant. Color and size are typical examples of variant options.  A t-shirt can have different combinations of sizes and colors.
+[Variant options](/api-reference/store-management/catalog/product-variant-options) are any choices that the shopper needs to make that will result in selecting a variant. Color and size are typical examples of variant options.  A t-shirt can have different combinations of sizes and colors.
 
 Example:
 * Color is a variant option; red, orange, and green are variant option values.
@@ -355,7 +355,7 @@ This example results in selecting a combination of small and red on the storefro
 * Product pick list
 * Product pick list with images
 * Will automatically generate variants when created in the control panel
-* Are auto-generated from variants when you create a product with variants using the [Products](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/createproduct) endpoint
+* Are auto-generated from variants when you create a product with variants using the [Products](/api-reference/store-management/catalog/products/createproduct) endpoint
 
 ### Variant options example
 
@@ -420,11 +420,11 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-options/createoption#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-options/createoption#requestrunner)
 
 ## Variants
 
-[Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants/getvariantbyid) represent an item as it sits on the shelf in the warehouse or a particular saleable product. A product might be a t-shirt, while the variant would be “a small, red t-shirt.” Shoppers select variants on the storefront via product options. In the case where a product is simple, meaning it does not have any options, the product is its own variant - called a base variant. Everything you can buy should be a variant.
+[Variants](/api-reference/store-management/catalog/product-variants/getvariantbyid) represent an item as it sits on the shelf in the warehouse or a particular saleable product. A product might be a t-shirt, while the variant would be “a small, red t-shirt.” Shoppers select variants on the storefront via product options. In the case where a product is simple, meaning it does not have any options, the product is its own variant - called a base variant. Everything you can buy should be a variant.
 
 * Options build out variants.
 * Variants are usually what you track inventory against.
@@ -508,7 +508,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-options/getoptions#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-options/getoptions#requestrunner)
 
 In the above response, there are two variant options of size and color with three values each.
 
@@ -551,7 +551,7 @@ The `option_values` array combines the options small and blue to create the SKU 
 
 ### Create a variant using the product endpoint
 
-The following example creates a base product, variant options, and variants in a single call to the [Products](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/createproduct) endpoint. Use this method to create a product and variants in a single call without creating variant options first (option display will default to radio button).
+The following example creates a base product, variant options, and variants in a single call to the [Products](/api-reference/store-management/catalog/products/createproduct) endpoint. Use this method to create a product and variants in a single call without creating variant options first (option display will default to radio button).
 
 
 ```http
@@ -593,7 +593,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/createproduct#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/createproduct#requestrunner)
 
 <!-- theme: info -->
 
@@ -649,7 +649,7 @@ Creating a checkbox with an adjuster requires two separate calls: one to create 
 
 
 
-To [create a modifier](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/createmodifier), send a `POST` request to `/v3/catalog/products/{{product_id}}/modifiers`.
+To [create a modifier](/api-reference/store-management/catalog/product-modifiers/createmodifier), send a `POST` request to `/v3/catalog/products/{{product_id}}/modifiers`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/modifiers
@@ -669,7 +669,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-modifiers/createmodifier#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-modifiers/createmodifier#requestrunner)
 
 
 **Response:**
@@ -718,7 +718,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 Since this is a checkbox with two states, you create two option values. The default `adjuster_value` is null.
 
-To [update the modifier value](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifier-values/updatemodifiervalue), send a `PUT` request to `/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values/{value_id}`.
+To [update the modifier value](/api-reference/store-management/catalog/product-modifier-values/updatemodifiervalue), send a `PUT` request to `/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values/{value_id}`.
 
 ```http
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/modifiers/{{modifier_id}}/values/{value_id}
@@ -737,7 +737,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-modifier-values/updatemodifiervalue#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-modifier-values/updatemodifiervalue#requestrunner)
 
 ### Troubleshooting: 422 Errors
 
@@ -810,7 +810,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
   ]
 }
 ```
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-complex-rules/updatecomplexrule#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-complex-rules/updatecomplexrule#requestrunner)
 
 ### Troubleshooting: 422 Errors
 
@@ -847,7 +847,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/brands/createbrand#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/brands/createbrand#requestrunner)
 
 For general information on brands and their use cases, see [Managing Brands](https://support.bigcommerce.com/s/article/Managing-Brands).
 
@@ -876,7 +876,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/category/createcategory#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/category/createcategory#requestrunner)
 
 ### Category tree
 
@@ -928,7 +928,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Product Sort Order
 
-[Product Sort Order](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-sort-order) allows you to manage the sort order of products displayed on any given category page. Products assigned to multiple storefront categories can have different sort order values per category.
+[Product Sort Order](/api-reference/store-management/catalog/product-sort-order) allows you to manage the sort order of products displayed on any given category page. Products assigned to multiple storefront categories can have different sort order values per category.
 
 ### Product sorting on a storefront 
 
@@ -952,6 +952,6 @@ Product sorting methods:
 * [Catalog API](/api-reference/store-management/catalog)
 
 ### Webhooks
-* [Products](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#products)
-* [Categories](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#category)
-* [SKU](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events#sku)
+* [Products](/api-docs/store-management/webhooks/webhook-events#products)
+* [Categories](/api-docs/store-management/webhooks/webhook-events#category)
+* [SKU](/api-docs/store-management/webhooks/webhook-events#sku)

@@ -13,7 +13,7 @@ You can manage your theme's front-end components by configuring its `config.json
 * Provides metadata for your theme's listing in the Theme Marketplace.
 * Defines variations included in your theme.
 
-For a list of all available keys and values in `config.json`, see [Models](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties/models/configjson).
+For a list of all available keys and values in `config.json`, see [Theme Objects](/theme-objects).
 
 ## Requirements and restrictions
 

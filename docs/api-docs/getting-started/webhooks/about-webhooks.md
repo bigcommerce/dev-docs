@@ -8,7 +8,7 @@ Webhooks notify applications when specific events occur on a BigCommerce store. 
 * a product's inventory changes
 * an item is added to a shopper's cart
 
-This article is an overview of webhook behavior on BigCommerce. For a complete webhook API reference, see [API Reference > Webhooks](/api-reference/webhooks/webhooks/createwebhooks). For a step-by-step webhooks tutorial on creating a webhook for certain store events, see [Webhooks Tutorial](https://developer.bigcommerce.com/api-docs/store-management/webhooks/tutorial).
+This article is an overview of webhook behavior on BigCommerce. For a complete webhook API reference, see [API Reference > Webhooks](/api-reference/webhooks/webhooks/createwebhooks). For a step-by-step webhooks tutorial on creating a webhook for certain store events, see [Webhooks Tutorial](/api-docs/store-management/webhooks/tutorial).
 
 ## Creating a webhook
 
@@ -29,7 +29,7 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/webhooks/webhooks/createwebhooks#requestrunner)
+[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/webhooks/webhooks/createwebhooks#requestrunner)
 
 **Response**
 
@@ -73,9 +73,9 @@ When a webhook is triggered, BigCommerce will `POST` a light payload containing 
  }
 ```
 
-You can then make a request to [/orders/{id}](https://developer.bigcommerce.com/api-reference/store-management/orders/orders/getanorder) to obtain full order details.
+You can then make a request to [/orders/{id}](/api-reference/store-management/orders/orders/getanorder) to obtain full order details.
 
-For more information on specific webhook events and their payloads, see [Webhook Events](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events).
+For more information on specific webhook events and their payloads, see [Webhook Events](/api-docs/store-management/webhooks/webhook-events).
 
 ## Handling callbacks
 
@@ -132,7 +132,7 @@ To avoid accumulating unused webhooks, BigCommerce automatically deletes registe
 <!-- theme: info -->
 
 > #### Note
-> You can not delete a webhook by deleting the account token used to create it. The associated webhook will continue to run after you delete the token, and you will be unable to edit, delete, or manage the webhook. For information on how to manually delete a webhook, see [Delete a Webhook](https://developer.bigcommerce.com/api-reference/store-management/webhooks/webhooks/deleteawebhook).
+> You cannot delete a webhook by deleting the account token used to create it. The associated webhook will continue to run after you delete the token, and you will be unable to edit, delete, or manage the webhook. For information on how to manually delete a webhook, see [Delete a Webhook](/api-reference/store-management/webhooks/webhooks/deleteawebhook).
 </div> 
 </div>
 </div>
@@ -145,7 +145,7 @@ To ensure webhook callback requests are secure, BigCommerce takes the following 
 * Webhook payloads are sent over **TLS-encrypted** connection.
 * Create Webhook requests to accept an optional header object which can be used to authenticate callbacks requests.
 
-**POST requests that includes header object**
+**POST request that includes header object**
 
 ```json
 {
@@ -206,8 +206,8 @@ Below is a collection of third-party tools that can be used to aid in the develo
 ## Related resources
 
 ### Articles
-* [Webhook Tutorial](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/setting-up-webhooks)
-* [Webhook Events](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events)
+* [Webhook Tutorial](/api-docs/getting-started/webhooks/setting-up-webhooks)
+* [Webhook Events](/api-docs/store-management/webhooks/webhook-events)
 
 ### Endpoints
-* [Webhooks Reference](https://developer.bigcommerce.com/api-reference/webhooks)
+* [Webhooks Reference](/api-reference/webhooks)
