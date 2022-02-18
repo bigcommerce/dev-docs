@@ -10,7 +10,6 @@ You can access the most recent version of this file in the [Cornerstone reposito
 
 
 <!-- theme: danger -->
-
 > #### Customizing checkout restrictions
 > When customizing the checkout page, you are free to change classes' contents; however, **do not** nest elements or change any class names. BigCommerce imposes these restrictions because each class here maps to multiple optimized checkout elements. Changing the structure or naming would break updates available in future optimized checkout enhancements.
 
@@ -67,7 +66,6 @@ In Cornerstone's `optimized-checkout.scss`, each SCSS class and property availab
 You can enable the display of alternate currencies on your Stencil theme's Optimized One-Page Checkout and order confirmation pages.
 
 <!-- theme: warning -->
-
 > #### Restrictions
 > The options on this page require that you first enable Optimized One-Page Checkout. Find instructions on how to do this in [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout).
 

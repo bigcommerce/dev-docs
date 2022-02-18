@@ -6,7 +6,7 @@ The [Checkout SDK's`embedded-checkout` sub-module](https://github.com/bigcommerc
 
 ## How it works
 
-Embedded Checkout uses an HTML `<iframe>` to display BigCommerce's PCI compliant Optimized One-Page Checkout on non-BigCommerce web pages.
+Embedded Checkout uses an HTML `<iframe>` to display BigCommerce's PCI-compliant Optimized One-Page Checkout on non-BigCommerce web pages.
 
 If your channel site doesn't match the URL from which you're making a request to a BigCommerce store, you will get a security error and the checkout will not load. Additionally, if requests to your BigCommerce store aren't served over HTTPS, you will also see an error.
 

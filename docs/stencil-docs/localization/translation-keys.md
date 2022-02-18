@@ -15,7 +15,6 @@ Stencil automatically detects the `Accept-Language` request HTTP header from the
 Stencil's multi-language capabilities are limited to the particular key-value pairs you specify in the theme. Stencil themes do not translate content rendered from a store's catalog database (for example, the name of a product).
 
 <!-- theme: info -->
-
 > #### Full support for multiple languages
 > If you want to fully support multiple languages, we recommend you set up a separate storefront for each language. This will enable you to completely customize your content, including your product catalog, for each target audience.
 

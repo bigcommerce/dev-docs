@@ -26,7 +26,6 @@ The `config.json` file must meet the following requirements:
 Apart from the aforementioned size constraints, there is no limit on the number of keys and values you can place in a theme's `config.json`.
 
 <!-- theme: warning -->
-
 > Carefully check your theme against all the listed requirements – including the required keys within the `meta` object and `variations` array. While some requirements are not enforced in local development, they will be validated when you upload your theme to BigCommerce.
 
 

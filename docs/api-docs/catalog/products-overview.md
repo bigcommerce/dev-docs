@@ -25,7 +25,6 @@ Products can be physical or digital:
 
 
 <!-- theme: info -->
-
 > #### Note
 > Only one product can be created at a time.
 
@@ -101,7 +100,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/createproduct#requestrunner)
 
 <!-- theme: info -->
-
 > #### Note
 > When you create options via `/products`, `display_type` defaults to a radio button (displayed as selectable boxes in some themes).
 
@@ -137,7 +135,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/createproduct#requestrunner)
 
 <!-- theme: info -->
-
 > #### Note
 > Files can only be added to digital products via [control panel or WebDav](https://support.bigcommerce.com/s/article/Creating-Downloadable-Products) -- attaching via the API is not supported. You can also set additional settings such as file description and maximum downloads in the control panel.
 
@@ -165,7 +162,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/product-images/createproductimage#requestrunner)
 
 <!-- theme: info -->
-
 > #### Note
 > * If using `image_file`, set `Content-Type` header to `multipart/form-data` -- otherwise, you will be unable to add subsequent requests.
 > * Set `is_thumbmail` to true to set the image as the thumbnail used on product listing pages.
@@ -197,7 +193,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/product-videos/createproductvideo#requestrunner)
 
 <!-- theme: info -->
-
 > #### Note
 > * A product can have more than one video.
 > * You must host product videos on YouTube.
@@ -224,7 +219,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-custom-fields/createcustomfield#requestrunner)
 
 <!-- theme: info -->
-
 > #### Note
 > Custom field values are limited to **250** characters. For additional information on custom fields and their use cases, see [Custom Fields](https://support.bigcommerce.com/s/article/Custom-Fields).
 
@@ -299,7 +293,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-metafields/updateproductmetafield#requestrunner)
 
 <!-- theme: info -->
-
 > #### Note
 > You can add metafields to variants, products, categories, and brands.
 
@@ -329,7 +322,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/product-reviews/createproductreview#requestrunner)
 
 <!-- theme: info -->
-
 > #### Note
 > You cannot create reviews in the control panel.
 
@@ -372,7 +364,6 @@ This example results in selecting a combination of small and red on the storefro
 * Base variants are not SKUs in V2.
 
 <!-- theme: info -->
-
 > #### Create a variant option
 > Creating a variant option does not automatically create SKUs or build out variants. You can build out SKUs later using the [Variants](/api-reference/store-management/catalog/product-variants/createvariant) endpoint.
 
@@ -434,7 +425,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 
 <!-- theme: warning -->
-
 > #### V2 SKU rules will override variant pricing
 > Creating SKU rules via the V2 API or via CSV import will alter or override any variant price or sale price added to a product via the control panel, V3 API, or Price Lists UI.
 
@@ -517,7 +507,6 @@ To combine the variant option values into variants and build out SKUs use the fo
 `https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/variants`
 
 <!-- theme: info -->
-
 > #### Note
 > * Variants need to be created one at a time using this endpoint.
 > * You can create only one variant option at a time; individual variant options will contain an array of multiple values.
@@ -596,7 +585,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/createproduct#requestrunner)
 
 <!-- theme: info -->
-
 > #### Supported types
 > Swatch, radio button, rectangle, dropdown, product list, and product list with images.
 
@@ -628,7 +616,6 @@ You can add an adjuster to a modifier option to change things, such as increasin
 | Backpack | Black<br>Yellow<br>-<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>-<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L| Text Field<br> Add Embroidery|
 
 <!-- theme: info -->
-
 > #### Modifiers that support adjusters
 > Swatch, radio button, rectangle list, drop-down, product list, and product list with images.
 
@@ -642,7 +629,6 @@ The following example shows how to add a modifier and a checkbox with a price ad
 Creating a checkbox with an adjuster requires two separate calls: one to create the checkbox and another one to add the adjuster. You can define adjusters within the `option_values` array, but `option_values` are not allowed in the request to create a checkbox modifier because creating a checkbox automatically generates two mandatory option values: `Yes` and `No`. Once you have created the checkbox and its option values, you can update the modifier to add an adjuster.
 
 <!-- theme: info -->
-
 > #### Modifiers that require a second step to add an adjuster
 > Swatch, radio button, drop-down, rectangle list, product list, product list with images, and checkbox.
 
@@ -940,7 +926,6 @@ Product sorting methods:
 2. Manually specified sort order on a product level. `0` by default. 
 
 <!-- theme: info -->
-
 > #### Note
 > Products with the same sort order value either on a category or a product level are sorted by `product id` as a second criterion.
 

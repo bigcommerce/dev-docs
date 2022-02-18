@@ -56,7 +56,6 @@ You can create price lists in any currency setup in the store. Both transactiona
 ![titled](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-price-overrides.png "Price Overrides")
 
 <!-- theme: danger -->
-
 > #### Note
 > This feature is limited to Enterprise plans and requires a Stencil theme.
 

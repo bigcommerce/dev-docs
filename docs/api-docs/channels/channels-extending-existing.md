@@ -164,7 +164,7 @@ For a complete Channel API reference (including request schemas and property des
 
 <!-- theme: info -->
 > #### Note
-> - Select partners have slightly more stringent requirements for their sales channel apps due to the high visibility and marketability of their apps directly within the BigCommerce control panel.
+> Select partners have slightly more stringent requirements for their sales channel apps due to the high visibility and marketability of their apps directly within the BigCommerce control panel.
 
 
 For a high-level overview and more information on Channels Toolkit, see [Channels Overview](/api-docs/channels/overview).

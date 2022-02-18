@@ -29,7 +29,6 @@ Use the following OAuth scopes for the Server-to-Server Checkout API.
 For more information on OAuth Scopes and authentication, see [Authentication](/api-docs/getting-started/authentication).
 
 <!-- theme: info -->
-
 > For limits on the number of line items in a consignment, see the [Create a consignment endpoint](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) documentation.
 
 > The Server-to-Server Checkout API responds quickly when the checkout contains one consignment.  Each additional consignment increases the amount of time the API takes to finish creating a checkout. The example API calls in this article use the Server-to-Server Checkout API.
@@ -43,7 +42,6 @@ For more information on OAuth Scopes and authentication, see [Authentication](/a
 
 
 <!-- theme: info -->
-
 > Prerequisites: Prior to working with consignments, your code will need to create or retrieve a cart or checkout.  The cart ID and checkout ID are the same.
 
 
@@ -129,7 +127,6 @@ The [Update a consignment endpoint](/api-reference/store-management/checkouts/ch
 There are two distinct kinds of consignment updates. The first selects a fulfillment option. The second can update the recipient's shipping address and adjust the list of included line items. 
 
 <!-- theme: warning -->
-
 > You must choose one type of consignment update because changing the shipping address and weight can change available fulfillment options. You can't do both in the same call to the [Update a consignment endpoint](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput).
 
 

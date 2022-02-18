@@ -139,7 +139,6 @@ Finally, install the draft app on any store registered to the same email as your
 Congrats! You've created and installed a BigCommerce draft app.
 
 <!-- theme: info -->
-
 > Interested in sharing or selling your app? Learn more about [becoming a BigCommerce partner](https://www.bigcommerce.com/partners/become-a-partner) and [getting your app approved](/api-docs/partner/app-store-approval-requirements).
 
 

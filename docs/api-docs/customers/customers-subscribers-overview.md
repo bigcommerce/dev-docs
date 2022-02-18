@@ -73,12 +73,8 @@ A customer makes a purchase on a store and creates an account. The customers obj
 
 
 <!-- theme: info -->
-
 > #### Name-value pairs
-
 > Each customer can have up to 50 name-value pairs stored.
-
-
 
 Customer attributes are created separately from the customer. After the name and type are created, then the attributes can be added to the customer using the name-value pair.
 

@@ -13,7 +13,6 @@ Integrating a partner's theme changes requires these preconditions:
 *   BigCommerce sets up a Theme Development store (or converts an existing regular store) and applies the theme. All theme files will automatically be copied into the WebDAV `/template/` directory.
 
 <!-- theme: info -->
-
 > #### Template Path Abstracted
 > The Theme Development store resolves the %%GLOBAL_TPL_PATH%% variable into /template/. Therefore, assets will be pulled from the /template/ directory, which is accessible via WebDAV or via the BigCommerce control panel.
 
@@ -26,7 +25,6 @@ Integrating a partner's theme changes requires these preconditions:
 2.  The partner asks BigCommerce to switch a theme. (Partners currently cannot switch it directly, because it’s a paid theme.)
 
 <!-- theme: danger -->
-
 > This step will wipe out all files in the /template/ directory and copy in the latest version of the integrated theme.
 
 
@@ -36,7 +34,6 @@ Integrating a partner's theme changes requires these preconditions:
 5.  The partner commits their changes into the feature branch, and opens a pull request against the BigCommerce fork.
 
 <!-- theme: warning -->
-
 > If BigCommerce made conflicting changes (which should happen only when resolving urgent issues), the partner might need to rebase changes (using git rebase master) in order to resolve the conflicts.
 
 

@@ -18,9 +18,7 @@ To incorporate reCAPTCHA v2, you will need to update script references in these 
 
     
 <!-- theme: danger -->
-
-> ####  Updating Safely 
-
+> #### Updating Safely 
 > Please back up each file before making any changes. 
 
 The instructions below are based on the default Blueprint theme (Classic Next), as it was last published in BigCommerce’s Theme Marketplace. Therefore, the HTML markup will vary, based on customizations you have already made to this theme, or to other Marketplace themes.

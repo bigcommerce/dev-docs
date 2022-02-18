@@ -3,7 +3,6 @@
  
 
 <!-- theme: warning -->
-
 > #### Restricted/Grandfathered Access
 > As of November 2016, new BigCommerce stores are being offered themes exclusively from BigCommerce's new <a href="https://support.bigcommerce.com/articles/Public/The-Stencil-Theme-Platform" target="_blank">Stencil</a> theme platform. For existing stores, the control panel's <NOBR><b>Themes Marketplace</b></nobr> and <NOBR><b>My Themes</b></nobr> pages will show only those Blueprint themes that have been applied to the store and/or purchased before November 2016. <br><br> 
 

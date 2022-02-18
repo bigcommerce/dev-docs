@@ -148,7 +148,6 @@ The `storefront_api_query` field allows you to query store data that widgets can
 For example, the `$productId` parameter comes from the widget configuration when a user selects a product. The `mappings` object from the widget template schema `settings` tells the widget to map the value of the widget configuration’s `productId` setting to the GraphQL parameter called `productId`.
 
 <!-- theme: info -->
-
 > #### Note
 > * You can use the `activeCurrencyCode` query parameter to return user-selected currency.
 > * There is no need to provide the mapping for the `activeCurrencyCode` property as it is auto-populated with the shopper’s active currency at the time of page load.
@@ -254,12 +253,8 @@ The [response](/api-reference/store-management/widgets/widget/getwidget#response
 ```
 
 <!-- theme: info -->
-
 > #### Note
->
 > The value of the `productId` inside of the `widget_configuration` object is mapped to the `productId` parameter of the `storefront_api_query_params` object.
-
-
 
 ## Place the widget using the API
 

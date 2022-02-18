@@ -13,7 +13,6 @@ npm install node-bigcommerce
 ```
 
 <!-- theme: info -->
-
 > You can view a list of all the tested package versions in the [package.json file on the Step 2 branch](https://github.com/bigcommerce/sample-app-nodejs/blob/step-2-connect-app-to-bc/package.json) of this sample app's repo.
 
 
@@ -172,7 +171,6 @@ ngrok http 3000
 ![https tunnel](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-02.png "https tunnel")
 
 <!-- theme: info -->
-
 > #### Note
 > Although you can use the `ngrok` npm package without creating an account, any unauthenticated tunnels you create will expire after two hours. For the best development experience, [create a free ngrok account](https://dashboard.ngrok.com/signup), [find your ngrok authtoken](https://dashboard.ngrok.com/get-started/your-authtoken), and [add the authtoken](https://ngrok.com/docs#getting-started-authtoken) to your global `ngrok` configuration.
 
@@ -197,11 +195,8 @@ To register an app, you need a BigCommerce store. If you do not have a BigCommer
 ![HTTPS URL](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-05.png "HTTPS URL")
 
 <!-- theme: warning -->
-
-> **Warning**
+> #### Warning
 > Avoid using the HTTP URL to prevent security policy errors.
-
-
 
 * For Auth Callback URL, enter the URL of your app followed by `/api/auth`.
 * For Load Callback URL, enter the URL of your app followed by `/api/load`.
@@ -210,7 +205,6 @@ To register an app, you need a BigCommerce store. If you do not have a BigCommer
 ![Callback url](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-06.png "Callback url")
 
 <!-- theme: info -->
-
 > #### Note
 > Next.js maps all APIs that are part of the Next.js application to the `/api/*` route. To learn more about Next.js API routes, see [API Routes](https://nextjs.org/docs/api-routes/introduction).
 
@@ -244,8 +238,7 @@ AUTH_CALLBACK=https://{ngrok_id}.ngrok.io/api/auth
 ```
 
 <!-- theme: warning -->
-
-> **Warning**
+> #### Warning
 > Never share sensitive data such as API keys and passwords publicly.
 
 
@@ -260,7 +253,6 @@ npm run dev
 ```
 
 <!-- theme: info -->
-
 > #### Note
 > If ngrok stops working or your ngrok session expires, restart the tunnel to get the new `ngrok_id` and update the callback URLs in the Developer Portal and the `AUTH_CALLBACK` in the `.env` file.
 

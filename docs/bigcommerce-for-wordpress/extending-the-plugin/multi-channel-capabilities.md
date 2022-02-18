@@ -60,7 +60,6 @@ Once finished, the directory structure should look as follows:
 |    |   ├── ...
 ```
 <!-- theme: info -->
-
 > #### Note
 > * For more information on editing WordPress and plugin files, see [Editing Files](https://wordpress.org/support/article/editing-files/) (wordpress.org).
 
@@ -77,7 +76,6 @@ In the example screenshot above, we've created and connected two channels:
 1. a `UK` channel with `term_id` `31`
 
 <!-- theme: info -->
-
 > #### Note
 > * The `term_id`s for your channels will probably be different
 
@@ -126,7 +124,6 @@ if ( $_GET[ 'region' ] !== 'us' && ($_GET[ 'region' ] === 'uk' || strpos($_SERVE
 ```
 
 <!-- theme: info -->
-
 > #### Note
 > * replace `31` in `get_term()` above with the `term_id` of your channel
 > * change `uk`, `GBP`, and `£` to the country code and currency corresponding to your channel, as desired

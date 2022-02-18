@@ -47,7 +47,6 @@ Accept: application/json
 ```
 
 <!-- theme: warning -->
-
 > #### Note
 > * Following the creation of a webhook, it can take up to one minute for BigCommerce to start making `POST` requests to the destination server.
 > * The `destination` URL must be served on port **443**; custom ports are not currently supported.
@@ -118,7 +117,6 @@ The webhook dispatcher will then attempt several retries (at increasing interval
 After the final retry attempt (cumulatively **48 hours** after the first delivery attempt), the webhook will be deactivated, and an email will be sent to the email address registered for the subscribing app. To reactivate the webhook, set `is_active`  back to `true` by making a `PUT` request to `/hooks/{id}`.
 
 <!-- theme: info -->
-
 > #### Note
 > * A domain's success rate for a given sliding window is not calculated until `100` webhook requests are sent - this means the domain will not be blacklisted for the first `100` webhooks sent within the time window (regardless of response), as all webhooks are sent until the minimum threshold has been reached for the current time window.
 > * The webhook dispatcher determines whether retries are needed based on responses from the subscribed domain as a whole, not by specific hooks. For example, `domain.com/webhook-1` and `domain.com/webhook-2` will affect each other for failures and retries, as both URLs belong to the same domain.
@@ -130,7 +128,6 @@ After the final retry attempt (cumulatively **48 hours** after the first deliver
 To avoid accumulating unused webhooks, BigCommerce automatically deletes registered webhooks on app uninstall.
 
 <!-- theme: info -->
-
 > #### Note
 > You cannot delete a webhook by deleting the account token used to create it. The associated webhook will continue to run after you delete the token, and you will be unable to edit, delete, or manage the webhook. For information on how to manually delete a webhook, see [Delete a Webhook](/api-reference/store-management/webhooks/webhooks/deleteawebhook).
 </div> 

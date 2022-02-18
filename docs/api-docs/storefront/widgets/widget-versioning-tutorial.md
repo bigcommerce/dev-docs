@@ -11,7 +11,6 @@ This article documents how to use [widget versioning](/api-docs/store-management
 * Knowledge of the [Widgets API](/api-docs/storefront/widgets/widgets-overview).
 
 <!-- theme: info -->
-
 > #### Note
 > This tutorial uses [Cornerstone](https://github.com/bigcommerce/cornerstone) theme.
 
@@ -58,7 +57,6 @@ Accept: application/json
 
 
 <!-- theme: info -->
-
 > #### Note
 > * Make a note of `uuid` and `current_version_uuid`. We will use them in the steps that follow.
 
@@ -232,7 +230,6 @@ To upgrade the widget derived from the original widget template, send `"upgrade"
 ![Upgrade the widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widget-versioning-03.png "Upgrade the widget")
 
 <!-- theme: info -->
-
 > #### Note
 > * If the newer version of your widget template contains different schema settings, you need to provide the necessary configuration values along with the `upgrade` flag to make sure the widget is updated correctly. 
 

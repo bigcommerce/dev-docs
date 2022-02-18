@@ -9,7 +9,6 @@ App developers create, edit, and submit apps for approval using the [Developer P
 Sign in or create a [Developer Portal](https://devtools.bigcommerce.com) account at [devtools.bigcommerce.com](https://devtools.bigcommerce.com).
 
 <!-- theme: info -->
-
 > #### Note
 > * `DRAFT` apps can only be installed on stores owned by the same email address as the developer portal account's email address.
 
@@ -29,7 +28,6 @@ To create an app, do the following:
 [Learn more about completing registration fields and submitting apps for approval](/api-docs/apps/guide/publishing).
 
 <!-- theme: info -->
-
 > #### Note
 > * The app's name is only visible in the developer portal.
 
@@ -44,7 +42,6 @@ Edit an app by clicking **Edit App**.
 [Learn more about completing registration fields and submitting apps for approval](/api-docs/apps/guide/publishing).
 
 <!-- theme: warning  -->
-
 > #### Note
 > * After saving, edits are effective immediately in the control panel; however, edits can take up to 24 hours to appear in the [Apps Marketplace](https://www.bigcommerce.com/apps/).
 
@@ -59,7 +56,6 @@ Click **Edit App**, then navigate to the technical tab to edit enabled features,
 [Learn more about completing registration fields and submitting apps for approval](/api-docs/apps/guide/publishing).
 
 <!-- theme: warning -->
-
 > #### Note
 > * After saving, edits to enabled features, callbacks URLs, and OAuth scopes are effective immediately for all app users.
 
@@ -74,7 +70,6 @@ Click **View Client ID** to view an app's API credentials.
 [Learn how to use app credentials in the app OAuth flow](/api-docs/apps/guide/auth).
 
 <!-- theme: info -->
-
 > #### Note
 > * [OAuth Client ID is no longer required to authenticate requests to api.bigcommerce.com](/changelog#posts/o-auth-client-id-is-no-longer-required-for-requests-to-api-bigcommerce-com).
 

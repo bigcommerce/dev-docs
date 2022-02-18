@@ -22,7 +22,6 @@ This article demonstrates how to use [Contextual Filters](/api-reference/store-m
 * Pro or Enterprise store plan. To upgrade, see [Changing Your Store's Plan](https://support.bigcommerce.com/s/article/How-do-I-upgrade-my-stores-plan).
 
 <!-- theme: info -->
-
 > #### Note
 > * Your store plan must support Product Filtering to use contextual filters. 
 > * Product Filtering is available for Pro and Enterprise plans. To upgrade, see [Changing Your Store's Plan](https://support.bigcommerce.com/s/article/How-do-I-upgrade-my-stores-plan).
@@ -194,7 +193,6 @@ Accept: application/json
 The filters returned from completing this `GET` request are the filters available for configuration on the given category. In this example, we have Brand, Rating, Price, Color, Size, and Other filters to pick from when choosing which filters to activate for the Kitchen category. In reality, you will be able to select from more filters.
 
 <!-- theme: info -->
-
 > #### Note
 > To get a list of your store's categories, send a `GET` request to [`/v3/catalog/categories`](/api-reference/store-management/catalog/category/getcategories).
 
@@ -265,7 +263,6 @@ The order and names of returned filters should match the filters listed under **
 ![Category Filters](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/contextual-filters-02.png "Category Filters")
 
 <!-- theme: info -->
-
 > #### Note
 > The order of the data you send implicitly determines the sort order of the filters on the storefront. You can change the order of the filters on the live site by changing the order of the array's data.
 
@@ -360,7 +357,6 @@ You can also view the changes on the storefront.
 ![Updated Category Filters](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/contextual-filters-04.png "Updated Category Filters")
 
 <!-- theme: info -->
-
 > #### Note
 > * You can add new filters using [custom fields](https://support.bigcommerce.com/s/article/Custom-Fields).
 > * For information on how to manage filters using the control panel, see [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings). 

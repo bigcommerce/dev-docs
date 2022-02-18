@@ -1,9 +1,7 @@
 # Custom Fonts and Icons
 
 <!-- theme: warning -->
-
 > #### Custom fonts unavailable on Page Builder
->
 > * BigCommerce widgets come with a list of pre-defined fonts and do not support custom fonts at this time. 
 > * Third-party widgets can support any font available in the theme. To learn more about third-party widgets, see [Third-Party Widgets](/stencil-docs/page-builder/third-party-widgets).
 
@@ -32,7 +30,6 @@ You can update the fonts in `config.json`; make sure to follow the `Google_FontN
 ```
 
 <!-- theme: info -->
-
 > #### Check with your theme developer
 > If you are using a different theme, please check with the theme developer on using Google Fonts.
 

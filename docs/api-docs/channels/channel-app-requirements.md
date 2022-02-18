@@ -24,9 +24,7 @@ Select Partners:
 - Includes `config_meta.app.id` in the [create channel](/api-reference/cart-checkout/channels-listings-api/channels/createchannel) request.
 
 <!-- theme: info -->
-
 > #### Note
->
 > - You can find the app ID in the URL when editing the app in the [Developer Portal](https://devtools.bigcommerce.com/). For more information, see [Finding an App's ID](/api-docs/apps/tutorials/id).
 > - `config_meta.app.id` is optional; however, if you're building an app that creates or manages a channel, we recommend including the app ID to ensure the user interface in the BigCommerce control panel works properly.
 > - Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request.
@@ -47,11 +45,8 @@ All Partners:
 - Must use [Listings API](/api-reference/cart-checkout/channels-listings-api), if supporting per product listings.
 
 <!-- theme: info -->
-
 > #### Note
->
-> - In order to promote app performance and user experience best practices, additional general and channel type requirements will be outlined as needed.
-
+> To promote app performance and user experience best practices, additional general and channel type requirements will be outlined as needed.
 
 
 ## Related resources

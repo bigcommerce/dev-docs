@@ -92,7 +92,6 @@ Select one of our pre-formatted pricing options to call out your app’s startin
 Choose the most appropriate category for your app.
 
 <!-- theme: info -->
-
 > #### Connector Apps
 > If your solution is a connector to a specific third-party service, or you’re offering only a particular feature, make sure to include both the name of the third party service or feature and your company name​ (Ex: “Marketplace by BigCommerce,” “Search by BigCommerce”). The company name needs to follow the feature.
 
@@ -108,7 +107,6 @@ The app icon will be included on the main app detail page and the sidebar in the
 Select one of our pre-formatted pricing options to call out your app’s starting price. If you offer a forever-free plan, choose the “Free” option. If your app does not fit one of our options, specify your details in a few words in the “Other” selection.
 
 <!-- theme: info -->
-
 > #### Pricing Details
 > If you need to specify more detail on your pricing options, save it for your app description.
 
@@ -164,7 +162,6 @@ Product demos and tutorials
 These can either be “Thought Leadership” case studies and/or traditional case studies that demonstrate how BigCommerce merchants have benefited from using your solution with their business. Use the + ​icon to add a case study, and the x ​icon to remove. Four case studies maximum.
 
 <!-- theme: warning -->
-
 > #### Case Studies
 > Case studies that include competitor platforms are not allowed and will be removed. Partners will be required to repurpose general case studies, remove competitor platform mentions, and republish the asset accordingly.
 
@@ -184,7 +181,6 @@ Links to your privacy policy and terms of service. This requirement is in place 
 Please add the countries for which your solution is optimized and those which your solution does not currently support.
 
 <!-- theme: warning -->
-
 > #### International Optimization
 >This feature will not currently be utilized in the Marketplace, but will be a part of planned internationalization updates.
 

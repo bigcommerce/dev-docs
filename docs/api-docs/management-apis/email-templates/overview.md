@@ -114,7 +114,6 @@ Accept: application/json
 ```
 
 <!-- theme: info -->
-
 > #### Note
 > Omit `?channel_id` to interact with global email templates.
 

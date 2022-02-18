@@ -56,9 +56,7 @@ Accept: application/json
 [View reference documentation for this request](/api-reference/store-management/channels/channels/createchannel).
 
 <!-- theme: info -->
-
 > #### Note
->
 > You can [find an app's ID](/api-docs/apps/tutorials/id) in the URL when editing the app in the [Developer Portal](/api-docs/apps/guide/developer-portal).
 
 

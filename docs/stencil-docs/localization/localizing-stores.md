@@ -12,7 +12,6 @@ A BigCommerce storefront can be customized to display in any one language of you
 * [**Storefront content.**](#localizing-your-storefront-content) Adjust other localization details in the BigCommerce control panel.
 
 <!-- theme: info -->
-
 > #### Storefront language support
 > Each storefront can only support a single language. To display multiple languages, we recommend setting up a separate store for each language.
 

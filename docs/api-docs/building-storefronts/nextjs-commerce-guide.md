@@ -114,9 +114,7 @@ BIGCOMMERCE_STORE_API_STORE_HASH=${STORE_HASH}
 5. To see your Next.js Commerce storefront running locally, open `localhost:3000` in your browser.
 
 <!-- theme: info -->
-
 > #### Note
->
 > Any saved changes you push to your Git repository will trigger a redeployment at Vercel. You can also trigger a redeployment manually through the Vercel dashboard.
 
 

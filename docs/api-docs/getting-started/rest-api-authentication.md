@@ -160,7 +160,6 @@ Scope limits ability to read or write to data. Set the scopes to the minimum lev
 All OAuth scopes except `default` have `read_only` scopes that allow only `GET` and `HEAD` requests.
 
 <!-- theme: info -->
-
 > Webhooks are accessible from the default scope that is available when API Credentials are created.
 
 

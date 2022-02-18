@@ -60,7 +60,6 @@ For more technical details on how the 3 modes are differentiated, please check o
 ### Classic mode (v0.1+) - Legacy
 
 <!-- theme: warning -->
-
 > Classic is now considered legacy -- Paired and Native are the recommended AMP Plugin modes.
 
 

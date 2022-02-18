@@ -23,7 +23,6 @@ Use Cases:
 - Apps that do not provide Web or cloud-hosted components for a dashboard.
 
 <!-- theme: info -->
-
 > #### Connector apps
 > Connector apps require the store owner to create API Credentials in the Control Panel and then pass those values into the app manually. The single-click installation process is preferred since it does not require this step.
 

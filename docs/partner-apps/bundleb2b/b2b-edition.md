@@ -63,7 +63,6 @@ To modify the styling of a B3 module, follow these steps:
 2. Within `window.b3themeConfig.useStyles = {}`, create a property that uses the B3 element name as the key and one or more comma-separated CSS declarations as the value.
 
 <!-- theme: info -->
-
 > #### Note
 > Since the CSS is written in a JavaScript object, properties with two names, like `background-color`, must be written with camel case syntax: `backgroundColor: "lightblue"`
 

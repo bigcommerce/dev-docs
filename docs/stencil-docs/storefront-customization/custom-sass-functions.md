@@ -45,7 +45,6 @@ Finally, ensure `{{stylesheet '/assets/css/theme.scss'}}` is located in `templat
 While `stencil start` is running, it will recompile your custom Sass files to the specified <span class="fp">`{theme-name}/assets/css/theme.scss`</span> file (note that this object file’s name is always the same, and is independent of your custom Sass file's names).
 
 <!-- theme: warning -->
-
 > #### Before you customize
 > The Stencil framework is designed to support your incorporation of custom Sass files/frameworks. However, BigCommerce does not offer technical assistance on substitutions for, or customized versions of, Stencil’s default dependencies.
 

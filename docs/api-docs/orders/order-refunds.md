@@ -87,7 +87,6 @@ Accept: application/json
 ```
 
 <!-- theme: info -->
-
 > #### Note
 > * To get an `item_id`, make a `GET` request to `v2/orders/{order_id}/products`. The returned `id` value is the `item_id` needed to create a `PRODUCT` refund quote. The returned `order_address_id` value is the `item_id` needed to create a `SHIPPING` refund quote. To read more about using the `v2/orders/{order_id}/products` endpoint, visit [List Order Products](/api-reference/store-management/orders/order-products/getallorderproducts#requestrunner).
 > * To get a list of orders and their `id`s, make a request to [get all orders](/api-reference/store-management/orders/orders/getallorders#requestrunner).

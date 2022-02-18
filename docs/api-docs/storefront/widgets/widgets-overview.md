@@ -108,7 +108,6 @@ In the following example, we define the `list_items` array and supply values for
 ```
 
 <!-- theme: info -->
-
 > #### Reusing widget configuration
 > You set the widget configuration name when creating the widget template.
 > When reusing the widget configuration, the objects array must use the name established during the initial configuration. Otherwise, you will create the widget on the frontend, but there will be no data, and nothing displayed.
@@ -178,7 +177,6 @@ Widget versioning introduced `current_version_uuid` and `version_uuid` propertie
  ![New Relationship Model](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-overview-02.png "New Relationship Model")
 
 <!-- theme: info -->
-
 > #### Note
 >  Although a widget template can have multiple versions; there can only be one active version at a time. This setup means that a template can have multiple `version_uuid`’s associated with it, but it cannot have more than one `current_version_uuid`.
 
@@ -271,7 +269,6 @@ It is also possible to place widgets on the following custom templates, where `<
 * pages/custom/page/`<filename>`
 
 <!-- theme: info -->
-
 > #### Note
 > - To display a widget on the storefront, you must create a placement.
 > - A region can contain multiple placements with widgets.
@@ -283,7 +280,6 @@ It is also possible to place widgets on the following custom templates, where `<
 When creating a placement with a widget, the widget content takes the full region width. The placement's `sort_order` property controls the display order of the widget. You would stack any additional widgets in the same region above or below based on each placement's `sort_order` property.
 
 <!-- theme: info -->
-
 > #### Note
 > If you are creating marketplace applications that create placements directly, you do not need to use the `sort_order` property.
 

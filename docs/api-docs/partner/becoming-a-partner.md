@@ -51,8 +51,7 @@ BigCommerce offers training modules to help you get up to speed with the BigComm
 To access the training modules, log into the [Partner Portal](https://partners.bigcommerce.com/), hover over the **Training** tab (top navigation), and select **eLearning Modules**. This path will take you to the [Training & Enablement](https://partners.bigcommerce.com/English/Solutions/training/training_and_enablement.aspx) page.
 
 <!-- theme: info -->
-
-> **Certifications and the BigDev Bootcamp**
+> #### Certifications and the BigDev Bootcamp
 > Advanced training is available through the BigDev Bootcamp. The BigDev Bootcamp delivers sessions focused on the Catalog API, Orders API, Cart and Checkout APIs, Storefront API, and Stencil. Please reach out to your Account Manager if you are interested in registering for these sessions.
 
 

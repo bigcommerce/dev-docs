@@ -36,7 +36,6 @@ In `templates/pages/category.html`, add a new region `{{{region name="category_h
 If you are using [Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil) and editing theme files locally, run a `stencil push` command to apply your changes before proceeding to the next step. `stencil push` will bundle your theme into a zip file and upload the zip to BigCommerce. You can find more information on Stencil CLI commands in our [Stencil CLI Option and Commands](/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands) article.
 
 <!-- theme: info -->
-
 > #### Note
 > * You can add regions to templates in the [`templates/pages/`](/stencil-docs/storefront-customization/directory-structure) folder.
 > * To edit theme files locally, use [Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil).
@@ -117,7 +116,6 @@ Accept: application/json
 ```
 
 <!-- theme: info -->
-
 > #### Note
 > * Make a note of the `uuid` of the widget template in the response. You will use it to create the widget in the next step.
 > * Multiple widgets can use the same widget template.
@@ -167,7 +165,6 @@ Accept: application/json
 | `widget_template_uuid` | default template `uuid` |
 
 <!-- theme: info -->
-
 > #### Note
 > * Make a note of the widget's `uuid` in the response. You will use it to create a placement in the next step.
 

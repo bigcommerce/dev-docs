@@ -127,9 +127,7 @@ Accept: application/json
 <!-- theme: info -->
  
 <!-- theme:info -->
-
 > #### Note
->
 > You can [find an app's ID](/api-docs/apps/tutorials/id) in the URL when editing the app in the [Developer Portal](/api-docs/apps/guide/developer-portal).
 
 
@@ -187,11 +185,8 @@ Included protected sections display above custom sections.
 ![Protected Sections](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-protected-custom-settings.png "Protected Sections")
 
 <!-- theme: warning -->
-
 > #### Note
->
-> - Any content an app attempts to render to the control panel iFrame for a protected section will be overridden by the BigCommerce provided content.
-
+> Any content an app attempts to render to the control panel iFrame for a protected section will be overridden by the BigCommerce provided content.
 
 
 ## Storefront settings

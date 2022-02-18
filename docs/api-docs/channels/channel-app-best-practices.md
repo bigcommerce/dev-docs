@@ -42,9 +42,7 @@ To provide merchants with a positive integration experience, we expect point of 
 - **Catalog Import/Export:** 100 Complex Products per Second.
 
 <!-- theme: info -->
-
 > #### Note
->
 > This volume of requests per second may hit the rate limits of lower tier BigCommerce plans - logic should be implemented around the response headers to ensure your application does not exceed the allowable number of requests for a given storefront.
 
 For increased performance, consider using batch operations and parallel requests when possible.

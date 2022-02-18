@@ -62,7 +62,6 @@ To load inside the control panel iFrame, your app must do the following:
 2. **Support browser same-origin policies:** Same-origin policities restrict apps running within iFrames from performing certain activities, such as interacting with other services. If your app requires this, open a new tab for actions that cannot occur in an iFrame<sup>1</sup>. [Learn more about same-origin policies](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) (developer.mozilla.org).
 
 <!-- theme: info -->
-
 > #### Note
 > Apps that operate in the iFrame get strong preference during [Apps Marketplace](https://www.bigcommerce.com/apps/) consideration; however, we sometimes make exceptions for apps that need to interact with other services.
 

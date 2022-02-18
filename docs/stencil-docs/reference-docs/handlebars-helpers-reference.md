@@ -1399,7 +1399,6 @@ Parse data with JSONparse.
 ## Standard helpers
 
 <!-- theme: info -->
-
 > #### Note
 > The information presented in this section was borrowed from [helpers/handlebars-helpers](https://github.com/helpers/handlebars-helpers).
 
