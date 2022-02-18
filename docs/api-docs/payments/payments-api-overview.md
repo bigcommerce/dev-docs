@@ -23,10 +23,7 @@ Merchants or shoppers' personal identifiable information (PII) collected by recu
 
 <!-- theme: warning -->
 > #### PCI compliance
-> If your application handles credit card data, you will need to be PCI compliant. SAQs (self-assessment questionnaires) can be submitted to
-<a href="mailto:compliance@bigcommerce.com">compliance@bigcommerce.com</a>.
-
-
+> If your application handles credit card data, you will need to be PCI-compliant. Submit SAQs (self-assessment questionnaires) to <a href="mailto:compliance@bigcommerce.com">compliance@bigcommerce.com</a>.
 
 ## Processing a payment
 
@@ -183,7 +180,6 @@ The headers to process a payment are different than the headers you normally sen
 * Content-Type: application/json
 
 <!-- theme: warning -->
-
 > #### PAT
 > There is a space between PAT {your-access-token}.
 
@@ -304,7 +300,6 @@ Send the request with the following fields from the credit card:
 If any of these fields are incorrect, you may be unable to process the payment.
 
 <!-- theme: warning -->
-
 > #### PAT
 > There is a space between PAT {your-access-token}.
 

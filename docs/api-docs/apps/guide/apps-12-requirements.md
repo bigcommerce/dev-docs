@@ -47,11 +47,8 @@ Don't reference competitor platforms in the app's listing information or dashboa
 * Apps that install scripts must use the [Scripts API](/api-reference/store-management/scripts) to insert into Script Manager using proper `consent_category`.
 
 <!-- theme: info -->
-
 > #### Note
-> 1. If your app cannot meet these requirements, email <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a> to discuss your options for approval.
-
-
+> If your app cannot meet these requirements, email <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a> to discuss your options for approval.
 
 ## FAQ
 

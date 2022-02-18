@@ -34,7 +34,6 @@ To get started making requests, see [API Requests](/api-docs/getting-started/bas
 ![#### Create an API Account](//s3.amazonaws.com/user-content.stoplight.io/6012/1536087816482 "#### Create an API Account")
 
 <!-- theme: warning -->
-
 > #### Save your credentials
 > There is no way to re-display this pop-up after selecting Done, so be sure to securely store the credentials before exiting this screen.
 
@@ -50,7 +49,6 @@ To revoke Store API Credentials:
 ![#### Revoking API Credentials](//s3.amazonaws.com/user-content.stoplight.io/6012/1537388177603 "#### Revoking API Credentials")
 
 <!-- theme: danger -->
-
 > #### Delete carefully
 > Deleting an account cannot be undone, so be sure before clicking the trash can icon. You can also use the checkboxes on the left side to delete multiple accounts at once – but be especially careful when using this option.
 
@@ -80,7 +78,6 @@ To get app API credentials, create and log into your BigCommerce [Developer Port
 8. Copy your client ID and client secret. The client ID and client secret can be accessed by clicking **View Client ID**.
 
 <!-- theme: info -->
-
 > #### Client ID and client secret
 > The client ID value uniquely identifies your app. However, you no longer need to pass it in the header of all your requests to the API.
 
@@ -91,7 +88,6 @@ The client secret value is a secret that your app and BigCommerce share. You onl
 ![#### Client Id and Client Secret](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390135692 "#### Client Id and Client Secret")
 
 <!-- theme: warning -->
-
 > #### Delete apps carefully
 > If you delete the app, there is no way to recover the client ID and client secret.
 
@@ -121,7 +117,6 @@ During the app installation process, your app will use the client ID and client 
 ## Migrating from legacy to OAuth
 
 <!-- theme: danger -->
-
 > #### Legacy API Accounts
 > As of July 31, 2018, new BigCommerce stores are no longer able to create legacy API Accounts (accounts using HTTP basic auth) within their control panels. Existing legacy API Accounts will continue to work until further notice, but we strongly recommend migrating to OAuth as soon as possible.
 

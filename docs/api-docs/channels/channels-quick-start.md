@@ -47,15 +47,9 @@ Accept: application/json
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/cart-checkout/channels-listings-api/channels/createchannel#requestrunner)
 
 <!-- theme: info -->
-
 > #### Note
-
->
 > - For a list of accepted `type` and `platform` values, see [Channels API Reference](/api-reference/cart-checkout/channels-listings-api#platform).
 > - For instructions on finding your app's ID, see [Find and App's ID](/api-docs/apps/tutorials/id).
-
-
-
 ## Create a channel with navigation
 
 We recommend that apps also create navigation sections to better integrate the app's interface within the BigCommerce control panel.
@@ -103,11 +97,8 @@ Accept: application/json
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/cart-checkout/channels-listings-api/channels/createchannel#requestrunner)
 
 <!-- theme: info -->
-
 > #### Note
-
->
-> - For additional information on [channel](/api-reference/cart-checkout/channels-listings-api/channels) `config_meta` properties, see the [create a channel request body schema](/api-reference/cart-checkout/channels-listings-api/channels/createchannel#request-body).
+> For additional information on [channel](/api-reference/cart-checkout/channels-listings-api/channels) `config_meta` properties, see the [create a channel request body schema](/api-reference/cart-checkout/channels-listings-api/channels/createchannel#request-body).
 
 ## Related resources
 

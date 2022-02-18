@@ -40,7 +40,6 @@ Single click app authorization and authentication occurs via [OAuth2 authorizati
 ![App Installation Sequence](https://s3.amazonaws.com/user-content.stoplight.io/6012/1536263813949 "App Installation Sequence")
 
 <!-- theme: info -->
-
 > #### Note
 > * API token creation is a permission reserved for the [store owner](https://forum.bigcommerce.com/s/article/Store-API-Accounts#creating) user account.
 > * An app can request authentication *on behalf* of a store owner, allowing your app to make API requests against store data.
@@ -63,16 +62,10 @@ GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders&context=stores/g5cd38 HTTP
 | `context` | The `store_hash` in the form of `stores/{{STORE_HASH}}`; required in API requests.|
 
 <!-- theme: info -->
-
 > #### Note
->
 > * When your app receives a new token, any previously issued token is invalidated.
-
 > * As a best practice, your app should validate the list of scopes to ensure that it matches your app's needs and fails if it does not. At this time, the user cannot pick and choose scopes. The dialog presented to the user requires the user to approve all scopes or none. For more information about available scopes, see [OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
-
 > * The request comes from the client browser, rather than directly from BigCommerce. This request allows you to use a non-publicly available auth callback URL while testing your app.
-
-
 
 ## Responding to the GET request
 
@@ -139,7 +132,6 @@ Update requests refresh the `access_token` and `scope`:
 | `context` | string | The store hash, as well as a base path: `stores/{_store_hash_}` |
 
 <!-- theme: info -->
-
 > #### Note
 > * Store the `access_token` securely for future use.
 > * Store `user` and `store_hash` values to identify the user and store at `load` and `uninstall`.

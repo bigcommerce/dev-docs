@@ -9,7 +9,6 @@ Suppose your application interacts dynamically with the BigCommerce storefront a
 To address this need, BigCommerce provides a Current Customer endpoint that your app can access via JavaScript on the storefront. This endpoint allows a remote application, such as a third-party subscription billing app, to return a JWT with identifying customer details. The information is signed with your [OAuth client secret](/api-docs/getting-started/basics/authentication#authentication_client-id-secret).
 
 <!-- theme: info -->
-
 > #### Note
 
 > - An app client ID is required in requests to `/customer/current.jwt`.
@@ -80,7 +79,6 @@ By design, your application should send this token to the application’s server
 An end-to-end example that displays a customer's recently purchased products is available in our [Ruby](https://github.com/bigcommerce/hello-world-app-ruby-sinatra/) and [PHP](https://github.com/bigcommerce/hello-world-app-php-silex/) sample apps.
 
 <!-- theme: info -->
-
 > #### IAT and EXP claims
 
 > The current customer tokens are valid for 15 minutes.
