@@ -97,8 +97,8 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 |  [Redirects](/api-reference/storefront/redirects) | Manage 301 Redirects for Storefronts | `/storefront/redirects` |
 |  [Scripts](/api-reference/store-management/scripts) | Add client-side code to a store | `/content/scripts` |
 |  [Sites](/api-reference/cart-checkout/sites-routes-api) | Manage sites and routing for headless storefronts | `/sites` |
-|  [Storefront API Token](/api-reference/cart-checkout/storefront-api-token/api-token) | Create Auth Tokens for use with Storefront APIs | `/api-token` |
-|  [Storefront Customer Impersonation Token](/api-reference/cart-checkout/storefront-api-token/customer-impersonation-token) | Create a storefront API token for customer impersonation | `/api-token-customer-impersonation` |
+|  [Storefront API Token](/api-reference/store-management/tokens/api-token/createtoken) | Create Auth Tokens for use with Storefront APIs | `/api-token` |
+|  [Storefront Customer Impersonation Token](/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation) | Create a storefront API token for customer impersonation | `/api-token-customer-impersonation` |
 |  [Subscribers](/api-reference/store-management/subscribers) | Create and manage store newsletter subscribers | `/customers/subscribers` |
 |  [Themes](/api-reference/store-management/themes) | Create and manage store theme's | `/themes` |
 |  [Variants](/api-reference/catalog/catalog-api/variants) | Get and update all variants | `/catalog/variants` |
@@ -177,7 +177,7 @@ The **Customer Login API** enables single sign-on (SSO). It allows apps to progr
 
 |  Resource | Description | Endpoint|
 |-|-|-|
-| [Customer Login](/api-docs/customers/customer-login-api)| Use JWT & SSO to login a customer| `/login/token/{token}` |
+| [Customer Login](/api-docs/storefront/customer-login-api)| Use JWT & SSO to login a customer| `/login/token/{token}` |
 
 **Additional Information**: [Customers & Subscribers Overview](/api-docs/customers/customers-subscribers-overview)
 
