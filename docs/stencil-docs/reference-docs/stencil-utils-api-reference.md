@@ -29,7 +29,7 @@ This method takes the form `utils.api.getPage(url, options, callback);`.
 | Argument | Type | Description/Usage |
 |---|---|---|
 | url | String | request URL (ex: `/cart.php`) |
-| options | Object | Can contain `template`, [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) (for POST methods), `params` (for GET methods), and/or `config`. &x0a;The `template` option allows you to select a particular template, or an array of templates, for rendering one page. Each value must correspond to a file present in the theme's `templates/components/` subdirectory. &x0a;The `config` option can be used to pass extra resources, corresponding to attributes that are valid in a page's front matter, as an object. |
+| options | Object | Can contain `template`, [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) (for POST methods), `params` (for GET methods), and/or `config`. <br><br>The `template` option allows you to select a particular template, or an array of templates, for rendering one page. Each value must correspond to a file present in the theme's `templates/components/` subdirectory. <br><br>The `config` option can be used to pass extra resources, corresponding to attributes that are valid in a page's front matter, as an object. |
 | callback | Function | Asynchronous function call to handle the results |
 
 
@@ -117,7 +117,7 @@ The `itemAdd`method allows your code to add an item to the cart, with options. T
 
 | Argument | Type | Description/Usage |
 |---|---|---|
-| FormData| [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) object | Contains all details about the added item and its product options. &x0a;FormData example: &x0a;`action: add` &x0a;`product_id: 123` &x0a; `attribute[123]: 321` &x0a;`qty[]: 1` |
+| FormData| [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) object | Contains all details about the added item and its product options. <br><br>FormData example: <br>`action: add` <br>`product_id: 123` <br> `attribute[123]: 321` <br>`qty[]: 1` |
 | callback| Function | Asynchronous function call to handle the results |
 
 `itemAdd` is called at the head of the following example (from `common/product-details.js`) to populate the cart.  
