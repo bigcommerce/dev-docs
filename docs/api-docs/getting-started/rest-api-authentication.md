@@ -8,7 +8,7 @@ Every parent set of API credentials that you request for your store is its own *
 
 ### All OAuth API accounts
 
-The **client ID** value uniquely identifies the app or user making a request. 
+An API account's **client ID** uniquely identifies the app or user making a request. 
 
 The **client secret** value is a secret that your app and BigCommerce share. 
 
@@ -160,28 +160,24 @@ If you haven't already, we recommend that you migrate from legacy API credential
 
 ### How to migrate
 
-Consider whether your application should reside within the public [App Marketplace](https://www.bigcommerce.com/apps/), where any BigCommerce merchant can quickly discover and install it. To learn more about how to write and submit an app, see [Becoming a Partner](/api-docs/partner/becoming-a-partner).
+When you update your API connections to use OAuth instead of legacy basic authentication, you will need to do the following:
 
-If you would like to update your API connection from basic authentication to OAuth, you will need to make the following changes:
+* Create an API account appropriate to your use case. Keeping in mind the API endpoints your connections use, create either a store API account or an app API account per the preceding instructions. Configure the account with the correct scopes for the work your use case does. We recommend adhering to industry standard security practices; provision the API account with the minimum scope that your application requires.
+* If you use one of our [client libraries](/tools-resources), consult the library’s documentation for establishing an optimal OAuth configuration.
+* After you create your connection, update your connection parameters as follows:
+  * Use `https://api.bigcommerce.com` as the gateway URL instead of the BigCommerce store’s secure hostname. For example, route requests that formerly went to  `https://store-abc123.mybigcommerce.com/api/v2/orders/123` or `https://my-custom-store-domain.com/api/v2/orders/123` to `https://api.bigcommerce.com/stores/{{store_hash}}/v2/orders/123`.
+  * Rewrite your HTTP request headers to use the `X-Auth-Token` header to pass the API account's `access_token` instead of the `Authentication` header. For more information, see [Authentication](/api-docs/getting-started/authentication).
 
-- Get an access token, by creating an API account within the control panel. Make sure the account has the correct scopes for the API endpoints you need to access. We recommend that you provide the minimum scopes that your application requires to function, as a good security practice.
-- If you use one of the [client libraries](/tools-resources), follow the relevant guide within the library’s documentation for establishing an OAuth connection.
-- If you have created your connection, you’ll want to update your connection parameters:
-	- Where you previously used the BigCommerce store’s secure hostname, you will instead use the `https://api.bigcommerce.com` gateway URL. As an example, requests to `https://store-abc123.mybigcommerce.com/api/v2/orders/123` or `https://my-custom-store-domain.com/api/v2/orders/123` would instead go to `https://api.bigcommerce.com/stores/{store_hash}/v2/orders/123`.
-- With basic auth, you use an authentication HTTP header to authenticate your connection. With OAuth, you’ll want to use the header:
-	- X-Auth-Token header for your access token. For more information see the article [Authentication](/api-docs/getting-started/authentication).
-
-Rate limiting of API requests works differently for OAuth API connections. To become familiar with OAuth limitations, please see the [Rate Limits](/api-docs/getting-started/best-practices#api-rate-limits).
+Rate limiting works differently for OAuth API connections. For details, see the [Rate Limits section](/api-docs/getting-started/best-practices#api-rate-limits) of our API best practices article.
 
 ## OAuth scopes
 
-Scope limits ability to read or write to data. Set the scopes to the minimum level of access needed to accomplish the task at hand.
+**Scope** grants and limits a program's ability to read and write data. Set the scopes to the minimum level of access needed to accomplish the task at hand.
 
 All OAuth scopes except `default` provide `read-only` permissions scopes, so that you can limit some accounts to sending `GET` and `HEAD` requests.
 
 <!-- theme: info -->
 > Webhooks are accessible from the default scope that is automatically accessible to all API accounts.
-
 
 
 | UI Name | Permission | Parameter | Description | Resources |
@@ -219,8 +215,6 @@ All OAuth scopes except `default` provide `read-only` permissions scopes, so tha
 | Channel Listings | read-only | `store_channel_listings_read_only` | View a list of all channel listings for a particular channel | [/v3/channels/listings](/api-reference/cart-checkout/channels-listings-api) |
 | Storefront API Tokens | modify | `store_storefront_api` | Create a storefront API token | [/v3/storefront/api-token](/api-reference/store-management/tokens/createtoken) |
 | Storefront API Customer Impersonation Tokens | modify | `store_storefront_api_customer_impersonation` | Create a storefront API token that allows for customer impersonation | [/v3/storefront/api-token-customer-impersonation](/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation) |
-
-
 
 ## Resources
 * [Authenticating BigCommerce APIs](api-docs/getting-started/authentication/authenticating-bigcommerce-apis)
