@@ -36,40 +36,34 @@ If you would like to implement data attributes on your custom theme and do not a
 
 2. In the `config.json` file, navigate to the features array. There should be a property in this array called `enhanced ecommerce`. If the `enhanced ecommerce` property is not present in the features array, add it. The features object should then look similar to the image below.
 
-<!--
-title: "Enhanced eCommerce feature"
-subtitle: "config.json"
-lineNumbers: true
--->
-
-```json
+```json title="Enhanced eCommerce feature: config.json" lineNumbers 
 "features": [
-      "fully_responsive",
-      "mega_navigation",
-      "multi_tiered_sidebar_menu",
-      "masonry_design",
-      "frontpage_slideshow",
-      "quick_add_to_cart",
-      "switchable_product_view",
-      "product_comparison_table",
-      "complex_search_filtering",
-      "customizable_product_selector",
-      "cart_suggested_products",
-      "free_customer_support",
-      "free_theme_upgrades",
-      "high_res_product_images",
-      "product_filtering",
-      "advanced_quick_view",
-      "product_showcase",
-      "persistent_cart",
-      "one_page_check_out",
-      "product_videos",
-      "google_amp",
-      "customized_checkout",
-      "account_payment_methods",
-      "enhanced_ecommerce",
-      "csrf_protection"
-    ]
+     "fully_responsive",
+     "mega_navigation",
+     "multi_tiered_sidebar_menu",
+     "masonry_design",
+     "frontpage_slideshow",
+     "quick_add_to_cart",
+     "switchable_product_view",
+     "product_comparison_table",
+     "complex_search_filtering",
+     "customizable_product_selector",
+     "cart_suggested_products",
+     "free_customer_support",
+     "free_theme_upgrades",
+     "high_res_product_images",
+     "product_filtering",
+     "advanced_quick_view",
+     "product_showcase",
+     "persistent_cart",
+     "one_page_check_out",
+     "product_videos",
+     "google_amp",
+     "customized_checkout",
+     "account_payment_methods",
+     "enhanced_ecommerce",
+     "csrf_protection"
+]
 ```
 
 You are now ready to begin adding data attributes into the HTML files across your Cornerstone theme.
@@ -92,14 +86,7 @@ See [Pull Request #1377](https://github.com/bigcommerce/cornerstone/pull/1377/co
 
 You can see a data attribute implemented in the HTML form tag in the code sample below:
 
-
-<!--
-title: "Data Attribute HTML"
-subtitle: ""
-lineNumbers: true
--->
-
-```handlebars
+```handlebars title="Data attribute HTML" lineNumbers
 <form action="{{urls.compare}}" method='POST' data-list-name="Brand: {{brand.name}}" data-product-compare>
     {{#if theme_settings.product_list_display_mode '===' 'grid'}}
         {{> components/products/grid products=brand.products show_compare=brand.show_compare theme_settings=theme_settings event="list"}}
@@ -125,114 +112,26 @@ Currently, BigCommerce supports 11 different data attributes. Below is a table w
 
 The “tracked product” refers to the product on which you are inserting the data attribute.
 
+| Data Attribute | Description | Value Type | Example |
+|-----|-----|-----|-----|
+| `data-list-name` | The `data-list-name` attribute denotes the name of the list that will be reflected on Google Analytics. | string or handlebars helper |  **String Example**:`data-list-name="Kitchen Appliances"` <br><br> **Handlebars Value Example**: The `data-list-name` attribute can also get its value using Handlebars. For example, if you are adding a data attribute to your carousel products in products/carousel.html, you could create the attribute `data-list-name="{{list}}"` and define the list value in products/new.html to be: `list="New products"`|
+| `data-entity-id` | The `data-entity-id` is equal to the tracked item’s id. | integer | `data-entity-id=12` |
+| `data-position` | The `data-position` attribute is equal to the tracked product’s position or the tracked promotion’s position. | Value is a string if creating the data attribute for a promotion. The string should denote the location of the promotion. <br><br>Value is an integer if creating the data attribute for a product. The integer should represent the product’s placement. An example use case for this data attribute is to answer a question like, “does the product in position 1 sell more than the product in position 4?” | **String Value Example:** `data-position="center"` <br><br>**Integer Value Example:** `data-position=2` |
+| `data-banner-id` | The `data-banner-id` attribute is the id of the banner being tracked. The banner id is not to be mistaken with the promotion id. | integer | `data-banner-id=5` |
+| `data-event-type` | The `data-event-type` attribute is equal to the shopper event that will be tracked. There are a 4 shopper/product interactions you can measure and set the data-event-type equal to. Custom events are not yet implemented. | **String that can be one of:** <br>`"promotion"`<br>`"promotion click"`<br>`"product"`<br>`"list"` | `data-event-type="promotion"` |
+| `data-name` | The `data-name` attribute is equal to the tracked product’s or banner’s name. | string or handlebars helper | **String Value Example:** <br>`data-name="Ruffle Off-the-Shoulder Top"` <br><br> **Handlebars Value Example:** <br>The `data-name` attribute can also get its value using Handlebars. <br><br>For example, if you are adding a data attribute to your footer in products/footer.html, you could create the attribute: `data-name="{{this.banner-name}}"` <br><br>Or, if you are adding a data attribute to a product list item in products/list-item.html, you could create the attribute below `data-name="{{name}}"` as long as these values are defined. |
+| `data-product-category` | The `data-product-category` attribute is equal to the tracked product’s category. | string | `data-product-category="Women’s Apparel"` |
+| `data-product-brand` | The `data-product-brand` attribute is equal to the tracked product’s brand. | string | `data-product-brand="Ralph Lauren Corporation"` |
+| `data-product-price` | The `data-product-price` attribute is equal to the tracked product’s price. | integer | `data-product-price="27.99"` |
+| `data-product-sku` | The `data-product-sku` attribute is equal to the tracked product’s sku value. | string | `data-product-sku="S18T-Ots-YM"` |
+| `data-product-variant` | The `data-product-variant` is equal to the tracked product’s variant. | string | `data-product-variant="4-Yellow"` |
 
-<table>
-  <tr>
-  	<th>Data Attribute</th>
-    <th>Description</th>
-  	<th>Value Type</th>
-  	<th>Example</th>
-  </tr>
-   <tr>
-     <td><code>data-list-name</code></td>
-     <td>The <code>data-list-name</code> attribute denotes the name of the list that will be reflected on Google Analytics.</td>
-  	<td>string or handlebars helper</td>
-     <td> <b>String Example</b>:<code>data-list-name="Kitchen Appliances"</code>
-       <br><br>
-<b>Handlebars Value Example</b>: The <code>data-list-name</code> attribute can also get its value using Handlebars. For example, if you are adding a data attribute to your carousel products in products/carousel.html, you could create the attribute <code>data-list-name="{{list}}"</code> and define the list value in products/new.html to be: <code>list="New products"</code></td>
-  </tr>
-   <tr>
-     <td><code>data-entity-id</code></td>
-     <td>The <code>data-entity-id</code> is equal to the tracked item’s id.</td>
-  	<td>integer</td>
-    <td><code>data-entity-id=12</code></td>
-  </tr>
-   <tr>
-    <td><code>data-position</code></td>
-       <td>The <code>data-position</code> attribute is equal to the tracked product’s position or the tracked promotion’s position.</td>
-  	<td>Value is a string if creating the data attribute for a promotion. The string should denote the location of the promotion.
-       <br><br>
-       Value is an integer if creating the data attribute for a product. The integer should represent the product’s placement. An example use case for this data attribute is to answer a question like, “does the product in position 1 sell more than the product in position 4?”</td>
-       <td><b>String Value Example:</b> <code>data-position="center"</code>
-       <br><br>
-         <b>Integer Value Example:</b> <code>data-position=2
-</code>
-       </td>
-  </tr>
-     <tr>
-    <td><code>data-banner-id</code></td>
-       <td>The <code>data-banner-id</code> attribute is the id of the banner being tracked. The banner id is not to be mistaken with the promotion id.</td>
-  	<td>integer</td>
-       <td><code>data-banner-id=5</code></td>
-  </tr>
-     <tr>
-  	<td><code>data-event-type</code></td>
-       <td>The <code>data-event-type</code> attribute is equal to the shopper event that will be tracked. There are a 4 shopper/product interactions you can measure and set the data-event-type equal to. Custom events are not yet implemented.</td>
-  	<td>string that can be either:
-      <ul>
-        <li>"promotion"</li>
-        <li>"promotion click"</li>
-        <li>"product"</li>
-        <li>"list"</li>
-       <td><code>data-event-type="promotion"</code></td>
-  </tr>
-     <tr>
-  	<td><code>data-name</code></td>
-       <td>The <code>data-name</code> attribute is equal to the tracked product’s or banner’s name.
-</td>
-  	<td>string or handlebars helper</td>
-       <td><b>String Value Example:</b> <code>data-name="Ruffle Off-the-Shoulder Top"</code>
-
-         <br><br>
-
-         <b>Handlebars Value Example:</b> The <code>data-name</code> attribute can also get its value using Handlebars.
-
- For example, if you are adding a data attribute to your footer in products/footer.html, you could create the attribute: <code>data-name="{{this.banner-name}}"</code>
-
-Or, if you are adding a data attribute to a product list item in products/list-item.html, you could create the attribute below <code>data-name="{{name}}"</code> as long as these values are defined.</td>
-  </tr>
-     <tr>
-  	<td><code>data-product-category</code></td>
-       <td>The <code>data-product-category</code> attribute is equal to the tracked product’s category.
-</td>
-  	<td>string</td>
-       <td><code>data-product-category="Women’s Apparel"</code></td>
-  </tr>
-     <tr>
-  	<td><code>data-product-brand</code></td>
-       <td>The <code>data-product-brand</code> attribute is equal to the tracked product’s brand.
-</td>
-  	<td>string</td>
-       <td><code>data-product-brand="Ralph Lauren Corporation"</code></td>
-  </tr>
-     <tr>
-  	<td><code>data-product-price</code></td>
-       <td>The <code>data-product-price</code> attribute is equal to the tracked product’s price.
-</td>
-  	<td>integer</td>
-       <td><code>data-product-price="27.99"</code></td>
-  </tr>
-     <tr>
-  	<td><code>data-product-sku</code></td>
-       <td>The <code>data-product-sku</code> attribute is equal to the tracked product’s sku value.
-</td>
-  	<td>string</td>
-       <td><code>data-product-sku="S18T-Ots-YM"</code></td>
-  </tr>
-     <tr>
-  	<td><code>data-product-variant</code></td>
-       <td>The <code>data-product-variant</code> is equal to the tracked product’s variant.
-</td>
-  	<td>string</td>
-       <td><code>data-product-variant="4-Yellow"</code></td>
-  </tr>
-</table>
 
 ## Custom Dimensions and Metrics
 
 Custom dimensions and metrics are also supported. To add them in the `config.json` `settings` array, add the name of the dimension/metric followed by the generic custom metric/dimension alias:
 
-```json
+```json title="config.json: Settings array" lineNumbers
 {
     // ...
     "settings": {
@@ -256,7 +155,7 @@ Custom dimensions and metrics are also supported. To add them in the `config.jso
 
 Next, add the custom metrics/dimensions to the desired theme template:
 
-```html
+```handlebars title="Theme template with custom dimensions and metrics" lineNumbers
 <!--...-->
 {{#if settings.data_tag_enabled}}
     <article class="listItem" dimension-common="yes" metric-common=1 data-event-type="{{event}}">
@@ -269,8 +168,6 @@ Next, add the custom metrics/dimensions to the desired theme template:
 <!-- theme: info -->
 > #### Dimensions and metrics
 > Dimensions are typically strings; metrics are usually integers.
-
-
 
 ## Resources
 
