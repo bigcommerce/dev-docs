@@ -12,30 +12,17 @@ Global objects and properties are common components shared across the entire Big
 
 ## Banner
 
-<b>Description:</b> Elements of marketing banners at page’s top and/or bottom
+**Description:** Elements of marketing banners at page’s top and/or bottom
 
-<b>Handlebars Expressions:</b> `{{banner}}`, `{{{banner}}}`
+**Handlebars Expressions:** `{{banner}}`, `{{{banner}}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-		<td>banners</td>
-    <td>Blocks of static HTML content to define banners</td>
-  </tr>
-  <tr>
-		<td><span class="indent1">top</span></td>
-    <td>Array of HTML content/strings, for custom top-banner content; banners are populated from the BigCommerce control panel</td>
-  </tr>
-  <tr>
-		<td><span class="indent1">bottom</span></td>
-    <td>Array of HTML content/strings, for custom bottom-banner content; banners are populated from the BigCommerce control panel</td>
-  </tr>
-</table>
+| Property | Description |
+|----|----|
+| banners | Blocks of static HTML content to define banners |
+| &nbsp;&nbsp;top | Array of HTML content/strings, for custom top-banner content; banners are populated from the BigCommerce control panel |
+| &nbsp;&nbsp;bottom | Array of HTML content/strings, for custom bottom-banner content; banners are populated from the BigCommerce control panel |
 
 <!-- theme: warning -->
 > ####  Handlebars Formatting Exception
@@ -43,85 +30,38 @@ Global objects and properties are common components shared across the entire Big
 
 ## Breadcrumbs
 
-<b>Description:</b> Defines a page's breadcrumbs – available on virtually all pages that have a breadcrumb trail
+**Description:** Defines a page's breadcrumbs – available on virtually all pages that have a breadcrumb trail
 
-<b>Handlebars Expression:</b> `{{breadcrumbs}}`
+**Handlebars Expression:** `{{breadcrumbs}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Displayed name of this breadcrumb element</td>
-  </tr>
-  <tr>
-    <td>url</td>
-    <td>URL of this breadcrumb element</td>
-  </tr>
-</table>
+| Property | Description |
+|----|----|
+| name | Displayed name of this breadcrumb element |
+| url | URL of this breadcrumb element |
 
 ## Carousel
 
-<b>Description:</b> A list of images, text, and style assets for a storefront’s image slide show
+**Description:** A list of images, text, and style assets for a storefront’s image slide show
 
-<b>Handlebars Expression: </b> `{{carousel}}`
+**Handlebars Expression:** `{{carousel}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>  
-  <tr>    
-    <td>Property</td>    
-    <td>Description</td>  
-  </tr>    
-  <tr>    
-    <td>swap_frequency</td>    
-    <td>Indicates how often (in seconds) the slides will change; the value must be between 1 and 90,000 seconds</td>  
-  </tr>    
-  <tr>    
-    <td>slides</td>    
-    <td>Object containing properties for each slide in the slideshow</td>  
-  </tr>    
-  <tr>    
-    <td><span class="indent1">image</span></td>    
-    <td>Path to the image file used on this slide</td>  
-  </tr>  
-  <tr>    
-    <td><span class="indent1">alt_text</span></td>    
-    <td>Alt text for the image</td>  
-  </tr>  
-  <tr>    
-    <td><span class="indent1">url</span></td>    
-    <td>URL to which the image will link</td>  
-  </tr>  
-  <tr>    
-    <td><span class="indent1">heading</span></td>    
-    <td>Heading message defined by the merchant</td>  
-  </tr>  
-  <tr>    
-  <td><span class="indent1">heading_color</span></td>    
-  <td>Color of the heading text</td>  
-  </tr>  
-  <tr>    
-    <td><span class="indent1">text</span></td>    
-    <td>Subheading defined by the merchant</td>  
-  </tr>  
-  <tr>    
-    <td><span class="indent1">text_color</span></td>    
-    <td>Color of the subheading text</td>  
-  </tr>  
-  <tr>    
-    <td><span class="indent1">button_text</span></td>    
-    <td>Text displayed on a call-to-action button defined by the merchant</td>  
-</tr>  
-  <tr>    
-  <td><span class="indent1">button_text_color</span></td>    
-  <td>Color of the button</td>  
-</tr>
-</table>
+| Property | Description |
+|----|----|
+| swap_frequency | Indicates how often (in seconds) the slides will change; the value must be between 1 and 90,000 seconds |
+| slides | Object containing properties for each slide in the slideshow |
+| &nbsp;&nbsp;image | Path to the image file used on this slide |
+| &nbsp;&nbsp;alt_text | Alt text for the image |
+| &nbsp;&nbsp;url | URL to which the image will link |
+| &nbsp;&nbsp;heading | Heading message defined by the merchant |
+| &nbsp;&nbsp;heading_color | Color of the heading text |
+| &nbsp;&nbsp;text | Subheading defined by the merchant |
+| &nbsp;&nbsp;text_color | Color of the subheading text |
+| &nbsp;&nbsp;button_text | Text displayed on a call-to-action button defined by the merchant |
+| &nbsp;&nbsp;button_text_color | Color of the button | 
 
 <a id="global-objects_cart"></a>
 
@@ -139,72 +79,33 @@ Global objects and properties are common components shared across the entire Big
 
 ## Currency Selector
 
-<b>Description:</b> A list of all supported currencies, and the currency that is actively in use in the storefront
+**Description:** A list of all supported currencies, and the currency that is actively in use in the storefront
 
-<b>Handlebars Expression:</b> `{{currency_selector}}`
+**Handlebars Expression:** `{{currency_selector}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>  
-<tr>    
-  <th>Property</th>   
-  <th>Description</th>  
-</tr>  
-<tr>    
-  <td>active_currency_id</td>    
-  <td>ID of the currency actively in use in the storefront</td>  
-</tr>  
-<tr>    
-  <td>active_currency_flag</td>    
-  <td>Country flag used to represent the active currency</td>  
-</tr>
-<tr>    
-  <td>active_currency_name</td>    
-  <td>Name of the active currency</td>  
-</tr>
-<tr>    
-  <td>active_currency_code</td>    
-  <td>Code for the active currency</td>  
-</tr>  
-<tr>    
-  <td>currencies</td>    
-  <td>List of all the currencies supported for this storefront</td>  
-</tr>
-<tr>    
-  <td><span class="indent1">is_active</span></td>    
-  <td>Boolean that indicates whether this currency is active for use in the storefront</td>  
-</tr>
-<tr>    
-  <td><span class="indent1">switch_url</span></td>    
-  <td>The URL to invoke a switch to this currency</td>
-</tr>
-<tr>    
- <td><span class="indent1"> id</span></td>    
- <td>ID of the currency</td>  
-</tr>
-<tr>    
- <td><span class="indent1"> name</span></td>    
- <td>Name of the currency</td>  
-</tr>
- <tr>    
-  <td><span class="indent1"> flag</span></td>    
-  <td>Country flag used to visually represent the currency</td>  
- </tr>
- </table>
-
- 
-
+| Property | Description |
+|----|----|
+| active_currency_id | ID of the currency actively in use in the storefront |
+| active_currency_flag | Country flag used to represent the active currency |
+| active_currency_name | Name of the active currency |
+| active_currency_code | Code for the active currency |
+| currencies | List of all the currencies supported for this storefront |
+| &nbsp;&nbsp;is_active | Boolean that indicates whether this currency is active for use in the storefront |
+| &nbsp;&nbsp;switch_url | The URL to invoke a switch to this currency |
+| &nbsp;&nbsp;id | ID of the currency |
+| &nbsp;&nbsp;name | Name of the currency |
+| &nbsp;&nbsp;flag | Country flag used to visually represent the currency | 
  
 
  ## Categories
 
- <b>Description:</b> A array of category objects filled with all categories shown in the current page context; default sorting is by category ID, from lowest to highest
+ **Description:** A array of category objects filled with all categories shown in the current page context; default sorting is by category ID, from lowest to highest
 
-<b>Handlebars Expression:</b> `{{categories}}`
+**Handlebars Expression:** `{{categories}}`
 
-**Usage Example:**
-
-```html
+```handlebars title="Example: Categories usage" lineNumbers
 <!-- renders a UL of categories for the current page context -->
 <ul class="people_list">
   {{#each categories}}
@@ -217,141 +118,65 @@ Global objects and properties are common components shared across the entire Big
 
 The table below displays properties for the individual category objects within the array.
 
-<table>  
-  <tr>   
-    <th>Property</th>    
-    <th>Description</th>  
-  </tr>  
-  <tr>    
-    <td>id</td>    
-    <td>ID of the top-level category listed</td>  
-  </tr>
-  <tr>    
-    <td>image</td>    
-  </tr>
-    <tr>    
-    <td><span class="indent1"> alt</span></td>
-    <td><span class="indent1"> The image alt name. Defaults to cateogory name</span></td>      
-  </tr>
-    <tr>    
-    <td><span class="indent1">data</span></td> 
-    <td><span class="indent1">Public category image url.</span></td>   
-  </tr>
-
-  <tr>    
-    <td>name</td>    
-    <td>Name of the top-level category</td>  
-  </tr>  
-  <tr>    
-    <td>description</td>    
-    <td>Description of the top-level category (optional &ndash; when requested in front matter)</td>  
-  </tr>  
-  <tr>    
-    <td>url</td>    
-    <td>URL to the category page</td>  
-  </tr>  
-  <tr>    
-    <td>count</td>    
-    <td>Number of products in this category</td>  
-  </tr>  
-  <tr>    
-    <td>children</td>    
-    <td>List of child categories for this top-level category</td>  
-  </tr>  
-  <tr>    
-    <td><span class="indent1"> id</span></td>    
-    <td>ID of the child category</td>  
-  </tr>  
-  <tr>    
-    <td><span class="indent1"> name</span></td>    
-    <td>Name of the child category</td>  
-  </tr>    
-  <tr>    
-    <td><span class="indent1"> description</span></td>    
-    <td>Description of the child category (optional &ndash; when requested in front matter)</td>  
-  </tr>  
-  <tr>    
-    <td><span class="indent1"> url</span></td>    
-    <td>URL of the child category</td>  
-  </tr>  
-	<tr>    
-		<td><span class="indent1">is_active</span></td>    
-		<td>Boolean that indicates which category is your “breadcrumb” category on a item's product display page (PDP). For example, an emerald necklace may be in the _Jewelry_ and _Accessories_ categories. If you navigated to the product from the _Jewelry_ category, `is_active: true` will be present on the _Jewelry_ object.</td>  
-	</tr>  
-  <tr>    
-    <td><span class="indent1"> count</span></td>    
-    <td>Number of products in this child category</td>
-  </tr>
-  <tr>    
-    <td><span class="indent1"> image</span></td>    
-  </tr>
-    <tr>    
-    <td><span class="indent1">&nbsp; alt</span></td>
-    <td><span class="indent1">&nbsp; The image alt name. Defaults to cateogory name</span></td>      
-  </tr>
-    <tr>    
-    <td><span class="indent1">&nbsp; data</span></td> 
-    <td><span class="indent1">&nbsp; Public category image url.</span></td>   
-  </tr>
-</table>
+| Property | Description |
+|----|----|
+| id | ID of the top-level category listed |
+| image |
+| &nbsp;&nbsp;alt | &nbsp;&nbsp;The image alt name. Defaults to category name |
+| &nbsp;&nbsp;data | &nbsp;&nbsp;Public category image url. |
+| name | Name of the top-level category |
+| description | Description of the top-level category (optional &ndash; when requested in front matter) |
+| url | URL to the category page |
+| count | Number of products in this category |
+| children | List of child categories for this top-level category |
+| &nbsp;&nbsp;id | ID of the child category |
+| &nbsp;&nbsp;name | Name of the child category |
+| &nbsp;&nbsp;description | Description of the child category (optional &ndash; when requested in front matter) |
+| &nbsp;&nbsp;url | URL of the child category |
+| &nbsp;&nbsp;is_active | Boolean that indicates which category is your “breadcrumb” category on a item's product display page (PDP). For example, an emerald necklace may be in the _Jewelry_ and _Accessories_ categories. If you navigated to the product from the _Jewelry_ category, `is_active: true` will be present on the _Jewelry_ object. |
+| &nbsp;&nbsp;count | Number of products in this child category |
+| &nbsp;&nbsp;image |
+| &nbsp;&nbsp;&nbsp; alt | &nbsp;&nbsp;&nbsp; The image alt name. Defaults to cateogory name |
+| &nbsp;&nbsp;&nbsp; data | &nbsp;&nbsp;&nbsp; Public category image url. |
 
 ## Faceted Search
 
-<b>Description:</b> Faceted-search object for searching globally, by category, or by brand
+**Description:** Faceted-search object for searching globally, by category, or by brand
 
-<b>Handlebars Expression:</b> `{{faceted_search}}`
+**Handlebars Expression:** `{{faceted_search}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>facets</td>
-    <td>List of all search facets available</td>
-  </tr>
-  <tr>
-		<td><b>selected</b></td>
-		<td>Container for the selected search facets (selected facets contain properties below</i>)</td>
-  </tr>
-  <tr>
-	<td><span class="indent1">remove_all_url</span></td>
-    <td>URL to remove all selected search restrictions</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">items</span></td>
-    <td>Currently enabled search facets</td>
-  </tr>
-</table>
-
+| Property | Description |
+|----|----|
+| facets | List of all search facets available |
+| **selected** | Container for the selected search facets (selected facets contain properties below) |
+| &nbsp;&nbsp;remove_all_url | URL to remove all selected search restrictions |
+| &nbsp;&nbsp;items | Currently enabled search facets |
 ## Featured Products
 
-<b>Description:</b> Renders a list of all the featured products for the BigCommerce storefront.
+**Description:** Renders a list of all the featured products for the BigCommerce storefront.
 
-<b>Handlebars Expression:</b> `{{products.featured}}`
+**Handlebars Expression:** `{{products.featured}}`
 
-<b>Object Properties:</b> References the [product card model](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model).
+**Object Properties:** References the [product card model](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model).
 
-<b> Usage Example: </b>
+**Usage Example:**
 
 The code example below displays the global `{{products.featured}}` object on the `cornerstone/templates/pages/home.html` page template from [Stencil's base Cornerstone theme](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L5) (Github).
 
 First, you must declare the object using Front Matter. To declare the object, the following front matter must be placed at the top of the template HTML page. This following declaration also limits the number of featured products to be displayed:
 
-```html
-
+```yml title="Example: Frontmatter declaration"
 products:
     [...]
     featured:
         limit: {{theme_settings.homepage_featured_products_count}} //limits the number of featured products to be displayed
-
 ```
 
 The `homepage_featured_products_count` limit is one of two relevant variables defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L45) (Github).
 
-```json
+```json title="homepage_featured_products_count"
 "settings": {
     // ...
     "homepage_featured_products_count": 8,
@@ -362,7 +187,7 @@ The `homepage_featured_products_count` limit is one of two relevant variables de
 
 In the body of [Cornerstone's `home.html` template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L27) (Github), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
 
-```html
+```handlebars title="home.html"
 {{#if products.featured}}
 		{{> components/products/featured products=products.featured
     columns=theme_settings.homepage_featured_products_column_count}}
@@ -373,75 +198,39 @@ This above statement formats the _Featured Products_ display according to the `h
 
 ## Footer
 
-<b>Description:</b>The footer content for each storefront page
+**Description:**The footer content for each storefront page
 
-<b>Handlebars Expression:</b> `{{footer}}`
+**Handlebars Expression:** `{{footer}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>sitemap_url</td>
-    <td>The URL to the sitemap, based on store’s SEO setting</td>
-  </tr>
-  <tr>
-    <td>scripts</td>
-    <td>Scripts to be loaded after the HTML has loaded; includes performance metrics</td>
-  </tr>
-</table>
+| Property | Description |
+|----|----|
+| sitemap_url | The URL to the sitemap, based on store’s SEO setting |
+| scripts | Scripts to be loaded after the HTML has loaded; includes performance metrics |
 
 ## HTML Head
 
-<b>Description:</b> Data to be included in the HTML `<head>` element<br>
+**Description:** Data to be included in the HTML `<head>` element<br>
 
-<b>Handlebars Expression:</b>`{{head}}`
+**Handlebars Expression:**`{{head}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>character_set</td>
-    <td>The character set to specify</td>
-  </tr>
-  <tr>
-    <td>meta_tags</td>
-    <td>Meta tags to improve store SEO</td>
-  </tr>
-  <tr>
-    <td>title</td>
-    <td>Current page’s title</td>
-  </tr>
-  <tr>
-    <td>stylesheets</td>
-    <td>CSS files to be included</td>
-  </tr>
-  <tr>
-    <td>scripts</td>
-    <td>Scripts to be loaded in the &lt;head&gt; tag</td>
-  </tr>
-  <tr>
-    <td>favicon</td>
-    <td>The store’s favicon (Favorite icon)</td>
-  </tr>
-  <tr>
-    <td>rsslinks</td>
-    <td>RSS feeds to improve SEO</td>
-  </tr>
-</table>
-
+| Property | Description |
+|----|----|
+| character_set | The character set to specify |
+| meta_tags | Meta tags to improve store SEO |
+| title | Current page’s title |
+| stylesheets | CSS files to be included |
+| scripts | Scripts to be loaded in the &lt;head&gt; tag |
+| favicon | The store’s favicon (Favorite icon) |
+| rsslinks | RSS feeds to improve SEO |
 ## Is_Ajax
 
-<b>Description:</b> Boolean; returns `true` if the current executing request is an Ajax request
+**Description:** Boolean; returns `true` if the current executing request is an Ajax request
 
-<b>Handlebars Expression:</b> `{{is_ajax}}`
+**Handlebars Expression:** `{{is_ajax}}`
 
 No properties available for this object.
 
@@ -459,17 +248,15 @@ To access the global `{{products.new}}` object on your page, you must first use 
 
 The code example below declares the global `{{products.new}}` object on the `cornerstone/templates/pages/home.html` page template from [Stencil's base Cornerstone Theme](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L3) (Github).
 
-```html
-
+```yml title="Example: Frontmatter declaration"
 products:
     new:
         limit: {{theme_settings.homepage_new_products_count}}
-
 ```
 
 The `homepage_featured_products_count` limit is one of two relevant variables defined in Cornerstone's `config.json` file (Github).
 
-```json
+```json title="config.json"
 "settings": {
     "homepage_new_products_count": 5,
     // ...
@@ -479,7 +266,7 @@ The `homepage_featured_products_count` limit is one of two relevant variables de
 
 In the body of [Cornerstone's `home.html` template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L36) (Github), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
 
-```html
+```handlebars title="home.html"
 {{#if products.new}}
   {{> components/products/new products=products.new 	
  	columns=theme_settings.homepage_new_products_column_count}}
@@ -490,85 +277,42 @@ This above statement formats the _New Products_ display according to the `homepa
 
 ## Page Content
 
-<b>Description:</b> Defines elements of merchant’s store page
+**Description:** Defines elements of merchant’s store page
 
-<b>Handlebars Expression:</b> `{{page}}`
+**Handlebars Expression:** `{{page}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <td>Property</td>
-    <td>Description</td>
-  </tr>
-  <tr>
-    <td>title</td>
-    <td>Page title, to be used as the HTML <code>title</code> tag</td>
-  </tr>
-  <tr>
-    <td>description</td>
-    <td>Description for the page, to be used as the HTML <code>meta &gt; description</code> tag</td>
-  </tr>
-  <tr>
-    <td>content</td>
-    <td>HTML content of the page</td>
-  </tr>
-  <tr>
-    <td>sub_pages</td>
-    <td>Array of child pages</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">title</span></td>
-    <td>Title of this child page</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">url</span></td>
-    <td>URL of this child page</td>
-  </tr>
-</table>
-
+| Property | Description |
+|----|----|
+| title | Page title, to be used as the HTML `title` tag |
+| description | Description for the page, to be used as the HTML `meta &gt; description` tag |
+| content | HTML content of the page |
+| sub_pages | Array of child pages |
+| &nbsp;&nbsp;title | Title of this child page |
+| &nbsp;&nbsp;url | URL of this child page |
 ## Pages
 
-<b>Description:</b> A list of all web content pages for the BigCommerce storefront
+**Description:** A list of all web content pages for the BigCommerce storefront
 
-<b>Handlebars Expression:</b> `{{pages}}`
+**Handlebars Expression:** `{{pages}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-	</tr>
-    <tr>
-      <td>name</td>
-      <td>Name of the page</td>
-    </tr>
-    <tr>
-      <td>url</td>
-      <td>URL of the page</td>
-    </tr>
-    <tr>
-      <td>children</td>
-      <td>List of child pages for this page</td>
-    </tr>
-    <tr>
-      <td><span class="indent1"> name</span></td>
-      <td>Name of the child page</td>
-    </tr>
-    <tr>
-      <td><span class="indent1"> url</span></td>
-      <td>URL of the child page</td>
-    </tr>
-</table>
-
+| Property | Description |
+|----|----|
+| name | Name of the page |
+| url | URL of the page |
+| children | List of child pages for this page |
+| &nbsp;&nbsp;name | Name of the child page |
+| &nbsp;&nbsp;url | URL of the child page |
 ## Page Type Property
 
-<b>Description:</b> A string representing the type of page currently displayed. <br>
+**Description:** A string representing the type of page currently displayed. <br>
 
-<b>Handlebars Expression:</b> `{{page_type}}`
+**Handlebars Expression:** `{{page_type}}`
 
-<b>Values:</b> The four most-commonly-used values for `{{page_type}}` are:
+**Values:** The four most-commonly-used values for `{{page_type}}` are:
 
 * default (for a home page)
 * product (for a product page)
@@ -603,206 +347,63 @@ All possible values for `{{page_type}}` are:
 
 **Object Properties:**
 
-<table>
-    <tr>   
-      <th>Property</th>   
-      <th>Description</th>
-    </tr>
-    <tr>   
-      <td>next</td>   
-      <td>Link to next page, if any</td>
-    </tr>
-    <tr>   
-      <td>previous</td>   
-      <td>Link to previous page, if any</td>
-    </tr>
-    <tr>   
-      <td>sort</td>   
-      <td>Field to sort by</td>
-    </tr>
-    <tr>   
-      <td>current</td>   
-      <td>Number representing which page (in the current collection) the customer is viewing</td>
-    </tr>
-      <tr>   
-        <td>total</td>   
-        <td>Total number of results, across all pages</td>
-      </tr>
-        <tr>   
-          <td>links</td>   
-          <td>Array of pages that surround the current page; displayed as a set of links, dynamically sized based on the current page number</td>
-        </tr>
-        <tr>   
-          <td><span class="indent1">url</span></td>   
-          <td>URL to this page of results</td>
-        </tr>
-        <tr>   
-          <td><span class="indent1">number</span></td>   
-          <td>The page number of this link, based on an index starting at 1</td>
-      </tr>
-    </table>
-
+| Property | Description |
+|----|----|
+| next | Link to next page, if any |
+| previous | Link to previous page, if any |
+| sort | Field to sort by |
+| current | Number representing which page (in the current collection) the customer is viewing |
+| total | Total number of results, across all pages |
+| links | Array of pages that surround the current page; displayed as a set of links, dynamically sized based on the current page number |
+| &nbsp;&nbsp;url | URL to this page of results |
+| &nbsp;&nbsp;number | The page number of this link, based on an index starting at 1 |
 ## Search
 
-<b>Description:</b> Defines search parameters for the merchant’s site
+**Description:** Defines search parameters for the merchant’s site
 
-<b>Handlebars Expression:</b> `{{forms.search}}`
+**Handlebars Expression:** `{{forms.search}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-		<th>Property</th>
-		<th>Description</th>
-  <tr>
-    <td>query</td>
-    <td>Active search query, if available</td>
-  </tr>
-  <tr>
-    <td>section</td>
-    <td>Active search-results section: either content or product</td>
-  </tr>
-  <tr>
-    <td>content_url</td>
-    <td>URL to the content section</td>
-  </tr>
-  <tr>
-    <td>product_url</td>
-    <td>URL to the product section</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Brand name</td>
-  </tr>
-  <tr>
-    <td>suggested_query</td>
-    <td>An alternative query – related to the current query – that can be offered to substitute for misspelled entries</td>
-  </tr>
-  <tr>
-    <td>has_suggestions</td>
-    <td>Boolean – true if there is at least one of brand results, category results, or a (non-null) suggested_query</td>
-  </tr>
-  <tr>
-    <td>brand_results</td>
-    <td>Array of brands that match the search query; default sorting is by brand id, from lowest to highest</td>
-  </tr>
-  <tr>
-    <td>url</td>
-    <td>URL of the brand</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Displayed name for the brand</td>
-  </tr>
-  <tr>
-    <td>category_results</td>
-    <td>An array of category paths matching the search query; used to populate category suggestions</td>
-  </tr>
-  <tr>
-    <td>url</td>
-    <td>URL of the category</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Displayed name for the category</td>
-  </tr>
-  <tr>
-    <td>values</td>
-    <td>Values of the submitted search form</td>
-  </tr>
-  <tr>
-    <td>brand</td>
-    <td>Any brand ID that customer has selected from drop-down list</td>
-  </tr>
-  <tr>
-    <td>price_from</td>
-    <td>Any minimum price the customer has specified</td>
-  </tr>
-  <tr>
-    <td>price_to</td>
-    <td>Any maximum price the customer has specified</td>
-  </tr>
-  <tr>
-    <td>featured_products</td>
-    <td>Whether customer has chosen to view featured products: null = no preference; 1 = only featured products; 2 = only non-featured products</td>
-  </tr>
-  <tr>
-    <td>free_shipping</td>
-    <td>Value indicating customer’s preference for free shipping within search results: null = no preference; 1 = free shipping only; 2 = paid shipping only</td>
-  </tr>
-  <tr>
-    <td>result_count</td>
-    <td>Combined number of returned results for product and content search</td>
-  </tr>
-  <tr>
-    <td>category_options</td>
-    <td>Array of options to present to customer as search-by-category fields</td>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>Category ID</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Displayed name of the category</td>
-  </tr>
-  <tr>
-    <td>state</td>
-    <td>If category contains children, and customer selects a child category: Whether that category’s display will default to closed (collapsed) or opened (expanded)</td>
-  </tr>
-  <tr>
-    <td>children</td>
-    <td>Array of objects representing a child category; recursively replicates the structure of its parent</td>
-  </tr>
-  <tr>
-    <td>content_results</td>
-    <td>Search results across blog posts and storefront pages (not products or categories)</td>
-  </tr>
-  <tr>
-    <td>title</td>
-    <td>Title of the result (title embedded in blog post or page)</td>
-  </tr>
-  <tr>
-    <td>content</td>
-    <td>Summary of text from the blog post or page (first 200 characters)</td>
-  </tr>
-  <tr>
-    <td>url</td>
-    <td>URL to the result</td>
-  </tr>
-  <tr>
-    <td>type</td>
-    <td>Either post (for blog posts) or page (for storefront pages)</td>
-  </tr>
-  <tr>
-		<td>product_results</td>
-    <td>Results of customer’s last search by product (each result contains the below properties)</td>
-  </tr>
-  <tr>
-		<td><span class="indent1">products</span></td>
-    <td>List of search results for a product; points to <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">product card model</a></td>
-  </tr>
-  <tr>
-    <td><span class="indent1">show_compare</span></td>
-    <td>Boolean corresponding to merchant’s control-panel selection whether or not to enable product comparisons </td>
-  </tr>
-  <tr>
-    <td><span class="indent1">faceted_search_enabled</span>
-    </td> <td>Boolean that defines whether product-filtering search is enabled for the store</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">facets</span></td>
-    <td>All available search filters</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">pagination</span></td>
-    <td>References pagination model</td>
-  </tr>
-  <tr>
-		<td><span class="indent1">selected</span</td>
-    <td>Currently selected filters</td>
-  </tr>
-</table>
-
+| Property | Description |
+|----|----|
+| query | Active search query, if available |
+| section | Active search-results section: either content or product |
+| content_url | URL to the content section |
+| product_url | URL to the product section |
+| name | Brand name |
+| suggested_query | An alternative query – related to the current query – that can be offered to substitute for misspelled entries |
+| has_suggestions | Boolean – true if there is at least one of brand results, category results, or a (non-null) suggested_query |
+| brand_results | Array of brands that match the search query; default sorting is by brand id, from lowest to highest |
+| url | URL of the brand |
+| name | Displayed name for the brand |
+| category_results | An array of category paths matching the search query; used to populate category suggestions |
+| url | URL of the category |
+| name | Displayed name for the category |
+| values | Values of the submitted search form |
+| brand | Any brand ID that customer has selected from drop-down list |
+| price_from | Any minimum price the customer has specified |
+| price_to | Any maximum price the customer has specified |
+| featured_products | Whether customer has chosen to view featured products: null = no preference; 1 = only featured products; 2 = only non-featured products |
+| free_shipping | Value indicating customer’s preference for free shipping within search results: null = no preference; 1 = free shipping only; 2 = paid shipping only |
+| result_count | Combined number of returned results for product and content search |
+| category_options | Array of options to present to customer as search-by-category fields |
+| id | Category ID |
+| name | Displayed name of the category |
+| state | If category contains children, and customer selects a child category: Whether that category’s display will default to closed (collapsed) or opened (expanded) |
+| children | Array of objects representing a child category; recursively replicates the structure of its parent |
+| content_results | Search results across blog posts and storefront pages (not products or categories) |
+| title | Title of the result (title embedded in blog post or page) |
+| content | Summary of text from the blog post or page (first 200 characters) |
+| url | URL to the result |
+| type | Either post (for blog posts) or page (for storefront pages) |
+| product_results | Results of customer’s last search by product (each result contains the below properties) |
+| &nbsp;&nbsp;products | List of search results for a product; points to [product card model](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model) |
+| &nbsp;&nbsp;show_compare | Boolean corresponding to merchant’s control-panel selection whether or not to enable product comparisons  |
+| &nbsp;&nbsp;faceted_search_enabled | Boolean that defines whether product-filtering search is enabled for the store |
+| &nbsp;&nbsp;facets | All available search filters |
+| &nbsp;&nbsp;pagination | References pagination model |
+| &nbsp;&nbsp;selected | Currently selected filters |
 ## Settings
 
 **Description:** Common settings shared across every BigCommerce storefront
@@ -944,86 +545,42 @@ All possible values for `{{page_type}}` are:
 
 **Description:** A list of all sitemap properties for this BigCommerce storefront: pages, categories, and brands.
 
-<b>Handlebars Expression:</b> `{{sitemap}}`
+**Handlebars Expression:** `{{sitemap}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <td>Property</td>
-    <td>Description</td>
-  </tr>
-  <tr>
-    <td>subsection_url</td>
-    <td>URL to subsection content (pages, categories, brands) of the sitemap</td>
-  </tr>
-  <tr>
-    <td>label</td>
-    <td>Subsection title (pages, categories, brands)</td>
-  </tr>
-  <tr>
-    <td>body</td>
-    <td>List of all sitemap subsections</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> url</span></td><td>URL to the page, category, or brand</td>
-  </tr>
-  <tr>
-      <td><span class="indent1"> label</span></td>
-      <td>Label of the page, category, or brand</td>
-    </tr>
-    <tr>
-      <td><span class="indent1"> children </span></td>
-      <td>Nested list of children within pages or categories; will be null for brands</td>
-    </tr>
-    <tr>
-      <td><span class="indent2">url</span></td>
-      <td>URL to the child page or category</td>
-    </tr>
-    <tr>
-      <td><span class="indent2">label</span></td>
-      <td>Label for the child page or category</td>
-    </tr>
-  </table>
-
+| Property | Description |
+|----|----|
+| subsection_url | URL to subsection content (pages, categories, brands) of the sitemap |
+| label | Subsection title (pages, categories, brands) |
+| body | List of all sitemap subsections |
+| &nbsp;&nbsp;url | URL to the page, category, or brand |
+| &nbsp;&nbsp;label | Label of the page, category, or brand |
+| &nbsp;&nbsp;children  | Nested list of children within pages or categories; will be null for brands |
+| &nbsp;&nbsp;&nbsp;url | URL to the child page or category |
+| &nbsp;&nbsp;&nbsp;label | Label for the child page or category |
 ## Social Links
 
-<b>Description:</b> Array of all social-media site links for the storefront<br>
+**Description:** Array of all social-media site links for the storefront<br>
 
-<b>Handlebars Expression:</b> `{{social_media}}`
+**Handlebars Expression:** `{{social_media}}`
 
-<b>Object Properties:</b><br><br>
+**Object Properties:**<br><br>
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Internal name of this social-media platform (e.g., "googleplus")</td>
-  </tr>
-  <tr>
-    <td>url</td>
-    <td>URL to point to, set by merchant in control panel (https://www.facebook.com/BigCommerce, etc.)</td>
-  </tr>
-  <tr>
-    <td>position</td>
-    <td>Display sort order for this platform within the social-media list</td>
-  </tr>
-  <tr>
-    <td>display_name</td>
-    <td>Displayed/formatted name of this social-media platform (e.g., “Google+”) </td>
-  </tr>
-</table>
+| Property | Description |
+|----|----|
+| name | Internal name of this social-media platform (e.g., "googleplus") |
+| url | URL to point to, set by merchant in control panel (https://www.facebook.com/BigCommerce, etc.) |
+| position | Display sort order for this platform within the social-media list |
+| display_name | Displayed/formatted name of this social-media platform (e.g., “Google+”)  |
 
 ## Template Property
 
-<b>Description:</b> A string containing the name of the root template currently being rendered in the page context. <br>
+**Description:** A string containing the name of the root template currently being rendered in the page context. <br>
 
-<b>Handlebars Expression:</b> `{{template}}`
+**Handlebars Expression:** `{{template}}`
 
-<b>Values:</b> Values will reflect each theme's specific directory structure. Possible values include:
+**Values:** Values will reflect each theme's specific directory structure. Possible values include:
 
 * `pages/home`
 * `pages/brand` (for brand pages)
@@ -1040,19 +597,17 @@ All possible values for `{{page_type}}` are:
 
 ## Top Sellers
 
-<b>Description:</b> Object to display a sidebar of top-selling products<br>
+**Description:** Object to display a sidebar of top-selling products<br>
 
-<b>Handlebars Expression:</b> `{{products.top_sellers}}`
+**Handlebars Expression:** `{{products.top_sellers}}`
 
-<b>Object Properties:</b> References the <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model"> product card model </a>
+**Object Properties:** References the <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model"> product card model </a>
 
-<b>Usage Example:</b>
+**Usage Example:**
 
 To access the global`{{products.top_sellers}}` object on your page, you must first use [front matter](/stencil-docs/front-matter/front-matter-attributes-reference) to declare the object at the top of your page template. For example, you would place this front-matter declaration at the top of your template file:
 
-```
-
+```yml title="Template frontmatter"
 products:
     top_sellers:
-
 ```

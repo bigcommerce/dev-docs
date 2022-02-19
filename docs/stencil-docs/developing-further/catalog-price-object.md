@@ -28,13 +28,7 @@ Assume that a merchant has defined the following for a product in the control pa
 
 A corresponding catalog price object for the product will be structured as shown below:
 
-<!--
-title: "Catalog price object"
-subtitle: "No sale price defined"
-lineNumbers: true
--->
-
-```json
+```json title="Catalog price object, no sale price defined" lineNumbers
 "product": {
     // ...
   },
@@ -89,13 +83,7 @@ Assume that a merchant has defined the following for a product in the control pa
 A corresponding catalog price object for the product will be structured as shown below:
 
 
-<!--
-title: "Catalog price object"
-subtitle: "sale price defined"
-lineNumbers: true
--->
-
-```json
+```json title="Catalog price object, sale price defined" lineNumbers
 "product": {
   // ...
   "price": {
@@ -155,13 +143,7 @@ The example below tests for the presence of the `sale_price_without_tax` propert
 With the logic below, the page will display a strikeout standard price next to the **Sale Price** field, indicating the current selling price of the product.
 
 
-<!--
-title: "Conditional logic"
-subtitle: ""
-lineNumbers: true
--->
-
-```handlebars
+```handlebars title="Conditional logic" lineNumbers
   {{#or price.sale_price_without_tax price.sale_price_with_tax}}
      ... [code to display on-sale strikeout pricing or content for a discounted product]  ...
   {{/or}}
@@ -195,13 +177,7 @@ There is no defined sale price for the product.
 
 A corresponding catalog price object will be structured as shown below:
 
-<!--
-title: "Product including and excluding tax"
-subtitle: "No sale price defined"
-lineNumbers: true
--->
-
-```json
+```json title="Product including and excluding tax, no sale price defined" lineNumbers
 "product": {
   "price": {
     "with_tax": {
@@ -247,13 +223,7 @@ Assume that a merchant has defined the following tax configurations for a produc
 * Show prices on product pages including and excluding tax
 * Use a flat rate of 10% tax
 
-<!--
-title: "Product including and excluding tax"
-subtitle: "Sale price defined"
-lineNumbers: true
--->
-
-```json
+```json title="Product including and excluding tax, sale price defined" lineNumbers
 "product": {
   "price": {
     "with_tax": {
@@ -312,8 +282,8 @@ The table below explains the mapping between the control panel fields and the ca
 
 | Field | Catalog Price Object Property | Description |
 | ----------- | ----------- | ----------- |
-| Default Price (excluding tax) |<ul><li><b>Sale Price</b> is defined:</li> <code>{{ product.price.non_sale_price_without_tax }}</code><li><b>Sale Price</b> is not defined:</li> <code>{{ product.price.without_tax }}</code></ul>| The standard store price for the product. |
- Default Price (including tax) |<ul><li><b>Sale Price</b> is defined:</li> <code>{{ product.price.non_sale_price_with_tax }}</code><li><b>Sale Price</b> is not defined:</li> <code>{{ product.price.with_tax }}</code></ul>| The standard store price for the product, with tax. |
+| Default Price (excluding tax) |<ul><li>**Sale Price** is defined:</li> `{{ product.price.non_sale_price_without_tax }}`<li>**Sale Price** is not defined:</li> `{{ product.price.without_tax }}`</ul>| The standard store price for the product. |
+ Default Price (including tax) |<ul><li>**Sale Price** is defined:</li> `{{ product.price.non_sale_price_with_tax }}`<li>**Sale Price** is not defined:</li> `{{ product.price.with_tax }}`</ul>| The standard store price for the product, with tax. |
  Cost |Cost  is not returned in the catalog price object.| This field represents true cost of goods, and is typically meant for reports and third-party accounting integrations. |
 MSRP (excluding tax)|`{{ product.price.rrp_without_tax }}`| This field represents the product’s list price, or the manufacturer's suggested retail price. |
 MSRP (including tax)|`{{ product.price.rrp_with_tax }}`| This field represents the product’s list price, or the manufacturer's suggested retail price, including tax. |
