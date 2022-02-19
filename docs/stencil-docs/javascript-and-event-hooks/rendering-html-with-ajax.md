@@ -7,13 +7,7 @@
 Stencil allows you to render dynamic components on the fly. For example, note this default code in <span class="fp">templates/components/products/quick-view.html</span> (note also this file name, which Handlebars will reference later in this example):
 
 
-<!--
-title: "templates/components/products/quick-view.html"
-subtitle: ""
-lineNumbers: true
--->
-
-```html
+```handlebars title="templates/components/products/quick-view.html" lineNumbers
 <div class="modal-body quickView">
     {{> components/products/product-view schema=false}}
 </div>
@@ -23,13 +17,8 @@ To render a different template, you would instead reference that template’s fi
 
 This next code block is from the Stencil default theme’s `/assets/js/theme/global/quick-view.js` file. Note the `quicker-view.html` statements brought in to reference the new file name:
 
-<!--
-title: "/assets/js/theme/global/quick-view.js"
-subtitle: ""
-lineNumbers: true
--->
 
-```javascript
+```js title="/assets/js/theme/global/quick-view.js" lineNumbers
 let $modal = $('#modal'),
   $modalContent = $('.modal-content', $modal),
   $modalOverlay = $('.loadingOverlay', $modal),

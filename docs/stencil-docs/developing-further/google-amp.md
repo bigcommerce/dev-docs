@@ -29,14 +29,7 @@ Ensure the Google Analytics ID has been added in the control panel. This is what
 
 In the `/amp/category.html`, `layout/amp.html` and `amp/product.html` template files replace `theme_settings` with `settings`.
 
-
-<!--
-title: "Example replacement of amp_analytics_id property"
-subtitle: "templates/layout/amp.html"
-lineNumbers: true
--->
-
-```js
+```handlebars title="Example replacement of amp_analytics_id property templates/layout/amp.html" lineNumbers
 {{{snippet 'htmlhead'}}}
     <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
     <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
@@ -48,13 +41,8 @@ lineNumbers: true
 
 In [config.json](https://github.com/bigcommerce/cornerstone/blob/master/config.json) (referenced below) make sure `google_amp` is still in the features array. See below for code snippet.
 
-<!--
-title: "Ensure google_amp appears in the 'features' array"
-subtitle: "config.json"
-lineNumbers: true
--->
 
-```json
+```json title="Ensure google_amp appears in the 'features' array config.json" lineNumbers
   "features": [
       "fully_responsive",
       "mega_navigation",

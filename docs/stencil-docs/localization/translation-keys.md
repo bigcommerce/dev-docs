@@ -57,13 +57,7 @@ If you design your theme’s storefront pages to refer to this message by its ge
 
 Key-value pairs are grouped into objects, for example:
 
-<!--
-title: "Objects with translation key-value pairs"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Objects with translation key-value pairs" lineNumbers
 {
   "header": {
     "welcome_back": "Welcome back, {name}"
@@ -99,47 +93,25 @@ Once keys and values are defined in the [JSON translation file](https://github.c
 
 To invoke a defined translation key, follow this generic format:
 
-<!--
-title: "Syntax to invoke a defined translation key"
-subtitle: ""
-lineNumbers: true
--->
-
-```handlebars
+```handlebars title="Syntax to invoke a defined translation key" lineNumbers
   {{lang "translation.key" optionalVariable="someValue"}}
 ```
 
 In a non-internationalized theme, a storefront page might include a string like this:
 
-
-<!--
-title: "Example snippet from a non-internationalized theme"
-subtitle: ""
-lineNumbers: true
--->
-
-```handlebars
+```handlebars title="Example snippet from a non-internationalized theme" lineNumbers
   <a href="{{ urls.account }}">Welcome Back <span>{{ customer.name }}</span></a>
 ```
 
 The corresponding internationalized version would substitute the text with the fully dynamic `{{ lang }}` Handlebars helper as shown below:
 
-
-<!--
-title: "Example snippet from an internationalized theme"
-subtitle: ""
-lineNumbers: true
--->
-
-```
+```handlebars title="Example snippet from an internationalized theme" lineNumbers
 <a href="{{ urls.account }}">{{ lang "header.welcome_back" name=customer.name }}</a>
 
 ```
 
 <!-- theme: warning -->
-
 > #### File permissions required
-
 > Be sure to give any new translation files default access permissions of `644 (rw-r--r--)`. Without these permissions, running your theme locally will fail with multiple error messages. Bundling your theme will also fail, blocking its upload to a store.
 
 
@@ -150,14 +122,7 @@ lineNumbers: true
 
 Below is an example based on the Cornerstone’s `templates/components/cart/shipping-estimator.html` file. Here, each highlighted `{{lang...}}` statement abstracts the message indicated by its English-language key to enable internationalization of that message:
 
-
-<!--
-title: "Example of an internationalized template"
-subtitle: "templates/components/cart/shipping-estimator.html, Cornerstone theme"
-lineNumbers: true
--->
-
-```handlebars
+```handlebars title="Example of an internationalized template templates/components/cart/shipping-estimator.html, Cornerstone theme" lineNumbers
 <div class="shipping-estimator" style="display: none;">
   <form class="estimator-form">
     <button class="shipping-estimate-hide">{{lang 'cancel'}}</button>
@@ -165,7 +130,7 @@ lineNumbers: true
       <option>{{lang 'cart.shipping_estimator.select_a_country'}}</option>
       {{#each countries}}
           <option value="{{id}}" {{#if selected}}selected="selected"{{/if}}>
-                {{name}}
+            {{name}}
           </option>
       {{/each}}
     </select>
@@ -173,7 +138,7 @@ lineNumbers: true
       <option>{{lang 'cart.shipping_estimator.select_a_state'}}</option>
       {{#each states}}
           <option value="{{id}}" {{#if selected}}selected="selected"{{/if}}>
-              {{name}}
+            {{name}}
           </option>
       {{/each}}
     </select>
@@ -183,19 +148,11 @@ lineNumbers: true
   </form>
   <div class="shipping-quotes"></div>
 </div>
-
 ```
 
 In the example below, the default theme’s `lang/en.json` file includes matches and value definitions for each of the translation keys.
 
-
-<!--
-title: "Example translation key definitions"
-subtitle: "lang/en.json"
-lineNumbers: true
--->
-
-```json
+```json title="Example translation key definitions lang/en.json" lineNumbers
 {
   "header": {
     "welcome_back": "Welcome back, {name}",

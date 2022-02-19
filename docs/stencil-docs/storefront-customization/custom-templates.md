@@ -37,14 +37,7 @@ Next, create the template HTML files, and then place them in the appropriate `te
 
 To test your custom templates locally, you must edit your `.stencil` or `config.stencil.json` file (if using Stencil V3.1 release or later) to create mappings between each local template and a corresponding URL. Within the `.stencil` file or `config.stencil.json` file, look for the following section:
 
-
-<!--
-title: "customLayouts properties"
-subtitle: "config.stencil.json"
-lineNumbers: true
--->
-
-```json
+```json title="customLayouts properties config.stencil.json" lineNumbers
 "customLayouts": {
     "product": {},
     "brand": {},
@@ -55,13 +48,7 @@ lineNumbers: true
 
 In this section, you would populate keys to create mappings. As a simple example, assume that you have a product custom template named alternate-product.html, and you want to see that template locally at the URL: http://localhost:3000/test-url/. In this case, you must populate the product key as follows:
 
-<!--
-title: "Populate product key"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Populate product key" lineNumbers
 "product": {
     	"alternate-product.html":"/test-url/"
 },
@@ -71,14 +58,7 @@ lineNumbers: true
 
 Here is a more-complete example in which the brand, page, and category keys are also populated:
 
-
-<!--
-title: "Populated brand, page, and category keys"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Populated brand, page, and category keys" lineNumbers
 {
   "normalStoreUrl": "http://cornerstone-light-demo.mybigcommerce.com",
   "port": 3000,
@@ -126,13 +106,7 @@ In the above `.stencil` or `config.stencil.json` (if using Stencil V3.1 release 
 Beyond the single URL mapped to each template in the above examples, you have the option of mapping an array of URLs to each template. This is shown in the following example for the product template:
 
 
-<!--
-title: "Map multiple URLs"
-subtitle: ""
-lineNumbers: true
--->
-
-```js
+```json title="Map multiple URLs" lineNumbers
   "customLayouts": {
     "product": {
       "featured-product.html": ["/special-product-one", "/special-product-two"],

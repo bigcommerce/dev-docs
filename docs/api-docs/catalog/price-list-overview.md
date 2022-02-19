@@ -24,7 +24,7 @@ The following OAuth Scopes are required:
 - **Price Record:** a price override for a particular variant - minimally, a variant ID, price, and currency.
 
 
-```json
+```json title="Price Record"
 	{
 		"variant_id": 3121,
 		"price": 10.0,
@@ -43,17 +43,12 @@ The following OAuth Scopes are required:
 - **Currency:** a price list can contain records for multiple currencies. If you use a [transactional currency](/api-docs/multi-currency/guide/introduction#display-vs-transactional), the customer group or channel will use price records in that currency. If a multi-currency price list is unavailable, BigCommerce auto converts the catalog price. The customer group or channel uses price records in the default currency and performs a currency conversion for [display-only currencies](/api-docs/multi-currency/guide/introduction#display-vs-transactional).
 
 
-<!--
-title: "Example Price List"
-subtitle: ""
-lineNumbers: true
--->
+```http title="Example request: Get all price lists**" lineNumbers
+GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists
+X-Auth-Token: {{ACCESS_TOKEN}}
+Accept: application/json
+Content-Type: application/json
 
-**Example Get All Price Lists**
-
-`/GET https://api.bigcommerce.com/stores/{store_hash}/v3/pricelists`
-
-```json
 [{
   "variant_id": 3121,
   "price": 10.0,
@@ -91,33 +86,26 @@ lineNumbers: true
   "currency": "USD"
 }]
 ```
+&nbsp;
 
-<!--
-title: "Example Price List assigned to a customer group"
-subtitle: ""
-lineNumbers: true
--->
+```json title="Example response: Price List assigned to a customer group" lineNumbers
+GET https://api.bigcommerce.com/stores/{{store_hash}}/v2/customer_groups/{{customer_group_id}}
 
-**Example Price List assigned to a customer group**
-`https://api.bigcommerce.com/stores/{store_hash}/v2/customer_groups/{customer_group_id}`
-
-```json
 [
-
-    {
-        "id": 1,
-        "name": "Price List Test",
-        "is_default": false,
-        "category_access": {
-            "type": "all"
-        },
-        "discount_rules": [
-            {
-                "type": "price_list",
-                "price_list_id": 1
-            }
-        ]
-    }
+  {
+    "id": 1,
+    "name": "Price List Test",
+    "is_default": false,
+    "category_access": {
+      "type": "all"
+    },
+    "discount_rules": [
+      {
+        "type": "price_list",
+        "price_list_id": 1
+      }
+    ]
+  }
 ]
 ```
 
@@ -131,10 +119,9 @@ The price list assignment assigns a price list to a specific sales channel. This
 
 See [Channels, Sites, and Routes](/api-reference/cart-checkout/channels-listings-api) for further documentation.
 
-**Example Price List assigned to channel**
-`https://api.bigcommerce.com/stores/{store_hash}/v2/pricelists/assignments`
+```http title="Example request: Assigned price list to channel"
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v2/pricelists/assignments
 
-```js
 {
   "customer_group_id": 3,
   "price_list_id": 2,

@@ -7,14 +7,7 @@
 To apply CSS styling to a page in your theme, make sure that page's code includes a reference to the stylesheet you want to use. This example does so using the `{{partial}}` and `{{cdn}}` custom Handlebars helpers:
 
 
-
-<!--
-title: "Example of stylesheet link inserted with Handlebars"
-subtitle: ""
-lineNumbers: true
--->
-
-```html
+```handlebars title="Example of stylesheet link inserted with Handlebars" lineNumbers
 {{#partial "head"}}
     <link href="{{cdn '/assets/css/invoice.scss'}}" rel="stylesheet">
 {{/partial}}
@@ -29,13 +22,7 @@ Template composition is a valuable Stencil feature. By defining blocks of overri
 A base template defines content blocks by name. The following snippet uses `{{block}}` custom Handlebars helpers to define three content blocks, respectively named `head`, `hero`, and `page`:
 
 
-<!--
-title: "Example content block"
-subtitle: "templates/layout/base.html"
-lineNumbers: true
--->
-
-```html
+```handlebars title="Example content block templates/layout/base.html" lineNumbers
 <!DOCTYPE html>
 <html>
     <head>
@@ -59,12 +46,10 @@ lineNumbers: true
 Pages can use a base template, replacing the defined blocks with their own content. This example replaces content for the head and page blocks:
 
 <!--
-title: "Example of replacing content blocks"
-subtitle: "/templates/pages/account/orders/invoice.html"
-lineNumbers: true
+
 -->
 
-```html
+```handlebars title="Example of replacing content blocks /templates/pages/account/orders/invoice.html" lineNumbers
 {{#partial "head"}}
     <link href="{{cdn '/assets/css/invoice.scss'}}" rel="stylesheet">
 {{/partial}}

@@ -60,13 +60,7 @@ Store Design supports these data types:
 
 Within <span class="fn">schema.json</span>, each object's data type is declared in a statement like the one highlighted here:
 
-<!--
-title: "Example object data type declaration"
-subtitle: "schema.json"
-lineNumbers: true
--->
-
-```json
+```json title="Example object data type declaration schema.json" lineNumbers
  {
         "type": "color",
         "label": "Text Color",
@@ -78,14 +72,7 @@ lineNumbers: true
 
 Within <span class="fn">schema.json</span>, you will also see `"type": "heading"` statements like this one – highlighted earlier in the same object used for the above example:
 
-<!--
-title: "'Heading' type settings"
-subtitle: "schema.json"
-lineNumbers: true
-highlightLines: [[5]]
--->
-
-```json
+```json title="'Heading' type settings schema.json" lineNumbers highlightLines=[[5]]
 {
     "name": "Colors",
     "settings": [

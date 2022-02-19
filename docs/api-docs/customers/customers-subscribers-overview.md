@@ -111,8 +111,8 @@ Single customer on V3:
 
 Single customer on V2:
 
-* `/customers/{customer_id}`
-* `/customers/{customer_id}/addresses`
+* `/customers/{{customer_id}}`
+* `/customers/{{customer_id}}/addresses`
 
 ### Queries
 
@@ -126,23 +126,18 @@ Get customer address by name and company on V3:
 
 Get customer address by name and company on V2:
 
-`/customers/{customer_id}/addresses/{customer_address_id}`
+`/customers/{{customer_id}}/addresses/{{customer_address_id}}`
 
 ### Requests
 
 V3 Customers `POST` and `PUT` requests require an array object.
 
-<!--
-title: "Example, Update a customer V3"
-subtitle: "/customer"
-lineNumbers: true
--->
+```http "Example request: Update a customer V3" lineNumbers
+PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/customers
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
 
-
-
-
-```http
-`/PUT https://api.bigcommerce.com/stores/{store_hash}/v3/customers`
 [
   {
     "id": 12,
@@ -152,18 +147,13 @@ lineNumbers: true
   }
 ]
 ```
+&nbsp;
+```http title="Example request: Update a Customer V2" lineNumbers
+PUT https://api.bigcommerce.com/stores/{{store_hash}}/v2/customer_groups/{{customer_group_id}}
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
 
-<!--
-title: "Update a Customer on V2"
-subtitle: "/customers/{customer_id}"
-lineNumbers: true
--->
-
-**Example Update a Customer (V2)**  
-
-`/PUT https://api.bigcommerce.com/stores/{store_hash}/v2/customer_groups/{customer_group_id}`
-
-```json
 {
   "first_name": "Jane",
   "email": "jane@email.com",

@@ -367,21 +367,12 @@ This example results in selecting a combination of small and red on the storefro
 > #### Create a variant option
 > Creating a variant option does not automatically create SKUs or build out variants. You can build out SKUs later using the [Variants](/api-reference/store-management/catalog/product-variants/createvariant) endpoint.
 
-
-
 ### Create variant options
 
 The following request will create options that will show on the storefront as choices selected by the customer. In a separate request, you could build out SKUs based on these variant option values or a combination of variant option values. You can use a similar request to add new choices to an existing variant.
-<!--
-title: "Create Size Variant Option"
-subtitle: "/POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options"
-lineNumbers: true
--->
 
-**Example create size variant option**
-
-```http
-POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options
+```http title="Create Size Variant Option" lineNumbers
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/options
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -429,8 +420,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 > Creating SKU rules via the V2 API or via CSV import will alter or override any variant price or sale price added to a product via the control panel, V3 API, or Price Lists UI.
 
 
-
-
 ### Variant examples:
 
 | Product | Variant option | Variant |
@@ -450,7 +439,7 @@ The example below will go over using existing variant options to create the vari
 
 To fetch variant information, send a `GET` request to `/v3/catalog/products/{{product_id}}/options`.
 
-```http
+```http title="Get product variant options"
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/options
 Accept: application/json
 Content-Type: application/json
@@ -773,7 +762,7 @@ Use complex rules when an adjustment should be triggered by:
 Complex rules must have a combination of two or more modifiers, such as two checkboxes. The following example will add $10 to the product price when you check both boxes.
 
 ```http
-PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/complex-rules
+PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/complex-rules
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -846,7 +835,7 @@ BigCommerce's V3 REST API does not require products to be associated with a cate
 You can associate products with multiple categories. A product associated with categories does not currently have any priority or weighted order (there's no “primary category”). The absence of priority or weighted order makes it difficult to integrate with some external systems that might wish to use a product's categories to map to a category structure.
 
 ```http
-POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/categories
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/categories
 
 Accept: application/json
 Content-Type: application/json

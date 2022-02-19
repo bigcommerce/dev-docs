@@ -24,13 +24,7 @@ To use Disqus blog comments in Stencil, follow the steps below:
 6. In the Disqus Universal Code that you have posted, there is a function that reads like below:
 
 
-<!--
-title: "Disqus Universal Code"
-subtitle: ""
-lineNumbers: true
--->
-
-```js
+```js title="Disqus universal code" lineNumbers
 var disqus_config = function () {
     this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
     this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
@@ -40,13 +34,7 @@ var disqus_config = function () {
 Change the value of `this.page.url` to be `product.url`, and the value of `this.page.identifier` to be `product.id`, so that the function now reads like below:
 
 
-<!--
-title: "Disqus Universal Code"
-subtitle: "Final Function"
-lineNumbers: true
--->
-
-```js
+```js title="Disqus universal code final function" lineNumbers
 var disqus_config = function () {
     this.page.url = product.url;
     this.page.identifier = product.id;

@@ -31,13 +31,7 @@ We recommend that you add BigCommerce’s JavaScript SDK to your Single-Click Ap
 
 Optionally, you can pass a logout callback function within the initialization call:
 
-<!--
-title: "Logout Callback"
-subtitle: ""
-lineNumbers: true
--->
-
-```javascript
+```js title="Logout Callback" lineNumbers
 Bigcommerce.init({
       onLogout: callback
 });
@@ -84,13 +78,8 @@ The following table details the full list of parameters and values included in t
 
 This example initiates the token exchange, with a requested scope of store_v2_orders:
 
-<!--
-title: "Initial Installation"
-subtitle: ""
-lineNumbers: true
--->
 
-```http
+```http title="Initial Installation" lineNumbers
 GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders&context=stores/g5cd38 HTTP/1.1
 Host: app.example.com
 ```
@@ -98,13 +87,7 @@ Host: app.example.com
 ### Example – Updating Scopes
 The following example requests a scope of store_v2_products, in addition to the initially requested scope of store_v2_orders:
 
-<!--
-title: "Updating Scopes"
-subtitle: ""
-lineNumbers: true
--->
-
-```http
+```http title="Updating Scopes" lineNumbers
 GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders+store_v2_products&context=stores/g5cd38 HTTP/1.1
 Host: app.example.com
 ```
@@ -153,29 +136,15 @@ Include values for each of the following parameters.
 
 **Examples – Initial Installation**
 
-
-<!--
-title: "HTTP"
-subtitle: ""
-lineNumbers: true
--->
-
-```http
+```http title="HTTP" lineNumbers
 POST /oauth2/token HTTP/1.1
 Host: login.bigcommerce.com
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 186
 client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&code=qr6h3thvbvag2ffq&scope=store_v2_orders&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/{STORE_HASH}
 ```
-
-
-<!--
-title: "PHP"
-subtitle: ""
-lineNumbers: true
--->
-
-```php
+&nbsp;
+```php title="PHP" lineNumbers
 use Bigcommerce\Api\Connection;
 $tokenUrl = "https://login.bigcommerce.com/oauth2/token";
 $connection = new Connection();
@@ -196,28 +165,15 @@ $token = $response->access_token;
 
 The following examples request a scope of store_v2_products, in addition to the initially requested scope of store_v2_orders:
 
-<!--
-title: "HTTP"
-subtitle: ""
-lineNumbers: true
--->
-
-```http
+```http title="HTTP" lineNumbers
 POST /oauth2/token HTTP/1.1
 Host: login.bigcommerce.com
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 186
 client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&scope=store_v2_orders+store_v2_products&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/{STORE_HASH}
 ```
-
-
-<!--
-title: "PHP"
-subtitle: ""
-lineNumbers: true
--->
-
-```php
+&nbsp;
+```php title="PHP" lineNumbers
 use Bigcommerce\Api\Connection;
 $tokenUrl = "https://login.bigcommerce.com/oauth2/token";
 $connection = new Connection();
@@ -248,13 +204,7 @@ The POST response will include a JSON object containing the permanent OAuth toke
 | email | string | The user’s email address. Store this value to identify the user at load and uninstall. |
 | context | string | The store hash, as well as a base path: `stores/{_store_hash_}` |
 
-<!--
-title: "Initial Installation"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Initial Installation" lineNumbers
 {
   "access_token": "ACCESS_TOKEN",
   "scope": "store_v2_orders",
@@ -268,13 +218,7 @@ lineNumbers: true
 
 Update requests will refresh the payload’s access_token and scope values. Here again, the following example requests a scope of store_v2_products, in addition to the initially requested scope of store_v2_orders:
 
-<!--
-title: "Updating Scopes"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Updating Scopes" lineNumbers
 {
   "access_token": "ACCESS_TOKEN",
   "scope": "store_v2_orders store_v2_products",
@@ -304,7 +248,7 @@ Each event listed here triggers a GET request from BigCommerce containing a sign
 
 Once your app has been installed, the store owner or user can click its icon in the control panel to launch it. This causes BigCommerce to send a GET request to the Load Callback URI that you provided during app registration. In a production environment, the Load Callback URI must be publicly available, fully qualified, and served over TLS/SSL.
 
-```http
+```http title="Example response to GET /load endpoint"
 # The GET request contains a signed payload, as shown below.
 GET /load?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: app.example.com
@@ -336,9 +280,7 @@ If you have not enabled [multi-user support](#multi-user-support), you will not 
 **Example -- Get Request sent to the Remove User URI**
 
 <!--
-title: "Remove User URI"
-subtitle: ""
-lineNumbers: true
+title="Remove User URI" lineNumbers
 -->
 
 ```http
@@ -384,9 +326,7 @@ To verify the payload, you need to sign the payload using your client secret, an
 
 
 <!--
-title: "verifySignedRequest"
-subtitle: ""
-lineNumbers: true
+title="verifySignedRequest" lineNumbers
 -->
 
 ```php
@@ -417,9 +357,7 @@ function verifySignedRequest($signedRequest)
 
 
 <!--
-title: "verify()"
-subtitle: ""
-lineNumbers: true
+title="verify()" lineNumbers
 -->
 
 ```ruby
@@ -482,9 +420,7 @@ Use the store information endpoint to identify the store to which the request pe
 
 
 <!--
-title: "User Information"
-subtitle: ""
-lineNumbers: true
+title="User Information" lineNumbers
 -->
 
 ```json
@@ -582,9 +518,7 @@ If there were errors, call:
 Below is a sample code snippet of an auth callback that does this:
 
 <!--
-title: "Auth Callback"
-subtitle: ""
-lineNumbers: true
+title="Auth Callback" lineNumbers
 -->
 
 ```lua

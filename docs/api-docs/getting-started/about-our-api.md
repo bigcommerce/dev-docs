@@ -51,8 +51,8 @@ Make BigCommerce API requests in the context of the storefront or server-to-serv
 
 | API | Base URL |
 | -- | -- |
-| Server-to-Server | `https://api.bigcommerce.com/stores/{store_hash}/v3/`|
-| V2 | `https://api.bigcommerce.com/stores/{store_hash}/v2/`|
+| Server-to-Server | `https://api.bigcommerce.com/stores/{{store_hash}}/v3/`|
+| V2 | `https://api.bigcommerce.com/stores/{{store_hash}}/v2/`|
 | Storefront API | `https://your-store.mybigcommerce.com/api/{endpoint}`|
 | GraphQL | `https://www.{bigcommerce_storefront_domain}.com/graphql`|
 | Customer Login | `https://www.{bigcommerce_storefront_domain}.com/login/token/{token}`|
@@ -140,13 +140,7 @@ The priority in which you can process these methods are:
 ### Request Structure
 The body of a JSON request is an object containing a set of key-value pairs. A simple representation of a product object is:
 
-<!--
-title: "Example JSON request body"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Example JSON request body" lineNumbers
 {
  "id": 5,
  "name": "iPod",
@@ -157,16 +151,10 @@ lineNumbers: true
 ### Response structure
 Responses are structured similarly to requests. If a request returns a single object, then the response will contain a single object containing the fields for that resource.
 
-<!--
-title: "Single Category Response"
-subtitle: ""
-lineNumbers: true
--->
 
-**Response Get a category**
-`/GET https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/categories/{category_id}`
+```http title="Example response: Get a category"
+GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/categories/{{category_id}}
 
-```json
 {
   "data": {
     "id": 39,

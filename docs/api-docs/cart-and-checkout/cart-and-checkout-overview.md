@@ -20,70 +20,50 @@ To learn more about using the Fetch API with the Storefront see our [Working wit
 
 You can run fetch requests from the browser console to test, or you can use the [Scripts API](/api-docs/scripts/scripts-overview) to inject JavaScript into your theme's footer.
 
-
-<!--
-title: "Log Cart Details to the Console"
-subtitle: ""
-lineNumbers: true
--->
-
-```javascript
-  console.log('Log Cart');
-  fetch('/api/storefront/cart', {
-    credentials: 'include'
-  }).then(function(response) {
-    return response.json();
-  }).then(function(myJson) {
-    console.log(myJson);
-  });
+```js title="Log cart details to the console" lineNumbers
+console.log('Log Cart');
+fetch('/api/storefront/cart', {
+  credentials: 'include'
+}).then(function(response) {
+  return response.json();
+}).then(function(myJson) {
+  console.log(myJson);
+});
 ```
-
-
-<!--
-title: "Log Checkout Details to the Console"
-subtitle: ""
-lineNumbers: true
--->
-
-```javascript
-  console.log('Log Checkout');
-  fetch('/api/storefront/cart?includes=consignments.availableShippingOptions', {
+&nbsp;
+```js title="Log checkout details to the console" lineNumbers
+console.log('Log Checkout');
+fetch('/api/storefront/cart?includes=consignments.availableShippingOptions', {
+  credentials: 'include'
+}).then(function (response) {
+  return response.json();
+}).then(function (cartJson) {
+  console.log(cartJson);
+  return cartJson[0].id;
+}).catch(function (error) {
+  console.log(error);
+}).then(function (cartId) {
+  return fetch('/api/storefront/checkouts/' + cartId, {
     credentials: 'include'
-  }).then(function (response) {
-    return response.json();
-  }).then(function (cartJson) {
-    console.log(cartJson);
-    return cartJson[0].id;
-  }).catch(function (error) {
-    console.log(error);
-  }).then(function (cartId) {
-    return fetch('/api/storefront/checkouts/' + cartId, {
-      credentials: 'include'
-    })
-  }).then(function (response) {
-    return response.json();
-  }).then(function (checkoutJson) {
-    console.log(checkoutJson);
-  }).catch(function (error) {
-    console.log(error);
-  });
+  })
+}).then(function (response) {
+  return response.json();
+}).then(function (checkoutJson) {
+  console.log(checkoutJson);
+}).catch(function (error) {
+  console.log(error);
+});
 ```
-
-<!--
-title: "Log Order Details to the Console"
-subtitle: ""
-lineNumbers: true
--->
-
-```javascript
-  console.log('Log Order');
-  fetch('/api/storefront/order/' + checkout.order.id, {
-    credentials: 'include'
-  }).then(function (response) {
-    return response.json();
-  }).then(function (myJson) {
-    console.log(myJson);
-  });
+&nbsp;
+```js title="Log order details to the console" lineNumbers
+console.log('Log Order');
+fetch('/api/storefront/order/' + checkout.order.id, {
+  credentials: 'include'
+}).then(function (response) {
+  return response.json();
+}).then(function (myJson) {
+  console.log(myJson);
+});
 ```
 
 ## Server-to-Server Cart and Checkout
@@ -128,13 +108,7 @@ Options and modifiers refer to a list of choices on a product. Options used to b
 To add a product to the cart with a single modifier (text field), POST to the [Cart API](/api-reference/cart-checkout/server-server-cart-api/cart/createacart) without the `variant_id`.
 
 
-<!--
-title: "Single Modifier"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Single modifier" lineNumbers
 {
   "line_items": [
     {
@@ -153,14 +127,7 @@ lineNumbers: true
 
 To add a product to the cart with one option (radio button) associated with it, use just the `variant_id` in the request.
 
-
-<!--
-title: "Single Option"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Single option" lineNumbers
 {
   "line_items": [
     {
@@ -174,13 +141,7 @@ lineNumbers: true
 
 To add a product with both an option and a modifier associated with it, use the `option_id` and `option_value`. This example uses a radio button (option) and a text field (modifier).
 
-<!--
-title: "Modifier and Option"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Modifier and option" lineNumbers
 {
   "line_items": [
     {
@@ -213,14 +174,7 @@ Use the [Get Products](/api-reference/catalog/catalog-api/products/getproducts) 
 
 To create a cart with a product modifier:
 
-
-<!--
-title: "Create cart with modifier"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Create cart with modifier" lineNumbers
 {
   "line_items": [
     {
@@ -250,14 +204,7 @@ A better option is to create a cart with the `customer_id` as part of the reques
 
 To create a cart with a `customer_id`:
 
-
-<!--
-title: "Create cart with customer ID"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Create cart with customer ID" lineNumbers
 {
   "customer_id": 12,
   "line_items": [
@@ -279,14 +226,7 @@ lineNumbers: true
 To get the variant ID use the [Get Products](/api-reference/catalog/catalog-api/products/getproducts) endpoint or the [Get Variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid) endpoint.
 To create a cart with a variant ID:
 
-
-<!--
-title: "Create cart with variant ID"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Create cart with variant ID" lineNumbers
 {
   "line_items": [
     {
@@ -304,14 +244,7 @@ The `option_id` is incorrect.
 ***Resolution:***
 To get the correct `option_id`, make a request to [Get Products](/api-reference/catalog/catalog-api/products) or [Get Options](/api-reference/catalog/catalog-api/product-options/getoptions).
 
-
-<!--
-title: "Create cart option ID"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Create cart option ID" lineNumbers
 {
   "line_item": {
     "quantity": 1,
@@ -339,13 +272,7 @@ lineNumbers: true
 **Resolution:**
 To add a product to the cart with a single modifier (text field), POST to the [Cart API](/api-reference/cart-checkout/storefront-cart-api/cart/createacart) without the `variant_id`. Use the `optionId` and `optionValue` instead.
 
-<!--
-title: "Create cart optionId and optionValue"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Create cart optionId and optionValue" lineNumbers
 {
   "lineItems": [
     {
@@ -364,14 +291,7 @@ lineNumbers: true
 
 To add a product to the cart with one option (radio button) associated with it, use just the `variant_id` in the request.
 
-
-<!--
-title: "Create Storefront Cart variantID"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Create Storefront Cart variantID" lineNumbers
 {
   "lineItems": [
     {
@@ -385,14 +305,7 @@ lineNumbers: true
 
 To add a product that has both an option and a modifier associated with it, then use the `option_id` and `option_value`. This example uses a radio button (option) and a text field (modifier).
 
-
-<!--
-title: "Add item with option and modifier"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Add item with option and modifier" lineNumbers
 {
   "lineItems": [
     {

@@ -348,13 +348,8 @@ Embedded Checkout includes settings within the WordPress theme customizer that a
 
 Below, we define a function called `myCheckoutFunction()` that accepts `$checkout_config` as an argument. The function builds an array of checkout config styles that make the checkout step header text red, step number icons blue, and checkout body text green. Finally, we pass `myCheckoutFunction` to the Checkout Config hook. Try adding the below snippet to your theme’s `functions.php` file to test it out
 
-<!--
-title: "myCheckoutFunction()"
-subtitle: "functions.php"
-lineNumbers: true
--->
 
-```javascript
+```js title="myCheckoutFunction() functions.php" lineNumbers
 function myCheckoutFunction($checkout_config) {
   $checkout_config['styles']['heading']['color'] = '#C70039'; //red
   $checkout_config['styles']['step']['icon']['backgroundColor'] = '#AE0BE6'; //purple

@@ -9,13 +9,7 @@ The basic details of the Cornerstone theme are outlined in the theme's configura
 
 Here are the first key-value sets in Cornerstone's `config.json`: 
 
-<!--
-title: "Cornerstone settings"
-subtitle: "config.json"
-lineNumbers: true
--->
-
-```json
+```json title="Cornerstone settings config.json" lineNumbers
 {
   "name": "Cornerstone",
   "version": "4.9.0",
@@ -29,13 +23,8 @@ lineNumbers: true
 
 The following example shows how to change Cornerstone's configurations to reflect your own theme's name, version number, price on Theme Marketplace, and documentation URL:
 
-<!--
-title: "Cornerstone settings"
-subtitle: "config.json"
-lineNumbers: true
--->
 
-```json
+```json title="Cornerstone settings config.json" lineNumbers
 {
 "name": "MyTheme",
 "version": "1.1.2",
@@ -52,13 +41,7 @@ lineNumbers: true
 You define variations in your theme's `config.json` file. Below is the Cornerstone Light variation's definition from Cornerstone's `config.json`:
 
 
-<!--
-title: "Cornerstone Light theme variation settings"
-subtitle: "config.json"
-lineNumbers: true
--->
-
-```json
+```json title="Cornerstone Light theme variation settings config.json" lineNumbers
   "variations": [
     {
       "name": "Light",
@@ -83,13 +66,7 @@ lineNumbers: true
 Try inserting your custom variation into the `variations` object of Cornerstone's `config.json`. Your variation's definition might look something like this:
 
 
-<!--
-title: "Example theme variation definition"
-subtitle: "config.json"
-lineNumbers: true
--->
-
-```json
+```json title="Example theme variation definition config.json" lineNumbers
 "variations": [
 // ...
   {
@@ -114,14 +91,7 @@ To learn more about defining variations, see [Defining Global Styles](/stencil-d
 
 The following example shows how to set the body font of a theme variation to a specific typeface/family by inserting the `body-font-family` key into the `settings` object:
 
-
-<!--
-title: "Example body font variation"
-subtitle: "config.json"
-lineNumbers: true
--->
-
-```json
+```json title="Example body font variation config.json" lineNumbers
 {
   "name": "MyCustomVariation",
   "id": "my_custom_variation",
