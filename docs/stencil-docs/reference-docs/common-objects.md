@@ -15,7 +15,7 @@ This consistent behavior is true for each of the common objects documented in th
 **Description:** Exposes catalog price and currency-related properties in both raw numeric, and formatted string, formats. Tax settings display [configuration](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#display-settings) will determine which properties are available.
 
 **Available through:**
-* Common Object: <a href="#common-objects_common-product">Common Product Card Model</a>
+* Common Object: [Common Product Card Model](#common-product-card-model)
 * Object: `{{product.price}}`
 
 **Object Properties:**
@@ -55,39 +55,26 @@ This consistent behavior is true for each of the common objects documented in th
 
 ## Price
 
-<b>Description:</b> Exposes price- and currency-related properties in both raw numeric, and formatted string, formats.
+**Description:** Exposes price- and currency-related properties in both raw numeric, and formatted string, formats.
 
-<b>Available through:</b>
+**Available through:**
 
-* Common Object: <a href="#common-objects_common-product">Common Product Card Model</a>
+* Common Object: [Common Product Card Model](#common-product-card-model)
 * Object: `{{category.shop_by_price}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>currency</td>
-    <td>Currency code </td>
-  </tr>
-  <tr>
-    <td>formatted</td>
-    <td>String representation of the price, including currency formatting</td>
-  </tr>
-  <tr>
-    <td>value</td>
-    <td>Raw numeric value of the price</td>
-  </tr>
-</table>
+| Property | Description |
+|---|---|
+| currency | Currency code |
+| formatted | String representation of the price, including currency formatting |
+| value | Raw numeric value of the price |
 
 ## Price Range
 
-<b>Description:</b> For products with several variants with different prices, a price range is available which exposes the minimum and maximum variant price.
+**Description:** For products with several variants with different prices, a price range is available which exposes the minimum and maximum variant price.
 
-<b>Object Properties:</b>
+**Object Properties:**
 
 | Property | Description | Type |
 |-|-|--|
@@ -111,57 +98,41 @@ This consistent behavior is true for each of the common objects documented in th
 | &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; formatted | String representation of the above price, including currency formatting | string <br> `"$35.00"` |
 | &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; value | Raw numeric value of the above price | number <br> `35`|
 
-<b>Available through:</b>
+**Available through:**
 
-<b>Object/Property:</b><code>{{product.price}</code></a>
-
--
+**Object/Property:** `{{product.price}}`
 
 ## Stencil Image
 
-<b>Description:</b> Exposes a URL and an "alt" string for images used in the Stencil framework
+**Description:** Exposes a URL and an "alt" string for images used in the Stencil framework
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>data</td>
-    <td>Internal URL to product or category image</td>
-  </tr>
-  <tr>
-    <td>alt</td>
-    <td>Corresponding text to display for missing images, accessible screen readers, etc.</td>
-  </tr>
-</table>
+| Property | Description |
+|---|---|
+| data | Internal URL to product or category image|
+| alt | Corresponding text to display for missing images, accessible screen readers, etc. |
 
-<b>Available through:</b>
+**Available through:**
 
-<b>Stencil Handlebars Helper:</b> `{{getImage}}`
+**Stencil Handlebars Helper:** `{{getImage}}`
 
-<b>Common Object:</b> <a href="#common-objects_common-product">Common Product Card Model</a>
+**Common Object:** [Common Product Card Model](#common-product-card-model)
 
-<b>Object/Property:</b> `{{category.image}}`
+**Object/Property:** `{{category.image}}`
 
-<b>Arrays/Elements:</b> `{{product.options.image}}`, `{{product.images}}`, `{{downloads.items.images}}`, `{{downloads.items.thumbnail}}`, `{{category.subcategories.image}}`, `{{order.items.image}}`, `{{customer.orders.image}}`, `{{brands.image}}`, `{{order.items.shipping_rows.image}}`
+**Arrays/Elements:** `{{product.options.image}}`, `{{product.images}}`, `{{downloads.items.images}}`, `{{downloads.items.thumbnail}}`, `{{category.subcategories.image}}`, `{{order.items.image}}`, `{{customer.orders.image}}`, `{{brands.image}}`, `{{order.items.shipping_rows.image}}`
 
-<b> Usage Example: </b>
-
-`{{getImage image "thumbnail"}}`
-
-<a id="common-objects_common-product"></a>
+**Usage Example:** `{{getImage image "thumbnail"}}`
 
 ## Common Product Card Model
 
-<b>Description:</b> A model for a product’s basic, primary properties. Typically used for list components that show multiple products, each in its own "card" or panel.
+**Description:** A model for a product’s basic, primary properties. Typically used for list components that show multiple products, each in its own "card" or panel.
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-|Property| Description  | Format | 
-|--|--| -- | 
+| Property| Description  | Format | 
+|--|--|--| 
 | id | ID of the product | integer |
 | sku | The product's SKU (stock keeping unit)/product code, as a string; if the SKU field is not populated, then null | string or null |
 | name | Name of the product | string |
@@ -194,10 +165,10 @@ This consistent behavior is true for each of the common objects documented in th
 | out_of_stock_message |Text to display when the product is out of stock. If no message is configured, returns false. | string or `false` |
 | release_date | Release date, if the product is set to pre-order status| string Ex. `Available: Aug 6th 2019` | 
 
-<b>Available through:</b>
+**Available through:**
 
-<b>Object:</b> <code>{{comparisons}} </code>
+**Object:** `{{comparisons}} `
 
-<b>Arrays/Elements:</b> <code>{{product.related_products}}, {{product.similar_by_views}}, {{category.products}}, {{cart.suggested_products}}, {{customer.recently_viewed_products}} </code>
+**Arrays/Elements:** `{{product.related_products}}, {{product.similar_by_views}}, {{category.products}}, {{cart.suggested_products}}, {{customer.recently_viewed_products}} `
 
 <!-- :"Common Product Card Model" moved from "Product Objects" page -->
