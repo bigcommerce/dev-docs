@@ -41,7 +41,7 @@ Edit an app by clicking **Edit App**.
 
 [Learn more about completing registration fields and submitting apps for approval](/api-docs/apps/guide/publishing).
 
-<!-- theme: warning  -->
+<!-- theme: info -->
 > #### Note
 > * After saving, edits are effective immediately in the control panel; however, edits can take up to 24 hours to appear in the [Apps Marketplace](https://www.bigcommerce.com/apps/).
 
