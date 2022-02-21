@@ -22,7 +22,7 @@ Each event triggers a `GET` request from BigCommerce containing a `signed_payloa
 
 <!-- theme: info -->
 > #### Note
-> * In a production, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
+> In a production app, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
 
 
 
