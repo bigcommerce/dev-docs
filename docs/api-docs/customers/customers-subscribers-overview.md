@@ -132,7 +132,7 @@ Get customer address by name and company on V2:
 
 V3 Customers `POST` and `PUT` requests require an array object.
 
-```http "Example request: Update a customer V3" lineNumbers
+```http title="Example request: Update a customer V3" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/customers
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -141,7 +141,7 @@ Accept: application/json
 [
   {
     "id": 12,
-    "email": "janedoe@email.com",
+    "email": "janedoe@example.com",
     "first_name": "Jane",
     "last_name": "Doe"
   }
@@ -156,7 +156,7 @@ Accept: application/json
 
 {
   "first_name": "Jane",
-  "email": "jane@email.com",
+  "email": "jane@example.com",
   "phone": "1234567890"
 }
 ```
