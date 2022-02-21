@@ -17,24 +17,19 @@ Send a `POST` request to
 The request body should include:
 * `email`: The customer's email address. This email address is where they will receive the one-time login link.
 * `redirect_url`: A link to the URL of the page where you want to redirect customers once they are logged in. This URL must be on the same domain as the store.
-<br>
-Example: 
-<br>
 
-```json
+```json title="Example"
 {
-"email": "jane_doe@test.com",
+"email": "jane_doe@example.com",
 "redirect_url": "/checkout"
 }
 ```
+
 <!-- theme: info -->
 > #### Redirect URL
 > If the request body does not include a `redirect_url`, customers will be redirected as follows:
-> <br>
 > - **Failed sign-in:** Sign-in page
 > - **Successful sign-in:** User account page
-
-
 
 ### Response
 Upon receiving a successful `POST` request, BigCommerce will send a response that contains:
@@ -42,9 +37,7 @@ Upon receiving a successful `POST` request, BigCommerce will send a response tha
 * `expiry`: The time in seconds during which the login link is valid.
 * `sent_email`: A value of `sign_in` indicates BigCommerce sent the login link to the customer via the email provided. A value of `password_reset` means the customer requested a sign-in link, however BigCommerce sent a reset password email instead. BigCommerce sends the email immediately upon recieving the `POST` request.
 
-Example:
-
-```json
+```json title="Example"
 {
 "expiry": 900,
 "sent_email": "sign_in"
