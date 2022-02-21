@@ -38,7 +38,7 @@ Additionally, review the [Currency API reference](/api-reference/store-managemen
 
 <!-- theme: info -->
 > #### Note 
->Make sure to not change the store’s default currency. This could cause the currency to malfunction.
+> Make sure to not change the store’s default currency. This could cause the currency to malfunction.
 
 
 
