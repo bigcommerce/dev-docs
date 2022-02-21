@@ -171,7 +171,6 @@ ngrok http 3000
 ![https tunnel](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-02.png "https tunnel")
 
 <!-- theme: info -->
-> #### Note
 > Although you can use the `ngrok` npm package without creating an account, any unauthenticated tunnels you create will expire after two hours. For the best development experience, [create a free ngrok account](https://dashboard.ngrok.com/signup), [find your ngrok authtoken](https://dashboard.ngrok.com/get-started/your-authtoken), and [add the authtoken](https://ngrok.com/docs#getting-started-authtoken) to your global `ngrok` configuration.
 
 
