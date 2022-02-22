@@ -31,7 +31,7 @@ In the base path, the store hash is the `123456`. You will use this to make API 
 
 To get started making requests, see [API Requests](/api-docs/getting-started/basics/making-requests).
 
-![#### Create an API Account](//s3.amazonaws.com/user-content.stoplight.io/6012/1536087816482 "#### Create an API Account")
+![Create an API Account](//s3.amazonaws.com/user-content.stoplight.io/6012/1536087816482 "Create an API Account")
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
@@ -53,7 +53,7 @@ To revoke Store API Credentials:
 2. Navigate to **Advanced Settings** > **API Accounts** and click the check box next to the account you want to delete.
 3. In the Actions column at right, click the trash can icon.
 
-![#### Revoking API Credentials](//s3.amazonaws.com/user-content.stoplight.io/6012/1537388177603 "#### Revoking API Credentials")
+![Revoking API Credentials](//s3.amazonaws.com/user-content.stoplight.io/6012/1537388177603 "Revoking API Credentials")
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--error">
@@ -76,18 +76,18 @@ To get app API credentials, create and log into your BigCommerce [Developer Port
 2. Give your app a name. This name will only be visible to you.
 3. Click **Create**. A pop-up box will display showing Your Profile, App Summary, and Category.
 
-![#### Create an App](//s3.amazonaws.com/user-content.stoplight.io/6012/1537389767940 "#### Create an App")
+![Create an App](//s3.amazonaws.com/user-content.stoplight.io/6012/1537389767940 "Create an App")
 
 4. Click on **Step 3 - Technical**. Fill out the App Features sections with app type, callback URLs, and scope.
 
 #### Step 3 - Technical
-![#### Step 3 - Technical](//s3.amazonaws.com/user-content.stoplight.io/6012/1537389883100 "#### Step 3 - Technical")
+![Step 3 - Technical](//s3.amazonaws.com/user-content.stoplight.io/6012/1537389883100 "Step 3 - Technical")
 
 5. In the lower right-hand corner of the popup box, click **Update & Close**.
 6. A new pop up will show asking if you want to change the OAuth scopes. Click **Confirm Update**.
 7. You will be routed back to the Developer Portal home page and your app will be listed. Click **View Client ID**.
 
-![#### View Client Id](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390078741 "#### View Client Id")
+![View Client Id](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390078741 "View Client Id")
 
 8. Copy your client ID and client secret. The client ID and client secret can be accessed by clicking **View Client ID**.
 
@@ -106,7 +106,7 @@ The client secret value is a secret that your app and BigCommerce share. You onl
 </div>
 </div>
 
-![#### Client Id and Client Secret](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390135692 "#### Client Id and Client Secret")
+![Client Id and Client Secret](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390135692 "Client Id and Client Secret")
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--warning">
