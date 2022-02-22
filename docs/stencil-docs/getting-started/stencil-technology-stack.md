@@ -74,7 +74,7 @@ banners: {
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1558381899909
 -->
 
-#### Banners Object (rendered)
+
 ![Banners Object (rendered)
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1558381899909 "Banners Object (rendered)
 ")
