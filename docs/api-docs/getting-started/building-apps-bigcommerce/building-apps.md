@@ -64,8 +64,8 @@ A user kicks off the installation or update sequence from within a store's contr
 -->
 
 #### App Installation Sequence
-![#### App Installation Sequence
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1536263813949 "#### App Installation Sequence
+![App Installation Sequence
+](//s3.amazonaws.com/user-content.stoplight.io/6012/1536263813949 "App Installation Sequence
 ")
 
 ### Handling Requests Securely
