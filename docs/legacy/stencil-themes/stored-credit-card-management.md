@@ -10,7 +10,7 @@ Stored Credit Card management gives customer’s the ability to manage their sto
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1541629003006
 -->
 
-#### Stored Credit Card Management
+
 ![Stored Credit Card Management
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1541629003006 "Stored Credit Card Management
 ")
@@ -57,7 +57,7 @@ Stored Credit Card Management was added to Cornerstone in [pull request #1376](h
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1541629154209
 -->
 
-#### Payment Methods Page Addition Example
+
 ![Payment Methods Page Addition Example
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1541629154209 "Payment Methods Page Addition Example
 ")
@@ -94,7 +94,7 @@ Stored Credit Card Management was added to Cornerstone in [pull request #1376](h
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1541655663898
 -->
 
-#### Implementation of Add, Edit, and Delete Methods
+
 ![Implementation of Add, Edit, and Delete Methods
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1541655663898 "Implementation of Add, Edit, and Delete Methods
 ")
@@ -117,7 +117,7 @@ First, the click will trigger window confirm. The confirmation modal has been ad
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1541654303488
 -->
 
-#### Edit Payment Method Form
+
 ![Edit Payment Method Form
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1541654303488 "Edit Payment Method Form
 ")
@@ -140,7 +140,7 @@ First, the click will trigger window confirm. The confirmation modal has been ad
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1541629295212
 -->
 
-#### Example of the addition of the Add Payment Method
+
 ![Example of the addition of the Add Payment Method
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1541629295212 "Example of the addition of the Add Payment Method
 ")
@@ -158,7 +158,7 @@ First, the click will trigger window confirm. The confirmation modal has been ad
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1541655424566
 -->
 
-#### Add default instrument checkbox to edit and add form
+
 ![Add default instrument checkbox to edit and add form
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1541655424566 "Add default instrument checkbox to edit and add form
 ")
