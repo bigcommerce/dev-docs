@@ -38,7 +38,7 @@ With these dropzones defined, we can then populate them with dynamic content spe
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1539874696853
 -->
 
-#### Dropzone that places an image gallery at the bottom of a category page
+
 ![Dropzone that places an image gallery at the bottom of a category page
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1539874696853 "Dropzone that places an image gallery at the bottom of a category page
 ")
