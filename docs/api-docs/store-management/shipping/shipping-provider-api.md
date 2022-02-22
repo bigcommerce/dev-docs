@@ -27,7 +27,7 @@ This article is a guide to developing an app that will make your shipping rates 
     data: //s3.amazonaws.com/user-content.stoplight.io/6012/1552664566834
 -->
 
-### Carrier Service API
+
 
 ![Carrier Service API](https://s3.amazonaws.com/user-content.stoplight.io/6012/1552664566834 "Carrier Service API")
 
