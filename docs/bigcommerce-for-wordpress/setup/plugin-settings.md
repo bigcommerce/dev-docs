@@ -13,8 +13,8 @@ BigCommerce settings for WordPress are found in the left admin menu in WordPress
 -->
 
 #### Plugin Settings
-![#### Plugin Settings
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1540476609033 "#### Plugin Settings
+![Plugin Settings
+](//s3.amazonaws.com/user-content.stoplight.io/6012/1540476609033 "Plugin Settings
 ")
 
 ## Product Sync
