@@ -25,15 +25,15 @@ Note that embedded checkout is only supported on a single domain at a time. See 
 -->
 
 #### Click 'Create API Account' to get credentials
-![#### Click 'Create API Account' to get credentials](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044020003 "#### Click 'Create API Account' to get credentials")
+![Click 'Create API Account' to get credentials](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044020003 "Click 'Create API Account' to get credentials")
 
 
 2. Click the blue `Create API Account` button on the top left-hand side. This opens up a screen that will ask you to enter a name and select scopes for the API account.
 
 
 #### Fill in the Name and OAuth Scopes.
-![#### Fill in the Name and OAuth Scopes.
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044197137 "#### Fill in the Name and OAuth Scopes.
+![Fill in the Name and OAuth Scopes.
+](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044197137 "Fill in the Name and OAuth Scopes.
 ")
 
 <div class="HubBlock--callout">
@@ -100,7 +100,7 @@ The screen will also contain your API Path, which you will need for the WordPres
 -->
 
 #### API credentials
-![#### API credentials](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044553372 "#### API Credentials")
+![API credentials](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044553372 "API Credentials")
 
 <div class="HubBlock--callout">
 <div class="CalloutBlock--info">
@@ -121,8 +121,8 @@ The screen will also contain your API Path, which you will need for the WordPres
 -->
 
 #### .txt file download
-![#### .txt file download
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044589538 "#### .txt file download
+![.txt file download
+](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044589538 ".txt file download
 ")
 
 ## Setting up a WordPress site using API account credentials
@@ -137,8 +137,8 @@ The screen will also contain your API Path, which you will need for the WordPres
 
 
 #### WordPress plugin welcome screen
-![#### WordPress Plugin Welcome Screen
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1544043727239 "#### WordPress Plugin Welcome Screen")
+![WordPress Plugin Welcome Screen
+](//s3.amazonaws.com/user-content.stoplight.io/6116/1544043727239 "WordPress Plugin Welcome Screen")
 
 <!--
     title: 
