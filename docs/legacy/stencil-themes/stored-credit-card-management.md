@@ -11,8 +11,8 @@ Stored Credit Card management gives customer’s the ability to manage their sto
 -->
 
 #### Stored Credit Card Management
-![#### Stored Credit Card Management
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1541629003006 "#### Stored Credit Card Management
+![Stored Credit Card Management
+](//s3.amazonaws.com/user-content.stoplight.io/6116/1541629003006 "Stored Credit Card Management
 ")
 
 <div class="HubBlock--callout">
@@ -58,8 +58,8 @@ Stored Credit Card Management was added to Cornerstone in [pull request #1376](h
 -->
 
 #### Payment Methods Page Addition Example
-![#### Payment Methods Page Addition Example
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1541629154209 "#### Payment Methods Page Addition Example
+![Payment Methods Page Addition Example
+](//s3.amazonaws.com/user-content.stoplight.io/6116/1541629154209 "Payment Methods Page Addition Example
 ")
 
 ## Step 2: [Add Translations](https://github.com/bigcommerce/cornerstone/pull/1376/commits/9edf1a0f6907811abf470db1486b4fdb199b27ae)
@@ -95,8 +95,8 @@ Stored Credit Card Management was added to Cornerstone in [pull request #1376](h
 -->
 
 #### Implementation of Add, Edit, and Delete Methods
-![#### Implementation of Add, Edit, and Delete Methods
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1541655663898 "#### Implementation of Add, Edit, and Delete Methods
+![Implementation of Add, Edit, and Delete Methods
+](//s3.amazonaws.com/user-content.stoplight.io/6116/1541655663898 "Implementation of Add, Edit, and Delete Methods
 ")
 
 ## Step 5: [Implement `Delete Payment` Method](https://github.com/bigcommerce/cornerstone/pull/1376/commits/cf102901d9061b7334e8c39f15a8904c37cf0652)
@@ -118,8 +118,8 @@ First, the click will trigger window confirm. The confirmation modal has been ad
 -->
 
 #### Edit Payment Method Form
-![#### Edit Payment Method Form
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1541654303488 "#### Edit Payment Method Form
+![Edit Payment Method Form
+](//s3.amazonaws.com/user-content.stoplight.io/6116/1541654303488 "Edit Payment Method Form
 ")
 
 ## Step 7: [Implement `Add Payment` Method](https://github.com/bigcommerce/cornerstone/pull/1376/commits/c960338c32faa8fb798b2826c72dfe9d74bf9751)
@@ -141,8 +141,8 @@ First, the click will trigger window confirm. The confirmation modal has been ad
 -->
 
 #### Example of the addition of the Add Payment Method
-![#### Example of the addition of the Add Payment Method
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1541629295212 "#### Example of the addition of the Add Payment Method
+![Example of the addition of the Add Payment Method
+](//s3.amazonaws.com/user-content.stoplight.io/6116/1541629295212 "Example of the addition of the Add Payment Method
 ")
 
 ## Step 8: [Add Default Instrument](https://github.com/bigcommerce/cornerstone/pull/1376/commits/5576aee5af0194e85cb11dbf44563f89b2687f40)
@@ -159,8 +159,8 @@ First, the click will trigger window confirm. The confirmation modal has been ad
 -->
 
 #### Add default instrument checkbox to edit and add form
-![#### Add default instrument checkbox to edit and add form
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1541655424566 "#### Add default instrument checkbox to edit and add form
+![Add default instrument checkbox to edit and add form
+](//s3.amazonaws.com/user-content.stoplight.io/6116/1541655424566 "Add default instrument checkbox to edit and add form
 ")
 
 <div class="HubBlock--callout">
