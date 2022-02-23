@@ -76,7 +76,7 @@ info:
     name: ''
     url: ''
 host: api.bigcommerce.com
-basePath: ''
+basePath: '/'
 tags:
   - name: Brands
   - name: Brand Images
@@ -366,6 +366,8 @@ paths:
           name: sku
           description: 'Filter items by main SKU. To filter by variant SKU, see [Get All Variants](/api-reference/store-management/catalog/variants/getvariants). '
         - type: array
+          items:
+              type: string
           in: query
           name: 'sku:in'
           description: Filter items by SKU.
@@ -4650,9 +4652,9 @@ paths:
                                     - post
                                   example: 0
                                 value_data:
-                                  type:
-                                    - object
-                                    - 'null'
+                                  oneOf:
+                                    - type: object
+                                    - type: 'null'
                                   description: |
                                     Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
                               required:
@@ -4886,9 +4888,9 @@ paths:
                             - post
                           example: 0
                         value_data:
-                          type:
-                            - object
-                            - 'null'
+                          oneOf:
+                            - type: object
+                            - type: 'null'
                           description: |
                             Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
                       required:
@@ -5053,9 +5055,9 @@ paths:
                           - post
                         example: 0
                       value_data:
-                        type:
-                          - object
-                          - 'null'
+                        oneOf:
+                          - type: object
+                          - type: 'null'
                         description: |
                           Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
                     required:
@@ -5188,9 +5190,9 @@ paths:
                           - post
                         example: 0
                       value_data:
-                        type:
-                          - object
-                          - 'null'
+                        oneOf:
+                          - type: object
+                          - type: 'null'
                         description: |
                           Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
                     required:
@@ -5341,9 +5343,9 @@ paths:
                           - post
                         example: 0
                       value_data:
-                        type:
-                          - object
-                          - 'null'
+                        oneOf:
+                          - type: object
+                          - type: 'null'
                         description: |
                           Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
                     required:
@@ -5373,7 +5375,7 @@ paths:
         '404':
           description: No option(s) were found with this query.
           schema:
-            type: '/api-docs/getting-started/api-status-codes'
+            type: 
             properties: {}
         '422':
           description: |
@@ -17808,9 +17810,9 @@ definitions:
           - post
         example: 0
       value_data:
-        type:
-          - object
-          - 'null'
+        oneOf:
+          - type: object
+          - type: 'null'
         description: |
           Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`.
       adjusters:
@@ -19408,9 +19410,9 @@ definitions:
           - post
         example: 0
       value_data:
-        type:
-          - object
-          - 'null'
+        oneOf:
+          - type: object
+          - type: 'null'
         description: |
           Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`.
     required:

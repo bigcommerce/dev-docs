@@ -76,7 +76,7 @@ info:
     name: ''
     url: ''
 host: api.bigcommerce.com
-basePath: ''
+basePath: '/'
 tags:
   - name: Price Lists
     description: BigCommerce Price Lists API Definition.
@@ -138,9 +138,13 @@ paths:
           name: Accept
           default: application/json
         - type: array
+          items:
+            type: integer
           in: query
           name: 'id:in'
         - type: array
+          items:
+            type: string
           in: query
           name: 'name:like'
         - type: string
@@ -908,9 +912,13 @@ paths:
           name: Accept
           default: application/json
         - type: array
+          items:
+            type: string
           in: query
           name: 'sku:in'
         - type: array
+          items:
+            type: string
           in: query
           name: 'currency:in'
         - type: number
@@ -2444,18 +2452,26 @@ paths:
         - $ref: '#/parameters/FilterCustomerGroupIdParam'
         - $ref: '#/parameters/FilterChannelIdParam'
         - type: array
+          items:
+            type: integer
           in: query
           name: 'id:in'
           description: Filter items by a comma-separated list of `id`s.
         - type: array
+          items:
+            type: integer
           in: query
           name: 'customer_group_id:in'
           description: Filter items by a comma-separated list of `customer_group_id`s.
         - type: array
+          items:
+            type: integer
           in: query
           name: 'price_list_id:in'
           description: Filter items by a comma-separated list of `price_list_id`s.
         - type: array
+          items:
+            type: integer
           in: query
           name: 'channel_id:in'
           description: Filter items by a comma-separated list of `channel_id`s.
@@ -2484,6 +2500,8 @@ paths:
         - $ref: '#/parameters/FilterCustomerGroupIdParam'
         - $ref: '#/parameters/FilterChannelIdParam'
         - type: array
+          items:
+            type: integer
           in: query
           name: 'channel_id:in'
           description: Filter results by a comma-separated list of `channel_id`s.
@@ -4093,7 +4111,6 @@ securityDefinitions:
 
       * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication). 
 security:
-  - X-Auth-Client: []
   - X-Auth-Token: []
 x-stoplight:
   docs:
