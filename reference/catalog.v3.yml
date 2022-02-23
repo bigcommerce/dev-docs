@@ -76,7 +76,7 @@ info:
     name: ''
     url: ''
 host: api.bigcommerce.com
-basePath: '/'
+basePath: /
 tags:
   - name: Brands
   - name: Brand Images
@@ -367,7 +367,7 @@ paths:
           description: 'Filter items by main SKU. To filter by variant SKU, see [Get All Variants](/api-reference/store-management/catalog/variants/getvariants). '
         - type: array
           items:
-              type: string
+            type: string
           in: query
           name: 'sku:in'
           description: Filter items by SKU.
@@ -530,7 +530,7 @@ paths:
     delete:
       description: |-
         To delete *Product* objects, you must include a filter. This prevents inadvertently deleting all *Product* objects in a store.
-        
+
         <!-- theme: info -->
         > The maximum number of products you can delete at one time is 250.
 
@@ -686,7 +686,7 @@ paths:
               errors: {}
               status: 413
               title: The request payload is too large. The maximum items allowed in the array is 50
-              type: '/api-docs/getting-started/api-status-codes'
+              type: /api-docs/getting-started/api-status-codes
           schema:
             $ref: '#/definitions/error_Base'
         '422':
@@ -1481,7 +1481,7 @@ paths:
             Example:
               status: 422
               title: image_url must be present if uploading by url
-              type: '/api-docs/getting-started/api-status-codes'
+              type: /api-docs/getting-started/api-status-codes
       summary: Create a Product Image
       consumes:
         - application/json
@@ -5375,7 +5375,7 @@ paths:
         '404':
           description: No option(s) were found with this query.
           schema:
-            type: 
+            type: null
             properties: {}
         '422':
           description: |
@@ -11626,7 +11626,7 @@ paths:
         name: store_hash
         in: path
         required: true
-  '/catalog/categories/{category_id}':
+  '/stores/{store_hash}/v3/catalog/categories/{category_id}':
     parameters:
       - name: category_id
         in: path
@@ -11634,6 +11634,10 @@ paths:
           The ID of the `Category` to which the resource belongs.
         required: true
         type: integer
+      - type: string
+        name: store_hash
+        in: path
+        required: true
     get:
       description: Returns a single *Category*. Optional parameters can be passed in.
       operationId: getCategoryById
@@ -16351,7 +16355,7 @@ paths:
               errors: {}
               status: 413
               title: The request payload is too large. The maximum items allowed in the array is 50
-              type: '/api-docs/getting-started/api-status-codes'
+              type: /api-docs/getting-started/api-status-codes
         '422':
           description: |
             This is the result of missing required fields, or of invalid data. See the response for more details.
