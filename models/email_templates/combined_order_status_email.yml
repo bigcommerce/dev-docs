@@ -1,4 +1,5 @@
 type: object
+description: ''
 properties:
   order:
     type: object
@@ -8,6 +9,9 @@ properties:
       new_status:
         type: string
         example: 'Incomplete, Pending, Shipped, Partially Shipped, Refunded, Cancelled, Declined, Awaiting Payment, Awaiting Pickup, Awaiting Shipment, Completed, Awaiting Fulfillment, Manual Verification Required, Disputed, Partially Refunded'
+      new_formatted_status:
+        type: string
+        example: 'Shipment123, PendingOrder345, Cancelled0223222, Awaiting Payment in Store'
       total:
         type: object
         properties:
