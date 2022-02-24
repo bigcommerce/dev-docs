@@ -116,7 +116,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost#requestrunner) -->
 
 Copy and paste your `store_hash`,`access_token`, and `checkoutId` into the form, then click **Send**.
 
@@ -146,7 +146,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput#requestrunner) -->
 
 Copy and paste your `store_hash`,`access_token`, `checkoutId`, `consignmentId` and query parameter (`consignments.available_shipping_options`) into the form, then click **Send**.
 

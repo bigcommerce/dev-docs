@@ -125,7 +125,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ]
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/products/updateproducts#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/products/updateproducts#requestrunner) -->
 
 To update a single product, send a `PUT` request to the [Update a Product](/api-reference/store-management/catalog/products/updateproduct) endpoint.
 
@@ -142,7 +142,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/products/updateproduct#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/products/updateproduct#requestrunner) -->
 
 ### Cache the catalog
 

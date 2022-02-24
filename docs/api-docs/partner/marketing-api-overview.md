@@ -46,7 +46,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/marketing/banners/createabanner#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/marketing/banners/createabanner#requestrunner) -->
 
 ## Coupons
 You can use coupons to issue category or product discounts for customers who apply a given code.
@@ -74,7 +74,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/marketing/coupons/postcoupons#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/marketing/coupons/postcoupons#requestrunner) -->
 
 ## Gift certificates
 You can use gift certificates to offer customers prepaid vouchers as an alternative to cash for purchases within the store. 
@@ -100,7 +100,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/marketing/gift-certificates/createagiftcertificate#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/marketing/gift-certificates/createagiftcertificate#requestrunner) -->
 
 <!-- theme: info -->
 > #### Note

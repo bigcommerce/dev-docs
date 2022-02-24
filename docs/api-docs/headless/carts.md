@@ -48,7 +48,7 @@ To create a cart for an existing customer, include the `customer_id` in your `PO
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart/createacart#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart/createacart#requestrunner) -->
 
 <!-- theme: info -->
 > #### Note
@@ -73,7 +73,7 @@ Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart-redirect-urls/createcartredirecturl#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart-redirect-urls/createcartredirecturl#requestrunner) -->
 
 The response will contain `cart_url` and `checkout_url` parameters - use these URLs to redirect the customer to the BigCommerce hosted cart or checkout pages. You can use the `embedded_checkout_url` with the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk) to embed the BigCommerce hosted checkout into a headless site via an iFrame.
 
@@ -137,7 +137,7 @@ Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart-items/deletecartlineitem#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart-items/deletecartlineitem#requestrunner) -->
 
 ## Clearing the cart
 
@@ -150,7 +150,7 @@ Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart/deleteacart#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart/deleteacart#requestrunner) -->
 
 ## Next steps
 

@@ -43,7 +43,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/email-templates/email-templates/getemailtemplates#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/email-templates/email-templates/getemailtemplates#requestrunner) -->
 
 
 **Response:**
@@ -86,7 +86,7 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/email-templates/email-templates/updateemailtemplate#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/email-templates/email-templates/updateemailtemplate#requestrunner) -->
 
 ## Overrides
 
