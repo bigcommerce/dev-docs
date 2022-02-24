@@ -19,7 +19,6 @@
     },
         "exclude": [
           "/README.md",
-          "reference/pages.v3.yml",
           "CONTRIBUTING.md"
         ]
   }
