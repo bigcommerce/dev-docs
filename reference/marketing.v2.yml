@@ -181,6 +181,9 @@ paths:
         *   `shipping_discount`
         *   `free_shipping`
         *   `percentage_discount`
+        
+        Legacy coupon codes only work with the store's default currency. Applying a coupon with any other currency other than the store's default will result in the error: "Coupons only apply to default currency."
+
       summary: Create a New Coupon
       parameters:
         - name: Accept
