@@ -154,6 +154,11 @@
     },
     {
       "type": "item",
+      "title": "Pages v3",
+      "uri": "reference/pages.v3.yml"
+    },
+    {
+      "type": "item",
       "title": "Payment Methods",
       "uri": "reference/payment_methods.v2.yml"
     },
