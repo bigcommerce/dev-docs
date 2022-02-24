@@ -6,7 +6,7 @@
 
 A price list allows you to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level. If an active price list does not contain prices for a variant, then the catalog pricing will be used. 
 
-You can assign a price list to a specific sales channel, customer group, or customer group on a specific sales channel using price list assignments via the [Price List Assignment API](https://developer.bigcommerce.com/api-reference/store-management/price-lists/price-lists-assignments/createpricelistassignments). You can also associate a price list to a customer group via the Control Panel or the [Customer Groups API](/api-reference/store-management/customers-v2). Price list assignments combined with a customer group assignment allow you to better target the logged-in customers shopping on that channel.
+You can assign a price list to a specific sales channel, customer group, or customer group on a specific sales channel using price list assignments via the [Price List Assignment API](/api-reference/store-management/price-lists/price-lists-assignments/createpricelistassignments). You can also associate a price list to a customer group via the Control Panel or the [Customer Groups API](/api-reference/store-management/customers-v2). Price list assignments combined with a customer group assignment allow you to better target the logged-in customers shopping on that channel.
 
 Price lists will provide overridden price values to the Stencil storefront. You can further customize the final price displayed within the Stencil template. For more information, see [Theme Objects](/stencil-docs/reference-docs/global-objects-and-properties).
 
@@ -93,7 +93,7 @@ lineNumbers: true
 
 The price list assignment assigns a price list to a specific sales channel. This association lets you define custom pricing for shoppers on storefront channels, but doesn't affect pricing in different omnichannel environments (Facebook, Amazon, Instagram, eBay, etc). 
 
-See [Channels, Sites, and Routes](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) for further documentation.
+See [Channels, Sites, and Routes](/api-reference/cart-checkout/channels-listings-api) for further documentation.
 
 **Example price list assigned to channel**
 `POST https://api.bigcommerce.com/stores/{store_hash}/v3/pricelists/assignments`
