@@ -22,7 +22,7 @@ Want to build a headless storefront powered by a BigCommerce back-end, but don't
 | [DEITY Falcon](https://www.bigcommerce.com/apps/deity-falcon-pwa-storefront/) | BigCommerce App | DEITY Falcon | PWA |
 | [Sitrecore Extend](https://www.bigcommerce.com/apps/sitecore-extend/) | BigCommerce App | Sitecore | CMS |
 
-*Note.* CMS = Content Management System; DXP = Digital eXperience Platform; PWA = Progressive Web App.
+*Note:* CMS = Content Management System; DXP = Digital eXperience Platform; PWA = Progressive Web App.
 
 [See more headless solutions and tools](/tools-resources).
 
@@ -183,7 +183,7 @@ Merchants can use BigCommerce's [PCI DSS AOC](https://support.mybigcommerce.com/
 
 
 > #### Note
-> 1. The way your business consumes the SDKs (either BigCommerce as a storefront and backend or BigCommerce as a backend) determines BigCommerce's  responsibilities; It is possible to use one more of BigCommerce's technology stack at the same time. Your PCI DSS compliance responsibilities will be a combination of each stack consumed.
+> The way your business consumes the SDKs (either BigCommerce as a storefront and backend or BigCommerce as a backend) determines BigCommerce's  responsibilities; It is possible to use one more of BigCommerce's technology stack at the same time. Your PCI DSS compliance responsibilities will be a combination of each stack consumed.
 
 <!-- theme: warning -->
 > If your application handles credit card data, you will need to be PCI-compliant. Submit self-assessment questionnaires (**SAQs**) to [compliance@bigcommerce.com](mailto:compliance@bigcommerce.com).
