@@ -4,7 +4,7 @@ The Payments API enables you to process payments through the store’s connected
 
 Process payments using a sequence of requests to two API hosts:
 * Create payment token:  `https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens`
-* Process the payment:  `https://payments.bigcommerce.com/stores/{{store_hash}}/payments`
+* Process payment:  `https://payments.bigcommerce.com/stores/{{store_hash}}/payments`
 
 <!-- theme: success -->
 > #### Required OAuth scopes
