@@ -279,11 +279,7 @@ If you have not enabled [multi-user support](#multi-user-support), you will not 
 
 **Example -- Get Request sent to the Remove User URI**
 
-<!--
-title="Remove User URI" lineNumbers
--->
-
-```http
+```http title="Remove User URI" lineNumbers
 GET /remove-user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: app.example.com
 ```
