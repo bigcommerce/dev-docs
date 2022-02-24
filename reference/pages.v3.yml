@@ -6,6 +6,8 @@ info:
   termsOfService: 'http://www.bigcommerce.com/terms'
 tags:
   - name: Pages
+security:
+- X-Auth-Token: []
 paths:
   '/stores/{store_hash}/v3/content/pages':
     get:
