@@ -3,7 +3,7 @@
 The Payments API enables you to process payments through the store’s connected payment gateway. Merchants can receive a payment for an order that was created using either the [Server to Server Checkout API Orders](/api-reference/store-management/checkouts) endpoint or the [V2 Orders](/api-reference/store-management/orders/orders/createanorder) endpoint.
 
 Process payments using a sequence of requests to two API hosts:
-* Create the payment token:  `https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens`
+* Create payment token:  `https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens`
 * Process the payment:  `https://payments.bigcommerce.com/stores/{{store_hash}}/payments`
 
 <!-- theme: success -->
