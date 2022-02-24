@@ -34,14 +34,14 @@ You can process payments charged to either of two main forms of payment: new pay
 > * Attempting to process a payment through the API using the full credit card information may fail if the provider requires 3DS authentication. The card must be saved through a shopper-initiated transaction before it can be charged through the Payments API. 
 > * The API flow does not currently support hosted, offsite, or wallet-type providers, such as PayPal and Amazon Pay.
 
-## Stored cards
-There are three steps to using a stored card to make a payment.
+## Stored cards and Paypal accounts
+There are three steps to using a stored card or paypal account to make a payment.
 
 1. [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget)
 2. [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost)
 3. [Process Payment](/api-reference/store-management/payment-processing/process-payment/paymentspost)
 
-To use stored cards with the Payments API or the Checkout SDK, make sure you enable stored cards in the store's control panel. To enable stored credit cards on your storefront, navigate to **Store Setup › Payments**, and click the tab for your payment gateway. Toggle the switch to enable Stored Credit Cards and click **Save**. For more on enabling stored cards, see [Enabling Stored Credit Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards).
+To use stored cards with the Payments API or the Checkout SDK, make sure you enable stored cards in the store's control panel. To enable stored credit cards on your storefront, navigate to **Store Setup › Payments**, and click the tab for your payment gateway. Toggle the switch to enable Stored Credit Cards and click **Save**. For more on enabling stored payment methods, see [Enabling Stored Payment Methods](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards).
 
 <!-- theme: info -->
 > #### Requirements for stored cards
@@ -112,6 +112,18 @@ Accept: application/json
       ]
     }
   ],
+   {
+          "id": "braintree.paypal",
+          "name": "Braintree (PayPal)",
+          "test_mode": true,
+          "type": "paypal",
+          "supported_instruments": [
+              {
+                  "instrument_type": "STORED_PAYPAL_ACCOUNT"
+              }
+          ],
+          "stored_instruments": []
+      },
   "meta": {}
 }
 ```
@@ -255,9 +267,9 @@ Content-Type: application/json
 
 If the purchase was successful, the response returns a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error codes](#error-codes) for troubleshooting.
 
-### Storing credit cards
+### Storing credit cards and paypal accounts
 
-The payments API allows developers to store a credit card while processing a credit card payment.
+The payments API allows developers to store a credit card or paypal account while processing a payment.
 
 When processing a credit payment, set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk), it can store the credit card as part of the checkout.
 
@@ -279,6 +291,23 @@ Content-Type: application/json
     },
     "payment_method_id": "authorizenet.card",
     "save_instrument": true
+  }
+}
+```
+When processing a payment using a paypal account, set thet `type` to `stored_paypal_account`. 
+
+```http title="Example request: Process payment and save paypal account" lineNumbers
+POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
+Accept: application/vnd.bc.v1+json
+Content-Type: application/json
+
+{
+  "payment": {
+    "instrument": {
+      "type": "stored_paypal_account",
+      "token": {{token}}
+    },
+    "payment_method_id": "braintree.paypal"
   }
 }
 ```
