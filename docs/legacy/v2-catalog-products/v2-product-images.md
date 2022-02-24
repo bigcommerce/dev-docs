@@ -6,21 +6,10 @@
 
 Images associated with a product.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-
-For the most up-to-date version of this API, see [Product Images](/api-reference/store-management/catalog/product-images).
-
-</div>
-</div>
-</div>
-
+> For the most up-to-date version of this API, see [Product Images](/api-reference/store-management/catalog/product-images).
 ### Product Image Object – Properties 
 
 | Name | Type | Description |

@@ -9,17 +9,11 @@ In this quick start tutorial, we'll configure our development environment and ma
 - NPM v3 and later
 - [Unix-based OS](https://github.com/bigcommerce/checkout-js#requirements) (Linux or Mac OS X)
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
+> #### Note
+> We recommend that Windows 10 users use [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/).
 
-> ### Note
->
-> We recommend Windows 10 users to use [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/).
 
-</div>
-</div>
-</div>
 
 ## Fork and install checkout-js
 
@@ -42,18 +36,12 @@ Start webpack in watch mode and launch dev server.
 npm run dev & npm run dev:server
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
->
+<!-- theme: info -->
+> #### Note
 > - Open your browser and navigate to `http://127.0.0.1:8080/` to confirm the dev server is running (you should see content from `build/`).
 > - To serve files over HTTPS, install an SSL on your development machine, or use [ngrok](https://ngrok.com/).
 
-</div>
-</div>
-</div>
+
 
 ## Configure your sandbox
 

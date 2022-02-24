@@ -107,33 +107,15 @@ stencil start --open # opens live theme preview in default browser
 | `--no-cache`                 |`-n` | Turn off caching for API resource data (cache refreshes every 5 minutes)             |
 | `--help`                     |`-h` | Output usage information                                                              |
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme: {{callout_type}} -->
-
-### --theme-editor and --theme-editor-port [port]:
+<!-- theme: info -->
+> #### --theme-editor and --theme-editor-port [port]:
 > BigCommerce deprecated `-theme-editor` and `--theme-editor-port [port]` options as of v1.23.1. Please use [Page Builder](/stencil-docs/page-builder/page-builder-overview) instead.
-
-
-</div>
-</div>
-</div>
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+&nbsp;
 
 <!-- theme: warning -->
-
-### Authentication Errors
+> #### Authentication errors
 > If you receive an `Unauthorized, please use a valid username/token` error, authentication has failed. Make sure the API token you supplied is correct. For more information on creating store API accounts and generating tokens, see [Obtaining Store API Credentials](/stencil-docs/installing-stencil-cli/live-previewing-a-theme#step-3-serve-live-preview).
 
-
-</div>
-</div>
-</div>
 
 <a id="stencil-bundle"></a>
 
@@ -203,22 +185,13 @@ Usage: stencil push [<OPTIONS>]
 ```shell
 stencil push -f Cornerstone-2.3.2.zip # uploads specified file, skips bundling if file already exists
 ```
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme: {{callout_type}} -->
-
-### --filename:
+<!-- theme: info -->
+> #### --filename:
 > You can use the `-f` or `--filename` option in cases where you have already run `stencil bundle` to bundle your theme, but the resulting .zip file has not yet been uploaded to BigCommerce. Use the generated .zip file's **filename** as a parameter to identify the generated file in your theme directory. An example of the command is outlined below.
+> When you run `stencil push`, you can apply one theme to multiple storefront or channels. 
+> When you run `stencil push` with the `-f` or `--filename` option, Stencil CLI skips all its bundling steps and diagnostics. It proceeds directly to uploading the specified file, displaying its processing progress bar to show upload status.
 
->When you run `stencil push`, you can apply one theme to multiple storefront or channels.
-    
->When you run `stencil push` with the `-f` or `--filename` option, Stencil CLI skips all its bundling steps and diagnostics. It proceeds directly to uploading the specified file, displaying its processing progress bar to show upload status.
 
-</div>
-</div>
-</div>
 
 <a id="stencil-download"></a>
 

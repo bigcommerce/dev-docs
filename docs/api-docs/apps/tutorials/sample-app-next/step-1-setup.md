@@ -22,17 +22,12 @@ If you do not have Node.js installed, you can download it from [Node.js Download
 
 ## Generate a package.json file
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * Make sure that you are using Node.js version 10.13+.
 > * This sample app uses custom dependencies and does not rely on the `create-next-app` CLI tool.
 
-</div>
-</div>
-</div> 
+ 
 
 1. Using the terminal, initialize the project's `package.json` file.
 
@@ -62,17 +57,10 @@ npm install --save-dev babel-plugin-styled-components @types/node @types/react t
 
 [@types/node](https://www.npmjs.com/package/@types/node) and [@types/react](https://www.npmjs.com/package/@types/react) contain TypeScript type definitions for Node.js and React.js respectively.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
 > You can view a list of all the tested package versions in the [package.json file on the Step 1 branch](https://github.com/bigcommerce/sample-app-nodejs/blob/step-1-app-foundation/package.json) of this sample app's repo.
 
-</div>
-</div>
-</div>
+
 
 ## Add scripts
 

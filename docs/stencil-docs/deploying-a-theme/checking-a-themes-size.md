@@ -41,19 +41,9 @@ On your local machine, move the large static assets to a location where the `ste
 
 Run the `stencil bundle` command from inside your streamlined `theme‑name` directory. Once your resulting ZIP file is 50 MB or smaller, you are ready to upload it to BigCommerce. For more information, see [Bundling and Pushing a Theme](/stencil-docs/deploying-a-theme/bundling-and-pushing).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### URL references to assets
-
+> #### URL references to assets
 > Both in production and locally, subdirectories of your theme's `assets` directory, such as `img`,`js`, and `fonts`, are parallel to its `scss` subdirectory. Within your CSS, path references to such assets should reflect this parallel relationship, for example: `../img/test.jpg`.
-
-</div>
-</div>
-</div>
 
 ### WebDAV folders and Stencil themes
 
@@ -86,17 +76,9 @@ As you develop your theme, reference each of these assets using Stencil's `{{cdn
 <img src="{{cdn "webdav:img/image.jpg"}}">
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
+<!-- theme: info -->
 > The presumed WebDAV root directory is `content`. In this example, the `image.jpg` file had been uploaded to the WebDAV `content` directory. The presumed local directory for other CDNs is `assets`, so you can omit that path when referencing its contained files or subdirectories.
 
-</div>
-</div>
-</div>
 
 When you are ready to upload your theme to BigCommerce, follow the process outlined in [Bundling and Pushing a Theme](/stencil-docs/deploying-a-theme/bundling-and-pushing).
 

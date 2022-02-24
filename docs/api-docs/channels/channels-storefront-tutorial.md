@@ -124,19 +124,13 @@ Accept: application/json
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
  
 <!-- theme:info -->
-
-> **Note**
->
+> #### Note
 > You can [find an app's ID](/api-docs/apps/tutorials/id) in the URL when editing the app in the [Developer Portal](/api-docs/apps/guide/developer-portal).
 
-</div>
-</div>
-</div>
+
 
 ## Protected UI sections
 
@@ -190,17 +184,10 @@ Included protected sections display above custom sections.
 
 ![Protected Sections](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-protected-custom-settings.png "Protected Sections")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
+> #### Note
+> Any content an app attempts to render to the control panel iFrame for a protected section will be overridden by the BigCommerce provided content.
 
-> **Note**
->
-> - Any content an app attempts to render to the control panel iFrame for a protected section will be overridden by the BigCommerce provided content.
-
-</div>
-</div>
-</div>
 
 ## Storefront settings
 

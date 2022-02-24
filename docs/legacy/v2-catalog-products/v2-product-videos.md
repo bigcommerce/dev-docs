@@ -1,26 +1,13 @@
 # Product Videos
 
- 
-
 ## Videos 
 
 Embedded videos displayed on product listings.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-
-For the most up-to-date version of this API, see [Product Videos](/api-reference/store-management/catalog/product-videos).
-
-</div>
-</div>
-</div>
-
+> For the most up-to-date version of this API, see [Product Videos](/api-reference/store-management/catalog/product-videos).
 ### Videos Object – Properties 
 
 | Name | Type | Description |
@@ -101,7 +88,7 @@ The following properties of the product video are required. The request won’t 
 
 *   url
 
-### Notes 
+**Note**s 
 
 Only YouTube videos are supported. To create a new video, pass the full `url` in the request body.
 
@@ -132,7 +119,7 @@ The following properties of the product video are read-only. If one or more of t
 
 There are no required properties when updating a product video. 
 
-### Notes 
+**Note**s 
 
 The `name`, `sort_order` and `url` properties of the product video are editable.
 

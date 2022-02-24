@@ -16,16 +16,11 @@ Alternative (alt) text is an image description read aloud by a screen reader. Ad
 **Alt image text using HTML**
 
 In Cornerstone, go to `templates/components/common/store-logo.html`. In the `<img>` tag, provide descriptive alt text for your store logo.
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
- 
-### Note 
 
-You can update the `title` attribute with the same text as the `alt` attribute to create a tooltip, or remove it if you do not need it.
-</div>
-</div>
-</div>
+<!-- theme: info -->
+> #### Note 
+> You can update the `title` attribute with the same text as the `alt` attribute to create a tooltip, or remove it if you do not need it.
+
 
 ```html
 <img src="store_logo.jpeg" alt="BigCommerce store logo"> 
@@ -79,16 +74,10 @@ Text accessibility involves making content readable and understandable. You can 
 ### Color contrast
 Color contrast is an essential factor in visual accessibility.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > According to [WCAG 2.1](https://www.w3.org/TR/WCAG21/), your ecommerce website must have minimum color contrast ratios of 4.5.1 for standard text and 3:1 for large text. To ensure you meet WCAG 2.1 guidelines, we recommend presetting these guidelines, using [Lighthouse](https://developers.google.com/web/tools/lighthouse) or Chrome's [Accessibility Developer Tools](https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb/reviews?hl=en).
 
-</div>
-</div>
-</div>
 
 It is essential to avoid using dark colors for both the background and text color. Instead, use contrasting colors to achieve better visibility.   For example, avoid green and black, green and gray, and green and red background and text colors. Alternatively, it is good practice to use light text on dark backgrounds or dark text on light backgrounds. The example below shows poor color contrasting because the black text is on a green background. The color contrast ratio is 3.8.1. It would have been better to use white text on a dark green background.
 

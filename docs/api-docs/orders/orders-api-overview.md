@@ -46,17 +46,12 @@ Accept: application/json
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/orders/createanorder#requestrunner) -->
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * The example above contains the minimum required fields for a [create order](/api-reference/store-management/orders/orders/createanorder) request.
 > * The product ordered is a *custom* product; custom products do not exist in the catalog.
 
-</div>
-</div>
-</div>
+
 
 ## Changing order status
 
@@ -102,18 +97,13 @@ Accept: application/json
 ]
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * If not specified, `status_id` defaults to `1`.
 > * The refunded status is neither paid nor unpaid.
 > * For information on changing `custom_label` in the control panel, see [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
 
-</div>
-</div>
-</div>
+
 
 
 ## Specifying order customer
@@ -146,27 +136,19 @@ Accept: application/json
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/customers-v3/customers/customersget#requestrunner) -->
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
-> * Set `customer_id` to `0` to create a guest order.
-
-</div>
-</div>
-</div>
+<!-- theme: info -->
+> #### Note
+> Set `customer_id` to `0` to create a guest order.
 
 ## Including shipping addresses
 
 Add [shipping addresses](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [`shipping_address` array](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in the [create order](/api-reference/store-management/orders/orders/createanorder) request.
 
-```http
+```http title="Add shipping addresses" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
-
 
 {
   "billing_address": {...},
@@ -193,16 +175,11 @@ Accept: application/json
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/orders/createanorder#requestrunner) -->
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
+> #### Note
+> Add multiple shipping addresses to [ship to multiple locations](#shipping-to-multiple-locations).
 
-> ### Note
-> * Add multiple shipping addresses to [ship to multiple locations](#shipping-to-multiple-locations).
 
-</div>
-</div>
-</div>
 
 ## Adding products
 
@@ -284,20 +261,15 @@ Accept: application/json
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * Custom products do not get added to the catalog.
 > * If the product's price is not specfied in the [create order](/api-reference/store-management/orders/orders/createanorder) request, BigCommmerce's pricing service calculates the price by applying applicable currency conversions and [pricing operations](/api-docs/store-management/pricing-order-operation) (such as [price lists](https://support.bigcommerce.com/s/article/Price-Lists) and [customer group discounts](https://support.bigcommerce.com/s/article/Customer-Groups#pricing)) to the product's catalog price; use `price_inc_tax` and `price_ex_tax` to override the calculated price.
 > * Marketing promotions currently do not apply to orders created via the Orders API.
 > * If you override `price_ex_tax` or `price_inc_tax`, override both; otherwise, order totals will not calculate correctly.
 > * Overriding `price_inc_tax` or `price_ex_tax` does not change variant pricing.
 
-</div>
-</div>
-</div>
+
 
 ## Creating order shipments
 
@@ -338,24 +310,19 @@ Accept: application/json
 |`shipping_provider`| Optional; used to create tracking link; see [Create Order Shipment](/api-reference/store-management/orders/order-shipments/createordershipments) for accepted values|
 |`items.order_product_id`|Obtainable via [Get Order Products](/api-reference/store-management/orders/order-products/getallorderproducts)|
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * Create multiple shipments by specifying a subset of products and quantities in each `POST` request.
 > * Creating order shipments triggers email notifications; adjust [Order Notification](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) settings in the [control panel](https://login.bigcommerce.com/deep-links/manage) to change this behavior.
 > * Deleting a shipment does **not** move the order out of `shipped` status.
 
-</div>
-</div>
-</div>
+
 
 ## Shipping to multiple locations
 
 You can create multiple shipments for orders, and each shipment can have a different `order_address_id`.
 
-```http
+```http title="Example 1: order_address_id"
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v2/orders/{{order_id}}/shipments
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -372,8 +339,8 @@ Accept: application/json
   ]
 }
 ```
-
-```http
+&nbsp;
+```http title="Example 2: different order_address_id"
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v2/orders/{{order_id}}/shipments
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -487,19 +454,14 @@ BigCommerce submits tax documents to Avalara when an order moves from an **unpai
 | Paid or `Refunded` | Unpaid | Unpaid | Tax document voided |
 | Unpaid or `Refunded` | Paid | Paid | Tax document submitted |
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * Abbreviated state names (ex: `CA` instead of `California`) in an order address will cause tax document submission to fail.
 > * You can calculate taxes using rules specified in the store unless [automatic taxes](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) are enabled.
 > * You can optionally override tax values by specifying `price_inc_tax` and `price_ex_tax` in an [update order request](/api-reference/store-management/orders/orders/updateanorder).
 > * If a store has [automatic tax](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) enabled, BigCommerce does not compute sales tax on orders created via the API.
 
-</div>
-</div>
-</div>
+
 
 ## Getting order transactions
 
@@ -547,20 +509,15 @@ Accept: application/json
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * Not all payment gateways return the full card or fraud detail. Depending on the payment method, different information will be available.
 > * You cannot create transactions for the following payment methods:
 >   * Test Payment Gateway
 >   * PayPal Express
 >   * Amazon Pay
 
-</div>
-</div>
-</div>
+
 
 ## Handling refunds
 
@@ -584,17 +541,12 @@ Order `subtotal` and `total` calculate automatically; edits to the following pro
 
 You can override calculated values such as product prices, subtotals, and totals by sending a fixed value in the request. If you do not supply values for these properties, you will automatically calculate them based on the preset store values and tax rules.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * If you override `subtotal` or `total`, override both; the system will not re-calculate the other.
 > * To add a manual discount, overwrite the product price or `discount_amount`.
 
-</div>
-</div>
-</div>
+
 
 ## FAQ
 

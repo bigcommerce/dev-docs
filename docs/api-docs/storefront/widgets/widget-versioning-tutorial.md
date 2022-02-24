@@ -10,16 +10,11 @@ This article documents how to use [widget versioning](/api-docs/store-management
 * API `access_token` with `content modify` scope.
 * Knowledge of the [Widgets API](/api-docs/storefront/widgets/widgets-overview).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > This tutorial uses [Cornerstone](https://github.com/bigcommerce/cornerstone) theme.
 
-</div>
-</div>
-</div>
+
 
 ## Create a widget template
 
@@ -61,16 +56,11 @@ Accept: application/json
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/widgets/widget-template/createwidgettemplate#requestrunner) -->
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * Make a note of `uuid` and `current_version_uuid`. We will use them in the steps that follow.
 
-</div>
-</div>
-</div>
+
 
 You can use [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder), BigCommerce's storefront editing and customization tool, to view your widget template in the control panel. It will be displayed in the left pane under **Custom**.
 
@@ -239,16 +229,11 @@ To upgrade the widget derived from the original widget template, send `"upgrade"
 
 ![Upgrade the widget](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widget-versioning-03.png "Upgrade the widget")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * If the newer version of your widget template contains different schema settings, you need to provide the necessary configuration values along with the `upgrade` flag to make sure the widget is updated correctly. 
 
-</div>
-</div>
-</div>
+
 
 ## Related resources
 

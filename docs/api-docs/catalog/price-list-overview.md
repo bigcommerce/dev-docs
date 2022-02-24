@@ -22,7 +22,7 @@ The following OAuth Scopes are required:
 - **Price record:** a price override for a particular variant - minimally, a variant ID, price, and currency.
 
 
-```json
+```json title="Price Record"
 	{
 		"variant_id": 3121,
 		"price": 10.0,
@@ -39,17 +39,12 @@ The following OAuth Scopes are required:
 - **Currency:** a price list can contain records for multiple currencies. If you use a [transactional currency](/api-docs/multi-currency/guide/introduction#display-vs-transactional), the customer group or channel will use price records in that currency. If a multi-currency price list is unavailable, BigCommerce auto converts the catalog price. The customer group or channel uses price records in the default currency and performs a currency conversion for [display-only currencies](/api-docs/multi-currency/guide/introduction#display-vs-transactional).
 
 
-<!--
-title: "Example Price List"
-subtitle: ""
-lineNumbers: true
--->
+```http title="Example request: Get all price lists**" lineNumbers
+GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists
+X-Auth-Token: {{ACCESS_TOKEN}}
+Accept: application/json
+Content-Type: application/json
 
-**Example Get All Price Lists**
-
-`GET https://api.bigcommerce.com/stores/{store_hash}/v3/pricelists`
-
-```json
 [{
   "variant_id": 3121,
   "price": 10.0,
@@ -87,7 +82,7 @@ lineNumbers: true
   "currency": "USD"
 }]
 ```
-
+&nbsp;
 
 ## Price list assignments
 

@@ -9,18 +9,11 @@ Cornerstone includes a SCSS file that styles the Optimized Checkout page. In you
 You can access the most recent version of this file in the [Cornerstone repository](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss). All themes share the same stylesheet for the Optimized One-Page checkout, even those not based on Cornerstone, so this stylesheet applies universally across Stencil themes.
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
-
-<!-- theme: error -->
-
-### Customizing checkout restrictions
+<!-- theme: danger -->
+> #### Customizing checkout restrictions
 > When customizing the checkout page, you are free to change classes' contents; however, **do not** nest elements or change any class names. BigCommerce imposes these restrictions because each class here maps to multiple optimized checkout elements. Changing the structure or naming would break updates available in future optimized checkout enhancements.
 
-</div>
-</div>
-</div>
+
 
 ## Configuring the desktop viewport
 
@@ -72,18 +65,11 @@ In Cornerstone's `optimized-checkout.scss`, each SCSS class and property availab
 
 You can enable the display of alternate currencies on your Stencil theme's Optimized One-Page Checkout and order confirmation pages.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Restrictions
+> #### Restrictions
 > The options on this page require that you first enable Optimized One-Page Checkout. Find instructions on how to do this in [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout).
 
-</div>
-</div>
-</div>
+
 
 Note that regardless of the display options you set below, you will always process transactions in the store's single default currency. To change that setting, see [Changing Your Default Currency](https://support.bigcommerce.com/s/article/Managing-Currencies#default).
 

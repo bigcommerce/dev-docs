@@ -97,16 +97,11 @@ import { useRouter } from 'next/router';
 import { ReactElement } from 'react';
 import { useProductList } from '../../lib/hooks';
 ```
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > Because BigDesign and Next.js both have a component called `Link`, you need to import BigDesign's `Link` as `StyledLink` to avoid TypeScript errors.
 
-</div>
-</div>
-</div>
+
 
 4. Add the `Products` functional component. The `Products` component uses the BigDesign's [StatefulTable](https://developer.bigcommerce.com/big-design/statefulTable), a wrapper of the [Table](https://developer.bigcommerce.com/big-design/table) component that supports pagination, row selection, and sorting.
 
@@ -643,16 +638,11 @@ export default ProductInfo;
 
 The `ProductInfo` functional component uses the `Form` component defined in `/components/form`. When you click on a product from the products list, it takes you to the corresponding page containing information about that particular product.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > Because you fetch all of the products data with the initial Catalog API call, you do not need to make additional calls to retrieve individual product data.
 
-</div>
-</div>
-</div>
+
 
 The following image illustrates the `Form` input types:
 
@@ -795,6 +785,4 @@ You should now have a fully functional app that pulls data from BigCommerce's Ca
 
 This concludes our Next.js Sample App tutorial. To continue developing with BigCommerce, consider working through these supplemental materials:
 
-* [App Store Approval Requirements](/api-docs/apps/guide/requirements)
 * [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal)
-* [Publishing an App](/api-docs/apps/guide/publishing)

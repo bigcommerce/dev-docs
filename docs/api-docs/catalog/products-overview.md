@@ -24,18 +24,11 @@ Products can be physical or digital:
 * **Digital** - Non-physical products, including downloadable files (for example, computer software, ebooks, or music) and services (for example, haircuts, consulting, or lawn care).
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Note
+<!-- theme: info -->
+> #### Note
 > Only one product can be created at a time.
 
-</div>
-</div>
-</div>
+
 
 ### Creating a product
 
@@ -106,18 +99,11 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/createproduct#requestrunner) -->
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Note
+<!-- theme: info -->
+> #### Note
 > When you create options via `/products`, `display_type` defaults to a radio button (displayed as selectable boxes in some themes).
 
-</div>
-</div>
-</div>
+
 
 ## Creating digital products
 
@@ -148,18 +134,11 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/createproduct#requestrunner) -->
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Note
+<!-- theme: info -->
+> #### Note
 > Files can only be added to digital products via [control panel or WebDav](https://support.bigcommerce.com/s/article/Creating-Downloadable-Products) -- attaching via the API is not supported. You can also set additional settings such as file description and maximum downloads in the control panel.
 
-</div>
-</div>
-</div>
+
 
 
 ## Adding product images
@@ -182,20 +161,15 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/product-images/createproductimage#requestrunner) -->
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-### Note
+<!-- theme: info -->
+> #### Note
 > * If using `image_file`, set `Content-Type` header to `multipart/form-data` -- otherwise, you will be unable to add subsequent requests.
 > * Set `is_thumbmail` to true to set the image as the thumbnail used on product listing pages.
 > * A product can have only one thumbnail image at a time.
 > * If only one image is on the product, it becomes both the thumbnail and the main product image.
 > * You can also add images to [variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid).
 
-</div>
-</div>
-</div>
+
 
 ## Adding product videos
 
@@ -218,18 +192,13 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/product-videos/createproductvideo#requestrunner) -->
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-### Note
+<!-- theme: info -->
+> #### Note
 > * A product can have more than one video.
 > * You must host product videos on YouTube.
 > * `video_id` corresponds to the `v` parameter in the URL (Ex: `https://www.youtube.com/watch?v=R12345677`).
 
-</div>
-</div>
-</div>
+
 
 ## Adding custom fields
 
@@ -249,19 +218,12 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-custom-fields/createcustomfield#requestrunner) -->
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Note
+<!-- theme: info -->
+> #### Note
 > Custom field values are limited to **250** characters. For additional information on custom fields and their use cases, see [Custom Fields](https://support.bigcommerce.com/s/article/Custom-Fields).
 
 
-</div>
-</div>
-</div>
+
 
 ## Adding bulk pricing rules
 
@@ -330,16 +292,11 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-metafields/updateproductmetafield#requestrunner) -->
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-### Note
+<!-- theme: info -->
+> #### Note
 > You can add metafields to variants, products, categories, and brands.
 
-</div>
-</div>
-</div>
+
 
 ## Adding product reviews
 
@@ -364,16 +321,11 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/product-reviews/createproductreview#requestrunner) -->
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-### Note
+<!-- theme: info -->
+> #### Note
 > You cannot create reviews in the control panel.
 
-</div>
-</div>
-</div>
+
 
 ## Variant options
 
@@ -411,32 +363,16 @@ This example results in selecting a combination of small and red on the storefro
 * SKUs in V2 map to variants in V3.
 * Base variants are not SKUs in V2.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Create a variant option
+<!-- theme: info -->
+> #### Create a variant option
 > Creating a variant option does not automatically create SKUs or build out variants. You can build out SKUs later using the [Variants](/api-reference/store-management/catalog/product-variants/createvariant) endpoint.
-
-</div>
-</div>
-</div>
 
 ### Create variant options
 
 The following request will create options that will show on the storefront as choices selected by the customer. In a separate request, you could build out SKUs based on these variant option values or a combination of variant option values. You can use a similar request to add new choices to an existing variant.
-<!--
-title: "Create Size Variant Option"
-subtitle: "/POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options"
-lineNumbers: true
--->
 
-**Example create size variant option**
-
-```http
-POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/options
+```http title="Create Size Variant Option" lineNumbers
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/options
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -479,19 +415,10 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 * In non-base variants, variants will relate to a particular combination of variant option values - such as “small” and “red”.
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### V2 SKU rules will override variant pricing
+> #### V2 SKU rules will override variant pricing
 > Creating SKU rules via the V2 API or via CSV import will alter or override any variant price or sale price added to a product via the control panel, V3 API, or Price Lists UI.
 
-
-</div>
-</div>
-</div>
 
 ### Variant examples:
 
@@ -512,7 +439,7 @@ The example below will go over using existing variant options to create the vari
 
 To fetch variant information, send a `GET` request to `/v3/catalog/products/{{product_id}}/options`.
 
-```http
+```http title="Get product variant options"
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/options
 Accept: application/json
 Content-Type: application/json
@@ -568,20 +495,13 @@ To combine the variant option values into variants and build out SKUs use the fo
 
 `https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/variants`
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Note
+<!-- theme: info -->
+> #### Note
 > * Variants need to be created one at a time using this endpoint.
 > * You can create only one variant option at a time; individual variant options will contain an array of multiple values.
 > * To use a variant array and create variants in the same call as the base product, use the [/catalog/product](/api-reference/store-management/catalog/products/createproduct) endpoint during product creation.
 
-</div>
-</div>
-</div>
+
 
 The `option_values` array combines the options small and blue to create the SKU SMALL-BLUE. The ID in the `option_values` array is the ID from the variant option response `option_values > id`. The `option_id` is the ID of the option.
 
@@ -653,19 +573,12 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/products/createproduct#requestrunner) -->
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Supported types
+<!-- theme: info -->
+> #### Supported types
 > Swatch, radio button, rectangle, dropdown, product list, and product list with images.
 
 
-</div>
-</div>
-</div>
+
 
 ## Modifier options
 
@@ -691,19 +604,12 @@ You can add an adjuster to a modifier option to change things, such as increasin
 | T-Shirt | Blue<br>-<br> Small<br> Medium<br> Large| BLU<br> BLU-MED <br> BLU-LARG| Checkbox<br>Donate to Charity|
 | Backpack | Black<br>Yellow<br>-<br>2L <br> 3L<br> 8L |BLACK-2L<br>BLACK-3L<br>BLACK 8L<br>-<br>YELLOW-2L<br>YELLOW-3L<br>YELLOW-8L| Text Field<br> Add Embroidery|
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Modifiers that support adjusters
+<!-- theme: info -->
+> #### Modifiers that support adjusters
 > Swatch, radio button, rectangle list, drop-down, product list, and product list with images.
 
 
-</div>
-</div>
-</div>
+
 
 ### Add a modifier with price adjuster to an existing product
 
@@ -711,19 +617,12 @@ The following example shows how to add a modifier and a checkbox with a price ad
 
 Creating a checkbox with an adjuster requires two separate calls: one to create the checkbox and another one to add the adjuster. You can define adjusters within the `option_values` array, but `option_values` are not allowed in the request to create a checkbox modifier because creating a checkbox automatically generates two mandatory option values: `Yes` and `No`. Once you have created the checkbox and its option values, you can update the modifier to add an adjuster.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Modifiers that require a second step to add an adjuster
+<!-- theme: info -->
+> #### Modifiers that require a second step to add an adjuster
 > Swatch, radio button, drop-down, rectangle list, product list, product list with images, and checkbox.
 
 
-</div>
-</div>
-</div>
+
 
 To [create a modifier](/api-reference/store-management/catalog/product-modifiers/createmodifier), send a `POST` request to `/v3/catalog/products/{{product_id}}/modifiers`.
 
@@ -863,7 +762,7 @@ Use complex rules when an adjustment should be triggered by:
 Complex rules must have a combination of two or more modifiers, such as two checkboxes. The following example will add $10 to the product price when you check both boxes.
 
 ```http
-PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}/complex-rules
+PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/complex-rules
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -936,7 +835,7 @@ BigCommerce's V3 REST API does not require products to be associated with a cate
 You can associate products with multiple categories. A product associated with categories does not currently have any priority or weighted order (there's no “primary category”). The absence of priority or weighted order makes it difficult to integrate with some external systems that might wish to use a product's categories to map to a category structure.
 
 ```http
-POST https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/categories
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/categories
 
 Accept: application/json
 Content-Type: application/json
@@ -1015,18 +914,11 @@ Product sorting methods:
 1. Manually specified sort order on a category level.
 2. Manually specified sort order on a product level. `0` by default. 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Note
+<!-- theme: info -->
+> #### Note
 > Products with the same sort order value either on a category or a product level are sorted by `product id` as a second criterion.
 
-</div>
-</div>
-</div>
+
 
 ## Related resources
 

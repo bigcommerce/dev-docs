@@ -13,15 +13,11 @@ A checkout containing physical products is not eligible to become an order until
 
 ### OAuth scopes
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
   
 > The Storefront Checkout API allows developers to manage a shopper’s cart, checkout, and order data using client-side JavaScript on BigCommerce Stencil-powered storefronts. The Storefront Checkout API requests do not require OAuth scopes.
   
-</div>
-</div>
-</div>
+
 
 Use the following OAuth scopes for the Server-to-Server Checkout API.
 
@@ -32,37 +28,23 @@ Use the following OAuth scopes for the Server-to-Server Checkout API.
 
 For more information on OAuth Scopes and authentication, see [Authentication](/api-docs/getting-started/authentication).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
 > For limits on the number of line items in a consignment, see the [Create a consignment endpoint](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) documentation.
 
 > The Server-to-Server Checkout API responds quickly when the checkout contains one consignment.  Each additional consignment increases the amount of time the API takes to finish creating a checkout. The example API calls in this article use the Server-to-Server Checkout API.
   
 
-</div>
-</div>
-</div>
+
 
 
 ## Creating a consignment
 
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
 > Prerequisites: Prior to working with consignments, your code will need to create or retrieve a cart or checkout.  The cart ID and checkout ID are the same.
 
-</div>
-</div>
-</div>
+
 
 The [Create a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) requires a `checkoutID`.  You can create consignments associated with a cart before it becomes a checkout.  This endpoint supports creating multiple consignments in a single call.
 
@@ -144,17 +126,10 @@ The [Update a consignment endpoint](/api-reference/store-management/checkouts/ch
 
 There are two distinct kinds of consignment updates. The first selects a fulfillment option. The second can update the recipient's shipping address and adjust the list of included line items. 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
 > You must choose one type of consignment update because changing the shipping address and weight can change available fulfillment options. You can't do both in the same call to the [Update a consignment endpoint](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput).
 
-</div>
-</div>
-</div>
+
 
 
 The following is an example `PUT` request that updates a consignment’s `shipping_option_id` with one of the `available_shipping_options.id` returned in the response from the [Create a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost).

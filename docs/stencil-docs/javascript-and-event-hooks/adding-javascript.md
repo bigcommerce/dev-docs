@@ -85,16 +85,9 @@ export default class Blog extends PageManager {
     }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
-> * Page types correspond to the HTML pages in [templates/pages/](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages).
-
-</div>
-</div>
-</div>
+<!-- theme: info -->
+> #### Note
+> Page types correspond to the HTML pages in [templates/pages/](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages).
 
 ## JavaScript template context injection
 

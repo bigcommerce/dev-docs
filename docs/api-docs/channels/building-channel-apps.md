@@ -86,21 +86,13 @@ Once created, channels show up in the product list within the control panel so t
 
 [View reference documentation for the Create a Channel request](/api-reference/cart-checkout/channels-listings-api/channels/createchannel).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-> **Note**
->
+> #### Note
 > - You can find the app ID in the URL when editing the app in [DevTools](https://devtools.bigcommerce.com/). For more information, see [Finding an App's ID](/api-docs/apps/tutorials/id).
 > - `config_meta.app.id` is optional; however, if you're building an app that creates or manages a channel, we recommend including the app ID to ensure the user interface in the BigCommerce control panel works properly.
 > - Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request.
 
-</div>
-</div>
-</div>
+
 
 ## Getting catalog data
 
@@ -235,19 +227,11 @@ Accept: application/json
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
+> #### Note
+> If the external channel does not have a concept of customers, an order can be created with a `customer_id` of `0` (this value is used for "guest" shoppers).
 
-> **Note**
->
-> - If the external channel does not have a concept of customers, an order can be created with a `customer_id` of `0` (this value is used for "guest" shoppers).
 
-</div>
-</div>
-</div>
 
 ## Managing orders and inventory
 
@@ -279,18 +263,12 @@ Accept: application/json
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> **Note**
->
+<!-- theme: info -->
+> #### Note
 > - If the external channel does not have a concept of customers, an order can be created with a `customer_id` of `0`, the value used for guest shoppers.
 > - BigCommerce automatically updates inventory after an order is created; inventory levels are retrievable via the [Products API](/api-reference/store-management/catalog/products/getproducts).
 
-</div>
-</div>
-</div>
+
 
 ## Syncing gift card balances
 
