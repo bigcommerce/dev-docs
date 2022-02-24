@@ -311,7 +311,7 @@ Updates to the following fields trigger a `store/channel/updated` event.
 | store/order/transaction/created | Fires when a transaction record is created. |
 | store/order/transaction/updated | Fires when a transaction record is updated.  |
 
-### The same response is returned for the following events:
+**The same response is returned for the following events:**
 
 * `store/order/created`
 * `store/order/updated`
@@ -335,7 +335,7 @@ Updates to the following fields trigger a `store/channel/updated` event.
 }
 ```
 
-### The same response is returned for the following events:
+**The same response is returned for the following events:**
 
 - `store/order/statusUpdated`
 
@@ -364,7 +364,7 @@ Updates to the following fields trigger a `store/channel/updated` event.
 }
 ```
 
-### The same response is returned for the following events:
+**The same response is returned for the following events:**
 
 - `store/order/message/created`
 
@@ -390,7 +390,7 @@ Updates to the following fields trigger a `store/channel/updated` event.
     "producer": "stores/{store_hash}"
 }
 ```
-### The same response is returned for the following events:
+**The same response is returned for the following events:**
 
 - `store/order/refund/created`
 
@@ -417,7 +417,7 @@ Updates to the following fields trigger a `store/channel/updated` event.
 }
 ```
 
-### The same response is returned for the following events:
+**The same response is returned for the following events:**
 
 * `store/order/transaction/created`
 * `store/order/transaction/updated`
