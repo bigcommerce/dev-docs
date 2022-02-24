@@ -254,7 +254,7 @@ An instance of each of the service providers found in the src/BigCommerce/Contai
 
 Every action or filter callback created by one of the service providers is given an identifier so that it can be retrieved and, if appropriate, unhooked from WordPress. E.g., to unhook the closure that renders the product archive template and replace it with your own, you could do:
 
-```javascript
+```php
 remove_action( 'bigcommerce/template/product/archive', bigcommerce()->templates->product_archive, 10 );
 
 add_action( 'bigcommerce/template/product/archive', 'your_callback_function', 10, 2 );
@@ -349,7 +349,7 @@ Embedded Checkout includes settings within the WordPress theme customizer that a
 Below, we define a function called `myCheckoutFunction()` that accepts `$checkout_config` as an argument. The function builds an array of checkout config styles that make the checkout step header text red, step number icons blue, and checkout body text green. Finally, we pass `myCheckoutFunction` to the Checkout Config hook. Try adding the below snippet to your theme’s `functions.php` file to test it out
 
 
-```js title="myCheckoutFunction() functions.php" lineNumbers
+```php title="myCheckoutFunction() functions.php" lineNumbers
 function myCheckoutFunction($checkout_config) {
   $checkout_config['styles']['heading']['color'] = '#C70039'; //red
   $checkout_config['styles']['step']['icon']['backgroundColor'] = '#AE0BE6'; //purple
