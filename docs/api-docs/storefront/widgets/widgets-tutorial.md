@@ -278,7 +278,7 @@ Accept: application/json
 
 [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/category/createcategory#requestrunner)
 
-4. You can now [create a placement](#create-a-placement) for the widget you created in the previous steps. 
+5. You can now [create a placement](#create-a-placement) for the widget you created in the previous steps. 
 
 ## Create a user interface
 
