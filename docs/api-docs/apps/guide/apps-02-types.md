@@ -1,14 +1,6 @@
 # Types of Apps
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Single-Click](#single-click)
-- [Connector](#connector)
-- [Visibility](#visibility)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-</div>
 
 The first step when developing an app is deciding which type of app to develop. The two types of apps, single-click and connector, are defined by the method of authentication. [Single-click](#single-click) apps use an OAuth Authorization Code Grant flow. [Connector apps](#connector) require store owners to manually generate and configure store API credentials. In addition to the authentication method, apps can differ by [visibility](#visibility).
 
@@ -25,7 +17,7 @@ The app requests the user to grant permissions associated to scopes configured f
 Once granted, the app can request a permanent `access_token` for making REST API requests on the user's behalf.
 
 ## Connector
-Connector apps use manual OAuth token creation instead of the single-click app flow. Store owners generate [store API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#revoking-store-api-credentials) manually and enter them into the app's configuration. While single-click apps are recommended, the following use cases might not be compatible:
+Connector apps use manual OAuth token creation instead of the single-click app flow. Store owners generate [store API credentials](/api-docs/getting-started/authentication/rest-api-authentication#revoking-store-api-credentials) manually and enter them into the app's configuration. While single-click apps are recommended, the following use cases might not be compatible:
 
 - Customized integrations that vary per store.
 - Integrations that do not provide any content for an iFrame.
@@ -55,12 +47,12 @@ There are three visibility options for apps: **Draft**, **Unlisted**, and **Publ
 </div>
 
 ## Next steps
-[Begin app development](https://developer.bigcommerce.com/api-docs/apps/guide/development).
+[Begin app development](/api-docs/apps/guide/development).
 
 ## Resources
 
 ### Related articles
-* [Building Apps Quick Start](https://developer.bigcommerce.com/api-docs/apps/quick-start)
+* [Building Apps Quick Start](/api-docs/apps/quick-start)
 
 ### Sample apps
 * [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
@@ -76,7 +68,7 @@ There are three visibility options for apps: **Draft**, **Unlisted**, and **Publ
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

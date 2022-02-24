@@ -23,20 +23,7 @@
     <body>
         <div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
 <h1 id="customization-guide">Customization Guide</h1>
-<div class="otp" id="no-index">
-<h3 id="on-this-page">On This Page</h3>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#file-structure">File Structure</a></li>
-<li><a href="#template-overrides">Template Overrides</a></li>
-<li><a href="#accessing-bigcommerce-data">Accessing BigCommerce Data</a></li>
-<li><a href="#custom-css">Custom CSS</a></li>
-<li><a href="#hooks">Hooks</a></li>
-<li><a href="#styling-checkout">Styling Checkout</a></li>
-<li><a href="#email-templates">Email Templates</a></li>
-<li><a href="#additional-resources">Additional Resources</a></li>
-</ul>
-</div>
+
 <h2 id="introduction">Introduction</h2>
 <p>BigCommerce for WordPress is compatible out-of-the-box with all standard WordPress themes and includes full support for the Genesis theme framework. The plugin includes templates and stylesheets to render all of the elements and pages you need to merchandise your products and move shoppers through checkout, including:</p>
 <ul>
@@ -209,7 +196,7 @@ add_action( <span class="hljs-string">'bigcommerce/template/product/archive'</sp
 </div></code></pre>
 <h2 id="styling-checkout">Styling Checkout</h2>
 <p>BigCommerce for WordPress offers two possible checkout experiences, depending on whether the WordPress site has an installed SSL certificate.</p>
-<p>If no SSL is detected, shoppers will be redirected to the BigCommerce checkout page, on the domain of the BigCommerce store. Because BigCommerce stores provide an SSL certificate by default, this ensures that the checkout page is always accessed on an encrypted domain. If you are using this checkout experience, visit our <a href="https://developer.bigcommerce.com/stencil-docs/template-files/customize-stencil-checkout/optimized-one-page-checkout">Stencil documentation</a> to review all available options for styling the checkout page.</p>
+<p>If no SSL is detected, shoppers will be redirected to the BigCommerce checkout page, on the domain of the BigCommerce store. Because BigCommerce stores provide an SSL certificate by default, this ensures that the checkout page is always accessed on an encrypted domain. If you are using this checkout experience, visit our <a href="/stencil-docs/customizing-checkout/optimized-one-page-checkout">Stencil documentation</a> to review all available options for styling the checkout page.</p>
 <p>If an SSL is detected, shoppers will visit an embedded version of the BigCommerce checkout page, on your WordPress domain. This has the advantage of providing a seamless experience for the shopper.</p>
 <h3 id="embedded-checkout">Embedded Checkout</h3>
 <p>Embedded Checkout includes settings within the WordPress theme customizer that allow you to adjust colors to blend the checkout page with your theme. For advanced users, the plugin provides the <a href="https://bigcommerce.moderntribe.qa/reference/hooks/bigcommerce-checkout-config/">Checkout Config hook</a> to filter all available <a href="https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/embeddedcheckoutoptions.md">Embedded Checkout config options</a> (Github). Because of the method used to load the Embedded Checkout within the iframe, styling checkout must be accomplished by filtering the available <code>$checkout_config</code> options rather than targeting element classes or IDs with CSS.</p>

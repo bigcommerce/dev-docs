@@ -1,13 +1,6 @@
 # Filtering
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Include](#include)
-- [Include and exclude fields](#include-and-exclude-fields)
-- [Pagination and limit](#pagination-and-limit)
-
-</div>
 
 To filter collections down to a particular set of items, you can add filters to your request as URL query parameters.
 

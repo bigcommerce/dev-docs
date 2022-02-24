@@ -1,20 +1,7 @@
 # Widgets API
 
 
-<div class="otp" id="no-index">
 
-### On this page
-
-- [Regions](#regions)
-- [Widget templates](#widget-templates)
-- [Widgets](#widgets)
-- [Widget versioning](#widget-versioning)
-- [Placements](#placements)
-- [Widgets on the storefront](#widgets-on-the-storefront)
-- [Definitions](#definitions)
-- [Related resources](#related-resources)
-
-</div>
 
 The Widgets API allows developers to create units of content and programmatically place them on specific pages of a BigCommerce storefront. The content can consist of HTML, CSS, and JavaScript, and is configurable using [Handlebars](https://handlebarsjs.com/) variables. The Widgets API supports various content types, such as YouTube videos, image sliders, and chat apps. 
 
@@ -27,7 +14,7 @@ In this article, we will review the components that make up a widget.
 
 ## Regions
 
-[Regions](https://developer.bigcommerce.com/api-reference/storefront/widgets-api/regions/getcontentregions) are specific locations in the Stencil theme template files where you can place a widget. You can add a region at the file level using the format `{{{region name="..."}}}` and name the region however you like, but it is best practice to give it a name that is descriptive of the location and function. A theme file can have as many regions as you want, with more than one widget assigned to the region and the [placements](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#placements) `sort_order` controlling how the widgets appear on the storefront.
+[Regions](/api-reference/storefront/widgets-api/regions/getcontentregions) are specific locations in the Stencil theme template files where you can place a widget. You can add a region at the file level using the format `{{{region name="..."}}}` and name the region however you like, but it is best practice to give it a name that is descriptive of the location and function. A theme file can have as many regions as you want, with more than one widget assigned to the region and the [placements](/api-docs/store-management/widgets/overview#placements) `sort_order` controlling how the widgets appear on the storefront.
 
 ![Content Region](//s3.amazonaws.com/user-content.stoplight.io/6012/1551970794664 "Content Region")
 
@@ -226,7 +213,7 @@ Widget versioning introduced `current_version_uuid` and `version_uuid` propertie
 
 ### Update a widget template 
 
-To update a widget template without impacting existing widgets, set the `create_new_version` property to `true` when sending a `PUT` request to [`/v3/content/widget-templates/{uuid}`](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/updatewidgettemplate). This will create a new widget template version, but it will not impact the widgets created before the update. 
+To update a widget template without impacting existing widgets, set the `create_new_version` property to `true` when sending a `PUT` request to [`/v3/content/widget-templates/{uuid}`](/api-reference/store-management/widgets/widget-template/updatewidgettemplate). This will create a new widget template version, but it will not impact the widgets created before the update. 
 
 Updating the widget template with `create_new_version` set to `true` will change the value of the `current_version_uuid` in the widget and the widget template, but it will not change the value of the widget’s `version_uuid`.
 
@@ -237,7 +224,7 @@ Updating the widget template with `create_new_version` set to `true` will change
 <!-- theme:  -->
 
 ### Note
->  It is possible to update your widget template without creating a new version. To do so, exclude the `create_new_version` field or set it to `false` when making a `PUT` request to [update the widget template](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/updatewidgettemplate). 
+>  It is possible to update your widget template without creating a new version. To do so, exclude the `create_new_version` field or set it to `false` when making a `PUT` request to [update the widget template](/api-reference/store-management/widgets/widget-template/updatewidgettemplate). 
 
 </div>
 </div>

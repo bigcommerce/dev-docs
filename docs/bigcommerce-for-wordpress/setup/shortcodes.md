@@ -2,14 +2,7 @@
 
 # Shortcodes
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Products Shortcode](#products-shortcode)
-- [Component Shortcodes](#component-shortcodes)
-- [Other Shortcodes](#other-shortcodes)
-
-</div> 
+ 
 
 Most of the plugin's functionality is exposed on the front-end of the site through shortcodes embedded on automatically created pages. The code controlling those shortcodes can be found in the classes in `src/BigCommerce/Shortcodes`.
 

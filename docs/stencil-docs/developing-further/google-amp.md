@@ -1,14 +1,6 @@
 # Google AMP
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Implementing AMP](#implementing-amp)
-- [Location of AMP Files](#location-of-amp-files)
-- [Local Testing](#local-testing)
-- [Resources](#resources)
-
-</div> 
+ 
 
 Google AMP (Accelerated Mobile Pages) is an open-source project to improve page speed on mobile devices by using a specific framework for a page’s code. The improved performance on mobile devices provides a better browsing experience for shoppers and boosts ranking on Google search. To learn more about the Google AMP project, see [AMP Overview](https://www.ampproject.org/support/faqs/overview) on the Google AMP project site.
 

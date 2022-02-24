@@ -1,16 +1,6 @@
 # Installing Legacy Theme Modules
 
-<div class="otp" id="no-index">
 
-### On This Page
-
-* [Step 1: Install `jspm`](#install-jspm)
-* [Step 2: Register `jspm` Instance](#register-jspm-instance)
-* [Step 3: Install `jspm-git`](#install-jspm-git)
-* [Step 4: Add BitBucket as a `jspm Registry`](#add-bitbucket-as-a-jspm-registry)
-* [Step 5: Install the Modules](#install-the-modules) 
-
-</div>
 
 If a theme’s version number is lower than `1.10.0`, the theme uses `jspm` as its JavaScript build system. Follow the steps outlined on this article to install theme modules via `jspm`.
 

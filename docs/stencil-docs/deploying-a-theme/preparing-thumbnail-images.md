@@ -1,15 +1,6 @@
 # Preparing Thumbnail Images
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Where merchants see your theme's thumbnail images](#where-merchants-see-your-themes-thumbnail-images)
-- [General image requirements](#general-image-requirements)
-- [Theme-wide composite image](#theme-wide-composite-image)
-- [Variations: desktop and mobile screenshots](#variations-desktop-and-mobile-screenshots)
-- [Resources](#resources)
-
-</div>
 
 ## Displaying theme thumbnail images
 
@@ -105,6 +96,6 @@ Here is how you would reference these files within [config.json](https://github.
 ## Resources
 
 ### Related articles
-* [Naming Your Theme and Theme Variations](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/naming-your-theme)
-* [Checking a Theme's Size](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/checking-a-themes-size)
-* [Bundling and Pushing a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing)
+* [Naming Your Theme and Theme Variations](/stencil-docs/deploying-a-theme/naming-your-theme)
+* [Checking a Theme's Size](/stencil-docs/deploying-a-theme/checking-a-themes-size)
+* [Bundling and Pushing a Theme](/stencil-docs/deploying-a-theme/bundling-and-pushing)

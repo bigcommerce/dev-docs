@@ -1,17 +1,6 @@
 # Support
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Developer community](#developer-community)
-- [Developer blog](#developer-blog)
-- [Developer library](#developer-library)
-- [Developer Slack](#developer-slack)
-- [Changelog](#changelog)
-- [BigCommerce Status](#bigcommerce-status)
-- [Town Hall](#town-hall)
-- [Partner Support Team](#partner-support-team)
-</div> 
+ 
 
 As a BigCommerce partner, you have access to a wide variety of support resources. This article outlines the different types of resources available to you.
 
@@ -25,7 +14,7 @@ The [Developer blog](https://medium.com/bigcommerce-developer-blog) provides pro
 
 ## Developer library
 
-The [Developer library](https://developer.bigcommerce.com/dev-library/) provides samples, tools, and guides to help jump-start the perfect ecommerce experience. Find examples and starters to help you begin working on BigCommerce.
+The [Developer library](https://developer.bigcommerce.com/dev-library) provides samples, tools, and guides to help jump-start the perfect ecommerce experience. Find examples and starters to help you begin working on BigCommerce.
 
 ## Developer Slack
 
@@ -33,7 +22,7 @@ BigCommerce has a dedicated Slack channel for Technology and Agency partners. It
 
 ## Changelog
 
-[Changelog](https://developer.bigcommerce.com/changelog) is a log of notable updates made to the BigCommerce platform. Find significant changes, such as new features, latest releases, and bug fixes in chronological order. To stay up-to-date with the Changelog updates, subscribe to the [RSS Feeds](https://developer.bigcommerce.com/changelog#feeds).
+[Changelog](/changelog) is a log of notable updates made to the BigCommerce platform. Find significant changes, such as new features, latest releases, and bug fixes in chronological order. To stay up-to-date with the Changelog updates, subscribe to the [RSS Feeds](/changelog#feeds).
 
 ## BigCommerce Status
 

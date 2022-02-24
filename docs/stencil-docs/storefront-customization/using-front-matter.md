@@ -1,17 +1,7 @@
 
 # Using Front Matter
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Declaring front matter objects](#declaring-front-matter-objects)
-- [Filtering attributes](#filtering-attributes)
-- [Combining front matter and Handlebars](#combining-front-matter-and-handlebars)
-- [Default vs custom attributes](#default-vs-custom-attributes)
-- [Declaring multiple attributes](#declaring-multiple-attributes)
-- [Resources](#resources)
-
-</div>
 
 ## Declaring front matter objects
 
@@ -65,7 +55,7 @@ products:
 
 ```
 
-Most keys have a default value, as listed in the [front matter Attributes](https://developer.bigcommerce.com/stencil-docs/reference-docs/front-matter-reference) Reference. Specifying the key without a value will call that default value. The default value for `similar_by_views:limit:` happens to be `4`, so inserting `limit` with no integer will display four products:
+Most keys have a default value, as listed in the [front matter Attributes](/stencil-docs/reference-docs/front-matter-reference) Reference. Specifying the key without a value will call that default value. The default value for `similar_by_views:limit:` happens to be `4`, so inserting `limit` with no integer will display four products:
 
 ```yaml
 
@@ -111,7 +101,7 @@ products:
 <!-- theme:info  -->
 
 ### Reading the Handlebars
-> In the above HTML, the {{ name }} identifier calls an attribute of Stencil’s common product card model, which consolidates details about a given product. For this and other objects that you can access through HTML, please see our [reference](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#Front-Matter-overview_declaring-objects) section on Handlebars objects.
+> In the above HTML, the {{ name }} identifier calls an attribute of Stencil’s common product card model, which consolidates details about a given product. For this and other objects that you can access through HTML, please see our [reference](/stencil-docs/reference-docs/handlebars-helpers-reference#Front-Matter-overview_declaring-objects) section on Handlebars objects.
 
 </div>
 </div>
@@ -147,4 +137,4 @@ product:
 ```
 
 ## Resources
-* [Front Matter Reference](https://developer.bigcommerce.com/stencil-docs/reference-docs/front-matter-reference)
+* [Front Matter Reference](/stencil-docs/reference-docs/front-matter-reference)
