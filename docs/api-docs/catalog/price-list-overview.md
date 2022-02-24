@@ -4,24 +4,22 @@
 ## What is a price list?
 
 
-A Price List allows you to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level. If an active Price List does not contain prices for a variant, then the Catalog pricing will be used. 
+A price list allows you to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level. If an active price list does not contain prices for a variant, then the catalog pricing will be used. 
 
-You can assign a Price List to a specific sales channel, customer group, or customer group on a specific sales channel using price list assignments via the [Price List Assignment API](https://developer.bigcommerce.com/api-reference/store-management/price-lists/price-lists-assignments/createpricelistassignments). You can also associate a Price List to a Customer Group via the Control Panel or the [Customer Groups API](api-reference/store-management/customers-v2). Price list assignments combined with a customer group assignment allow you to better target specifically the logged-in customers shopping on that channel.
+You can assign a price list to a specific sales channel, customer group, or customer group on a specific sales channel using price list assignments via the [Price List Assignment API](https://developer.bigcommerce.com/api-reference/store-management/price-lists/price-lists-assignments/createpricelistassignments). You can also associate a price list to a customer group via the Control Panel or the [Customer Groups API](api-reference/store-management/customers-v2). Price list assignments combined with a customer group assignment allow you to better target the logged-in customers shopping on that channel.
 
-Price Lists will provide overridden price values to the Stencil storefront. You can further customize the final price display within the Stencil template. For more information, see the [Theme Objects](/stencil-docs/reference-docs/global-objects-and-properties).
+Price lists will provide overridden price values to the Stencil storefront. You can further customize the final price displayed within the Stencil template. For more information, see [Theme Objects](/stencil-docs/reference-docs/global-objects-and-properties).
 
 
 ### OAuth scopes
 The following OAuth Scopes are required:
 * [Products](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes)
 
-## Price List definitions
+## Price list definitions
 
-- **Price List:** a collection of price records; price records make up a price list.
+- **Price list:** a collection of price records; price records make up a price list.
 
-
-
-- **Price Record:** a price override for a particular variant - minimally, a variant ID, price, and currency.
+- **Price record:** a price override for a particular variant - minimally, a variant ID, price, and currency.
 
 
 ```json
@@ -38,8 +36,6 @@ The following OAuth Scopes are required:
 
 - `PriceRecordBatch`: a way to update several price records in a price list at once. Using this bulk upsert endpoint, you can upsert up to 1000 price records in a single API call.
 
-
-
 - **Currency:** a price list can contain records for multiple currencies. If you use a [transactional currency](/api-docs/multi-currency/guide/introduction#display-vs-transactional), the customer group or channel will use price records in that currency. If a multi-currency price list is unavailable, BigCommerce auto converts the catalog price. The customer group or channel uses price records in the default currency and performs a currency conversion for [display-only currencies](/api-docs/multi-currency/guide/introduction#display-vs-transactional).
 
 
@@ -51,7 +47,7 @@ lineNumbers: true
 
 **Example Get All Price Lists**
 
-`https://api.bigcommerce.com/stores/{store_hash}/v3/pricelists`
+`GET https://api.bigcommerce.com/stores/{store_hash}/v3/pricelists`
 
 ```json
 [{
@@ -99,8 +95,8 @@ The price list assignment assigns a price list to a specific sales channel. This
 
 See [Channels, Sites, and Routes](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api) for further documentation.
 
-**Example Price List assigned to channel**
-`https://api.bigcommerce.com/stores/{store_hash}/v3/pricelists/assignments`
+**Example price list assigned to channel**
+`POST https://api.bigcommerce.com/stores/{store_hash}/v3/pricelists/assignments`
 
 ```js
 {
@@ -117,10 +113,10 @@ subtitle: ""
 lineNumbers: true
 -->
 
-## Price Lists assigned to customer groups 
+## Price lists assigned to customer groups 
 
-**Example Price List assigned to a customer group**
-`https://api.bigcommerce.com/stores/{store_hash}/v2/customer_groups/{customer_group_id}`
+**Example price list assigned to a customer group**
+`PUT https://api.bigcommerce.com/stores/{store_hash}/v2/customer_groups/{customer_group_id}`
 
 ```json
 [
@@ -143,11 +139,11 @@ lineNumbers: true
 
 Under `discount_rules` the `type` is set to `price_list`. The `price_list_id` is 1, which is the id of the price list assigned to the group.
 
-## Price List notes
+## Price list notes
 
-- Bulk Pricing Tiers may additionally be associated with a Price Record to indicate different pricing as the quantity in cart increases.
+- Bulk pricing tiers may additionally be associated with a Price Record to indicate different pricing as the quantity in cart increases.
 
-- If a variant has a `Price Record`, any existing product-level bulk pricing will not apply in the cart.  For variants without `Price Records`, any existing product bulk pricing will apply.
+- If a variant has a `Price Record`, any existing product-level bulk pricing will not apply in the cart. For variants without `Price Records`, any existing product bulk pricing will apply.
 
 - `Price Lists Records` accepts bulk upsert. You can only do one [Bulk upsert](/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection) at a time. Running more than one in parallel on the **same store** will cause a 429 error, and the request will fail.
 
