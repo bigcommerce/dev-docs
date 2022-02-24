@@ -27,7 +27,7 @@ Merchants or shoppers' personal identifiable information (PII) collected by recu
 
 ## Processing a payment
 
-You can process payments charged to either of two main forms of payment: newly-entered credit cards, or stored cards. For a list of supported payment gateways and their feature sets, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available). 
+You can process payments charged to either of two main forms of payment: new payment instruments or stored instruments. For a list of supported payment gateways and their feature sets, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available). 
 
 <!-- theme: info -->
 > #### Notes
