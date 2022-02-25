@@ -1,8 +1,7 @@
 # Installing a Custom Order Confirmation Page
 
 
-
-You can engage with your customers after purchase with a custom order confirmation page. This article outlines how to package a custom order confirmation file, and install a custom confirmation file via the control panel.
+You can engage with your customers after purchase with a custom order confirmation page even if you are not using a custom checkout. This article outlines how to package a custom order confirmation file, and install a custom confirmation file via the control panel. 
 The installation process is the same as [Installing a Custom Checkout](/stencil-docs/customizing-checkout/installing-custom-checkouts), except you will modify a different [file](https://github.com/bigcommerce/checkout-js/blob/master/src/app/order/OrderConfirmation.tsx) in [Open Source Checkout](https://github.com/bigcommerce/checkout-js).
 
 ## Generate the JavaScript loader file
