@@ -369,6 +369,21 @@ paths:
                 - provider_id: storecredit
                   amount: 232.75
                   offline: false
+            Merchant Calculated Override:
+              order_id: 1234
+              items:
+                - item_type: ORDER
+                  item_id: 1234
+                  amount: 10
+                  reason: overcharged
+              merchant_calculated_override:
+                total_amount: 10
+                tax_amount: 0
+              payments:
+                - provider_id: authorizenet
+                  provider_description: Authorize.net
+                  amount: 10
+                  offline: false
           description: ''
         - $ref: '#/parameters/Accept'
         - $ref: '#/parameters/Content-Type'
@@ -2205,6 +2220,8 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/PaymentRequest'
+      merchant_calculated_override:
+        $ref: '#/definitions/MerchantOverride'
     required:
       - items
       - payments
@@ -2337,6 +2354,26 @@ definitions:
         type: string
         minLength: 0
         maxLength: 1000
+  MerchantOverride:
+    type: object
+    title: Merchant Calculated Override
+    description: |
+      Merchant explicitly provided override based on their own calculation.
+
+      This override gives merchants the flexibility to
+      - bypass any tax correction due to tax rate/providers changes between when a customer places an order and a merchant initiates a refund
+      - use explicit values calculated by external systems (e.g., merchants' own Extended Producer Responsibility or Order Management System)
+
+      Note: when using the override, BC internal tax based refund calculation is skipped and therefore order/taxes records are not updated.
+    properties:
+      total_amount:
+        $ref: '#/definitions/Amount'
+      total_tax:
+        type: number
+        description: 'Total tax amount refunded back to the shopper. Use 0 value if there is no tax liability change for the refund or tax does not need to be recorded on the refund and would be handled externally.'
+    required:
+      - total_amount
+      - total_tax
   Refund:
     type: object
     title: Refund
@@ -2364,7 +2401,10 @@ definitions:
         $ref: '#/definitions/Amount'
       total_tax:
         type: number
-        description: 'Total tax amount refunded back to shopper. Note: order_level_amount does not affect tax liability. This can be negative amount indicating we have collected tax by virtue of refunding less to the customer'
+        description: 'Total tax amount refunded back to the shopper. Note: `order_level_amount` does not affect tax liability. This can be a negative amount indicating we have collected tax by refunding less to the customer.'
+      uses_merchant_override_values:
+        type: boolean
+        description: 'Whether refund amount and tax are provided explicitly by merchant override'
       items:
         type: array
         description: Array of items refunded
@@ -2899,6 +2939,7 @@ responses:
           reason: ''
           total_amount: 1.99
           total_tax: 1
+          uses_merchant_override_values: false
           items:
             - item_type: HANDLING
               item_id: 1
