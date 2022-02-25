@@ -1,7 +1,5 @@
 # PCI Compliance
 
-
-
 This section covers the Payment Card Industry Data Security Standard compliance and your responsibilities as a third-party developer.
 
 ## What is PCI DSS
@@ -14,18 +12,12 @@ BigCommerce is a PCI DSS compliant service provider and certifies annually [all 
 
 Merchants can use BigCommerce's PCI DSS AOC to satisfy the compliance requirements for the part that outlines its responsibilities. To learn more about showing proof of compliance, see [Showing Compliance](https://support.bigcommerce.com/s/article/PCI-Compliance#how).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
+> #### Note
+> If your application handles credit card data, you will need to be PCI compliant. Submit self-assessment questionnaires (**SAQs**) to [compliance@bigcommerce.com](mailto:compliance@bigcommerce.com).
 
-> ### Note
-> If your application handles credit card data, you will need to be PCI compliant. Self-assessment questionnaires (**SAQs**) can be submitted to [compliance@bigcommerce.com](mailto:compliance@bigcommerce.com).
 
-</div>
-</div>
-</div>
-
-BigCommerce is responsible for maintaining secure handling of credit cards while the payment is en route from payment request to payment processors. Merchants, service providers, and other entities involved with payment card processing must never store sensitive authentication data after authorization. This includes the 3- or 4- digit security code printed on the front or back of a card, the data stored on a card's magnetic stripe or chip (also called “Full Track Data”) – and personal identification numbers (**PIN**) entered by the cardholder. As a third-party developer, it is your responsibility to program the storefronts and recurring billing apps in a PCI compliant manner. If development affects the flow of sensitive credit card data, you will need to maintain a PCI compliance certification for third-party service providers certified by an external Qualified Security Assessor (**QSA**). For information on processing payments and PCI compliance, see [PCI compliance (Payments API)](https://developer.bigcommerce.com/api-docs/store-management/payment-processing#pci-compliance).
+BigCommerce is responsible for maintaining secure handling of credit cards while the payment is en route from payment request to payment processors. Merchants, service providers, and other entities involved with payment card processing must never store sensitive authentication data after authorization. This includes the 3- or 4- digit security code printed on the front or back of a card, the data stored on a card's magnetic stripe or chip (also called “Full Track Data”) – and personal identification numbers (**PIN**) entered by the cardholder. As a third-party developer, it is your responsibility to program the storefronts and recurring billing apps in a PCI-compliant manner. If development affects the flow of sensitive credit card data, you will need to maintain a PCI compliance certification for third-party service providers certified by an external Qualified Security Assessor (**QSA**). For information on processing payments and PCI compliance, see [PCI compliance (Payments API)](/api-docs/store-management/payment-processing#pci-compliance).
 
 The following table outlines PCI compliance responsibilities based on the type of integration.
 
@@ -40,21 +32,16 @@ The following table outlines PCI compliance responsibilities based on the type o
 | Checkout and Payments SDK | Not responsible. </br> The way your business consumes the SDKs (either BigCommerce as a storefront and backend, or BigCommerce as a backend) would determine BigCommerce's responsibilities. | Responsible for the PCI DSS compliance requirements applicable, as stated in BigCommerce as a storefront or BigCommerce as a backend.|
 | Checkout and Payments API | Not responsible. </br> The way your business consumes the SDKs (either BigCommerce as a storefront and backend, or BigCommerce as a backend) would determine BigCommerce's responsibilities. |  Responsible for the PCI DSS compliance requirements applicable, as stated in BigCommerce as a storefront or BigCommerce as a backend. |
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > The way your business consumes the SDKs (either BigCommerce as a storefront and backend or BigCommerce as a backend ) determines BigCommerce's  responsibilities; It is possible to use one more of BigCommerce's technology stack at the same time. Your PCI DSS compliance responsibilities will be a combination of each stack consumed.
 
-</div>
-</div>
-</div>
+
 
 ## Resources
 
 - [Maintaining Payment Security](https://www.pcisecuritystandards.org/pci_security/maintaining_payment_security)
 - [Merchants Classification Levels Visa](https://usa.visa.com/support/small-business/security-compliance.html#3)
 - [Merchants Classification Levels Mastercard](https://www.mastercard.us/en-us/merchants/safety-security/security-recommendations/merchants-need-to-know.html)
-- [Payments API](https://developer.bigcommerce.com/api-docs/store-management/payment-processing)
+- [Payments API](/api-docs/store-management/payment-processing)
 - [Self Assessment Questionnaire (SAQ) Types and Identifying which SAQ is for you](https://www.pcisecuritystandards.org/documents/SAQ-InstrGuidelines-v3_2_1.pdf?agreement=true&time=1562173376464)

@@ -38,7 +38,7 @@ In all, the structure that you give your theme's `config.json` and `schema.json`
 
 ## Theme Styles data types
 
-You are free to decide which properties of your theme to make editable in [Theme Styles](https://developer.bigcommerce.com/stencil-docs/reference-docs/styles-and-properties/) and in which order to display them. Theme Styles can expose any set of properties as long as your `schema.json` declares them using the data types that Theme Styles supports.
+You are free to decide which properties of your theme to make editable in [Theme Styles](/stencil-docs/reference-docs/styles-and-properties/) and in which order to display them. Theme Styles can expose any set of properties as long as your `schema.json` declares them using the data types that Theme Styles supports.
 
 Theme Styles supports the following data types:
 * checkbox
@@ -111,7 +111,7 @@ To make sure revisions to your theme are backward-compatible, we recommend manag
 
 ## Persistent settings storage
 
-When store administrators use Theme Styles to customize your store's theme, they save the store's resulting configuration settings to a separate configuration service at BigCommerce.
+When store administrators use Theme Styles to customize their store's theme, they save the store's resulting configuration settings to a separate configuration service at BigCommerce. However, if they download the current theme from the dropdown in the control panel, the theme styles settings will appear in `config.json`. The `config.json` file contains settings currently applied to the theme so that styles set in Page Builder can be further customized in local development.
 
 ## Theme upgrades and settings
 

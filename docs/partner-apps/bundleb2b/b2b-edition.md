@@ -29,7 +29,7 @@ Additionally, you can use the B3 REST API to create, read, update, and delete it
 
 ### Prerequisites for customizing B3
 
-- [Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil)
+- [Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil)
 - [Node.js 12 and npm](https://nodejs.org/en/download/releases/)
 - [Stencil API token](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) to push BigCommerce theme using Stencil CLI
 - A code editor
@@ -62,16 +62,11 @@ To modify the styling of a B3 module, follow these steps:
 1. Insert `window.b3themeConfig.useStyles = {}` into your theme's `assets/js/global.js` file. 
 2. Within `window.b3themeConfig.useStyles = {}`, create a property that uses the B3 element name as the key and one or more comma-separated CSS declarations as the value.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > Since the CSS is written in a JavaScript object, properties with two names, like `background-color`, must be written with camel case syntax: `backgroundColor: "lightblue"`
 
-</div>
-</div>
-</div>
+
 
 When done, the object will resemble the following:
 

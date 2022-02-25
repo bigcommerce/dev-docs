@@ -9,7 +9,7 @@ When you enable ShipperHQ on a store, additional fields become available on the 
 These field values can be set in the control panel by the merchant as well as using one of the following:
 
 * [Product Metafields Endpoint](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield)
-* [Variant Metafields Endpoint](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield)
+* [Variant Metafields Endpoint](/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield)
 
 ## ShipperHQ object properties
 
@@ -27,18 +27,12 @@ These field values can be set in the control panel by the merchant as well as us
 | id | number | ID of the metafield. | read only |
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-    
 <!-- theme: warning -->
-### Entering metafield data
+> #### Entering metafield data
 > You must enter the metafields exactly, otherwise, they will not work. Since metafields can store information against a product, if the `namespace` for example is set to shipping and not `shipping.shipperhq`, it will not update the shipping information.
 
 
-</div>
-</div>
-</div>
+
 
 ## Control panel behavior
 
@@ -128,7 +122,7 @@ Response:
 
 ## Resources
 ### Related endpoints
-* [Product Metafield](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield)
-* [Variant Metafield](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield)
+* [Product Metafield](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield)
+* [Variant Metafield](/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield)
 ### Related articles
 * [ShipperHQ](https://support.bigcommerce.com/s/article/ShipperHQ) (Knowledge Base)

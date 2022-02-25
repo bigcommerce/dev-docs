@@ -2,7 +2,7 @@
 
 
 
-Front matter defines which store resources are available to be rendered within a Stencil template. Front matter is declared at the top of each template and uses [YAML](https://yaml.org/) syntax. For more information, see [Declaring Front Matter Objects](https://developer.bigcommerce.com/stencil-docs/storefront-customization/using-front-matter#declaring-front-matter-objects).
+Front matter defines which store resources are available to be rendered within a Stencil template. Front matter is declared at the top of each template and uses [YAML](https://yaml.org/) syntax. For more information, see [Declaring Front Matter Objects](/stencil-docs/storefront-customization/using-front-matter#declaring-front-matter-objects).
 
 ## Supported templates
 You can use YAML front matter for templates in the `templates/pages/` directory. Injecting objects in the front matter of `templates/pages/page.html` will make the objects available to custom templates.
@@ -39,11 +39,11 @@ customer:
 ```yaml
 products:
   featured:
-    limit: 10   #limits the number of featured products to 5
+    limit: 5   #limits the number of featured products to 5
   new:
-    limit: 10   #limits the number of new products to 5
+    limit: 5   #limits the number of new products to 5
   top_sellers: 
-    limit: 10   # limits the number of top sellers to 5
+    limit: 5   # limits the number of top sellers to 5
 ```    
 
 |  Property | Description |
@@ -69,7 +69,7 @@ blog:
 
 |  Property | Description |
 | --- | --- |
-|`blog`| Default sorting is by published_date, from most recent to earliest. This sorting does not work on the blog page. See [Blog Attributes](https://developer.bigcommerce.com/stencil-docs/reference-docs/front-matter-reference#blog-attributes).|
+|`blog`| Default sorting is by published_date, from most recent to earliest. This sorting does not work on the blog page. See [Blog Attributes](/stencil-docs/reference-docs/front-matter-reference#blog-attributes).|
 |`recent_posts`| null: No recent blog posts displayed. If not defined, defaults to the maximum of 20 blog posts.|
 |`summary`|Sets the number of characters to display in each blog post summary. If not defined, it displays 100 characters.|
 
@@ -120,7 +120,7 @@ Blog attributes are available in the context of a blog.
 ```yaml
 blog: 
   posts:
-    limit: 5        # limits number of blog posts to 10
+    limit: 10        # limits number of blog posts to 10
     pages: 5        # displays 5 pages in pagination links
     summary: 250    # displays 250 character summary of blog post
 ```
@@ -146,7 +146,7 @@ product:
   related_products:
     limit: 10          # limits related products by name to 10
   similar_by_views:
-      limit:           # limits similar products by views to 10
+      limit: 10        # limits similar products by views to 10
 ```
 
 |Property|Description|
@@ -226,7 +226,7 @@ search:
 |`product_results`|`limit` defines the number of product search results displayed per page. The range of possible values is 1–100 products.|
   
 ## GraphQL attributes
-You can add [GraphQL Storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview) queries to your theme via the front matter block in a template file. For example, you can request a product's variants by augmenting the existing [product.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html):
+You can add [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) queries to your theme via the front matter block in a template file. For example, you can request a product's variants by augmenting the existing [product.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html):
   
  ```handlebars
  ---
@@ -258,7 +258,7 @@ product:
   "
   ```
   
-We suggest testing GraphQL queries using the [storefront API playground](https://developer.bigcommerce.com/api-reference/storefront/graphql#graphql-playground) to refine them before adding them to your template. You can launch the playground in the context of your store by clicking the **Storefront API Playground** link under the **Advanced Settings** menu in your store's control panel.
+We suggest testing GraphQL queries using the [storefront API playground](/api-reference/storefront/graphql#graphql-playground) to refine them before adding them to your template. You can launch the playground in the context of your store by clicking the **Storefront API Playground** link under the **Advanced Settings** menu in your store's control panel.
   
 Once you have added a query to your template's front matter block, execution happens automatically when the page loads. The data returned by the query will be returned in the page's context and made available to the handlebars under the `gql` key. For example, you can retrieve the variant data from the above query in `product.html` like this:
 ```handlebars

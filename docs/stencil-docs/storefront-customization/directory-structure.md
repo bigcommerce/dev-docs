@@ -1,22 +1,7 @@
 # Directory Structure
 
-  <div class="otp" id="no-index">
-    ### On This Page
-    - [assets/](#assets)
-    - [assets/js/](#assetsjs)
-    - [lang/](#lang)
-    - [meta/](#meta)
-    - [templates/](#templates)
-    - [config.json](#configjson)
-    - [schema.json](#schemajson)
-    - [schemaTranslations.json](#schematranslationsjson)
  
-  </div>
-
-  
-  
 The default directory structure for [Cornerstone](https://github.com/bigcommerce/cornerstone)-based themes is as follows:
-
   
 
 ```shell

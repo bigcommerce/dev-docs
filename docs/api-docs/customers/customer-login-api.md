@@ -19,7 +19,9 @@ You can use the Customer Login API in the following use cases:
 
 Storefront customers are logged in using the access point URL `/login/token/{token}`. The `{token}` must be a JSON Web Token (JWT) containing parameters for the customer login request signed by your application’s OAuth client secret. For more information on the OAuth protocol, see [OAuth](https://oauth.net/2/). 
 
-JWT is an industry standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) for securely transmitting information between two parties. A JWT is represented as a sequence of base64url-encoded sections separated by dots (` . `).  The sections include the header, payload, and signature. For more details, see [Introduction to JSON Web Tokens](https://jwt.io/introduction/). 
+JWT is an industry-standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) for securely transmitting information between two parties. A JWT represents a sequence of base64url-encoded sections separated by dots (` . `).  The sections include the header, payload, and signature. For more details, see [Introduction to JSON Web Tokens](https://jwt.io/introduction/). 
+
+You are required to include the `channel_id` when using the login JWTs to embed checkout for headless storefronts. Default value = 1
 
 **Payload fields reference**
 
@@ -54,15 +56,15 @@ To log a customer into their storefront account using the Customer Login API, yo
 
 The `{token}` parameter is the JWT containing the payload data signed by your app’s OAuth client secret.
 
-We recommend writing a script to generate a login token since JTW’s `iat` (issued at) claim is only valid for 30 seconds. BigCommerce supplies helper methods for generating login tokens in our [API Client Libraries](https://developer.bigcommerce.com/tools-resources).
+We recommend writing a script to generate a login token since JTW’s `iat` (issued at) claim is only valid for 30 seconds. BigCommerce supplies helper methods for generating login tokens in our [API Client Libraries](/tools-resources).
 
 The beginning of this tutorial focuses on manually creating a token using the debugger tool at [JWT.io](https://jwt.io/). Then, we will explore how to use a JavaScript function to programmatically generate an access point URL. 
 
 ### Create JWT using the debugger tool
 
-To create a JWT, you will need to obtain a `customer_id` using the [Customers v3 API](https://developer.bigcommerce.com/api-reference/store-management/customers-v3). 
+To create a JWT, you will need to obtain a `customer_id` using the [Customers v3 API](/api-reference/store-management/customers-v3). 
 
-1. Send a `GET` request to the [Get All Customers](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customers/customersget) endpoint. Choose a customer and make note of the `customer_id`. 
+1. Send a `GET` request to the [Get All Customers](/api-reference/store-management/customers-v3/customers/customersget) endpoint. Choose a customer and make note of the `customer_id`. 
 
 ```json
 {
@@ -188,7 +190,7 @@ If the request was successful, you will be logged in as a customer and directed 
 
 ### Sample code
 
-Helper methods for generating login tokens are provided in our [API Client Libraries](https://developer.bigcommerce.com/tools-resources). See the following BigCommerce repositories for language-specific examples:
+Helper methods for generating login tokens are provided in our [API Client Libraries](/tools-resources). See the following BigCommerce repositories for language-specific examples:
 
 * [PHP sample](https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421)
 * [Python sample](https://github.com/bigcommerce/bigcommerce-api-python/blob/master/bigcommerce/customer_login_token.py)
@@ -202,18 +204,18 @@ To log out a customer, set the `redirect_to` field of the JWT’s payload to `/l
 
 ## Troubleshooting
 
-* If the clock of the server generating the “iat” claim is not synchronized, the timestamp will be out of sync and the request will fail. If your system’s time is different from the BigCommerce server time, you can use the [Get System Timestamp](https://developer.bigcommerce.com/api-reference/store-management/store-information-api/time-zone/gettime) endpoint as a source of truth.
+* If the clock of the server generating the “iat” claim is not synchronized, the timestamp will be out of sync and the request will fail. If your system’s time is different from the BigCommerce server time, you can use the [Get System Timestamp](/api-reference/store-management/store-information-api/time-zone/gettime) endpoint as a source of truth.
 * You can only visit the access point URL once. The token will be invalidated after the `GET` request is made.
 * Tokens should not be generated in advance. Instead, the app should generate the token and immediately redirect the user’s browser to the access point URL. 
 
 ## Related resources 
 
 ### Articles
-* [Authenticating BigCommerce’s REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials)
-* [BigCommerce APIs Quick Start](https://developer.bigcommerce.com/api-docs/getting-started/making-requests)
+* [Authenticating BigCommerce’s REST APIs](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials)
+* [BigCommerce APIs Quick Start](/api-docs/getting-started/making-requests)
 * [Store API Accounts](https://support.bigcommerce.com/articles/Public/Store-API-Accounts/)
 * [Introduction to JSON Web Tokens](https://jwt.io/introduction/)
 
 ### Endpoints
-* [Customer Login SSO](https://developer.bigcommerce.com/api-reference/storefront/customer-login-sso)
-* [Customers V3](https://developer.bigcommerce.com/api-reference/store-management/customers-v3)
+* [Customer Login SSO](/api-reference/storefront/customer-login-sso)
+* [Customers V3](/api-reference/store-management/customers-v3)

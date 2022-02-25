@@ -1,104 +1,34 @@
 # Theme Assets
 
 
-
 Each Stencil theme’s `assets/` directory contains CSS, JavaScript, and image assets that help create the design of storefront pages. A minimal `assets/` directory contains the files and subdirectories that you can view on the [Cornerstone Github Repository](https://github.com/bigcommerce/cornerstone/tree/master/assets).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
 > In parts of your theme's directory tree where you are free to add new subdirectories and files, be sure to:
-
-* Set newly added directories to permission `755 (drwxr-xr-x)`.
-* Set newly added files to permission `644 (rw-r--r--)`.
-* Without these permissions, running your theme locally will fail, with multiple error messages. Bundling your theme will also fail, blocking its upload to a store.
-
-</div>
-</div>
-</div>
+> * Set newly added directories to permission `755 (drwxr-xr-x)`.
+> * Set newly added files to permission `644 (rw-r--r--)`.
+> * Without these permissions, running your theme locally will fail, with multiple error messages. Bundling your theme will also fail, blocking its upload to a store.
 
 ## Cornerstone assets directory
 
 * Directory: `assets/`
 
-<table>
-  <tr>
-  	<th>File Path</th>
-    <th>Description</th>
-  <tr>
-    <td>assets/fonts</td>
-    <td>The `fonts/` subdirectory contains local versions of theme-specific fonts.</td>
-  <tr>
-  <tr>
-    <td>cornerstone/assets/icons</td>
-    <td>The `icons/` subdirectory contains .svg files for icons used within a theme.</td>
-  <tr>
-  <tr>
-    <td>cornerstone/assets/img</td>
-    <td>The `/img/` subdirectory contains images used in the theme’s display – background images, sprites, and other images not related to store content. You would typically reference these image assets using Stencil's cdn Handlebars helper. For example, generically: <<code>img src="{{cdn 'assets/img/image.jpg'}}"</code>> Or, with a realistic file name: <<code>img src="{{cdn 'assets/img/size-chart.png'}}"</code>>. <br><br>To avoid unexpected 404 errors on your production store, we recommend that you use short relative paths in your SCSS to reference images in your `/img/` subdirectory. So, for example, use references of the form:
-`background: url('../img/header-bg.png');` rather than references of the form:
-`background: url('/assets/img/header-bg.png');`</td>
-  </tr>
-  <tr>
-    <td>cornerstone/assets/js</td>
-    <td>The /js/ subdirectory contains general JavaScript files used in the theme.</td>
-  </tr>
-  <tr>
-    <td>cornerstone/assets/scss</td>
-    <td>The /scss/ subdirectory contains theme-specific CSS resources.</td>
-  </tr>
-	<tr>
-	  <tr>
-    <td>cornerstone/assets/layouts/</td>
-    <td>The {theme-name}/assets/scss/layouts/ subdirectory contains .scss files that provide default styling for major layout components of theme pages. You can see the /layouts/ subdirectory’s internal structure on the Cornerstone Github Repository.</td>
-  </tr>
-	<tr>
-	  <tr>
-    <td>cornerstone/assets/settings/</td>
-    <td>The {theme-name}/assets/scss/settings/ subdirectory contains SCSS variables for your framework. Files here map directly to components. If present, these variables override defaults in consumed libraries. The /settings/ subdirectory’s internal structure can be viewed at the Cornerstone Github Repository.
+|  File Path | Description |
+|---|---|
+| assets/fonts | The `fonts/` subdirectory contains local versions of theme-specific fonts. |
+| cornerstone/assets/icons | The `icons/` subdirectory contains .svg files for icons used within a theme. |
+| cornerstone/assets/img | The `/img/` subdirectory contains images used in the theme’s display – background images, sprites, and other images not related to store content. You would typically reference these image assets using Stencil's `cdn` Handlebars helper. For example, generically: <`img src="{{cdn 'assets/img/image.jpg'}}"`> Or, with a realistic file name: <`img src="{{cdn 'assets/img/size-chart.png'}}"`>. <br><br>To avoid unexpected 404 errors on your production store, we recommend that you use short relative paths in your SCSS to reference images in your `/img/` subdirectory. So, for example, use references of the form `background: url('../img/header-bg.png');` rather than references of the form: `background: url('/assets/img/header-bg.png');` |
+| cornerstone/assets/js | The /js/ subdirectory contains general JavaScript files used in the theme. |
+| cornerstone/assets/scss | The /scss/ subdirectory contains theme-specific CSS resources. |
+| cornerstone/assets/layouts/ | The `{{theme-name}}/assets/scss/layouts/` subdirectory contains `.scss` files that provide default styling for major layout components of theme pages. You can see the `/layouts/` subdirectory’s internal structure on the Cornerstone Github Repository. |
+| cornerstone/assets/settings/ | The `{{theme-name}}/assets/scss/settings/ subdirectory` contains SCSS variables for your framework. Files here map directly to components. If present, these variables override defaults in consumed libraries. The /settings/ subdirectory’s internal structure can be viewed at the Cornerstone Github Repository. <br><br>The nested subdirectory for your chosen framework contains a file that includes that framework’s variables. For example, in the default Stencil theme, this file is: /settings/foundation/_foundation.scss. <br><br>Within each subdirectory nested at the ultimate level is one primary file, `_settings.scss`, that imports all other variables that have been broken into logical files, such as `_colors.scss`, `_typography.scss`, and `_z-index.scss`. |
+| cornerstone/assets/utilities/ | The {{theme-name}}/assets/scss/utilities subdirectory contains mixins and tools, beyond the Citadel library, that help create UI’s. You can apply these CSS snippets to your HTML for quick prototyping when you need a unique, yet repeatable, style. <br><br>Every utility in this subdirectory will have both a class and a mixin. For example, consider the utility truncatedText: You can use it by applying the class `.u-truncatedText`, or by applying the mixin `@include u-truncatedText;`. |
+| cornerstone/assets/scss/components | The components subdirectory contains the 4 following subdirectories: <br> `/citadel/`<br>`/foundation/`<br>`/stencil/`<br>`/vendor/` |
+| cornerstone/assets/scss/components/citadel | Read about the Citadel directory below. |
+| cornerstone/assets/scss/components/foundation | The /components/vendor/ subdirectory contains the consumed version of framework components from your chosen provider. There is some renaming of these components to match Stencil naming conventions. |
+| cornerstone/assets/scss/components/stencil | Read about the stencil directory below. |
+| cornerstone/assets/scss/components/vendor | The /components/vendor/ subdirectory contains the consumed version of framework components from your chosen provider. There is some renaming of these components to match Stencil naming conventions. |
 
-The nested subdirectory for your chosen framework contains a file that includes that framework’s variables. For example, in the default Stencil theme, this file is: /settings/foundation/_foundation.scss.
-
-Within each subdirectory nested at the ultimate level is one primary file, `_settings.scss`, that imports all other variables that have been broken into logical files, such as `_colors.scss`, `_typography.scss`, and `_z-index.scss`.</td>
-  </tr>
-	<tr>
-	  <tr>
-    <td>cornerstone/assets/utilities/</td>
-    <td>The {theme-name}/assets/scss/utilities subdirectory contains mixins and tools, beyond the Citadel library, that help create UI’s. You can apply these CSS snippets to your HTML for quick prototyping when you need a unique, yet repeatable, style.
-
-Every utility in this subdirectory will have both a class and a mixin. For example, consider the utility truncatedText: You can use it by applying the class `.u-truncatedText`, or by applying the mixin `@include u-truncatedText;`.</td>
-  </tr>
-	<tr>
-    <td>cornerstone/assets/scss/components</td>
-    <td>The components subdirectory contains the 4 following subdirectories:
-
-* /citadel/
-* /foundation/
-* /stencil/
-* /vendor/</td>
-  </tr>
-	<tr>
-    <td>cornerstone/assets/scss/components/citadel</td>
-    <td>Read about the Citadel directory below.</td>
-  </tr>
-	<tr>
-    <td>cornerstone/assets/scss/components/foundation</td>
-    <td>The /components/vendor/ subdirectory contains the consumed version of framework components from your chosen provider. There is some renaming of these components to match Stencil naming conventions.</td>
-  </tr>
-	<tr>
-    <td>cornerstone/assets/scss/components/stencil</td>
-    <td>Read about the stencil directory below.</td>
-  </tr>
-	<tr>
-    <td>cornerstone/assets/scss/components/vendor</td>
-    <td>The /components/vendor/ subdirectory contains the consumed version of framework components from your chosen provider. There is some renaming of these components to match Stencil naming conventions.</td>
-  </tr>
-</table>
-
-<a id="theme-assets_citadel"></a>
 
 ## Citadel subdirectory
 
@@ -110,48 +40,21 @@ Citadel design patterns reside in `cornerstone/assets/scss/components/`. Citadel
 * `cornerstone/assets/scss/components/citadel/`
 
 The `components/citadel` subdirectory contains Citadel-specific resources. The resources are named according to our style guide, which follows BEM and SUIT CSS naming conventions. Class names are structured, and hyphens are meaningful (that is, hyphens are not used merely to separate words). Here are some prototypes and examples:
-
-<table>
-  <tr>
-  	<th>Citadel Component Name Design Pattern</th>
-    <th>Class Name Example</th>
-  <tr>
-    <td>componentName</td>
-    <td>.dropdown or .buttonGroup</td>
-  <tr>
-  <tr>
-    <td>componentName--modifierName</td>
-    <td>.dropdown--dropUp or .button--primary</td>
-  <tr>
-  <tr>
-    <td>componentName-descendantName</td>
-    <td>.dropdown-item</td>
-  </tr>
-  <tr>
-    <td>componentName.is-stateOfComponent</td>
-    <td>.dropdown.is-active.</td>
-  </tr>
-  <tr>
-    <td>u-utilityName</td>
-    <td>.u-textTruncate</td>
-  </tr>
-</table>
-
-<a id="theme-assets_componenets-utilities"></a>
+| Citadel Component Name Design Pattern | Class Name Example |
+|---|---|
+| componentName | .dropdown or .buttonGroup |
+| componentName--modifierName | .dropdown--dropUp or .button--primary |
+| componentName-descendantName | .dropdown-item |
+| componentName.is-stateOfComponent | .dropdown.is-active. |
+| u-utilityName | .u-textTruncate |
 
 ## Components vs utilities
 
 Our naming scheme makes an architectural distinction between components and utilities. Components are defined as custom elements that enclose specific semantics, styling, and behavior. Component names are in camel case. Our syntax for naming them is as follows:
 
-<table>
-  <tr>
-  	<th>Component Name Design Pattern</th>
-    <th>Component Name Example</th>
-  <tr>
-    <td>componentName[--modifierName|-descendantName]</td>
-    <td>.nav, .button</td>
-  <tr>
-</table>
+|  Component Name Design Pattern | Component Name Example |
+|---|---|
+| componentName[--modifierName|-descendantName] | .nav, .button |
 
 Utility classes are defined as low-level, structural and positional traits. Utilities can be applied directly to any element. Multiple utilities can be used together, and utilities can be used alongside component classes.
 
@@ -159,17 +62,9 @@ To make HTML patterns as reusable as possible, we have used utility classes spar
 
 Our syntax for naming utilities is camel case, prefixed with a u- namespace:
 
-<table>
-  <tr>
-  	<th>Utility Name Design Pattern</th>
-    <th>Class Name Example</th>
-  <tr>
-    <td>u-utilityName</td>
-    <td>u-navigationBar</td>
-  <tr>
-</table>
-
-<a id="theme-assets_variables"></a>
+|  Utility Name Design Pattern | Class Name Example |
+|---|---|
+| u-utilityName | u-navigationBar |
 
 ## Variables and mixins
 
@@ -177,47 +72,31 @@ Citadel variables and mixins follow similar naming conventions.
 
 Variables are things that can change over time. Their names are in camel case, and show context.
 
-<table>
-  <tr>
-  	<th>Variable Name Design Pattern</th>
-    <th>Variable Name Example</th>
-  <tr>
-    <td>[componentName[--modifierName][-descendentName]-propertyName-variablename[--modifierName]</td>
-    <td>-</td>
-  <tr>
-</table>
+| Variable Name Design Pattern | Variable Name Example |
+|---|---|
+| [componentName[--modifierName][-descendentName]-propertyName-variablename[--modifierName] | - |
 
-<table>
-  <tr>
-  	<th>Mixin Name Design Pattern</th>
-    <th>Mixin Name Example</th>
-  <tr>
-    <td>Mixins follow regular camel-case naming conventions. Namespacing is not universally required for mixins. However, where a mixin has been created for a utility, <p>its name matches the utility’s name, including u- namespacing:</p></td>
-    <td>@mixin buttonVariant;
-@mixin u-textTruncate;</td>
-  <tr>
-</table>
-
-<a id="theme-assets_stencil-subdirectory"></a>
+| Mixin Name Design Pattern | Mixin Name Example |
+|---|---|
+| Mixins follow regular camel-case naming conventions. Namespacing is not universally required for mixins. However, where a mixin has been created for a utility, its name matches the utility’s name, including u- namespacing | @mixin buttonVariant; @mixin u-textTruncate;| 
 
 ## Stencil subdirectory
 
-The /components/stencil/ subdirectory contains CSS files unique to Stencil themes, which are used to create specific page elements within the themes. You can view this subdirectory and all its children in the Cornerstone Theme Github Repository.
+The `/components/stencil/ subdirectory` contains CSS files unique to Stencil themes, which are used to create specific page elements within the themes. You can view this subdirectory and all its children in the Cornerstone Theme Github Repository.
 
 This subdirectory’s children contain CSS for the following page elements.
 
-| Subdirectory  | UI Element/Purpose  |
-|-|-|
+| Subdirectory | UI Element/Purpose |
+|---|---|
 | account  | Customer account details |
-| addressBox  | Customer shipping addresses |
+| addressBox | Customer shipping addresses |
 | addReturn  | Add a product-return request |
 | banners  | Banners displayed across storefront’s top and bottom |
-| blocker   | Position .blocker element above another element, to prevent a user action |
-| compare  | Layout for product-comparison table |
+| blocker | Position .blocker element above another element, to prevent a user action |
+| compare | Layout for product-comparison table |
 | facetedSearch  | Faceted-search toggle (on/off), navigation list, and filters |
 | facetLabel | 	Labels for faceted-search display  |
-| heroCarousel  | Carousel of prominent (“hero”) images
-  |
+| heroCarousel  | Carousel of prominent (“hero”) images |
 | navPages  | Styles for page navigation, with responsive layout |
 | navUser  | Styles for cart counter, quick search|
 | productCarousel  | Carousel of product images |
@@ -228,7 +107,7 @@ This subdirectory’s children contain CSS for the following page elements.
 | socialLinks  | Styles for social-media links  |
 | tags | 	Styles for blog-post tags |
 | toggleLink  | Styles for collapsible/expandable components  |
-|writeReview   | Styles for product-review submission form  |
+| writeReview   | Styles for product-review submission form  |
 
 ## Resources
 

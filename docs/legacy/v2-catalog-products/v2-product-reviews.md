@@ -6,21 +6,10 @@
 
 Reviews associated with a product.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-
-For the most up-to-date version of this API, see [Product Reviews](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-reviews).
-
-</div>
-</div>
-</div>
-
+> For the most up-to-date version of this API, see [Product Reviews](/api-reference/store-management/catalog/product-reviews).
 ### Product Review Object – Properties 
 
 | Name | Type | Description |
@@ -119,7 +108,7 @@ Example JSON returned in the response:
 
 Creates a new product review. 
 
-### Notes 
+**Note**s 
 
 The `review` property is the review's text. The `rating` property must be a whole number between 1–5. If the optional `date_created` property is not specified, it defaults to the current date/time. If the optional "status" property is not specified, it defaults to 0 [`Pending`]. Other allowable values are 1 [`Approved`] or 2 [`Disapproved`].)
 

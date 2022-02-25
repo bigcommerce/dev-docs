@@ -2,7 +2,7 @@
 
 
 
-This article is a reference for [Stencil](https://developer.bigcommerce.com/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of whitelisted [standard helpers](#standard-helpers).
+This article is a reference for [Stencil](/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of whitelisted [standard helpers](#standard-helpers).
 
 ## Custom helpers
 
@@ -86,7 +86,7 @@ Assume that `{{cart.items}}` returns 10 items. You can use this helper to limit 
 <!-- results in: 'This is lo' -->
 ```
 
-```html
+```handlebars
 {{#each (limit cart.items 4)}}
     <li class="previewCartItem">
         <div class="previewCartItem-image">
@@ -100,7 +100,9 @@ Assume that `{{cart.items}}` returns 10 items. You can use this helper to limit 
                     default_image=../../theme_settings.default_image_product
                 }}
             {{/if}}
-  ...
+        </div>
+    </li>
+{{/each}}
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/limit.js)
@@ -122,7 +124,7 @@ Retrieves corresponding values from some or all elements in a collection using s
 
 #### Examples
 
-```html
+```handlebars
 {{pluck ([limit] <collection> [<limit-value>]) '<path>'}}
 ```
 
@@ -183,13 +185,13 @@ A URL transformer for content delivery networks.
 
 To reference static assets staged locally outside your `<theme-name>` directory and uploaded using WebDAV, place the `webdav:` prefix before each corresponding `assetPath` parameter. For example, the following link:
 
-```html
+```handlebars
 <img src="{{cdn 'webdav:img/image.jpg'}}">
 ```
 
 will be transformed to a result like this:
 
-```html
+```handlebars
 <img src="https://cdn.bcapp/3dsf74g/content/img/image.jpg">
 ```
 
@@ -219,19 +221,19 @@ For example:
 
 After defining the endpoint, you can use the short name in the same way as you would use a `webdav:` protocol:
 
-```html
+```handlebars
 <img src="{{cdn 'customcdn:img/image.jpg'}}" />
 ```
 
 In local development, that helper would return:
 
-```html
+```handlebars
 <img src="/assets/cdn/customcdn/img/image.jpg"/>
 ```
 
 Whereas in production, it would return:
 
-```html
+```handlebars
 <img src="https://bigcommerce.customcdn.net/img/image.jpg" />
 ```
 
@@ -447,7 +449,7 @@ Maps keys to translation files based on the locale indicated by the visitor’s 
 
 #### Examples
 
-```html
+```handlebars
 <label class="form-label" for="search_query_adv">
   {{lang 'forms.search.query' }}
   <small>{{lang 'common.required' }}</small>
@@ -691,7 +693,7 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 
 **Inherent width**
 
-```html
+```handlebars
 <img src="{{getImage image 'default'}}" srcset="{{getImageSrcset image 100w='100w' 200w='200w' 300w='300w'}}" />
 
 <!-- =>
@@ -724,7 +726,7 @@ Renders block if one or more parameters are true.
 
 #### Example
 
-```html
+```handlebars
 {{#any items selected=true}}
   <!-- block to display if any items have selected=true -->
 {{/any}}
@@ -734,7 +736,7 @@ A usage example is [`templates/components/category/shop-by-price.html`](https://
 
 In this component, the `{{any}}` helper is used to determine whether a shopper has selected one of the filters, and whether a "reset" button needs to be displayed:
 
-```html
+```handlebars
 {{#any shop_by_price selected=true}}
     <li class="navList-item">
         <a href="{{category_url}}" class="navList-action">
@@ -767,7 +769,7 @@ Renders block if all parameters are true.
 {{/all}}
 ```
 
-```html
+```handlebars
 {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
     <li class="tab">
         <a class="tab-title" href="#tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}">{{sanitize theme_settings.pdp-custom-fields-tab-label}}</a>
@@ -870,7 +872,7 @@ Renders `if` block when if-statement evaluates to true; otherwise renders `else`
 
 #### Example
 
-```html
+```handlebars
 {{#if page_type '===' 'account_order'}}
     <li class="navBar-item is-active">
         <a class="navBar-action" href="{{urls.account.orders.all}}">{{lang 'account.nav.orders'}}</a>
@@ -903,7 +905,7 @@ Renders block if one or more parameters evaluates to true.
 {{/or}}
 ```
 
-```html
+```handlebars
 {{#or options configurable_fields}}
     <a href="#" data-item-edit="{{id}}">{{lang 'cart.checkout.change'}}</a>
 {{/or}}
@@ -926,7 +928,7 @@ Renders a block if a statement is false; does not support operators for comparis
 
 #### Example
 
-```html
+```handlebars
 {{#each category_results}}
 <li class="category-suggestion">
     {{#each this}}
@@ -1055,7 +1057,7 @@ Replaces all instances of the first parameter in the second parameter with the c
 
 #### Example
 
-```html
+```handlebars
 <!-- Replace all instances of `%%Syndicate%%` in `page.content` with `{{> components/page/rss_feed}}`. -->
 {{#replace '%%Syndicate%%' page.content}}
     {{> components/page/rss_feed}}
@@ -1259,7 +1261,7 @@ Overrides content defined by the [block](#block) helper.
 
 #### Example
 
-```html
+```handlebars
 {{#partial "head"}}
     {{#if pagination.category.previous}}
         <link rel="prev" href="{{pagination.category.previous}}">
@@ -1279,7 +1281,7 @@ Overrides content defined by the [block](#block) helper.
 {{region name}}
 ```
 
-Specifies a [widget](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#widgets) region.
+Specifies a [widget](/api-docs/store-management/widgets/overview#widgets) region.
 
 #### Parameters
 
@@ -1398,16 +1400,11 @@ Parse data with JSONparse.
 
 ## Standard helpers
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > The information presented in this section was borrowed from [helpers/handlebars-helpers](https://github.com/helpers/handlebars-helpers).
 
-</div>
-</div>
-</div>
+
 
 The following table contains whitelisted standard Handlebars helpers available to all Stencil themes. Each helper is linked to its GitHub documentation including parameters and examples.
 
@@ -1531,8 +1528,8 @@ BigCommerce's [custom Handlebars helpers](https://github.com/bigcommerce/paper-h
 
 ## Resources
 
-* [Widgets](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview)
-* [Theme Objects](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties)
+* [Widgets](/api-docs/store-management/widgets/overview)
+* [Theme Objects](/stencil-docs/reference-docs/global-objects-and-properties)
 * [Cornerstone](https://github.com/bigcommerce/cornerstone)
 * [Paper Handlebars](https://github.com/bigcommerce/paper-handlebars/tree/master/helpers)
 * [Handlebars.js](https://handlebarsjs.com/)

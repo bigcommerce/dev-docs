@@ -14,18 +14,11 @@ Stencil automatically detects the `Accept-Language` request HTTP header from the
 
 Stencil's multi-language capabilities are limited to the particular key-value pairs you specify in the theme. Stencil themes do not translate content rendered from a store's catalog database (for example, the name of a product).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Full support for multiple languages
+<!-- theme: info -->
+> #### Full support for multiple languages
 > If you want to fully support multiple languages, we recommend you set up a separate storefront for each language. This will enable you to completely customize your content, including your product catalog, for each target audience.
 
-</div>
-</div>
-</div>
+
 
 ## Required subdirectory
 
@@ -64,19 +57,7 @@ If you design your theme’s storefront pages to refer to this message by its ge
 
 Key-value pairs are grouped into objects, for example:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Objects with translation key-value pairs</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Objects with translation key-value pairs"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Objects with translation key-value pairs" lineNumbers
 {
   "header": {
     "welcome_back": "Welcome back, {name}"
@@ -108,76 +89,32 @@ lineNumbers: true
 
 ## Invoking a translation key
 
-Once keys and values are defined in the [JSON translation file](https://github.com/bigcommerce/cornerstone/tree/master/lang), you can invoke dynamic translation strings using the custom `{{lang}}` [Handlebars string helper](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers). 
+Once keys and values are defined in the [JSON translation file](https://github.com/bigcommerce/cornerstone/tree/master/lang), you can invoke dynamic translation strings using the custom `{{lang}}` [Handlebars string helper](/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers). 
 
 To invoke a defined translation key, follow this generic format:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Syntax to invoke a defined translation key</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Syntax to invoke a defined translation key"
-subtitle: ""
-lineNumbers: true
--->
-
-```html
-{{lang "translation.key" optionalVariable="someValue"}}
+```handlebars title="Syntax to invoke a defined translation key" lineNumbers
+  {{lang "translation.key" optionalVariable="someValue"}}
 ```
 
 In a non-internationalized theme, a storefront page might include a string like this:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Non-internationalized theme example</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Non-internationalized theme example"
-subtitle: ""
-lineNumbers: true
--->
-
-```html
-<a href="{{ urls.account }}">Welcome Back <span>{{ customer.name }}</span></a>
+```handlebars title="Example snippet from a non-internationalized theme" lineNumbers
+  <a href="{{ urls.account }}">Welcome Back <span>{{ customer.name }}</span></a>
 ```
 
 The corresponding internationalized version would substitute the text with the fully dynamic `{{ lang }}` Handlebars helper as shown below:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```
+```handlebars title="Example snippet from an internationalized theme" lineNumbers
 <a href="{{ urls.account }}">{{ lang "header.welcome_back" name=customer.name }}</a>
 
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### File permissions required
-
+> #### File permissions required
 > Be sure to give any new translation files default access permissions of `644 (rw-r--r--)`. Without these permissions, running your theme locally will fail with multiple error messages. Bundling your theme will also fail, blocking its upload to a store.
 
-</div>
-</div>
-</div>
+
 
 <a id="basis_localization-example"></a>
 
@@ -185,62 +122,37 @@ lineNumbers: true
 
 Below is an example based on the Cornerstone’s `templates/components/cart/shipping-estimator.html` file. Here, each highlighted `{{lang...}}` statement abstracts the message indicated by its English-language key to enable internationalization of that message:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```html
+```handlebars title="Example of an internationalized template templates/components/cart/shipping-estimator.html, Cornerstone theme" lineNumbers
 <div class="shipping-estimator" style="display: none;">
-    <form class="estimator-form">
-      <button class="shipping-estimate-hide">{{lang 'cancel'}}</button>
-      <select name="shipping-country">
+  <form class="estimator-form">
+    <button class="shipping-estimate-hide">{{lang 'cancel'}}</button>
+    <select name="shipping-country">
       <option>{{lang 'cart.shipping_estimator.select_a_country'}}</option>
       {{#each countries}}
           <option value="{{id}}" {{#if selected}}selected="selected"{{/if}}>
-                {{name}}
+            {{name}}
           </option>
       {{/each}}
-      </select>
-      <select name="shipping-state">
+    </select>
+    <select name="shipping-state">
       <option>{{lang 'cart.shipping_estimator.select_a_state'}}</option>
       {{#each states}}
           <option value="{{id}}" {{#if selected}}selected="selected"{{/if}}>
-              {{name}}
+            {{name}}
           </option>
       {{/each}}
-      </select>
-      <input type="text" name="shipping-zip" value="{{selected_zip}}">
-      <button class="shipping-estimate-submit">{{lang 'cart.shipping_estimator.estimate_shipping'}}
-      </button>
-    </form>
-    <div class="shipping-quotes"></div>
+    </select>
+    <input type="text" name="shipping-zip" value="{{selected_zip}}">
+    <button class="shipping-estimate-submit">{{lang 'cart.shipping_estimator.estimate_shipping'}}
+    </button>
+  </form>
+  <div class="shipping-quotes"></div>
 </div>
-
 ```
 
 In the example below, the default theme’s `lang/en.json` file includes matches and value definitions for each of the translation keys.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Example translation key definitions lang/en.json" lineNumbers
 {
   "header": {
     "welcome_back": "Welcome back, {name}",
@@ -285,5 +197,5 @@ Translation files for other languages would use a similar format to define key-v
 ### Additional resources
 
 * [Customizing a Theme - lang directory Video Demo](https://www.youtube.com/embed/ygiRGfSrmnA) (YouTube)
-* [Handlebars String Helpers](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers)
+* [Handlebars String Helpers](/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers)
 * [JSON translation file](https://github.com/bigcommerce/cornerstone/tree/master/lang) (BigCommerce GitHub)

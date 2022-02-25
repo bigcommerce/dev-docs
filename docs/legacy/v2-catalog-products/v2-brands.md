@@ -6,21 +6,10 @@
 
 Brand facets for identifying and categorizing products according to their manufacturer or company metonym.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-
-For the most up-to-date version of this API, see [Brands](https://developer.bigcommerce.com/api-reference/store-management/catalog/brands).
-
-</div>
-</div>
-</div>
-
+> For the most up-to-date version of this API, see [Brands](/api-reference/store-management/catalog/brands).
 ### Brand Object – Properties 
 
 | Name | Type | Description |
@@ -141,7 +130,7 @@ The following properties of the brand are required. The request won’t be fulfi
 
 *   name
 
-### Notes 
+**Note**s 
 
 To maximize system performance, BigCommerce caps the number of brands that can be added to a store at 30,000. If your POST causes the store to exceed the maximum of 30,000 brands, BigCommerce will return a 403 error.
 

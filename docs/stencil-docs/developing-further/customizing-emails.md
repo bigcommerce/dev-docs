@@ -3,16 +3,8 @@
 
 This article provides information on how to create your own unique email templates using our legacy framework. 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-For information on customizing email templates on our latest theme framework engine, see [Customizing Emails](https://support.bigcommerce.com/s/article/Customizing-Emails) and [Handlebars Email Template Objects](https://developer.bigcommerce.com/api-docs/store-management/email-templates/handlebars).
-
-</div>
-</div>
-</div>
-
+<!-- theme: info -->
+> For information on customizing email templates on our latest theme framework engine, see [Customizing Emails](https://support.bigcommerce.com/s/article/Customizing-Emails) and [Handlebars Email Template Objects](/api-docs/store-management/email-templates/handlebars).
 ## BigCommerce Legacy Email Templates
 Email templates provide the framework for the store emails automatically sent to customers. You can edit these templates locally then upload them to the store via WebDav, or make changes to them directly in the store's control panel. For information on which user actions trigger these emails to be sent to a customer, see [Email Template Files and Snippets](https://support.bigcommerce.com/s/article/Customizing-Emails#template-files).
 

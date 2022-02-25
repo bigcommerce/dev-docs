@@ -9,7 +9,7 @@ This article provides an overview of BigCommerce's transactional email templates
 
 To edit transactional email templates in a store's control panel, [log in](https://support.bigcommerce.com/s/article/Logging-Into-Your-Store) and navigate to **Marketing** › [**Transactional Emails**](http://login.bigcommerce.com/deep-links/manage/transactional-emails).
 
-Use [Handlebars expressions](https://developer.bigcommerce.com/api-docs/store-management/email-templates/handlebars) to localize email templates and access dynamic data (like a customer's first name in an order email).
+Use [Handlebars expressions](/api-docs/store-management/email-templates/handlebars) to localize email templates and access dynamic data (like a customer's first name in an order email).
 
 
 ```html
@@ -28,18 +28,14 @@ Use [Handlebars expressions](https://developer.bigcommerce.com/api-docs/store-ma
 
 [Learn how to edit, test, and preview transactional email templates in the control panel](https://support.bigcommerce.com/s/article/Customizing-Emails).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-> ### Note
+<!-- theme: info -->
+> #### Note
 > Saving an email template that exceeds 65,536 characters returns an "Email body too large" error message and truncates extra characters.
-</div>
-</div>
-</div>
+
 
 ## API
 
-To manage transactional email templates programmatically, use the [Email Templates API](https://developer.bigcommerce.com/api-reference/store-management/email-templates). For example, to [get a list of email templates](https://developer.bigcommerce.com/api-reference/store-management/email-templates/email-templates/getemailtemplates), send a `GET` request to `/v3/marketing/email-templates`.
+To manage transactional email templates programmatically, use the [Email Templates API](/api-reference/store-management/email-templates). For example, to [get a list of email templates](/api-reference/store-management/email-templates/email-templates/getemailtemplates), send a `GET` request to `/v3/marketing/email-templates`.
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/marketing/email-templates
@@ -47,7 +43,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/email-templates/email-templates/getemailtemplates#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/email-templates/email-templates/getemailtemplates#requestrunner) -->
 
 
 **Response:**
@@ -66,7 +62,7 @@ Accept: application/json
 }
 ```
 
-To [update an email template](https://developer.bigcommerce.com/api-reference/store-management/email-templates/email-templates/updateemailtemplate), send a `PUT` request to `/v3/marketing/email-templates/{template-name}`.
+To [update an email template](/api-reference/store-management/email-templates/email-templates/updateemailtemplate), send a `PUT` request to `/v3/marketing/email-templates/{template-name}`.
 
 ```http
 PUT /stores/{{STORE_HASH}}/v3/marketing/email-templates/account_reset_password_email
@@ -90,11 +86,11 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/email-templates/email-templates/updateemailtemplate#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/email-templates/email-templates/updateemailtemplate#requestrunner) -->
 
 ## Overrides
 
-Pass in a [channel's](https://developer.bigcommerce.com/api-reference/store-management/channels) ID using the `?channel_id=` query parameter to create a channel-specific override for a transactional email template.
+Pass in a [channel's](/api-reference/store-management/channels) ID using the `?channel_id=` query parameter to create a channel-specific override for a transactional email template.
 
 ```http
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/marketing/email-templates/account_reset_password_email?channel_id=123
@@ -117,19 +113,14 @@ Accept: application/json
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > Omit `?channel_id` to interact with global email templates.
 
-</div>
-</div>
-</div>
+
 
 ## Resources
 
-* [Email Template API Reference](https://developer.bigcommerce.com/api-reference/store-management/email-templates)
-* [Email Template Handlebars Reference](https://developer.bigcommerce.com/api-docs/store-management/email-templates/handlebars)
+* [Email Template API Reference](/api-reference/store-management/email-templates)
+* [Email Template Handlebars Reference](/api-docs/store-management/email-templates/handlebars)
 * [Customizing Email Templates](https://support.bigcommerce.com/s/article/Customizing-Emails)

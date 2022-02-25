@@ -13,7 +13,7 @@ You can manage your theme's front-end components by configuring its `config.json
 * Provides metadata for your theme's listing in the Theme Marketplace.
 * Defines variations included in your theme.
 
-For a list of all available keys and values in `config.json`, see [Models](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties/models/configjson).
+For a list of all available keys and values in `config.json`, see [Theme Objects](/theme-objects).
 
 ## Requirements and restrictions
 
@@ -25,16 +25,9 @@ The `config.json` file must meet the following requirements:
 
 Apart from the aforementioned size constraints, there is no limit on the number of keys and values you can place in a theme's `config.json`.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
 > Carefully check your theme against all the listed requirements – including the required keys within the `meta` object and `variations` array. While some requirements are not enforced in local development, they will be validated when you upload your theme to BigCommerce.
-</div>
-</div>
-</div>
+
 
 ### Required config.json keys
 

@@ -15,18 +15,14 @@ Stored Credit Card management gives customer’s the ability to manage their sto
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1541629003006 "#### Stored Credit Card Management
 ")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
 <!-- theme:info  -->
 
 #### Theme Versions
 > 1. Cornerstone versions 2.6.0+ include the ability to manage [Stored Credit Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards) (BigCommerce Support).
 
-</div>
-</div>
-</div>
+
 
 <a id="stored-cc-mgmt_prerequisites"></a>
 
@@ -163,19 +159,11 @@ First, the click will trigger window confirm. The confirmation modal has been ad
 ](//s3.amazonaws.com/user-content.stoplight.io/6116/1541655424566 "#### Add default instrument checkbox to edit and add form
 ")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Utilizing Github Automation to Merge the Changes
-
+<!-- theme: info -->
+> #### Utilizing GitHub Automation to Merge the Changes
 > Since this feature involves heavy code changes, it may be easier to merge the necessary code into your theme by utilizing Github's automated process for syncing a fork. See Github's documentation on [Syncing a Fork](https://help.github.com/articles/syncing-a-fork/) for more details on this method.
 
-</div>
-</div>
-</div>
+
 
 ## FAQ
 **Where is the card data stored?**
@@ -193,6 +181,6 @@ After adding a card, shoppers will only be able to modify the billing address. I
 ## Resources
 
 ### Related Articles
-* [Payments API](https://developer.bigcommerce.com/api-docs/payments/payments-api-overview)
+* [Payments API](/api-docs/payments/payments-api-overview)
 * [Enabling Stored Cards](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards) (BigCommerce Knowledge Base)
 * [The Complete Guide to Checkout Customization on BigCommerce](https://medium.com/bigcommerce-developer-blog/the-complete-guide-to-checkout-customization-on-bigcommerce-6b566bc36fa9) (Developer Blog)

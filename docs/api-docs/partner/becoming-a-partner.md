@@ -50,25 +50,20 @@ BigCommerce offers training modules to help you get up to speed with the BigComm
 
 To access the training modules, log into the [Partner Portal](https://partners.bigcommerce.com/), hover over the **Training** tab (top navigation), and select **eLearning Modules**. This path will take you to the [Training & Enablement](https://partners.bigcommerce.com/English/Solutions/training/training_and_enablement.aspx) page.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Certifications and the BigDev Bootcamp
+<!-- theme: info -->
+> #### Certifications and the BigDev Bootcamp
 > Advanced training is available through the BigDev Bootcamp. The BigDev Bootcamp delivers sessions focused on the Catalog API, Orders API, Cart and Checkout APIs, Storefront API, and Stencil. Please reach out to your Account Manager if you are interested in registering for these sessions.
 
-</div>
-</div>
-</div>
+
 
 ## Ongoing support
 
-BigCommerce provides ongoing support to help you every step of the way. From dedicated account managers to access to the BigCommerce Community, BigCommerce offers a wide variety of resources to assist you. To learn more, see [Support](https://developer.bigcommerce.com/api-docs/partner/getting-started/support).
+BigCommerce provides ongoing support to help you every step of the way. From dedicated account managers to access to the BigCommerce Community, BigCommerce offers a wide variety of resources to assist you. To learn more, see [Support](/api-docs/partner/getting-started/support).
 
 ## Resources
 
 ### Related articles
 
-* [Introduction to Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro)
-* [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/apps/guide/requirements)
+* [Introduction to Building Apps](/api-docs/apps/guide/intro)
+* [App Store Approval Requirements](/api-docs/apps/guide/requirements)
 * [Video tutorials](https://support.bigcommerce.com/s/videos)

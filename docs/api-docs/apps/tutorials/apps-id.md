@@ -2,7 +2,8 @@
 
 
 
-Select partners [building channel apps](https://developer.bigcommerce.com/api-docs/channels/building-channel-apps) need to know their app's ID in order to create and modify the channel's configuration. This tutorial demonstrates how to find an app's ID in the [Developer Portal](#find-in-devtools) and the [control panel](#find-in-control-panel).
+Select partners [building channel apps](/api-docs/channels/guide/building-channel-apps) need to know their app's ID in order to create and modify the channel's configuration. This tutorial demonstrates how to find an app's ID in the [Developer Portal](#find-in-devtools) and the [control panel](#find-in-control-panel).
+
 
 
 ## Find in control panel
@@ -62,9 +63,10 @@ Accept: application/json
 }]
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/cart-checkout/channels-listings-api/channels/createchannel#requestrunner) -->
 
 ## Resources
-* [Building Apps Guide](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)
-* [Building Channel Apps](https://developer.bigcommerce.com/api-docs/channels/building-channel-apps)
-* [Extending Existing Apps with Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/extending-existing-apps)
+* [Building Apps Guide](/api-docs/getting-started/building-apps-bigcommerce/building-apps)
+* [Building Channel Apps](/api-docs/channels/guide/building-channel-apps)
+
+* [Extending Existing Apps with Channels Toolkit](/api-docs/channels/extending-existing-apps)

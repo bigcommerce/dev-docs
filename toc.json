@@ -22,8 +22,6 @@
       "type": "group",
       "title": "Authentication",
       "slug": "/authentication",
-      "href": "/api-docs/getting-started/authentication",
-      "uri": "docs/api-docs/getting-started/authentication.md",
       "items": [
         {
           "type": "item",

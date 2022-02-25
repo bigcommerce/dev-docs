@@ -13,15 +13,11 @@ A checkout containing physical products is not eligible to become an order until
 
 ### OAuth scopes
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
   
 > The Storefront Checkout API allows developers to manage a shopper’s cart, checkout, and order data using client-side JavaScript on BigCommerce Stencil-powered storefronts. The Storefront Checkout API requests do not require OAuth scopes.
   
-</div>
-</div>
-</div>
+
 
 Use the following OAuth scopes for the Server-to-Server Checkout API.
 
@@ -30,39 +26,25 @@ Use the following OAuth scopes for the Server-to-Server Checkout API.
 | Checkouts | read-only  | `store_checkout_read_only`    |
 | Checkouts | modify     | `store_checkout`              |
 
-For more information on OAuth Scopes and authentication, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+For more information on OAuth Scopes and authentication, see [Authentication](/api-docs/getting-started/authentication).
 
 <!-- theme: info -->
-
-> For limits on the number of line items in a consignment, see the [Create a consignment endpoint](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) documentation.
+> For limits on the number of line items in a consignment, see the [Create a consignment endpoint](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) documentation.
 
 > The Server-to-Server Checkout API responds quickly when the checkout contains one consignment.  Each additional consignment increases the amount of time the API takes to finish creating a checkout. The example API calls in this article use the Server-to-Server Checkout API.
   
 
-</div>
-</div>
-</div>
+
 
 
 ## Creating a consignment
 
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
 > Prerequisites: Prior to working with consignments, your code will need to create or retrieve a cart or checkout.  The cart ID and checkout ID are the same.
 
-</div>
-</div>
-</div>
+
 
 The [Create a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) requires a `checkoutID`.  You can create consignments associated with a cart before it becomes a checkout.  This endpoint supports creating multiple consignments in a single call.
 
@@ -134,27 +116,20 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost#requestrunner) -->
 
 Copy and paste your `store_hash`,`access_token`, and `checkoutId` into the form, then click **Send**.
 
 ## Updating a consignment
 
-The [Update a consignment endpoint](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) requires the `checkoutId` and the `consignmentId`. You can find the consignment ID in the response from the preceding API call. The checkout ID is the same as the cart ID.
+The [Update a consignment endpoint](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) requires the `checkoutId` and the `consignmentId`. You can find the consignment ID in the response from the preceding API call. The checkout ID is the same as the cart ID.
 
 There are two distinct kinds of consignment updates. The first selects a fulfillment option. The second can update the recipient's shipping address and adjust the list of included line items. 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
+> You must choose one type of consignment update because changing the shipping address and weight can change available fulfillment options. You can't do both in the same call to the [Update a consignment endpoint](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput).
 
-> You must choose one type of consignment update because changing the shipping address and weight can change available fulfillment options. You can't do both in the same call to the [Update a consignment endpoint](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput).
 
-</div>
-</div>
-</div>
 
 
 The following is an example `PUT` request that updates a consignment’s `shipping_option_id` with one of the `available_shipping_options.id` returned in the response from the [Create a consignment endpoint](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost).
@@ -171,7 +146,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput#requestrunner) -->
 
 Copy and paste your `store_hash`,`access_token`, `checkoutId`, `consignmentId` and query parameter (`consignments.available_shipping_options`) into the form, then click **Send**.
 
@@ -182,5 +157,5 @@ Copy and paste your `store_hash`,`access_token`, `checkoutId`, `consignmentId` a
 
 ## Related documentation
 
-* [Server-to-Server Checkout API Reference](https://developer.bigcommerce.com/api-reference/store-management/checkouts)
-* [Storefront Checkout API Reference](https://developer.bigcommerce.com/api-reference/storefront/checkouts)
+* [Server-to-Server Checkout API Reference](/api-reference/store-management/checkouts)
+* [Storefront Checkout API Reference](/api-reference/storefront/checkouts)

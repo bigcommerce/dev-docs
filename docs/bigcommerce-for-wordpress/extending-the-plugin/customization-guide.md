@@ -241,19 +241,12 @@ All actions and filters called by the plugin begin with the `bigcommerce/` prefi
 
 The entire plugin operates through closures wrapped around calls to classes instantiated via a dependency injection container. In the event that you need to modify the core behavior of the plugin, there are several methods to get access to these closures.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
-    
-<!-- theme: error -->
-
-### Warning
+<!-- theme: danger -->
+> #### Warning
 
 > Modifying core plugin functionality can lead to security vulnerabilities, data corruption, broken user workflows, and an overall unpleasant experience for you and your customers. Proceed at your own risk.
 
-</div>
-</div>
-</div>
+
 
 The `bigcommerce/init` action fires after the plugin has completed initializing all of its service providers and hooked them into WordPress. It passes two arguments: the primary plugin controller (an instance of the BigCommerce\Plugin class) and the dependency injection container itself. The former is also available at any time after initialization by calling the function `bigcommerce()`.
 
@@ -261,7 +254,7 @@ An instance of each of the service providers found in the src/BigCommerce/Contai
 
 Every action or filter callback created by one of the service providers is given an identifier so that it can be retrieved and, if appropriate, unhooked from WordPress. E.g., to unhook the closure that renders the product archive template and replace it with your own, you could do:
 
-```javascript
+```php
 remove_action( 'bigcommerce/template/product/archive', bigcommerce()->templates->product_archive, 10 );
 
 add_action( 'bigcommerce/template/product/archive', 'your_callback_function', 10, 2 );
@@ -345,7 +338,7 @@ Once you save the file, WordPress will now localize the modified string when an 
 
 BigCommerce for WordPress offers two possible checkout experiences, depending on whether the WordPress site has an installed SSL certificate.
 
-If no SSL is detected, WordPress redirects shoppers to your BigCommerce checkout page to finish their transaction over a secure connection. If using the redirected checkout, visit our [Stencil documentation](https://developer.bigcommerce.com/stencil-docs/template-files/customize-stencil-checkout/optimized-one-page-checkout) to review all available options for styling the checkout page.
+If no SSL is detected, WordPress redirects shoppers to your BigCommerce checkout page to finish their transaction over a secure connection. If using the redirected checkout, visit our [Stencil documentation](/stencil-docs/customizing-checkout/optimized-one-page-checkout) to review all available options for styling the checkout page.
 
 If an SSL is detected, BC4WP seamlessly embeds BigCommerce’s secure one-page checkout through an iFrame on your WordPress checkout page.
 
@@ -355,19 +348,8 @@ Embedded Checkout includes settings within the WordPress theme customizer that a
 
 Below, we define a function called `myCheckoutFunction()` that accepts `$checkout_config` as an argument. The function builds an array of checkout config styles that make the checkout step header text red, step number icons blue, and checkout body text green. Finally, we pass `myCheckoutFunction` to the Checkout Config hook. Try adding the below snippet to your theme’s `functions.php` file to test it out
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">myCheckoutFunction()</div>
-    </div><div class="HubBlock-header-subtitle">functions.php</div>
-</div>
 
-<!--
-title: "myCheckoutFunction()"
-subtitle: "functions.php"
-lineNumbers: true
--->
-
-```javascript
+```php title="myCheckoutFunction() functions.php" lineNumbers
 function myCheckoutFunction($checkout_config) {
   $checkout_config['styles']['heading']['color'] = '#C70039'; //red
   $checkout_config['styles']['step']['icon']['backgroundColor'] = '#AE0BE6'; //purple

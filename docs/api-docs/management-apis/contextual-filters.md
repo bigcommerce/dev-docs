@@ -2,12 +2,12 @@
 
 
 
-The [Settings API](https://developer.bigcommerce.com/api-reference/store-management/settings) allows you to manage settings and configurations for BigCommerce-hosted stores and headless storefronts. 
+The [Settings API](/api-reference/store-management/settings) allows you to manage settings and configurations for BigCommerce-hosted stores and headless storefronts. 
 
-You can use the [Contextual Filters](https://developer.bigcommerce.com/api-reference/store-management/settings/search-filters/getcontexts) endpoint of the Settings API to programmatically configure a store's Product Filtering feature, also known as _faceted search_.
-Additionally, the [Contextual Filters](https://developer.bigcommerce.com/api-reference/store-management/settings/search-filters/getcontexts) endpoint enables you to merchandise diverse product catalogs by creating a different faceted search configuration for each channel and product category on a store. With this feature, you can configure the product categories for various product lines with a different set of enabled filters, so that shoppers can filter by the most relevant criteria.
+You can use the [Contextual Filters](/api-reference/store-management/settings/search-filters/getcontexts) endpoint of the Settings API to programmatically configure a store's Product Filtering feature, also known as _faceted search_.
+Additionally, the [Contextual Filters](/api-reference/store-management/settings/search-filters/getcontexts) endpoint enables you to merchandise diverse product catalogs by creating a different faceted search configuration for each channel and product category on a store. With this feature, you can configure the product categories for various product lines with a different set of enabled filters, so that shoppers can filter by the most relevant criteria.
 
-This article demonstrates how to use [Contextual Filters](https://developer.bigcommerce.com/api-reference/store-management/settings/search-filters/getcontexts) to configure filters that appear on a particular category page.
+This article demonstrates how to use [Contextual Filters](/api-reference/store-management/settings/search-filters/getcontexts) to configure filters that appear on a particular category page.
 
 ### Limitations
 
@@ -18,21 +18,16 @@ This article demonstrates how to use [Contextual Filters](https://developer.bigc
 
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
 * API `access_token` with `information & settings modify` scope.
-* Knowledge of the [Settings API](https://developer.bigcommerce.com/api-reference/store-management/settings).
+* Knowledge of the [Settings API](/api-reference/store-management/settings).
 * Pro or Enterprise store plan. To upgrade, see [Changing Your Store's Plan](https://support.bigcommerce.com/s/article/How-do-I-upgrade-my-stores-plan).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * Your store plan must support Product Filtering to use contextual filters. 
 > * Product Filtering is available for Pro and Enterprise plans. To upgrade, see [Changing Your Store's Plan](https://support.bigcommerce.com/s/article/How-do-I-upgrade-my-stores-plan).
 > * Enterprise accounts have the ability to use [custom fields](https://support.bigcommerce.com/s/article/Custom-Fields) as product filters to provide shoppers with additional ways to customize their search. 
 
-</div>
-</div>
-</div>
+
 
 ## View active storefront filters
 
@@ -40,7 +35,7 @@ There are two ways to retrieve your store's currently active storefront filters:
 * Settings API
 * The store's control panel
 
-To view all configured filters using the API, send a `GET` request to [`/v3/settings/search/filters`](https://developer.bigcommerce.com/api-reference/store-management/settings/search-filters/getenabled).
+To view all configured filters using the API, send a `GET` request to [`/v3/settings/search/filters`](/api-reference/store-management/settings/search-filters/getenabled).
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/search/filters
@@ -48,7 +43,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/settings/search-filters/getenabled#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/settings/search-filters/getenabled#requestrunner) -->
 
 The response will contain all of the filters currently active on your store. 
 
@@ -99,7 +94,7 @@ To access **Storefront Filters** in the control panel, go to **Products** > **Pr
 
 The list of available storefront filters is derived from the product information in the catalog. You create new available filters by changing the product information in your catalog, such as adding new [product options](https://support.bigcommerce.com/s/article/Product-Options-v3) or [custom fields](https://support.bigcommerce.com/s/article/Custom-Fields).
 
-To retrieve all available storefront filters, send a `GET` request to [`/v3/settings/search/filters/available`](https://developer.bigcommerce.com/api-reference/store-management/settings/search-filters/getavailable).
+To retrieve all available storefront filters, send a `GET` request to [`/v3/settings/search/filters/available`](/api-reference/store-management/settings/search-filters/getavailable).
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/search/filters/available
@@ -107,7 +102,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/settings/search-filters/getavailable#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/settings/search-filters/getavailable#requestrunner) -->
 
 **Response:**
 
@@ -139,7 +134,7 @@ Accept: application/json
 
 ## View available category-level filters
 
-To retrieve a list of filters available on a given category, include the `category_id` query parameter in your `GET` request to [`/v3/settings/search/filters/available`](https://developer.bigcommerce.com/api-reference/store-management/settings/search-filters/getavailable). Currently, the Settings API only supports the default `channel_id` of 1.
+To retrieve a list of filters available on a given category, include the `category_id` query parameter in your `GET` request to [`/v3/settings/search/filters/available`](/api-reference/store-management/settings/search-filters/getavailable). Currently, the Settings API only supports the default `channel_id` of 1.
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/search/filters/available?channel_id=1&category_id={{CATEGORY_ID}}
@@ -147,7 +142,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/settings/search-filters/getavailable#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/settings/search-filters/getavailable#requestrunner) -->
 
 **Response:**
 
@@ -197,20 +192,15 @@ Accept: application/json
 
 The filters returned from completing this `GET` request are the filters available for configuration on the given category. In this example, we have Brand, Rating, Price, Color, Size, and Other filters to pick from when choosing which filters to activate for the Kitchen category. In reality, you will be able to select from more filters.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
+> #### Note
+> To get a list of your store's categories, send a `GET` request to [`/v3/catalog/categories`](/api-reference/store-management/catalog/category/getcategories).
 
-> ### Note
-> To get a list of your store's categories, send a `GET` request to [`/v3/catalog/categories`](https://developer.bigcommerce.com/api-reference/store-management/catalog/category/getcategories).
 
-</div>
-</div>
-</div>
 
 ## View contextual filters
 
-To see if there are any contextual overrides present on a given category, send a `GET` request to [`/v3/settings/search/filters/contexts`](https://developer.bigcommerce.com/api-reference/store-management/settings/search-filters/getcontexts) specifying the `category_id` query parameter.
+To see if there are any contextual overrides present on a given category, send a `GET` request to [`/v3/settings/search/filters/contexts`](/api-reference/store-management/settings/search-filters/getcontexts) specifying the `category_id` query parameter.
 
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/search/filters/contexts?channel_id=1&category_id={{CATEGORY_ID}}
@@ -218,7 +208,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/settings/search-filters/getcontexts#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/settings/search-filters/getcontexts#requestrunner) -->
 
 The response will contain the category's existing contextual overrides. 
 
@@ -272,20 +262,15 @@ The order and names of returned filters should match the filters listed under **
 
 ![Category Filters](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/contextual-filters-02.png "Category Filters")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > The order of the data you send implicitly determines the sort order of the filters on the storefront. You can change the order of the filters on the live site by changing the order of the array's data.
 
-</div>
-</div>
-</div>
+
 
 ## Configure contextual filters
 
-Using the [Contextual Filters](https://developer.bigcommerce.com/api-reference/store-management/settings/search-filters/getcontexts) endpoint, you can configure available category-level filters. To test it out, update some of your category's properties such as `display_name`, `display_product_count`, or `collapsed_by_default` and send a `PUT` request to [`/v3/settings/search/filters/contexts`](https://developer.bigcommerce.com/api-reference/store-management/settings/search-filters/upsertcontexts).
+Using the [Contextual Filters](/api-reference/store-management/settings/search-filters/getcontexts) endpoint, you can configure available category-level filters. To test it out, update some of your category's properties such as `display_name`, `display_product_count`, or `collapsed_by_default` and send a `PUT` request to [`/v3/settings/search/filters/contexts`](/api-reference/store-management/settings/search-filters/upsertcontexts).
 
 ```http
 PUT /stores/{{STORE_HASH}}/v3/settings/search/filters/contexts
@@ -361,7 +346,7 @@ Accept: application/json
 ]
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/settings/search-filters/upsertcontexts#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/settings/search-filters/upsertcontexts#requestrunner) -->
 
 Refresh your store and open the category you just updated in the control panel. 
 
@@ -371,18 +356,13 @@ You can also view the changes on the storefront.
 
 ![Updated Category Filters](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/contextual-filters-04.png "Updated Category Filters")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * You can add new filters using [custom fields](https://support.bigcommerce.com/s/article/Custom-Fields).
 > * For information on how to manage filters using the control panel, see [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings). 
 > * A storefront can display up to 12 filters per page.
 
-</div>
-</div>
-</div> 
+ 
 
 ## Related resources
 
@@ -391,5 +371,5 @@ You can also view the changes on the storefront.
 * [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings)
 
 ### Endpoints
-* [Settings API](https://developer.bigcommerce.com/api-reference/store-management/settings)
-* [Get All Categories](https://developer.bigcommerce.com/api-reference/store-management/catalog/category/getcategories)
+* [Settings API](/api-reference/store-management/settings)
+* [Get All Categories](/api-reference/store-management/catalog/category/getcategories)

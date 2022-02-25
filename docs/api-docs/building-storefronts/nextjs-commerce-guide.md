@@ -28,7 +28,7 @@ To get started with Next.js Commerce, you'll need to deploy a live version direc
 
 - An IDE
 - Knowledge of [Next.js](https://nextjs.org/)
-- Knowledge of [BigCommerce APIs](https://developer.bigcommerce.com/api-docs)
+- Knowledge of [BigCommerce APIs](/api-docs)
 - Git provider (GitHub, Bitbucket, GitLab)
 - NPM
 
@@ -77,17 +77,17 @@ To get started with Next.js Commerce, you'll need to deploy a live version direc
 ### Developing locally after Vercel deployment
 
 1. Visit the Git provider where Vercel created a new repository. Clone that repository locally.
-2. Navigate to the locally cloned project's root directory and create a copy of the `.env.template` file. Rename the newly created file `.env.local` and insert the your environmental variables using the following as a reference:
+2. Navigate to the locally cloned project's root directory and create a copy of the `.env.template` file. Rename the newly created file `.env.local` and insert your environmental variables using the following as a reference:
 
-```bash
+```bash title=".env.template"
 BIGCOMMERCE_STOREFRONT_API_URL=https://store-${STORE_ID}.mybigcommerce.com/graphql
 BIGCOMMERCE_STOREFRONT_API_TOKEN=${STOREFRONT_TOKEN}
 BIGCOMMERCE_STORE_API_URL=https://api.bigcommerce.com/stores/${STORE_ID}
 BIGCOMMERCE_STORE_API_TOKEN=${STORE_TOKEN}
 BIGCOMMERCE_STORE_API_CLIENT_ID=${STORE_CLIENT}
 ```
-
-```bash
+&nbsp;
+```bash title=".env.local"
 COMMERCE_PROVIDER=bigcommerce
 BIGCOMMERCE_STOREFRONT_API_URL=https://store-${STORE_HASH}-${CHANNEL_ID}.mybigcommerce.com/graphql
 BIGCOMMERCE_STOREFRONT_API_TOKEN=${STOREFRONT_API_TOKEN}
@@ -103,9 +103,9 @@ BIGCOMMERCE_STORE_API_STORE_HASH=${STORE_HASH}
 
   ![STORE-HASH location in URL](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-15.png)
 
-- `STORE_TOKEN|STORE_CLIENT`: For instructions on generating Store API credentials, visit [Obtaining Store API Credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
-- `STOREFRONT_API_TOKEN`: For instructions on generating the Storefront API token, visit [Create a Token](https://developer.bigcommerce.com/api-reference/store-management/tokens/api-token/createtoken).
-- `CHANNEL_ID`: Use the channel ID of the channel created by Vercel during deployment. For information on how to retrieve channel information, visit [Get All Channels](https://developer.bigcommerce.com/api-reference/store-management/channels/channels/listchannels).
+- `STORE_TOKEN|STORE_CLIENT`: For instructions on generating Store API credentials, visit [Obtaining Store API Credentials](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
+- `STOREFRONT_API_TOKEN`: For instructions on generating the Storefront API token, visit [Create a Token](/api-reference/store-management/tokens/api-token/createtoken).
+- `CHANNEL_ID`: Use the channel ID of the channel created by Vercel during deployment. For information on how to retrieve channel information, visit [Get All Channels](/api-reference/store-management/channels/channels/listchannels).
 
 3. Open a terminal in your repository's root directory. To install the project's dependencies, run `npm install`.
 
@@ -113,17 +113,11 @@ BIGCOMMERCE_STORE_API_STORE_HASH=${STORE_HASH}
 
 5. To see your Next.js Commerce storefront running locally, open `localhost:3000` in your browser.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
->
+<!-- theme: info -->
+> #### Note
 > Any saved changes you push to your Git repository will trigger a redeployment at Vercel. You can also trigger a redeployment manually through the Vercel dashboard.
 
-</div>
-</div>
-</div>
+
 
 ## Application
 
@@ -178,9 +172,9 @@ Next.js supports internationalized (i18n) routing and Next.js Commerce uses [sub
 
 ```json
 i18n: {
-locales: ['en-US', 'es'],
-defaultLocale: 'en-US',
-},
+   locales: ['en-US', 'es'],
+   defaultLocale: 'en-US',
+}
 ```
 
 For more information on i18n routing in Next.js, see the Next.js documentation on [internationalized routing](https://nextjs.org/docs/advanced-features/i18n-routing).

@@ -1,7 +1,5 @@
 # Adding npm Packages to a Theme
 
-
-
 Stencil's architecture allows for organized customization using npm and React. In production, you can use these tools for stylizing seasonally themed products, temporary promotions, or event tickets. Below is a short tutorial on using npm and React to customize your Stencil theme.
 
 In this example, we'll be making a drawer that sends a coupon code to the customer's email using Material UI's React framework. The resulting customization will look like the following:
@@ -39,7 +37,7 @@ npm install --save-dev @material-ui/core react react-dom babel-plugin-transform-
 
 Update` webpack.common.js` with the new presets and plugins.
 
-```js
+```js title="Example 1: New presets and plugins" lineNumbers
 ...
 plugins: [
   ...
@@ -47,7 +45,9 @@ plugins: [
  ],
 ```
 
-```js
+&nbsp;
+
+```js title="Example 2: New presets and plugins" lineNumbers
 ...
 presets: [
     ['@babel/preset-env', {
@@ -66,7 +66,7 @@ In the following steps, we'll be adding React components to assemble our coupon 
 4. Create a `CouponDrawer.js` file.
 5. Copy the following code into the file:
 
-```js
+```js title="CouponDrawer.js" lineNumbers
 import React from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
@@ -99,7 +99,7 @@ export default function CouponDrawer() {
 6. In the same `/components` folder, create a `VerticalStepper.js` file.
 7. Copy the following code into the file:
 
-```js
+```js title="VerticalStepper.js" lineNumbers
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
@@ -185,7 +185,7 @@ export default function VerticalLinearStepper() {
 8. In the same `/components` folder, create a `TextField.js` file.
 9. Copy the following code into the file:
 
-```js
+```js title="TextField.js" lineNumbers
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -214,7 +214,7 @@ export default function BasicTextFields() {
 
 1. Import the React dependencies and  the new CouponDrawer component we've created into `assets/js/app.js`:
 
-```js
+```js title="assets/js/app.js" lineNumbers
 __webpack_public_path__ = window.__webpack_public_path__; // eslint-disable-line
 
 import Global from './theme/global';
@@ -225,7 +225,7 @@ import CouponDrawer from './components/CouponDrawer';
 
 2. At the bottom of the file, render the `CouponDrawer` component and assign it an id.
 
-```js
+```js title="Render CouponDrawer component" lineNumbers
 ReactDOM.render(<CouponDrawer />, document.querySelector('#coupondrawer'));
 ```
 
@@ -234,23 +234,23 @@ ReactDOM.render(<CouponDrawer />, document.querySelector('#coupondrawer'));
 1. Navigate to `templates/layout/base.html`.
 2. Add a new div element with our new id inside the body.
 
-```html
+```handlebars title="templates/layout/base.html" lineNumbers
 <body>
-        ...
-        <div id="coupondrawer"></div>
+  ...
+  <div id="coupondrawer"></div>
 
-        {{> components/common/header }}
-        {{> components/common/body }}
-        {{> components/common/footer }}
+  {{> components/common/header }}
+  {{> components/common/body }}
+  {{> components/common/footer }}
 
-        <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
-        <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
-        <script>
-            {{!-- Exported in app.js --}}
-            window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();
-        </script>
+  <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
+  <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
+  <script>
+    {{!-- Exported in app.js --}}
+    window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();
+  </script>
 
-        {{{footer.scripts}}}
+  {{{footer.scripts}}}
 </body>
 ```
 
@@ -258,7 +258,7 @@ ReactDOM.render(<CouponDrawer />, document.querySelector('#coupondrawer'));
 
 View the finished product using the Stencil CLI command `stencil start` in the Cornerstone theme directory.
 
-```shell
+```shell title="stencil start"
 # move into theme dir
 cd ~/path/to/theme/dir
 

@@ -20,18 +20,11 @@ Each event triggers a `GET` request from BigCommerce containing a `signed_payloa
 - Identify the store.
 - Identify the store owner or user.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
+> #### Note
+> In a production app, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
 
-### Note
-> * In a production, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
 
-</div>
-</div>
-</div>
 
 ## Load callback
 
@@ -92,16 +85,11 @@ encoded_json_string.encoded_hmac_signature
 6. Sign the decoded `json_string` with your app's `client_secret`.
 7. Match<sup>1</sup> signed `json_string` against decoded `hmac_signature`.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
+> #### Note
+> To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. How to accomplish this varies by programming language. For code samples in Ruby and PHP, see [Code samples](#code-samples) below; search for "constant time string comparison {lang}" using your preferred search engine for more information.
 
-> ### Note
-> 1. To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. How to accomplish this varies by programming language. For code samples in Ruby and PHP, see [Code samples](#code-samples) below; search for "constant time string comparison {lang}" using your preferred search engine for more information.
 
-</div>
-</div>
-</div>
 
 ## Identifying users
 
@@ -133,7 +121,7 @@ After decoding and verifying the `signed_playload`, parse the JSON string into a
 | `store_hash` | str | unique identified for store used in API requests |
 | `timestamp` | float | Unix time when callback generated|
 
-Use the data contained in the payload object to identify the store and user. What your app should do with this information is dependent on whether [**Multiple Users**](https://developer.bigcommerce.com/api-docs/apps/guide/users) is enabled in the [Developer Portal](https://devtools.bigcommerce.com/). Refer to the table below for instructions.
+Use the data contained in the payload object to identify the store and user. What your app should do with this information is dependent on whether [**Multiple Users**](/api-docs/apps/guide/users) is enabled in the [Developer Portal](https://devtools.bigcommerce.com/). Refer to the table below for instructions.
 
 | Callback | Multiple Users Enabled | Multiple Users Not Enabled |
 |-|-|-|
@@ -206,7 +194,7 @@ The following BigCommerce API clients expose helper methods for verifying the `s
   * Verifies `signed_payload`
 
 ## Next steps
-* [Support multiple users](https://developer.bigcommerce.com/api-docs/apps/guide/users)
+* [Support multiple users](/api-docs/apps/guide/users)
 
 ## Resources
 
@@ -224,7 +212,7 @@ The following BigCommerce API clients expose helper methods for verifying the `s
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

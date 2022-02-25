@@ -34,7 +34,7 @@ To begin the app certification process, we'll need some basic information about 
 | Partner Website | URL to your homepage                                                                                   |
 | Support Email   | Business mail where users can get help with the app                                                    |
 | Support Website | Used for **Get Support** button in Marketplace                                                         |
-| Partner ID      | Required for submission; assigned to [partners](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner#applying-to-the-technology-partner-program) after approval |
+| Partner ID      | Required for submission; assigned to [partners](/api-docs/partner/becoming-a-partner#applying-to-the-technology-partner-program) after approval |
 | App Name        | Brand name given to app for titles and app content; should not include taglines or descriptors         |
 | App Logo        | Primary app logo; should be 350 x 130px with a white background and dark branding with no taglines     |
 | App Icon        | Shown on main app detail page and left nav in control panel once installed; should be 200 x 200px      |
@@ -134,7 +134,7 @@ can take up to 24 hours to appear on the Apps Marketplace. Feel free to use this
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

@@ -9,27 +9,19 @@ In this tutorial, we will use Stencil CLI and [Browsersync](https://github.com/b
 
 To complete this tutorial, you should be familiar with the following concepts:
 
-* [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil)
+* [Installing Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil)
 * [Creating a Stencil CLI Token](https://support.bigcommerce.com/s/article/Store-API-Accounts)
 * [Downloading and uploading custom themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload)
-* [Serving a live preview](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/live-previewing-a-theme#serving-a-live-preview)
+* [Serving a live preview](/stencil-docs/installing-stencil-cli/live-previewing-a-theme#serving-a-live-preview)
 
 
 ## Adding a language file
 1. After downloading and extracting your Stencil theme, open the folder containing your theme files and navigate to the `/lang` subfolder. 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
+> #### Note
+> The `/lang` subfolder includes the `en.json` file and example language files. The `en.json` file and your language file must be present for a localized Stencil theme to work. Each language requires its own JSON file. 
 
-<!-- theme:  -->
-### Note
-
-The `/lang` subfolder includes the `en.json` file and example language files. The `en.json` file and your language file must be present for a localized Stencil theme to work. Each language requires its own JSON file. 
-
-</div>
-</div>
-</div>
 
 2. Name your translation file `es.json` and save it in the `/lang` subfolder. Translation files are named based on the [BCP 47 specification](https://tools.ietf.org/html/bcp47) of language and region codes.
 
@@ -103,21 +95,14 @@ Update your language browser to display the translation on the storefront. The f
 5. Drag the newly selected language to the top of the list.
 6. Refresh your browser to see the translations.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
+> #### Note
+> Other browsers may look and act differently. We suggest previewing your site to ensure the localization is working as expected.
 
-<!-- theme:  -->
-### Note
 
-Other browsers may look and act differently. We suggest previewing your site to ensure the localization is working as expected.
-
-</div>
-</div>
-</div>
 
 ## Related resources
-* [Translation Keys](https://developer.bigcommerce.com/stencil-docs/localization/translation-keys)
+* [Translation Keys](/stencil-docs/localization/translation-keys)
 * [Customizing a Theme - lang directory Video Demo (YouTube)](https://www.youtube.com/watch?v=ygiRGfSrmnA)
 * [JSON translation files (BigCommerce GitHub)](https://github.com/bigcommerce/cornerstone/tree/master/lang)
-* [Handlebars helpers reference](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers)
+* [Handlebars helpers reference](/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers)
