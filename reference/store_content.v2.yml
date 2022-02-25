@@ -8,9 +8,8 @@ info:
     <!-- theme: warning -->
     > #### Note
     > * Redirects V2 are deprecated; use [V3 Redirects](/api-reference/storefront/redirects/redirects/getredirects) instead. 
-
 host: api.bigcommerce.com
-basePath: '/'
+basePath: /
 schemes:
   - https
 consumes:
@@ -828,12 +827,11 @@ paths:
     get:
       description: |-
         Returns a list all *Redirect URLs*. 
-        
+
         <!-- theme: warning -->
         > #### Deprecated
         > Avoid using this API operation if possible. It will be removed in a future version.
         > For the most up-to-date version of this API, see  [Get Redirects v3](/api-reference/storefront/redirects/redirects/getredirects) to manage redirects URLs.
-
       summary: Get All Redirects
       tags:
         - Redirects
@@ -893,12 +891,11 @@ paths:
         **Read Only**
         *   url
 
-        
+
         <!-- theme: warning -->
         > #### Deprecated
         > Avoid using this API operation if possible. It will be removed in a future version.
         > For the most up-to-date version of this API, see [Upsert Redirects v3](/api-reference/store-management/redirects/redirects/upsertredirects) to upsert new redirect data.
-
       summary: Create a Redirect
       tags:
         - Redirects
@@ -942,7 +939,16 @@ paths:
               url: 'http://store.example.com/mens'
       operationId: createARedirect
     delete:
-      description: "By default, it deletes all *Redirect URLs* in a store. \n\n<!-- theme: warning -->\n\n> #### Deprecated\n\n> Avoid using this API operation if possible. It will be removed in a future version.\n\n> For the most up-to-date version of this API, see [Delete Redirects v3](/api-reference/store-management/redirects/redirects/deleteredirects) to delete redirects URLs."
+      description: |-
+        By default, it deletes all *Redirect URLs* in a store. 
+
+        <!-- theme: warning -->
+
+        > #### Deprecated
+
+        > Avoid using this API operation if possible. It will be removed in a future version.
+
+        > For the most up-to-date version of this API, see [Delete Redirects v3](/api-reference/store-management/redirects/redirects/deleteredirects) to delete redirects URLs.
       summary: Delete All Redirects
       tags:
         - Redirects
@@ -977,7 +983,6 @@ paths:
         > #### Deprecated
         > Avoid using this API operation if possible. It will be removed in a future version.
         > For the most up-to-date version of this API, see [Get Redirects v3](/api-reference/storefront/redirects/redirects/getredirects) to get a redirect URL.
-
       summary: Get a Redirect
       tags:
         - Redirects
@@ -1027,7 +1032,7 @@ paths:
         **Read Only Fields**
         *   url
 
-        
+
         <!-- theme: warning -->
         > #### Deprecated
         > Avoid using this API operation if possible. It will be removed in a future version.
@@ -1118,12 +1123,11 @@ paths:
     delete:
       description: |-
         Deletes a *Redirect URL*.
-        
+
         <!-- theme: warning -->
         > #### Deprecated
         > Avoid using this API operation if possible. It will be removed in a future version.
         > For the most up-to-date version of this API, see [Delete Redirects v3](/api-reference/store-management/redirects/redirects/deleteredirects) to delete a redirect URL.
-
       summary: Delete a Redirect
       tags:
         - Redirects
@@ -1164,12 +1168,11 @@ paths:
     get:
       description: |-
         Gets a count of *Redirect URLs* in a store.
-        
+
         <!-- theme: warning -->
         > #### Deprecated
         > Avoid using this API operation if possible. It will be removed in a future version.
         > For the most up-to-date version of this API, see  [Get Redirects v3](/api-reference/storefront/redirects/redirects/getredirects) to get a count of redirects.
-
       summary: Get a Count of Redirects
       tags:
         - Redirects
@@ -1212,6 +1215,7 @@ definitions:
             example: 3
             type: integer
       - $ref: '#/definitions/blogPost_Base'
+    x-internal: true
   addresses:
     type: object
     properties:
@@ -1224,6 +1228,7 @@ definitions:
         example: /customers/5/addresses
         type: string
     title: addresses
+    x-internal: true
   formField:
     title: formField
     type: object
@@ -1236,6 +1241,7 @@ definitions:
         description: Value of the form field
         type: string
         example: 123BAF
+    x-internal: true
   page_Full:
     title: page_Full
     allOf:
@@ -1246,6 +1252,7 @@ definitions:
             example: 44
             description: ID of the page.
       - $ref: '#/definitions/page_Base'
+    x-internal: true
   redirect:
     title: redirect
     example:
@@ -1274,6 +1281,7 @@ definitions:
     required:
       - path
       - forward
+    x-internal: true
   forward:
     title: forward
     type: object
@@ -1286,6 +1294,7 @@ definitions:
         description: Reference of the redirect. Dynamic redirects will have the category or product number. Manual redirects will have the url that is being directed to.
         example: 111
         type: number
+    x-internal: true
   customer_Full:
     title: customer_Full
     type: object
@@ -1351,7 +1360,7 @@ definitions:
         description: Store-owner notes on the customer.
         type: string
       tax_exempt_category:
-        description: "If applicable, the tax-exempt category of the shopper's customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration."
+        description: 'If applicable, the tax-exempt category of the shopper''s customer account. You can apply a tax-exempt category to multiple customers. This code should match the exemption codes provided by the third-party integration.'
         type: string
       accepts_marketing:
         description: |
@@ -1373,6 +1382,7 @@ definitions:
       - first_name
       - last_name
       - email
+    x-internal: true
   categoryAccessLevel:
     title: categoryAccessLevel
     type: object
@@ -1393,13 +1403,14 @@ definitions:
         example: '18,19,23,34'
         items:
           type: string
+    x-internal: true
   timeZone:
     title: timeZone
     type: object
     properties:
       name:
         description: 'A string identifying the time zone, in the format: <Continent-name>/<City-name>.'
-        example: 'America/Chicago'
+        example: America/Chicago
         type: string
       raw_offset:
         description: 'A negative or positive number, identifying the offset from UTC/GMT, in seconds, during winter/standard time.'
@@ -1415,6 +1426,7 @@ definitions:
         type: boolean
       date_format:
         $ref: '#/definitions/dateFormat'
+    x-internal: true
   count_Response:
     title: count_Response
     example:
@@ -1425,6 +1437,7 @@ definitions:
         description: ''
         example: 27
         type: number
+    x-internal: true
   dateFormat:
     title: dateFormat
     type: object
@@ -1441,6 +1454,7 @@ definitions:
         description: 'A string that defines dates’ extended-display format, in the pattern: M jS Y @ g:i A.'
         example: 'M jS Y @ g:i A'
         type: string
+    x-internal: true
   blogTags:
     type: array
     title: blogTags
@@ -1455,6 +1469,7 @@ definitions:
           example: '1,2,4'
           items:
             type: integer
+    x-internal: true
   blogPost_Base:
     type: object
     title: blogPost_Base
@@ -1464,12 +1479,12 @@ definitions:
         description: Title of this blog post.
         example: Welcome to BigCommerce
       url:
-        example: '/blog/welcome-bigcommerce/'
+        example: /blog/welcome-bigcommerce/
         type: string
         description: URL for the public blog post.
       preview_url:
         description: URL to preview the blog post. (READ-ONLY)
-        example: '/blog/welcome-bigcommerce/'
+        example: /blog/welcome-bigcommerce/
         type: string
       body:
         type: string
@@ -1482,7 +1497,7 @@ definitions:
           type: string
       summary:
         description: Summary of the blog post. (READ-ONLY)
-        example: '<p>We power ecommerce websites for successful retailers all over the world</p>'
+        example: <p>We power ecommerce websites for successful retailers all over the world</p>
         type: string
       is_published:
         description: Whether the blog post is published.
@@ -1495,11 +1510,11 @@ definitions:
         example: '5/18/2018 1:26:42 PM'
         type: string
       meta_description:
-        description: 'Description text for this blog post’s `<meta/>` element.'
+        description: Description text for this blog post’s `<meta/>` element.
         example: Welcome Post
         type: string
       meta_keywords:
-        description: 'Keywords for this blog post’s `<meta/>` element.'
+        description: Keywords for this blog post’s `<meta/>` element.
         example: 'BigCommerce, welcome, ecommerce'
         type: string
       author:
@@ -1512,6 +1527,7 @@ definitions:
     required:
       - title
       - body
+    x-internal: true
   publishedDate:
     type: object
     properties:
@@ -1526,6 +1542,7 @@ definitions:
         type: string
         format: time
         example: '+00:00'
+    x-internal: true
   authentication:
     description: 'Not returned in any responses, but accepts up to two fields allowing you to set the customer’s password. If a password is not supplied, it is generated automatically. For further information about using this object, please see the Customers resource documentation.'
     type: object
@@ -1536,10 +1553,12 @@ definitions:
         type: string
       password_confirmation:
         type: string
+    x-internal: true
   customer_Base:
     type: object
     properties: {}
     title: customer_Base
+    x-internal: true
   page_Base:
     title: page_Base
     type: object
@@ -1632,6 +1651,7 @@ definitions:
       - body
       - feed
       - link
+    x-internal: true
 tags:
   - name: Blog Posts
   - name: Blog Tags

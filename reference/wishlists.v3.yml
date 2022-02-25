@@ -27,7 +27,7 @@ info:
     ## Additional Information
     * [Wishlists](https://support.bigcommerce.com/s/article/Wishlists)
 host: api.bigcommerce.com
-basePath: '/'
+basePath: /
 schemes:
   - https
 consumes:
@@ -522,6 +522,7 @@ definitions:
               example: 152
     required:
       - customer_id
+    x-internal: true
   wishlist_Put:
     title: wishlist_Put
     type: object
@@ -561,6 +562,7 @@ definitions:
     required:
       - customer_id
       - items
+    x-internal: true
   wishlist_Full:
     title: wishlist_Full
     type: object
@@ -593,6 +595,7 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/wishlistItem_Full'
+    x-internal: true
   wishlistItem_Full:
     title: wishlistItem_Full
     type: object
@@ -612,6 +615,7 @@ definitions:
         type: integer
         format: int32
         example: 22
+    x-internal: true
   wishlistItem_Post:
     title: wishlistItem_Post
     type: object
@@ -626,6 +630,7 @@ definitions:
         type: integer
         format: int32
         example: 152
+    x-internal: true
   pagination:
     title: pagination
     description: 'Data about the response, including pagination and collection totals.'
@@ -651,6 +656,7 @@ definitions:
         description: The total number of pages in the collection.
         type: integer
         format: int32
+    x-internal: true
   error:
     title: error
     type: object
@@ -662,12 +668,14 @@ definitions:
         type: string
       type:
         type: string
+    x-internal: true
   metaCollection:
     type: object
     title: metaCollection
     properties:
       pagination:
         $ref: '#/definitions/pagination'
+    x-internal: true
 tags:
   - name: Wishlists
     description: ''

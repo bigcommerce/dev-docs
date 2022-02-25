@@ -327,6 +327,7 @@ definitions:
             type: string
             example: optimized
             description: 'What type of checkout is enabled on the store. Possible values returned are optimized, single (one page), single_customizable (one page for developers), klarna.'
+    x-internal: true
   Timezone:
     title: Time Zone
     type: object
@@ -349,6 +350,7 @@ definitions:
         type: boolean
       date_format:
         $ref: '#/definitions/DateFormat'
+    x-internal: true
   DateFormat:
     title: Date Format
     type: object
@@ -365,6 +367,7 @@ definitions:
         description: 'string that defines dates’ extended-display format, in the pattern: M jS Y @ g:i A.'
         example: 'M jS Y @ g:i A'
         type: string
+    x-internal: true
   timeStamp_Full:
     type: object
     properties:
@@ -374,6 +377,7 @@ definitions:
         minimum: 0
     description: Store Time in Unix format.
     title: timeStamp_Full
+    x-internal: true
 tags:
   - name: Store Information
   - name: Time Zone

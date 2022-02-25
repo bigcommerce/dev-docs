@@ -17,12 +17,10 @@ paths:
 
         The cart ID and checkout ID are the same.
 
-        
+
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
-
       summary: Get a Checkout
       tags:
         - Checkout
@@ -209,12 +207,10 @@ paths:
 
         * 2000 character limit
 
-        
+
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
-
       summary: Update Customer Messages
       tags:
         - Checkout
@@ -362,12 +358,10 @@ paths:
 
         If a variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the [Add Cart Line Items](/api-reference/cart-checkout/storefront-cart-api/cart-items/addcartlineitem) endpoint.
 
-        
+
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
-
       summary: Update a Line Item
       tags:
         - Checkout Cart Items
@@ -520,12 +514,10 @@ paths:
       description: |-
         Deletes a *Line Item* from the *Cart*.
 
-        
+
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
-
       summary: Delete a Line Item
       tags:
         - Checkout Cart Items
@@ -774,14 +766,12 @@ paths:
         **Required Fields**
         * country_code
 
-        
+
         <!-- theme: info -->
         > #### Note
         > * The `email` property is only required if the customer is a guest shopper. Otherwise, it is set automatically.
         > * Sending `email` property as a payload in POST request triggers the abandoned cart notification process.
         > * The Send a Test Request feature is not currently supported for this endpoint.
-
-
       summary: Add Checkout Billing Address
       tags:
         - Checkout Billing Address
@@ -932,12 +922,10 @@ paths:
       description: |-
         Updates an existing billing address on *Checkout*.
 
-        
+
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
-
       summary: Update Checkout Billing Address
       tags:
         - Checkout Billing Address
@@ -1545,11 +1533,10 @@ paths:
     delete:
       description: |-
         Removes an existing *Consignment* from *Checkout*.
-        
+
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
       summary: Delete a Consignment
       tags:
         - Checkout Consignments
@@ -1686,14 +1673,12 @@ paths:
       description: |-
         Adds a *Gift Certificate Code* to *Checkout*.
 
-        
+
         <!-- theme: info -->
         > #### Note
         > * *Gift Certificates* are treated as a payment methods.
         > * You are not able to purchase a gift certificate with a gift certificate.
         > * The Send a Test Request feature is not currently supported for this endpoint.
-
-
       summary: Add Gift Certificate to Checkout
       tags:
         - Checkout Gift Certificates
@@ -1840,11 +1825,10 @@ paths:
         Deletes an existing *Gift Certificate*.
 
         This removes the *Gift Certificate* payment method.
-        
+
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
       summary: Delete Gift Certificate
       tags:
         - Checkout Gift Certificates
@@ -1874,11 +1858,10 @@ paths:
 
         **Required Fields**
         * couponCode
-        
+
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
       summary: Add Coupon to Checkout
       tags:
         - Checkout Coupons
@@ -2023,11 +2006,10 @@ paths:
     delete:
       description: |
         Deletes a *Coupon Code* from *Checkout*.
-        
+
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
       summary: Delete Checkout Coupon
       tags:
         - Checkout Coupons
@@ -2290,11 +2272,10 @@ paths:
         - Checkout Store Credit
       description: |-
         Applies any available store credit to a checkout. As on the storefront, all available store credit will be used (up to the value of the order) and no amount need be specified.
-        
+
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
     parameters:
       - name: checkoutId
         in: path
@@ -2317,11 +2298,10 @@ paths:
           required: true
       description: |-
         Removes store credit from a checkout.
-        
+
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
       operationId: CheckoutsStoreCreditRemove
       consumes:
         - application/json
@@ -2331,11 +2311,10 @@ paths:
     post:
       description: |-
         Verifies if checkout is created by human.
-        
+
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
       summary: Checkout Spam Protection
       tags:
         - Checkout Spam Protection
@@ -2370,6 +2349,7 @@ definitions:
     properties:
       token:
         type: string
+    x-internal: true
   checkout_Full:
     title: checkout_Full
     type: object
@@ -2445,6 +2425,7 @@ definitions:
         type: boolean
         description: |
           `true` value indicates StoreCredit has been applied.
+    x-internal: true
   AppliedCoupon:
     title: Applied Coupon
     type: object
@@ -2481,6 +2462,7 @@ definitions:
         format: double
     required:
       - code
+    x-internal: true
   contactEntity:
     title: contactEntity
     type: object
@@ -2492,6 +2474,7 @@ definitions:
         description: ''
         type: string
     description: Model for sender and receiver objects.
+    x-internal: true
   address_Full:
     title: address_Full
     allOf:
@@ -2502,8 +2485,9 @@ definitions:
             description: ''
             type: string
           shouldSaveAddress:
-            description: 'Indicates if we should add this address to the customer address book.'
+            description: Indicates if we should add this address to the customer address book.
             type: boolean
+    x-internal: true
   address_Base:
     title: address_Base
     type: object
@@ -2551,6 +2535,7 @@ definitions:
           $ref: '#/definitions/customFields'
     required:
       - countryCode
+    x-internal: true
   customFields:
     title: customFields
     type: object
@@ -2561,6 +2546,7 @@ definitions:
       fieldValue:
         type: string
         description: 'This can also be an array for fields that need to support list of values (e.g., a set of check boxes.). When doing a PUT or POST to the `fieldValue` with a pick list, the input must be a number. The response will be a string.'
+    x-internal: true
   consignment_Full:
     title: consignment_Full
     description: 'This allows us to have multiple shipping addresses. Where there is only one shipping address, this array will contain only one value, with all the items.'
@@ -2639,6 +2625,7 @@ definitions:
         type: array
         items:
           type: string
+    x-internal: true
   consignmentAvailableShippingOptions:
     title: consignmentAvailableShippingOptions
     allOf:
@@ -2650,6 +2637,7 @@ definitions:
             type: boolean
           additionalDescription:
             type: string
+    x-internal: true
   checkoutTax:
     title: checkoutTax
     type: object
@@ -2661,6 +2649,7 @@ definitions:
         description: ''
         type: number
         format: double
+    x-internal: true
   checkout_Put:
     title: checkout_Put
     type: object
@@ -2668,6 +2657,7 @@ definitions:
       customerMessage:
         description: ''
         type: string
+    x-internal: true
   checkouts_Resp:
     title: checkouts_Resp
     type: object
@@ -3387,6 +3377,7 @@ definitions:
             type: boolean
             description: |
               `true` value indicates StoreCredit has been applied.
+    x-internal: true
   cartLineItemPut:
     title: cartLineItemPut
     type: object
@@ -3403,6 +3394,7 @@ definitions:
         description: ''
         type: number
         format: double
+    x-internal: true
   cartLineItemGiftCertificate_Put:
     title: cartLineItemGiftCertificate_Put
     type: object
@@ -3433,6 +3425,7 @@ definitions:
       - sender
       - recipient
       - quantity
+    x-internal: true
   CreateConsignmentRequest:
     title: Create Consignment Request
     type: object
@@ -3488,7 +3481,7 @@ definitions:
                 fieldValue:
                   type: string
           shouldSaveAddress:
-            description: 'Indicates if we should add this address to the customer address book.'
+            description: Indicates if we should add this address to the customer address book.
             type: boolean
         required:
           - countryCode
@@ -3509,6 +3502,7 @@ definitions:
           required:
             - itemId
             - quantity
+    x-internal: true
   GiftCertificateRequest:
     title: Gift Certificate Request
     type: object
@@ -3516,6 +3510,7 @@ definitions:
       giftCertificateCode:
         description: ''
         type: string
+    x-internal: true
   cart_Put:
     title: cart_Put
     type: object
@@ -3524,6 +3519,7 @@ definitions:
         $ref: '#/definitions/cartLineItemPut'
       giftCertificate:
         $ref: '#/definitions/cartLineItemGiftCertificate_Put'
+    x-internal: true
   NewUpdateConsignment:
     title: Update Consignment Request
     description: 'One or more of these three fields are mandatory. Shipping address and line items can be updated in one request. Shipping option ID has to be updated in a separate request, since changing the address or line items can invalidate the previously available shipping options.'
@@ -3580,7 +3576,7 @@ definitions:
                 fieldValue:
                   type: string
           shouldSaveAddress:
-            description: 'Indicates if we should add this address to the customer address book.'
+            description: Indicates if we should add this address to the customer address book.
             type: boolean
         required:
           - countryCode
@@ -3604,6 +3600,7 @@ definitions:
       shippingOptionId:
         description: ''
         type: string
+    x-internal: true
   checkoutCart:
     title: checkoutCart
     description: 'A cart contains a collection of items, prices, discounts, etc. It does not contain customer-related data.'
@@ -3995,6 +3992,7 @@ definitions:
       updatedTime:
         description: Time when the cart was last updated.
         type: string
+    x-internal: true
   checkoutGiftCertificates:
     description: Applied gift certificate (as a payment method).
     type: array
@@ -4023,6 +4021,7 @@ definitions:
           type: number
           format: double
     title: checkoutGiftCertificates
+    x-internal: true
   consignmentShippingOption_Base:
     title: consignmentShippingOption_Base
     type: object
@@ -4046,6 +4045,7 @@ definitions:
       transitTime:
         description: An estimate of the arrival time.
         type: string
+    x-internal: true
 parameters:
   include:
     name: include

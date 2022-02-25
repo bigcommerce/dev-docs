@@ -328,7 +328,7 @@ paths:
                   value:
                     status: 422
                     title: Create customers failed.
-                    type: '/api-docs/getting-started/api-status-codes'
+                    type: /api-docs/getting-started/api-status-codes
                     errors:
                       .customer_create: Error creating customers
     put:
@@ -787,7 +787,7 @@ paths:
                     example: Too many requests
                   type:
                     type: string
-                    example: '/api-docs/getting-started/api-status-codes'
+                    example: /api-docs/getting-started/api-status-codes
                   errors:
                     type: object
                     additionalProperties:
@@ -1718,7 +1718,6 @@ paths:
         <!-- theme: info -->
         > #### Note
         > * This endpoint is in beta.
-
       operationId: liststoredinstruments
       parameters:
         - $ref: '#/components/parameters/customerId'
@@ -2627,6 +2626,7 @@ components:
           format: int32
         links:
           $ref: '#/components/schemas/Links'
+      x-internal: true
     _metaCollection:
       title: _metaCollection
       description: 'Data about the response, including pagination and collection totals.'
@@ -2634,6 +2634,7 @@ components:
       properties:
         pagination:
           $ref: '#/components/schemas/Pagination'
+      x-internal: true
     ErrorResponse:
       title: Error Response
       type: object
@@ -2653,6 +2654,7 @@ components:
           type: object
           additionalProperties:
             type: string
+      x-internal: true
     customer_Full:
       title: customer_Full
       type: object
@@ -2752,6 +2754,7 @@ components:
           description: It determines if the customer is signed up to receive either product review or abandoned cart emails or recieve both emails.
         channel_ids:
           $ref: '#/components/schemas/customerChannelIds'
+      x-internal: true
     customer_Post:
       title: customer_Post
       type: object
@@ -2826,6 +2829,7 @@ components:
         - email
         - first_name
         - last_name
+      x-internal: true
     customer_Put:
       title: customer_Put
       type: object
@@ -2890,6 +2894,7 @@ components:
             type: integer
       required:
         - id
+      x-internal: true
     attribueValue_Base:
       title: attribueValue_Base
       type: object
@@ -2920,6 +2925,7 @@ components:
         - attribute_id
         - value
         - customer_id
+      x-internal: true
     attribute_Full:
       description: ''
       type: object
@@ -2962,6 +2968,7 @@ components:
           description: Attribute value ID
           format: int32
           example: 2
+      x-internal: true
     attribute_Put:
       title: attribute_Put
       type: object
@@ -2979,6 +2986,7 @@ components:
         - name
         - id
       description: 'Once the data type is set, it can not be changed. The attribute will need to be deleted then created again with the new data type. This will also delete it from the customer.'
+      x-internal: true
     attribute_Post:
       title: attribute_Post
       example:
@@ -3003,6 +3011,7 @@ components:
       required:
         - name
         - type
+      x-internal: true
     address_Full:
       title: address_Full
       type: object
@@ -3087,6 +3096,7 @@ components:
         - country_code
         - customer_id
         - id
+      x-internal: true
     address_Put:
       title: address_Put
       type: object
@@ -3166,6 +3176,7 @@ components:
             - customer_id: 1
               id: 18
               first_name: sam
+      x-internal: true
     address_Post:
       title: address_Post
       type: object
@@ -3263,6 +3274,7 @@ components:
             phone: '15551234567'
             address_type: residential
             customer_id: 1
+      x-internal: true
     customerAddresses_Base:
       title: customerAddresses_Base
       example:
@@ -3342,6 +3354,7 @@ components:
         - postal_code
         - country_code
       description: The `address` object for the `customer` object's `addresses` array.
+      x-internal: true
     customerAuthentication_PostPut:
       title: customerAuthentication_PostPut
       allOf:
@@ -3354,6 +3367,7 @@ components:
               description: New password for customer. Write only field
               type: string
       type: object
+      x-internal: true
     Links:
       title: Links
       description: Pagination links for the previous and next parts of the whole collection.
@@ -3368,6 +3382,7 @@ components:
         next:
           description: Link to the next page returned in the response.
           type: string
+      x-internal: true
     formFieldValue_Full:
       oneOf:
         - title: Customer Form Field Value
@@ -3426,6 +3441,7 @@ components:
               type: integer
               description: The Customer Address ID.
       title: formFieldValue_Full
+      x-internal: true
     consent_Full:
       title: consent_Full
       description: Response payload for the BigCommerce API.
@@ -3439,6 +3455,7 @@ components:
           description: The date of which the customer consent was last updated.
           type: string
           format: date-time
+      x-internal: true
     consentAllow:
       title: consentAllow
       type: array
@@ -3455,6 +3472,7 @@ components:
           - functional
           - analytics
           - targeting
+      x-internal: true
     Deny:
       title: Deny
       type: array
@@ -3469,6 +3487,7 @@ components:
           - functional
           - analytics
           - targeting
+      x-internal: true
     DeclareCustomerConsentRequest:
       title: DeclareCustomerConsentRequest
       description: Request payload for the BigCommerce API.
@@ -3478,6 +3497,7 @@ components:
           $ref: '#/components/schemas/consentAllow'
         deny:
           $ref: '#/components/schemas/Deny'
+      x-internal: true
     customerAttributes_Base:
       description: ''
       title: customerAttributes_Base
@@ -3494,6 +3514,7 @@ components:
           minLength: 0
           maxLength: 255
           description: 'Attribute value. This will always be a string, regardless of the attribute’s type.'
+      x-internal: true
     customerChannelIds:
       type: array
       title: customerChannelIds
@@ -3502,6 +3523,7 @@ components:
         example:
           - 1
           - 2
+      x-internal: true
     CardInstrument:
       type: object
       properties:
@@ -3540,6 +3562,7 @@ components:
         billing_address:
           $ref: '#/components/schemas/BillingAddress'
       description: 'Details about a stored card instrument which includes details around billing, last 4 digits, issuer, etc.'
+      x-internal: true
     PayPalAccountInstrument:
       type: object
       properties:
@@ -3560,6 +3583,7 @@ components:
           description: PayPal email address
           example: bc-buyer-paypal-express@bigcommerce.com
       description: A PayPal account stored instrument
+      x-internal: true
     BankAccountInstrument:
       type: object
       properties:
@@ -3584,6 +3608,7 @@ components:
           description: Issuer identifier for the account
           example: DE001
       description: A stored bank account instrument
+      x-internal: true
     BillingAddress:
       type: object
       properties:
@@ -3628,6 +3653,7 @@ components:
         phone:
           type: string
           example: 101-192-0293
+      x-internal: true
     CustomerStoredCreditAmounts:
       description: 'Store credit. '
       type: array
@@ -3639,6 +3665,7 @@ components:
             type: number
             format: float
             example: 43.15
+      x-internal: true
     CustomerSettingsObject:
       title: CustomerSettingsObject
       type: object
@@ -3676,6 +3703,7 @@ components:
             customer_group_settings:
               guest_customer_group_id: 0
               default_customer_group_id: 0
+      x-internal: true
     CustomerChannelSettingsObject:
       title: CustomerChannelSettingsObject
       type: object
@@ -3718,6 +3746,7 @@ components:
               guest_customer_group_id: 0
               default_customer_group_id: 0
             allow_global_logins: true
+      x-internal: true
     ValidateCustomerCredentialsObject:
       title: ValidateCustomerCredentialsObject
       type: object
@@ -3734,6 +3763,7 @@ components:
         channel_id:
           type: integer
           description: ChannelId to check the customer credentials against - If this field is empty we will use channel 1
+      x-internal: true
     ValidateCustomerCredentialsResponseObject:
       title: ValidateCustomerCredentialsResponseObject
       type: object
@@ -3745,3 +3775,4 @@ components:
         is_valid:
           type: boolean
           description: indicates if the provided credentials are valid
+      x-internal: true

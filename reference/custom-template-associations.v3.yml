@@ -322,26 +322,31 @@ components:
           type: integer
         message:
           type: string
+      x-internal: true
     ErrorResponse400:
       type: object
       properties:
         schema:
           $ref: '#/components/schemas/Error'
+      x-internal: true
     ErrorResponse404:
       type: object
       properties:
         schema:
           $ref: '#/components/schemas/Error'
+      x-internal: true
     ErrorResponse409:
       type: object
       properties:
         schema:
           $ref: '#/components/schemas/Error'
+      x-internal: true
     ErrorResponse422:
       type: object
       properties:
         schema:
           $ref: '#/components/schemas/Error'
+      x-internal: true
     MetaPaginationObject:
       type: object
       properties:
@@ -377,10 +382,12 @@ components:
                 current:
                   type: string
                   example: '?limit=5&page=1'
+      x-internal: true
     DetailedErrors:
       type: object
       additionalProperties:
         type: string
+      x-internal: true
     BaseError:
       type: object
       description: |
@@ -398,6 +405,7 @@ components:
           type: string
         instance:
           type: string
+      x-internal: true
     ErrorResponse:
       allOf:
         - $ref: '#/components/schemas/BaseError'
@@ -405,6 +413,7 @@ components:
           properties:
             errors:
               $ref: '#/components/schemas/DetailedErrors'
+      x-internal: true
     CustomTemplateAssociation:
       title: CustomTemplateAssociation
       type: object
@@ -432,6 +441,7 @@ components:
           type: string
         date_modified:
           type: string
+      x-internal: true
     CustomTemplateAssociationUpsert:
       title: CustomTemplateAssociation
       type: object
@@ -455,6 +465,7 @@ components:
         - entity_type
         - entity_id
         - file_name
+      x-internal: true
   securitySchemes:
     X-Auth-Token:
       name: X-Auth-Token

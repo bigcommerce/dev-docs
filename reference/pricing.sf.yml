@@ -358,6 +358,7 @@ definitions:
           - percent
           - fixed
         type: string
+    x-internal: true
   PricingResponse:
     type: object
     properties:
@@ -557,6 +558,7 @@ definitions:
                     type: string
       meta:
         type: object
+    x-internal: true
   PriceRange:
     type: object
     description: 'For estimated prices, the minimum/maximum price that will typically apply to this product'
@@ -593,6 +595,7 @@ definitions:
           tax_inclusive:
             description: The estimated tax inclusive price for this product based on the provided customer group
             type: number
+    x-internal: true
   TaxPrice:
     type: object
     description: The price for a product including estimates for tax
@@ -609,6 +612,7 @@ definitions:
       tax_inclusive:
         description: The estimated tax inclusive price for this product based on the provided customer group
         type: number
+    x-internal: true
   ItemPricing:
     type: object
     properties:
@@ -786,6 +790,7 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/BulkPricingTier'
+    x-internal: true
   Item:
     type: object
     description: Details/configuration for the product to request a price for.
@@ -808,6 +813,7 @@ definitions:
             value_id:
               type: integer
               description: 'The ID of the value matching the option being configured. Note: must be ID, not the value.'
+    x-internal: true
   PricingRequest:
     type: object
     properties:
@@ -847,6 +853,7 @@ definitions:
                   value_id:
                     type: integer
                     description: 'The ID of the value matching the option being configured. Note: must be ID, not the value.'
+    x-internal: true
 host: api.bigcommerce.com
 schemes:
   - https

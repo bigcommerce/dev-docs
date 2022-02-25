@@ -7,7 +7,6 @@ info:
     <!-- theme: warning -->
     > #### Note
     > * Breaking changes may be introduced to this endpoint while in beta.
-
   version: ''
 consumes:
   - application/json
@@ -22,7 +21,6 @@ paths:
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
       parameters:
         - name: filter
           in: query
@@ -157,11 +155,13 @@ definitions:
         $ref: '#/definitions/FormFields'
       billingAddress:
         $ref: '#/definitions/FormFields'
+    x-internal: true
   FormFields:
     type: array
     description: List of form fields for the group
     items:
       $ref: '#/definitions/FormField'
+    x-internal: true
   FormField:
     type: object
     description: Form Field
@@ -231,6 +231,7 @@ definitions:
                   type: string
                 value:
                   type: string
+    x-internal: true
 tags:
   - name: Form Fields
 basePath: /api/storefront

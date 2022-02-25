@@ -3132,6 +3132,7 @@ components:
       allOf:
         - $ref: '#/components/schemas/order_RespOnly'
         - $ref: '#/components/schemas/order_Shared'
+      x-internal: true
     ordersCount_Full:
       title: ordersCount_Full
       type: object
@@ -3144,6 +3145,7 @@ components:
           description: Total number of orders in the store
           example: 45
           type: number
+      x-internal: true
     orderCoupons_Base:
       title: orderCoupons_Base
       type: object
@@ -3198,6 +3200,7 @@ components:
             3% then will return as 2.7000 or the amount of the order.  (Float, Float-As-String, Integer)
           example: 2.7
           type: number
+      x-internal: true
     orderProducts:
       title: orderProducts
       type: object
@@ -3422,6 +3425,7 @@ components:
           type: string
           example: Towel Type 1
           description: The product name that is shown to merchant in Control Panel.
+      x-internal: true
     orderCount:
       title: orderCount
       example:
@@ -3432,6 +3436,7 @@ components:
           description: ''
           example: 27
           type: number
+      x-internal: true
     orderShippingAddress:
       title: orderShippingAddress
       allOf:
@@ -3507,6 +3512,7 @@ components:
             shipping_quotes:
               $ref: '#/components/schemas/shippingQuotes_Resource'
         - $ref: '#/components/schemas/shippingAddress_Base'
+      x-internal: true
     orderTaxes_Base:
       title: orderTaxes_Base
       type: object
@@ -3566,6 +3572,7 @@ components:
             - handling
             - gift-wrapping
           description: Type of tax on item
+      x-internal: true
     orderShipment:
       title: orderShipment
       type: object
@@ -3646,6 +3653,7 @@ components:
               quantity:
                 type: number
                 example: 2
+      x-internal: true
     billingAddress_Full:
       allOf:
         - $ref: '#/components/schemas/billingAddress_Base'
@@ -3657,6 +3665,7 @@ components:
                 $ref: '#/components/schemas/formFields'
       title: billingAddress_Full
       description: Required to create an order.
+      x-internal: true
     products_Resource:
       title: products_Resource
       type: object
@@ -3672,6 +3681,7 @@ components:
           readOnly: true
           example: /orders/129/products
           type: string
+      x-internal: true
     shippingAddresses_Resource:
       title: shippingAddress_Resource
       type: object
@@ -3687,6 +3697,7 @@ components:
           readOnly: true
           example: /orders/129/shippingaddresses
           type: string
+      x-internal: true
     coupons_Resource:
       title: coupons_Resource
       type: object
@@ -3702,6 +3713,7 @@ components:
           readOnly: true
           example: /orders/129/coupons
           type: string
+      x-internal: true
     orderProductAppliedDiscounts:
       title: orderProductAppliedDiscounts
       type: object
@@ -3737,6 +3749,7 @@ components:
             - order
             - product
           description: Determines if the discount if discount was applied at the Order or Product level. Read Only.
+      x-internal: true
     orderProductOptions:
       title: orderProductOptions
       type: object
@@ -3806,6 +3819,7 @@ components:
           type: string
           example: blue
           description: The product option value that is shown to merchant in Control Panel.
+      x-internal: true
     formFields:
       title: formFields
       type: object
@@ -3822,6 +3836,7 @@ components:
           readOnly: true
           type: string
           example: 123BAF
+      x-internal: true
     orderMessages:
       type: array
       items:
@@ -3850,6 +3865,7 @@ components:
           customer:
             type: object
       title: orderMessages
+      x-internal: true
     shippingQuotes_Resource:
       type: object
       title: shippingQuotes_Resource
@@ -3869,6 +3885,7 @@ components:
           description: |-
             This URL will return a 204 for shipping quotes. To return shipping quotes:
             `/shipping_addresses/shipping_address_id/shipping_quotes`
+      x-internal: true
     shippingQuotes_Base:
       type: object
       title: shippingQuotes_Base
@@ -3909,6 +3926,7 @@ components:
         method_id:
           type: integer
           description: Shipping method ID
+      x-internal: true
     orderShipment_Post:
       type: object
       title: orderShipment_Post
@@ -3962,6 +3980,7 @@ components:
               quantity:
                 type: number
                 example: 2
+      x-internal: true
     orderShipment_Put:
       type: object
       title: orderShipment_Put
@@ -4003,6 +4022,7 @@ components:
           type: string
           description: Comments the shipper wishes to add.
           maxLength: 65535
+      x-internal: true
     orderStatus_Base:
       title: orderStatus_Base
       type: object
@@ -4027,6 +4047,7 @@ components:
           description: System description of the order status
           example: 'An incomplete order happens when a shopper reached the payment page, but did not complete the transaction.'
           type: string
+      x-internal: true
     ordersCountStatus:
       title: ordersCountStatus
       type: object
@@ -4042,6 +4063,7 @@ components:
               description: The sort order of the order status from the Control Panel
               example: 0
               type: integer
+      x-internal: true
     order_Shared:
       title: order_Shared
       description: Order properties used in `PUT` and `POST` requests and responses.
@@ -4232,6 +4254,7 @@ components:
           description: 'The value of the wrapping cost, including tax. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
+      x-internal: true
     billingAddress_Base:
       type: object
       title: billingAddress_Base
@@ -4272,6 +4295,7 @@ components:
           example: janedoe@example.com
       required:
         - zip
+      x-internal: true
     shippingAddress_Base:
       type: object
       title: shippingAddress_Base
@@ -4320,6 +4344,7 @@ components:
           type: string
           description: Text code identifying the BigCommerce shipping module selected by the customer.
           example: Free Shipping
+      x-internal: true
     order_RespOnly:
       title: order_RespOnly
       type: object
@@ -4435,6 +4460,7 @@ components:
           type: integer
           example: 7
           description: The staus ID of the order.
+      x-internal: true
     orderCustomProduct_Put:
       type: object
       title: orderCustomProduct_Put
@@ -4481,6 +4507,7 @@ components:
         - quantity
         - price_ex_tax
         - price_inc_tax
+      x-internal: true
     orderCatalogProduct_Put:
       title: orderCatalogProduct_Put
       description: |
@@ -4502,6 +4529,7 @@ components:
               type: integer
               description: 'The order product `id`. To add a product to an existing order, don''t include `id` in the payload. `id` is required when updating an order product.'
         - $ref: '#/components/schemas/orderCatalogProduct_Post'
+      x-internal: true
     orderCatalogProduct_Post:
       title: orderCatalogProduct_Post
       description: |
@@ -4598,6 +4626,7 @@ components:
           type: number
         wrapping_cost_inc_tax:
           type: number
+      x-internal: true
     orderCustomProduct_Post:
       title: orderCustomProduct_Post
       type: object
@@ -4636,6 +4665,7 @@ components:
         - quantity
         - price_inc_tax
         - price_ex_tax
+      x-internal: true
     order_Put:
       title: order_Put
       allOf:
@@ -4653,6 +4683,7 @@ components:
             shipping_addresses:
               $ref: '#/components/schemas/shippingAddress_Base'
         - $ref: '#/components/schemas/order_Shared'
+      x-internal: true
     order_Post:
       title: order_Post
       description: Products and Billing address only required for POST operation.
@@ -4670,3 +4701,4 @@ components:
               items:
                 $ref: '#/components/schemas/shippingAddress_Base'
         - $ref: '#/components/schemas/order_Shared'
+      x-internal: true

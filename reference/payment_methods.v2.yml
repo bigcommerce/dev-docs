@@ -23,7 +23,7 @@ info:
   license:
     name: ''
 host: api.bigcommerce.com
-basePath: '/'
+basePath: /
 schemes:
   - https
 consumes:
@@ -105,6 +105,7 @@ definitions:
         description: Determines whether the payment gateway is in test mode. Always false for offline payment methods.
         example: false
         type: boolean
+    x-internal: true
 tags:
   - name: Payment Methods
 securityDefinitions:

@@ -14,7 +14,7 @@ info:
     ### Shipping Carrier Connections
     Carrier connections refer to specific settings required to connect to a specific shipping carrier. Each carrier requires your app to supply a unique set of properties/fields to establish a connection with that carrier.
 host: api.bigcommerce.com
-basePath: '/'
+basePath: /
 schemes:
   - https
 consumes:
@@ -1782,6 +1782,7 @@ definitions:
       - ups
       - upsready
       - shipperhq
+    x-internal: true
   ShippingProvider:
     title: Shipping Provider
     x-enum-elements:
@@ -1821,6 +1822,7 @@ definitions:
       - upsonline
       - shipperhq
     example: endicia
+    x-internal: true
   ShippingZone:
     title: Shipping Zone
     example:
@@ -1913,6 +1915,7 @@ definitions:
         type: boolean
     required:
       - name
+    x-internal: true
   ShippingZoneLocations:
     title: Shipping Zone Locations
     type: object
@@ -1933,6 +1936,7 @@ definitions:
         description: ISO Alpha-2 code for the state.
         example: TX
         type: string
+    x-internal: true
   HandlingFees:
     title: Shipping Zone Handling Fees
     type: object
@@ -1948,6 +1952,7 @@ definitions:
         description: ''
         example: true
         type: boolean
+    x-internal: true
   shippingMethod_Full:
     title: shippingMethod_Full
     allOf:
@@ -1958,6 +1963,7 @@ definitions:
             example: 1
             type: integer
       - $ref: '#/definitions/shippingMethod_Base'
+    x-internal: true
   ShippingMethodType:
     title: Shipping Method Type
     example: perorder
@@ -1997,6 +2003,7 @@ definitions:
       - fedex
       - royalmail
       - upsready
+    x-internal: true
   shippingMethod_Base:
     title: shippingMethod_Base
     type: object
@@ -2070,10 +2077,12 @@ definitions:
         description: Whether or not this shipping zone is the fallback if all others are not valid for the order.
         example: false
         type: boolean
+    x-internal: true
   ShippingResponse:
     type: object
     properties: {}
     title: ShippingResponse
+    x-internal: true
   carrierConnection:
     type: object
     title: Carrier Connection
@@ -2083,6 +2092,7 @@ definitions:
       connection:
         type: object
         description: '`connection` object varies by carrier'
+    x-internal: true
   metaCollection:
     title: metaCollection
     description: Meta data relating to pagination
@@ -2126,6 +2136,7 @@ definitions:
                 type: string
                 description: Query string appended to the resource to show the current page.
                 example: '?limit=1&page=2'
+    x-internal: true
 tags:
   - name: Shipping Method
   - name: Shipping Carrier

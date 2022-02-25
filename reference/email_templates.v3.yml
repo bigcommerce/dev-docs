@@ -19,7 +19,6 @@ paths:
         <!-- theme: info -->
         > #### Note
         >`/marketing/email-templates` endpoints only work after opting into the new email management experience from your store's control panel. You can opt-in by visiting Email Templates. If you have already opted in, visiting the Email Templates page will return a `404` error, and you will be able to access the new Transactional Emails page.
-
       responses:
         '200':
           content:
@@ -73,11 +72,10 @@ paths:
       description: |-
         Get a single global email template or a channel-specific email template override.
 
-        
+
         <!-- theme: info -->
         > #### Note
         >`/marketing/email-templates` endpoints only work after opting into the new email management experience from your store's control panel. You can opt-in by visiting [Email Templates](https://login.bigcommerce.com/deep-links/manage/marketing/email-templates). If you have already opted in, visiting the [Email Templates](https://login.bigcommerce.com/deep-links/manage/marketing/email-templates) page will return a `404` error, and you will be able to access the new [Transactional Emails](https://login.bigcommerce.com/deep-links/manage/transactional-emails) page.
-
       tags:
         - Email Templates
       responses:
@@ -181,6 +179,7 @@ components:
           properties:
             errors:
               $ref: '#/components/schemas/DetailedErrors'
+      x-internal: true
     BaseError:
       type: object
       description: |
@@ -198,16 +197,19 @@ components:
           type: string
         instance:
           type: string
+      x-internal: true
     DetailedErrors:
       type: object
       additionalProperties:
         type: string
+      x-internal: true
     EmailTemplatesCollection:
       title: EmailTemplatesCollection
       type: array
       items:
         $ref: '#/components/schemas/EmailTemplate'
       description: A collection of all email templates.
+      x-internal: true
     EmailTemplate:
       title: EmailTemplate
       type: object
@@ -237,6 +239,7 @@ components:
         subject:
           type: string
           example: 'Reset your password at {{store.name}}'
+      x-internal: true
     LocaleObject:
       title: LocaleObject
       type: object
@@ -251,12 +254,14 @@ components:
             reset_password: 'To change your customer account password at {name} please click this link or copy and paste it into your browser:'
           description: Language keys for the template. User-defined. Should match any lang keys used in the template.
       description: A particular locale's translations.
+      x-internal: true
     LocaleCollection:
       title: LocaleCollection
       type: array
       items:
         $ref: '#/components/schemas/LocaleObject'
       description: A collection of locale translations for the static language.
+      x-internal: true
     EmailTemplateUpdate:
       title: EmailTemplateUpdate
       type: object
@@ -274,12 +279,14 @@ components:
         - body
         - lang
         - subject
+      x-internal: true
     scratch:
       title: scratch
       type: object
       properties:
         id:
           type: string
+      x-internal: true
   parameters:
     ChannelIdParam:
       in: query

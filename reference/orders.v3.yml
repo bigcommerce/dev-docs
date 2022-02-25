@@ -1009,6 +1009,7 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/PreferredOutcome'
+    x-internal: true
   Reason:
     type: object
     properties:
@@ -1021,6 +1022,7 @@ definitions:
       is_archived:
         type: boolean
         description: Indicates whether or not the reason has been archived
+    x-internal: true
   PreferredOutcome:
     type: object
     properties:
@@ -1033,6 +1035,7 @@ definitions:
       is_archived:
         type: boolean
         description: Indicates whether or not the outcome has been archived
+    x-internal: true
   CreateReturnRequest:
     type: object
     required:
@@ -1047,6 +1050,7 @@ definitions:
         description: A comment provided to the merchant for review
         type: string
     title: CreateReturnRequest
+    x-internal: true
   CreateReturnRequestItem:
     type: object
     required:
@@ -1066,8 +1070,10 @@ definitions:
       reason_id:
         type: integer
         format: int64
+    x-internal: true
   CreateReturn:
     $ref: '#/definitions/Return_Full'
+    x-internal: true
   Return_Full:
     type: object
     description: A view of a return
@@ -1101,6 +1107,7 @@ definitions:
       date_modified:
         type: string
         format: date-time
+    x-internal: true
   ReturnItem:
     type: object
     description: A view of a return item
@@ -1159,6 +1166,7 @@ definitions:
           rejected_quantity:
             type: integer
             description: The quantity of items rejected by the merchant
+    x-internal: true
   StatusUpdate_Full:
     type: object
     properties:
@@ -1169,6 +1177,7 @@ definitions:
       new_status:
         $ref: '#/definitions/Status_Full'
     title: StatusUpdate_Full
+    x-internal: true
   Status_Full:
     type: string
     enum:
@@ -1177,11 +1186,13 @@ definitions:
       - REMOVED
     description: The status of the return.
     title: Status_Full
+    x-internal: true
   UpdateReturnStatusesRequest:
     type: array
     items:
       $ref: '#/definitions/StatusUpdate_Full'
     title: UpdateReturnStatusesRequest
+    x-internal: true
   UpdateReturnStatuses:
     type: array
     items:
@@ -1193,6 +1204,7 @@ definitions:
           description: The ID of the return for which the status was updated
         status:
           $ref: '#/definitions/Status_Full'
+    x-internal: true
   Problem:
     type: object
     properties:
@@ -1206,6 +1218,7 @@ definitions:
         type: string
         format: url
         description: A resource describing the problem
+    x-internal: true
   BatchOperationMeta:
     type: object
     properties:
@@ -1218,6 +1231,7 @@ definitions:
       failed:
         type: integer
         description: The number of failed operations in the batch
+    x-internal: true
   Pagination:
     type: object
     description: 'Data about the response, including pagination and collection totals.'
@@ -1266,6 +1280,7 @@ definitions:
             type: string
             description: |
               Link to the next page returned in the response.
+    x-internal: true
   ReceivedItems_Put:
     type: array
     items:
@@ -1286,6 +1301,7 @@ definitions:
           type: integer
           description: The quantity of items to be marked as pending
     title: ReceivedItems_Put
+    x-internal: true
   ReceivedItems_Base:
     type: array
     items:
@@ -1304,6 +1320,7 @@ definitions:
           format: int64
           description: The quantity of items marked as pending
     title: ReceivedItems_Base
+    x-internal: true
   ReviewedItems_Put:
     type: array
     items:
@@ -1328,6 +1345,7 @@ definitions:
           type: integer
           description: The quantity of items to be marked as pending
     title: ReviewedItems_Put
+    x-internal: true
   ReviewedItems_Base:
     type: array
     items:
@@ -1350,6 +1368,7 @@ definitions:
           format: int64
           description: The quantity of items marked as pending
     title: ReviewedItems_Base
+    x-internal: true
   GetReturnableItems:
     type: array
     items:
@@ -1380,6 +1399,7 @@ definitions:
                 description: A displayable value for the option
             description: An item available for return
           description: A collection of options configured for the order product
+    x-internal: true
   ItemReferenceId:
     type: object
     properties:
@@ -1394,6 +1414,7 @@ definitions:
     required:
       - type
       - value
+    x-internal: true
   CollectionMeta:
     type: object
     description: 'Data about the response, including pagination and collection totals.'
@@ -1447,6 +1468,7 @@ definitions:
                 description: |
                   Link to the next page returned in the response.
     title: Collection Meta
+    x-internal: true
   Meta:
     type: object
     title: Meta
@@ -1499,6 +1521,7 @@ definitions:
                 type: string
                 description: |
                   Link to the next page returned in the response.
+    x-internal: true
   ErrorResponse:
     allOf:
       - $ref: '#/definitions/error_Base'
@@ -1510,11 +1533,13 @@ definitions:
               type: string
             title: DetailedErrors
     title: ErrorResponse
+    x-internal: true
   DetailedErrors:
     type: object
     additionalProperties:
       type: string
     title: DetailedErrors
+    x-internal: true
   Transaction_Post:
     type: object
     title: Transaction_Post
@@ -1628,6 +1653,7 @@ definitions:
       - amount
       - currency
       - gateway
+    x-internal: true
   NotFound:
     description: Error payload for the BigCommerce API.
     type: object
@@ -1644,6 +1670,7 @@ definitions:
       instance:
         type: string
     title: Not Found
+    x-internal: true
   Transaction:
     description: A BigCommerce Transaction object describes a single transaction.
     allOf:
@@ -1873,6 +1900,7 @@ definitions:
                 example: 35.42
     title: Transaction
     type: object
+    x-internal: true
   CreditCard:
     type: object
     description: A credit-card model.
@@ -1918,6 +1946,7 @@ definitions:
         description: |
           The expiry year of a credit-card.
         type: integer
+    x-internal: true
   StoreCredit:
     type: object
     description: |
@@ -1929,6 +1958,7 @@ definitions:
         type: number
         format: float
         example: 35.42
+    x-internal: true
   Custom:
     type: object
     description: Custom payment from manual order.
@@ -1938,6 +1968,7 @@ definitions:
           Text entered for the payment method in the control panel.
         type: string
     title: Custom
+    x-internal: true
   Offline:
     type: object
     description: 'Offline payment (e.g., check or purchase order).'
@@ -1947,6 +1978,7 @@ definitions:
           Display name for the offline payment.
         type: string
     title: Offline
+    x-internal: true
   GiftCertificate:
     type: object
     description: A gift-certificate model.
@@ -1984,6 +2016,7 @@ definitions:
           - pending
           - disabled
           - expired
+    x-internal: true
   AVSResult:
     description: Address Verification Service (AVS) result from the payment gateway.
     type: object
@@ -2001,6 +2034,7 @@ definitions:
         description: AVS Code for postal matching result.
         type: string
     title: AVS Results
+    x-internal: true
   CVVResult:
     description: Card Verification Value result from the payment gateway.
     type: object
@@ -2012,6 +2046,7 @@ definitions:
         description: CVV message.
         type: string
     title: CVV Result
+    x-internal: true
   NoContent:
     description: No-content response for the BigCommerce API.
     type: object
@@ -2028,9 +2063,11 @@ definitions:
       instance:
         type: string
     title: No Content
+    x-internal: true
   metaEmpty_Full:
     type: object
     title: metaEmpty_Full
+    x-internal: true
   pagination_Full:
     type: object
     title: pagination_Full
@@ -2057,12 +2094,14 @@ definitions:
         format: int32
       links:
         $ref: '#/definitions/links_Full'
+    x-internal: true
   metaCollection_Full:
     type: object
     title: metaCollection_Full
     properties:
       pagination:
         $ref: '#/definitions/pagination_Full'
+    x-internal: true
   links_Full:
     type: object
     properties:
@@ -2080,6 +2119,7 @@ definitions:
         description: |
           Link to the next page returned in the response.
     title: links_Full
+    x-internal: true
   error_Base:
     type: object
     title: error_Base
@@ -2095,6 +2135,7 @@ definitions:
       type:
         type: string
     description: Error payload for the BigCommerce API.
+    x-internal: true
   errorDetailed_Full:
     type: object
     properties:
@@ -2104,12 +2145,14 @@ definitions:
           type: string
         title: DetailedErrors
     title: errorDetailed_Full
+    x-internal: true
   PostRefundQuotesRequest:
     type: array
     description: Request body for batch refund quotes.
     title: Refund Quotes Request - BATCH
     items:
       $ref: '#/definitions/RefundQuote_Post'
+    x-internal: true
   RefundQuote_Post:
     type: object
     title: RefundQuote_Post
@@ -2124,6 +2167,7 @@ definitions:
     required:
       - order_id
       - items
+    x-internal: true
   RefundQuote_Full:
     type: object
     title: RefundQuote_Full
@@ -2205,6 +2249,7 @@ definitions:
           >
         items:
           $ref: '#/definitions/RefundMethod'
+    x-internal: true
   RefundRequest_Post:
     type: object
     description: Request body for refund requests.
@@ -2225,12 +2270,14 @@ definitions:
     required:
       - items
       - payments
+    x-internal: true
   PostRefundsRequest:
     type: array
     description: Request body for batch refunds
     title: Refunds Request - BATCH
     items:
       $ref: '#/definitions/RefundRequest_Post'
+    x-internal: true
   FailedQuoteError:
     type: object
     description: Failed quote response.
@@ -2245,6 +2292,7 @@ definitions:
         type: string
         description: details why the request failed
     title: FailedQuoteError
+    x-internal: true
   ItemsRefund:
     title: ItemsRefund
     type: array
@@ -2253,6 +2301,7 @@ definitions:
         - $ref: '#/definitions/AmountBoundItem'
         - $ref: '#/definitions/QuantityBoundItem'
         - $ref: '#/definitions/TaxExemptItem'
+    x-internal: true
   PaymentRequest:
     type: object
     properties:
@@ -2275,12 +2324,14 @@ definitions:
           "offline": true
       }
     title: Payment Request
+    x-internal: true
   RefundMethod:
     type: array
     minItems: 1
     items:
       $ref: '#/definitions/PaymentOption'
     title: Refund Method
+    x-internal: true
   QuantityBoundItem:
     type: object
     title: Quantity Bound Item
@@ -2309,6 +2360,7 @@ definitions:
         description: Reason for refund
         minLength: 0
         maxLength: 1000
+    x-internal: true
   TaxExemptItem:
     type: object
     title: Tax Exempt (Order Level)
@@ -2327,6 +2379,7 @@ definitions:
         description: Reason for the refund.
         minLength: 0
         maxLength: 1000
+    x-internal: true
   AmountBoundItem:
     type: object
     title: Amount Bound Item
@@ -2354,6 +2407,7 @@ definitions:
         type: string
         minLength: 0
         maxLength: 1000
+    x-internal: true
   MerchantOverride:
     type: object
     title: Merchant Calculated Override
@@ -2374,6 +2428,7 @@ definitions:
     required:
       - total_amount
       - total_tax
+    x-internal: true
   Refund:
     type: object
     title: Refund
@@ -2417,6 +2472,7 @@ definitions:
         minItems: 1
         items:
           $ref: '#/definitions/RefundPayment'
+    x-internal: true
   RefundItem:
     type: object
     properties:
@@ -2441,6 +2497,7 @@ definitions:
       requested_amount:
         $ref: '#/definitions/Amount'
     title: Refund Item
+    x-internal: true
   RefundPayment:
     type: object
     title: Refund Payment
@@ -2464,6 +2521,7 @@ definitions:
       declined_message:
         type: string
         description: Message indicate why payment was declined
+    x-internal: true
   PaymentOption:
     type: object
     example:
@@ -2499,18 +2557,21 @@ definitions:
         type: string
         description: 'Reason the payment option is offline only, if applicable.'
         example: Multiple online refunds are not available
+    x-internal: true
   Amount:
     type: number
     format: float
     description: A non-negative 2 decimal place rounded value that represents the amount that can be charged/refunded via payment providers.
     example: 1.99
     title: Amount
+    x-internal: true
   AdjustmentAmount:
     type: number
     format: float
     description: 'A negative or positive 2 decimal place rounded value that represents the difference between the refund amount requested in the refund quote and the actual amount that is refundable on the order. This value is negative when the refund amount requested in the refund quote is more than the total refundable amount. This value is positive when the total refundable amount has increased, e.g. as a result of rounding.'
     example: -10.2
     title: Adjustment Amount
+    x-internal: true
   MetaRefund:
     type: object
     title: MetaRefund
@@ -2522,6 +2583,7 @@ definitions:
       total:
         type: integer
     description: 'Describes refund failures, success and totals.'
+    x-internal: true
   MetaFieldCollectionResponse:
     type: object
     description: |
@@ -2533,6 +2595,7 @@ definitions:
           $ref: '#/definitions/Metafield'
       meta:
         $ref: '#/definitions/CollectionMeta'
+    x-internal: true
   MetafieldResponse:
     description: |
       Response payload for the BigCommerce API.
@@ -2542,6 +2605,7 @@ definitions:
         $ref: '#/definitions/Metafield'
       meta:
         $ref: '#/definitions/Meta'
+    x-internal: true
   MetafieldBase:
     type: object
     description: |
@@ -2618,6 +2682,7 @@ definitions:
         maximum: 10000000000
     required:
       - permission_set
+    x-internal: true
   Metafield:
     type: object
     description: |
@@ -2640,12 +2705,14 @@ definitions:
             format: date-time
             description: |
               Date and time when the metafield was last updated.
+    x-internal: true
   MetafieldPost:
     type: object
     description: |
       The model for a POST to create metafield.
     allOf:
       - $ref: '#/definitions/MetafieldBase'
+    x-internal: true
   MetafieldPut:
     type: object
     description: |
@@ -2662,6 +2729,7 @@ definitions:
               - put
             minimum: 0
             maximum: 10000000000
+    x-internal: true
 responses:
   Return_Resp:
     description: ''
@@ -2741,7 +2809,7 @@ responses:
       application/json:
         status: 502
         title: A login URL could not be generated. Please try another request.
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
   504_GatewayTimeout:
     description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
     schema:
@@ -2750,7 +2818,7 @@ responses:
       application/json:
         status: 504
         title: Gateway Timeout
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors: {}
   403_Unauthorized:
     description: ''
@@ -2760,7 +2828,7 @@ responses:
       application/json:
         status: 403
         title: Unauthorized Access. You do not have permission to make this request.
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
   400_BadRequest:
     description: |-
       Malformed request syntax. Typically need to fix the JSON
@@ -2771,7 +2839,7 @@ responses:
       application/json:
         status: 400
         title: Input is invalid.
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
   404_NotFound:
     description: The resource was not found.
     schema:
@@ -2780,7 +2848,7 @@ responses:
       application/json:
         status: 404
         title: 'Account with {id} not found'
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
   422_UnprocessableEntity:
     description: This occurs when missing or unacceptable data is passed for one or more fields. Please correct the values for the fields listed in the errors object.
     schema:
@@ -2789,7 +2857,7 @@ responses:
       application/json:
         status: 422
         title: JSON data is missing or invalid
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors:
           name: error.expected.jsstring
           primary_contact.district: error.expected.jsstring.
@@ -2801,7 +2869,7 @@ responses:
       application/json:
         status: 503
         title: Service Unavailable
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
   paymentActionsCapture_Resp:
     description: ''
     schema:

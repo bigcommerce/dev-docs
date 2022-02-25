@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Tax Provider Connection
   version: '3'
-  description: Manage the connection between a merchant's BigCommerce store and a third party tax provider. For more information, see [Tax Provider API Overview](/api-docs/providers/tax).
+  description: 'Manage the connection between a merchant''s BigCommerce store and a third party tax provider. For more information, see [Tax Provider API Overview](/api-docs/providers/tax).'
 paths:
   '/stores/{store_hash}/v3/tax/providers/{provider_id}/connection':
     get:
@@ -13,7 +13,6 @@ paths:
         <!-- theme: info -->
         > #### Note
         > * Requires **read** permissions on the **Information and Settings** scope.
-
       operationId: provider-connection-get
       responses:
         '200':
@@ -39,13 +38,11 @@ paths:
       summary: Delete a Connection
       description: |
         Remove any previously set basic connection credentials for the specified provider. If the specified provider is the active tax provider on the store, the store's active tax provider will be reset to BigCommerce Manual Tax. It is suggested to call this endpoint during a single-click app [uninstall callback](/api-docs/apps/guide/callbacks#uninstall-callback).
-        
+
         <!-- theme: info -->
         > #### Note
         > * This operation will be logged in [Store Logs](https://support.bigcommerce.com/s/article/Using-Store-Logs) under **Staff Actions**.
         > * Requires **write** permissions on the **Information and Settings** [scope](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
-
-
       operationId: provider-connection-delete
       responses:
         '200':
@@ -92,7 +89,6 @@ paths:
         > #### Note
         > * This operation will be logged in [Store Logs](https://support.bigcommerce.com/s/article/Using-Store-Logs) under **Staff Actions**.
         > * Requires **write** permissions on the **Information and Settings** [scope](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
-
       summary: Update a Connection
       operationId: provider-connection-put
       tags:
@@ -112,7 +108,7 @@ paths:
                 password:
                   type: string
                   example: h6eSgKLN72q7jYTW
-        description: Basic authentication information, associated with a merchant account on the third-party tax provider's infrastructure.
+        description: 'Basic authentication information, associated with a merchant account on the third-party tax provider''s infrastructure.'
         x-examples:
           application/json:
             username: MyTaxProviderAccount
@@ -123,7 +119,7 @@ paths:
         required: true
         schema:
           type: string
-        description: The Tax Provider's `provider_id` provided by BigCommerce after the provider [shares their provider details](/api-docs/providers/tax#sharing-provider-details-with-bigcommerce).
+        description: 'The Tax Provider''s `provider_id` provided by BigCommerce after the provider [shares their provider details](/api-docs/providers/tax#sharing-provider-details-with-bigcommerce).'
       - schema:
           type: string
         name: store_hash
@@ -192,3 +188,4 @@ components:
                 Describes whether the stored credentials are considered complete and configured, ready to be used for Tax Provider API requests.
 
                 Merchants may enable any **configured** tax provider for storefront tax quotation.
+      x-internal: true

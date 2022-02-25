@@ -23,7 +23,6 @@ paths:
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
       summary: Get Order
       tags:
         - Order
@@ -50,6 +49,7 @@ definitions:
     properties:
       order:
         $ref: '#/definitions/Order'
+    x-internal: true
   Order:
     title: Order
     type: object
@@ -70,7 +70,7 @@ definitions:
         description: Whether this item is taxable.
         type: boolean
       baseAmount:
-        description: Cost of cart's contents, before applying discounts.
+        description: 'Cost of cart''s contents, before applying discounts.'
         type: number
         format: double
       discountAmount:
@@ -141,6 +141,7 @@ definitions:
         description: Id of the channel which the order belongs to.
       consignments:
         $ref: '#/definitions/Consignments'
+    x-internal: true
   Currency:
     title: Currency
     description: This will always be the same between cart and checkout.
@@ -159,6 +160,7 @@ definitions:
         description: 'Number of decimal places for the currency. For example, USD currency has two decimal places.'
         type: number
         format: double
+    x-internal: true
   AppliedCoupon:
     title: Applied Coupon
     type: object
@@ -181,6 +183,7 @@ definitions:
         format: double
     required:
       - code
+    x-internal: true
   AppliedDiscount:
     title: Applied Discount
     type: object
@@ -189,6 +192,7 @@ definitions:
         type: number
         description: 'Property key is discount ID, value is discount amount.'
         example: 8.28
+    x-internal: true
   OrderLineItem:
     title: Order Line Item
     type: object
@@ -212,6 +216,7 @@ definitions:
       - physicalItems
       - digitalItems
       - giftCertificate
+    x-internal: true
   ItemPhysical:
     title: Item Physical
     type: object
@@ -263,7 +268,7 @@ definitions:
         type: number
         format: double
       listPrice:
-        description: Item's list price, as quoted by the manufacturer/distributor.
+        description: 'Item''s list price, as quoted by the manufacturer/distributor.'
         type: number
         format: double
       salePrice:
@@ -295,6 +300,7 @@ definitions:
         items: {}
     required:
       - quantity
+    x-internal: true
   GiftWrapping:
     title: Gift Wrapping
     type: object
@@ -309,6 +315,7 @@ definitions:
         description: ''
         type: number
         format: double
+    x-internal: true
   OrderItemDigital:
     title: Order Item Digital
     type: object
@@ -360,7 +367,7 @@ definitions:
         type: number
         format: double
       listPrice:
-        description: Item's list price, as quoted by the manufacturer/distributor.
+        description: 'Item''s list price, as quoted by the manufacturer/distributor.'
         type: number
         format: double
       salePrice:
@@ -395,6 +402,7 @@ definitions:
         items: {}
     required:
       - quantity
+    x-internal: true
   OrderItemGiftCertificate:
     title: Order Item Gift Certificate
     type: object
@@ -416,6 +424,7 @@ definitions:
       type:
         description: Explicitly specifying the gift certificate type
         type: string
+    x-internal: true
   AddressResponse:
     title: Address Response
     allOf:
@@ -425,6 +434,7 @@ definitions:
           id:
             description: ''
             type: string
+    x-internal: true
   AddressProperties:
     title: Address Properties
     type: object
@@ -476,6 +486,7 @@ definitions:
           $ref: '#/definitions/CustomField'
     required:
       - countryCode
+    x-internal: true
   CustomField:
     title: Custom Field
     type: object
@@ -486,6 +497,7 @@ definitions:
       fieldValue:
         description: 'This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)'
         type: string
+    x-internal: true
   Status:
     title: Status
     description: Order status.
@@ -507,6 +519,7 @@ definitions:
       - MANUAL_VERIFICATION_REQUIRED
       - DISPUTED
       - PARTIALLY_REFUNDED
+    x-internal: true
   BaseItem:
     title: Base Item
     type: object
@@ -558,7 +571,7 @@ definitions:
         type: number
         format: double
       listPrice:
-        description: Item's list price, as quoted by the manufacturer/distributor.
+        description: 'Item''s list price, as quoted by the manufacturer/distributor.'
         type: number
         format: double
       salePrice:
@@ -578,6 +591,7 @@ definitions:
         type: string
     required:
       - quantity
+    x-internal: true
   order_Nate:
     type: object
     properties:
@@ -728,6 +742,7 @@ definitions:
               type: integer
       taxTotal:
         type: integer
+    x-internal: true
   Consignments:
     title: Consignments
     type: object
@@ -748,7 +763,7 @@ definitions:
             postalCode: '78704'
             country: United States
             countryCode: US
-            email: 'first1@bigcommerce.com'
+            email: first1@bigcommerce.com
             phone: '0410123452'
             itemsTotal: 1
             itemsShipped: 0
@@ -774,6 +789,7 @@ definitions:
         description: List of shipping consignments
         items:
           $ref: '#/definitions/ShippingConsignment'
+    x-internal: true
   ShippingConsignment:
     title: ShippingConsignment
     type: object
@@ -793,7 +809,7 @@ definitions:
         postalCode: '78704'
         country: United States
         countryCode: US
-        email: 'first1@bigcommerce.com'
+        email: first1@bigcommerce.com
         phone: '0410123452'
         itemsTotal: 1
         itemsShipped: 0
@@ -853,7 +869,7 @@ definitions:
         example: US
       email:
         type: string
-        example: 'first1@bigcommerce.com'
+        example: first1@bigcommerce.com
       phone:
         type: string
         example: '0410123452'
@@ -906,6 +922,7 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ConsignmentFormField'
+    x-internal: true
   ConsignmentLineItem:
     title: ConsignmentLineItem
     type: object
@@ -914,6 +931,7 @@ definitions:
       id:
         type: integer
         example: 4
+    x-internal: true
   ConsignmentFormField:
     title: ConsignmentFormField
     type: object
@@ -925,6 +943,7 @@ definitions:
         type: string
         example: super rare
         x-nullable: true
+    x-internal: true
   PickupConsignment:
     title: PickupConsignment
     type: object
@@ -948,7 +967,7 @@ definitions:
           postalCode: '78704'
           country: United States
           countryCode: US
-          email: 'loc1@bigcommerce.com'
+          email: loc1@bigcommerce.com
           phone: '0410123452'
     properties:
       id:
@@ -972,6 +991,7 @@ definitions:
         example: Pickup Method 10 Collection Time Description
       location:
         $ref: '#/definitions/PickupConsignmentLocation'
+    x-internal: true
   PickupConsignmentLocation:
     title: PickupConsignmentLocation
     type: object
@@ -1004,7 +1024,7 @@ definitions:
         example: US
       email:
         type: string
-        example: 'loc1@bigcommerce.com'
+        example: loc1@bigcommerce.com
       phone:
         type: string
         example: '0410123452'
@@ -1019,8 +1039,9 @@ definitions:
         postalCode: '78704'
         country: United States
         countryCode: US
-        email: 'loc1@bigcommerce.com'
+        email: loc1@bigcommerce.com
         phone: '0410123452'
+    x-internal: true
 x-stoplight:
   docs:
     includeDownloadLink: true

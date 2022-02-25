@@ -1369,6 +1369,7 @@ definitions:
               text:
                 description: Text of the banner
                 type: string
+    x-internal: true
   Checkout_Put:
     title: Checkout_Put
     type: object
@@ -1378,6 +1379,7 @@ definitions:
         type: string
     required:
       - customer_message
+    x-internal: true
   AppliedCoupon:
     title: Applied Coupon
     type: object
@@ -1411,6 +1413,7 @@ definitions:
           |`5`|`promotion`|
     required:
       - code
+    x-internal: true
   AddressProperties:
     title: Address Properties
     type: object
@@ -1468,6 +1471,7 @@ definitions:
     required:
       - email
       - country_code
+    x-internal: true
   CreateConsignmentRequest:
     title: Create Consignment Request
     type: object
@@ -1546,6 +1550,7 @@ definitions:
           required:
             - item_id
             - quantity
+    x-internal: true
   UpdateConsignmentRequest:
     title: Update Consignment Request
     description: One or more of these three fields are mandatory. `shipping_address` and `line_items` can be updated in one request. `shipping_option_id` has to be updated in a separate request since changing the address or line items can invalidate the previously available shipping options.
@@ -1628,6 +1633,7 @@ definitions:
       shipping_option_id:
         description: ''
         type: string
+    x-internal: true
   CouponCodeRequest:
     title: Coupon Code Request
     type: object
@@ -1635,6 +1641,7 @@ definitions:
       coupon_code:
         description: Coupon codes have a 50 character limit.
         type: string
+    x-internal: true
   Order:
     type: object
     title: Order
@@ -1643,6 +1650,7 @@ definitions:
         type: integer
         example: 75
         description: The order Id.
+    x-internal: true
 parameters:
   checkoutId:
     name: checkoutId

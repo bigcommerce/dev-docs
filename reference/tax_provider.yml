@@ -900,6 +900,7 @@ components:
         - price
         - quantity
         - type
+      x-internal: true
     request-item-wrapping:
       type: object
       description: 'An **ItemRequestWrapping** represents required information relating to completing tax calculations for a specific line item, including the information used to calculate wrapping tax.'
@@ -959,6 +960,7 @@ components:
         - price
         - quantity
         - type
+      x-internal: true
     request-document:
       type: object
       description: 'Each **DocumentRequest** represents an order or part of an order of items fulfilled from a single origin address to a single destination address. In addition to shipping and billing details, it contains an `items` array of one or more **ItemRequest** objects, which represent the shipment’s tax-relevant contents. Multi-address orders, in which items ship to or from multiple addresses, require at least one **DocumentRequest** per combination of sender-recipient addresses. These are similar to "consignments" or "shipments" in other BigCommerce APIs.'
@@ -989,6 +991,7 @@ components:
         - shipping
         - handling
         - items
+      x-internal: true
     request-quote:
       type: object
       description: 'Each **QuoteRequest** represents an order. In addition to transaction details, it contains a `documents` array of one or more **DocumentRequest** objects, which represent distinct combinations of origin and fulfillment addresses and the tax-relevant contents of those consignments. This is similar to an "order" in other BigCommerce APIs.'
@@ -1032,6 +1035,7 @@ components:
         - customer
         - transaction_date
         - documents
+      x-internal: true
     request-adjust:
       description: An **AdjustRequest** contains the same data as a standard **QuoteRequest** with added detail of the adjustment operation.
       allOf:
@@ -1042,6 +1046,7 @@ components:
               description: 'Specifies the reason for the adjustment operation, for auditing purposes. May be a custom, user-entered description.'
         - $ref: '#/components/schemas/request-quote'
       title: AdjustRequest
+      x-internal: true
     Address:
       type: object
       description: 'Requests may have partial Address data. For example, the BigCommerce Cart page has the "Estimate Shipping & Tax" feature which is only expected to supply Country, Region and Postal Code.'
@@ -1085,6 +1090,7 @@ components:
           enum:
             - RESIDENTIAL
             - COMMERCIAL
+      x-internal: true
     TaxClass:
       type: object
       properties:
@@ -1101,6 +1107,7 @@ components:
         - code
         - class_id
         - name
+      x-internal: true
     response-quote:
       type: object
       properties:
@@ -1116,6 +1123,7 @@ components:
         - id
         - documents
       title: Quote
+      x-internal: true
     response-document:
       type: object
       title: Document
@@ -1140,6 +1148,7 @@ components:
         - items
         - shipping
         - handling
+      x-internal: true
     response-item:
       type: object
       description: |-
@@ -1165,6 +1174,7 @@ components:
         - id
         - price
         - type
+      x-internal: true
     response-item-wrapping:
       type: object
       description: |-
@@ -1192,6 +1202,7 @@ components:
         - id
         - price
         - type
+      x-internal: true
     response-taxprice:
       type: object
       properties:
@@ -1220,6 +1231,7 @@ components:
         - tax_rate
         - sales_tax_summary
       title: TaxPrice
+      x-internal: true
     SalesTax:
       type: object
       properties:
@@ -1250,6 +1262,7 @@ components:
         - name
         - rate
         - amount
+      x-internal: true
   securitySchemes:
     Authorization:
       type: http

@@ -1453,49 +1453,49 @@ components:
       value:
         status: 400
         title: Input is invalid
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors: {}
     error_404_resp_example:
       value:
         status: 404
         title: Not found
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors: {}
     error_404_entity_not_found_resp_example:
       value:
         status: 404
         title: The requested entity was not found.
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors: {}
     error_404_active_theme_not_found_resp_example:
       value:
         status: 404
         title: 'No active theme found with channel_id: 123456789'
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors: {}
     error_404_listing_not_found_resp_example:
       value:
         status: 404
         title: 'Listing [123456789] not found'
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors: {}
     error_409_resp_example:
       value:
         status: 409
         title: 'Channel already exists with name: "Facebook", platform: "facebook", and type: "marketplace"'
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors: {}
     error_422_invalid_filter_value_resp_example:
       value:
         status: 422
         title: 'Query parameter "limit" value must be integer. For input string: "a".'
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors: {}
     error_422_channel_resp_example:
       value:
         status: 422
         title: JSON data is missing or invalid
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors:
           platform: error.path.missing
           name: error.expected.jsstring
@@ -1503,13 +1503,13 @@ components:
       value:
         status: 422
         title: 'Input channel type [marketplace] with platform [bigcommerce] is not supported'
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors: {}
     error_422_prevent_update_type_and_platform_resp_example:
       value:
         status: 422
         title: 'The following fields are invalid: type, platform'
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors:
           type: The field 'type' can not be updated after channel is created.
           platform: The field 'platform' can not be updated after channel is created.
@@ -1517,13 +1517,13 @@ components:
       value:
         status: 422
         title: A deleted channel cannot be updated. Channel can be restored within 90 days after deleting by contacting BigCommerce support team
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors: {}
     error_422_multiple_channels_currency_assignments_resp_example:
       value:
         status: 422
         title: JSON data is missing or invalid
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors:
           0.channel_id: error.expected.jsnumber
           0.enabled_currencies: error.path.missing
@@ -1532,7 +1532,7 @@ components:
       value:
         status: 422
         title: JSON data is missing or invalid
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors:
           enabled_currencies: error.path.missing
           default_currency: error.path.missing
@@ -1540,32 +1540,32 @@ components:
       value:
         status: 422
         title: 'The following fields are invalid: `enabled_currencies`'
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors:
-          enabled_currencies: The field `enabled_currencies` contains the following currencies that have not been enabled [AWG]
+          enabled_currencies: 'The field `enabled_currencies` contains the following currencies that have not been enabled [AWG]'
     error_422_invalid_channel_id_resp_example:
       value:
         status: 422
-        title: The following `channel_id`s [123456789] are not valid for store 1000000000.
-        type: '/api-docs/getting-started/api-status-codes'
+        title: 'The following `channel_id`s [123456789] are not valid for store 1000000000.'
+        type: /api-docs/getting-started/api-status-codes
         errors: {}
     error_422_invalid_filters_resp_example:
       value:
         status: 422
         title: 'The filter(s): a, b are not valid filter parameter(s).'
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors: {}
     error_422_product_id_mismatch_resp_example:
       value:
         status: 422
         title: '0/0 product listing group(s) and 0/0 product listing(s) upserted. Invalid fields: '
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors: {}
     error_422_missing_listing_required_fields_resp_example:
       value:
         status: 422
         title: JSON data is missing or invalid
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors:
           0.state: error.path.missing
           0.variants: error.path.missing
@@ -1574,7 +1574,7 @@ components:
       value:
         status: 422
         title: JSON data is missing or invalid
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors:
           0.variants.0.state: error.path.missing
           0.variants.0.product_id: error.path.missing
@@ -1583,13 +1583,13 @@ components:
       value:
         status: 422
         title: Channel id (1000000) is not valid for store (1001808665)!
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors: {}
     error_422_invalid_listing_id_resp_example:
       value:
         status: 422
         title: '0/0 product listing group(s) and 0/0 product listing(s) upserted. Invalid fields: group_id,'
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors:
           group_id: Group id (0) for store (1001808665) cannot be less than or equal to zero!
   securitySchemes:
@@ -1630,36 +1630,45 @@ components:
       type: integer
       format: int64
       description: The ID of the channel.
+      x-internal: true
     ChannelIdForListing:
       type: integer
       format: int64
       description: The ID of the channel associated with this channel listing.
+      x-internal: true
     ListingId:
       type: integer
       format: int64
       minimum: 1
       description: 'The ID of the channel listing that has been created, returned, or updated.'
+      x-internal: true
     ProductId:
       type: integer
       format: int64
       description: The ID of the product associated with this channel listing.
+      x-internal: true
     VariantId:
       type: integer
       format: int64
       description: The ID of the product variant associated with this channel listing.
+      x-internal: true
     ExternalId:
       type: string
       description: Associated ID within a system / platform outside of BC.
+      x-internal: true
     IsListableFromUI:
       type: boolean
       description: Indicates if a channel can create listings from the BigCommerce UI. Default value for this field is based on the channel type and platform combination if not specified on create.
+      x-internal: true
     IsVisible:
       type: boolean
       description: 'Indicates if a channel is visible within the BigCommerce merchant admin UI (control panel). If `false`, the channel will not show in Channel Manager nor in any channels dropdown throughout the UI. Default value for this field is `true` if not specified on create.'
+      x-internal: true
     IsEnabled:
       deprecated: true
       type: boolean
       description: 'This field was originally used to turn on/off a channel but is deprecated. `status` should be used in place of `is_enabled`. Channel with `status` of `prelaunch`, `active`, or `connected` will have `is_enabled` set to `true`. Channel with `status` of `inactive`, `disconnected`, `archived`, `deleted`, or `terminated` will have `is_enabled` set to `false`.'
+      x-internal: true
     ChannelStatus:
       type: string
       description: 'The status of the channel; channel `type`, `platform`, and `status` must be a [valid combination](/api-reference/store-management/channels#status). `terminated` is not valid for `PUT` or `POST` requests. `deleted` is not valid for `POST` requests.'
@@ -1673,9 +1682,11 @@ components:
         - deleted
         - terminated
       title: ''
+      x-internal: true
     ChannelName:
       type: string
       description: Name of the channel as it will appear to merchants in the control panel.
+      x-internal: true
     ChannelType:
       type: string
       description: 'The type of channel; channel `platform` and `type` must be a [valid combination](/api-reference/store-management/channels#platform).'
@@ -1684,57 +1695,72 @@ components:
         - marketplace
         - storefront
         - marketing
+      x-internal: true
     ChannelPlatform:
       type: string
       description: 'The name of the platform for the channel; channel `platform` and `type` must be a [valid combination](/api-reference/store-management/channels#platform).'
+      x-internal: true
     ChannelDateCreated:
       type: string
       format: date-time
       description: Date on which the channel was first created.
+      x-internal: true
     ChannelDateModified:
       type: string
       format: date-time
       description: Date on which the channel was most recently changed.
+      x-internal: true
     IconUrl:
       type: string
       format: url
       description: Link to the platform icon.
+      x-internal: true
     EnabledCurrencies:
       type: array
       description: 'Currencies that are enabled for the given channel in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three character alphabetic format.'
       items:
         type: string
+      x-internal: true
     DefaultCurrency:
       type: string
       description: 'Default currency for the channel in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three character alphabetic format. Will be used on storefront when other currencies cannot.'
+      x-internal: true
     ChannelProductName:
       type: string
       description: Name of the product for this channel listing specifically. This is an optional field that can be used to override the product name in the catalog.
+      x-internal: true
     ChannelProductVariantName:
       type: string
       description: Name of the product variant for this channel listing specifically. This is an optional field that can be used to override the name of the product variant in the catalog.
+      x-internal: true
     ChannelProductDescription:
       type: string
       description: Description of the product for this channel listing specifically. This is an optional field that can be used to override the product description in the catalog.
+      x-internal: true
     ChannelProductVariantDescription:
       type: string
       description: Description of the product variant for this channel listing specifically. This is an optional field that can be used to override the description of the product variant in the catalog.
+      x-internal: true
     ChannelListingDateCreated:
       type: string
       format: date-time
       description: Date on which the channel listing was first created.
+      x-internal: true
     ChannelListingVariantDateCreated:
       type: string
       format: date-time
       description: Date on which the channel listing variant was first created.
+      x-internal: true
     ChannelListingDateModified:
       type: string
       format: date-time
       description: Date on which the channel listing was most recently changed.
+      x-internal: true
     ChannelListingVariantDateModified:
       type: string
       format: date-time
       description: Date on which the channel listing variant was most recently changed.
+      x-internal: true
     ListingState:
       type: string
       description: The state of the product assignment or channel listing.
@@ -1750,6 +1776,7 @@ components:
         - rejected
         - submitted
         - deleted
+      x-internal: true
     VariantState:
       type: string
       description: The state of the channel listing variant.
@@ -1764,17 +1791,18 @@ components:
         - rejected
         - submitted
         - deleted
+      x-internal: true
     ChannelConfigMeta:
       type: object
       description: Optional channel configuration object.
       properties:
         app:
           type: object
-          description: "A [channel app](/api-docs/channels/overview#channel-apps) config object for optionally configuring the channel's user interface in the control panel."
+          description: 'A [channel app](/api-docs/channels/overview#channel-apps) config object for optionally configuring the channel''s user interface in the control panel.'
           properties:
             id:
               type: integer
-              description: The unique `id` given to an app registered in [DevTools](https://devtools.bigcommerce.com/); used to create links to the app in channel manager. `app.id` is optional; however, if you're building an app that creates or manages a channel, we recommend including it to ensure the user interface in the control panel works properly. Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request. [Learn how to find an App's ID](/api-docs/apps/tutorials/id).
+              description: 'The unique `id` given to an app registered in [DevTools](https://devtools.bigcommerce.com/); used to create links to the app in channel manager. `app.id` is optional; however, if you''re building an app that creates or manages a channel, we recommend including it to ensure the user interface in the control panel works properly. Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request. [Learn how to find an App''s ID](/api-docs/apps/tutorials/id).'
             sections:
               type: array
               description: 'If set, when the app is loaded within the control panel, the navigation `sections` will be directly embedded in the control panel navigation.'
@@ -1788,6 +1816,7 @@ components:
                   query_path:
                     type: string
                     description: The value that will be passed to the app's iFrame in the URL and will allow the app to display the appropriate section within the app iFrame in the control panel.
+      x-internal: true
     CurrencyNotRequiredWithChannelId:
       type: object
       description: Details about currency assignments for a specific channel.
@@ -1798,6 +1827,7 @@ components:
           $ref: '#/components/schemas/EnabledCurrencies'
         default_currency:
           $ref: '#/components/schemas/DefaultCurrency'
+      x-internal: true
     CurrencyRequiredWithChannelId:
       type: object
       description: Details about currency assignments for a specific channel.
@@ -1812,6 +1842,7 @@ components:
         - channel_id
         - enabled_currencies
         - default_currency
+      x-internal: true
     CurrencyRequiredWithoutChannelId:
       type: object
       description: Details about currency assignments for a specific channel.
@@ -1823,6 +1854,7 @@ components:
       required:
         - enabled_currencies
         - default_currency
+      x-internal: true
     CreateChannelReq:
       type: object
       properties:
@@ -1848,6 +1880,7 @@ components:
         - name
         - type
         - platform
+      x-internal: true
     UpdateChannelReq:
       type: object
       properties:
@@ -1865,18 +1898,22 @@ components:
           $ref: '#/components/schemas/ChannelName'
         status:
           $ref: '#/components/schemas/ChannelStatus'
+      x-internal: true
     UpsertMultipleChannelsCurrencyAssignmentsReq:
       type: array
       items:
         $ref: '#/components/schemas/CurrencyRequiredWithChannelId'
+      x-internal: true
     CreateMultipleListingsReq:
       type: array
       items:
         $ref: '#/components/schemas/UpsertListingWithoutListingIdReq'
+      x-internal: true
     UpdateMultipleListingsReq:
       type: array
       items:
         $ref: '#/components/schemas/UpsertListingWithListingIdReq'
+      x-internal: true
     UpsertListingWithoutListingIdReq:
       type: object
       description: Details about assigning a product to a specific channel.
@@ -1897,6 +1934,7 @@ components:
         - product_id
         - state
         - variants
+      x-internal: true
     UpsertListingWithListingIdReq:
       type: object
       description: Details about assigning a product to a specific channel.
@@ -1920,10 +1958,12 @@ components:
         - product_id
         - state
         - variants
+      x-internal: true
     ChannelProductMultipleVariants:
       type: array
       items:
         $ref: '#/components/schemas/ChannelProductVariantPartial'
+      x-internal: true
     ChannelProductVariantPartial:
       type: object
       description: Details about a variant of the product for this channel listing.
@@ -1944,6 +1984,7 @@ components:
         - product_id
         - variant_id
         - state
+      x-internal: true
     ChannelProductVariantFull:
       type: object
       description: Details about a variant of the product for this channel listing.
@@ -1966,6 +2007,7 @@ components:
           $ref: '#/components/schemas/ChannelListingVariantDateCreated'
         date_modified:
           $ref: '#/components/schemas/ChannelListingVariantDateModified'
+      x-internal: true
     ChannelWithoutCurrencies:
       type: object
       properties:
@@ -1995,6 +2037,7 @@ components:
           $ref: '#/components/schemas/ChannelDateModified'
         icon_url:
           $ref: '#/components/schemas/IconUrl'
+      x-internal: true
     ChannelWithCurrencies:
       type: object
       properties:
@@ -2026,6 +2069,7 @@ components:
           $ref: '#/components/schemas/IconUrl'
         currencies:
           $ref: '#/components/schemas/CurrencyNotRequiredWithChannelId'
+      x-internal: true
     ActiveTheme:
       type: object
       description: Details about the Channel's relationship to Themes.
@@ -2042,6 +2086,7 @@ components:
         saved_theme_configuration_uuid:
           type: string
           description: 'The UUID of the most recently saved Theme Configuration. If this is different from the active Theme Configuration UUID, this indicates that some changes have been saved in the control panel Theme Editor that have not yet been published.'
+      x-internal: true
     Listing:
       type: object
       properties:
@@ -2067,6 +2112,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ChannelProductVariantFull'
+      x-internal: true
     Error:
       type: object
       properties:
@@ -2083,21 +2129,25 @@ components:
         errors:
           type: object
           description: Provides more details to errors.
+      x-internal: true
     MetaWithFullPagination:
       type: object
       description: 'Data about the response, including pagination.'
       properties:
         pagination:
           $ref: '#/components/schemas/pagination_Full'
+      x-internal: true
     MetaWithPartialPagination:
       type: object
       description: 'Data about the response, including pagination.'
       properties:
         pagination:
           $ref: '#/components/schemas/pagination_Partial'
+      x-internal: true
     EmptyMeta:
       type: object
       description: Empty meta object; may be used later.
+      x-internal: true
     pagination_Full:
       type: object
       description: |
@@ -2139,6 +2189,7 @@ components:
               type: string
               description: |
                 Link to the next page returned in the response.
+      x-internal: true
     pagination_Partial:
       type: object
       description: |
@@ -2173,6 +2224,7 @@ components:
           type: integer
           description: |
             The total number of pages in the collection.
+      x-internal: true
     site_Put:
       type: object
       properties:
@@ -2180,6 +2232,7 @@ components:
           type: string
           description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
       title: site_Put
+      x-internal: true
     site_Post:
       type: object
       properties:
@@ -2191,6 +2244,7 @@ components:
           type: integer
           description: 'The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites.'
       title: site_Post
+      x-internal: true
     site_Full:
       type: object
       properties:

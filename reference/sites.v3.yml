@@ -143,7 +143,7 @@ info:
     * [Building Headless Storefronts Guide](/api-docs/storefronts/developers-guide-headless)
   contact: {}
 host: api.bigcommerce.com
-basePath: '/'
+basePath: /
 paths:
   '/stores/{store_hash}/v3/sites':
     post:
@@ -174,15 +174,13 @@ paths:
           $ref: '#/responses/504_GatewayTimeout'
       tags:
         - Sites
-      description: |-
-        Create a site that links a [headless storefront](/api-docs/storefronts/developers-guide-headless) to a sales [channel](/api-reference/store-management/channels).
+      description: 'Create a site that links a [headless storefront](/api-docs/storefronts/developers-guide-headless) to a sales [channel](/api-reference/store-management/channels).'
     get:
       responses:
         '200':
           $ref: '#/responses/site_RespCollection'
       summary: Get Sites
-      description: |-
-        Get sites linked to a [headless storefront](/api-docs/storefronts/developers-guide-headless) sales channels.
+      description: 'Get sites linked to a [headless storefront](/api-docs/storefronts/developers-guide-headless) sales channels.'
       tags:
         - Sites
       parameters:
@@ -213,8 +211,7 @@ paths:
           $ref: '#/responses/response_Site'
       tags:
         - Sites
-      description: |-
-        Get a site with site ID `{site_id}`.
+      description: 'Get a site with site ID `{site_id}`.'
       produces:
         - application/json
     put:
@@ -242,8 +239,7 @@ paths:
         - application/json
       produces:
         - application/json
-      description: |-
-        Update a site with site ID `{site_id}`.
+      description: 'Update a site with site ID `{site_id}`.'
     delete:
       summary: Delete a Site
       operationId: delete-site
@@ -258,8 +254,7 @@ paths:
           examples: {}
       tags:
         - Sites
-      description: |-
-        Delete a site with site ID `{site_id}`.
+      description: 'Delete a site with site ID `{site_id}`.'
     parameters:
       - type: string
         name: store_hash
@@ -331,8 +326,7 @@ paths:
                   total_pages: 1
       tags:
         - Site Routes
-      description: |-
-        Get a site's routes.
+      description: Get a site's routes.
     post:
       summary: Create a Site Route
       operationId: post-site-route
@@ -467,8 +461,7 @@ paths:
               meta: {}
       tags:
         - Site Routes
-      description: |-
-        Get a site's route.
+      description: Get a site's route.
     put:
       summary: Update a Site Route
       operationId: put-site-route
@@ -516,8 +509,7 @@ paths:
           examples: {}
       tags:
         - Site Routes
-      description: |-
-        Delete a site's route.
+      description: Delete a site's route.
     parameters:
       - type: string
         name: store_hash
@@ -575,6 +567,7 @@ definitions:
                 type: string
                 description: Query string appended to the resource to show the current page.
                 example: '?limit=1&page=2'
+    x-internal: true
   siteRoute_Full:
     title: siteRoute_Full
     description: Route object used in responses.
@@ -585,6 +578,7 @@ definitions:
             type: integer
             description: Unique ID for this route. Required when updating an existing route.
       - $ref: '#/definitions/siteRoute_Base'
+    x-internal: true
   put_Site:
     type: object
     properties:
@@ -593,6 +587,7 @@ definitions:
         description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
         example: 'http://kittens.mybigcommerce.com/'
     title: put_Site
+    x-internal: true
   _site:
     type: object
     properties:
@@ -619,10 +614,12 @@ definitions:
         items:
           $ref: '#/definitions/siteRoute_Full'
     title: _site
+    x-internal: true
   _metaEmpty:
     type: object
     description: Empty meta object; may be used later.
     title: _metaEmpty
+    x-internal: true
   _pagination:
     type: object
     description: |
@@ -666,10 +663,12 @@ definitions:
             description: |
               Link to the next page returned in the response.
     title: _pagination
+    x-internal: true
   _errors:
     type: object
     description: The keys and values in an errors object will vary depending on the error received.
     title: _errors
+    x-internal: true
   error_Full:
     type: object
     title: error_Full
@@ -684,6 +683,7 @@ definitions:
         type: string
       type:
         type: string
+    x-internal: true
   errorDetailed_Full:
     type: object
     properties:
@@ -693,6 +693,7 @@ definitions:
           type: string
         title: DetailedErrors
     title: errorDetailed_Full
+    x-internal: true
   post_Site:
     type: object
     properties:
@@ -704,6 +705,7 @@ definitions:
         type: integer
         description: 'The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites.'
     title: post_Site
+    x-internal: true
   siteRoute_Base:
     type: object
     title: siteRoute_Base
@@ -742,6 +744,7 @@ definitions:
           - `{slug}` The **slug** for the requested item (if available). Note: the `slug` value may contain `/` slash
           - `{language}` The **language** string that the client is using
         example: /my-amazing-product
+    x-internal: true
   siteRoutes_Route_Base:
     title: siteRoutes_Route_Base
     type: object
@@ -784,6 +787,7 @@ definitions:
       - type
       - matching
       - route
+    x-internal: true
 tags:
   - name: Sites
     description: 'Enables creation and management of external sites (domains) where shoppers shop. Allows for the correct shopping experience to be delivered and maintained (i.e. redirect URLs, email links) when a shopper goes through the purchasing process.'
@@ -832,7 +836,7 @@ responses:
       application/json:
         status: 504
         title: Gateway Timeout
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors: {}
   403_Unauthorized:
     description: ''
@@ -842,7 +846,7 @@ responses:
       application/json:
         status: 403
         title: Unauthorized Access. You do not have permission to make this request.
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
   400_BadRequest:
     description: |-
       Malformed request syntax. Typically need to fix the JSON
@@ -853,7 +857,7 @@ responses:
       application/json:
         status: 400
         title: Input is invalid.
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
   404_NotFound:
     description: Requested resource not founded.
     schema:
@@ -867,7 +871,7 @@ responses:
       application/json:
         status: 422
         title: JSON data is missing or invalid
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors: {}
   503_ServiceUnavailable:
     description: 'If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
@@ -877,7 +881,7 @@ responses:
       application/json:
         status: 503
         title: Service Unavailable
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
   response_Site:
     description: ''
     examples:
@@ -917,7 +921,7 @@ responses:
         meta:
           saved_records: 0
         title: Bulk operation has failed
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors:
           0.matching.type: Route already exists for site 1 matching 5 for type product
           1.matching.type: Route already exists for site 1 matching * for type home
@@ -941,7 +945,7 @@ responses:
       application/json:
         status: 422
         title: JSON data is missing or invalid
-        type: '/api-docs/getting-started/api-status-codes'
+        type: /api-docs/getting-started/api-status-codes
         errors:
           matching: error.path.missing
   site_RespCollection:

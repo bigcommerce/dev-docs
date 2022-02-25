@@ -28,11 +28,10 @@ paths:
         By default, customers receive abandoned cart emails as soon as they provide their email address in the checkout flow. They can opt out using this endpoint.
 
         However, if **Store Settings > Miscellaneous > Require Consent** is enabled, Abandoned Cart Emails are not sent by default, and the customer should opt-in.
-        
+
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
       parameters:
         - in: body
           name: body
@@ -54,6 +53,7 @@ definitions:
       acceptsAbandonedCartEmails:
         type: boolean
         description: Has subscriber provided consent for receiving Abandon Cart emails.
+    x-internal: true
   Subscription:
     type: object
     description: Subscription properties.
@@ -95,6 +95,7 @@ definitions:
         type: array
         description: |
           The collection of consents the shopper is subscribing to.
+    x-internal: true
 x-stoplight:
   docs:
     includeDownloadLink: true

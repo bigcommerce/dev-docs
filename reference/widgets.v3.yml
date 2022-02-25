@@ -839,6 +839,7 @@ definitions:
             type: boolean
             description: Can be added to create a new widget template version instead of updating the current one.
     title: widgetTemplate_Put
+    x-internal: true
   widgetTemplate_Post:
     title: widgetTemplate_Post
     type: object
@@ -859,6 +860,7 @@ definitions:
     required:
       - name
       - template
+    x-internal: true
   widgetTemplate_Full:
     allOf:
       - $ref: '#/definitions/widgetTemplate_Base'
@@ -888,6 +890,7 @@ definitions:
             description: A read-only value. Do not attempt to set or modify this value in a POST or PUT operation.
     title: widgetTemplate_Full
     description: ''
+    x-internal: true
   widget_Full:
     title: widget_Full
     allOf:
@@ -911,6 +914,7 @@ definitions:
           version_uuid:
             type: string
             description: The identifier of the widget template version associated with this widget.
+    x-internal: true
   widget_Post:
     required:
       - name
@@ -930,6 +934,7 @@ definitions:
         type: string
         description: The widget template UUID.
     title: widget_Post
+    x-internal: true
   widget_Put:
     title: widget_Put
     allOf:
@@ -939,6 +944,7 @@ definitions:
             type: string
             description: The widget template UUID.
         type: object
+    x-internal: true
   placement_Post:
     title: placement_Post
     allOf:
@@ -954,6 +960,7 @@ definitions:
           - widget_uuid
           - template_file
       - $ref: '#/definitions/placement_Base'
+    x-internal: true
   placement_Put:
     title: placement_Put
     allOf:
@@ -966,6 +973,7 @@ definitions:
             type: string
             description: A widget identifier.
       - $ref: '#/definitions/placement_Base'
+    x-internal: true
   placement_Full:
     title: placement_Full
     allOf:
@@ -991,6 +999,7 @@ definitions:
         properties:
           widget:
             $ref: '#/definitions/widget_Full'
+    x-internal: true
   metaCollection:
     type: object
     description: 'Data about the response, including pagination and collection totals.'
@@ -998,6 +1007,7 @@ definitions:
     properties:
       pagination:
         $ref: '#/definitions/pagination'
+    x-internal: true
   pagination:
     type: object
     description: |
@@ -1041,6 +1051,7 @@ definitions:
             description: |
               Link to the next page returned in the response.
     title: pagination
+    x-internal: true
   error_Base:
     type: object
     description: |
@@ -1061,15 +1072,18 @@ definitions:
         type: string
       errors:
         type: object
+    x-internal: true
   themeRegion:
     properties:
       name:
         type: string
         description: The region name.
     title: themeRegion
+    x-internal: true
   Meta:
     type: object
     description: Empty meta object; may be used later.
+    x-internal: true
   placement_Base:
     type: object
     title: placement_Base
@@ -1090,6 +1104,7 @@ definitions:
           - active
         description: Sets the placement as either inactive or active.
         default: inactive
+    x-internal: true
   widgetTemplate_Base:
     type: object
     title: widgetTemplate_Base
@@ -1107,6 +1122,7 @@ definitions:
         type: string
         description: The GraphQL Storefront API query that provides widget data.
     description: ''
+    x-internal: true
   widget_Base:
     type: object
     title: widget_Base
@@ -1121,6 +1137,7 @@ definitions:
         type: object
         format: json
         description: The JSON data that populates the template.
+    x-internal: true
   new-model:
     type: array
     items:
@@ -1138,6 +1155,7 @@ definitions:
           type: string
         conditional:
           $ref: '#/definitions/widgetSchemaConditional'
+    x-internal: true
   widgetSchemaTab:
     type: object
     title: widgetSchemaTab
@@ -1242,6 +1260,7 @@ definitions:
                         type: array
                         description: A single-object array containing a value from the `typeMeta`'s `selectOptions`.
                         items: {}
+    x-internal: true
   widgetSchemaTabSections:
     type: object
     title: widgetSchemaTabSections
@@ -1253,6 +1272,7 @@ definitions:
         description: 'For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
         items:
           $ref: '#/definitions/widgetSchemaSetting_Base'
+    x-internal: true
   widgetSchemaArray:
     type: object
     title: widgetSchemaArray
@@ -1289,6 +1309,7 @@ definitions:
           anyOf:
             - $ref: '#/definitions/widgetSchemaHidden'
             - $ref: '#/definitions/widgetSchemaTab'
+    x-internal: true
   widgetSchemaSetting_Base:
     type: object
     title: widgetSchemaSetting_Base
@@ -1342,6 +1363,7 @@ definitions:
                   example: image
       conditional:
         $ref: '#/definitions/widgetSchemaConditional'
+    x-internal: true
   widgetSchema:
     type: array
     description: 'The schema for the widget’s merchant-facing UI. For more information on the available schema settings, see [Widget UI Schema](/stencil-docs/page-builder/widget-ui-schema). '
@@ -1351,6 +1373,7 @@ definitions:
         - $ref: '#/definitions/widgetSchemaTab'
         - $ref: '#/definitions/widgetSchemaArray'
         - $ref: '#/definitions/widgetSchemaHidden'
+    x-internal: true
   widgetSchemaHidden:
     type: object
     title: widgetSchemaHidden
@@ -1435,10 +1458,12 @@ definitions:
                 value:
                   type: array
                   description: A single-object array containing a value from the `typeMeta`'s `selectOptions`.
+    x-internal: true
   widgetSchemaTabSectionsSettings:
     type: object
     properties: {}
     title: widgetSchemaTabSectionsSettings
+    x-internal: true
   widgetSchemaConditional:
     type: object
     title: widgetSchemaConditional
@@ -1462,6 +1487,7 @@ definitions:
         type: array
         description: A single-object array containing a value from the `typeMeta`'s `selectOptions`.
         items: {}
+    x-internal: true
 securityDefinitions:
   X-Auth-Token:
     type: apiKey

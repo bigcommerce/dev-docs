@@ -14,11 +14,10 @@ paths:
         - Customers
       description: |-
         Creates a *Customer*.
-        
+
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-
       responses:
         '204':
           description: Customer succesfully created
@@ -74,6 +73,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CustomFields'
+      x-internal: true
     CustomFields:
       title: CustomFields
       type: object
@@ -82,6 +82,7 @@ components:
           type: string
         fieldValue:
           type: string
+      x-internal: true
 x-stoplight:
   docs:
     includeDownloadLink: false

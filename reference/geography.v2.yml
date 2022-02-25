@@ -421,6 +421,7 @@ components:
           properties:
             states:
               $ref: '#/components/schemas/countriesStates_Full'
+      x-internal: true
     countriesStates_Full:
       title: countriesStates_Full
       type: object
@@ -434,6 +435,7 @@ components:
           example: /countries/13/states
           type: string
       description: Refers to the `states` object return in `GET` countries requests.
+      x-internal: true
     countriesState_Full:
       title: countriesState_Full
       example:
@@ -460,6 +462,7 @@ components:
           example: 13
           type: integer
       description: 'Refers to the state returned in `GET` states requests. '
+      x-internal: true
     country_Base:
       type: object
       title: country_Base
@@ -476,9 +479,11 @@ components:
           type: string
           description: 3-letter country code.
           example: AUS
+      x-internal: true
     count_Full:
       type: object
       properties:
         count:
           type: integer
           minimum: 1
+      x-internal: true

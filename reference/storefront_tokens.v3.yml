@@ -4,7 +4,7 @@ info:
   version: ''
   description: |-
     Get and manage tokens used to authenticate cross-origin requests to the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview).
-    
+
     ## Authentication
 
     Authenticate requests by including an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication) `access_token` in the request header.
@@ -97,7 +97,7 @@ info:
     }
     ```
 
-    
+
     <!-- theme: warning -->
     > #### Note
     > * Customer impersonation tokens should **never** be exposed publicly, for example, to JavaScript or HTML. These tokens should not be used for frontend requests.
@@ -240,6 +240,7 @@ definitions:
     required:
       - channel_id
       - expires_at
+    x-internal: true
   TokenPostSimple:
     type: object
     properties:
@@ -254,6 +255,7 @@ definitions:
           minLength: 1
           maxLength: 1
           pattern: '/^https?:\/\/(?=.{1,254}(?::|$))(?:(?!\d|-)(?![a-z0-9\-]{1,62}-(?:\.|:|$))[a-z0-9\-]{1,63}\b(?!\.$)\.?)+(:\d+)?$/i;'
+    x-internal: true
   Token_Full:
     type: object
     properties:
@@ -261,12 +263,14 @@ definitions:
         $ref: '#/definitions/Token_Base'
       meta:
         type: object
+    x-internal: true
   Token_Base:
     type: object
     properties:
       token:
         type: string
         description: JWT Token for accessing the Storefront API
+    x-internal: true
   ErrorResponse:
     allOf:
       - $ref: '#/definitions/BaseError'
@@ -274,6 +278,7 @@ definitions:
         properties:
           errors:
             $ref: '#/definitions/DetailedErrors'
+    x-internal: true
   BaseError:
     type: object
     description: |
@@ -289,12 +294,14 @@ definitions:
         type: string
       type:
         type: string
+    x-internal: true
   DetailedErrors:
     type: object
     additionalProperties:
       type: string
+    x-internal: true
 host: api.bigcommerce.com
-basePath: '/'
+basePath: /
 schemes:
   - https
 consumes:

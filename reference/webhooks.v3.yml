@@ -285,7 +285,7 @@ components:
               value:
                 status: 502
                 title: A login URL could not be generated. Please try another request.
-                type: '/api-docs/getting-started/api-status-codes'
+                type: /api-docs/getting-started/api-status-codes
     504_GatewayTimeout:
       description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
       content:
@@ -297,7 +297,7 @@ components:
               value:
                 status: 504
                 title: Gateway Timeout
-                type: '/api-docs/getting-started/api-status-codes'
+                type: /api-docs/getting-started/api-status-codes
                 errors: {}
     403_Unauthorized:
       description: ''
@@ -310,7 +310,7 @@ components:
               value:
                 status: 403
                 title: Unauthorized Access. You do not have permission to make this request.
-                type: '/api-docs/getting-started/api-status-codes'
+                type: /api-docs/getting-started/api-status-codes
     400_BadRequest:
       description: |-
         Malformed request syntax. Typically need to fix the JSON
@@ -324,7 +324,7 @@ components:
               value:
                 status: 400
                 title: Input is invalid.
-                type: '/api-docs/getting-started/api-status-codes'
+                type: /api-docs/getting-started/api-status-codes
     404_NotFound:
       description: 'If the requested account resource is not found for the franchise, return a 404 Not Found.'
       content:
@@ -336,7 +336,7 @@ components:
               value:
                 status: 404
                 title: 'Account with {id} not found'
-                type: '/api-docs/getting-started/api-status-codes'
+                type: /api-docs/getting-started/api-status-codes
     422_UnprocessableEntity:
       description: This occurs when missing or unacceptable data is passed for one or more fields. Please correct the values for the fields listed in the errors object.
       content:
@@ -362,7 +362,7 @@ components:
               value:
                 status: 422
                 title: JSON data is missing or invalid
-                type: '/api-docs/getting-started/api-status-codes'
+                type: /api-docs/getting-started/api-status-codes
                 errors:
                   destination: error.path.missing.
     503_ServiceUnavailable:
@@ -376,7 +376,7 @@ components:
               value:
                 status: 503
                 title: Service Unavailable
-                type: '/api-docs/getting-started/api-status-codes'
+                type: /api-docs/getting-started/api-status-codes
     webhook_Resp:
       description: Example response
       content:
@@ -463,6 +463,7 @@ components:
       description: "Subscribes to the following events:\n- `store/cart/created`\n- `store/cart/updated`\n- `store/cart/deleted`\n- `store/cart/couponApplied`\n- `store/cart/abandoned`\n- `store/cart/converted`\n- `store/cart/lineItem`\n\t\t\t\nSee individual events for more information.\n"
       title: store/cart/*
       x-examples: {}
+      x-internal: true
     store_cart_created:
       description: |-
         This webhook fires on new cart creation when any of the following occur:
@@ -512,6 +513,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_cart_updated:
       title: store/cart/updated
       description: |-
@@ -562,6 +564,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_cart_deleted:
       title: store/cart/deleted
       description: |-
@@ -604,6 +607,7 @@ components:
       x-tags:
         - deleted
       type: object
+      x-internal: true
     store_cart_couponApplied:
       title: store/cart/couponApplied
       description: |-
@@ -651,6 +655,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_cart_abandoned:
       title: store/cart/abandoned
       description: |-
@@ -696,6 +701,7 @@ components:
                   example: 1eed6d2d979776ff18e695ceeb10ea61
                   description: Use this token to obtain cart data.
       type: object
+      x-internal: true
     store_cart_converted:
       title: store/cart/converted
       description: |-
@@ -743,6 +749,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_cart_lineItem_wildcard:
       title: store/cart/lineItem/*
       description: |-
@@ -789,6 +796,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_cart_lineItem_created:
       title: store/cart/lineItem/created
       description: |-
@@ -836,6 +844,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_cart_lineItem_updated:
       title: store/cart/lineItem/updated
       description: |-
@@ -887,6 +896,7 @@ components:
       type: object
       x-tags:
         - updated
+      x-internal: true
     store_cart_lineItem_deleted:
       title: store/cart/lineItem/deleted
       description: |-
@@ -934,6 +944,7 @@ components:
       type: object
       x-tags:
         - deleted
+      x-internal: true
     store_category_wildcard:
       title: store/category/*
       description: |
@@ -942,6 +953,7 @@ components:
       allOf: []
       x-tags:
         - created
+      x-internal: true
     store_category_created:
       title: store/category/created
       type: object
@@ -971,6 +983,7 @@ components:
         - $ref: '#/components/schemas/callback_category_data'
       x-tags:
         - created
+      x-internal: true
     store_category_updated:
       title: store/category/updated
       description: |-
@@ -1015,6 +1028,7 @@ components:
       x-tags:
         - updated
       type: object
+      x-internal: true
     store_category_deleted:
       title: store/category/deleted
       description: |-
@@ -1060,12 +1074,14 @@ components:
       x-tags:
         - deleted
       type: object
+      x-internal: true
     store_channel_wildcard:
       title: store/channel/*
       description: 'Subscribe to all `store/channel` events. '
       allOf: []
       x-tags:
         - created
+      x-internal: true
     store_channel_created:
       title: store/channel/created
       description: |-
@@ -1110,6 +1126,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_channel_updated:
       title: store/channel/updated
       description: |-
@@ -1156,6 +1173,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_customer_wildcard:
       title: store/customer/*
       description: |
@@ -1164,6 +1182,7 @@ components:
       allOf: []
       x-tags:
         - created
+      x-internal: true
     store_customer_created:
       title: store/customer/created
       description: |-
@@ -1208,6 +1227,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_customer_updated:
       title: store/customer/updated
       description: |-
@@ -1252,6 +1272,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_customer_deleted:
       title: store/customer/deleted
       description: |-
@@ -1296,6 +1317,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_customer_address_created:
       title: store/customer/address/created
       description: |-
@@ -1348,6 +1370,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_customer_address_updated:
       title: store/customer/address/updated
       description: |-
@@ -1400,6 +1423,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_customer_address_deleted:
       title: store/customer/address/deleted
       description: |-
@@ -1452,6 +1476,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_customer_payment_instrument_default_updated:
       title: store/customer/payment/instrument/default/updated
       description: |-
@@ -1498,10 +1523,12 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_order_wildcard:
       title: store/order/*
       description: Subscribe to all store/order events
       type: object
+      x-internal: true
     store_order_created:
       title: store/order/created
       description: |-
@@ -1545,6 +1572,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_order_updated:
       title: store/order/updated
       description: |-
@@ -1590,6 +1618,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_order_archived:
       title: store/order/archived
       description: |-
@@ -1632,6 +1661,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_order_statusUpdated:
       title: store/order/statusUpdated
       description: |-
@@ -1689,6 +1719,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_order_message_created:
       title: store/order/message/created
       description: |-
@@ -1741,6 +1772,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_order_refund_created:
       title: store/order/refund/created
       description: |-
@@ -1793,10 +1825,12 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_product_wildcard:
       title: store/product/*
       description: Subscribe to all `store/product` events
       type: object
+      x-internal: true
     store_product_deleted:
       title: store/product/deleted
       description: |-
@@ -1840,6 +1874,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_product_created:
       title: store/product/created
       description: |-
@@ -1883,6 +1918,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_product_updated:
       title: store/product/updated
       description: |-
@@ -1930,6 +1966,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_product_inventory_updated:
       title: store/product/inventory/updated
       description: |-
@@ -1997,6 +2034,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_product_inventory_order_updated:
       title: store/product/inventory/order/updated
       description: |-
@@ -2064,10 +2102,12 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_shipment_wildcard:
       title: store/shipment/*
       description: Subscribe to all store/shipment events
       type: object
+      x-internal: true
     store_shipment_created:
       title: store/shipment/created
       description: |-
@@ -2115,6 +2155,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_shipment_updated:
       title: store/shipment/updated
       description: |-
@@ -2164,6 +2205,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_shipment_deleted:
       title: store/shipment/deleted
       description: |-
@@ -2211,10 +2253,12 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_sku_wildcard:
       title: store/sku/*
       description: Subscribe to all `store/sku` events
       type: object
+      x-internal: true
     store_sku_created:
       title: store/sku/created
       description: |-
@@ -2272,6 +2316,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_sku_updated:
       title: store/sku/updated
       description: |-
@@ -2329,6 +2374,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_sku_deleted:
       title: store/sku/deleted
       description: |-
@@ -2386,6 +2432,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_sku_inventory_updated:
       title: store/sku/inventory/updated
       description: |-
@@ -2458,6 +2505,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_sku_inventory_order_updated:
       title: store/sku/inventory/order/updated
       description: |-
@@ -2530,6 +2578,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_app_uninstalled:
       title: store/app/uninstalled
       description: |-
@@ -2567,6 +2616,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_information_updated:
       title: store/information/updated
       description: |-
@@ -2607,10 +2657,12 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_subscriber_wildcard:
       title: store/subscriber/*
       description: Subscribe to all `store/subscriber` events
       type: object
+      x-internal: true
     store_subscriber_created:
       title: store/subscriber/created
       description: |-
@@ -2653,6 +2705,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_subscriber_updated:
       title: store/subscriber/updated
       description: |-
@@ -2695,6 +2748,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     store_subscriber_deleted:
       title: store/subscriber/deleted
       description: |-
@@ -2737,6 +2791,7 @@ components:
       x-tags:
         - created
       type: object
+      x-internal: true
     error_Full:
       type: object
       title: error_Full
@@ -2888,6 +2943,7 @@ components:
               example: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               description: The payload data JSON encoded then passed through SH1 encryption.
       type: object
+      x-internal: true
     callback_category_data:
       title: callback_category_data
       type: object
@@ -2905,6 +2961,7 @@ components:
               type: integer
               description: ID of the category
               example: 42
+      x-internal: true
   examples:
     store-cart-created:
       value:

@@ -31,7 +31,7 @@ paths:
                     - 3
                   deny:
                     - 4
-        description: Data sent to the [Update Customer Consent](/api-reference/store-management/customers-v3/customer-consent/customersconsentbycustomerid-put) Customers V3 endpoint when creating a customer during checkout
+        description: 'Data sent to the [Update Customer Consent](/api-reference/store-management/customers-v3/customer-consent/customersconsentbycustomerid-put) Customers V3 endpoint when creating a customer during checkout'
         required: true
       description: |-
         Sets the status of a customer's consent to allow data collection by cookies and scripts according to the following consent categories:
@@ -86,6 +86,7 @@ components:
       required:
         - allow
         - deny
+      x-internal: true
 x-stoplight:
   docs:
     includeDownloadLink: false

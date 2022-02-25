@@ -985,6 +985,7 @@ components:
               minLength: 1
       required:
         - payment
+      x-internal: true
     Payment:
       title: Payment
       type: object
@@ -1007,6 +1008,7 @@ components:
       required:
         - instrument
         - payment_method_id
+      x-internal: true
     SuccessPaymentResponse:
       title: Success Payment Response
       type: object
@@ -1029,6 +1031,7 @@ components:
           enum:
             - success
             - pending
+      x-internal: true
     TransactionType:
       title: Transaction Type
       description: Transaction type for this payment
@@ -1037,6 +1040,7 @@ components:
       enum:
         - authorization
         - purchase
+      x-internal: true
     Status:
       type: string
       title: Status
@@ -1044,6 +1048,7 @@ components:
       enum:
         - success
         - pending
+      x-internal: true
     ErrorPaymentResponse:
       title: Error Payment Response
       type: object
@@ -1074,6 +1079,7 @@ components:
         - status
         - title
         - type
+      x-internal: true
     Card:
       title: Card
       type: object
@@ -1137,6 +1143,7 @@ components:
         - number
         - expiry_month
         - expiry_year
+      x-internal: true
     StoredCard:
       title: Stored Card
       type: object
@@ -1154,6 +1161,7 @@ components:
       required:
         - type
         - token
+      x-internal: true
     BasePaymentResponse:
       title: Base Payment Response
       type: object
@@ -1169,6 +1177,7 @@ components:
           enum:
             - authorization
             - purchase
+      x-internal: true
     PendingPaymentResponse:
       title: Pending Payment Response
       type: object
@@ -1191,6 +1200,7 @@ components:
           enum:
             - success
             - pending
+      x-internal: true
     StoredPaypalAccount:
       title: StoredPaypalAccount
       type: object
@@ -1208,6 +1218,7 @@ components:
       required:
         - type
         - token
+      x-internal: true
     Order:
       title: Order
       type: object
@@ -1228,6 +1239,7 @@ components:
         example-1:
           id: 1
           is_recurring: false
+      x-internal: true
     PaymentAccessTokenRequest:
       title: Payment Access Token Request
       type: object
@@ -1250,6 +1262,7 @@ components:
               default: false
       required:
         - order
+      x-internal: true
     PaymentAccessToken:
       title: Payment Access Token
       type: object
@@ -1260,6 +1273,7 @@ components:
           minLength: 1
       required:
         - id
+      x-internal: true
     paymentMethodStoredInstrument:
       title: paymentMethodStoredInstrument
       type: object
@@ -1322,6 +1336,7 @@ components:
           token: stringstringstringstringstringstringstringstringstringstringstri
           is_default: false
           type: stored_card
+      x-internal: true
     paymentMethod_Full:
       title: paymentMethod_Full
       type: object
@@ -1398,6 +1413,7 @@ components:
               verification_value_required: true
           test_mode: false
           type: card
+      x-internal: true
     SupportedCardInstrument:
       title: Supported Card Instrument
       type: object
@@ -1422,6 +1438,7 @@ components:
           type: boolean
       required:
         - instrument_type
+      x-internal: true
     Error:
       title: Error
       type: object
@@ -1447,6 +1464,7 @@ components:
         - status
         - title
         - type
+      x-internal: true
     ErrorResponse:
       title: ErrorResponse
       type: object
@@ -1476,6 +1494,7 @@ components:
         - status
         - title
         - type
+      x-internal: true
     InstrumentType:
       title: InstrumentType
       description: Type of this instrument
@@ -1491,6 +1510,7 @@ components:
         - DANKORT
         - MAESTRO
         - STORED_CARD
+      x-internal: true
     StoredPaypalAccountInstrument:
       title: StoredPaypalAccountInstrument
       type: object
@@ -1518,6 +1538,7 @@ components:
         - token
         - is_default
         - type
+      x-internal: true
     SupportedPaypalAccountInstrument:
       title: SupportedPaypalAccountInstrument
       type: object
@@ -1529,3 +1550,4 @@ components:
             - STORED_PAYPAL_ACCOUNT
       required:
         - instrument_type
+      x-internal: true

@@ -27,7 +27,7 @@ info:
     - [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method)
     - [Shipping Carriers](/api-reference/store-management/shipping-api/shipping-carrier)
   termsOfService: ''
-host: 'api.bigcommerce.com'
+host: api.bigcommerce.com
 schemes:
   - https
 consumes:
@@ -402,6 +402,7 @@ definitions:
         title: Connection Options Instance
     required:
       - base_options
+    x-internal: true
   BaseOptionsSchema:
     type: object
     title: Base Options
@@ -617,7 +618,7 @@ definitions:
                         description: The value associated with the meta field
                       namespace:
                         type: string
-                        description: The namespace associated with product(/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format `shipping_carrier_{yourCarrierId}` otherwise it will not be recognized as an attribute.
+                        description: 'The namespace associated with product(/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format `shipping_carrier_{yourCarrierId}` otherwise it will not be recognized as an attribute.'
                       resource_type:
                         type: string
                         enum:
@@ -680,6 +681,7 @@ definitions:
         title: Connection Options Instance
     required:
       - base_options
+    x-internal: true
   CustomerDetails:
     type: object
     properties:
@@ -698,14 +700,17 @@ definitions:
         type: integer
     title: Customer Details
     description: The details of the Customer that has made the purchase.
+    x-internal: true
   ZoneOptionsInstance:
     type: object
     description: 'Optional, any zone specific request options declared by the carrier and configued by the merchant to retrieve rates'
     title: Zone Options Instance
+    x-internal: true
   ConnectionOptionsInstance:
     type: object
     description: 'Optional, any global request options declared by the carrier and configued by the merchant to retrieve rates'
     title: Connection Options Instance
+    x-internal: true
   RateOptionsInstance:
     description: 'Optional, any checkout specific request options to retrieve rates'
     type: array
@@ -721,6 +726,7 @@ definitions:
         - value
       title: Key Value Pair
     title: Rate Options Instance
+    x-internal: true
   CustomerGroup:
     type: object
     properties:
@@ -730,6 +736,7 @@ definitions:
         type: string
     title: Customer Group
     description: The Group (if any) that this customer is in. This will be default to zero if the customer is not in a group or is a guest.
+    x-internal: true
   KeyValuePair:
     type: object
     properties:
@@ -741,6 +748,7 @@ definitions:
       - key
       - value
     title: Key Value Pair
+    x-internal: true
   RateResponsePayload:
     type: object
     properties:
@@ -887,6 +895,7 @@ definitions:
       - carrier_quotes
     title: Rate Response Payload
     description: 'The response from the Shipping Service, will contain zero to many quotes.'
+    x-internal: true
   CarrierQuoteObject:
     type: object
     description: A grouping of carrier rates and optionally info about that carrier
@@ -999,6 +1008,7 @@ definitions:
     required:
       - quotes
     title: Carrier Quote Object
+    x-internal: true
   RateRequestItem:
     type: object
     description: A cart item along with it's shipping specific attributes
@@ -1121,7 +1131,7 @@ definitions:
               description: The value associated with the product or product variant meta field
             namespace:
               type: string
-              description: The namespace associated with product(/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format `shipping_carrier_{yourCarrierId}` otherwise it will not be recognized as an attribute.
+              description: 'The namespace associated with product(/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format `shipping_carrier_{yourCarrierId}` otherwise it will not be recognized as an attribute.'
             resource_type:
               type: string
               enum:
@@ -1138,6 +1148,7 @@ definitions:
               description: Attribute type associated with the product or product variant meta field. Currently the only value for this is 'metafield'
           title: Attribute Value
     title: Rate Request Item
+    x-internal: true
   RequestContext:
     type: object
     properties:
@@ -1154,6 +1165,7 @@ definitions:
           description: Value objects contained within the request context
     title: Request Context
     description: A collection of Reference Value objects.
+    x-internal: true
   ReferenceValue:
     type: object
     properties:
@@ -1163,6 +1175,7 @@ definitions:
         type: string
     title: Reference Value
     description: Value objects contained within the request context
+    x-internal: true
   Message:
     type: object
     properties:
@@ -1181,6 +1194,7 @@ definitions:
       - type
     title: Message
     description: A simple string/type response for returning information.
+    x-internal: true
   RateQuoteObject:
     type: object
     properties:
@@ -1271,6 +1285,7 @@ definitions:
       - cost
     title: Rate Quote Object
     description: A quote being returned as part of the rate request.
+    x-internal: true
   TransitTimeObject:
     type: object
     properties:
@@ -1286,6 +1301,7 @@ definitions:
         maximum: 90
     title: Transit Time Object
     description: Value object for the length of time in transit
+    x-internal: true
   AttributeValue:
     description: Value object for an attribute. This represents a product or product variant meta field.
     type: object
@@ -1298,7 +1314,7 @@ definitions:
         description: The value associated with the product or product variant meta field
       namespace:
         type: string
-        description: The namespace associated with product(/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format `shipping_carrier_{yourCarrierId}` otherwise it will not be recognized as an attribute.
+        description: 'The namespace associated with product(/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format `shipping_carrier_{yourCarrierId}` otherwise it will not be recognized as an attribute.'
       resource_type:
         type: string
         description: Resource type associated with the product or product variant meta field. Currently the only values available are 'product' or 'variant'
@@ -1313,6 +1329,7 @@ definitions:
         enum:
           - metafield
     title: Attribute Value
+    x-internal: true
   MoneyValue:
     description: Value object for a money amount
     type: object
@@ -1327,6 +1344,7 @@ definitions:
       - currency
       - amount
     title: Money Value
+    x-internal: true
   DimensionValue:
     description: Value object for a length measurement
     type: object
@@ -1343,6 +1361,7 @@ definitions:
       - units
       - value
     title: Dimension Value
+    x-internal: true
   WeightValue:
     description: Value object for a weight measurement
     type: object
@@ -1359,6 +1378,7 @@ definitions:
       - units
       - value
     title: Weight Value
+    x-internal: true
   RateOptionsSchema:
     description: A set of carrier specific fields that will be displayed to shoppers at checkout
     type: array
@@ -1429,6 +1449,7 @@ definitions:
         - default_value
       title: Key Value Pair Schema
     title: Rate Options Schema
+    x-internal: true
   KeyValuePairSchema:
     description: 'An individual carrier defined field to display at checkout, along with any defaults and validation'
     type: object
@@ -1495,6 +1516,7 @@ definitions:
       - type
       - default_value
     title: Key Value Pair Schema
+    x-internal: true
   ShippingAddress:
     type: object
     title: Shipping Address
@@ -1532,6 +1554,7 @@ definitions:
     required:
       - zip
       - country_iso2
+    x-internal: true
   CheckConnectionOptionsRequestPayload:
     type: object
     properties:
@@ -1545,6 +1568,7 @@ definitions:
     description: |-
       The payload sent to a Shipping Provider to check that the store is connected to this provider.
       Each Shipping Provider will have different configurations for the payload.
+    x-internal: true
   CheckConnectionOptionsResponsePayload:
     type: object
     properties:
@@ -1573,6 +1597,7 @@ definitions:
           description: A simple string/type response for returning information.
     title: Check Connection Options Response Payload
     description: The response recieved back from the Shipping Provider connection check this allows the store to understand if the connection was successful.
+    x-internal: true
   DateRange:
     type: object
     properties:
@@ -1598,6 +1623,7 @@ definitions:
         description: Value Object representing a Date
     title: Date Range
     description: Representation of a range of date objects
+    x-internal: true
   DateValue:
     type: object
     properties:
@@ -1608,6 +1634,7 @@ definitions:
         type: string
     title: Date Value
     description: Value Object representing a Date
+    x-internal: true
   BaseOptions:
     description: The minimum required payload that is sent to retrieve rates
     type: object
@@ -1818,7 +1845,7 @@ definitions:
                     description: The value associated with the meta field
                   namespace:
                     type: string
-                    description: The namespace associated with product(/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format `shipping_carrier_{yourCarrierId}` otherwise it will not be recognized as an attribute.
+                    description: 'The namespace associated with product(/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) or product variant (/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield) meta fields. The meta field namespace should be saved under this format `shipping_carrier_{yourCarrierId}` otherwise it will not be recognized as an attribute.'
                   resource_type:
                     type: string
                     enum:
@@ -1871,3 +1898,4 @@ definitions:
                   type: string
                 value:
                   type: string
+    x-internal: true

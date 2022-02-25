@@ -57,7 +57,7 @@ info:
     ### Webhooks
     - [Customers](/api-docs/store-management/webhooks/webhook-events#customer)
 host: api.bigcommerce.com
-basePath: '/'
+basePath: /
 schemes:
   - https
 consumes:
@@ -923,6 +923,11 @@ paths:
                 }
               }
             password-confirm: |2-
+
+
+
+
+
 
 
 
@@ -2415,6 +2420,7 @@ definitions:
               description: Value of the form field
               type: string
               example: 123BAF
+    x-internal: true
   customerFormFields:
     title: customerFormFields
     type: object
@@ -2427,6 +2433,7 @@ definitions:
         description: Value of the form field
         type: string
         example: 123BAF
+    x-internal: true
   shippingAddress_Full:
     title: shippingAddress_Full
     type: object
@@ -2439,6 +2446,7 @@ definitions:
         description: ''
         example: /orders/129/shippingaddresses
         type: string
+    x-internal: true
   customer_Full:
     title: customer_Full
     example:
@@ -2483,6 +2491,7 @@ definitions:
             type: string
             format: date-time
       - $ref: '#/definitions/customer_Base'
+    x-internal: true
   categoryAccessLevel_Full:
     title: categoryAccessLevel_Full
     type: object
@@ -2503,6 +2512,7 @@ definitions:
         example: '18,19,23,34'
         items:
           type: integer
+    x-internal: true
   count_Full:
     title: count_Full
     example:
@@ -2513,6 +2523,7 @@ definitions:
         description: ''
         example: 27
         type: number
+    x-internal: true
   customerAddress_Full:
     title: customerAddress_Full
     example:
@@ -2542,6 +2553,7 @@ definitions:
             example: US
             type: string
       - $ref: '#/definitions/customerAddress_Base'
+    x-internal: true
   customerGroup_Full:
     title: customerGroup_Full
     type: object
@@ -2591,6 +2603,7 @@ definitions:
       is_group_for_guests:
         type: boolean
         description: If the groups is for guests. There can only be one customer group for guests at a time.
+    x-internal: true
   country_Full:
     title: country_Full
     example:
@@ -2631,6 +2644,7 @@ definitions:
             description: ''
             example: /countries/13/states
             type: string
+    x-internal: true
   statesResource_Full:
     title: statesResource_Full
     type: object
@@ -2643,6 +2657,7 @@ definitions:
         description: ''
         example: /countries/13/states
         type: string
+    x-internal: true
   state_Full:
     title: state_Full
     example:
@@ -2668,6 +2683,7 @@ definitions:
         description: Numeric ID of the state’s/province’s associated country.
         example: 13
         type: integer
+    x-internal: true
   customerGroup_Post:
     title: customerGroup_Post
     type: object
@@ -2713,12 +2729,14 @@ definitions:
       is_group_for_guests:
         type: boolean
         description: If the groups is for guests. There can only be one customer group for guests at a time.
+    x-internal: true
   validatePassword:
     type: object
     properties:
       success:
         type: boolean
         description: Will return `true` or `false`
+    x-internal: true
   customer_Base:
     title: customer_Base
     example:
@@ -2834,6 +2852,7 @@ definitions:
       - first_name
       - last_name
       - email
+    x-internal: true
   customerAddress_Base:
     title: customerAddress_Base
     example:
@@ -2911,6 +2930,7 @@ definitions:
       - zip
       - country
       - phone
+    x-internal: true
 tags:
   - name: Customers
   - name: Customer Groups

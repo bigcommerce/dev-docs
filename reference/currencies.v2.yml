@@ -63,7 +63,7 @@ info:
     - [Managing Currencies](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta) (BigCommerce Knowledge Base)
     - [Tax](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#intro1) (BigCommerce Knowledge Base)
 host: api.bigcommerce.com
-basePath: '/'
+basePath: /
 schemes:
   - https
 consumes:
@@ -283,6 +283,7 @@ definitions:
   currency_Post:
     $ref: '#/definitions/currency_Base'
     title: currency_Post
+    x-internal: true
   currency_Base:
     title: currency_Base
     example:
@@ -382,9 +383,11 @@ definitions:
       - thousands_token
       - decimal_places
       - name
+    x-internal: true
   currency_Put:
     $ref: '#/definitions/currency_Post'
     title: currency_Put
+    x-internal: true
   currency_Full:
     title: currency_Full
     allOf:
@@ -399,6 +402,7 @@ definitions:
             type: string
             description: 'Date the currency was last updated, created or modified.'
             format: date-time
+    x-internal: true
 tags:
   - name: /currencies
     description: ''

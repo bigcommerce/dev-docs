@@ -967,6 +967,7 @@ components:
                   description: |
                     Link to the next page returned in the response.
       title: Collection Meta
+      x-internal: true
     Pagination:
       type: object
       description: 'Data about the response, including pagination and collection totals.'
@@ -1015,6 +1016,7 @@ components:
               type: string
               description: |
                 Link to the next page returned in the response.
+      x-internal: true
     Meta:
       type: object
       description: 'Data about the response, including pagination and collection totals.'
@@ -1068,6 +1070,7 @@ components:
                   type: string
                   description: |
                     Link to the next page returned in the response.
+      x-internal: true
     ErrorResponse:
       allOf:
         - type: object
@@ -1095,6 +1098,7 @@ components:
                 type: string
               title: DetailedErrors
       title: Error Response
+      x-internal: true
     BaseError:
       type: object
       description: |
@@ -1113,11 +1117,13 @@ components:
         instance:
           type: string
       title: Base Error
+      x-internal: true
     DetailedErrors:
       type: object
       additionalProperties:
         type: string
       title: DetailedErrors
+      x-internal: true
     NotFound:
       description: Error payload for the BigCommerce API.
       type: object
@@ -1134,6 +1140,7 @@ components:
         instance:
           type: string
       title: Not Found
+      x-internal: true
     JobId:
       description: The job identifier for theme upload or download.
       type: object
@@ -1142,6 +1149,7 @@ components:
           description: The job identifier.
           type: string
       title: Job Id
+      x-internal: true
     NoContent:
       description: No-content response for the BigCommerce API.
       type: object
@@ -1158,6 +1166,7 @@ components:
         instance:
           type: string
       title: No Content
+      x-internal: true
     Job:
       description: The job for theme upload or download
       type: object
@@ -1213,6 +1222,7 @@ components:
               warning:
                 description: The warning.
                 type: string
+      x-internal: true
     Theme:
       description: A theme.
       type: object
@@ -1245,6 +1255,7 @@ components:
         is_private:
           description: Flag to identify private themes.
           type: boolean
+      x-internal: true
     Activate:
       description: Request definition for activation endpoint.
       required:
@@ -1262,6 +1273,7 @@ components:
             - last_activated
             - last_created
       title: Activate
+      x-internal: true
     Variation:
       description: A variation.
       type: object
@@ -1278,6 +1290,7 @@ components:
         uuid:
           description: The identifier.
           type: string
+      x-internal: true
     ThemesCollectionResponse:
       description: |
         Response payload for the BigCommerce API.
@@ -1371,6 +1384,7 @@ components:
                         Link to the next page returned in the response.
           title: Collection Meta
       title: Themes Collection Response
+      x-internal: true
     ThemeResponse:
       description: |
         Response payload for the BigCommerce API.
@@ -1381,6 +1395,7 @@ components:
           $ref: '#/components/schemas/Theme'
         meta:
           $ref: '#/components/schemas/CollectionMeta'
+      x-internal: true
     JobResponse:
       type: object
       properties:
@@ -1445,6 +1460,7 @@ components:
           title: Meta
       title: Job Response
       description: Response for /GET Jobs by Id.
+      x-internal: true
     WhichThemeToDownload:
       description: 'An object specifying which theme to download. One of: `original`: the original Marketplace or uploaded custom theme; `last_activated`: the theme version most recently applied to the store; `last_created`: the theme version most recently created.'
       allOf:
@@ -1469,6 +1485,7 @@ components:
                 - last_created
       title: Which Theme To Download
       type: object
+      x-internal: true
     RequestHeaders:
       type: object
       description: 'These are the minium request headers needed for BigCommerce. '
@@ -1480,6 +1497,7 @@ components:
         Accepts:
           type: string
           default: application/json
+      x-internal: true
     themeConfiguration_Full:
       description: A theme.
       type: object
@@ -1501,6 +1519,7 @@ components:
           type: integer
           description: Site ID to which this configuration belongs. Will be 0 for the original configuration for a Theme.
       title: themeConfiguration_Full
+      x-internal: true
     themeConfiguration_Write:
       description: A theme.
       type: object
@@ -1512,3 +1531,4 @@ components:
           type: object
           description: 'The content of the configuration, which is a JSON object which will vary in structure from theme to theme.'
       title: themeConfiguration_Write
+      x-internal: true

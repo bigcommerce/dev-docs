@@ -2706,6 +2706,7 @@ definitions:
         description: Channel ID for assignment
     required:
       - price_list_id
+    x-internal: true
   PriceListAssignmentsBatchErrorResponse:
     description: Errors during batch usage for the BigCommerce API.
     type: object
@@ -2714,6 +2715,7 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/PriceListAssignmentsBatchErrorSet'
+    x-internal: true
   PriceListAssignmentsBatchErrorSet:
     description: Error during `Price List Assignments` batch POST. Includes data sent in the request and errors.
     type: object
@@ -2722,6 +2724,7 @@ definitions:
         $ref: '#/definitions/PriceListAssignmentsIdentifiers'
       field_errors:
         $ref: '#/definitions/DetailedErrors'
+    x-internal: true
   PriceListAssignmentsIdentifiers:
     type: object
     description: '`Price List Assignments` object used in GET response.'
@@ -2737,6 +2740,7 @@ definitions:
           channel_id:
             type: integer
             description: The Channel with which this price set is associated. This field is optional or may be null when a price list applies across channels for the customer_group_id in the assignment.
+    x-internal: true
   AssignmentForGetResponse:
     type: object
     properties:
@@ -2756,6 +2760,7 @@ definitions:
         type: integer
         format: int32
         description: Channel ID for assignment
+    x-internal: true
   AssignmentsForGetResponse:
     description: Array of the price list assignments matching the filter. The response is paginated.
     type: object
@@ -2766,6 +2771,7 @@ definitions:
           $ref: '#/definitions/AssignmentForGetResponse'
       meta:
         $ref: '#/definitions/CollectionMeta'
+    x-internal: true
   PriceListCollectionResponse:
     description: Get All PriceLists.
     type: object
@@ -2866,6 +2872,7 @@ definitions:
                       Link to the next page returned in the response.
         title: Collection Meta
     title: PriceList Collection Response
+    x-internal: true
   PriceListResponse:
     description: |-
       PriceList Reponse returns for:
@@ -2920,6 +2927,7 @@ definitions:
         description: Empty meta object; may be used later.
         title: Meta
     title: Price List Response
+    x-internal: true
   PriceListBase:
     type: object
     description: Common Price List properties.
@@ -2939,6 +2947,7 @@ definitions:
         example: true
     required:
       - name
+    x-internal: true
   PriceList:
     allOf:
       - properties:
@@ -2979,6 +2988,7 @@ definitions:
           - name
     title: Price List
     type: object
+    x-internal: true
   PriceListPost:
     type: object
     allOf:
@@ -3004,6 +3014,7 @@ definitions:
       - name
     title: PriceList Post
     description: 'Creates a Price List. '
+    x-internal: true
   PriceListPut:
     type: object
     allOf:
@@ -3027,6 +3038,7 @@ definitions:
           - name
     title: PriceList Put
     description: Update a PriceList
+    x-internal: true
   PriceRecordCollectionResponse:
     description: |-
       PriceRecord Collection Response returns for:
@@ -3207,6 +3219,7 @@ definitions:
                       Link to the next page returned in the response.
         title: Collection Meta
     title: PriceRecord Collection Response
+    x-internal: true
   PriceRecordResponse:
     description: Response payload for the BigCommerce API.
     type: object
@@ -3333,6 +3346,7 @@ definitions:
         description: Empty meta object; may be used later.
         title: Meta
     title: Price Record Response
+    x-internal: true
   PriceRecordBase:
     type: object
     description: Common Price Record properties.
@@ -3397,6 +3411,7 @@ definitions:
         description: |
           The SKU code associated with this `Price Record` if requested and it exists.
         example: SMB-123
+    x-internal: true
   PriceRecord:
     description: The Price Record object.
     allOf:
@@ -3514,6 +3529,7 @@ definitions:
             example: SMB-123
     title: Price Record
     type: object
+    x-internal: true
   BulkPricingTier:
     type: object
     title: Bulk Pricing Tier
@@ -3543,6 +3559,7 @@ definitions:
         description: |
           The price adjustment amount. This value along with the type will decide the price per variant for the pricing tier.
         example: 3
+    x-internal: true
   PriceRecordPut:
     type: object
     allOf:
@@ -3610,6 +3627,7 @@ definitions:
               The SKU code associated with this `Price Record` if requested and it exists.
             example: SMB-123
     title: Price Record Put
+    x-internal: true
   PriceRecordCollectionPut:
     type: array
     items:
@@ -3698,6 +3716,7 @@ definitions:
       title: PriceRecord Batch Item
       type: object
     title: Price Record Collection Put
+    x-internal: true
   PriceRecordBatchItem:
     description: Price Record object used in batch create or update.
     allOf:
@@ -3783,6 +3802,7 @@ definitions:
             example: SMB-123
     title: PriceRecord Batch Item
     type: object
+    x-internal: true
   PriceRecordIdentifiers:
     description: Price Record object used in batch create or update.
     allOf:
@@ -3809,10 +3829,12 @@ definitions:
             example: usd
     title: Price Record Identifiers
     type: object
+    x-internal: true
   SuccessBatchResponse:
     type: object
     description: Empty object for Success case for Batch API.
     title: Success Batch Response
+    x-internal: true
   PriceRecordBatchErrorResponse:
     description: Errors during batch usage for the BigCommerce API.
     type: object
@@ -3856,6 +3878,7 @@ definitions:
               title: Detailed Errors
           title: PriceRecord Batch Error Set
     title: PriceRecord Batch Error Response
+    x-internal: true
   NoContent:
     description: No-content response for the BigCommerce API.
     type: object
@@ -3870,6 +3893,7 @@ definitions:
         type: string
       instance:
         type: string
+    x-internal: true
   PriceRecordBatchErrorSet:
     description: Error during Price Record batch PUT.  Includes data sent in the request and errors.
     type: object
@@ -3906,6 +3930,7 @@ definitions:
           type: string
         title: Detailed Errors
     title: PriceRecord Batch Error Set
+    x-internal: true
   CollectionMeta:
     type: object
     description: 'Data about the response, including pagination and collection totals.'
@@ -3959,6 +3984,7 @@ definitions:
                 description: |
                   Link to the next page returned in the response.
     title: Collection Meta
+    x-internal: true
   Pagination:
     type: object
     description: 'Data about the response, including pagination and collection totals.'
@@ -4007,10 +4033,12 @@ definitions:
             type: string
             description: |
               Link to the next page returned in the response.
+    x-internal: true
   Meta:
     type: object
     description: Empty meta object; may be used later.
     title: Meta
+    x-internal: true
   ErrorResponse:
     allOf:
       - type: object
@@ -4038,6 +4066,7 @@ definitions:
               type: string
             title: Detailed Errors
     title: Error Response
+    x-internal: true
   BaseError:
     type: object
     description: |
@@ -4056,11 +4085,13 @@ definitions:
       instance:
         type: string
     title: Base Error
+    x-internal: true
   DetailedErrors:
     type: object
     additionalProperties:
       type: string
     title: Detailed Errors
+    x-internal: true
   NotFound:
     description: Error payload for the BigCommerce API.
     type: object
@@ -4077,11 +4108,13 @@ definitions:
       instance:
         type: string
     title: Not Found
+    x-internal: true
   CreateBatchPriceListAssignmentsRequest:
     type: array
     description: Batch of price list assignments.
     items:
       $ref: '#/definitions/AssignmentsForRequest'
+    x-internal: true
 securityDefinitions:
   X-Auth-Token:
     type: apiKey

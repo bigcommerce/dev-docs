@@ -204,26 +204,31 @@ definitions:
         type: integer
       message:
         type: string
+    x-internal: true
   ErrorResponse400:
     type: object
     properties:
       schema:
         $ref: '#/definitions/Error'
+    x-internal: true
   ErrorResponse404:
     type: object
     properties:
       schema:
         $ref: '#/definitions/Error'
+    x-internal: true
   ErrorResponse409:
     type: object
     properties:
       schema:
         $ref: '#/definitions/Error'
+    x-internal: true
   ErrorResponse422:
     type: object
     properties:
       schema:
         $ref: '#/definitions/Error'
+    x-internal: true
   301RedirectUpsert:
     type: object
     description: 'Data necessary to create or update a redirect. If there’s a conflict on the from_path and site_id, the redirect will be overwritten with new data.'
@@ -238,6 +243,7 @@ definitions:
     required:
       - from_path
       - site_id
+    x-internal: true
   301RedirectRead:
     type: object
     description: 'Full detail of a Redirect, optionally including the full destination URL.'
@@ -259,6 +265,7 @@ definitions:
     required:
       - from_path
       - site_id
+    x-internal: true
   MetaPaginationObject:
     type: object
     properties:
@@ -294,6 +301,7 @@ definitions:
               current:
                 type: string
                 example: '?limit=5&page=1'
+    x-internal: true
   RedirectTo:
     title: RedirectTo
     type: object
@@ -313,10 +321,12 @@ definitions:
         type: string
         example: /new-url
         maxLength: 2048
+    x-internal: true
   DetailedErrors:
     type: object
     additionalProperties:
       type: string
+    x-internal: true
   BaseError:
     type: object
     description: |
@@ -334,6 +344,7 @@ definitions:
         type: string
       instance:
         type: string
+    x-internal: true
   ErrorResponse:
     allOf:
       - $ref: '#/definitions/BaseError'
@@ -341,6 +352,7 @@ definitions:
         properties:
           errors:
             $ref: '#/definitions/DetailedErrors'
+    x-internal: true
 host: api.bigcommerce.com
 basePath: ''
 tags:
