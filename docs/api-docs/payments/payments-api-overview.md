@@ -179,6 +179,9 @@ Content-Type: application/json
   }
 }
 ```
+
+If the purchase was successful, the response returns a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error codes](#error-codes) for troubleshooting.
+
 &nbsp;
 ```json title="Example response: Process payment with a stored card" lineNumbers
 {
@@ -189,8 +192,23 @@ Content-Type: application/json
   }
 }
 ```
+When processing a payment using a stored paypal account, set thet `type` to `stored_paypal_account`. 
 
-If the purchase was successful, the response returns a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error codes](#error-codes) for troubleshooting.
+```http title="Example request: Process payment and save paypal account" lineNumbers
+POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
+Accept: application/vnd.bc.v1+json
+Content-Type: application/json
+
+{
+  "payment": {
+    "instrument": {
+      "type": "stored_paypal_account",
+      "token": {{token}}
+    },
+    "payment_method_id": "braintree.paypal"
+  }
+}
+```
 
 ## Credit cards
 
@@ -267,11 +285,11 @@ Content-Type: application/json
 
 If the purchase was successful, the response returns a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error codes](#error-codes) for troubleshooting.
 
-### Storing credit cards and paypal accounts
+### Storing credit cards
 
-The payments API allows developers to store a credit card or paypal account while processing a payment.
+The payments API allows developers to store a credit card while processing a payment.
 
-When processing a credit payment, set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk), it can store the credit card as part of the checkout.
+When processing a credit card payment, set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk), it can store the credit card as part of the checkout.
 
 ```http title="Example request: Process payment and save credit card" lineNumbers
 POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
@@ -291,23 +309,6 @@ Content-Type: application/json
     },
     "payment_method_id": "authorizenet.card",
     "save_instrument": true
-  }
-}
-```
-When processing a payment using a paypal account, set thet `type` to `stored_paypal_account`. 
-
-```http title="Example request: Process payment and save paypal account" lineNumbers
-POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
-Accept: application/vnd.bc.v1+json
-Content-Type: application/json
-
-{
-  "payment": {
-    "instrument": {
-      "type": "stored_paypal_account",
-      "token": {{token}}
-    },
-    "payment_method_id": "braintree.paypal"
   }
 }
 ```
