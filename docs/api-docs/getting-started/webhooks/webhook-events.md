@@ -65,16 +65,11 @@ The same response is returned for the following events.
 * `store/cart/deleted`
 * `store/cart/abandoned`
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-### Note
+<!-- theme: info -->
+> #### Note
 > The `store/cart/abandoned` hook is triggered independently of the Abandoned Cart Saver feature, which is only available on [select plans](https://www.bigcommerce.com/essentials/pricing/). To learn more about the Abandoned Cart Saver, see [Using the Abandoned Cart Saver](https://support.bigcommerce.com/s/article/Using-the-Abandoned-Cart-Saver).
 
-</div>
-</div>
-</div>
+
 
 **Response fields**
 - type -- can be cart or cart_line_item
@@ -539,10 +534,11 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 - Product Type
 - Sort Order
 - Tax Price
-- Thumbnail Changed
+- Thumbnail (new images only)*
 - Variant (deleted)
 - Visibility
 
+\*Note that setting a thumbnail triggers an updated event only when that thumbnail is the first to be set. For example, setting an image as a thumbnail **after deleting all images** will trigger an updated event. However, changing the current thumbnail, uploading a new image and setting it as the thumbnail (while other thumbnails images exist), or even deleting all thumbnails does not generate an update event. 
 
 ## Shipment
 

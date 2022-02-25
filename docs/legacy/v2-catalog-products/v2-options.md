@@ -1,23 +1,13 @@
 # Product Options
 
- 
-
 ## Options 
 
 Shared attributes that control value facets on a product.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
 
-</div>
-</div>
-</div>
 
 ### Options Object – Properties 
 

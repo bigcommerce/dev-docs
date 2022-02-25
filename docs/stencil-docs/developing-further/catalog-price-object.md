@@ -28,19 +28,7 @@ Assume that a merchant has defined the following for a product in the control pa
 
 A corresponding catalog price object for the product will be structured as shown below:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Catalog price object (no sale price defined)</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Catalog price object (no sale price defined)"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Catalog price object, no sale price defined" lineNumbers
 "product": {
     // ...
   },
@@ -94,19 +82,8 @@ Assume that a merchant has defined the following for a product in the control pa
 
 A corresponding catalog price object for the product will be structured as shown below:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Catalog price object (sale price defined)</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
-<!--
-title: "Catalog price object (sale price defined)"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Catalog price object, sale price defined" lineNumbers
 "product": {
   // ...
   "price": {
@@ -165,19 +142,8 @@ The example below tests for the presence of the `sale_price_without_tax` propert
 
 With the logic below, the page will display a strikeout standard price next to the **Sale Price** field, indicating the current selling price of the product.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Conditional logic </div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
-<!--
-title: "Conditional logic "
-subtitle: ""
-lineNumbers: true
--->
-
-```
+```handlebars title="Conditional logic" lineNumbers
   {{#or price.sale_price_without_tax price.sale_price_with_tax}}
      ... [code to display on-sale strikeout pricing or content for a discounted product]  ...
   {{/or}}
@@ -185,7 +151,7 @@ lineNumbers: true
 
 ## Catalog price object examples including and excluding tax
 
-Depending on the store’s  [**Tax Display Settings**](https://login.bigcommerce.com/deep-links/manage/settings/tax/settings), the `price` object will display prices in one of the following ways:
+Depending on the store’s [**Tax Display Settings**](https://login.bigcommerce.com/deep-links/manage/settings/tax/settings), the `price` object will display prices in one of the following ways:
 
 * **Including tax**
 * **Excluding tax**
@@ -211,19 +177,7 @@ There is no defined sale price for the product.
 
 A corresponding catalog price object will be structured as shown below:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Product including and excluding tax (no sale price defined)</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Product including and excluding tax (no sale price defined)"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Product including and excluding tax, no sale price defined" lineNumbers
 "product": {
   "price": {
     "with_tax": {
@@ -258,18 +212,9 @@ In this example:
 | `with_tax` | This property represents the `without_tax` value plus a 10% tax markup.|
 | `rrp_with_tax` | This property represents the `rrp_without_tax` value plus a 10% tax markup.|
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Tax display configurations
+> #### Tax display configurations
 > The same properties and values are returned for **Including tax** and **Including and excluding tax** display settings. These properties and values are not available for a control panel setting of **Excluding tax**.
-
-</div>
-</div>
-</div>
 
 ### Sale price defined in control panel
 
@@ -278,19 +223,7 @@ Assume that a merchant has defined the following tax configurations for a produc
 * Show prices on product pages including and excluding tax
 * Use a flat rate of 10% tax
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Product including and excluding tax (sale price defined)</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Product Including and Excluding Tax (Sale Price defined)"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Product including and excluding tax, sale price defined" lineNumbers
 "product": {
   "price": {
     "with_tax": {
@@ -349,8 +282,8 @@ The table below explains the mapping between the control panel fields and the ca
 
 | Field | Catalog Price Object Property | Description |
 | ----------- | ----------- | ----------- |
-| Default Price (excluding tax) |<ul><li><b>Sale Price</b> is defined:</li> <code>{{ product.price.non_sale_price_without_tax }}</code><li><b>Sale Price</b> is not defined:</li> <code>{{ product.price.without_tax }}</code></ul>| The standard store price for the product. |
- Default Price (including tax) |<ul><li><b>Sale Price</b> is defined:</li> <code>{{ product.price.non_sale_price_with_tax }}</code><li><b>Sale Price</b> is not defined:</li> <code>{{ product.price.with_tax }}</code></ul>| The standard store price for the product, with tax. |
+| Default Price (excluding tax) |<ul><li>**Sale Price** is defined:</li> `{{ product.price.non_sale_price_without_tax }}`<li>**Sale Price** is not defined:</li> `{{ product.price.without_tax }}`</ul>| The standard store price for the product. |
+ Default Price (including tax) |<ul><li>**Sale Price** is defined:</li> `{{ product.price.non_sale_price_with_tax }}`<li>**Sale Price** is not defined:</li> `{{ product.price.with_tax }}`</ul>| The standard store price for the product, with tax. |
  Cost |Cost  is not returned in the catalog price object.| This field represents true cost of goods, and is typically meant for reports and third-party accounting integrations. |
 MSRP (excluding tax)|`{{ product.price.rrp_without_tax }}`| This field represents the product’s list price, or the manufacturer's suggested retail price. |
 MSRP (including tax)|`{{ product.price.rrp_with_tax }}`| This field represents the product’s list price, or the manufacturer's suggested retail price, including tax. |

@@ -64,9 +64,10 @@ Try the following workaround:
 
 5. Run `stencil init` again.
 This should now execute properly.
+
 6. Run `stencil start`.
 
-8. Verify your theme's launch at: http://localhost:3000.
+7. Verify your theme's launch at: http://localhost:3000.
 
 ## `npm install` and `stencil init` errors
 

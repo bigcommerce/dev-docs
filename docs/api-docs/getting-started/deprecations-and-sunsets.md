@@ -19,17 +19,12 @@ The following V2 APIs are deprecated. We discourage using these APIs as BigComme
 |`/v2/redirects`|[V3 Redirects](/api-reference/storefront/redirects)|
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * In V3, `options` and `modifiers` attach directly to products. Use `options` and `modifiers` together to access the contents of the former V2 `options` response.
 > * `option_sets` endpoint is intentionally not available in the V3 API. For more information, see [Difference between V2 and V3 Catalog APIs](/api-docs/store-management/catalog/v2-vs-v3#difference-between-v2-and-v3-catalog-apis).
 
-</div>
-</div>
-</div>
+
 
 ## Sunsets
 

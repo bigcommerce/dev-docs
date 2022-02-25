@@ -6,7 +6,7 @@ The [Checkout SDK's`embedded-checkout` sub-module](https://github.com/bigcommerc
 
 ## How it works
 
-Embedded Checkout uses an HTML `<iframe>` to display BigCommerce's PCI compliant Optimized One-Page Checkout on non-BigCommerce web pages.
+Embedded Checkout uses an HTML `<iframe>` to display BigCommerce's PCI-compliant Optimized One-Page Checkout on non-BigCommerce web pages.
 
 If your channel site doesn't match the URL from which you're making a request to a BigCommerce store, you will get a security error and the checkout will not load. Additionally, if requests to your BigCommerce store aren't served over HTTPS, you will also see an error.
 
@@ -18,22 +18,17 @@ You will need to use the [Channels, Sites, and Routes](/api-reference/cart-check
 
 Embedded Checkout requires the BigCommerce Checkout SDK to invoke a method to render the checkout in your site. Learn more about the [Checkout SDK](/api-docs/cart-and-checkout/checkout-sdk).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
+> #### Note 
+> Stencil translation files are not supported by Embedded Checkout. To display translated strings at checkout, we suggest [Installing a Custom Checkout](/stencil-docs/customizing-checkout/installing-custom-checkouts). 
 
-### Note 
-Stencil translation files are not supported by Embedded Checkout. To display translated strings at checkout, we suggest [Installing a Custom Checkout](/stencil-docs/customizing-checkout/installing-custom-checkouts). 
-
-</div>
-</div>
-</div>
 
 ## Logged-In customers
 
 The [Customer Login API](/api-docs/customers/customer-login-api) allows you to manage customers in two steps. First, you need to pass the `customer_id` when creating the cart. Second, you need to log in the customer, so the session is active when the checkout loads.
+
+You are required to include the `channel_id` in the login JWTs to embed checkout for headless storefronts. Default value = 1. For more information, see the [Embedded Checkout Overview](https://developer.bigcommerce.com/api-docs/storefronts/embedded-checkout/embedded-checkout-overview).
+
 
 ## FAQ
 
