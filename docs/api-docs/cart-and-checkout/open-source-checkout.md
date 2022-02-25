@@ -1,7 +1,5 @@
 # Installing a Custom Checkout
 
-
-
 You can create unique shopping experiences that fit the look and feel of a store's brand using custom checkouts. This article will outline how to package a custom checkout file, and install a custom checkout via the control panel.
 
 This article will address using both [Open Source Checkout](https://github.com/bigcommerce/checkout-js) and [Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js) powered checkouts.
@@ -9,8 +7,15 @@ This article will address using both [Open Source Checkout](https://github.com/b
 ## Obtaining the JavaScript loader file
 Custom checkouts must have a single JS loader file. The first step to using a custom checkout is generating this file. The loader file must be responsible for the following:
 
-* Loading all the required assets, including CSS files
+* Loading all the required assets, including all CSS files no matter the location
 * Running the app
+
+## Developing a custom checkout
+
+If you wish to customize a checkout, follow the steps below:
+
+1. Please get in touch with support to prevent the CSS of default checkout from overriding the CSS of custom checkout. 
+2. Enter your CSS into the [optimized-checkout.scss](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss) in Cornerstone or the [scss folder](https://github.com/bigcommerce/checkout-js/tree/master/src/scss) in checkout.js. We suggest moving content from "optimized-checkout.scss to the scss folder or vice-versa to ensure there is a single source of truth for handling styles. NOTE: "optimized-checkout.scss" will always override the CSS rules defined in checkout-js.
 
 ### Packaging custom checkouts with Open Source Checkout
 
@@ -55,7 +60,7 @@ You can upload a custom checkout to your store's server using WebDAV. The instru
 5. Copy the contents of the `/dist` folder and paste it into the checkout folder.
 
 ## Installing custom checkouts  
-
+  
 To install a custom checkout on a store, follow these steps:
 
 1. Navigate to **Advanced Settings > Checkout** in your store's control panel.
