@@ -1,16 +1,6 @@
 # Types of Apps
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Single Click Apps](#single-click-apps)
-- [Connector Apps](#connector-apps)
-- [Unlisted Marketplace Apps](#unlisted-marketplace-apps)
-- [Personal Apps](#personal-apps)
-- [Scripts](#scripts)
-- [Resources](#resources)
-
-</div> 
+ 
 
 The BigCommerce ecosystem facilitates the creation of multiple types of apps. Determining which type of app to create largely depends on the nature and size of the intended user-base. For example, Single Click Apps are listed on the BigCommerce marketplace and can be installed on any BigCommerce store; Personal Apps, on the other hand, are intended for a specific merchant and are not listed on the marketplace. For more information, see the detailed descriptions of each app type below.
 
@@ -32,18 +22,11 @@ Use Cases:
 - Apps that do not provide Web services for OAuth exchange. (For example: offline sync apps.)
 - Apps that do not provide Web or cloud-hosted components for a dashboard.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-    
-<!-- theme:  -->
-
-### Connector apps
+<!-- theme: info -->
+> #### Connector apps
 > Connector apps require the store owner to create API Credentials in the Control Panel and then pass those values into the app manually. The single-click installation process is preferred since it does not require this step.
 
-</div>
-</div>
-</div>
+
 
 <br>
 

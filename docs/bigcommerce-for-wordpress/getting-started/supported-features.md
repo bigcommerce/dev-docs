@@ -2,14 +2,7 @@
 
 # Supported Features
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Supported features](#supported-features)
-- [Unsupported features](#unsupported-features)
-- [General product roadmap](#general-product-roadmap)
-
-</div>
 
 ## Supported features
 

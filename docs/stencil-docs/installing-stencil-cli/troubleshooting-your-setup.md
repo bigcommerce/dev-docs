@@ -1,26 +1,6 @@
 # Troubleshooting Your Setup
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Unsupported Node version](#unsupported-node-version)
-- [`npm install` errors](#npm-install-errors)
-- [`npm install` and `stencil init` errors](#npm-install-and-stencil-init-errors)
-- [`stencil init`/`stencil start` errors](#stencil-initstencil-start-errors)
-- [`stencil start` missing module errors](#stencil-start-missing-module-errors)
-- [Mac OS: `Xcode/iOS license...` errors](#mac-os-xcodeios-license-errors)
-- [ETIMEOUT errors on Node > 4.4.0](#etimeout-errors-on-node--440)
-- [`stencil` command not found](#stencil-command-not-found)
-- [`stencil start` errors](#stencil-start-errors)
-- [500 errors](#500-errors)
-- [Lint errors upon bundling](#lint-errors-upon-bundling)
-- [Module not found errors upon bundling](#module-not-found-errors-upon-bundling)
-- [Short undescriptive JavaScript diagnostics](#short-undescriptive-javascript-diagnostics)
-- [TR-300 error upon theme upload](#tr-300-error-upon-theme-upload)
-- [Reinstalling Stencil CLI](#reinstalling-stencil-cli)
-- [Resources](#resources)
-
-</div>
 
 For any unexpected behavior you encounter while developing your Stencil theme, we recommend checking the terminal window where you started Stencil CLI.
 
@@ -84,9 +64,10 @@ Try the following workaround:
 
 5. Run `stencil init` again.
 This should now execute properly.
+
 6. Run `stencil start`.
 
-8. Verify your theme's launch at: http://localhost:3000.
+7. Verify your theme's launch at: http://localhost:3000.
 
 ## `npm install` and `stencil init` errors
 

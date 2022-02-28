@@ -2,12 +2,7 @@
 
 # Product Import
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Product Import](#product-import)
-
-</div> 
+ 
 
 ## Product Import
 
@@ -19,15 +14,8 @@ The import runs in several stages:
 3. The queue is processed in chunks (five items at a time), whereby products are imported, updated, or deleted to match the data in BigCommerce.
 4. Currency and other store information from the API updates settings in WordPress.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
-    
-<!-- theme:  -->
-
-### WordPress Currency Processing
+<!-- theme: info -->
+> #### WordPress Currency Processing
 > The WordPress sites you connect to your BigCommerce store will process in the same default currency as the BigCommerce store.
 
-</div>
-</div>
-</div>
+

@@ -1,13 +1,7 @@
 # WCAG Compliance Levels
-<div class="otp" id="no-index">
 
-### On this page
-- [Accessibility principles](#accessibility-principles)
-- [Accessibility guidelines](#accessibility-guidelines)
-- [Related resources](#related-resources)
-</div>
 
-This article demonstrates how Cornerstone satisfies [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/#guidelines) across compliance levels. You can perform similar techniques to your site regardless of your compliance level. For detailed implementation information, see [Implementing WCAG Guidelines](https://developer.bigcommerce.com/stencil-docs/accessibility/implementing-WCAG-guidelines).
+This article demonstrates how Cornerstone satisfies [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/#guidelines) across compliance levels. You can perform similar techniques to your site regardless of your compliance level. For detailed implementation information, see [Implementing WCAG Guidelines](/stencil-docs/accessibility/implementing-WCAG-guidelines).
 
 ## Accessibility principles
 WCAG organizes accessibility guidelines into four principles.
@@ -40,7 +34,7 @@ Perceivable
 | --       | --                                                                         | --                    | 
 | Level A  | [Meaningful Sequence](https://www.w3.org/TR/WCAG21/#meaningful-sequence)   | The links in the navigation bar form a meaningful sequence. Search, Sign In or Register, and Cart buttons appear above all other content because many visitors will want to perform these actions.|
 | Level AA | [Orientation](https://www.w3.org/TR/WCAG21/#orientation)                   |The theme is fully responsive, meaning it automatically adapts to your device (desktop, tablet, and mobile).                                              |
-| Level AAA| [Identify Purpose](https://www.w3.org/TR/WCAG21/#identify-purpose)         | The option to add your own [fonts and icons](https://developer.bigcommerce.com/stencil-docs/storefront-customization/using-custom-fonts-and-icons) in the navigation of a site to load symbols and vocabulary familiar to users.                                                          |
+| Level AAA| [Identify Purpose](https://www.w3.org/TR/WCAG21/#identify-purpose)         | The option to add your own [fonts and icons](/stencil-docs/storefront-customization/using-custom-fonts-and-icons) in the navigation of a site to load symbols and vocabulary familiar to users.                                                          |
 
 | Level    | Guideline 1.4: Distinguishable                                              | Cornerstone technique |
 | --       | --                                                                          | --                    | 
@@ -51,16 +45,16 @@ Perceivable
 Operable
 | Level    | Guideline 2.4: Navigable                                                    | Cornerstone technique |
 | --       | --                                                                          | --                    | 
-| Level A  | [Bypass Blocks](https://www.w3.org/TR/WCAG21/#bypass-blocks)                | The option to add a visible 'Skip to Main' link to all pages on your site that sends users to the start of the main content of each page. [Bypass Blocks](https://developer.bigcommerce.com/stencil-docs/accessibility/implementing-WCAG-guidelines#bypass-blocks) example    |
+| Level A  | [Bypass Blocks](https://www.w3.org/TR/WCAG21/#bypass-blocks)                | The option to add a visible 'Skip to Main' link to all pages on your site that sends users to the start of the main content of each page. [Bypass Blocks](/stencil-docs/accessibility/implementing-WCAG-guidelines#bypass-blocks) example    |
 | Level AA | [Multiple Ways](https://www.w3.org/TR/WCAG21/#multiple-ways)                | The search bar is in the top right by default; however, you can receive search results on both the quick-search bar and when you press Enter on the search results page.                                                                                                                  |
-| Level AAA| [Location](https://www.w3.org/TR/WCAG21/#location)                          | Breadcrumbs are allowed on a web page. [Location](https://developer.bigcommerce.com/stencil-docs/accessibility/implementing-WCAG-guidelines#location) example                                                                                                                    |
+| Level AAA| [Location](https://www.w3.org/TR/WCAG21/#location)                          | Breadcrumbs are allowed on a web page. [Location](/stencil-docs/accessibility/implementing-WCAG-guidelines#location) example                                                                                                                    |
 
 Understandable
 | Level    | Guideline 3.1: Readable                                                     | Cornerstone technique |
 | --       | --                                                                          | --                    | 
-| Level A  | [Language of Page](https://www.w3.org/TR/WCAG21/#language-of-page)          | The ability to customize your display in any one [language](https://developer.bigcommerce.com/stencil-docs/localization/localization-tutorial) of your choice by using the lang attribute on the HTML element.                                                                              |                                                 
-| Level AA | [Language of Parts](https://www.w3.org/TR/WCAG21/#language-of-parts)        | The option to translate your theme into [multiple displayed languages](https://developer.bigcommerce.com/stencil-docs/localization/multi-language-checkout).                |
-| Level AAA| [Unusual Words](https://www.w3.org/TR/WCAG21/#unusual-words)                | A mechanism is available for users to perceive content as a single control for a distinct function. [Unusual words](https://developer.bigcommerce.com/stencil-docs/accessibility/implementing-WCAG-guidelines#unusual-words) example.                               |
+| Level A  | [Language of Page](https://www.w3.org/TR/WCAG21/#language-of-page)          | The ability to customize your display in any one [language](/stencil-docs/localization/localization-tutorial) of your choice by using the lang attribute on the HTML element.                                                                              |                                                 
+| Level AA | [Language of Parts](https://www.w3.org/TR/WCAG21/#language-of-parts)        | The option to translate your theme into [multiple displayed languages](/stencil-docs/localization/multi-language-checkout).                |
+| Level AAA| [Unusual Words](https://www.w3.org/TR/WCAG21/#unusual-words)                | A mechanism is available for users to perceive content as a single control for a distinct function. [Unusual words](/stencil-docs/accessibility/implementing-WCAG-guidelines#unusual-words) example.                               |
 
 
 | Level    | Guideline 3.2: Predictable                                                  | Cornerstone technique |

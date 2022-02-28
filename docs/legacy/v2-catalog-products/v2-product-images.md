@@ -1,37 +1,15 @@
 # Product Images
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Product Images](#product-images)
-- [Get a Product Image](#get-a-product-image)
-- [Get a Count of Product Images](#get-a-count-of-product-images)
-- [Create a Product Image](#create-a-product-image)
-- [Update a Product Image](#update-a-product-image)
-- [Delete a Product Image](#delete-a-product-image)
-- [Delete Multiple Product Images](#delete-multiple-product-images)
-
-</div> 
+ 
 
 ## Product Images 
 
 Images associated with a product.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-
-For the most up-to-date version of this API, see [Product Images](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-images).
-
-</div>
-</div>
-</div>
-
+> For the most up-to-date version of this API, see [Product Images](/api-reference/store-management/catalog/product-images).
 ### Product Image Object – Properties 
 
 | Name | Type | Description |

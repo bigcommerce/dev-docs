@@ -1,63 +1,16 @@
 # Other Objects and Properties Overview
-
-<div class="otp" id="no-index">
-
-### On This Page
-- [Product](#product)
-- [Product Reviews](#product-reviews)
-- [Related Products](#related-products)
-- [Similar Products by Customer Views](#similar-products-by-customer-views)
-- [Product Videos](#product-videos)
-- [Compare](#compare)
-- [Download Item](#download-item)
-- [Product Other Details](#product-other-details)
-- [Category](#category)
-- [Category Products](#category-products)
-- [Category Shop by Price](#category-shop-by-price)
-- [Brand](#brand)
-- [Brand List](#brand-list)
-- [Shop by Brand](#shop-by-brand)
-- [Cart](#cart)
-- [Customer](#customer)
-- [Order Details](#order-details)
-- [Recent Items](#recent-items)
-- [Customer Wishlists](#customer-wishlists)
-- [Wishlist Details](#wishlist-details)
-- [Account Order Shipments](#account-order-shipments)
-- [Account Orders](#account-orders)
-- [Account Returns](#account-returns)
-- [Account New Return](#account-new-return)
-- [Create Account](#create-account)
-- [Shipping Addresses](#shipping-addresses)
-- [Payment Methods](#payment-methods)
-- [Edit Payment Methods](#edit-payment-methods)
-- [Add Payment Methods](#add-payment-methods)
-- [Blog](#blog)
-- [Blog Post](#blog-post)
-- [Forms](#forms)
-- [Order Confirmation Objects](#order-confirmation-objects)
-
-</div> 
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+ 
 
 <!-- theme: info -->
+> #### Debugging Your Theme
+> The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. For example:
+> `http://localhost:3000/product/this-is-a-sample-product?debug=context` will return a list of all the objects available on the page, in JSON syntax.
+> If you want to view the available JSON objects and rendered page at the same time, change the debug value to "bar": `http://localhost:3000/product/this-is-a-sample-product?debug=bar`
 
-### Debugging Your Theme
-> The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. Here is an example:
-> ```http://localhost:3000/product/this-is-a-sample-product?debug=context```
-> This will return a list of all the objects available on the page, in JSON syntax. If you want to view the available JSON objects and rendered page at the same time, simply change the debug value to bar. Below is an example:
-> ```http://localhost:3000/product/this-is-a-sample-product?debug=bar```
-
-</div>
-</div>
-</div>
 
 ## Product
 
-<b>Description:</b> Default property that provides detailed product data. Called on the default `templates/pages/product.html`and `templates/pages/amp/product.html` templates, and on several partials in the `templates/components/` subdirectory:
+**Description:** Default property that provides detailed product data. Called on the default `templates/pages/product.html`and `templates/pages/amp/product.html` templates, and on several partials in the `templates/components/` subdirectory:
 
 * `account/returns-list.html`,
 * `cart/item-options.html`,
@@ -70,721 +23,243 @@
 * `amp/products/product-view.html`, and
 * `amp/products/product-view-details.html`.
 
-<b>Handlebars Expression:</b> `{{product}}`
+**Handlebars Expression:** `{{product}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>Unique ID for the product</td>
-  </tr>
-  <tr>
-    <td>sku</td>
-    <td>Default product variant when no options are selected</td>
-  </tr>
-   <tr>
-    <td>mpn</td>
-    <td>Manufacturer Part Number</td>
-  </tr>
-   <tr>
-    <td>gtin</td>
-    <td>Global Trade Item Number</td>
-  </tr>
-  <tr>
-    <td>url</td>
-    <td>URL to the product detail page</td>
-  </tr>
-  <tr>
-    <td>upc</td>
-    <td>Optional UPC code for the product</td>
-  </tr>
-  <tr>
-    <td>title</td>
-    <td>Displayed name of the product</td>
-  </tr>
-  <tr>
-    <td>description</td>
-    <td>(HTML) description of the product</td>
-  </tr>
-  <tr>
-    <td>detail_messages</td>
-    <td>Status messages for display at the top of the product page</td>
-  </tr>
-  <tr>
-    <td>min_purchase_quantity</td>
-    <td>Minimum quantity that can be purchased at once</td>
-  </tr>
-  <tr>
-    <td>max_purchase_quantity</td>
-    <td>Maximum quantity that can be purchased at once</td>
-  </tr>
-  <tr>
-    <td>can_purchase</td>
-    <td>Boolean that indicates whether the product is available for purchase</td>
-  </tr>
-  <tr>
-    <td>out_of_stock</td>
-    <td>Boolean that indicates whether the product is out of stock</td>
-  </tr>
-  <tr>
-    <td>out_of_stock_message</td>
-    <td>Merchant-defined label to display when a product is out of stock</td>
-  </tr>
-  <tr>
-    <td>cart_url</td>
-    <td>URL to the customer’s shopping cart</td>
-  </tr>
-  <tr>
-    <td>add_to_wishlist_url</td>
-    <td>URL to add the product to the customer’s wishlist</td>
-  </tr>
-  <tr>
-    <td>customizations</td>
-    <td>Product customizations (for example, a T-shirt size); these correspond to <a href="https://support.bigcommerce.com/articles/Public/What-are-configurable-fields-and-how-do-I-create-them">configurable fields</a> and <a href="https://support.bigcommerce.com/s/article/Options-SKUs-Rules#text">numeric-text</a> <a href="https://support.bigcommerce.com/articles/Public/Adding-Product-Options">product options</a> in the BigCommerce control panel</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">id</span></td>
-    <td>Customization ID</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">display_name</span></td>
-    <td>Label for this customization, as displayed to customers</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">type</span></td>
-    <td>Customization type [<code>text</code>|<code>textarea</code>|<code>NumbersOnlyText</code>|<code>checkbox</code>|<code>select</code>|<code>file</code>]</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">required</span></td>
-    <td>Boolean value that indicates whether customer must specify this customization in order to buy the product</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">condition</span></td>
-    <td>Boolean value indicating whether to display this product's condition (new, used, or refurbished)</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">prefill</span></td>
-    <td>Optional string value to prefill this field</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">&lt;values&gt;</span></td>
-    <td>For <code>select</code> type, array of strings listing the available options</td>
-  </tr>
-  <tr>
-    <td>
-      <span class="indent1">&lt;file_types&gt;</span></td>
-    <td>For <code>file</code> type, string representing the types of allowed files</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">&lt;file_size&gt;</span></td>
-    <td>For <code>file</code> type, string representing the maximum file size allowed</td>
-  </tr>
-
-<!-- Inserted new properties here for NumbersOnlyText type, MERC-159: -->
-  <tr>
-    <td><span class="indent1">integer_only</span></td>
-    <td>For <code>NumbersOnlyText</code> type, boolean value indicating whether to restrict customer's entries to whole numbers only</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">default</span></td>
-    <td>For <code>NumbersOnlyText</code> type, optional string representing a default number that customers can see and overwrite</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">limit_input</span></td>
-    <td>For <span class="inline-code">NumbersOnlyText</span> type, boolean indicating whether to impose any limits on the numeric values that customers can enter as strings</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">limit_input_option</span></td>
-    <td>For <code>NumbersOnlyText</code> type and <code>limit_input</code> = <code>true</code>, the type of limit: <code>lowest</code> or <code>highest</code></td>
-  </tr>
-  <tr>
-    <td><span class="indent1">lowest</span></td>
-    <td>For <code>NumbersOnlyText</code> type and <code>limit_input</code> = <code>true</code>,  minimum allowable value; a value of <code>0</code> imposes no limit</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">highest</span></td>
-    <td>For <code>NumbersOnlyText</code> type and <code>limit_input</code> = <code>true</code>,  maximum allowable value; a value of <code>0</code> imposes no limit</td>
-  </tr>
-  <tr>
-    <td>options</td>
-    <td>Options for color and pattern swatches displayed for this product</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">id</span></td>
-    <td>Product ID</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">type</span></td>
-    <td>String indicating size, color, swatch, etc.</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">display_name</span></td>
-    <td>Option Name displayed in control panel for this option</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">required</span></td>
-    <td>Boolean value that indicates whether customer must specify this option in order to buy the product</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">condition</span></td>
-    <td>Boolean value indicating whether to display this product's condition (new, used, or refurbished)</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">values</span></td>
-    <td>Array of data (color) or image (pattern) values</td>
-  </tr>
-  <tr>
-    <td><span class="indent2">label</span></td>
-    <td>Internal label for this value (not normally displayed to shoppers)</td>
-  </tr>
-  <tr>
-    <td><span class="indent2">id</span></td>
-    <td>ID for this value, unique within this values array</td>
-  </tr>
-  <tr>
-    <td><span class="indent2">selected</span></td>
-    <td>Boolean indicating whether this value is preselected as the option's default value, upon page load</td>
-  </tr>
-  <tr>
-    <td><span class="indent2">data</span></td>
-    <td>Each <code>values</code> member can contain either a <code>data</code> or an <code>image</code> member; <code>data</code> denotes a color</td>
-  </tr>
-  <tr>
-    <td><span class="indent3">&lt;color value&gt;</span></td>
-    <td>Hex code for this color</td>
-  </tr>
-  <tr>
-    <td><span class="indent2">image</span></td>
-    <td>
-      Each <code>values</code> member can contain either a <code>data</code> or an <code>image</code> member; <code>image</code> denotes a pattern, in <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image">Stencil image object format</a>. (Note: This <code>image</code> value replaces the <code>{{pattern}}</code> property, which was limited to 18 x 18 pixels, and will be deprecated.)</td>
-  </tr>
-  <tr>
-    <td>price</td>
-    <td>References the <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/catalog-price">catalog price object</a>, to access the product’s price</td>
-  </tr>
-  <tr>
-    <td>weight</td>
-    <td>Weight of the default variant</td>
-  </tr>
-  <tr>
-    <td>height</td>
-    <td>Height of the default variant</td>
-  </tr>
-  <tr>
-    <td>width</td>
-    <td>Width of the default variant</td>
-  </tr>
-  <tr>
-    <td>depth</td>
-    <td>Depth of the default variant</td>
-  </tr>
-  <tr>
-    <td>rating</td>
-    <td>Rating for the product</td>
-  </tr>
-  <tr>
-    <td>num_reviews</td>
-    <td>Number of reviews the product has</td>
-  </tr>
-  <tr>
-    <td>bulk_discount_rates </td>
-    <td>List of discount rates for the current product</td>
-  </tr>
-  <tr>
-    <td>condition</td>
-    <td>Condition of the product</td>
-  </tr>
-  <tr>
-    <td>stock_level</td>
-    <td>Current stock level of the product; will be null if storefront stock display is disabled by the merchant, or if the product lacks inventory tracking</td>
-  </tr>
-  <tr>
-    <td>shipping</td>
-    <td>Shipping properties for the product</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> fixed</span></td>
-    <td>Boolean that indicates whether the product’s shipping price is fixed</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> price</span></td>
-    <td><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the shipping cost for this product (if shipping cost is fixed)</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> calculated</span></td>
-    <td>Boolean that indicates whether the product’s shipping price is calculated at checkout</td>
-  </tr>
-  <tr>
-    <td>stock_label</td>
-    <td>Shows whether the product stock level is for on-hand merchandise or pre-orders.</td>
-  </tr>
-  <tr>
-    <td>availability</td>
-    <td>Optional availability message set by the merchant</td>
-  </tr>
-  <tr>
-    <td>pre_order</td>
-    <td>Availability of the product for pre-order</td>
-  </tr>
-  <tr>
-    <td>release_date</td>
-    <td>Release date, if the product is set to pre-order status</td>
-  </tr>
-  <tr>
-    <td>error_message</td>
-    <td>Potential error on the page (e.g.: out of stock, form validations)</td>
-  </tr>
-  <tr>
-    <td>gift_wrapping</td>
-    <td>Whether or not gift wrapping is enabled</td>
-  </tr>
-  <tr>
-    <td>brand</td>
-    <td>Brand of the product</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> name</span></td>
-    <td>Displayed name of the brand</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> url</span></td>
-    <td>URL to the brand page</td>
-  </tr>
-  <tr>
-    <td>main_image</td>
-    <td>Primary image to display when the product details page loads</td>
-  </tr>
-  <tr>
-    <td>images</td>
-    <td>List of all images for this product, in <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image">Stencil image format</a> (as configured in config.json; used with the <code>getImage</code> Handlebars helper)</td>
-  </tr>
-  <tr>
-    <td>pinterest_js</td>
-    <td>Property to display Pinterest button</td>
-  </tr>
-  <tr>
-    <td>facebook_like</td>
-    <td>Property to display Facebook Like button</td>
-  </tr>
-  <tr>
-    <td>warranty</td>
-    <td>Optional warranty text set by the merchant</td>
-  </tr>
-  <tr>
-    <td>meta_keywords</td>
-    <td>Optional search keywords that merchants may enter in the control panel’s "Add a Product" or “Edit a Product” page, to characterize the product in meta tags and storefront searches </td>
-  </tr>
-
-  <tr>
-    <td>tags</td>
-    <td>Keywords by which this product can also be identified</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> name</span></td>
-    <td>Name of the tag</td>
-  </tr>
-
-  <tr>
-    <td>custom_fields </td>
-    <td>Extra details to display about the product </td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> name</span></td>
-    <td>Custom field name</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> value</span></td>
-    <td>Custom field value</td>
-  </tr>
-  <tr>
-    <td>event_date</td>
-    <td>Property to handle a date-based product</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> name</span></td>
-    <td>Name of the event</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> date_start</span></td>
-    <td>Event’s start date range</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> date_end</span></td>
-    <td>Event’s end date range</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> earliest_year</span></td>
-    <td>Event’s starting year</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> latest_year</span></td>
-    <td>Event’s ending year</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">type</span></td>
-    <td>Type of event</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">category</span></td>
-    <td>An array of categories the product belongs to</td>
-  </tr>
-</table>
+| Property | Description |
+|---|---|
+| id | Unique ID for the product |
+| sku | Default product variant when no options are selected |
+| mpn | Manufacturer Part Number |
+| gtin | Global Trade Item Number |
+| url | URL to the product detail page |
+| upc | Optional UPC code for the product |
+| title | Displayed name of the product |
+| description | (HTML) description of the product |
+| detail_messages | Status messages for display at the top of the product page |
+| min_purchase_quantity | Minimum quantity that can be purchased at once |
+| max_purchase_quantity | Maximum quantity that can be purchased at once |
+| can_purchase | Boolean that indicates whether the product is available for purchase |
+| out_of_stock | Boolean that indicates whether the product is out of stock |
+| out_of_stock_message | Merchant-defined label to display when a product is out of stock |
+| cart_url | URL to the customer’s shopping cart |
+| add_to_wishlist_url | URL to add the product to the customer’s wishlist |
+| customizations | Product customizations (for example, a T-shirt size); these correspond to [configurable fields](https://support.bigcommerce.com/articles/Public/What-are-configurable-fields-and-how-do-I-create-them) and [numeric-text](https://support.bigcommerce.com/s/article/Options-SKUs-Rules#text) [product options](https://support.bigcommerce.com/articles/Public/Adding-Product-Options) in the BigCommerce control panel |
+| &nbsp;&nbsp;id | Customization ID |
+| &nbsp;&nbsp;display_name | Label for this customization, as displayed to customers |
+| &nbsp;&nbsp;type | Customization type [`text`|`textarea`|`NumbersOnlyText`|`checkbox`|`select`|`file`] |
+| &nbsp;&nbsp;required | Boolean value that indicates whether customer must specify this customization in order to buy the product |
+| &nbsp;&nbsp;condition | Boolean value indicating whether to display this product's condition (new, used, or refurbished) |
+| &nbsp;&nbsp;prefill | Optional string value to prefill this field |
+| &nbsp;&nbsp;&lt;values&gt; | For `select` type, array of strings listing the available options |
+| &nbsp;&nbsp;&lt;file_types&gt; | For `file` type, string representing the types of allowed files |
+| &nbsp;&nbsp;&lt;file_size&gt; | For `file` type, string representing the maximum file size allowed |
+| &nbsp;&nbsp;integer_only | For `NumbersOnlyText` type, boolean value indicating whether to restrict customer's entries to whole numbers only |
+| &nbsp;&nbsp;default | For `NumbersOnlyText` type, optional string representing a default number that customers can see and overwrite |
+| &nbsp;&nbsp;limit_input | For `NumbersOnlyText` type, boolean indicating whether to impose any limits on the numeric values that customers can enter as strings |
+| &nbsp;&nbsp;limit_input_option | For `NumbersOnlyText` type and `limit_input` = `true`, the type of limit: `lowest` or `highest` |
+| &nbsp;&nbsp;lowest | For `NumbersOnlyText` type and `limit_input` = `true`,  minimum allowable value; a value of `0` imposes no limit |
+| &nbsp;&nbsp;highest | For `NumbersOnlyText` type and `limit_input` = `true`,  maximum allowable value; a value of `0` imposes no limit |
+| options | Options for color and pattern swatches displayed for this product |
+| &nbsp;&nbsp;id | Product ID |
+| &nbsp;&nbsp;type | String indicating size, color, swatch, etc. |
+| &nbsp;&nbsp;display_name | Option Name displayed in control panel for this option |
+| &nbsp;&nbsp;required | Boolean value that indicates whether customer must specify this option in order to buy the product |
+| &nbsp;&nbsp;condition | Boolean value indicating whether to display this product's condition (new, used, or refurbished) |
+| &nbsp;&nbsp;values | Array of data (color) or image (pattern) values |
+| &nbsp;&nbsp;&nbsp;label | Internal label for this value (not normally displayed to shoppers) |
+| &nbsp;&nbsp;&nbsp;id | ID for this value, unique within this values array |
+| &nbsp;&nbsp;&nbsp;selected | Boolean indicating whether this value is preselected as the option's default value, upon page load |
+| &nbsp;&nbsp;&nbsp;data | Each `values` member can contain either a `data` or an `image` member; `data` denotes a color |
+| &nbsp;&nbsp;&nbsp;&nbsp;&lt;color value&gt; | Hex code for this color |
+| &nbsp;&nbsp;&nbsp;image | Each `values` member can contain either a `data` or an `image` member; `image` denotes a pattern, in [Stencil image object format](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image). (Note: This `image` value replaces the `{{pattern}}` property, which was limited to 18 x 18 pixels, and will be deprecated.) |
+| price | References the [catalog price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/catalog-price), to access the product’s price |
+| weight | Weight of the default variant |
+| height | Height of the default variant |
+| width | Width of the default variant |
+| depth | Depth of the default variant |
+| rating | Rating for the product |
+| num_reviews | Number of reviews the product has |
+| bulk_discount_rates  | List of discount rates for the current product |
+| condition | Condition of the product |
+| stock_level | Current stock level of the product; will be null if storefront stock display is disabled by the merchant, or if the product lacks inventory tracking |
+| shipping | Shipping properties for the product |
+| &nbsp;&nbsp;fixed | Boolean that indicates whether the product’s shipping price is fixed |
+| &nbsp;&nbsp;price | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines the shipping cost for this product (if shipping cost is fixed) |
+| &nbsp;&nbsp;calculated | Boolean that indicates whether the product’s shipping price is calculated at checkout |
+| stock_label | Shows whether the product stock level is for on-hand merchandise or pre-orders. |
+| availability | Optional availability message set by the merchant |
+| pre_order | Availability of the product for pre-order |
+| release_date | Release date, if the product is set to pre-order status |
+| error_message | Potential error on the page (e.g.: out of stock, form validations) |
+| gift_wrapping | Whether or not gift wrapping is enabled |
+| brand | Brand of the product |
+| &nbsp;&nbsp;name | Displayed name of the brand |
+| &nbsp;&nbsp;url | URL to the brand page |
+| main_image | Primary image to display when the product details page loads |
+| images | List of all images for this product, in [Stencil image format](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image) (as configured in config.json; used with the `getImage` Handlebars helper) |
+| pinterest_js | Property to display Pinterest button |
+| facebook_like | Property to display Facebook Like button |
+| warranty | Optional warranty text set by the merchant |
+| meta_keywords | Optional search keywords that merchants may enter in the control panel’s "Add a Product" or “Edit a Product” page, to characterize the product in meta tags and storefront searches |
+| tags | Keywords by which this product can also be identified |
+| &nbsp;&nbsp;name | Name of the tag |
+| custom_fields  | Extra details to display about the product  |
+| &nbsp;&nbsp;name | Custom field name |
+| &nbsp;&nbsp;value | Custom field value |
+| event_date | Property to handle a date-based product |
+| &nbsp;&nbsp;name | Name of the event |
+| &nbsp;&nbsp;date_start | Event’s start date range |
+| &nbsp;&nbsp;date_end | Event’s end date range |
+| &nbsp;&nbsp;earliest_year | Event’s starting year |
+| &nbsp;&nbsp;latest_year | Event’s ending year |
+| &nbsp;&nbsp;type | Type of event |
+| &nbsp;&nbsp;category | An array of categories the product belongs to |
 
 ## Product Reviews
 
-<b>Description:</b> A list of reviews related to this product. When filtering/limiting, reviews' default sorting is by review id, from lowest to highest. (Called on the default <code>&lt;theme-name&gt;/templates/pages/product.html</code><code>&lt;theme-name&gt;/templates/components/</code> subdirectory:
-* <code>products/product-view.html</code>,
-* <code>products/modals/writeReview.html</code>, and
-* <code>amp/products/product-view.html</code>.)
+**Description:** A list of reviews related to this product. When filtering/limiting, reviews' default sorting is by review id, from lowest to highest. (Called on the default `&lt;theme-name&gt;/templates/pages/product.html``&lt;theme-name&gt;/templates/components/` subdirectory:
+* `products/product-view.html`,
+* `products/modals/writeReview.html`, and
+* `amp/products/product-view.html`.)
 
-<b>Handlebars Expression:</b> <code>{{product.reviews}}</code>
+**Handlebars Expression:** `{{product.reviews}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <td>Property</td>
-    <td>Description</td>
-  </tr>
-  <tr>
-    <td>start</td>
-    <td>The review that starts the current page of reviews</td>
-  </tr>
-  <tr>
-    <td>total</td>
-    <td>Total number of reviews</td>
-  </tr>
-  <tr>
-    <td>end</td>
-    <td>Last review on this page</td>
-  </tr>
-  <tr>
-    <td>show_review_email</td>
-    <td>Boolean that indicates whether the Write Review form should have an input field for the reviewer’s e-mail address</td>
-  </tr>
-  <tr>
-    <td>captcha</td>
-    <td>reCAPTCHA public key (for validating human versus bot visitors)</td>
-  </tr>
-  <tr>
-    <td>pagination</td>
-    <td>References the pagination model</td>
-  </tr>
-  <tr>
-    <td>list </td>
-    <td>List of reviews</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> rating</span></td>
-    <td>Product’s rating (1–5 stars)</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> title</span></td>
-    <td>Title of the review</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> date</span></td>
-    <td>Date the product was reviewed</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> text</span></td>
-    <td>Text content of the product review</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> name</span></td>
-    <td>Name of the person providing the review</td>
-  </tr>
-</table>
-
--
+| Property | Description |
+|---|---|
+| start | The review that starts the current page of reviews |
+| total | Total number of reviews |
+| end | Last review on this page |
+| show_review_email | Boolean that indicates whether the Write Review form should have an input field for the reviewer’s e-mail address |
+| captcha | reCAPTCHA public key (for validating human versus bot visitors) |
+| pagination | References the pagination model |
+| list  | List of reviews |
+| &nbsp;&nbsp;rating | Product’s rating (1–5 stars) |
+| &nbsp;&nbsp;title | Title of the review |
+| &nbsp;&nbsp;date | Date the product was reviewed |
+| &nbsp;&nbsp;text | Text content of the product review |
+| &nbsp;&nbsp;name | Name of the person providing the review |
 
 ## Related Products
 
-<b>Description:</b> A list of products related to this product. (Called on the default `templates/components/products/tabs.html` partial.)
+**Description:** A list of products related to this product. (Called on the default `templates/components/products/tabs.html` partial.)
 
-<b>Handlebars Expression:</b> `{{product.related_products}}`
+**Handlebars Expression:** `{{product.related_products}}`
 
-<b>Object Properties: </b>References the <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">product card model</a>.
+**Object Properties: **References the <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">product card model</a>.
 
 ## Similar Products by Customer Views
 
-**Description:** A list of products similar to a given product, based on customer’s product browsing history. (Called on the default <code>&lt;theme-name&gt;/templates/components/products/tabs.html</code> partial.)
+**Description:** A list of products similar to a given product, based on customer’s product browsing history. (Called on the default `&lt;theme-name&gt;/templates/components/products/tabs.html` partial.)
 
-<b>Handlebars Expression:</b> <code>{{product.similar_by_views}}</code>
+**Handlebars Expression:** `{{product.similar_by_views}}`
 
-<b>Object Properties:</b> References the <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">product card model</a>.
+**Object Properties:** References the <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">product card model</a>.
 
 ## Product Videos
 
-<b>Description:</b> A list of videos for a given product. (Called on the default <code>&lt;theme-name&gt;/templates/pages/product.html</code> template, and on the <code>&lt;theme-name&gt;/templates/components/amp/products/product-view.html</code> partial.)
+**Description:** A list of videos for a given product. (Called on the default `&lt;theme-name&gt;/templates/pages/product.html` template, and on the `&lt;theme-name&gt;/templates/components/amp/products/product-view.html` partial.)
 
-<b>Handlebars Expression:</b> <code>{{product.videos}}</code>
+**Handlebars Expression:** `{{product.videos}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>ID of the product video</td>
-  </tr>
-  <tr>
-    <td>title_short</td>
-    <td>Short title of the product video</td>
-  </tr>
-  <tr>
-    <td>title_long</td>
-    <td>Long title of the product video</td>
-  </tr>
-  <tr>
-    <td>description_long</td>
-    <td>Long description of the product video</td>
-  </tr>
-  <tr>
-    <td>description_short</td>
-    <td>Short description of the product video</td>
-  </tr>
-  <tr>
-    <td>length</td>
-    <td>Duration of the product video</td>
-  </tr>
-</table>
+| Property | Description |
+|---|---|
+| id | ID of the product video |
+| title_short | Short title of the product video |
+| title_long | Long title of the product video |
+| description_long | Long description of the product video |
+| description_short | Short description of the product video |
+| length | Duration of the product video |
 
 ## Compare
 
-**Description:** Property to display an array of products on product comparison pages. (Called on the default <code>&lt;theme-name&gt;/templates/pages/compare.html</code> template.)
+**Description:** Property to display an array of products on product comparison pages. (Called on the default `&lt;theme-name&gt;/templates/pages/compare.html` template.)
 
-<b>Handlebars Expression:</b> <code>{{comparisons}}</code>
+**Handlebars Expression:** `{{comparisons}}`
 
-<b>Object Properties:</b> References the <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">product card model</a>, plus the additional fields listed here:<br>
+**Object Properties:** References the <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model">product card model</a>, plus the additional fields listed here:<br>
 
-<table>
-  <tr>
-    <td>Property</td>
-    <td>Description</td>
-  </tr>
-  <tr>
-    <td>availability</td>
-    <td>How long this product usually takes to ship</td>
-  </tr>
-  <tr>
-    <td>brand</td>
-    <td>Object containing brand data for this product</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> url</span></td>
-    <td>Brand URL for this product</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> name</span></td>
-    <td>Brand name for this product</td>
-  </tr>
-  <tr>
-    <td>remove_url</td>
-    <td>URL to remove this product/column from the comparison</td>
-  </tr>
-  <tr>
-    <td>custom_fields</td>
-    <td>Array of additional product details – size, color, book's ISBN, DVD's release date, etc. – as name/value pairs</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> name</span></td>
-    <td>Displayed name for this custom field</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> value</span></td>
-    <td>Value for this custom field’s entry</td>
-  </tr>
-</table>
+| Property | Description |
+|---|---|
+| availability | How long this product usually takes to ship |
+| brand | Object containing brand data for this product |
+| &nbsp;&nbsp;url | Brand URL for this product |
+| &nbsp;&nbsp;name | Brand name for this product |
+| remove_url | URL to remove this product/column from the comparison |
+| custom_fields | Array of additional product details – size, color, book's ISBN, DVD's release date, etc. – as name/value pairs |
+| &nbsp;&nbsp;name | Displayed name for this custom field |
+| &nbsp;&nbsp;value | Value for this custom field’s entry |
 
 ## Download Item
 
-<b>Description:</b> Property for digital (non-physical) products. (Called on the default <code>&lt;theme-name&gt;/templates/pages/account/download-item.html</code>template.)
+**Description:** Property for digital (non-physical) products. (Called on the default `&lt;theme-name&gt;/templates/pages/account/download-item.html`template.)
 
-<b>Handlebars Expression:</b> <code>{{downloads}}</code>
+**Handlebars Expression:** `{{downloads}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <td>Property</td>
-    <td>Description</td>
-  </tr>
-  <tr>
-    <td>order_id</td>
-    <td>ID for this order</td>
-  </tr>
-  <tr>
-    <td>product_name</td>
-    <td>Name of the digital product</td>
-  </tr>
-  <tr>
-    <td>items</td>
-    <td>Array of product components</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">name</span></td>
-    <td>Name of this digital item</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">expired</span></td>
-    <td>Boolean indicating whether customer’s access/subscription to this item has expired</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">days_remaining</span></td>
-    <td>Number of days left in customer’s access/subscription to this item</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">downloads_remaining</span></td>
-    <td>Number of times customer may download this item</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">size</span></td>
-    <td>File size of this digital item (string, responsively formatted as: 240 KB, 1.1 MB, etc.)</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">description</span></td>
-    <td>Description (if entered by merchant) for this item</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">id</span></td>
-    <td>ID for this item</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">images</span></td>
-    <td>List of all images for the product associated with this list of downloadable items (in <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image">Stencil image format</a>)</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">thumbnail</span></td>
-    <td>"Primary" image for the product associated with this list of downloadable items (in <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image">Stencil image format</a>)</td>
-  </tr>
-</table>
+| Property | Description |
+|---|---|
+| order_id | ID for this order |
+| product_name | Name of the digital product |
+| items | Array of product components |
+| &nbsp;&nbsp;name | Name of this digital item |
+| &nbsp;&nbsp;expired | Boolean indicating whether customer’s access/subscription to this item has expired |
+| &nbsp;&nbsp;days_remaining | Number of days left in customer’s access/subscription to this item |
+| &nbsp;&nbsp;downloads_remaining | Number of times customer may download this item |
+| &nbsp;&nbsp;size | File size of this digital item (string, responsively formatted as: 240 KB, 1.1 MB, etc.) |
+| &nbsp;&nbsp;description | Description (if entered by merchant) for this item |
+| &nbsp;&nbsp;id | ID for this item |
+| &nbsp;&nbsp;images | List of all images for the product associated with this list of downloadable items [Stencil image format](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image) |
+| &nbsp;&nbsp;thumbnail | "Primary" image for the product associated with this list of downloadable items [Stencil image format](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image) |
 
 ## Product Other Details
 
-<b>Description:</b> Property to display custom product details (such as a book's ISBN code, a DVD's release date, etc.). (Called on the default <code>&lt;theme-name&gt;/templates/components/products/product-view.html</code> and <code>&lt;theme-name&gt;/templates/components/amp/products/product-view-details.html</code> partials.)
+**Description:** Property to display custom product details (such as a book's ISBN code, a DVD's release date, etc.). (Called on the default `&lt;theme-name&gt;/templates/components/products/product-view.html` and `&lt;theme-name&gt;/templates/components/amp/products/product-view-details.html` partials.)
 
 **Handlebars Expression:**`{{product.custom_fields}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Displayed name for this category of information</td>
-  </tr>
-  <tr>
-    <td>value</td>
-    <td>Displayed value for this product’s entry</td>
-  </tr>
-</table>
+| Property | Description |
+|---|---|
+| name | Displayed name for this category of information |
+| value | Displayed value for this product’s entry |
 
 ## Category
 
-**Description:**  The category object for the page calling the object. When retrieving a collection of categories, default sorting is by category `id`, from lowest to highest. (Called on the default `templates/pages/category.html` template, and on several partials in the `<theme-name&gt;/templates/components/</code> subdirectory: <code>category/shop-by-price.html`,`category/sidebar.html`, and `amp/category/subcategories.html`)
+**Description:**  The category object for the page calling the object. When retrieving a collection of categories, default sorting is by category `id`, from lowest to highest. (Called on the default `templates/pages/category.html` template, and on several partials in the `<theme-name&gt;/templates/components/` subdirectory: `category/shop-by-price.html`,`category/sidebar.html`, and `amp/category/subcategories.html`)
 
-<b>Handlebars Expression:</b> `{{category}}`
+**Handlebars Expression:** `{{category}}`
 
-<b>Object Properties:</b>
-
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>Unique ID for the category </td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Merchant-defined category name</td>
-  </tr>
-  <tr>
-    <td>url</td>
-    <td>URL for the category-specific page</td>
-  </tr>
-  <tr>
-    <td>description</td>
-    <td>Merchant-defined description of the category</td>
-  </tr>
-  <tr>
-    <td>image</td>
-    <td>Image representing this category, in <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image">Stencil image format</a></td>
-  </tr>
-  <tr>
-    <td>subcategories <!-- Possible change to `children`--></td>
-    <td>List of any child categories</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">id</span></td>
-    <td>Unique ID for the subcategory </td>
-  </tr>
-  <tr>
-    <td><span class="indent1">name</span></td>
-    <td>Name of the subcategory</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">url</span></td>
-    <td>URL to the subcategory</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">description</span></td>
-    <td>Merchant-defined description of the subcategory </td>
-  </tr>
-  <tr>
-    <td><span class="indent1">image</span></td>
-    <td>Image representing this subcategory, in <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image">Stencil image format</a></td>
-  </tr>
-  <tr>
-    <td><span class="indent1">product_count</span></td>
-    <td>Number of products in the subcategory. (Counts at the current level only &ndash; not recursive to deeper levels.)</td>
-  </tr>
-  <tr>
-  	<td>detail_messages</td>
-    <td>Message displayed when a product is out of stock, and inventory settings are configured to redirect to a category: "Sorry, the product you tried to view is currently out of stock, here are some similar products we have available." (This phrasing is set by the BigCommerce App.)</td>
-  </tr>
-  <tr>
-    <td>show_compare</td>
-    <td>Boolean that defines whether to show controls for product comparison</td>
-  </tr>
-  <tr>
-    <td>show_add_to_cart</td>
-    <td>Boolean that defines whether to show an Add to Cart button for this category</td>
-  </tr>
-  <tr>
-    <td>total_products</td>
-    <td>Count of the number of products in the category</td>
-  </tr>
-  <tr>
-    <td>faceted_search_enabled</td>
-    <td>Boolean that defines whether product-filtering search is enabled for the store</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">facets</span></td>
-    <td>Available search facets</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">pagination</span></td>
-    <td>References the pagination model</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">selected</span></td>
-    <td>Selected search facets</td>
-  </tr>
-</table>
+**Object Properties:**
+| Property | Description |
+|---|---|
+| id | Unique ID for the category  |
+| name | Merchant-defined category name |
+| url | URL for the category-specific page |
+| description | Merchant-defined description of the category |
+| image | Image representing this category, in [Stencil image format](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image) |
+| subcategories | List of any child categories |
+| &nbsp;&nbsp;id | Unique ID for the subcategory  |
+| &nbsp;&nbsp;name | Name of the subcategory |
+| &nbsp;&nbsp;url | URL to the subcategory |
+| &nbsp;&nbsp;description | Merchant-defined description of the subcategory  |
+| &nbsp;&nbsp;image | Image representing this subcategory, in [Stencil image format](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image) |
+| &nbsp;&nbsp;product_count | Number of products in the subcategory. (Counts at the current level only &ndash; not recursive to deeper levels.) |
+| detail_messages | Message displayed when a product is out of stock, and inventory settings are configured to redirect to a category: "Sorry, the product you tried to view is currently out of stock, here are some similar products we have available." (This phrasing is set by the BigCommerce App.) |
+| show_compare | Boolean that defines whether to show controls for product comparison |
+| show_add_to_cart | Boolean that defines whether to show an Add to Cart button for this category |
+| total_products | Count of the number of products in the category |
+| faceted_search_enabled | Boolean that defines whether product-filtering search is enabled for the store |
+| &nbsp;&nbsp;facets | Available search facets |
+| &nbsp;&nbsp;pagination | References the pagination model |
+| &nbsp;&nbsp;selected | Selected search facets |
 
 ## Category Products
 
@@ -796,34 +271,18 @@
 
 ## Category Shop by Price
 
-<b>Description:</b> A list of price ranges, to enable customers to set price limits within a product category. Called on the default<code>&lt;theme-name&gt;/templates/components/category/shop-by-price.html</code> and <code>&lt;theme-name&gt;/templates/components/category/sidebar.html</code> partials.)
+**Description:** A list of price ranges, to enable customers to set price limits within a product category. Called on the default`&lt;theme-name&gt;/templates/components/category/shop-by-price.html` and `&lt;theme-name&gt;/templates/components/category/sidebar.html` partials.)
 
-<b>Handlebars Expression:</b> `{{category.shop_by_price}}`
+**Handlebars Expression:** `{{category.shop_by_price}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>url</td>
-    <td>URL of price-filtered product results for this category</td>
-  </tr>
-  <tr>
-    <td>low</td>
-    <td><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the minimum price boundary </td>
-  </tr>
-  <tr>
-    <td>high</td>
-    <td><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the maximum price boundary</td>
-  </tr>
-  <tr>
-    <td>selected</td>
-    <td><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the currently selected price range</td>
-  </tr>
-</table>
+| Property | Description |
+|---|---|
+| url | URL of price-filtered product results for this category |
+| low | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines the minimum price boundary  |
+| high | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines the maximum price boundary |
+| selected | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines the currently selected price range |
 
 ## Brand
 
@@ -831,462 +290,149 @@
 
 **Handlebars Expression:** `{{brand}}`
 
-<b>Object Properties:</b>
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>show_compare</td>
-    <td>Boolean corresponding to merchant’s control panel selection whether or not to enable product comparisons</td>
-  </tr>
-  <tr>
-    <td>url</td>
-    <td>URL of the brand page</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Name of the brand </td>
-  </tr>
-  <tr>
-    <td>pagination</td>
-    <td>References the pagination model</td>
-  </tr>
-  <tr>
-    <td>image</td>
-    <td>Image used to visually represent the brand (i.e., logo)</td>
-  </tr>
-  <tr>
-    <td>faceted_search_enabled</td>
-    <td>Boolean that defines whether product-filtering search is enabled for the store</td>
-  </tr>
-  <tr>
-    <td>facets</td>
-    <td>A list of all possible search filters for this brand</td>
-  </tr>
-  <tr>
-    <td>products</td>
-    <td>An array of product card models</a></td>
-  </tr>
-  <tr>
-    <td>selected</td>
-    <td>An array of selected facets</td>
-  </tr>
-</table>
+**Object Properties:**
+
+| Property | Description |
+|---|---|
+| show_compare | Boolean corresponding to merchant’s control panel selection whether or not to enable product comparisons |
+| url | URL of the brand page |
+| name | Name of the brand  |
+| pagination | References the pagination model |
+| image | Image used to visually represent the brand (i.e., logo) |
+| faceted_search_enabled | Boolean that defines whether product-filtering search is enabled for the store |
+| facets | A list of all possible search filters for this brand |
+| products | An array of product card models |
+| selected | An array of selected facets |
 
 ## Brand List
 
-<b>Description:</b> A list of brands with their basic data. Default sorting is by brand id, from lowest to highest. (Called on the default `templates/pages/brands.html` template.)
+**Description:** A list of brands with their basic data. Default sorting is by brand id, from lowest to highest. (Called on the default `templates/pages/brands.html` template.)
 
-<b>Handlebars Expression:</b> `{{brands}}`
+**Handlebars Expression:** `{{brands}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>url</td>
-    <td>URL to this brand’s products listing</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Name of the brand</td>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>Internal identifier for the brand </td>
-  </tr>
-  <tr>
-    <td>image</td>
-    <td>Stencil image object (if any) for the brand</td>
-  </tr>
-</table>
+| Property | Description |
+|---|---|
+| url | URL to this brand’s products listing |
+| name | Name of the brand |
+| id | Internal identifier for the brand  |
+| image | Stencil image object (if any) for the brand |
 
 ## Shop by Brand
 
 **Description:** Objects to enable customers to shop by brand. Returns top 10 brands, by product count. (Called on the default `templates/components/brand/sidebar.html` and `templates/components/common/footer.html` partials.)
 
-<b>Handlebars Expression:</b> `{{shop_by_brand}}`
+**Handlebars Expression:** `{{shop_by_brand}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td class="">links</td>
-    <td class="">Array of links to individual brands</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">id</span></td>
-    <td class="">ID for this brand</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">url</span></td>
-    <td class="">URL for this brand</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">name</span></td>
-    <td class="">Name of this brand</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">count</span></td>
-    <td class="">Number of products matching this brand</td>
-  </tr>
-</table>
+| Property | Description|
+|---|---|
+| links | Array of links to individual brands |
+| &nbsp;&nbsp;id | ID for this brand |
+| &nbsp;&nbsp;url | URL for this brand |
+| &nbsp;&nbsp;name | Name of this brand |
+| &nbsp;&nbsp;count | Number of products matching this brand |
 
 ## Cart
 
-<b>Description:</b> The cart-specific properties for the current session
+**Description:** The cart-specific properties for the current session
 
 **Handlebars Expression:** `{{cart}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>quantity</td>
-    <td>Total number of items in the cart</td>
-  </tr>
-  <tr>
-    <td class="">additional_checkout_buttons</td>
-    <td class="">Generates checkout buttons for third-party payments (PayPal, Google Checkout, etc.)</td>
-  </tr>
-  <tr>
-    <td>show_primary_checkout_button</td>
-    <td>Boolean that determines whether to show a checkout button</td>
-  </tr>
-  <tr>
-    <td>show_multiple_address_shipping</td>
-    <td>Boolean: If >1 physical items are in the cart, and checkout button is displayed: whether to also display the "Ship to multiple addresses"/"Multiple Shipping Addresses” user option</td>
-  </tr>
-
-  <tr>
-    <td class="">discount</td>
-    <td class="">Discount being applied to the cart in the current session</td>
-  </tr>
-  <tr>
-    <td>gift_wrapping_cost</td>
-    <td>Price object that defines the cost associated with adding gift wrapping to the items in the cart</td>
-  </tr>
-  <tr>
-    <td>sub_total</td>
-		<td>Price object</a> that defines the total cost of all the items in the cart. Might or might not include tax, based on the tax display settings the merchant has configured. Excludes shipping, discounts, and gift wrapping.</td>
-  </tr>
-  <tr>
-    <td>grand_total</td>
-    <td>Price object that defines the total cost of all the items in the cart. Incorporates estimated shipping, discounts, taxes, and gift wrapping.</td>
-  </tr>
-  <tr>
-    <td class="">shipping_handling</td>
-    <td class="">Current configuration of the shipping estimator for this session’s current cart; will be null/undefined if the cart contains no physical products</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">handling_cost</span></td>
-    <td class="">Price object that defines the handling cost for the carted items (if any)</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">show_estimator</span></td>
-    <td class="">Boolean indicating whether the merchant wants to show the shipping estimator to customers</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent2"> countries</span></td>
-    <td class="">Countries available to ship to</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent2"> states</span></td>
-    <td class="">List of states/provinces/regions for the country</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent2"> selected_state</span></td>
-    <td class="">The state/province/region that the customer selected for the shipping estimate</td>
-  </tr>
-
-  <tr>
-    <td class=""><span class="indent2"> selected_zip</span></td>
-    <td class="">The ZIP/postal code that the customer selected for the shipping estimate</td>
-  </tr>
-
-  <tr>
-    <td class=""><span class="indent2"> selected_city</span></td>
-    <td class="">The city/town that the customer selected for the shipping estimate</td>
-  </tr>
-
-  <tr>
-    <td class=""><span class="indent2"> shipping_cost</span></td>
-    <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines shipping cost</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent2"> provider</span></td>
-    <td class="">Shipping provider associated with this shipping estimate</td>
-  </tr>
-  <tr>
-    <td class="">coupons</td>
-    <td class="">List of coupons applied to the cart; default sorting is by coupon <span class="inline-code">id</span>, from lowest to highest</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> id</span></td>
-    <td class="">Unique ID of the coupon</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> code</span></td>
-    <td class="">Code associated with the coupon</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> discount</span></td>
-    <td class="">Discount associated with the coupon</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> type</span></td>
-    <td class="">Coupon type</td>
-  </tr>
-  <tr>
-    <td class="">gift_certificates</td>
-    <td class="">List of gift certificates applied to the cart</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> id</span></td>
-    <td class="">Unique system ID for the gift certificate</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> code</span></td>
-    <td class="">Customer code used to identify the gift certificate</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> remaining</span></td>
-    <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the amount remaining on the gift certificate</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> used</span></td>
-    <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the amount already used on the gift certificate</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> remove_url</span></td>
-    <td class="">URL to remove gift certificate from the cart</td>
-  </tr>
-  <tr>
-    <td class="">taxes</td>
-    <td class="">List of all applicable taxes for the cart</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> name</span></td>
-    <td class="">Name of the applied tax</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> cost</span></td>
-    <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the cost of the applied tax</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> included</span></td>
-    <td class="">Boolean that indicates whether taxes are included in the total price for the cart’s contents</td>
-  </tr>
-</table>
+| Property | Description |
+|---|---|
+| quantity | Total number of items in the cart |
+| additional_checkout_buttons | Generates checkout buttons for third-party payments (PayPal, Google Checkout, etc.) |
+| show_primary_checkout_button | Boolean that determines whether to show a checkout button |
+| show_multiple_address_shipping | Boolean: If **> 1** physical items are in the cart, and checkout button is displayed: whether to also display the ”Ship to multiple addresses”/”Multiple Shipping Addresses” user option |
+| discount | Discount being applied to the cart in the current session |
+| gift_wrapping_cost | Price object that defines the cost associated with adding gift wrapping to the items in the cart |
+| sub_total | Price object that defines the total cost of all the items in the cart. Might or might not include tax, based on the tax display settings the merchant has configured. Excludes shipping, discounts, and gift wrapping. |
+| grand_total | Price object that defines the total cost of all the items in the cart. Incorporates estimated shipping, discounts, taxes, and gift wrapping. |
+| shipping_handling | Current configuration of the shipping estimator for this session’s current cart; will be null/undefined if the cart contains no physical products |
+| &nbsp;&nbsp;handling_cost | Price object that defines the handling cost for the carted items (if any) |
+| &nbsp;&nbsp;show_estimator | Boolean indicating whether the merchant wants to show the shipping estimator to customers |
+| &nbsp;&nbsp;&nbsp;countries | Countries available to ship to |
+| &nbsp;&nbsp;&nbsp;states | List of states/provinces/regions for the country |
+| &nbsp;&nbsp;&nbsp;selected_state | The state/province/region that the customer selected for the shipping estimate |
+| &nbsp;&nbsp;&nbsp;selected_zip | The ZIP/postal code that the customer selected for the shipping estimate |
+| &nbsp;&nbsp;&nbsp;selected_city | The city/town that the customer selected for the shipping estimate |
+| &nbsp;&nbsp;&nbsp;shipping_cost | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines shipping cost |
+| &nbsp;&nbsp;&nbsp;provider | Shipping provider associated with this shipping estimate |
+| coupons | List of coupons applied to the cart; default sorting is by coupon `id`, from lowest to highest |
+| &nbsp;&nbsp;id | Unique ID of the coupon |
+| &nbsp;&nbsp;code | Code associated with the coupon |
+| &nbsp;&nbsp;discount | Discount associated with the coupon |
+| &nbsp;&nbsp;type | Coupon type |
+| gift_certificates | List of gift certificates applied to the cart |
+| &nbsp;&nbsp;id | Unique system ID for the gift certificate |
+| &nbsp;&nbsp;code | Customer code used to identify the gift certificate |
+| &nbsp;&nbsp;remaining | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines the amount remaining on the gift certificate |
+| &nbsp;&nbsp;used | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines the amount already used on the gift certificate |
+| &nbsp;&nbsp;remove_url | URL to remove gift certificate from the cart |
+| taxes | List of all applicable taxes for the cart |
+| &nbsp;&nbsp;name | Name of the applied tax |
+| &nbsp;&nbsp;cost | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines the cost of the applied tax |
+| &nbsp;&nbsp;included | Boolean that indicates whether taxes are included in the total price for the cart’s contents |
 
 ### Cart Items
 
-<b>Description:</b> A list of items added to the cart in the current session
+**Description:** A list of items added to the cart in the current session
 
-<b>Handlebars Expression:</b> `{{cart.items}}`
+**Handlebars Expression:** `{{cart.items}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <td>Property</td>
-    <td>Description</td>
-  </tr>
-  <tr>
-    <td class="">id</td>
-    <td class="">Unique system ID for the item in the cart</td>
-  </tr>
-	<tr>
-		<td class="">remove_url</td>
-		<td class="">URL to remove this item from the cart</td>
-	</tr>
-  <tr>
-    <td class="">quantity</td>
-    <td class="">Quantity of the item being ordered</td>
-  </tr>
-	<tr>
-		<td class="">min_purchase_quantity</td>
-		<td class="">Quantity of the item being ordered</td>
-	</tr>
-	<tr>
-		<td class="">max_purchase_quantity</td>
-		<td class="">Maximum quantity the customer can order of the given item (if applicable)</td>
-	</tr>
-  <tr>
-    <td class="">type</td>
-    <td class="">String indicating the type of purchase: either "Item" or "GiftCertificate"</td>
-  </tr>
-	<tr>
-    <td class="">If type == Item</td>
-    <td class="">If the item in the cart is a purchasable product, these properties are available:</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">product_id</span></td>
-    <td class="">Product ID for the cart item</td>
-  </tr>
-	<tr>
-		<td class=""><span class="indent1">brand</span></td>
-		<td class="">Brand details for this cart item</td>
-	</tr>
-	<tr>
-		<td class=""><span class="indent2"> name</span></td>
-		<td class="">The product’s brand name</td>
-	</tr>
-  <tr>
-    <td class=""><span class="indent1">name</span></td>
-    <td class="">Product name of the cart item</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">url</span></td>
-    <td class="">Link to the product page for the cart item</td>
-  </tr>
-	<tr>
-		<td class=""><span class="indent1">sku</span></td>
-		<td class="">SKU value for this cart item</td>
-	</tr>
-  <tr>
-    <td class=""><span class="indent1">availability</span></td>
-    <td class="">An optional availability message set by the merchant</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">image</span></td>
-    <td class="">Product image for the cart item</td>
-  </tr>
-	<tr>
-		<td class="">can_modify</td>
-		<td class="">Boolean indicating whether the customer may modify the quantity of, or remove, this cart item</td>
-	</tr>
-  <tr>
-    <td class=""><span class="indent1">event_date</span></td>
-    <td class="">Chosen event date for event-based products</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">show_gift_wrapping</span></td>
-    <td class="">Boolean indicating whether the wrapping options are shown</td>
-  </tr>
-	<tr>
-		<td class="">gift_wrapping</td>
-		<td class="">Gift-wrapping options</td>
-	</tr>
-	<tr>
-		<td class=""><span class="indent1"> name</span></td>
-		<td class="">Name of the gift-wrapping option</td>
-	</tr>
-	<tr>
-		<td class=""><span class="indent1"> price</span></td>
-		<td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the price of the gift-wrapping option</td>
-	</tr>
-	<tr>
-		<td class=""><span class="indent1"> message</span></td>
-		<td class="">Customer-defined message for the gift wrapping </td>
-	</tr>
-	<tr>
-		<td class=""><span class="indent1"> remove_url</span></td>
-		<td class="">URL to remove the gift-wrapping option</td>
-	</tr>
-  <tr>
-    <td class=""><span class="indent1">rrp</span></td>
-    <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the cart item's list price (MSRP); can be used to display struck-out list prices, as explained <a href="#strikeout">here</a></td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">price</span></td>
-    <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the unit price of the cart item, after discounts; to see how this and the next three price properties relate to each other, see Cart Price Properties</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">price_discounted</span></td>
-    <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the unit price, after all cart discounts and promotions</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">total</span></td>
-    <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the total price (price * quantity) of the cart item</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">total_discounted</span></td>
-    <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the total price (price * quantity), after all cart discounts and promotions</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">release_date</span></td>
-    <td class="">If a pre-order product was added to the cart,  displays a message about when the item is expected to ship to the customer</td>
-  </tr>
-  <tr>
-    <td class="">options</td>
-    <td class="">Options chosen when product was added to cart</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> name</span></td>
-    <td class="">Name of the option</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> value</span></td>
-    <td class="">Value of the option</td>
-  </tr>
-
-  <tr>
-		<td>bulk_pricing</td>
-    <td>Properties for applying bulk-pricing discounts to cart items</td>
-  </tr>
-
-  <tr>
-    <td class=""><span class="indent1"> base_price </span></td>
-    <td class="">The lowest calculated price on an item. For example, 2 items are $99, 3 items are $98 and 4 items are $97. There are 3 items in the cart, the base price will be $98. </td>
-  </tr>
-
-  <tr>
-    <td class=""><span class="indent1"> discount_amount </span></td>
-    <td class="">Bulk-discount amount per item, if applicable; otherwise, null</td>
-  </tr>  
-
-  <tr>
-    <td class=""><span class="indent1"> discount_percentage </span></td>
-    <td class="">Bulk-discount percentage per item, if applicable; otherwise, null</td>
-  </tr>  
-	<tr>
-		<td class="">custom_fields</td>
-		<td class="">Custom product fields set when product was added to cart</td>
-	</tr>
-  <tr>
-    <td class="">configurable_fields</td>
-    <td class="">Custom product fields set when product was added to cart</td>
-  </tr>
-
-  <tr>
-    <td class="">If type == GiftCertificate</td>
-    <td class="">If the item in the cart is a gift certificate, these properties are available:</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> name</span></td>
-    <td class="">Sender’s name </td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> edit_url</span></td>
-    <td class="">URL to edit the gift certificate</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> recipient</span></td>
-    <td class="">Recipient’s name</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> price</span></td>
-    <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the gift certificate’s basic price</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> total</span></td>
-    <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the gift certificate’s total cost, with applicable taxes included</td>
-  </tr>
-</table>
+| Property | Description|
+|---|---|
+| id | Unique system ID for the item in the cart |
+| remove_url | URL to remove this item from the cart |
+| quantity | Quantity of the item being ordered |
+| min_purchase_quantity | Quantity of the item being ordered |
+| max_purchase_quantity | Maximum quantity the customer can order of the given item (if applicable) |
+| type | String indicating the type of purchase: either "Item" or "GiftCertificate" |
+| If type == Item | If the item in the cart is a purchasable product, these properties are available: |
+| &nbsp;&nbsp;product_id | Product ID for the cart item |
+| &nbsp;&nbsp;brand | Brand details for this cart item |
+| &nbsp;&nbsp;&nbsp;name | The product’s brand name |
+| &nbsp;&nbsp;name | Product name of the cart item |
+| &nbsp;&nbsp;url | Link to the product page for the cart item |
+| &nbsp;&nbsp;sku | SKU value for this cart item |
+| &nbsp;&nbsp;availability | An optional availability message set by the merchant |
+| &nbsp;&nbsp;image | Product image for the cart item |
+| can_modify | Boolean indicating whether the customer may modify the quantity of, or remove, this cart item |
+| &nbsp;&nbsp;event_date | Chosen event date for event-based products |
+| &nbsp;&nbsp;show_gift_wrapping | Boolean indicating whether the wrapping options are shown |
+| gift_wrapping | Gift-wrapping options |
+| &nbsp;&nbsp;name | Name of the gift-wrapping option |
+| &nbsp;&nbsp;price | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines the price of the gift-wrapping option |
+| &nbsp;&nbsp;message | Customer-defined message for the gift wrapping  |
+| &nbsp;&nbsp;remove_url | URL to remove the gift-wrapping option |
+| &nbsp;&nbsp;rrp | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines the cart item's list price (MSRP); can be used to display struck-out list prices |
+| &nbsp;&nbsp;price | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines the unit price of the cart item, after discounts; to see how this and the next three price properties relate to each other, see Cart Price Properties |
+| &nbsp;&nbsp;price_discounted | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines the unit price, after all cart discounts and promotions |
+| &nbsp;&nbsp;total | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines the total price (price * quantity) of the cart item |
+| &nbsp;&nbsp;total_discounted | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines the total price (price * quantity), after all cart discounts and promotions |
+| &nbsp;&nbsp;release_date | If a pre-order product was added to the cart,  displays a message about when the item is expected to ship to the customer |
+| options | Options chosen when product was added to cart |
+| &nbsp;&nbsp;name | Name of the option |
+| &nbsp;&nbsp;value | Value of the option |
+| bulk_pricing | Properties for applying bulk-pricing discounts to cart items |
+| &nbsp;&nbsp;base_price  | The lowest calculated price on an item. For example, 2 items are $99, 3 items are $98 and 4 items are $97. There are 3 items in the cart, the base price will be $98.  |
+| &nbsp;&nbsp;discount_amount  | Bulk-discount amount per item, if applicable; otherwise, null |
+| &nbsp;&nbsp;discount_percentage  | Bulk-discount percentage per item, if applicable; otherwise, null |
+| custom_fields | Custom product fields set when product was added to cart |
+| configurable_fields | Custom product fields set when product was added to cart |
+| If type == GiftCertificate | If the item in the cart is a gift certificate, these properties are available: |
+| &nbsp;&nbsp;name | Sender’s name  |
+| &nbsp;&nbsp;edit_url | URL to edit the gift certificate |
+| &nbsp;&nbsp;recipient | Recipient’s name |
+| &nbsp;&nbsp;price | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines the gift certificate’s basic price |
+| &nbsp;&nbsp;total | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines the gift certificate’s total cost, with applicable taxes included |
 
 ### Strikeout Pricing Example
 
@@ -1294,9 +440,9 @@ As a theme developer, you can use the `{{cart.items.rrp}}` property to display s
 
 In your `templates/components/cart/content.html` file, as you iterate over the list of items in the cart, you would check each item's `type`. (No `rrp` property is available where the `type` is `GiftCertificate`.)
 
-If the type is `Item`, then you would check the {{cart.items.rrp}} value. If the value is _not_ `null`, then you would know that you can display a strike-out price for the item. Below is a sample code skeleton:
+If the type is `Item`, then you would check the `{{cart.items.rrp}}` value. If the value is _not_ `null`, then you would know that you can display a strike-out price for the item. Below is a sample code skeleton:
 
-```html
+```handlebars title="templates/components/cart/content.html" lineNumbers
 {{#each cart.items}}
    <!--...-->
   {{#if type '==' 'GiftCertificate'}}
@@ -1306,7 +452,8 @@ If the type is `Item`, then you would check the {{cart.items.rrp}} value. If the
           <!-- your code to display normal pricing -->
       {{/if}}
   {{/if}}
- ```
+{{/each}}
+```
 
 For further details about catalog price properties, please see [Catalog Price Object: How Properties Interact](/stencil-docs/conditional-logic-examples/catalog-price-object). For usage examples of the `{{cart.items}}` `price` and `total` properties, please see [Cart Price Properties](/stencil-docs/conditional-logic-examples/cart-price-relationships).
 
@@ -1325,11 +472,11 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 ### Suggested Products
 
-<b>Description:</b> A list of suggested products, based on cart contents; displays only if enabled by the `cart.suggestions` front-matter attribute, and only immediately after a product is added to the cart
+**Description:** A list of suggested products, based on cart contents; displays only if enabled by the `cart.suggestions` front-matter attribute, and only immediately after a product is added to the cart
 
-<b>Handlebars Expression:</b> `{{cart.suggested_products}}`
+**Handlebars Expression:** `{{cart.suggested_products}}`
 
-<b>Object Properties:</b> References standard product card model.
+**Object Properties:** References standard product card model.
 
 ## Customer
 
@@ -1344,125 +491,35 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 **Object Properties:**
 
-<table>
-  <tr>
-    <td>Property</td>
-    <td>Description</td>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>Customer’s ID</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Customer’s name</td>
-  </tr>
-  <tr>
-    <td>email</td>
-    <td>Customer’s email address</td>
-  </tr>
-  <tr>
-    <td>phone</td>
-    <td>Customer’s phone number</td>
-  </tr>
-
-  <tr>
-    <td>store_credit</td>
-    <td>Customer’s store credit</td>
-  </tr>
-
-  <tr>
-    <td>customer_group_id</td>
-    <td>ID of this customer's group</td>
-  </tr>
-
-  <tr>
-    <td>customer_group_name</td>
-    <td>Name of this customer's group</td>
-  </tr>
-
-  <tr>
-    <td>num_new_messages</td>
-    <td>Number of unread messages for this customer</td>
-  </tr>
-  <tr>
-    <td>num_wishlists</td>
-    <td>Number of wishlists for this customer</td>
-  </tr>
-  <tr>
-    <td>shipping_address</td>
-    <td>Shipping address used for the order</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> id</span></td>
-    <td>Unique, system-generated ID</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> first_name</span></td>
-    <td>Customer’s shipping (first) name</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> last_name</span></td>
-    <td>Customer’s shipping (last) name</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> company</span></td>
-    <td>Customer's shipping company name</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> address1</span></td>
-    <td>Customer's shipping address, first line</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> address2</span></td>
-    <td>Customer's shipping address, second line</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> city</span></td>
-    <td>Customer's shipping city</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> state</span></td>
-    <td>Customer's shipping state</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> zip</span></td>
-    <td>Customer's shipping zip</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> country</span></td>
-    <td>Customer's shipping country</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> phone</span></td>
-    <td>Customer's shipping phone number</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> state_id</span></td>
-    <td>ID for customer's shipping state/province/region
-</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> country_id</span></td>
-    <td>ID for customer's shipping country</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> destination</span></td>
-    <td>Type of delivery destination: residential or business/commercial</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> last_used</span></td>
-    <td>Timestamp when this address was last used as a shipping address</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> form_session_id</span></td>
-    <td>Used for custom shipping forms</td>
-  </tr>
-	  <tr>
-    <td><span class="indent1">payment_methods</span></td>
-    <td>Used on the <a href="https://github.com/bigcommerce/cornerstone/blob/master/templates/components/account/payment-methods-list.html">payment methods page</a> to render list of customer's saved payment methods</td>
-  </tr>
-</table>
+| Property | Description|
+|---|---|
+| id | Customer’s ID |
+| name | Customer’s name |
+| email | Customer’s email address |
+| phone | Customer’s phone number |
+| store_credit | Customer’s store credit |
+| customer_group_id | ID of this customer's group |
+| customer_group_name | Name of this customer's group |
+| num_new_messages | Number of unread messages for this customer |
+| num_wishlists | Number of wishlists for this customer |
+| shipping_address | Shipping address used for the order |
+| &nbsp;&nbsp;id | Unique, system-generated ID |
+| &nbsp;&nbsp;first_name | Customer’s shipping (first) name |
+| &nbsp;&nbsp;last_name | Customer’s shipping (last) name |
+| &nbsp;&nbsp;company | Customer's shipping company name |
+| &nbsp;&nbsp;address1 | Customer's shipping address, first line |
+| &nbsp;&nbsp;address2 | Customer's shipping address, second line |
+| &nbsp;&nbsp;city | Customer's shipping city |
+| &nbsp;&nbsp;state | Customer's shipping state |
+| &nbsp;&nbsp;zip | Customer's shipping zip |
+| &nbsp;&nbsp;country | Customer's shipping country |
+| &nbsp;&nbsp;phone | Customer's shipping phone number |
+| &nbsp;&nbsp;state_id | ID for customer's shipping state/province/region |
+| &nbsp;&nbsp;country_id | ID for customer's shipping country |
+| &nbsp;&nbsp;destination | Type of delivery destination: residential or business/commercial |
+| &nbsp;&nbsp;last_used | Timestamp when this address was last used as a shipping address |
+| &nbsp;&nbsp;form_session_id | Used for custom shipping forms |
+| &nbsp;&nbsp;payment_methods | Used on the [payment methods page](https://github.com/bigcommerce/cornerstone/blob/master/templates/components/account/payment-methods-list.html) to render list of customer's saved payment methods |
 
 ## Order Details
 
@@ -1472,233 +529,64 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 **Object Properties:**
 
-<table>
-  <tr>
-    <td>Property</td>
-    <td>Description</td>
-  </tr>
-  <tr>
-    <td>date</td>
-    <td>Date of the order</td>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>Unique, system-generated ID</td>
-  </tr>
-  <tr>
-    <td>total</td>
-    <td>Price object that defines the order’s total value</td>
-  </tr>
-  <tr>
-    <td>status</td>
-    <td>Order status code</td>
-  </tr>
-  <tr>
-    <td>status_text</td>
-    <td>Status text associated with the status code for the order</td>
-  </tr>
-  <tr>
-    <td>returns_enabled</td>
-    <td>Boolean that indicates whether merchant allows products from the order to be returned</td>
-  </tr>
-  <tr>
-    <td>reorder_url</td>
-    <td>URL to place reorders for items in this order</td>
-  </tr>
-  <tr>
-    <td>invoice_url</td>
-    <td>URL to display an invoice for this order</td>
-  </tr>
-  <tr>
-    <td>is_complete</td>
-    <td>Boolean indicating that the order has been completed</td>
-  </tr>
-  <tr>
-    <td>comments</td>
-    <td>Customer’s message about the order</td>
-  </tr>
-  <tr>
-    <td>items</td>
-    <td>List of items for the order</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> order_product_id</span></td>
-    <td>Product ID</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> name</span></td>
-    <td>Product Name</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> quantity</span></td>
-    <td>Quantity Ordered</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> refunded</span></td>
-    <td>Price object that defines the value of this product that has been refunded</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> event_date </span></td>
-    <td>A chosen event date for the product</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> price</span></td>
-    <td>Price object that defines the product’s price</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">shipping_rows</span></td>
-    <td>Array of shipping addresses, for each item in the order</td>
-  </tr>
-  <tr>
-    <td><span class="indent2">address</span></td>
-    <td>Street address to ship to</td>
-  </tr>
-  <tr>
-    <td><span class="indent2">city</span></td>
-    <td>City to ship to</td>
-  </tr>
-  <tr>
-    <td><span class="indent2">state </span></td>
-    <td>State to ship to</td>
-  </tr>
-  <tr>
-    <td><span class="indent2">zip</span></td>
-    <td>Postal/ZIP code to ship to</td>
-  </tr>
-  <tr>
-    <td><span class="indent2">country</span></td>
-    <td>Country to ship to</td>
-  </tr>
-  <tr>
-    <td><span class="indent2"> gift_wrapping_name</span></td>
-    <td>Name of the gift-wrapping option used</td>
-  </tr>
-  <tr>
-    <td><span class="indent2"> type</span></td>
-    <td>Type of purchase; value is one of: physical, digital, giftcertificate</td>
-  </tr>
-  <tr>
-    <td><span class="indent2"> download_url</span></td>
-    <td>URL at which customer can download digital item</td>
-  </tr>
-  <tr>
-    <td><span class="indent2"> image</span></td>
-    <td>The image of the order’s first product, in <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image">Stencil image format</a></td>
-  </tr>
-  <tr>
-    <td><span class="indent2">show_reorder</span>
-</td>
-    <td>Boolean indicating whether the customer should see a button for reordering items on the Account Order Details page</td>
-  </tr>
-  <tr>
-    <td><span class="indent2"> reorder_message</span></td>
-    <td>An error message to be displayed when the customer attempts to reorder items that can’t be reordered</td>
-  </tr>
-  <tr>
-    <td><span class="indent2"> options</span></td>
-    <td>A list of options selected when this product was purchased</td>
-  </tr>
-  <tr>
-    <td><span class="indent3"> name</span></td>
-    <td>Display name for the option ("Small", "Medium", etc.)</td>
-  </tr>
-  <tr>
-    <td><span class="indent3"> value</span></td>
-    <td>Value that customer selected for the option</td>
-  </tr>
-  <tr>
-    <td>billing_address</td>
-    <td>Billing address used for the order</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> full_name</span></td>
-    <td>Customer's billing name</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> company</span></td>
-    <td>Customer's billing company name</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> address_lines</span></td>
-    <td>Customer's billing address</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> city</span></td>
-    <td>Customer's billing city</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> state</span></td>
-    <td>Customer's billing state</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> country</span></td>
-    <td>Customer billing country</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> zip</span></td>
-    <td>Customer billing ZIP</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> phone</span></td>
-    <td>Customer billing phone number</td>
-  </tr>
-  <tr>
-    <td>shipping_address_count</td>
-    <td>Number of shipping addresses the customer has specified for this order</td>
-  </tr>
-  <tr>
-    <td>shipping_address</td>
-    <td>Shipping address used for the order</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> full_name</span></td>
-    <td>Customer's shipping name</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> company</span></td>
-    <td>Customer's shipping company name</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> address_lines</span></td>
-    <td>Customer's shipping address</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> city</span></td>
-    <td>Customer's shipping city</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> state</span></td>
-    <td>Customer's shipping state</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> country</span></td>
-    <td>Customer's shipping country</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> zip</span></td>
-    <td>Customer's shipping zip</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> phone</span></td>
-    <td>Customer's shipping phone number</td>
-  </tr>
-  <tr>
-    <td>payment_method</td>
-    <td>Customer’s payment method for this order (payment gateway)</td>
-  </tr>
-  <tr>
-    <td>card_number_last_four</td>
-    <td>Last four digits of customer’s credit card</td>
-  </tr>
-  <tr>
-    <td>total_rows</td>
-    <td>A list of “total” rows containing total pricing information</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> label</span></td>
-    <td>The label of the total row (Subtotal, Tax, Grand Total, etc.)</td>
-  </tr>
-</table>
+| Property | Description|
+|---|---|
+| date | Date of the order |
+| id | Unique, system-generated ID |
+| total | Price object that defines the order’s total value |
+| status | Order status code |
+| status_text | Status text associated with the status code for the order |
+| returns_enabled | Boolean that indicates whether merchant allows products from the order to be returned |
+| reorder_url | URL to place reorders for items in this order |
+| invoice_url | URL to display an invoice for this order |
+| is_complete | Boolean indicating that the order has been completed |
+| comments | Customer’s message about the order |
+| items | List of items for the order |
+| &nbsp;&nbsp;order_product_id | Product ID |
+| &nbsp;&nbsp;name | Product Name |
+| &nbsp;&nbsp;quantity | Quantity Ordered |
+| &nbsp;&nbsp;refunded | Price object that defines the value of this product that has been refunded |
+| &nbsp;&nbsp;event_date  | A chosen event date for the product |
+| &nbsp;&nbsp;price | Price object that defines the product’s price |
+| &nbsp;&nbsp;shipping_rows | Array of shipping addresses, for each item in the order |
+| &nbsp;&nbsp;&nbsp;address | Street address to ship to |
+| &nbsp;&nbsp;&nbsp;city | City to ship to |
+| &nbsp;&nbsp;&nbsp;state  | State to ship to |
+| &nbsp;&nbsp;&nbsp;zip | Postal/ZIP code to ship to |
+| &nbsp;&nbsp;&nbsp;country | Country to ship to |
+| &nbsp;&nbsp;&nbsp;gift_wrapping_name | Name of the gift-wrapping option used |
+| &nbsp;&nbsp;&nbsp;type | Type of purchase; value is one of: physical, digital, giftcertificate |
+| &nbsp;&nbsp;&nbsp;download_url | URL at which customer can download digital item |
+| &nbsp;&nbsp;&nbsp;image | The image of the order’s first product, in [Stencil image format](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image) |
+| &nbsp;&nbsp;&nbsp;show_reorder
+ | Boolean indicating whether the customer should see a button for reordering items on the Account Order Details page |
+| &nbsp;&nbsp;&nbsp;reorder_message | An error message to be displayed when the customer attempts to reorder items that can’t be reordered |
+| &nbsp;&nbsp;&nbsp;options | A list of options selected when this product was purchased |
+| &nbsp;&nbsp;&nbsp;&nbsp;name | Display name for the option ("Small", "Medium", etc.) |
+| &nbsp;&nbsp;&nbsp;&nbsp;value | Value that customer selected for the option |
+| billing_address | Billing address used for the order |
+| &nbsp;&nbsp;full_name | Customer's billing name |
+| &nbsp;&nbsp;company | Customer's billing company name |
+| &nbsp;&nbsp;address_lines | Customer's billing address |
+| &nbsp;&nbsp;city | Customer's billing city |
+| &nbsp;&nbsp;state | Customer's billing state |
+| &nbsp;&nbsp;country | Customer billing country |
+| &nbsp;&nbsp;zip | Customer billing ZIP |
+| &nbsp;&nbsp;phone | Customer billing phone number |
+| shipping_address_count | Number of shipping addresses the customer has specified for this order |
+| shipping_address | Shipping address used for the order |
+| &nbsp;&nbsp;full_name | Customer's shipping name |
+| &nbsp;&nbsp;company | Customer's shipping company name |
+| &nbsp;&nbsp;address_lines | Customer's shipping address |
+| &nbsp;&nbsp;city | Customer's shipping city |
+| &nbsp;&nbsp;state | Customer's shipping state |
+| &nbsp;&nbsp;country | Customer's shipping country |
+| &nbsp;&nbsp;zip | Customer's shipping zip |
+| &nbsp;&nbsp;phone | Customer's shipping phone number |
+| payment_method | Customer’s payment method for this order (payment gateway) |
+| card_number_last_four | Last four digits of customer’s credit card |
+| total_rows | A list of “total” rows containing total pricing information |
+| &nbsp;&nbsp;label | The label of the total row (Subtotal, Tax, Grand Total, etc.) |
 
 ## Recent Items
 
@@ -1716,53 +604,18 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 **Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>Unique system ID of the wishlist</td>
-  </tr>
-  <tr>
-    <td>num_items</td>
-    <td>Number of items in the wishlist</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Customer-defined name of the wishlist</td>
-  </tr>
-  <tr>
-    <td>is_public</td>
-    <td>Boolean value indicating whether the wishlist is publicly available </td>
-  </tr>
-  <tr>
-    <td>is_editable</td>
-    <td>Boolean indicating whether the "Remove Item" button, and account navigation controls, are displayed (i.e., whether the customer viewing the wishlist is this wishlist’s owner)</td>
-  </tr>
-  <tr>
-    <td>token</td>
-    <td>Unique public token for the wishlist</td>
-  </tr>
-  <tr>
-    <td>view_url</td>
-    <td>URL to view the wishlist</td>
-  </tr>
-  <tr>
-    <td>edit_url</td>
-    <td>URL to edit the wishlist</td>
-  </tr>
-  <tr>
-    <td>delete_url</td>
-    <td>URL to delete the wishlist</td>
-  </tr>
-  <tr>
-    <td>share_url</td>
-    <td>URL to share the wishlist</td>
-  </tr>
-</table>
-
+| Property | Description |
+|---|---|
+| id | Unique system ID of the wishlist |
+| num_items | Number of items in the wishlist |
+| name | Customer-defined name of the wishlist |
+| is_public | Boolean value indicating whether the wishlist is publicly available  |
+| is_editable | Boolean indicating whether the "Remove Item" button, and account navigation controls, are displayed (i.e., whether the customer viewing the wishlist is this wishlist’s owner) |
+| token | Unique public token for the wishlist |
+| view_url | URL to view the wishlist |
+| edit_url | URL to edit the wishlist |
+| delete_url | URL to delete the wishlist |
+| share_url | URL to share the wishlist |
 ## Wishlist Details
 
 **Description:** Wishlist information for a specific wishlist. (Called on the default `templates/pages/account/wishlist-details.html` template and `templates/components/account/wishlist-item-list.html`partial.)
@@ -1771,195 +624,66 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 **Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>Unique system ID for the wishlist</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Customer-defined name of the wishlist</td>
-  </tr>
-  <tr>
-    <td>is_public</td>
-    <td>Boolean value indicating whether the wishlist is publicly available </td>
-  </tr>
-  <tr>
-    <td>token</td>
-    <td>Unique public token for the wishlist</td>
-  </tr>
-  <tr>
-    <td>share_url</td>
-    <td>URL used to share the wishlist</td>
-  </tr>
-  <tr>
-    <td>items</td>
-		<td>List of items in the wishlist; extends <a href="">the product card model</a>, adding the extra properties below:</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> id</span></td>
-    <td class="">Unique system ID for this wishlist item</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> product_id</span></td>
-    <td class="">Product ID for the item</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1"> remove_url</span></td>
-    <td class="">URL to remove the product from the wishlist</td>
-  </tr>
-</table>
-
+| Property | Description |
+|---|---|
+| id | Unique system ID for the wishlist |
+| name | Customer-defined name of the wishlist |
+| is_public | Boolean value indicating whether the wishlist is publicly available  |
+| token | Unique public token for the wishlist |
+| share_url | URL used to share the wishlist |
+| items | List of items in the wishlist; extends the product card model, adding the extra properties below: |
+| &nbsp;&nbsp;id | Unique system ID for this wishlist item |
+| &nbsp;&nbsp;product_id | Product ID for the item |
+| &nbsp;&nbsp;remove_url | URL to remove the product from the wishlist |
 ## Account Order Shipments
 
-<b>Description:</b> Objects to manage shipments associated with a specific order details for the current customer. (Called on the default `<theme-name&gt;/templates/pages/account/orders/details.html` template.)
+**Description:** Objects to manage shipments associated with a specific order details for the current customer. (Called on the default `<theme-name&gt;/templates/pages/account/orders/details.html` template.)
 
 **Handlebars Expression:** `{{shipments}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>date_shipped</td>
-    <td>Shipping date for this shipment</td>
-  </tr>
-  <tr>
-    <td>shipping_provider</td>
-    <td>Carrier for this shipment</td>
-  </tr>
-  <tr>
-    <td>shipping_method</td>
-    <td>Shipping method for this shipment</td>
-  </tr>
-  <tr>
-    <td>show_shipping_method</td>
-    <td>Boolean indicating whether to display the shipping method to the customer</td>
-  </tr>
-  <tr>
-    <td>shipping_track</td>
-    <td>Tracking information for this shipment</td>
-  </tr>
-  <tr>
-		<td><span class="indent1">url</span></td>
-    <td>Tracking URL for this shipment</td>
-  </tr>
-  <tr>
-		<td><span class="indent1">number</span></td>
-    <td>Tracking number for this shipment</td>
-  </tr>
-</table>
-
+| Property | Description |
+|---|---|
+| date_shipped | Shipping date for this shipment |
+| shipping_provider | Carrier for this shipment |
+| shipping_method | Shipping method for this shipment |
+| show_shipping_method | Boolean indicating whether to display the shipping method to the customer |
+| shipping_track | Tracking information for this shipment |
+| &nbsp;&nbsp;url | Tracking URL for this shipment |
+| &nbsp;&nbsp;number | Tracking number for this shipment |
 ## Account Orders
 
 **Description:** Objects to manage completed orders for the current customer. By default, orders sort by order id, from lowest to highest. (Called on the default `templates/pages/account/orders/all.html`and `<theme-name&gt;/templates/pages/account/orders/completed.html`  templates, and on the `templates/components/account/orders-list.html` partial.)
 
 **Handlebars Expression:** `{{customer.orders}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <td>Property</td>
-    <td>Description</td>
-  </tr>
-  <tr>
-    <td>pagination</td>
-    <td>References pagination model</td>
-  </tr>
-  <tr>
-    <td>date</td>
-    <td>Date this order was placed</td>
-  </tr>
-  <tr>
-    <td>last_update_date</td>
-    <td>Date this order was last updated</td>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>ID for this order</td>
-  </tr>
-  <tr>
-    <td>total</td>
-    <td>Total value of this order</td>
-  </tr>
-  <tr>
-    <td>status</td>
-    <td>Status of this order ("Completed" or other)</td>
-  </tr>
-  <tr>
-    <td>return_url</td>
-    <td>URL for returning items in this order</td>
-  </tr>
-  <tr>
-    <td>reorder_url</td>
-    <td>URL for reordering items in this order</td>
-  </tr>
-  <tr>
-    <td>details_url</td>
-    <td>URL for details about this order</td>
-  </tr>
-  <tr>
-    <td>payment_instructions</td>
-    <td>Text field defined by merchant as to payment instructions for manual gateways such as “Bank Deposit”</td>
-  </tr>
-  <tr>
-    <td>image</td>
-    <td>Image of the order’s first product, in Stencil image format</td>
-  </tr>
-  <tr>
-    <td>items</td>
-    <td>Array of products in this order</td>
-  </tr>
-    <tr>
-    <td><span class="indent1">name</span></td>
-    <td>Name of this product</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">quantity</span></td>
-    <td>Quantity of this product ordered</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">refunded</span></td>
-    <td>Price object that defines the amount of this product that has been refunded</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">expected_release_date</span></td>
-    <td>Expected ship date if the product is set to pre-order status</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">type</span></td>
-    <td>Type of purchase; value is one of: physical, digital, giftcertificate</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">download_url</span></td>
-    <td>URL for customer to download a digital product</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">image</span></td>
-    <td>The image for this ordered product</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">options</span></td>
-    <td>Array of additional product details (size, color, etc.), as name/value pairs</td>
-  </tr>
-  <tr>
-    <td><span class="indent2">name</span></td>
-    <td>Displayed name for this category of information</td>
-  </tr>
-  <tr>
-    <td><span class="indent2">value</span></td>
-    <td>Displayed value for this product’s entry</td>
-  </tr>
-</table>
-
+| Property | Description|
+|---|---|
+| pagination | References pagination model |
+| date | Date this order was placed |
+| last_update_date | Date this order was last updated |
+| id | ID for this order |
+| total | Total value of this order |
+| status | Status of this order ("Completed" or other) |
+| return_url | URL for returning items in this order |
+| reorder_url | URL for reordering items in this order |
+| details_url | URL for details about this order |
+| payment_instructions | Text field defined by merchant as to payment instructions for manual gateways such as “Bank Deposit” |
+| image | Image of the order’s first product, in Stencil image format |
+| items | Array of products in this order |
+| &nbsp;&nbsp;name | Name of this product |
+| &nbsp;&nbsp;quantity | Quantity of this product ordered |
+| &nbsp;&nbsp;refunded | Price object that defines the amount of this product that has been refunded |
+| &nbsp;&nbsp;expected_release_date | Expected ship date if the product is set to pre-order status |
+| &nbsp;&nbsp;type | Type of purchase; value is one of: physical, digital, giftcertificate |
+| &nbsp;&nbsp;download_url | URL for customer to download a digital product |
+| &nbsp;&nbsp;image | The image for this ordered product |
+| &nbsp;&nbsp;options | Array of additional product details (size, color, etc.), as name/value pairs |
+| &nbsp;&nbsp;&nbsp;name | Displayed name for this category of information |
+| &nbsp;&nbsp;&nbsp;value | Displayed value for this product’s entry |
 ## Account Returns
 
 **Description:** Objects to manage returns for the current customer. (Called on the default `templates/pages/account/returns.html` template.)
@@ -1968,70 +692,23 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 **Object Properties:**
 
-<table>
-  <tr>
-    <td>Property</td>
-    <td>Description</td>
-  </tr>
-  <tr>
-    <td>date_requested</td>
-    <td>Date on which the customer requested this return</td>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>The ID for this return</td>
-  </tr>
-  <tr>
-    <td>quantity</td>
-    <td>Quantity of items returned</td>
-  </tr>
-  <tr>
-    <td>reason</td>
-    <td>Reason for return; merchants can define actions beyond the default strings created with each store, which are: Received Wrong Product, Wrong Product Ordered, Not Satisfied With The Product, and There Was A Problem With The Product</td>
-  </tr>
-  <tr>
-    <td>action</td>
-    <td>Return action; merchants can define actions beyond the default set created with each store (Repair, Replacement, or Store Credit)</td>
-  </tr>
-  <tr>
-    <td>comments</td>
-    <td>Comments that the customer entered with the return request</td>
-  </tr>
-  <tr>
-    <td>status</td>
-    <td>Status of the return: Pending, Received, Authorized, Repaired,
-Refunded, Rejected, or Cancelled</td>
-  </tr>
-  <tr>
-    <td>product</td>
-    <td>Array of products included in the return</td>
-  </tr>
-  <tr>
-    <td>url</td>
-    <td>URL for this product</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Name of this product</td>
-  </tr>
-  <tr>
-    <td>options</td>
-    <td>Array of additional product details (size, color, etc.), as name/value pairs</td>
-  </tr>
-  <tr>
-		<td><span class="indent1">name</span></td>
-    <td>Displayed name for this category of information</td>
-  </tr>
-  <tr>
-		<td><span class="indent1">value</span></td>
-    <td>Displayed value for this product’s entry</td>
-  </tr>
-  <tr>
-    <td>image</td>
-    <td>Image for this product</td>
-  </tr>
-</table>
-
+| Property | Description |
+|---|---|
+| date_requested | Date on which the customer requested this return |
+| id | The ID for this return |
+| quantity | Quantity of items returned |
+| reason | Reason for return; merchants can define actions beyond the default strings created with each store, which are: Received Wrong Product, Wrong Product Ordered, Not Satisfied With The Product, and There Was A Problem With The Product |
+| action | Return action; merchants can define actions beyond the default set created with each store (Repair, Replacement, or Store Credit) |
+| comments | Comments that the customer entered with the return request |
+| status | Status of the return: Pending, Received, Authorized, Repaired,
+Refunded, Rejected, or Cancelled |
+| product | Array of products included in the return |
+| url | URL for this product |
+| name | Name of this product |
+| options | Array of additional product details (size, color, etc.), as name/value pairs |
+| &nbsp;&nbsp;name | Displayed name for this category of information |
+| &nbsp;&nbsp;value | Displayed value for this product’s entry |
+| image | Image for this product |
 ## Account New Return
 
 **Description:** Objects to handle a new return for the current customer. (Called on the default `templates/pages/account/add-return.html` template.)
@@ -2040,61 +717,20 @@ Refunded, Rejected, or Cancelled</td>
 
 **Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>order_id</td>
-    <td>ID for the original order</td>
-  </tr>
-  <tr>
-    <td>reasons</td>
-    <td>Reasons for return</td>
-  </tr>
-  <tr>
-    <td>actions</td>
-    <td>Return actions: an array of strings arbitrarily defined by the merchant: refund, exchange, credit, etc.</td>
-  </tr>
-  <tr>
-    <td>order_products</td>
-    <td>Array of products from the order that are available to return</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">id</span></td>
-    <td>ID for the product</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">name</span></td>
-    <td>Name of this product</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">product_id</span></td>
-    <td>ID for this product</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">price</span></td>
-    <td>Price object that defines this product’s price</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">quantity</span></td>
-    <td>Quantity of the product returned</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">options</span></td>
-    <td>Array of additional product details (size, color, etc.), as name/value pairs</td>
-  </tr>
-  <tr>
-    <td><span class="indent3">name</span></td>
-    <td>Displayed name for this category of information</td>
-  </tr>
-  <tr>
-    <td><span class="indent3">value</span></td>
-    <td>Displayed value for this product’s entry</td>
-  </tr>
-</table>
-
+| Property | Description |
+|---|---|
+| order_id | ID for the original order |
+| reasons | Reasons for return |
+| actions | Return actions: an array of strings arbitrarily defined by the merchant: refund, exchange, credit, etc. |
+| order_products | Array of products from the order that are available to return |
+| &nbsp;&nbsp;id | ID for the product |
+| &nbsp;&nbsp;name | Name of this product |
+| &nbsp;&nbsp;product_id | ID for this product |
+| &nbsp;&nbsp;price | Price object that defines this product’s price |
+| &nbsp;&nbsp;quantity | Quantity of the product returned |
+| &nbsp;&nbsp;options | Array of additional product details (size, color, etc.), as name/value pairs |
+| &nbsp;&nbsp;&nbsp;&nbsp;name | Displayed name for this category of information |
+| &nbsp;&nbsp;&nbsp;&nbsp;value | Displayed value for this product’s entry |
 ## Create Account
 
 **Description:** Object to enable the current customer to create a store account. (Called on the default `<theme-name&gt;/templates/pages/auth/create-account.html` template.)
@@ -2103,52 +739,18 @@ Refunded, Rejected, or Cancelled</td>
 
 **Object Properties:**
 
-<table>
-  <tr>
-    <td>Property</td>
-    <td>Description</td>
-  </tr>
-  <tr>
-    <td>recaptcha</td>
-    <td>Objects for integrating the Google reCAPTCHA service to distinguish human visitors from ’bots (automated agents)</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">enabled</span></td>
-    <td>Boolean indicating whether reCAPTCHA is enabled for this store</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">public_key</span></td>
-    <td>Public key (site key) that reCAPTCHA returns upon merchant’s enabling CAPTCHA security in Store Settings > Display Settings</td>
-  </tr>
-  <tr>
-    <td>address_fields</td>
-    <td>Array of form fields that define each shipping address for this customer; for details, see this repo: <NOBR><a href="https://github.com/bigcommerce/cornerstone/tree/master/templates/components/common/forms">https://github.com/bigcommerce/cornerstone/tree/master/templates/components/common/forms</a></nobr></td>
-  </tr>
-  <tr>
-    <td><span class="indent1">class_name</span></td>
-    <td>Specifies a CSS class (defined in the theme's <code>/assets/scss/</code> subdirectory) to apply to a field within the array; for corresponding control-panel steps, see this support article:
- <NOBR><a href="https://support.bigcommerce.com/articles/Public/Editing-Form-Fields#advanced-settings">https://support.bigcommerce.com/articles/Public/Editing-Form-Fields#advanced-settings</a> </td>
-  </tr>
-  <tr>
-    <td>account_fields</td>
-    <td>Object of form fields; for details, see this repo:
- <NOBR><a href="https://github.com/bigcommerce/cornerstone/tree/master/templates/components/common/forms">https://github.com/bigcommerce/cornerstone/tree/master/templates/components/common/forms</a></nobr></td>
-  </tr>
-  <tr>
-    <td><span class="indent1">class_name</span></td>
-    <td>Specifies a CSS class to apply to a field within the array; for corresponding control-panel steps, see:
-<a href="https://support.bigcommerce.com/articles/Public/Editing-Form-Fields#advanced-settings">https://support.bigcommerce.com/articles/Public/Editing-Form-Fields#advanced-settings</a></td>
-  </tr>
-  <tr>
-    <td>error</td>
-    <td>BCApp generated message to display when customer’s account creation fails</td>
-  </tr>
-  <tr>
-    <td>checking_out</td>
-    <td>Boolean indicating whether customer created the account during a purchase checkout</td>
-  </tr>
-</table>
-
+| Property | Description|
+|---|---|
+| recaptcha | Objects for integrating the Google reCAPTCHA service to distinguish human visitors from ’bots (automated agents) |
+| &nbsp;&nbsp;enabled | Boolean indicating whether reCAPTCHA is enabled for this store |
+| &nbsp;&nbsp;public_key | Public key (site key) that reCAPTCHA returns upon merchant’s enabling CAPTCHA security in **Store Settings > Display Settings** |
+| address_fields | Array of form fields that define each shipping address for this customer; for details, see the [Cornerstone template form component](https://github.com/bigcommerce/cornerstone/tree/master/templates/components/common/forms) |
+| &nbsp;&nbsp;class_name | Specifies a CSS class (defined in the theme's `/assets/scss/` subdirectory) to apply to a field within the array; for corresponding control-panel steps, see [Editing Form Fields](https://support.bigcommerce.com/articles/Public/Editing-Form-Fields#advanced-settings)  |
+| account_fields | Object of form fields; for details, see the [Cornerstone template form component](https://github.com/bigcommerce/cornerstone/tree/master/templates/components/common/forms) |
+| &nbsp;&nbsp;class_name | Specifies a CSS class to apply to a field within the array; for corresponding control-panel steps, see
+[Editing Form Fields](https://support.bigcommerce.com/articles/Public/Editing-Form-Fields#advanced-settings)  |
+| error | BCApp generated message to display when customer’s account creation fails |
+| checking_out | Boolean indicating whether customer created the account during a purchase checkout |
 ## Shipping Addresses
 
 **Description:** Object to enable the customer to enter shipping and contact information. (Called on the default `templates/components/account/address-list.html` partial.)
@@ -2157,88 +759,27 @@ Refunded, Rejected, or Cancelled</td>
 
 **Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>ID for this shipping address</td>
-  </tr>
-  <tr>
-    <td>customer_id</td>
-    <td>ID for this customer</td>
-  </tr>
-  <tr>
-    <td>first_name</td>
-    <td>First name to ship to</td>
-  </tr>
-  <tr>
-    <td>last_name</td>
-    <td>Last name to ship to</td>
-  </tr>
-  <tr>
-    <td>company</td>
-    <td>Company name to ship to</td>
-  </tr>
-  <tr>
-    <td>address1</td>
-    <td>Street (etc.) address, first line</td>
-  </tr>
-  <tr>
-    <td>address2</td>
-    <td>Street (etc.) address, second line</td>
-  </tr>
-  <tr>
-    <td>city</td>
-    <td>City to ship to</td>
-  </tr>
-  <tr>
-    <td>state</td>
-    <td>State/province/region to ship to</td>
-  </tr>
-  <tr>
-    <td>zip</td>
-    <td>Postal/ZIP code to ship to</td>
-  </tr>
-  <tr>
-    <td>country</td>
-    <td>Country to ship to</td>
-  </tr>
-  <tr>
-    <td>phone</td>
-    <td>Addressee’s phone number</td>
-  </tr>
-  <tr>
-    <td>state_id</td>
-    <td>ID for destination state/province/region</td>
-  </tr>
-  <tr>
-    <td>country_id</td>
-    <td>ID for destination country</td>
-  </tr>
-  <tr>
-    <td>destination</td>
-    <td>residential or commercial</td>
-  </tr>
-  <tr>
-    <td>last_used</td>
-    <td>Boolean, indicating whether this was the last-used shipping address for this customer</td>
-  </tr>
-  <tr>
-    <td>full_name</td>
-    <td>Full name of addressee</td>
-  </tr>
-  <tr>
-    <td>edit_url</td>
-    <td>URL for customer to edit this shipping address</td>
-  </tr>
-  <tr>
-    <td>delete_url</td>
-    <td>URL for customer to delete this shipping address </td>
-  </tr>
-</table>
+| Property | Description |
+|---|---|
+| id | ID for this shipping address |
+| customer_id | ID for this customer |
+| first_name | First name to ship to |
+| last_name | Last name to ship to |
+| company | Company name to ship to |
+| address1 | Street (etc.) address, first line |
+| address2 | Street (etc.) address, second line |
+| city | City to ship to |
+| state | State/province/region to ship to |
+| zip | Postal/ZIP code to ship to |
+| country | Country to ship to |
+| phone | Addressee’s phone number |
+| state_id | ID for destination state/province/region |
+| country_id | ID for destination country |
+| destination | residential or commercial |
+| last_used | Boolean, indicating whether this was the last-used shipping address for this customer |
+| full_name | Full name of addressee |
+| edit_url | URL for customer to edit this shipping address |
+| delete_url | URL for customer to delete this shipping address  |
 
 ## Payment Methods
 
@@ -2360,435 +901,162 @@ _These objects are called on the default `templates/components/blog/post.html` p
 
 **Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Blog name</td>
-  </tr>
-  <tr>
-    <td>url</td>
-    <td>Blog custom url</td>
-  </tr>
-  <tr>
-    <td>pagination</td>
-    <td>References pagination model</td>
-  </tr>
-  <tr>
-    <td>posts </td>
-    <td>A list of posts for the blog index; default sorting is by date_published,<br> from most-recent to earliest</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">author</span></td>
-    <td>Author of the blog post</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">title</span></td>
-    <td>Title of the blog post</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">url</span></td>
-    <td>URL of the blog entry</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">body</span></td>
-    <td>Body of the blog entry</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">thumbnail</span></td>
-    <td>Image thumbnail for the blog entry, in <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image">Stencil image format</a></td>
-  </tr>
-  <tr>
-    <td><span class="indent1">date_published</span></td>
-    <td>Date the blog entry was published</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">social</span></td>
-    <td>Social media tags for the blog entry</td>
-  </tr>
-  <tr>
-    <td><span class="indent1">tags </span></td>
-    <td>Tags for the blog</td>
-  </tr>
-  <tr>
-    <td><span class="indent2">name</span></td>
-    <td>Name for the tag</td>
-  </tr>
-  <tr>
-    <td><span class="indent2">url</span></td>
-    <td>URL for the tag</td>
-  </tr>
-</table>
-
+| Property | Description |
+|---|---|
+| name | Blog name |
+| url | Blog custom url |
+| pagination | References pagination model |
+| posts  | A list of posts for the blog index; default sorting is by date_published, from most recent to earliest |
+| &nbsp;&nbsp;author | Author of the blog post |
+| &nbsp;&nbsp;title | Title of the blog post |
+| &nbsp;&nbsp;url | URL of the blog entry |
+| &nbsp;&nbsp;body | Body of the blog entry |
+| &nbsp;&nbsp;thumbnail | Image thumbnail for the blog entry, in [Stencil image format](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image) |
+| &nbsp;&nbsp;date_published | Date the blog entry was published |
+| &nbsp;&nbsp;social | Social media tags for the blog entry |
+| &nbsp;&nbsp;tags  | Tags for the blog |
+| &nbsp;&nbsp;&nbsp;name | Name for the tag |
+| &nbsp;&nbsp;&nbsp;url | URL for the tag |
 ## Blog Post
 
-<b>Description:</b> Individual blog post object
+**Description:** Individual blog post object
 
-<b>Handlebars Expression:</b> `{{blog.post}}`
+**Handlebars Expression:** `{{blog.post}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>author</td>
-    <td>Author of the blog post</td>
-  </tr>
-  <tr>
-    <td>title</td>
-    <td>Title of the blog post</td>
-  </tr>
-  <tr>
-    <td>url</td>
-    <td>URL of the blog entry</td>
-  </tr>
-  <tr>
-    <td>body</td>
-    <td>Body of the blog entry</td>
-  </tr>
-  <tr>
-    <td>thumbnail</td>
-    <td>Image thumbnail for the blog entry, in <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image">Stencil image format</a></td>
-  </tr>
-  <tr>
-    <td>date_published</td>
-    <td>Date the blog entry was published</td>
-  </tr>
-  <tr>
-    <td>social</td>
-    <td>Social media tags for the blog entry</td>
-  </tr>
-  <tr>
-    <td>tags </td>
-    <td>Tags for the blog</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> name</span></td>
-    <td>Name for the tag</td>
-  </tr>
-  <tr>
-    <td><span class="indent1"> url</span></td>
-    <td>URL for the tag</td>
-  </tr>
-</table>
-
+| Property | Description |
+|---|---|
+| author | Author of the blog post |
+| title | Title of the blog post |
+| url | URL of the blog entry |
+| body | Body of the blog entry |
+| thumbnail | Image thumbnail for the blog entry, in [Stencil image format](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/stencil-image) |
+| date_published | Date the blog entry was published |
+| social | Social media tags for the blog entry |
+| tags  | Tags for the blog |
+| &nbsp;&nbsp;name | Name for the tag |
+| &nbsp;&nbsp;url | URL for the tag |
 ## Forms
 
 ### Account Form
 
-<b>Description:</b> The form object used to edit a customer object. <br>
+**Description:** The form object used to edit a customer object. <br>
 
-<b>Handlebars Expression:</b> <code>{{forms.edit_account}}</code>
+**Handlebars Expression:** `{{forms.edit_account}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td class="">first_name</td>
-    <td class="">First name of the customer being edited</td>
-  </tr>
-  <tr>
-    <td class="">last_name</td>
-    <td class="">Last name of the customer being edited</td>
-  </tr>
-  <tr>
-    <td class="">company_name</td>
-    <td class="">Company of the customer being edited</td>
-  </tr>
-  <tr>
-    <td class="">phone</td>
-    <td class="">Phone number of the customer being edited</td>
-  </tr>
-  <tr>
-    <td class="">error</td>
-    <td class="">Message to display (generated by the BigCommerce App) when customer’s account edit fails</td>
-  </tr>
-  <tr>
-    <td class="">success</td>
-    <td class="">Message to display (generated by the BigCommerce App) when customer’s account edit succeeds</td>
-  </tr>
-</table>
-
+| Property | Description|
+|---|---|
+| first_name | First name of the customer being edited |
+| last_name | Last name of the customer being edited |
+| company_name | Company of the customer being edited |
+| phone | Phone number of the customer being edited |
+| error | Message to display (generated by the BigCommerce App) when customer’s account edit fails |
+| success | Message to display (generated by the BigCommerce App) when customer’s account edit succeeds |
 ### Account Address Form
 
-<b>Description:</b> Form object presented to customers in the Add/Edit Address page. Called on the default <NOBR><span class="inline-code">&lt;theme-name&gt;/templates/components/account/address-list.html</span></nobr> partial and <NOBR><span class="inline-code">&lt;theme-name&gt;/templates/pages/account/add-address.html</span></nobr> template. <br>
+**Description:** Form object presented to customers in the Add/Edit Address page. Called on the default <NOBR><span class="inline-code">&lt;theme-name&gt;/templates/components/account/address-list.html</span></nobr> partial and <NOBR><span class="inline-code">&lt;theme-name&gt;/templates/pages/account/add-address.html</span></nobr> template. <br>
 
-<b>Handlebars Expression:</b> <code>{{forms.address}}</code>
+**Handlebars Expression:** `{{forms.address}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td class="">address_id</td>
-    <td class="">ID for this shipping address</td>
-  </tr>
-  <tr>
-    <td class="">shipping_fields</td>
-    <td class="">Array of form fields that define each shipping address for this customer; for details, see this repo:
-https://github.com/bigcommerce/cornerstone/tree/master/templates/components/common/forms</td>
-  </tr>
-  <tr>
-    <td class="">action</td>
-    <td class="">URL to the proper handler (Update Address versus Save New Address)</td>
-  </tr>
-  <tr>
-    <td class="">error</td>
-    <td class="">Message to display when form entry fails (defined by the BigCommerce App)</td>
-  </tr>
-</table>
-
+| Property | Description|
+|---|---|
+| address_id | ID for this shipping address |
+| shipping_fields | Array of form fields that define each shipping address for this customer; for details, see the [Cornerstone template form component](https://github.com/bigcommerce/cornerstone/tree/master/templates/components/common/forms) |
+| action | URL to the proper handler (Update Address versus Save New Address) |
+| error | Message to display when form entry fails (defined by the BigCommerce App) |
 ### Wishlist Form
 
-<b>Description:</b> Form object presented to customers on the Add/Edit Wishlist page. Called on the default <code>&lt;theme-name&gt;/templates/components/account/add-wishlist.html</code> partial and <code>&lt;theme-name&gt;/templates/pages/account/add-wishlist.html</code> template.
+**Description:** Form object presented to customers on the Add/Edit Wishlist page. Called on the default `&lt;theme-name&gt;/templates/components/account/add-wishlist.html` partial and `&lt;theme-name&gt;/templates/pages/account/add-wishlist.html` template.
 
-<b>Handlebars Expression:</b> `{{forms.wishlist}}`
+**Handlebars Expression:** `{{forms.wishlist}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Displayed name for this wishlist</td>
-  </tr>
-  <tr>
-    <td class="">id</td>
-    <td class="">ID for this wishlist</td>
-  </tr>
-  <tr>
-    <td class="">is_public</td>
-    <td class="">Boolean indicating whether this wishlist is displayed to other store visitors</td>
-  </tr>
-  <tr>
-    <td class="">errors</td>
-    <td class="">Message to display when form entry fails (generated by the BigCommerce App)</td>
-  </tr>
-  <tr>
-    <td class="">action</td>
-    <td class="">URL to the proper handler (Update Wish List versus Save New Wish List)</td>
-  </tr>
-</table>
+| Property | Description |
+|---|---|
+| name | Displayed name for this wishlist |
+| id | ID for this wishlist |
+| is_public | Boolean indicating whether this wishlist is displayed to other store visitors |
+| errors | Message to display when form entry fails (generated by the BigCommerce App) |
+| action | URL to the proper handler (Update Wish List versus Save New Wish List) |
 
 ### Gift Certificate Form
 
-<b>Description:</b><b><em> </em></b>Form object used to create and edit a gift certificate object for the merchant's store. Called on the default <NOBR><span class="inline-code">&lt;theme-name&gt;templates/pages/gift-certificate/purchase.html</span></nobr> template. <br>
+**Description:****<em> </em>**Form object used to create and edit a gift certificate object for the merchant's store. Called on the default <NOBR><span class="inline-code">&lt;theme-name&gt;templates/pages/gift-certificate/purchase.html</span></nobr> template. <br>
 
-<b>Handlebars Expression:</b> <code>{{forms.gift_certificate}}</code>
+**Handlebars Expression:** `{{forms.gift_certificate}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>editing</td>
-    <td>Whether the current context is editing a gift certificate in the cart, or adding a new gift certificate</td>
-  </tr>
-  <tr>
-    <td>can_use_custom_amount</td>
-    <td>Whether the customer can enter free-text input (otherwise, must select from a drop-down list)</td>
-  </tr>
-  <tr>
-    <td>amount_options</td>
-    <td>If can_use_custom_amount is disabled, this variable fills the dropdown with the available options, in <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">price object</a> form</td>
-  </tr>
-  <tr>
-    <td>minimum</td>
-    <td><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the minimum amount a customer can enter (when can_use_custom_amount is enabled)</td>
-  </tr>
-  <tr>
-    <td>maximum</td>
-    <td><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the minimum amount a customer can enter  (when can_use_custom_amount is enabled)</td>
-  </tr>
-  <tr>
-    <td>expires_in_days</td>
-    <td>If the gift certificates expire, this will be non-0 numerical days</td>
-  </tr>
-  <tr>
-    <td>errors</td>
-    <td>Server-side validation errors from the form’s submission</td>
-  </tr>
-  <tr>
-    <td>themes</td>
-    <td>A list of active gift-certificate themes (Birthday, Celebration, General, etc.), each stored as an object containing corresponding display and value children</td>
-  </tr>
+| Property | Description |
+|---|---|
+| editing | Whether the current context is editing a gift certificate in the cart, or adding a new gift certificate |
+| can_use_custom_amount | Whether the customer can enter free-text input (otherwise, must select from a drop-down list) |
+| amount_options | If can_use_custom_amount is disabled, this variable fills the dropdown with the available options, in [price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) form |
+| minimum | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines the minimum amount a customer can enter (when can_use_custom_amount is enabled) |
+| maximum | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines the minimum amount a customer can enter  (when can_use_custom_amount is enabled) |
+| expires_in_days | If the gift certificates expire, this will be non-0 numerical days |
+| errors | Server-side validation errors from the form’s submission |
+| themes | A list of active gift-certificate themes (Birthday, Celebration, General, etc.), each stored as an object containing corresponding display and value children |
+| display | Birthday, Celebration, General, etc. |
+| value | Birthday.html, Celebration.html, General.html, etc. |
+| action | The action for the form |
+| cart_item_id | If editing, this is the cart item id being edited. |
+| values | An array of the form values for prefilling |
+| &nbsp;&nbsp;to_name | The recipient's name |
+| &nbsp;&nbsp;to_email | To email address |
+| &nbsp;&nbsp;from_name | The sender’s name |
+| &nbsp;&nbsp;from_email | From email address |
+| &nbsp;&nbsp;message | An optional custom message |
+| &nbsp;&nbsp;amount | [Price object](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price) that defines the amount of the gift certificate |
 
-  <tr>
-    <td>display</td>
-    <td>Birthday, Celebration, General, etc.</td>
-  </tr>
-  <tr>
-    <td>value</td>
-    <td class="">Birthday.html, Celebration.html, General.html, etc.</td>
-  </tr>
-
-  <tr>
-    <td>action</td>
-    <td>The action for the form</td>
-  </tr>
-  <tr>
-    <td>cart_item_id</td>
-    <td>If editing, this is the cart item id being edited.</td>
-  </tr>
-  <tr>
-    <td>values</td>
-    <td>An array of the form values for prefilling</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">to_name</span></td>
-    <td class="">The recipient's name</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">to_email</span></td>
-    <td class="">To email address</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">from_name</span></td>
-    <td class="">The sender’s name</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">from_email</span></td>
-    <td class="">From email address</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">message</span></td>
-    <td class="">An optional custom message</td>
-  </tr>
-  <tr>
-    <td class=""><span class="indent1">amount</span></td>
-    <td class=""><a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/price">Price object</a> that defines the amount of the gift certificate</td>
-  </tr>
-</table>
 
 ### Contact Us Form
 
-<b>Description:</b>Form object used to manage merchants’ "Contact Us" pages. Called on the default <code>&lt;theme-name&gt;/templates/pages/contact-us.html</code>template.
+**Description:**Form object used to manage merchants’ "Contact Us" pages. Called on the default `&lt;theme-name&gt;/templates/pages/contact-us.html`template.
 
-<b>Handlebars Expression:</b> <code>{{forms.contact}}</code>
+**Handlebars Expression:** `{{forms.contact}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>success</td>
-    <td>Boolean indicating whether form was just submitted</td>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>Boolean indicating whether name input is enabled for the form</td>
-  </tr>
-  <tr>
-    <td>company</td>
-    <td>Boolean indicating whether company-name input is enabled for the form</td>
-  </tr>
-  <tr>
-    <td>phone</td>
-    <td>Boolean indicating whether phone-number input is enabled for the form</td>
-  </tr>
-  <tr>
-    <td>order</td>
-    <td>Boolean indicating whether order-number input is enabled for the form</td>
-  </tr>
-  <tr>
-    <td>rma</td>
-    <td>Boolean indicating whether RMA (Return Merchandise Authorization) input is enabled for the form</td>
-  </tr>
-  <tr>
-    <td>page_id</td>
-    <td>Page ID for this contact page (there can be multiple contact pages)</td>
-  </tr>
-  <tr>
-    <td>captcha_url</td>
-    <td>URL to provide an image file for a CAPTCHA field</td>
-  </tr>
-  <tr>
-    <td>text</td>
-    <td>Text content to display above the form</td>
-  </tr>
-  <tr>
-    <td>error</td>
-    <td>Potential error that occurred during previous form submission</td>
-  </tr>
-	<tr>
-    <td>recaptcha.markup</td>
-    <td>Adds reCaptcha V2</td>
-  </tr>
-</table>
-
+| Property | Description |
+|---|---|
+| success | Boolean indicating whether form was just submitted |
+| name | Boolean indicating whether name input is enabled for the form |
+| company | Boolean indicating whether company-name input is enabled for the form |
+| phone | Boolean indicating whether phone-number input is enabled for the form |
+| order | Boolean indicating whether order-number input is enabled for the form |
+| rma | Boolean indicating whether RMA (Return Merchandise Authorization) input is enabled for the form |
+| page_id | Page ID for this contact page (there can be multiple contact pages) |
+| captcha_url | URL to provide an image file for a CAPTCHA field |
+| text | Text content to display above the form |
+| error | Potential error that occurred during previous form submission |
+| recaptcha.markup | Adds reCaptcha V2 |
 ### Login Account Form
 
-<b>Description:</b> Form object used to manage merchants’ "Login" page. Called on the default <code>&lt;theme-name&gt;/templates/pages/create-login.html</code>template.
+**Description:** Form object used to manage merchants’ "Login" page. Called on the default `&lt;theme-name&gt;/templates/pages/create-login.html`template.
 
-<b>Handlebars Expression:</b> <code>{{forms.login}}</code>
+**Handlebars Expression:** `{{forms.login}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>error</td>
-    <td>BigCommerce defined message to display when customer’s login action fails</td>
-  </tr>
-  <tr>
-    <td>success</td>
-    <td>BigCommerce defined message to display when customer’s login action succeeds</td>
-  </tr>
-  <tr>
-  <td>reCAPTCHA</td>
-  <td></td>
-  </tr>
-  <tr>
-  <td class=""><span class="indent1">enabled</span></td>
-  <td class="">Returns 1 when reCAPTCHA is enabled and 0 when it's disabled within the BigCommerce control panel</td>
-  </tr>
-  <tr>
-  <td class=""><span class="indent1">public_key</span></td>
-  <td class="">Optional key used for all reCAPTCHA in your store if specified in the BigCommerce control panel</td>
-  </tr>
-  <tr>
-  <td class=""><span class="indent1">markup</span></td>
-  <td class="">HTML that adds reCAPTCHA V2</td>
-  </tr>
-</table>
+| Property | Description |
+|---|---|
+| error | BigCommerce defined message to display when customer’s login action fails |
+| success | BigCommerce defined message to display when customer’s login action succeeds |
+| reCAPTCHA |  |
+| &nbsp;&nbsp;enabled | Returns 1 when reCAPTCHA is enabled and 0 when it's disabled within the BigCommerce control panel |
+| &nbsp;&nbsp;public_key | Optional key used for all reCAPTCHA in your store if specified in the BigCommerce control panel |
+| &nbsp;&nbsp;markup | HTML that adds reCAPTCHA V2 |
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Customizing Login Form Content
+<!-- theme: info -->
+> #### Customizing Login Form Content
 > Login form content can be customized in templates/components/common/alert-success.html
-
-</div>
-</div>
-</div>
 
 ## Order Confirmation Objects
 

@@ -1,14 +1,6 @@
-<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
-
 # Gutenberg Support
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Available BigCommerce Blocks](#available-bigcommerce-blocks)
-- [Creating Your Own Blocks](#creating-your-own-blocks)
-
-</div> 
+ 
 
 The WordPress Gutenberg Visual Editor provides users the ability to easily compose a page by adding and arranging blocks of content. Some blocks come with WordPress by default -- paragraph, image, list, and audio blocks, for example. Additionally, WordPress plugins can extend Gutenberg by adding their own blocks to the Visual Editor's Add Block dropdown. The BigCommerce for Wordpress plugin is packed with custom blocks that put the power of BigCommerce in the hands of WordPress developers.
 
@@ -28,18 +20,11 @@ The WordPress Gutenberg Visual Editor provides users the ability to easily compo
 | BigCommerce Product Reviews          | displays product reviews for a product                                          | Product ID, Additional CSS Class                    |
 | BigCommerce Product Components       | displays a product's component(s) (sku, image, title, description, add to cart) | Product ID, Product Component, Additional CSS Class |
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-    
-<!-- theme: {{callout_type}} -->
+<!-- theme: info -->
+> #### Shortcodes
+> BigCommerce blocks can also be added to a wordpress page or post by using Short Codes in Gutenberg's Code Editor. For more information and a list of available shortcodes, see: [Shortcodes](/bigcommerce-for-wordpress/setup/shortcodes)
 
-### Shortcodes:
-> BigCommerce blocks can also be added to a wordpress page or post by using Short Codes in Gutenberg's Code Editor. For more information and a list of available shortcodes, see: [Shortcodes](https://developer.bigcommerce.com/bigcommerce-for-wordpress/setup/shortcodes)
 
-</div>
-</div>
-</div>
 
 ## Creating Your Own Blocks
 

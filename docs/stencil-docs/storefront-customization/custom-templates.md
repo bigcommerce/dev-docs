@@ -1,17 +1,6 @@
 # Custom Templates
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Authoring a custom template](#authoring-a-custom-template)
-- [Local mapping and testing](#local-mapping-and-testing)
-- [Specifying custom front matter](#specifying-custom-front-matter)
-- [Theme upload](#theme-upload)
-- [Troubleshooting template authoring](#troubleshooting-template-authoring)
-- [Applying custom templates to pages](#applying-custom-templates-to-pages)
-- [Resources](#resources)
-
-</div>
 
 The Stencil framework allows theme developers and merchants to assign custom layout templates to storefront pages of the following types:
 
@@ -20,21 +9,13 @@ The Stencil framework allows theme developers and merchants to assign custom lay
 * Product
 * Page
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
+> #### Stencil versus blueprint themes
+> If you are migrating from BigCommerce's legacy Blueprint themes framework, please keep in mind these differences in how Stencil handles custom templates:
+> * The brand option is entirely new in Stencil. If you are running on a Blueprint theme, you will not be able to create a custom template for brand pages.
+> * Unlike Blueprint, Stencil does not require that custom template file names start with an underscore.
+> * In the current Stencil release, you must create and bundle custom templates using Stencil CLI before you can upload the custom templates to stores. However, once you have created and uploaded templates, authorized store users can assign them to storefront pages through the control panel.
 
-### Stencil versus blueprint themes
-If you are migrating from BigCommerce's legacy Blueprint themes framework, please keep in mind these differences in how Stencil handles custom templates:
-* The brand option is entirely new in Stencil. If you are running on a Blueprint theme, you will not be able to create a custom template for brand pages.
-* Unlike Blueprint, Stencil does not require that custom template file names start with an underscore.
-* In the current Stencil release, you must create and bundle custom templates using Stencil CLI before you can upload the custom templates to stores. However, once you have created and uploaded templates, authorized store users can assign them to storefront pages through the control panel.
-
-</div>
-</div>
-</div>
 
 ## Authoring a custom template
 
@@ -47,38 +28,16 @@ As a theme developer, you must first create a custom page. Create the custom pag
 
 Next, create the template HTML files, and then place them in the appropriate `templates/pages/custom/` subdirectories corresponding to the types listed above.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### File permissions required
-Be sure to set permission `755 (drwxr-x-r-x)` on any new subdirectories that you add. Also, be sure to set permission `644 (rw-r–r–)` on any new files that you add.
-
-Without these permissions, running your theme locally will fail with multiple error messages. Bundling your theme will also fail, blocking it's upload to a store.
-
-</div>
-</div>
-</div>
+> #### File permissions required
+> Be sure to set permission `755 (drwxr-x-r-x)` on any new subdirectories that you add. Also, be sure to set permission `644 (rw-r–r–)` on any new files that you add.
+> Without these permissions, running your theme locally will fail with multiple error messages. Bundling your theme will also fail, blocking it's upload to a store.
 
 ## Local mapping and testing
 
 To test your custom templates locally, you must edit your `.stencil` or `config.stencil.json` file (if using Stencil V3.1 release or later) to create mappings between each local template and a corresponding URL. Within the `.stencil` file or `config.stencil.json` file, look for the following section:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="customLayouts properties config.stencil.json" lineNumbers
 "customLayouts": {
     "product": {},
     "brand": {},
@@ -89,19 +48,7 @@ lineNumbers: true
 
 In this section, you would populate keys to create mappings. As a simple example, assume that you have a product custom template named alternate-product.html, and you want to see that template locally at the URL: http://localhost:3000/test-url/. In this case, you must populate the product key as follows:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Populate product key" lineNumbers
 "product": {
     	"alternate-product.html":"/test-url/"
 },
@@ -111,19 +58,7 @@ lineNumbers: true
 
 Here is a more-complete example in which the brand, page, and category keys are also populated:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Populated brand, page, and category keys" lineNumbers
 {
   "normalStoreUrl": "http://cornerstone-light-demo.mybigcommerce.com",
   "port": 3000,
@@ -165,24 +100,13 @@ The requirements and options for the `.stencil` or `config.stencil.json` (if usi
 ### Why these URL Requirements?
 When you create a local custom template page for products, you expect that page to have access to all Stencil product objects. However, the server cannot readily determine the page type of each local custom template. So we give it a hint by instructing the server to look at the page type of the URL where you mapped the template.
 
-In the above .stencil or `config.stencil.json` (if using Stencil V3.1 release or later) configuration example’s final entry, the server will look at the URL /custom‑category/ within the store, deduce that the page type is category, and return a category context to Stencil CLI. This allows Stencil CLI to properly display the page in the browser when you visit http://localhost:3000/custom‑category/ locally, or when shoppers visit the corresponding public store page.
+In the above `.stencil` or `config.stencil.json` (if using Stencil V3.1 release or later) configuration example’s final entry, the server will look at the URL `/custom‑category/` within the store, deduce that the page type is category, and return a category context to Stencil CLI. This allows Stencil CLI to properly display the page in the browser when you visit `http://localhost:3000/custom‑category/` locally, or when shoppers visit the corresponding public store page.
 
 ### Mapping Multiple URLs
 Beyond the single URL mapped to each template in the above examples, you have the option of mapping an array of URLs to each template. This is shown in the following example for the product template:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```js
+```json title="Map multiple URLs" lineNumbers
   "customLayouts": {
     "product": {
       "featured-product.html": ["/special-product-one", "/special-product-two"],
@@ -196,11 +120,11 @@ lineNumbers: true
 
 ## Specifying custom front matter
 
-You can specify front matter on a custom template if you only need to render certain resources (such as 'New Products') on that page. Specifying only the attributes you need will reduce page load time. If you don't explicitly specify front matter for your custom template, the front matter for the default page template will be available. See [Using Front Matter](https://developer.bigcommerce.com/stencil-docs/storefront-customization/using-front-matter) for more information on using front matter.
+You can specify front matter on a custom template if you only need to render certain resources (such as 'New Products') on that page. Specifying only the attributes you need will reduce page load time. If you don't explicitly specify front matter for your custom template, the front matter for the default page template will be available. See [Using Front Matter](/stencil-docs/storefront-customization/using-front-matter) for more information on using front matter.
 
 ## Theme upload
 
-Finally, you must bundle and push the theme to BigCommerce. See [Bundling and Pushing a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing) for instructions on how to achieve this.
+Finally, you must bundle and push the theme to BigCommerce. See [Bundling and Pushing a Theme](/stencil-docs/deploying-a-theme/bundling-and-pushing) for instructions on how to achieve this.
 
 ## Troubleshooting template authoring
 
@@ -225,7 +149,7 @@ If you are ready to apply your custom template to the live BigCommerce storefron
 ## Resources
 
 ### Related Articles
-* [Blueprint Themes](https://developer.bigcommerce.com/legacy/blueprint-themes)
+* [Blueprint Themes](/legacy/blueprint-themes)
 * [Applying a Custom Template](https://support.bigcommerce.com/s/article/Stencil-Themes#custom-templates) (BigCommerce Knowledge Base)
 
 ### Additional Resources

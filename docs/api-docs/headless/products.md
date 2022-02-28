@@ -1,20 +1,12 @@
 # Working with Products
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Retrieving product data](#retrieving-product-data)
-- [Managing products](#managing-products)
-- [Next steps](#next-steps)
-- [Resources](#resources)
-
-</div>
 
 This section demonstrates how to use BigCommerce's GraphQL Storefront API and REST Products API to query and manage product data for headless storefronts.
 
 ## Retrieving product data
 
-BigCommerce's [GraphQL Storefront API](https://developer.bigcommerce.com/api-reference/graphql/graphql) makes it possible to query storefront data from a remote site. By leveraging the power of GraphQL, you can access product information for any product from any page.
+BigCommerce's [GraphQL Storefront API](/api-reference/graphql/graphql) makes it possible to query storefront data from a remote site. By leveraging the power of GraphQL, you can access product information for any product from any page.
 
 The following example demonstrates how to fetch product data using the GraphQL Storefront API. It relies on the [GraphQL Cursor Connections Specification model](https://relay.dev/graphql/connections.htm) to handle pagination.
 
@@ -100,21 +92,16 @@ query SingleProduct {
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > We recommend using the GraphQL Storefront API to query the product data. It lets you specify the information needed from the server and retrieve multiple resources in a single call. For example, using the GraphQL Storefront API, you can fetch product pricing, options, and variations in a single request, improving performance and minimizing the need for subsequent API calls.
-</div>
-</div>
-</div>
+
 
 ## Managing products
 
-The GraphQL Storefront API provides read-only data and cannot be used to manipulate products at this time. You will need to use BigCommerce's REST [Products API](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/) to manage products data. 
+The GraphQL Storefront API provides read-only data and cannot be used to manipulate products at this time. You will need to use BigCommerce's REST [Products API](/api-reference/store-management/catalog/products/) to manage products data. 
 
-To update products in batches, send a `PUT` request to the [Update Products (Batch)](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/updateproducts) endpoint. 
+To update products in batches, send a `PUT` request to the [Update Products (Batch)](/api-reference/store-management/catalog/products/updateproducts) endpoint. 
 
 ```http
 PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products
@@ -138,9 +125,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ]
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/updateproducts#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/products/updateproducts#requestrunner) -->
 
-To update a single product, send a `PUT` request to the [Update a Product](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/updateproduct) endpoint.
+To update a single product, send a `PUT` request to the [Update a Product](/api-reference/store-management/catalog/products/updateproduct) endpoint.
 
 ```http
 PUT https://api.bigcommerce.com/stores/{store_hash}/v3/catalog/products/{product_id}
@@ -155,7 +142,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](https://developer.bigcommerce.com/api-reference/store-management/catalog/products/updateproduct#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/products/updateproduct#requestrunner) -->
 
 ### Cache the catalog
 
@@ -163,8 +150,8 @@ It is best practice to cache product details in a database to improve performanc
  
 ## Next steps
 
-- [Learn how to create a cart](https://developer.bigcommerce.com/api-docs/storefronts/guide/carts)
+- [Learn how to create a cart](/api-docs/storefronts/guide/carts)
 
 ## Resources
 
-- [Catalog API Overview](https://developer.bigcommerce.com/api-docs/store-management/catalog/catalog-overview)
+- [Catalog API Overview](/api-docs/store-management/catalog/catalog-overview)

@@ -1,19 +1,10 @@
 # Live Previewing a Theme
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Obtaining store API credentials](#obtaining-store-api-credentials)
-- [Downloading a theme](#downloading-a-theme)
-- [Installing theme modules](#installing-theme-modules)
-- [Serving a live preview](#serving-a-live-preview)
-- [Resources](#resources)
-
-</div>
 
 Once you've installed the Stencil CLI, the next steps are downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. This article walks you through the process of downloading a theme for development, installing theme modules, and serving a live preview using Stencil CLI's `stencil start` command.
 
-The steps in this article assume you've installed Stencil CLI on your system. If you haven't installed it yet, see [Installing Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil) for detailed, system-specific instructions.
+The steps in this article assume you've installed Stencil CLI on your system. If you haven't installed it yet, see [Installing Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil) for detailed, system-specific instructions.
 
 
 ## Obtaining store API credentials
@@ -43,53 +34,27 @@ git clone https://github.com/bigcommerce/cornerstone.git
 
 Cornerstone and other themes can also be downloaded from the BigCommerce control panel. For instructions on doing so, see [Downloading and Uploading Custom Themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload) (BigCommerce Knowledge Base). 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-### Note  
-Downloading a theme does not include the current configuration of a theme. Run a [stencil pull](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands#stencil-pull) command to obtain the theme's most recently saved version (appears only for themes customized for this store).
-
-</div>
-</div>
-</div>
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+> #### Note  
+> Downloading a theme does not include the current configuration of a theme. Run a [stencil pull](/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands#stencil-pull) command to obtain the theme's most recently saved version (appears only for themes customized for this store).
+&nbsp;
 
 <!-- theme: warning -->
-
-### Theme access, copyright, and distribution
+> #### Theme access, copyright, and distribution
 > Developers may customize free and purchased marketplace themes; however, the original creator retains rights to the theme's design, which means derived themes may not be uploaded to a public theme marketplace (BigCommerce's or third-party) or sold privately.
-
-</div>
-</div>
-</div>
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+&nbsp;
 
 <!-- theme: warning -->
-
-### Distribution of Cornerstone-based themes
-
+> #### Distribution of Cornerstone-based themes
 > Distribution of Cornerstone-based themes is subject to BigCommerce's Cornerstone license, including the mandatory incorporation of BigCommerce's copyright statement.
+&nbsp;
 
-### Back up before reinstalling
-
+<!-- theme: warning -->
+> #### Back up before reinstalling
 > If you're re-installing an existing theme, be sure to back up the theme’s `.stencil` file or `secrets.stencil.json` and `config.stencil.json` files (if using Stencil V3.1 release or later). The files contain the store URL, username, access tokens, and other settings. If you would like to allow for complete rollback, back up your entire theme’s directory.
 
 
-</div>
-</div>
-</div>
-
 ## Installing theme modules
-
 
 For theme versions `1.10.0+`, modules can be installed with `npm`:
 
@@ -114,18 +79,9 @@ The Browsersync preview is launched by executing the `stencil start` command in 
 * an API access token
 * a local port number
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-### Note  
-The store's URL should be a vanity URL.
-
-</div>
-</div>
-</div>
+> #### Note
+> The store's URL should be a vanity URL.
 
 This configuration file is created by running `stencil init` and entering the information listed above. Before doing so, be sure to [obtain store API credentials](#obtaining-store-api-credentials).
 
@@ -163,34 +119,17 @@ stencil start
 
 Browse to the local URL to preview the theme and see changes updated in real-time. To preview the theme on multiple devices simultaneously, browse to the external URL on the desired devices. As you navigate through the site, Stencil CLI will use store API token supplied to make API calls to BigCommerce's API and populate the theme preview with live store data in order to mimic production as closely as possible.
 
-For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands). For help troubleshooting errors or installation issues, see [Troubleshooting Your Setup](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/troubleshooting-your-setup).
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands). For help troubleshooting errors or installation issues, see [Troubleshooting Your Setup](/stencil-docs/installing-stencil-cli/troubleshooting-your-setup).
 
 <!-- theme: warning -->
-
-### BitBucket re-authentication
+> #### BitBucket re-authentication
 > If you receive error messages about resolving BitBucket as an SSH host when running `stencil init`, enter the BitBucket password used to set up the BitBucket SSH Keys when prompted.
-
-</div>
-</div>
-</div>
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+&nbsp;
 
 <!-- theme: info -->
+> #### Debugging your theme  
+> The Stencil framework provides built-in debugging tools to aid in your custom front-end development. To see what data is available on the page you are working on, add the debug query string to your store's localhost URL. For example, `http://localhost:3000/product/sample-product?debug=context`. This string will return a list of all the objects on the page in JSON syntax. If you want to view the available JSON objects and rendered page simultaneously, change the debug value to `bar`. For example, `http://localhost:3000/product/sample-product?debug=bar`.
 
-### Debugging your theme  
-The Stencil framework provides built-in debugging tools to aid in your custom front-end development. To see what data is available on the page you are working on, add the debug query string to your store's localhost URL. For example, `http://localhost:3000/product/sample-product?debug=context`. This string will return a list of all the objects on the page in JSON syntax. If you want to view the available JSON objects and rendered page simultaneously, change the debug value to `bar`. For example, `http://localhost:3000/product/sample-product?debug=bar`.
-
-
-</div>
-</div>
-</div>
 
 ## Resources
 
