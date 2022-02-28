@@ -1,13 +1,6 @@
 # Style Editor
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [What Is Less.js?](#what-is-lessjs)
-- [Integrating a Theme with the Style Editor](#integrating-a-theme-with-the-style-editor)
-- [Testing Style Editor with Your Theme](#testing-style-editor-with-your-theme)
-
-</div> 
+ 
 
 Style Editor allows users to customize the look and feel of their BigCommerce store, without needing to know HTML or CSS conventions. Using a simple WYSIWYG interface, users can edit colors and fonts, then see the changes simultaneously in a live preview.
 
@@ -40,19 +33,7 @@ There are some syntax patterns involved that Style Editor will understand to hel
 
 For example:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```css
+```css title="" lineNumbers
 @color-header-background: #FFFFFF;
 ```
 
@@ -62,19 +43,7 @@ This will generate a color picker with the label “Header Background”, set to
 
 For example:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```css
+```css title="" lineNumbers
 @font-page-text: "Open Sans",Helvetica,Arial,sans-serif;
 ```
 
@@ -84,19 +53,7 @@ This will generate a dropdown with the label “Page Text”, and with the “Op
 
 For example:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```css
+```css title="" lineNumbers
 @font-declaration: '{ "Lato":["Lato", "Arial", "sans-serif"], "Freckle Face":["Freckle Face", "cursive"]}';
 
 ```
@@ -105,19 +62,7 @@ This will populate all font drop-downs with the fonts “Lato” and “Freckle 
 
 To use these fonts in the Style Editor, they must be included in the style editor variables file through an import. For the above example, you would include the styles from Google Fonts like so:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```css
+```css title="" lineNumbers
 @import url(//fonts.googleapis.com/css?family=Lato|Freckle+Face);
 
 ```
@@ -126,19 +71,7 @@ lineNumbers: true
 
 For example:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```css
+```css title="" lineNumbers
 @color-declaration: '["#FF7700, #9966CC" ]';
 ```
 
@@ -172,23 +105,10 @@ This way, we can reuse the color that gets set to `@color-store-name` as the col
 
 This is where you initialize the use of the variables. This file contains all the CSS that will be compiled and generated into the theme.css file. For example, the @color-store-name can now be applied to the `#HeaderLogo h1` element by saying:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```css
+```css title="" lineNumbers
 #HeaderLogo h1 {
 color: @color-store-name
 }
-
 ```
 
 ### theme.less 
@@ -199,19 +119,7 @@ Compiling your Less files
 
 Once you have finished working on your `.less` files, _don’t forget to compile them!_ If you are using the command line, you should be doing something similar to:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```html
+```less title="" lineNumbers
 lessc Styles/less/theme.less > Styles/theme.css 
 
 ```

@@ -1,37 +1,13 @@
 # Product Rules
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Product Rules](#product-rules)
-- [List Product Rules](#list-product-rules)
-- [Get a Product Rule](#get-a-product-rule)
-- [Get a Count of Product Rules](#get-a-count-of-product-rules)
-- [Create a Product Rule](#create-a-product-rule)
-- [Update a Product Rule](#update-a-product-rule)
-- [Delete a Product Rule](#delete-a-product-rule)
-- [Delete Multiple Product Rules](#delete-multiple-product-rules)
-
-</div> 
-
 ## Product Rules 
 
 Rules that modify the properties of a product, such as weight, price, and product image.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-
-For the most up-to-date version of this API, see [Product Complex Rules](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-complex-rules).
-
-</div>
-</div>
-</div>
+> For the most up-to-date version of this API, see [Product Complex Rules](/api-reference/store-management/catalog/product-complex-rules).
 
 ### Product Rule Object – Properties 
 
@@ -217,7 +193,7 @@ Example JSON returned in the response:
 
 Updates an existing product rule. 
 
-### Notes 
+**Note**s 
 
 If you include a conditions object array, its contents will be appended to any existing conditions. This operation does not overwrite existing conditions.
 

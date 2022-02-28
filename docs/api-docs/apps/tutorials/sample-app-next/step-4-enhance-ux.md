@@ -1,26 +1,8 @@
 # Step 4: Enhance the User Experience with BigDesign
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Create the Products List route](#create-the-products-list-route)
-- [Update custom hooks](#update-custom-hooks)
-- [Create the Products page](#create-the-products-page)
-- [Add the InnerHeader component](#add-the-innerheader-component)
-- [Update the Header component](#update-the-header-component)
-- [Create the ErrorMessage component](#create-the-errormessage-component)
-- [Create the Loading component](#create-the-loading-component)
-- [Add system checks](#add-system-checks)
-- [Update TypeScript definitions](#update-typescript-definitions)
-- [Create the Form component](#create-the-form-component)
-- [Create dynamic product routes](#create-dynamic-product-routes)
-- [Integrate dynamic routes with the internal API](#integrate-dynamic-routes-with-the-internal-api)
-- [Style the home page](#style-the-home-page)
-- [Start the app](#start-the-app)
 
-</div>
-
-[BigDesign](https://developer.bigcommerce.com/big-design/) plays a pivotal part in the BigCommerce control panel and ecosystem. App developers are encouraged to use BigDesign to develop apps that have a native BigCommerce look and feel.
+[BigDesign](https://developer.bigcommerce.com/big-design) plays a pivotal part in the BigCommerce control panel and ecosystem. App developers are encouraged to use BigDesign to develop apps that have a native BigCommerce look and feel.
 
 This step focuses on expanding functionality and integrating advanced design elements available as part of the BigDesign library.
 
@@ -37,7 +19,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { bigcommerceClient, getSession } from '../../../lib/auth';
 ```
 
-4. Add the logic to call the Products endpoint of BigCommerce's [Catalog API](https://developer.bigcommerce.com/api-reference/store-management/catalog).
+4. Add the logic to call the Products endpoint of BigCommerce's [Catalog API](/api-reference/store-management/catalog).
 
 ```js
 export default async function list(req: NextApiRequest, res: NextApiResponse) {
@@ -115,16 +97,11 @@ import { useRouter } from 'next/router';
 import { ReactElement } from 'react';
 import { useProductList } from '../../lib/hooks';
 ```
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > Because BigDesign and Next.js both have a component called `Link`, you need to import BigDesign's `Link` as `StyledLink` to avoid TypeScript errors.
 
-</div>
-</div>
-</div>
+
 
 4. Add the `Products` functional component. The `Products` component uses the BigDesign's [StatefulTable](https://developer.bigcommerce.com/big-design/statefulTable), a wrapper of the [Table](https://developer.bigcommerce.com/big-design/table) component that supports pagination, row selection, and sorting.
 
@@ -661,16 +638,11 @@ export default ProductInfo;
 
 The `ProductInfo` functional component uses the `Form` component defined in `/components/form`. When you click on a product from the products list, it takes you to the corresponding page containing information about that particular product.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > Because you fetch all of the products data with the initial Catalog API call, you do not need to make additional calls to retrieve individual product data.
 
-</div>
-</div>
-</div>
+
 
 The following image illustrates the `Form` input types:
 
@@ -813,6 +785,4 @@ You should now have a fully functional app that pulls data from BigCommerce's Ca
 
 This concludes our Next.js Sample App tutorial. To continue developing with BigCommerce, consider working through these supplemental materials:
 
-* [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/apps/guide/requirements)
-* [Managing Apps in the Developer Portal](https://developer.bigcommerce.com/api-docs/apps/guide/developer-portal)
-* [Publishing an App](https://developer.bigcommerce.com/api-docs/apps/guide/publishing)
+* [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal)

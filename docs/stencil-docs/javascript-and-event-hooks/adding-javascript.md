@@ -1,21 +1,6 @@
 # Adding Javascript to Your Stencil Theme
 
-<div class="otp" id="no-index">
 
-### On this page
-
-- [Bundling and minification](#bundling-and-minification)
-- [Development options](#development-options)
-- [Using npm](#using-npm)
-- [Page types and Javascript API](#page-types-and-javascript-api)
-- [JavaScript template context injection](#javascript-template-context-injection)
-- [Placing modules in assets/js/](#placing-modules-in-assetsjs)
-- [Theme-specific JavaScript modules](#theme-specific-javascript-modules)
-- [Mapping page types to JavaScript modules](#mapping-page-types-to-javascript-modules)
-- [Mapping custom templates to JavaScript modules](#mapping-custom-templates-to-javascript-modules)
-- [Summary](#summary)
-
-</div>
 
 ## Bundling and minification
 
@@ -100,16 +85,9 @@ export default class Blog extends PageManager {
     }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
-> * Page types correspond to the HTML pages in [templates/pages/](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages).
-
-</div>
-</div>
-</div>
+<!-- theme: info -->
+> #### Note
+> Page types correspond to the HTML pages in [templates/pages/](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages).
 
 ## JavaScript template context injection
 

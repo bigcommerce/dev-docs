@@ -1,38 +1,12 @@
 # Bulk Pricing Rules
-
-<div class="otp" id="no-index">
-
-### On This Page
-- [Bulk Pricing](#bulk-pricing)
-- [List Bulk Pricing Rules](#list-bulk-pricing-rules)
-- [Get a Product Bulk Pricing Rule](#get-a-product-bulk-pricing-rule)
-- [Get a Count of Bulk Pricing Rules](#get-a-count-of-bulk-pricing-rules)
-- [Create a Product Bulk Pricing Rule](#create-a-product-bulk-pricing-rule)
-- [Update a Product Bulk Pricing Rule](#update-a-product-bulk-pricing-rule)
-- [Delete a Product Bulk Pricing Rule](#delete-a-product-bulk-pricing-rule)
-- [Delete Multiple Product Bulk Pricing Rules](#delete-multiple-product-bulk-pricing-rules)
-
-</div> 
-
 ##  Bulk Pricing 
 
 Bulk pricing rules applied to a product.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-
-For the most up-to-date version of this API, see [Product Bulk Pricing Rules](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-bulk-pricing-rules).
-
-</div>
-</div>
-</div>
-
+> For the most up-to-date version of this API, see [Product Bulk Pricing Rules](/api-reference/store-management/catalog/product-bulk-pricing-rules).
 ###  Bulk Pricing Object – Properties 
 
 | Name | Type | Description |
@@ -136,7 +110,7 @@ The following properties of the discount rule are required. The request won’t 
 *   type
 *   type_value
 
-### Notes 
+**Note**s 
 
 To specify that a `min` or `max` value is unbounded, these properties must be explicitly set with a value of `0`. If neither `min` nor `max` properties are included in the request, the existing value will remain unchanged.
 
@@ -189,7 +163,7 @@ The following properties of the discount rule are required. The request won’t 
 *   type
 *   type_value
 
-### Notes 
+**Note**s 
 
 To specify that a `min` or `max` value is unbounded, these properties must be explicitly set with a value of `0`. If neither `min` nor `max` properties are included in the request, the existing value will remain unchanged.
 

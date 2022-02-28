@@ -1,16 +1,6 @@
 # Widgets Code Samples
 
-<div class="otp" id="no-index">
 
-### On this page
-- [List](#list)
-- [HTML](#html)
-- [Text with styling](#text-with-styling)
-- [Image slider](#image-slider)
-- [Button](#button)
-- [Related resources](#related-resources)
-
-</div>
 
 Below are widget code samples for developers to use as a starting point.
 

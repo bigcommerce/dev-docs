@@ -1,14 +1,6 @@
 # Stencil Technology Stack
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Handlebars overview](#handlebars-overview)
-- [Stencil objects overview](#stencil-objects-overview)
-- [YAML front matter overview](#yaml-front-matter-overview)
-- [Resources](#resources)
-
-</div>
 
 Stencil's use of Handlebars.js, Javascript, and YAML Front Matter on the front end allows developers to create dynamic, templated customizations across a BigCommerce storefront.
 
@@ -19,19 +11,7 @@ Stencil's use of Handlebars.js, Javascript, and YAML Front Matter on the front e
 A Handlebars expression begins and end with curly braces.
 Below is a basic example that accesses the `` and `` variables.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Using handlebars to access the {{title}} variable</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Using handlebars to access the {{title}}  variable"
-subtitle: ""
-lineNumbers: true
--->
-
-```html
+```handlebars title="Using handlebars to access the {{title}} variable" lineNumbers
 <div class="entry">
   # Using handlebars to access the {{title}} and  variables
   <div class="body"></div>
@@ -44,33 +24,20 @@ View the [full Handlebars Helpers Reference](/stencil-docs/reference-docs/handle
 
 ## Stencil objects overview
 
-Stencil objects are the individual JavaScript objects that are rendered onto a Stencil storefront. The following example is the JavaScript Object Notation (JSON) for a [Banner object](https://developer.bigcommerce.com/stencil-docs/reference-docs/global-objects-and-properties#global-objects_banner) rendered on a category page of a storefront.
+Stencil objects are the individual JavaScript objects that are rendered onto a Stencil storefront. The following example is the JavaScript Object Notation (JSON) for a [Banner object](/stencil-docs/reference-docs/global-objects-and-properties#global-objects_banner) rendered on a category page of a storefront.
 
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Banners Object </div>
-    </div><div class="HubBlock-header-subtitle">JSON for a banners object, accessible through Handlebars.js</div>
-</div>
-
-<!--
-title: "Banners Object "
-subtitle: "JSON for a banners object, accessible through Handlebars.js"
-lineNumbers: true
--->
-
-```json
-banners: {
-    top: [
-    "For the week of May 20th, all apparel available at the online store will be 25% off the standard store price."
+```json title="Example banners object JSON for a banner object, accessible through Handlebars.js " lineNumbers
+"banners": {
+    "top": [
+      "For the week of May 20th, all apparel available at the online store will be 25% off the standard store price."
     ],
-    bottom: [ ],
-    top_metadata: [
+    "bottom": [ ],
+    "top_metadata": [
     {
-      id: "3",
-      banner-name: "All Apparel 25% off for a limited time!",
-      content: "<p>For the week of May 20th, all apparel available at the online store will be 25% off the standard store price.</p>",
-      location: "top"
+      "id": "3",
+      "banner-name": "All Apparel 25% off for a limited time!",
+      "content": "<p>For the week of May 20th, all apparel available at the online store will be 25% off the standard store price.</p>",
+      "location": "top"
     }
   ]
 }
@@ -100,32 +67,19 @@ When utilized, Front Matter must be the opening text of a file and must take the
 
 See our [Front Matter Reference](/stencil-docs/reference-docs/front-matter-reference) to see what Front Matter attributes are available on a Stencil storefront. Below is a snippet from the base Cornerstone theme's <span class="fn">home.html</span> file, showing how Front Matter can be used in a theme.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">home.html</div>
-    </div><div class="HubBlock-header-subtitle">The YAML Front Matter below is present in the Cornerstone's home.html file </div>
-</div>
 
-<!--
-title: "home.html"
-subtitle: "The YAML Front Matter below is present in the Cornerstone's home.html file "
-lineNumbers: true
--->
-
-```yaml
-
+```yml title="YAML Front Matter home.html, Cornerstone theme" lineNumbers
 products:
-    new:
-        limit: {{theme_settings.homepage_new_products_count}}
-    featured:
-        limit: {{theme_settings.homepage_featured_products_count}}
-    top_sellers:
-        limit: {{theme_settings.homepage_top_products_count}}
+  new:
+    limit: {{theme_settings.homepage_new_products_count}}
+  featured:
+    limit: {{theme_settings.homepage_featured_products_count}}
+  top_sellers:
+    limit: {{theme_settings.homepage_top_products_count}}
 carousel: {{theme_settings.homepage_show_carousel}}
 blog:
-    recent_posts:
-        limit: {{theme_settings.homepage_blog_posts_count}}
-
+  recent_posts:
+    limit: {{theme_settings.homepage_blog_posts_count}}
 ```
 
 ## Resources

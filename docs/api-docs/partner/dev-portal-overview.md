@@ -1,11 +1,6 @@
 # Developer Portal Overview
 
-<div class="otp" id="no-index">
-
-### On this page
-- [About the Developer Portal](#about-the-developer-portal)
-- [Resources](#resources)
-</div> 
+ 
 
 ## About the Developer Portal
 
@@ -13,20 +8,20 @@ The Developer Portal is the resource developers use to create, manage, and publi
 
 To get started with developing BigCommerce apps, you will first need to create a [Developer Portal](https://devtools.bigcommerce.com/my/apps) account. You will use your Developer Portal account to register and submit your app for review. You will also need to start a [free store trial](https://www.bigcommerce.com/essentials/free-trial/) to test your app. 
 
-For information on app development, see [Introduction to Building Apps](https://developer.bigcommerce.com/api-docs/apps/guide/intro).
+For information on app development, see [Introduction to Building Apps](/api-docs/apps/guide/intro).
 
-For instructions on how to use the Developer Portal to create an app, see [Managing Apps in the Developer Portal](https://developer.bigcommerce.com/api-docs/apps/guide/developer-portal).
+For instructions on how to use the Developer Portal to create an app, see [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal).
 
 ## Resources
 
 ### Related articles
 
-* [BigCommerce APIs Quick Start](https://developer.bigcommerce.com/api-docs/getting-started/making-requests)
-* [Filtering](https://developer.bigcommerce.com/api-docs/getting-started/filtering)
-* [Webhooks Overview](https://developer.bigcommerce.com/api-docs/store-management/webhooks/overview)
+* [BigCommerce APIs Quick Start](/api-docs/getting-started/making-requests)
+* [Filtering](/api-docs/getting-started/filtering)
+* [Webhooks Overview](/api-docs/store-management/webhooks/overview)
 
 ### Tools
-* [BigDesign Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [BigDesign Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

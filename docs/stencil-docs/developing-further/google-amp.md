@@ -1,15 +1,5 @@
 # Google AMP
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Implementing AMP](#implementing-amp)
-- [Location of AMP Files](#location-of-amp-files)
-- [Local Testing](#local-testing)
-- [Resources](#resources)
-
-</div> 
-
 Google AMP (Accelerated Mobile Pages) is an open-source project to improve page speed on mobile devices by using a specific framework for a page’s code. The improved performance on mobile devices provides a better browsing experience for shoppers and boosts ranking on Google search. To learn more about the Google AMP project, see [AMP Overview](https://www.ampproject.org/support/faqs/overview) on the Google AMP project site.
 
 ### Benefits of using Stencil with Google AMP
@@ -20,17 +10,10 @@ Google AMP (Accelerated Mobile Pages) is an open-source project to improve page 
 
 The article will walk you through enabling Google AMP pages in your theme. 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-    
-<!-- theme:info  -->
-#### Cornerstone
+<!-- theme: info -->
+> #### Cornerstone
 > This example uses Cornerstone.
 
-</div>
-</div>
-</div>
 
 ## Implementing AMP
 
@@ -46,46 +29,20 @@ Ensure the Google Analytics ID has been added in the control panel. This is what
 
 In the `/amp/category.html`, `layout/amp.html` and `amp/product.html` template files replace `theme_settings` with `settings`.
 
-Example: In `layout/amp.html` (referenced below) replace `theme_settings.amp_analytics_id` with
-`settings.amp_analytics_id`.
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">templates/layout/amp.html</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "templates/layout/amp.html"
-subtitle: ""
-lineNumbers: true
--->
-
-```js
+```handlebars title="Example replacement of amp_analytics_id property templates/layout/amp.html" lineNumbers
 {{{snippet 'htmlhead'}}}
-         <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
-         <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
-			  {{#if settings.amp_analytics_id}}
-         			<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-         {{/if}}
-         {{#block "amp-scripts"}}{{/block}}
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    {{#if settings.amp_analytics_id}}
+        <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    {{/if}}
+    {{#block "amp-scripts"}}{{/block}}
 ```
 
 In [config.json](https://github.com/bigcommerce/cornerstone/blob/master/config.json) (referenced below) make sure `google_amp` is still in the features array. See below for code snippet.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">config.json</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
-<!--
-title: "config.json"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Ensure google_amp appears in the 'features' array config.json" lineNumbers
   "features": [
       "fully_responsive",
       "mega_navigation",

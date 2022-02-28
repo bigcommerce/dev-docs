@@ -1,46 +1,17 @@
 # Products
+ 
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Products](#products)
-- [List Products](#list-products)
-- [Get a Product](#get-a-product)
-- [Get a Product Count](#get-a-product-count)
-- [Create a Product](#create-a-product)
-- [Update a Product](#update-a-product)
-- [Delete a Product](#delete-a-product)
-- [Delete All Products](#delete-all-products)
-
-</div> 
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
-
-<!-- theme: error -->
-
+<!-- theme: danger -->
 > It is recommended to use the new [Catalog Products](/api-reference/catalog/catalog-api).
-
-</div>
-</div>
-</div>
 
 ## Products
 A product object represents a saleable item in the catalog.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
 
-</div>
-</div>
-</div>
+
 
 ### Product Object – Properties
 
@@ -124,7 +95,7 @@ A product object represents a saleable item in the catalog.
 | videos | resource | See the [Videos resource](/api/v2/#videos) for information. |
 | skus | resource | Stock Keeping Units for the product. See the [Product SKUs](/api/v2/#skus) resource for the definition of a sku object. |
 | rules | resource | Rules that apply only to this product, based on the product's [option set](/v2#product-option-sets). See [Product Rules](/api/v2/#product-rules) resource for information. |
-| option_set | resource | See the [Product Option Sets](https://developer.bigcommerce.com/legacy/v2-catalog-products/v2-option-sets) resource for information. |
+| option_set | resource | See the [Product Option Sets](/legacy/v2-catalog-products/v2-option-sets) resource for information. |
 | options | resource | Options from the [option set](/api/v2/#option-sets) applied to the product. See the [Product Options](/api/v2/#product-options) resource for information. |
 | tax_class | resource | Assigned tax class, when using a manual tax setup. This can be a number matching one of the tax classes set up in your store. |
 | avalara_product_tax_code | resource | Accepts AvaTax System Tax Codes, which identify products and services that fall into special sales-tax categories. By using these codes, merchants who subscribe to Avalara Premium can calculate sales taxes more accurately.<br><br> Stores without Avalara Premium will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive.<br><br> For details, please see Avalara's <a href="https://help.avalara.com/000_Avalara_AvaTax/Manage_Product_Taxability/010_Select_AvaTax_System_Tax_Codes" target="_blank">overview</a> and <a href="https://help.avalara.com/000_Avalara_AvaTax/Manage_Product_Taxability/Tax_Codes_-_Frequently_Asked_Questions" target="_blank">FAQ</a> on AvaTax System Tax Codes. You can also <a href="https://help.avalara.com/@api/deki/files/1675/AvaTax_System_Tax_Codes_Toolkit.zip?revision=37" target="_blank">download codes</a> as a zipfile of spreadsheets, or <a href="https://taxcode.avatax.avalara.com/" target="_blank">search or browse codes</a> in Avalara's Tax Code Search Tool. (These external links are subject to change.) |
@@ -176,7 +147,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | Page | int | /api/v2/products?page={number} |
 | Limit | int | /api/v2/products?limit={count} |
 
-### Notes
+**Note**s
 
 You can filter the retrieved fields by appending one of the following options to your request:
 
@@ -446,7 +417,7 @@ Gets a product.
 
 > `GET /stores/{store_hash}/v2/products/{id}`
 
-### Notes
+**Note**s
 
 You can filter the retrieved fields by appending one of the following options to your request:
 
@@ -718,7 +689,7 @@ Filter parameters can be added to the URL query string to select specific produc
 | category | string | /api/v2/products?category={value} |
 | product_tax_code | string | /api/v2/products?product_tax_code={value} |
 
-### Notes
+**Note**s
 
 If no filters are applied, the total number of products is returned.
 
@@ -768,7 +739,7 @@ The following properties of the product are required. The request won’t be ful
 *   availability
 *   weight
 
-### Notes
+**Note**s
 
 Create a request by sending a [product object](#product-object-properties) with the minimum required properties:
 
@@ -831,7 +802,7 @@ The following properties of the product are read-only. If one or more of these p
 
 There are no required properties when updating a product.
 
-### Notes
+**Note**s
 
 To update a product, set one or more product properties in the `PUT` request:
 
@@ -896,7 +867,7 @@ Deletes a product.
 
 > `DELETE /stores/{store_hash}/v2/products/{id}`
 
-### Notes
+**Note**s
 
 Successful deletion of a product returns a `204 No Content` response:
 
@@ -910,7 +881,7 @@ Deletes all products from the store.
 
 > `DELETE /stores/{store_hash}/v2/products`
 
-### Notes
+**Note**s
 
 Successful deletion of all products returns a `204 No Content` response:
 

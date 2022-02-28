@@ -1,19 +1,13 @@
 # Passwordless Customer Login
 
-<div class="otp" id="no-index">
 
-### On this Page
-- [Logging in customers via email link](#logging-in-customers-via-email-link)
-- [Sending the request](#sending-the-request)
-- [Related resources](#related-resources)
-</div>
 
 ## Logging in customers via email link
 Your application can send shoppers a one-time link via email that will sign them in to their [storefront account](https://support.bigcommerce.com/s/article/Customer-Account-Creation).
 
 Use cases for this include:
 * Reducing friction for customers, allowing them to proceed without needing to reset their passwords
-* Providing an alternate method for signing in customers versus using the [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
+* Providing an alternate method for signing in customers versus using the [Customer Login API](/api-docs/customers/customer-login-api)
 
 ## Sending the request
 
@@ -23,30 +17,19 @@ Send a `POST` request to
 The request body should include:
 * `email`: The customer's email address. This email address is where they will receive the one-time login link.
 * `redirect_url`: A link to the URL of the page where you want to redirect customers once they are logged in. This URL must be on the same domain as the store.
-<br>
-Example: 
-<br>
 
-```json
+```json title="Example"
 {
-"email": "jane_doe@test.com",
+"email": "jane_doe@example.com",
 "redirect_url": "/checkout"
 }
 ```
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
-    
-<!-- theme:  -->
-### Redirect URL
+
+<!-- theme: info -->
+> #### Redirect URL
 > If the request body does not include a `redirect_url`, customers will be redirected as follows:
-> <br>
 > - **Failed sign-in:** Sign-in page
 > - **Successful sign-in:** User account page
-
-</div>
-</div>
-</div>
 
 ### Response
 Upon receiving a successful `POST` request, BigCommerce will send a response that contains:
@@ -54,9 +37,7 @@ Upon receiving a successful `POST` request, BigCommerce will send a response tha
 * `expiry`: The time in seconds during which the login link is valid.
 * `sent_email`: A value of `sign_in` indicates BigCommerce sent the login link to the customer via the email provided. A value of `password_reset` means the customer requested a sign-in link, however BigCommerce sent a reset password email instead. BigCommerce sends the email immediately upon recieving the `POST` request.
 
-Example:
-
-```json
+```json title="Example"
 {
 "expiry": 900,
 "sent_email": "sign_in"
@@ -92,5 +73,5 @@ This email uses the same email templates as other emails in your store.
 ## Related resources
 
 ### Endpoints
-* [Customer Login SSO](https://developer.bigcommerce.com/api-reference/storefront/customer-login-sso)
-* [Customers V3](https://developer.bigcommerce.com/api-reference/store-management/customers-v3)
+* [Customer Login SSO](/api-reference/storefront/customer-login-sso)
+* [Customers V3](/api-reference/store-management/customers-v3)

@@ -1,14 +1,6 @@
 # V2 to V3 Catalog Operations Comparison
 
-<div class="otp" id="no-index">
 
-### On This Page
-
-- [V2 and V3 operations](#v2-and-v3-operations)
-- [Interoperability between V2 and V3](#interoperability-between-v2-and-v3)
-- [Related resources](#related-resources)
-
-</div>
 
 This article illustrates the difference between V2 and V3 Catalog APIs by comparing major operations. 
 
@@ -16,17 +8,12 @@ This article illustrates the difference between V2 and V3 Catalog APIs by compar
 
 In this section, we will look at using V2 and V3 Catalog APIs to work with simple and complex products.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * **Simple products** are products that do not have variants, options, or modifiers.
 > * **Complex products** are products that have variants, options, or modifiers.
 
-</div>
-</div>
-</div>
+
 
 ### Get a product
 
@@ -645,7 +632,7 @@ Modifiers are considered an option on V2. They follow the same workflow as descr
 
 ### Create a product with complex rules
 
-In V3, it is best practice to either assign values directly to a variant or use adjusters on the modifier option itself. Complex rules should be reserved for rare cases where a rule condition is too complex to express. To learn more, see [Complex rules](https://developer.bigcommerce.com/api-docs/store-management/catalog/catalog-overview#complex-rules).
+In V3, it is best practice to either assign values directly to a variant or use adjusters on the modifier option itself. Complex rules should be reserved for rare cases where a rule condition is too complex to express. To learn more, see [Complex rules](/api-docs/store-management/catalog/catalog-overview#complex-rules).
 
 **V3 example**
 
@@ -674,16 +661,11 @@ In V3, it is best practice to either assign values directly to a variant or use 
 
 In the following V2 example, we will add a complex rule to increase the product's price by $5 if the checkbox is selected.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > In V2, you cannot add a complex rule without an option.
 
-</div>
-</div>
-</div>
+
 
 **V2 example**
 
@@ -765,7 +747,7 @@ In V3, you can update stock levels on multiple variants and SKUs in one call by 
 
 ## Interoperability between V2 and V3
 
-When a product option is created in V2 and assigned to a product, editing the global option using the V3 Catalog API will automatically copy the V2 global product option to a local product variant, option, or modifier. This is triggered by an `UPDATE` or a `DELETE` call to either the [Product Options](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-options/getoptions) or [Product Modifiers](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-modifiers/getmodifiers) endpoints.
+When a product option is created in V2 and assigned to a product, editing the global option using the V3 Catalog API will automatically copy the V2 global product option to a local product variant, option, or modifier. This is triggered by an `UPDATE` or a `DELETE` call to either the [Product Options](/api-reference/store-management/catalog/product-options/getoptions) or [Product Modifiers](/api-reference/store-management/catalog/product-modifiers/getmodifiers) endpoints.
 
 Editing the V2 global product option using the V3 Catalog API will do the following:
 
@@ -884,17 +866,12 @@ The product used in this example is a t-shirt with a global option set of **Size
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * `option_values` IDs for **Color** are 180, 181, and 182.
 > * `option_values` IDs for **Size** are 192, 193, and 194.
 
-</div>
-</div>
-</div>
+
 
 #### Size and Color
 ![Size and Color](http://s3.amazonaws.com/user-content.stoplight.io/6012/1545080028604 "Size and Color")
@@ -1036,5 +1013,5 @@ Even though we edited only one option value, option value IDs for all other opti
 
 ### Articles
 
-* [Catalog Overview](https://developer.bigcommerce.com/api-docs/store-management/products-overview)
-* [Deprecations and sunsets](https://developer.bigcommerce.com/api-reference#deprecations-and-sunsets)
+* [Catalog Overview](/api-docs/store-management/products-overview)
+* [Deprecations and sunsets](/api-reference#deprecations-and-sunsets)

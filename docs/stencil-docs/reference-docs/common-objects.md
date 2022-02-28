@@ -1,44 +1,21 @@
 # Common Objects
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Catalog Price](#catalog-price)
-- [Price](#price)
-- [Price Range](#price-range)
-- [Stencil Image](#stencil-image)
-- [Common Product Card Model](#common-product-card-model)
-
-</div> 
-
 Certain Stencil objects can be accessed through multiple other Stencil objects. For example, the image object is exposed through the Category, Product, Product Options, and other objects. Its structure is consistent for all objects/properties that access it.
 
 This consistent behavior is true for each of the common objects documented in the following subsection.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-    
 <!-- theme: info -->
-
-### Debugging Your Theme
-> The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. Here is an example:
-
-> `http://localhost:3000/product/this-is-a-sample-product?debug=context`
-> This will return a list of all the objects available on the page, in JSON syntax. If you want to view the available JSON objects and rendered page at the same time, simply change the debug value to bar. Below is an example:
-
-> `http://localhost:3000/product/this-is-a-sample-product?debug=bar`
-
-</div>
-</div>
-</div>
+> #### Debugging Your Theme
+> The Stencil framework provides built-in debugging tools to aid in your custom front-end development. When you want to see what data is available on the page you are working on, you can simply add the debug query string to your store’s localhost URL. For example:
+> `http://localhost:3000/product/this-is-a-sample-product?debug=context` will return a list of all the objects available on the page, in JSON syntax. 
+> If you want to view the available JSON objects and rendered page at the same time, simply change the debug value to "bar": `http://localhost:3000/product/this-is-a-sample-product?debug=bar`
 
 ## Catalog Price
 
 **Description:** Exposes catalog price and currency-related properties in both raw numeric, and formatted string, formats. Tax settings display [configuration](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#display-settings) will determine which properties are available.
 
 **Available through:**
-* Common Object: <a href="#common-objects_common-product">Common Product Card Model</a>
+* Common Object: [Common Product Card Model](#common-product-card-model)
 * Object: `{{product.price}}`
 
 **Object Properties:**
@@ -74,43 +51,30 @@ This consistent behavior is true for each of the common objects documented in th
 |  &#x21B3; formatted	| String representation of the above price, including currency formatting | string <br> `"$25.98"` |
 | &#x21B3; value | Raw numeric value of the above price | number <br> `25.98`|
 | tax_label	| Tax label (VAT, sales tax, etc.) displayed to customers. | string  <br> `"Tax"`|
-| price_range | See [Price Range Object](https://developer.bigcommerce.com/stencil-docs/reference-docs/common-objects#common-objects_price-range)| |
+| price_range | See [Price Range Object](/stencil-docs/reference-docs/common-objects#common-objects_price-range)| |
 
 ## Price
 
-<b>Description:</b> Exposes price- and currency-related properties in both raw numeric, and formatted string, formats.
+**Description:** Exposes price- and currency-related properties in both raw numeric, and formatted string, formats.
 
-<b>Available through:</b>
+**Available through:**
 
-* Common Object: <a href="#common-objects_common-product">Common Product Card Model</a>
+* Common Object: [Common Product Card Model](#common-product-card-model)
 * Object: `{{category.shop_by_price}}`
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>currency</td>
-    <td>Currency code </td>
-  </tr>
-  <tr>
-    <td>formatted</td>
-    <td>String representation of the price, including currency formatting</td>
-  </tr>
-  <tr>
-    <td>value</td>
-    <td>Raw numeric value of the price</td>
-  </tr>
-</table>
+| Property | Description |
+|---|---|
+| currency | Currency code |
+| formatted | String representation of the price, including currency formatting |
+| value | Raw numeric value of the price |
 
 ## Price Range
 
-<b>Description:</b> For products with several variants with different prices, a price range is available which exposes the minimum and maximum variant price.
+**Description:** For products with several variants with different prices, a price range is available which exposes the minimum and maximum variant price.
 
-<b>Object Properties:</b>
+**Object Properties:**
 
 | Property | Description | Type |
 |-|-|--|
@@ -134,57 +98,41 @@ This consistent behavior is true for each of the common objects documented in th
 | &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; formatted | String representation of the above price, including currency formatting | string <br> `"$35.00"` |
 | &nbsp;  &nbsp; &nbsp; &nbsp; &#x21B3; value | Raw numeric value of the above price | number <br> `35`|
 
-<b>Available through:</b>
+**Available through:**
 
-<b>Object/Property:</b><code>{{product.price}</code></a>
-
--
+**Object/Property:** `{{product.price}}`
 
 ## Stencil Image
 
-<b>Description:</b> Exposes a URL and an "alt" string for images used in the Stencil framework
+**Description:** Exposes a URL and an "alt" string for images used in the Stencil framework
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-<table>
-  <tr>
-    <th>Property</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>data</td>
-    <td>Internal URL to product or category image</td>
-  </tr>
-  <tr>
-    <td>alt</td>
-    <td>Corresponding text to display for missing images, accessible screen readers, etc.</td>
-  </tr>
-</table>
+| Property | Description |
+|---|---|
+| data | Internal URL to product or category image|
+| alt | Corresponding text to display for missing images, accessible screen readers, etc. |
 
-<b>Available through:</b>
+**Available through:**
 
-<b>Stencil Handlebars Helper:</b> `{{getImage}}`
+**Stencil Handlebars Helper:** `{{getImage}}`
 
-<b>Common Object:</b> <a href="#common-objects_common-product">Common Product Card Model</a>
+**Common Object:** [Common Product Card Model](#common-product-card-model)
 
-<b>Object/Property:</b> `{{category.image}}`
+**Object/Property:** `{{category.image}}`
 
-<b>Arrays/Elements:</b> `{{product.options.image}}`, `{{product.images}}`, `{{downloads.items.images}}`, `{{downloads.items.thumbnail}}`, `{{category.subcategories.image}}`, `{{order.items.image}}`, `{{customer.orders.image}}`, `{{brands.image}}`, `{{order.items.shipping_rows.image}}`
+**Arrays/Elements:** `{{product.options.image}}`, `{{product.images}}`, `{{downloads.items.images}}`, `{{downloads.items.thumbnail}}`, `{{category.subcategories.image}}`, `{{order.items.image}}`, `{{customer.orders.image}}`, `{{brands.image}}`, `{{order.items.shipping_rows.image}}`
 
-<b> Usage Example: </b>
-
-`{{getImage image "thumbnail"}}`
-
-<a id="common-objects_common-product"></a>
+**Usage Example:** `{{getImage image "thumbnail"}}`
 
 ## Common Product Card Model
 
-<b>Description:</b> A model for a product’s basic, primary properties. Typically used for list components that show multiple products, each in its own "card" or panel.
+**Description:** A model for a product’s basic, primary properties. Typically used for list components that show multiple products, each in its own "card" or panel.
 
-<b>Object Properties:</b>
+**Object Properties:**
 
-|Property| Description  | Format | 
-|--|--| -- | 
+| Property| Description  | Format | 
+|--|--|--| 
 | id | ID of the product | integer |
 | sku | The product's SKU (stock keeping unit)/product code, as a string; if the SKU field is not populated, then null | string or null |
 | name | Name of the product | string |
@@ -196,10 +144,10 @@ This consistent behavior is true for each of the common objects documented in th
 | &#x21B3; url | URL of the brand | string |
 | add_to_cart_url | URL that adds this product to customer’s cart | string |
 | category | Categories the product belongs to. | array |
-| price |References the [catalog price object](https://developer.bigcommerce.com/stencil-docs/reference-docs/common-objects#common-objects_catalog-price), to access price properties in both raw-numeric and formatted/string formats | object | 
+| price |References the [catalog price object](/stencil-docs/reference-docs/common-objects#common-objects_catalog-price), to access price properties in both raw-numeric and formatted/string formats | object | 
 | summary | Summary description of the product |  string |
-| image | Default image for the product, in  [Stencil image format](https://developer.bigcommerce.com/stencil-docs/reference-docs/common-objects#common-objects_stencil-image) | object
-| images | Array of a product's images, in  [Stencil image format](https://developer.bigcommerce.com/stencil-docs/reference-docs/common-objects#common-objects_stencil-image); currently limited to 5 images | array object |
+| image | Default image for the product, in  [Stencil image format](/stencil-docs/reference-docs/common-objects#common-objects_stencil-image) | object
+| images | Array of a product's images, in  [Stencil image format](/stencil-docs/reference-docs/common-objects#common-objects_stencil-image); currently limited to 5 images | array object |
 | date_added | Date the product was added to this BigCommerce storefront | string Ex. `"Aug 15th 2018"` |
 | pre_order |Product’s availability for pre-order | boolean |
 | show_cart_action | Indicates whether the product is available for purchase | boolean |
@@ -217,10 +165,10 @@ This consistent behavior is true for each of the common objects documented in th
 | out_of_stock_message |Text to display when the product is out of stock. If no message is configured, returns false. | string or `false` |
 | release_date | Release date, if the product is set to pre-order status| string Ex. `Available: Aug 6th 2019` | 
 
-<b>Available through:</b>
+**Available through:**
 
-<b>Object:</b> <code>{{comparisons}} </code>
+**Object:** `{{comparisons}} `
 
-<b>Arrays/Elements:</b> <code>{{product.related_products}}, {{product.similar_by_views}}, {{category.products}}, {{cart.suggested_products}}, {{customer.recently_viewed_products}} </code>
+**Arrays/Elements:** `{{product.related_products}}, {{product.similar_by_views}}, {{category.products}}, {{cart.suggested_products}}, {{customer.recently_viewed_products}} `
 
 <!-- :"Common Product Card Model" moved from "Product Objects" page -->
