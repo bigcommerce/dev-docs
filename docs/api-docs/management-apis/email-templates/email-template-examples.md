@@ -81,4 +81,39 @@ To make your text responsive so that it can viewed on a variety of devices and s
   ```html
   <p style="font-size:2.0vw">{{lang 'help'}}</p>
   ```
+## Adding a tracking script
 
+You can create a tracking script to add to an email template. Update information in the **Phrases** and **Code** tabs, entering a phrase name and value. For example, `tracking_title` for phrase name and Tracking information for phrase value. In the Code tab, enter the following code example which adds a tracking script to the order status update template.
+
+Go to **Transactional Emails> Email Templates**. Click **...** next to **Order Status Update** and select **Edit Template**. Copy and paste the contents below into the Content editor. 
+  
+```handlebars title="Add a tracking script"
+ <th>
+   <h2>{{lang 'tracking_title'}}</h2>
+
+   {{#if order.tracking}}
+     <ul class="tracking">
+      {{#each order.tracking}}
+       <li>
+           <p>
+             <a href="{{link}}" target="_blank">
+                {{#if id}}
+                    {{id}}
+                {{else}}
+                    {{lang 'tracking_label'}}
+                {{/if}}
+             </a>
+
+              {{#if shipping_method}}
+               ({{shipping_method}})
+             {{/if}}
+          </p>
+       </li>
+    {{/each}}
+  </ul>
+{{else}}
+    <p class="tracking">{{lang 'no_tracking_numbers'}}</p>
+{{/if}}
+</th>
+```
+![Add trackingemai](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/email-templates-add-template.png "Adding template")
