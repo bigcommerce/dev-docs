@@ -1,17 +1,41 @@
 # Big Open Data Layer (BODL) 
 
 ## Overview
-The Big Open Data Layer (shortened as BODL, pronounced 'Bottle') is a standard used to obtain data points needed for driving storefront analytics and personalization. Having all BigCommerce and headless storefronts use this standard over time allows merchants to benefit from increased site speed and more consistent third-party analytics integrations.
 
-## Pixel example snippets
-The following is a series of example snippets of code to build on when using BODL data for your integration.
+The Big Open Data Layer (shortened as `BODL`, pronounced 'Bottle') is a JavaScript object that exposes storefront data points to BigCommerce and third-party analytics integrations. Instantiating a standard `BODL` object on a BigCommerce-hosted or headless storefront will make the site faster and provide richer, more consistent analytics.
+
+BigCommerce checks your storefront for a `BODL` instance once per page render. To ensure that the analytics providers you've chosen have the complete and correct set of data points they require, initialize a standard `BODL` instance with following schema. If you want to make an alternate custom version of this data layer object with a unique schema, name it something else.
+
+<!-- theme: info -->
+> When you create custom `BODL` instances, we recommend choosing clear, unique names that are easy to identify programmatically: for example, `BODL_YOUR_APP_NAME`.
+
+### Standard BODL schema with Stencil object values
+
+Consult [Stencil object reference](/theme-objects) for more about object properties.
+
+| BODL Property or Method | Stencil Object or Parameter |
+|---|---|
+| breadcrumbs | [{{breadcrumbs}}](/theme-objects/breadcrumbs) |
+| brand | [{{brand}}](/theme-objects/brand) |
+| categoryProducts | [{{category.products}}](/theme-objects/category) |
+| categoryName | [{{category.name}}](/theme-objects/category) |
+| productId | [{{product.id}}](/theme-objects/product) |
+| productTitle | [{{product.title}}](/theme-objects/product) |
+| productCurrency | [{{product.price.without_tax.currency}}](/theme-objects/product) |
+| productPrice | [{{product.price.without_tax.value}}](/theme-objects/product) |
+| products | [{{products}}](/theme-objects/products) |
+| search | [{{product_results}}](/theme-objects/product_results) |
+| order | [{{order}}](/theme-objects/order) |
+| wishlist | [{{wishlist}}](/theme-objects/wishlist) |
+| cartItemAdded | [{{cart.added_item}}](/theme-objects/carts) |
+| getCartItemContentId() | `item` |
+| getQueryParamValue() | `name` |
+
+## Pixel snippet examples
+To get started using `BODL` data in your integration, consult the following example snippets.
 
 ### Initialize script
-This larger code snippet has a lot of built-in detection to identify where it is running within the environment; then, the code injects objects based on this detection.
-  
- <!-- theme: info -->
->The check for BODL is fetched once per page render instead of once for each analytics integration. If you want to make an alternate custom version of this data layer object with a unique schema, please use a unique object name. A unique object name ensures other apps depending on this default BODL schema do not break. We recommend using `BODL_YOUR_APP_NAME` as the object name so it's unique and easy to understand.
-
+This script extracts storefront data from the Stencil objects available in the front-end environment to construct a standard `BODL` object.
 
 ```handlebars title="Sample Pixel Code Start: Initialization Script & Page Event" lineNumbers
 <script>
