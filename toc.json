@@ -352,12 +352,12 @@
     {
       "type": "item",
       "title": "Checkout SDK",
-      "uri": "docs/stencil-docs/customizing-checkout/checkout-sdk-quickstart.md"
+      "uri": "docs/api-docs/cart-and-checkout/checkout-sdk.md"
     },
     {
       "type": "item",
       "title": "Checkout SDK Tutorial",
-      "uri": "docs/stencil-docs/customizing-checkout/checkout-sdk-example.md"
+      "uri": "docs/stencil-docs/customizing-checkout/checkout-sdk-quickstart.md"
     },
     {
       "type": "item",
