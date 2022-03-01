@@ -8,10 +8,10 @@ Once approved, channel apps are discoverable on BigCommerce's App Marketplace. A
 
 All Partners:
 
-- Uses [Channels API](/api-reference/cart-checkout/channels-listings-api).
+- Uses [Channels API](/api-reference/store-management/channels).
 
-- [Creates a channel](/api-reference/cart-checkout/channels-listings-api/channels/createchannel) upon app installation.
-- Reads and updates channel status using the [Channels API](/api-reference/cart-checkout/channels-listings-api) endpoints.
+- [Creates a channel](/api-reference/store-management/channels/channels/createchannel) upon app installation.
+- Reads and updates channel status using the [Channels API](/api-reference/store-management/channels) endpoints.
 
 - Follows requirements for specific channel type
 
@@ -21,7 +21,7 @@ Select Partners:
 
 - Uses [Big Design](https://developer.bigcommerce.com/big-design).
 
-- Includes `config_meta.app.id` in the [create channel](/api-reference/cart-checkout/channels-listings-api/channels/createchannel) request.
+- Includes `config_meta.app.id` in the [create channel](/api-reference/store-management/channels/channels/createchannel) request.
 
 <!-- theme: info -->
 > #### Note
@@ -42,7 +42,7 @@ All Partners:
 
 All Partners:
 
-- Must use [Listings API](/api-reference/cart-checkout/channels-listings-api), if supporting per product listings.
+- Must use [Listings API](/api-reference/store-management/channels), if supporting per product listings.
 
 <!-- theme: info -->
 > #### Note
@@ -64,5 +64,5 @@ All Partners:
 
 ### Endpoints
 
-- [Channels API Reference](/api-reference/cart-checkout/channels-listings-api)
+- [Channels API Reference](/api-reference/store-management/channels)
 - [Sites and Rites API Reference](/api-reference/cart-checkout/sites-routes-api)

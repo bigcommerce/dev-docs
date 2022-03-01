@@ -1,7 +1,4 @@
-
 # Webhook Events
-
-
 
 This article contains a complete reference of all BigCommerce webhook events and their callback payloads. For an introduction to webhooks on BigCommerce, see [Webhooks Overview](/api-docs/store-management/webhooks/overview#callback-payload).
 
@@ -87,7 +84,7 @@ The same response is returned for the following events.
     "producer": "stores/{store_hash}"
 }
 ```
-### The same response is returned for the following endpoints:
+**The same response is returned for the following endpoints:**
 * `store/cart/couponApplied`
 
 **Response fields**
@@ -109,7 +106,7 @@ The same response is returned for the following events.
     "producer": "stores/{store_hash}"
 }
 ```
-### The same response is returned for the following endpoints:
+**The same response is returned for the following endpoints:**
 * `store/cart/converted`
 
 **Response fields**
@@ -140,7 +137,7 @@ The same response is returned for the following events.
 | store/cart/lineItem/updated | When an item’s quantity has changed or the product options change. |
 | store/cart/lineItem/deleted | When an item is deleted from the cart.|
 
-### The same response is returned for the following endpoints:
+**The same response is returned for the following endpoints:**
 * `store/cart/lineItem/created`
 * `store/cart/lineItem/updated`
 * `store/cart/lineItem/deleted`
@@ -176,7 +173,7 @@ The same response is returned for the following events.
 | store/category/updated | Category is updated. |
 | store/category/deleted | Category is deleted. |
 
-### The same response is returned for the following endpoints:
+**The same response is returned for the following endpoints:**
 
 * `store/category/created`
 * `store/category/updated`
@@ -249,7 +246,7 @@ Updates to the following fields trigger a `store/channel/updated` event.
 | store/customer/address/deleted | Customer address is deleted. |
 | store/customer/payment/instrument/default/updated | Customer default payment instrument is updated. |
 
-### The same response is returned for the following endpoints:
+**The same response is returned for the following endpoints:**
 * `store/customer/created`
 * `store/customer/updated`
 * `store/customer/deleted`
@@ -272,7 +269,7 @@ Updates to the following fields trigger a `store/channel/updated` event.
     "producer": "stores/{store_hash}"
 }
 ```
-### The same response is returned for the following endpoints:
+**The same response is returned for the following endpoints:**
 * `store/customer/address/created`
 * `store/customer/address/updated`
 * `store/customer/address/deleted`
@@ -314,7 +311,7 @@ Updates to the following fields trigger a `store/channel/updated` event.
 | store/order/transaction/created | Fires when a transaction record is created. |
 | store/order/transaction/updated | Fires when a transaction record is updated.  |
 
-### The same response is returned for the following events:
+**The same response is returned for the following events:**
 
 * `store/order/created`
 * `store/order/updated`
@@ -338,7 +335,7 @@ Updates to the following fields trigger a `store/channel/updated` event.
 }
 ```
 
-### The same response is returned for the following events:
+**The same response is returned for the following events:**
 
 - `store/order/statusUpdated`
 
@@ -367,7 +364,7 @@ Updates to the following fields trigger a `store/channel/updated` event.
 }
 ```
 
-### The same response is returned for the following events:
+**The same response is returned for the following events:**
 
 - `store/order/message/created`
 
@@ -393,7 +390,7 @@ Updates to the following fields trigger a `store/channel/updated` event.
     "producer": "stores/{store_hash}"
 }
 ```
-### The same response is returned for the following events:
+**The same response is returned for the following events:**
 
 - `store/order/refund/created`
 
@@ -420,7 +417,7 @@ Updates to the following fields trigger a `store/channel/updated` event.
 }
 ```
 
-### The same response is returned for the following events:
+**The same response is returned for the following events:**
 
 * `store/order/transaction/created`
 * `store/order/transaction/updated`
@@ -457,7 +454,7 @@ Updates to the following fields trigger a `store/channel/updated` event.
 | store/product/inventory/updated| Product inventory is updated. |
 | store/product/inventory/order/updated| Fires if a product’s inventory is decremented or incremented, including when an order is placed. Webhook responds to inventory updates made using the control panel, CSV import, API or an app.|
 
-### The same response is returned for the following endpoints:
+**The same response is returned for the following endpoints:**
 
 * `store/product/deleted`
 * `store/product/created`
@@ -480,7 +477,7 @@ Updates to the following fields trigger a `store/channel/updated` event.
     "producer": "stores/{store_hash}"
 }
 ```
-### The same response is returned for the following endpoints:
+**The same response is returned for the following endpoints:**
 
 * `store/product/inventory/updated`
 * `store/product/inventory/order/updated`
@@ -549,7 +546,7 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 | store/shipment/updated | Shipment is updated. |
 | store/shipment/deleted | Shipment is deleted. |
 
-### The same response is returned for the following endpoints:
+**The same response is returned for the following endpoints:**
 
 * `store/shipment/created`
 * `store/shipment/updated`
@@ -586,7 +583,7 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 | store/sku/inventory/updated| SKU is updated.|
 | store/sku/inventory/order/updated| This will fire when the inventory is updated via API, the control panel, when an order is placed and when an order is refunded and the inventory is returned to stock. This hook will fire based on a store's Inventory settings. |
 
-### The same response is returned for the following endpoints:
+**The same response is returned for the following endpoints:**
 
 * `store/sku/created`
 * `store/sku/updated`
@@ -615,7 +612,7 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 }
 ```
 
-### The same response is returned for the following endpoints:
+**The same response is returned for the following endpoints:**
 * `store/sku/inventory/order/updated`
 * `store/sku/inventory/updated`
 
@@ -706,10 +703,6 @@ Changes to the following store settings will trigger a `store/information/update
 }
 ```
 
-<a id="webhook-events_cart"></a>
-
-
-
 ## Subscriber
 
 | Name | Description |
@@ -719,7 +712,7 @@ Changes to the following store settings will trigger a `store/information/update
 | store/subscriber/updated| Subscriber is updated. |
 | store/subscriber/deleted | Subscriber is deleted. |
 
-### The same response is returned for the following endpoints:
+**The same response is returned for the following endpoints:**
 * `store/subscriber/created`
 * `store/subscriber/updated`
 * `store/subscriber/deleted`

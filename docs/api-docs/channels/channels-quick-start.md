@@ -19,7 +19,7 @@ Apps curated as solutions within the **Create Channel** flow must create a basic
 
 ![Channel Manager](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels-channel-manager.png "Channel Manager")
 
-To [create a channel](/api-reference/cart-checkout/channels-listings-api/channels/createchannel), send a `POST` request to `/v3/channels`.
+To [create a channel](/api-reference/store-management/channels/channels/createchannel), send a `POST` request to `/v3/channels`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
@@ -44,11 +44,11 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/cart-checkout/channels-listings-api/channels/createchannel#requestrunner) -->
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channels/createchannel#requestrunner) -->
 
 <!-- theme: info -->
 > #### Note
-> - For a list of accepted `type` and `platform` values, see [Channels API Reference](/api-reference/cart-checkout/channels-listings-api#platform).
+> - For a list of accepted `type` and `platform` values, see [Channels API Reference](/api-reference/store-management/channels#platform).
 > - For instructions on finding your app's ID, see [Find and App's ID](/api-docs/apps/tutorials/id).
 ## Create a channel with navigation
 
@@ -56,7 +56,7 @@ We recommend that apps also create navigation sections to better integrate the a
 
 ![Channel Settings Overview Tab](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-channel-overview.png "Channel Settings Overview Tab")
 
-To create a channel with navigation, include a `config_meta` object in the [create a channel](/api-reference/cart-checkout/channels-listings-api/channels/createchannel) request.
+To create a channel with navigation, include a `config_meta` object in the [create a channel](/api-reference/store-management/channels/channels/createchannel) request.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
@@ -94,11 +94,11 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/cart-checkout/channels-listings-api/channels/createchannel#requestrunner) -->
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channels/createchannel#requestrunner) -->
 
 <!-- theme: info -->
 > #### Note
-> For additional information on [channel](/api-reference/cart-checkout/channels-listings-api/channels) `config_meta` properties, see the [create a channel request body schema](/api-reference/cart-checkout/channels-listings-api/channels/createchannel#request-body).
+> For additional information on [channel](/api-reference/store-management/channels/channels) `config_meta` properties, see the [create a channel request body schema](/api-reference/store-management/channels/channels/createchannel#request-body).
 
 ## Related resources
 
@@ -110,4 +110,4 @@ Accept: application/json
 
 ### Endpoints
 
-- [Channels API Reference](/api-reference/cart-checkout/channels-listings-api)
+- [Channels API Reference](/api-reference/store-management/channels)
