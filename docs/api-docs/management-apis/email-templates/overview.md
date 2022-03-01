@@ -28,14 +28,10 @@ Use [Handlebars expressions](/api-docs/store-management/email-templates/handleba
 
 [Learn how to edit, test, and preview transactional email templates in the control panel](https://support.bigcommerce.com/s/article/Customizing-Emails).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-> ### Note
+<!-- theme: info -->
+> #### Note
 > Saving an email template that exceeds 65,536 characters returns an "Email body too large" error message and truncates extra characters.
-</div>
-</div>
-</div>
+
 
 ## API
 
@@ -47,7 +43,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/email-templates/email-templates/getemailtemplates#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/email-templates/email-templates/getemailtemplates#requestrunner) -->
 
 
 **Response:**
@@ -90,7 +86,7 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/email-templates/email-templates/updateemailtemplate#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/email-templates/email-templates/updateemailtemplate#requestrunner) -->
 
 ## Overrides
 
@@ -117,16 +113,11 @@ Accept: application/json
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > Omit `?channel_id` to interact with global email templates.
 
-</div>
-</div>
-</div>
+
 
 ## Resources
 

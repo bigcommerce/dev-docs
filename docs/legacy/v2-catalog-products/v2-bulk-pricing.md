@@ -1,26 +1,12 @@
 # Bulk Pricing Rules
-
- 
-
 ##  Bulk Pricing 
 
 Bulk pricing rules applied to a product.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-
-For the most up-to-date version of this API, see [Product Bulk Pricing Rules](/api-reference/store-management/catalog/product-bulk-pricing-rules).
-
-</div>
-</div>
-</div>
-
+> For the most up-to-date version of this API, see [Product Bulk Pricing Rules](/api-reference/store-management/catalog/product-bulk-pricing-rules).
 ###  Bulk Pricing Object – Properties 
 
 | Name | Type | Description |
@@ -124,7 +110,7 @@ The following properties of the discount rule are required. The request won’t 
 *   type
 *   type_value
 
-### Notes 
+**Note**s 
 
 To specify that a `min` or `max` value is unbounded, these properties must be explicitly set with a value of `0`. If neither `min` nor `max` properties are included in the request, the existing value will remain unchanged.
 
@@ -177,7 +163,7 @@ The following properties of the discount rule are required. The request won’t 
 *   type
 *   type_value
 
-### Notes 
+**Note**s 
 
 To specify that a `min` or `max` value is unbounded, these properties must be explicitly set with a value of `0`. If neither `min` nor `max` properties are included in the request, the existing value will remain unchanged.
 

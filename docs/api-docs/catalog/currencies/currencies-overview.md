@@ -18,19 +18,12 @@ In BigCommerce, there are two types of currency that can be set up: a **display 
 
 ![Display Currency](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/multi-currency-display-currency.png "Display Currency")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-### Note
+> #### Note
 > * If the shopper’s card-issuing bank differs from the merchant's bank account country, additional cross-border fees may apply that can change the final settlement amount.
 > * You can choose whether a currency should be display-only or transactional when adding or editing a currency.
 
-</div>
-</div>
-</div>
+
 
 ## Preconfiguring the store
 
@@ -43,18 +36,11 @@ Before setting up multiple currencies on a store, ensure your store is using the
 
 Additionally, review the [Currency API reference](/api-reference/store-management/currency-api) to get aquainted with the endpoints and resources related to configuring multiple currencies.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
+> #### Note 
+> Make sure to not change the store’s default currency. This could cause the currency to malfunction.
 
-### Note 
->Make sure to not change the store’s default currency. This could cause the currency to malfunction.
 
-</div>
-</div>
-</div>
 
 ## Adding a currency
 
@@ -69,21 +55,14 @@ Transactional currencies can't be created via API, so they'll need to be added v
 
 For more in-depth instructions and helpful screenshots, see [Adding a Currency](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta#add) in the Help Center.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
-
-<!-- theme: error -->
-
-### Note
+<!-- theme: danger -->
+> #### Note
 > Do not change the default currency -- this may lead to unintended currency conversion issues.
 For instance, changing the default currency will not trigger price recalculation for the catalog.
 Additionally, changing the default currency will enable the newly assigned currency as transactional.
 
 
-</div>
-</div>
-</div>
+
 
 ## How currencies work
 

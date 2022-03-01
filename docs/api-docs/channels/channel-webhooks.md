@@ -30,24 +30,22 @@ Updates to the following fields trigger a `store/channel/updated` event:
 
 The following is an example of a callback BigCommerce sends to the `destination` URL when a channel event fires:
 
-
-```json
+```json title="Channel event destination callback" lineNumbers
 {
  "store_id":11111,
  "producer":"stores/abcde",
  "scope":"store/channel/created",
  "data":{
-         "type":"channel",
-         "id":173331
-        },
+    "type":"channel",
+    "id":173331
+  },
  "hash":"3f9ea420af83450d7ef9f78b08c8af25b2213637"
  }
  ```
 
- | Property | Description |
+| Property | Description |
 |-|-|
 |`type`| Will always be `"channel"` |
-
 |`id`  | The ID of the channel  |
 
 ## Creating a channel webhook

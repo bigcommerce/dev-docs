@@ -1,34 +1,17 @@
 # Products
-
  
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
-
-<!-- theme: error -->
-
+<!-- theme: danger -->
 > It is recommended to use the new [Catalog Products](/api-reference/catalog/catalog-api).
-
-</div>
-</div>
-</div>
 
 ## Products
 A product object represents a saleable item in the catalog.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
 
-</div>
-</div>
-</div>
+
 
 ### Product Object – Properties
 
@@ -164,7 +147,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | Page | int | /api/v2/products?page={number} |
 | Limit | int | /api/v2/products?limit={count} |
 
-### Notes
+**Note**s
 
 You can filter the retrieved fields by appending one of the following options to your request:
 
@@ -434,7 +417,7 @@ Gets a product.
 
 > `GET /stores/{store_hash}/v2/products/{id}`
 
-### Notes
+**Note**s
 
 You can filter the retrieved fields by appending one of the following options to your request:
 
@@ -706,7 +689,7 @@ Filter parameters can be added to the URL query string to select specific produc
 | category | string | /api/v2/products?category={value} |
 | product_tax_code | string | /api/v2/products?product_tax_code={value} |
 
-### Notes
+**Note**s
 
 If no filters are applied, the total number of products is returned.
 
@@ -756,7 +739,7 @@ The following properties of the product are required. The request won’t be ful
 *   availability
 *   weight
 
-### Notes
+**Note**s
 
 Create a request by sending a [product object](#product-object-properties) with the minimum required properties:
 
@@ -819,7 +802,7 @@ The following properties of the product are read-only. If one or more of these p
 
 There are no required properties when updating a product.
 
-### Notes
+**Note**s
 
 To update a product, set one or more product properties in the `PUT` request:
 
@@ -884,7 +867,7 @@ Deletes a product.
 
 > `DELETE /stores/{store_hash}/v2/products/{id}`
 
-### Notes
+**Note**s
 
 Successful deletion of a product returns a `204 No Content` response:
 
@@ -898,7 +881,7 @@ Deletes all products from the store.
 
 > `DELETE /stores/{store_hash}/v2/products`
 
-### Notes
+**Note**s
 
 Successful deletion of all products returns a `204 No Content` response:
 

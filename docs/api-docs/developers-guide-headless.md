@@ -22,7 +22,7 @@ Want to build a headless storefront powered by a BigCommerce back-end, but don't
 | [DEITY Falcon](https://www.bigcommerce.com/apps/deity-falcon-pwa-storefront/) | BigCommerce App | DEITY Falcon | PWA |
 | [Sitrecore Extend](https://www.bigcommerce.com/apps/sitecore-extend/) | BigCommerce App | Sitecore | CMS |
 
-*Note.* CMS = Content Management System; DXP = Digital eXperience Platform; PWA = Progressive Web App.
+*Note:* CMS = Content Management System; DXP = Digital eXperience Platform; PWA = Progressive Web App.
 
 [See more headless solutions and tools](/tools-resources).
 
@@ -179,26 +179,14 @@ Merchants can use BigCommerce's [PCI DSS AOC](https://support.mybigcommerce.com/
 | Checkout and Payments SDK | Responsible for the PCI DSS compliance requirements applicable stated in BigCommerce as a storefront or BigCommerce as a backend<sup>1</sup> | Responsible for the PCI DSS compliance requirements applicable stated in BigCommerce as a storefront or BigCommerce as a backend<sup>1</sup> |
 | Checkout and Payments API | Responsible for the PCI DSS compliance requirements applicable stated in BigCommerce as a storefront or BigCommerce as a backend<sup>1</sup> |  Responsible for the PCI DSS compliance requirements applicable stated in BigCommerce as a storefront or BigCommerce as a backend<sup>1</sup> |
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
 
-> ### Note
-> 1. The way your business consumes the SDKs (either BigCommerce as a storefront and backend or BigCommerce as a backend ) determines BigCommerce's  responsibilities; It is possible to use one more of BigCommerce's technology stack at the same time. Your PCI DSS compliance responsibilities will be a combination of each stack consumed.
 
-</div>
-</div>
-</div>
+> #### Note
+> The way your business consumes the SDKs (either BigCommerce as a storefront and backend or BigCommerce as a backend) determines BigCommerce's  responsibilities; It is possible to use one more of BigCommerce's technology stack at the same time. Your PCI DSS compliance responsibilities will be a combination of each stack consumed.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
-> If your application handles credit card data, it must be PCI Compliant. self-assessment questionnaires can be submitted to <a href="mailto:compliance@bigcommerce.com">compliance@bigcommerce.com</a>.
-
-</div>
-</div>
-</div>
+<!-- theme: warning -->
+> If your application handles credit card data, you will need to be PCI-compliant. Submit self-assessment questionnaires (**SAQs**) to [compliance@bigcommerce.com](mailto:compliance@bigcommerce.com).
 
 ## Sample API workflows
 
