@@ -133,7 +133,7 @@ This script extracts storefront data from the Stencil objects available in the f
 
 ### Add to cart
 
-The following snippet covers tracking the Add to Cart event, actively tracking each new product ID and quantity added.
+The following snippet handles the Add to Cart event by collecting data on each item added, including the product ID, the quantity added, and the price.
 
 ```handlebars title="Sample Pixel Code Start: Product Detail Page Add to Cart Event" lineNumbers
 <script>
@@ -180,7 +180,7 @@ The following snippet covers tracking the Add to Cart event, actively tracking e
 ```
 
 ### Add to wishlist
-The following snippet is for tracking when users add an item to their wishlist. Note that this sends individual products specified by the `added_product_id` and a commented section regarding category data. We do not track category data on the wishlist, but the snippet includes it for future-proofing.
+The following snippet handles the Add to Wishlist event. This snippet sends individual products specified by the `added_product_id` and a commented section regarding category data. Our built-in analytics do not currently track wishlists' category data, but the snippet includes it for future-proofing.
 
 ```handlebars title="Sample Pixel Code Start: Add to Wishlist" lineNumbers
 <script>
@@ -188,7 +188,7 @@ The following snippet is for tracking when users add an item to their wishlist. 
   if (BODL.wishlist) {
     var addedWishlistItem = BODL.wishlist.items.filter((i) => i.product_id === parseInt(BODL.getQueryParamValue('added_product_id'))).map((p) => ({
       content_id: p.product_id,
-      // Commenting out as category data doesn't exist on wishlist items
+      // Commenting out: category data doesn't currently exist on wishlist items
       // content_category: p.does_not_exist, 
       content_name: p.name,
       content_type: "product_group",
@@ -202,7 +202,7 @@ The following snippet is for tracking when users add an item to their wishlist. 
 </script>
 ```
 ### Order complete
-This snippet pulls down a series of objects from a completed order and splits them into nested arrays for physical items, digital items, and gift certificates.
+This snippet uses the unauthenticated Storefront API to request the item objects from a completed order and concatenates them into a single array of physical items, digital items, and gift certificates.
 
 ```handlebars title="Sample Pixel Code Start: Purchase Event" lineNumbers
 <script>
