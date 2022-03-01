@@ -12,8 +12,8 @@ All channels must integrate the following endpoints.
 
 | Endpoint                                                                                        | Description                                                                    |
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| [Channels](/api-reference/cart-checkout/channels-listings-api) | Create and manage product listings for multiple storefronts and sales channels |
-| [Listings](/api-reference/cart-checkout/channels-listings-api) | Create and manage product listings for multiple storefronts and sales channels |
+| [Channels](/api-reference/store-management/channels) | Create and manage product listings for multiple storefronts and sales channels |
+| [Listings](/api-reference/store-management/channels) | Create and manage product listings for multiple storefronts and sales channels |
 | [Orders](/api-reference/store-management/orders)               | Get and manage order data                                                      |
 | [Products](/api-reference/catalog/catalog-api)                 | Manage products, options, variants, and modifiers                              |
 

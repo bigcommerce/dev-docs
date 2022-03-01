@@ -13,7 +13,7 @@ This article documents how to use [Channels Toolkit](/api-docs/channels/guide/ch
 
 ## Creating a channel
 
-After receiving the [POST response](/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the single-click app OAuth flow, create a channel on the merchant's store. This allows merchants to import sales from the POS system and configure settings. To create a POS channel, set `type` to `pos` in the [create a channel](/api-reference/cart-checkout/channels-listings-api/channels/createchannel) request.
+After receiving the [POST response](/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the single-click app OAuth flow, create a channel on the merchant's store. This allows merchants to import sales from the POS system and configure settings. To create a POS channel, set `type` to `pos` in the [create a channel](/api-reference/store-management/channels/channels/createchannel) request.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
@@ -51,7 +51,7 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/cart-checkout/channels-listings-api/channels/createchannel#requestrunner) -->
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channels/createchannel#requestrunner) -->
 
 [View reference documentation for this request](/api-reference/store-management/channels/channels/createchannel).
 
@@ -63,7 +63,7 @@ Accept: application/json
 
 ## Specifying the platform
 
-Specify the POS system by assigning an [accepted value for `platform`](#accepted-values) in the [create channel request](/api-reference/cart-checkout/channels-listings-api/channels/createchannel).
+Specify the POS system by assigning an [accepted value for `platform`](#accepted-values) in the [create channel request](/api-reference/store-management/channels/channels/createchannel).
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
@@ -80,7 +80,7 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/cart-checkout/channels-listings-api/channels/createchannel#requestrunner) -->
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channels/createchannel#requestrunner) -->
 
 ### Accepted values
 
@@ -148,11 +148,11 @@ Use the `query_path` value passed to the app's control panel iFrame to render th
 
 ### Endpoints
 
-- [Channels API](/api-reference/cart-checkout/channels-listings-api)
+- [Channels API](/api-reference/store-management/channels)
 - [Settings API](/api-reference/store-management/settings)
 
 - [Building Apps](/api-docs/apps/guide/intro)
 - [Building Channels](/api-docs/channels/guide/overview)
-- [Channels API Reference](/api-reference/cart-checkout/channels-listings-api)
+- [Channels API Reference](/api-reference/store-management/channels)
 - [Settings API Reference](/api-reference/store-management/settings)
 - [Find an App's ID](/api-docs/apps/tutorials/id)
