@@ -411,6 +411,9 @@ Accept: application/json
   ]
 }
 ```
+
+If no shipping quotes are available, the shipping carrier will send a response with the following format for the shipping quote:
+
 ```json title="Example response: No shipping rates" lineNumbers
 {
   "quote_id": "example_quote",
