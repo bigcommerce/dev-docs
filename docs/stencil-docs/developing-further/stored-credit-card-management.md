@@ -10,7 +10,7 @@ Cornerstone release [`2.6.0`](/changelog#posts/cornerstone-2-6-0-release) added 
 
 In `config.json`, replace `account_payment_methods` in the `features` array with `account_payment_methods_v2` and add `csrf_protection`:
 
-```json
+```json title="config.json" lineNumbers
 {
   "name": "Cornerstone",
   "version": "4.3.1",
@@ -28,7 +28,7 @@ In `config.json`, replace `account_payment_methods` in the `features` array with
 
 Then [add the `supported_payment_methods` array](https://github.com/leeBigCommerce/cornerstone/blob/54f5681a6a15cd8477c51c6db9eb54ea3eb40972/config.json#L325) and append `card` and `paypal` to it:
 
-```json
+```json title="config.json" lineNumbers
     ...
     "supported_card_type_icons": [
       ...
@@ -70,7 +70,7 @@ To style the newly added UI elements, update `_paymentMethods.scss` with the cha
 
 Included in the changes to `payment-methods-list.html` is a PayPal logo that's displayed on the payment method cards:
 
-```
+```handlebars
 <img class="methodHeader-icon" src="{{cdn 'img/payment-methods/paypal.svg'}}" alt="{{lang 'account.payment_methods.paypal'}}" title="{{lang 'account.payment_methods.paypal'}}">
 ```
 

@@ -20,66 +20,42 @@ Here is the signature of the cart.getContent function used further down:
 
 This first complete code snippet calls cart.itemAdd, catches any errors, and displays the cart contents in a modal dialog:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```js
+```js title="cart.itemAdd" lineNumbers
  // Add item to cart
-        utils.api.cart.itemAdd(new FormData(form), (err, response) => {
-            const errorMessage = err || response.data.error;
+utils.api.cart.itemAdd(new FormData(form), (err, response) => {
+    const errorMessage = err || response.data.error;
 
-            $addToCartBtn
-                .val(originalBtnVal)
-                .prop('disabled', false);
+    $addToCartBtn
+        .val(originalBtnVal)
+        .prop('disabled', false);
 
-            this.$overlay.hide();
+    this.$overlay.hide();
 
-            // Guard statement
-            if (errorMessage) {
-                // Strip the HTML from the error message
-                const tmp = document.createElement('DIV');
-                tmp.innerHTML = errorMessage;
+    // Guard statement
+    if (errorMessage) {
+        // Strip the HTML from the error message
+        const tmp = document.createElement('DIV');
+        tmp.innerHTML = errorMessage;
 
-                return alert(tmp.textContent || tmp.innerText);
-            }
+        return alert(tmp.textContent || tmp.innerText);
+    }
 
-            // Open preview modal and update content
-            if (this.previewModal) {
-                this.previewModal.open();
+    // Open preview modal and update content
+    if (this.previewModal) {
+        this.previewModal.open();
 
-                this.updateCartContent(this.previewModal, response.data.cart_item.hash);
-            } else {
-                this.$overlay.show();
-                // if no modal, redirect to the cart page
-                this.redirectTo(response.data.cart_item.cart_url || this.context.urls.cart);
-            }
-        });
+        this.updateCartContent(this.previewModal, response.data.cart_item.hash);
+    } else {
+        this.$overlay.show();
+        // if no modal, redirect to the cart page
+        this.redirectTo(response.data.cart_item.cart_url || this.context.urls.cart);
+    }
+});
 ```
 
 This final code snippet calls `cart.getContent` to fetch the cart contents, then display it in a preview format, which is specified by a template option with a value of `cart/preview`:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```js
+```js title="cart.getContent" lineNumbers
  /**
      * Get cart contents
      *

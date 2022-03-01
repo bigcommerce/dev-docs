@@ -20,17 +20,11 @@ A customer is anyone who makes a purchase on a store and creates an account. Big
 
 Customer groups allow you to organize your customers, give them discounts, and restrict access to specific products or categories. For more information, see [Customer Groups](https://support.bigcommerce.com/s/article/Customer-Groups).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
-    
-<!-- theme:  -->
-### Customer groups by plan
+<!-- theme: info -->
+> #### Customer groups by plan
 > Customer groups are only available on specific plans. See [BigCommerce Pricing](https://support.bigcommerce.com/s/article/Pricing) to learn more.
 
-</div>
-</div>
-</div>
+
 
 ## What is a subscriber?
 
@@ -78,19 +72,9 @@ A customer makes a purchase on a store and creates an account. The customers obj
 [Customer Attributes](/api-reference/store-management/customers-v3/customer-attributes/) and [Customer Attribute Values](/api-reference/store-management/customers-v3/customer-attribute-values/) let you store additional information against a customer. Customer Attributes define the name of a name-value pair and the type of information stored (for example, `"name": "Shoe size"`, `"type": "number"`). The Customer Attribute Values endpoint lets you define the values for the attributes.
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-    
-<!-- theme:  -->
-
-### Name-value pairs
-
+<!-- theme: info -->
+> #### Name-value pairs
 > Each customer can have up to 50 name-value pairs stored.
-
-</div>
-</div>
-</div>
 
 Customer attributes are created separately from the customer. After the name and type are created, then the attributes can be added to the customer using the name-value pair.
 
@@ -127,8 +111,8 @@ Single customer on V3:
 
 Single customer on V2:
 
-* `/customers/{customer_id}`
-* `/customers/{customer_id}/addresses`
+* `/customers/{{customer_id}}`
+* `/customers/{{customer_id}}/addresses`
 
 ### Queries
 
@@ -142,47 +126,37 @@ Get customer address by name and company on V3:
 
 Get customer address by name and company on V2:
 
-`/customers/{customer_id}/addresses/{customer_address_id}`
+`/customers/{{customer_id}}/addresses/{{customer_address_id}}`
 
 ### Requests
 
 V3 Customers `POST` and `PUT` requests require an array object.
 
-<!--
-title: "Update a Customer V3"
-subtitle: "/customer"
-lineNumbers: true
--->
+```http title="Example request: Update a customer V3" lineNumbers
+PUT https://api.bigcommerce.com/stores/{{store_hash}}/v3/customers
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
 
-**Example Update a Customer (V3)**  
-
-`/PUT https://api.bigcommerce.com/stores/{store_hash}/v3/customers`
-
-```json
 [
   {
     "id": 12,
-    "email": "janedoe@email.com",
+    "email": "janedoe@example.com",
     "first_name": "Jane",
     "last_name": "Doe"
   }
 ]
 ```
+&nbsp;
+```http title="Example request: Update a Customer V2" lineNumbers
+PUT https://api.bigcommerce.com/stores/{{store_hash}}/v2/customer_groups/{{customer_group_id}}
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
 
-<!--
-title: "Update a Customer on V2"
-subtitle: "/customers/{customer_id}"
-lineNumbers: true
--->
-
-**Example Update a Customer (V2)**  
-
-`/PUT https://api.bigcommerce.com/stores/{store_hash}/v2/customer_groups/{customer_group_id}`
-
-```json
 {
   "first_name": "Jane",
-  "email": "jane@email.com",
+  "email": "jane@example.com",
   "phone": "1234567890"
 }
 ```

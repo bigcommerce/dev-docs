@@ -38,17 +38,11 @@ Make sure you’ve applied and been approved for our [Technology Partner Program
 -   When the app is installed, a styled HTML page must be returned in the iframe of the BigCommerce control panel - this content cannot be blank and must follow our [user-interface constraints](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_user-interface-constraints).
 -   During the OAuth handshake, be sure to store the user’s token against their store hash - rather than their email address - to avoid any problems with ownership changes or multi-user support.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-### Meeting the requirements
+<!-- theme: info -->
+> #### Meeting the requirements
 > If your app cannot meet these requirements, please reach out to <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a> in order to discuss the potential for a Connector app listing. In the majority of cases, a Single-Click app will be the more appropriate solution and put your integration on par with other Marketplace partners, but exceptions may be made under certain circumstances
 
-</div>
-</div>
-</div>
+
 
 ## Recommendations
 
@@ -97,18 +91,11 @@ Select one of our pre-formatted pricing options to call out your app’s startin
 - If you need to specify more detail on your pricing options, save it for your app description.  
 Choose the most appropriate category for your app.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-### Connector Apps
+> #### Connector Apps
 > If your solution is a connector to a specific third-party service, or you’re offering only a particular feature, make sure to include both the name of the third party service or feature and your company name​ (Ex: “Marketplace by BigCommerce,” “Search by BigCommerce”). The company name needs to follow the feature.
 
-</div>
-</div>
-</div>
+
 
 ### App Logo
 Your primary app logo should be 350 x 130px (or larger at this ratio) with a white background and dark branding in the foreground. The logo should only include branding, no taglines necessary.
@@ -119,18 +106,11 @@ The app icon will be included on the main app detail page and the sidebar in the
 ### Price
 Select one of our pre-formatted pricing options to call out your app’s starting price. If you offer a forever-free plan, choose the “Free” option. If your app does not fit one of our options, specify your details in a few words in the “Other” selection.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-### Pricing Details
+> #### Pricing Details
 > If you need to specify more detail on your pricing options, save it for your app description.
 
-</div>
-</div>
-</div>
+
 
 ### App Summary
 A short tagline description of your app that will be used on your app card in category and search results within the Marketplace. 128 characters max.
@@ -181,18 +161,11 @@ Product demos and tutorials
 ### Case Studies
 These can either be “Thought Leadership” case studies and/or traditional case studies that demonstrate how BigCommerce merchants have benefited from using your solution with their business. Use the + ​icon to add a case study, and the x ​icon to remove. Four case studies maximum.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Case Studies
+> #### Case Studies
 > Case studies that include competitor platforms are not allowed and will be removed. Partners will be required to repurpose general case studies, remove competitor platform mentions, and republish the asset accordingly.
 
-</div>
-</div>
-</div>
+
 
 ### Features
 Use these fields to enumerate the major features your platform or solution has to offer. Include a brief title for each feature, and a description of the feature to accompany it. The feature title will be search indexed in the Marketplace, so be specific with your feature names and include major functions potential users will search for. Use the + icon to add a feature, and the x icon to remove. Utilize the rich text editing of these fields to bold, underline, or italicize copy as needed.
@@ -207,18 +180,11 @@ Links to your privacy policy and terms of service. This requirement is in place 
 ### International Optimization
 Please add the countries for which your solution is optimized and those which your solution does not currently support.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### International Optimization
+> #### International Optimization
 >This feature will not currently be utilized in the Marketplace, but will be a part of planned internationalization updates.
 
-</div>
-</div>
-</div>
+
 
 ### Help Guides
 Links to your User and Installation Guides as a reference for existing users and prospects.

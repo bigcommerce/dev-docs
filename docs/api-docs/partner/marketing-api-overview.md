@@ -10,18 +10,11 @@ When to use:
 * Issue a coupon code for customers to obtain discounted pricing on a product or a category of products.
 * Generate a gift certificate deliverable by email.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Intent to deprecate 
+> #### Intent to deprecate 
 > As BigCommerce moves operations to the V3 API, the endpoints outlined in this article will be deprecated. For a complete list of deprecated endpoints, see [Deprecations and sunsets](/api-reference#deprecations-and-sunsets).
 
-</div>
-</div>
-</div>
+
 
 ## OAuth scopes
 
@@ -53,7 +46,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/marketing/banners/createabanner#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/marketing/banners/createabanner#requestrunner) -->
 
 ## Coupons
 You can use coupons to issue category or product discounts for customers who apply a given code.
@@ -81,7 +74,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/marketing/coupons/postcoupons#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/marketing/coupons/postcoupons#requestrunner) -->
 
 ## Gift certificates
 You can use gift certificates to offer customers prepaid vouchers as an alternative to cash for purchases within the store. 
@@ -107,20 +100,13 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/marketing/gift-certificates/createagiftcertificate#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/marketing/gift-certificates/createagiftcertificate#requestrunner) -->
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Note
+<!-- theme: info -->
+> #### Note
 > A gift certificate created using the Marketing API will not trigger an email notification to the specified recipient.
 
-</div>
-</div>
-</div>
+
 
 ## Resources
 

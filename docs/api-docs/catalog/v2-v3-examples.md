@@ -8,17 +8,12 @@ This article illustrates the difference between V2 and V3 Catalog APIs by compar
 
 In this section, we will look at using V2 and V3 Catalog APIs to work with simple and complex products.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * **Simple products** are products that do not have variants, options, or modifiers.
 > * **Complex products** are products that have variants, options, or modifiers.
 
-</div>
-</div>
-</div>
+
 
 ### Get a product
 
@@ -666,16 +661,11 @@ In V3, it is best practice to either assign values directly to a variant or use 
 
 In the following V2 example, we will add a complex rule to increase the product's price by $5 if the checkbox is selected.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > In V2, you cannot add a complex rule without an option.
 
-</div>
-</div>
-</div>
+
 
 **V2 example**
 
@@ -876,17 +866,12 @@ The product used in this example is a t-shirt with a global option set of **Size
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * `option_values` IDs for **Color** are 180, 181, and 182.
 > * `option_values` IDs for **Size** are 192, 193, and 194.
 
-</div>
-</div>
-</div>
+
 
 #### Size and Color
 ![Size and Color](http://s3.amazonaws.com/user-content.stoplight.io/6012/1545080028604 "Size and Color")

@@ -1,19 +1,11 @@
 # Custom Fonts and Icons
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Custom fonts unavailable on Page Builder
->
+> #### Custom fonts unavailable on Page Builder
 > * BigCommerce widgets come with a list of pre-defined fonts and do not support custom fonts at this time. 
 > * Third-party widgets can support any font available in the theme. To learn more about third-party widgets, see [Third-Party Widgets](/stencil-docs/page-builder/third-party-widgets).
 
-</div>
-</div>
-</div>
+
 
 <a id="markdown-applying-custom-fonts" name="applying-custom-fonts"></a>
 
@@ -37,18 +29,11 @@ You can update the fonts in `config.json`; make sure to follow the `Google_FontN
 "body-font": "Google_Lato_700"
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-### Check with your theme developer
+> #### Check with your theme developer
 > If you are using a different theme, please check with the theme developer on using Google Fonts.
 
-</div>
-</div>
-</div>
+
 
 ### Custom fonts
 
@@ -96,19 +81,12 @@ display: block;
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme: {{callout_type}} -->
-
-### CDN Handlebars
+<!-- theme: info -->
+> #### CDN Handlebars
 > The CDN custom Handlebars helper assumes WebDAV's default `/content/` folder, so there is no need to specify that folder.
 > Fonts staged via WebDAV, as in the above example, will not show up in the local version of your theme.
 
-</div>
-</div>
-</div>
+
 
 Files that do not contain font-overriding CSS code will use the CSS settings in the `config.json` file.
 

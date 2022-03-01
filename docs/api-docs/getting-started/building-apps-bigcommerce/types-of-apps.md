@@ -22,18 +22,11 @@ Use Cases:
 - Apps that do not provide Web services for OAuth exchange. (For example: offline sync apps.)
 - Apps that do not provide Web or cloud-hosted components for a dashboard.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-    
-<!-- theme:  -->
-
-### Connector apps
+<!-- theme: info -->
+> #### Connector apps
 > Connector apps require the store owner to create API Credentials in the Control Panel and then pass those values into the app manually. The single-click installation process is preferred since it does not require this step.
 
-</div>
-</div>
-</div>
+
 
 <br>
 

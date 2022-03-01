@@ -16,23 +16,14 @@ Process payments using a sequence of requests to two API hosts:
 
 ## PCI compliance
 
-BigCommerce is only responsible for the security of credit cards to the extent that secure handling is maintained while the payment is en route from payment request to payment processors. As a third-party developer, you are responsible for developing the storefronts or recurring billing apps in a PCI compliant manner. You will also need to maintain a PCI compliance certification for third-party service providers certified by an external Qualified Security Assessor (QSA).
+BigCommerce is only responsible for the security of credit cards to the extent that secure handling is maintained while the payment is en route from payment request to payment processors. As a third-party developer, you are responsible for developing the storefronts or recurring billing apps in a PCI-compliant manner. You will also need to maintain a PCI compliance certification for third-party service providers certified by an external Qualified Security Assessor (QSA).
 
 Merchants or shoppers' personal identifiable information (PII) collected by recurring billing apps that consume the BigCommerce Payments API must have its own Privacy Policy sufficient to the requirements of the European Union General Data Protection Requirements (GDPR). The GDPR must be available and displayed to the general public.
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-### PCI compliance
-> If your application handles credit card data, you will need to be PCI compliant. SAQs (self-assessment questionnaires) can be submitted to
-<a href="mailto:compliance@bigcommerce.com">compliance@bigcommerce.com</a>.
-
-</div>
-</div>
-</div>
+> #### PCI compliance
+> If your application handles credit card data, you will need to be PCI-compliant. Submit self-assessment questionnaires (**SAQs**) to [compliance@bigcommerce.com](mailto:compliance@bigcommerce.com).
 
 ## Processing a payment
 
@@ -40,17 +31,11 @@ You can process payments using cards stored with the BigCommerce Stored Credit C
 
 Attempting to process a payment through the API using the full credit card information may fail if the provider requires 3DS authentication. The card must be saved through a shopper-initiated transaction before it can be charged through the Payments API. For a list of payment gateways that support 3DS, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-### Hosted providers
+<!-- theme: info -->
+> #### Hosted providers
 > The API flow does not currently support hosted/offsite providers, such as PayPal, and wallet type payments, such as Amazon Pay.
 
-</div>
-</div>
-</div>
+
 
 ## Stored cards
 There are three steps to using a stored card to make a payment.
@@ -183,8 +168,9 @@ lineNumbers: true
 **Get payment methods = process payment**
 * type = type
 * token = token
-* last_four = verification_value
 * id = payment_method_id
+
+When paying with a stored card, you can send the card's CVV in the `verification_value` field. When included, it will be sent to the payment provider wherever possible and used for verification. If you do not have the CVV, then exclude this field.
 
 The headers to process a payment are different than the headers you normally send with a BigCommerce API. The authorization token is the ID returned in Get Payment Access Token (step two).
 
@@ -193,18 +179,11 @@ The headers to process a payment are different than the headers you normally sen
 * Authorization: PAT {your-access-token}
 * Content-Type: application/json
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### PAT
+> #### PAT
 > There is a space between PAT {your-access-token}.
 
-</div>
-</div>
-</div>
+
 
 <!--
 title: "Sample Request"
@@ -226,7 +205,7 @@ curl -X POST \
     "instrument": {
       "type": "stored_card",
       "token": "050a1e5c982e5905288ec5ec33f292772762033a0704f46fccb16bf1940b51ef", // from Get Payment Methods
-      "verification_value": "4242"
+      "verification_value": "900"
     },
     "payment_method_id": "stripe.card"
   }
@@ -320,18 +299,11 @@ Send the request with the following fields from the credit card:
 
 If any of these fields are incorrect, you may be unable to process the payment.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### PAT
+> #### PAT
 > There is a space between PAT {your-access-token}.
 
-</div>
-</div>
-</div>
+
 
 <!--
 title: "Sample Request"

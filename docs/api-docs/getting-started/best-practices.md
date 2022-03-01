@@ -1,7 +1,5 @@
 # API Best Practices
 
-
-
 ## Ensure your integration is up-to-date
 
 BigCommerce frequently enhances its core product and is actively developing v3 API endpoints. By using the newest API version, you will ensure that your app has access to the latest resources. You will also be better positioned to provide a user experience consistent with what merchants will see in their BigCommerce store’s control panel. To stay up to date, bookmark our [changelog](/changelog).
@@ -64,17 +62,9 @@ Apps that authenticate with OAuth are rate-limited based on a quota that is refr
 | All other sandboxes (Dev/Partner/Employee) | 20k per hour (150 / 30sec)| 
 | Plus & Standard plans| 20k per hour (150 / 30sec) | 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-### Note
-The **Unlimited** rate limit on BigCommerce Enterprise plans means that stores on this plan will not be artificially rate-limited on the basis of API-requests-per-unit-of-time. However, there are physical limits to the infrastructure which may limit the maximum throughput of requests on any given API endpoint. BigCommerce also reserves the right to limit unreasonable or abusive API activity in the interest of platform stability, per our [Terms of Service](https://www.bigcommerce.com/terms/api-terms/).
-
-</div>
-</div>
-</div>
-
+<!-- theme: info -->
+> #### Note
+>The **Unlimited** rate limit on BigCommerce Enterprise plans means that stores on this plan will not be artificially rate-limited on the basis of API-requests-per-unit-of-time. However, there are physical limits to the infrastructure which may limit the maximum throughput of requests on any given API endpoint. BigCommerce also reserves the right to limit unreasonable or abusive API activity in the interest of platform stability, per our [Terms of Service](https://www.bigcommerce.com/terms/api-terms/).
 
 Each request to the API consumes one available request from the quota. When an app hits the quota limit, subsequent requests are rejected until the quota is refreshed.
 
@@ -140,18 +130,9 @@ You might wish to increase the amount of work your application can do in a given
 * Slowing your rate of API requests when `X-Rate-Limit-Requests-Left` is nearing zero.
 * Determining an acceptable average rate of requests, by dividing `X-Rate-Limit-Requests-Quota` by `X-Rate-Limit-Time-Window-Seconds`, and then self-throttling to that rate.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Note
-> Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to [`/pricelists/{price_list_id}/records`](/api-reference/store-management/price-lists/price-lists-records/setpricelistrecordcollection) will result in a `429` error response -- these limitations are documented at the operation level in the API reference.
-
-</div>
-</div>
-</div>
+> #### Note
+> Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to [`/pricelists/{price_list_id}/records`](/api-reference/store-management/price-lists/price-lists-records/setpricelistrecordcollection) will result in a `429` error response. These limitations are documented at the operation level in the API reference.
 
 ### Making requests with the Storefront Cart API 
 Client-side applications should avoid polling the [Storefront Cart API](/api-reference/cart-checkout/storefront-cart-api) on interval. Hundreds of thousands of browsers could potentially poll the Storefront Cart API at any given time, causing a significant load increase to BigCommerce's servers. We may take action against a store using this practice to prevent interruptions in service to other stores.

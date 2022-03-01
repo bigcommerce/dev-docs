@@ -81,20 +81,8 @@ $("button#addToCart").click(function() {
 </script>
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
 > Due to CORS (Cross Origin Resource Sharing), using JavaScript to make multiple carting requests only works in the BigCommerce storefont and only on the storefront with the domain the request is being made to.
 
 Alternatively, the [Storefront Cart APIs](/api-docs/cart-and-checkout/working-sf-apis#working-sf-apis_storefront-cart) `/api/storefront/cart` endpoint accepts an array of `lineItems` -- depending on the complexities and specifics of the use case, using Storefront Cart APIs may be a better solution than adding to cart URLs.
 
-</div>
-</div>
-</div>
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNjk3NjY0NTJdfQ==
--->

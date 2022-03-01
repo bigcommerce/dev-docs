@@ -75,17 +75,12 @@ The following example demonstrates how to localize each variation description by
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * Translations can only contain `i18n.description` at the moment.
 > * You must include the original `description` value to render the theme on the BigCommerce theme marketplace.
 > * Language code must contain a default value.
-</div>
-</div>
-</div>
+
 
 ## Supported language code schemes
 
