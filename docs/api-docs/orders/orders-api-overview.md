@@ -301,7 +301,7 @@ Accept: application/json
 |`comments`|Optional comments|
 |`order_address_id`| Obtain with [Get Order Shipping Address](/api-reference/store-management/orders/order-shipping-addresses/getallshippingaddresses)|
 |`shipping_provider`| Optional; used to create tracking link; see [Create Order Shipment](/api-reference/store-management/orders/order-shipments/createordershipments) for accepted values|
-|`items.order_product_id`|Obtainable via [Get Order Products](/api-reference/store-management/orders/order-products/getallorderproducts)|
+|`items.order_product_id`|Obtain with [Get Order Products](/api-reference/store-management/orders/order-products/getallorderproducts). For non-variant products, use the `id`.|
 
 <!-- theme: info -->
 > #### Note
@@ -358,7 +358,7 @@ Accept: application/json
 |-|-|
 |`order_address_id`|Obtain with [Get Order Shipping Address](/api-reference/store-management/orders/order-shipping-addresses/getallshippingaddresses)|
 |`shipping_provider`| Optional; used to create tracking link; see [Create Order Shipment](/api-reference/store-management/orders/order-shipments/createordershipments) for accepted values|
-|`items.order_product_id`|Obtainable via [Get Order Products](/api-reference/store-management/orders/order-products/getallorderproducts)|
+|`items.order_product_id`|Obtain with [Get Order Products](/api-reference/store-management/orders/order-products/getallorderproducts). For non-variant products, use the `id`.|
 
 ## Getting shipping quotes
 
