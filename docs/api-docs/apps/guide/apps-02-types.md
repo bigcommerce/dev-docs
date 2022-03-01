@@ -32,19 +32,12 @@ There are three visibility options for apps: **Draft**, **Unlisted**, and **Publ
 | Unlisted | Apps submitted and approved but not listed on the [App Marketplace](https://www.bigcommerce.com/apps/) | <li>Installing on stores not owned by same email address as the [Developer Portal](https://devtools.bigcommerce.com/auth/bigcommerce) account email</li><li>Beta testing before publishing to the [App Marketplace](https://www.bigcommerce.com/apps/) |
 | Public | Apps submitted, approved, and listed on the [App Marketplace](https://www.bigcommerce.com/apps/) | <li>Making apps visible and installable on all stores</li><li>Making apps sellable on the [App Marketplace](https://www.bigcommerce.com/apps/) |
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-### Note
+> #### Note
 > * Only approved [partners](https://www.bigcommerce.com/partners/) can create unlisted apps.
 > * To have an app unlisted, contact <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a>.
 
-</div>
-</div>
-</div>
+
 
 ## Next steps
 [Begin app development](/api-docs/apps/guide/development).

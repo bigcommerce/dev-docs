@@ -62,16 +62,11 @@ To modify the styling of a B3 module, follow these steps:
 1. Insert `window.b3themeConfig.useStyles = {}` into your theme's `assets/js/global.js` file. 
 2. Within `window.b3themeConfig.useStyles = {}`, create a property that uses the B3 element name as the key and one or more comma-separated CSS declarations as the value.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > Since the CSS is written in a JavaScript object, properties with two names, like `background-color`, must be written with camel case syntax: `backgroundColor: "lightblue"`
 
-</div>
-</div>
-</div>
+
 
 When done, the object will resemble the following:
 

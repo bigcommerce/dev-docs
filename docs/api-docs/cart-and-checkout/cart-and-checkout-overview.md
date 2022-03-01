@@ -1,16 +1,9 @@
 # Cart and Checkout
-
-
-
 ## Storefront Cart and Checkout
-
 
 The Storefront APIs are for managing the contents of a shopper's cart and checkout using JavaScript in the context of a storefront session.
 
-
 ### When to use the Storefront APIs
-
-
 * Analytics and Tracking
 * Retrieving cart data client-side
 * Quick Order Form
@@ -25,22 +18,9 @@ Most modern browsers, except Internet Explorer, support Fetch API. We recommend 
 To learn more about using the Fetch API with the Storefront see our [Working with the Storefront Cart and Checkout APIs](/api-docs/cart-and-checkout/working-sf-apis) tutorial.
 
 
-You can run fetch requests from the browser console to test, or you can  use the [Scripts API](/api-docs/scripts/scripts-overview) to inject JavaScript into your theme's footer.
+You can run fetch requests from the browser console to test, or you can use the [Scripts API](/api-docs/scripts/scripts-overview) to inject JavaScript into your theme's footer.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Log Cart Details to the Console</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Log Cart Details to the Console"
-subtitle: ""
-lineNumbers: true
--->
-
-```html
-<script>
+```js title="Log cart details to the console" lineNumbers
 console.log('Log Cart');
 fetch('/api/storefront/cart', {
   credentials: 'include'
@@ -49,70 +29,41 @@ fetch('/api/storefront/cart', {
 }).then(function(myJson) {
   console.log(myJson);
 });
-</script>
 ```
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Log Checkout Details to the Console</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Log Checkout Details to the Console"
-subtitle: ""
-lineNumbers: true
--->
-
-```html
-<script>
+&nbsp;
+```js title="Log checkout details to the console" lineNumbers
 console.log('Log Checkout');
 fetch('/api/storefront/cart?includes=consignments.availableShippingOptions', {
-    credentials: 'include'
+  credentials: 'include'
 }).then(function (response) {
-    return response.json();
+  return response.json();
 }).then(function (cartJson) {
-    console.log(cartJson);
-    return cartJson[0].id;
+  console.log(cartJson);
+  return cartJson[0].id;
 }).catch(function (error) {
-    console.log(error);
+  console.log(error);
 }).then(function (cartId) {
-    fetch('/api/storefront/checkouts/' + cartId, {
-        credentials: 'include'
-    }).then(function (response) {
-        return response.json();
-    }).then(function (checkoutJson) {
-        console.log(checkoutJson);
-    }).catch(function (error) {
-        console.log(error);
-    })
-});
-</script>
-```
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Log Order Details to the Console</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Log Order Details to the Console"
-subtitle: ""
-lineNumbers: true
--->
-
-```html
-<script>
-console.log('Log Order');
-fetch('/api/storefront/order/{{checkout.order.id}}', {
+  return fetch('/api/storefront/checkouts/' + cartId, {
     credentials: 'include'
+  })
 }).then(function (response) {
-    return response.json();
-}).then(function (myJson) {
-    console.log(myJson);
+  return response.json();
+}).then(function (checkoutJson) {
+  console.log(checkoutJson);
+}).catch(function (error) {
+  console.log(error);
 });
-</script>
+```
+&nbsp;
+```js title="Log order details to the console" lineNumbers
+console.log('Log Order');
+fetch('/api/storefront/order/' + checkout.order.id, {
+  credentials: 'include'
+}).then(function (response) {
+  return response.json();
+}).then(function (myJson) {
+  console.log(myJson);
+});
 ```
 
 ## Server-to-Server Cart and Checkout
@@ -133,12 +84,10 @@ The Server-to-Server APIs are for managing the contents of a shopping cart and c
 * Native mobile apps
 * Pre-filling customer information
 
-<a href="#cart-checkout_persistent-cart" id="cart-checkout_persistent-cart"></a>
-
 ## Persistent Cart
 
 
-[Persistent Cart](https://support.bigcommerce.com/s/article/Persistent-Cart) allows for a logged-in shopper to access the same cart across devices. Persistent cart is available on [Plus, Pro, and Enterprise plans](https://www.bigcommerce.com/essentials/pricing/).
+[Persistent Cart](https://support.bigcommerce.com/s/article/Persistent-Cart) lets a logged-in shopper access the same cart across devices. Persistent Cart is available on [Plus, Pro, and Enterprise plans](https://www.bigcommerce.com/essentials/pricing/).
 
 Persistent Cart works with our Storefront Cart and Server-to-Server Cart.
 
@@ -158,19 +107,8 @@ Options and modifiers refer to a list of choices on a product. Options used to b
 
 To add a product to the cart with a single modifier (text field), POST to the [Cart API](/api-reference/cart-checkout/server-server-cart-api/cart/createacart) without the `variant_id`.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Single Modifier</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
-<!--
-title: "Single Modifier"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Single modifier" lineNumbers
 {
   "line_items": [
     {
@@ -189,19 +127,7 @@ lineNumbers: true
 
 To add a product to the cart with one option (radio button) associated with it, use just the `variant_id` in the request.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Single Option</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Single Option"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Single option" lineNumbers
 {
   "line_items": [
     {
@@ -215,19 +141,7 @@ lineNumbers: true
 
 To add a product with both an option and a modifier associated with it, use the `option_id` and `option_value`. This example uses a radio button (option) and a text field (modifier).
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Modifier and Option</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Modifier and Option"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Modifier and option" lineNumbers
 {
   "line_items": [
     {
@@ -260,19 +174,7 @@ Use the [Get Products](/api-reference/catalog/catalog-api/products/getproducts) 
 
 To create a cart with a product modifier:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Create cart with modifier</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Create cart with modifier"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Create cart with modifier" lineNumbers
 {
   "line_items": [
     {
@@ -302,19 +204,7 @@ A better option is to create a cart with the `customer_id` as part of the reques
 
 To create a cart with a `customer_id`:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Create cart with customer ID</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Create cart with customer ID"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Create cart with customer ID" lineNumbers
 {
   "customer_id": 12,
   "line_items": [
@@ -336,19 +226,7 @@ lineNumbers: true
 To get the variant ID use the [Get Products](/api-reference/catalog/catalog-api/products/getproducts) endpoint or the [Get Variants](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid) endpoint.
 To create a cart with a variant ID:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Create cart with variant ID</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Create cart with variant ID"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Create cart with variant ID" lineNumbers
 {
   "line_items": [
     {
@@ -366,20 +244,7 @@ The `option_id` is incorrect.
 ***Resolution:***
 To get the correct `option_id`, make a request to [Get Products](/api-reference/catalog/catalog-api/products) or [Get Options](/api-reference/catalog/catalog-api/product-options/getoptions).
 
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Create cart option ID</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Create cart option ID"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Create cart option ID" lineNumbers
 {
   "line_item": {
     "quantity": 1,
@@ -407,19 +272,7 @@ lineNumbers: true
 **Resolution:**
 To add a product to the cart with a single modifier (text field), POST to the [Cart API](/api-reference/cart-checkout/storefront-cart-api/cart/createacart) without the `variant_id`. Use the `optionId` and `optionValue` instead.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Create cart optionId and optionValue</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Create cart optionId and optionValue"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Create cart optionId and optionValue" lineNumbers
 {
   "lineItems": [
     {
@@ -438,19 +291,7 @@ lineNumbers: true
 
 To add a product to the cart with one option (radio button) associated with it, use just the `variant_id` in the request.
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Create Storefront Cart variantID</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Create Storefront Cart variantID"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Create Storefront Cart variantID" lineNumbers
 {
   "lineItems": [
     {
@@ -464,19 +305,7 @@ lineNumbers: true
 
 To add a product that has both an option and a modifier associated with it, then use the `option_id` and `option_value`. This example uses a radio button (option) and a text field (modifier).
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Add item with option and modifier</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Add item with option and modifier"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Add item with option and modifier" lineNumbers
 {
   "lineItems": [
     {
