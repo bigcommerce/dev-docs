@@ -16,7 +16,9 @@
       "rootDir": "docs",
       "include": [
         "docs/stencil-docs/**",
-        "docs/api-docs/cart-and-checkout/checkout-sdk.md"
+        "docs/api-docs/cart-and-checkout/checkout-sdk.md",
+        "docs/api-docs/cart-and-checkout/open-source-checkout.md",
+        "docs/partner-apps/bundleb2b.md",
       ]
     },
     "image": {
