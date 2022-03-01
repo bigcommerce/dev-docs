@@ -161,7 +161,7 @@ First, the click will trigger window confirm. The confirmation modal has been ad
 
 <!-- theme: info -->
 > #### Utilizing GitHub Automation to Merge the Changes
-> Since this feature involves heavy code changes, it may be easier to merge the necessary code into your theme by utilizing Github's automated process for syncing a fork. See Github's documentation on [Syncing a Fork](https://help.github.com/articles/syncing-a-fork/) for more details on this method.
+> Since this feature involves heavy code changes, it may be easier to merge the necessary code into your theme by utilizing GitHub's automated process for syncing a fork. See GitHub's documentation on [Syncing a Fork](https://help.github.com/articles/syncing-a-fork/) for more details on this method.
 
 
 

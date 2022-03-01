@@ -16,7 +16,7 @@ Want to build a headless storefront powered by a BigCommerce back-end, but don't
 
 |  Solution | Method of Integration | Platform | Type |
 | --- | --- | --- | --- |
-| [BigCommerce for Wordpress](https://wordpress.org/plugins/bigcommerce/) | WordPress Plugin | WordPress | CMS |
+| [BigCommerce for WordPress](https://wordpress.org/plugins/bigcommerce/) | WordPress Plugin | WordPress | CMS |
 | [BigCommerce for Drupal](https://www.drupal.org/project/bigcommerce) | Drupal Module | Drupal | CMS |
 | [Bloomreach](https://www.bigcommerce.com/apps/bloomreach/) | BigCommerce App | Bloomreach | CMS / DXP |
 | [DEITY Falcon](https://www.bigcommerce.com/apps/deity-falcon-pwa-storefront/) | BigCommerce App | DEITY Falcon | PWA |
