@@ -8,12 +8,11 @@ Stencil's use of Handlebars.js, Javascript, and YAML Front Matter on the front e
 
 [Handlebars.js](https://handlebarsjs.com/) is a minimal templating language that allows developers to create dynamic and robust templates for any BigCommerce Stencil storefront. A Handlebars template looks like an HTML file, with the addition of Handlebars.js expressions for dynamic logic that can be embedded into the page.
 
-A Handlebars expression begins and end with curly braces.
-Below is a basic example that accesses the `` and `` variables.
+A Handlebars expression begins and end with curly braces. Below is a basic example.
 
 ```handlebars title="Using handlebars to access the {{title}} variable" lineNumbers
 <div class="entry">
-  # Using handlebars to access the {{title}} and  variables
+  <h1>{{title}}</h1>
   <div class="body"></div>
 </div>
 ```
@@ -27,32 +26,23 @@ View the [full Handlebars Helpers Reference](/stencil-docs/reference-docs/handle
 Stencil objects are the individual JavaScript objects that are rendered onto a Stencil storefront. The following example is the JavaScript Object Notation (JSON) for a [Banner object](/stencil-docs/reference-docs/global-objects-and-properties#global-objects_banner) rendered on a category page of a storefront.
 
 ```json title="Example banners object JSON for a banner object, accessible through Handlebars.js " lineNumbers
-"banners": {
+  "banners": {
     "top": [
       "For the week of May 20th, all apparel available at the online store will be 25% off the standard store price."
     ],
     "bottom": [ ],
     "top_metadata": [
-    {
-      "id": "3",
-      "banner-name": "All Apparel 25% off for a limited time!",
-      "content": "<p>For the week of May 20th, all apparel available at the online store will be 25% off the standard store price.</p>",
-      "location": "top"
-    }
-  ]
-}
+      {
+        "id": "3",
+        "banner-name": "All Apparel 25% off for a limited time!",
+        "content": "<p>For the week of May 20th, all apparel available at the online store will be 25% off the standard store price.</p>",
+        "location": "top"
+      }
+    ]
+  }
 ```
 
-<!--
-    title: #### Banners Object (rendered)
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1558381899909
--->
-
-#### Banners Object (rendered)
-![#### Banners Object (rendered)
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1558381899909 "#### Banners Object (rendered)
-")
+![Banners Object (rendered)](//s3.amazonaws.com/user-content.stoplight.io/6116/1558381899909 "Banners Object (rendered)")
 
 As a developer, you can use Handlebars.js syntax to access objects and use them to customize your Stencil theme.
 
@@ -90,5 +80,5 @@ blog:
 
 ### Additional Resources
 
-* [Stencil Technology Stack Video](https://www.youtube.com/watch/p5SR8N0SeCg) (Youtube)
-* [Cornerstone Components Subdirectory](https://github.com/bigcommerce/cornerstone) (BigCommerce Github)
+* [Stencil Technology Stack Video](https://www.youtube.com/watch/p5SR8N0SeCg) (YouTube)
+* [Cornerstone Components Subdirectory](https://github.com/bigcommerce/cornerstone) (BigCommerce GitHub)

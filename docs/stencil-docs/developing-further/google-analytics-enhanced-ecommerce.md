@@ -172,8 +172,8 @@ Next, add the custom metrics/dimensions to the desired theme template:
 ## Resources
 
 ### Pull Requests
-* Cornerstone [PR #1377](https://github.com/bigcommerce/cornerstone/pull/1377/commits/55fc73eeb1edc6e140005ca811f090f06ab35435) (Github)
-* [Google Analytics Product Data Tags](https://github.com/bigcommerce/cornerstone/commit/9a4ddcae7f531a9d542aeb8ebf38c8bda2656b1c) (BigCommerce Github)
+* Cornerstone [PR #1377](https://github.com/bigcommerce/cornerstone/pull/1377/commits/55fc73eeb1edc6e140005ca811f090f06ab35435) (GitHub)
+* [Google Analytics Product Data Tags](https://github.com/bigcommerce/cornerstone/commit/9a4ddcae7f531a9d542aeb8ebf38c8bda2656b1c) (BigCommerce GitHub)
 
 ### Related Articles
 

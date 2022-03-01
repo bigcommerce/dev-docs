@@ -2,7 +2,7 @@
 
 
 
-The [Checkout SDK's`embedded-checkout` sub-module](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/README.md#embedcheckout) can be used to embed [BigCommerce's Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout) into non-native storefronts like WordPress. You can see this in action within the BigCommerce for WordPress plugin, which uses the same process described here as a checkout option for merchants. For more information about the plugin, see [BigCommerce for Wordpress](/bigcommerce-for-wordpress/getting-started/introduction).
+The [Checkout SDK's embedded-checkout sub-module](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/README.md#embedcheckout) can be used to embed [BigCommerce's Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout) into non-native storefronts like WordPress. You can see this in action within the BigCommerce for WordPress plugin, which uses the same process described here as a checkout option for merchants. For more information about the plugin, see [BigCommerce for WordPress](/bigcommerce-for-wordpress/getting-started/introduction).
 
 ## How it works
 
@@ -12,7 +12,7 @@ If your channel site doesn't match the URL from which you're making a request to
 
 ## Channels, Sites, and Routes APIs
 
-You will need to use the [Channels, Sites, and Routes](/api-reference/cart-checkout/channels-listings-api) APIs to embed checkout on an external site. The Channels API allows you to create and manage sales channel listings across a merchant's product catalog. A channel can be a marketplace, like Amazon, or an external storefront, like a WordPress site. The Sites and Routes APIs let you set an external storefront domain and define the paths for important pages, like the home page, cart page, or checkout page. The Sites and Routes APIs allow you to link back to the proper URL from invoice emails and storefront links.
+You will need to use the [Channels, Sites, and Routes](/api-reference/store-management/channels) APIs to embed checkout on an external site. The Channels API allows you to create and manage sales channel listings across a merchant's product catalog. A channel can be a marketplace, like Amazon, or an external storefront, like a WordPress site. The Sites and Routes APIs let you set an external storefront domain and define the paths for important pages, like the home page, cart page, or checkout page. The Sites and Routes APIs allow you to link back to the proper URL from invoice emails and storefront links.
 
 ## BigCommerce Checkout SDK
 

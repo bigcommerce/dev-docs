@@ -45,16 +45,8 @@ The purpose of the App Installation sequence is to obtain an Oauth token for the
 
 A user kicks off the installation or update sequence from within a store's control panel by clicking the “Install” button from your app details page or by clicking an installed app to update its scopes. BigCommerce redirects the user to the Auth Callback URI provided during app registration. The Auth Callback URI must be publicly available, fully qualified, and served over TLS.
 
-<!--
-    title: #### App Installation Sequence
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1536263813949
--->
-
-#### App Installation Sequence
-![#### App Installation Sequence
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1536263813949 "#### App Installation Sequence
-")
+![App Installation Sequence](//s3.amazonaws.com/user-content.stoplight.io/6012/1536263813949 "App Installation Sequence")
 
 ### Handling Requests Securely
 
@@ -318,14 +310,7 @@ To verify the payload, you need to sign the payload using your client secret, an
 > #### Timing Attacks
 > To limit the vulnerability of your app to timing attacks, we recommend using a constant time-string comparison function, rather than the equality operator, to check that the signatures match.
 
-
-
-
-<!--
-title="verifySignedRequest" lineNumbers
--->
-
-```php
+```php title="PHP: verifySignedRequest" lineNumbers
 function verifySignedRequest($signedRequest)
 {
     list($encodedData, $encodedSignature) = explode('.', $signedRequest, 2);
@@ -350,13 +335,7 @@ function verifySignedRequest($signedRequest)
 > !hash_equals is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: https://packagist.org/packages/realityking/hash_equals. BigCommerce’s sample app hello-world-app-php-silex app does this automatically.
 
 
-
-
-<!--
-title="verify()" lineNumbers
--->
-
-```ruby
+```ruby title="Ruby: verify()" lineNumbers
 require "base64"
 require "openssl"
 
@@ -415,11 +394,7 @@ Use the store information endpoint to identify the store to which the request pe
 | timestamp | float | The time (in Unix time) when the callback was generated.|
 
 
-<!--
-title="User Information" lineNumbers
--->
-
-```json
+```json title="User Information" lineNumbers
 {
     "user":
          {
@@ -474,24 +449,15 @@ Apps can be installed from outside the BigCommerce control panel. For example, y
 
 First, embed an install button like the one below, at any web location from which you’d like to enable app installation:
 
-<!--
-    title:
-    data: //s3.amazonaws.com/user-content.stoplight.io/6490/1539297285625
--->
-
-![](//s3.amazonaws.com/user-content.stoplight.io/6490/1539297285625 "")
+![install button](//s3.amazonaws.com/user-content.stoplight.io/6490/1539297285625)
 
 Redirect anyone who presses your button to: `https://login.bigcommerce.com/app/<your-app's-client-id>/install`
 
 ### Configure Your Button
 Upon clicking, your button should open a modal similar to the image below. We recommend a modal sized 900px wide by 450px high.
 
-<!--
-    title:
-    data: //s3.amazonaws.com/user-content.stoplight.io/6490/1539297431440
--->
 
-![](//s3.amazonaws.com/user-content.stoplight.io/6490/1539297431440 "")
+![configure button](//s3.amazonaws.com/user-content.stoplight.io/6490/1539297431440)
 
 Your button will link merchants to BigCommerce’s install endpoint for your application. Once the merchant clicks the link, they will be prompted to log in, then authorize your application, just like in the [normal installation flow](#installation-and-update-sequence).
 
@@ -513,11 +479,8 @@ If there were errors, call:
 
 Below is a sample code snippet of an auth callback that does this:
 
-<!--
-title="Auth Callback" lineNumbers
--->
 
-```lua
+```lua title="Lua Auth Callback" lineNumbers
    if params['external_install']
         return get 'https://login.bigcommerce.com/app/m8e1mkkmjw2xjinydqz7ie05to1y2nk/install/succeeded'
     end
