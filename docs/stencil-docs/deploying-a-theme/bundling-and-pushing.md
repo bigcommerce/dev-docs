@@ -94,7 +94,7 @@ To initiate bundling and pushing, enter the following on the command line:
 
 `stencil push`
 
-Stencil CLI displays the same notifications, prompts, and selection options you would receive when using the control panel's GUI. The sections below will describe the notifications and interactions you might see.
+Stencil CLI displays the same notifications, prompts, and selection options you would receive when using the control panel's GUI. The following sections will describe the notifications and interactions you might see.
 
 To push a theme and activate a particular variation without being prompted, use `stencil push -a VARIATION_NAME` with the name of the variation. For example, `stencil push -a Light` will activate the "Light" variation. If you simply use `stencil push -a` without a variation name, the first variation will be applied.
 

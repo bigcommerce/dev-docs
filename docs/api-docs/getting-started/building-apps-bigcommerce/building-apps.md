@@ -310,14 +310,7 @@ To verify the payload, you need to sign the payload using your client secret, an
 > #### Timing Attacks
 > To limit the vulnerability of your app to timing attacks, we recommend using a constant time-string comparison function, rather than the equality operator, to check that the signatures match.
 
-
-
-
-<!--
-title="verifySignedRequest" lineNumbers
--->
-
-```php
+```php title="PHP: verifySignedRequest" lineNumbers
 function verifySignedRequest($signedRequest)
 {
     list($encodedData, $encodedSignature) = explode('.', $signedRequest, 2);
@@ -342,13 +335,7 @@ function verifySignedRequest($signedRequest)
 > !hash_equals is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: https://packagist.org/packages/realityking/hash_equals. BigCommerce’s sample app hello-world-app-php-silex app does this automatically.
 
 
-
-
-<!--
-title="verify()" lineNumbers
--->
-
-```ruby
+```ruby title="Ruby: verify()" lineNumbers
 require "base64"
 require "openssl"
 
@@ -407,11 +394,7 @@ Use the store information endpoint to identify the store to which the request pe
 | timestamp | float | The time (in Unix time) when the callback was generated.|
 
 
-<!--
-title="User Information" lineNumbers
--->
-
-```json
+```json title="User Information" lineNumbers
 {
     "user":
          {
@@ -496,11 +479,8 @@ If there were errors, call:
 
 Below is a sample code snippet of an auth callback that does this:
 
-<!--
-title="Auth Callback" lineNumbers
--->
 
-```lua
+```lua title="Lua Auth Callback" lineNumbers
    if params['external_install']
         return get 'https://login.bigcommerce.com/app/m8e1mkkmjw2xjinydqz7ie05to1y2nk/install/succeeded'
     end

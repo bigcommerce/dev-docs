@@ -4,14 +4,11 @@
 
 This article is a comprehensive command reference for Stencil CLI, BigCommerce's powerful theme development and deployment tool. For installation instructions for your OS, see [Installing Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil). For more information on BigCommerce's Stencil Theme Engine, see [About Stencil](/stencil-docs/getting-started/about-stencil). Continue reading below for detailed information on each Stencil CLI command and option.
 
-
-<a id="commands-overview"></a>
-
 ## Commands overview
 
 The syntax to run a Stencil CLI command is as follows:
 
-```shell
+```shell title="Stencil CLI command syntax"
 stencil COMMANDS [OPTIONS] <PARAMETERS>
 ```
 
@@ -28,26 +25,18 @@ Running `stencil help` outputs a full list of commands and their descriptions. F
 |[release](#stencil-release) |Creates a new release in a theme's GitHub repository.                                       |
 |[help](#stencil-help)       |Displays help and returns all the options available to use for the specified command.        |
 
-<!--
-    title: #### Basic Stencil CLI Options and Commands
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1538055264839
--->
+![Basic Stencil CLI Options and Commands](//s3.amazonaws.com/user-content.stoplight.io/6116/1538055264839 "Basic Stencil CLI Options and Commands")
 
 ## stencil help
 
-
 Displays help and returns all options available for the specified command.
 
-**Usage:**
-
-```shell
+```shell title="Usage: stencil help"
 stencil help COMMAND
 ```
-
-**Example:**
-
-```shell
+&nbsp;
+```shell title="Example: stencil help"
 ~ $ stencil help
 Usage: stencil [OPTIONS] COMMAND
 
@@ -59,14 +48,11 @@ Options:
 
 ## stencil init
 
-
 Creates a `.stencil` file or `secrets.stencil.json` and `config.stencil.json` files (if using Stencil V3.1 release or later) used to configure the live preview when `stencil start` is run. You can specify the configuration information using the optional switches; if you do not specify the configuration information via options, Stencil CLI will prompt you to do so. 
 
 NOTE: For custom templates, use only the `config.stencil.json` file. The `config.stencil.json` file contains theme-related configuration information like store URL, custom templates, etc.  The `secrets.stencil.json` file contains the access token.
 
-**Usage:**
-
-```shell
+```shell title="Usage: stencil init"
 stencil init [--url STORE_URL] [--token API_TOKEN]
 ```
 
@@ -78,19 +64,14 @@ stencil init [--url STORE_URL] [--token API_TOKEN]
 
 ## stencil start
 
-
 Starts the live theme preview using the theme files in the current directory.
 
-**Usage:**
-
-```shell
+```shell title="Usage: stencil start"
 stencil start [-V|--version] [-o|--open] [-v|--variation] [-t|--test] [-t|--tunnel]
 stencil start [-h|--help]
 ```
-
-**Example:**
-
-```shell
+&nbsp;
+```shell title="Example: stencil start"
 stencil start --open # opens live theme preview in default browser
 ```
 
@@ -115,24 +96,17 @@ stencil start --open # opens live theme preview in default browser
 
 ## stencil bundle
 
-
 Bundles up the theme into a structured `.zip` file, which can be uploaded to BigCommerce.
 
-**Usage:**
-
-```shell
+```shell title="Usage: stencil bundle"
 stencil bundle
 ```
 
-<a id="stencil-pull"></a>
-
-## `stencil pull`
+## stencil pull
 
 Pulls the configuration from the active theme on your live store and updates your local configuration. This is useful if any theme settings have been changed within Page Builder, as it will prevent you from overwriting them with your next theme upload by first syncing them.
 
-**Usage:**
-
-```shell
+```shell title="Usage: stencil pull"
 stencil pull [OPTIONS]
 ```
 
@@ -144,22 +118,16 @@ stencil pull [OPTIONS]
 |`--channel_id CHANNEL_ID`  |`-c` | Specify the channel ID of the storefront, if the store has multiple storefronts.    |
 |`--help`                       |`-h` | Output usage information                                                            |
 
-**Example:**
-
-```shell
+```shell title="Example: stencil pull"
 stencil pull
 ```
 
-<a id="stencil-push"></a>
-
-## `stencil push`
+## stencil push
 
 Bundles up the theme into a structured `.zip file`; then directly uploads (pushes) the `.zip` to BigCommerce.
 
-**Usage:**
-
-```shell
-Usage: stencil push [<OPTIONS>]
+```shell title="Usage: stencil push"
+stencil push [<OPTIONS>]
 ```
 
 | Option                        |Alias| Description                                                                         |
@@ -175,9 +143,8 @@ Usage: stencil push [<OPTIONS>]
 |`--delete`                     |`-d` | Delete oldest private, non-active theme if upload limit reached                     |
 |`--help`                       |`-h` | Output usage information                                                            |
 
-**Example:**
 
-```shell
+```shell title="Example: stencil push"
 stencil push -f Cornerstone-2.3.2.zip # uploads specified file, skips bundling if file already exists
 ```
 <!-- theme: info -->
@@ -191,9 +158,7 @@ stencil push -f Cornerstone-2.3.2.zip # uploads specified file, skips bundling i
 
 Download the theme files from your live store, overwriting files in your local directory.
 
-**Usage:**
-
-```shell
+```shell title="Usage: stencil download"
 stencil download [OPTIONS]
 ```
 
@@ -205,9 +170,7 @@ stencil download [OPTIONS]
 |`--channel_id CHANNEL_ID`  |`-c` | Specify the channel ID of the storefront, if the store has multiple storefronts.    |
 |`--help`                       |`-h` | Output usage information                                                            |
 
-**Example:**
-
-```shell
+```shell title="Example: stencil download"
 stencil download -f package.json
 ```
 
@@ -215,9 +178,8 @@ stencil download -f package.json
 
 Creates a new release in a theme’s GitHub repository. Developers outside BigCommerce can use this for forks (not master) of Stencil’s Cornerstone base theme, or for their own parallel themes independent of Cornerstone.
 
-**Usage:**
 
-```shell
+```shell title="Usage: stencil release"
 stencil release [OPTIONS]
 ```
 
