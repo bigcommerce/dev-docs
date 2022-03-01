@@ -93,10 +93,6 @@ Use the following steps to decode, verify, and parse the JWTs that BigCommerce s
 9. Parse `payload_claims_str` into your language's version of a JSON object. The following section is a reference for working with the values in `payload_claims_obj`.
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
 > #### Security precautions
 > Your production code should never work with claims from a payload you can't verify.

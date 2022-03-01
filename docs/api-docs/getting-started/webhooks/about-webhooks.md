@@ -130,9 +130,6 @@ To avoid accumulating unused webhooks, BigCommerce automatically deletes registe
 <!-- theme: info -->
 > #### Note
 > You cannot delete a webhook by deleting the account token used to create it. The associated webhook will continue to run after you delete the token, and you will be unable to edit, delete, or manage the webhook. For information on how to manually delete a webhook, see [Delete a Webhook](/api-reference/store-management/webhooks/webhooks/deleteawebhook).
-</div> 
-</div>
-</div>
 
 ## Security
 
