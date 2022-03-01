@@ -59,18 +59,11 @@ Once finished, the directory structure should look as follows:
 │    |   |   └── query-string-region-activation.php
 |    |   ├── ...
 ```
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-> ### Note
+> #### Note
 > * For more information on editing WordPress and plugin files, see [Editing Files](https://wordpress.org/support/article/editing-files/) (wordpress.org).
 
-</div>
-</div>
-</div>
+
 
 ## Step 2: Connect Channels
 
@@ -82,18 +75,11 @@ In the example screenshot above, we've created and connected two channels:
 1. a `US` channel with `term_id` `32` (primary), and
 1. a `UK` channel with `term_id` `31`
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-> ### Note
+> #### Note
 > * The `term_id`s for your channels will probably be different
 
-</div>
-</div>
-</div>
+
 
 ## Step 2: Add the Plugin Code
 
@@ -137,19 +123,12 @@ if ( $_GET[ 'region' ] !== 'us' && ($_GET[ 'region' ] === 'uk' || strpos($_SERVE
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-> ### Note
+> #### Note
 > * replace `31` in `get_term()` above with the `term_id` of your channel
 > * change `uk`, `GBP`, and `£` to the country code and currency corresponding to your channel, as desired
 
-</div>
-</div>
-</div>
+
 
 Here's what's happening in the example code:
 1. First enable multi-channel capabilities with `add_filter( 'bigcommerce/channels/enable-multi-channel', '__return_true' );`

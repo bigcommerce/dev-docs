@@ -40,12 +40,15 @@ BigCommerce rate limits all API requests made to a store in a thirty-second wind
 
 | Plan                     | Requests per Hour | Requests per 30 Seconds     |
 | ------------------------ | ----------------- | --------------------------- |
-| Enterprise               | -                 | `7,000,000`                 |
-| Enterprise Sandboxes     | -                 | `7,000,000`                 |
+| Enterprise               | -                 | Unlimited\*                 |
+| Enterprise Sandboxes     | -                 | Unlimited\*                 |
 | Pro                      | `60,000`          | `450`                       |
 | Plus                     | `20,000`          | `150`                       |
 | Standard                 | `20,000`          | `150`                       |
 | Non-Enterprise Sandboxes | `20,000`          | `150`                       |
+
+<!-- info: note -->
+> \* The **Unlimited** rate limit on BigCommerce Enterprise plans means that stores on this plan will not be artificially rate-limited on the basis of API-requests-per-unit-of-time. However, there are physical limits to the infrastructure which may limit the maximum throughput of requests on any given API endpoint. BigCommerce also reserves the right to limit unreasonable or abusive API activity in the interest of platform stability, per our [Terms of Service](https://www.bigcommerce.com/terms/api-terms/).
 
 Apps making API requests to a store share the store's rate limit. This promotes fairness between apps accessing the API simultaneously, and prevents a single app from consuming the store's entire limit.
 
@@ -81,16 +84,11 @@ BigCommerce's REST endpoints accept requests made in parallel. Applications maki
 * Slow rate of requests when `X-Rate-Limit-Requests-Left` nears zero.
 * Self-throttles requests to the average rate of `(X-Rate-Limit-Requests-Quota / X-Rate-Limit-Time-Window-Seconds)`.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
+> #### Note
+> Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to `/pricelists/{price_list_id}/records` will result in a `429` error response. These limitations are documented at the operation level in the API Reference.
 
-> ### Note
-> * Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to [`/pricelists/{price_list_id}/records`](/api-reference/store-management/price-lists/price-lists-records/setpricelistrecordcollection) will result in a `429` error response -- these limitations are documented at the operation level in the API Reference.
 
-</div>
-</div>
-</div>
 
 ### Respect platform limits
 
@@ -110,8 +108,8 @@ Rather than polling endpoints, get notified when updates occur by subscribing to
 
 Add BigCommerce's JavaScript SDK to your single-click app's front-end to prevent users from getting logged out of the control panel while using your app. To do so, reference the following script in your app's client-side code:
 
-```html
-https://cdn.bigcommerce.com/jssdk/bc-sdk.js
+```javascript
+      https://cdn.bigcommerce.com/jssdk/bc-sdk.js
 ```
 
 To perform some action when a logout occurs, specify an `onLogout` callback:

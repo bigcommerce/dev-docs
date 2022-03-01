@@ -9,20 +9,14 @@ Both the V2 and V3 Catalog APIs authenticate with OAuth and can be used concurre
 While every effort has been made to provide reasonable forwards and backwards compatibility between V2 and V3 REST APIs, there are important differences between the APIs which may result in undesirable behavior when both API versions are used for write actions on a given store. When resources are available through both APIs, we recommend using the V3 API as it contains performance optimizations and usability improvements.
 For differences in resources, see the [Difference between V2 and V3 Catalog APIs](#difference-between-v2-and-v3-catalog-apis) section of this article.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
->
+<!-- theme: info -->
+> #### Note
 > * All V2 Catalog REST APIs are deprecated. For information on deprecated endpoints, see [Deprecations and sunsets](/api-reference#deprecations-and-sunsets).
 > * BigCommerce will not introduce new resources in V2 APIs.
 > * BigCommerce will eventually migrate all existing V2 resources to V3.
 > * Not all V2 resources have V3 counterparts. 
 
-</div>
-</div>
-</div>
+
 
 ## V3 improvements
 
@@ -57,17 +51,11 @@ You can now create variants and modifiers in one call without having to create o
 [Modifiers](/api-docs/store-management/catalog/catalog-overview#modifier-options) represent options used for additional product customization such as gift wrapping, engraving, text to be printed on a t-shirt, or a warranty. Unlike variant options, modifiers do not generate variants, and you can display them as *required* or *optional* on the storefront. You can use modifiers along with [rules](/api-docs/store-management/catalog/catalog-overview#complex-rules) to change a product's price or weight.
 Modifiers include multiple-choice types such as swatch, rectangle, radio button, and dropdown, and non-multiple-choice types such as text, multi-line text, date picker, file upload, and pick list.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
->
+<!-- theme: info -->
+> #### Note
 > Product [variant options](/api-reference/store-management/catalog/product-options/getoptionbyid) and [modifiers](/api-reference/store-management/catalog/product-modifiers/getmodifierbyid) created using the V3 Catalog API belong to a single product instance and cannot be attached to other products in the catalog.
 
-</div>
-</div>
-</div>
+
 
 The following workflows demonstrate the difference between creating a product with variants using V2 and V3 Catalog APIs.
 
@@ -89,19 +77,12 @@ In V3, every purchasable entity in the catalog is a variant including the produc
 
 To reduce the number of API calls made, you can include variants with a `GET` request using the `?include=variants` query parameter.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### V2 SKU rules will override variant pricing
+> #### V2 SKU rules will override variant pricing
 >
 > Creating SKU rules via the V2 API or CSV import will alter or override any variant price or sale price added to a product using the control panel, the V3 API, or [Price Lists UI](https://support.bigcommerce.com/s/article/Price-Lists).
 
-</div>
-</div>
-</div>
+
 
 ### Product option sets
 

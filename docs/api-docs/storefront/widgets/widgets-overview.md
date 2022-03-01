@@ -107,19 +107,12 @@ In the following example, we define the `list_items` array and supply values for
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Reusing widget configuration
+<!-- theme: info -->
+> #### Reusing widget configuration
 > You set the widget configuration name when creating the widget template.
 > When reusing the widget configuration, the objects array must use the name established during the initial configuration. Otherwise, you will create the widget on the frontend, but there will be no data, and nothing displayed.
 
-</div>
-</div>
-</div>
+
 
 When reusing the widget configuration from our list example, you must call the items array `list_items`, because you defined the `list_items` array when creating the widget template.
 
@@ -183,18 +176,11 @@ Widget versioning introduced `current_version_uuid` and `version_uuid` propertie
 
  ![New Relationship Model](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/widgets-overview-02.png "New Relationship Model")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Note
+<!-- theme: info -->
+> #### Note
 >  Although a widget template can have multiple versions; there can only be one active version at a time. This setup means that a template can have multiple `version_uuid`’s associated with it, but it cannot have more than one `current_version_uuid`.
 
-</div>
-</div>
-</div>
+
 
 **Widget template definitions**
 
@@ -217,18 +203,11 @@ To update a widget template without impacting existing widgets, set the `create_
 
 Updating the widget template with `create_new_version` set to `true` will change the value of the `current_version_uuid` in the widget and the widget template, but it will not change the value of the widget’s `version_uuid`.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Note
+<!-- theme: info -->
+> #### Note
 >  It is possible to update your widget template without creating a new version. To do so, exclude the `create_new_version` field or set it to `false` when making a `PUT` request to [update the widget template](/api-reference/store-management/widgets/widget-template/updatewidgettemplate). 
 
-</div>
-</div>
-</div>
+
 
 ## Placements
 
@@ -289,36 +268,22 @@ It is also possible to place widgets on the following custom templates, where `<
 * pages/custom/category/`<filename>`
 * pages/custom/page/`<filename>`
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Note
+<!-- theme: info -->
+> #### Note
 > - To display a widget on the storefront, you must create a placement.
 > - A region can contain multiple placements with widgets.
 
-</div>
-</div>
-</div>
+
 
 ### Placements sort_order
 
 When creating a placement with a widget, the widget content takes the full region width. The placement's `sort_order` property controls the display order of the widget. You would stack any additional widgets in the same region above or below based on each placement's `sort_order` property.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Note
+<!-- theme: info -->
+> #### Note
 > If you are creating marketplace applications that create placements directly, you do not need to use the `sort_order` property.
 
-</div>
-</div>
-</div>
+
 
 ### Placements entity_id
 

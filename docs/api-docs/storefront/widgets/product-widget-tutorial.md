@@ -72,7 +72,7 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/widgets/widget-template/createwidgettemplate#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/widgets/widget-template/createwidgettemplate#requestrunner) -->
 
 **[Response:](/api-reference/store-management/widgets/widget-template/createwidgettemplate#responses)**
 
@@ -147,17 +147,12 @@ Accept: application/json
 The `storefront_api_query` field allows you to query store data that widgets can use. The widget configuration provides the values for the `storefront_api_query` parameters.
 For example, the `$productId` parameter comes from the widget configuration when a user selects a product. The `mappings` object from the widget template schema `settings` tells the widget to map the value of the widget configuration’s `productId` setting to the GraphQL parameter called `productId`.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * You can use the `activeCurrencyCode` query parameter to return user-selected currency.
 > * There is no need to provide the mapping for the `activeCurrencyCode` property as it is auto-populated with the shopper’s active currency at the time of page load.
 
-</div>
-</div>
-</div>
+
 
 ## Place the widget using Page Builder
 
@@ -257,17 +252,9 @@ The [response](/api-reference/store-management/widgets/widget/getwidget#response
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
->
+<!-- theme: info -->
+> #### Note
 > The value of the `productId` inside of the `widget_configuration` object is mapped to the `productId` parameter of the `storefront_api_query_params` object.
-
-</div>
-</div>
-</div>
 
 ## Place the widget using the API
 
@@ -285,7 +272,7 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/widgets/widget/createwidget#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/widgets/widget/createwidget#requestrunner) -->
 
 Take note of the widget's `uuid` returned in the [response](/api-reference/store-management/widgets/widget/createwidget#responses). You will need the widget's `uuid` to [create a placement](/api-reference/store-management/widgets/placement/createplacement) for your widget.
 
@@ -316,7 +303,7 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/widgets/placement/createplacement#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/widgets/placement/createplacement#requestrunner) -->
 
 For a list of accepted `template_file` values, see [create a placement](/api-reference/storefront/widgets-api/placement/createplacement).
 
@@ -328,7 +315,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/storefront/widgets-api/regions/getcontentregions#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/storefront/widgets-api/regions/getcontentregions#requestrunner) -->
 
 ## Related resources
 

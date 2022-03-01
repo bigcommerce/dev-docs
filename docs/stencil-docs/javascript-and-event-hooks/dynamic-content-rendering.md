@@ -53,7 +53,7 @@ where the div's `id` defines the dropzone's name.
 
 Then, using the BigCommerce **control panel's custom HTML editor** (in this example, the Categories editor), we place our content inside div tags that specify the dropzone where the content should be inserted. Here is a simple example:
 
-```
+```handlebars
 <div class="gr-dropzone" data-gr-zone="gr-dropzone-top">
     <p>This content will be placed in a dropzone at the top of the page, because that dropzone has the id matching our data-gr-zone attribute.</p>
 </div>
@@ -63,7 +63,7 @@ Then, using the BigCommerce **control panel's custom HTML editor** (in this exam
 
 Here is an example of some HTML that we actually use:
 
-```
+```handlebars
 <div class="gr-dropzone" data-gr-zone="gr-dropzone-bottom">
     <h3>GORUCK GEAR IN THE FIELD</h3>
     <div id="bv-grid-gallery" data-gr-groups="goruck-rm-group" data-gr-tags="gear"></div>
@@ -76,19 +76,19 @@ The content is moved from the default location to the dropzone by JavaScript we 
 
 We modified our theme's PageManager.before method to invoke a new method named `gr_moveHtmlToDropzones`:
 
-```
- gr_moveHtmlToDropzones () {
-        $(".gr-dropzone").each(function () {
-            const $this = $(this);
-            const zoneId = $this.data("gr-zone");
-            if (zoneId) {
-                $("#" + zoneId).html($this.html());   // copy the html to where it should be
-                $this.remove();             // remove the html from its temporary location
-            } else {
-                console.warn("PageManager.gr_moveHtmlToDropzones: dropzone has no target.");
-            }
-        });
+```js
+gr_moveHtmlToDropzones () {
+  $(".gr-dropzone").each(function () {
+    const $this = $(this);
+    const zoneId = $this.data("gr-zone");
+    if (zoneId) {
+      $("#" + zoneId).html($this.html());   // copy the html to where it should be
+      $this.remove();             // remove the html from its temporary location
+    } else {
+      console.warn("PageManager.gr_moveHtmlToDropzones: dropzone has no target.");
     }
+  });
+}
 ```
 
 Finally, in our .scss file, we set the `.gr-dropzone` class to display: none. This prevents the content from appearing on the page in the wrong location before PageManager has a chance to move it into the dropzone.
@@ -114,7 +114,7 @@ In the example below, we use this technique to place the `RIGHT BY YOU` tab in t
 
 There are two versions of the HTML. The first is designed for a tab you want to drop in using a page's own HTML:
 
-```
+```handlebars
 <div class="gr-tab" data-gr-position="POSITION" data-gr-title="TITLE"> 
      CONTENT 
 </div>
@@ -122,14 +122,14 @@ There are two versions of the HTML. The first is designed for a tab you want to 
 
 The second version is designed for a tab that gets its content from an external file:
 
-```
+```handlebars
 <div class="gr-tab" data-gr-content="CONTENT URL">
 </div>
 ```
 
 In this second case, the HTML in that external file must start with the POSITION and TITLE information:
 
-```
+```handlebars
 <input id="gr-tab-data" type="hidden" data-gr-position="POSITION" data-gr-title="TITLE" /> 
  CONTENT
 ```
@@ -148,7 +148,7 @@ CONTENT is any arbitrary HTML, and is displayed when the user clicks on the tab'
 
 To create the RIGHT BY YOU tab in the screenshot above, we added this code to our base theme's templates/pages/product.html template:
 
-```
+```handlebars
 <!-- GORUCK Customization: pull in a dynamic tab -->
   <div class="gr-tab" data-gr-content="/content/tabs/dynamicTab1.html?v=14">
   </div>
@@ -158,7 +158,7 @@ This tells our code to pull in a file named `dynamicTab1.html`, located in our W
 
 Here are the contents of our `dynamicTab1.html` file:
 
-```
+```handlebars
 <input id="gr-tab-data" type="hidden" data-gr-position="3" data-gr-title="Right By You"/>
 <div class="container container-small gr-rightbyyou">
   <div style="display: flex; flex-direction: column">
@@ -229,7 +229,7 @@ We use snippets at GORUCK to display our sizing charts, as shown below. This mak
 
 Here is the format of the HTML that needs to placed on each page that uses the snippet:
 
-```
+```handlebars
 <div class="gr-snippet" data-gr-content="CONTENT URL">
      <em>Loading...</em>
 </div>

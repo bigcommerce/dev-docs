@@ -6,21 +6,10 @@
 
 Custom fields associated with a product.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-
-For the most up-to-date version of this API, see [Product Custom Fields](/api-reference/store-management/catalog/product-custom-fields).
-
-</div>
-</div>
-</div>
-
+> For the most up-to-date version of this API, see [Product Custom Fields](/api-reference/store-management/catalog/product-custom-fields).
 ### Custom Field Object – Properties 
 
 | Name | Type | Description |
@@ -30,7 +19,7 @@ For the most up-to-date version of this API, see [Product Custom Fields](/api-re
 | name | string | key; limited to 250 characters |
 | text | string | value; limited to 250 characters |
 
-| **Manages** | **OAuth Scopes** |
+| Manages | OAuth Scopes |
 |-|-|
 | store_v2_products|store_v2_products_read_only
 
