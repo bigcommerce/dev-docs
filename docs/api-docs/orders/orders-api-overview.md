@@ -215,7 +215,7 @@ Accept: application/json
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/orders/createanorder#requestrunner) -->
 
-To get the `product_options.id` and `product_options.value` of a product for the order `products` array, send a `GET` request to `/stores/{{STORE_HASH}}/v3/catalog/products/{product_id}/variants`.
+To get the `product_options.id` and `product_options.value` of a product for the order `products` array, send the following `GET` request to [Get variants by product id](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid). See the example response that follows, or consult the [response schema](/api-reference/catalog/catalog-api/product-variants/getvariantbyid#responses).
 
 ```http title="Example request: Get product variants" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/variants
@@ -226,7 +226,7 @@ Accept: application/json
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid#requestrunner) -->
 
-**[Response:](/api-reference/catalog/catalog-api/product-variants/getvariantbyid#responses)**
+&nbsp;
 ```json title="Example response: Get product variants" lineNumbers
 {
   "data": [
@@ -362,7 +362,7 @@ Accept: application/json
 
 ## Getting shipping quotes
 
-To [get shipping quotes](/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes), send a `GET` request to `/v2/orders/{order_id}/shipping_addresses/{shipping_address_id}/shipping_quotes`.
+To [get shipping quotes](/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes), send the following `GET` request. See the example response that follows, or consult the [response schema](/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes#responses). 
 
 ```http title="Example request: Get shipping quotes" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{{order_id}}/shipping_addresses/{{shipping_address_id}}/shipping_quotes
@@ -372,8 +372,7 @@ Accept: application/json
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes#requestrunner) -->
 
-**[Response:](/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes#responses)**
-
+&nbsp;
 ```json title="Example response: Get shipping quotes" lineNumbers
 {
   "id": "16",
@@ -392,7 +391,7 @@ Generating a quote through a shipping carrier is not supported. You can specify 
 
 ## Getting order taxes
 
-To [get order taxes](/api-reference/store-management/orders/order-taxes/getordertaxes), send a `GET` request to `/stores/{{STORE_HASH}}/v2/orders/{order_id}/taxes`.
+To [get order taxes](/api-reference/store-management/orders/order-taxes/getordertaxes), send the following `GET` request. See the example response that follows, or consult the [response schema](/api-reference/store-management/orders/order-taxes/getordertaxes#responses). 
 
 ```http title="Example request: Get order taxes" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{{order_id}}/taxes
@@ -402,7 +401,7 @@ Accept: application/json
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/order-taxes/getordertaxes#requestrunner) -->
 
-**[Response:](/api-reference/store-management/orders/order-taxes/getordertaxes#responses)**
+&nbsp;
 ```json title="Example response: Get order taxes" lineNumbers
 [
   {
@@ -458,7 +457,7 @@ BigCommerce submits tax documents to Avalara when an order moves from an **unpai
 
 ## Getting order transactions
 
-To [get order transactions](/api-reference/store-management/order-transactions/transactions/gettransactions), send a `GET` request to `/stores/{{STORE_HASH}}/v3/orders/{order_id}/transactions`.
+To [get order transactions](/api-reference/store-management/order-transactions/transactions/gettransactions), send the following `GET` request. See the example response that follows, or consult the [response schema](/api-reference/store-management/order-transactions/transactions/gettransactions#responses).
 
 ```http title="Example request: Get order transactions" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{{order_id}}/transactions
@@ -468,7 +467,7 @@ Accept: application/json
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/transactions/gettransactions#requestrunner) -->
 
-**[Response:](/api-reference/store-management/order-transactions/transactions/gettransactions#responses)**
+&nbsp;
 ```json title="Example response: Get order transactions" lineNumbers
 {
   "data": [
