@@ -392,6 +392,16 @@ Accept: application/json
 }
 ```
 
+If no shipping quotes are available, the shipping carrier will send a response with the following format for the shipping quote:
+
+```json title="Example response: No shipping rates" lineNumbers
+{
+  "quote_id": "example_quote",
+  "messages": [],
+  "carrier_quotes": []
+}
+```
+
 When you uninstall an app with an associated shipping carrier, you also automatically remove all the shipping methods and connection info for that carrier from the store. You can no longer make quote requests, and users will no longer see shipping quotes for that carrier.
 
 <!-- theme: info -->
