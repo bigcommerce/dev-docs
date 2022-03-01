@@ -106,12 +106,7 @@ If you are already at your theme limit, you can automatically delete the oldest 
 
 Stencil CLI will display `ok` confirmations, or `not ok` errors, or `warnings` for individual substeps in bundling and uploading your theme. If bundling is successful, you will next see a `Processing` progress bar to track the upload.
 
-<!--
-    title:
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1539055887301
--->
-
-![](//s3.amazonaws.com/user-content.stoplight.io/6116/1539055887301 "")
+![bundling](//s3.amazonaws.com/user-content.stoplight.io/6116/1539055887301)
 
 ### Successful upload
 
@@ -121,36 +116,19 @@ Upon successful upload, you will receive the prompt, `Would you like to apply yo
 
 If you chose to apply the newly uploaded theme, you will receive the prompt: "Which variation would you like to apply? (Use arrow keys)"
 
-
-<!--
-    title:
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1539055910721
--->
-
-![](//s3.amazonaws.com/user-content.stoplight.io/6116/1539055910721 "")
+![which variation](//s3.amazonaws.com/user-content.stoplight.io/6116/1539055910721)
 
 Use your arrow keys to move the selection caret/highlight to the variation you want, and then press `Enter`.
 
 Stencil CLI will then confirm which variation is active on the storefront.
 
-<!--
-    title:
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1539055915081
--->
-
-![](//s3.amazonaws.com/user-content.stoplight.io/6116/1539055915081 "")
+![select variation](//s3.amazonaws.com/user-content.stoplight.io/6116/1539055915081)
 
 ## Theme quota warning
 
-If you run `stencil push` when your store's My Themes section has reached its maximum of 20 themes, you will receive a prompt to select at least one existing theme for deletion.
+If you run `stencil push` when your store's **My Themes** section has reached its maximum of 20 themes, you will receive a prompt to select at least one existing theme for deletion.
 
-
-<!--
-    title:
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1539055988142
--->
-
-![](//s3.amazonaws.com/user-content.stoplight.io/6116/1539055988142 "")
+![theme quota warning](//s3.amazonaws.com/user-content.stoplight.io/6116/1539055988142)
 
 Custom themes – which are available for selection – will have a circle to their left. Marketplace themes and the store's active theme – all of which are protected from deletion – will be flagged `(Disabled)`.
 

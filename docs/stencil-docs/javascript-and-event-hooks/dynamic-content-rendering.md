@@ -32,16 +32,7 @@ A more general solution we implemented was to create a small set of custom pages
 
 With these dropzones defined, we can then populate them with dynamic content specific to any instance of the page. Here is an example of a dropzone that places an image gallery at the bottom of a category page:
 
-<!--
-    title: #### Dropzone that places an image gallery at the bottom of a category page
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1539874696853
--->
-
-
-![Dropzone that places an image gallery at the bottom of a category page
-](//s3.amazonaws.com/user-content.stoplight.io/6116/1539874696853 "Dropzone that places an image gallery at the bottom of a category page
-")
+![Dropzone that places an image gallery at the bottom of a category page](//s3.amazonaws.com/user-content.stoplight.io/6116/1539874696853 "Dropzone that places an image gallery at the bottom of a category page")
 
 ### Dropzones HTML
 
@@ -103,12 +94,7 @@ So we implemented a feature we call Dynamic Tabs. Dynamic Tabs are similar to dr
 
 In the example below, we use this technique to place the `RIGHT BY YOU` tab in the fourth position:
 
-<!--
-    title: 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1539874970240
--->
-
-![](//s3.amazonaws.com/user-content.stoplight.io/6116/1539874970240 "")
+![right by you](//s3.amazonaws.com/user-content.stoplight.io/6116/1539874970240)
 
 ### Dynamic Tabs HTML
 
@@ -218,12 +204,7 @@ Also, because the control panel's HTML editor strips out stylesheets, this is a 
 
 We use snippets at GORUCK to display our sizing charts, as shown below. This makes sense since because we have a handful of charts that need to be shared across many products, so we don't want to copy and paste each chart for every product that needs it.
 
-<!--
-    title: 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6116/1539878331668
--->
-
-![](//s3.amazonaws.com/user-content.stoplight.io/6116/1539878331668 "")
+![goruck](//s3.amazonaws.com/user-content.stoplight.io/6116/1539878331668)
 
 ## Snippets HTML
 

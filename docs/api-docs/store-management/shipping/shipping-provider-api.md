@@ -21,14 +21,6 @@ This article is a guide to developing an app that will make your shipping rates 
 
 ## Shipping app overview
 
-<!--
-    title: ### Carrier Service API
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1552664566834
--->
-
-
-
 ![Carrier Service API](https://s3.amazonaws.com/user-content.stoplight.io/6012/1552664566834 "Carrier Service API")
 
 ### Single-carrier versus multi-carrier apps
@@ -37,21 +29,9 @@ You can only associate one registered shipping carrier with an app. This [regist
 
 BigCommerce makes a distinction between single-carrier and multi-carrier shipping providers. The primary difference is how the quote displays in the customer's cart at checkout. If your app is registered as a single carrier, the name of the carrier providing the quote will appear beside the name of the shipping quote in the customer's list of shipping rate options. The carrier name will not appear in quotes from multi-carrier apps. The following images illustrate the difference:
 
-<!--
-    title: Single-carrier quote example
-
-    data: https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-single-carrier-ui.png
--->
-
 **Single-carrier quote example**
 
 ![Single-carrier quote example](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Single%20Carrier%20Example.png)
-
-<!--
-    title: Multi-carrier quote example
-
-    data: //raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-multi-carrier-ui.png
--->
 
 **Multi-carrier quote example**
 

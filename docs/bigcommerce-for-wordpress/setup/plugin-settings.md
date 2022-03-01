@@ -2,20 +2,9 @@
 
 # Plugin Settings
 
-
-
 BigCommerce settings for WordPress are found in the left admin menu in WordPress, under the BigCommerce menu item.
 
-<!--
-    title: #### Plugin Settings
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1540476609033
--->
-
-
-![Plugin Settings
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1540476609033 "Plugin Settings
-")
+![Plugin Settings](//s3.amazonaws.com/user-content.stoplight.io/6012/1540476609033 "Plugin Settings")
 
 ## Product Sync
 Once the plugin is connected, the plugin will import products using the BigCommerce API. This will run automatically using [WordPress cron](https://developer.wordpress.org/plugins/cron/), using the schedule set on the settings page (default: every five minutes).

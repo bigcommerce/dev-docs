@@ -45,16 +45,8 @@ The purpose of the App Installation sequence is to obtain an Oauth token for the
 
 A user kicks off the installation or update sequence from within a store's control panel by clicking the “Install” button from your app details page or by clicking an installed app to update its scopes. BigCommerce redirects the user to the Auth Callback URI provided during app registration. The Auth Callback URI must be publicly available, fully qualified, and served over TLS.
 
-<!--
-    title: #### App Installation Sequence
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1536263813949
--->
-
-
-![App Installation Sequence
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1536263813949 "App Installation Sequence
-")
+![App Installation Sequence](//s3.amazonaws.com/user-content.stoplight.io/6012/1536263813949 "App Installation Sequence")
 
 ### Handling Requests Securely
 
@@ -474,24 +466,15 @@ Apps can be installed from outside the BigCommerce control panel. For example, y
 
 First, embed an install button like the one below, at any web location from which you’d like to enable app installation:
 
-<!--
-    title:
-    data: //s3.amazonaws.com/user-content.stoplight.io/6490/1539297285625
--->
-
-![](//s3.amazonaws.com/user-content.stoplight.io/6490/1539297285625 "")
+![install button](//s3.amazonaws.com/user-content.stoplight.io/6490/1539297285625)
 
 Redirect anyone who presses your button to: `https://login.bigcommerce.com/app/<your-app's-client-id>/install`
 
 ### Configure Your Button
 Upon clicking, your button should open a modal similar to the image below. We recommend a modal sized 900px wide by 450px high.
 
-<!--
-    title:
-    data: //s3.amazonaws.com/user-content.stoplight.io/6490/1539297431440
--->
 
-![](//s3.amazonaws.com/user-content.stoplight.io/6490/1539297431440 "")
+![configure button](//s3.amazonaws.com/user-content.stoplight.io/6490/1539297431440)
 
 Your button will link merchants to BigCommerce’s install endpoint for your application. Once the merchant clicks the link, they will be prompted to log in, then authorize your application, just like in the [normal installation flow](#installation-and-update-sequence).
 
