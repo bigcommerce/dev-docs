@@ -34,9 +34,8 @@ Running `stencil help` outputs a full list of commands and their descriptions. F
     data: //s3.amazonaws.com/user-content.stoplight.io/6116/1538055264839
 -->
 
-<a id="stencil-help"></a>
+## stencil help
 
-## `stencil help`
 
 Displays help and returns all options available for the specified command.
 
@@ -58,9 +57,8 @@ Options:
 ...
 ```
 
-<a id="stencil-init"></a>
+## stencil init
 
-## `stencil init`
 
 Creates a `.stencil` file or `secrets.stencil.json` and `config.stencil.json` files (if using Stencil V3.1 release or later) used to configure the live preview when `stencil start` is run. You can specify the configuration information using the optional switches; if you do not specify the configuration information via options, Stencil CLI will prompt you to do so. 
 
@@ -78,9 +76,8 @@ stencil init [--url STORE_URL] [--token API_TOKEN]
 | `--token API_TOKEN` |`-t`   | The [BigCommerce API Token](https://support.bigcommerce.com/s/article/Store-API-Accounts). |
 | `--url STORE_URL`   |`-u`   | The BigCommerce storefront URL.                                                            |
 
-<a id="stencil-start"></a>
+## stencil start
 
-## `stencil start`
 
 Starts the live theme preview using the theme files in the current directory.
 
@@ -116,10 +113,8 @@ stencil start --open # opens live theme preview in default browser
 > #### Authentication errors
 > If you receive an `Unauthorized, please use a valid username/token` error, authentication has failed. Make sure the API token you supplied is correct. For more information on creating store API accounts and generating tokens, see [Obtaining Store API Credentials](/stencil-docs/installing-stencil-cli/live-previewing-a-theme#step-3-serve-live-preview).
 
+## stencil bundle
 
-<a id="stencil-bundle"></a>
-
-## `stencil bundle`
 
 Bundles up the theme into a structured `.zip` file, which can be uploaded to BigCommerce.
 
@@ -192,10 +187,7 @@ stencil push -f Cornerstone-2.3.2.zip # uploads specified file, skips bundling i
 > When you run `stencil push` with the `-f` or `--filename` option, Stencil CLI skips all its bundling steps and diagnostics. It proceeds directly to uploading the specified file, displaying its processing progress bar to show upload status.
 
 
-
-<a id="stencil-download"></a>
-
-## `stencil download`
+## stencil download
 
 Download the theme files from your live store, overwriting files in your local directory.
 
@@ -219,9 +211,7 @@ stencil download [OPTIONS]
 stencil download -f package.json
 ```
 
-<a id="stencil-release"></a>
-
-## `stencil release`
+## stencil release
 
 Creates a new release in a theme’s GitHub repository. Developers outside BigCommerce can use this for forks (not master) of Stencil’s Cornerstone base theme, or for their own parallel themes independent of Cornerstone.
 

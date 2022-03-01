@@ -264,7 +264,7 @@ The `homepage_featured_products_count` limit is one of two relevant variables de
     // ...
 ```
 
-In the body of [Cornerstone's `home.html` template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L36) (GitHub), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
+In the body of [Cornerstone's home.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L36) (GitHub), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
 
 ```handlebars title="home.html"
 {{#if products.new}}
@@ -273,7 +273,7 @@ In the body of [Cornerstone's `home.html` template](https://github.com/bigcommer
 {{/if}}
 ```
 
-This above statement formats the _New Products_ display according to the `homepage_new_products_column_count` variable, which is the second relevant variable defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L46) (GitHub
+This above statement formats the _New Products_ display according to the `homepage_new_products_column_count` variable, which is the second relevant variable defined in [Cornerstone's config.json file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L46) (GitHub
 
 ## Page Content
 
