@@ -109,4 +109,4 @@ searchEvents() {
 ## Resources
 
 ### Additional Resources
-* [cookieNotification.js](https://github.com/bigcommerce/cornerstone/blob/637ef1b0ff130333aea128663daa6d1a4d37fb78/assets/js/theme/global/cookieNotification.js) (BigCommerce Github)
+* [cookieNotification.js](https://github.com/bigcommerce/cornerstone/blob/637ef1b0ff130333aea128663daa6d1a4d37fb78/assets/js/theme/global/cookieNotification.js) (BigCommerce GitHub)
