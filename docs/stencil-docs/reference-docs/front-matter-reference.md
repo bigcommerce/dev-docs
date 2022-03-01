@@ -39,11 +39,11 @@ customer:
 ```yaml
 products:
   featured:
-    limit: 10   #limits the number of featured products to 5
+    limit: 5   #limits the number of featured products to 5
   new:
-    limit: 10   #limits the number of new products to 5
+    limit: 5   #limits the number of new products to 5
   top_sellers: 
-    limit: 10   # limits the number of top sellers to 5
+    limit: 5   # limits the number of top sellers to 5
 ```    
 
 |  Property | Description |
@@ -120,7 +120,7 @@ Blog attributes are available in the context of a blog.
 ```yaml
 blog: 
   posts:
-    limit: 5        # limits number of blog posts to 10
+    limit: 10        # limits number of blog posts to 10
     pages: 5        # displays 5 pages in pagination links
     summary: 250    # displays 250 character summary of blog post
 ```
@@ -146,7 +146,7 @@ product:
   related_products:
     limit: 10          # limits related products by name to 10
   similar_by_views:
-      limit:           # limits similar products by views to 10
+      limit: 10        # limits similar products by views to 10
 ```
 
 |Property|Description|

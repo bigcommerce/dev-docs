@@ -21,14 +21,6 @@ This article is a guide to developing an app that will make your shipping rates 
 
 ## Shipping app overview
 
-<!--
-    title: ### Carrier Service API
-
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1552664566834
--->
-
-### Carrier Service API
-
 ![Carrier Service API](https://s3.amazonaws.com/user-content.stoplight.io/6012/1552664566834 "Carrier Service API")
 
 ### Single-carrier versus multi-carrier apps
@@ -37,21 +29,9 @@ You can only associate one registered shipping carrier with an app. This [regist
 
 BigCommerce makes a distinction between single-carrier and multi-carrier shipping providers. The primary difference is how the quote displays in the customer's cart at checkout. If your app is registered as a single carrier, the name of the carrier providing the quote will appear beside the name of the shipping quote in the customer's list of shipping rate options. The carrier name will not appear in quotes from multi-carrier apps. The following images illustrate the difference:
 
-<!--
-    title: Single-carrier quote example
-
-    data: https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-single-carrier-ui.png
--->
-
 **Single-carrier quote example**
 
 ![Single-carrier quote example](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Single%20Carrier%20Example.png)
-
-<!--
-    title: Multi-carrier quote example
-
-    data: //raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/shipping-provider-multi-carrier-ui.png
--->
 
 **Multi-carrier quote example**
 
@@ -137,7 +117,11 @@ During the app setup, if you configure the Check Connection Options URL for the 
 
 `https://example.com/check_connection_options`
 
-```json
+```http lineNumbers
+
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
 {
   "connection_options": {
     "account_id": "a1ty"
@@ -159,17 +143,9 @@ During the app setup, if you configure the Check Connection Options URL for the 
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
+> #### Credential validation
 > It is best practice to authenticate the user and store against your database or the downstream provider service.
-
-</div>
-</div>
-</div>
 
 Once you install the app, it will be made available for configuration by merchants and API users. A merchant can navigate to the Shipping Manager and enable, configure, and disable the carrier for any defined zone.
 
@@ -177,17 +153,12 @@ Once you install the app, it will be made available for configuration by merchan
 
 To set up a carrier using the API, first, connect it using the Connect Carrier API. Make a request containing the connection settings required by your carrier. The ID of the carrier is required. The carrier ID will be issued by BigCommerce when your carrier is registered. All connection fields are unique to each carrier. If your carrier doesn’t require any connection settings, send an empty object for the `connection` settings property.
 
-<!--
-  title: "Example carrier connection request with connection settings"
-  subtitle: "POST https://example.com/shipping/carrier/connection"
-  lineNumbers: true
--->
+```http title="Example carrier connection request with connection settings" lineNumbers
+POST https://example.com/shipping/carrier/connection
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
 
-**Example carrier connection request with connection settings**
-
-`POST https://example.com/shipping/carrier/connection`
-
-```json
 {
   "carrier_id": "carrier_33",
   "connection": {
@@ -196,18 +167,13 @@ To set up a carrier using the API, first, connect it using the Connect Carrier A
   }
 }
 ```
+&nbsp;
+```http title="Example carrier connection request without connection settings" lineNumbers
+POST https://example.com/shipping/carrier/connection
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
 
-<!--
-  title: "Example carrier connection request without connection settings"
-  subtitle: "POST https://example.com/shipping/carrier/connection"
-  lineNumbers: true
--->
-
-**Example carrier connection request without connection settings**
-
-`POST https://example.com/shipping/carrier/connection`
-
-```json
 {
   "carrier_id": "carrier_33",
   "connection": {}
@@ -216,17 +182,12 @@ To set up a carrier using the API, first, connect it using the Connect Carrier A
 
 Once connected, it’s possible to create shipping methods for a connected carrier in any shipping zone. You can query shipping zones using the Shipping Zones resource. For any zone, a request can be made to the Shipping Methods resource using the zone ID from the Shipping Zones resource to create a new method for the connected carrier. You are required to enter the shipping carrier’s ID in the type field.
 
-<!--
-  title: "Example request to create a shipping method in a specified zone"
-  subtitle: "POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods"
-  lineNumbers: true
--->
 
-**Example request to create a shipping method in a specified zone**
-
-`POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods`
-
-```json
+```http title="Example request: Create a shipping method in a specified zone" lineNumbers
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v2/shipping/zones/{{zone_id}}/methods
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
 {
   "name": "Example Shipping Carrier",
   "type": "carrier_33",
@@ -238,18 +199,8 @@ Once connected, it’s possible to create shipping methods for a connected carri
   "enabled": true
 }
 ```
-
-<!--
-  title: "Example response"
-  subtitle: "POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods"
-  lineNumbers: true
--->
-
-**Example response**
-
-`POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods`
-
-```json
+&nbsp;
+```json title="Example response: Create a shipping method in a specified zone" lineNumbers
 {
   "id": 24,
   "name": "Per Order Test",
@@ -269,17 +220,13 @@ Once connected, it’s possible to create shipping methods for a connected carri
 
 Whenever shipping rates are required, BigCommerce checks its internal cache for valid entries. BigCommerce uses valid entries and does not call the shipping carrier. If a valid cache entry does not exist, BigCommerce makes a request to the Quote URL with details of the items to be shipped, the shipping origin, and the shipping destination. If you configured any connection settings or zone settings, include these. The shipping carrier must then respond with zero or more shipping quotes.
 
-<!--
-  title: "Example request for shipping rates"
-  subtitle: "POST https://example.com/rate"
-  lineNumbers: true
--->
 
-**Example request for shipping rates**
+```http title="Example request: Shipping rates" lineNumbers
+POST https://example.com/rate
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
 
-`POST https://example.com/rate`
-
-```json
 {
   "base_options": {
     "origin": {
@@ -363,18 +310,8 @@ Whenever shipping rates are required, BigCommerce checks its internal cache for 
   "rate_options": []
 }
 ```
-
-<!--
-  title: "Example response to request for shipping rates"
-  subtitle: "POST https://example.com/rate"
-  lineNumbers: true
--->
-
-**Example response**
-
-`POST https://example.com/rate`
-
-```json
+&nbsp;
+```json title="Example response: Shipping rates" lineNumbers
 {
   "quote_id": "example_quote",
   "messages": [],
@@ -457,17 +394,9 @@ Whenever shipping rates are required, BigCommerce checks its internal cache for 
 
 When you uninstall an app with an associated shipping carrier, you also automatically remove all the shipping methods and connection info for that carrier from the store. You can no longer make quote requests, and users will no longer see shipping quotes for that carrier.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-> ### Note
->The response payload will display shipping quotes from lowest to highest price.
-</div>
-</div>
-</div>
+> #### Note
+> The response payload will display shipping quotes from lowest to highest price.
 
 ## Including product metadata in rate requests
 

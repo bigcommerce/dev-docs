@@ -92,15 +92,10 @@ query SingleProduct {
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > We recommend using the GraphQL Storefront API to query the product data. It lets you specify the information needed from the server and retrieve multiple resources in a single call. For example, using the GraphQL Storefront API, you can fetch product pricing, options, and variations in a single request, improving performance and minimizing the need for subsequent API calls.
-</div>
-</div>
-</div>
+
 
 ## Managing products
 
@@ -130,7 +125,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 ]
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/products/updateproducts#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/products/updateproducts#requestrunner) -->
 
 To update a single product, send a `PUT` request to the [Update a Product](/api-reference/store-management/catalog/products/updateproduct) endpoint.
 
@@ -147,7 +142,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/products/updateproduct#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/catalog/products/updateproduct#requestrunner) -->
 
 ### Cache the catalog
 

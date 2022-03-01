@@ -92,6 +92,8 @@ To get app API credentials, create and sign in to your BigCommerce [Developer Po
 
 ![Step 3 - Technical](https://s3.amazonaws.com/user-content.stoplight.io/6012/1537389883100 "Step 3 - Technical")
 
+![Step 3 - Technical](//s3.amazonaws.com/user-content.stoplight.io/6012/1537389883100 "Step 3 - Technical")
+
 5. In the lower right-hand corner of the popup box, click **Update & Close**.
 6. A new pop up will show asking if you want to change the OAuth scopes. Click **Confirm Update**.
 7. You will be routed back to the Developer Portal home page and your app will be listed. Click **View Client ID**.

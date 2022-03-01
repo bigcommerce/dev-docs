@@ -6,23 +6,16 @@
 
 Suppose your application interacts dynamically with the BigCommerce storefront and conveys specific information to a particular logged-in customer. You must confirm that customer's identity within the insecure environment of the user's browser before revealing any sensitive information.
 
-To address this need, BigCommerce provides a Current Customer endpoint that your app can access via JavaScript on the storefront. This endpoint allows a remote application, such as a third-party subscription billing app, to return a JWT with identifying customer details. The information is signed with your [OAuth client secret](/api-docs/getting-started/authentication/rest-api-authentication#whats-in-an-api-account).
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+To address this need, BigCommerce provides a Current Customer endpoint that your app can access via JavaScript on the storefront. This endpoint allows a remote application, such as a third-party subscription billing app, to return a JWT with identifying customer details. The information is signed with your [OAuth client secret](/api-docs/getting-started/basics/authentication#authentication_client-id-secret).
 
-<!-- theme: info  -->
-
-### Note
-
+<!-- theme: info -->
+> #### Note
 > - An app client ID is required in requests to `/customer/current.jwt`.
 > - To generate an app client ID, create an app in the [BigCommerce Developer Portal](https://devtools.bigcommerce.com/).
 > - Use the app's secret to validate the signature on the JWT.
 > - The app doesn't need to be installed or published on a store to use the client ID to get the JWT.
 
-</div>
-</div>
-</div>
+
 
 ## Example JavaScript
 
@@ -84,16 +77,9 @@ By design, your application should send this token to the application’s server
 
 An end-to-end example that displays a customer's recently purchased products is available in our [Ruby](https://github.com/bigcommerce/hello-world-app-ruby-sinatra/) and [PHP](https://github.com/bigcommerce/hello-world-app-php-silex/) sample apps.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-### IAT and EXP claims
+> #### IAT and EXP claims
 
 > The current customer tokens are valid for 15 minutes.
 
-</div>
-</div>
-</div>
+

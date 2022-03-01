@@ -84,16 +84,11 @@ BigCommerce's REST endpoints accept requests made in parallel. Applications maki
 * Slow rate of requests when `X-Rate-Limit-Requests-Left` nears zero.
 * Self-throttles requests to the average rate of `(X-Rate-Limit-Requests-Quota / X-Rate-Limit-Time-Window-Seconds)`.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
+> #### Note
+> Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to `/pricelists/{price_list_id}/records` will result in a `429` error response. These limitations are documented at the operation level in the API Reference.
 
-> ### Note
-> * Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to [`/pricelists/{price_list_id}/records`](/api-reference/store-management/price-lists/price-lists-records/setpricelistrecordcollection) will result in a `429` error response -- these limitations are documented at the operation level in the API Reference.
 
-</div>
-</div>
-</div>
 
 ### Respect platform limits
 
@@ -113,8 +108,8 @@ Rather than polling endpoints, get notified when updates occur by subscribing to
 
 Add BigCommerce's JavaScript SDK to your single-click app's front-end to prevent users from getting logged out of the control panel while using your app. To do so, reference the following script in your app's client-side code:
 
-```html
-https://cdn.bigcommerce.com/jssdk/bc-sdk.js
+```javascript
+      https://cdn.bigcommerce.com/jssdk/bc-sdk.js
 ```
 
 To perform some action when a logout occurs, specify an `onLogout` callback:

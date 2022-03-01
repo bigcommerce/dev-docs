@@ -62,7 +62,7 @@ These APIs are not always required, but highly recommended for app developers ba
 * Customers & Subscribers: Customers ([API docs](/api-docs/customers/customers-subscribers-overview), [v2 API reference](/api-reference/customer-subscribers/customers-api), [v3 API Reference](/api-reference/customer-subscribers/v3-customers-api), [webhooks](/api-docs/store-management/webhooks/webhook-events#customer))
 * Cart & Checkout: Server to Server Cart ([API Docs](/api-docs/cart-and-checkout/cart-and-checkout-overview), [API Reference](/api-reference/cart-checkout/server-server-cart-api))
 * Cart & Checkout: Server to Server Checkout ([API Docs](/api-docs/cart-and-checkout/cart-and-checkout-overview), [API Reference](/api-reference/cart-checkout/server-server-checkout-api))
-* Cart & Checkout: Checkout SDK ([API Docs](/api-docs/cart-and-checkout/checkout-sdk), [Github](https://github.com/bigcommerce/checkout-sdk-js))
+* Cart & Checkout: Checkout SDK ([API Docs](/api-docs/cart-and-checkout/checkout-sdk), [GitHub](https://github.com/bigcommerce/checkout-sdk-js))
 
 ### Features/ Requirements
 

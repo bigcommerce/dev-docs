@@ -12,8 +12,8 @@ All channels must integrate the following endpoints.
 
 | Endpoint                                                                                        | Description                                                                    |
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| [Channels](/api-reference/cart-checkout/channels-listings-api) | Create and manage product listings for multiple storefronts and sales channels |
-| [Listings](/api-reference/cart-checkout/channels-listings-api) | Create and manage product listings for multiple storefronts and sales channels |
+| [Channels](/api-reference/store-management/channels) | Create and manage product listings for multiple storefronts and sales channels |
+| [Listings](/api-reference/store-management/channels) | Create and manage product listings for multiple storefronts and sales channels |
 | [Orders](/api-reference/store-management/orders)               | Get and manage order data                                                      |
 | [Products](/api-reference/catalog/catalog-api)                 | Manage products, options, variants, and modifiers                              |
 
@@ -56,9 +56,9 @@ To assist in the rapid development of apps that match the native UI and UX of th
 | Link | Description |
 |-|-|
 |[BigDesign Developer Playground](https://developer.bigcommerce.com/big-design)| BigDesign react component documentation and playground |
-|[CodeSandbox Example](https://codesandbox.io/s/github/bigcommerce/big-design/tree/%40bigcommerce/examples%400.6.0/packages/examples)| CodeSandbox app show-casing BigDesign components|
+|[CodeSandbox app](https://codesandbox.io/s/mkvv7)| CodeSandbox app showcasing BigDesign components|
 |[Big Design Repo](https://github.com/bigcommerce/big-design)|GitHub repository for BigDesign components|
-|[Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1)|Figma UI kit for BigDesign components|
+|Figma UI kit for BigDesign components|[Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1)|
 
 ### Required UI components
 

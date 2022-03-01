@@ -16,21 +16,12 @@ Additionally, by leveraging the power of [GraphQL](https://graphql.org/), data f
 
 This article is a general overview of BigCommerce's GraphQL Storefront API; it includes sections on authentication and how to access a store's GraphQL Playground. To see specific examples of how GraphQL can be used to query storefront data, see [GraphQL Storefront API Example Queries](/api-docs/storefront/graphql/graphql-storefront-api-samples).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Note
-
+> #### Note
 > * The GraphQL Storefront API is in early access and is feature-incomplete; it will remain in early access until we reach the minimum amount of functionality necessary to power an end-to-end shopping experience.
 > * As new features are added to the API, they will be called out in our [Developer Changelog](/changelog#labels/storefront-api).
 > * BigCommerce legacy Blueprint themes currently do not support the GraphQL API and Playground.
 
-</div>
-</div>
-</div>
 
 <a id="see-it-in-action" class="devdocsAnchor"></a>
 
@@ -52,20 +43,11 @@ The GraphQL Storefront API Playground will be opened.
 
 ![GraphQL Storefront API Playground](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-storefront-api-playground.png "GraphQL Storefront API Playground")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-### Note
-
+> #### Note
 > * GraphQL Playground is a [GraphQL IDE](https://github.com/andev-software/graphql-ide) built on Electron. For more information, see [GraphQL Playground](https://electronjs.org/apps/graphql-playground) on [electrongjs.org](https://electronjs.org)
 > * If the **Storefront API Playground** link is not visible, the store may not be using a Stencil theme. Apply a Stencil theme to use the Storefront GraphQL API.
 
-</div>
-</div>
-</div>
 
 ## Using the GraphQL Playground
 
@@ -166,22 +148,14 @@ fetch('/graphql', {
 });
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
 <!-- theme: warning -->
-
-### Note
+> #### Note
 > * `1` can be passed in for the `channel_id` for generating tokens for use on the default Stencil storefront.
-> * To create a channel for a remote site, see [Create Channel](/api-reference/cart-checkout/channels-listings-api/channels/createchannel) in the API Reference.
+> * To create a channel for a remote site, see [Create Channel](/api-reference/store-management/channels/channels/createchannel) in the API Reference.
 > * `allowed_cors_origins` array accepts only a single origin currently -- one token must be generated for each origin.
 > * `/storefront/api-token` endpoint requires the `Manage` `Storefront API Tokens` OAuth Scope.
 > * `storefront/api-token-customer-impersonation` endpoint requires the `Manage` `Storefront API Customer Impersonation Tokens` OAuth Scope.
 > * The `fetch` request `credentials` property must be set to `same-origin` (even when making request from a Stencil theme).
-
-</div>
-</div>
-</div>
 
 ### Customer impersonation tokens
 
@@ -294,14 +268,8 @@ In addition to using `fetch()`, there's a other ways to query the API:
 * **Using [Apollo Client](https://www.apollographql.com/docs/react/)** - Apollo is a popular GraphQL client that's easy to use in BigCommerce themes. For a quick example of adding Apollo Client to cornerstone, checkout this [Cornerstone commit](https://github.com/bigcommerce/cornerstone/commit/508feeb1b00d2bb2940771e5e91250a08b6be4d9) on GitHub.
 * **Using any GraphQL Client** - GraphQL is a standard with client libraries in many languages, so feel free to explore your options.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-### Note
-
+> #### Note
 > * If pasted directly into a script in [**Storefront** > **Script Manager**](https://support.bigcommerce.com/s/article/Using-Script-Manager), the output from `console.log(json)` will be viewable in the browser's Javascript Console.
 > * The above code must be used in a place where the `{{settings.storefront_api.token}}` handlebars variable can be accessed in order to get credentials for the API request.
 > * The `fetch` request `credentials` property must be set to `same-origin` (even when making request from a Stencil theme).
@@ -311,9 +279,7 @@ In addition to using `fetch()`, there's a other ways to query the API:
  products(first: 10) 
  ```
 
-</div>
-</div>
-</div>
+
 
 ## Querying from external systems
 

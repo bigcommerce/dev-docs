@@ -1,5 +1,5 @@
 
-<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
+<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for WordPress</h3></div>
 
 # Introduction
 
@@ -31,7 +31,9 @@ to
 
 Then, edit `wp-content/themes/<theme-name>/bigcommerce/single-bigcommerce_product.php` to override the default content.
 
-**Note**: Most templates are used for rendering content inside of the content area of your theme's template. Only a few take over the entire page template. These may need modifications to match your theme.
+<!-- theme: info -->
+> #### Note 
+> Most templates are used for rendering content inside the content area of your theme's template. Only a few take over the entire page template. These may need modifications to match your theme.
 
 ### Shopper Experience
 

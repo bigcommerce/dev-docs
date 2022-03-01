@@ -1,26 +1,13 @@
 # Categories
 
-
-
 ## Categories 
 
 Index of hierarchical categories used to organize and group products.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-
-For the most up-to-date version of this API, see [Category](/api-reference/store-management/catalog/category).
-
-
-</div>
-</div>
-</div>
+> For the most up-to-date version of this API, see [Category](/api-reference/store-management/catalog/category).
 
 ### Category Object – Properties 
 
@@ -162,7 +149,7 @@ The following properties of the category are required. The request won’t be fu
 
 *   name
 
-### Notes 
+**Note**s 
 
 To maximize system performance, BigCommerce caps the number of categories that can be added to a store at 16,000. If your `POST` causes the store to exceed the maximum of 16,000 categories, BigCommerce will return a 403 error.
 
@@ -221,7 +208,7 @@ The following properties of the category are read-only. If one or more of these 
 
 The following properties of the category are required. The request won’t be fulfilled unless these properties are valid.
 
-### Notes 
+**Note**s 
 
 To maximize system performance, BigCommerce caps the total number of parent categories at seven. If your `PUT` includes the ID of a parent category in the `parent_id` field, BigCommerce will check the parent and any children of the current category to determine the total number of parent categories. If your `PUT` would cause the total number of parent categories to exceed the maximum of seven, BigCommerce will return a 403 error.
 
@@ -257,18 +244,10 @@ Deletes a category.
 
 >`DELETE /stores/{store_hash}/v2/categories/{id}`
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--error">
-<div class="HubBlock-content">
-    
-<!-- theme: error -->
-
-### Delete Products before Categories
+<!-- theme: danger -->
+> #### Delete Products before Categories
 > The Delete All Categories operation will not succeed unless the store has zero products. If any products in the store belong to any categories, the entire operation will fail. Therefore, if you really want to delete all the categories of the store, you must first delete all of the products in the store.
 
-</div>
-</div>
-</div>
 
 ## Delete All Categories 
 

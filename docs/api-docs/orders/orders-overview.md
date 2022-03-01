@@ -29,23 +29,16 @@ For an example using the Fetch API to log order information to the console, see 
 * Scrape order information
 * Send order data to an analytics app
 
-<!--
-title: "Log Orders to Console"
-subtitle: ""
-lineNumbers: true
--->
-
-**Log orders to console**
-```html
+```handlebars title="Log orders to console" lineNumbers
 <script>
-console.log("Log Orders")
-fetch('/api/storefront/order/{{checkout.order.id}}', {credentials: 'include'})
-.then(function(response) {
-return response.json();
-})
-.then(function(myJson) {
-console.log(myJson);
-});
+  console.log("Log Orders")
+  fetch('/api/storefront/order/{{checkout.order.id}}', {credentials: 'include'})
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    console.log(myJson);
+  });
 </script>
 ```
 

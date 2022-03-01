@@ -9,19 +9,7 @@ The basic details of the Cornerstone theme are outlined in the theme's configura
 
 Here are the first key-value sets in Cornerstone's `config.json`: 
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Cornerstone config.json settings"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Cornerstone settings config.json" lineNumbers
 {
   "name": "Cornerstone",
   "version": "4.9.0",
@@ -36,19 +24,7 @@ lineNumbers: true
 The following example shows how to change Cornerstone's configurations to reflect your own theme's name, version number, price on Theme Marketplace, and documentation URL:
 
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Cornerstone settings config.json" lineNumbers
 {
 "name": "MyTheme",
 "version": "1.1.2",
@@ -65,19 +41,7 @@ lineNumbers: true
 You define variations in your theme's `config.json` file. Below is the Cornerstone Light variation's definition from Cornerstone's `config.json`:
 
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Cornerstone Light theme variation settings config.json" lineNumbers
   "variations": [
     {
       "name": "Light",
@@ -102,19 +66,7 @@ lineNumbers: true
 Try inserting your custom variation into the `variations` object of Cornerstone's `config.json`. Your variation's definition might look something like this:
 
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Example theme variation definition config.json" lineNumbers
 "variations": [
 // ...
   {
@@ -137,21 +89,9 @@ lineNumbers: true
 
 To learn more about defining variations, see [Defining Global Styles](/stencil-docs/configure-store-design-ui/defining-global-styles). In particular, note the option to configure settings and variables that are scoped to each variation.
 
-The following example shows how to set the body of a theme variation to a specific typeface/family by inserting the `body-font-family` key into the `settings` object:
+The following example shows how to set the body font of a theme variation to a specific typeface/family by inserting the `body-font-family` key into the `settings` object:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Example body font variation config.json" lineNumbers
 {
   "name": "MyCustomVariation",
   "id": "my_custom_variation",
@@ -168,21 +108,10 @@ lineNumbers: true
 
 For details on preparing screenshots that enable merchants to preview each variation, and to preview your theme as a whole in the BigCommerce control panel and Theme Marketplace, see [Preparing Thumbnail Images](/stencil-docs/deploying-a-theme/preparing-thumbnail-images).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Using Stencil CLI to change variations
+<!-- theme: info -->
+> #### Using Stencil CLI to change variations
 > To locally test/debug a specific variation of your theme, launch it by invoking the Stencil CLI's `stencil start -v` switch. Enter the following code into the terminal, replacing `variation-name` with your theme's variation name as listed in `config.json`:
-
-
-`stencil start -v variation-name`
-
-</div>
-</div>
-</div>
+> `stencil start -v variation-name`
 
 ## Resources
 

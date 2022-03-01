@@ -15,7 +15,7 @@ This article documents how to use [Channels Toolkit](/api-docs/channels/guide/ch
 
 ## Creating a channel
 
-After receiving the [POST response](/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the [single-click app OAuth flow](/api-docs/apps/guide/auth#receiving-the-post-response), create a channel on the merchant's store. This allows merchants to assign product listings to the storefront and configure storefront specific settings. To create a storefront channel, set `type` to `storefront` in the [create a channel](/api-reference/cart-checkout/channels-listings-api/channels/createchannel) request.
+After receiving the [POST response](/api-docs/apps/guide/auth#receiving-the-post-response) at the end of the [single-click app OAuth flow](/api-docs/apps/guide/auth#receiving-the-post-response), create a channel on the merchant's store. This allows merchants to assign product listings to the storefront and configure storefront specific settings. To create a storefront channel, set `type` to `storefront` in the [create a channel](/api-reference/store-management/channels/channels/createchannel) request.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
@@ -61,13 +61,13 @@ Accept: application/json
 }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/cart-checkout/channels-listings-api/channels/createchannel#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channels/createchannel#requestrunner) -->
 
 [View reference documentation for this request](/api-reference/store-management/channels/channels/createchannel).
 
 ## Specifying the platform
 
-Specify the headless storefront's platform by assigning an [accepted value for `platform`](#accepted-values) in the [create channel request](/api-reference/cart-checkout/channels-listings-api/channels/createchannel).
+Specify the headless storefront's platform by assigning an [accepted value for `platform`](#accepted-values) in the [create channel request](/api-reference/store-management/channels/channels/createchannel).
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
@@ -83,7 +83,7 @@ Accept: application/json
   }
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/cart-checkout/channels-listings-api/channels/createchannel#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channels/createchannel#requestrunner) -->
 
 ### Accepted values
 
@@ -124,19 +124,13 @@ Accept: application/json
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
  
 <!-- theme:info -->
-
-> **Note**
->
+> #### Note
 > You can [find an app's ID](/api-docs/apps/tutorials/id) in the URL when editing the app in the [Developer Portal](/api-docs/apps/guide/developer-portal).
 
-</div>
-</div>
-</div>
+
 
 ## Protected UI sections
 
@@ -149,7 +143,7 @@ The following protected sections are provided by BigCommerce.
 | `Notifications`       | `notifications`       | Renders channel specific notification settings |
 | [`Currencies`](#currencies-settings)          | `currencies`          | Renders channel specific currency settings     |
 
-Include protected sections in the [create channel request](/api-reference/cart-checkout/channels-listings-api/channels/createchannel) to display BigCommerce provided channel specific settings.
+Include protected sections in the [create channel request](/api-reference/store-management/channels/channels/createchannel) to display BigCommerce provided channel specific settings.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
@@ -190,17 +184,10 @@ Included protected sections display above custom sections.
 
 ![Protected Sections](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-protected-custom-settings.png "Protected Sections")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+<!-- theme: warning -->
+> #### Note
+> Any content an app attempts to render to the control panel iFrame for a protected section will be overridden by the BigCommerce provided content.
 
-> **Note**
->
-> - Any content an app attempts to render to the control panel iFrame for a protected section will be overridden by the BigCommerce provided content.
-
-</div>
-</div>
-</div>
 
 ## Storefront settings
 
@@ -218,7 +205,7 @@ Content-Type: application/json
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/settings/storefront-category/getsettingsstorefrontcategory#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/settings/storefront-category/getsettingsstorefrontcategory#requestrunner) -->
 
 **Response:**
 
@@ -251,7 +238,7 @@ Content-Type: application/json
 Accept: application/json
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channel-currency-assignments/get-channels-channel-id-currency-assignments#requestrunner)
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channel-currency-assignments/get-channels-channel-id-currency-assignments#requestrunner) -->
 
 **Response:**
 
@@ -284,5 +271,5 @@ Include the `Notifications` [protected section](#protected-ui-sections) in the c
 
 ### Endpoints
 
-- [Channels API Reference](/api-reference/cart-checkout/channels-listings-api)
+- [Channels API Reference](/api-reference/store-management/channels)
 - [Settings API Reference](/api-reference/store-management/settings)

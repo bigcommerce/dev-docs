@@ -20,13 +20,13 @@ See [Authenticating BigCommerce's REST APIs](/api-docs/getting-started/authentic
 
 ## Step 2: Integrate channel API
 
-To be visible in Channel Manager once installed, apps must meet certain requirements. All channel apps are required to use BigCommerce’s Channel API. Select partner apps have additional [Channel API](/api-reference/cart-checkout/channels-listings-api) implementation requirements to facilitate being marketed in Channel Manager.
+To be visible in Channel Manager once installed, apps must meet certain requirements. All channel apps are required to use BigCommerce’s Channel API. Select partner apps have additional [Channel API](/api-reference/store-management/channels) implementation requirements to facilitate being marketed in Channel Manager.
 
 ### All partners
 
-- [Create a Channel](/api-reference/cart-checkout/channels-listings-api) (for each platform the app enables a merchant to sell on) - this enables the channel to be displayed within the “Manage” screen in the new Channel Manager for merchants, once the app has been installed.
+- [Create a Channel](/api-reference/store-management/channels) (for each platform the app enables a merchant to sell on) - this enables the channel to be displayed within the “Manage” screen in the new Channel Manager for merchants, once the app has been installed.
 
-- [Create a Channel](/api-reference/cart-checkout/channels-listings-api) request must include `app_id` at a minimum in the [app config object](#sample-configuration).
+- [Create a Channel](/api-reference/store-management/channels) request must include `app_id` at a minimum in the [app config object](#sample-configuration).
 
 
 ### Channel manager example
@@ -37,7 +37,7 @@ To be visible in Channel Manager once installed, apps must meet certain requirem
 
 - Update UI to use [BigDesign](https://developer.bigcommerce.com/big-design) and the general design patterns and user flows demonstrated in the sample app (shown in the screenshots below) with channel name, icon, and menu nav sections.
 
-- Include sections in the [Channel API](/api-reference/cart-checkout/channels-listings-api) request in the [app config object](#sample-configuration).
+- Include sections in the [Channel API](/api-reference/store-management/channels) request in the [app config object](#sample-configuration).
 
 ### Channel app import section
 
@@ -51,7 +51,7 @@ To be visible in Channel Manager once installed, apps must meet certain requirem
 
 - **Channels** - Register a channel for all existing merchants using the app.
 - **Orders** - Add `channel_id` with the corresponding channel ID for the merchant and which channel the order was placed on, if orders are synced to BigCommerce.
-- **Listings (optional)** - Create channel specific [product listings](/api-reference/cart-checkout/channels-listings-api). This is primarily necessary for storefronts, marketplaces, and marketing type of channels.
+- **Listings (optional)** - Create channel specific [product listings](/api-reference/store-management/channels). This is primarily necessary for storefronts, marketplaces, and marketing type of channels.
 
 
 ## App requirements
@@ -70,7 +70,7 @@ The above "updating existing app" data applies; however, non-POS channel apps ar
 
 **All Partners**:
 
-- Must use [Listings API](/api-reference/cart-checkout/channels-listings-api) if supporting per product listings.
+- Must use [Listings API](/api-reference/store-management/channels) if supporting per product listings.
 
 
 
@@ -105,29 +105,21 @@ Accept: application/json
 }]
 ```
 
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/cart-checkout/channels-listings-api/channels/createchannel#requestrunner)
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channels/createchannel#requestrunner) -->
 
 <!-- theme: info -->
-
-> **Note**
->
+> #### Note
 > - You can find the app ID in the URL when editing the app in the [Developer Portal](https://devtools.bigcommerce.com/). For more information, see [Finding an App's ID](/api-docs/apps/tutorials/id).
 > - `config_meta.app.id` is optional; however, if you're building an app that creates or manages a channel, we recommend including the app ID to ensure the user interface in the BigCommerce control panel works properly.
 > - Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request.
 
-</div>
-</div>
-</div>
+
 
 **Properties**
 |  Property | Type | Description |
 | --- | --- | --- |
 | `type` | str | Allowed Values: pos, marketplace, storefront, marketing |
-| `platform` | str | Allowed Values: see below or in [API Reference](/api-reference/cart-checkout/channels-listings-api/channels/createchannel) |
+| `platform` | str | Allowed Values: see below or in [API Reference](/api-reference/store-management/channels/channels/createchannel) |
 | `name` | str | The name the merchant will see |
 | `external_id` | str | Associated ID within a system / platform outside of BC. |
 | `status` | str | Allowed Values: active, inactive, connected, disconnected, archived |
@@ -156,38 +148,24 @@ Accept: application/json
 | `google` | `marketplace` |
 | `custom` | `storefront`, `pos`, `marketing`, `marketplace` |
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
->
+<!-- theme: info -->
+> #### Note
 > \* We discourage using `google_shopping` as BigCommerce has deprecated this platform. Instead, we have added support for `marketing` and `marketplace` types on the `google` platform.
 
-</div>
-</div>
-</div>
 
-For a complete Channel API reference (including request schemas and property descriptions), see: [API Reference > Channels and Listings](/api-reference/cart-checkout/channels-listings-api).
+For a complete Channel API reference (including request schemas and property descriptions), see: [API Reference > Channels and Listings](/api-reference/store-management/channels).
 
 ## Terminology
 
 |Term|Definition|
 |-|-|
 | **Channels Toolkit** | Channels Toolkit is a set of tools, UI patterns, guidelines, and APIs provided by BigCommerce to enable partners and developers to extend the BigCommerce ecosystem by building sales channel integrations (whether they are point of sale, marketing, marketplace, social, or headless storefronts) that are more deeply embedded within the BigCommerce control panel. |
-| **Select Partners**  | Partners approved by BigCommerce to be marketed and discoverable as sales channel providers within the new Channel Manager. These are partners who offer what we know to be best in breed integrations to key sales channels that help merchants grow their business.                                                                                                    |
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+| **Select Partners**  | Partners approved by BigCommerce to be marketed and discoverable as sales channel providers within the new Channel Manager. These are partners who offer what we know to be best in breed integrations to key sales channels that help merchants grow their business.|
+
 <!-- theme: info -->
+> #### Note
+> Select partners have slightly more stringent requirements for their sales channel apps due to the high visibility and marketability of their apps directly within the BigCommerce control panel.
 
-> **Note**
->
-> - Select partners have slightly more stringent requirements for their sales channel apps due to the high visibility and marketability of their apps directly within the BigCommerce control panel.
-
-</div>
-</div>
-</div>
 
 For a high-level overview and more information on Channels Toolkit, see [Channels Overview](/api-docs/channels/overview).
 
@@ -205,5 +183,5 @@ For a high-level overview and more information on Channels Toolkit, see [Channel
 
 ### Endpoints
 
-- [Channels API Reference](/api-reference/cart-checkout/channels-listings-api)
+- [Channels API Reference](/api-reference/store-management/channels)
 - [Sites and Rites API Reference](/api-reference/cart-checkout/sites-routes-api)

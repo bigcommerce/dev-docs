@@ -7,19 +7,9 @@ After installing a single-click app, store owners and authorized users *load* th
 
 Your app's front-end views render inside an iFrame in the store control panel, so your app has no native ability to listen for a few high-level events. To support your work, BigCommerce sends `GET` requests to callback routes in your app that correspond to three events: opening the app, uninstalling the app, and revoking a user's access to the app. Each request includes a signed JSON web token (_JWT_), which contains identifying information about the store and the user. This article is a reference for endpoints to which we send event-driven callbacks, and a guide to writing handlers that verify and use our JWT payloads.
 
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-### Note
+> #### Note
 > In production, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
-
-</div>
-</div>
-</div>
 
 ## Overview
 
@@ -36,18 +26,10 @@ Decoding the supplied JWT lets your app do the following:
 - Identify the requesting user.
 - Verify that the request came from BigCommerce.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-### Note
+> #### Note
 > We strongly recommend that each callback handler decode `signed_payload_jwt` to [verify the payload](#decode-and-verify-the-jwt) before taking any action.
 
-</div>
-</div>
-</div>
 
 ## Open the app with /load
 
@@ -116,14 +98,11 @@ Use the following steps to decode, verify, and parse the JWTs that BigCommerce s
 <div class="HubBlock-content">
 
 <!-- theme: warning -->
-> ### Security precautions
+> #### Security precautions
 > Your production code should never work with claims from a payload you can't verify.
 > To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. Comparison techniques vary by programming language and signing algorithm. Ruby and PHP [code samples](#code-samples) for HS256 hashes follow. 
 > We recommend writing middleware or using an existing [library in your language of choice](https://jwt.io/libraries) to help you decode, verify, and parse JWTs.
 
-</div>
-</div>
-</div>
 
 ## Work with payload claims
 
