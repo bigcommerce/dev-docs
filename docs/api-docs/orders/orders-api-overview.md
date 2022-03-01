@@ -13,7 +13,7 @@ This article introduces BigCommerce's [Orders V2](/api-reference/store-managemen
 
 To [create an order](/api-reference/store-management/orders/orders/createanorder), send a `POST` request to `/stores/{{STORE_HASH}}/v2/orders`.
 
-```http
+```http title="Create an order" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -55,7 +55,7 @@ Accept: application/json
 
 Specify [order status](/api-reference/store-management/orders/order-status/getorderstatus) by including the `status_id` property in the [create order](/api-reference/store-management/orders/orders/createanorder) request. To [update an order](/api-reference/store-management/orders/orders/updateanorder) and change its status, send a `PUT` request to `/v2/orders/{{order_id}}`.
 
-```http
+```http title="Change order status" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{{order_id}}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -70,7 +70,7 @@ Accept: application/json
 
 To [get a list of order statuses](/api-reference/store-management/orders/order-status/getorderstatus), send a `GET` request to `/stores/{{STORE_HASH}}/v2/order_statuses`.
 
-```http
+```http title="Example request: Get order statuses"
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/order_statuses
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -79,9 +79,8 @@ Accept: application/json
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/order-status/getorderstatus#requestrunner) -->
 
-**Response:**
-
-```json
+&nbsp;
+```json title="Example response: Get order statuses" lineNumbers
 [
   {
     "id": 0,
@@ -108,7 +107,7 @@ Accept: application/json
 
 Specify the [customer](/api-reference/store-management/customers-v3/customers/customersget#responses) by including a `customer_id` in the [create order](/api-reference/store-management/orders/orders/createanorder) request.
 
-```http
+```http title="Example request: Specify order customer" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -126,7 +125,7 @@ Accept: application/json
 
 To [get a list of customers](/api-reference/store-management/customers-v3/customers/customersget), send a `GET` request to `/stores/{{STORE_HASH}}/v3/customers`.
 
-```http
+```http title="Example request: Get a list of customers" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/customers
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
@@ -142,7 +141,7 @@ Accept: application/json
 
 Add [shipping addresses](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [shipping_address array](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in the [create order](/api-reference/store-management/orders/orders/createanorder) request.
 
-```http title="Add shipping addresses" lineNumbers
+```http title="Example request: add shipping addresses" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -181,7 +180,7 @@ Accept: application/json
 
 Specify [products from the catalog](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) by including a [products array](/api-reference/store-management/orders/order-shipping-addresses/updateashippingaddress#request-body) in a `POST` request to the [create order](/api-reference/store-management/orders/orders/createanorder) endpoint.
 
-```http
+```http title="Example request: Add products" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -218,7 +217,7 @@ Accept: application/json
 
 To get the `product_options.id` and `product_options.value` of a product for the order `products` array, send a `GET` request to `/stores/{{STORE_HASH}}/v3/catalog/products/{product_id}/variants`.
 
-```http
+```http title="Example request: Get product variants" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/variants
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -228,8 +227,7 @@ Accept: application/json
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/catalog/catalog-api/product-variants/getvariantsbyproductid#requestrunner) -->
 
 **[Response:](/api-reference/catalog/catalog-api/product-variants/getvariantbyid#responses)**
-
-```json
+```json title="Example response: Get product variants" lineNumbers
 {
   "data": [
     {
@@ -272,7 +270,7 @@ Once an order has products, a billing address, and a shipping address, you can c
 
 To [create an order shipment](/api-reference/store-management/orders/order-shipments/createordershipments), send a `POST` request to `/stores/{{STORE_HASH}}/v2/orders/{{order_id}}/shipments`.
 
-```http
+```http title="Example request: Create an order shipment" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v2/orders/{{order_id}}/shipments
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -366,7 +364,7 @@ Accept: application/json
 
 To [get shipping quotes](/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes), send a `GET` request to `/v2/orders/{order_id}/shipping_addresses/{shipping_address_id}/shipping_quotes`.
 
-```http
+```http title="Example request: Get shipping quotes" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{{order_id}}/shipping_addresses/{{shipping_address_id}}/shipping_quotes
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
@@ -376,7 +374,7 @@ Accept: application/json
 
 **[Response:](/api-reference/store-management/orders/order-shipping-addresses-quotes/getshippingquotes#responses)**
 
-```json
+```json title="Example response: Get shipping quotes" lineNumbers
 {
   "id": "16",
   "uuid": "18aaa5eb-3c7a-4bf8-bfaa-d14d155606f1",
@@ -396,7 +394,7 @@ Generating a quote through a shipping carrier is not supported. You can specify 
 
 To [get order taxes](/api-reference/store-management/orders/order-taxes/getordertaxes), send a `GET` request to `/stores/{{STORE_HASH}}/v2/orders/{order_id}/taxes`.
 
-```http
+```http title="Example request: Get order taxes" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders/{{order_id}}/taxes
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
@@ -405,8 +403,7 @@ Accept: application/json
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/order-taxes/getordertaxes#requestrunner) -->
 
 **[Response:](/api-reference/store-management/orders/order-taxes/getordertaxes#responses)**
-
-```json
+```json title="Example response: Get order taxes" lineNumbers
 [
   {
     "id": 13,
@@ -426,7 +423,7 @@ Accept: application/json
 
 The response's [order tax object](/api-reference/store-management/orders/order-taxes/getordertaxes) `name` property gets set to `API Tax Override` when generated by third-party tax services like [Avalara Premium](https://www.bigcommerce.com/apps/avalara-avatax/?search=avalara).
 
-```json
+```json title="Example response detail: Tax object from get order taxes" lineNumbers
 [
   {
     "id": 13,
@@ -463,7 +460,7 @@ BigCommerce submits tax documents to Avalara when an order moves from an **unpai
 
 To [get order transactions](/api-reference/store-management/order-transactions/transactions/gettransactions), send a `GET` request to `/stores/{{STORE_HASH}}/v3/orders/{order_id}/transactions`.
 
-```http
+```http title="Example request: Get order transactions" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{{order_id}}/transactions
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
@@ -472,8 +469,7 @@ Accept: application/json
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/transactions/gettransactions#requestrunner) -->
 
 **[Response:](/api-reference/store-management/order-transactions/transactions/gettransactions#responses)**
-
-```json
+```json title="Example response: Get order transactions" lineNumbers
 {
   "data": [
     {
