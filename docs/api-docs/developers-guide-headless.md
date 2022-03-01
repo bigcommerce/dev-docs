@@ -46,7 +46,7 @@ Need to build a custom solution from scratch? BigCommerce has APIs, SDKs, and to
 * [Create storefront channels with the Channels API](/api-docs/channels/quick-start).
 * [Manage sites and routes for headless storefronts with the sites and routes API](/api-reference/store-management/sites).
 * [Manage 301 redirects for one or more storefronts with Redirects V3 API](/api-reference/store-management/redirects)
-* [Create storefront specific product listings with the Channels API](/api-reference/cart-checkout/channels-listings-api).
+* [Create storefront specific product listings with the Channels API](/api-reference/store-management/channels).
 * [Query storefront data with GraphQL](/api-docs/storefront/graphql/graphql-storefront-api-overview).
 * [Use customer impersonation tokens to query data specific to the shopper](/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-impersonation-tokens).
 * [Create carts with the Server-to-Server Carts API](/api-reference/cart-checkout/server-server-cart-api).

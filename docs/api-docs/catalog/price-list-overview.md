@@ -88,7 +88,7 @@ Content-Type: application/json
 
 The price list assignment assigns a price list to a specific sales channel. This association lets you define custom pricing for shoppers on storefront channels, but doesn't affect pricing in different omnichannel environments (Facebook, Amazon, Instagram, eBay, etc). 
 
-See [Channels, Sites, and Routes](/api-reference/cart-checkout/channels-listings-api) for further documentation.
+See [Channels, Sites, and Routes](/api-reference/store-management/channels) for further documentation.
 
 **Example price list assigned to channel**
 `POST https://api.bigcommerce.com/stores/{store_hash}/v3/pricelists/assignments`

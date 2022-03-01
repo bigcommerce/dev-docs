@@ -243,13 +243,13 @@ All OAuth scopes except `default` have `read_only` scopes that allow only `GET` 
 ||| [/v3/channels/{channel_id}/site](/api-reference/cart-checkout/sites-routes-api) |
 ||| [/v3/sites/{site_id}/routes](/api-reference/cart-checkout/sites-routes-api) |
 | Channel Settings | store_channel_settings | View and modify a list of channels |
-||| [/v3/channels](/api-reference/cart-checkout/channels-listings-api) |
+||| [/v3/channels](/api-reference/store-management/channels) |
 || store_channel_settings_read_only | View a list of channels |
-||| [/v3/channels](/api-reference/cart-checkout/channels-listings-api) |
+||| [/v3/channels](/api-reference/store-management/channels) |
 | Channel Listings | store_channel_listings | View and modify a list of all channel listings for a particular channel |
-||| [/v3/channels/listings](/api-reference/cart-checkout/channels-listings-api) |
+||| [/v3/channels/listings](/api-reference/store-management/channels) |
 || store_channel_listings_read_only | View a list of all channel listings for a particular channel |
-||| [/v3/channels/listings](/api-reference/cart-checkout/channels-listings-api) |
+||| [/v3/channels/listings](/api-reference/store-management/channels) |
 | Storefront API Tokens | store_storefront_api | Create a storefront API token |
 ||| [/v3/storefront/api-token](/api-reference/cart-checkout/storefront-api-token)
 | Storefront API Customer Impersonation Tokens | store_storefront_api_customer_impersonation | Create a storefront API token that allows for customer impersonation |
