@@ -1,7 +1,7 @@
 # Theme Assets
 
 
-Each Stencil theme’s `assets/` directory contains CSS, JavaScript, and image assets that help create the design of storefront pages. A minimal `assets/` directory contains the files and subdirectories that you can view on the [Cornerstone Github Repository](https://github.com/bigcommerce/cornerstone/tree/master/assets).
+Each Stencil theme’s `assets/` directory contains CSS, JavaScript, and image assets that help create the design of storefront pages. A minimal `assets/` directory contains the files and subdirectories that you can view on the [Cornerstone GitHub Repository](https://github.com/bigcommerce/cornerstone/tree/master/assets).
 
 <!-- theme: warning -->
 > In parts of your theme's directory tree where you are free to add new subdirectories and files, be sure to:
@@ -20,8 +20,8 @@ Each Stencil theme’s `assets/` directory contains CSS, JavaScript, and image a
 | cornerstone/assets/img | The `/img/` subdirectory contains images used in the theme’s display – background images, sprites, and other images not related to store content. You would typically reference these image assets using Stencil's `cdn` Handlebars helper. For example, generically: <`img src="{{cdn 'assets/img/image.jpg'}}"`> Or, with a realistic file name: <`img src="{{cdn 'assets/img/size-chart.png'}}"`>. <br><br>To avoid unexpected 404 errors on your production store, we recommend that you use short relative paths in your SCSS to reference images in your `/img/` subdirectory. So, for example, use references of the form `background: url('../img/header-bg.png');` rather than references of the form: `background: url('/assets/img/header-bg.png');` |
 | cornerstone/assets/js | The /js/ subdirectory contains general JavaScript files used in the theme. |
 | cornerstone/assets/scss | The /scss/ subdirectory contains theme-specific CSS resources. |
-| cornerstone/assets/layouts/ | The `{{theme-name}}/assets/scss/layouts/` subdirectory contains `.scss` files that provide default styling for major layout components of theme pages. You can see the `/layouts/` subdirectory’s internal structure on the Cornerstone Github Repository. |
-| cornerstone/assets/settings/ | The `{{theme-name}}/assets/scss/settings/ subdirectory` contains SCSS variables for your framework. Files here map directly to components. If present, these variables override defaults in consumed libraries. The /settings/ subdirectory’s internal structure can be viewed at the Cornerstone Github Repository. <br><br>The nested subdirectory for your chosen framework contains a file that includes that framework’s variables. For example, in the default Stencil theme, this file is: /settings/foundation/_foundation.scss. <br><br>Within each subdirectory nested at the ultimate level is one primary file, `_settings.scss`, that imports all other variables that have been broken into logical files, such as `_colors.scss`, `_typography.scss`, and `_z-index.scss`. |
+| cornerstone/assets/layouts/ | The `{{theme-name}}/assets/scss/layouts/` subdirectory contains `.scss` files that provide default styling for major layout components of theme pages. You can see the `/layouts/` subdirectory’s internal structure on the Cornerstone GitHub Repository. |
+| cornerstone/assets/settings/ | The `{{theme-name}}/assets/scss/settings/ subdirectory` contains SCSS variables for your framework. Files here map directly to components. If present, these variables override defaults in consumed libraries. The /settings/ subdirectory’s internal structure can be viewed at the Cornerstone GitHub Repository. <br><br>The nested subdirectory for your chosen framework contains a file that includes that framework’s variables. For example, in the default Stencil theme, this file is: /settings/foundation/_foundation.scss. <br><br>Within each subdirectory nested at the ultimate level is one primary file, `_settings.scss`, that imports all other variables that have been broken into logical files, such as `_colors.scss`, `_typography.scss`, and `_z-index.scss`. |
 | cornerstone/assets/utilities/ | The {{theme-name}}/assets/scss/utilities subdirectory contains mixins and tools, beyond the Citadel library, that help create UI’s. You can apply these CSS snippets to your HTML for quick prototyping when you need a unique, yet repeatable, style. <br><br>Every utility in this subdirectory will have both a class and a mixin. For example, consider the utility truncatedText: You can use it by applying the class `.u-truncatedText`, or by applying the mixin `@include u-truncatedText;`. |
 | cornerstone/assets/scss/components | The components subdirectory contains the 4 following subdirectories: <br> `/citadel/`<br>`/foundation/`<br>`/stencil/`<br>`/vendor/` |
 | cornerstone/assets/scss/components/citadel | Read about the Citadel directory below. |
@@ -82,7 +82,7 @@ Variables are things that can change over time. Their names are in camel case, a
 
 ## Stencil subdirectory
 
-The `/components/stencil/ subdirectory` contains CSS files unique to Stencil themes, which are used to create specific page elements within the themes. You can view this subdirectory and all its children in the Cornerstone Theme Github Repository.
+The `/components/stencil/ subdirectory` contains CSS files unique to Stencil themes, which are used to create specific page elements within the themes. You can view this subdirectory and all its children in the Cornerstone Theme GitHub Repository.
 
 This subdirectory’s children contain CSS for the following page elements.
 
@@ -112,11 +112,11 @@ This subdirectory’s children contain CSS for the following page elements.
 ## Resources
 
 ### Sample apps
-* [Cornerstone Github Repository](https://github.com/bigcommerce/cornerstone) (BigCommerce GitHub)
+* [Cornerstone GitHub Repository](https://github.com/bigcommerce/cornerstone) (BigCommerce GitHub)
 
 ### Additonal resources
 * [Getting Started With Foundation 5](https://foundation.zurb.com/sites/docs/v/5.5.3/) (Zurb)
 * [BEM](http://getbem.com/) (Get BEM)
 * [SUIT CSS](https://suitcss.github.io/) (GitHub)
-* [Customizing a Theme (Assets Directory)](https://www.youtube.com/embed/zUDNgprOEts) (Youtube)
+* [Customizing a Theme (Assets Directory)](https://www.youtube.com/embed/zUDNgprOEts) (YouTube)
 * [BigCommerce Sass Styling Guide](https://github.com/bigcommerce/sass-style-guide) (BigCommerce GitHub)

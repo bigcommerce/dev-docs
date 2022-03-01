@@ -11,7 +11,7 @@ BigCommerce Stencil themes are responsive, mobile friendly themes, allowing shop
 
 ## Cornerstone
 
-BigCommerce's [Cornerstone](https://github.com/bigcommerce/cornerstone) theme is the building block and starting point for rapidly developing themes for BigCommerce. Cornerstone is available open source on [Github](https://github.com/bigcommerce/cornerstone).
+BigCommerce's [Cornerstone](https://github.com/bigcommerce/cornerstone) theme is the building block and starting point for rapidly developing themes for BigCommerce. Cornerstone is available open source on [GitHub](https://github.com/bigcommerce/cornerstone).
 
 Cornerstone comes in three, fully-responsive variations:
 
@@ -78,6 +78,6 @@ If you need direct assistance, you can contact BigCommerce Support through [Live
 * [Cornerstone Theme Demo](http://cornerstone-light-demo.mybigcommerce.com/)
 
 ### Additional Resources
-* [stencil-cli Repository](https://github.com/bigcommerce/stencil-cli) (BigCommerce Github)
-* [Cornerstone Repository](https://github.com/bigcommerce/cornerstone) (BigCommerce Github)
+* [stencil-cli Repository](https://github.com/bigcommerce/stencil-cli) (BigCommerce GitHub)
+* [Cornerstone Repository](https://github.com/bigcommerce/cornerstone) (BigCommerce GitHub)
 * [Cornerstone Theme Manual](https://support.bigcommerce.com/s/article/Cornerstone-Theme-Manual) (BigCommerce Knowledge Base)
