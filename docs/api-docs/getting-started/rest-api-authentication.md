@@ -57,23 +57,19 @@ CLIENT SECRET: xxxxhexadecimalstringxxxx
 > #### Save your credentials
 > There is no way to re-display this pop-up or download the .txt file again after selecting Done, so be sure to securely store the credentials before exiting this screen.
 
-
 ![Create an API Account](https://s3.amazonaws.com/user-content.stoplight.io/6012/1536087816482 "Create an API Account")
 
 To get started making requests, see [API Requests](/api-docs/getting-started/basics/making-requests).
 
-## Revoking or modifying store API credentials
+## Revoking store API credentials
 
-When revoking store API credentials, the most conservative course of action is to invalidate the API account's `access_token`. Requests that use the old `access_token` will fail, but if the requestor has access to the `client_id` and `client_secret`, they will be able to generate a new one. You can also manually create a new `access_token`. 
-
-If the `client_id` and `client_secret` are compromised, or the account has become unnecessary, secure your account by deleting the API account altogether. You cannot recover a deleted API account, so take care.
-
-### Invalidating a store API access token
-### Deleting a store API account
+To revoke store API credentials, you must delete the corresponding store API account. If the `client_id` and `client_secret` are compromised, or the account has become unnecessary, secure your account by deleting the API account. You cannot recover a deleted API account, so take care.
 
 <!-- theme: error -->
 > #### Delete carefully
 > Deleting an account cannot be undone, so be sure before clicking the trash can icon. You can also use the checkboxes on the left side to delete multiple accounts at once – but be especially careful when using this option.
+> 
+### Deleting a store API account
 
 To delete a store API account:
 1. Sign in to the store, using the store owner’s username and password.
