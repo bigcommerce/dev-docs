@@ -45,9 +45,6 @@ A base template defines content blocks by name. The following snippet uses `{{bl
 
 Pages can use a base template, replacing the defined blocks with their own content. This example replaces content for the head and page blocks:
 
-<!--
-
--->
 
 ```handlebars title="Example of replacing content blocks /templates/pages/account/orders/invoice.html" lineNumbers
 {{#partial "head"}}
