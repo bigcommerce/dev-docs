@@ -41,7 +41,7 @@ Single click app authorization and authentication occurs via [OAuth2 authorizati
 
 <!-- theme: info -->
 > #### Note
-> * API token creation is a permission reserved for the [store owner](https://forum.bigcommerce.com/s/article/Store-API-Accounts#creating) user account.
+> * API token creation is a permission reserved for the [store owner](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) user account.
 > * An app can request authentication *on behalf* of a store owner, allowing your app to make API requests against store data.
 > * All app callbacks must be served over `https` (you should also have access to your app's server logs which will allow you to see the information in the request).
 
