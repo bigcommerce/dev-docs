@@ -4,7 +4,7 @@
 
 This article provides examples of how to customize email templates. The examples are for use in the recently updated templates. You can enable the new version of transactional emails by going to **Marketing > Transactional Emails** and clicking **Try New Experience**. When you are ready to use a template, make sure to **Enable** the template from the respective dropdown. 
 
-The following code examples demonstrate how to update text, add a button, change logo size, and change the font size.
+The following code examples demonstrate how to update text, add a button, change logo size, change the font size, and add a tracking script to an email.
 
 <!-- theme: info -->
 > #### Note
@@ -83,7 +83,7 @@ To make your text responsive so that it can viewed on a variety of devices and s
   ```
 ## Adding a tracking script
 
-You can create a tracking script to add to an email template. Update information in the **Phrases** and **Code** tabs, entering a phrase name and value. For example, `tracking_title` for phrase name and Tracking information for phrase value. In the Code tab, enter the following code example which adds a tracking script to the order status update template.
+You can add a tracking script to an email template. Ensure to sure to add or update information in the **Phrases** and **Code** tabs for the script to appear in the email. For example, use `tracking_title` for phrase name and Tracking information for phrase value. 
 
 Go to **Transactional Emails> Email Templates**. Click **...** next to **Order Status Update** and select **Edit Template**. Copy and paste the contents below into the Content editor. 
   
