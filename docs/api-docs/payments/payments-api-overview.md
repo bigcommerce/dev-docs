@@ -389,7 +389,7 @@ When processing a credit payment, set `save_instrument: true`. The shopper can a
 
 It is possible to take payment for an order created using the [Orders API](/api-docs/orders/orders-api-overview). When creating the order using the Orders API make sure the `status_id:0`. If you do not create an order with order status set to `0` or `Incomplete`, the Payments API will return an [error](#error-codes).
 Ensure customers enter their billing address and line items when creating the order. The customer can create the order as a guest order by either setting the
-`customer_id:0`or leaving it blank. After the order is created, then follow the steps for either a [credit card](#credit-cards) or a [stored card](#stored-cards).
+`customer_id:0`or leaving it blank. After the order is created, then follow the steps for either a [credit card](#payments_credit-cards) or a [stored card](#payments_stored-cards).
 
 <!--
 title: "Example Create Order"
