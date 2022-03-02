@@ -741,7 +741,7 @@ The following properties of the product are required. The request won’t be ful
 
 **Note**s
 
-Create a request by sending a [product object](#product-object-properties) with the minimum required properties:
+Create a request by sending a [product object](#product-object--properties) with the minimum required properties:
 
 ```
 {
