@@ -4,7 +4,7 @@
 
 ## OAuth Summary
 
-API token creation is a permission reserved for the [store owner](https://forum.bigcommerce.com/s/article/Store-API-Accounts#creating) user account. An app can request authentication “on behalf” of a store owner, allowing the app to make API requests against store data.
+API token creation is a permission reserved for the [store owner](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) user account. An app can request authentication “on behalf” of a store owner, allowing the app to make API requests against store data.
 
 To test an app before release, apply for a [sandbox](https://www.bigcommerce.com/partners/) store.
 
