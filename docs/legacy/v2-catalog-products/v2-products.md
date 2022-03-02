@@ -467,7 +467,7 @@ Here is a corresponding sample response:
 
 ### include=@summary
 
-The `?include=@summary` option retrieves the following predefined subset of fields, in addition to the [mandatory fields](#get-a-product-mandatory) listed above:
+The `?include=@summary` option retrieves the following predefined subset of fields, in addition to the [mandatory fields](#mandatory-fields) listed above:
 
 - `availability`
 - `calculated_price`
