@@ -33,7 +33,7 @@ For other customization options, please see the class descriptions [below](#clas
 
 To deploy your custom CSS to a BigCommerce store, you will need to upload your `optimized-checkout-webdav.css` file (once customized) via WebDAV. 
 
-For a general overview of the process, please see [this support article](https://support.bigcommerce.com/articles/Public/Accessing-and-Customizing-Template-Files/). Place your customized `optimized-checkout-webdav.css` file directly within WebDAV's `/content/` folder.
+For a general overview of the process, please see [this support article](https://support.bigcommerce.com/s/article/Stencil-Themes#custom-template). Place your customized `optimized-checkout-webdav.css` file directly within WebDAV's `/content/` folder.
 
 For details on interacting with WebDAV, please see [this article](https://support.bigcommerce.com/articles/Public/Connecting-to-WebDav).
 

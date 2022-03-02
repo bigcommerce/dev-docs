@@ -35,7 +35,7 @@ GET /load?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
 
-The steps steps to handle this callback are as follows:
+The steps to handle this callback are as follows:
 1. [Verify the signed payload](#verifying-the-signed-payload).
 2. [Identify the user](#identifying-users).
 3. Respond with HTML for the control panel iFrame.
@@ -49,7 +49,7 @@ GET /uninstall?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
 
-The steps steps to handle this callback are as follows:
+The steps to handle this callback are as follows:
 1. [Verify the signed payload](#verifying-the-signed-payload).
 2. [Identify the user](#identifying-users).
 3. Remove the user's data from your app's database.
@@ -63,7 +63,7 @@ GET /remove_user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
 
-The steps steps to handle this callback are as follows:
+The steps to handle this callback are as follows:
 1. [Verify the signed payload](#verifying-the-signed-payload).
 2. [Identify the user](#identifying-users).
 3. Remove the user's data from your app's database.

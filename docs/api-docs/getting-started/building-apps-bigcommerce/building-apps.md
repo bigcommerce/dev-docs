@@ -4,7 +4,7 @@
 
 ## OAuth Summary
 
-API token creation is a permission reserved for the [store owner](https://forum.bigcommerce.com/s/article/Store-API-Accounts#creating) user account. An app can request authentication “on behalf” of a store owner, allowing the app to make API requests against store data.
+API token creation is a permission reserved for the [store owner](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) user account. An app can request authentication “on behalf” of a store owner, allowing the app to make API requests against store data.
 
 To test an app before release, apply for a [sandbox](https://www.bigcommerce.com/partners/) store.
 
@@ -62,7 +62,7 @@ The following table details the full list of parameters and values included in t
 
 | Parameter | Description |
 |-|-|
-| code | Temporary code to exchange for a permanent OAuth token. See [Making the POST request](#building-apps_making-post-request) below for more information about this exchange. |
+| code | Temporary code to exchange for a permanent OAuth token. See [Making the POST request](#making-the-post-request) below for more information about this exchange. |
 | scope | List of scopes authorized by the user. As a best practice, your app should validate this list to ensure that it matches the app&#39;s needs, and fail if it does not. However, at this time, the user does not have any opportunity to pick and choose between scopes. The dialog presented to the user requires the user to approve all scopes or none. |
 | context | The store hash: a unique value that identifies the store on which a logged-in user has clicked to install or your app. BigCommerce passes this along with a context path as follows: `stores/{store_hash}`. Save the store hash value, because you will need to pass it in all your requests to the API. |
 
@@ -565,6 +565,5 @@ For more details on including your app in the Marketplace, see [App Store Approv
 * [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2) (BigCommerce Developer Blog)
 ### Additonal Resources
 * [Same Origin Policy](https://en.wikipedia.org/wiki/Same-origin_policy) (Wikipedia)
-* [Craft a P3P Policy to Make IE Behave](https://www.techrepublic.com/blog/software-engineer/craft-a-p3p-policy-to-make-ie-behave/) (Tech Republic)
 * [Quick Look at P3P](https://blogs.msdn.microsoft.com/ieinternals/2013/09/17/a-quick-look-at-p3p/) (Microsoft Blogs)
 * [Google Cloud](https://cloud.google.com/) (Google)

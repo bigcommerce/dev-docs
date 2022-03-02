@@ -22,7 +22,7 @@ For more information on the enhanced capabilities of Stencil, see the [Stencil v
 
 When transitioning any store from Blueprint to Stencil, you should be aware of a few key differences. Transitioning to Stencil allows developers to do the following:
 - [Develop locally on Stencil CLI](#developing-locally-on-stencil-cli)
-- [Use Handlebars instead of global variables](#use-handlebars)
+- [Use Handlebars instead of global variables](#using-handlebars)
 - [Customize Page Builder mode](#customize-page-builder-mode)
 - [Create custom templates](#create-custom-templates)
 
