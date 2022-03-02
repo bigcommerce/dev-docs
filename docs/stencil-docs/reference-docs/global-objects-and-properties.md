@@ -133,7 +133,7 @@ The table below displays properties for the individual category objects within t
 | &nbsp;&nbsp;name | Name of the child category |
 | &nbsp;&nbsp;description | Description of the child category (optional &ndash; when requested in front matter) |
 | &nbsp;&nbsp;url | URL of the child category |
-| &nbsp;&nbsp;is_active | Boolean that indicates which category is your “breadcrumb” category on a item's product display page (PDP). For example, an emerald necklace may be in the _Jewelry_ and _Accessories_ categories. If you navigated to the product from the _Jewelry_ category, `is_active: true` will be present on the _Jewelry_ object. |
+| &nbsp;&nbsp;is_active | Boolean that indicates which category is your “breadcrumb” category on an item's product display page (PDP). For example, an emerald necklace may be in the _Jewelry_ and _Accessories_ categories. If you navigated to the product from the _Jewelry_ category, `is_active: true` will be present on the _Jewelry_ object. |
 | &nbsp;&nbsp;count | Number of products in this child category |
 | &nbsp;&nbsp;image |
 | &nbsp;&nbsp;&nbsp; alt | &nbsp;&nbsp;&nbsp; The image alt name. Defaults to cateogory name |
