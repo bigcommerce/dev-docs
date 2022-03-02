@@ -80,7 +80,7 @@ For more information on specific webhook events and their payloads, see [Webhook
 
 To acknowledge a callback has been received without issue, the destination server must return an `HTTP 200` response — no response, or any response outside the `200` range indicates the callback was not received. If this happens, the webhook service will use the [retry mechanism](#callback-retry-mechanism) described below.
 
-Need to set up a quick webhook destination URL for testing? See [Tools for Debugging and Testing Webhooks](#tools-for-debugging-and-testing-webhooks).
+Need to set up a quick webhook destination URL for testing? See [Tools for Debugging and Testing Webhooks](#tools).
 
 ## Callback retry mechanism
 
