@@ -63,7 +63,7 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 |  [Brand Images](/api-reference/catalog/catalog-api/brand-images) | Create and manage brand images | `/catalog/brands/{id}/images` |
 |  [Brand Metafields](/api-reference/catalog/catalog-api/brand-metafields) | Create and manage brand metafields | `/catalog/brands/{id}/metafields` |
 |  [Brands](/api-reference/catalog/catalog-api/brands) | Create and manage brands | `/catalog/brands` |
-|  [Carts](/api-reference/cart-checkout/server-server-cart-api) | Create an manage store carts headlessly | `/carts` |
+|  [Carts](/api-reference/cart-checkout/server-server-cart-api) | Create and manage store carts headlessly | `/carts` |
 |  [Categories](/api-reference/catalog/catalog-api/category) | Create and manage categories | `/catalog/categories` |
 |  [Category Images](/api-reference/catalog/catalog-api/category-images) | Create and manage category images | `/catalog/categories/{id}/images` |
 |  [Category Metafields](/api-reference/catalog/catalog-api/category-metafields) | Create and manage category metafields | `/catalog/categories/{id}/metafields` |
@@ -72,7 +72,7 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 |  [Customer Addresses](/api-reference/store-management/customers-v3/customer-addresses) | Create and manage customer addresses | `/customers/addresses` |
 |  [Customer Attribute Values](/api-reference/store-management/customers-v3/customer-attribute-values) | Create and manage customer attribute values | `/customers/attribute-values` |
 |  [Customer Attributes](/api-reference/store-management/customers-v3/customer-attributes) | Create and manage customer attributes | `/customers/attributes` |
-|  [Customer Form Field Values](/api-reference/store-management/customers-v3/customer-form-fields) | Create an manage customer form field values | `/customers/form-field-values` |
+|  [Customer Form Field Values](/api-reference/store-management/customers-v3/customer-form-fields) | Create and manage customer form field values | `/customers/form-field-values` |
 |  [Customers](/api-reference/store-management/customers-v3/customers) | Create and manage customers and their addresses | `/customers` |
 |  [Order Transactions](/api-reference/store-management/order-transactions) | View order payment information | `/orders/{id}/transactions` |
 |  [Payment Processing Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods) | Get order payment methods for processing | `/payments/methods` |
