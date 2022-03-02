@@ -518,8 +518,8 @@ components:
       title: store/cart/updated
       description: |-
         This webhook fires when the following occur:
-        -  Modifying a cart's line items by adding a new item to a cart, updating an existing item's quantity, or deleting an item.
-        -  Entering or changing their email address during guest checkout. This includes logging into a customer account after creating a guest cart, which associates the account's email address with the cart.
+        -  Modifying a cartʼs line items by adding a new item to a cart, updating an existing itemʼs quantity, or deleting an item.
+        -  Entering or changing their email address during guest checkout. This includes logging into a customer account after creating a guest cart, which associates the accountʼs email address with the cart.
 
         The `store/cart/created` webhook firing also triggers this webhook because adding a product to an empty cart is considered an update. 
 
@@ -1231,7 +1231,7 @@ components:
     store_customer_updated:
       title: store/customer/updated
       description: |-
-        This webhook fires when a customer is updated. This webhook does not fire on changes to a customer's address.
+        This webhook fires when a customer is updated. In addition, this webhook fires when you initially enter custom form field values within the account sign-up form. Please note that changing existing data in customer form fields and changing a customerʼs address will not trigger the webhook to fire.
 
         ### Example callback:
 
