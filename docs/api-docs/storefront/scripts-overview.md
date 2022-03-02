@@ -95,7 +95,7 @@ To ensure your app is compatible with as many themes as possible, we recommend f
 
 To render scripts, the store must have BigCommerce’s Optimized one-page checkout enabled. This is the default checkout type for all new Stencil stores. Existing stores have to change the checkout type as detailed in this article manually. 
 
-Stencil themes from the marketplace support the [Optimized One-Page Checkout](https://support.bigcommerce.com/articles/Public/Optimized-Single-Page-Checkout#signup). However, there could be instances where the merchant maintains their private theme without the ability to support the Optimized one-page checkout. In this case, the merchant must add the theme support, following the steps [here](/stencil-docs/ZG9jOjIyMDY4MA-restyle-optimized-one-page-checkout).  
+Stencil themes from the marketplace support the [Optimized One-Page Checkout](https://support.bigcommerce.com/articles/Public/Optimized-Single-Page-Checkout#signup). However, there could be instances where the merchant maintains their private theme without the ability to support the optimized one-page checkout. In this case, the merchant must add the theme support, following the [one-page checkout steps](/stencil-docs/customizing-checkout/optimized-one-page-checkout).  
 
 ## Notes
 
