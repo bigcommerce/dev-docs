@@ -565,6 +565,5 @@ For more details on including your app in the Marketplace, see [App Store Approv
 * [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2) (BigCommerce Developer Blog)
 ### Additonal Resources
 * [Same Origin Policy](https://en.wikipedia.org/wiki/Same-origin_policy) (Wikipedia)
-* [Craft a P3P Policy to Make IE Behave](https://www.techrepublic.com/blog/software-engineer/craft-a-p3p-policy-to-make-ie-behave/) (Tech Republic)
 * [Quick Look at P3P](https://blogs.msdn.microsoft.com/ieinternals/2013/09/17/a-quick-look-at-p3p/) (Microsoft Blogs)
 * [Google Cloud](https://cloud.google.com/) (Google)
