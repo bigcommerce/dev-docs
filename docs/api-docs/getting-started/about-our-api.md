@@ -85,7 +85,7 @@ Make BigCommerce API requests in the context of the storefront or server-to-serv
 | Process Payments | Process payments on orders or checkouts. There are two APIs used to process payments. Get the [payment access token](/api-reference/payments/payments-create-payment-token-api) then [process the payment](/api-reference/payments/payments-process-payments).  |
 | [Shipping](/api-reference/shipping/shipping-api) | Create and manage shipping methods and zones. 
 | [Store Content](/api-reference/content/store-content-api) | Manage the store's blog, web pages, and redirects. |
-| [Storefront GraphQL API](/api-docs/storefront/graphql/graphql-storefront-api-overview) | Query storefront data from from within a Stencil theme or remote site. |
+| [Storefront GraphQL API](/api-docs/storefront/graphql/graphql-storefront-api-overview) | Query storefront data from within a Stencil theme or remote site. |
 | [Themes](/api-reference/themes/themes-api) | Manage store's themes. |
 | [Widgets](/api-reference/storefront/widgets-api) | Programmatically inject content into a BigCommerce theme. |
 | [Wishlist](/api-reference/customer-subscribers/wishlist-api) | Wishlist API allows a developer to create and manage customer wishlists. |
@@ -184,7 +184,7 @@ GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/categories/{{ca
 
 ## Support
 
-### [Developer Community](https://forum.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers)
+### [Developer Community](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers)
 The developer community is a great place to get help from other developers who work on the BigCommerce platform. If you have BigCommerce-specific questions, this online forum is the best place to ask. It's also an excellent place for beginners to get assistance.
 
 
@@ -192,6 +192,6 @@ The developer community is a great place to get help from other developers who w
 Are you a more experienced developer or have a programming language specific question? This online forum is a good place to ask questions and get help. The developer community is the best place to get answers about the BigCommerce platform specifically.
 
 ## Resources
-* [Developer Community](https://forum.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers)
+* [Developer Community](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers)
 * [Terms of Service](https://www.bigcommerce.com/terms/api-terms/)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/bigcommerce)

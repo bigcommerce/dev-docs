@@ -95,11 +95,11 @@ To ensure your app is compatible with as many themes as possible, we recommend f
 
 To render scripts, the store must have BigCommerce’s Optimized one-page checkout enabled. This is the default checkout type for all new Stencil stores. Existing stores have to change the checkout type as detailed in this article manually. 
 
-Stencil themes from the marketplace support the [Optimized One-Page Checkout](https://support.bigcommerce.com/articles/Public/Optimized-Single-Page-Checkout#signup). However, there could be instances where the merchant maintains their private theme without the ability to support the Optimized one-page checkout. In this case, the merchant must add the theme support, following the steps [here](https://stencil.bigcommerce.com/docs/optimized-checkout-prereqs).  
+Stencil themes from the marketplace support the [Optimized One-Page Checkout](https://support.bigcommerce.com/articles/Public/Optimized-Single-Page-Checkout#signup). However, there could be instances where the merchant maintains their private theme without the ability to support the optimized one-page checkout. In this case, the merchant must add the theme support, following the [one-page checkout steps](/stencil-docs/customizing-checkout/optimized-one-page-checkout).  
 
 ## Notes
 
-- If you are injecting scripts into the checkout, you will need to update the scope to Checkout Content. The [store owner](https://support.bigcommerce.com/articles/Public/Store-API-Accounts/) can only create accounts.
+- If you are injecting scripts into the checkout, you will need to update the scope to Checkout Content. The [store owner](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) can only create accounts.
 - Merchants will be able to see the scripts installed on the store in the Control Panel. Within the native tag manager, merchant actions are limited to viewing and deleting a script.
 - Scripts can be located in the header `{{head.scripts}}` or footer `{{footer.scripts}}`.
 - Scripts Manager is only for Stencil themes. Blueprint store users will still need to copy and paste in code.

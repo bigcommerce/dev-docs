@@ -146,7 +146,7 @@ To create a price record in multiple currencies via API, send a `POST` request t
 
 ## S-2-S Cart and Checkout
 
-You can set up the cart currency when creating a [Server to Server Cart](/api-reference/cart-checkout/server-server-cart-api/cart/createacart). You can set up the currency in the [control panel](#multi-currency_setup) first. 
+You can set up the cart currency when creating a [Server to Server Cart](/api-reference/cart-checkout/server-server-cart-api/cart/createacart). You can set up the currency in the [control panel](https://support.bigcommerce.com/s/article/Managing-Currencies?language=en_US#mc) first. 
 
 **Example POST Create a Cart** 
 *[https://api.bigcommerce.com/stores/{storehash}/v3/carts](/api-reference/cart-checkout/server-server-cart-api/cart/createacart)*
