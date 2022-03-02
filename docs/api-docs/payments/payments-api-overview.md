@@ -123,7 +123,12 @@ Accept: application/json
               }
           ],
           "stored_instruments": [
-            //NEED TO ADD A FAKE STORED PAYPAYL ACCOUNT
+            {
+                    "email": "bc-buyer-paypal-express@bigcommerce.com",
+                    "type": "stored_paypal_account",
+                    "token": "52fa5598d41ed987c76fef61f0adef2f2a90da024a3b50e71c2273419d24fd90",
+                    "is_default": true
+                }
           ]
       },
   "meta": {}
@@ -194,8 +199,8 @@ Content-Type: application/json
 {
   "payment": {
     "instrument": {
-      "type": "stored_paypal_account", //type from Get Payment Methods
-      "token": //NEED PAYPAL TOKEN FROM STORED PAYMENT METHOD
+      "type": "stored_paypal_account", 
+      "token": "52fa5598d41ed987c76fef61f0adef2f2a90da024a3b50e71c2273419d24fd90"
     },
     "payment_method_id": "braintree.paypal"
   }
