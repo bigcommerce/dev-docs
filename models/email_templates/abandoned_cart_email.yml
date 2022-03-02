@@ -3,6 +3,7 @@ oneOf:
     properties:
       abandoned_cart:
         type: object
+        deprecated: true
         properties:
           body:
             type: string
@@ -10,6 +11,7 @@ oneOf:
             type: string
       store:
         type: object
+        deprecated: true
         properties:
           name:
             type: string
@@ -17,6 +19,7 @@ oneOf:
             type: string
           logo:
             type: object
+            deprecated: true
             properties:
               title:
                 type: string
@@ -49,6 +52,7 @@ oneOf:
                 description: 'Left to right or right to left, depending on the language'
       customer:
         type: object
+        deprecated: true
         properties:
           first_name:
             type: string
@@ -65,11 +69,13 @@ oneOf:
                   type: string
       misc:
         type: object
+        deprecated: true
         properties:
           year:
             type: integer
       translations:
         type: object
+        deprecated: true
         properties:
           en:
             type: object
