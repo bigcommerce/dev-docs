@@ -32,7 +32,7 @@ You can process payments charged to either of two main forms of payment: new pay
 <!-- theme: info -->
 > #### Notes
 > * Attempting to process a payment through the API using the full credit card information may fail if the provider requires 3DS authentication. The card must be saved through a shopper-initiated transaction before it can be charged through the Payments API. 
-> * The API flow does not currently support hosted, offsite, or wallet-type providers, such as PayPal and Amazon Pay.
+> * The API flow does not currently support hosted, offsite, or wallet-type providers, such as Amazon Pay.
 
 ## Stored cards and PayPal accounts
 There are three steps to using a stored card or PayPal account to make a payment.
@@ -110,27 +110,27 @@ Accept: application/json
           "is_default": true
         }
       ]
+    },
+    {
+      "id": "braintree.paypal",
+      "name": "Braintree (PayPal)",
+      "test_mode": true,
+      "type": "paypal",
+      "supported_instruments": [
+        {
+          "instrument_type": "STORED_PAYPAL_ACCOUNT"
+        }
+      ],
+      "stored_instruments": [
+        {
+          "email": "bc@example.com",
+          "type": "stored_paypal_account",
+          "token": "52fa5598d41ed987c76fef61f0adef2f2a90da024a3b50e71c2273419d24fd90",
+          "is_default": true
+        }
+      ]
     }
-  ],
-   {
-          "id": "braintree.paypal",
-          "name": "Braintree (PayPal)",
-          "test_mode": true,
-          "type": "paypal",
-          "supported_instruments": [
-              {
-                  "instrument_type": "STORED_PAYPAL_ACCOUNT"
-              }
-          ],
-          "stored_instruments": [
-            {
-                    "email": "bc-buyer-paypal-express@bigcommerce.com",
-                    "type": "stored_paypal_account",
-                    "token": "52fa5598d41ed987c76fef61f0adef2f2a90da024a3b50e71c2273419d24fd90",
-                    "is_default": true
-                }
-          ]
-      },
+  ]
   "meta": {}
 }
 ```
@@ -199,8 +199,8 @@ Content-Type: application/json
 {
   "payment": {
     "instrument": {
-      "type": "stored_paypal_account", 
-      "token": "52fa5598d41ed987c76fef61f0adef2f2a90da024a3b50e71c2273419d24fd90"
+      "type": "stored_paypal_account", // type from Get Payment Methods
+      "token": "52fa5598d41ed987c76fef61f0adef2f2a90da024a3b50e71c2273419d24fd90" // token from Get Payment Methods
     },
     "payment_method_id": "braintree.paypal"
   }
