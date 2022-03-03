@@ -48,7 +48,7 @@
 | customizations | Product customizations (for example, a T-shirt size); these correspond to [configurable fields](https://support.bigcommerce.com/articles/Public/What-are-configurable-fields-and-how-do-I-create-them) and [numeric-text](https://support.bigcommerce.com/s/article/Options-SKUs-Rules#text) [product options](https://support.bigcommerce.com/articles/Public/Adding-Product-Options) in the BigCommerce control panel |
 | &nbsp;&nbsp;id | Customization ID |
 | &nbsp;&nbsp;display_name | Label for this customization, as displayed to customers |
-| &nbsp;&nbsp;type | Customization type [`text`|`textarea`|`NumbersOnlyText`|`checkbox`|`select`|`file`] |
+| &nbsp;&nbsp;type | Customization type [`text`,`textarea`,`NumbersOnlyText`,`checkbox`,`select`,`file`] |
 | &nbsp;&nbsp;required | Boolean value that indicates whether customer must specify this customization in order to buy the product |
 | &nbsp;&nbsp;condition | Boolean value indicating whether to display this product's condition (new, used, or refurbished) |
 | &nbsp;&nbsp;prefill | Optional string value to prefill this field |
