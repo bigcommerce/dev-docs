@@ -197,7 +197,7 @@
 
 ## Download Item
 
-**Description:** Property for digital (non-physical) products. (Called on the default `<theme-name>/templates/pages/account/download-item.html`template.)
+**Description:** Property for digital (non-physical) products. (Called on the default `<theme-name>/templates/pages/account/download-item.html` template.)
 
 **Handlebars Expression:** `{{downloads}}`
 
@@ -654,7 +654,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 | &nbsp;&nbsp;number | Tracking number for this shipment |
 ## Account Orders
 
-**Description:** Objects to manage completed orders for the current customer. By default, orders sort by order id, from lowest to highest. (Called on the default `templates/pages/account/orders/all.html`and `<theme-name>/templates/pages/account/orders/completed.html`  templates, and on the `templates/components/account/orders-list.html` partial.)
+**Description:** Objects to manage completed orders for the current customer. By default, orders sort by order id, from lowest to highest. (Called on the default `templates/pages/account/orders/all.html` and `<theme-name>/templates/pages/account/orders/completed.html`  templates, and on the `templates/components/account/orders-list.html` partial.)
 
 **Handlebars Expression:** `{{customer.orders}}`
 
@@ -785,7 +785,7 @@ Refunded, Rejected, or Cancelled |
 
 **Description:** Object to view stored customer payment methods.
 
-**Called on:** [`[templates/pages/account/payment-methods.html`](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/account/payment-methods.html)
+**Called on:** [`[templates/pages/account/payment-methods.html]`](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/account/payment-methods.html)
 
 **Handlebars Expression:**`{{customer.payment_methods}}`
 
@@ -971,7 +971,7 @@ _These objects are called on the default `templates/components/blog/post.html` p
 | error | Message to display when form entry fails (defined by the BigCommerce App) |
 ### Wishlist Form
 
-**Description:** Form object presented to customers on the Add/Edit Wishlist page. Called on the default <theme-name>/templates/components/account/add-wishlist.html` partial and `<theme-name>/templates/pages/account/add-wishlist.html` template.
+**Description:** Form object presented to customers on the Add/Edit Wishlist page. Called on the default `<theme-name>/templates/components/account/add-wishlist.html` partial and `<theme-name>/templates/pages/account/add-wishlist.html` template.
 
 **Handlebars Expression:** `{{forms.wishlist}}`
 
