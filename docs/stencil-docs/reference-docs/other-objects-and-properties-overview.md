@@ -119,7 +119,7 @@
 
 ## Product Reviews
 
-**Description:** A list of reviews related to this product. When filtering/limiting, reviews' default sorting is by review id, from lowest to highest. (Called on the default `&lt;theme-name&gt;/templates/pages/product.html``&lt;theme-name&gt;/templates/components/` subdirectory:
+**Description:** A list of reviews related to this product. When filtering/limiting, reviews' default sorting is by review id, from lowest to highest. (Called on the default `<theme-name>/templates/pages/product.html` and `<theme-name>/templates/components/` subdirectory:
 * `products/product-view.html`,
 * `products/modals/writeReview.html`, and
 * `amp/products/product-view.html`.)
@@ -153,7 +153,7 @@
 
 ## Similar Products by Customer Views
 
-**Description:** A list of products similar to a given product, based on customer’s product browsing history. (Called on the default `&lt;theme-name&gt;/templates/components/products/tabs.html` partial.)
+**Description:** A list of products similar to a given product, based on customer’s product browsing history. (Called on the default `<theme-name>/templates/components/products/tabs.html` partial.)
 
 **Handlebars Expression:** `{{product.similar_by_views}}`
 
@@ -161,7 +161,7 @@
 
 ## Product Videos
 
-**Description:** A list of videos for a given product. (Called on the default `&lt;theme-name&gt;/templates/pages/product.html` template, and on the `&lt;theme-name&gt;/templates/components/amp/products/product-view.html` partial.)
+**Description:** A list of videos for a given product. (Called on the default `<theme-name>/templates/pages/product.html` template, and on the `<theme-name>/templates/components/amp/products/product-view.html` partial.)
 
 **Handlebars Expression:** `{{product.videos}}`
 
@@ -178,7 +178,7 @@
 
 ## Compare
 
-**Description:** Property to display an array of products on product comparison pages. (Called on the default `&lt;theme-name&gt;/templates/pages/compare.html` template.)
+**Description:** Property to display an array of products on product comparison pages. (Called on the default `<theme-name>/templates/pages/compare.html` template.)
 
 **Handlebars Expression:** `{{comparisons}}`
 
@@ -197,7 +197,7 @@
 
 ## Download Item
 
-**Description:** Property for digital (non-physical) products. (Called on the default `&lt;theme-name&gt;/templates/pages/account/download-item.html`template.)
+**Description:** Property for digital (non-physical) products. (Called on the default `<theme-name>/templates/pages/account/download-item.html`template.)
 
 **Handlebars Expression:** `{{downloads}}`
 
@@ -220,7 +220,7 @@
 
 ## Product Other Details
 
-**Description:** Property to display custom product details (such as a book's ISBN code, a DVD's release date, etc.). (Called on the default `&lt;theme-name&gt;/templates/components/products/product-view.html` and `&lt;theme-name&gt;/templates/components/amp/products/product-view-details.html` partials.)
+**Description:** Property to display custom product details (such as a book's ISBN code, a DVD's release date, etc.). (Called on the default `<theme-name>/templates/components/products/product-view.html` and `<theme-name>/templates/components/amp/products/product-view-details.html` partials.)
 
 **Handlebars Expression:**`{{product.custom_fields}}`
 
@@ -233,7 +233,7 @@
 
 ## Category
 
-**Description:**  The category object for the page calling the object. When retrieving a collection of categories, default sorting is by category `id`, from lowest to highest. (Called on the default `templates/pages/category.html` template, and on several partials in the `<theme-name&gt;/templates/components/` subdirectory: `category/shop-by-price.html`,`category/sidebar.html`, and `amp/category/subcategories.html`)
+**Description:**  The category object for the page calling the object. When retrieving a collection of categories, default sorting is by category `id`, from lowest to highest. (Called on the default `templates/pages/category.html` template, and on several partials in the `<theme-name>/templates/components/` subdirectory: `category/shop-by-price.html`,`category/sidebar.html`, and `amp/category/subcategories.html`)
 
 **Handlebars Expression:** `{{category}}`
 
@@ -271,7 +271,7 @@
 
 ## Category Shop by Price
 
-**Description:** A list of price ranges, to enable customers to set price limits within a product category. Called on the default`&lt;theme-name&gt;/templates/components/category/shop-by-price.html` and `&lt;theme-name&gt;/templates/components/category/sidebar.html` partials.)
+**Description:** A list of price ranges, to enable customers to set price limits within a product category. Called on the default`<theme-name>/templates/components/category/shop-by-price.html` and `<theme-name>/templates/components/category/sidebar.html` partials.)
 
 **Handlebars Expression:** `{{category.shop_by_price}}`
 
@@ -523,7 +523,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 
 ## Order Details
 
-**Description:** The order properties for a specific order, usable on the order details page. (Called on the default `templates/pages/account/orders/details.html` and `<theme-name&gt;/templates/pages/account/orders/invoice.html` templates, and on the `<theme-name&gt;/templates/components/account/order-contents.html` partial.)
+**Description:** The order properties for a specific order, usable on the order details page. (Called on the default `templates/pages/account/orders/details.html` and `<theme-name>/templates/pages/account/orders/invoice.html` templates, and on the `<theme-name>/templates/components/account/order-contents.html` partial.)
 
 **Handlebars Expression:** `{{order}}`
 
@@ -637,7 +637,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 | &nbsp;&nbsp;remove_url | URL to remove the product from the wishlist |
 ## Account Order Shipments
 
-**Description:** Objects to manage shipments associated with a specific order details for the current customer. (Called on the default `<theme-name&gt;/templates/pages/account/orders/details.html` template.)
+**Description:** Objects to manage shipments associated with a specific order details for the current customer. (Called on the default `<theme-name>/templates/pages/account/orders/details.html` template.)
 
 **Handlebars Expression:** `{{shipments}}`
 
@@ -654,7 +654,7 @@ For further details about catalog price properties, please see [Catalog Price Ob
 | &nbsp;&nbsp;number | Tracking number for this shipment |
 ## Account Orders
 
-**Description:** Objects to manage completed orders for the current customer. By default, orders sort by order id, from lowest to highest. (Called on the default `templates/pages/account/orders/all.html`and `<theme-name&gt;/templates/pages/account/orders/completed.html`  templates, and on the `templates/components/account/orders-list.html` partial.)
+**Description:** Objects to manage completed orders for the current customer. By default, orders sort by order id, from lowest to highest. (Called on the default `templates/pages/account/orders/all.html`and `<theme-name>/templates/pages/account/orders/completed.html`  templates, and on the `templates/components/account/orders-list.html` partial.)
 
 **Handlebars Expression:** `{{customer.orders}}`
 
@@ -733,7 +733,7 @@ Refunded, Rejected, or Cancelled |
 | &nbsp;&nbsp;&nbsp;&nbsp;value | Displayed value for this product’s entry |
 ## Create Account
 
-**Description:** Object to enable the current customer to create a store account. (Called on the default `<theme-name&gt;/templates/pages/auth/create-account.html` template.)
+**Description:** Object to enable the current customer to create a store account. (Called on the default `<theme-name>/templates/pages/auth/create-account.html` template.)
 
 **Handlebars Expression:** `{{forms.create_account}}`
 
@@ -957,7 +957,7 @@ _These objects are called on the default `templates/components/blog/post.html` p
 | success | Message to display (generated by the BigCommerce App) when customer’s account edit succeeds |
 ### Account Address Form
 
-**Description:** Form object presented to customers in the Add/Edit Address page. Called on the default <NOBR><span class="inline-code">&lt;theme-name&gt;/templates/components/account/address-list.html</span></nobr> partial and <NOBR><span class="inline-code">&lt;theme-name&gt;/templates/pages/account/add-address.html</span></nobr> template. <br>
+**Description:** Form object presented to customers in the Add/Edit Address page. Called on the default <NOBR><span class="inline-code"><theme-name>/templates/components/account/address-list.html</span></nobr> partial and <NOBR><span class="inline-code"><theme-name>/templates/pages/account/add-address.html</span></nobr> template. <br>
 
 **Handlebars Expression:** `{{forms.address}}`
 
@@ -971,7 +971,7 @@ _These objects are called on the default `templates/components/blog/post.html` p
 | error | Message to display when form entry fails (defined by the BigCommerce App) |
 ### Wishlist Form
 
-**Description:** Form object presented to customers on the Add/Edit Wishlist page. Called on the default `&lt;theme-name&gt;/templates/components/account/add-wishlist.html` partial and `&lt;theme-name&gt;/templates/pages/account/add-wishlist.html` template.
+**Description:** Form object presented to customers on the Add/Edit Wishlist page. Called on the default <theme-name>/templates/components/account/add-wishlist.html` partial and `<theme-name>/templates/pages/account/add-wishlist.html` template.
 
 **Handlebars Expression:** `{{forms.wishlist}}`
 
@@ -987,7 +987,7 @@ _These objects are called on the default `templates/components/blog/post.html` p
 
 ### Gift Certificate Form
 
-**Description:****<em> </em>**Form object used to create and edit a gift certificate object for the merchant's store. Called on the default <NOBR><span class="inline-code">&lt;theme-name&gt;templates/pages/gift-certificate/purchase.html</span></nobr> template. <br>
+**Description:****<em> </em>**Form object used to create and edit a gift certificate object for the merchant's store. Called on the default <NOBR><span class="inline-code"><theme-name>templates/pages/gift-certificate/purchase.html</span></nobr> template. <br>
 
 **Handlebars Expression:** `{{forms.gift_certificate}}`
 
@@ -1018,7 +1018,7 @@ _These objects are called on the default `templates/components/blog/post.html` p
 
 ### Contact Us Form
 
-**Description:**Form object used to manage merchants’ "Contact Us" pages. Called on the default `&lt;theme-name&gt;/templates/pages/contact-us.html`template.
+**Description:**Form object used to manage merchants’ "Contact Us" pages. Called on the default `<theme-name>/templates/pages/contact-us.html`template.
 
 **Handlebars Expression:** `{{forms.contact}}`
 
@@ -1039,7 +1039,7 @@ _These objects are called on the default `templates/components/blog/post.html` p
 | recaptcha.markup | Adds reCaptcha V2 |
 ### Login Account Form
 
-**Description:** Form object used to manage merchants’ "Login" page. Called on the default `&lt;theme-name&gt;/templates/pages/create-login.html`template.
+**Description:** Form object used to manage merchants’ "Login" page. Called on the default `<theme-name>/templates/pages/create-login.html`template.
 
 **Handlebars Expression:** `{{forms.login}}`
 
