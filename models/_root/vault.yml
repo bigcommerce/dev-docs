@@ -5,8 +5,10 @@ description: |-
 type: object
 properties:
   access_token:
-    description: 'required to submit add payment method form; otherwise, submission will fail with `401` Unauthorized'
     type: string
+    description: 'required to submit add payment method form; otherwise, submission will fail with `401` Unauthorized'
+    example: '{{token}}'
   expires_at:
-    description: Expiration Date in Unix Timestamp
     type: number
+    description: Expiration Date in Unix Timestamp
+    example: 1616614163
