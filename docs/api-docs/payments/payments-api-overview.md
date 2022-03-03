@@ -130,7 +130,7 @@ Accept: application/json
         }
       ]
     }
-  ]
+  ],
   "meta": {}
 }
 ```
