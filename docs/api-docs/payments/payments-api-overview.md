@@ -27,7 +27,58 @@ Merchants or shoppers' personal identifiable information (PII) collected by recu
 
 ## Processing a payment
 
-You can process payments charged to either of two main forms of payment: new payment instruments or stored instruments. For a list of supported payment gateways and their feature sets, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available). 
+You can process payments charged to either of two main forms of payment: new payment instruments or stored instruments. 
+
+**BigCommerce supports the following gateways for stored cards:**
+
+* AdyenV2
+* Authorize.net
+* Barclaycard Fuse
+* Bolt
+* Checkout.com
+* CyberSource
+* Mollie
+* MyVirtualMerchant
+* Paymetric
+* PayPal powered by Braintree
+* Stripe
+* StripeV3
+
+**BigCommerce supports the following gateways for credit cards:**
+
+* Authorize.net
+* Ayden
+* Barclaycard Fuse
+* Bolt
+* Chase integrated payments
+* Chase merchant services
+* Checkout.com
+* Cybersource
+* eWAY rapid
+* First data payeezy gateway
+* Heartland payment systems
+* MIGS
+* MyVirtualMerchant
+* NMI
+* Orbital
+* Paymetric
+* PayPal(Commerce Platform)
+* PayPal powered by Braintree
+* PayPal Payments Pro (Payflow Edition) UK
+* PayPal Payments Pro (Payflow Edition) US
+* QuickBooks Payments
+* Sage Pay/Protx VSP Direct
+* SecureNet
+* Stripe
+* StripeV3
+* USA ePay
+* Vantiv
+* Vantiv Core
+* Windcave
+* Worldpay Core
+* WorldPay
+
+For a list of supported payment gateways and their feature sets, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available). 
 
 <!-- theme: info -->
 > #### Notes
