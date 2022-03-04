@@ -14,9 +14,9 @@ To change existing text in an email template, update information in the **Phrase
 
 ## Adding a button
 
-You can create an email button using HTML. The following code example adds a blue button with white text to the account created template.
+You can create an email button using HTML. The following code example adds a blue button with white text to the **Account Created** template.
 
-Go to **Transactional Emails> Email Templates**. Click **...** next to **Account Created** and select **Edit Template**. Copy and paste the contents below into the Content editor. Ensure you paste the text outside the open `<table>` and closed `</table>` tags. 
+Go to **Transactional Emails > Email Templates**. Click **...** next to **Account Created** and select **Edit Template**. Copy and paste the contents below into the Content editor. Ensure you paste the text outside the open `<table>` and closed `</table>` tags. 
   
 ```handlebars title="Add an email button"
 <table class="row">
@@ -55,7 +55,7 @@ with
 ```
 <!-- theme: info -->
 > #### Note
->You can also add width and height values to images.
+> You can also add width and height values to images.
  
   
 ![Change logo size](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/email-templates-change-logo-size.png "Change logo size")
@@ -81,7 +81,7 @@ To make your text responsive so that it can viewed on a variety of devices and s
 
 You can add a tracking script to an email template. Ensure to sure to add or update information in the **Phrases** and **Code** tabs for the script to appear in the email. For example, use `tracking_title` for phrase name and Tracking information for phrase value. 
 
-Go to **Transactional Emails> Email Templates**. Click **...** next to **Order Status Update** and select **Edit Template**. Copy and paste the contents below into the Content editor. 
+Go to **Transactional Emails > Email Templates**. Click **...** next to **Order Status Update** and select **Edit Template**. Copy and paste the contents below into the Content editor. 
   
 ```handlebars title="Add a tracking script"
  <th>
@@ -112,4 +112,4 @@ Go to **Transactional Emails> Email Templates**. Click **...** next to **Order S
 {{/if}}
 </th>
 ```
-![Add trackingemai](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/email-templates-add-template.png "Adding template")
+![Add tracking email](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/email-templates-add-template.png "Adding template")
