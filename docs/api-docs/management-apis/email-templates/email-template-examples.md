@@ -87,30 +87,28 @@ Go to **Transactional Emails > Email Templates**. Click **...** next to **Order 
 ```handlebars title="Add a tracking script" lineNumbers
  <th>
    <h2>{{lang 'tracking_title'}}</h2>
-
    {{#if order.tracking}}
-     <ul class="tracking">
-      {{#each order.tracking}}
-       <li>
-           <p>
-             <a href="{{link}}" target="_blank">
-                {{#if id}}
-                    {{id}}
-                {{else}}
-                    {{lang 'tracking_label'}}
-                {{/if}}
-             </a>
-
-              {{#if shipping_method}}
-               ({{shipping_method}})
-             {{/if}}
-          </p>
-       </li>
-    {{/each}}
-  </ul>
-{{else}}
-    <p class="tracking">{{lang 'no_tracking_numbers'}}</p>
-{{/if}}
+      <ul class="tracking">
+         {{#each order.tracking}}
+            <li>
+               <p>
+                  <a href="{{link}}" target="_blank">
+                     {{#if id}}
+                        {{id}}
+                     {{else}}
+                        {{lang 'tracking_label'}}
+                     {{/if}}
+                  </a>
+                  {{#if shipping_method}}
+                     ({{shipping_method}})
+                  {{/if}}
+               </p>
+            </li>
+         {{/each}}
+      </ul>
+   {{else}}
+      <p class="tracking">{{lang 'no_tracking_numbers'}}</p>
+   {{/if}}
 </th>
 ```
 ![Add tracking email](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/email-templates-add-template.png "Adding template")
