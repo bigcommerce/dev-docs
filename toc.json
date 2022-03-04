@@ -370,6 +370,11 @@
       "uri": "docs/api-docs/cart-and-checkout/open-source-checkout.md"
     },
     {
+      "type": "item",
+      "title": "Installing Custom Order Confirmation Pages",
+      "uri": "docs/api-docs/cart-and-checkout/custom-order-confirmation.md"
+    },
+    {
       "type": "divider",
       "title": "Localization"
     },
