@@ -206,8 +206,8 @@ To make it easier for store owners who might wish to translate, or otherwise mod
 | `%%LNG_CouponCode%%` | "Coupon Code" |
 | `%%LNG_CouponCodeIntro%%` | "If you have a coupon code, enter it in the box below and click 'Go'." |
 | `%%LNG_CreateAccount%%` | "Create Account" |
-| `%%LNG_CreateAccountIntro1%%` | <b>Checkout:</b> "Fill in the fields below to create a "<br><b>Express Checkout:</b> "Checkout faster" |
-| `%%LNG_CreateAccountIntro2%%` | <b>Checkout:</b> "account. You'll be able to shop and check out faster on your next visit, check your order status online and optionally receive updates on special offers and events."<br><b>Express Checkout:</b> "Save multiple addresses in your address book" |
+| `%%LNG_CreateAccountIntro1%%` | **Checkout:** "Fill in the fields below to create a "<br>**Express Checkout:** "Checkout faster" |
+| `%%LNG_CreateAccountIntro2%%` | **Checkout:** "account. You'll be able to shop and check out faster on your next visit, check your order status online and optionally receive updates on special offers and events."<br>**Express Checkout:** "Save multiple addresses in your address book" |
 | `%%LNG_CreateAccountIntro3%%` | "Access order history and track your orders" |
 | `%%LNG_CreateAccountIntro4%%` | "Checkout faster at" |
 | `%%LNG_CreateAccountIntro5%%` | "and save multiple addresses in your address book." |
