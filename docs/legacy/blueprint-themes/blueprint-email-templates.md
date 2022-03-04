@@ -20,7 +20,7 @@ Sent to the recipient of a gift certificate.
 | `%%LNG_GiftCertificateEmailInstructions%%` | "For instructions on how to redeem your gift certificate please <a href='%s/giftcertificates.php?action=redeem'>click here</a>." |
 | `%%LNG_GiftCertificateEmailAttached%%` | "Your gift certificate is attached to this email." |
 | `%%LNG_GiftCertificateEmailWarning%%` | "Please download or print a copy of your gift certificate for safe keeping as gift certificates are non-transferable." |
-| `%%GLOBAL_EmailFooter%%` | "<b>%s</b><br><a href="%s.mybigcommerce.com/">http://%s.mybigcommerce.com/</a><br>%s is powered by BigCommerce. <a href="bigcommerce.com">Launch your own store for free</a> with BigCommerce." |
+| `%%GLOBAL_EmailFooter%%` | "**%s**<br><a href="%s.mybigcommerce.com/">http://%s.mybigcommerce.com/</a><br>%s is powered by BigCommerce. <a href="bigcommerce.com">Launch your own store for free</a> with BigCommerce." |
 
 ## Abandoned Cart Email Template
 
@@ -30,7 +30,7 @@ Sent when a customer abandons a shopping cart.
 | Variable | Description |
 |-|-|
 | `%%GLOBAL_AC_EmailBody%%` | "Hi %s,<br>You recently visited our online store and we noticed that you didn't complete your order for the following items:" |
-| `%%GLOBAL_EmailFooter%%` | "<b>%s</b><br><a href="%s.mybigcommerce.com/">http://%s.mybigcommerce.com/</a><br>%s is powered by BigCommerce. <a href="bigcommerce.com">Launch your own store for free</a> with BigCommerce." |
+| `%%GLOBAL_EmailFooter%%` | "**%s**<br><a href="%s.mybigcommerce.com/">http://%s.mybigcommerce.com/</a><br>%s is powered by BigCommerce. <a href="bigcommerce.com">Launch your own store for free</a> with BigCommerce." |
 | `%%GLOBAL_AC_UnsubscribeLink%%` | Link to unsubscribe page associated with the store. |
 | `%%LNG_AC_EmailUnsubscribe%%` | "Unsubscribe" |
 | `%%LNG_AC_EmailUnsubscribeSuffix%%` | " from future emails like this" |
@@ -66,7 +66,7 @@ Sent when a customer places an order.
 | `%%SNIPPET_CartItems%%` | Names of the items the customer ordered. |
 | `%%SNIPPET_TotalRows%%` | Subtotal and grand total. |
 | `%%SNIPPET_PaymentMethod%%` | The customer's method of payment. |
-| `%%GLOBAL_EmailFooter%%` | "<b>%s</b><br><a href="%s.mybigcommerce.com/">http://%s.mybigcommerce.com/</a><br>%s is powered by BigCommerce. <a href="bigcommerce.com">Launch your own store for free</a> with BigCommerce." |
+| `%%GLOBAL_EmailFooter%%` | "**%s**<br><a href="%s.mybigcommerce.com/">http://%s.mybigcommerce.com/</a><br>%s is powered by BigCommerce. <a href="bigcommerce.com">Launch your own store for free</a> with BigCommerce." |
 | `%%GLOBAL_ProductThumbImageURL%%` | Product image URL. |
 
 ## Order Status Email Template
@@ -89,7 +89,7 @@ Sent when an order's status is changed.
 | `%%GLOBAL_PaymentMethod%%` | The customer's payment method. |
 | `%%LNG_ShipmentTrackingNumbersLinks%%` | "Shipment Tracking Numbers / Links" |
 | `%%GLOBAL_ViewOrderStatusLink%%` | . |
-| `%%GLOBAL_EmailFooter%%` | "<b>%s</b><br><a href="%s.mybigcommerce.com/">http://%s.mybigcommerce.com/</a><br>%s is powered by BigCommerce. <a href="bigcommerce.com">Launch your own store for free</a> with BigCommerce." |
+| `%%GLOBAL_EmailFooter%%` | "**%s**<br><a href="%s.mybigcommerce.com/">http://%s.mybigcommerce.com/</a><br>%s is powered by BigCommerce. <a href="bigcommerce.com">Launch your own store for free</a> with BigCommerce." |
 
 ## Return Confirmation Email Template
 
@@ -115,4 +115,4 @@ Sent when a customer submits a return request.
 | `%%LNG_ReturnItems%%` | "Return Items" |
 | `%%LNG_Qty%%` | "Qty" |
 | `%%SNIPPET_ReturnItems%%` | . |
-| `%%GLOBAL_EmailFooter%%` | "<b>%s</b><br><a href="%s.mybigcommerce.com/">http://%s.mybigcommerce.com/</a><br>%s is powered by BigCommerce. <a href="bigcommerce.com">Launch your own store for free</a> with BigCommerce." |
+| `%%GLOBAL_EmailFooter%%` | "**%s**<br><a href="%s.mybigcommerce.com/">http://%s.mybigcommerce.com/</a><br>%s is powered by BigCommerce. <a href="bigcommerce.com">Launch your own store for free</a> with BigCommerce." |
