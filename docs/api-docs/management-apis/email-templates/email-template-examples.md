@@ -1,17 +1,13 @@
 # Email Templates Code Examples
 
-
-
 This article provides examples of how to customize email templates. The examples are for use in the recently updated templates. You can enable the new version of transactional emails by going to **Marketing > Transactional Emails** and clicking **Try New Experience**. When you are ready to use a template, make sure to **Enable** the template from the respective dropdown. 
 
 The following code examples demonstrate how to update text, add a button, change logo size, change the font size, and add a tracking script to an email.
 
 <!-- theme: info -->
 > #### Note
-> It is important to write your emails for [accessibility](https://www.w3.org/WAI/tips/writing/) and preview changes.  
+> Previewing changes can help you write [accessible emails](https://www.w3.org/WAI/tips/writing/). Read more about satisfying [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/#guidelines) with BigCommerce's [Stencil framework](/stencil-docs/accessibility/WCAG-compliance-levels).
   
- 
-
 ## Updating text
 To change existing text in an email template, update information in the **Phrases** and **Code** tabs. For detailed instructions, see [Editing Template Phrases](https://support.bigcommerce.com/s/article/Customizing-Emails?language=en_US#phrases). 
 
