@@ -30,7 +30,6 @@ For more information on OAuth Scopes and authentication, see [Authentication](/a
 
 <!-- theme: info -->
 > For limits on the number of line items in a consignment, see the [Create a consignment endpoint](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) documentation.
-
 > The Server-to-Server Checkout API responds quickly when the checkout contains one consignment.  Each additional consignment increases the amount of time the API takes to finish creating a checkout. The example API calls in this article use the Server-to-Server Checkout API.
   
 
