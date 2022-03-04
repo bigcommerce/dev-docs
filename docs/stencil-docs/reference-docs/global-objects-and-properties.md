@@ -133,7 +133,7 @@ The table below displays properties for the individual category objects within t
 | &nbsp;&nbsp;name | Name of the child category |
 | &nbsp;&nbsp;description | Description of the child category (optional &ndash; when requested in front matter) |
 | &nbsp;&nbsp;url | URL of the child category |
-| &nbsp;&nbsp;is_active | Boolean that indicates which category is your “breadcrumb” category on a item's product display page (PDP). For example, an emerald necklace may be in the _Jewelry_ and _Accessories_ categories. If you navigated to the product from the _Jewelry_ category, `is_active: true` will be present on the _Jewelry_ object. |
+| &nbsp;&nbsp;is_active | Boolean that indicates which category is your “breadcrumb” category on an item's product display page (PDP). For example, an emerald necklace may be in the _Jewelry_ and _Accessories_ categories. If you navigated to the product from the _Jewelry_ category, `is_active: true` will be present on the _Jewelry_ object. |
 | &nbsp;&nbsp;count | Number of products in this child category |
 | &nbsp;&nbsp;image |
 | &nbsp;&nbsp;&nbsp; alt | &nbsp;&nbsp;&nbsp; The image alt name. Defaults to cateogory name |
@@ -163,7 +163,7 @@ The table below displays properties for the individual category objects within t
 
 **Usage Example:**
 
-The code example below displays the global `{{products.featured}}` object on the `cornerstone/templates/pages/home.html` page template from [Stencil's base Cornerstone theme](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L5) (Github).
+The code example below displays the global `{{products.featured}}` object on the `cornerstone/templates/pages/home.html` page template from [Stencil's base Cornerstone theme](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L5) (GitHub).
 
 First, you must declare the object using Front Matter. To declare the object, the following front matter must be placed at the top of the template HTML page. This following declaration also limits the number of featured products to be displayed:
 
@@ -174,7 +174,7 @@ products:
         limit: {{theme_settings.homepage_featured_products_count}} //limits the number of featured products to be displayed
 ```
 
-The `homepage_featured_products_count` limit is one of two relevant variables defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L45) (Github).
+The `homepage_featured_products_count` limit is one of two relevant variables defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L45) (GitHub).
 
 ```json title="homepage_featured_products_count"
 "settings": {
@@ -185,7 +185,7 @@ The `homepage_featured_products_count` limit is one of two relevant variables de
     // ...    
 ```
 
-In the body of [Cornerstone's `home.html` template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L27) (Github), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
+In the body of [Cornerstone's `home.html` template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L27) (GitHub), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
 
 ```handlebars title="home.html"
 {{#if products.featured}}
@@ -194,7 +194,7 @@ In the body of [Cornerstone's `home.html` template](https://github.com/bigcommer
 {{/if}}
 ```
 
-This above statement formats the _Featured Products_ display according to the `homepage_featured_products_column_count` variable, which is the second relevant variable defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L53) (Github).
+This above statement formats the _Featured Products_ display according to the `homepage_featured_products_column_count` variable, which is the second relevant variable defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L53) (GitHub).
 
 ## Footer
 
@@ -246,7 +246,7 @@ No properties available for this object.
 
 To access the global `{{products.new}}` object on your page, you must first use front matter to declare the object at the top of your page template.
 
-The code example below declares the global `{{products.new}}` object on the `cornerstone/templates/pages/home.html` page template from [Stencil's base Cornerstone Theme](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L3) (Github).
+The code example below declares the global `{{products.new}}` object on the `cornerstone/templates/pages/home.html` page template from [Stencil's base Cornerstone Theme](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L3) (GitHub).
 
 ```yml title="Example: Frontmatter declaration"
 products:
@@ -254,7 +254,7 @@ products:
         limit: {{theme_settings.homepage_new_products_count}}
 ```
 
-The `homepage_featured_products_count` limit is one of two relevant variables defined in Cornerstone's `config.json` file (Github).
+The `homepage_featured_products_count` limit is one of two relevant variables defined in Cornerstone's `config.json` file (GitHub).
 
 ```json title="config.json"
 "settings": {
@@ -264,7 +264,7 @@ The `homepage_featured_products_count` limit is one of two relevant variables de
     // ...
 ```
 
-In the body of [Cornerstone's `home.html` template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L36) (Github), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
+In the body of [Cornerstone's home.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L36) (GitHub), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
 
 ```handlebars title="home.html"
 {{#if products.new}}
@@ -273,7 +273,7 @@ In the body of [Cornerstone's `home.html` template](https://github.com/bigcommer
 {{/if}}
 ```
 
-This above statement formats the _New Products_ display according to the `homepage_new_products_column_count` variable, which is the second relevant variable defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L46) (Github
+This above statement formats the _New Products_ display according to the `homepage_new_products_column_count` variable, which is the second relevant variable defined in [Cornerstone's config.json file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L46) (GitHub
 
 ## Page Content
 
@@ -498,7 +498,7 @@ All possible values for `{{page_type}}` are:
 | &#x21B3; compare | A string String containing the URL to the products comparison page `/compare` |
 | &#x21B3; sitemap | URL to the sitemap `/sitemap.php` |
 | &#x21B3; subscribe | Collection of subscription-related URLs |
-| &nbsp; &nbsp; &#x21B3; action | URL to which the the newsletter subscription will be submitted `/subscribe.php` |
+| &nbsp; &nbsp; &#x21B3; action | URL to which the newsletter subscription will be submitted `/subscribe.php` |
 | money | List of child items that define the store’s default currency formatting |
 | &#x21B3; currency_token | Symbol for the currency |
 | &#x21B3; currency_location | Whether currency symbol appears at left or right of the quantity |

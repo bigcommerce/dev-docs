@@ -134,7 +134,7 @@ Using Lighthouse is an important step in optimizing your site and improving the 
 Accessible sites have benefits, including faster load speed, better SEO, and useful for marketing your product. See [Developing Themes for Accessibility](/stencil-docs/theme-accessibility) for more information.
 
 ## Related resources
-- [File Access (WebDAV)](https://support.bigcommerce.com/articles/Public/File-Access-WebDAV/)(Knowledge Base)
+- [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV)(Knowledge Base)
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 - [Designing for Accessibility](/stencil-docs/theme-accessibility)
 - [Folder Structure](https://support.bigcommerce.com/s/article/File-Access-WebDAV#folder)

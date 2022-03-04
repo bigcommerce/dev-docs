@@ -151,7 +151,7 @@ fetch('/graphql', {
 <!-- theme: warning -->
 > #### Note
 > * `1` can be passed in for the `channel_id` for generating tokens for use on the default Stencil storefront.
-> * To create a channel for a remote site, see [Create Channel](/api-reference/cart-checkout/channels-listings-api/channels/createchannel) in the API Reference.
+> * To create a channel for a remote site, see [Create Channel](/api-reference/store-management/channels/channels/createchannel) in the API Reference.
 > * `allowed_cors_origins` array accepts only a single origin currently -- one token must be generated for each origin.
 > * `/storefront/api-token` endpoint requires the `Manage` `Storefront API Tokens` OAuth Scope.
 > * `storefront/api-token-customer-impersonation` endpoint requires the `Manage` `Storefront API Customer Impersonation Tokens` OAuth Scope.
@@ -220,7 +220,7 @@ As a best practice, you should inject the password using GraphQL query variables
 
 GraphQL Storefront API calls can be made directly from within a Stencil theme or from a script in [Storefront > Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
 
-Here's an an example request using the  `{{settings.storefront_api.token}}` handlebars object and [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API):
+Here's an example request using the  `{{settings.storefront_api.token}}` handlebars object and [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API):
 
 ```js
 fetch('/graphql', {
@@ -264,7 +264,7 @@ fetch('/graphql', {
 .then(json => console.log(json));
 ```
 
-In addition to using `fetch()`, there's a other ways to query the API:
+In addition to using `fetch()`, there's another way to query the API:
 * **Using [Apollo Client](https://www.apollographql.com/docs/react/)** - Apollo is a popular GraphQL client that's easy to use in BigCommerce themes. For a quick example of adding Apollo Client to cornerstone, checkout this [Cornerstone commit](https://github.com/bigcommerce/cornerstone/commit/508feeb1b00d2bb2940771e5e91250a08b6be4d9) on GitHub.
 * **Using any GraphQL Client** - GraphQL is a standard with client libraries in many languages, so feel free to explore your options.
 

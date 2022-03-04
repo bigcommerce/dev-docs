@@ -80,7 +80,7 @@ Make sure to also review our [app development best practices](/api-docs/apps/gui
 
 Once the merchant clicks **Install** on a tax providers single-click app, it's essential the app successfully handles the OAuth flow before moving onto the next step of establishing a connection with the [Tax Provider API](/api-reference/providers/tax-provider-api). This [OAuth summary](/api-docs/apps/guide/auth#oauth-summary) provides an overview of the OAuth flow.
 
-When handling the OAuth flow, tax providers must ensure their app is requesting read and write permissions on the **Information and Settings** API scopes. Additionally, the tax provider should store the **client_id** and **access_token** that are received. Both are required later when [establishing a connection with the Tax Provider API](#establishing-a-connection-with-the-tax-provider-api).
+When handling the OAuth flow, tax providers must ensure their app is requesting read and write permissions on the **Information and Settings** API scopes. Additionally, the tax provider should store the **client_id** and **access_token** that are received. Both are required later when [establishing a connection with the Tax Provider API](#establishing-a-connection).
 
 ## Establishing a connection
 
