@@ -18,7 +18,7 @@ You can create an email button using HTML. The following code example adds a blu
 
 Go to **Transactional Emails > Email Templates**. Click **...** next to **Account Created** and select **Edit Template**. Copy and paste the contents below into the Content editor. Ensure that you paste the text outside the open `<table>` and closed `</table>` tags. 
   
-```handlebars title="Add an email button"
+```handlebars title="Add an email button" lineNumbers
 <table class="row">
    <tr>
       <th class="column">
@@ -46,13 +46,14 @@ Go to **Transactional Emails > Email Templates**. Click **...** next to **Accoun
 
 To change the size of your logo that appears in your email, specify width and height values in the Content editor. Go to **Transactional Emails > Email Templates**. Click **...** next to **Order Email** and select **Edit Template**. Go to the **Code** tab and replace: 
 
-```html
+```handlebars title="Default logo size"
 <img src="{{store.logo.url}}" alt="{{store.logo.title}}">
 ```
 with
-```html
+```handlebars title="Custom logo size"
 <img src="{{store.logo.url}}" alt="{{store.logo.title}}" width="200" height="200">
 ```
+
 <!-- theme: info -->
 > #### Note
 > You can also add width and height values to images.
@@ -64,26 +65,26 @@ with
   
 To change the email font size, use the style attribute. You can define attributes such as color and font size within the paragraph `<p>` tag. Go to **Transactional Emails > Email Templates**, click **...** next to **Guest Account**, and select **Edit Template**. Go to the **Code** tab and replace: 
   
-```html
+```handlebars title="Default font size"
 <p>{{lang 'help'}}</p>
-  ```
- with 
-  
-  ```html
+```
+with 
+
+```handlebars title="Custom font size in pixels"
 <p style="font-size:16px;">{{lang 'help'}}</p>
-   ```
+```
 To make your text responsive so that readers can view it on a variety of devices and screen sizes, use the viewport width (`vw`) unit to set the `font-size`. `vw` style settings allow you to control the widths of elements no matter the viewport size. 
   
-  ```html
-  <p style="font-size:2.0vw">{{lang 'help'}}</p>
-  ```
+```handlebars title="Custom font size in pixels using viewport width"
+<p style="font-size:2.0vw">{{lang 'help'}}</p>
+```
 ## Adding a tracking script
 
 You can add a tracking script to an email template. To ensure that the script appears in the email, add or update information in the **Phrases** and **Code** tabs. For example, use `tracking_title` for phrase name and `Tracking information` for phrase value. 
 
 Go to **Transactional Emails > Email Templates**. Click **...** next to **Order Status Update** and select **Edit Template**. Copy and paste the contents below into the Content editor. 
   
-```handlebars title="Add a tracking script"
+```handlebars title="Add a tracking script" lineNumbers
  <th>
    <h2>{{lang 'tracking_title'}}</h2>
 
