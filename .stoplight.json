@@ -18,6 +18,7 @@
         "docs/stencil-docs/**",
         "docs/api-docs/cart-and-checkout/checkout-sdk.md",
         "docs/api-docs/cart-and-checkout/open-source-checkout.md",
+        "docs/api-docs/cart-and-checkout/custom-order-confirmation.md",
         "docs/partner-apps/bundleb2b/b2b-edition.md",
       ]
     },
