@@ -58,7 +58,7 @@ Some of these pages acquire special functionality when they are added to navigat
 
 ## Reviews
 Reviews placed on the WordPress store are synced to BigCommerce for permanent storage as well as usage on other channels. Additionally, reviews are stored in a local, custom database for quick access.
-The review system on WordPress is enabled or disabled by the site’s Comments setting, under Settings → Discussion in the WordPress admin. Additionally, each product has a Comments switch which can be used to override the global settings.
+The review system on WordPress is enabled or disabled by the site’s Comments setting, under **Settings > Discussion** in the WordPress admin. Additionally, each product has a Comments switch which can be used to override the global settings.
 
 ## Gift Certificate Settings
 If the gift certificate setting is enabled in WordPress, shoppers will be able to purchase gift certificates from the site. Gift certificate functionality relies on two pages that are automatically created by the plugin. Both pages can be replaced by pages you create containing the appropriate shortcodes.
