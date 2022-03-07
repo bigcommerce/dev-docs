@@ -63,8 +63,6 @@ Global objects and properties are common components shared across the entire Big
 | &nbsp;&nbsp;button_text | Text displayed on a call-to-action button defined by the merchant |
 | &nbsp;&nbsp;button_text_color | Color of the button | 
 
-<a id="global-objects_cart"></a>
-
 ## Cart
 
 **Description:** Returns the cart ID if one exists. To return more cart information use the [Storefront Cart API](/api-reference/cart-checkout/storefront-cart-api). 
@@ -169,28 +167,28 @@ First, you must declare the object using Front Matter. To declare the object, th
 
 ```yml title="Example: Frontmatter declaration"
 products:
-    [...]
-    featured:
-        limit: {{theme_settings.homepage_featured_products_count}} //limits the number of featured products to be displayed
+  [...]
+  featured:
+    limit: {{theme_settings.homepage_featured_products_count}} //limits the number of featured products to be displayed
 ```
 
 The `homepage_featured_products_count` limit is one of two relevant variables defined in [Cornerstone's `config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json#L45) (GitHub).
 
 ```json title="homepage_featured_products_count"
 "settings": {
-    // ...
-    "homepage_featured_products_count": 8,
-    // ...
-    "homepage_featured_products_column_count": 4,
-    // ...    
+  // ...
+  "homepage_featured_products_count": 8,
+  // ...
+  "homepage_featured_products_column_count": 4,
+  // ...    
+}
 ```
 
 In the body of [Cornerstone's `home.html` template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L27) (GitHub), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
 
 ```handlebars title="home.html"
 {{#if products.featured}}
-		{{> components/products/featured products=products.featured
-    columns=theme_settings.homepage_featured_products_column_count}}
+  {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
 {{/if}}
 ```
 
@@ -250,26 +248,26 @@ The code example below declares the global `{{products.new}}` object on the `cor
 
 ```yml title="Example: Frontmatter declaration"
 products:
-    new:
-        limit: {{theme_settings.homepage_new_products_count}}
+  new:
+    limit: {{theme_settings.homepage_new_products_count}}
 ```
 
 The `homepage_featured_products_count` limit is one of two relevant variables defined in Cornerstone's `config.json` file (GitHub).
 
 ```json title="config.json"
 "settings": {
-    "homepage_new_products_count": 5,
-    // ...
-    "homepage_new_products_column_count": 4,
-    // ...
+  "homepage_new_products_count": 5,
+  // ...
+  "homepage_new_products_column_count": 4,
+  // ...
+}
 ```
 
 In the body of [Cornerstone's home.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L36) (GitHub), the below Handlebars conditional statement is responsible for displaying the `{{products.featured}}` object. This is the object that we declared above using front matter.
 
 ```handlebars title="home.html"
 {{#if products.new}}
-  {{> components/products/new products=products.new 	
- 	columns=theme_settings.homepage_new_products_column_count}}
+  {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
 {{/if}}
 ```
 
@@ -601,7 +599,7 @@ All possible values for `{{page_type}}` are:
 
 **Handlebars Expression:** `{{products.top_sellers}}`
 
-**Object Properties:** References the <a href="/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model"> product card model </a>
+**Object Properties:** References the [product card model](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model).
 
 **Usage Example:**
 
@@ -609,5 +607,5 @@ To access the global`{{products.top_sellers}}` object on your page, you must fir
 
 ```yml title="Template frontmatter"
 products:
-    top_sellers:
+  top_sellers:
 ```

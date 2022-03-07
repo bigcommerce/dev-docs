@@ -23,9 +23,9 @@ The [Apps Marketplace](https://www.bigcommerce.com/apps/) is an area inside the 
 
 To create a widget using the App Marketplace, you will need to create a marketplace application that injects new widgets into the storefront using the Widgets API.
 
->Note
->
->Content created by an application's widget will remain in the store even if the application gets uninstalled.
+<!-- theme: info -->
+> #### Note
+> Content created by an application's widget will remain in the store even if the application gets uninstalled.
 
 ## Modifying BigCommerce widgets
 
@@ -49,8 +49,8 @@ To expose a third-party widget template in Page Builder, make a `POST` request f
 
 If you successfully create the widget template, you should see the widget with its customizable options reflected in Page Builder, under the **Custom** section.
 
->Note
->
+<!-- theme: info -->
+> #### Note
 > You do not need to make a `POST` request for the [Widget](/api-reference/storefront/widgets-api/widget/createwidget) or [Widget Placement](/api-reference/storefront/widgets-api/placement/createplacement) to reflect the new widget in Page Builder.
 
 ## Resources

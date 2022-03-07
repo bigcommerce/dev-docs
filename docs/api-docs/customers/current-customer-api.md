@@ -10,7 +10,6 @@ To address this need, BigCommerce provides a Current Customer endpoint that your
 
 <!-- theme: info -->
 > #### Note
-
 > - An app client ID is required in requests to `/customer/current.jwt`.
 > - To generate an app client ID, create an app in the [BigCommerce Developer Portal](https://devtools.bigcommerce.com/).
 > - Use the app's secret to validate the signature on the JWT.
@@ -80,7 +79,6 @@ An end-to-end example that displays a customer's recently purchased products is 
 
 <!-- theme: info -->
 > #### IAT and EXP claims
-
 > The current customer tokens are valid for 15 minutes.
 
 
