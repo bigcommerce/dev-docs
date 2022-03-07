@@ -80,9 +80,9 @@ To make your text responsive so that readers can view it on a variety of devices
 ```
 ## Adding a tracking script
 
-You can add a tracking script to an email template. To ensure that the script appears in the email, add or update information in the **Phrases** and **Code** tabs. For example, use `tracking_title` for phrase name and `Tracking information` for phrase value. 
+You can add a tracking script to an email template. To ensure that the script appears in the email, add or update information in the **Phrases** and **Code** tabs. 
 
-Go to **Transactional Emails > Email Templates**. Click **...** next to **Order Status Update** and select **Edit Template**. Copy and paste the contents below into the Content editor. 
+Go to **Transactional Emails > Email Templates**. Click **...** next to **Order Status Update** and select **Edit Template**. In the **Phrases** tab, use `tracking_title` for phrase name and `Tracking information` for phrase value. Then copy and paste the contents below into the Content editor. 
   
 ```handlebars title="Add a tracking script" lineNumbers
  <th>
