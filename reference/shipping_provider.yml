@@ -335,6 +335,10 @@ paths:
                   carrier_info:
                     code: vel
                     display_name: laborum e
+            No Shipping Rates:
+              quote_id: example_quote
+              messages: []
+              carrier_quotes: []
       summary: Request shipping rates
       tags:
         - Shipping Provider
