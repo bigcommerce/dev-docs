@@ -27,11 +27,6 @@ info:
     ## Order Transactions
     The `/orders/{id}/transactions` endpoint returns details about the payment instruments used to pay for an order. Depending on the payment method used, different details will be available. Not all credit card payment gateways return full card or fraud details. Transactions endpoints are primarily used to get detailed gateway response information for credit card transactions; however they will also return any available information about digital wallet and offline payments.
 
-    **Note**: transactions are not created for the following payment methods:
-    * Test Payment Gateway
-    * PayPal Express
-    * Amazon Pay
-
     ## Payment Actions
     ### Capture and Void
     Capture or void the payment for and order.
@@ -166,10 +161,6 @@ paths:
 
         **Usage Notes**
         * Depending on the payment method, different information will be available (not all payment gateways return full card or fraud detail).
-        * Transactions are not created for the following payment methods:
-          * Test Payment Gateway
-          * PayPal Express
-          * Amazon Pay
 
 
         Requires at least one of the following scopes:
