@@ -328,8 +328,8 @@ securityDefinitions:
       ### OAuth Scopes
       |  **UI Name** | **Permission** | **Parameter** |
       | --- | --- | --- |
-      |  Information & Settings | modify | `store_v2_information` |
-      |  Information & Settings | read-only | `store_v2_information_read_only` |
+      |  Products | modify | `store_v2_products` |
+      |  Products | read-only | `store_v2_products_read_only` |
 
       ### Headers
 
