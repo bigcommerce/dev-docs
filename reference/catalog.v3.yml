@@ -18917,6 +18917,9 @@ definitions:
       mpn:
         type: string
         description: The Manufacturer Part Number (MPN) for the variant.
+      gtin:
+        type: string
+        example: '012345678905'
     x-internal: true
   productVariant_Full:
     allOf:
@@ -19045,6 +19048,10 @@ definitions:
           image_url:
             type: string
             description: Publicly available image url
+          gtin:
+            type: string
+            example: '012345678905'
+            description: Global Trade Item Number
           mpn:
             type: string
             description: Manufacturer Part Number
