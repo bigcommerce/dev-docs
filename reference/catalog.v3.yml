@@ -20015,6 +20015,8 @@ definitions:
   metafield_Base:
     type: object
     title: metafield_Base
+    description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is fifty. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
+    x-internal: true
     properties:
       id:
         type: integer
@@ -20041,7 +20043,7 @@ definitions:
       namespace:
         type: string
         description: |
-          Namespace for the metafield, for organizational purposes. This is set set by the developer. Required for POST.
+          Namespace for the metafield, for organizational purposes. This is set by the developer. Required for POST.
         x-required:
           - post
         minLength: 1
@@ -20110,8 +20112,6 @@ definitions:
       - namespace
       - key
       - value
-    description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is fifty. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
-    x-internal: true
   complexRule_Base:
     type: object
     description: Common ComplexRule properties.
