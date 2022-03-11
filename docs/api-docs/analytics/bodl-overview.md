@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Big Open Data Layer (shortened as `BODL`, pronounced 'Bottle') is a JavaScript object that exposes storefront data points to BigCommerce and third-party analytics integrations. Instantiating a standard `BODL` object on a BigCommerce-hosted or headless storefront will make the site faster and provide richer, more consistent analytics.
+The Big Open Data Layer (shortened as `BODL`, pronounced 'Bottle') is a JavaScript object that exposes storefront data points to BigCommerce and third-party analytics integrations. Instantiating a standard `BODL` object on a BigCommerce-hosted or headless storefront can make the site faster and more efficient by allowing BODL to fetch multiple scripts at a time.
 
 BigCommerce checks your storefront for a `BODL` instance once per page render. To ensure that the analytics providers you've chosen have the complete and correct set of data points they require, initialize a standard `BODL` instance with the following schema. If you want to make an alternate custom version of this data layer object with a unique schema, name it something else.
 
@@ -31,13 +31,13 @@ Consult [Stencil object reference](/theme-objects) for more about object propert
 | getCartItemContentId() | `item` |
 | getQueryParamValue() | `name` |
 
-## Pixel snippet examples
+## Script examples
 To get started using `BODL` data in your integration, consult the following example snippets.
 
 ### Initialize script
 This script extracts storefront data from the Stencil objects available in the front-end environment to construct a standard `BODL` object.
 
-```handlebars title="Sample Pixel Code Start: Initialization Script & Page Event" lineNumbers
+```handlebars title="Sample Script Code Start: Initialization Script & Page Event" lineNumbers
 <script>
   if (typeof BODL === 'undefined') {
     // https://developer.bigcommerce.com/theme-objects/breadcrumbs
@@ -135,7 +135,7 @@ This script extracts storefront data from the Stencil objects available in the f
 
 The following snippet handles the Add to Cart event by collecting data on each item added, including the product ID, the quantity added, and the price.
 
-```handlebars title="Sample Pixel Code Start: Product Detail Page Add to Cart Event" lineNumbers
+```handlebars title="Sample Script Code Start: Product Detail Page Add to Cart Event" lineNumbers
 <script>
   document.querySelectorAll('[data-cart-item-add]').forEach(form => form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -180,9 +180,9 @@ The following snippet handles the Add to Cart event by collecting data on each i
 ```
 
 ### Add to wishlist
-The following snippet handles the Add to Wishlist event. This snippet sends individual products specified by the `added_product_id` and a commented section regarding category data. Our built-in analytics do not currently track wishlists' category data, but the snippet includes it for future-proofing.
+The following snippet handles the Add to Wishlist event. This snippet sends individual products specified by the `added_product_id` and a commented section regarding category data. 
 
-```handlebars title="Sample Pixel Code Start: Add to Wishlist" lineNumbers
+```handlebars title="Sample Script Code Start: Add to Wishlist" lineNumbers
 <script>
   // This only sends one wishlist product: the one that was just added based on the 'added_product_id' param in the url
   if (BODL.wishlist) {
@@ -204,7 +204,7 @@ The following snippet handles the Add to Wishlist event. This snippet sends indi
 ### Order complete
 This snippet uses the unauthenticated Storefront API to request the item objects from a completed order and concatenates them into a single array of physical items, digital items, and gift certificates.
 
-```handlebars title="Sample Pixel Code Start: Purchase Event" lineNumbers
+```handlebars title="Sample Script Code Start: Purchase Event" lineNumbers
 <script>
   fetch('/api/storefront/order/{{checkout.order.id}}', {
     credentials: 'same-origin'
@@ -272,7 +272,7 @@ This snippet uses the unauthenticated Storefront API to request the item objects
 
 This snippet tracks account creation.
 
-```handlebars title="Sample Pixel Code Start: Registration" lineNumbers
+```handlebars title="Sample Script Code Start: Registration" lineNumbers
 <script>
   if (window.location.pathname.indexOf('/login.php') === 0 && BODL.getQueryParamValue('action') === 'account_created') {
     sampleAnalyticsProvider.instance('<%= property_id %>').track('Registration');
@@ -283,31 +283,12 @@ This snippet tracks account creation.
 ### Search
 This snippet tracks when an end-user searches for products. Please take note that there is a built-in tracker for the category. However, we have commented out the tracker due to known distortions, which cause reporting of only the first category ID. Only reactivate if needed; use it at your own risk.
 
-```handlebars title="Sample Pixel Code Start: Search" lineNumbers
-<script>
-  if (BODL.search) {
-    sampleAnalyticsProvider.instance('<%= property_id %>').track('Search', {
-      query: BODL.getQueryParamValue('search_query'),
-      contents: BODL.search.products.map((p) => ({
-        content_id: p.id,
-        // Products can be in multiple categories.
-        // Commenting out as this might distort category reports if only the first one is used.
-        // content_category: p.category[0], 
-        content_name: p.name,
-        content_type: "product_group",
-        currency: p.price.without_tax.currency,
-        price: p.price.without_tax.value,
-        value: p.price.without_tax.value,
-      }))
-    });
-  }
-</script>
-```
+
 
 ### Start checkout
 This snippet is very similar to the Order Complete snippet above in the formatting, grabbing information about all items in the cart, and separating them into physical items, digital items, and gift certificates.
 
-```handlebars title="Sample Pixel Code Start: Start Checkout Event" lineNumbers
+```handlebars title="Sample Script Code Start: Start Checkout Event" lineNumbers
 <script>
   fetch('/api/storefront/carts/{{cart_id}}', {
     credentials: 'same-origin'
@@ -374,7 +355,7 @@ This snippet is very similar to the Order Complete snippet above in the formatti
 ### Subscribe to newsletter
 A snippet that tracks anytime the user successfully subscribes to a newsletter.
 
-```handlebars title="Sample Pixel Code Start: Subscribe to Newsletter" lineNumbers
+```handlebars title="Sample Script Code Start: Subscribe to Newsletter" lineNumbers
 <script>
   if (window.location.pathname.indexOf('/subscribe.php') === 0 && BODL.getQueryParamValue('result') === 'success') {
     sampleAnalyticsProvider.instance('<%= property_id %>').track('Subscribe');
@@ -385,7 +366,7 @@ A snippet that tracks anytime the user successfully subscribes to a newsletter.
 ### View category
 A snippet that tracks when the user views a category.
 
-```handlebars title="Sample Pixel Code Start: View Category Content" lineNumbers
+```handlebars title="Sample Script Code Start: View Category Content" lineNumbers
 <script>
   if (BODL.category) {
     sampleAnalyticsProvider.instance('<%= property_id %>').track('ViewContent', {
@@ -406,7 +387,7 @@ A snippet that tracks when the user views a category.
 ### View product
 A snippet that tracks the viewing of a product.
 
-```handlebars title="Sample Pixel Code Start: View Product Content" lineNumbers
+```handlebars title="Sample Script Code Start: View Product Content" lineNumbers
 <script>
   if (BODL.product) {
     sampleAnalyticsProvider.instance('<%= property_id %>').track('ViewContent', {
