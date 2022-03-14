@@ -503,10 +503,6 @@ Accept: application/json
 <!-- theme: info -->
 > #### Note
 > * Not all payment gateways return the full card or fraud detail. Depending on the payment method, different information will be available.
-> * You cannot create transactions for the following payment methods:
->   * Test Payment Gateway
->   * PayPal Express
->   * Amazon Pay
 
 
 
