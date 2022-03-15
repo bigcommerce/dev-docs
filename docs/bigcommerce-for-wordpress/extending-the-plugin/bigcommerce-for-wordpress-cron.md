@@ -24,7 +24,7 @@ In order to make WP-Cron more reliable and not dependent on site-traffic, the fo
 
 ### Open and edit wp-config.php
 1. Open the wp-config file using an FTP client like [FileZilla](https://filezilla-project.org/) or SSH client.
-2. Add the following string to the file:<br><code>define('DISABLE_WP_CRON', true);</code>
+2. Add the following string to the file:`define('DISABLE_WP_CRON', true);`
 3. This code disables the running cron events on your WordPress site and allows you to create a real cron job.
 
 ### Add new cron job to the server
@@ -41,7 +41,7 @@ The following example is for HostGator but it also can be used for any other hos
 2. Find the **Advanced** tab.
 3. Click on the **Cron jobs** there.
 4. Under the **Add new cron job** section set the required interval.
-5. Set the job <code>wget -q -O - https://example.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1 </code>
+5. Set the job `wget -q -O - https://example.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1` 
 6. Verify that you replaced example.com with your domain name.
 7. Click **Add new cron job** to set the cron.
 
@@ -50,10 +50,11 @@ The following example is for HostGator but it also can be used for any other hos
 The following is basic required knowledge on setting cron jobs via crontab and other terminal commands. Be sure that you have SSH access before following these steps.
 1. Open the SSH terminal.
 2. Type `crontab -e`. That will open the cron-job manager.
-3. Add the following command: <code>*/5 * * * * wget -q -O - 'https://example.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1</code>
+3. Add the following command: `*/5 * * * * wget -q -O - 'https://example.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1`
 4. Save and exit from crontab.
-5. That will add a real cron job that fires every five minutes.
+That will add a real cron job that fires every five minutes.
 
 > **Important note:** you need to change https://example.com in the provided example with your own site address. <p>For example, if your site has the address https://funnycats.com then the command should be: 
-><code>*/5 * * * * wget -q -O - 'https://funnycats.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1</code></p>
+>
+>`*/5 * * * * wget -q -O - 'https://funnycats.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1`
 
