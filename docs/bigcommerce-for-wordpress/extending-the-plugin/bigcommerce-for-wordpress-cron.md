@@ -10,8 +10,8 @@ BigCommerce for WordPress plugin has update/sync logic which is based on cron jo
 WordPress has its own cron system for scheduling tasks such as checking for updates, scheduling a post for publication, and deleting comments from the trash. All cron jobs are handled by WP-Cron.
 
 Meanwhile the logic has the name WP-Cron, it is not a real server cron job. The difference is:
-1. Server cron runs automatically and is fired by server processes. There is no need for an external source for events firing
-2. WP-Cron runs only when someone is on the site; the browser tab stays open.
+- Server cron runs automatically and is fired by server processes. There is no need for an external source for events firing
+- WP-Cron runs only when someone is on the site
 
 <p>Here's an example:</p>
 
@@ -23,7 +23,7 @@ Because of this, WP-Cron jobs may be postponed or not performed at all. On the o
 In order to make WP-Cron more reliable and not dependent on site-traffic, the following steps should be taken:
 
 ### Open and edit wp-config.php
-1. Open the wp-config file using an FTP client like FileZilla or SSH client.
+1. Open the wp-config file using an FTP client like [FileZilla](https://filezilla-project.org/) or SSH client.
 2. Add the following string to the file:<br><code>define('DISABLE_WP_CRON', true);</code>
 3. This code disables the running cron events on your WordPress site and allows you to create a real cron job.
 
@@ -32,7 +32,7 @@ The following are different methods that can be used for adding a new cron job t
 
 **Cron job manager**
 
-There are plenty of job managers available for hosting providers like HostGator or Cloudways.
+There are plenty of job managers available for hosting providers like [HostGator](https://www.hostgator.com/) or [Cloudways](https://www.cloudways.com/en/).
 
 >**Note:** We recommend that you contact the hosting’s tech support for proper setup. Each hosting provider has specific detailed knowledge bases that cover how to set up cron jobs.
 
@@ -54,6 +54,6 @@ The following is basic required knowledge on setting cron jobs via crontab and o
 4. Save and exit from crontab.
 5. That will add a real cron job that fires every five minutes.
 
-> **Important note:** you need to change https://example.com in the provided example with your own site address. For example, if your site has the address https://funnycats.com then the command should be: 
-><code>*/5 * * * * wget -q -O - 'https://funnycats.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1</code>
+> **Important note:** you need to change https://example.com in the provided example with your own site address. <p>For example, if your site has the address https://funnycats.com then the command should be: 
+><code>*/5 * * * * wget -q -O - 'https://funnycats.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1</code></p>
 
