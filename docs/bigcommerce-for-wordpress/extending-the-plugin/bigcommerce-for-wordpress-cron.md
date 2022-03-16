@@ -2,7 +2,7 @@
 
 # BigCommerce for WordPress Cron
 
-This document provides a general description for WP-Cron and how to change its behavior to improve its reliability.
+This document provides a general description for WP-Cron and how Server Cron can be used to improve WP-Cron's reliability.
 
 BigCommerce for WordPress plugin has update/sync logic which is based on cron jobs (WP-Cron). WP-Cron is built-in logic for processing postponed and background tasks. While that logic is great and flexible it also has some problems which can affect import product logic.
 
