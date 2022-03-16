@@ -36,7 +36,7 @@ You can use the following methods to add a new cron job to the server.
 
 There are plenty of job managers available for hosting providers like [HostGator](https://www.hostgator.com/) or [Cloudways](https://www.cloudways.com/).
 
->**Note:** We recommend that you contact the hosting’s tech support for proper setup. Each hosting provider has specific detailed knowledge bases that cover how to set up cron jobs.
+>**Note:** We recommend that you contact the hosting’s tech support for proper setup. Each hosting provider has specific detailed knowledge bases that cover setting up cron jobs.
 
 The following example is for HostGator, but it also can be used for any other hosting with cPanel: 
 1. Sign in to cPanel.
