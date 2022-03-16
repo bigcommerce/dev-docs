@@ -16,7 +16,7 @@ Want to build a headless storefront powered by a BigCommerce back-end, but don't
 
 |  Solution | Method of Integration | Platform | Type |
 | --- | --- | --- | --- |
-| [BigCommerce for Wordpress](https://wordpress.org/plugins/bigcommerce/) | WordPress Plugin | WordPress | CMS |
+| [BigCommerce for WordPress](https://wordpress.org/plugins/bigcommerce/) | WordPress Plugin | WordPress | CMS |
 | [BigCommerce for Drupal](https://www.drupal.org/project/bigcommerce) | Drupal Module | Drupal | CMS |
 | [Bloomreach](https://www.bigcommerce.com/apps/bloomreach/) | BigCommerce App | Bloomreach | CMS / DXP |
 | [DEITY Falcon](https://www.bigcommerce.com/apps/deity-falcon-pwa-storefront/) | BigCommerce App | DEITY Falcon | PWA |
@@ -46,7 +46,7 @@ Need to build a custom solution from scratch? BigCommerce has APIs, SDKs, and to
 * [Create storefront channels with the Channels API](/api-docs/channels/quick-start).
 * [Manage sites and routes for headless storefronts with the sites and routes API](/api-reference/store-management/sites).
 * [Manage 301 redirects for one or more storefronts with Redirects V3 API](/api-reference/store-management/redirects)
-* [Create storefront specific product listings with the Channels API](/api-reference/cart-checkout/channels-listings-api).
+* [Create storefront specific product listings with the Channels API](/api-reference/store-management/channels).
 * [Query storefront data with GraphQL](/api-docs/storefront/graphql/graphql-storefront-api-overview).
 * [Use customer impersonation tokens to query data specific to the shopper](/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-impersonation-tokens).
 * [Create carts with the Server-to-Server Carts API](/api-reference/cart-checkout/server-server-cart-api).
@@ -180,8 +180,6 @@ Merchants can use BigCommerce's [PCI DSS AOC](https://support.mybigcommerce.com/
 | Checkout and Payments API | Responsible for the PCI DSS compliance requirements applicable stated in BigCommerce as a storefront or BigCommerce as a backend<sup>1</sup> |  Responsible for the PCI DSS compliance requirements applicable stated in BigCommerce as a storefront or BigCommerce as a backend<sup>1</sup> |
 
 <!-- theme: info -->
-
-
 > #### Note
 > The way your business consumes the SDKs (either BigCommerce as a storefront and backend or BigCommerce as a backend) determines BigCommerce's  responsibilities; It is possible to use one more of BigCommerce's technology stack at the same time. Your PCI DSS compliance responsibilities will be a combination of each stack consumed.
 

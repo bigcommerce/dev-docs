@@ -5,7 +5,7 @@
 A BigCommerce storefront can be customized to display in any one language of your choice. To fully localize a store for a language or region, you will need to customize three areas:
 
 
-* [**Storefront theme pages.**](#translating-theme-files-via-stencil-cli)Translate static strings by adding translation files for your chosen languages via Stencil CLI.
+* [**Storefront theme pages.**](#translating-theme-files-by-stencil-cli)Translate static strings by adding translation files for your chosen languages via Stencil CLI.
 
 * [**Checkout.**](#localizing-checkout) Localize checkout by modifying theme files in Stencil CLI and settings in the BigCommerce control panel.
 

@@ -4,7 +4,7 @@
 
 ## OAuth Summary
 
-API token creation is a permission reserved for the [store owner](https://forum.bigcommerce.com/s/article/Store-API-Accounts#creating) user account. An app can request authentication “on behalf” of a store owner, allowing the app to make API requests against store data.
+API token creation is a permission reserved for the [store owner](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) user account. An app can request authentication “on behalf” of a store owner, allowing the app to make API requests against store data.
 
 To test an app before release, apply for a [sandbox](https://www.bigcommerce.com/partners/) store.
 
@@ -45,16 +45,8 @@ The purpose of the App Installation sequence is to obtain an Oauth token for the
 
 A user kicks off the installation or update sequence from within a store's control panel by clicking the “Install” button from your app details page or by clicking an installed app to update its scopes. BigCommerce redirects the user to the Auth Callback URI provided during app registration. The Auth Callback URI must be publicly available, fully qualified, and served over TLS.
 
-<!--
-    title: #### App Installation Sequence
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1536263813949
--->
-
-#### App Installation Sequence
-![#### App Installation Sequence
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1536263813949 "#### App Installation Sequence
-")
+![App Installation Sequence](//s3.amazonaws.com/user-content.stoplight.io/6012/1536263813949 "App Installation Sequence")
 
 ### Handling Requests Securely
 
@@ -70,7 +62,7 @@ The following table details the full list of parameters and values included in t
 
 | Parameter | Description |
 |-|-|
-| code | Temporary code to exchange for a permanent OAuth token. See [Making the POST request](#building-apps_making-post-request) below for more information about this exchange. |
+| code | Temporary code to exchange for a permanent OAuth token. See [Making the POST request](#making-the-post-request) below for more information about this exchange. |
 | scope | List of scopes authorized by the user. As a best practice, your app should validate this list to ensure that it matches the app&#39;s needs, and fail if it does not. However, at this time, the user does not have any opportunity to pick and choose between scopes. The dialog presented to the user requires the user to approve all scopes or none. |
 | context | The store hash: a unique value that identifies the store on which a logged-in user has clicked to install or your app. BigCommerce passes this along with a context path as follows: `stores/{store_hash}`. Save the store hash value, because you will need to pass it in all your requests to the API. |
 
@@ -318,14 +310,7 @@ To verify the payload, you need to sign the payload using your client secret, an
 > #### Timing Attacks
 > To limit the vulnerability of your app to timing attacks, we recommend using a constant time-string comparison function, rather than the equality operator, to check that the signatures match.
 
-
-
-
-<!--
-title="verifySignedRequest" lineNumbers
--->
-
-```php
+```php title="PHP: verifySignedRequest" lineNumbers
 function verifySignedRequest($signedRequest)
 {
     list($encodedData, $encodedSignature) = explode('.', $signedRequest, 2);
@@ -350,13 +335,7 @@ function verifySignedRequest($signedRequest)
 > !hash_equals is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: https://packagist.org/packages/realityking/hash_equals. BigCommerce’s sample app hello-world-app-php-silex app does this automatically.
 
 
-
-
-<!--
-title="verify()" lineNumbers
--->
-
-```ruby
+```ruby title="Ruby: verify()" lineNumbers
 require "base64"
 require "openssl"
 
@@ -415,11 +394,7 @@ Use the store information endpoint to identify the store to which the request pe
 | timestamp | float | The time (in Unix time) when the callback was generated.|
 
 
-<!--
-title="User Information" lineNumbers
--->
-
-```json
+```json title="User Information" lineNumbers
 {
     "user":
          {
@@ -474,24 +449,15 @@ Apps can be installed from outside the BigCommerce control panel. For example, y
 
 First, embed an install button like the one below, at any web location from which you’d like to enable app installation:
 
-<!--
-    title:
-    data: //s3.amazonaws.com/user-content.stoplight.io/6490/1539297285625
--->
-
-![](//s3.amazonaws.com/user-content.stoplight.io/6490/1539297285625 "")
+![install button](//s3.amazonaws.com/user-content.stoplight.io/6490/1539297285625)
 
 Redirect anyone who presses your button to: `https://login.bigcommerce.com/app/<your-app's-client-id>/install`
 
 ### Configure Your Button
 Upon clicking, your button should open a modal similar to the image below. We recommend a modal sized 900px wide by 450px high.
 
-<!--
-    title:
-    data: //s3.amazonaws.com/user-content.stoplight.io/6490/1539297431440
--->
 
-![](//s3.amazonaws.com/user-content.stoplight.io/6490/1539297431440 "")
+![configure button](//s3.amazonaws.com/user-content.stoplight.io/6490/1539297431440)
 
 Your button will link merchants to BigCommerce’s install endpoint for your application. Once the merchant clicks the link, they will be prompted to log in, then authorize your application, just like in the [normal installation flow](#installation-and-update-sequence).
 
@@ -513,11 +479,8 @@ If there were errors, call:
 
 Below is a sample code snippet of an auth callback that does this:
 
-<!--
-title="Auth Callback" lineNumbers
--->
 
-```lua
+```lua title="Lua Auth Callback" lineNumbers
    if params['external_install']
         return get 'https://login.bigcommerce.com/app/m8e1mkkmjw2xjinydqz7ie05to1y2nk/install/succeeded'
     end
@@ -602,6 +565,5 @@ For more details on including your app in the Marketplace, see [App Store Approv
 * [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2) (BigCommerce Developer Blog)
 ### Additonal Resources
 * [Same Origin Policy](https://en.wikipedia.org/wiki/Same-origin_policy) (Wikipedia)
-* [Craft a P3P Policy to Make IE Behave](https://www.techrepublic.com/blog/software-engineer/craft-a-p3p-policy-to-make-ie-behave/) (Tech Republic)
 * [Quick Look at P3P](https://blogs.msdn.microsoft.com/ieinternals/2013/09/17/a-quick-look-at-p3p/) (Microsoft Blogs)
 * [Google Cloud](https://cloud.google.com/) (Google)

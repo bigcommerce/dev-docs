@@ -63,16 +63,16 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 |  [Brand Images](/api-reference/catalog/catalog-api/brand-images) | Create and manage brand images | `/catalog/brands/{id}/images` |
 |  [Brand Metafields](/api-reference/catalog/catalog-api/brand-metafields) | Create and manage brand metafields | `/catalog/brands/{id}/metafields` |
 |  [Brands](/api-reference/catalog/catalog-api/brands) | Create and manage brands | `/catalog/brands` |
-|  [Carts](/api-reference/cart-checkout/server-server-cart-api) | Create an manage store carts headlessly | `/carts` |
+|  [Carts](/api-reference/cart-checkout/server-server-cart-api) | Create and manage store carts headlessly | `/carts` |
 |  [Categories](/api-reference/catalog/catalog-api/category) | Create and manage categories | `/catalog/categories` |
 |  [Category Images](/api-reference/catalog/catalog-api/category-images) | Create and manage category images | `/catalog/categories/{id}/images` |
 |  [Category Metafields](/api-reference/catalog/catalog-api/category-metafields) | Create and manage category metafields | `/catalog/categories/{id}/metafields` |
-|  [Channels](/api-reference/cart-checkout/channels-listings-api/channels) | Create and manage catalog listings and channels | `/channels` |
+|  [Channels](/api-reference/store-management/channels/channels) | Create and manage catalog listings and channels | `/channels` |
 |  [Checkouts](/api-reference/cart-checkout/server-server-checkout-api) | Create checkouts headlessly | `/checkouts` |
 |  [Customer Addresses](/api-reference/store-management/customers-v3/customer-addresses) | Create and manage customer addresses | `/customers/addresses` |
 |  [Customer Attribute Values](/api-reference/store-management/customers-v3/customer-attribute-values) | Create and manage customer attribute values | `/customers/attribute-values` |
 |  [Customer Attributes](/api-reference/store-management/customers-v3/customer-attributes) | Create and manage customer attributes | `/customers/attributes` |
-|  [Customer Form Field Values](/api-reference/store-management/customers-v3/customer-form-fields) | Create an manage customer form field values | `/customers/form-field-values` |
+|  [Customer Form Field Values](/api-reference/store-management/customers-v3/customer-form-fields) | Create and manage customer form field values | `/customers/form-field-values` |
 |  [Customers](/api-reference/store-management/customers-v3/customers) | Create and manage customers and their addresses | `/customers` |
 |  [Order Transactions](/api-reference/store-management/order-transactions) | View order payment information | `/orders/{id}/transactions` |
 |  [Payment Processing Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods) | Get order payment methods for processing | `/payments/methods` |
@@ -313,7 +313,7 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 **V3 Sunsets**
 |Endpoint|Date of Deactivation| Alternative |
 |-|-|-|
-|Channels API `is_activated` property| May, 10, 2020|[Channels API](/api-reference/cart-checkout/channels-listings-api/channels/listchannels) `status` property
+|Channels API `is_activated` property| May, 10, 2020|[Channels API](/api-reference/store-management/channels/channels/listchannels) `status` property
 
 
 **Additional Information:** [V2 versus V3 API](/legacy/v2-products/v2-v3#Whats-not-in-V3)

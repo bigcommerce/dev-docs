@@ -52,13 +52,13 @@ BigCommerce rate limits all API requests made to a store in a thirty-second wind
 
 Apps making API requests to a store share the store's rate limit. This promotes fairness between apps accessing the API simultaneously, and prevents a single app from consuming the store's entire limit.
 
-BigCommerce allots applications a share of a store's rate limit via quota system, and exposes rate limit positioning to applications via the following response headers.
+BigCommerce allots applications a share of a store's rate limit via quota system, and exposes rate limit positioning to applications using the following response headers.
 
-```http
-X-Rate-Limit-Requests-Left →6
-X-Rate-Limit-Requests-Quota →25
-X-Rate-Limit-Time-Reset-Ms →3000
-X-Rate-Limit-Time-Window-Ms →5000
+```http title="Example: Rate limit headers"
+X-Rate-Limit-Requests-Left: 6
+X-Rate-Limit-Requests-Quota: 25
+X-Rate-Limit-Time-Reset-Ms: 3000
+X-Rate-Limit-Time-Window-Ms: 5000
 ```
 
 | Name | Description |

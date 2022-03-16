@@ -232,7 +232,7 @@ If you want to receive a callback when the store owner uninstalls your app, you 
 ![Dev Tool OAuth Scopes](https://s3.amazonaws.com/user-content.stoplight.io/6012/1536260600336)
 
 ### OAuth Scopes
-If you know the [OAuth scopes](/api-docs/getting-started/authentication#authentication_oauth-scopes) that your app requires, you should select these. If you do not yet know the scopes that you need, you can just request minimal permissions (such as Information: Read-Only) to get started. However, once you determine the scopes you need, you must:
+If you know the [OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) that your app requires, you should select these. If you do not yet know the scopes that you need, you can just request minimal permissions (such as Information: Read-Only) to get started. However, once you determine the scopes you need, you must:
 - Modify the scopes of your app in My Apps and save the changes.
 - Obtain the new OAuth token during the [App Installation or Update flow](/api/#app-installation-and-update-sequence).
 - Retest your app to make sure it still functions properly with the new token.
