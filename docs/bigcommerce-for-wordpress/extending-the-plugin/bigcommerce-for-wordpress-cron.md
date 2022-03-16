@@ -42,7 +42,7 @@ The following example is for HostGator, but it also can be used for any other ho
 1. Sign in to cPanel.
 2. Find the **Advanced** tab.
 3. Click on the **Cron jobs**.
-4. Under the **Add new cron job** section set the required interval.
+4. Set the required interval under the **Add new cron job** section.
 5. Set the job <code>wget -q -O - https://example.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1 </code>
 6. Verify that you replaced example.com with your domain name.
 7. Click **Add new cron job** to set the cron.
