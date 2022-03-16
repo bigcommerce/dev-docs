@@ -30,7 +30,7 @@ To make WP-Cron more reliable and not dependent on site-traffic, take the follow
 
 
 ### Add new cron job to the server
-The following are different methods that can be used for adding a new cron job to the server.
+You can use the following methods to add a new cron job to the server.
 
 **Cron job manager**
 
