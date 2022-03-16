@@ -11,7 +11,7 @@ WordPress has its own cron system for scheduling tasks such as checking for upda
 
 The logic has the name WP-Cron, but it's not a real server cron job. The difference is:
 - Server cron runs automatically and is fired by server processes. There's no need for an external source for events firing.
-- WP-Cron only runs when someone is on the site
+- WP-Cron only runs when someone is on the site.
 
 <p>Here's an example:</p>
 
