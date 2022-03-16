@@ -26,7 +26,8 @@ To make WP-Cron more reliable and not dependent on site-traffic, take the follow
 1. Open the wp-config file using an FTP client like [FileZilla](https://filezilla-project.org/) or SSH client.
 2. Add the following string to the file:<br><code>define('DISABLE_WP_CRON', true);</code>
 
-    a. This code disables the running cron events on your WordPress site and lets you create a real cron job.
+    -   This code disables the running cron events on your WordPress site and lets you create a real cron job.
+
 
 ### Add new cron job to the server
 The following are different methods that can be used for adding a new cron job to the server.
