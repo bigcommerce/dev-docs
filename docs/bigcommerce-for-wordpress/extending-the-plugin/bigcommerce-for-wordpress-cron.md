@@ -56,6 +56,8 @@ The following is basic required knowledge on setting cron jobs with crontab and 
 
 That will add a real cron job that fires every five minutes.
 
-> **Important note:** you need to change https://example.com in the provided example with your own site address. For example, if your site has the address https://funnycats.com then the command will be: 
+> **Important note:** you need to change https://example.com in the provided example with your own site address. 
+> 
+>For example, if your site has the address https://funnycats.com then the command will be:
 ><code>*/5 * * * * wget -q -O - 'https://funnycats.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1</code>
 
