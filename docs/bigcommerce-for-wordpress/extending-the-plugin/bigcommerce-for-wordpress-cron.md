@@ -19,7 +19,7 @@ You schedule a job to run once an hour with WP-cron and WordPress will set an ex
 
 Because of this, WP-Cron jobs can be postponed or not performed at all. So if you've set a job with the usual server cron it will be performed even if there isn't site traffic or external requests.
 
-## WP-Cron enhance with Server Cron
+## Using Server Cron to enhance WP-Cron
 To make WP-Cron more reliable and not dependent on site-traffic, take the following steps:
 
 ### Open and edit wp-config.php
