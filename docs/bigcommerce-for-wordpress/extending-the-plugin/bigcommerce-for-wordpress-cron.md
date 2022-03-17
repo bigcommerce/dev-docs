@@ -9,7 +9,7 @@ BigCommerce for WordPress plugin has update/sync logic which is based on cron jo
 ## WP-Cron versus Server Cron
 WordPress has its own cron system for scheduling tasks such as checking for updates, scheduling a post for publication, and deleting comments from the trash. All cron jobs are handled by WP-Cron.
 
-The logic has the name WP-Cron, but it's not a real server cron job. The difference is:
+Differences between server cron and WP-Cron include:
 - Server cron runs automatically and is fired by server processes. There's no need for an external source for events firing.
 - WP-Cron only runs when someone is on the site.
 
