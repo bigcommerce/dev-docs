@@ -152,7 +152,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/carts/cart/deleteacart#requestrunner) -->
 
-## Next steps
+## Next step
 
 - [Learn how to move a cart to checkout](/api-docs/storefronts/guide/checkout)
 

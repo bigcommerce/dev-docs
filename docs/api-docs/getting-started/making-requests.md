@@ -8,7 +8,7 @@ This quick start guide will take you through making your first requests with Big
 
 ### Obtain API credentials
 
-See [Authenticating BigCommerce's Rest APIs](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials) for instructions on obtaining store API credentials.
+See [Authenticating BigCommerce's Rest APIs](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials) for instructions on obtaining store API credentials.
 
 ### Use Request Runner
 
@@ -49,7 +49,7 @@ To make your first requests in a browser with the Storefront APIs, see the step-
 ## GraphQL API
 
 ### Obtain storefront token
-We'll use **Request Runner** for making an initial request to obtain a Storefront API token. It is a REST API request, so you will need to copy and paste your [API credentials](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials).
+We'll use **Request Runner** for making an initial request to obtain a Storefront API token. It is a REST API request, so you will need to copy and paste your [API credentials](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/cart-checkout/storefront-api-token/api-token/createtoken#requestrunner) -->
 
