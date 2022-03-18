@@ -1,118 +1,102 @@
-# Single-Click App Callback Handlers
+# Single-Click App Callbacks
 
 
 
 
 After installing a single-click app, store owners and authorized users *load* the app by clicking the app's icon in the control panel. Store owners can also *uninstall* your app and *remove users* they've authorized to use it. Each of these events triggers a `GET` request (or "callback") from BigCommerce to your app's callback URL configured in the [Developer Portal](https://devtools.bigcommerce.com/my/apps). This article describes how your app should handle each callback and explains how to [verify the `signed_payload`](#verifying-the-signed-payload) and [identify users](#identifying-users).
 
-Your app's front-end views render inside an iFrame in the store control panel, so your app has no native ability to listen for a few high-level events. To support your work, BigCommerce sends `GET` requests to callback routes in your app that correspond to three events: opening the app, uninstalling the app, and revoking a user's access to the app. Each request includes a signed JSON web token (_JWT_), which contains identifying information about the store and the user. This article is a reference for endpoints to which we send event-driven callbacks, and a guide to writing handlers that verify and use our JWT payloads.
-
-<!-- theme: info -->
-> #### Note
-> In production, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
-
 ## Overview
 
-The following table lists the app management events and corresponding endpoints to which our servers dispatch callbacks. Your app is only required to handle the `GET /load` endpoint, but we recommend writing handlers for all of them. Please see the corresponding detail sections that follow for more about the consequences of not handling optional callback endpoints.
+The table below contains a brief description of each callback. Note that only the `load` callback is required.
 
-| Endpoint           | Required? | Event Description                                         |
-|:-------------------|:---------:|:----------------------------------------------------------|
-| `GET /load`        | yes       | The store owner or authorized user clicks to load the app |
-| `GET /uninstall`   | no        | The store owner clicks to uninstall the app               |
-| `GET /remove_user` | no        | The store owner revokes a user's access to the app        |
+| Event | Required? | Description |
+|-|-|-|
+| `load`  | yes | called when the store owner or user clicks to load the app |
+| `uninstall`  | no | called when the store owner clicks to uninstall the app |
+| `remove User` | no | called when the store admin revokes a user's access to the app |
 
-Decoding the supplied JWT lets your app do the following:
-- Identify the store.
-- Identify the requesting user.
+Each event triggers a `GET` request from BigCommerce containing a `signed_payload` that allows the app to:
 - Verify that the request came from BigCommerce.
+- Identify the store.
+- Identify the store owner or user.
 
 <!-- theme: info -->
 > #### Note
-> We strongly recommend that each callback handler decode `signed_payload_jwt` to [verify the payload](#decode-and-verify-the-jwt) before taking any action.
+> In a production app, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
 
 
-## Open the app with /load
 
-Once the store owner installs your app, it appears on the **Apps** sub-menu list in their store's control panel, as well as their authorized users' control panels. When a user clicks your app's listing, BigCommerce dispatches a `GET` request to the `/load` route you've written. The following is an example request:
+## Load callback
+
+BigCommerce sends a `GET` request to your app's `load` URL when the store owner or user clicks to load the app.
 
 ```http
-GET /load?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
+GET /load?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
 
-After you [verify the payload](#decode-and-verify-the-jwt), [identify the requesting user](#work-with-payload-claims), and handle any internal business, your app should respond with the markup and assets for the view that you want BigCommerce to render in the control panel.
+The steps to handle this callback are as follows:
+1. [Verify the signed payload](#verifying-the-signed-payload).
+2. [Identify the user](#identifying-users).
+3. Respond with HTML for the control panel iFrame.
 
-## Remove the app with /uninstall
+## Uninstall callback
 
-When the store owner clicks the **Uninstall** button on your app's card in their store's control panel, BigCommerce dispatches a `GET` request to the `/uninstall` route you've written. The following is an example request:
-
-```http
-GET /uninstall?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
-Host: your_app.example.com
-```
-After you [verify the payload](#decode-and-verify-the-jwt) and [identify the requesting user](#work-with-payload-claims), handle any business internal to your app, such as marking the user inactive in your app's database or decrementing the number of active installations. You do not need to send a response. If you do not write a handler for the `GET /uninstall` endpoint, BigCommerce will still uninstall your app from the owner's store, but your app will not know that.
-## Revoke user access with /remove_user
-
-When the store owner revokes a user's authorization to access your app at **Account Settings** **>** **Users** in the store control panel, BigCommerce dispatches a `GET` request to the `/remove_user` route you've written.
+BigCommerce sends a `GET` request to your app's `uninstall` URL when the store owner clicks to uninstall the app.
 
 ```http
-GET /remove_user?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
+GET /uninstall?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
 
-After you [verify the payload](#decode-and-verify-the-jwt) and [identify the requesting user](#work-with-payload-claims), handle any business internal to your app, such as removing the user's data from your app's database. You do not need to send a response. If you do not write a handler for the `GET /remove_user` endpoint, BigCommerce will still revoke the user's access to your app in the store control panel, but your app will not know that.
-## Decode and verify the JWT
+The steps to handle this callback are as follows:
+1. [Verify the signed payload](#verifying-the-signed-payload).
+2. [Identify the user](#identifying-users).
+3. Remove the user's data from your app's database.
 
-BigCommerce's payload JWTs implement the JWT-JWS specification that the [IETF's](https://www.ietf.org/) open standard [RFC 7515](https://datatracker.ietf.org/doc/html/rfc7515) defines. The `signed_payload_jwt` is composed of three distinct **base64URL**-encoded strings concatenated with the `.` character.
+## Remove user callback
+
+BigCommerce sends a `GET` request to your app's `remove user` callback when a store admin revokes a user's access to the app.
+
+```http
+GET /remove_user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
+Host: your_app.example.com
+```
+
+The steps to handle this callback are as follows:
+1. [Verify the signed payload](#verifying-the-signed-payload).
+2. [Identify the user](#identifying-users).
+3. Remove the user's data from your app's database.
+
+## Verifying the signed payload
+
+The `signed_payload` is comprised of two `.` separated **base64URL** encoded strings:
 
 ```javascript
-header_b64.payload_claims_b64.signature_b64
+encoded_json_string.encoded_hmac_signature
 ```
 
-Use the following steps to decode, verify, and parse the JWTs that BigCommerce sends to your app's callback endpoints:
-
-**Decompose the JWT**
-1. Split the `signed_payload_jwt` by the `.` delimiter.
-
-**Identify the signing algorithm**
-2. Decode the **base64url** `header_b64`. `header_str` is a JSON string.
-3. Parse `header_str` into a JSON object. Locate the signing algorithm's name at `header_obj.alg`.
-
-**Decode the signature** 
-4. Decode the **base64url** `signature_b64`. `signature_crypt` is a cryptographic hash.
-
-**Concatenate and sign the header and payload claims**
-5. Concatenate `header_b64` and `payload_claims_b64` with a `.` delimiter to create `header_payload_b64`.
-6. Use the algorithm specified at `header_obj.alg` to sign `header_payload_b64` with your app's `CLIENT_SECRET`. `header_payload_crypt` is a cryptographic hash.
-
-**Verify the payload claims**
-7. Compare `header_payload_crypt` with `signature_crypt`. If BigCommerce sent your app this JWT, the two hashes will match. _We strongly recommend using a constant time string comparison function. See the following warning about security precautions for further information._
-
-**Parse and use the payload**
-8. Decode the **base64url** `payload_claims_b64`. `payload_claims_str` is a JSON string.
-9. Parse `payload_claims_str` into your language's version of a JSON object. The following section is a reference for working with the values in `payload_claims_obj`.
-
+**To verify**:
+1. Split the `signed_payload` by the `.` delimiter.
+2. Decode the **base64url** `encoded_json_string`.
+3. Convert the decoded string into an object.
+4. Decode the **base64url** `encoded_hmac_signature`.
+5. Use your app's `client_secret` to verify the decoded `hmac_signature`.
+6. Sign the decoded `json_string` with your app's `client_secret`.
+7. Match<sup>1</sup> signed `json_string` against decoded `hmac_signature`.
 
 <!-- theme: warning -->
-> #### Security precautions
-> Your production code should never work with claims from a payload you can't verify.
-> To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. Comparison techniques vary by programming language and signing algorithm. Ruby and PHP [code samples](#code-samples) for HS256 hashes follow. 
-> We recommend writing middleware or using an existing [library in your language of choice](https://jwt.io/libraries) to help you decode, verify, and parse JWTs.
+> #### Note
+> To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. How to accomplish this varies by programming language. For code samples in Ruby and PHP, see [Code samples](#code-samples) below; search for "constant time string comparison {lang}" using your preferred search engine for more information.
 
 
-## Work with payload claims
 
-The following is an example of the payload claims in a BigCommerce app callback JWT:
+## Identifying users
+
+After decoding and verifying the `signed_playload`, parse the JSON string into an object. Here's an example payload:
 
 ```json
 {
-  "aud": "U8RphZeDjQc4kLVSzNjePo0CMjq7yOg", // your app's CLIENT_ID
-  "iss": "bc",
-  "iat": 1640037763,
-  "nbf": 1640037758,
-  "exp": 1640124163,
-  "jti": "c5f0bcf5-a504-4ae6-8dcc-0e40eaa5a070", // JWT unique identifier
-  "sub": "stores/z4zn3wo", // STORE_HASH
   "user": {
     "id": 9128,
     "email": "user@mybigcommerce.com"
@@ -121,135 +105,93 @@ The following is an example of the payload claims in a BigCommerce app callback 
     "id": 9128,
     "email": "user@mybigcommerce.com"
   },
-  "url": "/" // deep link, if any
+  "context": "stores/z4zn3wo",
+  "store_hash": "z4zn3wo",
+  "timestamp": 1469823892.9123988
 }
 ```
 
-| Name          | Data Type | Value Description                                 |
-|:--------------|:----------|:--------------------------------------------------|
-| `user.id`     | integer   | ID of user initiating callback                    |
-| `user.email`  | string    | email of the user initiating callback             |
-| `owner.id`    | integer   | ID of store owner                                 |
-| `owner.email` | string    | email address of store owner                      |
-| `context`     | string    | `stores/` + `store_hash`; ex: `stores/store_hash` |
-| `store_hash`  | string    | unique identified for store used in API requests  |
-| `timestamp`   | float     | Unix time when callback generated                 |
+| Name | Data Type | Value Description |
+|-|-|-|
+| `user.id` | int | ID of user initiating callback |
+| `user.email `| str | email of the user initiating callback |
+| `owner.id` | int | ID of store owner |
+| `owner.email` | str | email address of store owner. |
+| `context` | str | `stores/` + `store_hash`; ex: `stores/store_hash` |
+| `store_hash` | str | unique identified for store used in API requests |
+| `timestamp` | float | Unix time when callback generated|
 
 Use the data contained in the payload object to identify the store and user. What your app should do with this information is dependent on whether [**Multiple Users**](/api-docs/apps/guide/users) is enabled in the [Developer Portal](https://devtools.bigcommerce.com/). Refer to the table below for instructions.
 
-| Endpoint           | Multiple Users Enabled                                                                                      | Multiple Users Not Enabled |
-|:-------------------|:------------------------------------------------------------------------------------------------------------|:---------------------------|
-| `GET /load`        | Compare user to store owner or existing user; if no match, it's a new user; add them to the app's database. | Matches store owner        |
-| `GET /uninstall`   | Compare user to store owner or existing user; only store owner can uninstall an app.                        | Matches store owner        |
-| `GET /remove_user` | Compare user to users stored in app database; remove matching user from database.                           | N/A                        |
+| Callback | Multiple Users Enabled | Multiple Users Not Enabled |
+|-|-|-|
+| `Load` | Compare user to store owner or existing user; if no match, it's a new users; add them app's database. | should match store owner|
+| `Uninstall` | Compare user to store owner or existing user; only store owner can uninstall an app. | should match store owner |
+| `Remove user` | Compare user to users stored in app database; remove matching user from database. | `n/a` |
 
 ## Code samples
 
-### Decode and verify with PHP
+### Verifying signed_payload in PHP
 
 ```php
-function verifySignedPayload($signed_payload_jwt, $client_secret)
+function verifySignedRequest($signedRequest)
 {
-    // decompose the jwt 
-    list($header_b64, $payload_claims_b64, $signature_b64) = explode('.', $signed_payload_jwt, 3);
+    list($encodedData, $encodedSignature) = explode('.', $signedRequest, 2);
 
-    // identify the signing algorithm
-    $header_str = base64_decode($header_b64);
-    $header_arr = json_decode($header_str, true);
-    $algorithm = $header_arr['alg'];
+    // decode the data
+    $signature = base64_decode($encodedSignature);
+        $jsonStr = base64_decode($encodedData);
+    $data = json_decode($jsonStr, true);
 
-    // decode the signature
-    $signature_crypt = base64_decode($signature_b64);
-
-    // concatenate and sign the header and payload claims
-    $header_payload_b64 = $header_b64 . "." . $payload_claims_b64;
-    if($algorithm != "HS256") {
-        error_log('Unknown signature algorithm. Please review documentation and contact support.');
-        return null;
-    } else {
-        $header_payload_crypt = hash_hmac('sha256', $header_payload_b64, $client_secret, $raw = true);
-    }
-
-    // verify the payload claims
-    if (!hash_equals($header_payload_crypt, $signature_crypt)) {
+    // confirm the signature
+    $expectedSignature = hash_hmac('sha256', $jsonStr, $clientSecret(), $raw = false);
+    if (!hash_equals($expectedSignature, $signature)) {
         error_log('Bad signed request from BigCommerce!');
         return null;
-    } else {
-        echo 'JWT is valid, proceed to use claims!';
     }
-
-    // parse and use the payload
-    $payload_claims_str = base64_decode($payload_claims_b64);
-    $payload_claims_arr = json_decode($payload_claims_str, true);
-    return $payload_claims_arr;
+    return $data;
 }
-
 ```
 
-### Decode and verify with Ruby
-
+### Verifying signed_payload in Ruby
 ```ruby
 require "base64"
 require "openssl"
-require "json"
 
-def verify_signed_payload(signed_payload_jwt, client_secret)
-  # decompose the jwt 
-  message_parts = signed_payload_jwt.split(".")
-  header_b64 = message_parts[0]
-  payload_claims_b64 = message_parts[1]
-  signature_b64 = message_parts[2]
+def verify(signed_payload, client_secret)
+  message_parts = signed_payload.split(".")
 
-  # identify the signing algorithm
-  header_str = Base64.decode64(header_b64)
-  header_hash = JSON.parse(header_str)
-  algorithm = header_hash['alg']
+  encoded_json_payload = message_parts[0]
+  encoded_hmac_signature = message_parts[1]
 
-  # decode the signature
-  signature_crypt = Base64.decode64(signature_b64)
+  payload_object = Base64.strict_decode(encoded_json_payload)
+  provided_signature = Base64.strict_decode(encoded_hmac_signature)
 
-  # concatenate and sign the header and payload claims
-  header_payload_b64 = message_parts[0..1].join(".")
-  unless algorithm == "HS256"
-    begin
-      raise NotImplementedError, 'Unknown signature algorithm. Please review documentation and contact support.'
-    rescue => e
-      puts e.message
-      return e.message
-    end
-  end
-  header_payload_crypt = OpenSSL::HMAC.digest("SHA256", client_secret, header_payload_b64)
+  expected_signature = OpenSSL::HMAC::hexdigest("sha256", client_secret, payload_object)
 
-  # verify the payload claims 
-  crypt_match = secure_compare(header_payload_crypt, signature_crypt)
-  unless crypt_match
-    begin
-      raise StandardError, 'Bad signed request from BigCommerce!'
-    rescue => e
-        puts e.message
-        return e.message
-    end
-  end
-  puts 'JWT is valid, proceed to use claims!'
-  payload_claims_str = Base64.decode64(payload_claims_b64)
-  payload_claims_hash = JSON.parse(payload_claims_str)
-  return payload_claims_hash
+  return false unless secure_compare(expected_signature, provided_signature)
+
+  JSON.parse(payload_object)
 end
 
 def secure_compare(a, b)
-  #  ruby's hmac comparison implementation uses constant time
-  a == b
+  return false if a.blank? || b.blank? || a.bytesize != b.bytesize
+  l = a.unpack "C#{a.bytesize}"
+
+  res = 0
+  b.each_byte { |byte| res |= byte ^ l.shift }
+  res == 0
 end
 ```
 
 ## Helpful tools
-The following BigCommerce API clients expose helper methods for verifying the `signed_payload_jwt`:
+The following BigCommerce API clients expose helper methods for verifying the `signed_payload`:
 * [bigcommerce/bigcommerce-api-python](https://github.com/bigcommerce/bigcommerce-api-python)
   * Fetches `access_token`
-  * Verifies `signed_payload_jwt`
+  * Verifies `signed_payload`
 * [bigcommerce/node-bigcommerce](https://github.com/bigcommerce/node-bigcommerce/)
   * Fetches `access_token`
-  * Verifies `signed_payload_jwt`
+  * Verifies `signed_payload`
 
 ## Next steps
 * [Support multiple users](/api-docs/apps/guide/users)
@@ -257,7 +199,7 @@ The following BigCommerce API clients expose helper methods for verifying the `s
 ## Resources
 
 ### Sample apps
-* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start)
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)

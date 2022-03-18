@@ -31,7 +31,7 @@ Store owners can also remove users. This action generates a `GET` request to the
 
 For details about remove user and load requests, see [Single-click App Callbacks](/api-docs/apps/guide/callbacks).
 
-## Next step
+## Next steps
 
 * [Learn how to handle store events](/api-docs/apps/guide/users).
 
@@ -41,7 +41,7 @@ For details about remove user and load requests, see [Single-click App Callbacks
 * [Single-click App Callbacks](/api-docs/apps/guide/callbacks)
 
 ### Sample apps
-* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start)
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)

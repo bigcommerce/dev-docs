@@ -10,10 +10,10 @@ If you're developing a single-click app, you'll need to handle the OAuth flow th
 The following BigCommerce API clients expose helper methods for fetching an OAuth `access_token`:
 * [bigcommerce/bigcommerce-api-python](https://github.com/bigcommerce/bigcommerce-api-python)
   * Fetches `access_token`
-  * Verifies `signed_payload_jwt`
+  * Verifies `signed_payload`
 * [bigcommerce/node-bigcommerce](https://github.com/bigcommerce/node-bigcommerce/)
   * Fetches `access_token`
-  * Verifies `signed_payload_jwt`
+  * Verifies `signed_payload`
 * [bigcommerce/bigcommerce-api-php](https://github.com/bigcommerce/bigcommerce-api-php)
   * Fetches `access_token`
 * [bigcommerce/omniauth-bigcommerce](https://github.com/bigcommerce/omniauth-bigcommerce)
@@ -39,12 +39,11 @@ Single click app authorization and authentication occurs via [OAuth2 authorizati
 
 ![App Installation Sequence](https://s3.amazonaws.com/user-content.stoplight.io/6012/1536263813949 "App Installation Sequence")
 
-
 <!-- theme: info -->
 > #### Note
-> * Typically, only [store owners](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) can create API accounts and generate `access_token`s.
-> *  However, if and when your app is approved to be publicly available for additional stores to install, it will be able to programmatically configure API accounts *on behalf* of the store owner. 
-> * All app callbacks must be served over `https`.
+> * API token creation is a permission reserved for the [store owner](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) user account.
+> * An app can request authentication *on behalf* of a store owner, allowing your app to make API requests against store data.
+> * All app callbacks must be served over `https` (you should also have access to your app's server logs which will allow you to see the information in the request).
 
 
 
@@ -70,7 +69,7 @@ GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders&context=stores/g5cd38 HTTP
 
 ## Responding to the GET request
 
-Upon receiving the `GET` request at the auth callback URL, your app should return some HTML to the merchant browser. BigCommerce renders this in an **iFrame** embedded in your store's control panel. It could be a form that collects further information from the user, or you could redirect the user to your app's main page. If you do not respond with HTML or redirect, the user will be left looking at a blank screen.
+Upon receiving the `GET` request at the auth callback URL, your app should return some HTML to the merchant browser. BigCommerce renders this in an **iFrame** inside of the control panel. It could be a form that collects further information from the user, or you could redirect the user to your app's main page. If you do not respond with HTML or redirect, the user will be left looking at a blank screen.
 
 ## Making the POST request
  The `POST` requests primary purpose is to exchange the temporary access `code` for a permanent `access_token`. Pass the parameters and their values inside the request body, using query parameters and URL-encoding.
@@ -120,7 +119,7 @@ Update requests refresh the `access_token` and `scope`:
     "id": 24654,
     "email": "merchant@mybigcommerce.com"
   },
-  "context": "stores/{{STORE_HASH}}"
+  "context": "stores/{STORE_HASH}"
 }
 ```
 
@@ -165,14 +164,14 @@ $token = $response->access_token;
 [RFC 6749](https://tools.ietf.org/html/rfc6749#section-10) discusses security considerations, recommendations, and requirements. The following are some requirements and recommendations applicable to apps:
 * Request access tokens with the minimal scope necessary.
 * Serve all redirect URIs over TLS.
-* Keep `access_token`s confidential in transit and storage.
+* Keep `access_tokens` confidential in transit and storage.
 * Do not transmit access tokens, refresh tokens, or client credentials in the clear.
 * Do not transmit authorization codes in the clear.
 * Educate end-users about the risks phishing attacks pose.
 * Provide mechanisms that make it easy for end-users to confirm the authenticity of your app.
 * Implement CSRF protection on redirect URI.
 
-For additional details, see [Security Considerations in RC 6749](https://tools.ietf.org/html/rfc6749#section-10). For a list of the top web application security risks and best practices for avoiding them, see [OWASP Top Ten](https://owasp.org/www-project-top-ten/).
+For additional details, see [Security Considerations in RC6749](https://tools.ietf.org/html/rfc6749#section-10). For a list of the top web application security risks and best practices for avoiding them, see [OWASP Top Ten](https://owasp.org/www-project-top-ten/).
 
 ## Next steps
 * [Handle load, uninstall, and remove user callbacks](/api-docs/apps/guide/callbacks)
@@ -185,7 +184,7 @@ For additional details, see [Security Considerations in RC 6749](https://tools.i
 * [Types of Apps](/api-docs/apps/guide/types-of-apps)
 
 ### Sample apps
-* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start)
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
