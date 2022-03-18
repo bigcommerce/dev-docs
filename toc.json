@@ -19,25 +19,25 @@
       "uri": "docs/api-docs/getting-started/about-our-api.md"
     },
     {
-      "type": "item",
-      "title": "Authenticating BigCommerce APIs",
-      "slug": "/authenticating-bigcommerce-apis",
-      "href": "/api-docs/getting-started/authentication/authenticating-bigcommerce-apis",
-      "uri": "docs/api-docs/getting-started/authentication.md"
-    },
-    {
-      "type": "item",
-      "title": "Guide to OAuth API Accounts",
-      "slug": "/rest-api-authentication",
-      "href": "/api-docs/getting-started/authentication/rest-api-authentication",
-      "uri": "docs/api-docs/getting-started/rest-api-authentication.md"
-    },
-    {
-      "type": "item",
-      "title": "API Status Codes",
-      "slug": "/api-status-codes",
-      "href": "/api-docs/getting-started/api-status-codes",
-      "uri": "docs/api-docs/getting-started/api-status-codes.md"
+      "type": "group",
+      "title": "Authentication",
+      "slug": "/authentication",
+      "items": [
+        {
+          "type": "item",
+          "title": "Authenticating BigCommerce APIs",
+          "slug": "/authenticating-bigcommerce-apis",
+          "href": "/api-docs/getting-started/authentication/authenticating-bigcommerce-apis",
+          "uri": "docs/api-docs/getting-started/authentication.md"
+        },
+        {
+          "type": "item",
+          "title": "V2 and V3 REST API Authentication",
+          "slug": "/rest-api-authentication",
+          "href": "/api-docs/getting-started/authentication/rest-api-authentication",
+          "uri": "docs/api-docs/getting-started/rest-api-authentication.md"
+        }
+      ]
     },
     {
       "type": "item",
@@ -53,7 +53,13 @@
       "href": "/api-docs/getting-started/best-practices",
       "uri": "docs/api-docs/getting-started/best-practices.md"
     },
-
+    {
+      "type": "item",
+      "title": "API Status Codes",
+      "slug": "/api-status-codes",
+      "href": "/api-docs/getting-started/api-status-codes",
+      "uri": "docs/api-docs/getting-started/api-status-codes.md"
+    },
     {
       "type": "item",
       "title": "Deprecations and Sunsets",
