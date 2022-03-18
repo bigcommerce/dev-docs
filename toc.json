@@ -93,6 +93,11 @@
       "uri": "docs/bigcommerce-for-wordpress/extending-the-plugin/multi-channel-capabilities.md"
     },
     {
+      "type": "item",
+      "title": "Creating Reliable Cron Jobs",
+      "uri": "docs/bigcommerce-for-wordpress/extending-the-plugin/bigcommerce-for-wordpress-cron.md"
+    },
+    {
       "type": "divider",
       "title": "changelog"
     },
