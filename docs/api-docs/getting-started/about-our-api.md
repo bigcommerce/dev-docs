@@ -1,8 +1,12 @@
 # About Our APIs
 
-The BigCommerce suite of APIs allows you to create apps, automate store processes, and build headless ecommerce solutions. You can download or purchase apps third-party apps at our [App Marketplace](https://www.bigcommerce.com/apps/). We recommend that you explore the marketplace before you start building to get a feel for what is possible.
 
-If you want to get started making API requests right away, check out the [Quick Start](/api-docs/getting-started/basics/making-requests) on making requests. 
+
+
+
+Want to get started making API Requests right away? Check out the [Quick Start](/api-docs/getting-started/basics/making-requests).
+
+The BigCommerce set of APIs allows you to create apps, automate store processes, or build headless ecommerce solutions. Need inspiration on what to build? Visit our [App Marketplace](https://www.bigcommerce.com/apps/).
 
 ## Available APIs
 BigCommerce has several different APIs that let you manage store data, authenticate customers, make client-side queries for product information, and more.
@@ -15,21 +19,21 @@ BigCommerce's REST APIs (for example, the [Catalog API](/api-reference/catalog/c
 * Manage a customer's store account details
 
 ### Storefront API
-The [Storefront API](/api-reference/cart-checkout/storefront-cart-api) allows you to manage customer carts and checkouts and order information client-side. Some use cases for this API are:
-* Add an item with JavaScript to a shopper's cart from the Storefront
+The [Storefront API](/api-reference/cart-checkout/storefront-cart-api) allows you to manage customer carts and checkouts and order information client-side. Some example uses of the Storefront API are:
+* Add an item with Javascript to a shopper's cart from the Storefront
 * Programmatically retrieve and display information to a customer about their recent order
 * Update the billing address of a checkout
 * Clear a customer's current cart
 
 
 ### GraphQL API
-BigCommerce's [GraphQL API](/api-docs/storefront/graphql/graphql-storefront-api-overview) allows you to query product and customer data and store settings remotely or from a store's front end. Some use cases for this API are:
+BigCommerce's [GraphQL API](/api-docs/storefront/graphql/graphql-storefront-api-overview) allows you to query product and customer data and store settings remotely or from a store's front end. Some use-case examples are:
 * Pull a product's data with Javascript into a Stencil theme
 * Access customer data via the front end of a site
 * Fetch category and brand details from a store's front end
 
 ### Customer Login API
-The [Customer Login API](/api-docs/storefront/customer-login-api) lets you programmatically log in customers to a BigCommerce storefront. Some use cases for this API are:
+The [Customer Login API](/api-docs/customers/customer-login-api) lets you programmatically log in customers to a BigCommerce storefront. Some example uses of this API are:
 * Log in customers to a BigCommerce store via a third-party system
 * Enable login using credentials other than email and password (i.e., using a phone number)
 * Integrate a BigCommerce store with an SSO provider
@@ -49,15 +53,15 @@ Make BigCommerce API requests in the context of the storefront or server-to-serv
 | -- | -- |
 | Server-to-Server | `https://api.bigcommerce.com/stores/{{store_hash}}/v3/`|
 | V2 | `https://api.bigcommerce.com/stores/{{store_hash}}/v2/`|
-| Storefront API | `https://your-store.mybigcommerce.com/api/{{endpoint}}`|
-| GraphQL | `https://www.{{bigcommerce_storefront_domain}}.com/graphql`|
-| Customer Login | `https://www.{{bigcommerce_storefront_domain}}.com/login/token/{{token}}`|
-| Current Customer | `/customer/current.jwt?app_client_id={{app_client_id}}` |
+| Storefront API | `https://your-store.mybigcommerce.com/api/{endpoint}`|
+| GraphQL | `https://www.{bigcommerce_storefront_domain}.com/graphql`|
+| Customer Login | `https://www.{bigcommerce_storefront_domain}.com/login/token/{token}`|
+| Current Customer | `/customer/current.jwt?app_client_id={app_client_id}` |
 
 
 ## Available store resources
 
-| Resource | Description |
+|Resource | Description |
 |--|--|
 | [Catalog](/api-reference/catalog/catalog-api) | The Catalog API manages products, brands, and categories for a store. |
 | [Store Infomation](/api-reference/store-management/store-information-api) | Get system timestamp and basic store information. |
@@ -72,7 +76,7 @@ Make BigCommerce API requests in the context of the storefront or server-to-serv
 | [Order Transactions](/api-reference/orders/orders-transactions-api) | View order payment information. |
 | [Storefront Orders](/api-reference/orders/storefront-orders-api) | View storefront order information. |
 | [Customers](/api-reference/customer-subscribers/customers-api) | Manage store customers.  |
-| [V3 Customers](/api-reference/customer-subscribers/v3-customers-api) | Manage store customers. To learn about using V3 Customers vs V2 Customers, see [Customers Overview](/api-docs/customers/customers-subscribers-overview). |
+| [V3 Customers](/api-reference/customer-subscribers/v3-customers-api) |Manage store customers. To learn about using V3 Customers vs V2 Customers, see [Customers Overview](/api-docs/customers/customers-subscribers-overview). |
 | [Subscribers](/api-reference/customer-subscribers/subscribers-api) | Manage newsletter subscribers. |
 | [Price Lists](/api-reference/catalog/pricelists-api)| Create variations of catalog pricing. |
 | [Scripts](/api-reference/content/content-scripts-api) | Add a script to a stores page. |
@@ -86,10 +90,10 @@ Make BigCommerce API requests in the context of the storefront or server-to-serv
 | [Widgets](/api-reference/storefront/widgets-api) | Programmatically inject content into a BigCommerce theme. |
 | [Wishlist](/api-reference/customer-subscribers/wishlist-api) | Wishlist API allows a developer to create and manage customer wishlists. |
 
-## REST APIs (V2 & V3)
+## REST API (V2 & V3)
 ### Request Headers
 
-Server-to-Server request headers require `Accept`, `X-Auth-Token`, and `Content-Type` at a minimum.
+Server-to-Server request headers require Accept, X-Auth-Token, and Content-Type at a minimum.
 
 | Header | Allowed Values | Description | Example |
 |-|-|-| -|
@@ -114,20 +118,20 @@ Server-to-Server request headers require `Accept`, `X-Auth-Token`, and `Content-
 | `Transfer-Encoding` | `chunked` | Specifies the form of encoding used to transfer the resource. | `chunked`
 | `X-Rate-Limit-Requests-Left` | number | Details how many remaining requests your client can make in the current window before being rate-limited. In this case, you would expect to be able to make 6 more requests in the next 3000 milliseconds; on the 7th request within 3000 milliseconds, you would be rate-limited and would receive an HTTP 429 response. | `16101491` |
 | `X-Rate-Limit-Requests-Quota` | number | Shows how many API requests are allowed in the current window for your client. | `16101495` |
-| `X-Rate-Limit-Time-Reset-Ms` | number | Shows how many milliseconds are remaining in the window. In this case, 3000 milliseconds – so, 3000 milliseconds after this request, the API quota will be refreshed. |`30000 `|
+| `X-Rate-Limit-Time-Reset-Ms`  | number | Shows how many milliseconds are remaining in the window. In this case, 3000 milliseconds – so, 3000 milliseconds after this request, the API quota will be refreshed. |`30000 `|
 | `X-Rate-Limit-Time-Window-Ms` | number | Shows the size of your current rate-limiting window. | `9762` |
 
 ### Media types
 
-A media type is the format of the request or response body. BigCommerce APIs accept requests and send responses in JSON. You should encode requests using the UTF-8 character set. Other character sets may have unpredictable results.
+A media type is the format of the request or response body. The BigCommerce API accepts requests and responds in JSON. You should encode requests using the UTF-8 character set (other character sets might have unpredictable results).
 
 ### Content types
 
 ### Request content type
-When performing a request that contains a body (eg. POST or PUT), the type of content you are sending needs to be specified in the `Content-Type` header.
+When performing a request that contains a body (eg. POST or PUT), the type of content you are sending needs to be specified in the Content-Type header.
 
-### Response content type
-There are two ways you can specify the type of content you would like to receive. The first method is to specify the `Accept` header. The second is to supply an extension to the resource you are requesting.
+### Response content Type
+There are two ways you can specify the type of content you would like to receive. The first method is to specify an Accept header. The second is to supply an extension to the resource you are requesting.
 
 The priority in which you can process these methods are:
 * Accept header high-priority types (eg. `Accept: application/json`) extensions on the resource (e.g. `customers.json`).
@@ -136,7 +140,7 @@ The priority in which you can process these methods are:
 ### Request Structure
 The body of a JSON request is an object containing a set of key-value pairs. A simple representation of a product object is:
 
-```json title="Example request body: Product object" lineNumbers
+```json title="Example JSON request body" lineNumbers
 {
  "id": 5,
  "name": "iPod",
@@ -147,8 +151,10 @@ The body of a JSON request is an object containing a set of key-value pairs. A s
 ### Response structure
 Responses are structured similarly to requests. If a request returns a single object, then the response will contain a single object containing the fields for that resource.
 
-```json title="Example response: Get a category" lineNumbers
-//GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/categories/{{category_id}}
+
+```http title="Example response: Get a category"
+GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/categories/{{category_id}}
+
 {
   "data": {
     "id": 39,
@@ -178,11 +184,12 @@ Responses are structured similarly to requests. If a request returns a single ob
 
 ## Support
 
-### Developer community
-The [developer community](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers) is a great place to get help from other developers who work on the BigCommerce platform. If you have BigCommerce-specific questions, this online forum is the best place to ask. It's also an excellent place for beginners to get assistance.
+### [Developer Community](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers)
+The developer community is a great place to get help from other developers who work on the BigCommerce platform. If you have BigCommerce-specific questions, this online forum is the best place to ask. It's also an excellent place for beginners to get assistance.
 
-### BC at Stack Overflow
-Are you a more experienced developer or have a programming language-specific question? [StackOverflow](https://stackoverflow.com/questions/tagged/bigcommerce) is a good place to ask questions and get help. The developer community is the best place to get answers about the BigCommerce platform specifically.
+
+### [StackOverflow](https://stackoverflow.com/questions/tagged/bigcommerce)
+Are you a more experienced developer or have a programming language specific question? This online forum is a good place to ask questions and get help. The developer community is the best place to get answers about the BigCommerce platform specifically.
 
 ## Resources
 * [Developer Community](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers)
