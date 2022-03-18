@@ -243,7 +243,6 @@ The entire plugin operates through closures wrapped around calls to classes inst
 
 <!-- theme: danger -->
 > #### Warning
-
 > Modifying core plugin functionality can lead to security vulnerabilities, data corruption, broken user workflows, and an overall unpleasant experience for you and your customers. Proceed at your own risk.
 
 

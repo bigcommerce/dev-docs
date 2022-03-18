@@ -79,7 +79,6 @@ An end-to-end example that displays a customer's recently purchased products is 
 
 <!-- theme: info -->
 > #### IAT and EXP claims
-
 > The current customer tokens are valid for 15 minutes.
 
 

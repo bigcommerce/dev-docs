@@ -12,7 +12,7 @@ Below are example GraphQL queries for use with the BigCommerce GraphQL Storefron
 
 ## Get a customer's details
 
-```javascript
+```graphql title="Example query: Get a customer's details" lineNumbers
 query CustomerAttributes {
   customer {
     firstName
@@ -39,7 +39,7 @@ query CustomerAttributes {
 
 ## Get first three levels of category tree
 
-```javascript
+```graphql title="Example query: Get first three levels of category tree" lineNumbers
 query CategoryTree3LevelsDeep {
   site {
     categoryTree {
@@ -65,7 +65,7 @@ fragment CategoryFields on CategoryTreeItem {
 
 ## Get category and products within by URL
 
-```javascript
+```graphql title="Example query: Get category and products within by URL" lineNumbers
 query CategoryByUrl {
   site {
     route(path: "/shop-all/") {
@@ -120,7 +120,7 @@ fragment PriceFields on Money {
 
 ## Look up an object by URL
 
-```js
+```graphql title="Example query: Look up an object by URL" lineNumbers
 query LookUpUrl {
   site {
     route(path: "/shop-all/") {
@@ -161,7 +161,7 @@ query LookUpUrl {
 
 ## Get product images at different resolutions
 
-```js
+```graphql title="Example query: Get product images at different resolutions" lineNumbers
 query SrcsetImages {
   site {
     product(entityId: 123) {
@@ -184,7 +184,7 @@ query SrcsetImages {
 
 ## Get a product
 
-```js
+```graphql title="Example query: Get a product" lineNumbers
 query SingleProduct {
   site {
     products (entityIds: [4917]) {
@@ -210,7 +210,7 @@ query SingleProduct {
 
 ## Get variant details as a product object
 
-```js
+```graphql title="Example query: Get variant details as a product object" lineNumbers
 query VariantById {
   site {
     product(variantEntityId: 27098) {
@@ -253,8 +253,7 @@ fragment DimensionFields on Measurement {
 ```
 
 <!-- theme: info -->
-
-This query returns variant information appropriately overlaid on the Product object. For example, if the variant has a different image, dimensions, SKU, or price, that will be automatically returned -- this allows for directly merchandising particular variants.
+> This query returns variant information appropriately overlaid on the Product object. For example, if the variant has a different image, dimensions, SKU, or price, that will be automatically returned -- this allows for directly merchandising particular variants.
 
 
 
@@ -262,7 +261,7 @@ This query returns variant information appropriately overlaid on the Product obj
 
 ## Get product option details by product ID
 
-```js
+```graphql title="Example query: Get product option details by product ID" lineNumbers
 query SeveralProductsByID {
   site {
     products(entityIds: [1, 2, 3]) {
@@ -299,7 +298,7 @@ query SeveralProductsByID {
 
 ## Get refined product object for given options
 
-```js
+```graphql title="Example query: Get refined product object for given options" lineNumbers
 query ProductsWithOptionSelections {
   site {
     product123: product(
@@ -336,7 +335,7 @@ fragment ProductFields on Product {
 
 ## Get product swatch option values
 
-```js
+```graphql title="Example query: Get product swatch option values" lineNumbers
 query {
   site {
     products (first: 3) {

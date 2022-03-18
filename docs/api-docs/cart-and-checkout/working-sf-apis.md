@@ -29,17 +29,19 @@ You can create a cart by sending a POST request to the [Create Cart](/api-refere
 We will create the `createCart()` helper function to accomplish this POST request. Copy and execute the code below to create the function.
 
 
-```js
+```js title="Example function: createCart()" lineNumbers
 function createCart(url, cartItems) {
-   return fetch(url, {
-       method: "POST",
-       credentials: "same-origin",
-       headers: {
-           "Content-Type": "application/json"},
-       body: JSON.stringify(cartItems),
-   })
-   .then(response => response.json());
- };
+  return fetch(url, {
+    method: "POST",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(cartItems),
+  })
+  .then(response => response.json());
+  .catch(error => console.error(error));
+};
 ```
 
 The `createCart()` function takes two arguments:
@@ -48,82 +50,80 @@ The `createCart()` function takes two arguments:
 
 To create a cart, execute the code below passing in `productId` values specific to your store.
 
-```js
+```js title="Example call: createCart()" lineNumbers
 createCart(`/api/storefront/carts`, {
-   "lineItems": [
-   {
-       "quantity": 1,
-       "productId": 86
-   },
-   {
-       "quantity": 1,
-       "productId": 88
-   }
-   ]}
+  "lineItems": [
+    {
+      "quantity": 1,
+      "productId": 86
+    },
+    {
+      "quantity": 1,
+      "productId": 88
+    }
+  ]}
 )
 .then(data => console.log(JSON.stringify(data)))
 .catch(error => console.error(error));
 ```
 
 Your result should be similar to the one below.
-
-Response:
-
-```json
+&nbsp;
+```json title="Example response: createCart()" lineNumbers
 {
- "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
- "customerId": 0,
- "email": "",
- "currency": {
-   "name": "US Dollars",
-   "code": "USD",
-   "symbol": "$",
-   "decimalPlaces": 2
- },
- "isTaxIncluded": false,
- "baseAmount": 274.5,
- "discountAmount": 0,
- "cartAmount": 274.5,
- "coupons": [],
- "discounts": [
-	...
- ],
- "lineItems": {
-   "physicalItems": [
-     {
-       "id": "57a877e0-d898-47d0-910d-88656e8dee0c",
-       "parentId": null,
-       "variantId": 66,
-       "productId": 86,
-       "sku": "ABS",
-       "name": "[Sample] Able Brewing System",
-       "url": "https://{store_url}/all/able-brewing-system/",
-       "quantity": 1,
-		...
-       "extendedSalePrice": 225,
-       "isShippingRequired": true,
-       "type": "physical",
-       "giftWrapping": null
-     },
-     {
-       "id": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
-       "parentId": null,
-       "variantId": 67,
-       "productId": 88,
-       "sku": "CC3C",
-       "name": "[Sample] Chemex Coffeemaker 3 Cup",
-       "url": "https://{store_url}/all/chemex-coffeemaker-3-cup/",
-       "quantity": 1,
-		...
-       "extendedSalePrice": 49.5,
-       "isShippingRequired": true,
-       "type": "physical",
-       "giftWrapping": null
-     }
-   ],
+  "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
+  "customerId": 0,
+  "email": "",
+  "currency": {
+    "name": "US Dollars",
+    "code": "USD",
+    "symbol": "$",
+    "decimalPlaces": 2
+  },
+  "isTaxIncluded": false,
+  "baseAmount": 274.5,
+  "discountAmount": 0,
+  "cartAmount": 274.5,
+  "coupons": [],
+  "discounts": [
+    ...
+  ],
+  "lineItems": {
+    "physicalItems": [
+      {
+        "id": "57a877e0-d898-47d0-910d-88656e8dee0c",
+        "parentId": null,
+        "variantId": 66,
+        "productId": 86,
+        "sku": "ABS",
+        "name": "[Sample] Able Brewing System",
+        "url": "https://{store_url}/all/able-brewing-system/",
+        "quantity": 1,
+      ...
+        "extendedSalePrice": 225,
+        "isShippingRequired": true,
+        "type": "physical",
+        "giftWrapping": null
+      },
+      {
+        "id": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
+        "parentId": null,
+        "variantId": 67,
+        "productId": 88,
+        "sku": "CC3C",
+        "name": "[Sample] Chemex Coffeemaker 3 Cup",
+        "url": "https://{store_url}/all/chemex-coffeemaker-3-cup/",
+        "quantity": 1,
+      ...
+        "extendedSalePrice": 49.5,
+        "isShippingRequired": true,
+        "type": "physical",
+        "giftWrapping": null
+      }
+    ],
+    ...
+  },
   ...
- },
- ...
 }
 ```
 <!-- theme: info -->
@@ -139,81 +139,82 @@ To display the contents of a cart, we need to send a GET request to the [Get a C
 
 Copy and execute the code below to create and subsequently call the `getCart()` helper function.
 
-```js
+```js title="Example function: getCart()" lineNumbers
 function getCart(url) {
-   return fetch(url, {
-       method: "GET",
-       credentials: "same-origin"
-   })
-   .then(response => response.json());
+  return fetch(url, {
+    method: "GET",
+    credentials: "same-origin"
+  })
+  .then(response => response.json());
+  .catch(error => console.error(error));
 };
-
-getCart('/api/storefront/carts?include=lineItems.digitalItems.options,lineItems.physicalItems.options')
- .then(data => console.log(JSON.stringify(data)))
- .catch(error => console.error(error));
 ```
-
-Response:
-
-```json
+&nbsp;
+```js title="Example call: getCart()" lineNumbers
+getCart('/api/storefront/carts?include=lineItems.digitalItems.options,lineItems.physicalItems.options')
+  .then(data => console.log(JSON.stringify(data)))
+  .catch(error => console.error(error));
+```
+&nbsp;
+```json title="Example response: getCart()" lineNumbers
 [
- {
-   "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
-   "customerId": 0,
-   "email": "",
-   "currency": {
-     "name": "US Dollars",
-     "code": "USD",
-     "symbol": "$",
-     "decimalPlaces": 2
-   },
-   "isTaxIncluded": false,
-   "baseAmount": 274.5,
-   "discountAmount": 0,
-   "cartAmount": 274.5,
-   "coupons": [],
-   "discounts": [
-     ...
-   ],
-   "lineItems": {
-     "physicalItems": [
-       {
-         "id": "57a877e0-d898-47d0-910d-88656e8dee0c",
-         "parentId": null,
-         "variantId": 66,
-         "productId": 86,
-         "sku": "ABS",
-         "name": "[Sample] Able Brewing System",
-         "url": "https://{store_url}/able-brewing-system/",
-         "quantity": 1,
-         ...
-         "extendedSalePrice": 225,
-         "isShippingRequired": true,
-         "type": "physical",
-         "giftWrapping": null,
-         "options": []
-       },
-       {
-         "id": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
-         "parentId": null,
-         "variantId": 67,
-         "productId": 88,
-         "sku": "CC3C",
-         "name": "[Sample] Chemex Coffeemaker 3 Cup",
-         "url": "https://{store_url}/chemex-coffeemaker-3-cup/",
-         "quantity": 1,
+  {
+    "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
+    "customerId": 0,
+    "email": "",
+    "currency": {
+      "name": "US Dollars",
+      "code": "USD",
+      "symbol": "$",
+      "decimalPlaces": 2
+    },
+    "isTaxIncluded": false,
+    "baseAmount": 274.5,
+    "discountAmount": 0,
+    "cartAmount": 274.5,
+    "coupons": [],
+    "discounts": [
+      ...
+    ],
+    "lineItems": {
+      "physicalItems": [
+        {
+          "id": "57a877e0-d898-47d0-910d-88656e8dee0c",
+          "parentId": null,
+          "variantId": 66,
+          "productId": 86,
+          "sku": "ABS",
+          "name": "[Sample] Able Brewing System",
+          "url": "https://{store_url}/able-brewing-system/",
+          "quantity": 1,
           ...
-         "extendedSalePrice": 49.5,
-         "isShippingRequired": true,
-         "type": "physical",
-         "giftWrapping": null,
-         "options": []
-       }
-     ],
+          "extendedSalePrice": 225,
+          "isShippingRequired": true,
+          "type": "physical",
+          "giftWrapping": null,
+          "options": []
+        },
+        {
+          "id": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
+          "parentId": null,
+          "variantId": 67,
+          "productId": 88,
+          "sku": "CC3C",
+          "name": "[Sample] Chemex Coffeemaker 3 Cup",
+          "url": "https://{store_url}/chemex-coffeemaker-3-cup/",
+          "quantity": 1,
+            ...
+          "extendedSalePrice": 49.5,
+          "isShippingRequired": true,
+          "type": "physical",
+          "giftWrapping": null,
+          "options": []
+        }
+      ],
+      ...
+    },
     ...
-   },
-   ...
- }
+  }
 ]
 ```
 
@@ -224,106 +225,106 @@ See [Add Cart Line Items](/api-reference/cart-checkout/storefront-cart-api/cart-
 
 Copy and execute the code below to create the `addCartItem()` helper function.
 
-```js
+```js title="Example function: addCartItem()" lineNumbers
 function addCartItem(url, cartId, cartItems) {
-     return fetch(url + cartId + '/items', {
-         method: "POST",
-         credentials: "same-origin",
-         headers: {
-             "Content-Type": "application/json"},
-         body: JSON.stringify(cartItems),
-     })
-     .then(response => response.json());
+  return fetch(url + cartId + '/items', {
+    method: "POST",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(cartItems),
+  })
+  .then(response => response.json());
+  .catch(error => console.error(error));
 };
 ```
 Call the function to add a new line item to your cart. Make sure to replace the `cartId` and `productId` with your own values.
 
 
-```js
+```js title="Example call: addCartItem()" lineNumbers
 addCartItem(`/api/storefront/carts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, {
-   "lineItems": [
-     {
-       "quantity": 1,
-       "productId": 97
-     }
-   ]
- })
- .then(data => console.log(JSON.stringify(data)))
- .catch(error => console.error(error));
+  "lineItems": [
+    {
+      "quantity": 1,
+      "productId": 97
+    }
+  ]
+})
+.then(data => console.log(JSON.stringify(data)))
+.catch(error => console.error(error));
 ```
-
-Response:
-
-```json
+&nbsp;
+```json title="Example response: addCartItem()" lineNumbers
 {
- "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
- "customerId": 0,
- "email": "",
- "currency": {
-   "name": "US Dollars",
-   "code": "USD",
-   "symbol": "$",
-   "decimalPlaces": 2
- },
- "isTaxIncluded": false,
- "baseAmount": 394.45,
- "discountAmount": 0,
- "cartAmount": 394.45,
- "coupons": [],
- "discounts": [
+  "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
+  "customerId": 0,
+  "email": "",
+  "currency": {
+    "name": "US Dollars",
+    "code": "USD",
+    "symbol": "$",
+    "decimalPlaces": 2
+  },
+  "isTaxIncluded": false,
+  "baseAmount": 394.45,
+  "discountAmount": 0,
+  "cartAmount": 394.45,
+  "coupons": [],
+  "discounts": [
+    ...
+  ],
+  "lineItems": {
+    "physicalItems": [
+      {
+        "id": "57a877e0-d898-47d0-910d-88656e8dee0c",
+        "parentId": null,
+        "variantId": 66,
+        "productId": 86,
+        "sku": "ABS",
+        "name": "[Sample] Able Brewing System",
+        "url": "https://{store_url}/able-brewing-system/",
+        "quantity": 1,
+          ...
+        "extendedSalePrice": 225,
+        "isShippingRequired": true,
+        "type": "physical",
+        "giftWrapping": null
+      },
+      {
+        "id": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
+        "parentId": null,
+        "variantId": 67,
+        "productId": 88,
+        "sku": "CC3C",
+        "name": "[Sample] Chemex Coffeemaker 3 Cup",
+        "url": "https://{store_url}/chemex-coffeemaker-3-cup/",
+        "quantity": 1,
+          ...
+        "extendedSalePrice": 49.5,
+        "isShippingRequired": true,
+        "type": "physical",
+        "giftWrapping": null
+      },
+      {
+        "id": "3f8dd1ed-f917-41be-b7f7-20c10f406e09",
+        "parentId": null,
+        "variantId": 69,
+        "productId": 97,
+        "sku": "TWB",
+        "name": "[Sample] Tiered Wire Basket",
+        "url": "https://{store_url}/tiered-wire-basket/",
+        "quantity": 1,
+          ...
+        "extendedSalePrice": 119.95,
+        "isShippingRequired": true,
+        "type": "physical",
+        "giftWrapping": null
+      }
+    ],
+    ...
+  },
   ...
- ],
- "lineItems": {
-   "physicalItems": [
-     {
-       "id": "57a877e0-d898-47d0-910d-88656e8dee0c",
-       "parentId": null,
-       "variantId": 66,
-       "productId": 86,
-       "sku": "ABS",
-       "name": "[Sample] Able Brewing System",
-       "url": "https://{store_url}/able-brewing-system/",
-       "quantity": 1,
-        ...
-       "extendedSalePrice": 225,
-       "isShippingRequired": true,
-       "type": "physical",
-       "giftWrapping": null
-     },
-     {
-       "id": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
-       "parentId": null,
-       "variantId": 67,
-       "productId": 88,
-       "sku": "CC3C",
-       "name": "[Sample] Chemex Coffeemaker 3 Cup",
-       "url": "https://{store_url}/chemex-coffeemaker-3-cup/",
-       "quantity": 1,
-        ...
-       "extendedSalePrice": 49.5,
-       "isShippingRequired": true,
-       "type": "physical",
-       "giftWrapping": null
-     },
-     {
-       "id": "3f8dd1ed-f917-41be-b7f7-20c10f406e09",
-       "parentId": null,
-       "variantId": 69,
-       "productId": 97,
-       "sku": "TWB",
-       "name": "[Sample] Tiered Wire Basket",
-       "url": "https://{store_url}/tiered-wire-basket/",
-       "quantity": 1,
-        ...
-       "extendedSalePrice": 119.95,
-       "isShippingRequired": true,
-       "type": "physical",
-       "giftWrapping": null
-     }
-   ],
-  ...
- },
-...
 }
 ```
 
@@ -332,83 +333,83 @@ Response:
 To delete a line item from a cart, send a DELETE request to the [Delete Cart Line Item](/api-reference/cart-checkout/storefront-cart-api/cart-items/deletecartlineitem) endpoint and pass in the `cartId` and `itemId` to be deleted.
 
 
-```js
+```js title="Example function: deleteCartItem()" lineNumbers
 function deleteCartItem(url, cartId, itemId) {
-   return fetch(url + cartId + '/items/' + itemId, {
-       method: "DELETE",
-       credentials: "same-origin",
-       headers: {
-           "Content-Type": "application/json",}
-})
-.then(response => response.json());
+  return fetch(url + cartId + '/items/' + itemId, {
+    method: "DELETE",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+    }
+  })
+  .then(response => response.json());
+  .catch(error => console.error(error));
 };
 ```
 
 Pass your `cartId` and `itemId` to the `deleteCartItem()` helper function to delete the line item.
 
-```js
+```js title="Example call: deleteCartItem()" lineNumbers
 deleteCartItem(`/api/storefront/carts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, `3f8dd1ed-f917-41be-b7f7-20c10f406e09`)
-.then(data => console.log(JSON.stringify(data)))
-.catch(error => console.log(error));
+  .then(data => console.log(JSON.stringify(data)))
+  .catch(error => console.log(error));
 ```
-
-Response:
-
-```json
+&nbsp;
+```json title="Example response: deleteCartItem()" lineNumbers
 {
- "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
- "customerId": 0,
- "email": "",
- "currency": {
-   "name": "US Dollars",
-   "code": "USD",
-   "symbol": "$",
-   "decimalPlaces": 2
- },
- "isTaxIncluded": false,
- "baseAmount": 274.5,
- "discountAmount": 0,
- "cartAmount": 274.5,
- "coupons": [],
- "discounts": [
+  "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
+  "customerId": 0,
+  "email": "",
+  "currency": {
+    "name": "US Dollars",
+    "code": "USD",
+    "symbol": "$",
+    "decimalPlaces": 2
+  },
+  "isTaxIncluded": false,
+  "baseAmount": 274.5,
+  "discountAmount": 0,
+  "cartAmount": 274.5,
+  "coupons": [],
+  "discounts": [
+    ...
+  ],
+  "lineItems": {
+    "physicalItems": [
+      {
+        "id": "57a877e0-d898-47d0-910d-88656e8dee0c",
+        "parentId": null,
+        "variantId": 66,
+        "productId": 86,
+        "sku": "ABS",
+        "name": "[Sample] Able Brewing System",
+        "url": "https://{store_url}/able-brewing-system/",
+        "quantity": 1,
+        ...
+        "extendedSalePrice": 225,
+        "isShippingRequired": true,
+        "type": "physical",
+        "giftWrapping": null
+      },
+      {
+        "id": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
+        "parentId": null,
+        "variantId": 67,
+        "productId": 88,
+        "sku": "CC3C",
+        "name": "[Sample] Chemex Coffeemaker 3 Cup",
+        "url": "https://{store_url}/chemex-coffeemaker-3-cup/",
+        "quantity": 1,
+        ...
+        "extendedSalePrice": 49.5,
+        "isShippingRequired": true,
+        "type": "physical",
+        "giftWrapping": null
+      }
+    ],
+    ...
+  },
   ...
- ],
- "lineItems": {
-   "physicalItems": [
-     {
-       "id": "57a877e0-d898-47d0-910d-88656e8dee0c",
-       "parentId": null,
-       "variantId": 66,
-       "productId": 86,
-       "sku": "ABS",
-       "name": "[Sample] Able Brewing System",
-       "url": "https://{store_url}/able-brewing-system/",
-       "quantity": 1,
-       ...
-       "extendedSalePrice": 225,
-       "isShippingRequired": true,
-       "type": "physical",
-       "giftWrapping": null
-     },
-     {
-       "id": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
-       "parentId": null,
-       "variantId": 67,
-       "productId": 88,
-       "sku": "CC3C",
-       "name": "[Sample] Chemex Coffeemaker 3 Cup",
-       "url": "https://{store_url}/chemex-coffeemaker-3-cup/",
-       "quantity": 1,
-       ...
-       "extendedSalePrice": 49.5,
-       "isShippingRequired": true,
-       "type": "physical",
-       "giftWrapping": null
-     }
-   ],
-  ...
- },
-...
 }
 ```
 
@@ -429,134 +430,133 @@ To add a billing address to a checkout, send a POST request to the [Add Checkout
 
 Copy and execute the code below to create the `addBillingAddress()` helper function.
 
-```js
+```js title="Example function: addBillingAddress()" lineNumbers
 function addBillingAddress(url, cartId, data) {
-   return fetch(url + cartId + `/billing-address`,  {
-       method: "POST",
-       credentials: "same-origin",
-       headers: {
-           "Content-Type": "application/json",
-       },
-       body: JSON.stringify(data),
-   })
-   .then(response => response.json());
+  return fetch(url + cartId + `/billing-address`,  {
+    method: "POST",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+  .then(response => response.json());
+  .catch(error => console.error(error));
 };
 ```
 
 Now call the `addBillingAddress()` function making sure to replace the `cartId` with your own value.
 
-```js
+```js title="Example call: addBillingAddress()" lineNumbers
 addBillingAddress(`/api/storefront/checkouts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, {
-   "firstName": "Jane",
-   "lastName": "Doe",
-   "email": "janedoe@email.com",
-   "company": "BigCommerce",
-   "address1": "123 Main Street",
-   "address2": "Apt 1",
-   "city": "Austin",
-   "stateOrProvinceCode": "TX",
-   "countryCode": "USA",
-   "postalCode": "78751"
-   })
-   .then(data => console.log(JSON.stringify(data)))
-   .catch(error => console.error(error));
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "email": "janedoe@email.com",
+  "company": "BigCommerce",
+  "address1": "123 Main Street",
+  "address2": "Apt 1",
+  "city": "Austin",
+  "stateOrProvinceCode": "TX",
+  "countryCode": "USA",
+  "postalCode": "78751"
+})
+.then(data => console.log(JSON.stringify(data)))
+.catch(error => console.error(error));
 ```
-
-Response:
-
-```json
+&nbsp;
+```json title="Example response: addBillingAddress()" lineNumbers
 {
- "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
- "cart": {
-   "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
-   "customerId": 0,
-   "email": "janedoe@email.com",
-   "currency": {
-     "name": "US Dollars",
-     "code": "USD",
-     "symbol": "$",
-     "decimalPlaces": 2
-   },
-   ...
-   "coupons": [],
-   "discounts": [
+  "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
+  "cart": {
+    "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
+    "customerId": 0,
+    "email": "janedoe@email.com",
+    "currency": {
+      "name": "US Dollars",
+      "code": "USD",
+      "symbol": "$",
+      "decimalPlaces": 2
+    },
     ...
-   ],
-   "lineItems": {
-     "physicalItems": [
-       {
-         "id": "57a877e0-d898-47d0-910d-88656e8dee0c",
-         "parentId": null,
-         "variantId": 66,
-         "productId": 86,
-         "sku": "ABS",
-         "name": "[Sample] Able Brewing System",
-         "url": "https://{store_url}}/able-brewing-system/",
-         "quantity": 1,
-        ...
-         "extendedSalePrice": 225,
-         "comparisonPrice": 225,
-         "extendedComparisonPrice": 225,
-         "isShippingRequired": true,
-         "giftWrapping": null,
-         "addedByPromotion": false
-       },
-       {
-         "id": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
-         "parentId": null,
-         "variantId": 67,
-         "productId": 88,
-         "sku": "CC3C",
-         "name": "[Sample] Chemex Coffeemaker 3 Cup",
-         "url": "https://{store_url}}/chemex-coffeemaker-3-cup/",
-         "quantity": 1,
-        ...
-         "extendedSalePrice": 49.5,
-         "comparisonPrice": 49.5,
-         "extendedComparisonPrice": 49.5,
-         "isShippingRequired": true,
-         "giftWrapping": null,
-         "addedByPromotion": false
-       }
-     ],
+    "coupons": [],
+    "discounts": [
+      ...
+    ],
+    "lineItems": {
+      "physicalItems": [
+        {
+          "id": "57a877e0-d898-47d0-910d-88656e8dee0c",
+          "parentId": null,
+          "variantId": 66,
+          "productId": 86,
+          "sku": "ABS",
+          "name": "[Sample] Able Brewing System",
+          "url": "https://{store_url}}/able-brewing-system/",
+          "quantity": 1,
+          ...
+          "extendedSalePrice": 225,
+          "comparisonPrice": 225,
+          "extendedComparisonPrice": 225,
+          "isShippingRequired": true,
+          "giftWrapping": null,
+          "addedByPromotion": false
+        },
+        {
+          "id": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
+          "parentId": null,
+          "variantId": 67,
+          "productId": 88,
+          "sku": "CC3C",
+          "name": "[Sample] Chemex Coffeemaker 3 Cup",
+          "url": "https://{store_url}}/chemex-coffeemaker-3-cup/",
+          "quantity": 1,
+          ...
+          "extendedSalePrice": 49.5,
+          "comparisonPrice": 49.5,
+          "extendedComparisonPrice": 49.5,
+          "isShippingRequired": true,
+          "giftWrapping": null,
+          "addedByPromotion": false
+        }
+      ],
+      ...
+    },
     ...
-   },
-   ...
- },
- "billingAddress": {
-   "id": "5e6a8cad71318",
-   "firstName": "Jane",
-   "lastName": "Doe",
-   "email": "janedoe@email.com",
-   "company": "BigCommerce",
-   "address1": "123 Main Street",
-   "address2": "Apt 1",
-   "city": "Austin",
-   "stateOrProvince": "Texas",
-   "stateOrProvinceCode": "TX",
-   "country": "",
-   "countryCode": "",
-   "postalCode": "78751",
-   "phone": "",
-   "customFields": []
- },
- "consignments": [],
- "orderId": null,
- "shippingCostTotal": 0,
- "shippingCostBeforeDiscount": 0,
- "handlingCostTotal": 0,
- "taxTotal": 27.45,
- "coupons": [],
- "taxes": [
-   {
-     "name": "Tax",
-     "amount": 27.45
-   }
- ],
- "subtotal": 274.5,
- "grandTotal": 301.95,
-...
- "customerMessage": ""
+  },
+  "billingAddress": {
+    "id": "5e6a8cad71318",
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "janedoe@email.com",
+    "company": "BigCommerce",
+    "address1": "123 Main Street",
+    "address2": "Apt 1",
+    "city": "Austin",
+    "stateOrProvince": "Texas",
+    "stateOrProvinceCode": "TX",
+    "country": "",
+    "countryCode": "",
+    "postalCode": "78751",
+    "phone": "",
+    "customFields": []
+  },
+  "consignments": [],
+  "orderId": null,
+  "shippingCostTotal": 0,
+  "shippingCostBeforeDiscount": 0,
+  "handlingCostTotal": 0,
+  "taxTotal": 27.45,
+  "coupons": [],
+  "taxes": [
+    {
+      "name": "Tax",
+      "amount": 27.45
+    }
+  ],
+  "subtotal": 274.5,
+  "grandTotal": 301.95,
+  ...
+  "customerMessage": ""
 }
 ```
 
@@ -570,69 +570,68 @@ See [Add New Consignment to Checkout](/api-reference/cart-checkout/storefront-ch
 Create the `createConsignment()`helper function to test this functionality.
 
 
-```js
+```js title="Example function: createConsignment()" lineNumbers
 function createConsignment(url, cartId, data) {
- return fetch(url + cartId + `/consignments?include=consignments.availableShippingOptions`,   {
-     method: "POST",
-     credentials: "same-origin",
-     headers: {
-         "Content-Type": "application/json" ,
-     },
-     body: JSON.stringify(data),
- })
- .then(response => response.json());
- };
+  return fetch(url + cartId + `/consignments?include=consignments.availableShippingOptions`,   {
+    method: "POST",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json" ,
+    },
+    body: JSON.stringify(data),
+  })
+  .then(response => response.json());
+  .catch(error => console.error(error));
+};
 ```
 
 Copy and execute the code below to create a new consignment. Make sure to replace the `cartId` with your own value.
 
 
-```js
+```js title="Example call: createConsignment()" lineNumbers
 createConsignment(`/api/storefront/checkouts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`,
-   [{
-     "shippingAddress": {
-         "firstName": "Jane",
-         "lastName": "Doe",
-         "email": "janedoe@email.com",
-         "company": "BigCommerce",
-         "address1": "123 Main Street",
-         "address2": "Apt 1",
-         "city": "Austin",
-         "stateOrProvinceCode": "TX",
-         "countryCode": "US",
-         "postalCode": "78751"
-     },
-     "lineItems": [{
-         "itemId": "57a877e0-d898-47d0-910d-88656e8dee0c",
-         "quantity": 1
-     }]
-   },
-   {
-     "shippingAddress": {
-         "firstName": "John",
-         "lastName": "Doe",
-         "email": "johnedoe@email.com",
-         "company": "BigCommerce",
-         "address1": "123 South Street",
-         "address2": "Apt 5",
-         "city": "Austin",
-         "stateOrProvinceCode": "TX",
-         "countryCode": "US",
-         "postalCode": "78726"
-     },
-     "lineItems": [{
-         "itemId": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
-         "quantity": 1
-     }]
-   }]
- )
- .then(data => console.log(JSON.stringify(data)))
- .catch(error => console.error(error));
+  [{
+    "shippingAddress": {
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "email": "janedoe@email.com",
+        "company": "BigCommerce",
+        "address1": "123 Main Street",
+        "address2": "Apt 1",
+        "city": "Austin",
+        "stateOrProvinceCode": "TX",
+        "countryCode": "US",
+        "postalCode": "78751"
+    },
+    "lineItems": [{
+        "itemId": "57a877e0-d898-47d0-910d-88656e8dee0c",
+        "quantity": 1
+    }]
+  },
+  {
+    "shippingAddress": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "johnedoe@email.com",
+        "company": "BigCommerce",
+        "address1": "123 South Street",
+        "address2": "Apt 5",
+        "city": "Austin",
+        "stateOrProvinceCode": "TX",
+        "countryCode": "US",
+        "postalCode": "78726"
+    },
+    "lineItems": [{
+        "itemId": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
+        "quantity": 1
+    }]
+  }]
+)
+.then(data => console.log(JSON.stringify(data)))
+.catch(error => console.error(error));
 ```
-
-Response:
-
-```json
+&nbsp;
+```json title="Example response: createConsignment()" lineNumbers
 {
   "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
     "cart": {
@@ -829,192 +828,193 @@ Response:
 
 To update a consignment, add your `consignmentId` and the appropriate `shippingOptionId` (located inside the `availableShippingOptions` object) to the PUT request parameters. See [Update Checkout Consignment](/api-reference/cart-checkout/server-server-checkout-api/checkout-consignments) for more information.
 
->**Note:** Only one consignment can be updated at a time.
+<!-- theme: info -->
+> #### Note
+> Only one consignment can be updated at a time.
 
 
 Create the `updateConsignment()` helper function to accomplish this.
 
 
-```js
+```js title="Example function: updateConsignment()" lineNumbers
 function updateConsignment(url, cartId, consignmentId, data,) {
- return fetch(url + cartId + `/consignments/` + consignmentId,   {
-     method: "PUT",
-     credentials: "same-origin",
-     headers: {
-         "Content-Type": "application/json;",
-     },
-     body: JSON.stringify(data),
- })
- .then(response => response.json());
+  return fetch(url + cartId + `/consignments/` + consignmentId,   {
+    method: "PUT",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json;",
+    },
+    body: JSON.stringify(data),
+  })
+  .then(response => response.json());
 };
 ```
 
-Execute the code below to update the consignment, replacing `cartId` , `consigmentId`, and `shippingOptionId` with your values.
+Execute the code below to update the consignment, replacing `cartId`, `consigmentId`, and `shippingOptionId` with your values.
 
 
-```js
- updateConsignment(`/api/storefront/checkouts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, `5e6a91ff83c6d`,{
-   "shippingOptionId": "4dcbf24f457dd67d5f89bcf374e0bc9b"
+```js title="Example call: updateConsignment()" lineNumbers
+updateConsignment(`/api/storefront/checkouts/`, `d4e978c2-bdcf-41b0-a49b-fecf4f5223c1`, `5e6a91ff83c6d`,{
+  "shippingOptionId": "4dcbf24f457dd67d5f89bcf374e0bc9b"
 })
- .then(data => console.log(JSON.stringify(data)))
- .catch(error => console.error(error));
+.then(data => console.log(JSON.stringify(data)))
+.catch(error => console.error(error));
 ```
-
-Response:
-
-```json
- "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
- "cart": {
-   "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
-   "customerId": 0,
-   "email": "janedoe@email.com",
-   "currency": {
-     "name": "US Dollars",
-     "code": "USD",
-     "symbol": "$",
-     "decimalPlaces": 2
-   },
-   ...
-   "coupons": [],
-   "discounts": [
+&nbsp;
+```json title="Example response: updateConsignment()" lineNumbers
+{
+  "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
+  "cart": {
+    "id": "d4e978c2-bdcf-41b0-a49b-fecf4f5223c1",
+    "customerId": 0,
+    "email": "janedoe@email.com",
+    "currency": {
+      "name": "US Dollars",
+      "code": "USD",
+      "symbol": "$",
+      "decimalPlaces": 2
+    },
     ...
-   ],
-   "lineItems": {
-     "physicalItems": [
-       {
-         "id": "57a877e0-d898-47d0-910d-88656e8dee0c",
-         "parentId": null,
-         "variantId": 66,
-         "productId": 86,
-         "sku": "ABS",
-         "name": "[Sample] Able Brewing System",
-         "url": "https://{store_url}/able-brewing-system/",
-         "quantity": 1,
-         ...
-         "extendedSalePrice": 225,
-         "comparisonPrice": 225,
-         "extendedComparisonPrice": 225,
-         "isShippingRequired": true,
-         "giftWrapping": null,
-         "addedByPromotion": false
-       },
-       {
-         "id": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
-         "parentId": null,
-         "variantId": 67,
-         "productId": 88,
-         "sku": "CC3C",
-         "name": "[Sample] Chemex Coffeemaker 3 Cup",
-         "url": "https://{store_url}/chemex-coffeemaker-3-cup/",
-         "quantity": 1,
-         ...
-         "extendedSalePrice": 49.5,
-         "comparisonPrice": 49.5,
-         "extendedComparisonPrice": 49.5,
-         "isShippingRequired": true,
-         "giftWrapping": null,
-         "addedByPromotion": false
-       }
-     ],
+    "coupons": [],
+    "discounts": [
+      ...
+    ],
+    "lineItems": {
+      "physicalItems": [
+        {
+          "id": "57a877e0-d898-47d0-910d-88656e8dee0c",
+          "parentId": null,
+          "variantId": 66,
+          "productId": 86,
+          "sku": "ABS",
+          "name": "[Sample] Able Brewing System",
+          "url": "https://{store_url}/able-brewing-system/",
+          "quantity": 1,
+          ...
+          "extendedSalePrice": 225,
+          "comparisonPrice": 225,
+          "extendedComparisonPrice": 225,
+          "isShippingRequired": true,
+          "giftWrapping": null,
+          "addedByPromotion": false
+        },
+        {
+          "id": "22c461a2-eff9-4b72-8d22-7c2792ce2c2d",
+          "parentId": null,
+          "variantId": 67,
+          "productId": 88,
+          "sku": "CC3C",
+          "name": "[Sample] Chemex Coffeemaker 3 Cup",
+          "url": "https://{store_url}/chemex-coffeemaker-3-cup/",
+          "quantity": 1,
+          ...
+          "extendedSalePrice": 49.5,
+          "comparisonPrice": 49.5,
+          "extendedComparisonPrice": 49.5,
+          "isShippingRequired": true,
+          "giftWrapping": null,
+          "addedByPromotion": false
+        }
+      ],
+      ...
+    },
     ...
-   },
-   ...
- },
- "billingAddress": {
-   "id": "5e6a8cad71318",
-   "firstName": "Jane",
-   "lastName": "Doe",
-   "email": "janedoe@email.com",
-   "company": "BigCommerce",
-   "address1": "123 Main Street",
-   "address2": "Apt 1",
-   "city": "Austin",
-   "stateOrProvince": "",
-   "stateOrProvinceCode": "",
-   "country": "",
-   "countryCode": "",
-   "postalCode": "78751",
-   "phone": "",
-   "customFields": []
- },
- "consignments": [
-   {
-     "id": "5e6a91ff83c6d",
-     "shippingCost": 0,
-     "handlingCost": 0,
-     "couponDiscounts": [],
-     "discounts": [],
-     "lineItemIds": [
-       "57a877e0-d898-47d0-910d-88656e8dee0c"
-     ],
-     "selectedShippingOption": {
-       "id": "4dcbf24f457dd67d5f89bcf374e0bc9b",
-       "type": "freeshipping",
-       "description": "Free Shipping",
-       "imageUrl": "",
-       "cost": 0,
-       "transitTime": "",
-       "additionalDescription": ""
-     },
-     "shippingAddress": {
-       "firstName": "Jane",
-       "lastName": "Doe",
-       "email": "janedoe@email.com",
-       "company": "BigCommerce",
-       "address1": "123 Main Street",
-       "address2": "Apt 1",
-       "city": "Austin",
-       "stateOrProvince": "Texas",
-       "stateOrProvinceCode": "TX",
-       "country": "United States",
-       "countryCode": "US",
-       "postalCode": "78751",
-       "phone": "",
-       "customFields": []
-     }
-   },
-   {
-     "id": "5e6a91ffeac84",
-     "shippingCost": 0,
-     "handlingCost": 0,
-     "couponDiscounts": [],
-     "discounts": [],
-     "lineItemIds": [
-       "22c461a2-eff9-4b72-8d22-7c2792ce2c2d"
-     ],
-     "selectedShippingOption": null,
-     "shippingAddress": {
-       "firstName": "John",
-       "lastName": "Doe",
-       "email": "johnedoe@email.com",
-       "company": "BigCommerce",
-       "address1": "123 South Street",
-       "address2": "Apt 5",
-       "city": "Austin",
-       "stateOrProvince": "Texas",
-       "stateOrProvinceCode": "TX",
-       "country": "United States",
-       "countryCode": "US",
-       "postalCode": "78726",
-       "phone": "",
-       "customFields": []
-     }
-   }
- ],
- "orderId": null,
- "shippingCostTotal": 0,
- "shippingCostBeforeDiscount": 0,
- "handlingCostTotal": 0,
- "taxTotal": 22.65,
- "coupons": [],
- "taxes": [
-   {
-     "name": "Tax",
-     "amount": 22.65
-   }
- ],
- "subtotal": 274.5,
-...
+  },
+  "billingAddress": {
+    "id": "5e6a8cad71318",
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "janedoe@email.com",
+    "company": "BigCommerce",
+    "address1": "123 Main Street",
+    "address2": "Apt 1",
+    "city": "Austin",
+    "stateOrProvince": "",
+    "stateOrProvinceCode": "",
+    "country": "",
+    "countryCode": "",
+    "postalCode": "78751",
+    "phone": "",
+    "customFields": []
+  },
+  "consignments": [
+    {
+      "id": "5e6a91ff83c6d",
+      "shippingCost": 0,
+      "handlingCost": 0,
+      "couponDiscounts": [],
+      "discounts": [],
+      "lineItemIds": [
+        "57a877e0-d898-47d0-910d-88656e8dee0c"
+      ],
+      "selectedShippingOption": {
+        "id": "4dcbf24f457dd67d5f89bcf374e0bc9b",
+        "type": "freeshipping",
+        "description": "Free Shipping",
+        "imageUrl": "",
+        "cost": 0,
+        "transitTime": "",
+        "additionalDescription": ""
+      },
+      "shippingAddress": {
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "email": "janedoe@email.com",
+        "company": "BigCommerce",
+        "address1": "123 Main Street",
+        "address2": "Apt 1",
+        "city": "Austin",
+        "stateOrProvince": "Texas",
+        "stateOrProvinceCode": "TX",
+        "country": "United States",
+        "countryCode": "US",
+        "postalCode": "78751",
+        "phone": "",
+        "customFields": []
+      }
+    },
+    {
+      "id": "5e6a91ffeac84",
+      "shippingCost": 0,
+      "handlingCost": 0,
+      "couponDiscounts": [],
+      "discounts": [],
+      "lineItemIds": [
+        "22c461a2-eff9-4b72-8d22-7c2792ce2c2d"
+      ],
+      "selectedShippingOption": null,
+      "shippingAddress": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "johnedoe@email.com",
+        "company": "BigCommerce",
+        "address1": "123 South Street",
+        "address2": "Apt 5",
+        "city": "Austin",
+        "stateOrProvince": "Texas",
+        "stateOrProvinceCode": "TX",
+        "country": "United States",
+        "countryCode": "US",
+        "postalCode": "78726",
+        "phone": "",
+        "customFields": []
+      }
+    }
+  ],
+  "orderId": null,
+  "shippingCostTotal": 0,
+  "shippingCostBeforeDiscount": 0,
+  "handlingCostTotal": 0,
+  "taxTotal": 22.65,
+  "coupons": [],
+  "taxes": [
+    {
+      "name": "Tax",
+      "amount": 22.65
+    }
+  ],
+  "subtotal": 274.5,
+  ...
 }
 ```
 
