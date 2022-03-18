@@ -13,7 +13,7 @@ Differences between server cron and WP-Cron include:
 - Server cron runs automatically and is fired by server processes. There's no need for an external source for events firing.
 - WP-Cron only runs when someone is on the site.
 
-When you schedule a job to run once an hour with WP-cron and WordPress will set an execution time for that job. However, the job won't be performed until there's site traffic or there's an external request to WordPress. 
+When you schedule a job to run once an hour with WP-cron, WordPress will set an execution time for that job. However, the job won't be performed until there's site traffic or there's an external request to WordPress. 
 
 Because of this, WP-Cron jobs can be postponed or not performed at all, whereas a job you schedule with server cron will be performed even if there isn't site traffic or external requests.
 
@@ -21,10 +21,12 @@ Because of this, WP-Cron jobs can be postponed or not performed at all, whereas 
 To make WP-Cron more reliable and not dependent on site traffic, take the following steps:
 
 ### Open and edit wp-config.php
-1. Open the wp-config file using an FTP client like [FileZilla](https://filezilla-project.org/) or SSH client.
-2. To disable the running cron events on your WordPress site so that you can create a real cron job, add the following string to the file:
+To use server cron jobs, you need to disable WP-Cron events. This will suspend currently scheduled WP-Cron jobs as well. Use the following steps to disable WP-Cron jobs: 
 
-```php title=""
+1. Open the wp-config file using an FTP client like [FileZilla](https://filezilla-project.org/) or SSH client.
+2. Add the following string to the file:
+
+```php
 define('DISABLE_WP_CRON', true);
 ```
 
@@ -50,7 +52,7 @@ The following example is for HostGator, but you can also use it for any other ho
 wget -q -O - https://example.com/wp-cron.php?doing_wp_cron >/dev/null 2>&1
 ```
 
-6. Click **Add new cron job** to set the cron.
+6. Click **Add new cron job** to save the job.
 
 <!-- theme: info -->
 > #### Important note
