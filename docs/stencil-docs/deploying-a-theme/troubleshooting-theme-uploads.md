@@ -1,14 +1,6 @@
 # Troubleshooting Theme Uploads
 
-<div class="otp" id="no-index">
-
-### On this page
-- [Restrictions](#restrictions)
-- [Error codes](#error-codes)
-- [Warnings](#warnings)
-- [Workarounds and further info](#workarounds-and-further-info)
-
-</div> 
+ 
 
 ## Restrictions
 
@@ -35,7 +27,7 @@ Custom theme uploads must meet these restrictions:
 | TR-800 | There was a problem processing the contained `config.json` file. <b>Please check the `config.json` documentation for the required keys and for keys that require values. |
 | TR-900 | The contained `config.json` file is missing the required developer information. |
 | TR-901 | A theme variation defined in the contained config.json file is missing its required external ID. |
-| TR-902 | Two or more theme variations defined in the contained config.json file share a external ID. All external IDs must be unique. | 
+| TR-902 | Two or more theme variations defined in the contained config.json file share an external ID. All external IDs must be unique. | 
 | TR-1000 | There was a problem processing the contained <a href="/stencil-docs/stencil-theme-editor/schema-json-metadata">schema.json</a> file. |
 | TR-1001 | The theme is missing its required <a href="/stencil-docs/stencil-theme-editor/schema-json-metadata">schema.json</a> file. |
 | TR-1400 | There was a problem processing template <a href="/stencil-docs/front-matter/front-matter-overview">front matter</a>. |
@@ -73,4 +65,4 @@ Warnings will not block a theme's upload, but these onscreen and/or log messages
 
 * If a custom theme does not render properly after you upload and apply it to a storefront, make sure you have created the theme's zip file using the `stencil bundle` command, on a Mac OS, Linux computer, or virtual machine. Using the `stencil bundle` command will exclude Windows-specific errors that have occurred on some bundles.
 
-* If you repeatedly encounter the same error or warning and neither this page nor our KB resolves the problem, see support resources for theme developers in our [Developer Community](https://forum.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers).
+* If you repeatedly encounter the same error or warning and neither this page nor our KB resolves the problem, see support resources for theme developers in our [Developer Community](https://support.bigcommerce.com/s/group/0F913000000HLjECAW/bigcommerce-developers).

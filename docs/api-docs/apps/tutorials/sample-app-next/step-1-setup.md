@@ -1,19 +1,6 @@
 # Step 1: Set up Your Local Environment
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Install Node](#install-node)
-- [Set up a project directory](#set-up-a-project-directory)
-- [Generate a package.json file](#generate-a-packagejson-file)
-- [Install npm packages](#install-npm-packages)
-- [Add scripts](#add-scripts)
-- [Create a starter page](#create-a-starter-page)
-- [Initialize BigDesign](#initialize-bigdesign)
-- [Initialize styled-components](#initialize-styled-components)
-- [Start the development server](#start-the-development-server)
-
-</div>
 
 Start by setting up your local development environment.
 
@@ -35,17 +22,12 @@ If you do not have Node.js installed, you can download it from [Node.js Download
 
 ## Generate a package.json file
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * Make sure that you are using Node.js version 10.13+.
 > * This sample app uses custom dependencies and does not rely on the `create-next-app` CLI tool.
 
-</div>
-</div>
-</div> 
+ 
 
 1. Using the terminal, initialize the project's `package.json` file.
 
@@ -75,17 +57,10 @@ npm install --save-dev babel-plugin-styled-components @types/node @types/react t
 
 [@types/node](https://www.npmjs.com/package/@types/node) and [@types/react](https://www.npmjs.com/package/@types/react) contain TypeScript type definitions for Node.js and React.js respectively.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
 > You can view a list of all the tested package versions in the [package.json file on the Step 1 branch](https://github.com/bigcommerce/sample-app-nodejs/blob/step-1-app-foundation/package.json) of this sample app's repo.
 
-</div>
-</div>
-</div>
+
 
 ## Add scripts
 
@@ -139,7 +114,7 @@ Next.js associates each file in the pages folder with a route based on the file'
 
 ## Initialize BigDesign
 
-Next.js allows you to use a theme provider and import CSS files from `node_modules`. In this tutorial, you integrate [BigDesign](https://developer.bigcommerce.com/) to give your app a distinct BigCommerce look and feel.
+Next.js allows you to use a theme provider and import CSS files from `node_modules`. In this tutorial, you integrate [BigDesign](/) to give your app a distinct BigCommerce look and feel.
 
 1. Next.js uses the `App` component to initialize pages. To override the default `App` component, add the `_app.tsx` file to the `pages` folder. This is where you initialize BigDesign. 
 
@@ -233,4 +208,4 @@ npm run dev
 
 ![Hello world](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Sample_app/nextjs-app-01.png "Hello world")
 
-[Next: Connect Your App to BigCommerce](https://developer.bigcommerce.com/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect)
+[Next: Connect Your App to BigCommerce](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect)

@@ -1,38 +1,18 @@
 # GraphQL Storefront API Example Queries
 
-<div class="otp" id="no-index">
 
-### On this Page
 
-- [Get a customer's details](#get-a-customers-details)
-- [Get first three levels of category tree](#get-first-three-levels-of-category-tree)
-- [Get category and products within by URL](#get-category-and-products-within-by-url)
-- [Look up an object by URL](#look-up-an-object-by-url)
-- [Get product images at different resolutions](#get-product-images-at-different-resolutions)
-- [Get a product](#get-a-product)
-- [Get variant details as a product object](#get-variant-details-as-a-product-object)
-- [Get product option details by product ID](#get-product-option-details-by-product-id)
-- [Get refined product object for given options](#get-refined-product-object-for-given-options)
-- [Get product swatch option values](#get-product-swatch-option-values)
+Below are example GraphQL queries for use with the BigCommerce GraphQL Storefront API. The purpose of these examples is to assist developers in getting familiar with the API. For a general overview of it's usage and capabilities, see [GraphQL Storefront API Overview](/api-docs/storefront/graphql/graphql-storefront-api-overview).
 
-</div>
-
-Below are example GraphQL queries for use with the BigCommerce GraphQL Storefront API. The purpose of these examples is to assist developers in getting familiar with the API. For a general overview of it's usage and capabilities, see [GraphQL Storefront API Overview](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview).
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: warning -->
+> #### Note
 > * The GraphQL Storefront API is in early access and is feature-incomplete; it will remain in early access until we reach the minimum amount of functionality necessary to power an end-to-end shopping experience.
 
-</div>
-</div>
-</div>
+
 
 ## Get a customer's details
 
-```javascript
+```graphql title="Example query: Get a customer's details" lineNumbers
 query CustomerAttributes {
   customer {
     firstName
@@ -59,7 +39,7 @@ query CustomerAttributes {
 
 ## Get first three levels of category tree
 
-```javascript
+```graphql title="Example query: Get first three levels of category tree" lineNumbers
 query CategoryTree3LevelsDeep {
   site {
     categoryTree {
@@ -85,7 +65,7 @@ fragment CategoryFields on CategoryTreeItem {
 
 ## Get category and products within by URL
 
-```javascript
+```graphql title="Example query: Get category and products within by URL" lineNumbers
 query CategoryByUrl {
   site {
     route(path: "/shop-all/") {
@@ -140,7 +120,7 @@ fragment PriceFields on Money {
 
 ## Look up an object by URL
 
-```js
+```graphql title="Example query: Look up an object by URL" lineNumbers
 query LookUpUrl {
   site {
     route(path: "/shop-all/") {
@@ -181,7 +161,7 @@ query LookUpUrl {
 
 ## Get product images at different resolutions
 
-```js
+```graphql title="Example query: Get product images at different resolutions" lineNumbers
 query SrcsetImages {
   site {
     product(entityId: 123) {
@@ -204,7 +184,7 @@ query SrcsetImages {
 
 ## Get a product
 
-```js
+```graphql title="Example query: Get a product" lineNumbers
 query SingleProduct {
   site {
     products (entityIds: [4917]) {
@@ -230,7 +210,7 @@ query SingleProduct {
 
 ## Get variant details as a product object
 
-```js
+```graphql title="Example query: Get variant details as a product object" lineNumbers
 query VariantById {
   site {
     product(variantEntityId: 27098) {
@@ -272,23 +252,16 @@ fragment DimensionFields on Measurement {
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
+> This query returns variant information appropriately overlaid on the Product object. For example, if the variant has a different image, dimensions, SKU, or price, that will be automatically returned -- this allows for directly merchandising particular variants.
 
-This query returns variant information appropriately overlaid on the Product object. For example, if the variant has a different image, dimensions, SKU, or price, that will be automatically returned -- this allows for directly merchandising particular variants.
 
-</div>
-</div>
-</div>
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=variantDetails" target="_blank">**Try it in GraphQL Playground**</a>
 
 ## Get product option details by product ID
 
-```js
+```graphql title="Example query: Get product option details by product ID" lineNumbers
 query SeveralProductsByID {
   site {
     products(entityIds: [1, 2, 3]) {
@@ -325,7 +298,7 @@ query SeveralProductsByID {
 
 ## Get refined product object for given options
 
-```js
+```graphql title="Example query: Get refined product object for given options" lineNumbers
 query ProductsWithOptionSelections {
   site {
     product123: product(
@@ -362,7 +335,7 @@ fragment ProductFields on Product {
 
 ## Get product swatch option values
 
-```js
+```graphql title="Example query: Get product swatch option values" lineNumbers
 query {
   site {
     products (first: 3) {

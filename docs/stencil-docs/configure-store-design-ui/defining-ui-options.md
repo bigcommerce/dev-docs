@@ -1,16 +1,6 @@
 # Defining UI Options
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Enabling Store Design Options](#enabling-store-design-options)
-- [Best Practices](#best-practices)
-- [How .json Entries Govern Store Design's UI](#how-json-entries-govern-store-designs-ui)
-- [Store Design Data Types](#store-design-data-types)
-- [Store Design Data Structure in schema.json](#store-design-data-structure-in-schemajson)
-- [Store Design UI Troubleshooting](#store-design-ui-troubleshooting)
-
-</div> 
+ 
 
 You are free to decide which properties of your theme to make editable in Store Design, and in which order to display them. Store Design can expose any set of properties as long as your <span class="fn">schema.json</span> declares them using the data types that Store Design supports.
 
@@ -70,19 +60,7 @@ Store Design supports these data types:
 
 Within <span class="fn">schema.json</span>, each object's data type is declared in a statement like the one highlighted here:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Example object data type declaration schema.json" lineNumbers
  {
         "type": "color",
         "label": "Text Color",
@@ -94,19 +72,7 @@ lineNumbers: true
 
 Within <span class="fn">schema.json</span>, you will also see `"type": "heading"` statements like this one – highlighted earlier in the same object used for the above example:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name"></div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: ""
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="'Heading' type settings schema.json" lineNumbers highlightLines=[[5]]
 {
     "name": "Colors",
     "settings": [

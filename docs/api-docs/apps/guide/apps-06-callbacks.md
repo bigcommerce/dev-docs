@@ -1,39 +1,13 @@
 # Single-Click App Callback Handlers
 
-
-<div class="otp" id="no-index">
-
-### On this page
-- [Overview](#overview)
-- [Open the app with /load](#open-the-app-with-load)
-- [Remove the app with /uninstall](#remove-the-app-with-uninstall)
-- [Revoke user access with /remove_user](#revoke-user-access-with-remove_user)
-- [Decode and verify the JWT](#decode-and-verify-the-jwt)
-- [Work with payload claims](#work-with-payload-claims)
-- [Code samples](#code-samples)
-- [Helpful tools](#helpful-tools)
-- [Next step](#next-step)
-- [Resources](#resources)
-
-</div>
-
 After a store owner installs your single-click app, they and their authorized users will need to use it and configure any settings. In turn, your app will likely need to store and manage information about the stores and users you're supporting.
 
 Your app's front-end views render inside an iFrame in the store control panel, so your app has no native ability to listen for a few high-level events. To support your work, BigCommerce sends `GET` requests to callback routes in your app that correspond to three events: opening the app, uninstalling the app, and revoking a user's access to the app. Each request includes a signed JSON web token (_JWT_), which contains identifying information about the store and the user. This article is a reference for endpoints to which we send event-driven callbacks, and a guide to writing handlers that verify and use our JWT payloads.
 
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-### Note
+> #### Note
 > In production, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
 
-</div>
-</div>
-</div>
 
 ## Overview
 
@@ -50,18 +24,10 @@ Decoding the supplied JWT lets your app do the following:
 - Identify the requesting user.
 - Verify that the request came from BigCommerce.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-### Note
+> #### Note
 > We strongly recommend that each callback handler decode `signed_payload_jwt` to [verify the payload](#decode-and-verify-the-jwt) before taking any action.
 
-</div>
-</div>
-</div>
 
 ## Open the app with /load
 
@@ -93,6 +59,7 @@ Host: your_app.example.com
 ```
 
 After you [verify the payload](#decode-and-verify-the-jwt) and [identify the requesting user](#work-with-payload-claims), handle any business internal to your app, such as removing the user's data from your app's database. You do not need to send a response. If you do not write a handler for the `GET /remove_user` endpoint, BigCommerce will still revoke the user's access to your app in the store control panel, but your app will not know that.
+
 ## Decode and verify the JWT
 
 BigCommerce's payload JWTs implement the JWT-JWS specification that the [IETF's](https://www.ietf.org/) open standard [RFC 7515](https://datatracker.ietf.org/doc/html/rfc7515) defines. The `signed_payload_jwt` is composed of three distinct **base64URL**-encoded strings concatenated with the `.` character.
@@ -124,20 +91,12 @@ Use the following steps to decode, verify, and parse the JWTs that BigCommerce s
 8. Decode the **base64url** `payload_claims_b64`. `payload_claims_str` is a JSON string.
 9. Parse `payload_claims_str` into your language's version of a JSON object. The following section is a reference for working with the values in `payload_claims_obj`.
 
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-> ### Security precautions
+> #### Security precautions
 > Your production code should never work with claims from a payload you can't verify.
 > To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. Comparison techniques vary by programming language and signing algorithm. Ruby and PHP [code samples](#code-samples) for HS256 hashes follow. 
 > We recommend writing middleware or using an existing [library in your language of choice](https://jwt.io/libraries) to help you decode, verify, and parse JWTs.
 
-</div>
-</div>
-</div>
 
 ## Work with payload claims
 
@@ -174,7 +133,7 @@ The following is an example of the payload claims in a BigCommerce app callback 
 | `store_hash`  | string    | unique identified for store used in API requests  |
 | `timestamp`   | float     | Unix time when callback generated                 |
 
-Use the payload claims' data to identify the store and user. What your app should do with this information typically depends on whether it supports [multiple users](https://developer.bigcommerce.com/api-docs/apps/guide/users). Refer to the following table for instructions:
+Use the payload claims' data to identify the store and user. What your app should do with this information typically depends on whether it supports [multiple users](/api-docs/apps/guide/users). Refer to the following table for instructions:
 
 | Endpoint           | Multiple Users Enabled                                                                                      | Multiple Users Not Enabled |
 |:-------------------|:------------------------------------------------------------------------------------------------------------|:---------------------------|
@@ -291,12 +250,12 @@ The following BigCommerce API clients expose helper methods for verifying the `s
   * Verifies `signed_payload_jwt`
 
 ## Next step
-* [Support multiple users](https://developer.bigcommerce.com/api-docs/apps/guide/users)
+* [Support multiple users](/api-docs/apps/guide/users)
 
 ## Resources
 
 ### Sample apps
-* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start)
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](/api-docs/apps/quick-start)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
@@ -309,7 +268,7 @@ The following BigCommerce API clients expose helper methods for verifying the `s
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

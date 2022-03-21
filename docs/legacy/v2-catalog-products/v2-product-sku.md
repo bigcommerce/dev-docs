@@ -1,35 +1,13 @@
 # Product SKU
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [SKUs](#skus)
-- [List Product SKUs](#list-product-skus)
-- [Get a Product SKU](#get-a-product-sku)
-- [Update a Product SKU](#update-a-product-sku)
-- [Delete a Product SKU](#delete-a-product-sku)
-- [Delete Multiple Product SKUs](#delete-multiple-product-skus)
-
-</div> 
-
 ## SKUs 
 
 Stock Keeping Unit identifiers associated with products or product options.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-
-For the most up-to-date version of this API, see [Product Variants](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants).
-
-</div>
-</div>
-</div>
+> For the most up-to-date version of this API, see [Product Variants](/api-reference/store-management/catalog/product-variants).
 
 ### SKU Object – Properties 
 
@@ -58,7 +36,7 @@ Gets the collection of SKUs associated with a product.
 
 >`GET /stores/{store_hash}/v2/products/{product_id}/skus`
 
-### Notes 
+**Note**s 
 
 BigCommerce has updated the SKU schema to include additional price, weight, image, and purchasable properties. We will eventually remove the ability to manage these properties via SKU rules. (Merchants are already constrained from creating SKU-only rules in the BigCommerce control panel.)
 
@@ -230,7 +208,7 @@ The following properties of the sku are required. The request won’t be fulfill
 *   sku
 *   options
 
-### Notes 
+**Note**s 
 
 To maximize system performance, BigCommerce caps the number of SKUs associated with a product at 500. If you attempt to add a SKU to a product that has 500 SKUs, BigCommerce will return a 403 error.
 

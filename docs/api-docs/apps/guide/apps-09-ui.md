@@ -1,17 +1,8 @@
 # Designing a Single-Click App's UI
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Installing BigDesign React components](#installing-bigdesign-react-components)
-- [Using BigDesign tools](#using-bigdesign-tools)
-- [Developing for the iFrame](#developing-for-the-iframe)
-- [Next steps](#next-steps)
-- [Resources](#resources)
 
-</div>
-
-Your app's user interface is loaded inside an iFrame in a store's control panel after a user clicks the app's icon in the left nav and tirggers the [`load` callback](https://developer.bigcommerce.com/api-docs/apps/guide/callbacks). To ensure a seamless user experience, you should design your app's UI to match the design of BigCommerce's control panel. We've built a collection of reusable React components, design guidelines, and UI patterns (known collectively as *BigDesign*) that you can use to rapidly develop an app front-end that's consistent with BigCommerce's UI.
+Your app's user interface is loaded inside an iFrame in a store's control panel after a user clicks the app's icon in the left nav and tirggers the [`load` callback](/api-docs/apps/guide/callbacks). To ensure a seamless user experience, you should design your app's UI to match the design of BigCommerce's control panel. We've built a collection of reusable React components, design guidelines, and UI patterns (known collectively as *BigDesign*) that you can use to rapidly develop an app front-end that's consistent with BigCommerce's UI.
 
 ## Installing BigDesign React components
 
@@ -49,7 +40,7 @@ The BigCommerce team has developed a collection of tools to help you design your
 ### Developer playground
 The BigDesign Playground demonstrates the visual style and behavior of each BigDesign component. Each component has props that you can pass to the components for further configuration.
 
-[Go to the BigDesign Developer Playground](https://developer.bigcommerce.com/big-design/).
+[Go to the BigDesign Developer Playground](https://developer.bigcommerce.com/big-design).
 
 ### Example app
 We've built a channels app that serves as a reference implementation for BigDesign React Components. You can install it on your store [here](https://apps.bigcommerce.com/details/18212) (apps.bigcommerce.com) to view the components.
@@ -70,25 +61,18 @@ To load inside the control panel iFrame, your app must do the following:
 1. **Serve app resources over HTTPS:** BigCommerce's control panel is served over HTTPS. Your app must also be served over HTTPS, including any remote resources referenced (such as CSS, JS, and image files). If any resources are served over HTTP, the user's browser will display a mixed content error and refuse to render your app's UI in the control panel iFrame.
 2. **Support browser same-origin policies:** Same-origin policities restrict apps running within iFrames from performing certain activities, such as interacting with other services. If your app requires this, open a new tab for actions that cannot occur in an iFrame<sup>1</sup>. [Learn more about same-origin policies](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) (developer.mozilla.org).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-> ### Note
+> #### Note
 > Apps that operate in the iFrame get strong preference during [Apps Marketplace](https://www.bigcommerce.com/apps/) consideration; however, we sometimes make exceptions for apps that need to interact with other services.
 
 
-</div>
-</div>
-</div>
+
 
 ## Next steps
-* [Create external installation buttons](https://developer.bigcommerce.com/api-docs/apps/guide/buttons).
-* [Follow best practices](https://developer.bigcommerce.com/api-docs/apps/guide/best-practices).
-* [Check requirements](https://developer.bigcommerce.com/api-docs/apps/guide/requirements).
-* [Publish your app](https://developer.bigcommerce.com/api-docs/apps/guide/publish).
+* [Create external installation buttons](/api-docs/apps/guide/buttons).
+* [Follow best practices](/api-docs/apps/guide/best-practices).
+* [Check requirements](/api-docs/apps/guide/requirements).
+* [Publish your app](/api-docs/apps/guide/publish).
 
 ## Resources
 
@@ -106,7 +90,7 @@ To load inside the control panel iFrame, your app must do the following:
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

@@ -1,35 +1,16 @@
 # Option Sets
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Option Sets](#option-sets)
-- [List Option Sets](#list-option-sets)
-- [Get an Option Set](#get-an-option-set)
-- [Get a Count of Option Sets](#get-a-count-of-option-sets)
-- [Create an Option Set](#create-an-option-set)
-- [Update an Option Set](#update-an-option-set)
-- [Delete an Option Set](#delete-an-option-set)
-- [Delete All Option Sets](#delete-all-option-sets)
-
-</div> 
+ 
 
 ## Option Sets 
 
 A reusable set of option facets that can be applied to products.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
 
-</div>
-</div>
-</div>
+
 
 ### Option Set Object – Properties 
 

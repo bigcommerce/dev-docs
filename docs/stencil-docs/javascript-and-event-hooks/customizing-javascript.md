@@ -1,14 +1,6 @@
 # Customizing Javascript
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Modifying a page's Javascript](#modifying-a-pages-javascript)
-- [Bringing in Handlebars context](#bringing-in-handlebars-context)
-
-- [Installing libraries](#installing-libraries)
-
-</div>
 
 Most [Cornerstone theme](https://github.com/bigcommerce/cornerstone) page template files located in `templates/pages/` have a corresponding `.js` file in `assets/js/theme/`. These JavaScript files contain event handlers and logic for managing page specific elements and actions.
 
@@ -132,7 +124,8 @@ export default class Product extends PageManager {
 }
 ```
 
-Note that the `console.log(this.context.themeImageSizes);` statement will report the configured image size, following the "Hello World!" message previously defined in the [Customizing JavaScript for Individual Pages](#customizing-javascript_customizing) above.
+Note that the `console.log(this.context.themeImageSizes);` statement will report the configured image size, following the "Hello World!" message previously defined in [Modifying a Page's Javascript](#modifying-a-pages-javascript) above.
+
 
 
 ```

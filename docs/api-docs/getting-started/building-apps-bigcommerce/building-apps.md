@@ -1,30 +1,10 @@
 # Building an App
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [OAuth Summary](#oauth-summary)
-- [Request Headers](#request-headers)
-- [Managing Users Session Timeouts](#managing-users-session-timeouts)
-- [Installation and Update Sequence](#installation-and-update-sequence)
-- [Receiving the GET Request](#receiving-the-get-request)
-- [Responding to the GET Request](#responding-to-the-get-request)
-- [Making the POST Request](#making-the-post-request)
-- [Receiving the POST Response](#receiving-the-post-response)
-- [Required URIs](#required-uris)
-- [Processing the Signed Payload](#processing-the-signed-payload)
-- [Multi-User Support](#multi-user-support)
-- [External App Installation](#external-app-installation)
-- [Designing the User Interface](#designing-the-user-interface)
-- [Hosting Your App](#hosting-your-app)
-- [FAQ](#faq)
-- [Resources](#resources)
-
-</div>
 
 ## OAuth Summary
 
-API token creation is a permission reserved for the [store owner](https://forum.bigcommerce.com/s/article/Store-API-Accounts#creating) user account. An app can request authentication “on behalf” of a store owner, allowing the app to make API requests against store data.
+API token creation is a permission reserved for the [store owner](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) user account. An app can request authentication “on behalf” of a store owner, allowing the app to make API requests against store data.
 
 To test an app before release, apply for a [sandbox](https://www.bigcommerce.com/partners/) store.
 
@@ -42,7 +22,7 @@ API requests are authenticated by the following HTTP headers:
 * `X-Auth-Client` -- The Client ID of the requesting app.
 * `X-Auth-Token` -- Access token authorizing an app to access store data on behalf of a user.
 
-In addition, while not all resources require the Accept and Content-Type headers, many do. To ensure that your calls succeed, always include these headers. For more details on request headers and their accepted values, see [Request Headers](https://developer.bigcommerce.com/api-docs/getting-started/about-our-api#request-headers).
+In addition, while not all resources require the Accept and Content-Type headers, many do. To ensure that your calls succeed, always include these headers. For more details on request headers and their accepted values, see [Request Headers](/api-docs/getting-started/about-our-api#request-headers).
 
 ## Managing Users Session Timeouts
 
@@ -51,19 +31,7 @@ We recommend that you add BigCommerce’s JavaScript SDK to your Single-Click Ap
 
 Optionally, you can pass a logout callback function within the initialization call:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Logout Callback</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Logout Callback"
-subtitle: ""
-lineNumbers: true
--->
-
-```javascript
+```js title="Logout Callback" lineNumbers
 Bigcommerce.init({
       onLogout: callback
 });
@@ -77,16 +45,8 @@ The purpose of the App Installation sequence is to obtain an Oauth token for the
 
 A user kicks off the installation or update sequence from within a store's control panel by clicking the “Install” button from your app details page or by clicking an installed app to update its scopes. BigCommerce redirects the user to the Auth Callback URI provided during app registration. The Auth Callback URI must be publicly available, fully qualified, and served over TLS.
 
-<!--
-    title: #### App Installation Sequence
 
-    data: //s3.amazonaws.com/user-content.stoplight.io/6012/1536263813949
--->
-
-#### App Installation Sequence
-![#### App Installation Sequence
-](//s3.amazonaws.com/user-content.stoplight.io/6012/1536263813949 "#### App Installation Sequence
-")
+![App Installation Sequence](//s3.amazonaws.com/user-content.stoplight.io/6012/1536263813949 "App Installation Sequence")
 
 ### Handling Requests Securely
 
@@ -102,7 +62,7 @@ The following table details the full list of parameters and values included in t
 
 | Parameter | Description |
 |-|-|
-| code | Temporary code to exchange for a permanent OAuth token. See [Making the POST request](#building-apps_making-post-request) below for more information about this exchange. |
+| code | Temporary code to exchange for a permanent OAuth token. See [Making the POST request](#making-the-post-request) below for more information about this exchange. |
 | scope | List of scopes authorized by the user. As a best practice, your app should validate this list to ensure that it matches the app&#39;s needs, and fail if it does not. However, at this time, the user does not have any opportunity to pick and choose between scopes. The dialog presented to the user requires the user to approve all scopes or none. |
 | context | The store hash: a unique value that identifies the store on which a logged-in user has clicked to install or your app. BigCommerce passes this along with a context path as follows: `stores/{store_hash}`. Save the store hash value, because you will need to pass it in all your requests to the API. |
 
@@ -110,13 +70,8 @@ The following table details the full list of parameters and values included in t
 
 This example initiates the token exchange, with a requested scope of store_v2_orders:
 
-<!--
-title: "Initial Installation"
-subtitle: ""
-lineNumbers: true
--->
 
-```http
+```http title="Initial Installation" lineNumbers
 GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders&context=stores/g5cd38 HTTP/1.1
 Host: app.example.com
 ```
@@ -124,29 +79,16 @@ Host: app.example.com
 ### Example – Updating Scopes
 The following example requests a scope of store_v2_products, in addition to the initially requested scope of store_v2_orders:
 
-<!--
-title: "Updating Scopes"
-subtitle: ""
-lineNumbers: true
--->
-
-```http
+```http title="Updating Scopes" lineNumbers
 GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders+store_v2_products&context=stores/g5cd38 HTTP/1.1
 Host: app.example.com
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Token Invalidation
+<!-- theme: info -->
+> #### Token Invalidation
 > When your app receives a new token, any previously issued token is invalidated.
 
-</div>
-</div>
-</div>
+
 
 ## Responding to the GET Request
 
@@ -164,18 +106,11 @@ Make the POST request to the following address: `https://login.bigcommerce.com/o
 
 Upon receiving the POST request during inital installation, BigCommerce marks the status of your app as “Installed”, removes the progress-indicator overlay, and places your app icon in the control panel’s left-hand navigation. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your GET response.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Receiving the POST request
+<!-- theme: info -->
+> #### Receiving the POST request
 > Upon receiving the POST request during initial installation BigCommerce removes the update prompt from the control panel.
 
-</div>
-</div>
-</div>
+
 
 ### Parameters
 
@@ -183,8 +118,8 @@ Include values for each of the following parameters.
 
 | Parameter | Description |
 |-|-|
-| client_id | The Client ID for your app, obtained during [registration](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_client-id-secret). |
-| client_secret | The Client Secret for your app, obtained during [registration](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_client-id-secret). |
+| client_id | The Client ID for your app, obtained during [registration](/api-docs/getting-started/authentication#authentication_client-id-secret). |
+| client_secret | The Client Secret for your app, obtained during [registration](/api-docs/getting-started/authentication#authentication_client-id-secret). |
 | code | Temporary access code received in the [GET request](/api-docs/getting-started/building-apps-bigcommerce/building-apps#receiving-the-get-request) discussed above. |
 | scope | List of OAuth scopes received in the [GET request](/api-docs/getting-started/building-apps-bigcommerce/building-apps#receiving-the-get-request) discussed above. |
 | grant_type | Always use the following: authorization_code. |
@@ -193,39 +128,15 @@ Include values for each of the following parameters.
 
 **Examples – Initial Installation**
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">HTTP</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "HTTP"
-subtitle: ""
-lineNumbers: true
--->
-
-```http
+```http title="HTTP" lineNumbers
 POST /oauth2/token HTTP/1.1
 Host: login.bigcommerce.com
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 186
 client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&code=qr6h3thvbvag2ffq&scope=store_v2_orders&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/{STORE_HASH}
 ```
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">PHP</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "PHP"
-subtitle: ""
-lineNumbers: true
--->
-
-```php
+&nbsp;
+```php title="PHP" lineNumbers
 use Bigcommerce\Api\Connection;
 $tokenUrl = "https://login.bigcommerce.com/oauth2/token";
 $connection = new Connection();
@@ -246,39 +157,15 @@ $token = $response->access_token;
 
 The following examples request a scope of store_v2_products, in addition to the initially requested scope of store_v2_orders:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">HTTP</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "HTTP"
-subtitle: ""
-lineNumbers: true
--->
-
-```http
+```http title="HTTP" lineNumbers
 POST /oauth2/token HTTP/1.1
 Host: login.bigcommerce.com
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 186
 client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&scope=store_v2_orders+store_v2_products&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/{STORE_HASH}
 ```
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">PHP</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "PHP"
-subtitle: ""
-lineNumbers: true
--->
-
-```php
+&nbsp;
+```php title="PHP" lineNumbers
 use Bigcommerce\Api\Connection;
 $tokenUrl = "https://login.bigcommerce.com/oauth2/token";
 $connection = new Connection();
@@ -309,19 +196,7 @@ The POST response will include a JSON object containing the permanent OAuth toke
 | email | string | The user’s email address. Store this value to identify the user at load and uninstall. |
 | context | string | The store hash, as well as a base path: `stores/{_store_hash_}` |
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Initial Installation</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Initial Installation"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Initial Installation" lineNumbers
 {
   "access_token": "ACCESS_TOKEN",
   "scope": "store_v2_orders",
@@ -335,19 +210,7 @@ lineNumbers: true
 
 Update requests will refresh the payload’s access_token and scope values. Here again, the following example requests a scope of store_v2_products, in addition to the initially requested scope of store_v2_orders:
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">Updating Scopes</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "Updating Scopes"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="Updating Scopes" lineNumbers
 {
   "access_token": "ACCESS_TOKEN",
   "scope": "store_v2_orders store_v2_products",
@@ -377,7 +240,7 @@ Each event listed here triggers a GET request from BigCommerce containing a sign
 
 Once your app has been installed, the store owner or user can click its icon in the control panel to launch it. This causes BigCommerce to send a GET request to the Load Callback URI that you provided during app registration. In a production environment, the Load Callback URI must be publicly available, fully qualified, and served over TLS/SSL.
 
-```http
+```http title="Example response to GET /load endpoint"
 # The GET request contains a signed payload, as shown below.
 GET /load?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: app.example.com
@@ -408,30 +271,17 @@ If you have not enabled [multi-user support](#multi-user-support), you will not 
 
 **Example -- Get Request sent to the Remove User URI**
 
-<!--
-title: "Remove User URI"
-subtitle: ""
-lineNumbers: true
--->
-
-```http
+```http title="Remove User URI" lineNumbers
 GET /remove-user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: app.example.com
 ```
 
 Upon receiving the GET request, your app will need to process the signed payload.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
 > Any HTML that you return in your response for uninstalling an app or removing a user will not render in the response.
 
-</div>
-</div>
-</div>
+
 
 ## Processing the Signed Payload
 
@@ -456,32 +306,11 @@ To decode the signed payload, complete the following steps:
 
 To verify the payload, you need to sign the payload using your client secret, and confirm that it matches the signature that was sent in the request.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Timing Attacks
+<!-- theme: warning -->
+> #### Timing Attacks
 > To limit the vulnerability of your app to timing attacks, we recommend using a constant time-string comparison function, rather than the equality operator, to check that the signatures match.
 
-</div>
-</div>
-</div>
-
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">verifySignedRequest</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "verifySignedRequest"
-subtitle: ""
-lineNumbers: true
--->
-
-```php
+```php title="PHP: verifySignedRequest" lineNumbers
 function verifySignedRequest($signedRequest)
 {
     list($encodedData, $encodedSignature) = explode('.', $signedRequest, 2);
@@ -501,32 +330,12 @@ function verifySignedRequest($signedRequest)
 }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### !hash_equals
+<!-- theme: info -->
+> #### !hash_equals
 > !hash_equals is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: https://packagist.org/packages/realityking/hash_equals. BigCommerce’s sample app hello-world-app-php-silex app does this automatically.
 
-</div>
-</div>
-</div>
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">verify()</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
-
-<!--
-title: "verify()"
-subtitle: ""
-lineNumbers: true
--->
-
-```ruby
+```ruby title="Ruby: verify()" lineNumbers
 require "base64"
 require "openssl"
 
@@ -584,19 +393,8 @@ Use the store information endpoint to identify the store to which the request pe
 | store_hash | string |Unique identifier for the store. |
 | timestamp | float | The time (in Unix time) when the callback was generated.|
 
-<div class="HubBlock-header">
-    <div class="HubBlock-header-title flex items-center">
-        <div class="HubBlock-header-name">User Information</div>
-    </div><div class="HubBlock-header-subtitle"></div>
-</div>
 
-<!--
-title: "User Information"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
+```json title="User Information" lineNumbers
 {
     "user":
          {
@@ -651,24 +449,15 @@ Apps can be installed from outside the BigCommerce control panel. For example, y
 
 First, embed an install button like the one below, at any web location from which you’d like to enable app installation:
 
-<!--
-    title:
-    data: //s3.amazonaws.com/user-content.stoplight.io/6490/1539297285625
--->
-
-![](//s3.amazonaws.com/user-content.stoplight.io/6490/1539297285625 "")
+![install button](//s3.amazonaws.com/user-content.stoplight.io/6490/1539297285625)
 
 Redirect anyone who presses your button to: `https://login.bigcommerce.com/app/<your-app's-client-id>/install`
 
 ### Configure Your Button
 Upon clicking, your button should open a modal similar to the image below. We recommend a modal sized 900px wide by 450px high.
 
-<!--
-    title:
-    data: //s3.amazonaws.com/user-content.stoplight.io/6490/1539297431440
--->
 
-![](//s3.amazonaws.com/user-content.stoplight.io/6490/1539297431440 "")
+![configure button](//s3.amazonaws.com/user-content.stoplight.io/6490/1539297431440)
 
 Your button will link merchants to BigCommerce’s install endpoint for your application. Once the merchant clicks the link, they will be prompted to log in, then authorize your application, just like in the [normal installation flow](#installation-and-update-sequence).
 
@@ -690,13 +479,8 @@ If there were errors, call:
 
 Below is a sample code snippet of an auth callback that does this:
 
-<!--
-title: "Auth Callback"
-subtitle: ""
-lineNumbers: true
--->
 
-```lua
+```lua title="Lua Auth Callback" lineNumbers
    if params['external_install']
         return get 'https://login.bigcommerce.com/app/m8e1mkkmjw2xjinydqz7ie05to1y2nk/install/succeeded'
     end
@@ -713,7 +497,7 @@ Depending on which endpoint you call, we will render one of the following succes
 
 ## Designing the User Interface
 
-BigDesign is a collection of reusable React components, design guidelines, and UI patterns that can be used to build interfaces matching the BigCommerce control panel. It is available as an [npm package](https://www.npmjs.com/package/@bigcommerce/big-design), which can be installed as a dependency in third-party apps, and as an [open source repository on GitHub.](https://github.com/bigcommerce) BigDesign includes all the essential elements you need to construct a UI: buttons, forms, headings, and more. To get started using the components see our [BigDesign Playground](https://developer.bigcommerce.com/big-design/).
+BigDesign is a collection of reusable React components, design guidelines, and UI patterns that can be used to build interfaces matching the BigCommerce control panel. It is available as an [npm package](https://www.npmjs.com/package/@bigcommerce/big-design), which can be installed as a dependency in third-party apps, and as an [open source repository on GitHub.](https://github.com/bigcommerce) BigDesign includes all the essential elements you need to construct a UI: buttons, forms, headings, and more. To get started using the components see our [BigDesign Playground](https://developer.bigcommerce.com/big-design).
 
 ### User Interface Constraints
 
@@ -738,18 +522,11 @@ Internet Explorer is one of the browsers that BigCommerce [supports](https://sup
 *   <a href="http://www.techrepublic.com/blog/software-engineer/craft-a-p3p-policy-to-make-ie-behave/" target="_blank">Craft a P3P policy to make IE behave</a>
 *   <a href="http://blogs.msdn.com/b/ieinternals/archive/2013/09/17/simple-introduction-to-p3p-cookie-blocking-frame.aspx" target="_blank">MSDN Intro to P3P Cookie Blocking</a>
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
-### Microsoft No Longer Supports P3P
+<!-- theme: info -->
+> #### Microsoft No Longer Supports P3P
 > Support for P3P 1.0 has been removed in Windows 10 and will have minimal ongoing servicing for previous versions of Windows. [_Microsoft_](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/mt146424(v=vs.85)?redirectedfrom=MSDN)
 
-</div>
-</div>
-</div>
+
 
 ## Hosting Your App
 BigCommerce stores are hosted on [Google Cloud Platform](https://cloud.google.com/) in the [us-central1](https://cloud.google.com/compute/docs/regions-zones/) region.
@@ -759,14 +536,14 @@ Therefore, you can maximize performance of your app (in terms of latency to the 
 ## FAQ
 
 ### How can I make API calls?
-We have built several [Hello World](https://developer.bigcommerce.com/tools-resources) apps to get you started quickly. You can use these apps as a starting point or an example for building a Single-click app.
+We have built several [Hello World](/tools-resources) apps to get you started quickly. You can use these apps as a starting point or an example for building a Single-click app.
 
-If you'd like to make test API requests without the overhead of installing a draft app, you can generate [API Credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication#authentication_getting-api-credentials) by creating an API Account in your store's control panel.
+If you'd like to make test API requests without the overhead of installing a draft app, you can generate [API Credentials](/api-docs/getting-started/authentication#authentication_getting-api-credentials) by creating an API Account in your store's control panel.
 
 ### How can I sell my app?
 The first step to listing an app in the BigCommerce App Marketplace is to apply to the BigCommerce [partner program](https://www.bigcommerce.com/partners/).
 
-For more details on including your app in the Marketplace, see [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements).
+For more details on including your app in the Marketplace, see [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements).
 
 ## Resources
 
@@ -776,10 +553,10 @@ For more details on including your app in the Marketplace, see [App Store Approv
 * [Ruby Hello World](https://github.com/bigcommerce/omniauth-bigcommerce) (BigCommerce GitHub)
 * [Python Hello World](https://github.com/bigcommerce/hello-world-app-python-flask) (BigCommerce GitHub)
 ### Related Articles
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
-* [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
-* [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
-* [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
+* [Authentication](/api-docs/getting-started/authentication)
+* [Customer Login API](/api-docs/storefront/customer-login-api)
+* [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements)
 * [Store Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) (Knowledge Base)
 * [Supported Browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers) (Knowledge Base)
 * [BigCommerce Partners](https://www.bigcommerce.com/partners/) (BigCommerce)
@@ -788,6 +565,5 @@ For more details on including your app in the Marketplace, see [App Store Approv
 * [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2) (BigCommerce Developer Blog)
 ### Additonal Resources
 * [Same Origin Policy](https://en.wikipedia.org/wiki/Same-origin_policy) (Wikipedia)
-* [Craft a P3P Policy to Make IE Behave](https://www.techrepublic.com/blog/software-engineer/craft-a-p3p-policy-to-make-ie-behave/) (Tech Republic)
 * [Quick Look at P3P](https://blogs.msdn.microsoft.com/ieinternals/2013/09/17/a-quick-look-at-p3p/) (Microsoft Blogs)
 * [Google Cloud](https://cloud.google.com/) (Google)

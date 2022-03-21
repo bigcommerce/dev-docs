@@ -1,36 +1,16 @@
 # Option Values
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Option Values](#option-values)
-- [List Option Values](#list-option-values)
-- [Get an Option Value](#get-an-option-value)
-- [Create an Option Value](#create-an-option-value)
-- [Update an Option Value](#update-an-option-value)
-- [Delete an Option Value](#delete-an-option-value)
-- [Delete Multiple Option Values](#delete-multiple-option-values)
-
-</div> 
+ 
 
 ## Option Values 
 
 Values that can be selected for an option.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Deprecated
+> #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
+> For the most up-to-date version of this API, see [Product Option Values](/api-reference/store-management/catalog/product-option-values).
 
-For the most up-to-date version of this API, see [Product Option Values](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-option-values).
-
-</div>
-</div>
-</div>
 
 ### Option Value Object – Properties 
 
@@ -40,7 +20,7 @@ For the most up-to-date version of this API, see [Product Option Values](https:/
 | option_id | int | A read-only value identifying the option to which this option value is assigned. |
 | label | string | The name of the label. Cannot be the same as the label of another value already assigned to the option. |
 | sort_order | int |
-| value | text | Acceptable values generally depend on the option type, as defined in the option:<br><br> `RB`: string to be displayed to the customer.<br> `RT`: string to be displayed to the customer.<br> `S`: string to be displayed to the customer.<br> `P`: product ID;<br> `PI`: product ID.<br> `CS`: one of the following color values – a hexadecimal color code to create a color option (e.g., `#0f0000`);<br> a CSS 2.1 color name (e.g., `blue`);<br> up to three hexadecimal color codes and/or color names, separated by pipe symbols (e.g., <code>#FF0000&#124;lime&#124;#0000FF</code>);<br>  a URI to an image to create a texture (e.g., `http://store.com/images/myimg.png`);<br> or the name of an image file in the store's WebDAV `import` folder  (e.g., `myimg.png`). |
+| value | text | Acceptable values generally depend on the option type, as defined in the option:<br><br> `RB`: string to be displayed to the customer.<br> `RT`: string to be displayed to the customer.<br> `S`: string to be displayed to the customer.<br> `P`: product ID;<br> `PI`: product ID.<br> `CS`: one of the following color values – a hexadecimal color code to create a color option (e.g., `#0f0000`);<br> a CSS 2.1 color name (e.g., `blue`);<br> up to three hexadecimal color codes and/or color names, separated by pipe symbols (e.g., `#FF0000&#124;lime&#124;#0000FF`);<br>  a URI to an image to create a texture (e.g., `http://store.com/images/myimg.png`);<br> or the name of an image file in the store's WebDAV `import` folder  (e.g., `myimg.png`). |
 | is_default | boolean | Whether or not this value is selected by default. For each option, only one option value can be selected by default. |
 
 ## List Option Values 
@@ -124,7 +104,7 @@ The following properties of the option value are required. The request won’t b
 *   label
 *   value
 
-### Notes 
+**Note**s 
 
 To maximize system performance, BigCommerce caps the total number of values per option at 250. IF the option has 250 values and you try to create another one, BigCommerce will return a 403 error.
 

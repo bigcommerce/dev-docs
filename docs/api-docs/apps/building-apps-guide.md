@@ -1,34 +1,10 @@
 # Building Apps
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Get Started](#get-started)
-- [Decide App Type](#decide-app-type)
-- [Start with Hello World](#start-with-hello-world)
-- [Test Locally](#test-locally)
-- [Register the App](#register-the-app)
-- [Install Draft App](#install-draft-app)
-- [Implement OAuth Flow](#implement-oauth-flow)
-- [Test OAuth Locally](#test-oauth-locally)
-- [Handle Callbacks](#handle-callbacks)
-- [Support Multiple Users](#support-multiple-users)
-- [Listen for Events](#listen-for-events)
-- [Design the UI](#design-the-ui)
-- [Create Install Buttons](#create-install-buttons)
-- [Follow Best Practices](#follow-best-practices)
-- [Check Requirements](#check-requirements)
-- [Deploy the App](#deploy-the-app)
-- [Publish to Marketplace](#publish-to-marketplace)
-- [Resources](#resources)
-
-</div>
-
 This article is an in-depth, comprehensive guide to building apps on BigCommerce. For a step-by-step tutorial, see []().
 
 ## Get Started
 1. Create a [Free Trial](https://www.bigcommerce.com/essentials/free-trial)
-2. Apply to be a [Technology Partner](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner)
+2. Apply to be a [Technology Partner](/api-docs/partner/becoming-a-partner)
 3. Create a [developer account](https://devtools.bigcommerce.com/)
 
 ## Decide App Type
@@ -123,10 +99,10 @@ content
 * [Ruby Hello World](https://github.com/bigcommerce/omniauth-bigcommerce) (BigCommerce GitHub)
 * [Python Hello World](https://github.com/bigcommerce/hello-world-app-python-flask) (BigCommerce GitHub)
 ### Related Articles
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
-* [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
-* [Customer Login API](https://developer.bigcommerce.com/api-docs/customers/customer-login-api)
-* [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
+* [Authentication](/api-docs/getting-started/authentication)
+* [Customer Login API](/api-docs/storefront/customer-login-api)
+* [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements)
 * [Store Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) (Knowledge Base)
 * [Supported Browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers) (Knowledge Base)
 * [BigCommerce Partners](https://www.bigcommerce.com/partners/) (BigCommerce)
@@ -135,6 +111,5 @@ content
 * [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2) (BigCommerce Developer Blog)
 ### Additonal Resources
 * [Same Origin Policy](https://en.wikipedia.org/wiki/Same-origin_policy) (Wikipedia)
-* [Craft a P3P Policy to Make IE Behave](https://www.techrepublic.com/blog/software-engineer/craft-a-p3p-policy-to-make-ie-behave/) (Tech Republic)
 * [Quick Look at P3P](https://blogs.msdn.microsoft.com/ieinternals/2013/09/17/a-quick-look-at-p3p/) (Microsoft Blogs)
 * [Google Cloud](https://cloud.google.com/) (Google)

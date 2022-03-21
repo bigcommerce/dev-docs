@@ -1,17 +1,6 @@
 # Supporting Multiple Users
 
-<div class="otp" id="no-index">
 
-### On This Page
-- [Enabling multiple users](#enabling-multiple-users)
-- [The control panel experience](#the-control-panel-experience)
-- [The load request](#the-load-request)
-- [The remove user request](#the-remove-user-request)
-- [Next step](#next-step)
-- [Resources](#resources)
-- [Related articles](#related-articles)
-
-</div>
 
 When you register your app in the [Developer Portal](https://devtools.bigcommerce.com/), you'll have the option of enabling **Multiple Users**. This allows store administrators to manually authorize users to load the app. This article describes how enabling **Multiple Users** impacts the app's user experience in the control panel, and discusses important implications for app developers to consider before enabling the feature.
 
@@ -40,19 +29,19 @@ Because you know the store owner's `email` and `ID` from the app installation se
 ## The remove user request
 Store owners can also remove users. This action generates a `GET` request to the remove user callback URL that you provided in the [Developer Portal](https://devtools.bigcommerce.com/my/apps). When this occurs, your app should remove the user identified in the request from it's records.
 
-For details about remove user and load requests, see [Single-click App Callbacks](https://developer.bigcommerce.com/api-docs/apps/guide/callbacks).
+For details about remove user and load requests, see [Single-click App Callbacks](/api-docs/apps/guide/callbacks).
 
 ## Next step
 
-* [Learn how to handle store events](https://developer.bigcommerce.com/api-docs/apps/guide/users).
+* [Learn how to handle store events](/api-docs/apps/guide/users).
 
 ## Resources
 
 ## Related articles
-* [Single-click App Callback Handlers](https://developer.bigcommerce.com/api-docs/apps/guide/callbacks)
+* [Single-click App Callback Handlers](/api-docs/apps/guide/callbacks)
 
 ### Sample apps
-* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start)
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](/api-docs/apps/quick-start)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
@@ -65,7 +54,7 @@ For details about remove user and load requests, see [Single-click App Callbacks
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

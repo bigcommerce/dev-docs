@@ -1,24 +1,17 @@
 # Global Regions
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Create a global region](#create-a-global-region)
-- [Place a widget in the global region](#place-a-widget-in-the-global-region)
-- [Related resources](#related-resources)
 
-</div>
-
-[Global regions](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#global-regions) are special regions you can use to place and manage content sitewide. 
+[Global regions](/api-docs/store-management/widgets/overview#global-regions) are special regions you can use to place and manage content sitewide. 
 In this tutorial, we will explore the concept of global regions by creating a global region and placing a widget in it using Page Builder.
 
 ###  Prerequisites
 
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
-* Knowledge of the [Widgets API](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-overview).
+* Knowledge of the [Widgets API](/api-docs/storefront/widgets/widgets-overview).
 * Knowledge of [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder).
 
-To edit theme files locally, we recommend using [Stencil CLI](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/installing-stencil), BigCommerce’s powerful theme development and deployment tool.
+To edit theme files locally, we recommend using [Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil), BigCommerce’s powerful theme development and deployment tool.
 
 ## Create a global region
 
@@ -75,7 +68,7 @@ To test your global region's functionality, drag and drop one of the basic widge
 
 ### Articles
 * [Widgets Overview](/api-docs/store-management/widgets/overview)
-* [Page Builder Overview](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview)
+* [Page Builder Overview](/stencil-docs/page-builder/page-builder-overview)
 
 ### Endpoints
 * [Widgets API](/api-reference/store-management/widgets)

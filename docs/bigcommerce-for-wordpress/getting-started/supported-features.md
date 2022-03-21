@@ -1,15 +1,8 @@
-<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for WordPress</h3>
+<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for WordPress</h3></div>
 
 # Supported Features
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Supported features](#supported-features)
-- [Unsupported features](#unsupported-features)
-- [General product roadmap](#general-product-roadmap)
-
-</div>
 
 ## Supported features
 

@@ -1,36 +1,21 @@
 # Localizing Stores
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Localizing theme files](#localizing-theme-files)
-- [Localizing checkout](#localizing-checkout)
-- [Localizing your storefront content](#localizing-your-storefront-content)
-- [Resources](#resources)
-
-</div>
 
 A BigCommerce storefront can be customized to display in any one language of your choice. To fully localize a store for a language or region, you will need to customize three areas:
 
 
-* [**Storefront theme pages.**](#translating-theme-files-via-stencil-cli)Translate static strings by adding translation files for your chosen languages via Stencil CLI.
+* [**Storefront theme pages.**](#translating-theme-files-by-stencil-cli)Translate static strings by adding translation files for your chosen languages via Stencil CLI.
 
 * [**Checkout.**](#localizing-checkout) Localize checkout by modifying theme files in Stencil CLI and settings in the BigCommerce control panel.
 
 * [**Storefront content.**](#localizing-your-storefront-content) Adjust other localization details in the BigCommerce control panel.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-### Storefront language support
+> #### Storefront language support
 > Each storefront can only support a single language. To display multiple languages, we recommend setting up a separate store for each language.
 
-</div>
-</div>
-</div>
+
 
 ## Localizing theme files
 
@@ -59,21 +44,14 @@ You can review these strings by downloading the language files we have made avai
 
 ## Localizing checkout
 
-Localizing your theme's checkout and order confirmation pages requires customizations within the default checkout page and the order confirmation HTML file. See [Multi-language setup](https://developer.bigcommerce.com/stencil-docs/localization/multi-language-checkout) for details.
+Localizing your theme's checkout and order confirmation pages requires customizations within the default checkout page and the order confirmation HTML file. See [Multi-language setup](/stencil-docs/localization/multi-language-checkout) for details.
 
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
 
 <!-- theme: warning -->
+> #### Checkout localization
+> Checkout localization is only available for [Optimized One-Page Checkout](/stencil-docs/customizing-checkout/optimized-one-page-checkout).
 
-### Checkout localization
-> Checkout localization is only available for [Optimized One-Page Checkout](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/optimized-one-page-checkout).
 
-</div>
-</div>
-</div>
 
 ## Localizing your storefront content
 
@@ -125,16 +103,16 @@ To fully localize your store, disable gift certificates in the BigCommerce contr
 ### Managing system messages
 You can localize a store's payment and checkout error messages via checkout-js in the BigCommerce control panel. For a list of error messages and supported languages, see [Verbose Error Messages at Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout#verbose).
 
-To customize payment and checkout messages, define these variables in the theme language files. For details, see [Multi-language setup](https://developer.bigcommerce.com/stencil-docs/localization/multi-language-checkout#multi-language-setup).
+To customize payment and checkout messages, define these variables in the theme language files. For details, see [Multi-language setup](/stencil-docs/localization/multi-language-checkout#multi-language-setup).
 
 
 ## Resources
 
 ### Related articles
 
-* [Translation Keys](https://developer.bigcommerce.com/stencil-docs/localization/translation-keys)
-* [Restyle Optimized One-Page Checkout](https://developer.bigcommerce.com/stencil-docs/customizing-checkout/optimized-one-page-checkout)
-* [Multi-Language Checkout](https://developer.bigcommerce.com/stencil-docs/localization/multi-language-checkout)
+* [Translation Keys](/stencil-docs/localization/translation-keys)
+* [Restyle Optimized One-Page Checkout](/stencil-docs/customizing-checkout/optimized-one-page-checkout)
+* [Multi-Language Checkout](/stencil-docs/localization/multi-language-checkout)
 * [Adding Products](https://support.bigcommerce.com/s/article/Adding-Products-v3) (BigCommerce Knowledge Base)
 * [Changing Your Default Currency](https://support.bigcommerce.com/s/article/Managing-Currencies#default)(BigCommerce Knowledge Base)
 

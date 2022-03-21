@@ -1,17 +1,8 @@
 # Widget UI Schema
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Tabs and sections](#tabs-and-sections)
-- [Array type](#array-type)
-- [Hidden settings](#hidden-settings)
-- [Schema settings fields](#schema-settings-fields)
-- [Resources](#resources)
 
-</div>
-
-This document outlines the different schema settings you can use in your custom widget template. For a tutorial on creating widget templates, see [Widgets Tutorial](https://developer.bigcommerce.com/api-docs/store-management/widgets/tutorial). 
+This document outlines the different schema settings you can use in your custom widget template. For a tutorial on creating widget templates, see [Widgets Tutorial](/api-docs/store-management/widgets/tutorial). 
 
 ## Tabs and sections
 Within the `schema` property of the Create a Widget Template endpoint, settings are grouped into `tabs` and `sections`.
@@ -19,9 +10,10 @@ Within the `schema` property of the Create a Widget Template endpoint, settings 
 ### Tabs
 Tabs are a part of the Page Builder schema structure. The schema requires using a single root-level `tab` to contain all visible sections.
 
->**Note**
->
->Sections render in the same order they are listed within a tab.
+<!-- theme: info -->
+> #### Note
+> Sections render in the same order they are listed within a tab.
+
 
 **Tab schema example**
 ```json
@@ -87,8 +79,8 @@ Elements in the list have settings defined by the array’s schema, which you ca
 }
 
 ```
->**Note**
->
+<!-- theme: info -->
+> #### Notes
 >- Each element in the list can have tabs and sections included.
 >- The `defaultCount` attribute is the number of elements that are displayed in the list by default.
 >- Use the `thumbnail` attribute to display an image stored at the specified attribute name.
@@ -126,10 +118,10 @@ The following table contains fields common between schema settings.
 |`typeMeta`|Additional information needed based on the selected setting type.|
 |`conditional`|An optional property that can be added to each setting to control whether it should be displayed to the user while editing in Page Builder. This does not clear the value in the setting, just controls the display of the setting.|
 
-For examples of different schema settings you can use in your custom widget template, see [Widget UI Input Types](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings).
+For examples of different schema settings you can use in your custom widget template, see [Widget UI Input Types](/stencil-docs/page-builder/schema-settings).
 
 ## Resources
-- [Widgets API](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview)
-- [Widgets Code Samples](https://developer.bigcommerce.com/api-docs/storefront/widgets/widgets-code-samples)
-- [Widget UI Input Types](https://developer.bigcommerce.com/stencil-docs/page-builder/schema-settings)
-- [Widgets Tutorial](https://developer.bigcommerce.com/api-docs/store-management/widgets/tutorial)
+- [Widgets API](/api-docs/store-management/widgets/overview)
+- [Widgets Code Samples](/api-docs/storefront/widgets/widgets-code-samples)
+- [Widget UI Input Types](/stencil-docs/page-builder/schema-settings/alignment)
+- [Widgets Tutorial](/api-docs/store-management/widgets/tutorial)

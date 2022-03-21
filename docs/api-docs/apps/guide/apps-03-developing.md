@@ -1,28 +1,17 @@
 # Beginning App Development
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Getting started](#getting-started)
-- [Beginning quickly](#beginning-quickly)
-- [Testing locally with ngrok](#testing-locally-with-ngrok)
-- [Registering a draft app](#registering-a-draft-app)
-- [Installing a draft app](#installing-a-draft-app)
-- [Next step](#next-step)
-- [Resources](#resources)
-
-</div>
 
 The BigCommerce team has developed an array of sample apps and tools to assist developers in the initial phase of app development. In this article, we'll introduce those tools and go over how to begin app development by installing and registering a draft app.
 
 ## Getting started
 Here's a few things you'll need before beginning app development:
-1. [BigCommerce sandbox store](https://developer.bigcommerce.com/api-docs/partner/getting-started/create-a-sandbox-store) (required to test app installation)
+1. [BigCommerce sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store) (required to test app installation)
 2. [Developer Portal Account](https://devtools.bigcommerce.com/) (required to register apps)
 3. [BigCommerce partnership](https://www.bigcommerce.com/partners/) (required to publish apps to marketplace)
 
 ## Beginning quickly
-The fastest way to begin app development is by starting with one of our sample apps. You can follow our [Building Apps Quick Start Tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start), either alone or in conjunction with [spinning up a Heroku instance](https://heroku.com/deploy?template=https://github.com/bigcommerce/sample-app-nodejs) that runs our [Node / React / Next.js sample app](https://github.com/bigcommerce/sample-app-nodejs/).  
+The fastest way to begin app development is by starting with one of our sample apps. You can follow our [Building Apps Quick Start Tutorial](/api-docs/apps/quick-start), either alone or in conjunction with [spinning up a Heroku instance](https://heroku.com/deploy?template=https://github.com/bigcommerce/sample-app-nodejs) that runs our [Node / React / Next.js sample app](https://github.com/bigcommerce/sample-app-nodejs/).  
 
 Alternatively, you can clone the GitHub repo for your preferred stack:
 
@@ -82,7 +71,7 @@ Any store registered to the same email as your [Developer Portal](https://devtoo
 ## Resources
 
 ### Related articles
-* [Building Apps Quick Start](https://developer.bigcommerce.com/api-docs/apps/quick-start)
+* [Building Apps Quick Start](/api-docs/apps/quick-start)
 
 ### Sample apps
 * [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start)
@@ -98,7 +87,7 @@ Any store registered to the same email as your [Developer Portal](https://devtoo
 * [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
-* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design/)
+* [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 

@@ -1,13 +1,6 @@
 # Filtering
 
-<div class="otp" id="no-index">
 
-### On this page
-- [Include](#include)
-- [Include and exclude fields](#include-and-exclude-fields)
-- [Pagination and limit](#pagination-and-limit)
-
-</div>
 
 To filter collections down to a particular set of items, you can add filters to your request as URL query parameters.
 
@@ -63,17 +56,10 @@ You can request any field that is available on the object. Excluding unnecessary
 
 The following example shows product name and price included in a single request:
 
-`https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products?include_fields=name,price`
 
-Response: 
+```http title="Example response: Product name and price" lineNumbers
+GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products?include_fields=name,price
 
-<!--
-title: "Product Name and Price"
-subtitle: ""
-lineNumbers: true
--->
-
-```json
 {
     "data": [
         {

@@ -1,13 +1,8 @@
 
-<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
+<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for WordPress</h3></div>
 
 # Introduction
-<div class="otp" id="no-index">
 
-### On This Page
-- [How It Works](#how-it-works)
-
-</div>
 
 BigCommerce for WordPress allows you to power content-driven WordPress storefronts with the ecommerce functionality of BigCommerce. Product data is pulled into WordPress as a custom post type, giving you the freedom to embed products in posts and pages to create a tailored shopping experience. The plugin utilizes the full suite of BigCommerce APIs, allowing shoppers to seamlessly complete a purchase end-to-end on WordPress.
 
@@ -36,7 +31,9 @@ to
 
 Then, edit `wp-content/themes/<theme-name>/bigcommerce/single-bigcommerce_product.php` to override the default content.
 
-**Note**: Most templates are used for rendering content inside of the content area of your theme's template. Only a few take over the entire page template. These may need modifications to match your theme.
+<!-- theme: info -->
+> #### Note 
+> Most templates are used for rendering content inside the content area of your theme's template. Only a few take over the entire page template. These may need modifications to match your theme.
 
 ### Shopper Experience
 

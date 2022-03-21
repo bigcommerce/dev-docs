@@ -1,19 +1,5 @@
 # Scripts API
 
-<div class="otp" id="no-index">
-
-### On this page
-
-- [Script Manager API partner guidelines](#script-manager-api-partner-guidelines)
-- [Prerequisites](#prerequisites)
-- [Upgrades and installation](#upgrades-and-installation)
-- [Fixing missing scripts](#fixing-missing-scripts)
-- [Notes](#notes)
-- [Script visibility locations](#script-visibility-locations)
-- [Related resources](#related-resources)
-
-</div>
-
 The BigCommerce Scripts API gives developers the ability to inject scripts into a store's template files programmatically. This ability means that apps and integrations can insert scripts into a user’s storefront without requiring the user to paste a snippet of code into their control panel manually. You can insert many types of scripts using this API, including the following:
 
 * Analytics scripts
@@ -40,7 +26,7 @@ To help you transition to the Script Manager API, we’ve provided some recommen
 
 As mentioned above, BigCommerce supports two theme engines: Stencil and Blueprint. Stencil is our latest technology, and all new stores only have access to Stencil themes. However, older stores use our legacy theme engine, Blueprint, which cannot render scripts inserted through the Script Manager API.
 
-Because of this, you’ll need to check whether a user is running Stencil to determine if their store supports the Script Manager API. To do this, use the [Get Store Information API](https://developer.bigcommerce.com/api/v2/#store-information-reference) endpoint and check the `stencil_enabled` flag. (requires [store_v2_information_read_only scope](https://developer.bigcommerce.com/api/#oauth-scopes)).
+Because of this, you’ll need to check whether a user is running Stencil to determine if their store supports the Script Manager API. To do this, use the [Get Store Information API](/api/v2/#store-information-reference) endpoint and check the `stencil_enabled` flag. (requires [store_v2_information_read_only scope](/api/#oauth-scopes)).
 
 ## Prerequisites
 This article contains detailed information about the Scripts API and assumes you're familiar with BigCommerce App Installation process. For more information on the app installation process, see [App Installation](/api-docs/getting-started/building-apps-bigcommerce/building-apps#building-apps_installation-update-sequence)
@@ -109,11 +95,11 @@ To ensure your app is compatible with as many themes as possible, we recommend f
 
 To render scripts, the store must have BigCommerce’s Optimized one-page checkout enabled. This is the default checkout type for all new Stencil stores. Existing stores have to change the checkout type as detailed in this article manually. 
 
-Stencil themes from the marketplace support the [Optimized One-Page Checkout](https://support.bigcommerce.com/articles/Public/Optimized-Single-Page-Checkout#signup). However, there could be instances where the merchant maintains their private theme without the ability to support the Optimized one-page checkout. In this case, the merchant must add the theme support, following the steps [here](https://stencil.bigcommerce.com/docs/optimized-checkout-prereqs).  
+Stencil themes from the marketplace support the [Optimized One-Page Checkout](https://support.bigcommerce.com/articles/Public/Optimized-Single-Page-Checkout#signup). However, there could be instances where the merchant maintains their private theme without the ability to support the optimized one-page checkout. In this case, the merchant must add the theme support, following the [one-page checkout steps](/stencil-docs/customizing-checkout/optimized-one-page-checkout).  
 
 ## Notes
 
-- If you are injecting scripts into the checkout, you will need to update the scope to Checkout Content. The [store owner](https://support.bigcommerce.com/articles/Public/Store-API-Accounts/) can only create accounts.
+- If you are injecting scripts into the checkout, you will need to update the scope to Checkout Content. The [store owner](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) can only create accounts.
 - Merchants will be able to see the scripts installed on the store in the Control Panel. Within the native tag manager, merchant actions are limited to viewing and deleting a script.
 - Scripts can be located in the header `{{head.scripts}}` or footer `{{footer.scripts}}`.
 - Scripts Manager is only for Stencil themes. Blueprint store users will still need to copy and paste in code.

@@ -1,12 +1,5 @@
 # ShipperHQ Metafields
-<div class="otp" id="no-index">
 
-### On this page
-- [ShipperHQ object properties](#shipper-hq-object-properties)
-- [Control panel behavior](#control-panel-behavior)
-- [Add ShipperHQ metafield](#add-shipperhq-metafield)
-       
-</div>
 
 When you enable ShipperHQ on a store, additional fields become available on the product level:
 * [Shipping Groups](https://support.bigcommerce.com/s/article/ShipperHQ#ship-groups)
@@ -16,7 +9,7 @@ When you enable ShipperHQ on a store, additional fields become available on the 
 These field values can be set in the control panel by the merchant as well as using one of the following:
 
 * [Product Metafields Endpoint](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield)
-* [Variant Metafields Endpoint](https://developer.bigcommerce.com/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield)
+* [Variant Metafields Endpoint](/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield)
 
 ## ShipperHQ object properties
 
@@ -34,18 +27,12 @@ These field values can be set in the control panel by the merchant as well as us
 | id | number | ID of the metafield. | read only |
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-    
 <!-- theme: warning -->
-### Entering metafield data
+> #### Entering metafield data
 > You must enter the metafields exactly, otherwise, they will not work. Since metafields can store information against a product, if the `namespace` for example is set to shipping and not `shipping.shipperhq`, it will not update the shipping information.
 
 
-</div>
-</div>
-</div>
+
 
 ## Control panel behavior
 
@@ -54,15 +41,14 @@ When you set Shipping Origins using the API, you cannot delete the fields using 
 
 ## Add ShipperHQ metafield
 
-<!--
-title: "SHQ Add Metafield Request"
-subtitle: "/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/metafields"
-lineNumbers: true
--->
-
 To add a ShipperHQ metafield, set the `namespace` field to `shipping.shipperhq`: 
 
-```json
+```http title="Example request: Add ShipperHQ metafield" lineNumbers
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/metafields
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
 {
 	"permission_set": "write",
 	"key": "shipping-origins",
@@ -70,18 +56,11 @@ To add a ShipperHQ metafield, set the `namespace` field to `shipping.shipperhq`:
 	"namespace": "shipping.shipperhq"
 }
 ```
-
-<!--
-title: "SHQ Add Metafield Response"
-subtitle: ""
-lineNumbers: true
--->
-
-Response: 
-
-```json
+&nbsp;
+```json title="Example response: Add ShipperHQ metafield" lineNumbers
 {
-	"data": [{
+	"data": [
+		{
 			"id": 51,
 			"key": "shipping-origins",
 			"value": "[\"Alaska\",\"California\"]",
@@ -135,7 +114,7 @@ Response:
 
 ## Resources
 ### Related endpoints
-* [Product Metafield](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-metafields/createproductmetafield)
-* [Variant Metafield](https://developer.bigcommerce.com/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield)
+* [Product Metafield](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield)
+* [Variant Metafield](/api-reference/catalog/catalog-api/product-variants-metafields/createvariantmetafield)
 ### Related articles
 * [ShipperHQ](https://support.bigcommerce.com/s/article/ShipperHQ) (Knowledge Base)

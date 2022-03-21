@@ -1,15 +1,9 @@
 
-<h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
+<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for WordPress</h3></div>
 
 # App Compatibility
 
-<div class="otp" id="no-index">
-
-### On This Page
-- [Supported Apps](#supported-apps)
-- [Unsupported Apps](#unsupported-apps)
-
-</div> 
+ 
 
 When you use BigCommerce for WordPress, your storefront is rendered by WordPress rather than BigCommerce, so some apps that you use for a BigCommerce-powered storefront may no longer be compatible.
 
@@ -30,17 +24,10 @@ Apps that modify the storefront are currently not supported. This includes [Cust
 
 Although a specific BigCommerce app may not be available, you may be able to find an alternative in the WordPress Plugin Directory. For example, some companies, like [Mailchimp](https://mailchimp.com/), build both BigCommerce apps and WordPress plugins. Keep that in mind when searching for a solution.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
-    
-<!-- theme:  -->
-
-### Bolt Checkout for BigCommerce
+<!-- theme: info -->
+> #### Bolt Checkout for BigCommerce
 > It's also possible to integrate into BigCommerce for WordPress by creating additional plugins that hook into and extend functionality; for example, Bolt's WordPress plugin: [Bolt Checkout for BigCommerce](https://wordpress.org/plugins/bolt-checkout-bigcommerce/). For more information on how Bolt used BigCommerce for WordPress to build their plugin, see [How Bolt Built an Internet-Wide Checkout UX](https://medium.com/bigcommerce-developer-blog/how-bolt-built-an-internet-wide-checkout-ux-34c285fdb322).
 
-</div>
-</div>
-</div>
+
 
 If you are a BigCommerce app developer and would like to help our merchants on WordPress too, reach out to our App Marketplace team at [appstore@bigcommerce.com](mailto:appstore@bigcommerce.com).
