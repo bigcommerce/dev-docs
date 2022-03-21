@@ -11,7 +11,7 @@ For differences in resources, see the [Difference between V2 and V3 Catalog APIs
 
 <!-- theme: info -->
 > #### Note
-> * All V2 Catalog REST APIs are deprecated. For information on deprecated endpoints, see [Deprecations and sunsets](/api-reference#deprecations-and-sunsets).
+> * All V2 Catalog REST APIs are deprecated. For information on deprecated endpoints, see [Deprecations and sunsets](/api-docs/getting-started/deprecations-and-sunsets).
 > * BigCommerce will not introduce new resources in V2 APIs.
 > * BigCommerce will eventually migrate all existing V2 resources to V3.
 > * Not all V2 resources have V3 counterparts. 
