@@ -74,13 +74,13 @@ To install a custom order confirmation page on a store, follow these steps:
 
 ![order-confirmation-page](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/order-confirmation-page.png "Custom Order Confirmation Page")
 
-NOTES:
+<!-- theme: info -->
+> #### Notes 
+> *Prepending `webdav:` Indicates that the URL is in the remote WebDAV directory. It will treat `/content` as the root WebDAV directory.
 
-*Prepending `webdav:` Indicates that the URL is in the remote WebDAV directory. It will treat `/content` as the root WebDAV directory.
-
-*It is important to include `<version>` number in the Script URL field. Because if you make changes to the same provided loader filename, you could serve a cached version to the user.
+> *It is important to include `<version>` number in the Script URL field. Because if you make changes to the same provided loader filename, you could serve a cached version to the user.
   
-*If you previously created a custom checkout, use the same Script URL. You may need to enter the Script URL again.
+> *If you previously created a custom checkout, use the same Script URL. You may need to enter the Script URL again.
 
 3. Click the **Save** button at the bottom of the page.
 4. Navigate to your live storefront to view your new custom order confirmation page.
