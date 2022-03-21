@@ -159,11 +159,12 @@ paths:
             $ref: '#/definitions/currency_Post'
           x-examples:
             Example:
+              name: Australian Dollar
               country_iso2: AU
               currency_code: AUD
               currency_exchange_rate: '1.3885600000'
               auto_update: 'false'
-              location: left
+              token_location: left
               token: $
               decimal_token: .
               thousands_token: ','

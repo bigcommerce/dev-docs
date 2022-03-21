@@ -597,7 +597,7 @@ paths:
             type: integer
           in: query
           name: category_id
-          description: Narrows the list of available filters based on category ID. Only products within the provided Category will be considered.
+          description: 'Narrows the list of available filters based on category ID. You can display settings to show products from the provided category, subcategories only, or both the category and its child categories.'
       tags:
         - Search Filters
     parameters:
