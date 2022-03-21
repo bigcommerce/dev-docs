@@ -29,11 +29,17 @@ Updates to the following fields trigger a `store/channel/updated` event:
 
 | Name                                                   | Description                                                    |
 |-----------------------------------------------------   |----------------------------------------------------------      |
-| store/channel/{channel_id}/product/assigned            | New product assigned to channel (or new listing creating)      | 
+| store/channel/{channel_id}/product/assigned            | Product assigned to channel (or new listing creating)          | 
 | store/channel/{channel_id}/product/unassigned          | Existing product on channel has been unassigned (or de-listed) |
 | store/channel/{channel_id}/category/product/assigned   | Product assigned to category within a specific channel         |
 | store/channel/{channel_id}/category/product/unassigned | Product unassigned from category within a specific channel     |
 | store/channel/{channel_id}/settings/profile/updated    | Store profile settings updated per channel                     |
+
+Updates to the following endpoints trigger a `store/channel/updated` event:
+
+* PUT `/catalog/products/category-assignments`
+* DELETE `/catalog/products/category-assignments`
+* PUT `/settings/store/profile`
 
 For a complete reference of all BigCommerce webhook events and their callback payloads, see [Webhook] Events(https://developer.bigcommerce.com/docs/ZG9jOjIyMDczNA-webhook-events).
 
