@@ -47,10 +47,14 @@ You will need to host the custom confirmation file online so it can be served by
 You can upload a custom order confirmation page to your store's server using WebDAV. The instructions to upload the `/dist` folder to the BigCommerce server using WebDav are below:
 
 1. Before proceeding, ensure you have downloaded [Cyberduck](https://cyberduck.io/), our recommended WebDAV client.
-**Note:**  For more information on how to use Cyberduck, refer to the [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV) page.
+
+<!-- theme: info -->
+> #### Note 
+> For more information on how to use Cyberduck, refer to the [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV) page. 
+ 
 2. From your store control panel, navigate to **Server Settings** > **File Access (WebDAV)**.
-    - To automatically connect with Cyberduck, see [Single-click Login](https://support.bigcommerce.com/s/article/File-Access-WebDAV#login).
-    - To manually connect with Cyberduck, see [Connecting with Cyberduck Manually](https://support.bigcommerce.com/s/article/File-Access-WebDAV#manual).
+    * To automatically connect with Cyberduck, see [Single-click Login](https://support.bigcommerce.com/s/article/File-Access-WebDAV#login).
+    * To manually connect with Cyberduck, see [Connecting with Cyberduck Manually](https://support.bigcommerce.com/s/article/File-Access-WebDAV#manual).
 3. From Cyberduck, enter the `/content` folder and create a new folder named *OrderConfirmation*.
 4. Navigate into the `/dist` folder in your OrderConfirmation project.
 5. Copy the contents of the `/dist` folder and paste it into the *OrderConfirmation* folder.
