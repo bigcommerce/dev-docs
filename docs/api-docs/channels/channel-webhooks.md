@@ -41,7 +41,7 @@ Updates to the following endpoints trigger a `store/channel/updated` event:
 * DELETE `/catalog/products/category-assignments`
 * PUT `/settings/store/profile`
 
-For a complete reference of all BigCommerce webhook events and their callback payloads, see [Webhook] Events(https://developer.bigcommerce.com/docs/ZG9jOjIyMDczNA-webhook-events).
+For a complete reference of all BigCommerce webhook events and their callback payloads, see [Webhook Events](https://developer.bigcommerce.com/docs/ZG9jOjIyMDczNA-webhook-events).
 
 ## Channel webhook callbacks
 
