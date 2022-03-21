@@ -16,14 +16,14 @@ The **client secret** value is a secret that your app and BigCommerce share.
 
 Developers create app API accounts in the [Developer Portal](https://devtools.bigcommerce.com). Most apps use access tokens generated from the API account's `client_ID`, `client_secret`, and a grant `code` to read and change store data once the store owner installs and authorizes the app. The vast majority of app API access tokens must be generated in an authorization grant code flow.
 
-Some APIs may use app OAuth API accounts to implement authentication patterns other than the traditional OAuth grant `code` to `access_token` pipeline. As of this writing, this includes the [Current Customer API](/api-docs/storefront/current-customer-api). Consult the documentation for the API you want to use to learn more about the authentication pattern it requires. For a summary of the authentication methods in each of our APIs, read about [Authenticating BigCommerce APIs](api-docs/getting-started/authentication/authenticating-bigcommerce-apis).
+Some APIs may use app OAuth API accounts to implement authentication patterns other than the traditional OAuth grant `code` to `access_token` pipeline. As of this writing, this includes the [Current Customer API](/api-docs/storefront/current-customer-api). Consult the documentation for the API you want to use to learn more about the authentication pattern it requires. For a summary of the authentication methods in each of our APIs, read about [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis).
 ### Store OAuth API accounts
 
 Merchants generate single-store API credentials when they create store OAuth API accounts in their store's control panel (**Advanced Settings** > **API Accounts**). Use these credentials to read and change one store's data using BigCommerce's APIs. Generate store API OAuth access tokens manually in the control panel's **API Accounts** view, or programmatically by authorization grant code.
 
 Most of the time, you will use the **access token** to authenticate your requests to BigCommerce.  However, `access_token`s can be invalidated, so the authentication library or middleware that your software uses should use the `client_id` and `client_secret` to request a new `access_token` when the old one no longer works.
 
-Although the **client ID** value uniquely identifies the app or user making a request, you no longer need to pass it in the header of each API request. Typically, the `access_token` will suffice. For more particulars about when BigCommerce will need your `client_id` rather than just your `access_token`, or bearer token, read about [Authenticating BigCommerce APIs](api-docs/getting-started/authentication/authenticating-bigcommerce-apis) and consult the documentation for the API you want to use.
+Although the **client ID** value uniquely identifies the app or user making a request, you no longer need to pass it in the header of each API request. Typically, the `access_token` will suffice. For more particulars about when BigCommerce will need your `client_id` rather than just your `access_token`, or bearer token, read about [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis) and consult the documentation for the API you want to use.
 
 The **API path** for your store will not change, but it will have `/v3/` or `/v2/` appended to it, depending on which version is current for the endpoint you're querying.
 
@@ -215,7 +215,7 @@ All OAuth scopes except `default` provide `read-only` permissions scopes, so tha
 | Storefront API Customer Impersonation Tokens | modify | `store_storefront_api_customer_impersonation` | Create a storefront API token that allows for customer impersonation | [/v3/storefront/api-token-customer-impersonation](/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation) |
 
 ## Resources
-* [Authenticating BigCommerce APIs](api-docs/getting-started/authentication/authenticating-bigcommerce-apis)
+* [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis)
 * [Guide to Building Apps](/api-docs/apps/guide/intro)
 * [Rate Limits](/api-docs/getting-started/best-practices#api-rate-limits)
 * [API Status Codes](/api-docs/getting-started/api-status-codes)
