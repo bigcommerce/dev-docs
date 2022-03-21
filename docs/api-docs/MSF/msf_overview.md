@@ -1,30 +1,4 @@
-<style>
-img {
-  border: 1px solid #ddd; /* Gray border */
-  border-radius: 4px;  /* Rounded border */
-  padding: 5px; /* Some padding */
-  width: 400px; /* Set a small width */
-}
-
-/* Add a hover effect (blue shadow) */
-img:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-}
-</style>
-
-# [CONFIDENTIAL] Upcoming BigCommerce Platform Changes to support multi-channel and multi-storefront selling
-
-
-<div class="otp" id="no-index">
-
-### On this Page
-- [How BigCommerce is evolving to support multi-channel and multi-storefront selling](#how-bigcommerce-is-evolving-to-support-multi-channel-and-multi-storefront-selling)
-- [New objects & endpoints introduced](#new-objects--endpoints-introduced)
-  - [Channels](#channels)
-  - [Sites](#sites)
-  - [Settings & Configuration](#settings--configuration)
-
-</div>
+# Overview
 
 ## How BigCommerce is evolving to support multi-channel and multi-storefront selling
 
