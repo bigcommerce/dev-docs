@@ -36,7 +36,7 @@ You can now create variants and modifiers in one call without having to create o
 
 **Variant options**
 
-[Variant options](/api-docs/store-management/catalog/catalog-overview#variant-option) represent options used for variant generation. A shopper has to choose from available variant options before adding a product to the cart. Variant options include multiple-choice types such as swatch, rectangle, radio button, and dropdown.
+[Variant options](/api-docs/store-management/catalog/catalog-overview#variant-options) represent options used for variant generation. A shopper has to choose from available variant options before adding a product to the cart. Variant options include multiple-choice types such as swatch, rectangle, radio button, and dropdown.
 
 *Variant options example:* size or color.
 
