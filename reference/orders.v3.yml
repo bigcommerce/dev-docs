@@ -1852,11 +1852,13 @@ definitions:
                 type: string
                 example: MB345
               original_balance:
+                type: number
                 description: |
                   The balance on a gift certificate when it was purchased.
-                type: number
                 format: float
                 example: 100
+                minimum: 0
+                maximum: 21474836.47
               starting_balance:
                 description: |
                   The balance on a gift certificate at the time of this purchase.
@@ -1890,8 +1892,8 @@ definitions:
                 format: float
                 example: 35.42
     title: Transaction
-    type: object
     x-internal: true
+    type: object
   CreditCard:
     type: object
     description: A credit-card model.
@@ -1974,6 +1976,7 @@ definitions:
     type: object
     description: A gift-certificate model.
     title: Gift Certificate
+    x-internal: true
     properties:
       code:
         description: |
@@ -1981,17 +1984,20 @@ definitions:
         type: string
         example: MB345
       original_balance:
+        type: number
         description: |
           The balance on a gift certificate when it was purchased.
-        type: number
         format: float
         example: 100
+        minimum: 0
+        maximum: 21474836.47
       starting_balance:
+        type: number
         description: |
           The balance on a gift certificate at the time of this purchase.
-        type: number
         format: float
         example: 100
+        minimum: 0
       remaining_balance:
         description: |
           The remaining balance on a gift certificate.
@@ -2007,7 +2013,6 @@ definitions:
           - pending
           - disabled
           - expired
-    x-internal: true
   AVSResult:
     description: Address Verification Service (AVS) result from the payment gateway.
     type: object
@@ -2415,7 +2420,7 @@ definitions:
         $ref: '#/definitions/Amount'
       total_tax:
         type: number
-        description: 'Total tax amount refunded back to the shopper. Use 0 value if there is no tax liability change for the refund or tax does not need to be recorded on the refund and would be handled externally.'
+        description: Total tax amount refunded back to the shopper. Use 0 value if there is no tax liability change for the refund or tax does not need to be recorded on the refund and would be handled externally.
     required:
       - total_amount
       - total_tax
@@ -2450,7 +2455,7 @@ definitions:
         description: 'Total tax amount refunded back to the shopper. Note: `order_level_amount` does not affect tax liability. This can be a negative amount indicating we have collected tax by refunding less to the customer.'
       uses_merchant_override_values:
         type: boolean
-        description: 'Whether refund amount and tax are provided explicitly by merchant override'
+        description: Whether refund amount and tax are provided explicitly by merchant override
       items:
         type: array
         description: Array of items refunded
