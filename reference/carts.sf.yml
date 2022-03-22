@@ -281,7 +281,7 @@ components:
           id:
             type: string
             description: The coupon ID.
-      x-internal: true
+      x-internal: false
     responseCartDiscounts:
       title: responseCartDiscounts
       type: array
@@ -296,7 +296,7 @@ components:
           id:
             type: string
             description: ID of the applied discount.
-      x-internal: true
+      x-internal: false
     responseCart:
       description: Cart object used in storefront cart responses.
       title: Cart Read
@@ -344,7 +344,7 @@ components:
         locale:
           type: string
           description: Locale of the cart.
-      x-internal: true
+      x-internal: false
     requestCart:
       title: Create Cart Request Object
       description: Cart object used in create cart requests.
@@ -380,7 +380,7 @@ components:
             - lineItems
             - giftCertificates
       type: object
-      x-internal: true
+      x-internal: false
     responseCartLineItemsPhysicalItemGiftWrapping:
       title: Gift Wrapping
       type: object
@@ -395,7 +395,7 @@ components:
           type: string
           description: Name of the gift-wrapping option.
       nullable: true
-      x-internal: true
+      x-internal: false
     requestLineItemGiftCertificate:
       title: Line Item Gift Certificate Request Data
       required:
@@ -429,7 +429,7 @@ components:
         theme:
           type: string
           description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
-      x-internal: true
+      x-internal: false
     LineItemsRequest:
       title: requestLineItems
       oneOf:
@@ -460,7 +460,7 @@ components:
       x-examples: {}
       type: object
       description: Cart object used in add items requests.
-      x-internal: true
+      x-internal: false
     requestLineItemPut:
       title: requestLineItemPut
       oneOf:
@@ -485,7 +485,7 @@ components:
       x-examples: {}
       description: ''
       type: object
-      x-internal: true
+      x-internal: false
     responseCartCurrency:
       title: Currency
       type: object
@@ -496,7 +496,7 @@ components:
           format: ISO-4217
       description: This will always be the same between cart and checkout.
       x-go-gen-location: models
-      x-internal: true
+      x-internal: false
     responseCartLineItems:
       title: Response Line Items Object
       type: object
@@ -520,7 +520,7 @@ components:
           description: Array of `ItemPhysical` objects.
           items:
             $ref: '#/components/schemas/responseCartLineItemsItemsPhysicalItemsItems'
-      x-internal: true
+      x-internal: false
     responseCartLineItemsCustomItems:
       title: Item Custom
       type: object
@@ -556,12 +556,12 @@ components:
         **Read Only**
 
         This will return in the Cart Response if the Cart was created using the [Server to Server Cart API](/api-reference/cart-checkout/server-server-cart-api). A custom item can only be added to a cart using the Server to Server API.
-      x-internal: true
+      x-internal: false
     responseCartLineItemsDigitalItems:
       title: Item Digital
       allOf:
         - $ref: '#/components/schemas/responseCartLineItemsDigitalItemsAllOf0'
-      x-internal: true
+      x-internal: false
     responseCartLineItemsDigitalItemsAllOf0:
       title: Base Item
       required:
@@ -635,7 +635,7 @@ components:
           type: number
           description: ID of the variant.
           example: 7
-      x-internal: true
+      x-internal: false
     responseCartLineItemsDigitalItemsAllOf0DiscountsItems:
       title: Applied Discount
       type: object
@@ -647,7 +647,7 @@ components:
         id:
           type: number
           description: ID of the applied discount.
-      x-internal: true
+      x-internal: false
     responseCartLineItemsDigitalItemsAllOf0OptionsItems:
       title: Product Option
       type: object
@@ -666,7 +666,7 @@ components:
           type: number
           description: The product option value identifier. It is the same as the `optionValue` used in the request.
           example: 127
-      x-internal: true
+      x-internal: false
     responseCartLineItemsGiftCertificates:
       title: Item Gift Certificate
       required:
@@ -698,7 +698,7 @@ components:
         theme:
           type: string
           description: 'Currently supports `Birthday`, `Boy`, `Celebration`, `Christmas`, `General`, and `Girl`.'
-      x-internal: true
+      x-internal: false
     responseCartLineItemsGiftCertificatesRecipient:
       title: Contact Entity
       type: object
@@ -710,7 +710,7 @@ components:
         name:
           type: string
           description: Contact's name.
-      x-internal: true
+      x-internal: false
     responseCartLineItemsGiftCertificatesSender:
       title: Contact Entity
       type: object
@@ -722,13 +722,13 @@ components:
         name:
           type: string
           description: Contact's name.
-      x-internal: true
+      x-internal: false
     responseCartLineItemsItemsPhysicalItemsItems:
       title: Item Physical
       allOf:
         - $ref: '#/components/schemas/responseCartBaseItem'
         - $ref: '#/components/schemas/responseCartLineItemsItemsPhysicalItemsItemsAllOf1'
-      x-internal: true
+      x-internal: false
     responseCartBaseItem:
       title: Base Item
       type: object
@@ -799,7 +799,7 @@ components:
           example: 7
       required:
         - quantity
-      x-internal: true
+      x-internal: false
     responseCartLineItemsItemsPhysicalItemsItemsAllOf0OptionsItems:
       title: Product Option
       type: object
@@ -818,7 +818,7 @@ components:
           type: number
           description: The product option value identifier. It is the same as the `optionValue` used in the request.
           example: 127
-      x-internal: true
+      x-internal: false
     responseCartLineItemsItemsPhysicalItemsItemsAllOf1:
       type: object
       properties:
@@ -827,7 +827,7 @@ components:
         isShippingRequired:
           type: boolean
           description: Whether this item requires shipping to a physical address.
-      x-internal: true
+      x-internal: false
     requestCartPostLineItem:
       title: Line Item Request Data
       anyOf:
@@ -898,7 +898,7 @@ components:
           productId: 0
           quantity: 0
       type: object
-      x-internal: true
+      x-internal: false
     requestLineItemGiftCertificateRecipient:
       title: Contact Entity
       type: object
@@ -910,7 +910,7 @@ components:
         name:
           type: string
           description: Contact's name.
-      x-internal: true
+      x-internal: false
     requestLineItemGiftCertificateSender:
       title: Contact Entity
       type: object
@@ -922,7 +922,7 @@ components:
         name:
           type: string
           description: Contact's name.
-      x-internal: true
+      x-internal: false
   responses:
     postCarts:
       description: Post Carts Response

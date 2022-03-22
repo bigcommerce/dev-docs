@@ -105,7 +105,7 @@ definitions:
         description: Determines whether the payment gateway is in test mode. Always false for offline payment methods.
         example: false
         type: boolean
-    x-internal: true
+    x-internal: false
 tags:
   - name: Payment Methods
 securityDefinitions:

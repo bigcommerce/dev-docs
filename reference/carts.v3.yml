@@ -708,7 +708,7 @@ definitions:
             description: 'Message shown to recipient, as provided by sender.'
         title: Line Item Gift Certificate Request Data
     title: Cart Update Request
-    x-internal: true
+    x-internal: false
   CartCreatePostData:
     type: object
     title: Cart Create Post Data
@@ -780,7 +780,7 @@ definitions:
       locale:
         type: string
         description: Accepts string of format `xx` or `xx-YY`.
-    x-internal: true
+    x-internal: false
   CartRequestData:
     type: object
     title: Cart Request Data
@@ -863,14 +863,14 @@ definitions:
       channel_id:
         type: integer
         description: 'If no channel is specified, defaults to 1. '
-    x-internal: true
+    x-internal: false
   CartUpdatePutRequestData:
     type: object
     properties:
       customer_id:
         type: integer
     title: Cart Update Put Request Data
-    x-internal: true
+    x-internal: false
   LineItemRequestData:
     type: object
     title: Line Item Request Data
@@ -898,7 +898,7 @@ definitions:
       - quantity
       - product_id
       - variant_id
-    x-internal: true
+    x-internal: false
   ProductOptionSelection:
     type: object
     properties:
@@ -907,7 +907,7 @@ definitions:
       option_value:
         type: string
     title: Product Option Selection
-    x-internal: true
+    x-internal: false
   LineItemGiftCertificateRequestData:
     type: object
     required:
@@ -952,7 +952,7 @@ definitions:
         maximum: 200
         description: 'Message shown to recipient, as provided by sender.'
     title: Line Item Gift Certificate Request Data
-    x-internal: true
+    x-internal: false
   Cart_Full:
     description: 'A cart contains a collection of items, prices, discounts, etc.. It does not contain customer-related data.'
     type: object
@@ -1501,7 +1501,7 @@ definitions:
               text:
                 description: Text of the banner
                 type: string
-    x-internal: true
+    x-internal: false
   Currency:
     type: object
     description: This will always be the same between cart and checkout.
@@ -1511,7 +1511,7 @@ definitions:
         format: ISO-4217
         description: 'ISO-4217 currency code. (See: http://en.wikipedia.org/wiki/ISO_4217.)'
     title: Currency
-    x-internal: true
+    x-internal: false
   LineItem:
     type: object
     title: Line Item
@@ -1938,7 +1938,7 @@ definitions:
     required:
       - physical_items
       - digital_items
-    x-internal: true
+    x-internal: false
   ItemGiftCertificate:
     type: object
     required:
@@ -1980,7 +1980,7 @@ definitions:
         type: string
         description: Limited to 200 characters.
     title: Item Gift Certificate
-    x-internal: true
+    x-internal: false
   ContactEntity:
     title: Contact Entity
     type: object
@@ -1989,7 +1989,7 @@ definitions:
         type: string
       email:
         type: string
-    x-internal: true
+    x-internal: false
   ItemDigital:
     allOf:
       - type: object
@@ -2164,7 +2164,7 @@ definitions:
             description: 'Combined download size, in human-readable style. E.g.: `30MB`.'
             type: string
     title: Item Digital
-    x-internal: true
+    x-internal: false
   ItemPhysical:
     allOf:
       - type: object
@@ -2338,7 +2338,7 @@ definitions:
                 format: float
             title: Gift Wrapping
     title: Item Physical
-    x-internal: true
+    x-internal: false
   BaseItem:
     type: object
     title: Base Item
@@ -2496,7 +2496,7 @@ definitions:
       - variant_id
       - product_id
       - quantity
-    x-internal: true
+    x-internal: false
   ProductOption:
     type: object
     properties:
@@ -2513,7 +2513,7 @@ definitions:
         type: number
         description: The product option value identifier.
     title: Product Option
-    x-internal: true
+    x-internal: false
   AppliedCoupon:
     title: Applied Coupon
     type: object
@@ -2553,7 +2553,7 @@ definitions:
         readOnly: true
     required:
       - code
-    x-internal: true
+    x-internal: false
   AppliedDiscount:
     type: object
     title: Applied Discount
@@ -2567,7 +2567,7 @@ definitions:
       discounted_amount:
         type: number
         description: The discounted amount.
-    x-internal: true
+    x-internal: false
   GiftWrapping:
     properties:
       name:
@@ -2578,7 +2578,7 @@ definitions:
         type: number
         format: float
     title: Gift Wrapping
-    x-internal: true
+    x-internal: false
   ItemCustom:
     type: object
     title: Item Custom
@@ -2602,7 +2602,7 @@ definitions:
       list_price:
         type: string
         description: 'Price of the item. With or without tax, depending on your store’s setup.'
-    x-internal: true
+    x-internal: false
   cart_PostVariant:
     type: array
     title: cart_PostVariant
@@ -2647,7 +2647,7 @@ definitions:
       required:
         - quantity
         - product_id
-    x-internal: true
+    x-internal: false
   cart_PostModifier:
     type: array
     title: cart_PostModifier
@@ -2688,7 +2688,7 @@ definitions:
         - quantity
         - product_id
     description: ''
-    x-internal: true
+    x-internal: false
   Cart_Line_Item_Update_Post:
     type: object
     title: Cart_Line_Item_Update_Post
@@ -2745,7 +2745,7 @@ definitions:
             - recipient
       custom_items:
         $ref: '#/definitions/cart_PostCustomItem'
-    x-internal: true
+    x-internal: false
   cart_PostCustomItem:
     type: array
     title: cart_PostCustomItem
@@ -2760,7 +2760,7 @@ definitions:
           type: number
         list_price:
           type: number
-    x-internal: true
+    x-internal: false
 securityDefinitions:
   X-Auth-Token:
     type: apiKey

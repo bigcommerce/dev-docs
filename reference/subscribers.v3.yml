@@ -585,7 +585,7 @@ definitions:
             format: date-time
             description: |
               The date of which the subscriber was created.
-    x-internal: true
+    x-internal: false
   subscriber_Base:
     type: object
     description: Common Subscriber properties.
@@ -627,7 +627,7 @@ definitions:
         minimum: 1
         maximum: 2147483647
         description: The channel ID where the subscriber was created.
-    x-internal: true
+    x-internal: false
   Subscriber:
     type: object
     allOf:
@@ -684,21 +684,21 @@ definitions:
             format: date-time
             description: |
               The date of which the subscriber was created.
-    x-internal: true
+    x-internal: false
   subscriber_Post:
     description: |
       The model for a POST to create a subscriber.
     allOf:
       - $ref: '#/definitions/subscriber_Base'
     title: subscriber_Post
-    x-internal: true
+    x-internal: false
   subscriber_Put:
     description: |
       The model for a PUT to update a subscriber.
     allOf:
       - $ref: '#/definitions/subscriber_Base'
     title: subscriber_Put
-    x-internal: true
+    x-internal: false
   CollectionMeta:
     type: object
     description: 'Data about the response, including pagination and collection totals.'
@@ -752,7 +752,7 @@ definitions:
                 description: |
                   Link to the next page returned in the response.
     title: Collection Meta
-    x-internal: true
+    x-internal: false
   Pagination:
     type: object
     description: 'Data about the response, including pagination and collection totals.'
@@ -801,12 +801,12 @@ definitions:
             type: string
             description: |
               Link to the next page returned in the response.
-    x-internal: true
+    x-internal: false
   Meta:
     type: object
     description: Empty meta object; may be used later.
     title: Meta
-    x-internal: true
+    x-internal: false
   ErrorResponse:
     allOf:
       - type: object
@@ -835,7 +835,7 @@ definitions:
               additionalProperties:
                 type: string
     title: Error Response
-    x-internal: true
+    x-internal: false
   BaseError:
     type: object
     description: |
@@ -854,7 +854,7 @@ definitions:
       instance:
         type: string
     title: Base Error
-    x-internal: true
+    x-internal: false
   NotFound:
     description: Error payload for the BigCommerce API.
     type: object
@@ -871,14 +871,14 @@ definitions:
       instance:
         type: string
     title: Not Found
-    x-internal: true
+    x-internal: false
   DetailedErrors:
     type: object
     title: Detailed Errors
     properties:
       additionalProperties:
         type: string
-    x-internal: true
+    x-internal: false
 securityDefinitions:
   X-Auth-Token:
     type: apiKey
