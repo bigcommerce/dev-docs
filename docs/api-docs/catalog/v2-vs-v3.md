@@ -53,7 +53,7 @@ Modifiers include multiple-choice types such as swatch, rectangle, radio button,
 
 <!-- theme: info -->
 > #### Note
-> Product [variant options](/api-reference/store-management/catalog/product-options/getoptionbyid) and [modifiers](/api-reference/store-management/catalog/product-modifiers/getmodifierbyid) created using the V3 Catalog API belong to a single product instance and cannot be attached to other products in the catalog.
+> Product [variant options](/api-reference/store-management/catalog/product-variant-options/getoptionbyid) and [modifiers](/api-reference/store-management/catalog/product-modifiers/getmodifierbyid) created using the V3 Catalog API belong to a single product instance and cannot be attached to other products in the catalog.
 
 
 
