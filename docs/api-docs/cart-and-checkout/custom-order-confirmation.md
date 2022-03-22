@@ -31,7 +31,7 @@ When a store uses a custom confirmation page, the following properties are attac
 
 To use the data exposed in the window object, include relevant code in your loader file. The following is an example of the relevant code:
 
-```js
+```jsx title="Include data in loader file"
 ReactDOM.render(
   <OrderConfirmation orderId={ window.checkoutConfig.orderId } />,
   document.getElementById(window.checkoutConfig.containerId)
@@ -53,8 +53,8 @@ You can upload a custom order confirmation page to your store's server using Web
 > For more information on how to use Cyberduck, refer to the [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV) page. 
  
 2. From your store control panel, navigate to **Server Settings** > **File Access (WebDAV)**.
-    * To automatically connect with Cyberduck, see [Single-click Login](https://support.bigcommerce.com/s/article/File-Access-WebDAV#login).
-    * To manually connect with Cyberduck, see [Connecting with Cyberduck Manually](https://support.bigcommerce.com/s/article/File-Access-WebDAV#manual).
+* To automatically connect with Cyberduck, see [Single-click Login](https://support.bigcommerce.com/s/article/File-Access-WebDAV#login).
+* To manually connect with Cyberduck, see [Connecting with Cyberduck Manually](https://support.bigcommerce.com/s/article/File-Access-WebDAV#manual).
 3. From Cyberduck, enter the `/content` folder and create a new folder named *OrderConfirmation*.
 4. Navigate into the `/dist` folder in your OrderConfirmation project.
 5. Copy the contents of the `/dist` folder and paste it into the *OrderConfirmation* folder.
@@ -76,11 +76,9 @@ To install a custom order confirmation page on a store, follow these steps:
 
 <!-- theme: info -->
 > #### Notes 
-> *Prepending `webdav:` Indicates that the URL is in the remote WebDAV directory. It will treat `/content` as the root WebDAV directory.
-
-> *It is important to include `<version>` number in the Script URL field. Because if you make changes to the same provided loader filename, you could serve a cached version to the user.
-  
-> *If you previously created a custom checkout, use the same Script URL. You may need to enter the Script URL again.
+> * Prepending `webdav:` Indicates that the URL is in the remote WebDAV directory. It will treat `/content` as the root WebDAV directory.
+> * It is important to include `<version>` number in the Script URL field. Because if you make changes to the same provided loader filename, you could serve a cached version to the user.
+> * If you previously created a custom checkout, use the same Script URL. You may need to enter the Script URL again.
 
 3. Click the **Save** button at the bottom of the page.
 4. Navigate to your live storefront to view your new custom order confirmation page.
