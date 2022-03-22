@@ -42,7 +42,7 @@ You can now create variants and modifiers in one call without having to create o
 
 **Variants**
 
-[Variants](/api-docs/store-management/catalog/catalog-overview#variant) are created based on the combination of variant options and have their own attributes such as image, prices, weight, and stock level.
+[Variants](/api-docs/store-management/catalog/catalog-overview#variants) are created based on the combination of variant options and have their own attributes such as image, prices, weight, and stock level.
 
 *Variant example:* large blue t-shirt.
 
