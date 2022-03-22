@@ -64,26 +64,29 @@ This script extracts storefront data from the Stencil objects available in the f
     {{inject "cartItemAdded" cart.added_item}}
     // https://developer.bigcommerce.com/theme-objects/cart
     // (Fetching selective cart data to prevent additional payment button object html from causing JS parse error)
-    var BODL = JSON.parse({{jsContext}});
+  } else {
+    //if BODL is already defined, don't make it again
+    return;
+  }
+  var BODL = JSON.parse({{jsContext}});
 
-    if (BODL.categoryName) {
-      BODL.category = {
-        name: BODL.categoryName,
-        products: BODL.categoryProducts,
-      }
+  if (BODL.categoryName) {
+    BODL.category = {
+      name: BODL.categoryName,
+      products: BODL.categoryProducts,
     }
+  }
 
-    if (BODL.productTitle) {
-      BODL.product = {
-        id: BODL.productId,
-        title: BODL.productTitle,
-        price: {
-          without_tax: {
-            currency: BODL.productCurrency,
-            value: BODL.productPrice,
-          },
+  if (BODL.productTitle) {
+    BODL.product = {
+      id: BODL.productId,
+      title: BODL.productTitle,
+      price: {
+        without_tax: {
+          currency: BODL.productCurrency,
+          value: BODL.productPrice,
         },
-      }
+      },
     }
   }
 
