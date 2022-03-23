@@ -1,26 +1,4 @@
 # Store Settings
-<style>
-img {
-  border: 1px solid #ddd; /* Gray border */
-  border-radius: 4px;  /* Rounded border */
-  padding: 5px; /* Some padding */
-  width: 400px; /* Set a small width */
-}
-
-/* Add a hover effect (blue shadow) */
-img:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-}
-</style>
-<div class="otp" id="no-index">
-
-### On This Page
-- [Overview](#overview)
-- [Global vs Contextual settings](#global-vs-contextual-settings)
-- [The cumulative effect of Global and Channel settings](#the-cumulative-effect-of-global-and-channel-settings)
-
-</div>
-<br>
 
 [Settings API reference documentation](https://developer.bigcommerce.com/api-reference/store-management/settings)
 
