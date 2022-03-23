@@ -4,9 +4,8 @@
 
 Scripts are associated with a particular Site. Any Scripts that were created previously have been assigned to the default Site (which has an id of `1000` on each store). If you do not supply a `site_id` when creating a Script, it will be assigned to the default Site. In order to support multi-storefront stores, you should explicitly assign Scripts to the appropriate Site on which they are intended to render. If you want the exact same Script to show up on several Sites, you must create the Script on each site.
 
-<a target="_blank" href="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/scripts-diagram.png">
-  <img src="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/scripts-diagram.png">
-</a>
+![scripts-diagram.webp](https://stoplight.io/api/v1/projects/cHJqOjI4MDIz/images/ERuNPsqZmNI)
+
 
 [Scripts API reference documentation](https://developer.bigcommerce.com/api-reference/store-management/scripts)
 
@@ -16,9 +15,8 @@ From a UX perspective, you may wish to prompt merchants who are setting up your 
 
 Pages are associated with a particular Site. Any Pages that were created previously have been assigned to the default Site (which has an id of `1000` on each store).
 
-<a target="_blank" href="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/pages-diagram.png">
-  <img src="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/pages-diagram.png">
-</a>
+![pages-diagram.webp](https://stoplight.io/api/v1/projects/cHJqOjI4MDIz/images/BvlyeHi9vig)
+
 
 [Pages API reference documentation](https://developer.bigcommerce.com/api-reference/store-management/store-content/pages/getallpages)
 
@@ -34,9 +32,7 @@ Going forward, it is recommended to interact directly with the appropriate `site
 
 ## 301 Redirects
 
-<a target="_blank" href="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/redirects-diagram.png">
-  <img src="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/redirects-diagram.png">
-</a>
+![redirects-diagram.webp](https://stoplight.io/api/v1/projects/cHJqOjI4MDIz/images/IB0KeC0AUG4)
 
 [Redirects API documentation](https://developer.bigcommerce.com/api-reference/store-management/redirects)
 
@@ -52,9 +48,7 @@ Previously, the Theme `/activate` endpoint would accept a `variation_id` and a `
 
 To support application of stores to different storefront Sites, you must now _instead_ supply a `site_id` and `configuration_id` to indicate exactly which storefront you wish to apply a Theme to, and which set of theme settings (Configurations) should be used.
 
-<a target="_blank" href="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/themes-diagram.png">
-  <img src="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/themes-diagram.png">
-</a>
+![themes-diagram.webp](https://stoplight.io/api/v1/projects/cHJqOjI4MDIz/images/JkCLW3yRbaY)
 
 [Themes API documentation](https://developer.bigcommerce.com/api-reference/store-management/themes)
 

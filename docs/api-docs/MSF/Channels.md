@@ -4,9 +4,7 @@
 
 A **Channel** is a place where the merchant sells products. This could be a storefront website, a marketplace such as Amazon or eBay, a POS system, a marketing feed, or a "Custom" channel which may not fit into one of these types. Merchants create new Channels when they wish to sell in a new context. Channels are useful to organize a merchant's complex business, and can be used to attach many other objects which are related to a particular shopper's experience on the Channel. 
 
-<a target="_blank" href="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/channels-sites-diagram.png?c=1">
-  <img src="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/channels-sites-diagram.png?c=1">
-</a>
+![channels-sites-diagram.webp](https://stoplight.io/api/v1/projects/cHJqOjI4MDIz/images/6uMX12RVuT8)
 
 A channel is defined by:
 

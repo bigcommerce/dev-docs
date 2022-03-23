@@ -12,9 +12,7 @@ It is our goal to launch these new features with no breaking changes to the plat
 
 ## New objects & endpoints introduced
 
-<a target="_blank" href="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/channels-sites-diagram.png?c=1">
-  <img src="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/channels-sites-diagram.png?c=1">
-</a>
+![channels-sites-diagram.webp](https://stoplight.io/api/v1/projects/cHJqOjI4MDIz/images/XhGtCVr9vg8)
 
 ### Channels
 

@@ -14,9 +14,7 @@ Unlike many of BigCommerce's APIs, Settings APIs usually don't involve a large c
 
 ## Global vs Contextual settings
 
-<a target="_blank" href="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/settings-diagram.png">
-  <img src="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/settings-diagram.png">
-</a>
+![settings-diagram.webp](https://stoplight.io/api/v1/projects/cHJqOjI4MDIz/images/RDrWEKAXZwM)
 
 
 Most BigCommerce stores only sell on a single Channel, typically a single storefront website. When these stores are configuring their settings, they're modifying the "global" versions of those settings, which are used to affect the behavior of their single Channel.

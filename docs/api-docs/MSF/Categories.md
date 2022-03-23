@@ -4,9 +4,7 @@
 
 Previously, a store had a collection of Categories, which were organized in a tree structure. This collection of categories has been migrated into the store's first Category Tree, and you have an opportunity to create additional Trees, which can be assigned to Channels.
 
-<a target="_blank" href="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/categories-diagram.png?c=1">
-  <img src="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/categories-diagram.png?c=1">
-</a>
+![categories-diagram.webp](https://stoplight.io/api/v1/projects/cHJqOjI4MDIz/images/HfM2xB4ksa4)
 
 Previously, a store had a collection of Categories, which were organized in a tree structure. This collection of categories has been migrated into the store's first Category Tree, and you have an opportunity to create additional Trees, which can be assigned to Channels.
 
