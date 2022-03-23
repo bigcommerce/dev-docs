@@ -1,0 +1,583 @@
+openapi: 3.0.3
+info:
+  title: Categories Batch
+  description: Manage channel-specific categories.
+  version: 3.0.0
+  termsOfService: 'http://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+paths:
+  /catalog/trees/categories:
+    get:
+      summary: Get All Categories
+      description: |-
+        Returns a list of categories. 
+
+         To get a specific category in a tree, provide a category id.
+      tags:
+        - Categories Batch
+      parameters:
+        - name: 'category_uuid:in'
+          in: query
+          schema:
+            type: string
+        - name: 'category_uuid:not_in'
+          in: query
+          schema:
+            type: string
+        - name: 'category_id:in'
+          in: query
+          schema:
+            type: string
+        - name: 'category_id:not_in'
+          in: query
+          schema:
+            type: string
+        - name: 'tree_id:in'
+          in: query
+          schema:
+            type: string
+        - name: 'tree_id:not_in'
+          in: query
+          schema:
+            type: string
+        - name: 'parent_id:in'
+          in: query
+          schema:
+            type: string
+        - name: 'parent_id:not_in'
+          in: query
+          schema:
+            type: string
+        - name: name
+          in: query
+          schema:
+            type: string
+        - name: 'name:like'
+          in: query
+          schema:
+            type: string
+        - name: page_title
+          in: query
+          schema:
+            type: string
+        - name: 'page_title:like'
+          in: query
+          schema:
+            type: string
+        - name: keyword
+          in: query
+          schema:
+            type: string
+        - name: 'keyword:like'
+          in: query
+          schema:
+            type: string
+        - name: is_visible
+          in: query
+          schema:
+            type: boolean
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+        - name: include_fields
+          in: query
+          schema:
+            type: string
+        - name: exclude_fields
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of categories.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Category'
+                  meta:
+                    $ref: '#/components/schemas/MetaPagination'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
+    post:
+      summary: Create Categories
+      description: |-
+        Creates new categories. 
+
+         `tree_id` or `parent_id` are required to create a category. 
+      tags:
+        - Categories Batch
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCategories'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PartialSuccessResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
+        '422':
+          description: 'The Category was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
+    put:
+      summary: Update Categories
+      description: |-
+        Updates existing categories. 
+
+         To update a specific category in a tree, provide a category id.
+      tags:
+        - Categories Batch
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCategories'
+      responses:
+        '204':
+          description: No Content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessNoContentResponse'
+        '207':
+          description: Partical success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PartialSuccessNoContentResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
+        '422':
+          description: 'The Category was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
+    delete:
+      summary: Delete Categories
+      description: |-
+        Deletes categories. 
+
+        To delete a specific category in a tree, provide a category id.
+      tags:
+        - Categories Batch
+      parameters:
+        - name: 'category_uuid:in'
+          in: query
+          schema:
+            type: string
+        - name: 'category_id:in'
+          in: query
+          schema:
+            type: string
+        - name: 'tree_id:in'
+          in: query
+          schema:
+            type: string
+        - name: 'parent_id:in'
+          in: query
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Categories are deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessNoContentResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorRequest'
+components:
+  schemas:
+    CreateCategories:
+      type: array
+      items:
+        oneOf:
+          - allOf:
+              - $ref: '#/components/schemas/CategoryUuidData'
+              - $ref: '#/components/schemas/ParentIdCreateData'
+              - $ref: '#/components/schemas/CategoryData'
+          - allOf:
+              - $ref: '#/components/schemas/TreeIdCreateData'
+              - $ref: '#/components/schemas/CategoryData'
+      x-tags:
+        - Models
+    UpdateCategories:
+      type: array
+      items:
+        oneOf:
+          - allOf:
+              - $ref: '#/components/schemas/CategoryIdUpdateData'
+              - $ref: '#/components/schemas/CategoryUuidData'
+              - $ref: '#/components/schemas/ParentIdUpdateData'
+              - $ref: '#/components/schemas/CategoryData'
+          - allOf:
+              - $ref: '#/components/schemas/CategoryIdUpdateData'
+              - $ref: '#/components/schemas/TreeIdUpdateData'
+              - $ref: '#/components/schemas/CategoryData'
+      x-tags:
+        - Models
+    Category:
+      type: object
+      properties:
+        category_uuid:
+          type: string
+          format: uuid
+        category_id:
+          type: integer
+        parent_id:
+          type: integer
+        tree_id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        views:
+          type: integer
+        sort_order:
+          type: integer
+        page_title:
+          type: string
+        search_keywords:
+          type: string
+        meta_keywords:
+          type: array
+          items:
+            type: string
+        meta_description:
+          type: string
+        layout_file:
+          type: string
+        is_visible:
+          type: boolean
+        default_product_sort:
+          type: string
+        image_url:
+          type: string
+        url:
+          $ref: '#/components/schemas/Url'
+      x-tags:
+        - Models
+    CategoryUuidData:
+      type: object
+      properties:
+        category_uuid:
+          type: string
+          format: uuid
+      x-tags:
+        - Models
+    CategoryIdUpdateData:
+      type: object
+      properties:
+        category_id:
+          type: integer
+      required:
+        - category_id
+      x-tags:
+        - Models
+    ParentIdCreateData:
+      type: object
+      properties:
+        parent_id:
+          type: integer
+      required:
+        - parent_id
+      x-tags:
+        - Models
+    TreeIdCreateData:
+      type: object
+      properties:
+        tree_id:
+          type: integer
+      required:
+        - tree_id
+      x-tags:
+        - Models
+    ParentIdUpdateData:
+      type: object
+      properties:
+        parent_id:
+          type: integer
+      x-tags:
+        - Models
+    TreeIdUpdateData:
+      type: object
+      properties:
+        tree_id:
+          type: integer
+      x-tags:
+        - Models
+    CategoryData:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        views:
+          type: integer
+        sort_order:
+          type: integer
+        page_title:
+          type: string
+        search_keywords:
+          type: string
+        meta_keywords:
+          type: array
+          items:
+            type: string
+        meta_description:
+          type: string
+        layout_file:
+          type: string
+        is_visible:
+          type: boolean
+        default_product_sort:
+          type: string
+        image_url:
+          type: string
+        url:
+          $ref: '#/components/schemas/Url'
+      x-tags:
+        - Models
+    Urls:
+      type: array
+      items:
+        $ref: '#/components/schemas/Url'
+      x-tags:
+        - Models
+    Url:
+      type: object
+      properties:
+        path:
+          type: string
+        is_customized:
+          type: boolean
+      x-tags:
+        - Models
+    MetaPagination:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 246
+              minimum: 0
+            count:
+              type: integer
+              example: 5
+              minimum: 0
+            per_page:
+              type: integer
+              example: 5
+              minimum: 0
+            current_page:
+              type: integer
+              example: 1
+              minimum: 1
+            total_pages:
+              type: integer
+              example: 50
+              minimum: 0
+            links:
+              type: object
+              properties:
+                previous:
+                  type: string
+                  example: '?limit=5&page=1'
+                current:
+                  type: string
+                  example: '?limit=5&page=2'
+                next:
+                  type: string
+                  example: '?limit=5&page=3'
+      x-tags:
+        - Models
+    DetailedErrors:
+      description: |
+        Details of errors.
+      type: object
+      additionalProperties:
+        type: string
+      x-tags:
+        - Models
+    ErrorRequest:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            oneOf:
+              - allOf:
+                  - $ref: '#/components/schemas/ErrorBasic'
+      x-tags:
+        - Models
+    ErrorBasic:
+      type: object
+      properties:
+        status:
+          description: |
+            The HTTP status code.
+          type: integer
+        title:
+          description: |
+            The error title describing the particular error.
+          type: string
+        type:
+          type: string
+      x-tags:
+        - Models
+    ErrorAdditional:
+      type: object
+      properties:
+        errors:
+          $ref: '#/components/schemas/DetailedErrors'
+      x-tags:
+        - Models
+    MetaError:
+      type: array
+      items:
+        oneOf:
+          - allOf:
+              - $ref: '#/components/schemas/ErrorBasic'
+              - $ref: '#/components/schemas/ErrorAdditional'
+      x-tags:
+        - Models
+    MetaData:
+      type: object
+      properties:
+        total:
+          type: integer
+        success:
+          type: integer
+        failed:
+          type: integer
+      x-tags:
+        - Models
+    SuccessNoContentResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/MetaData'
+      x-tags:
+        - Models
+    PartialSuccessNoContentResponse:
+      type: object
+      properties:
+        errors:
+          $ref: '#/components/schemas/MetaError'
+        meta:
+          $ref: '#/components/schemas/MetaData'
+      x-tags:
+        - Models
+    PartialSuccessResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+        meta:
+          $ref: '#/components/schemas/MetaData'
+      x-tags:
+        - Models
+    SuccessResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+        errors:
+          $ref: '#/components/schemas/MetaError'
+        meta:
+          $ref: '#/components/schemas/MetaData'
+      x-tags:
+        - Models
+    ErrorResponse:
+      type: object
+      properties:
+        errors:
+          $ref: '#/components/schemas/MetaError'
+        meta:
+          $ref: '#/components/schemas/MetaData'
+      x-tags:
+        - Models
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    description: ''
+x-stoplight:
+  docs:
+    includeDownloadLink: true
+    showModels: false

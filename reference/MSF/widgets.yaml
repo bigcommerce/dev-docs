@@ -1,0 +1,1066 @@
+swagger: '2.0'
+info:
+  title: Widgets
+  version: 3.0.0b
+  description: 'Create and manage widget templates, widgets, regions, and placements.'
+  termsOfService: 'http://www.bigcommerce.com/terms'
+host: api.bigcommerce.com
+basePath: '/stores/{{store_id}}/v3'
+tags:
+  - name: Widget Template
+    description: BigCommerce Widget Templates API Definition.
+  - name: Widget
+    description: BigCommerce Widgets API Definition.
+  - name: Placement
+    description: BigCommerce Placements API Definition.
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+  /content/widget-templates:
+    post:
+      tags:
+        - Widget Template
+      summary: Create a Widget Template
+      description: Creates a widget template.
+      operationId: createWidgetTemplate
+      parameters:
+        - name: templateBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/WidgetTemplatePost'
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/WidgetTemplateResponse'
+          description: |
+            A widget template.
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+    get:
+      tags:
+        - Widget Template
+      summary: Get All Widget Templates
+      description: Returns a list of widget templates.
+      operationId: getWidgetTemplates
+      parameters:
+        - $ref: '#/parameters/PageParam'
+        - $ref: '#/parameters/LimitParam'
+        - $ref: '#/parameters/FilterWidgetTemplateKindParam'
+        - $ref: '#/parameters/SiteParam'
+        - $ref: '#/parameters/ChannelParam'
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/WidgetTemplatesResponse'
+          description: Success
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+  '/content/widget-templates/{uuid}':
+    get:
+      tags:
+        - Widget Template
+      summary: Get a Widget Template
+      description: Returns a widget template.
+      operationId: getWidgetTemplate
+      parameters:
+        - $ref: '#/parameters/TemplateUUID'
+        - name: version_uuid
+          description: |
+            This is an optional query parmeter used to attempt to fetch a specific Widget Template version.
+          in: query
+          required: false
+          type: string
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/WidgetTemplateResponse'
+          description: Success
+        '404':
+          description: |
+            The resource was not found.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+    put:
+      tags:
+        - Widget Template
+      summary: Update a Widget Template
+      description: Updates a widget template.
+      operationId: updateWidgetTemplate
+      parameters:
+        - $ref: '#/parameters/TemplateUUID'
+        - name: templateBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/WidgetTemplatePut'
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/WidgetTemplateResponse'
+          description: Success
+        '404':
+          description: |
+            The resource was not found.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+    delete:
+      tags:
+        - Widget Template
+      summary: Delete a Widget Template
+      description: Deletes a widget template.
+      operationId: deleteWidgetTemplate
+      parameters:
+        - $ref: '#/parameters/TemplateUUID'
+      responses:
+        '204':
+          description: An empty response.
+        '404':
+          description: |
+            The resource was not found.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+  '/content/widget-templates/{uuid}/preview':
+    post:
+      tags:
+        - Widget Template
+      summary: Render a Widget Template
+      description: Render a widget template and return the widget html.
+      operationId: previewWidget
+      parameters:
+        - $ref: '#/parameters/TemplateUUID'
+        - name: templateBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/WidgetTemplatePreview'
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/WidgetTemplatePreviewResponse'
+          description: Success
+        '404':
+          description: |
+            The resource was not found.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+  /content/widgets:
+    post:
+      tags:
+        - Widget
+      summary: Create a Widget
+      description: Creates a widget.
+      operationId: createWidget
+      parameters:
+        - name: widgetBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/WidgetPost'
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/WidgetResponse'
+          description: Success
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+    get:
+      tags:
+        - Widget
+      summary: Get All Widgets
+      description: Returns a list of widgets.
+      operationId: getWidgets
+      parameters:
+        - $ref: '#/parameters/PageParam'
+        - $ref: '#/parameters/LimitParam'
+        - $ref: '#/parameters/FilterWidgetTemplateKindParam'
+        - $ref: '#/parameters/FilterWidgetTemplateUUIDParam'
+        - $ref: '#/parameters/SiteParam'
+        - $ref: '#/parameters/ChannelParam'
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/WidgetsResponse'
+          description: Success
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+  '/content/widgets/{uuid}':
+    get:
+      tags:
+        - Widget
+      summary: Get a Widget
+      description: Returns a widget.
+      operationId: getWidget
+      parameters:
+        - $ref: '#/parameters/WidgetUUID'
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/WidgetResponse'
+          description: Success
+        '404':
+          description: |
+            The resource was not found.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+    put:
+      tags:
+        - Widget
+      summary: Update a Widget
+      description: Updates a widget.
+      operationId: updateWidget
+      parameters:
+        - $ref: '#/parameters/WidgetUUID'
+        - name: widgetBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/WidgetPut'
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/WidgetResponse'
+          description: Success
+        '404':
+          description: |
+            The resource was not found.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+    delete:
+      tags:
+        - Widget
+      summary: Delete a Widget
+      description: Deletes a widget.
+      operationId: deleteWidget
+      parameters:
+        - $ref: '#/parameters/WidgetUUID'
+      responses:
+        '204':
+          description: An empty response.
+        '404':
+          description: |
+            The resource was not found.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+  /content/widgets/search:
+    get:
+      tags:
+        - Widget
+      summary: Get All Widgets by Search
+      description: Returns a list of widgets by search.
+      operationId: searchWidgets
+      parameters:
+        - $ref: '#/parameters/PageParam'
+        - $ref: '#/parameters/LimitParam'
+        - $ref: '#/parameters/QueryWidgetsParam'
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/WidgetsResponse'
+          description: Success
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+  /content/placements:
+    post:
+      tags:
+        - Placement
+      summary: Create a Placement
+      description: Creates a placement.
+      operationId: createPlacement
+      parameters:
+        - name: placementBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/PlacementPost'
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/PlacementResponse'
+          description: |
+            A placement.
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+    get:
+      tags:
+        - Placement
+      summary: Get All Placements
+      description: Returns a list of placements.
+      operationId: getPlacements
+      parameters:
+        - $ref: '#/parameters/PageParam'
+        - $ref: '#/parameters/LimitParam'
+        - $ref: '#/parameters/FilterWidgetTemplateKindParam'
+        - $ref: '#/parameters/FilterTemplateFileParam'
+        - $ref: '#/parameters/FilterWidgetUUIDParam'
+        - $ref: '#/parameters/FilterWidgetTemplateUUIDParam'
+        - $ref: '#/parameters/SiteParam'
+        - $ref: '#/parameters/ChannelParam'
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/PlacementsResponse'
+          description: Success
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+  '/content/placements/{uuid}':
+    get:
+      tags:
+        - Placement
+      summary: Get a Placement
+      description: Returns a placement.
+      operationId: getPlacement
+      parameters:
+        - $ref: '#/parameters/PlacementUUID'
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/PlacementResponse'
+          description: Success
+        '404':
+          description: |
+            The resource was not found.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+    put:
+      tags:
+        - Placement
+      summary: Update a Placement
+      description: Updates a placement.
+      operationId: updatePlacement
+      parameters:
+        - $ref: '#/parameters/PlacementUUID'
+        - name: placementBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/PlacementPut'
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/PlacementResponse'
+          description: Success
+        '404':
+          description: |
+            The resource was not found.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+    delete:
+      tags:
+        - Placement
+      summary: Delete a Placement
+      description: Deletes a placement.
+      operationId: deletePlacement
+      parameters:
+        - $ref: '#/parameters/PlacementUUID'
+      responses:
+        '204':
+          description: An empty response.
+        '404':
+          description: |
+            The resource was not found.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+  /content/regions:
+    get:
+      tags:
+        - Theme Regions
+      summary: Get Regions
+      description: Returns an ordered list of unique regions defined in a template file.
+      operationId: getRegions
+      parameters:
+        - $ref: '#/parameters/RequiredTemplateFile'
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ThemeRegionsResponse'
+          description: Success
+        '404':
+          description: |
+            The resource was not found.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+parameters:
+  TemplateUUID:
+    name: uuid
+    description: The identifier for a specific template.
+    required: true
+    in: path
+    type: string
+    format: uuid
+  SiteParam:
+    name: 'site_id:in'
+    description: |
+      A comma-separated list of site ids to filter the results by.
+    required: false
+    in: query
+    type: string
+  FilterWidgetTemplateUUIDParam:
+    in: query
+    name: widget_template_uuid
+    description: The identifier for a specific widget template.
+    type: string
+    format: uuid
+    required: false
+  FilterWidgetTemplateKindParam:
+    in: query
+    name: widget_template_kind
+    description: The kind of widget template.
+    type: string
+    required: false
+  FilterTemplateFileParam:
+    in: query
+    name: template_file
+    description: 'The template file, for example: `pages/home`.'
+    type: string
+    required: false
+  RequiredTemplateFile:
+    in: query
+    name: templateFile
+    description: 'The template file, for example: `pages/home`.'
+    type: string
+    required: true
+  PlacementUUID:
+    name: uuid
+    description: The identifier for a specific placement.
+    required: true
+    in: path
+    type: string
+    format: uuid
+  WidgetUUID:
+    name: uuid
+    description: The identifier for a specific widget.
+    required: true
+    in: path
+    type: string
+    format: uuid
+  FilterWidgetUUIDParam:
+    name: widget_uuid
+    description: The identifier for a specific widget.
+    in: query
+    type: string
+    format: uuid
+    required: false
+  PageParam:
+    name: page
+    description: |
+      Specifies the page number in a limited (paginated) list of products.
+    required: false
+    in: query
+    type: integer
+  LimitParam:
+    name: limit
+    description: |
+      Controls the number of items per page in a limited (paginated) list of products.
+    required: false
+    in: query
+    type: integer
+  DirectionParam:
+    name: direction
+    description: |
+      Sort direction. Acceptable values are: `asc`, `desc`.
+    required: false
+    in: query
+    type: string
+    enum:
+      - asc
+      - desc
+  ChannelParam:
+    name: 'channel_id:in'
+    description: |
+      A comma-separated list of channel ids to filter the results by.
+    required: false
+    in: query
+    type: string
+  QueryWidgetsParam:
+    type: string
+    name: query
+    in: query
+    description: |
+      The query string associated with a widget's name and description.
+  ChannelIdParam:
+    in: query
+    name: channel_id
+    type: integer
+    description: 'Channel ID to use for channel-specific setting. If omitted, you will interact with the global setting only.'
+  RequiredChannelIdParamForDelete:
+    in: query
+    name: channel_id
+    type: integer
+    description: 'Required Channel ID. This delete operation will delete overridden settings for this channel, thus restoring them to the global defaults.'
+    required: true
+definitions:
+  Status:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: |
+          Id for status
+      name:
+        type: string
+        description: |
+          status name for the inventory
+    x-tags:
+      - Models
+  WidgetTemplatePreview:
+    properties:
+      widget_configuration:
+        type: object
+        description: The JSON data that populates the template.
+        format: json
+    x-tags:
+      - Models
+  WidgetTemplatePut:
+    properties:
+      name:
+        type: string
+        description: User-friendly name.
+      schema:
+        type: object
+        description: The schema for this template. Describes how to build dynamic forms for widget configurations.
+        format: json
+      template:
+        type: string
+        description: Handlebars HTML content. Also has access to Stencil Paper helpers.
+        format: html
+      storefront_api_query:
+        type: string
+        description: GraphQL query
+        format: graphql
+      channel_id:
+        type: integer
+        description: The id of the channel on which to place this template.
+      create_new_version:
+        type: boolean
+        description: Create a new version of Widget Template instead of updating the current version.
+    x-tags:
+      - Models
+  WidgetTemplatePost:
+    required:
+      - name
+      - template
+    properties:
+      name:
+        type: string
+        description: User friendly name.
+      schema:
+        type: object
+        description: The JSON schema of data for this template. Used to validate a configuration.
+        format: json
+      template:
+        type: string
+        description: Handlebars HTML content. Also has access to Stencil Paper helpers.
+        format: html
+      storefront_api_query:
+        type: string
+        description: GraphQL query
+        format: graphql
+      channel_id:
+        type: integer
+        description: The id of the channel on which to create this template. Defaults to the first channel created on the store.
+    x-tags:
+      - Models
+  WidgetTemplateResponse:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/WidgetTemplate'
+    x-tags:
+      - Models
+  WidgetTemplatePreviewResponse:
+    type: object
+    properties:
+      data:
+        properties:
+          html:
+            type: string
+            description: The HTML render of the widget template.
+            format: html
+    x-tags:
+      - Models
+  WidgetTemplatesResponse:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/WidgetTemplate'
+      meta:
+        $ref: '#/definitions/CollectionMeta'
+    x-tags:
+      - Models
+  WidgetTemplate:
+    type: object
+    properties:
+      uuid:
+        type: string
+        format: uuid
+        description: The primary identifier.
+      name:
+        type: string
+        description: The user-friendly name.
+      kind:
+        type: string
+        description: The kind of widget template.
+      schema:
+        type: object
+        format: json
+        description: The JSON schema of data for this template. Used to validate a configuration.
+      template:
+        type: string
+        format: html
+        description: The widget template HTML. Supports Handlebars and Paper helpers.
+      storefront_api_query:
+        type: string
+        description: GraphQL query
+        format: graphql
+      date_created:
+        type: string
+        format: datetime
+        description: The date on which this object was initially created.
+      date_modified:
+        type: string
+        format: datetime
+        description: The date on which this object was last updated.
+      current_version_uuid:
+        type: string
+        format: uuid
+        description: The identifier to the current version of this widget template.
+      channel_id:
+        type: integer
+        description: 'The id of the channel on which this template exists. This field will not be present for BigCommerce Widget Templates, as they apply to all channels.'
+    x-tags:
+      - Models
+  Widget:
+    type: object
+    properties:
+      uuid:
+        type: string
+        format: uuid
+        description: The primary identifier.
+      name:
+        type: string
+        description: The user-friendly name.
+      description:
+        type: string
+        description: The user-friendly description.
+      widget_configuration:
+        type: object
+        description: The JSON data that populates the template.
+        format: json
+      widget_template:
+        $ref: '#/definitions/WidgetTemplate'
+      date_created:
+        type: string
+        format: datetime
+        description: The date on which this object was initially created.
+      date_modified:
+        type: string
+        format: datetime
+        description: The date on which this object was last updated.
+      version_uuid:
+        type: string
+        format: uuid
+        description: The identifier of the widget template version associated with this widget.
+      channel_id:
+        type: integer
+        description: The id of the channel on which this widget exists.
+    x-tags:
+      - Models
+  WidgetPost:
+    required:
+      - name
+      - widget_template_uuid
+    properties:
+      name:
+        type: string
+        description: User friendly name.
+      description:
+        type: string
+        description: The user-friendly description.
+      widget_configuration:
+        type: object
+        description: The JSON data that populates the template.
+        format: json
+      widget_template_uuid:
+        type: string
+        description: The widget template UUID.
+      channel_id:
+        type: integer
+        description: The id of the channel on which to create this widget. Defaults to the first channel created on the store.
+    x-tags:
+      - Models
+  WidgetPut:
+    properties:
+      name:
+        type: string
+        description: User-friendly name.
+      description:
+        type: string
+        description: The user-friendly description.
+      widget_configuration:
+        type: object
+        description: The JSON data that populates the template.
+        format: json
+      widget_template_uuid:
+        type: string
+        description: The widget template UUID.
+      channel_id:
+        type: integer
+        description: The id of the channel on which to display this widget.
+      upgrade:
+        type: boolean
+        description: Upgrade the Widget to latest version of the WidgetTemplate.
+    x-tags:
+      - Models
+  WidgetResponse:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/Widget'
+    x-tags:
+      - Models
+  WidgetsResponse:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Widget'
+      meta:
+        $ref: '#/definitions/CollectionMeta'
+    x-tags:
+      - Models
+  PlacementPost:
+    required:
+      - widget_uuid
+      - region
+      - template_file
+    properties:
+      widget_uuid:
+        type: string
+        description: A widget identifier.
+      entity_id:
+        type: string
+        description: The specific instance of a page that you would like to target.
+      sort_order:
+        type: integer
+        description: The sort order to control the position of a content widget in a region.
+      region:
+        type: string
+        description: The name of the region in which to insert content widgets.
+      template_file:
+        type: string
+        description: The template file that you would like to target.
+      status:
+        type: string
+        description: Sets the placement as either inactive or active.
+        default: inactive
+        enum:
+          - inactive
+          - active
+      channel_id:
+        type: integer
+        description: The id of the channel on which to create this placement. Defaults to the first channel created on the store.
+    x-tags:
+      - Models
+  PlacementPut:
+    properties:
+      entity_id:
+        type: string
+        description: Optional. The specific instance of a page that you would like to target.
+      template_file:
+        type: string
+        description: The template file that you would like to target.
+      region:
+        type: string
+        description: The name of the region in which to insert content widgets.
+      sort_order:
+        type: integer
+        description: The sort order to control the position of a content widget in a region.
+      widget_uuid:
+        type: string
+        description: A widget identifier.
+      status:
+        type: string
+        description: Sets the placement as either inactive or active.
+        enum:
+          - inactive
+          - active
+      channel_id:
+        type: integer
+        description: The id of the channel that on which to display this placement.
+    x-tags:
+      - Models
+  PlacementResponse:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/Placement'
+    x-tags:
+      - Models
+  PlacementsResponse:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Placement'
+      meta:
+        $ref: '#/definitions/CollectionMeta'
+    x-tags:
+      - Models
+  Placement:
+    properties:
+      uuid:
+        type: string
+        format: uuid
+        description: The primary identifier.
+      entity_id:
+        type: string
+        description: The specific instance of a page
+      status:
+        type: string
+        description: Determines whether this placement is `active` or `inactive`.
+        enum:
+          - inactive
+          - active
+      template_file:
+        type: string
+        description: The page template name.
+      region:
+        type: string
+        description: The user-friendly name.
+      sort_order:
+        type: integer
+        description: The sort order to control position of a content widget in a region.
+      widget:
+        $ref: '#/definitions/Widget'
+      date_created:
+        type: string
+        format: datetime
+        description: The date on which this object was initially created.
+      date_modified:
+        type: string
+        format: datetime
+        description: The date on which this object was last updated.
+      channel_id:
+        type: integer
+        description: The id of the channel on which this placement exists.
+    x-tags:
+      - Models
+  ThemeRegion:
+    properties:
+      name:
+        type: string
+        description: The region name.
+    x-tags:
+      - Models
+  ThemeRegionsResponse:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/ThemeRegion'
+      meta:
+        $ref: '#/definitions/Meta'
+    description: |
+      A BigCommerce Catalog Summary object describes a lightweight summary of the catalog.
+    x-tags:
+      - Models
+  CollectionMeta:
+    type: object
+    description: |
+      Data about the response, including pagination and collection totals.
+    properties:
+      pagination:
+        $ref: '#/definitions/Pagination'
+    x-tags:
+      - Models
+  Pagination:
+    type: object
+    description: |
+      Data about the response, including pagination and collection totals.
+    properties:
+      total:
+        type: integer
+        description: |
+          Total number of items in the result set.
+      count:
+        type: integer
+        description: |
+          Total number of items in the collection response.
+      per_page:
+        type: integer
+        description: |
+          The amount of items returned in the collection per page, controlled by the limit parameter.
+      current_page:
+        type: integer
+        description: |
+          The page you are currently on within the collection.
+      total_pages:
+        type: integer
+        description: |
+          The total number of pages in the collection.
+      links:
+        type: object
+        description: |
+          Pagination links for the previous and next parts of the whole collection.
+        properties:
+          previous:
+            type: string
+            description: |
+              Link to the previous page returned in the response.
+          current:
+            type: string
+            description: |
+              Link to the current page returned in the response.
+          next:
+            type: string
+            description: |
+              Link to the next page returned in the response.
+    x-tags:
+      - Models
+  Meta:
+    type: object
+    description: Empty meta object; may be used later.
+    x-tags:
+      - Models
+  ErrorResponse:
+    allOf:
+      - $ref: '#/definitions/BaseError'
+      - type: object
+        properties:
+          errors:
+            $ref: '#/definitions/DetailedErrors'
+    x-tags:
+      - Models
+  BaseError:
+    type: object
+    description: |
+      Error payload for the BigCommerce API.
+    properties:
+      status:
+        description: |
+          The HTTP status code.
+        type: integer
+      title:
+        description: |
+          The error title describing the particular error.
+        type: string
+      type:
+        type: string
+      instance:
+        type: string
+    x-tags:
+      - Models
+  DetailedErrors:
+    type: object
+    additionalProperties:
+      type: string
+    x-tags:
+      - Models
+  NotFound:
+    description: |
+      Error payload for the BigCommerce API.
+    type: object
+    properties:
+      status:
+        description: |
+          404 HTTP status code.
+        type: integer
+      title:
+        description: The error title describing the particular error.
+        type: string
+      type:
+        type: string
+      instance:
+        type: string
+    x-tags:
+      - Models
+x-stoplight:
+  docs:
+    includeDownloadLink: false
+    showModels: false

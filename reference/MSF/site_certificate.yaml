@@ -1,0 +1,201 @@
+openapi: 3.0.0
+info:
+  title: Site Certificate
+  version: ''
+x-stoplight:
+  docs:
+    includeDownloadLink: false
+    showModels: false
+paths:
+  '/sites/{site_id}/certificate':
+    parameters:
+      - $ref: '#/components/parameters/SiteIdPathParam'
+    get:
+      summary: Get a Site's Certificate
+      description: Returns SSL certificate information for a specified site.
+      tags:
+        - Site Certificate
+      operationId: get-sites-id-certificate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CertificateResponse'
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    description: Production API Gateway
+components:
+  schemas:
+    IndexMeta:
+      type: object
+      description: BC Meta payload for collection-type responses
+      properties:
+        pagination:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 1
+            count:
+              type: integer
+              example: 1
+            per_page:
+              type: integer
+              example: 50
+            current_page:
+              type: integer
+              example: 1
+            total_pages:
+              type: integer
+              example: 1
+            links:
+              type: object
+              properties:
+                previous:
+                  type: string
+                  example: '?page=1&limit=50'
+                current:
+                  type: string
+                  example: '?page=1&limit=50'
+                next:
+                  type: string
+                  example: '?page=1&limit=50'
+      x-tags:
+        - Models
+    SiteCreate:
+      type: object
+      properties:
+        url:
+          type: string
+          description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
+          example: 'http://kittens.mybigcommerce.com/'
+        channel_id:
+          type: integer
+          description: 'The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites.'
+        certificate:
+          $ref: '#/components/schemas/CertificateWrite'
+      x-tags:
+        - Models
+    CertificateWrite:
+      title: CertificateWrite
+      type: object
+      description: ''
+      properties:
+        certificate:
+          type: string
+          description: 'The primary certificate, as a string.'
+        private_key:
+          type: string
+          description: 'The private key, as a string. Is a "write-only" field, will never be returned after write.'
+        intermediate_certificates:
+          type: string
+          description: 'The intermediate certificate(s), as a string.'
+      x-tags:
+        - Models
+    CertificateResponse:
+      title: CertificateResponse
+      type: object
+      description: ''
+      properties:
+        data:
+          type: object
+          properties:
+            status:
+              type: string
+              enum:
+                - shared
+                - dedicated
+            installed_certificate:
+              $ref: '#/components/schemas/InstalledCertificateDetail'
+        meta:
+          type: object
+      x-tags:
+        - Models
+    InstalledCertificateDetail:
+      title: CertificateInfo
+      description: 'Details about the installed certificate, including the raw certificate data, without the private key.'
+      type: object
+      nullable: true
+      properties:
+        common_name:
+          type: string
+          example: store.com
+          description: Common Name on the TLS certificate.
+        subject_alternative_names:
+          type: array
+          example:
+            - store.com
+            - www.store.com
+          description: Subject Alternative Names for which the certificate is also valid.
+          items:
+            type: string
+        validity_not_before:
+          type: string
+          example: '2018-01-04T04:15:50.000Z'
+          description: When does the validity period of this certificate begin? RFC 3339
+        validity_not_after:
+          type: string
+          example: '2018-01-04T04:15:50.000Z'
+          description: 'When does the validity period of this certificate end? If this date is in the past, the certificate has expired. RFC 3339'
+        signing_algorithm:
+          type: string
+          description: Signing algorithm used to sign the certificate.
+        issuer:
+          type: string
+        certificate:
+          type: string
+          description: 'The primary certificate, as a string.'
+        intermediate_certificates:
+          type: string
+          description: 'The intermediate certificate(s), as a string.'
+      x-tags:
+        - Models
+    ErrorResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseError'
+        - type: object
+          properties:
+            errors:
+              $ref: '#/components/schemas/DetailedErrors'
+      x-tags:
+        - Models
+    BaseError:
+      type: object
+      description: |
+        Error payload for the BigCommerce API.
+      properties:
+        status:
+          description: |
+            The HTTP status code.
+          type: integer
+        title:
+          description: |
+            The error title describing the particular error.
+          type: string
+        type:
+          type: string
+        instance:
+          type: string
+      x-tags:
+        - Models
+    DetailedErrors:
+      type: object
+      additionalProperties:
+        type: string
+      x-tags:
+        - Models
+  parameters:
+    ChannelIdPathParam:
+      in: path
+      name: channel_id
+      schema:
+        type: integer
+      required: true
+    SiteIdPathParam:
+      in: path
+      name: site_id
+      schema:
+        type: integer
+      required: true

@@ -1,0 +1,304 @@
+openapi: 3.0.0
+info:
+  title: Products Assignments
+  version: 3.0.0
+  description: Create and manage products assignments.
+  termsOfService: 'http://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce Developer Documentation
+    url: 'https://developer.bigcommerce.com/'
+paths:
+  /catalog/products/channel-assignments:
+    get:
+      summary: Get Products Channel Assignments
+      description: Returns a list of products channel assignments.
+      tags:
+        - Products Channel Assignments
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+        - name: 'product_id:in'
+          in: query
+          schema:
+            type: string
+        - name: 'channel_id:in'
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Collection of channel assignments.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ProductChannelAssignment'
+                  meta:
+                    $ref: '#/components/schemas/MetaPaginationObject'
+    put:
+      summary: Create Products Channel Assignments
+      description: Creates products channel assignments.
+      tags:
+        - Products Channel Assignments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ProductChannelAssignment'
+      responses:
+        '204':
+          description: Updated
+        '422':
+          description: Error response for batch PUT of Channel Assignments. Includes the errors for each reference id.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    delete:
+      summary: Delete Products Channel Assignments
+      description: Delete products channel assignments. A filter must be supplied.
+      tags:
+        - Products Channel Assignments
+      parameters:
+        - name: 'product_id:in'
+          in: query
+          schema:
+            type: string
+        - name: 'channel_id:in'
+          in: query
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Deleted
+        '422':
+          description: At least one filter must be provided in order to delete channel assignments
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /catalog/products/category-assignments:
+    get:
+      summary: Get Products Category Assignments
+      description: Returns a list of products category assignments.
+      tags:
+        - Products Category Assignments
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+        - name: 'product_id:in'
+          in: query
+          schema:
+            type: string
+        - name: 'category_id:in'
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Collection of category assignments.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ProductCategoryAssignment'
+                  meta:
+                    $ref: '#/components/schemas/MetaPaginationObject'
+    put:
+      summary: Create Products Category Assignments.
+      description: Creates products category assignments.
+      tags:
+        - Products Category Assignments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ProductCategoryAssignment'
+      responses:
+        '204':
+          description: Updated
+        '422':
+          description: Error response for batch PUT of Category Assignments. Includes the errors for each reference id.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    delete:
+      summary: Delete Products Category Assignments
+      description: Deletes products category assignments. A filter must be supplied.
+      tags:
+        - Products Category Assignments
+      parameters:
+        - name: 'product_id:in'
+          in: query
+          schema:
+            type: string
+        - name: 'category_id:in'
+          in: query
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Deleted
+        '422':
+          description: At least one filter must be provided in order to delete category assignments
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    ProductsChannelCount:
+      type: object
+      description: The count of product in the channels.
+      properties:
+        channel_id:
+          description: Channel ID.
+          type: integer
+          minimum: 1
+        product_count:
+          type: integer
+          minimum: 0
+      x-tags:
+        - Models
+    ProductsCategoriesCount:
+      properties:
+        product_id:
+          type: integer
+          minimum: 1
+        channels:
+          type: array
+          items:
+            $ref: '#/components/schemas/CategoriesCount'
+      x-tags:
+        - Models
+    CategoriesCount:
+      properties:
+        channel_id:
+          type: integer
+          minimum: 1
+        category_count:
+          type: integer
+          minimum: 0
+      x-tags:
+        - Models
+    ProductChannelAssignment:
+      properties:
+        product_id:
+          type: integer
+        channel_id:
+          type: integer
+      x-tags:
+        - Models
+    ProductCategoryAssignment:
+      properties:
+        product_id:
+          type: integer
+        category_id:
+          type: integer
+      x-tags:
+        - Models
+    MetaPaginationObject:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 246
+              minimum: 0
+            count:
+              type: integer
+              example: 5
+              minimum: 0
+            per_page:
+              type: integer
+              example: 5
+              minimum: 0
+            current_page:
+              type: integer
+              example: 1
+              minimum: 1
+            total_pages:
+              type: integer
+              example: 50
+              minimum: 0
+            links:
+              type: object
+              properties:
+                next:
+                  type: string
+                  example: '?limit=5&page=2'
+                current:
+                  type: string
+                  example: '?limit=5&page=1'
+      x-tags:
+        - Models
+    DetailedErrors:
+      type: object
+      additionalProperties:
+        type: string
+      x-tags:
+        - Models
+    BaseError:
+      type: object
+      description: |
+        Error payload for the BigCommerce API.
+      properties:
+        status:
+          description: |
+            The HTTP status code.
+          type: integer
+        title:
+          description: |
+            The error title describing the particular error.
+          type: string
+        type:
+          type: string
+        instance:
+          type: string
+      x-tags:
+        - Models
+    ErrorResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseError'
+        - type: object
+          properties:
+            errors:
+              $ref: '#/components/schemas/DetailedErrors'
+      x-tags:
+        - Models
+x-stoplight:
+  docs:
+    includeDownloadLink: false
+    showModels: false
+servers:
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    description: ''
