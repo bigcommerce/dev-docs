@@ -1,88 +1,188 @@
 openapi: 3.0.0
 info:
-  version: ""
+  version: ''
   title: Abandoned Carts
-  description: >-
-    Use `/abandoned-carts/{token}` on headless storefronts to retrieve the
-    `cart_id` via the abandoned cart `token` passed in to headless storefront
-    via an abandoned cart email link clicked on by a shopper. Once the `cart_id`
-    has been retrieved, it can be used to fetch and display information about
-    the cart to the shopper via the storefront cart and/or server-to-server cart
-    APIs.
-
+  description: |-
+    Use `/abandoned-carts/{token}` on headless storefronts to retrieve the `cart_id` via the abandoned cart `token` passed in to headless storefront via an abandoned cart email link clicked on by a shopper. Once the `cart_id` has been retrieved, it can be used to fetch and display information about the cart to the shopper via the storefront cart and/or server-to-server cart APIs.
 
     ## OAuth Scopes
-
     | UI Name                                      | Permission | Parameter                                     |
-
     |----------------------------------------------|------------|-----------------------------------------------|
-
     | Carts                                        | modify     | `store_cart`                                  |
-
     | Carts                                        | read-only  | `store_cart_read_only`                        |
-
 
     For more information on OAuth Scopes, see: [Authentication](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
-
     ## Authentication
-
 
     Requests can be authenticated by sending an `access_token` via `X-Auth-Token` HTTP header:
 
-
     ```http
-
     GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
     host: api.bigcommerce.com
-
     Accept: application/json
-
     X-Auth-Token: {access_token}
-
     ```
 
-
     |Header|Parameter|Description|
-
     |-|-|-|
-
     |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
-
     For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
-  license:
-    name: ""
-  termsOfService: ""
 paths:
-  "/stores/{store_hash}/v3/abandoned-carts/{token}":
+  '/stores/{store_hash}/v3/abandoned-carts/settings':
+    get:
+      summary: Get Global Abandoned Cart Settings
+      description: Returns the global abandoned cart settings of a store.
+      tags:
+        - Abandoned Carts Settings
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GlobalAbandonedCartSettingsResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    put:
+      summary: Update Global Abandoned Cart Settings
+      description: Updates the global abandoned cart settings of a store.
+      tags:
+        - Abandoned Carts Settings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GlobalAbandonedCartSettingsRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GlobalAbandonedCartSettingsResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessable entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/abandoned-carts/settings/channels/{channel_id}':
+    get:
+      summary: Get Channel Abandoned Cart Settings
+      description: Returns the per-channel overrides for the abandoned cart settings of a store.
+      tags:
+        - Abandoned Carts Settings
+      parameters:
+        - name: channel_id
+          description: The channel ID of the settings overrides
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelAbandonedCartSettingsResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    put:
+      summary: Update Channel Abandoned Cart Settings
+      description: Updates the per-channel overrides for the abandoned cart settings of a store.
+      tags:
+        - Abandoned Carts Settings
+      parameters:
+        - name: channel_id
+          description: The channel ID of the settings overrides
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChannelAbandonedCartSettingsRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelAbandonedCartSettingsResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Unprocessible entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: channel_id
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/abandoned-carts/{token}':
     get:
       responses:
-        "200":
-          $ref: "#/components/responses/abandonedCart_Resp"
-        "400":
-          $ref: "#/components/responses/400_BadRequest"
-        "404":
-          $ref: "#/components/responses/404_NotFound"
-        "422":
-          $ref: "#/components/responses/422_UnprocessableEntity"
-        "502":
-          $ref: "#/components/responses/502_GatewayError"
-        "503":
-          $ref: "#/components/responses/503_ServiceUnavailable"
-        "504":
-          $ref: "#/components/responses/504_GatewayTimeout"
+        '200':
+          $ref: '#/components/responses/abandonedCart_Resp'
+        '400':
+          $ref: '#/components/responses/400_BadRequest'
+        '404':
+          $ref: '#/components/responses/404_NotFound'
+        '422':
+          $ref: '#/components/responses/422_UnprocessableEntity'
+        '502':
+          $ref: '#/components/responses/502_GatewayError'
+        '503':
+          $ref: '#/components/responses/503_ServiceUnavailable'
+        '504':
+          $ref: '#/components/responses/504_GatewayTimeout'
         default:
-          description: ""
+          description: ''
       summary: Get an Abandoned Cart
-      description: >-
-        Returns the `cart_id` corresponding to the abandoned cart `{token}`
-        passed in.
-
+      description: |-
+        Returns the `cart_id` corresponding to the abandoned cart `{token}` passed in.
 
         **Usage Notes**:
-
         * `{token}` is the token in the query string of the abandoned cart link found in abandoned cart email notifications to shoppers
       operationId: getAbandonedCarts
       tags:
@@ -113,7 +213,7 @@ x-stoplight:
     includeDownloadLink: true
     showModels: false
 servers:
-  - url: https://api.bigcommerce.com/
+  - url: 'https://api.bigcommerce.com'
 components:
   parameters:
     Accept:
@@ -134,13 +234,11 @@ components:
         default: application/json
   responses:
     502_GatewayError:
-      description: If something happens during the request that causes it to fail, a 502
-        response will be returned. A new request should be made; however, it
-        could fail.
+      description: 'If something happens during the request that causes it to fail, a 502 response will be returned. A new request should be made; however, it could fail.'
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/error_Full"
+            $ref: '#/components/schemas/error_Full'
           examples:
             response:
               value:
@@ -148,16 +246,11 @@ components:
                 title: A login URL could not be generated. Please try another request.
                 type: /api-docs/getting-started/api-status-codes
     504_GatewayTimeout:
-      description: If this occurs, you should retry the request. Typically retrying the
-        request several times will result in a successful request; However, if
-        you are unable to successfully make a request, please check the
-        BigCommerce system status [here](https://status.bigcommerce.com/). A
-        service is likely down and the request will need to be made again when
-        it is back up (in several hours usually)
+      description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/errorDetailed_Full"
+            $ref: '#/components/schemas/errorDetailed_Full'
           examples:
             response:
               value:
@@ -166,17 +259,16 @@ components:
                 type: /api-docs/getting-started/api-status-codes
                 errors: {}
     403_Unauthorized:
-      description: ""
+      description: ''
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/error_Full"
+            $ref: '#/components/schemas/error_Full'
           examples:
             response:
               value:
                 status: 403
-                title: Unauthorized Access. You do not have permission to make this
-                  request.
+                title: Unauthorized Access. You do not have permission to make this request.
                 type: /api-docs/getting-started/api-status-codes
     400_BadRequest:
       description: |-
@@ -185,7 +277,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/error_Full"
+            $ref: '#/components/schemas/error_Full'
           examples:
             response:
               value:
@@ -193,26 +285,23 @@ components:
                 title: Input is invalid.
                 type: /api-docs/getting-started/api-status-codes
     404_NotFound:
-      description: If the requested account resource is not found for the franchise, return
-        a 404 Not Found.
+      description: 'If the requested account resource is not found for the franchise, return a 404 Not Found.'
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/error_Full"
+            $ref: '#/components/schemas/error_Full'
           examples:
             response:
               value:
                 status: 404
-                title: Account with {id} not found
+                title: 'Account with {id} not found'
                 type: /api-docs/getting-started/api-status-codes
     422_UnprocessableEntity:
-      description: This occurs when missing or unacceptable data is passed for one or more
-        fields. Please correct the values for the fields listed in the errors
-        object.
+      description: This occurs when missing or unacceptable data is passed for one or more fields. Please correct the values for the fields listed in the errors object.
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/errorDetailed_Full"
+            $ref: '#/components/schemas/errorDetailed_Full'
           examples:
             response:
               value:
@@ -223,15 +312,11 @@ components:
                   name: error.expected.jsstring
                   primary_contact.district: error.expected.jsstring.
     503_ServiceUnavailable:
-      description: If this occurs, you should retry the request. If you are unable to
-        successfully make a request, please check the BigCommerce system status
-        [here](https://status.bigcommerce.com/). A service is likely down and
-        the request will need to be made again when it is back up (in several
-        hours usually)
+      description: 'If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/error_Full"
+            $ref: '#/components/schemas/error_Full'
           examples:
             response:
               value:
@@ -246,51 +331,35 @@ components:
             type: object
             properties:
               data:
-                $ref: "#/components/schemas/abandonedCartInfo_Full"
+                $ref: '#/components/schemas/abandonedCartInfo_Full'
               meta:
-                $ref: "#/components/schemas/metaEmpty_Full"
+                $ref: '#/components/schemas/metaEmpty_Full'
   securitySchemes:
     X-Auth-Token:
       type: apiKey
       in: header
       name: X-Auth-Token
-      description: >-
+      description: |-
         ### OAuth Scopes
-
         |  **UI Name** | **Permission** | **Parameter** |
-
         | --- | --- | --- |
-
         |  Carts | modify | `store_cart` |
-
         |  Carts | read-only | `store_cart_read_only` |
-
 
         ### Headers
 
-
         |Header|Parameter|Description|
-
         |-|-|-|
-
         |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
 
         ### Example
 
-
         ```http
-
         GET /stores/{store_hash}/v3/catalog/summary
-
         host: api.bigcommerce.com
-
         Content-Type: application/json
-
         X-Auth-Token: {access_token}
-
         ```
-
 
         * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
   schemas:
@@ -329,6 +398,142 @@ components:
       properties:
         cart_id:
           type: string
-          description: The `cart_id` of the abandoned cart. Can be used to display the
-            abanded cart to the customer via storefront cart or
+          description: The `cart_id` of the abandoned cart. Can be used to display the abanded cart to the customer via storefront cart or
       x-internal: true
+    AbandonedCartSettings:
+      description: Represents all settings related to the abandoned cart functionality of a store
+      type: object
+      properties:
+        enabled:
+          description: Indicates whether or not abandoned cart notification is on
+          type: boolean
+        email_customer_until_cart_is_recovered:
+          description: Indicates whether or not a customer should continue to receive abandoned cart emails until their cart is recovered
+          type: boolean
+        marketing_emails_require_customer_consent:
+          description: Indicates whether or not a customer should receive abandoned cart emails based on their consent. By default customers will not receive emails.
+          type: boolean
+        email_merchant_when_cart_is_converted:
+          description: Indicates whether or not a merchant should receive a notification email when a cart is converted into an order
+          type: boolean
+        email_merchant_when_cart_is_abandoned:
+          description: Indicates whether or not a merchant should receive a notification email when a cart is abandoned
+          type: boolean
+        merchant_email_address:
+          description: The email address for receiving merchant notifications
+          type: string
+          format: email
+        merchant_abandoned_cart_email_frequency_type:
+          description: 'Indicates whether to send an email for every abandoned cart, or to send a digest email after X number of abandoned carts'
+          type: string
+          enum:
+            - digest
+            - individual
+        merchant_abandoned_cart_digest_email_frequency:
+          description: The number of abandoned carts to accumulate before a digest email is sent to a merchant
+          type: integer
+          minimum: 2
+          maximum: 1000
+      x-tags:
+        - Models
+    ChannelAbandonedCartSettings:
+      description: Represents all settings overrides related to the abandoned cart functionality of a store for a channel
+      type: object
+      properties:
+        enabled:
+          description: 'Indicates whether or not abandoned cart notification is on. If it is null, it means there is no override for the specified channel.'
+          type: boolean
+          nullable: true
+        email_customer_until_cart_is_recovered:
+          description: 'Indicates whether or not a customer should continue to receive abandoned cart emails until their cart is recovered. If it is null, it means there is no override for the specified channel.'
+          type: boolean
+          nullable: true
+        marketing_emails_require_customer_consent:
+          description: 'Indicates whether or not a customer should receive abandoned cart emails based on their consent. If it is null, it means there is no override for the specified channel. By default customers will not receive emails.'
+          type: boolean
+          nullable: true
+        email_merchant_when_cart_is_converted:
+          description: 'Indicates whether or not a merchant should receive a notification email when a cart is converted into an order. If it is null, it means there is no override for the specified channel.'
+          type: boolean
+          nullable: true
+        email_merchant_when_cart_is_abandoned:
+          description: 'Indicates whether or not a merchant should receive a notification email when a cart is abandoned. If it is null, it means there is no override for the specified channel.'
+          type: boolean
+          nullable: true
+        merchant_email_address:
+          description: 'The email address for receiving merchant notifications. If it is null, it means there is no override for the specified channel.'
+          type: string
+          nullable: true
+          format: email
+        merchant_abandoned_cart_email_frequency_type:
+          description: 'Indicates whether to send an email for every abandoned cart or to send a digest email after X number of abandoned carts. If it is null, it means there is no override for the specified channel.'
+          type: string
+          nullable: true
+          enum:
+            - digest
+            - individual
+        merchant_abandoned_cart_digest_email_frequency:
+          description: 'The number of abandoned carts to accumulate before a digest email is sent to a merchant. If it is null, it means there is no override for the specified channel.'
+          type: integer
+          nullable: true
+          minimum: 2
+          maximum: 1000
+      x-tags:
+        - Models
+    ChannelAbandonedCartSettingsRequest:
+      allOf:
+        - $ref: '#/components/schemas/ChannelAbandonedCartSettings'
+        - description: The request object for updating the abandoned cart settings overrides of a store for a channel
+      x-tags:
+        - Models
+    ChannelAbandonedCartSettingsResponse:
+      description: The response object of abandoned cart settings overrides for a channel
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ChannelAbandonedCartSettings'
+        meta:
+          type: object
+      x-tags:
+        - Models
+    GlobalAbandonedCartSettingsRequest:
+      allOf:
+        - $ref: '#/components/schemas/AbandonedCartSettings'
+        - description: The request object for updating the abandoned cart settings of a store at the global level
+          required:
+            - enabled
+            - email_customer_until_cart_is_recovered
+            - marketing_emails_require_customer_consent
+            - email_merchant_when_cart_is_converted
+            - email_merchant_when_cart_is_abandoned
+            - merchant_email_address
+            - merchant_abandoned_cart_email_frequency_type
+            - merchant_abandoned_cart_digest_email_frequency
+      x-tags:
+        - Models
+    GlobalAbandonedCartSettingsResponse:
+      description: The response object of abandoned cart settings at the global level
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/AbandonedCartSettings'
+        meta:
+          type: object
+      x-tags:
+        - Models
+    ErrorResponse:
+      description: The response object containing details of an error
+      type: object
+      properties:
+        status:
+          type: integer
+        title:
+          type: string
+        type:
+          type: string
+        instance:
+          type: string
+        errors:
+          type: object
+      x-tags:
+        - Models
