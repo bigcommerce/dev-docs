@@ -3582,6 +3582,7 @@ components:
       x-internal: true
     CardInstrument:
       type: object
+      title: Card Instrument
       properties:
         type:
           type: string
@@ -3621,6 +3622,7 @@ components:
       x-internal: true
     PayPalAccountInstrument:
       type: object
+      title: PayPal Account Instrument
       properties:
         type:
           type: string
@@ -3642,6 +3644,7 @@ components:
       x-internal: true
     BankAccountInstrument:
       type: object
+      title: Bank Account Instrument
       properties:
         type:
           type: string
