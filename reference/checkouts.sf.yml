@@ -143,7 +143,7 @@ paths:
                     imageUrl: ''
                     cost: 8
                     transitTime: ''
-                  shippingAddress:
+                  address:
                     firstName: Dwayne
                     lastName: Cole
                     email: dwaynecole@testing.com
@@ -316,7 +316,7 @@ paths:
                     imageUrl: ''
                     cost: 8
                     transitTime: ''
-                  shippingAddress:
+                  address:
                     firstName: Dwayne
                     lastName: Cole
                     email: dwaynecole@testing.com
@@ -480,7 +480,7 @@ paths:
                     imageUrl: ''
                     cost: 8
                     transitTime: ''
-                  shippingAddress:
+                  address:
                     firstName: Dwayne
                     lastName: Cole
                     email: dwaynecole@testing.com
@@ -721,7 +721,7 @@ paths:
                     imageUrl: ''
                     cost: 69.94
                     transitTime: 1 business day
-                  shippingAddress:
+                  address:
                     firstName: Jane
                     lastName: Doe
                     email: janedoe@example.com
@@ -883,7 +883,7 @@ paths:
                     imageUrl: ''
                     cost: 8
                     transitTime: ''
-                  shippingAddress:
+                  address:
                     firstName: Dwayne
                     lastName: Cole
                     email: dwaynecole@testing.com
@@ -1144,7 +1144,7 @@ paths:
                     imageUrl: ''
                     cost: 69.94
                     transitTime: 1 business day
-                  shippingAddress:
+                  address:
                     firstName: Jane
                     lastName: Doe
                     email: janedoe@example.com
@@ -1210,7 +1210,7 @@ paths:
               $ref: '#/definitions/CreateConsignmentRequest'
           x-examples:
             application/json:
-              - shippingAddress:
+              - address:
                   firstName: Jane
                   lastName: Doe
                   email: janedoe@example.com
@@ -1227,7 +1227,7 @@ paths:
                 lineItems:
                   - itemId: 69791a88-85c9-4c19-8042-e537621e8a55
                     quantity: 2
-              - shippingAddress:
+              - address:
                   firstName: John
                   lastName: Doe
                   email: johnedoe@example.com
@@ -1332,7 +1332,7 @@ paths:
                     imageUrl: ''
                     cost: 8
                     transitTime: ''
-                  shippingAddress:
+                  address:
                     firstName: Dwayne
                     lastName: Cole
                     email: dwaynecole@testing.com
@@ -1365,7 +1365,7 @@ paths:
               customerMessage: ''
   '/checkouts/{checkoutId}/consignments/{consignmentId}':
     put:
-      description: "Updates an existing consignment. Shipping address, line item IDs or the shipping option ID can be updated using this endpoint.\n\nThere are two steps to add a new shipping address and shipping options with line items. \n1. Add a new Consignment to Checkout.\n2. Update the Consignment with Shipping Options.\n* \t Update each *Consignment* `shippingOptionId` (shipping address and line items) with the `availableShippingOption > id` from Step One. \n\n**Required Fields**\n* shippingOptionId\n\nTo learn more about creating a Checkout Consignment see [Working with the Fetch API](/api-docs/cart-and-checkout/working-sf-apis).\n\n<!-- theme: info --> \n\n> #### Note\n> * You cannot pass both a `shippingAddress` and `shippingOptionId` because the shipping option may not be able to be applied to the given address \n> * The Send a Test Request feature is not currently supported for this endpoint."
+      description: "Updates an existing consignment. Either the shipping address, one or more line item IDs, or the shipping option ID can be updated in a single call to this endpoint.\n\nThere are two steps to add a new shipping address and shipping options with line items. \n1. Add a new Consignment to Checkout.\n2. Update the Consignment with Shipping Options.\n* \t Update each *Consignment* `shippingOptionId` (shipping address and line items) with the `availableShippingOption > id` from Step One. \n\n**Required Fields**\n* shippingOptionId\n\nTo learn more about creating a Checkout Consignment see [Checkout Consignment API](/api-docs/checkouts/checkout-consignment).\n\n<!-- theme: info --> \n\n> #### Note\n> * You cannot pass both an `address` and a `shippingOptionId` because the shipping option may not be available for the new address \n> * The Send a Test Request feature is not currently supported for this endpoint."
       tags:
         - Checkout Consignments
       operationId: CheckoutsConsignmentsByCheckoutIdAndConsignmentIdPut
@@ -1390,7 +1390,7 @@ paths:
             $ref: '#/definitions/NewUpdateConsignment'
           x-examples:
             application/json:
-              shippingAddress:
+              address:
                 firstName: Jane
                 lastName: Doe
                 email: mikrdgz@gmail.com
@@ -1498,7 +1498,7 @@ paths:
                     imageUrl: ''
                     cost: 8
                     transitTime: ''
-                  shippingAddress:
+                  address:
                     firstName: Dwayne
                     lastName: Cole
                     email: dwaynecole@testing.com
@@ -1638,7 +1638,7 @@ paths:
                     imageUrl: ''
                     cost: 8
                     transitTime: ''
-                  shippingAddress:
+                  address:
                     firstName: Dwayne
                     lastName: Cole
                     email: dwaynecole@testing.com
@@ -1784,7 +1784,7 @@ paths:
                     imageUrl: ''
                     cost: 8
                     transitTime: ''
-                  shippingAddress:
+                  address:
                     firstName: Dwayne
                     lastName: Cole
                     email: dwaynecole@testing.com
@@ -1972,7 +1972,7 @@ paths:
                     imageUrl: ''
                     cost: 8
                     transitTime: ''
-                  shippingAddress:
+                  address:
                     firstName: Dwayne
                     lastName: Cole
                     email: dwaynecole@testing.com
@@ -2193,7 +2193,7 @@ paths:
                     imageUrl: ''
                     cost: 8
                     transitTime: ''
-                  shippingAddress:
+                  address:
                     firstName: Jane
                     lastName: Doe
                     email: ''
@@ -2222,7 +2222,7 @@ paths:
                     imageUrl: ''
                     cost: 62.63
                     transitTime: 1 business day
-                  shippingAddress:
+                  address:
                     firstName: John
                     lastName: Doe
                     email: ''
@@ -2488,9 +2488,11 @@ definitions:
             description: Indicates if we should add this address to the customer address book.
             type: boolean
     x-internal: false
+    description: ''
   address_Base:
-    title: address_Base
     type: object
+    title: address_Base
+    x-internal: true
     properties:
       firstName:
         description: ''
@@ -2551,11 +2553,15 @@ definitions:
     title: consignment_Full
     description: 'This allows us to have multiple shipping addresses. Where there is only one shipping address, this array will contain only one value, with all the items.'
     type: object
+    x-internal: true
     properties:
       id:
         description: ''
         type: string
       shippingAddress:
+        type: object
+        x-deprecated: true
+      address:
         $ref: '#/definitions/address_Full'
       availableShippingOptions:
         description: This is available only when "include=consignments.availableShippingOptions" is presented in the URL.
@@ -3135,6 +3141,9 @@ definitions:
                   description: ''
                   type: string
                 shippingAddress:
+                  type: object
+                  x-deprecated: true
+                address:
                   title: Address Response
                   allOf:
                     - title: Address Properties
@@ -3429,10 +3438,14 @@ definitions:
   CreateConsignmentRequest:
     title: Create Consignment Request
     type: object
+    x-internal: true
     properties:
       shippingAddress:
-        title: Address Properties
         type: object
+        x-deprecated: true
+      address:
+        type: object
+        title: Address Properties
         properties:
           firstName:
             description: ''
@@ -3526,6 +3539,9 @@ definitions:
     type: object
     properties:
       shippingAddress:
+            type: object
+            x-deprecated: true
+      address:
         title: Address Properties
         type: object
         properties:
@@ -4138,7 +4154,7 @@ responses:
               imageUrl: ''
               cost: 8
               transitTime: ''
-            shippingAddress:
+            address:
               firstName: Dwayne
               lastName: Cole
               email: dwaynecole@testing.com

@@ -10877,14 +10877,13 @@ paths:
             description: |
               Response payload for the BigCommerce API.
             type: object
+            title: Product Review Response
             properties:
               data:
-                type: object
                 description: |
                   A product review model.
                 allOf:
-                  - type: object
-                    title: Product Review Base
+                  - title: Product Review Base
                     properties:
                       title:
                         type: string
@@ -10920,15 +10919,10 @@ paths:
                     required:
                       - title
                       - date_reviewed
-                  - type: object
-                    properties:
+                  - properties:
                       id:
                         description: |
                           The unique numeric ID of the product review; increments sequentially.
-                        type: integer
-                      product_id:
-                        description: |
-                          The unique numeric identifier for the product with which the review is associated.
                         type: integer
                       date_created:
                         type: string
@@ -10941,11 +10935,11 @@ paths:
                         description: |
                           Date the product review was modified.
                 title: Product Review
+                type: object
               meta:
                 type: object
                 description: Empty meta object; may be used later.
                 title: Meta
-            title: Product Review Response
           examples:
             application/json:
               data:
