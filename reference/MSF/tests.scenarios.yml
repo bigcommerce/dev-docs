@@ -1,0 +1,111 @@
+scenarioVersion: '1.1'
+name: To-dos API Tests
+description: >-
+  **These scenarios test the To-dos API described in the main.oas2 file (linked
+  in left file tree).**
+
+
+  The settings in the "Swagger/OAS Coverage" section linked in the editor
+  sidebar automatically add contract testing when we run this collection.
+
+
+  **Don’t forget to set the two environment variables below, where the orange
+  exlamation point is!!**
+
+
+  *host:* http://todos.stoplight.io
+
+
+  *todosApiKey:* 123
+
+
+  **After setting the environment variables, click “Run Collection” at the top
+  of the editor.**
+
+
+  Note: some tests will fail. This is because the main.oas2 file describes a
+  required user property that the API does not actually return. Try removing
+  that property from the main.oas2 file, saving it, and then re-running these
+  scenarios.
+settings:
+  testing:
+    oas2:
+      - ./main.oas2.yml
+before: {}
+scenarios:
+  todo-crud:
+    name: Todo CRUD
+    steps:
+      - type: http
+        name: Create Todo
+        input:
+          method: post
+          url: '{$$.env.host}/todos?apikey={$$.env.todosApiKey}'
+          body:
+            name: string
+            completed:
+              - boolean
+              - 'null'
+          headers:
+            Content-Type: application/json
+        after:
+          assertions:
+            - target: output.status
+              op: eq
+              expected: 201
+          transforms:
+            - target: $.ctx.todoId
+              source: output.body.id
+      - type: http
+        name: Get Todo
+        input:
+          method: get
+          url: '{$$.env.host}/todos/{$.ctx.todoId}'
+        after:
+          assertions:
+            - target: output.status
+              op: eq
+              expected: 200
+          transforms:
+            - target: $.ctx.id
+              source: output.body.id
+      - type: http
+        name: Update Todo
+        input:
+          method: put
+          url: '{$$.env.host}/todos/{$.ctx.todoId}?apikey={$$.env.todosApiKey}'
+          body:
+            name: string
+            completed:
+              - boolean
+              - 'null'
+          headers:
+            Content-Type: application/json
+        after:
+          assertions:
+            - target: output.status
+              op: eq
+              expected: 200
+      - type: http
+        name: Delete Todo
+        input:
+          method: delete
+          url: '{$$.env.host}/todos/{$.ctx.todoId}?apikey={$$.env.todosApiKey}'
+        after:
+          assertions:
+            - target: output.status
+              op: eq
+              expected: 204
+      - type: http
+        name: Make Sure Deleted
+        description: We should get a 404 back after deleting.
+        input:
+          method: get
+          url: '{$$.env.host}/todos/{$.ctx.todoId}'
+        after:
+          assertions:
+            - target: output.status
+              op: eq
+              expected: 404
+after: {}
+utilities: {}

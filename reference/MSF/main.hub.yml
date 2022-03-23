@@ -1,0 +1,308 @@
+title: Multi-Channel Upgrade Guide
+logo: >-
+  https://wwwcdn.bigcommerce.com/www1.bigcommerce.com/assets/logos/bc-logo-dark.svg?mtime=20160329000432
+header:
+  nav:
+    left: []
+    right: []
+pages:
+  /:
+    title: Introduction
+    data:
+      blocks:
+        - type: text
+          data:
+            $ref: ./msf_overview.md.md
+      children:
+        - title: BigCommerce Platform Changes
+          route:
+            path: /overview
+          data:
+            $ref: ./msf_overview.md.md
+        - title: Managing Store Configuration
+          config:
+            sidebar:
+              token: settings-overview
+          route:
+            path: /settings-overview
+          data:
+            $ref: ./Managing Store Configuration.md
+        - title: ERP/OMS/POS Apps
+          route:
+            path: /erp-oms-pos-updates
+          data:
+            children:
+              - title: Category Trees
+                route:
+                  path: /category-trees
+                data:
+                  $ref: ./category_trees.oas3.yml
+              - title: Categories
+                route:
+                  path: /categories
+                data:
+                  $ref: ./categories.oas2.yml
+              - title: Products
+                route:
+                  path: /products
+                data:
+                  $ref: ./products.oas2.yml
+              - title: Channels
+                route:
+                  path: /channels
+                data:
+                  $ref: >-
+                    https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/channels.v3.yml?branch=master&deref=all&format=json
+              - title: Customers
+                route:
+                  path: /customers
+                data:
+                  $ref: >-
+                    https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/customers.v3.yml?branch=master&deref=all&format=json
+              - title: Orders
+                route:
+                  path: /orders
+                data:
+                  $ref: >-
+                    https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/orders.v3.yml?branch=master&deref=all&format=json
+              - title: References
+                route:
+                  path: /references
+                data:
+                  children:
+                    - title: Category Trees
+                      route:
+                        path: /category-trees
+                      data:
+                        $ref: ./category_trees.oas3.yml
+                    - title: Channels
+                      route:
+                        path: /channels
+                      data:
+                        $ref: >-
+                          https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/channels.v3.yml?branch=master&deref=all&format=json
+                    - title: Categories
+                      route:
+                        path: /categories
+                      data:
+                        $ref: ./categories.oas2.yml
+                    - title: Products
+                      route:
+                        path: /products
+                      data:
+                        $ref: ./products.oas2.yml
+                    - title: Customers
+                      route:
+                        path: /customers
+                      data:
+                        $ref: >-
+                          https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/customers.v3.yml?branch=master&deref=all&format=json
+                    - title: Orders
+                      route:
+                        path: /orders
+                      data:
+                        $ref: >-
+                          https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/orders.v3.yml?branch=master&deref=all&format=json
+        - title: PIM Apps
+          route:
+            path: /pim-updates
+          data:
+            children:
+              - title: Category Trees
+                route:
+                  path: /category-trees
+                data:
+                  $ref: ./category_trees.oas3.yml
+              - title: Categories
+                route:
+                  path: /categories
+                data:
+                  $ref: ./categories.oas2.yml
+              - title: Products
+                route:
+                  path: /products
+                data:
+                  $ref: ./products.oas2.yml
+              - title: Channels
+                route:
+                  path: /channels
+                data:
+                  $ref: >-
+                    https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/channels.v3.yml?branch=master&deref=all&format=json
+              - title: References
+                route:
+                  path: /references
+                data:
+                  children:
+                    - title: Category Trees
+                      route:
+                        path: /category-trees
+                      data:
+                        $ref: ./category_trees.oas3.yml
+                    - title: Categories
+                      route:
+                        path: /categories
+                      data:
+                        $ref: ./categories.oas2.yml
+                    - title: Products
+                      route:
+                        path: /products
+                      data:
+                        $ref: ./products.oas2.yml
+                    - title: Channels
+                      route:
+                        path: /channels
+                      data:
+                        $ref: >-
+                          https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/channels.v3.yml?branch=master&deref=all&format=json
+        - title: EMS Apps
+          route:
+            path: /ems-updates
+          data:
+            children:
+              - title: Channels
+                route:
+                  path: /channels
+                data:
+                  $ref: >-
+                    https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/channels.v3.yml?branch=master&deref=all&format=json
+              - title: Store Settings
+                route:
+                  path: /store-settings
+                data:
+                  $ref: >-
+                    https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/settings.v3.yml?branch=master&deref=all&format=json
+              - title: Subscribers
+                route:
+                  path: /subscribers
+                data:
+                  $ref: >-
+                    https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/subscribers.v3.yml?branch=master&deref=all&format=json
+              - title: References
+                route:
+                  path: /references
+                data:
+                  children:
+                    - title: Channels
+                      route:
+                        path: /channels
+                      data:
+                        $ref: >-
+                          https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/channels.v3.yml?branch=master&deref=all&format=json
+                    - title: Settings
+                      route:
+                        path: /settings
+                      data:
+                        $ref: >-
+                          https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/settings.v3.yml?branch=master&deref=all&format=json
+                    - title: Subscribers
+                      route:
+                        path: /subscribers
+                      data:
+                        $ref: >-
+                          https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/subscribers.v3.yml?branch=master&deref=all&format=json
+        - title: All API References
+          route:
+            path: /reference
+          data:
+            children:
+              - title: Category Trees
+                route:
+                  path: /category-trees
+                data:
+                  $ref: ./category_trees.oas3.yml
+              - title: Categories
+                route:
+                  path: /categories
+                data:
+                  $ref: ./categories.oas2.yml
+              - title: Channels
+                route:
+                  path: /channels
+                data:
+                  $ref: >-
+                    https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/channels.v3.yml?branch=master&deref=all&format=json
+              - title: Currencies
+                route:
+                  path: /currencies
+                data:
+                  $ref: >-
+                    https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/currencies.v2.yml?branch=master&deref=all&format=json
+              - title: Customers
+                route:
+                  path: /customers
+                data:
+                  $ref: >-
+                    https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/customers.v3.yml?branch=master&deref=all&format=json
+              - title: Orders
+                route:
+                  path: /orders
+                data:
+                  $ref: >-
+                    https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/orders.v3.yml?branch=master&deref=all&format=json
+              - title: Pages
+                route:
+                  path: /pages
+                data:
+                  $ref: ./pages.oas2.yml
+              - title: Pricelists
+                route:
+                  path: /pricelists
+                data:
+                  $ref: >-
+                    https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/price_lists.v3.yml?branch=master&deref=all&format=json
+              - title: Products
+                route:
+                  path: /products
+                data:
+                  $ref: ./products.oas2.yml
+              - title: Redirects
+                route:
+                  path: /redirects
+                data:
+                  $ref: >-
+                    https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/redirects.v3.yml?branch=master&deref=all&format=json
+              - title: Settings
+                config:
+                  sidebar:
+                    token: ''
+                route:
+                  path: /settings
+                data:
+                  $ref: >-
+                    https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/settings.v3.yml?branch=master&deref=all&format=json
+              - title: Scripts
+                config:
+                  sidebar:
+                    token: ''
+                route:
+                  path: /scripts
+                data:
+                  $ref: >-
+                    https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/scripts.v3.yml?branch=master&deref=all&format=json
+              - title: Subscribers
+                route:
+                  path: /subscribers
+                data:
+                  $ref: >-
+                    https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/subscribers.v3.yml?branch=master&deref=all&format=json
+              - title: Store Information
+                route:
+                  path: /store-information
+                data:
+                  $ref: >-
+                    https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/store_information.v2.yml?branch=master&deref=all&format=json
+              - title: Widgets
+                route:
+                  path: /widgets
+                data:
+                  $ref: >-
+                    https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/widgets.v3.yml?branch=master&deref=all&format=json
+              - title: Wishlists
+                route:
+                  path: /wishlists
+                data:
+                  $ref: >-
+                    https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/wishlists.v3.yml?branch=master&deref=all&format=json
+meta:
+  noindex: true

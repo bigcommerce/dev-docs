@@ -1,0 +1,29 @@
+name: To-dos API Mock Server
+description: >-
+  This Prism instance includes one global API that references the main.oas2
+  specification in this repository. This OpenAPI specification defines the
+  examples and schemas that drive the mock data. This instance also has one rule
+  that runs a scenario in the before phase of all requests, to generate and set
+  the mock data on the response. You can swap this scenario out to customize the
+  mock server functionality.
+
+
+  Try sending a test request to `/todos`. This will return the mocked equivalent
+  of `http://todos.stoplight.io/todos`.
+apis:
+  - id: todos
+    specs:
+      - ./main.oas2.yml
+rules:
+  - id: global
+    apis:
+      - todos
+    before:
+      mock:
+        $ref: >-
+          https://next.stoplight.io/misc/scenarios/helper-scenarios.json#/scenarios/b-mock
+    after:
+      mock:
+        $ref: >-
+          https://next.stoplight.io/misc/scenarios/helper-scenarios.json#/scenarios/a-mock
+    done: {}
