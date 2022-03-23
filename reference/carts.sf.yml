@@ -32,7 +32,7 @@ paths:
       summary: Create a Cart
       description: |-
         Creates a *Cart*.
-
+ 
         <!-- theme: info -->
         > #### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
