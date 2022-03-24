@@ -10,7 +10,7 @@ info:
     Authenticate requests by including an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication) `access_token` in the request header.
 
     ```http
-    GET /stores/{{STORE_HASH}}/v3/pricing/products
+    POST /stores/{{STORE_HASH}}/v3/pricing/products
     host: api.bigcommerce.com
     Accept: application/json
     X-Auth-Token: {{ACCESS_TOKEN}}

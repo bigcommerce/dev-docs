@@ -1120,7 +1120,7 @@ components:
         is_customers_only:
           type: boolean
           description: |
-            If `true`, this page will not be visible when logged in to the store control panel.
+            If `true`, this page will only be visible to customers that are logged in to the store.
       required:
         - name
         - type

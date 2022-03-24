@@ -284,7 +284,7 @@ paths:
 
         For more information about working with consignments, see [Checkout consignment](/api-docs/checkouts/checkout-consignment).  
 
-        Though the only required `shipping_address` properties to create a consignment are `email` and `country_code`, to successfully [create an order](/api-reference/store-management/checkouts/checkout-orders/createanorder) the `shipping_address` requires the following properties:
+        Though the only required `address` properties to create a consignment are `email` and `country_code`, to successfully [create an order](/api-reference/store-management/checkouts/checkout-orders/createanorder) the `address` requires the following properties:
         * `first_name`
         * `last_name`
         * `address1`
@@ -293,7 +293,7 @@ paths:
         * `email`
         * `country_code`
 
-        Depending on the country, the following `shipping_address` properties can also be required:
+        Depending on the country, the following `address` properties can also be required:
 
         * `postal_code`
         * `state_or_province`
@@ -327,7 +327,7 @@ paths:
             $ref: '#/definitions/CreateConsignmentRequest'
           x-examples:
             application/json:
-              - shipping_address:
+              - address:
                   email: jane2@example.com
                   country_code: US
                   first_name: BigCommerce
@@ -344,7 +344,7 @@ paths:
                 line_items:
                   - item_id: 27556eb3-6537-4d08-b75e-1ac32d80934b
                     quantity: 1
-              - shipping_address:
+              - address:
                   email: testing@example.com
                   country_code: US
                   first_name: Testing
@@ -394,9 +394,9 @@ paths:
   'stores/{store_hash}/v3/checkouts/{checkoutId}/consignments/{consignmentId}':
     put:
       description: |-
-        Updates an existing consignment. Shipping address, line item IDs or the shipping option ID can be updated using this endpoint.
+        Updates an existing consignment. Address, line item IDs or the shipping option ID can be updated using this endpoint.
 
-        There are two steps to add a new shipping address and shipping options with line items. 
+        There are two steps to add a new address and shipping options with line items. 
         1. Add a new [consignment](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) to a checkout.
         2. Assign a shipping option to the new consignment by sending a `PUT` request to update the consignment's `shipping_option_id` with a returned value from `data.consignments[N].available_shipping_option[N].id` in step one.
       summary: Update Checkout Consignment
@@ -434,8 +434,8 @@ paths:
           x-examples:
             Updating shipping optionID:
               shipping_option_id: 9241669174884c2f2e83b3adabf03f83
-            Updating shipping address:
-              shipping_address:
+            Updating address:
+              address:
                 email: jane2@example.com
                 country_code: US
                 first_name: Testing
@@ -1116,13 +1116,16 @@ definitions:
         type: array
         items:
           title: Consignment
-          description: 'This allows us to have multiple shipping addresses. Where there is only one shipping address, this array will contain only one value, with all the items.'
+          description: 'This allows us to have multiple addresses. Where there is only one address, this array will contain only one value, with all the items.'
           type: object
           properties:
             id:
               description: ''
               type: string
-            shipping_address:
+            shippingAddress:
+                type: object
+                x-deprecated: true
+            address:
               title: Address Response
               allOf:
                 - title: Address Properties
@@ -1476,7 +1479,7 @@ definitions:
     title: Create Consignment Request
     type: object
     properties:
-      shipping_address:
+      address:
         title: Address Properties
         type: object
         properties:
@@ -1553,10 +1556,10 @@ definitions:
     x-internal: true
   UpdateConsignmentRequest:
     title: Update Consignment Request
-    description: One or more of these three fields are mandatory. `shipping_address` and `line_items` can be updated in one request. `shipping_option_id` has to be updated in a separate request since changing the address or line items can invalidate the previously available shipping options.
+    description: One or more of these three fields are mandatory. `address` and `line_items` can be updated in one request. `shipping_option_id` has to be updated in a separate request since changing the address or line items can invalidate the previously available shipping options.
     type: object
     properties:
-      shipping_address:
+      address:
         title: Address Properties
         type: object
         properties:
@@ -1813,7 +1816,7 @@ responses:
               discounts: []
               line_item_ids:
                 - 8edef915-8e8e-4ebd-bece-31fbb1191a7e
-              shipping_address:
+              address:
                 first_name: BigCommerce
                 last_name: Cart/Checkout
                 email: jane2@example.com
@@ -1948,7 +1951,7 @@ responses:
                 cost: 8
                 transit_time: ''
                 additional_description: ''
-              shipping_address:
+              address:
                 first_name: BigCommerce
                 last_name: Cart/Checkout
                 email: jane2@example.com
