@@ -3542,7 +3542,7 @@ components:
           example: '"State Tax"'
           type: string
         class:
-          description: 'The name of the type of tax that was applied. NOTE: will be ''Automatic Tax'' if automatic tax was enabled.'
+          description: 'The name of the type of tax that was applied. NOTE: will be ''Automatic Tax'' if automatic tax was enabled. Will be ''API Tax Override'' if the order was created with V2orders API.'
           example: Gift Wrapping
           type: string
         rate:
