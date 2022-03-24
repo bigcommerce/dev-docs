@@ -2777,11 +2777,11 @@ components:
                 example: a8458391-ef68-4fe5-9ec1-442e6a767364
                 type: string
               status:
-                description: 'The status will include one of the (string, optiona) - values defined under Order Statuses. This value is read-only. Do not attempt to modify or set this value in a POST or PUT operation.'
+                description: 'The status will include one of the (string, optional) - values defined under Order Statuses. This value is read-only. Do not attempt to modify or set this value in a POST or PUT operation.'
                 example: Awaiting Fulfillment
                 type: string
               custom_status:
-                description: 'Contains the same (string, optiona) - value as the Order Statuses object’s `custom_label` property.'
+                description: 'Contains the same (string, optional) - value as the Order Statuses object’s `custom_label` property.'
                 example: Awaiting Fulfillment
                 type: string
               subtotal_ex_tax:
@@ -2945,7 +2945,7 @@ components:
                 example: Send Saturday
                 maxLength: 65535
               customer_message:
-                description: 'Message that the customer entered (number, optiona) -o the `Order Comments` box during checkout.'
+                description: 'Message that the customer entered (number, optional) -o the `Order Comments` box during checkout.'
                 example: Thank you
                 type: string
               discount_amount:
@@ -4366,7 +4366,7 @@ components:
           type: string
         status:
           type: string
-          description: 'The status will include one of the (string, optiona) - values defined under Order Statuses. This value is read-only. Do not attempt to modify or set this value in a POST or PUT operation.'
+          description: 'The status will include one of the (string, optional) - values defined under Order Statuses. This value is read-only. Do not attempt to modify or set this value in a POST or PUT operation.'
           example: Awaiting Fulfillment
         subtotal_tax:
           description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
@@ -4420,21 +4420,33 @@ components:
           example: '0.0000'
           type: string
         currency_id:
-          description: The display currency ID. May be different from transactional currency. A read-only value. Do not pass in a POST or PUT.
+          description: The display currency ID. Depending on the currency selected, the value can be different from the transactional currency. A read-only value. Do not pass in a POST or PUT. In v2 display currency is set to the transactional currency, 'default_currency_id'.
           example: 1
           type: integer
         currency_code:
-          description: The currency code of the display currency used to present prices on the storefront. A read-only value. Do not pass in a POST or PUT.
+          description: The currency code of the display currency used to present prices to the shopper on the storefront. Depending on the currency selected, the value can be different from the transactional currency. A read-only value. Do not pass in a POST or PUT.
           example: USD
           type: string
         currency_exchange_rate:
-          description: 'The exchange rate between the store’s default currency and the display currency. A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
+          description: 'The exchange rate between the store’s default currency and the display currency. A read-only value. Do not pass in a POST or PUT. For orders created using the V2 endpoints, this value is always 1 (only in the storefront this value can be different to 1). (Float, Float-As-String, Integer)'
           example: '1.0000000000'
           type: string
         default_currency_id:
           description: The transactional currency ID. A read-only value. Do not pass in a POST or PUT.
           example: 1
           type: integer
+        default_currency_code:     
+          description: The currency code of the transactional currency the shopper pays in.
+          example: EUR
+          type: string
+        store_default_currency_code: 
+         description: The currency code of the store's default currency.
+         example: USD
+         type: string
+        store_default_to_transactional_exchange_rate:
+          description: The exchange rate between the store's default currency and the transactional currency used in the order.
+          example: '100.0000000000'
+          type: string
         coupon_discount:
           description: 'A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
           example: '5.0000'
