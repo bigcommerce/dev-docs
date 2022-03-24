@@ -143,7 +143,7 @@ paths:
             type: string
         - name: 'date_modified:max'
           in: query
-          description: 'Filter items by maximum date_modified `date_modified:max=2018-09-05T13:45:03` or `date_modified:max=2019-09-04`'
+          description: 'Filter items by maximum date_modified. `date_modified:max=2018-09-05T13:45:03` or `date_modified:max=2019-09-04`'
           schema:
             type: string
             format: date-time
@@ -388,23 +388,35 @@ paths:
                 $ref: '#/components/schemas/customer_Put'
             examples:
               example-1:
-                value:
-                  - email: string@examples.com
+                value: 
+                  - email: string
                     first_name: string
                     last_name: string
                     company: string
                     phone: string
-                    registration_ip_address: string
                     notes: string
                     tax_exempt_category: string
                     customer_group_id: 0
                     id: 1
+                    addresses: 
+                    - address1: string
+                      address2: string
+                      address_type: string
+                      city: string
+                      company: string
+                      country_code: string
+                      first_name: string
+                      last_name: string
+                      phone: string
+                      postal_code: string
+                      state_or_province: string
                     authentication:
                       force_password_reset: true
                       new_password: string123
                     accepts_product_review_abandoned_cart_emails: true
                     store_credit_amounts:
                       - amount: 43.15
+                    origin_channel_id: 1
                     channel_ids:
                       - 1
     delete:
@@ -773,7 +785,7 @@ paths:
                   channel_id: 1
       responses:
         '200':
-          description: Returns if the customer credentials provided are valid or not
+          description: Returns if the customer credentials provided are valid or not.
           content:
             application/json:
               schema:
@@ -808,7 +820,7 @@ paths:
                       type: string
         '429':
           description: |
-            Allowed number of requests exceeded
+            Allowed number of requests exceeded.
           content:
             application/json:
               schema:
@@ -847,7 +859,7 @@ paths:
       operationId: CustomerSettingsGet
       responses:
         '200':
-          description: Returns customer settings values for global level
+          description: Returns customer settings values for global level.
           content:
             application/json:
               schema:
@@ -1025,7 +1037,7 @@ paths:
         - name: name
           in: query
           required: false
-          description: Filter items by customer attribute name `name=Date+Joined`
+          description: Filter items by customer attribute name. `name=Date+Joined`
           schema:
             type: string
         - name: 'name:like'
@@ -1863,23 +1875,14 @@ components:
                     last_name: string
                     company: string
                     phone: string
-                    registration_ip_address: string
                     notes: string
                     tax_exempt_category: string
                     customer_group_id: 0
-                    id: 0
-                    date_modified: '2019-08-24T14:15:22Z'
-                    date_created: '2019-08-24T14:15:22Z'
-                    address_count: 0
-                    attribute_count: 0
-                    authentication:
-                      force_password_reset: true
-                    addresses:
+                    addresses: 
                       - first_name: string
                         last_name: string
-                        company: string
-                        address1: string
-                        address2: string
+                        address1: Addr1
+                        addres2: ''
                         city: string
                         state_or_province: string
                         postal_code: string
@@ -1888,7 +1891,7 @@ components:
                         address_type: residential
                         customer_id: 0
                         id: 0
-                        country: string
+                        country: string 
                     store_credit_amounts:
                       - amount: 43.15
                     accepts_product_review_abandoned_cart_emails: true
@@ -1928,7 +1931,7 @@ components:
                       type: string
                     address_type:
                       title: Address Type
-                      description: The address type. Residential or Commercial
+                      description: The address type. Residential or Commercial.
                       example: residential
                       type: string
                       enum:
@@ -2076,7 +2079,7 @@ components:
                           type: string
                         address_type:
                           title: Address Type
-                          description: The address type. Residential or Commercial
+                          description: The address type. Residential or Commercial.
                           example: residential
                           type: string
                           enum:
@@ -2774,11 +2777,11 @@ components:
           type: string
           format: date-time
         address_count:
-          description: Total number of customer addresses
+          description: Total number of customer addresses.
           type: integer
           format: int32
         attribute_count:
-          description: Total number of customer attributes
+          description: Total number of customer attributes.
           type: integer
           format: int32
         authentication:
@@ -2791,7 +2794,7 @@ components:
               description: 'If `true`, this customer will be forced to change password on next login.'
               type: boolean
         addresses:
-          description: Array of customer addresses. Limited to 10
+          description: Array of customer addresses. Limited to 10.
           type: array
           maxItems: 10
           items:
@@ -2811,7 +2814,10 @@ components:
           $ref: '#/components/schemas/CustomerStoredCreditAmounts'
         accepts_product_review_abandoned_cart_emails:
           type: boolean
-          description: It determines if the customer is signed up to receive either product review or abandoned cart emails or recieve both emails.
+          description: Determines if the customer is signed up to receive either product review or abandoned cart emails or recieve both emails.
+        origin_channel_id: 
+          type: integer
+          description: Channel ID of the customer that has created the form.
         channel_ids:
           $ref: '#/components/schemas/customerChannelIds'
       x-internal: true
@@ -2857,7 +2863,7 @@ components:
           type: integer
           format: int32
         addresses:
-          description: Array of customer addresses. Limited to 10
+          description: Array of customer addresses. Limited to 10.
           type: array
           maxItems: 10
           items:
@@ -2875,11 +2881,11 @@ components:
           description: It determines if the customer is signed up to receive either product review or abandoned cart emails or recieve both emails.
         store_credit_amounts:
           $ref: '#/components/schemas/CustomerStoredCreditAmounts'
-        origin_channel_id:
-          description: Channel ID the customer has been created from
+        origin_channel_id: 
           type: integer
+          description: Channel ID of the customer that has created the form.
         channel_ids:
-          description: Array of channels the customer can access
+          description: Array of channels the customer can access.
           type: array
           items:
             example:
@@ -2947,8 +2953,11 @@ components:
           description: It determines if the customer is signed up to receive either product review or abandoned cart emails or recieve both emails.
         store_credit_amounts:
           $ref: '#/components/schemas/CustomerStoredCreditAmounts'
+        origin_channel_id: 
+          type: integer
+          description: Channel ID of the customer that has created the form.
         channel_ids:
-          description: Arrays of channels the customer can access
+          description: Arrays of channels the customer can access.
           type: array
           items:
             type: integer
@@ -3000,32 +3009,32 @@ components:
       properties:
         attribute_id:
           type: integer
-          description: Attribute ID
+          description: Attribute ID.
           format: int32
           example: 2
         attribute_value:
           type: string
           minLength: 1
-          description: Attribute value
+          description: Attribute value.
           example: 'Yes'
         customer_id:
           type: integer
-          description: Customer ID
+          description: Customer ID.
           example: 1
           format: int32
         date_created:
           type: string
           minLength: 1
-          description: The date the customer attribute was created
+          description: The date the customer attribute was created.
           format: date-time
         date_modified:
           type: string
           minLength: 1
-          description: The date the customer attribute was modified
+          description: The date the customer attribute was modified.
           format: date-time
         id:
           type: integer
-          description: Attribute value ID
+          description: Attribute value ID.
           format: int32
           example: 2
       x-internal: true
@@ -3103,7 +3112,7 @@ components:
           minLength: 0
           maxLength: 100
         state_or_province:
-          description: The state or province name
+          description: The state or province name.
           type: string
           minLength: 0
           maxLength: 100
@@ -3124,7 +3133,7 @@ components:
           maxLength: 50
         address_type:
           title: Address Type
-          description: The address type. Residential or Commercial
+          description: The address type. Residential or Commercial.
           example: residential
           type: string
           enum:
@@ -3188,7 +3197,7 @@ components:
           minLength: 0
           maxLength: 100
         state_or_province:
-          description: The state or province name
+          description: The state or province name.
           type: string
           minLength: 0
           maxLength: 100
@@ -3211,7 +3220,7 @@ components:
           maxLength: 50
         address_type:
           title: Address Type
-          description: The address type. Residential or Commercial
+          description: The address type. Residential or Commercial.
           example: residential
           type: string
           enum:
@@ -3299,7 +3308,7 @@ components:
           example: '15551234567'
         address_type:
           title: Address Type
-          description: The address type. Residential or Commercial
+          description: The address type. Residential or Commercial.
           example: residential
           type: string
           enum:
@@ -3397,7 +3406,7 @@ components:
           maxLength: 50
         address_type:
           title: Address Type
-          description: The address type. Residential or Commercial
+          description: The address type. Residential or Commercial.
           example: residential
           type: string
           enum:
@@ -3420,7 +3429,7 @@ components:
               type: boolean
         - properties:
             new_password:
-              description: New password for customer. Write only field
+              description: New password for customer. Write only field.
               type: string
       type: object
       x-internal: true
@@ -3586,35 +3595,35 @@ components:
       properties:
         type:
           type: string
-          description: Type of instrument
+          description: Type of instrument.
           enum:
             - stored_card
         token:
           type: string
-          description: An identifier representing this stored instrument
+          description: An identifier representing this stored instrument.
           example: 84596bea275fa254da820056bdc3e495bdf01fd11c51b0336347d447ee16200c
         is_default:
           type: boolean
-          description: Identifies whether this stored instrument is default for the customer
+          description: Identifies whether this stored instrument is default for the customer.
         brand:
           type: string
-          description: Card brand
+          description: Card brand.
           example: VISA
         expiry_month:
           maximum: 12
           minimum: 1
           type: integer
-          description: Expiry month for this card
+          description: Expiry month for this card.
         expiry_year:
           type: integer
-          description: Expiry year for this card
+          description: Expiry year for this card.
         issuer_identification_number:
           type: string
-          description: Issuer identification number for this card
+          description: Issuer identification number for this card.
           example: '411111'
         last_4:
           type: string
-          description: Last four digits of this card
+          description: Last four digits of this card.
           example: '1111'
         billing_address:
           $ref: '#/components/schemas/BillingAddress'
@@ -3626,21 +3635,21 @@ components:
       properties:
         type:
           type: string
-          description: Instrument type
+          description: Instrument type.
           enum:
             - stored_paypal_account
         token:
           type: string
-          description: An identifier representing this stored instrument
+          description: An identifier representing this stored instrument.
           example: 84596bea275fa254da820056bdc3e495bdf01fd11c51b0336347d447ee16200c
         is_default:
           type: boolean
-          description: Identifies whether this stored instrument is default for the customer
+          description: Identifies whether this stored instrument is default for the customer.
         email:
           type: string
-          description: PayPal email address
+          description: PayPal email address.
           example: bc-buyer-paypal-express@bigcommerce.com
-      description: A PayPal account stored instrument
+      description: A PayPal account stored instrument.
       x-internal: true
     BankAccountInstrument:
       type: object
@@ -3648,43 +3657,43 @@ components:
       properties:
         type:
           type: string
-          description: Instrument type
+          description: Instrument type.
           enum:
             - stored_bank_account
         token:
           type: string
-          description: An identifier representing this stored instrument
+          description: An identifier representing this stored instrument.
           example: 84596bea275fa254da820056bdc3e495bdf01fd11c51b0336347d447ee16200c
         is_default:
           type: boolean
-          description: Identifies whether this stored instrument is default for the customer
+          description: Identifies whether this stored instrument is default for the customer.
         masked_account_number:
           type: string
-          description: A masked bank account number
+          description: A masked bank account number.
           example: 12XXX56
         issuer:
           type: string
-          description: Issuer identifier for the account
+          description: Issuer identifier for the account.
           example: DE001
-      description: A stored bank account instrument
+      description: A stored bank account instrument.
       x-internal: true
     BillingAddress:
       type: object
       properties:
         first_name:
           type: string
-          description: First name of the card holder
+          description: First name of the card holder.
           example: Tester
         last_name:
           type: string
-          description: Last name of the card holder
+          description: Last name of the card holder.
           example: Tester
         email:
           type: string
           example: example@example.com
         company:
           type: string
-          description: Company of the card holder
+          description: Company of the card holder.
           example: Test Company
         address1:
           type: string
@@ -3700,14 +3709,14 @@ components:
           example: '90854'
         state_or_province:
           type: string
-          description: Represents state or province
+          description: Represents state or province.
           example: Nevada
         state_or_province_code:
           type: string
           example: NV
         country_code:
           type: string
-          description: ISO-3166-1 2 letter country code
+          description: ISO-3166-1 2 letter country code.
           example: US
         phone:
           type: string
@@ -3728,11 +3737,11 @@ components:
     CustomerSettingsObject:
       title: CustomerSettingsObject
       type: object
-      description: Customer Settings
+      description: Customer Settings.
       properties:
         privacy_settings:
           type: object
-          description: Controls the privacy settings
+          description: Controls the privacy settings.
           properties:
             ask_shopper_for_tracking_consent:
               type: boolean
@@ -3740,19 +3749,19 @@ components:
             policy_url:
               type: string
               example: 'https://bigcommmerce.com/policy'
-              description: The URL for a website's privacy policy
+              description: The URL for a website's privacy policy.
         customer_group_settings:
           type: object
-          description: The settings for a collection of customers
+          description: The settings for a collection of customers.
           properties:
             guest_customer_group_id:
               type: integer
               example: 0
-              description: The ID for a guest customer group
+              description: The ID for a guest customer group.
             default_customer_group_id:
               type: integer
               example: 0
-              description: The ID for a default customer group
+              description: The ID for a default customer group.
       x-examples:
         example-1:
           value:
@@ -3769,27 +3778,27 @@ components:
       properties:
         privacy_settings:
           type: object
-          description: Controls the privacy settings
+          description: Controls the privacy settings.
           properties:
             ask_shopper_for_tracking_consent:
               type: boolean
-              description: Determines if a customer requires consent for tracking privacy
+              description: Determines if a customer requires consent for tracking privacy.
             policy_url:
               type: string
               example: 'https://bigcommmerce.com/policy'
-              description: The URL for a website's privacy policy
+              description: The URL for a website's privacy policy.
         customer_group_settings:
           type: object
-          description: The settings for a collection of customers
+          description: The settings for a collection of customers.
           properties:
             guest_customer_group_id:
               type: integer
               example: 0
-              description: The ID for a guest customer group
+              description: The ID for a guest customer group.
             default_customer_group_id:
               type: integer
               example: 0
-              description: The ID for a default customer group
+              description: The ID for a default customer group.
         allow_global_logins:
           type: boolean
           description: |-
@@ -3815,13 +3824,13 @@ components:
       properties:
         email:
           type: string
-          description: Customer email address
+          description: Customer email address.
         password:
           type: string
-          description: Customer password
+          description: Customer password.
         channel_id:
           type: integer
-          description: ChannelId to check the customer credentials against - If this field is empty we will use channel 1
+          description: ChannelId to check the customer credentials against - If this field is empty we will use channel 1.
       x-internal: true
     ValidateCustomerCredentialsResponseObject:
       title: ValidateCustomerCredentialsResponseObject
@@ -3830,8 +3839,8 @@ components:
         customer_id:
           type: integer
           nullable: true
-          description: returns the customer Id
+          description: Returns the customer ID.
         is_valid:
           type: boolean
-          description: indicates if the provided credentials are valid
+          description: Indicates if the provided credentials are valid.
       x-internal: true
