@@ -64,9 +64,6 @@ This script extracts storefront data from the Stencil objects available in the f
     {{inject "cartItemAdded" cart.added_item}}
     // https://developer.bigcommerce.com/theme-objects/cart
     // (Fetching selective cart data to prevent additional payment button object html from causing JS parse error)
-  } else {
-    //if BODL is already defined, don't make it again
-    return;
   }
   var BODL = JSON.parse({{jsContext}});
 
@@ -166,7 +163,7 @@ The following snippet handles the Add to Cart event by collecting data on each i
       currency: BODL.product.price.without_tax.currency,
     });
     
-  }}));
+  }));
 
   if (BODL.cartItemAdded) {
     sampleAnalyticsProvider.instance('<%= property_id %>').track('AddToCart', {
