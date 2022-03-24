@@ -894,7 +894,7 @@ definitions:
         description: resource of the coupons
         example: /orders/129/coupons
         type: string
-    x-internal: true
+    x-internal: false
   coupon_Full:
     title: coupon_Full
     allOf:
@@ -915,7 +915,7 @@ definitions:
         required:
           - id
       - $ref: '#/definitions/coupon_Base'
-    x-internal: true
+    x-internal: false
   coupon_Base:
     title: coupon_Base
     example:
@@ -1013,7 +1013,7 @@ definitions:
       - amount
       - code
       - applies_to
-    x-internal: true
+    x-internal: false
   banner_Base:
     type: object
     title: banner_Base
@@ -1065,7 +1065,7 @@ definitions:
       - page
       - location
       - date_type
-    x-internal: true
+    x-internal: false
   banner_Full:
     allOf:
       - type: object
@@ -1087,7 +1087,7 @@ definitions:
             example: '0'
       - $ref: '#/definitions/banner_Base'
     title: banner_Full
-    x-internal: true
+    x-internal: false
   banner_Put:
     allOf:
       - type: object
@@ -1098,7 +1098,7 @@ definitions:
             example: '0'
       - $ref: '#/definitions/banner_Base'
     title: banner_Put
-    x-internal: true
+    x-internal: false
   giftCertificate_Base:
     type: object
     title: giftCertificate_Base
@@ -1129,7 +1129,7 @@ definitions:
       - from_name
       - from_email
       - amount
-    x-internal: true
+    x-internal: false
   giftCertificate_Full:
     allOf:
       - $ref: '#/definitions/giftCertificate_Base'
@@ -1207,7 +1207,7 @@ definitions:
         message: Congratulations!
         code: FFZ-5N4-C7M-S78
         status: active
-    x-internal: true
+    x-internal: false
   giftCertificate_Put:
     allOf:
       - $ref: '#/definitions/giftCertificate_Base'
@@ -1260,7 +1260,7 @@ definitions:
               - disabled
             example: active
     title: giftCertificate_Put
-    x-internal: true
+    x-internal: false
   giftCertificate_Post:
     allOf:
       - $ref: '#/definitions/giftCertificate_Base'
@@ -1322,7 +1322,7 @@ definitions:
             example: USD
     title: giftCertificate_Post
     description: ''
-    x-internal: true
+    x-internal: false
 tags:
   - name: Banners
   - name: Coupons

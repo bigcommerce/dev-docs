@@ -2349,7 +2349,7 @@ definitions:
     properties:
       token:
         type: string
-    x-internal: true
+    x-internal: false
   checkout_Full:
     title: checkout_Full
     type: object
@@ -2425,7 +2425,7 @@ definitions:
         type: boolean
         description: |
           `true` value indicates StoreCredit has been applied.
-    x-internal: true
+    x-internal: false
   AppliedCoupon:
     title: Applied Coupon
     type: object
@@ -2462,7 +2462,7 @@ definitions:
         format: double
     required:
       - code
-    x-internal: true
+    x-internal: false
   contactEntity:
     title: contactEntity
     type: object
@@ -2474,7 +2474,7 @@ definitions:
         description: ''
         type: string
     description: Model for sender and receiver objects.
-    x-internal: true
+    x-internal: false
   address_Full:
     title: address_Full
     allOf:
@@ -2487,12 +2487,12 @@ definitions:
           shouldSaveAddress:
             description: Indicates if we should add this address to the customer address book.
             type: boolean
-    x-internal: true
+    x-internal: false
     description: ''
   address_Base:
     type: object
     title: address_Base
-    x-internal: true
+    x-internal: false
     properties:
       firstName:
         description: ''
@@ -2537,6 +2537,7 @@ definitions:
           $ref: '#/definitions/customFields'
     required:
       - countryCode
+    x-internal: false
   customFields:
     title: customFields
     type: object
@@ -2547,12 +2548,12 @@ definitions:
       fieldValue:
         type: string
         description: 'This can also be an array for fields that need to support list of values (e.g., a set of check boxes.). When doing a PUT or POST to the `fieldValue` with a pick list, the input must be a number. The response will be a string.'
-    x-internal: true
+    x-internal: false
   consignment_Full:
     title: consignment_Full
     description: 'This allows us to have multiple shipping addresses. Where there is only one shipping address, this array will contain only one value, with all the items.'
     type: object
-    x-internal: true
+    x-internal: false
     properties:
       id:
         description: ''
@@ -2630,6 +2631,7 @@ definitions:
         type: array
         items:
           type: string
+    x-internal: false
   consignmentAvailableShippingOptions:
     title: consignmentAvailableShippingOptions
     allOf:
@@ -2641,7 +2643,7 @@ definitions:
             type: boolean
           additionalDescription:
             type: string
-    x-internal: true
+    x-internal: false
   checkoutTax:
     title: checkoutTax
     type: object
@@ -2653,7 +2655,7 @@ definitions:
         description: ''
         type: number
         format: double
-    x-internal: true
+    x-internal: false
   checkout_Put:
     title: checkout_Put
     type: object
@@ -2661,7 +2663,7 @@ definitions:
       customerMessage:
         description: ''
         type: string
-    x-internal: true
+    x-internal: false
   checkouts_Resp:
     title: checkouts_Resp
     type: object
@@ -3384,7 +3386,7 @@ definitions:
             type: boolean
             description: |
               `true` value indicates StoreCredit has been applied.
-    x-internal: true
+    x-internal: false
   cartLineItemPut:
     title: cartLineItemPut
     type: object
@@ -3401,7 +3403,7 @@ definitions:
         description: ''
         type: number
         format: double
-    x-internal: true
+    x-internal: false
   cartLineItemGiftCertificate_Put:
     title: cartLineItemGiftCertificate_Put
     type: object
@@ -3432,11 +3434,11 @@ definitions:
       - sender
       - recipient
       - quantity
-    x-internal: true
+    x-internal: false
   CreateConsignmentRequest:
     title: Create Consignment Request
     type: object
-    x-internal: true
+    x-internal: false
     properties:
       shippingAddress:
         type: object
@@ -3513,6 +3515,7 @@ definitions:
           required:
             - itemId
             - quantity
+    x-internal: false
   GiftCertificateRequest:
     title: Gift Certificate Request
     type: object
@@ -3520,7 +3523,7 @@ definitions:
       giftCertificateCode:
         description: ''
         type: string
-    x-internal: true
+    x-internal: false
   cart_Put:
     title: cart_Put
     type: object
@@ -3529,7 +3532,7 @@ definitions:
         $ref: '#/definitions/cartLineItemPut'
       giftCertificate:
         $ref: '#/definitions/cartLineItemGiftCertificate_Put'
-    x-internal: true
+    x-internal: false
   NewUpdateConsignment:
     title: Update Consignment Request
     description: 'One or more of these three fields are mandatory. Shipping address and line items can be updated in one request. Shipping option ID has to be updated in a separate request, since changing the address or line items can invalidate the previously available shipping options.'
@@ -3613,7 +3616,7 @@ definitions:
       shippingOptionId:
         description: ''
         type: string
-    x-internal: true
+    x-internal: false
   checkoutCart:
     title: checkoutCart
     description: 'A cart contains a collection of items, prices, discounts, etc. It does not contain customer-related data.'
@@ -4005,7 +4008,7 @@ definitions:
       updatedTime:
         description: Time when the cart was last updated.
         type: string
-    x-internal: true
+    x-internal: false
   checkoutGiftCertificates:
     description: Applied gift certificate (as a payment method).
     type: array
@@ -4034,7 +4037,7 @@ definitions:
           type: number
           format: double
     title: checkoutGiftCertificates
-    x-internal: true
+    x-internal: false
   consignmentShippingOption_Base:
     title: consignmentShippingOption_Base
     type: object
@@ -4058,7 +4061,7 @@ definitions:
       transitTime:
         description: An estimate of the arrival time.
         type: string
-    x-internal: true
+    x-internal: false
 parameters:
   include:
     name: include

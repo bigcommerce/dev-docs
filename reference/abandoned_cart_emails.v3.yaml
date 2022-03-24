@@ -336,7 +336,7 @@ components:
           type: array
           items:
             type: string
-      x-internal: true
+      x-internal: false
     BaseError:
       title: BaseError
       type: object
@@ -345,7 +345,7 @@ components:
           type: string
         type:
           type: string
-      x-internal: true
+      x-internal: false
     AbandonedCartEmailModel:
       title: AbandonedCartEmailModel
       type: object
@@ -356,7 +356,7 @@ components:
           $ref: '#/components/schemas/CouponCode'
         template:
           $ref: '#/components/schemas/Template'
-      x-internal: true
+      x-internal: false
     AbandonedCartSettings:
       title: AbandonedCartSettings
       type: object
@@ -366,7 +366,7 @@ components:
           description: Indicates inheritance state
       required:
         - use_global
-      x-internal: true
+      x-internal: false
     AbandondedCartEmailPayload:
       type: object
       properties:
@@ -379,7 +379,7 @@ components:
         template:
           $ref: '#/components/schemas/Template'
       title: ''
-      x-internal: true
+      x-internal: false
     Template:
       title: Template
       type: object
@@ -399,7 +399,7 @@ components:
         - subject
         - body
         - translations
-      x-internal: true
+      x-internal: false
     TranslationDefinition:
       title: TranslationDefinition
       type: object
@@ -416,7 +416,7 @@ components:
       required:
         - locale
         - keys
-      x-internal: true
+      x-internal: false
     NotifyAtMinutes:
       type: integer
       title: NotifyAtMinutes
@@ -459,12 +459,12 @@ components:
       x-examples:
         example-1: 60
         type: integer
-      x-internal: true
+      x-internal: false
     CouponCode:
       title: Coupon Code Field
       type: string
       example: FF11-22X4
-      x-internal: true
+      x-internal: false
     AbandondedCartEmail:
       title: AbandondedCartEmail
       type: object
@@ -482,7 +482,7 @@ components:
           type: boolean
         sent_num:
           type: integer
-      x-internal: true
+      x-internal: false
   parameters:
     ChannelIdOptional:
       in: query

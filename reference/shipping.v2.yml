@@ -1782,7 +1782,7 @@ definitions:
       - ups
       - upsready
       - shipperhq
-    x-internal: true
+    x-internal: false
   ShippingProvider:
     title: Shipping Provider
     x-enum-elements:
@@ -1822,7 +1822,7 @@ definitions:
       - upsonline
       - shipperhq
     example: endicia
-    x-internal: true
+    x-internal: false
   ShippingZone:
     title: Shipping Zone
     example:
@@ -1915,7 +1915,7 @@ definitions:
         type: boolean
     required:
       - name
-    x-internal: true
+    x-internal: false
   ShippingZoneLocations:
     title: Shipping Zone Locations
     type: object
@@ -1936,7 +1936,7 @@ definitions:
         description: ISO Alpha-2 code for the state.
         example: TX
         type: string
-    x-internal: true
+    x-internal: false
   HandlingFees:
     title: Shipping Zone Handling Fees
     type: object
@@ -1952,7 +1952,7 @@ definitions:
         description: ''
         example: true
         type: boolean
-    x-internal: true
+    x-internal: false
   shippingMethod_Full:
     title: shippingMethod_Full
     allOf:
@@ -1963,7 +1963,7 @@ definitions:
             example: 1
             type: integer
       - $ref: '#/definitions/shippingMethod_Base'
-    x-internal: true
+    x-internal: false
   ShippingMethodType:
     title: Shipping Method Type
     example: perorder
@@ -2003,7 +2003,7 @@ definitions:
       - fedex
       - royalmail
       - upsready
-    x-internal: true
+    x-internal: false
   shippingMethod_Base:
     title: shippingMethod_Base
     type: object
@@ -2077,12 +2077,12 @@ definitions:
         description: Whether or not this shipping zone is the fallback if all others are not valid for the order.
         example: false
         type: boolean
-    x-internal: true
+    x-internal: false
   ShippingResponse:
     type: object
     properties: {}
     title: ShippingResponse
-    x-internal: true
+    x-internal: false
   carrierConnection:
     type: object
     title: Carrier Connection
@@ -2092,7 +2092,7 @@ definitions:
       connection:
         type: object
         description: '`connection` object varies by carrier'
-    x-internal: true
+    x-internal: false
   metaCollection:
     title: metaCollection
     description: Meta data relating to pagination
@@ -2136,7 +2136,7 @@ definitions:
                 type: string
                 description: Query string appended to the resource to show the current page.
                 example: '?limit=1&page=2'
-    x-internal: true
+    x-internal: false
 tags:
   - name: Shipping Method
   - name: Shipping Carrier
