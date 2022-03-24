@@ -353,7 +353,7 @@ paths:
           in: body
           required: true
           schema:
-            $ref: '#/definitions/product_Post'
+            $ref: '#/definitions/product_Base'
           x-examples:
             Simple Product: |-
               {
@@ -16126,11 +16126,6 @@ definitions:
         type: string
         description: |
           A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file. 
-    x-tags:
-      - Models
-  product_Post:
-    $ref: '#/definitions/product_Base'
-    title: product_Post
     x-tags:
       - Models
   product_Put:
