@@ -72,6 +72,7 @@ host: api.bigcommerce.com
 basePath: '/stores/{$$.env.store_hash}/v3'
 tags:
   - name: Products
+  - name: Catalog
   - name: Product Bulk Pricing Rules
   - name: Product Complex Rules
   - name: Product Custom Fields
