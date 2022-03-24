@@ -2901,48 +2901,6 @@ paths:
                 $ref: '#/definitions/metafield_Base'
               meta:
                 $ref: '#/definitions/categoriesTree_Resp'
-          examples:
-            application/json:
-              data:
-                - permission_set: app_only
-                  namespace: Warehouse Locations
-                  key: Location
-                  value: 4HG
-                  description: Location in the warehouse
-                  resource_type: brand
-                  resource_id: 111
-                  id: 6
-                  date_created: '1973-01-20T21:34:57.903Z'
-                  date_modified: '1990-12-30T00:29:23.515Z'
-                - permission_set: read
-                  namespace: Warehouse Locations
-                  key: Location
-                  value: 4HG
-                  description: Location in the warehouse
-                  resource_type: brand
-                  resource_id: 111
-                  id: 6
-                  date_created: '1973-01-20T21:34:57.903Z'
-                  date_modified: '1990-12-30T00:29:23.515Z'
-                - permission_set: app_only
-                  namespace: Warehouse Locations
-                  key: Location
-                  value: 4HG
-                  description: Location in the warehouse
-                  resource_type: brand
-                  resource_id: 111
-                  id: 6
-                  date_created: '1973-01-20T21:34:57.903Z'
-                  date_modified: '1990-12-30T00:29:23.515Z'
-              meta:
-                pagination:
-                  total: 3
-                  count: 3
-                  per_page: 50
-                  current_page: 1
-                  total_pages: 1
-                  links:
-                    current: '?page=1&limit=50'
         '404':
           description: |
             The resource was not found.
@@ -3499,54 +3457,6 @@ paths:
                   $ref: '#/definitions/productOption_Full'
               meta:
                 $ref: '#/definitions/metaCollection_Full'
-          examples:
-            application/json:
-              data:
-                - id: 220
-                  product_id: 192
-                  name: Color (Colors only)
-                  display_name: Color
-                  type: swatch
-                  sort_order: 0
-                  option_values:
-                    - id: 174
-                      label: Beige
-                      sort_order: 1
-                      value_data:
-                        colors:
-                          - '#FAFAEB'
-                      is_default: false
-                    - id: 175
-                      label: Grey
-                      sort_order: 2
-                      value_data:
-                        colors:
-                          - '#BDBDBD'
-                      is_default: false
-                    - id: 176
-                      label: Black
-                      sort_order: 3
-                      value_data:
-                        colors:
-                          - '#000000'
-                      is_default: false
-                    - id: 189
-                      label: Black-Walnut
-                      sort_order: 4
-                      value_data:
-                        colors:
-                          - '#e80ee8'
-                      is_default: false
-                  config: []
-              meta:
-                pagination:
-                  total: 1
-                  count: 1
-                  per_page: 50
-                  current_page: 1
-                  total_pages: 1
-                  links:
-                    current: '?page=1&limit=50'
         '404':
           description: |
             The resource was not found.
@@ -4031,46 +3941,6 @@ paths:
                 type: object
                 description: Empty meta object; may be used later.
                 title: Meta
-          examples:
-            application/json:
-              data:
-                id: 220
-                product_id: 192
-                name: Color (Colors only)
-                display_name: Color
-                type: swatch
-                sort_order: 0
-                option_values:
-                  - id: 174
-                    label: Beige
-                    sort_order: 1
-                    value_data:
-                      colors:
-                        - '#FAFAEB'
-                    is_default: false
-                  - id: 175
-                    label: Grey
-                    sort_order: 2
-                    value_data:
-                      colors:
-                        - '#BDBDBD'
-                    is_default: false
-                  - id: 176
-                    label: Black
-                    sort_order: 3
-                    value_data:
-                      colors:
-                        - '#000000'
-                    is_default: false
-                  - id: 189
-                    label: Black-Walnut
-                    sort_order: 4
-                    value_data:
-                      colors:
-                        - '#e80ee8'
-                    is_default: false
-                config: []
-              meta: {}
         '404':
           description: |
             The resource was not found.
@@ -4615,9 +4485,8 @@ paths:
                                     - post
                                   example: 0
                                 value_data:
-                                  oneOf:
-                                    - type: object
-                                    - type: 'null'
+                                  type: object
+                                  x-nullable: true
                                   description: |
                                     Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
                               required:
@@ -4683,7 +4552,7 @@ paths:
                       colors:
                         - '#e80ee8'
                     is_default: false
-                config: []
+                config: {}
               meta: {}
         '409':
           description: |
@@ -4851,9 +4720,8 @@ paths:
                             - post
                           example: 0
                         value_data:
-                          oneOf:
-                            - type: object
-                            - type: 'null'
+                          type: object
+                          x-nullable: true
                           description: |
                             Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
                       required:
@@ -5018,9 +4886,8 @@ paths:
                           - post
                         example: 0
                       value_data:
-                        oneOf:
-                          - type: object
-                          - type: 'null'
+                        type: object
+                        x-nullable: true
                         description: |
                           Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
                     required:
@@ -5153,9 +5020,8 @@ paths:
                           - post
                         example: 0
                       value_data:
-                        oneOf:
-                          - type: object
-                          - type: 'null'
+                        type: object
+                        x-nullable: true
                         description: |
                           Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
                     required:
@@ -5306,9 +5172,8 @@ paths:
                           - post
                         example: 0
                       value_data:
-                        oneOf:
-                          - type: object
-                          - type: 'null'
+                        type: object
+                        x-nullable: true
                         description: |
                           Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
                     required:
@@ -6511,108 +6376,14 @@ paths:
                   option_values:
                     type: array
                     items:
-                      allOf:
-                        - allOf:
-                            - type: object
-                              description: Common Option Value properties.
-                              title: Option Value Base
-                              children:
-                                - type: boolean
-                                  description: |
-                                    The flag for preselecting a value as the default on the storefront. This field is not supported for swatch options/modifiers.
-                                  example: false
-                                  name: is_default
-                                - type: string
-                                  description: |
-                                    The text display identifying the value on the storefront. Required in a /POST.
-                                  x-required:
-                                    - post
-                                  example: Green
-                                  name: label
-                                  required: true
-                                - type: integer
-                                  description: |
-                                    The order in which the value will be displayed on the product page. Required in a /POST.
-                                  minimum: -2147483648
-                                  maximum: 2147483647
-                                  x-required:
-                                    - post
-                                  example: 0
-                                  name: sort_order
-                                  required: true
-                                - type: object
-                                  description: |
-                                    Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
-                                  children: []
-                                  name: value_data
-                            - type: object
-                              children:
-                                - type: object
-                                  children:
-                                    - type: object
-                                      title: Adjuster
-                                      description: Adjuster for Complex Rules.
-                                      children:
-                                        - type:
-                                            - string
-                                            - 'null'
-                                          description: |
-                                            The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                          enum:
-                                            - relative
-                                            - percentage
-                                          name: adjuster
-                                        - type: number
-                                          description: |
-                                            The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                          example: 5
-                                          name: adjuster_value
-                                      name: price
-                                    - type: object
-                                      title: Adjuster
-                                      description: Adjuster for Complex Rules.
-                                      children:
-                                        - type:
-                                            - string
-                                            - 'null'
-                                          description: |
-                                            The type of adjuster for either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                          enum:
-                                            - relative
-                                            - percentage
-                                          name: adjuster
-                                        - type: number
-                                          description: |
-                                            The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
-                                          example: 5
-                                          name: adjuster_value
-                                      name: weight
-                                    - type: string
-                                      description: |
-                                        The URL for an image displayed on the storefront when the modifier value is selected.Limit of 8MB per file.
-                                      example: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
-                                      name: image_url
-                                    - type: object
-                                      children:
-                                        - type: boolean
-                                          description: |
-                                            Flag for whether the modifier value disables purchasing when selected on the storefront. This can be used for temporarily disabling a particular modifier value.
-                                          name: status
-                                        - type: string
-                                          description: |
-                                            The message displayed on the storefront when the purchasing disabled status is `true`.
-                                          name: message
-                                      name: purchasing_disabled
-                                  name: adjusters
-                          title: Modifier Value Base
-                        - properties:
-                            id:
-                              type: integer
-                              description: |
-                                The unique numeric ID of the value; increments sequentially.
                       title: Modifier Value
                       description: 'Part of Modifier Value Response '
                       type: object
+                      properties:
+                        id:
+                          type: integer
+                          description: |
+                            The unique numeric ID of the value; increments sequentially.
                 required:
                   - type
                   - required
@@ -7215,7 +6986,6 @@ paths:
             title: Not Found
       summary: Get a Modifier Value
       security:
-        - X-Auth-Client: []
         - X-Auth-Token: []
       tags:
         - Product Modifier Values
@@ -15652,9 +15422,8 @@ definitions:
           - post
         example: 0
       value_data:
-        oneOf:
-          - type: object
-          - type: 'null'
+        type: object
+        x-nullable: true
         description: |
           Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`.
       adjusters:
@@ -17278,9 +17047,8 @@ definitions:
           - post
         example: 0
       value_data:
-        oneOf:
-          - type: object
-          - type: 'null'
+        type: object
+        x-nullable: true
         description: |
           Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`.
     required:
@@ -22754,7 +22522,7 @@ responses:
                 colors:
                   - '#e80ee8'
               is_default: false
-          config: []
+          config: {}
         meta: {}
   OptionValueCollectionResponse:
     description: ''
