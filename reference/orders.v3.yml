@@ -1064,7 +1064,6 @@ definitions:
     x-internal: false
   CreateReturn:
     $ref: '#/definitions/Return_Full'
-    x-internal: false
   Return_Full:
     type: object
     description: A view of a return

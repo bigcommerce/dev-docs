@@ -2492,7 +2492,6 @@ definitions:
   address_Base:
     type: object
     title: address_Base
-    x-internal: false
     properties:
       firstName:
         description: ''
@@ -2553,7 +2552,6 @@ definitions:
     title: consignment_Full
     description: 'This allows us to have multiple shipping addresses. Where there is only one shipping address, this array will contain only one value, with all the items.'
     type: object
-    x-internal: false
     properties:
       id:
         description: ''
@@ -3438,7 +3436,6 @@ definitions:
   CreateConsignmentRequest:
     title: Create Consignment Request
     type: object
-    x-internal: false
     properties:
       shippingAddress:
         type: object
