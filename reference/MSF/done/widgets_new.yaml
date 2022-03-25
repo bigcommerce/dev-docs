@@ -189,7 +189,7 @@ paths:
         required: true
         schema:
           type: string
-  /content/widgets/search:
+  '/stores/{store_hash}/v3/content/widgets/search':
     get:
       tags:
         - Widget
@@ -217,7 +217,13 @@ paths:
           $ref: '#/components/responses/WidgetCollection_Resp'
         '422':
           $ref: '#/components/responses/Error422_Resp'
-  '/content/widget-templates/{uuid}/preview':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/content/widget-templates/{uuid}/preview':
     post:
       tags:
         - Widget Template
@@ -267,6 +273,11 @@ paths:
         in: path
         required: true
         description: The identifier for a specific widget.
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
   '/stores/{store_hash}/v3/content/widget-templates/{uuid}':
     get:
       tags:
@@ -1365,6 +1376,8 @@ components:
                     schema: []
                     storefront_api_query: ''
                     template: |2
+
+
 
 
 
