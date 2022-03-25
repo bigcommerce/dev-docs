@@ -1434,6 +1434,15 @@ components:
 
 
 
+
+
+
+
+
+
+
+
+
                        {{text}}
                     template_engine: handlebars_v3
                     uuid: 17dcc919-982a-4cc0-8ede-a5b49f9ab6dc
@@ -1891,6 +1900,9 @@ components:
               type: string
               format: datetime
               description: The date on which this object was last updated.
+            channel_id:
+              type: integer
+              description: The ID of the channel on which this placement exists.
         - $ref: '#/components/schemas/placement_Base'
         - type: object
           properties:
