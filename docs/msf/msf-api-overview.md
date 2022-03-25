@@ -12,7 +12,7 @@ It is our goal to launch these new features with no breaking changes to the plat
 
 ## New objects & endpoints introduced
 
-![channels-sites-diagram.webp](https://stoplight.io/api/v1/projects/cHJqOjI4MDIz/images/XhGtCVr9vg8)
+![channels-sites-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/channels-sites-diagram.webp)
 
 ### Channels
 
