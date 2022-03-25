@@ -203,7 +203,7 @@ paths:
     parameters:
       - in: path
         name: order_id
-        description: ID of the order
+        description: ID of the order.
         required: true
         schema:
           type: integer
@@ -532,7 +532,7 @@ paths:
     parameters:
       - in: path
         name: order_id
-        description: ID of the order
+        description: ID of the order.
         required: true
         schema:
           type: integer
@@ -655,7 +655,7 @@ paths:
     parameters:
       - in: path
         name: order_id
-        description: ID of the order
+        description: ID of the order.
         required: true
         schema:
           type: integer
@@ -739,7 +739,7 @@ paths:
     parameters:
       - in: path
         name: order_id
-        description: ID of the order
+        description: ID of the order.
         required: true
         schema:
           type: integer
@@ -764,7 +764,7 @@ paths:
     parameters:
       - in: path
         name: order_id
-        description: ID of the order
+        description: ID of the order.
         required: true
         schema:
           type: integer
@@ -828,14 +828,14 @@ paths:
     parameters:
       - in: path
         name: order_id
-        description: ID of the order
+        description: ID of the order.
         required: true
         schema:
           type: integer
       - name: shipment_id
         in: path
         required: true
-        description: Shipment ID
+        description: Shipment ID.
         schema:
           type: integer
       - schema:
@@ -893,14 +893,14 @@ paths:
     parameters:
       - in: path
         name: order_id
-        description: ID of the order
+        description: ID of the order.
         required: true
         schema:
           type: integer
       - name: product_id
         in: path
         required: true
-        description: ID of the product
+        description: ID of the product.
         schema:
           type: integer
       - schema:
@@ -937,7 +937,7 @@ paths:
     parameters:
       - in: path
         name: order_id
-        description: ID of the order
+        description: ID of the order.
         required: true
         schema:
           type: integer
@@ -1091,14 +1091,14 @@ paths:
     parameters:
       - in: path
         name: order_id
-        description: ID of the order
+        description: ID of the order.
         required: true
         schema:
           type: integer
       - name: shipping_address_id
         in: path
         required: true
-        description: Shipping address ID
+        description: Shipping address ID.
         schema:
           type: integer
       - schema:
@@ -1158,7 +1158,7 @@ components:
     customer_id:
       name: customer_id
       in: query
-      description: Customer ID
+      description: Customer ID.
       schema:
         type: integer
     email:
@@ -1307,7 +1307,7 @@ components:
     order_id_path:
       in: path
       name: order_id
-      description: ID of the order
+      description: ID of the order.
       required: true
       schema:
         type: integer
@@ -1315,21 +1315,21 @@ components:
       name: product_id
       in: path
       required: true
-      description: ID of the product
+      description: ID of the product.
       schema:
         type: integer
     shipping_address_id:
       name: shipping_address_id
       in: path
       required: true
-      description: Shipping address ID
+      description: Shipping address ID.
       schema:
         type: integer
     shipment_id:
       name: shipment_id
       in: path
       required: true
-      description: Shipment ID
+      description: Shipment ID.
       schema:
         type: integer
     channel_id:
@@ -1340,7 +1340,7 @@ components:
         type: integer
   responses:
     orderStatusCollection_Resp:
-      description: Get All Order Status Collection Response
+      description: Get All Order Status Collection Response.
       content:
         application/json:
           schema:
@@ -2892,7 +2892,7 @@ components:
                 description: A read-only value. Do not attempt to set or modify this value in a POST or PUT operation.
                 type: string
               refunded_amount:
-                description: 'The amount refunded from this transaction. (Float, Float-As-String, Integer)'
+                description: 'The amount refunded from this transaction; always returns `0`. (Float, Float-As-String, Integer) '
                 example: '0.0000'
                 type: string
               order_is_digital:
@@ -3035,12 +3035,12 @@ components:
                       description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order with the API.
                       properties:
                         name:
-                          description: Name of the form field
+                          description: Name of the form field.
                           type: string
                           example: License Id
                           readOnly: true
                         value:
-                          description: Value of the form field
+                          description: Value of the form field.
                           type: string
                           example: 123BAF
                           readOnly: true
@@ -3071,7 +3071,7 @@ components:
                 type: string
                 nullable: true
               external_merchant_id:
-                description: ID of the merchant
+                description: ID of the merchant.
                 example: 'null'
                 type: string
                 nullable: true
@@ -3141,7 +3141,7 @@ components:
           items:
             $ref: '#/components/schemas/ordersCountStatus'
         count:
-          description: Total number of orders in the store
+          description: Total number of orders in the store.
           example: 45
           type: number
       x-internal: false
@@ -3204,6 +3204,7 @@ components:
       title: orderProducts
       type: object
       description: ''
+      x-internal: false
       properties:
         id:
           description: Numeric ID of this product within this order.
@@ -3236,7 +3237,7 @@ components:
             - physical
             - digital
           example: physical
-          description: Type of product
+          description: Type of product.
         base_price:
           description: 'The product’s base price. (Float, Float-As-String, Integer)'
           example: '54.0000'
@@ -3314,19 +3315,20 @@ components:
           example: '54.0000'
           type: string
         is_refunded:
+          type: boolean
           description: Whether the product has been refunded.
           example: false
-          type: boolean
         refunded_amount:
-          description: 'The amount refunded from this transaction. (Float, Float-As-String, Integer)'
-          example: '0.0000'
           type: string
+          description: 'The amount refunded from this transaction; always returns `0`. (Float, Float-As-String, Integer) '
+          example: '0.0000'
+          deprecated: true
         return_id:
           description: Numeric ID for the refund.
           example: 0
           type: number
         wrapping_name:
-          description: Name of gift-wrapping option
+          description: Name of gift-wrapping option.
           example: 'null'
           type: string
         base_wrapping_cost:
@@ -3357,15 +3359,13 @@ components:
         event_name:
           description: Name of promotional event/delivery date.
           example: 'null'
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
         event_date:
           description: Date of the promotional event/scheduled delivery.
-          type:
-            - string
-            - 'null'
+          type: string
           format: date
+          nullable: true
         fixed_shipping_cost:
           description: 'Fixed shipping cost for this product. (Float, Float-As-String, Integer)'
           example: '0.0000'
@@ -3379,14 +3379,12 @@ components:
         option_set_id:
           description: Numeric ID of the option set applied to the product.
           example: 5
-          type:
-            - integer
-            - 'null'
+          type: integer
+          nullable: true
         parent_order_product_id:
           description: ID of a parent product.
-          type:
-            - integer
-            - 'null'
+          type: integer
+          nullable: true
         is_bundled_product:
           description: Whether this product is bundled with other products.
           example: false
@@ -3406,9 +3404,8 @@ components:
             $ref: '#/components/schemas/orderProductOptions'
         external_id:
           description: 'ID of the order in another system. For example, the Amazon Order ID if this is an Amazon order.This field can be updated in a /POST, but using a /PUT to update the order will return a 400 error. The field ''external_id'' cannot be written to. Please remove it from your request before trying again. It can not be overwritten once set.'
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
         upc:
           type: string
           maxLength: 255
@@ -3424,7 +3421,6 @@ components:
           type: string
           example: Towel Type 1
           description: The product name that is shown to merchant in Control Panel.
-      x-internal: false
     orderCount:
       title: orderCount
       example:
@@ -3549,7 +3545,7 @@ components:
           example: '8.0000'
           type: string
         priority:
-          description: The order in which the tax is applied
+          description: The order in which the tax is applied.
           example: 0
           type: number
         priority_amount:
@@ -3570,7 +3566,7 @@ components:
             - shipping
             - handling
             - gift-wrapping
-          description: Type of tax on item
+          description: Type of tax on item.
       x-internal: false
     orderShipment:
       title: orderShipment
@@ -3687,7 +3683,7 @@ components:
       readOnly: true
       properties:
         url:
-          description: URL of the shipping address for api requests
+          description: URL of the shipping address for api requests.
           readOnly: true
           example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/shippingaddresses'
           type: string
@@ -3703,12 +3699,12 @@ components:
       readOnly: true
       properties:
         url:
-          description: URL of the coupons for api requests
+          description: URL of the coupons for api requests.
           readOnly: true
           example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/coupons'
           type: string
         resource:
-          description: resource of the coupons
+          description: resource of the coupons.
           readOnly: true
           example: /orders/129/coupons
           type: string
@@ -3891,11 +3887,11 @@ components:
       properties:
         id:
           type: string
-          description: Id of the shipping quote
+          description: ID of the shipping quote.
           example: '24'
         uuid:
           type: string
-          description: uuid of the shipping quote
+          description: uuid of the shipping quote.
           example: a72acc8d-504b-4a40-8534-7c54d997ed59
         timestamp:
           type: string
@@ -3904,7 +3900,7 @@ components:
         shipping_provider_id:
           type: string
           example: bcstatic
-          description: Id of the shipping provider
+          description: ID of the shipping provider.
         shipping_provider_quote:
           type: array
           description: This can vary based on the shipping provider. Manual shipping methods such as fixed will return an empty array. Shipping providers such as UPS will return an object with the shipping information. Since the shipping quote is tied to a shipping address only one quote will return in the response.
@@ -3912,16 +3908,16 @@ components:
         provider_code:
           type: string
           example: shipping_byweight
-          description: Code of the shipping provider
+          description: Code of the shipping provider.
         carrier_code:
           type: string
-          description: Code of the shipping carrier
+          description: Code of the shipping carrier.
         rate_code:
           type: string
           description: Type of delivery. This can vary based on shipping quote.
         rate_id:
           type: string
-          description: This can vary based on shipping quote
+          description: This can vary based on shipping quote.
         method_id:
           type: integer
           description: Shipping method ID
@@ -4027,11 +4023,11 @@ components:
       type: object
       properties:
         id:
-          description: The id of the type of order status
+          description: The id of the type of order status.
           example: 0
           type: integer
         name:
-          description: Name of the type of order status
+          description: Name of the type of order status.
           example: Incomplete
           type: string
         system_label:
@@ -4039,11 +4035,11 @@ components:
           example: Incomplete
           type: string
         custom_label:
-          description: Custom order status label given in the Control Panel
+          description: Custom order status label given in the Control Panel.
           example: Incomplete- Waiting on Shipment
           type: string
         system_description:
-          description: System description of the order status
+          description: System description of the order status.
           example: 'An incomplete order happens when a shopper reached the payment page, but did not complete the transaction.'
           type: string
       x-internal: false
@@ -4055,11 +4051,11 @@ components:
         - type: object
           properties:
             count:
-              description: Number of orders that exist with this status
+              description: Number of orders that exist with this status.
               example: 6
               type: integer
             sort_order:
-              description: The sort order of the order status from the Control Panel
+              description: The sort order of the order status from the Control Panel.
               example: 0
               type: integer
       x-internal: false
@@ -4193,7 +4189,7 @@ components:
             - string
             - number
         refunded_amount:
-          description: 'The amount refunded from this transaction. (Float, Float-As-String, Integer)'
+          description: 'The amount refunded from this transaction; always returns `0`. (Float, Float-As-String, Integer) '
           example: '0.0000'
           type: string
         shipping_cost_ex_tax:
@@ -4511,7 +4507,7 @@ components:
           type: string
         id:
           type: integer
-          description: ID of the product line
+          description: ID of the product line.
       required:
         - name
         - quantity
