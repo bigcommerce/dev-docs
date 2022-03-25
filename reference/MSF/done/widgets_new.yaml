@@ -2,96 +2,96 @@ openapi: 3.0.3
 info:
   title: Widgets
   version: ''
-  description: Create and manage widget templates, widgets, regions, and placements.
+  description: 'Create and manage widget templates, widgets, regions, and placements.'
   termsOfService: ''
 servers:
   - url: 'https://api.bigcommerce.com'
 security:
-- X-Auth-Client: []
-- X-Auth-Token: []
+  - X-Auth-Client: []
+  - X-Auth-Token: []
 tags:
-- name: Regions
-- name: Widget Template
-  description: BigCommerce Widget Templates API Definition.
-- name: Widget
-  description: BigCommerce Widgets API Definition.
-- name: Placement
-  description: BigCommerce Placements API Definition.
-- name: Layout
-  description: BigCommerce Layouts API Definition.
+  - name: Regions
+  - name: Widget Template
+    description: BigCommerce Widget Templates API Definition.
+  - name: Widget
+    description: BigCommerce Widgets API Definition.
+  - name: Placement
+    description: BigCommerce Placements API Definition.
+  - name: Layout
+    description: BigCommerce Layouts API Definition.
 paths:
-  "/stores/{store_hash}/v3/content/widget-templates":
+  '/stores/{store_hash}/v3/content/widget-templates':
     post:
       tags:
-      - Widget Template
+        - Widget Template
       summary: Create a Widget Template
       operationId: createWidgetTemplate
       parameters:
-      - name: templateBody
-        in: body
-        required: true
-        schema:
-          "$ref": "#/definitions/widgetTemplate_Post"
-        x-examples:
-          application/json: |-
-            {
-              "name": "Header Images",
-              "template": "{{#each images}}<a href='{{image_url}}'><img src={{image_source}} style='width:33.3%'/></a>{{/each}}"
-            }
-          Custom Configuration Widget: |-
-            {
-              "name":"Header Images",
-              "template":"{{#each images}}<a href='{{link}}'><img src={{imageUrl.src}} style='width:33.3%'/></a>{{/each}}",
-              "schema":[
-                {
-                  "type":"array",
-                  "label":"Images",
-                  "id":"images",
-                  "defaultCount":3,
-                  "entryLabel":"Image",
-                  "thumbnail":"imageUrl.src",
-                  "schema":[
-                    {
-                      "type":"tab",
-                      "label":"Content",
-                      "sections":[
-                        {
-                          "settings":[
-                            {
-                              "type":"imageManager",
-                              "id":"imageUrl",
-                              "default":{
-                                "src":"https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on",
-                                "type":"IMAGE_MANAGER"
-                                }
-                                },
-                                {
-                                  "label":"Link",
-                                  "type":"input",
-                                  "id":"link",
-                                  "default":"#"
+        - name: templateBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/widgetTemplate_Post'
+          x-examples:
+            application/json: |-
+              {
+                "name": "Header Images",
+                "template": "{{#each images}}<a href='{{image_url}}'><img src={{image_source}} style='width:33.3%'/></a>{{/each}}"
+              }
+            Custom Configuration Widget: |-
+              {
+                "name":"Header Images",
+                "template":"{{#each images}}<a href='{{link}}'><img src={{imageUrl.src}} style='width:33.3%'/></a>{{/each}}",
+                "schema":[
+                  {
+                    "type":"array",
+                    "label":"Images",
+                    "id":"images",
+                    "defaultCount":3,
+                    "entryLabel":"Image",
+                    "thumbnail":"imageUrl.src",
+                    "schema":[
+                      {
+                        "type":"tab",
+                        "label":"Content",
+                        "sections":[
+                          {
+                            "settings":[
+                              {
+                                "type":"imageManager",
+                                "id":"imageUrl",
+                                "default":{
+                                  "src":"https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on",
+                                  "type":"IMAGE_MANAGER"
                                   }
-                                ]
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    ]
-                  }
-      - name: Accept
-        in: header
-        type: string
-        default: application/json
-      - in: header
-        type: string
-        default: application/json
-        name: Content-Type
+                                  },
+                                  {
+                                    "label":"Link",
+                                    "type":"input",
+                                    "id":"link",
+                                    "default":"#"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+        - name: Accept
+          in: header
+          type: string
+          default: application/json
+        - in: header
+          type: string
+          default: application/json
+          name: Content-Type
       responses:
         '200':
-          "$ref": "#/responses/WidgetTemplate_Resp"
+          $ref: '#/responses/WidgetTemplate_Resp'
         '422':
-          "$ref": "#/responses/Error422_Resp"
+          $ref: '#/responses/Error422_Resp'
       description: |-
         Creates a **Widget Template**.
 
@@ -102,194 +102,189 @@ paths:
         * template
     get:
       tags:
-      - Widget Template
+        - Widget Template
       operationId: getWidgetTemplates
       parameters:
-      - name: page
-        description: 'Specifies the page number in a limited (paginated) list of products.
-
-          '
-        required: false
-        in: query
-        type: integer
-      - name: limit
-        description: 'Controls the number of items per page in a limited (paginated)
-          list of products.
-
-          '
-        required: false
-        in: query
-        type: integer
-      - in: query
-        name: widget_template_kind
-        description: The kind of widget template.
-        type: string
-        required: false
-      - name: Accept
-        in: header
-        type: string
-        default: application/json
-      - in: header
-        type: string
-        default: application/json
-        name: Content-Type
-      - type: integer
-        in: query
-        name: channel_id
-        description: Filter items by channel_id.
+        - name: page
+          description: |
+            Specifies the page number in a limited (paginated) list of products.
+          required: false
+          in: query
+          type: integer
+        - name: limit
+          description: |
+            Controls the number of items per page in a limited (paginated) list of products.
+          required: false
+          in: query
+          type: integer
+        - in: query
+          name: widget_template_kind
+          description: The kind of widget template.
+          type: string
+          required: false
+        - name: Accept
+          in: header
+          type: string
+          default: application/json
+        - in: header
+          type: string
+          default: application/json
+          name: Content-Type
+        - type: integer
+          in: query
+          name: channel_id
+          description: Filter items by channel_id.
       responses:
         '200':
-          "$ref": "#/responses/WidgetTemplateCollection_Resp"
+          $ref: '#/responses/WidgetTemplateCollection_Resp'
         '422':
-          "$ref": "#/responses/Error422_Resp"
+          $ref: '#/responses/Error422_Resp'
       description: Returns a list of **Widget Templates**.
       summary: Get All Widget Templates
     parameters:
-    - type: string
-      name: store_hash
-      in: path
-      required: true
-  "/stores/{store_hash}/v3/content/widget-templates/{uuid}":
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/content/widget-templates/{uuid}':
     get:
       tags:
-      - Widget Template
+        - Widget Template
       summary: Get a Widget Template
       operationId: getWidgetTemplate
       parameters:
-      - name: uuid
-        description: The identifier for a specific template.
-        required: true
-        in: path
-        type: string
-        format: uuid
-      - name: Accept
-        in: header
-        type: string
-        default: application/json
-      - in: header
-        type: string
-        default: application/json
-        name: Content-Type
+        - name: uuid
+          description: The identifier for a specific template.
+          required: true
+          in: path
+          type: string
+          format: uuid
+        - name: Accept
+          in: header
+          type: string
+          default: application/json
+        - in: header
+          type: string
+          default: application/json
+          name: Content-Type
       responses:
         '200':
-          "$ref": "#/responses/WidgetTemplate_Resp"
+          $ref: '#/responses/WidgetTemplate_Resp'
         '404':
-          "$ref": "#/responses/Error404_Resp"
+          $ref: '#/responses/Error404_Resp'
         '422':
-          "$ref": "#/responses/Error422_Resp"
+          $ref: '#/responses/Error422_Resp'
       description: Returns a single **Widget Template**.
     put:
       tags:
-      - Widget Template
+        - Widget Template
       summary: Update a Widget Template
       operationId: updateWidgetTemplate
       parameters:
-      - name: uuid
-        description: The identifier for a specific template.
-        required: true
-        in: path
-        type: string
-        format: uuid
-      - name: templateBody
-        in: body
-        required: true
-        schema:
-          "$ref": "#/definitions/widgetTemplate_Put"
-        x-examples:
-          application/json:
-            name: Header Images
-            template: "{{#each images}}<a href='{{image_url}}'><img src={{image_source}}
-              style='width:33.3%'/></a>{{/each}}"
-            create_new_version: true
-      - name: Accept
-        in: header
-        type: string
-        default: application/json
-      - in: header
-        type: string
-        default: application/json
-        name: Content-Type
+        - name: uuid
+          description: The identifier for a specific template.
+          required: true
+          in: path
+          type: string
+          format: uuid
+        - name: templateBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/widgetTemplate_Put'
+          x-examples:
+            application/json:
+              name: Header Images
+              template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:33.3%''/></a>{{/each}}'
+              create_new_version: true
+        - name: Accept
+          in: header
+          type: string
+          default: application/json
+        - in: header
+          type: string
+          default: application/json
+          name: Content-Type
       responses:
         '200':
-          "$ref": "#/responses/WidgetTemplate_Resp"
+          $ref: '#/responses/WidgetTemplate_Resp'
         '404':
-          "$ref": "#/responses/Error404_Resp"
+          $ref: '#/responses/Error404_Resp'
         '422':
-          "$ref": "#/responses/Error422_Resp"
+          $ref: '#/responses/Error422_Resp'
       description: Updates a **Widget Template**.
     delete:
       tags:
-      - Widget Template
+        - Widget Template
       summary: Delete A Widget Template
       operationId: deleteWidgetTemplate
       parameters:
-      - name: uuid
-        description: The identifier for a specific template.
-        required: true
-        in: path
-        type: string
-        format: uuid
-      - name: Accept
-        in: header
-        type: string
-        default: application/json
-      - in: header
-        type: string
-        default: application/json
-        name: Content-Type
+        - name: uuid
+          description: The identifier for a specific template.
+          required: true
+          in: path
+          type: string
+          format: uuid
+        - name: Accept
+          in: header
+          type: string
+          default: application/json
+        - in: header
+          type: string
+          default: application/json
+          name: Content-Type
       responses:
         '204':
           description: An empty response.
         '404':
-          "$ref": "#/responses/Error404_Resp"
+          $ref: '#/responses/Error404_Resp'
         '422':
-          "$ref": "#/responses/Error422_Resp"
+          $ref: '#/responses/Error422_Resp'
       description: Deletes a **Widget Template**.
     parameters:
-    - type: string
-      name: store_hash
-      in: path
-      required: true
-    - type: string
-      name: uuid
-      in: path
-      required: true
-  "/stores/{store_hash}/v3/content/widgets":
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: uuid
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/content/widgets':
     post:
       tags:
-      - Widget
+        - Widget
       summary: Create a Widget
       operationId: createWidget
       parameters:
-      - name: widgetBody
-        in: body
-        required: true
-        schema:
-          "$ref": "#/definitions/widget_Post"
-        x-examples:
-          application/json:
-            name: Header Images
-            template: "{{#each images}}<a href='{{image_url}}'><img src={{image_source}}
-              style='width:33.3%'/></a>{{/each}}"
-            widget_configuration:
-              images:
-              - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
-              - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on
-              - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
-            widget_template_uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
-      - name: Accept
-        in: header
-        type: string
-        default: application/json
-      - in: header
-        type: string
-        default: application/json
-        name: Content-Type
+        - name: widgetBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/widget_Post'
+          x-examples:
+            application/json:
+              name: Header Images
+              template: '{{#each images}}<a href=''{{image_url}}''><img src={{image_source}} style=''width:33.3%''/></a>{{/each}}'
+              widget_configuration:
+                images:
+                  - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+                  - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
+                  - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+              widget_template_uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
+        - name: Accept
+          in: header
+          type: string
+          default: application/json
+        - in: header
+          type: string
+          default: application/json
+          name: Content-Type
       responses:
         '200':
-          "$ref": "#/responses/Widget_Resp"
+          $ref: '#/responses/Widget_Resp'
         '422':
-          "$ref": "#/responses/Error422_Resp"
+          $ref: '#/responses/Error422_Resp'
       description: |-
         Creates a **Widget**.
 
@@ -300,210 +295,205 @@ paths:
         * widget_template_uuid
     get:
       tags:
-      - Widget
+        - Widget
       summary: Get All Widgets
       operationId: getWidgets
       parameters:
-      - name: page
-        description: 'Specifies the page number in a limited (paginated) list of products.
-
-          '
-        required: false
-        in: query
-        type: integer
-      - name: limit
-        description: 'Controls the number of items per page in a limited (paginated)
-          list of products.
-
-          '
-        required: false
-        in: query
-        type: integer
-      - in: query
-        name: widget_template_kind
-        description: The kind of widget template.
-        type: string
-        required: false
-      - in: query
-        name: widget_template_uuid
-        description: The identifier for a specific widget template.
-        type: string
-        format: uuid
-        required: false
-      - name: Accept
-        in: header
-        type: string
-        default: application/json
-      - in: header
-        type: string
-        default: application/json
-        name: Content-Type
-      - in: query
-        name: name
-        type: string
-        description: The URL encoded name of the widget.
-      - type: array
-        in: query
-        name: name:in
-        description: 'Use to pass in comma-separated list of widget names. Example:
-          `/widgets?name:in=test-widget-name,header%20images`'
-      - type: integer
-        in: query
-        name: channel_id
-        description: Filter items by channel_id.
+        - name: page
+          description: |
+            Specifies the page number in a limited (paginated) list of products.
+          required: false
+          in: query
+          type: integer
+        - name: limit
+          description: |
+            Controls the number of items per page in a limited (paginated) list of products.
+          required: false
+          in: query
+          type: integer
+        - in: query
+          name: widget_template_kind
+          description: The kind of widget template.
+          type: string
+          required: false
+        - in: query
+          name: widget_template_uuid
+          description: The identifier for a specific widget template.
+          type: string
+          format: uuid
+          required: false
+        - name: Accept
+          in: header
+          type: string
+          default: application/json
+        - in: header
+          type: string
+          default: application/json
+          name: Content-Type
+        - in: query
+          name: name
+          type: string
+          description: The URL encoded name of the widget.
+        - type: array
+          in: query
+          name: 'name:in'
+          description: 'Use to pass in comma-separated list of widget names. Example: `/widgets?name:in=test-widget-name,header%20images`'
+        - type: integer
+          in: query
+          name: channel_id
+          description: Filter items by channel_id.
       responses:
         '200':
-          "$ref": "#/responses/WidgetCollection_Resp"
+          $ref: '#/responses/WidgetCollection_Resp'
         '422':
-          "$ref": "#/responses/Error422_Resp"
-      description: Returns a list of **Widgets**. Optional parameters can be passed
-        in.
+          $ref: '#/responses/Error422_Resp'
+      description: Returns a list of **Widgets**. Optional parameters can be passed in.
     parameters:
-    - type: string
-      name: store_hash
-      in: path
-      required: true
-  "/stores/{store_hash}/v3/content/widgets/{uuid}":
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/content/widgets/{uuid}':
     get:
       tags:
-      - Widget
+        - Widget
       summary: Get a Widget
       operationId: getWidget
       parameters:
-      - name: uuid
-        description: The identifier for a specific widget.
-        required: true
-        in: path
-        type: string
-        format: uuid
-      - name: Accept
-        in: header
-        type: string
-        default: application/json
-      - in: header
-        type: string
-        default: application/json
-        name: Content-Type
+        - name: uuid
+          description: The identifier for a specific widget.
+          required: true
+          in: path
+          type: string
+          format: uuid
+        - name: Accept
+          in: header
+          type: string
+          default: application/json
+        - in: header
+          type: string
+          default: application/json
+          name: Content-Type
       responses:
         '200':
-          "$ref": "#/responses/Widget_Resp"
+          $ref: '#/responses/Widget_Resp'
         '404':
-          "$ref": "#/responses/Error404_Resp"
+          $ref: '#/responses/Error404_Resp'
         '422':
-          "$ref": "#/responses/Error422_Resp"
+          $ref: '#/responses/Error422_Resp'
       description: Returns a single **Widget**.
     put:
       tags:
-      - Widget
+        - Widget
       summary: Update a Widget
       operationId: updateWidget
       parameters:
-      - name: uuid
-        description: The identifier for a specific widget.
-        required: true
-        in: path
-        type: string
-        format: uuid
-      - name: widgetBody
-        in: body
-        required: true
-        schema:
-          "$ref": "#/definitions/widget_Put"
-        x-examples:
-          application/json:
-            name: Header Images
-            widget_configuration:
-              images:
-              - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
-              - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on
-              - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
-            widget_template_uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
-      - name: Accept
-        in: header
-        type: string
-        default: application/json
-      - in: header
-        type: string
-        default: application/json
-        name: Content-Type
+        - name: uuid
+          description: The identifier for a specific widget.
+          required: true
+          in: path
+          type: string
+          format: uuid
+        - name: widgetBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/widget_Put'
+          x-examples:
+            application/json:
+              name: Header Images
+              widget_configuration:
+                images:
+                  - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+                  - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
+                  - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+              widget_template_uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
+        - name: Accept
+          in: header
+          type: string
+          default: application/json
+        - in: header
+          type: string
+          default: application/json
+          name: Content-Type
       responses:
         '200':
-          "$ref": "#/responses/Widget_Resp"
+          $ref: '#/responses/Widget_Resp'
         '404':
-          "$ref": "#/responses/Error404_Resp"
+          $ref: '#/responses/Error404_Resp'
         '422':
-          "$ref": "#/responses/Error422_Resp"
+          $ref: '#/responses/Error422_Resp'
       description: Updates a **Widget**.
     delete:
       tags:
-      - Widget
+        - Widget
       summary: Delete a Widget
       operationId: deleteWidget
       parameters:
-      - name: uuid
-        description: The identifier for a specific widget.
-        required: true
-        in: path
-        type: string
-        format: uuid
-      - name: Accept
-        in: header
-        type: string
-        default: application/json
-      - in: header
-        type: string
-        default: application/json
-        name: Content-Type
+        - name: uuid
+          description: The identifier for a specific widget.
+          required: true
+          in: path
+          type: string
+          format: uuid
+        - name: Accept
+          in: header
+          type: string
+          default: application/json
+        - in: header
+          type: string
+          default: application/json
+          name: Content-Type
       responses:
         '204':
           description: An empty response.
         '404':
-          "$ref": "#/responses/Error404_Resp"
+          $ref: '#/responses/Error404_Resp'
         '422':
-          "$ref": "#/responses/Error422_Resp"
+          $ref: '#/responses/Error422_Resp'
       description: Deletes a **Widget**.
     parameters:
-    - type: string
-      name: store_hash
-      in: path
-      required: true
-    - type: string
-      name: uuid
-      in: path
-      required: true
-  "/stores/{store_hash}/v3/content/placements":
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: uuid
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/content/placements':
     post:
       tags:
-      - Placement
+        - Placement
       summary: Create a Placement
       operationId: createPlacement
       parameters:
-      - name: placementBody
-        in: body
-        required: true
-        schema:
-          "$ref": "#/definitions/placement_Post"
-        x-examples:
-          application/json:
-            widget_uuid: a8940709-5655-4401-a341-62c44e3180b2
-            entity_id: '21'
-            template_file: pages/category
-            status: active
-            sort_order: 1
-            region: category_header_banner
-      - name: Accept
-        in: header
-        type: string
-        default: application/json
-      - in: header
-        type: string
-        default: application/json
-        name: Content-Type
+        - name: placementBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/placement_Post'
+          x-examples:
+            application/json:
+              widget_uuid: a8940709-5655-4401-a341-62c44e3180b2
+              entity_id: '21'
+              template_file: pages/category
+              status: active
+              sort_order: 1
+              region: category_header_banner
+        - name: Accept
+          in: header
+          type: string
+          default: application/json
+        - in: header
+          type: string
+          default: application/json
+          name: Content-Type
       responses:
         '200':
-          "$ref": "#/responses/Placement_Resp"
+          $ref: '#/responses/Placement_Resp'
         '422':
-          "$ref": "#/responses/Error422_Resp"
+          $ref: '#/responses/Error422_Resp'
       description: |-
         Creates a **Placement**.
 
@@ -516,693 +506,638 @@ paths:
         To view the list of values accepted by the `template_file` property, including **custom** templates, see [Placements](/api-docs/store-management/widgets/overview#placements).
     get:
       tags:
-      - Placement
+        - Placement
       summary: Get All Placements
       operationId: getPlacements
       parameters:
-      - name: page
-        description: 'Specifies the page number in a limited (paginated) list of products.
-
-          '
-        required: false
-        in: query
-        type: integer
-      - name: limit
-        description: 'Controls the number of items per page in a limited (paginated)
-          list of products.
-
-          '
-        required: false
-        in: query
-        type: integer
-      - in: query
-        name: widget_template_kind
-        description: The kind of widget template.
-        type: string
-        required: false
-      - in: query
-        name: template_file
-        description: 'The template file, for example: `pages/home`.'
-        type: string
-        required: false
-      - name: widget_uuid
-        description: The identifier for a specific widget.
-        in: query
-        type: string
-        format: uuid
-        required: false
-      - in: query
-        name: widget_template_uuid
-        description: The identifier for a specific widget template.
-        type: string
-        format: uuid
-        required: false
-      - name: Accept
-        in: header
-        type: string
-        default: application/json
-      - in: header
-        type: string
-        default: application/json
-        name: Content-Type
+        - name: page
+          description: |
+            Specifies the page number in a limited (paginated) list of products.
+          required: false
+          in: query
+          type: integer
+        - name: limit
+          description: |
+            Controls the number of items per page in a limited (paginated) list of products.
+          required: false
+          in: query
+          type: integer
+        - in: query
+          name: widget_template_kind
+          description: The kind of widget template.
+          type: string
+          required: false
+        - in: query
+          name: template_file
+          description: 'The template file, for example: `pages/home`.'
+          type: string
+          required: false
+        - name: widget_uuid
+          description: The identifier for a specific widget.
+          in: query
+          type: string
+          format: uuid
+          required: false
+        - in: query
+          name: widget_template_uuid
+          description: The identifier for a specific widget template.
+          type: string
+          format: uuid
+          required: false
+        - name: Accept
+          in: header
+          type: string
+          default: application/json
+        - in: header
+          type: string
+          default: application/json
+          name: Content-Type
       responses:
         '200':
-          "$ref": "#/responses/PlacementsCollection_Resp"
+          $ref: '#/responses/PlacementsCollection_Resp'
         '422':
-          "$ref": "#/responses/Error422_Resp"
-      description: Returns a list of **Placements**. Optional parameters can be passed
-        in.
+          $ref: '#/responses/Error422_Resp'
+      description: Returns a list of **Placements**. Optional parameters can be passed in.
     parameters:
-    - type: string
-      name: store_hash
-      in: path
-      required: true
-  "/stores/{store_hash}/v3/content/placements/{uuid}":
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/content/placements/{uuid}':
     get:
       tags:
-      - Placement
+        - Placement
       summary: Get a Placement
       operationId: getPlacement
       parameters:
-      - name: uuid
-        description: The identifier for a specific placement.
-        required: true
-        in: path
-        type: string
-        format: uuid
-      - name: Accept
-        in: header
-        type: string
-        default: application/json
-      - in: header
-        type: string
-        default: application/json
-        name: Content-Type
+        - name: uuid
+          description: The identifier for a specific placement.
+          required: true
+          in: path
+          type: string
+          format: uuid
+        - name: Accept
+          in: header
+          type: string
+          default: application/json
+        - in: header
+          type: string
+          default: application/json
+          name: Content-Type
       responses:
         '200':
-          "$ref": "#/responses/Placement_Resp"
+          $ref: '#/responses/Placement_Resp'
         '404':
-          "$ref": "#/responses/Error404_Resp"
+          $ref: '#/responses/Error404_Resp'
         '422':
-          "$ref": "#/responses/Error422_Resp"
+          $ref: '#/responses/Error422_Resp'
       description: Returns a single **Placement**.
     put:
       tags:
-      - Placement
+        - Placement
       summary: Update a Placement
       operationId: updatePlacement
       parameters:
-      - name: uuid
-        description: The identifier for a specific placement.
-        required: true
-        in: path
-        type: string
-        format: uuid
-      - name: placementBody
-        in: body
-        required: true
-        schema:
-          "$ref": "#/definitions/placement_Put"
-        x-examples:
-          application/json:
-            sort_order: 1
-            region: home_header_image
-            template_file: pages/home
-            status: active
-      - name: Accept
-        in: header
-        type: string
-        default: application/json
-      - in: header
-        type: string
-        default: application/json
-        name: Content-Type
+        - name: uuid
+          description: The identifier for a specific placement.
+          required: true
+          in: path
+          type: string
+          format: uuid
+        - name: placementBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/placement_Put'
+          x-examples:
+            application/json:
+              sort_order: 1
+              region: home_header_image
+              template_file: pages/home
+              status: active
+        - name: Accept
+          in: header
+          type: string
+          default: application/json
+        - in: header
+          type: string
+          default: application/json
+          name: Content-Type
       responses:
         '200':
-          "$ref": "#/responses/Placement_Resp"
+          $ref: '#/responses/Placement_Resp'
         '404':
-          "$ref": "#/responses/Error404_Resp"
+          $ref: '#/responses/Error404_Resp'
         '422':
-          "$ref": "#/responses/Error422_Resp"
+          $ref: '#/responses/Error422_Resp'
       description: Updates a **Placement**.
     delete:
       tags:
-      - Placement
+        - Placement
       summary: Delete a Placement
       operationId: deletePlacement
       parameters:
-      - name: uuid
-        description: The identifier for a specific placement.
-        required: true
-        in: path
-        type: string
-        format: uuid
-      - name: Accept
-        in: header
-        type: string
-        default: application/json
-      - in: header
-        type: string
-        default: application/json
-        name: Content-Type
+        - name: uuid
+          description: The identifier for a specific placement.
+          required: true
+          in: path
+          type: string
+          format: uuid
+        - name: Accept
+          in: header
+          type: string
+          default: application/json
+        - in: header
+          type: string
+          default: application/json
+          name: Content-Type
       responses:
         '204':
           description: An empty response.
         '404':
-          "$ref": "#/responses/Error404_Resp"
+          $ref: '#/responses/Error404_Resp'
         '422':
-          "$ref": "#/responses/Error422_Resp"
+          $ref: '#/responses/Error422_Resp'
       description: Deletes a **Placement**.
     parameters:
-    - type: string
-      name: store_hash
-      in: path
-      required: true
-    - type: string
-      name: uuid
-      in: path
-      required: true
-  "/stores/{store_hash}/v3/content/regions":
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: uuid
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/content/regions':
     get:
       responses:
         '200':
-          "$ref": "#/responses/ThemeRegions_Resp"
+          $ref: '#/responses/ThemeRegions_Resp'
       summary: Get Theme Regions
       description: Returns a list of unique **Theme Regions** in a file.
       operationId: getContentRegions
       tags:
-      - Regions
+        - Regions
       parameters:
-      - name: Accept
-        in: header
-        type: string
-        default: application/json
-      - in: header
-        type: string
-        default: application/json
-        name: Content-Type
-      - in: query
-        name: template_file
-        description: 'The template file, for example: `templateFile=pages/home`.'
-        type: string
-        required: true
+        - name: Accept
+          in: header
+          type: string
+          default: application/json
+        - in: header
+          type: string
+          default: application/json
+          name: Content-Type
+        - in: query
+          name: template_file
+          description: 'The template file, for example: `templateFile=pages/home`.'
+          type: string
+          required: true
     parameters:
-    - type: string
-      name: store_hash
-      in: path
-      required: true
-  "/content/widget-templates":
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '':
     post:
       tags:
-      - Widget Template
+        - Widget Template
       summary: Create a Widget Template
       description: Creates a widget template.
       operationId: betacreateWidgetTemplate
       parameters:
-      - name: templateBody
-        in: body
-        required: true
-        schema:
-          "$ref": "#/definitions/WidgetTemplatePost"
+        - name: templateBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/WidgetTemplatePost'
       responses:
         '200':
           schema:
-            "$ref": "#/definitions/WidgetTemplateResponse"
-          description: 'A widget template.
-
-            '
+            $ref: '#/definitions/WidgetTemplateResponse'
+          description: |
+            A widget template.
         '422':
           schema:
-            "$ref": "#/definitions/ErrorResponse"
-          description: 'This is the result of missing required fields, or of invalid
-            data. See the response for more details.
-
-            '
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
     get:
       tags:
-      - Widget Template
+        - Widget Template
       summary: Get All Widget Templates
       description: Returns a list of widget templates.
       operationId: betagetWidgetTemplates
       parameters:
-      - "$ref": "#/parameters/PageParam"
-      - "$ref": "#/parameters/LimitParam"
-      - "$ref": "#/parameters/FilterWidgetTemplateKindParam"
-      - "$ref": "#/parameters/SiteParam"
-      - "$ref": "#/parameters/ChannelParam"
+        - $ref: '#/parameters/PageParam'
+        - $ref: '#/parameters/LimitParam'
+        - $ref: '#/parameters/FilterWidgetTemplateKindParam'
+        - $ref: '#/parameters/SiteParam'
+        - $ref: '#/parameters/ChannelParam'
       responses:
         '200':
           schema:
-            "$ref": "#/definitions/WidgetTemplatesResponse"
+            $ref: '#/definitions/WidgetTemplatesResponse'
           description: Success
         '422':
           schema:
-            "$ref": "#/definitions/ErrorResponse"
-          description: 'This is the result of missing required fields, or of invalid
-            data. See the response for more details.
-
-            '
-  "/content/widget-templates/{uuid}":
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+    parameters: []
+  '/content/widget-templates/{uuid}':
     get:
       tags:
-      - Widget Template
+        - Widget Template
       summary: Get a Widget Template
       description: Returns a widget template.
       operationId: betagetWidgetTemplate
       parameters:
-      - "$ref": "#/parameters/TemplateUUID"
-      - name: version_uuid
-        description: 'This is an optional query parmeter used to attempt to fetch
-          a specific Widget Template version.
-
-          '
-        in: query
-        required: false
-        type: string
+        - $ref: '#/parameters/TemplateUUID'
+        - name: version_uuid
+          description: |
+            This is an optional query parmeter used to attempt to fetch a specific Widget Template version.
+          in: query
+          required: false
+          type: string
       responses:
         '200':
           schema:
-            "$ref": "#/definitions/WidgetTemplateResponse"
+            $ref: '#/definitions/WidgetTemplateResponse'
           description: Success
         '404':
-          description: 'The resource was not found.
-
-            '
+          description: |
+            The resource was not found.
           schema:
-            "$ref": "#/definitions/ErrorResponse"
+            $ref: '#/definitions/ErrorResponse'
         '422':
           schema:
-            "$ref": "#/definitions/ErrorResponse"
-          description: 'This is the result of missing required fields, or of invalid
-            data. See the response for more details.
-
-            '
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
     put:
       tags:
-      - Widget Template
+        - Widget Template
       summary: Update a Widget Template
       description: Updates a widget template.
       operationId: betaupdateWidgetTemplate
       parameters:
-      - "$ref": "#/parameters/TemplateUUID"
-      - name: templateBody
-        in: body
-        required: true
-        schema:
-          "$ref": "#/definitions/WidgetTemplatePut"
+        - $ref: '#/parameters/TemplateUUID'
+        - name: templateBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/WidgetTemplatePut'
       responses:
         '200':
           schema:
-            "$ref": "#/definitions/WidgetTemplateResponse"
+            $ref: '#/definitions/WidgetTemplateResponse'
           description: Success
         '404':
-          description: 'The resource was not found.
-
-            '
+          description: |
+            The resource was not found.
           schema:
-            "$ref": "#/definitions/ErrorResponse"
+            $ref: '#/definitions/ErrorResponse'
         '422':
           schema:
-            "$ref": "#/definitions/ErrorResponse"
-          description: 'This is the result of missing required fields, or of invalid
-            data. See the response for more details.
-
-            '
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
     delete:
       tags:
-      - Widget Template
+        - Widget Template
       summary: Delete a Widget Template
       description: Deletes a widget template.
       operationId: betadeleteWidgetTemplate
       parameters:
-      - "$ref": "#/parameters/TemplateUUID"
+        - $ref: '#/parameters/TemplateUUID'
       responses:
         '204':
           description: An empty response.
         '404':
-          description: 'The resource was not found.
-
-            '
+          description: |
+            The resource was not found.
           schema:
-            "$ref": "#/definitions/ErrorResponse"
+            $ref: '#/definitions/ErrorResponse'
         '422':
           schema:
-            "$ref": "#/definitions/ErrorResponse"
-          description: 'This is the result of missing required fields, or of invalid
-            data. See the response for more details.
-
-            '
-  "/content/widget-templates/{uuid}/preview":
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+  '/content/widget-templates/{uuid}/preview':
     post:
       tags:
-      - Widget Template
+        - Widget Template
       summary: Render a Widget Template
       description: Render a widget template and return the widget html.
       operationId: previewWidget
       parameters:
-      - "$ref": "#/parameters/TemplateUUID"
-      - name: templateBody
-        in: body
-        required: true
-        schema:
-          "$ref": "#/definitions/WidgetTemplatePreview"
+        - $ref: '#/parameters/TemplateUUID'
+        - name: templateBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/WidgetTemplatePreview'
       responses:
         '200':
           schema:
-            "$ref": "#/definitions/WidgetTemplatePreviewResponse"
+            $ref: '#/definitions/WidgetTemplatePreviewResponse'
           description: Success
         '404':
-          description: 'The resource was not found.
-
-            '
+          description: |
+            The resource was not found.
           schema:
-            "$ref": "#/definitions/ErrorResponse"
+            $ref: '#/definitions/ErrorResponse'
         '422':
           schema:
-            "$ref": "#/definitions/ErrorResponse"
-          description: 'This is the result of missing required fields, or of invalid
-            data. See the response for more details.
-
-            '
-  "/content/widgets":
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+  /content/widgets:
     post:
       tags:
-      - Widget
+        - Widget
       summary: Create a Widget
       description: Creates a widget.
       operationId: betacreateWidget
       parameters:
-      - name: widgetBody
-        in: body
-        required: true
-        schema:
-          "$ref": "#/definitions/WidgetPost"
+        - name: widgetBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/WidgetPost'
       responses:
         '200':
           schema:
-            "$ref": "#/definitions/WidgetResponse"
+            $ref: '#/definitions/WidgetResponse'
           description: Success
         '422':
           schema:
-            "$ref": "#/definitions/ErrorResponse"
-          description: 'This is the result of missing required fields, or of invalid
-            data. See the response for more details.
-
-            '
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
     get:
       tags:
-      - Widget
+        - Widget
       summary: Get All Widgets
       description: Returns a list of widgets.
       operationId: betagetWidgets
       parameters:
-      - "$ref": "#/parameters/PageParam"
-      - "$ref": "#/parameters/LimitParam"
-      - "$ref": "#/parameters/FilterWidgetTemplateKindParam"
-      - "$ref": "#/parameters/FilterWidgetTemplateUUIDParam"
-      - "$ref": "#/parameters/SiteParam"
-      - "$ref": "#/parameters/ChannelParam"
+        - $ref: '#/parameters/PageParam'
+        - $ref: '#/parameters/LimitParam'
+        - $ref: '#/parameters/FilterWidgetTemplateKindParam'
+        - $ref: '#/parameters/FilterWidgetTemplateUUIDParam'
+        - $ref: '#/parameters/SiteParam'
+        - $ref: '#/parameters/ChannelParam'
       responses:
         '200':
           schema:
-            "$ref": "#/definitions/WidgetsResponse"
+            $ref: '#/definitions/WidgetsResponse'
           description: Success
         '422':
           schema:
-            "$ref": "#/definitions/ErrorResponse"
-          description: 'This is the result of missing required fields, or of invalid
-            data. See the response for more details.
-
-            '
-  "/content/widgets/{uuid}":
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+  '/content/widgets/{uuid}':
     get:
       tags:
-      - Widget
+        - Widget
       summary: Get a Widget
       description: Returns a widget.
       operationId: betagetWidget
       parameters:
-      - "$ref": "#/parameters/WidgetUUID"
+        - $ref: '#/parameters/WidgetUUID'
       responses:
         '200':
           schema:
-            "$ref": "#/definitions/WidgetResponse"
+            $ref: '#/definitions/WidgetResponse'
           description: Success
         '404':
-          description: 'The resource was not found.
-
-            '
+          description: |
+            The resource was not found.
           schema:
-            "$ref": "#/definitions/ErrorResponse"
+            $ref: '#/definitions/ErrorResponse'
         '422':
           schema:
-            "$ref": "#/definitions/ErrorResponse"
-          description: 'This is the result of missing required fields, or of invalid
-            data. See the response for more details.
-
-            '
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
     put:
       tags:
-      - Widget
+        - Widget
       summary: Update a Widget
       description: Updates a widget.
       operationId: betaupdateWidget
       parameters:
-      - "$ref": "#/parameters/WidgetUUID"
-      - name: widgetBody
-        in: body
-        required: true
-        schema:
-          "$ref": "#/definitions/WidgetPut"
+        - $ref: '#/parameters/WidgetUUID'
+        - name: widgetBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/WidgetPut'
       responses:
         '200':
           schema:
-            "$ref": "#/definitions/WidgetResponse"
+            $ref: '#/definitions/WidgetResponse'
           description: Success
         '404':
-          description: 'The resource was not found.
-
-            '
+          description: |
+            The resource was not found.
           schema:
-            "$ref": "#/definitions/ErrorResponse"
+            $ref: '#/definitions/ErrorResponse'
         '422':
           schema:
-            "$ref": "#/definitions/ErrorResponse"
-          description: 'This is the result of missing required fields, or of invalid
-            data. See the response for more details.
-
-            '
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
     delete:
       tags:
-      - Widget
+        - Widget
       summary: Delete a Widget
       description: Deletes a widget.
       operationId: betadeleteWidget
       parameters:
-      - "$ref": "#/parameters/WidgetUUID"
+        - $ref: '#/parameters/WidgetUUID'
       responses:
         '204':
           description: An empty response.
         '404':
-          description: 'The resource was not found.
-
-            '
+          description: |
+            The resource was not found.
           schema:
-            "$ref": "#/definitions/ErrorResponse"
+            $ref: '#/definitions/ErrorResponse'
         '422':
           schema:
-            "$ref": "#/definitions/ErrorResponse"
-          description: 'This is the result of missing required fields, or of invalid
-            data. See the response for more details.
-
-            '
-  "/content/widgets/search":
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+  /content/widgets/search:
     get:
       tags:
-      - Widget
+        - Widget
       summary: Get All Widgets by Search
       description: Returns a list of widgets by search.
       operationId: searchWidgets
       parameters:
-      - "$ref": "#/parameters/PageParam"
-      - "$ref": "#/parameters/LimitParam"
-      - "$ref": "#/parameters/QueryWidgetsParam"
+        - $ref: '#/parameters/PageParam'
+        - $ref: '#/parameters/LimitParam'
+        - $ref: '#/parameters/QueryWidgetsParam'
       responses:
         '200':
           schema:
-            "$ref": "#/definitions/WidgetsResponse"
+            $ref: '#/definitions/WidgetsResponse'
           description: Success
         '422':
           schema:
-            "$ref": "#/definitions/ErrorResponse"
-          description: 'This is the result of missing required fields, or of invalid
-            data. See the response for more details.
-
-            '
-  "/content/placements":
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+  /content/placements:
     post:
       tags:
-      - Placement
+        - Placement
       summary: Create a Placement
       description: Creates a placement.
       operationId: betacreatePlacement
       parameters:
-      - name: placementBody
-        in: body
-        required: true
-        schema:
-          "$ref": "#/definitions/PlacementPost"
+        - name: placementBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/PlacementPost'
       responses:
         '200':
           schema:
-            "$ref": "#/definitions/PlacementResponse"
-          description: 'A placement.
-
-            '
+            $ref: '#/definitions/PlacementResponse'
+          description: |
+            A placement.
         '422':
           schema:
-            "$ref": "#/definitions/ErrorResponse"
-          description: 'This is the result of missing required fields, or of invalid
-            data. See the response for more details.
-
-            '
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
     get:
       tags:
-      - Placement
+        - Placement
       summary: Get All Placements
       description: Returns a list of placements.
       operationId: betagetPlacements
       parameters:
-      - "$ref": "#/parameters/PageParam"
-      - "$ref": "#/parameters/LimitParam"
-      - "$ref": "#/parameters/FilterWidgetTemplateKindParam"
-      - "$ref": "#/parameters/FilterTemplateFileParam"
-      - "$ref": "#/parameters/FilterWidgetUUIDParam"
-      - "$ref": "#/parameters/FilterWidgetTemplateUUIDParam"
-      - "$ref": "#/parameters/SiteParam"
-      - "$ref": "#/parameters/ChannelParam"
+        - $ref: '#/parameters/PageParam'
+        - $ref: '#/parameters/LimitParam'
+        - $ref: '#/parameters/FilterWidgetTemplateKindParam'
+        - $ref: '#/parameters/FilterTemplateFileParam'
+        - $ref: '#/parameters/FilterWidgetUUIDParam'
+        - $ref: '#/parameters/FilterWidgetTemplateUUIDParam'
+        - $ref: '#/parameters/SiteParam'
+        - $ref: '#/parameters/ChannelParam'
       responses:
         '200':
           schema:
-            "$ref": "#/definitions/PlacementsResponse"
+            $ref: '#/definitions/PlacementsResponse'
           description: Success
         '422':
           schema:
-            "$ref": "#/definitions/ErrorResponse"
-          description: 'This is the result of missing required fields, or of invalid
-            data. See the response for more details.
-
-            '
-  "/content/placements/{uuid}":
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+  '/content/placements/{uuid}':
     get:
       tags:
-      - Placement
+        - Placement
       summary: Get a Placement
       description: Returns a placement.
       operationId: betagetPlacement
       parameters:
-      - "$ref": "#/parameters/PlacementUUID"
+        - $ref: '#/parameters/PlacementUUID'
       responses:
         '200':
           schema:
-            "$ref": "#/definitions/PlacementResponse"
+            $ref: '#/definitions/PlacementResponse'
           description: Success
         '404':
-          description: 'The resource was not found.
-
-            '
+          description: |
+            The resource was not found.
           schema:
-            "$ref": "#/definitions/ErrorResponse"
+            $ref: '#/definitions/ErrorResponse'
         '422':
           schema:
-            "$ref": "#/definitions/ErrorResponse"
-          description: 'This is the result of missing required fields, or of invalid
-            data. See the response for more details.
-
-            '
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
     put:
       tags:
-      - Placement
+        - Placement
       summary: Update a Placement
       description: Updates a placement.
       operationId: betaupdatePlacement
       parameters:
-      - "$ref": "#/parameters/PlacementUUID"
-      - name: placementBody
-        in: body
-        required: true
-        schema:
-          "$ref": "#/definitions/PlacementPut"
+        - $ref: '#/parameters/PlacementUUID'
+        - name: placementBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/PlacementPut'
       responses:
         '200':
           schema:
-            "$ref": "#/definitions/PlacementResponse"
+            $ref: '#/definitions/PlacementResponse'
           description: Success
         '404':
-          description: 'The resource was not found.
-
-            '
+          description: |
+            The resource was not found.
           schema:
-            "$ref": "#/definitions/ErrorResponse"
+            $ref: '#/definitions/ErrorResponse'
         '422':
           schema:
-            "$ref": "#/definitions/ErrorResponse"
-          description: 'This is the result of missing required fields, or of invalid
-            data. See the response for more details.
-
-            '
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
     delete:
       tags:
-      - Placement
+        - Placement
       summary: Delete a Placement
       description: Deletes a placement.
       operationId: betadeletePlacement
       parameters:
-      - "$ref": "#/parameters/PlacementUUID"
+        - $ref: '#/parameters/PlacementUUID'
       responses:
         '204':
           description: An empty response.
         '404':
-          description: 'The resource was not found.
-
-            '
+          description: |
+            The resource was not found.
           schema:
-            "$ref": "#/definitions/ErrorResponse"
+            $ref: '#/definitions/ErrorResponse'
         '422':
           schema:
-            "$ref": "#/definitions/ErrorResponse"
-          description: 'This is the result of missing required fields, or of invalid
-            data. See the response for more details.
-
-            '
-  "/content/regions":
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+  /content/regions:
     get:
       tags:
-      - Theme Regions
+        - Theme Regions
       summary: Get Regions
-      description: Returns an ordered list of unique regions defined in a template
-        file.
+      description: Returns an ordered list of unique regions defined in a template file.
       operationId: getRegions
       parameters:
-      - "$ref": "#/parameters/RequiredTemplateFile"
+        - $ref: '#/parameters/RequiredTemplateFile'
       responses:
         '200':
           schema:
-            "$ref": "#/definitions/ThemeRegionsResponse"
+            $ref: '#/definitions/ThemeRegionsResponse'
           description: Success
         '404':
-          description: 'The resource was not found.
-
-            '
+          description: |
+            The resource was not found.
           schema:
-            "$ref": "#/definitions/ErrorResponse"
+            $ref: '#/definitions/ErrorResponse'
         '422':
           schema:
-            "$ref": "#/definitions/ErrorResponse"
-          description: 'This is the result of missing required fields, or of invalid
-            data. See the response for more details.
-
-            '
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
 x-stoplight:
   docs:
     includeDownloadLink: true
