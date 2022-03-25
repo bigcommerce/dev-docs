@@ -80,7 +80,7 @@ If your application simply needs to know what the price will be for a given shop
 
 ## Products
 
-[Channel Assigments API documentation](https://developer.bigcommerce.com/api-reference/store-management/catalog)
+[Channel Assignments API documentation](https://developer.bigcommerce.com/api-reference/store-management/catalog)
 
 Products must be "assigned" to a Channel in order to be sold on that Channel. For native Stencil storefronts, if a product is not assigned to the storefront's Channel, it will be hidden from that channel's storefront.
 
@@ -110,7 +110,7 @@ BigCommerce's Settings APIs allow management of the store's configuration, which
 
 These Settings APIs can be used to simplify the setup of new stores and new selling Channels, as well as automating changes to configuration in an ongoing capacity. They could furthermore build tools that are more efficient than the BigCommerce control panel for managing configuration for particular use cases.
 
-They are also useful for app developers to understand the current state of a store's confguration, for applications that wish to respect a merchant's existing settings.
+They are also useful for app developers to understand the current state of a store's configuration, for applications that wish to respect a merchant's existing settings.
 
 As an example, knowing the store or Channel settings related to the display of pricing (inclusive or exclusive of tax) can be useful for an application that also displays pricing, or perhaps sends emails containing pricing.
 
@@ -276,7 +276,7 @@ Scripts are associated with a particular Site. Any Scripts that were created pre
 
 [Scripts API reference documentation](https://developer.bigcommerce.com/api-reference/store-management/scripts)
 
-From a UX perspective, you may wish to prompt merchants who are setting up your app to pick one or more storefront Sites on which your app's storefront functionality should be installed. It is also adviseable to provide a way to remove your Scripts from each Site, or install them on new Sites the merchant creates as they expand their business.
+From a UX perspective, you may wish to prompt merchants who are setting up your app to pick one or more storefront Sites on which your app's storefront functionality should be installed. It is also advisable to provide a way to remove your Scripts from each Site, or install them on new Sites the merchant creates as they expand their business.
 
 ### Pages
 
@@ -305,7 +305,7 @@ Going forward, it is recommended to interact directly with the appropriate `site
 
 Redirects are associated with a particular Site. Any Redirects that were created previously have been assigned to the default Site (which has an id of `1000` on each store).
 
-A new V3 Redirects API has been exposed to service multi-storefront use cases, while also providing several of the usual efficiency benefits of V3 APIs over their V2 equivalents. This new V3 Redirects API has `site_id` as a required paramter.
+A new V3 Redirects API has been exposed to service multi-storefront use cases, while also providing several of the usual efficiency benefits of V3 APIs over their V2 equivalents. This new V3 Redirects API has `site_id` as a required parameter.
 
 If your application reads Redirects-related data, be sure to filter by the appropriate `site_id` when dealing with a particular Site. Similarly, when writing in new Redirects, be sure to provide the correct `site_id`.
 
@@ -333,6 +333,6 @@ Instead of downloading Themes by using the `/themes/{uuid}/actions/download` end
 
 Each Subscriber now has an `origin_channel_id` property which indicates on which the Channel on which each Subscriber signaled intent to receive a newsletter. If not supplied, will default to 1, but should be supplied with every request explicitly.
 
-If your application deals with Subscribers, be sure to check the `origin_channel_id` to understand exactly where the Subscriber signed up. If you are integrating with a email marketing system, you may want to allow the merchant to pick which email lists will be used for which Channels.
+If your application deals with Subscribers, be sure to check the `origin_channel_id` to understand exactly where the Subscriber signed up. If you are integrating with an email marketing system, you may want to allow the merchant to pick which email lists will be used for which Channels.
 
 The Subscriber webhooks will also be augmented with an `origin_channel_id` so new subscriptions can be added to the appropriate email list for each storefront.

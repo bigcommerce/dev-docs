@@ -6,7 +6,7 @@ BigCommerce's Settings APIs allow management of the store's configuration, which
 
 These Settings APIs can be used to simplify the setup of new stores and new selling Channels, as well as automating changes to configuration in an ongoing capacity. They could furthermore build tools that are more efficient than the BigCommerce control panel for managing configuration for particular use cases.
 
-They are also useful for app developers to understand the current state of a store's confguration, for applications that wish to respect a merchant's existing settings.
+They are also useful for app developers to understand the current state of a store's configuration, for applications that wish to respect a merchant's existing settings.
 
 As an example, knowing the store or Channel settings related to the display of pricing (inclusive or exclusive of tax) can be useful for an application that also displays pricing, or perhaps sends emails containing pricing.
 
