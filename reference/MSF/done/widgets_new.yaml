@@ -666,10 +666,6 @@ paths:
       description: |-
         Creates a **Placement**.
 
-        **Required Fields**
-        * widget_uuid
-        * template_file
-
         **Template Files**
 
         To view the list of values accepted by the `template_file` property, including **custom** templates, see [Placements](/api-docs/store-management/widgets/overview#placements).
@@ -1431,6 +1427,13 @@ components:
 
 
 
+
+
+
+
+
+
+
                        {{text}}
                     template_engine: handlebars_v3
                     uuid: 17dcc919-982a-4cc0-8ede-a5b49f9ab6dc
@@ -1846,6 +1849,10 @@ components:
             template_file:
               type: string
               description: The template file that you would like to target.
+            channel_id:
+              type: integer
+              description: The id of the channel on which to create this placement. Defaults to the first channel created on the store.
+              example: 1
           required:
             - widget_uuid
             - template_file
