@@ -729,12 +729,14 @@ paths:
           schema:
             type: string
             default: application/json
+        - $ref: '#/components/parameters/ChannelIDInParam'
+        - $ref: '#/components/parameters/SiteIDInParam'
       responses:
         '200':
           $ref: '#/components/responses/PlacementsCollection_Resp'
         '422':
           $ref: '#/components/responses/Error422_Resp'
-      description: Returns a list of **Placements**. Optional parameters can be passed in.
+      description: Returns a list of **Placements**.
     parameters:
       - name: store_hash
         in: path
@@ -1006,6 +1008,20 @@ components:
       schema:
         type: string
         default: application/json
+    ChannelIDInParam:
+      name: 'channel_id:in'
+      in: query
+      required: false
+      schema:
+        type: string
+      description: A comma-separated list of channel ids to filter the results by.
+    SiteIDInParam:
+      name: 'site_id:in'
+      in: query
+      required: false
+      schema:
+        type: string
+      description: A comma-separated list of site IDs to filter the results by.
   responses:
     ThemeRegions_Resp:
       description: ''
@@ -1349,6 +1365,17 @@ components:
                     schema: []
                     storefront_api_query: ''
                     template: |2
+
+
+
+
+
+
+
+
+
+
+
 
 
 
