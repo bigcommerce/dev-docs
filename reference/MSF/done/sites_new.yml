@@ -2,90 +2,52 @@ openapi: 3.0.3
 info:
   title: Sites
   version: ''
-  description: >-
-    Create and manage [sites](#sites) and [routes](#routes) for [headless
-    storefront](https://support.bigcommerce.com/s/article/The-Headless-Approach#what-mean)
-    sales [channels](/api-reference/store-management/channels).
-
+  description: |-
+    Create and manage [sites](#sites) and [routes](#routes) for [headless storefront](https://support.bigcommerce.com/s/article/The-Headless-Approach#what-mean) sales [channels](/api-reference/store-management/channels).
 
 
     ## Authentication
 
-
-    Authenticate requests by sending an
-    [OAuth](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
-    `access_token` via `X-Auth-Token` HTTP header.
-
+    Authenticate requests by sending an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) `access_token` via `X-Auth-Token` HTTP header.
 
     ### Example
 
-
     ```http
-
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites
-
     Content-Type: application/json
-
     X-Auth-Token: {{ACCESS_TOKEN}}
-
     ```
 
-
-    ### [OAuth
-    Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
-
+    ### [OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
 
     | UI Name        | Permission | Parameter               |
-
     |----------------|------------|-------------------------|
-
     | Sites & Routes | modify     | `store_sites`           |
-
     | Sites & Routes | read-only  | `store_sites_read_only` |
 
-
-    For more information on authenticating BigCommerce APIs, see
-    [Authentication](/api-docs/getting-started/authentication).
-
+    For more information on authenticating BigCommerce APIs, see [Authentication](/api-docs/getting-started/authentication).
 
     ## [Sites](/api-reference/store-management/sites)
 
-
-    Sites link [headless
-    storefronts](/api-docs/storefronts/developers-guide-headless) to sales
-    [channels](/api-reference/store-management/channels). To [create a
-    site](/api-reference/store-management/sites/sites/post-site), send a `POST`
-    request to `/stores/{{STORE_HASH}}/v3/sites`.
-
+    Sites link [headless storefronts](/api-docs/storefronts/developers-guide-headless) to sales [channels](/api-reference/store-management/channels). To [create a site](/api-reference/store-management/sites/sites/post-site), send a `POST` request to `/stores/{{STORE_HASH}}/v3/sites`.
 
     ```http
-
     POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites
-
     X-Auth-Token: {{ACCESS_TOKEN}}
-
     Content-Type: application/json
-
     Accept: application/json
-
 
     {
       "url": "http://store.example.com/",
       "channel_id": 5
     }
-
     ```
 
-
-    [![Open in Request
-    Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/sites/sites/post-site#requestrunner)
-
+    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/sites/sites/post-site#requestrunner)
 
     **[Response:](/api-reference/store-management/sites/sites/post-site#responses)**
 
-
     ```json
-
     {
       "id": 1,
       "url": "http://store.example.com/",
@@ -93,166 +55,92 @@ info:
       "created_at": "2018-01-04T04:15:50.000Z",
       "updated_at": "2018-01-04T04:15:50.000Z"
     }
-
     ```
 
-
-    To [get a list of
-    sites](/api-reference/store-management/sites/sites/getsites), send a `GET`
-    request to `/stores/{{STORE_HASH}}/v3/sites`.
-
+    To [get a list of sites](/api-reference/store-management/sites/sites/getsites), send a `GET` request to `/stores/{{STORE_HASH}}/v3/sites`.
 
     ```http
-
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites
-
     X-Auth-Token: {{ACCESS_TOKEN}}
-
     Accept: application/json
-
     ```
 
+    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/sites/sites/getsites#requestrunner)
 
-    [![Open in Request
-    Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/sites/sites/getsites#requestrunner)
+    ## [Site routes](/api-reference/store-management/sites/site-routes/index-site-routes)
 
-
-    ## [Site
-    routes](/api-reference/store-management/sites/site-routes/index-site-routes)
-
-
-    Site routes tell BigCommerce how to link to pages on a [headless
-    storefront](/api-docs/storefronts/developers-guide-headless). To [create a
-    route](/api-reference/store-management/sites/site-routes/post-site-route)
-    for a [site](#sites), send a `POST` request to
-    `/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes`.
-
+    Site routes tell BigCommerce how to link to pages on a [headless storefront](/api-docs/storefronts/developers-guide-headless). To [create a route](/api-reference/store-management/sites/site-routes/post-site-route) for a [site](#sites), send a `POST` request to `/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes`.
 
     ```http
-
-    POST
-    https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes
-
+    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes
     X-Auth-Token: {{ACCESS_TOKEN}}
-
     Content-Type: application/json
-
     Accept: application/json
-
 
     {
       "type": "product",
       "matching": "12",
       "route": "/en/product?id=12"
     }
-
     ```
 
-
-    [![Open in Request
-    Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/sites/site-routes/post-site-route#requestrunner)
-
+    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/sites/site-routes/post-site-route#requestrunner)
 
     ## Route types
 
-
     The following route types are supported.
 
-
     | Type | Description |
-
     |-|-|
-
     |`product`|Route for product details pages |
-
     |`brand`|Route to brand pages |
-
     |`category`|Route to category pages |    
-
     |`blog`|Route to blog page|    
-
     |`home`|Route to storefront homepage|
-
     |`cart`|Route to shopper's cart|
-
     |`checkout`|Route to checkout page|
-
     |`search`|Route to store search page|
-
     |`account`|Route to account profile page|
-
     |`login`|Route to account login page|
-
     |`returns`|Route for return policy page|
-
     |`static`|Route to a static page|    
-
     |`create_account`|Route to create new shopper account page|
-
     |`forgot_password`|Route to shopper forgot password page|
-
     |`account_order_status`|Route for order status page|
-
     |`account_new_return`|Route for product returns page|
-
-    |`recover_abandoned_cart`|Route for URL in emails for a shopper to recover
-    their abandoned cart|
-
+    |`recover_abandoned_cart`|Route for URL in emails for a shopper to recover their abandoned cart|
 
     ## Route variables
 
-
     The following route variables are supported
 
-
     |Variable|Description|
-
-    |-|-|-|
-
+    |-|-|
     |`{id}`|The **ID** of the requested item|
-
-    |`{slug}`|The **slug** for the requested item (if available). Note: the
-    `slug` value may contain `/` slash|
-
+    |`{slug}`|The **slug** for the requested item (if available). Note: the `slug` value may contain `/` slash|
     |`{lang}`|The **language** string that the client is using|
-
 
     **Example:**
 
-
     ```http
-
-    POST
-    https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes
-
+    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites/{site_id}/routes
     X-Auth-Token: {{ACCESS_TOKEN}}
-
     Content-Type: application/json
-
     Accept: application/json
-
 
     {
       "type": "product",
       "matching": "*",
       "route": "/{lang}/{slug}?id={id}"
     }
-
     ```
-
 
     ## Additional Information
 
-
     ### Related resources
-
-    * [Channels and Listings
-    Reference](/api-reference/store-management/channels)
-
+    * [Channels and Listings Reference](/api-reference/store-management/channels)
     * [Channels Overview](/api-docs/channels/overview)
-
-    * [Building Headless Storefronts
-    Guide](/api-docs/storefronts/developers-guide-headless)
+    * [Building Headless Storefronts Guide](/api-docs/storefronts/developers-guide-headless)
   contact: {}
 servers:
   - url: 'https://api.bigcommerce.com/'
@@ -261,11 +149,7 @@ security:
   - X-Auth-Token: []
 tags:
   - name: Sites
-    description: >-
-      Enables creation and management of external sites (domains) where shoppers
-      shop. Allows for the correct shopping experience to be delivered and
-      maintained (i.e. redirect URLs, email links) when a shopper goes through
-      the purchasing process.
+    description: 'Enables creation and management of external sites (domains) where shoppers shop. Allows for the correct shopping experience to be delivered and maintained (i.e. redirect URLs, email links) when a shopper goes through the purchasing process.'
   - name: Site Routes
 paths:
   '/stores/{store_hash}/v3/sites':
@@ -297,19 +181,13 @@ paths:
           $ref: '#/components/responses/504_GatewayTimeout'
       tags:
         - Sites
-      description: >-
-        Create a site that links a [headless
-        storefront](/api-docs/storefronts/developers-guide-headless) to a sales
-        [channel](/api-reference/store-management/channels).
+      description: 'Create a site that links a [headless storefront](/api-docs/storefronts/developers-guide-headless) to a sales [channel](/api-reference/store-management/channels).'
     get:
       responses:
         '200':
           $ref: '#/components/responses/site_RespCollection'
       summary: Get Sites
-      description: >-
-        Get sites linked to a [headless
-        storefront](/api-docs/storefronts/developers-guide-headless) sales
-        channels.
+      description: 'Get sites linked to a [headless storefront](/api-docs/storefronts/developers-guide-headless) sales channels.'
       tags:
         - Sites
       parameters:
@@ -320,9 +198,7 @@ paths:
             type: integer
         - in: query
           name: limit
-          description: >-
-            Controls the number of items per page in a limited (paginated) list
-            of items.
+          description: Controls the number of items per page in a limited (paginated) list of items.
           schema:
             type: integer
     parameters:
@@ -430,9 +306,7 @@ paths:
             type: integer
         - in: query
           name: limit
-          description: >-
-            Controls the number of items per page in a limited (paginated) list
-            of items.
+          description: Controls the number of items per page in a limited (paginated) list of items.
           schema:
             type: integer
       responses:
@@ -500,15 +374,11 @@ paths:
           $ref: '#/components/responses/502_GatewayError'
       tags:
         - Site Routes
-      description: >-
-        Create routes that tell BigCommerce how to link to pages on a [headless
-        storefront](/api-docs/storefronts/developers-guide-headless).
-
+      description: |-
+        Create routes that tell BigCommerce how to link to pages on a [headless storefront](/api-docs/storefronts/developers-guide-headless).
 
         ## Usage Notes
-
-        * For a list of supported route types, see [Route
-        types](/api-reference/store-management/sites#route-types).
+        * For a list of supported route types, see [Route types](/api-reference/store-management/sites#route-types).
     put:
       responses:
         '200':
@@ -583,7 +453,7 @@ paths:
               route: '/products?id={id}'
       tags:
         - Site Routes
-  '/stores/{store_hash}/v2/sites/{site_id}/routes/{route_id}':
+  '/stores/{store_hash}/v3/sites/{site_id}/routes/{route_id}':
     get:
       summary: Get a Site Route
       operationId: get-site-route
@@ -690,9 +560,18 @@ paths:
         required: true
         schema:
           type: string
-  '/sites/{site_id}/certificate':
+  '/stores/{store_hash}/v3/sites/{site_id}/certificate':
     parameters:
-      - $ref: '#/components/parameters/SiteIdPathParam'
+      - in: path
+        name: site_id
+        schema:
+          type: integer
+        required: true
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
     get:
       summary: Get a Site's Certificate
       description: Returns SSL certificate information for a specified site.
@@ -741,21 +620,15 @@ components:
               properties:
                 previous:
                   type: string
-                  description: >-
-                    Query string appended to the resource to return to the
-                    previous page.
+                  description: Query string appended to the resource to return to the previous page.
                   example: '?limit=1&page=1'
                 next:
                   type: string
-                  description: >-
-                    Query string appended to the resource to proceed to the next
-                    page.
+                  description: Query string appended to the resource to proceed to the next page.
                   example: '?limit=1&page=3'
                 current:
                   type: string
-                  description: >-
-                    Query string appended to the resource to show the current
-                    page.
+                  description: Query string appended to the resource to show the current page.
                   example: '?limit=1&page=2'
       x-internal: true
     siteRoute_Full:
@@ -766,9 +639,7 @@ components:
           properties:
             id:
               type: integer
-              description: >-
-                Unique ID for this route. Required when updating an existing
-                route.
+              description: Unique ID for this route. Required when updating an existing route.
         - $ref: '#/components/schemas/siteRoute_Base'
       x-internal: true
     put_Site:
@@ -776,10 +647,7 @@ components:
       properties:
         url:
           type: string
-          description: >-
-            The Fully Qualified URL (including host and scheme) where this site
-            is hosted. All URLs generated for this site will be appended to
-            this.
+          description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
           example: 'http://kittens.mybigcommerce.com/'
       title: put_Site
       x-internal: true
@@ -790,16 +658,11 @@ components:
           type: integer
         url:
           type: string
-          description: >-
-            The Fully Qualified URL (including host and scheme) where this site
-            is hosted. All URLs generated for this site will be appended to
-            this.
+          description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
           example: 'http://kittens.mybigcommerce.com/'
         channel_id:
           type: integer
-          description: >-
-            The channel this site is attached to. Each site belongs to a single
-            channel, and each channel can have either zero or one sites.
+          description: 'The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites.'
         created_at:
           type: string
           description: When was this site created? RFC 3339
@@ -810,10 +673,7 @@ components:
           example: '2018-01-04T04:15:50.000Z'
         routes:
           type: array
-          description: >-
-            (optional - if included) collection of routes defined for this site.
-            Limited to 200 routes side loaded (query routes direction via
-            `/routes` for bulk)
+          description: (optional - if included) collection of routes defined for this site. Limited to 200 routes side loaded (query routes direction via `/routes` for bulk)
           items:
             $ref: '#/components/schemas/siteRoute_Full'
       title: _site
@@ -838,9 +698,8 @@ components:
             Total number of items in the collection response.
         per_page:
           type: integer
-          description: >
-            The amount of items returned in the collection per page, controlled
-            by the limit parameter.
+          description: |
+            The amount of items returned in the collection per page, controlled by the limit parameter.
         current_page:
           type: integer
           description: |
@@ -851,9 +710,8 @@ components:
             The total number of pages in the collection.
         links:
           type: object
-          description: >
-            Pagination links for the previous and next parts of the whole
-            collection.
+          description: |
+            Pagination links for the previous and next parts of the whole collection.
           properties:
             previous:
               type: string
@@ -871,9 +729,7 @@ components:
       x-internal: true
     _errors:
       type: object
-      description: >-
-        The keys and values in an errors object will vary depending on the error
-        received.
+      description: The keys and values in an errors object will vary depending on the error received.
       title: _errors
       x-internal: true
     error_Full:
@@ -906,16 +762,11 @@ components:
       properties:
         url:
           type: string
-          description: >-
-            The Fully Qualified URL (including host and scheme) where this site
-            is hosted. All URLs generated for this site will be appended to
-            this.
+          description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
           example: 'http://kittens.mybigcommerce.com/'
         channel_id:
           type: integer
-          description: >-
-            The channel this site is attached to. Each site belongs to a single
-            channel, and each channel can have either zero or one sites.
+          description: 'The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites.'
       title: post_Site
       x-internal: true
     siteRoute_Base:
@@ -924,9 +775,7 @@ components:
       properties:
         type:
           type: string
-          description: >-
-            The type of resource being routed to; [supported
-            types](/api-reference/store-management/sites#route-types).
+          description: 'The type of resource being routed to; [supported types](/api-reference/store-management/sites#route-types).'
           enum:
             - product
             - brand
@@ -943,28 +792,19 @@ components:
             - static
         matching:
           type: string
-          description: >-
-            Depending on the resource type, this can be an ID (matching a
-            specific item), or a "*" wildcard (matching all items of that type).
+          description: |-
+            Depending on the resource type, this can be an ID (matching a specific item), or a "*" wildcard (matching all items of that type).
 
-
-            For example, a route with a type: "product" and matching: "5" will
-            be used for the product with the ID of 5.
+            For example, a route with a type: "product" and matching: "5" will be used for the product with the ID of 5.
           example: '5'
         route:
           type: string
-          description: >-
-            The route template that will be used to generate the URL for the
-            requested resource.
-
+          description: |-
+            The route template that will be used to generate the URL for the requested resource.
 
             Supports several tokens:
-
             - `{id}` The **ID** of the requested item
-
-            - `{slug}` The **slug** for the requested item (if available). Note:
-            the `slug` value may contain `/` slash
-
+            - `{slug}` The **slug** for the requested item (if available). Note: the `slug` value may contain `/` slash
             - `{language}` The **language** string that the client is using
           example: /my-amazing-product
       x-internal: true
@@ -974,9 +814,7 @@ components:
       properties:
         type:
           type: string
-          description: >-
-            The type of resource being routed to; [supported
-            types](/api-reference/store-management/sites#route-types).
+          description: 'The type of resource being routed to; [supported types](/api-reference/store-management/sites#route-types).'
           enum:
             - product
             - brand
@@ -994,28 +832,19 @@ components:
         matching:
           type: string
           example: '5'
-          description: >-
-            Depending on the resource type, this can be an ID (matching a
-            specific item), or a "*" wildcard (matching all items of that type).
+          description: |-
+            Depending on the resource type, this can be an ID (matching a specific item), or a "*" wildcard (matching all items of that type).
 
-
-            For example, a route with a type: "product" and matching: "5" will
-            be used for the product with the ID of 5.
+            For example, a route with a type: "product" and matching: "5" will be used for the product with the ID of 5.
         route:
           type: string
           example: /my-amazing-product
-          description: >-
-            The route template that will be used to generate the URL for the
-            requested resource.
-
+          description: |-
+            The route template that will be used to generate the URL for the requested resource.
 
             Supports several tokens:
-
             - `{id}` The **ID** of the requested item
-
-            - `{slug}` The **slug** for the requested item (if available). Note:
-            the `slug` value may contain `/` slash
-
+            - `{slug}` The **slug** for the requested item (if available). Note: the `slug` value may contain `/` slash
             - `{language}` The **language** string that the client is using
       required:
         - type
@@ -1063,16 +892,11 @@ components:
       properties:
         url:
           type: string
-          description: >-
-            The Fully Qualified URL (including host and scheme) where this site
-            is hosted. All URLs generated for this site will be appended to
-            this.
+          description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
           example: 'http://kittens.mybigcommerce.com/'
         channel_id:
           type: integer
-          description: >-
-            The channel this site is attached to. Each site belongs to a single
-            channel, and each channel can have either zero or one sites.
+          description: 'The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites.'
         certificate:
           $ref: '#/components/schemas/CertificateWrite'
       x-tags:
@@ -1087,9 +911,7 @@ components:
           description: 'The primary certificate, as a string.'
         private_key:
           type: string
-          description: >-
-            The private key, as a string. Is a "write-only" field, will never be
-            returned after write.
+          description: 'The private key, as a string. Is a "write-only" field, will never be returned after write.'
         intermediate_certificates:
           type: string
           description: 'The intermediate certificate(s), as a string.'
@@ -1116,9 +938,7 @@ components:
         - Models
     InstalledCertificateDetail:
       title: CertificateInfo
-      description: >-
-        Details about the installed certificate, including the raw certificate
-        data, without the private key.
+      description: 'Details about the installed certificate, including the raw certificate data, without the private key.'
       type: object
       nullable: true
       properties:
@@ -1141,9 +961,7 @@ components:
         validity_not_after:
           type: string
           example: '2018-01-04T04:15:50.000Z'
-          description: >-
-            When does the validity period of this certificate end? If this date
-            is in the past, the certificate has expired. RFC 3339
+          description: 'When does the validity period of this certificate end? If this date is in the past, the certificate has expired. RFC 3339'
         signing_algorithm:
           type: string
           description: Signing algorithm used to sign the certificate.
@@ -1193,22 +1011,13 @@ components:
         - Models
   responses:
     502_GatewayError:
-      description: >-
-        If something happens during the request that causes it to fail, a 502
-        response will be returned. A new request should be made; however, it
-        could fail.
+      description: 'If something happens during the request that causes it to fail, a 502 response will be returned. A new request should be made; however, it could fail.'
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/error_Full'
     504_GatewayTimeout:
-      description: >-
-        If this occurs, you should retry the request. Typically retrying the
-        request several times will result in a successful request; However, if
-        you are unable to successfully make a request, please check the
-        BigCommerce system status [here](https://status.bigcommerce.com/). A
-        service is likely down and the request will need to be made again when
-        it is back up (in several hours usually)
+      description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
       content:
         application/json:
           schema:
@@ -1230,9 +1039,7 @@ components:
             response:
               value:
                 status: 403
-                title: >-
-                  Unauthorized Access. You do not have permission to make this
-                  request.
+                title: Unauthorized Access. You do not have permission to make this request.
                 type: /api-docs/getting-started/api-status-codes
     400_BadRequest:
       description: |-
@@ -1255,10 +1062,7 @@ components:
           schema:
             $ref: '#/components/schemas/error_Full'
     422_UnprocessableEntity:
-      description: >-
-        This occurs when missing or unacceptable data is passed for one or more
-        fields. Please correct the values for the fields listed in the errors
-        object.
+      description: This occurs when missing or unacceptable data is passed for one or more fields. Please correct the values for the fields listed in the errors object.
       content:
         application/json:
           schema:
@@ -1271,12 +1075,7 @@ components:
                 type: /api-docs/getting-started/api-status-codes
                 errors: {}
     503_ServiceUnavailable:
-      description: >-
-        If this occurs, you should retry the request. If you are unable to
-        successfully make a request, please check the BigCommerce system status
-        [here](https://status.bigcommerce.com/). A service is likely down and
-        the request will need to be made again when it is back up (in several
-        hours usually)
+      description: 'If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
       content:
         application/json:
           schema:
@@ -1414,45 +1213,26 @@ components:
       type: apiKey
       in: header
       name: X-Auth-Token
-      description: >-
+      description: |-
         ```http
-
         GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/sites
-
         Content-Type: application/json
-
         X-Auth-Token: {{ACCESS_TOKEN}}
-
         ```
 
-
         |Header|Description|
-
         |-|-|
+        |`X-Auth-Token`|An [OAuth](/api-docs/getting-started/authentication/rest-api-authentication) `access_token`|
 
-        |`X-Auth-Token`|An
-        [OAuth](/api-docs/getting-started/authentication/rest-api-authentication)
-        `access_token`|
-
-
-        ### [OAuth
-        Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
-
+        ### [OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
 
         |  **UI Name** | **Permission** | **Parameter** |
-
         | --- | --- | --- |
-
         |  Channel Listings | modify | `store_channel_listings` |
-
         |  Channel Listings | read-only | `store_channel_listings_read_only` |
-
         |  Channel Settings | modify | `store_channel_settings` |
-
         |  Channel Settings | read-only | `store_channel_settings_read_only` |
-
         |  Sites & Routes | modify | `store_sites` |
-
         |  Sites & Routes | read-only | `store_sites_read_only` |
   parameters:
     ChannelIdPathParam:
