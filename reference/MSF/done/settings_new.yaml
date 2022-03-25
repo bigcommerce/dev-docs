@@ -3,40 +3,24 @@ info:
   version: 3.0.0
   title: Settings V3
   termsOfService: 'http://www.bigcommerce.com/terms'
-  description: >-
-    Manage settings and configuration for BigCommerce hosted stores and headless
-    storefronts.
-
+  description: |-
+    Manage settings and configuration for BigCommerce hosted stores and headless storefronts.
 
     ## Authentication
 
-
-    Authenticate requests by including an
-    [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication)
-    `access_token` in the request header.
-
+    Authenticate requests by including an [OAuth](https://developer.bigcommerce.com/api-docs/getting-started/authentication) `access_token` in the request header.
 
     ```http
-
     GET /stores/{{STORE_HASH}}/v3/settings/storefront/status
-
     host: api.bigcommerce.com
-
     Accept: application/json
-
     X-Auth-Token: {{ACCESS_TOKEN}}
-
     ```
 
-
     ### OAuth Scopes
-
     |  **UI Name** | **Permission** | **Parameter** |
-
     | --- | --- | --- |
-
     |  Information & Settings | modify | `store_v2_information` |
-
     |  Information & Settings | read-only | `store_v2_information_read_only` |
   contact:
     name: BigCommerce
@@ -94,9 +78,7 @@ paths:
                       prelaunch_password: mezt1f77gd
                     meta: {}
         '422':
-          description: >-
-            The request is missing 1 or more required fields. See the response
-            for more details.
+          description: The request is missing 1 or more required fields. See the response for more details.
           content:
             application/json:
               schema:
@@ -174,9 +156,7 @@ paths:
                       www_redirect: no-www
                     meta: {}
         '422':
-          description: >-
-            Provided settings could not be applied for some reason - detailed
-            errors in the response.
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
             application/json:
               schema:
@@ -266,9 +246,7 @@ paths:
                       robots_txt_ssl: string
                     meta: {}
         '422':
-          description: >-
-            Provided settings could not be applied for some reason - detailed
-            errors in the response.
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
             application/json:
               schema:
@@ -345,9 +323,7 @@ paths:
                       search_suggest: true
                     meta: {}
         '422':
-          description: >-
-            Provided settings could not be applied for some reason - detailed
-            errors in the response.
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
             application/json:
               schema:
@@ -470,11 +446,7 @@ paths:
                         type: other
                     meta: {}
       operationId: getEnabled
-      description: >-
-        Returns a list of enabled default [Product
-        Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings)
-        filters. These filters will be used if a store does not have contextual
-        overrides.
+      description: 'Returns a list of enabled default [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings) filters. These filters will be used if a store does not have contextual overrides.'
       tags:
         - Search Filters
     put:
@@ -530,10 +502,7 @@ paths:
                         show_is_featured_filter: true
                         type: other
                     meta: {}
-      description: >-
-        Updates enabled default [Product
-        Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings)
-        filters.
+      description: 'Updates enabled default [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings) filters.'
       requestBody:
         content:
           application/json:
@@ -634,25 +603,18 @@ paths:
                         type: other
                     meta: {}
       operationId: getAvailable
-      description: >-
-        Returns a list of filters available to power [Product
-        Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings).
+      description: 'Returns a list of filters available to power [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings).'
       parameters:
         - schema:
             type: integer
           in: query
           name: channel_id
-          description: >-
-            Narrows the list of available filters based on channel ID. Only
-            products currently assigned to the given Channel will be considered.
+          description: Narrows the list of available filters based on channel ID. Only products currently assigned to the given Channel will be considered.
         - schema:
             type: integer
           in: query
           name: category_id
-          description: >-
-            Narrows the list of available filters based on category ID. You can
-            display settings to show products from the provided category,
-            subcategories only, or both the category and its child categories.
+          description: 'Narrows the list of available filters based on category ID. You can display settings to show products from the provided category, subcategories only, or both the category and its child categories.'
       tags:
         - Search Filters
     parameters:
@@ -690,21 +652,14 @@ paths:
           in: query
           name: category_id
           description: Only return contextual overrides related to a particular Category.
-      description: >-
-        Returns a list of contextual filters enabled for a particular channel or
-        category.
-
+      description: |-
+        Returns a list of contextual filters enabled for a particular channel or category.
 
         **Usage Notes**
 
+        Contextual filters allow you to configure the enabled filters per channel or category, so that shoppers can filter by the most relevant criteria.
 
-        Contextual filters allow you to configure the enabled filters per
-        channel or category, so that shoppers can filter by the most relevant
-        criteria.
-
-
-        The order of the returned filters will match the sort order of the
-        filters on the storefront.
+        The order of the returned filters will match the sort order of the filters on the storefront.
       tags:
         - Search Filters
     put:
@@ -724,20 +679,14 @@ paths:
                       $ref: '#/components/schemas/ConfiguredFiltersOverride'
                   meta:
                     type: object
-      description: >-
+      description: |-
         Upserts contextual filters for a particular channel or category.
-
 
         **Usage Notes**
 
+        Contextual filters allow you to configure the enabled filters per channel or category, so that shoppers can filter by the most relevant criteria.
 
-        Contextual filters allow you to configure the enabled filters per
-        channel or category, so that shoppers can filter by the most relevant
-        criteria.
-
-
-        You can change the order of the filters on the live site by changing the
-        order of the filters you send.
+        You can change the order of the filters on the live site by changing the order of the filters you send.
       requestBody:
         content:
           application/json:
@@ -777,16 +726,12 @@ paths:
   '/stores/{store_hash}/v3/settings/email-statuses':
     get:
       summary: Get Email Statuses
-      description: >-
-        Get global transactional email settings or channel specific overrides by
-        `channel_id`.
+      description: Get global transactional email settings or channel specific overrides by `channel_id`.
       tags:
         - Email Statuses
       responses:
         '200':
-          description: >-
-            OK, null indicates that a particular field has not been overridden
-            on a channel level when channel level settings are requested
+          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
           content:
             application/json:
               schema:
@@ -817,9 +762,7 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
     put:
       summary: Update Email Statuses
-      description: >-
-        Update global transactional email settings or create channel specific
-        overrides by `channel_id`.
+      description: Update global transactional email settings or create channel specific overrides by `channel_id`.
       operationId: put-settings-transactional-emails-enabled
       tags:
         - Email Statuses
@@ -874,14 +817,10 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
     delete:
       summary: Delete Email Statuses
-      description: >-
-        Delete overrides for email settings. Provide email types that should be
-        deleted. 
+      description: |-
+        Delete overrides for email settings. Provide email types that should be deleted. 
 
-
-        If `channel_id` is supplied as a query parameter, email template
-        overrides are deleted per given channel. If no `channel_id` is supplied,
-        global level template are reset to default.
+        If `channel_id` is supplied as a query parameter, email template overrides are deleted per given channel. If no `channel_id` is supplied, global level template are reset to default.
       operationId: delete-settings-transactional-emails-enabled
       tags:
         - Email Statuses
@@ -961,9 +900,7 @@ paths:
                       shopper_language_selection_method: default_shopper_language
                     meta: {}
         '422':
-          description: >-
-            Provided settings could not be applied for some reason - detailed
-            errors in the response.
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
             application/json:
               schema:
@@ -993,9 +930,7 @@ paths:
                       shopper_language_selection_method: default_shopper_language
                     meta: {}
         '422':
-          description: >-
-            Provided settings could not be applied for some reason - detailed
-            errors in the response.
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
             application/json:
               schema:
@@ -1020,7 +955,7 @@ paths:
         name: store_hash
         in: path
         required: true
-  /settings/analytics:
+  '/stores{store_hash}/v3/settings/analytics':
     get:
       summary: Get All Web Analytics Providers
       description: Returns a list of web analytics providers.
@@ -1040,7 +975,13 @@ paths:
                     type: object
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
-  '/settings/analytics/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/settings/analytics/{id}':
     get:
       summary: Get a Web Analytics Provider
       description: Returns a single web analytics provider data for a default channel.
@@ -1066,9 +1007,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/betaErrorResponse400'
         '404':
-          description: >-
-            The requested resource was not found. Please specify valid Web
-            Analytics Provider ID.
+          description: The requested resource was not found. Please specify valid Web Analytics Provider ID.
           content:
             application/json:
               schema:
@@ -1100,27 +1039,19 @@ paths:
               schema:
                 $ref: '#/components/schemas/betaErrorResponse400'
         '404':
-          description: >-
-            The requested resource was not found. Please specify valid Web
-            Analytics Provider ID.
+          description: The requested resource was not found. Please specify valid Web Analytics Provider ID.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/betaErrorResponse404'
         '409':
-          description: >-
-            Web Analytics Provider was in conflict with another Web Analytics
-            Provider. This can be caused by duplicated unique values (such as
-            ID).
+          description: Web Analytics Provider was in conflict with another Web Analytics Provider. This can be caused by duplicated unique values (such as ID).
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/betaErrorResponse409'
         '422':
-          description: >-
-            Web Analytics Provider data was not valid. This is the result of
-            missing required fields, or of invalid data. See the response for
-            more details.
+          description: 'Web Analytics Provider data was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.'
           content:
             application/json:
               schema:
@@ -1133,7 +1064,12 @@ paths:
         name: id
         in: path
         required: true
-  /settings/store/profile:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/settings/store/profile':
     get:
       summary: Get Store Profile Settings
       description: |-
@@ -1145,9 +1081,7 @@ paths:
          field has not been overridden on a channel level when channel level settings are requested and values are inherited from global level.
       responses:
         '200':
-          description: >-
-            OK, null indicates that a particular field has not been overridden
-            on a channel level when channel level settings are requested
+          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
           content:
             application/json:
               schema:
@@ -1158,9 +1092,7 @@ paths:
                   meta:
                     type: object
         '422':
-          description: >-
-            Provided settings could not be applied for some reason - detailed
-            errors in the response.
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
             application/json:
               schema:
@@ -1190,9 +1122,7 @@ paths:
                   meta:
                     type: object
         '422':
-          description: >-
-            Provided settings could not be applied for some reason - detailed
-            errors in the response.
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
             application/json:
               schema:
@@ -1206,199 +1136,13 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
         - Store Profile
-  /settings/storefront/status:
-    get:
-      summary: Get Storefront Status
-      description: |-
-        Returns storefront status-related settings. 
-
-         - Channel ID can be used as a query parameter for getting channel-specific setting. If omitted, you will interact with the global setting only. 
-
-         - `null` indicates that a particular field has not been overridden on a channel level when channel level settings are requested and values are inherited from global level.
-      tags:
-        - Storefront Status
-      responses:
-        '200':
-          description: >-
-            OK, null indicates that a particular field has not been overridden
-            on a channel level when channel level settings are requested
-          content:
-            application/json:
-              schema:
-                properties:
-                  data:
-                    $ref: '#/components/schemas/betaStorefrontStatus'
-                  meta:
-                    type: object
-                type: object
-        '422':
-          description: >-
-            Provided settings could not be applied for some reason - detailed
-            errors in the response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/betaErrorResponse'
-      parameters:
-        - $ref: '#/components/parameters/ChannelIdParam'
-    put:
-      summary: Update Storefront Status
-      description: |-
-        Updates storefront status-related settings.
-
-         - Channel ID can be used as a query parameter for updating channel-specific setting. If omitted, you will interact with the global setting only. 
-
-         - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/betaStorefrontStatus'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/betaStorefrontStatus'
-                  meta:
-                    type: object
-      parameters:
-        - $ref: '#/components/parameters/ChannelIdParam'
-      tags:
-        - Storefront Status
-  /settings/storefront/seo:
-    get:
-      summary: Get Storefront SEO Settings
-      description: |-
-        Returns SEO settings.
-
-         - Channel ID can be used as a query parameter for getting channel-specific setting. If omitted, you will interact with the global setting only. 
-
-         - `null` indicates that a particular field has not been overridden on a channel level when channel level settings are requested and values are inherited from global level.
-      tags:
-        - Storefront SEO
-      responses:
-        '200':
-          description: >-
-            OK, null indicates that a particular field has not been overridden
-            on a channel level when channel level settings are requested
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/betaSEOSettings'
-                  meta:
-                    type: object
-        '422':
-          description: >-
-            Provided settings could not be applied for some reason - detailed
-            errors in the response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/betaErrorResponse'
-      parameters:
-        - $ref: '#/components/parameters/ChannelIdParam'
-    put:
-      summary: Update Storefront SEO Settings
-      description: |-
-        Updates SEO settings.
-
-         - Channel ID can be used as a query parameter for updating channel-specific setting. If omitted, you will interact with the global setting only. 
-
-         - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/betaSEOSettings'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/betaSEOSettings'
-                  meta:
-                    type: object
-      parameters:
-        - $ref: '#/components/parameters/ChannelIdParam'
-      tags:
-        - Storefront SEO
-  /settings/storefront/robotstxt:
-    get:
-      summary: Get Robots.txt Settings
-      description: |-
-        Returns Robots.txt settings.
-
-         - Channel ID can be used as a query parameter for getting channel-specific setting. If omitted, you will interact with the global setting only. 
-
-         - `null` indicates that a particular field has not been overridden on a channel level when channel level settings are requested and values are inherited from global level.
-      tags:
-        - Storefront Robotstxt
-      responses:
-        '200':
-          description: >-
-            OK, null indicates that a particular field has not been overridden
-            on a channel level when channel level settings are requested
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/betaRobotsTxtSettings'
-                  meta:
-                    type: object
-        '422':
-          description: >-
-            Provided settings could not be applied for some reason - detailed
-            errors in the response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/betaErrorResponse'
-      parameters:
-        - $ref: '#/components/parameters/ChannelIdParam'
-    put:
-      summary: Update Robots.txt Settings
-      description: |-
-        Updates Robots.txt settings.
-
-         - Channel ID can be used as a query parameter for updating channel-specific setting. If omitted, you will interact with the global setting only. 
-
-         - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/betaRobotsTxtSettings'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/betaRobotsTxtSettings'
-                  meta:
-                    type: object
-      parameters:
-        - $ref: '#/components/parameters/ChannelIdParam'
-      tags:
-        - Storefront Robotstxt
-  /settings/storefront/category:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/settings/storefront/category':
     get:
       summary: Get Storefront Category Settings
       description: |-
@@ -1411,9 +1155,7 @@ paths:
         - Storefront Category
       responses:
         '200':
-          description: >-
-            OK, null indicates that a particular field has not been overridden
-            on a channel level when channel level settings are requested
+          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
           content:
             application/json:
               schema:
@@ -1424,9 +1166,7 @@ paths:
                   meta:
                     type: object
         '422':
-          description: >-
-            Provided settings could not be applied for some reason - detailed
-            errors in the response.
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
             application/json:
               schema:
@@ -1462,72 +1202,13 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
         - Storefront Category
-  /settings/storefront/search:
-    get:
-      summary: Get Storefront Search Settings
-      description: |-
-        Returns search settings.
-
-         - Channel ID can be used as a query parameter for getting channel-specific setting. If omitted, you will interact with the global setting only. 
-
-         - `null` indicates that a particular field has not been overridden on a channel level when channel level settings are requested and values are inherited from global level.
-      tags:
-        - Storefront Search
-      responses:
-        '200':
-          description: >-
-            OK, null indicates that a particular field has not been overridden
-            on a channel level when channel level settings are requested
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/betaStorefrontSearchSettings'
-                  meta:
-                    type: object
-        '422':
-          description: >-
-            Provided settings could not be applied for some reason - detailed
-            errors in the response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/betaErrorResponse'
-      parameters:
-        - $ref: '#/components/parameters/ChannelIdParam'
-      operationId: beta
-    put:
-      summary: Update Storefront Search Settings
-      description: |-
-        Updates search settings.
-
-         - Channel ID can be used as a query parameter for updating channel-specific setting. If omitted, you will interact with the global setting only. 
-
-         - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/betaStorefrontSearchSettings'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/betaStorefrontSearchSettings'
-                  meta:
-                    type: object
-      parameters:
-        - $ref: '#/components/parameters/ChannelIdParam'
-      tags:
-        - Storefront Search
-  /settings/storefront/security:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/settings/storefront/security':
     get:
       summary: Get Storefront Security Settings
       description: |-
@@ -1538,9 +1219,7 @@ paths:
          - `null` indicates that a particular field has not been overridden on a channel level when channel level settings are requested and values are inherited from global level.
       responses:
         '200':
-          description: >-
-            OK, null indicates that a particular field has not been overridden
-            on a channel level when channel level settings are requested
+          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
           content:
             application/json:
               schema:
@@ -1583,224 +1262,13 @@ paths:
         - Storefront Security
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
-  /settings/search/filters/available:
-    get:
-      summary: Get Available Product Filtering Filters
-      tags:
-        - Search Filters
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/betaAvailableFilter'
-                  meta:
-                    type: object
-      operationId: get-settings-search-available-filters
-      description: Returns a list of filters available to power Product Filtering.
-      parameters:
-        - schema:
-            type: integer
-          in: query
-          name: channel_id
-          description: >-
-            Narrows the list of available filters based on channel ID. Only
-            products currently assigned to the given Channel will be considered.
-        - schema:
-            type: integer
-          in: query
-          name: category_id
-          description: >-
-            Narrows the list of available filters based on category ID. Only
-            products within the provided Category will be considered.
-  /settings/search/filters:
-    get:
-      summary: Get Default Product Filtering Filters
-      tags:
-        - Search Filters
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/betaConfiguredFilters'
-                  meta:
-                    type: object
-      operationId: get-settings-search-filters
-      description: >-
-        GET list of enabled default filters, which will be used if there are no
-        contextual overrides.
-    put:
-      summary: Update Enabled Product Filtering Filters
-      operationId: put-settings-search-filters
-      tags:
-        - Search Filters
-      responses:
-        '200':
-          description: OK
-      description: Update the default Product Filtering filters.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/betaConfiguredFilters'
-  /settings/email-statuses:
-    get:
-      summary: Get Transactional Email Settings
-      description: Returns transactional email settings.
-      tags:
-        - Email Statuses
-      responses:
-        '200':
-          description: >-
-            OK, null indicates that a particular field has not been overridden
-            on a channel level when channel level settings are requested
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/betaEnabledTransactionalEmails'
-                  meta:
-                    type: object
-      operationId: betaget-settings-emails-enabled
-      parameters:
-        - $ref: '#/components/parameters/ChannelIdParam'
-    put:
-      summary: Update Transactional Email Settings
-      description: Updates transactional email settings.
-      operationId: betaput-settings-transactional-emails-enabled
-      tags:
-        - Email Statuses
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/betaEnabledTransactionalEmails'
-                  meta:
-                    type: object
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/betaEnabledTransactionalEmails'
-      parameters:
-        - $ref: '#/components/parameters/ChannelIdParam'
-    delete:
-      summary: Un-override a Transactional Email Status
-      description: Deletes transactional email settings.
-      operationId: betadelete-settings-transactional-emails-enabled
-      tags:
-        - Email Statuses
-      responses:
-        '204':
-          description: No Content
-      parameters:
-        - schema:
-            type: integer
-          in: query
-          name: channel_id
-          description: Delete contextual overrides related to this channel ID
-  /settings/search/filters/contexts:
-    get:
-      summary: GET Contextual Overrides for Enabled Product Filtering Filters
-      tags:
-        - Search Filters
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/betaConfiguredFiltersOverride'
-                  meta:
-                    $ref: '#/components/schemas/betaMetaPaginationObject'
-      operationId: get-settings-search-filters-contexts
-      parameters:
-        - schema:
-            type: integer
-          in: query
-          name: channel_id
-          description: Only return contextual overrides related to a particular Channel.
-        - schema:
-            type: integer
-          in: query
-          name: category_id
-          description: Only return contextual overrides related to a particular Category.
-      description: >-
-        Get a collection of settings sets for which Product Filtering filters
-        should be enabled in a particular context.
-    put:
-      summary: Upsert Contextual Overrides for Enabled Product Filtering Filters
-      operationId: put-settings-search-filters-contexts
-      tags:
-        - Search Filters
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/betaConfiguredFiltersOverride'
-                  meta:
-                    type: object
-      description: >-
-        Upsert new settings for which Product Filtering filters should be active
-        in certain contexts (by Channel ID and/or Category ID)
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/betaConfiguredFiltersOverride'
-    delete:
-      summary: Delete Product Filtering Contextual Overrides
-      description: ''
-      operationId: delete-settings-search-filters-contexts
-      tags:
-        - Search Filters
-      responses:
-        '204':
-          description: No Content
-      parameters:
-        - schema:
-            type: integer
-          in: query
-          name: channel_id
-          description: Delete contextual overrides related to this channel ID
-        - schema:
-            type: integer
-          in: query
-          name: category_id
-          description: Delete contextual overrides related to this category ID
-  /settings/logo:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/settings/logo':
     get:
       summary: Get Store Logo Settings
       description: |-
@@ -1813,9 +1281,7 @@ paths:
         - Logo
       responses:
         '200':
-          description: >-
-            OK, null indicates that a particular field has not been overridden
-            on a channel level when channel level settings are requested
+          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
           content:
             application/json:
               schema:
@@ -1843,9 +1309,8 @@ paths:
                     $ref: '#/components/schemas/betaLogoSettings'
                   meta:
                     type: object
-      description: >-
-        Updates the logo type and logo text for a textual logo. To upload new
-        images, use the dedicated image POST endpoints.
+      description: |-
+        Updates the logo type and logo text for a textual logo. To upload new images, use the dedicated image POST endpoints.
 
          - Channel ID can be used as a query parameter for updating channel-specific setting. If omitted, you will interact with the global setting only. 
 
@@ -1859,7 +1324,13 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
         - Logo
-  /settings/logo/image:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/settings/logo/image':
     post:
       summary: Create Logo Image
       operationId: post-settings-logo-image
@@ -1875,16 +1346,21 @@ paths:
                 LogoFile:
                   type: string
                   format: binary
-      description: >-
-        Uploads an image file to use as the storefront logo. Supported MIME
-        types include GIF, JPEG, and PNG. 
+      description: |-
+        Uploads an image file to use as the storefront logo. Supported MIME types include GIF, JPEG, and PNG. 
 
          - Channel ID can be used as a query parameter for updating channel-specific setting. If omitted, you will interact with the global setting only.
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
         - Logo Image
-  /settings/favicon/image:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/settings/favicon/image':
     post:
       summary: Create Favicon Image
       operationId: post-favicon-logo-image
@@ -1900,16 +1376,21 @@ paths:
                 FaviconFile:
                   type: string
                   format: binary
-      description: >-
-        Uploads an image file to use as the storefront favicon. Supported MIME
-        types include GIF, JPEG, and PNG. 
+      description: |-
+        Uploads an image file to use as the storefront favicon. Supported MIME types include GIF, JPEG, and PNG. 
 
           - Channel ID can be used as a query parameter for updating channel-specific setting. If omitted, you will interact with the global setting only.
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
         - Favicon Image
-  /settings/catalog:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/settings/catalog':
     get:
       summary: Get Catalog Settings
       description: |-
@@ -1922,9 +1403,7 @@ paths:
         - Catalog
       responses:
         '200':
-          description: >-
-            OK, null indicates that a particular field has not been overridden
-            on a channel level when channel level settings are requested
+          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
           content:
             application/json:
               schema:
@@ -1935,9 +1414,7 @@ paths:
                   meta:
                     type: object
         '422':
-          description: >-
-            Provided settings could not be applied for some reason - detailed
-            errors in the response.
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
             application/json:
               schema:
@@ -1957,14 +1434,10 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CatalogSettings'
-        description: >-
-          null set for a particular field removes override on a channel level
-          and means inheritance from a global level
+        description: null set for a particular field removes override on a channel level and means inheritance from a global level
       responses:
         '200':
-          description: >-
-            OK, null indicates that a particular field has not been overridden
-            on a channel level when channel level settings are requested
+          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
           content:
             application/json:
               schema:
@@ -1978,17 +1451,20 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
         - Catalog
-    parameters: []
-  /settings/storefront/product:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/settings/storefront/product':
     get:
       summary: Get Storefront Product Settings
       tags:
         - Storefront Product
       responses:
         '200':
-          description: >-
-            OK, null indicates that a particular field has not been overridden
-            on a channel level when channel level settings are requested
+          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
           content:
             application/json:
               schema:
@@ -2033,22 +1509,23 @@ paths:
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       tags:
         - Storefront Product
-  /settings/inventory/notifications:
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/settings/inventory/notifications':
     get:
       summary: Get Inventory Notifications Settings
-      description: >-
+      description: |-
         Returns inventory notification settings. 
-
-        * `channel_id` can be used as a query parameter to get inventory
-        notification settings per channel. If omitted, you will interact with
-        the global setting only.
+        * `channel_id` can be used as a query parameter to get inventory notification settings per channel. If omitted, you will interact with the global setting only.
       tags:
         - Inventory
       responses:
         '200':
-          description: >-
-            OK, null indicates that a particular field has not been overridden
-            on a channel level when channel level settings are requested
+          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
           content:
             application/json:
               schema:
@@ -2059,9 +1536,7 @@ paths:
                   meta:
                     type: object
         '422':
-          description: >-
-            Provided settings could not be applied for some reason - detailed
-            errors in the response.
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
             application/json:
               schema:
@@ -2070,32 +1545,20 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
     put:
       summary: Update Inventory Notifications Settings
-      description: >-
+      description: |-
         Updates inventory notification settings. 
-
-        * `channel_id` can be used as a query parameter to get inventory
-        notification settings per channel. If omitted, you will interact with
-        the global setting only. 
-
-        * Supplying `null` settings values per channel will delete overrides per
-        given channel and values will be inherited from global level. 
-
-        * Partial updates are not supported within the given endpoint. In order
-        to delete overrides per channel, `null` should be supplied for all the
-        settings within the given endpoint.
+        * `channel_id` can be used as a query parameter to get inventory notification settings per channel. If omitted, you will interact with the global setting only. 
+        * Supplying `null` settings values per channel will delete overrides per given channel and values will be inherited from global level. 
+        * Partial updates are not supported within the given endpoint. In order to delete overrides per channel, `null` should be supplied for all the settings within the given endpoint.
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/InventoryNotificationsSettings'
-        description: >-
-          null set for a particular field removes override on a channel level
-          and means inheritance from a global level
+        description: null set for a particular field removes override on a channel level and means inheritance from a global level
       responses:
         '200':
-          description: >-
-            OK, null indicates that a particular field has not been overridden
-            on a channel level when channel level settings are requested
+          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
           content:
             application/json:
               schema:
@@ -2109,7 +1572,12 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
         - Inventory
-    parameters: []
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
 components:
   schemas:
     AnalyticsProvider:
@@ -2164,17 +1632,13 @@ components:
           $ref: '#/components/schemas/ContentSortEnumValues'
         product_filtering_enabled:
           type: boolean
-          description: >-
-            Controls whether Product Filtering feature is active on the
-            storefront. Only supports manipulation on a global level.
+          description: Controls whether Product Filtering feature is active on the storefront. Only supports manipulation on a global level.
         search_suggest:
           type: boolean
       title: ''
       x-internal: true
     StoreProfile:
-      description: >-
-        The basic profile settings for a store, used to give the shopper
-        information about the business from which they are purchasing.
+      description: 'The basic profile settings for a store, used to give the shopper information about the business from which they are purchasing.'
       type: object
       properties:
         store_phone:
@@ -2185,9 +1649,7 @@ components:
           type: string
       x-internal: true
     Locale:
-      description: >-
-        The basic locale settings for a store, used to give shopper information
-        about languages, countries, etc.
+      description: 'The basic locale settings for a store, used to give shopper information about languages, countries, etc.'
       type: object
       properties:
         default_shopper_language:
@@ -2204,20 +1666,12 @@ components:
             - default_shopper_language
           example: default_shopper_language
           default: default_shopper_language
-          description: >-
-            Determines whether to display the storefront content in the
-            shopper's browser language or the shopper's selected default
-            language.
-
+          description: |-
+            Determines whether to display the storefront content in the shopper's browser language or the shopper's selected default language.
 
             Available values:
-
-            * `browser` - language updates automatically based on the shopper
-            browser language. Multiple languages are supported.
-
-            * `default_shopper_language` - content is displayed in a single
-            language based on the set `default_shopper_language`. Only the
-            selected language is supported.
+            * `browser` - language updates automatically based on the shopper browser language. Multiple languages are supported.
+            * `default_shopper_language` - content is displayed in a single language based on the set `default_shopper_language`. Only the selected language is supported.
       required:
         - default_shopper_language
       x-internal: true
@@ -2231,9 +1685,7 @@ components:
           type: string
         prelaunch_password:
           type: string
-          description: >-
-            A read-only value representing the auto-generated storefront
-            password.
+          description: A read-only value representing the auto-generated storefront password.
       x-internal: true
     ProductSortEnumValues:
       type: string
@@ -2388,9 +1840,7 @@ components:
             - price
         collapsed_by_default:
           type: boolean
-      description: >-
-        A filter based on the product’s price, shown as a price range on the
-        storefront.
+      description: 'A filter based on the product’s price, shown as a price range on the storefront.'
       x-internal: true
     EnabledCategoryFilter:
       title: EnabledCategoryFilter
@@ -2475,11 +1925,7 @@ components:
           $ref: '#/components/schemas/SearchFilterOverrideScopeIdentifier'
         data:
           $ref: '#/components/schemas/EnabledFilters'
-      description: >-
-        A new set of enabled Product Filtering filters which should display in a
-        particular context, such as on a particular Channel, or while viewing a
-        particular Category. Array order indicates the display order on the
-        storefront.
+      description: 'A new set of enabled Product Filtering filters which should display in a particular context, such as on a particular Channel, or while viewing a particular Category. Array order indicates the display order on the storefront.'
       x-internal: true
     SearchFilterOverrideScopeIdentifier:
       title: ScopeIdentifier
@@ -2697,11 +2143,7 @@ components:
           $ref: '#/components/schemas/ConfiguredFilters'
         context:
           $ref: '#/components/schemas/SearchFilterOverrideContextIdentifier'
-      description: >-
-        A new set of enabled Product Filtering filters which should display in a
-        particular context, such as on a particular Channel, or while viewing a
-        particular Category. Array order indicates the display order on the
-        storefront.
+      description: 'A new set of enabled Product Filtering filters which should display in a particular context, such as on a particular Channel, or while viewing a particular Category. Array order indicates the display order on the storefront.'
       x-internal: true
     betaAnalyticsProvider:
       type: object
@@ -2792,15 +2234,11 @@ components:
           type: boolean
         product_filtering_enabled:
           type: boolean
-          description: >-
-            Controls whether or not Product Filtering feature is active on the
-            storefront. Only supports manipulation on a global level.
+          description: Controls whether or not Product Filtering feature is active on the storefront. Only supports manipulation on a global level.
       x-tags:
         - Models
     betaStoreProfile:
-      description: >-
-        The basic profile settings for a store, used to give the shopper
-        information about the business from which they are purchasing.
+      description: 'The basic profile settings for a store, used to give the shopper information about the business from which they are purchasing.'
       type: object
       properties:
         store_phone:
@@ -3050,9 +2488,7 @@ components:
           type: boolean
         is_enabled:
           type: boolean
-      description: >-
-        A filter based on the product's price, shown as a price range on the
-        storefront.
+      description: 'A filter based on the product''s price, shown as a price range on the storefront.'
       x-tags:
         - Models
     betaEnabledCategoryFilter:
@@ -3148,11 +2584,7 @@ components:
           $ref: '#/components/schemas/betaConfiguredFilters'
         context:
           $ref: '#/components/schemas/betaSearchFilterOverrideContextIdentifier'
-      description: >-
-        A new set of enabled Product Filtering filters which should display in a
-        particular context, such as on a particular Channel, or while viewing a
-        particular Category. Array order indicates the display order on the
-        storefront.
+      description: 'A new set of enabled Product Filtering filters which should display in a particular context, such as on a particular Channel, or while viewing a particular Category. Array order indicates the display order on the storefront.'
       x-tags:
         - Models
     betaEnabledTransactionalEmails:
@@ -3412,17 +2844,13 @@ components:
       name: channel_id
       schema:
         type: integer
-      description: >-
-        Channel ID to use for channel-specific setting. If omitted, you will
-        interact with the global setting only.
+      description: 'Channel ID to use for channel-specific setting. If omitted, you will interact with the global setting only.'
     RequiredChannelIdParamForDelete:
       in: query
       name: channel_id
       schema:
         type: integer
-      description: >-
-        Required Channel ID. This delete operation will delete overridden
-        settings for this channel, thus restoring them to the global defaults.
+      description: 'Required Channel ID. This delete operation will delete overridden settings for this channel, thus restoring them to the global defaults.'
       required: true
     KeysToDelete:
       in: query
@@ -3432,43 +2860,27 @@ components:
         items:
           type: string
       required: true
-      description: >-
-        Array of strings (CSV) representing which configuration keys should be
-        cleared (un-overridden) for the Channel.
+      description: Array of strings (CSV) representing which configuration keys should be cleared (un-overridden) for the Channel.
   securitySchemes:
     X-Auth-Token:
       name: X-Auth-Token
       type: apiKey
       in: header
-      description: >-
-        Authenticate requests by including an
-        [OAuth](/api-docs/getting-started/authentication/rest-api-authentication)
-        `access_token` in the request header.
-
+      description: |-
+        Authenticate requests by including an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication) `access_token` in the request header.
 
         ```http
-
         GET /stores/{{STORE_HASH}}/v3/settings/storefront/status
-
         host: api.bigcommerce.com
-
         Accept: application/json
-
         X-Auth-Token: {{ACCESS_TOKEN}}
-
         ```
 
-
         ### OAuth Scopes
-
         |  **UI Name** | **Permission** | **Parameter** |
-
         | --- | --- | --- |
-
         |  Information & Settings | modify | `store_v2_information` |
-
-        |  Information & Settings | read-only | `store_v2_information_read_only`
-        |
+        |  Information & Settings | read-only | `store_v2_information_read_only` |
 x-stoplight:
   docs:
     includeDownloadLink: true
