@@ -937,7 +937,7 @@ paths:
                     inventory_warning_level: 0
                     bin_picking_number: string
                     mpn: string
-                    gtin: 012345678905
+                    gtin: '012345678905'
                     id: 0
                     product_id: 0
                     sku: string
@@ -24389,7 +24389,7 @@ components:
           description: The Manufacturer Part Number (MPN) for the variant.
         gtin:
           type: string
-          example: 012345678905
+          example: '012345678905'
       description: Common Variant properties.
       x-internal: true
     productVariant_Full:
@@ -24571,7 +24571,7 @@ components:
             gtin:
               type: string
               description: Global Trade Item Number
-              example: 012345678905
+              example: '012345678905'
             mpn:
               type: string
               description: Manufacturer Part Number
@@ -32987,7 +32987,7 @@ components:
                 inventory_warning_level: 0
                 bin_picking_number: string
                 mpn: string
-                gtin: 012345678905
+                gtin: '012345678905'
                 id: 0
                 product_id: 0
                 sku: string
