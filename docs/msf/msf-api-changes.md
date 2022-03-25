@@ -4,11 +4,11 @@
 
 The Cart & Checkout APIs experience no schema changes as part of this release. However, it is important to set the correct `channel_id` for the Channel you are servicing when creating a Cart.
 
-If you use [cart redirect URLs](https://developer.bigcommerce.com/api-reference/cart-checkout/server-server-cart-api/cart-redirect-urls/createcartredirecturl) or [Embedded Checkout](https://developer.bigcommerce.com/api-docs/cart-and-checkout/embedded-checkout/embedded-checkout-overview), the URLs for these should automatically reference the appropriate Site when requested.
+If you use [cart redirect URLs](/api-reference/cart-checkout/server-server-cart-api/cart-redirect-urls/createcartredirecturl) or [Embedded Checkout](/api-docs/cart-and-checkout/embedded-checkout/embedded-checkout-overview), the URLs for these should automatically reference the appropriate Site when requested.
 
 ## Categories
 
-[Categories API reference documentation](https://developer.bigcommerce.com/api-reference/store-management/catalog/category/getcategories)
+[Categories API reference documentation](/api-reference/store-management/catalog/category/getcategories)
 
 Previously, a store had a collection of Categories, which were organized in a tree structure. This collection of categories has been migrated into the store's first Category Tree, and you have an opportunity to create additional Trees, which can be assigned to Channels.
 
@@ -20,11 +20,11 @@ If you need to understand the category structure that is being used by a particu
 
 A temporary restriction is in place in which a Tree may only be assigned to a maximum of 1 Channel. This will be relaxed in a future release, to allow sharing of a common Tree among several Channels.
 
-If your application interacts with shoppers, you may be able to simply use the [GraphQL Storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview) instead to get the correct Category Tree for a given shopper, in real-time.
+If your application interacts with shoppers, you may be able to simply use the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) instead to get the correct Category Tree for a given shopper, in real-time.
 
 ## Channels
 
-[Channels API reference documentation](https://developer.bigcommerce.com/api-reference/store-management/channels)
+[Channels API reference documentation](/api-reference/store-management/channels)
 
 A **Channel** is a place where the merchant sells products. This could be a storefront website, a marketplace such as Amazon or eBay, a POS system, a marketing feed, or a "Custom" channel which may not fit into one of these types. Merchants create new Channels when they wish to sell in a new context. Channels are useful to organize a merchant's complex business, and can be used to attach many other objects which are related to a particular shopper's experience on the Channel. 
 
@@ -36,7 +36,7 @@ A channel is defined by:
 - A `type`, which may be `storefront`, `marketing`, `pos`, `marketplace` or `custom`
 - A `platform`, which indicates on which platform the channel is primarily experienced by a shopper.
 
-Consider the [Channels API documentation](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels/createchannel) for more information on valid combinations of `type` and `platform`.
+Consider the [Channels API documentation](/api-reference/cart-checkout/channels-listings-api/channels/createchannel) for more information on valid combinations of `type` and `platform`.
 
 A Stencil storefront (meaning a storefront served directly by BigCommerce) will have a type of `storefront` and a platform of `bigcommerce`.
 
@@ -48,14 +48,14 @@ When upgrading your application to support multi-channel functionality, it may m
 
 ## Customers
 
-[Customers API documentation](https://developer.bigcommerce.com/api-reference/store-management/customers-v3)
+[Customers API documentation](/api-reference/store-management/customers-v3)
 
 Each Customer account has an `origin_channel_id` indicating the Channel on which it was created. The uniqueness constraint on email addresses has been modified to require email addresses to be unique within each Channel, instead of the entire Store. This means a given email address can exist on two different Channels, with two different Customer IDs.
 
 
 ## Orders
 
-[Orders API reference documentation](https://developer.bigcommerce.com/api-reference/store-management/order-transactions)
+[Orders API reference documentation](/api-reference/store-management/order-transactions)
 
 The V2 Orders API experiences no schema changes as a result of this release. However, for applications that deal with order management, it becomes crucial to note the `channel_id` of the Order, and make it easy for users of your application sort, categorize, and filter Orders on the basis of Channel.
 
@@ -63,7 +63,7 @@ Similarly, it's important to make sure you provide the appropriate channel-speci
 
 ## Price Lists
 
-[Price List Assignments API documentation](https://developer.bigcommerce.com/api-reference/catalog/pricelists-api/price-lists-assignments/getlistofpricelistassignments)
+[Price List Assignments API documentation](/api-reference/catalog/pricelists-api/price-lists-assignments/getlistofpricelistassignments)
 
 Previously, Price Lists could only be assigned to a Customer Group, using the V2 Customer Groups API.
 
@@ -76,23 +76,23 @@ Now, Price Lists can be assigned to a Channel, a Customer Group, or a combinatio
 
 If your application manages pricing via Price Lists, it is recommended to move to the new V3 Price List Assignments API in order to fully understand the state of pricing on a store.
 
-If your application simply needs to know what the price will be for a given shopper, you can instead consider using the [GraphQL Storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview) to fetch the shopper-view data in real time.
+If your application simply needs to know what the price will be for a given shopper, you can instead consider using the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) to fetch the shopper-view data in real time.
 
 ## Products
 
-[Channel Assignments API documentation](https://developer.bigcommerce.com/api-reference/store-management/catalog)
+[Channel Assignments API documentation](/api-reference/store-management/catalog)
 
 Products must be "assigned" to a Channel in order to be sold on that Channel. For native Stencil storefronts, if a product is not assigned to the storefront's Channel, it will be hidden from that channel's storefront.
 
 ![products-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/products-diagram.webp)
 
-If your application provides a selling Channel to merchants (e.g. a 3rd-party marketplace integration), it is recommended to check the products assigned to your Channel to understand which products have been marked as available to be sold on your Channel by the merchant. You may also want to consult the [Channel Listings API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channel-listings/listchannellistings) for extended product information relevant to your Channel.
+If your application provides a selling Channel to merchants (e.g. a 3rd-party marketplace integration), it is recommended to check the products assigned to your Channel to understand which products have been marked as available to be sold on your Channel by the merchant. You may also want to consult the [Channel Listings API](/api-reference/cart-checkout/channels-listings-api/channel-listings/listchannellistings) for extended product information relevant to your Channel.
 
 Products can be assigned to Channels in two ways:
 
 **1. Explicitly creating the Assignment via the Channel Assignments endpoint**
 
-Using the [Channel Assignments API](https://developer.bigcommerce.com/api-reference/store-management/catalog), you can directly assign Products to Channels. This will allow those Products to be sold on the Channel, although it won't make them easily discoverable on Storefront-type Channels via Categories. For Storefronts, it's recommended to assign the products to Categories as well (see below).
+Using the [Channel Assignments API](/api-reference/store-management/catalog), you can directly assign Products to Channels. This will allow those Products to be sold on the Channel, although it won't make them easily discoverable on Storefront-type Channels via Categories. For Storefronts, it's recommended to assign the products to Categories as well (see below).
 
 **2. Assigning the product to a Category whose Tree is assigned to the Channel**
 
@@ -100,11 +100,11 @@ As a convenience, Channel Assignments will be created for products when you assi
 
 Assignments will not be removed by the removal of Products from Categories. To remove Channel Assignments, you must use the Channel Assignments API.
 
-If your application interacts with shoppers, you may be able to simply use the [GraphQL Storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview) instead to get the correct product availability & data for a given shopper, in real-time.
+If your application interacts with shoppers, you may be able to simply use the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) instead to get the correct product availability & data for a given shopper, in real-time.
 
 ## Store Settings
 
-[Settings API reference documentation](https://developer.bigcommerce.com/api-reference/store-management/settings)
+[Settings API reference documentation](/api-reference/store-management/settings)
 
 BigCommerce's Settings APIs allow management of the store's configuration, which allows you to control many of the same settings that are available in the BigCommerce Control Panel.
 
@@ -263,7 +263,7 @@ Note that **global** settings cannot be deleted, only updated.
 
 For any "touch point" a shopper has with a particular Channel - whether that's viewing the storefront, or when a transactional email sends, when a merchant is printing a packing slip to put into a package being shipped, or any other place where shopper-facing information is displayed - any Channel-specific settings will be overlaid over the existing Global settings to determine the final state of the shopping experience.
 
-The shopper-facing experience is represented via the Stencil storefront platform as well as the GraphQL Storefront API. If your application is mostly concerned with the shopper-facing "final product" of a particular Channel's configuration, consider using the [GraphQL Storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview) to simplify your integration. As all Storefront API requests are run in the context of a particular Channel, all relevant configuration is automatically applied to the data returned in a Storefront API response. The "Settings APIs" discussed in this article are primarily for use cases related to the **management** or **administration** of store settings.
+The shopper-facing experience is represented via the Stencil storefront platform as well as the GraphQL Storefront API. If your application is mostly concerned with the shopper-facing "final product" of a particular Channel's configuration, consider using the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) to simplify your integration. As all Storefront API requests are run in the context of a particular Channel, all relevant configuration is automatically applied to the data returned in a Storefront API response. The "Settings APIs" discussed in this article are primarily for use cases related to the **management** or **administration** of store settings.
 
 ## Storefront & Content
 
@@ -274,7 +274,7 @@ Scripts are associated with a particular Site. Any Scripts that were created pre
 ![scripts-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/scripts-diagram.webp)
 
 
-[Scripts API reference documentation](https://developer.bigcommerce.com/api-reference/store-management/scripts)
+[Scripts API reference documentation](/api-reference/store-management/scripts)
 
 From a UX perspective, you may wish to prompt merchants who are setting up your app to pick one or more storefront Sites on which your app's storefront functionality should be installed. It is also advisable to provide a way to remove your Scripts from each Site, or install them on new Sites the merchant creates as they expand their business.
 
@@ -285,7 +285,7 @@ Pages are associated with a particular Site. Any Pages that were created previou
 ![pages-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/pages-diagram.webp)
 
 
-[Pages API reference documentation](https://developer.bigcommerce.com/api-reference/store-management/store-content/pages/getallpages)
+[Pages API reference documentation](/api-reference/store-management/pages/pages/getpages)
 
 A new V3 Pages API has been exposed to service multi-storefront use cases, while also providing several of the usual efficiency benefits of V3 APIs over their V2 equivalents. This new V3 Pages API has `site_id` as a required parameter.
 
@@ -301,7 +301,7 @@ Going forward, it is recommended to interact directly with the appropriate `site
 
 ![redirects-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/redirects-diagram.webp)
 
-[Redirects API documentation](https://developer.bigcommerce.com/api-reference/store-management/redirects)
+[Redirects API documentation](/api-reference/store-management/redirects)
 
 Redirects are associated with a particular Site. Any Redirects that were created previously have been assigned to the default Site (which has an id of `1000` on each store).
 
@@ -317,7 +317,7 @@ To support application of stores to different storefront Sites, you must now _in
 
 ![themes-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/themes-diagram.webp)
 
-[Themes API documentation](https://developer.bigcommerce.com/api-reference/store-management/themes)
+[Themes API documentation](/api-reference/store-management/themes)
 
 To understand which Theme is active for a particular Site, you can check the `/v3/sites/ID/active-theme` endpoint.
 
@@ -329,7 +329,7 @@ Instead of downloading Themes by using the `/themes/{uuid}/actions/download` end
 
 ## Subscribers
 
-[Subscribers API reference documentation](https://developer.bigcommerce.com/api-reference/store-management/subscribers)
+[Subscribers API reference documentation](/api-reference/store-management/subscribers)
 
 Each Subscriber now has an `origin_channel_id` property which indicates on which the Channel on which each Subscriber signaled intent to receive a newsletter. If not supplied, will default to 1, but should be supplied with every request explicitly.
 

@@ -5,8 +5,8 @@ To make sure your app is compatible with stores with multiple BigCommerce storef
 ## Setup and channels configuration
 
 1. Users can install and load the app in a store with multiple BigCommerce storefront channels.
-2. The app makes API requests to [Channels](https://developer.bigcommerce.com/api-reference/store-management/channels) endpoints to get available BigCommerce storefront channels.
-3. The app makes API requests to [Sites](https://developer.bigcommerce.com/api-reference/store-management/sites) endpoints to get sites associated with BigCommerce storefront channels.
+2. The app makes API requests to [Channels](/api-reference/store-management/channels) endpoints to get available BigCommerce storefront channels.
+3. The app makes API requests to [Sites](/api-reference/store-management/sites) endpoints to get sites associated with BigCommerce storefront channels.
 4. The app settings acknowledge multiple storefronts within the app.
 
 ## Catalog and orders

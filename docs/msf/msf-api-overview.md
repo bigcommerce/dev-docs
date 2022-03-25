@@ -16,7 +16,7 @@ It is our goal to launch these new features with no breaking changes to the plat
 
 ### Channels
 
-[Channels API documentation](https://developer.bigcommerce.com/api-reference/store-management/channels)
+[Channels API documentation](/api-reference/store-management/channels)
 
 **Channel** - A place where the merchant sells products. This could be a storefront website, a marketplace such as Amazon or eBay, a POS system, a marketing feed, or a "Custom" channel which may not fit into one of these types. Merchants create new Channels when they wish to sell in a new context. Channels are useful to organize a merchant's complex business, and can be used to attach many other objects which are related to a particular shopper's experience on the Channel. A channel is defined by:
 
@@ -24,7 +24,7 @@ It is our goal to launch these new features with no breaking changes to the plat
 - A `type`, which may be `storefront`, `marketing`, `pos`, `marketplace` or `custom`
 - A `platform`, which indicates on which platform the channel is primarily experienced by a shopper.
 
-Consider the [Channels API documentation](https://developer.bigcommerce.com/api-reference/store-management/channels) for more information on valid combinations of `type` and `platform`.
+Consider the [Channels API documentation](/api-reference/store-management/channels) for more information on valid combinations of `type` and `platform`.
 
 A Stencil storefront (meaning a storefront served directly by BigCommerce) will have a type of `storefront` and a platform of `bigcommerce`.
 
@@ -36,7 +36,7 @@ When upgrading your application to support multi-channel functionality, it may m
 
 ### Sites
 
-[Sites API documentation](https://developer.bigcommerce.com/api-reference/store-management/sites)
+[Sites API documentation](/api-reference/store-management/sites)
 
 **Site** - A website which is owned or controlled exclusively by the merchant, usually for purposes of hosting a storefront website. A Site will always be tied to exactly one Channel, although there is no requirement for Channel to have a Site. Sites are mainly relevant to `storefront`-type Channels, and they serve as a container for settings and objects that only apply to websites.
 
@@ -53,13 +53,13 @@ When upgrading your application to support multi-storefront functionality, you s
 
 ### Settings & Configuration
 
-[Settings API Overview](/settings-overview)
+[Settings API Overview](/api-docs/store-management/settings)
 
-[Settings API Documentation](https://developer.bigcommerce.com/api-reference/store-management/settings)
+[Settings API Documentation](/api-reference/store-management/settings)
 
 A new set of Settings APIs are being exposed which will allow reading and writing many important elements of the store's configuration, both globally and on the basis of Channel. If your application is in the business of managing settings, you can use these endpoints to assist merchants in the configuration of new Channels complete with appropriate settings. On the other hand, you may wish to simply respect the settings that a merchant has configured in their store to control details of your application's behavior, in which case these APIs allow you to read the current state of settings both globally and on a per-channel basis.
 
-If your application interacts with shoppers, you may be able to simply use the [GraphQL Storefront API](https://developer.bigcommerce.com/api-docs/storefront/graphql/graphql-storefront-api-overview) instead to get the relevant settings for a given shopper, in real-time.
+If your application interacts with shoppers, you may be able to simply use the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) instead to get the relevant settings for a given shopper, in real-time.
 
-For a deep-dive into this new class of APIs, see our [Settings API Overview](/settings-overview).
+For a deep-dive into this new class of APIs, see our [Settings API Overview](/api-docs/store-management/settings).
 
