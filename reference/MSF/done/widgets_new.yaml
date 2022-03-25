@@ -415,6 +415,11 @@ paths:
           description: Filter items by channel_id.
           schema:
             type: integer
+        - schema:
+            type: string
+          in: query
+          name: 'site_id:in'
+          description: A comma-separated list of site ids to filter the results by.
       responses:
         '200':
           $ref: '#/components/responses/WidgetCollection_Resp'
@@ -1269,6 +1274,10 @@ components:
                     schema: []
                     storefront_api_query: ''
                     template: |2
+
+
+
+
 
 
 
