@@ -2,390 +2,132 @@
   "items": [
     {
       "type": "divider",
-      "title": "Getting Started"
-    },
-    {
-      "type": "item",
-      "title": "Quick Start",
-      "slug": "/making-requests",
-      "href": "/api-docs/getting-started/making-requests",
-      "uri": "docs/api-docs/getting-started/making-requests.md"
-    },
-    {
-      "type": "item",
-      "title": "About Our APIs",
-      "slug": "/about-our-api",
-      "href": "/api-docs/getting-started/about-our-api",
-      "uri": "docs/api-docs/getting-started/about-our-api.md"
+      "title": "api-docs"
     },
     {
       "type": "group",
-      "title": "Authentication",
-      "slug": "/authentication",
+      "title": "apps",
       "items": [
         {
           "type": "item",
-          "title": "Authenticating BigCommerce APIs",
-          "slug": "/authenticating-bigcommerce-apis",
-          "href": "/api-docs/getting-started/authentication/authenticating-bigcommerce-apis",
-          "uri": "docs/api-docs/getting-started/authentication.md"
-        },
-        {
-          "type": "item",
-          "title": "V2 and V3 REST API Authentication",
-          "slug": "/rest-api-authentication",
-          "href": "/api-docs/getting-started/authentication/rest-api-authentication",
-          "uri": "docs/api-docs/getting-started/rest-api-authentication.md"
-        }
-      ]
-    },
-    {
-      "type": "item",
-      "title": "Filtering",
-      "slug": "/filtering",
-      "href": "/api-docs/getting-started/filtering",
-      "uri": "docs/api-docs/getting-started/filtering.md"
-    },
-    {
-      "type": "item",
-      "title": "Best Practices",
-      "slug": "/best-practices",
-      "href": "/api-docs/getting-started/best-practices",
-      "uri": "docs/api-docs/getting-started/best-practices.md"
-    },
-    {
-      "type": "item",
-      "title": "API Status Codes",
-      "slug": "/api-status-codes",
-      "href": "/api-docs/getting-started/api-status-codes",
-      "uri": "docs/api-docs/getting-started/api-status-codes.md"
-    },
-    {
-      "type": "item",
-      "title": "Deprecations and Sunsets",
-      "slug": "/deprecations-and-sunsets",
-      "href": "/api-docs/getting-started/deprecations-and-sunsets",
-      "uri": "docs/api-docs/getting-started/deprecations-and-sunsets.md"
-    },
-    {
-      "type": "divider",
-      "title": "Storefront APIs"
-    },
-    {
-      "type": "item",
-      "title": "Overview",
-      "slug": "/overview",
-      "href": "/api-docs/storefront/overview",
-      "uri": "docs/api-docs/cart-and-checkout/cart-and-checkout-overview.md"
-    },
-    {
-      "type": "group",
-      "title": "GraphQL",
-      "slug": "/graphql",
-      "items": [
-        {
-          "type": "item",
-          "title": "Overview",
-          "slug": "/graphql-storefront-api-overview",
-          "href": "/api-docs/storefront/graphql/graphql-storefront-api-overview",
-          "uri": "docs/api-docs/storefront/graphql/graphql-api-overview.md"
-        },
-        {
-          "type": "item",
-          "title": "Code Samples",
-          "slug": "/graphql-storefront-api-samples",
-          "href": "/api-docs/storefront/graphql/graphql-storefront-api-samples",
-          "flag": "code samples",
-          "uri": "docs/api-docs/storefront/graphql/graphql-api-examples.md"
-        },
-        {
-          "type": "item",
-          "title": "GraphQL Playground",
-          "slug": "/playground",
-          "href": "/api-docs/storefront/graphql/playground",
-          "uri": "assets/html/graphql/playground.html"
-        },
-        {
-          "type": "item",
-          "title": "GraphQL Explorer",
-          "slug": "/explorer",
-          "href": "/api-docs/storefront/graphql/explorer",
-          "uri": "assets/html/graphql/voyager.html"
-        }
-      ]
-    },    
-    {
-      "type": "item",
-      "title": "Add to Cart URLs",
-      "slug": "/add-to-cart-urls",
-      "href": "/api-docs/storefront/add-to-cart-urls",
-      "uri": "docs/api-docs/cart-and-checkout/add-to-cart-url.md"
-    },
-    {
-      "type": "item",
-      "title": "Customer Login API",
-      "slug": "/customer-login-api",
-      "href": "/api-docs/storefront/customer-login-api",
-      "uri": "docs/api-docs/customers/customer-login-api.md"
-    },
-    {
-      "type": "item",
-      "title": "Current Customer API",
-      "slug": "/current-customer-api",
-      "href": "/api-docs/storefront/current-customer-api",
-      "uri": "docs/api-docs/customers/current-customer-api.md"
-    },
-    {
-      "type": "item",
-      "title": "Passwordless Login",
-      "slug": "/passwordless-login",
-      "href": "/api-docs/storefront/passwordless-login",
-      "uri": "docs/api-docs/customers/passwordless-login.md"
-    },
-    {
-      "type": "group",
-      "title": "Tutorials",
-      "slug": "/tutorials",
-      "items": [
-        {
-          "type": "item",
-          "title": "Carts and Checkouts",
-          "slug": "/carts",
-          "href": "/api-docs/storefront/tutorials/carts",
-          "flag": "tutorial",
-          "uri": "docs/api-docs/cart-and-checkout/working-sf-apis.md"
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "title": "Widgets",
-      "slug": "/widgets",
-      "items": [
-        {
-          "type": "item",
-          "title": "Widget Builder",
-          "slug": "/widget-builder",
-          "href": "/api-docs/storefront/widgets/widget-builder",
-          "uri": "docs/api-docs/storefront/widgets/widget-builder.md"
-        }
-      ]
-    },
-    {
-      "type": "divider",
-      "title": "Management APIs"
-    },
-    {
-      "type": "group",
-      "title": "Catalog",
-      "slug": "/catalog",
-      "items": [
-        {
-          "type": "item",
-          "title": "Overview",
-          "slug": "/catalog-overview",
-          "href": "/api-docs/store-management/catalog/catalog-overview",
-          "uri": "docs/api-docs/catalog/products-overview.md"
-        },
-        {
-          "type": "item",
-          "title": "Difference between V2 and V3 Catalog REST APIs",
-          "slug": "/v2-vs-v3",
-          "href": "/api-docs/store-management/catalog/v2-vs-v3",
-          "uri": "docs/api-docs/catalog/v2-vs-v3.md"
-        },
-        {
-          "type": "item",
-          "title": "V2 to V3 Catalog Operations Comparison",
-          "slug": "/v2-v3-examples",
-          "href": "/api-docs/store-management/catalog/v2-v3-examples",
-          "uri": "docs/api-docs/catalog/v2-v3-examples.md"
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "title": "Customers",
-      "items": [
-        {
-          "type": "item",
-          "title": "Customers and Subscribers",
-          "slug": "/customers",
-          "href": "/api-docs/store-management/customers",
-          "uri": "docs/api-docs/customers/customers-subscribers-overview.md"
-        },
-        {
-          "type": "item",
-          "title": "Creating Channel-Specific Customers",
-          "slug": "/customers/creating-channel-specific-customers",
-          "href": "/api-docs/store-management/customers/creating-channel-specific-customers",
-          "uri": "docs/api-docs/customers/channel-specific-customers.md"
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "title": "Email Templates",
-      "slug": "/email-templates",
-      "items": [
-        {
-          "type": "item",
-          "title": "Overview",
-          "slug": "/overview",
-          "href": "/api-docs/store-management/email-templates/overview",
-          "uri": "docs/api-docs/management-apis/email-templates/overview.md"
-        },
-        {
-          "type": "item",
-          "title": "Email Templates Examples",
-          "slug": "/email-template-examples",
-          "href": "/api-docs/store-management/email-templates/email-template-examples",
-          "uri": "docs/api-docs/management-apis/email-templates/email-template-examples.md"
-        },
-        {
-          "type": "item",
-          "title": "Handlebars Reference",
-          "slug": "/handlebars",
-          "href": "/api-docs/store-management/email-templates/handlebars",
-          "uri": "../../api-reference/nodes/models/email_templates/_all.yml"
-        }
-      ]
-    },
-    {
-      "type": "item",
-      "title": "Orders",
-      "slug": "/orders",
-      "href": "/api-docs/store-management/orders",
-      "uri": "docs/api-docs/orders/orders-api-overview.md"
-    },
-    {
-      "type": "item",
-      "title": "Order Refunds",
-      "slug": "/order-refunds",
-      "href": "/api-docs/store-management/order-refunds",
-      "uri": "docs/api-docs/orders/order-refunds.md"
-    },
-    {
-      "type": "item",
-      "title": "Payment Processing",
-      "slug": "/payment-processing",
-      "href": "/api-docs/store-management/payment-processing",
-      "uri": "docs/api-docs/payments/payments-api-overview.md"
-    },
-    {
-      "type": "item",
-      "title": "Price Lists",
-      "slug": "/price-list-overview",
-      "href": "/api-docs/store-management/price-list-overview",
-      "uri": "docs/api-docs/catalog/price-list-overview.md"
-    },
-    {
-      "type": "item",
-      "title": "Pricing Order",
-      "slug": "/pricing-order-operation",
-      "href": "/api-docs/store-management/pricing-order-operation",
-      "uri": "docs/api-docs/catalog/pricing-order-operation.md"
-    },
-    {
-      "type": "item",
-      "title": "Scripts",
-      "slug": "/scripts",
-      "href": "/api-docs/store-management/scripts",
-      "uri": "docs/api-docs/storefront/scripts-overview.md"
-    },
-    {
-      "type": "group",
-      "title": "Settings",
-      "slug": "/settings",
-      "items": [
-        {
-          "type": "item",
-          "title": "Contextual Filters",
-          "slug": "/contextual-filters",
-          "href": "/api-docs/store-management/settings/contextual-filters",
-          "uri": "docs/api-docs/management-apis/contextual-filters.md"
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "title": "Shipping",
-      "slug": "/shipping",
-      "items": [
-        {
-          "type": "item",
-          "title": "Overview",
-          "slug": "/shipping-overview",
-          "href": "/api-docs/store-management/shipping/shipping-overview",
-          "uri": "docs/api-docs/store-management/shipping/shipping-overview.md"
-        },
-        {
-          "type": "item",
-          "title": "Shipper HQ",
-          "slug": "/shipper-hq",
-          "href": "/api-docs/store-management/shipping/shipper-hq",
-          "uri": "docs/api-docs/store-management/shipping/shipper-hq.md"
-        }
-      ]
-    },
-    {
-      "type": "group",
-      "title": "Widgets",
-      "slug": "/widgets",
-      "items": [
-        {
-          "type": "item",
-          "title": "Overview",
-          "slug": "/overview",
-          "href": "/api-docs/store-management/widgets/overview",
-          "uri": "docs/api-docs/storefront/widgets/widgets-overview.md"
-        },
-        {
-          "type": "item",
-          "title": "Widgets Code Samples",
-          "slug": "/samples",
-          "href": "/api-docs/store-management/widgets/samples",
-          "uri": "docs/api-docs/storefront/widgets/widgets-code-samples.md"
-        },
-        {
-          "type": "item",
-          "title": "Localizing Widget Template Settings",
-          "slug": "/localizing-settings",
-          "href": "/api-docs/store-management/widgets/localizing-settings",
-          "uri": "docs/api-docs/storefront/widgets/widgets-localizing-settings.md"
+          "title": "Apps Quick Start",
+          "uri": "/docs/api-docs/apps/apps-quick-start.md"
         },
         {
           "type": "group",
-          "title": "Tutorials",
-          "slug": "/tutorials",
+          "title": "guide",
           "items": [
             {
               "type": "item",
-              "title": "Widgets Tutorial",
-              "slug": "/tutorial",
-              "href": "/api-docs/store-management/widgets/tutorials/tutorial",
-              "uri": "docs/api-docs/storefront/widgets/widgets-tutorial.md"
+              "title": "Apps 01 Introduction",
+              "uri": "/docs/api-docs/apps/guide/apps-01-introduction.md"
             },
             {
               "type": "item",
-              "title": "Widget Versioning Tutorial",
-              "slug": "/widget-versioning-tutorial",
-              "href": "/api-docs/store-management/widgets/tutorials/widget-versioning-tutorial",
-              "uri": "docs/api-docs/storefront/widgets/widget-versioning-tutorial.md"
+              "title": "Apps 02 Types",
+              "uri": "/docs/api-docs/apps/guide/apps-02-types.md"
             },
             {
               "type": "item",
-              "title": "Global Regions Tutorial",
-              "slug": "/global-regions-tutorial",
-              "href": "/api-docs/store-management/widgets/tutorials/global-regions-tutorial",
-              "uri": "docs/api-docs/storefront/widgets/global-regions-tutorial.md"
+              "title": "Apps 03 Developing",
+              "uri": "/docs/api-docs/apps/guide/apps-03-developing.md"
             },
             {
               "type": "item",
-              "title": "Create Widgets Powered by GraphQL",
-              "slug": "/dynamic-widgets",
-              "href": "/api-docs/store-management/widgets/tutorials/dynamic-widgets",
-              "uri": "docs/api-docs/storefront/widgets/product-widget-tutorial.md"
+              "title": "Apps 04 Devloper Portal",
+              "uri": "/docs/api-docs/apps/guide/apps-04-devloper-portal.md"
+            },
+            {
+              "type": "item",
+              "title": "Apps 05 Oauth",
+              "uri": "/docs/api-docs/apps/guide/apps-05-oauth.md"
+            },
+            {
+              "type": "item",
+              "title": "Apps 06 Callbacks",
+              "uri": "/docs/api-docs/apps/guide/apps-06-callbacks.md"
+            },
+            {
+              "type": "item",
+              "title": "Apps 07 Users",
+              "uri": "/docs/api-docs/apps/guide/apps-07-users.md"
+            },
+            {
+              "type": "item",
+              "title": "Apps 08 Events",
+              "uri": "/docs/api-docs/apps/guide/apps-08-events.md"
+            },
+            {
+              "type": "item",
+              "title": "Apps 09 Ui",
+              "uri": "/docs/api-docs/apps/guide/apps-09-ui.md"
+            },
+            {
+              "type": "item",
+              "title": "Apps 10 Buttons",
+              "uri": "/docs/api-docs/apps/guide/apps-10-buttons.md"
+            },
+            {
+              "type": "item",
+              "title": "Apps 11 Best Practices",
+              "uri": "/docs/api-docs/apps/guide/apps-11-best-practices.md"
+            },
+            {
+              "type": "item",
+              "title": "Apps 12 Requirements",
+              "uri": "/docs/api-docs/apps/guide/apps-12-requirements.md"
+            },
+            {
+              "type": "item",
+              "title": "Apps 13 Publishing",
+              "uri": "/docs/api-docs/apps/guide/apps-13-publishing.md"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "tutorials",
+          "items": [
+            {
+              "type": "item",
+              "title": "Apps Id",
+              "uri": "/docs/api-docs/apps/tutorials/apps-id.md"
+            },
+            {
+              "type": "group",
+              "title": "sample-app-next",
+              "items": [
+                {
+                  "type": "item",
+                  "title": "Heroku Deploy",
+                  "uri": "/docs/api-docs/apps/tutorials/sample-app-next/heroku-deploy.md"
+                },
+                {
+                  "type": "item",
+                  "title": "Introduction",
+                  "uri": "/docs/api-docs/apps/tutorials/sample-app-next/introduction.md"
+                },
+                {
+                  "type": "item",
+                  "title": "Step 1 Setup",
+                  "uri": "/docs/api-docs/apps/tutorials/sample-app-next/step-1-setup.md"
+                },
+                {
+                  "type": "item",
+                  "title": "Step 2 Connect To Bc",
+                  "uri": "/docs/api-docs/apps/tutorials/sample-app-next/step-2-connect-to-bc.md"
+                },
+                {
+                  "type": "item",
+                  "title": "Step 3 Integrate Api",
+                  "uri": "/docs/api-docs/apps/tutorials/sample-app-next/step-3-integrate-api.md"
+                },
+                {
+                  "type": "item",
+                  "title": "Step 4 Enhance Ux",
+                  "uri": "/docs/api-docs/apps/tutorials/sample-app-next/step-4-enhance-ux.md"
+                }
+              ]
             }
           ]
         }
@@ -393,915 +135,1415 @@
     },
     {
       "type": "group",
-      "title": "Webhooks",
-      "slug": "/webhooks",
+      "title": "building-checkouts",
       "items": [
         {
           "type": "item",
-          "title": "Overview",
-          "slug": "/overview",
-          "href": "/api-docs/store-management/webhooks/overview",
-          "uri": "docs/api-docs/getting-started/webhooks/about-webhooks.md"
+          "title": "Checkout Consignment",
+          "uri": "/docs/api-docs/building-checkouts/checkout-consignment.md"
         },
         {
           "type": "item",
-          "title": "Webhook Events",
-          "slug": "/webhook-events",
-          "href": "/api-docs/store-management/webhooks/webhook-events",
-          "uri": "docs/api-docs/getting-started/webhooks/webhook-events.md"
-        },
-        {
-          "type": "item",
-          "title": "Webhooks Tutorial",
-          "slug": "/tutorial",
-          "href": "/api-docs/store-management/webhooks/tutorial",
-          "uri": "docs/api-docs/getting-started/webhooks/setting-up-webhooks.md"
-        }
-      ]
-    },
-    {
-      "type": "divider",
-      "title": "Provider APIs"
-    },
-    {
-      "type": "item",
-      "href": "/api-docs/providers/shipping",
-      "title": "Shipping Providers",
-      "slug": "/shipping",
-      "uri": "docs/api-docs/store-management/shipping/shipping-provider-api.md"
-    },
-    {
-      "type": "item",
-      "href": "/api-docs/providers/tax",
-      "title": "Tax Providers",
-      "tag": "new",
-      "slug": "/tax",
-      "uri": "docs/api-docs/provider-apis/tax/overview.md"
-    },
-    {
-      "type": "divider",
-      "title": "Building Apps"
-    },
-    {
-      "type": "item",
-      "title": "Quick Start",
-      "slug": "/quick-start",
-      "href": "/api-docs/apps/quick-start",
-      "uri": "docs/api-docs/apps/apps-quick-start.md"
-    },
-    {
-      "type": "group",
-      "title": "Guide",
-      "slug": "/guide",
-      "items": [
-        {
-          "type": "item",
-          "title": "Introduction",
-          "slug": "/intro",
-          "href": "/api-docs/apps/guide/intro",
-          "uri": "docs/api-docs/apps/guide/apps-01-introduction.md"
-        },
-        {
-          "type": "item",
-          "title": "Types of Apps",
-          "slug": "/types",
-          "href": "/api-docs/apps/guide/types",
-          "uri": "docs/api-docs/apps/guide/apps-02-types.md"
-        },
-        {
-          "type": "item",
-          "title": "Beginning Development",
-          "slug": "/development",
-          "href": "/api-docs/apps/guide/development",
-          "uri": "docs/api-docs/apps/guide/apps-03-developing.md"
-        },
-        {
-          "type": "item",
-          "title": "Managing Apps in Dev Portal",
-          "slug": "/developer-portal",
-          "href": "/api-docs/apps/guide/developer-portal",
-          "uri": "docs/api-docs/apps/guide/apps-04-devloper-portal.md"
-        },
-        {
-          "type": "item",
-          "title": "Implementing OAuth",
-          "slug": "/auth",
-          "href": "/api-docs/apps/guide/auth",
-          "uri": "docs/api-docs/apps/guide/apps-05-oauth.md"
-        },
-        {
-          "type": "item",
-          "title": "Handling Callbacks",
-          "slug": "/callbacks",
-          "href": "/api-docs/apps/guide/callbacks",
-          "uri": "docs/api-docs/apps/guide/apps-06-callbacks.md"
-        },
-        {
-          "type": "item",
-          "title": "Supporting Multiple Users",
-          "slug": "/users",
-          "href": "/api-docs/apps/guide/users",
-          "uri": "docs/api-docs/apps/guide/apps-07-users.md"
-        },
-        {
-          "type": "item",
-          "title": "Listening for Events",
-          "slug": "/events",
-          "href": "/api-docs/apps/guide/events",
-          "uri": "docs/api-docs/apps/guide/apps-08-events.md"
-        },
-        {
-          "type": "item",
-          "title": "Designing the UI",
-          "slug": "/ui",
-          "href": "/api-docs/apps/guide/ui",
-          "uri": "docs/api-docs/apps/guide/apps-09-ui.md"
-        },
-        {
-          "type": "item",
-          "title": "Creating Install Buttons",
-          "slug": "/buttons",
-          "href": "/api-docs/apps/guide/buttons",
-          "uri": "docs/api-docs/apps/guide/apps-10-buttons.md"
-        },
-        {
-          "type": "item",
-          "title": "Following Best Practices",
-          "slug": "/best-practices",
-          "href": "/api-docs/apps/guide/best-practices",
-          "uri": "docs/api-docs/apps/guide/apps-11-best-practices.md"
-        },
-        {
-          "type": "item",
-          "title": "Approval Requirements",
-          "slug": "/requirements",
-          "href": "/api-docs/apps/guide/requirements",
-          "uri": "docs/api-docs/apps/guide/apps-12-requirements.md"
-        },
-        {
-          "type": "item",
-          "title": "Publishing Apps",
-          "slug": "/publishing",
-          "href": "/api-docs/apps/guide/publishing",
-          "uri": "docs/api-docs/apps/guide/apps-13-publishing.md"
+          "title": "Checkout Customizability",
+          "uri": "/docs/api-docs/building-checkouts/checkout-customizability.md"
         }
       ]
     },
     {
       "type": "group",
-      "title": "Tutorials",
-      "slug": "/tutorials",
-      "items": [
-        {
-          "type": "group",
-          "title": "Build a Next.js Sample App",
-          "slug": "/sample-app-nextjs",
-          "items": [
-            {
-              "type": "item",
-              "title": "Quick Start: Deploy to Heroku Install Flow",
-              "slug": "/deploy-to-heroku",
-              "href": "/api-docs/apps/tutorials/sample-app-nextjs/deploy-to-heroku",
-              "uri": "docs/api-docs/apps/tutorials/sample-app-next/heroku-deploy.md"
-            },
-            {
-              "type": "item",
-              "title": "Introduction",
-              "slug": "/introduction",
-              "href": "/api-docs/apps/tutorials/sample-app-nextjs/introduction",
-              "uri": "docs/api-docs/apps/tutorials/sample-app-next/introduction.md"
-            },
-            {
-              "type": "item",
-              "title": "Step 1: Set up Your Local Environment",
-              "slug": "/step-1-setup",
-              "href": "/api-docs/apps/tutorials/sample-app-nextjs/step-1-setup",
-              "uri": "docs/api-docs/apps/tutorials/sample-app-next/step-1-setup.md"
-            },
-            {
-              "type": "item",
-              "title": "Step 2: Connect Your App to BigCommerce",
-              "slug": "/step-2-connect",
-              "href": "/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect",
-              "uri": "docs/api-docs/apps/tutorials/sample-app-next/step-2-connect-to-bc.md"
-            },
-            {
-              "type": "item",
-              "title": "Step 3: Integrate the BigCommerce API and Add a Database",
-              "slug": "/step-3-integrate",
-              "href": "/api-docs/apps/tutorials/sample-app-nextjs/step-3-integrate",
-              "uri": "docs/api-docs/apps/tutorials/sample-app-next/step-3-integrate-api.md"
-            },
-            {
-              "type": "item",
-              "title": "Step 4: Enhance the User Experience with BigDesign",
-              "slug": "/step-4-enhance",
-              "href": "/api-docs/apps/tutorials/sample-app-nextjs/step-4-enhance",
-              "uri": "docs/api-docs/apps/tutorials/sample-app-next/step-4-enhance-ux.md"
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "title": "Find an App's ID",
-          "slug": "/id",
-          "href": "/api-docs/apps/tutorials/id",
-          "uri": "docs/api-docs/apps/tutorials/apps-id.md"
-        }
-      ]
-    },
-    {
-      "type": "divider",
-      "title": "Building Channels"
-    },
-    {
-      "type": "item",
-      "title": "Quick Start",
-      "slug": "/quick-start",
-      "href": "/api-docs/channels/quick-start",
-      "uri": "docs/api-docs/channels/channels-quick-start.md"
-    },
-    {
-      "type": "group",
-      "title": "Guide",
-      "slug": "/guide",
+      "title": "building-storefronts",
       "items": [
         {
           "type": "item",
-          "title": "Introduction",
-          "slug": "/overview",
-          "href": "/api-docs/channels/guide/overview",
-          "uri": "docs/api-docs/channels/channels-overview.md"
+          "title": "Abandoned Carts",
+          "uri": "/docs/api-docs/building-storefronts/abandoned-carts.md"
         },
         {
           "type": "item",
-          "title": "Building Channel Apps",
-          "slug": "/building-channel-apps",
-          "href": "/api-docs/channels/guide/",
-          "uri": "docs/api-docs/channels/building-channel-apps.md"
-        },
-        {
-          "type": "item",
-          "title": "Extending Existing Apps",
-          "slug": "/extending-existing-apps",
-          "href": "/api-docs/channels/guide/extending-existing-apps",
-          "uri": "docs/api-docs/channels/channels-extending-existing.md"
-        },
-        {
-          "type": "item",
-          "title": "Creating Channel Webooks",
-          "slug": "/webhooks",
-          "href": "/api-docs/channels/guide/webhooks",
-          "flag": "new",
-          "uri": "docs/api-docs/channels/channel-webhooks.md"
-        },
-        {
-          "type": "item",
-          "title": "Following Best Practices",
-          "slug": "/channel-app-best-practices",
-          "href": "/api-docs/channels/guide/",
-          "uri": "docs/api-docs/channels/channel-app-best-practices.md"
-        },
-        {
-          "type": "item",
-          "title": "Approval Requirements",
-          "slug": "/channel-app-requirements",
-          "href": "/api-docs/channels/guide/channel-app-requirements",
-          "uri": "docs/api-docs/channels/channel-app-requirements.md"
-        },
-        {
-          "type": "item",
-          "title": "Channels Toolkit Reference",
-          "slug": "/channels-toolkit-reference",
-          "href": "/api-docs/channels/guide/channels-toolkit-reference",
-          "uri": "docs/api-docs/channels/channels-toolkit-reference.md"
+          "title": "Nextjs Commerce Guide",
+          "uri": "/docs/api-docs/building-storefronts/nextjs-commerce-guide.md"
         }
       ]
     },
     {
       "type": "group",
-      "title": "Tutorials",
-      "slug": "/tutorials",
+      "title": "capture",
       "items": [
         {
           "type": "item",
-          "title": "Build a Storefront Channel",
-          "slug": "/storefront",
-          "href": "/api-docs/channels/tutorials/storefront",
-          "uri": "docs/api-docs/channels/channels-storefront-tutorial.md"
-        },
-        {
-          "type": "item",
-          "title": "Extend an Existing App",
-          "slug": "/extend-existing-apps",
-          "href": "/api-docs/channels/tutorials/extend-existing-apps",
-          "uri": "docs/api-docs/channels/channels-extending-existing.md"
-        }
-      ]
-    },
-    {
-      "type": "divider",
-      "title": "Building Headless Storefronts"
-    },
-    {
-      "type": "group",
-      "title": "Guide",
-      "slug": "/guide",
-      "items": [
-        {
-          "type": "item",
-          "title": "Introduction to Headless Commerce",
-          "slug": "/overview",
-          "href": "/api-docs/storefronts/guide/overview",
-          "uri": "docs/api-docs/headless/overview.md"
-        },
-        {
-          "type": "item",
-          "title": "Creating Channels",
-          "slug": "/channels",
-          "href": "/api-docs/storefronts/guide/channels",
-          "uri": "docs/api-docs/headless/channels.md"
-        },
-        {
-          "type": "item",
-          "title": "Working with Products",
-          "slug": "/products",
-          "href": "/api-docs/storefronts/guide/products",
-          "uri": "docs/api-docs/headless/products.md"
-        },
-        {
-          "type": "item",
-          "title": "Managing Carts",
-          "slug": "/carts",
-          "href": "/api-docs/storefronts/guide/carts",
-          "uri": "docs/api-docs/headless/carts.md"
-        },
-        {
-          "type": "item",
-          "title": "Recovering Abandoned Carts",
-          "slug": "/abandoned-carts",
-          "href": "/api-docs/storefronts/guide/abandoned-carts",
-          "uri": "docs/api-docs/building-storefronts/abandoned-carts.md"
-        },
-        {
-          "type": "item",
-          "title": "Creating Checkouts",
-          "slug": "/checkout",
-          "href": "/api-docs/storefronts/guide/checkout",
-          "uri": "docs/api-docs/headless/checkout.md"
-        },
-        {
-          "type": "item",
-          "title": "Managing Customers",
-          "slug": "/customers",
-          "href": "/api-docs/storefronts/guide/customers",
-          "uri": "docs/api-docs/headless/customers.md"
-        },
-        {
-          "type": "item",
-          "title": "Handling Orders",
-          "slug": "/orders",
-          "href": "/api-docs/storefronts/guide/orders",
-          "uri": "docs/api-docs/headless/orders.md"
-        },
-        {
-          "type": "item",
-          "title": "PCI Compliance",
-          "slug": "/pci-compliance",
-          "href": "/api-docs/storefronts/guide/pci-compliance",
-          "uri": "docs/api-docs/headless/pci-compliance.md"
+          "title": "Capture",
+          "uri": "/docs/api-docs/capture/capture.md"
         }
       ]
     },
     {
       "type": "group",
-      "title": "Embedded Checkout",
-      "slug": "/embedded-checkout",
+      "title": "cart-and-checkout",
       "items": [
         {
           "type": "item",
-          "title": "Overview",
-          "slug": "/embedded-checkout-overview",
-          "href": "/api-docs/storefronts/embedded-checkout/embedded-checkout-overview",
-          "uri": "docs/api-docs/cart-and-checkout/embedded-checkout-overview.md"
+          "title": "Add To Cart Url",
+          "uri": "/docs/api-docs/cart-and-checkout/add-to-cart-url.md"
+        },
+        {
+          "type": "item",
+          "title": "Cart And Checkout Overview",
+          "uri": "/docs/api-docs/cart-and-checkout/cart-and-checkout-overview.md"
+        },
+        {
+          "type": "item",
+          "title": "Checkout Sdk",
+          "uri": "/docs/api-docs/cart-and-checkout/checkout-sdk.md"
+        },
+        {
+          "type": "item",
+          "title": "Custom Order Confirmation",
+          "uri": "/docs/api-docs/cart-and-checkout/custom-order-confirmation.md"
+        },
+        {
+          "type": "item",
+          "title": "Embedded Checkout Overview",
+          "uri": "/docs/api-docs/cart-and-checkout/embedded-checkout-overview.md"
         },
         {
           "type": "item",
           "title": "Embedded Checkout Tutorial",
-          "slug": "/embedded-checkout-tutorial",
-          "href": "/api-docs/storefronts/embedded-checkout/embedded-checkout-tutorial",
-          "uri": "docs/api-docs/cart-and-checkout/embedded-checkout-tutorial.md"
+          "uri": "/docs/api-docs/cart-and-checkout/embedded-checkout-tutorial.md"
+        },
+        {
+          "type": "item",
+          "title": "Open Source Checkout",
+          "uri": "/docs/api-docs/cart-and-checkout/open-source-checkout.md"
+        },
+        {
+          "type": "item",
+          "title": "Working Sf Apis",
+          "uri": "/docs/api-docs/cart-and-checkout/working-sf-apis.md"
         }
       ]
     },
     {
-      "type": "item",
-      "title": "Next.js Commerce",
-      "slug": "/nextjs-commerce",
-      "href": "/api-docs/storefronts/nextjs-commerce",
-      "uri": "docs/api-docs/building-storefronts/nextjs-commerce-guide.md"
-    },
-    {
-      "type": "divider",
-      "title": "Building Checkouts"
-    },
-    {
-      "type": "item",
-      "href": "/api-docs/checkouts/checkouts",
-      "slug": "/checkouts",
-      "title": "Checkout Customizability",
-      "uri": "docs/api-docs/building-checkouts/checkout-customizability.md"
-    },
-    {
-      "type": "item",
-      "href": "/api-docs/checkouts/checkout-consignment",
-      "slug": "/checkout-consignment",
-      "title": "Checkout Consignment",
-      "uri": "docs/api-docs/building-checkouts/checkout-consignment.md"
-    },
-    {
-      "type": "divider",
-      "title": "Managing Currencies"
+      "type": "group",
+      "title": "catalog",
+      "items": [
+        {
+          "type": "group",
+          "title": "currencies",
+          "items": [
+            {
+              "type": "item",
+              "title": "Currencies Overview",
+              "uri": "/docs/api-docs/catalog/currencies/currencies-overview.md"
+            },
+            {
+              "type": "item",
+              "title": "How Currencies Work",
+              "uri": "/docs/api-docs/catalog/currencies/how-currencies-work.md"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "title": "Price List Overview",
+          "uri": "/docs/api-docs/catalog/price-list-overview.md"
+        },
+        {
+          "type": "item",
+          "title": "Pricing Order Operation",
+          "uri": "/docs/api-docs/catalog/pricing-order-operation.md"
+        },
+        {
+          "type": "item",
+          "title": "Products Overview",
+          "uri": "/docs/api-docs/catalog/products-overview.md"
+        },
+        {
+          "type": "item",
+          "title": "V 2 V 3 Examples",
+          "uri": "/docs/api-docs/catalog/v2-v3-examples.md"
+        },
+        {
+          "type": "item",
+          "title": "V 2 Vs V 3",
+          "uri": "/docs/api-docs/catalog/v2-vs-v3.md"
+        }
+      ]
     },
     {
       "type": "group",
-      "title": "Guide",
-      "slug": "/guide",
+      "title": "channels",
       "items": [
+        {
+          "type": "item",
+          "title": "Building Channel Apps",
+          "uri": "/docs/api-docs/channels/building-channel-apps.md"
+        },
+        {
+          "type": "item",
+          "title": "Channel App Best Practices",
+          "uri": "/docs/api-docs/channels/channel-app-best-practices.md"
+        },
+        {
+          "type": "item",
+          "title": "Channel App Requirements",
+          "uri": "/docs/api-docs/channels/channel-app-requirements.md"
+        },
+        {
+          "type": "item",
+          "title": "Channel Webhooks",
+          "uri": "/docs/api-docs/channels/channel-webhooks.md"
+        },
+        {
+          "type": "item",
+          "title": "Channels Extending Existing",
+          "uri": "/docs/api-docs/channels/channels-extending-existing.md"
+        },
+        {
+          "type": "item",
+          "title": "Channels Overview",
+          "uri": "/docs/api-docs/channels/channels-overview.md"
+        },
+        {
+          "type": "item",
+          "title": "Channels Quick Start",
+          "uri": "/docs/api-docs/channels/channels-quick-start.md"
+        },
+        {
+          "type": "item",
+          "title": "Channels Storefront Tutorial",
+          "uri": "/docs/api-docs/channels/channels-storefront-tutorial.md"
+        },
+        {
+          "type": "item",
+          "title": "Channels Toolkit Reference",
+          "uri": "/docs/api-docs/channels/channels-toolkit-reference.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "customers",
+      "items": [
+        {
+          "type": "item",
+          "title": "Channel Specific Customers",
+          "uri": "/docs/api-docs/customers/channel-specific-customers.md"
+        },
+        {
+          "type": "item",
+          "title": "Current Customer Api",
+          "uri": "/docs/api-docs/customers/current-customer-api.md"
+        },
+        {
+          "type": "item",
+          "title": "Customer Login Api",
+          "uri": "/docs/api-docs/customers/customer-login-api.md"
+        },
+        {
+          "type": "item",
+          "title": "Customers Subscribers Overview",
+          "uri": "/docs/api-docs/customers/customers-subscribers-overview.md"
+        },
+        {
+          "type": "item",
+          "title": "Passwordless Login",
+          "uri": "/docs/api-docs/customers/passwordless-login.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "getting-started",
+      "items": [
+        {
+          "type": "item",
+          "title": "About Our Api",
+          "uri": "/docs/api-docs/getting-started/about-our-api.md"
+        },
+        {
+          "type": "item",
+          "title": "Api Status Codes",
+          "uri": "/docs/api-docs/getting-started/api-status-codes.md"
+        },
+        {
+          "type": "item",
+          "title": "Authentication",
+          "uri": "/docs/api-docs/getting-started/authentication.md"
+        },
+        {
+          "type": "item",
+          "title": "Best Practices",
+          "uri": "/docs/api-docs/getting-started/best-practices.md"
+        },
+        {
+          "type": "item",
+          "title": "Deprecations And Sunsets",
+          "uri": "/docs/api-docs/getting-started/deprecations-and-sunsets.md"
+        },
+        {
+          "type": "item",
+          "title": "Filtering",
+          "uri": "/docs/api-docs/getting-started/filtering.md"
+        },
+        {
+          "type": "item",
+          "title": "BigCommerce APIs Quick Start",
+          "uri": "/docs/api-docs/getting-started/making-requests.md"
+        },
+        {
+          "type": "item",
+          "title": "Rest Api Authentication",
+          "uri": "/docs/api-docs/getting-started/rest-api-authentication.md"
+        },
+        {
+          "type": "group",
+          "title": "webhooks",
+          "items": [
+            {
+              "type": "item",
+              "title": "About Webhooks",
+              "uri": "/docs/api-docs/getting-started/webhooks/about-webhooks.md"
+            },
+            {
+              "type": "item",
+              "title": "Setting Up Webhooks",
+              "uri": "/docs/api-docs/getting-started/webhooks/setting-up-webhooks.md"
+            },
+            {
+              "type": "item",
+              "title": "Webhook Events",
+              "uri": "/docs/api-docs/getting-started/webhooks/webhook-events.md"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "title": "App Compatibility",
+          "uri": "/docs/bigcommerce-for-wordpress/getting-started/app-compatibility.md"
+        },
+        {
+          "type": "item",
+          "title": "Gutenberg Support",
+          "uri": "/docs/bigcommerce-for-wordpress/getting-started/gutenberg-support.md"
+        },
+        {
+          "type": "item",
+          "title": "Install",
+          "uri": "/docs/bigcommerce-for-wordpress/getting-started/install.md"
+        },
         {
           "type": "item",
           "title": "Introduction",
-          "slug": "/introduction",
-          "href": "/api-docs/multi-currency/guide/introduction",
-          "uri": "docs/api-docs/catalog/currencies/currencies-overview.md"
+          "uri": "/docs/bigcommerce-for-wordpress/getting-started/introduction.md"
         },
         {
           "type": "item",
-          "title": "How Currencies Work",
-          "slug": "/how-currencies-work",
-          "href": "/api-docs/catalog/currencies/how-currencies-work.md",
-          "uri": "docs/api-docs/catalog/currencies/how-currencies-work.md"
+          "title": "Site Launch Checklist",
+          "uri": "/docs/bigcommerce-for-wordpress/getting-started/site-launch-checklist.md"
+        },
+        {
+          "type": "item",
+          "title": "Supported Features",
+          "uri": "/docs/bigcommerce-for-wordpress/getting-started/supported-features.md"
+        },
+        {
+          "type": "item",
+          "title": "About Stencil",
+          "uri": "/docs/stencil-docs/getting-started/about-stencil.md"
+        },
+        {
+          "type": "item",
+          "title": "Stencil Technology Stack",
+          "uri": "/docs/stencil-docs/getting-started/stencil-technology-stack.md"
+        },
+        {
+          "type": "item",
+          "title": "Transitioning To Stencil",
+          "uri": "/docs/stencil-docs/getting-started/transitioning-to-stencil.md"
         }
       ]
     },
     {
-      "type": "divider",
-      "title": "Partner Information"
-    },
-    {
-      "type": "item",
-      "title": "Becoming A Partner",
-      "slug": "/becoming-a-partner",
-      "href": "/api-docs/partner/becoming-a-partner",
-      "uri": "docs/api-docs/partner/becoming-a-partner.md"
-    },
-    {
       "type": "group",
-      "title": "Getting Started",
-      "slug": "/getting-started",
+      "title": "headless",
       "items": [
         {
           "type": "item",
-          "title": "Create a Sandbox Store",
-          "slug": "/create-a-sandbox-store",
-          "href": "/api-docs/partner/getting-started/create-a-sandbox-store",
-          "uri": "docs/api-docs/partner/create-a-sandbox.md"
+          "title": "Carts",
+          "uri": "/docs/api-docs/headless/carts.md"
+        },
+        {
+          "type": "item",
+          "title": "Channels",
+          "uri": "/docs/api-docs/headless/channels.md"
+        },
+        {
+          "type": "item",
+          "title": "Checkout",
+          "uri": "/docs/api-docs/headless/checkout.md"
+        },
+        {
+          "type": "item",
+          "title": "Customers",
+          "uri": "/docs/api-docs/headless/customers.md"
+        },
+        {
+          "type": "item",
+          "title": "Orders",
+          "uri": "/docs/api-docs/headless/orders.md"
+        },
+        {
+          "type": "item",
+          "title": "Overview",
+          "uri": "/docs/api-docs/headless/overview.md"
+        },
+        {
+          "type": "item",
+          "title": "Pci Compliance",
+          "uri": "/docs/api-docs/headless/pci-compliance.md"
+        },
+        {
+          "type": "item",
+          "title": "Products",
+          "uri": "/docs/api-docs/headless/products.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "management-apis",
+      "items": [
+        {
+          "type": "item",
+          "title": "Contextual Filters",
+          "uri": "/docs/api-docs/management-apis/contextual-filters.md"
         },
         {
           "type": "group",
-          "title": "BigCommerce API Basics",
-          "slug": "/api-basics",
+          "title": "email-templates",
           "items": [
             {
               "type": "item",
-              "title": "Quick Start",
-              "slug": "/quick-start",
-              "href": "/api-docs/partner/getting-started/api-basics/quick-start",
-              "uri": "docs/api-docs/getting-started/making-requests.md"
+              "title": "Email Template Examples",
+              "uri": "/docs/api-docs/management-apis/email-templates/email-template-examples.md"
             },
             {
               "type": "item",
-              "title": "Authentication",
-              "slug": "/authentication",
-              "href": "/api-docs/partner/getting-started/api-basics/authentication",
-              "uri": "docs/api-docs/getting-started/authentication.md"
-            },
-            {
-              "type": "item",
-              "title": "API Best Practices",
-              "slug": "/api-best-practices",
-              "href": "/api-docs/partner/getting-started/api-basics/api-best-practices",
-              "uri": "docs/api-docs/getting-started/best-practices.md"
+              "title": "Overview",
+              "uri": "/docs/api-docs/management-apis/email-templates/overview.md"
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "orders",
+      "items": [
+        {
+          "type": "item",
+          "title": "Order Refunds",
+          "uri": "/docs/api-docs/orders/order-refunds.md"
         },
         {
-          "type": "group",
-          "title": "Application Development",
-          "slug": "/app-development",
-          "items": [
-            {
-              "type": "item",
-              "title": "Developer Portal Overview",
-              "slug": "/dev-portal-overview",
-              "href": "/api-docs/partner/getting-started/app-development/dev-portal-overview",
-              "uri": "docs/api-docs/partner/dev-portal-overview.md"
-            },
-            {
-              "type": "group",
-              "title": "Development Guidelines",
-              "slug": "/development-guidelines",
-              "items": [
-                {
-                  "type": "item",
-                  "title": "Approval Requirements",
-                  "slug": "/approval-requirements",
-                  "href": "/api-docs/partner/getting-started/app-development/development-guidelines/approval-requirements",
-                  "uri": "docs/api-docs/apps/guide/apps-12-requirements.md"
-                },
-                {
-                  "type": "item",
-                  "title": "App Development Best Practices",
-                  "slug": "/best-practices",
-                  "href": "/api-docs/partner/getting-started/app-development/development-guidelines/best-practices",
-                  "uri": "docs/api-docs/apps/guide/apps-11-best-practices.md"
-                }
-              ]
-            },
-            {
-              "type": "group",
-              "title": "Single-Click Apps",
-              "slug": "/single-click-apps",
-              "items": [
-                {
-                  "type": "item",
-                  "title": "Types of Apps",
-                  "slug": "/types-of-apps",
-                  "href": "/api-docs/partner/getting-started/app-development/single-click-apps/types-of-apps",
-                  "uri": "docs/api-docs/apps/guide/apps-02-types.md"
-                },
-                {
-                  "type": "item",
-                  "title": "Single-Click App OAuth Flow",
-                  "slug": "/single-click-app-oauth-flow",
-                  "href": "/api-docs/partner/getting-started/app-development/single-click-apps/single-click-app-oauth-flow",
-                  "uri": "docs/api-docs/apps/guide/apps-05-oauth.md"
-                }
-              ]
-            },
-            {
-              "type": "group",
-              "title": "Tutorials",
-              "slug": "/tutorials",
-              "items": [
-                {
-                  "type": "item",
-                  "title": "Quick Start",
-                  "slug": "/quick-start",
-                  "href": "/api-docs/partner/getting-started/app-development/tutorials/quick-start",
-                  "uri": "docs/api-docs/apps/apps-quick-start.md"
-                },
-                {
-                  "type": "item",
-                  "title": "Beginning App Development",
-                  "slug": "/beginning-app-development",
-                  "href": "/api-docs/partner/getting-started/app-development/tutorials/beginning-app-development",
-                  "uri": "docs/api-docs/apps/guide/apps-03-developing.md"
-                },
-                {
-                  "type": "item",
-                  "title": "Publishing an App",
-                  "slug": "/publishing-an-app",
-                  "href": "/api-docs/partner/getting-started/app-development/tutorials/publishing-an-app",
-                  "uri": "docs/api-docs/apps/guide/apps-13-publishing.md"
-                }
-              ]
-            }
-          ]
+          "type": "item",
+          "title": "Orders Api Overview",
+          "uri": "/docs/api-docs/orders/orders-api-overview.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "partner",
+      "items": [
+        {
+          "type": "item",
+          "title": "Becoming A Partner",
+          "uri": "/docs/api-docs/partner/becoming-a-partner.md"
+        },
+        {
+          "type": "item",
+          "title": "Create A Sandbox",
+          "uri": "/docs/api-docs/partner/create-a-sandbox.md"
+        },
+        {
+          "type": "item",
+          "title": "Dev Portal Overview",
+          "uri": "/docs/api-docs/partner/dev-portal-overview.md"
+        },
+        {
+          "type": "item",
+          "title": "Marketing Api Overview",
+          "uri": "/docs/api-docs/partner/marketing-api-overview.md"
         },
         {
           "type": "item",
           "title": "Resources",
-          "slug": "/resources",
-          "href": "/api-docs/partner/getting-started/resources",
-          "uri": "docs/api-docs/partner/resources.md"
+          "uri": "/docs/api-docs/partner/resources.md"
+        },
+        {
+          "type": "item",
+          "title": "Staying Current",
+          "uri": "/docs/api-docs/partner/staying-current.md"
         },
         {
           "type": "item",
           "title": "Support",
-          "slug": "/support",
-          "href": "/api-docs/partner/getting-started/support",
-          "uri": "docs/api-docs/partner/support.md"
+          "uri": "/docs/api-docs/partner/support.md"
         }
       ]
+    },
+    {
+      "type": "group",
+      "title": "payments",
+      "items": [
+        {
+          "type": "item",
+          "title": "Payments Api Overview",
+          "uri": "/docs/api-docs/payments/payments-api-overview.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "provider-apis",
+      "items": [
+        {
+          "type": "group",
+          "title": "tax",
+          "items": [
+            {
+              "type": "item",
+              "title": "Overview",
+              "uri": "/docs/api-docs/provider-apis/tax/overview.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "store-management",
+      "items": [
+        {
+          "type": "group",
+          "title": "shipping",
+          "items": [
+            {
+              "type": "item",
+              "title": "Shipper Hq",
+              "uri": "/docs/api-docs/store-management/shipping/shipper-hq.md"
+            },
+            {
+              "type": "item",
+              "title": "Shipping Overview",
+              "uri": "/docs/api-docs/store-management/shipping/shipping-overview.md"
+            },
+            {
+              "type": "item",
+              "title": "Shipping Provider Api",
+              "uri": "/docs/api-docs/store-management/shipping/shipping-provider-api.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "storefront",
+      "items": [
+        {
+          "type": "group",
+          "title": "graphql",
+          "items": [
+            {
+              "type": "item",
+              "title": "Graphql Api Examples",
+              "uri": "/docs/api-docs/storefront/graphql/graphql-api-examples.md"
+            },
+            {
+              "type": "item",
+              "title": "Graphql Api Overview",
+              "uri": "/docs/api-docs/storefront/graphql/graphql-api-overview.md"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "title": "Scripts Overview",
+          "uri": "/docs/api-docs/storefront/scripts-overview.md"
+        },
+        {
+          "type": "group",
+          "title": "widgets",
+          "items": [
+            {
+              "type": "item",
+              "title": "Global Regions Tutorial",
+              "uri": "/docs/api-docs/storefront/widgets/global-regions-tutorial.md"
+            },
+            {
+              "type": "item",
+              "title": "Product Widget Tutorial",
+              "uri": "/docs/api-docs/storefront/widgets/product-widget-tutorial.md"
+            },
+            {
+              "type": "item",
+              "title": "Widget Builder",
+              "uri": "/docs/api-docs/storefront/widgets/widget-builder.md"
+            },
+            {
+              "type": "item",
+              "title": "Widget Versioning Tutorial",
+              "uri": "/docs/api-docs/storefront/widgets/widget-versioning-tutorial.md"
+            },
+            {
+              "type": "item",
+              "title": "Widgets Code Samples",
+              "uri": "/docs/api-docs/storefront/widgets/widgets-code-samples.md"
+            },
+            {
+              "type": "item",
+              "title": "Widgets Localizing Settings",
+              "uri": "/docs/api-docs/storefront/widgets/widgets-localizing-settings.md"
+            },
+            {
+              "type": "item",
+              "title": "Widgets Overview",
+              "uri": "/docs/api-docs/storefront/widgets/widgets-overview.md"
+            },
+            {
+              "type": "item",
+              "title": "Widgets Tutorial",
+              "uri": "/docs/api-docs/storefront/widgets/widgets-tutorial.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "void",
+      "items": [
+        {
+          "type": "item",
+          "title": "Void",
+          "uri": "/docs/api-docs/void/void.md"
+        }
+      ]
+    },
+    {
+      "type": "divider",
+      "title": "bigcommerce-for-wordpress"
+    },
+    {
+      "type": "group",
+      "title": "changelog",
+      "items": [
+        {
+          "type": "item",
+          "title": "Plugin Changelog",
+          "uri": "/docs/bigcommerce-for-wordpress/changelog/plugin-changelog.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "extending-the-plugin",
+      "items": [
+        {
+          "type": "item",
+          "title": "Amp For The Plugin",
+          "uri": "/docs/bigcommerce-for-wordpress/extending-the-plugin/amp-for-the-plugin.md"
+        },
+        {
+          "type": "item",
+          "title": "Code Reference",
+          "uri": "/docs/bigcommerce-for-wordpress/extending-the-plugin/code-reference.md"
+        },
+        {
+          "type": "item",
+          "title": "Customization Guide",
+          "uri": "/docs/bigcommerce-for-wordpress/extending-the-plugin/customization-guide.md"
+        },
+        {
+          "type": "item",
+          "title": "Multi Channel Capabilities",
+          "uri": "/docs/bigcommerce-for-wordpress/extending-the-plugin/multi-channel-capabilities.md"
+        },
+        {
+          "type": "item",
+          "title": "Proxy Rest Api Endpoints",
+          "uri": "/docs/bigcommerce-for-wordpress/extending-the-plugin/proxy-rest-api-endpoints.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "setup",
+      "items": [
+        {
+          "type": "item",
+          "title": "Multi Site",
+          "uri": "/docs/bigcommerce-for-wordpress/setup/multi-site.md"
+        },
+        {
+          "type": "item",
+          "title": "Plugin Settings",
+          "uri": "/docs/bigcommerce-for-wordpress/setup/plugin-settings.md"
+        },
+        {
+          "type": "item",
+          "title": "Product Import",
+          "uri": "/docs/bigcommerce-for-wordpress/setup/product-import.md"
+        },
+        {
+          "type": "item",
+          "title": "Shortcodes",
+          "uri": "/docs/bigcommerce-for-wordpress/setup/shortcodes.md"
+        },
+        {
+          "type": "item",
+          "title": "Troubleshooting",
+          "uri": "/docs/bigcommerce-for-wordpress/setup/troubleshooting.md"
+        }
+      ]
+    },
+    {
+      "type": "divider",
+      "title": "legacy"
+    },
+    {
+      "type": "group",
+      "title": "blueprint-reference",
+      "items": [
+        {
+          "type": "item",
+          "title": "Blueprint Layouts",
+          "uri": "/docs/legacy/blueprint-reference/blueprint-layouts.md"
+        },
+        {
+          "type": "item",
+          "title": "Blueprint Panels",
+          "uri": "/docs/legacy/blueprint-reference/blueprint-panels.md"
+        },
+        {
+          "type": "item",
+          "title": "Blueprint Snippets",
+          "uri": "/docs/legacy/blueprint-reference/blueprint-snippets.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "blueprint-themes",
+      "items": [
+        {
+          "type": "item",
+          "title": "Anatomy Of A Theme",
+          "uri": "/docs/legacy/blueprint-themes/anatomy-of-a-theme.md"
+        },
+        {
+          "type": "item",
+          "title": "Blueprint And Developer Mode",
+          "uri": "/docs/legacy/blueprint-themes/blueprint-and-developer-mode.md"
+        },
+        {
+          "type": "item",
+          "title": "Blueprint Email Templates",
+          "uri": "/docs/legacy/blueprint-themes/blueprint-email-templates.md"
+        },
+        {
+          "type": "item",
+          "title": "Blueprint Template Syntax",
+          "uri": "/docs/legacy/blueprint-themes/blueprint-template-syntax.md"
+        },
+        {
+          "type": "item",
+          "title": "Blueprint Theme Update Process",
+          "uri": "/docs/legacy/blueprint-themes/blueprint-theme-update-process.md"
+        },
+        {
+          "type": "item",
+          "title": "Checkout Styling",
+          "uri": "/docs/legacy/blueprint-themes/checkout-styling.md"
+        },
+        {
+          "type": "item",
+          "title": "Global Variables",
+          "uri": "/docs/legacy/blueprint-themes/global-variables.md"
+        },
+        {
+          "type": "item",
+          "title": "Lng Variables",
+          "uri": "/docs/legacy/blueprint-themes/lng-variables.md"
+        },
+        {
+          "type": "item",
+          "title": "Product Filtering Toolkit",
+          "uri": "/docs/legacy/blueprint-themes/product-filtering-toolkit.md"
+        },
+        {
+          "type": "item",
+          "title": "Recaptcha Two",
+          "uri": "/docs/legacy/blueprint-themes/recaptcha-two.md"
+        },
+        {
+          "type": "item",
+          "title": "Store Wide Global Panels",
+          "uri": "/docs/legacy/blueprint-themes/store-wide-global-panels.md"
+        },
+        {
+          "type": "item",
+          "title": "Store Wide Global Variables",
+          "uri": "/docs/legacy/blueprint-themes/store-wide-global-variables.md"
+        },
+        {
+          "type": "item",
+          "title": "Style Editor",
+          "uri": "/docs/legacy/blueprint-themes/style-editor.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "stencil-themes",
+      "items": [
+        {
+          "type": "item",
+          "title": "Stored Credit Card Management",
+          "uri": "/docs/legacy/stencil-themes/stored-credit-card-management.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "v2-catalog-products",
+      "items": [
+        {
+          "type": "item",
+          "title": "V 2 Brands",
+          "uri": "/docs/legacy/v2-catalog-products/v2-brands.md"
+        },
+        {
+          "type": "item",
+          "title": "V 2 Bulk Pricing",
+          "uri": "/docs/legacy/v2-catalog-products/v2-bulk-pricing.md"
+        },
+        {
+          "type": "item",
+          "title": "V 2 Categories",
+          "uri": "/docs/legacy/v2-catalog-products/v2-categories.md"
+        },
+        {
+          "type": "item",
+          "title": "V 2 Custom Fields",
+          "uri": "/docs/legacy/v2-catalog-products/v2-custom-fields.md"
+        },
+        {
+          "type": "item",
+          "title": "V 2 Option Set Options",
+          "uri": "/docs/legacy/v2-catalog-products/v2-option-set-options.md"
+        },
+        {
+          "type": "item",
+          "title": "V 2 Option Sets",
+          "uri": "/docs/legacy/v2-catalog-products/v2-option-sets.md"
+        },
+        {
+          "type": "item",
+          "title": "V 2 Option Values",
+          "uri": "/docs/legacy/v2-catalog-products/v2-option-values.md"
+        },
+        {
+          "type": "item",
+          "title": "V 2 Options",
+          "uri": "/docs/legacy/v2-catalog-products/v2-options.md"
+        },
+        {
+          "type": "item",
+          "title": "V 2 Product Images",
+          "uri": "/docs/legacy/v2-catalog-products/v2-product-images.md"
+        },
+        {
+          "type": "item",
+          "title": "V 2 Product Options",
+          "uri": "/docs/legacy/v2-catalog-products/v2-product-options.md"
+        },
+        {
+          "type": "item",
+          "title": "V 2 Product Reviews",
+          "uri": "/docs/legacy/v2-catalog-products/v2-product-reviews.md"
+        },
+        {
+          "type": "item",
+          "title": "V 2 Product Rules",
+          "uri": "/docs/legacy/v2-catalog-products/v2-product-rules.md"
+        },
+        {
+          "type": "item",
+          "title": "V 2 Product Sku",
+          "uri": "/docs/legacy/v2-catalog-products/v2-product-sku.md"
+        },
+        {
+          "type": "item",
+          "title": "V 2 Product Videos",
+          "uri": "/docs/legacy/v2-catalog-products/v2-product-videos.md"
+        },
+        {
+          "type": "item",
+          "title": "V 2 Products",
+          "uri": "/docs/legacy/v2-catalog-products/v2-products.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "v2-products",
+      "items": [
+        {
+          "type": "item",
+          "title": "V 2 V 3",
+          "uri": "/docs/legacy/v2-products/v2-v3.md"
+        }
+      ]
+    },
+    {
+      "type": "divider",
+      "title": "MSF"
     },
     {
       "type": "item",
-      "title": "Staying Current with Platform Changes",
-      "slug": "/staying-current",
-      "href": "/api-docs/partner/staying-current",
-      "uri": "docs/api-docs/partner/staying-current.md"
+      "title": "Cart Checkout",
+      "uri": "/docs/MSF/Cart_Checkout.md"
+    },
+    {
+      "type": "item",
+      "title": "Categories",
+      "uri": "/docs/MSF/Categories.md"
+    },
+    {
+      "type": "item",
+      "title": "Channels",
+      "uri": "/docs/MSF/Channels.md"
+    },
+    {
+      "type": "item",
+      "title": "Customers",
+      "uri": "/docs/MSF/Customers.md"
+    },
+    {
+      "type": "item",
+      "title": "Managing Store Configuration",
+      "uri": "/docs/MSF/Managing Store Configuration.md"
+    },
+    {
+      "type": "item",
+      "title": "Orders",
+      "uri": "/docs/MSF/Orders.md"
+    },
+    {
+      "type": "item",
+      "title": "Overview",
+      "uri": "/docs/MSF/Overview.md"
+    },
+    {
+      "type": "item",
+      "title": "Price List",
+      "uri": "/docs/MSF/Price_List.md"
+    },
+    {
+      "type": "item",
+      "title": "Products",
+      "uri": "/docs/MSF/Products.md"
+    },
+    {
+      "type": "item",
+      "title": "Store Settings",
+      "uri": "/docs/MSF/Store_Settings.md"
+    },
+    {
+      "type": "item",
+      "title": "Storefront Content",
+      "uri": "/docs/MSF/Storefront_Content.md"
+    },
+    {
+      "type": "item",
+      "title": "Subscribers",
+      "uri": "/docs/MSF/Subscribers.md"
+    },
+    {
+      "type": "divider",
+      "title": "partner-apps"
     },
     {
       "type": "group",
-      "title": "POS Solutions",
-      "slug": "/pos-solutions",
+      "title": "bundleb2b",
       "items": [
         {
           "type": "item",
-          "title": "Catalog",
-          "slug": "/catalog",
-          "href": "/api-docs/partner/pos-solutions/catalog",
-          "uri": "docs/api-docs/catalog/products-overview.md"
-        },
+          "title": "B 2 B Edition",
+          "uri": "/docs/partner-apps/bundleb2b/b2b-edition.md"
+        }
+      ]
+    },
+    {
+      "type": "divider",
+      "title": "stencil-docs"
+    },
+    {
+      "type": "group",
+      "title": "configure-store-design-ui",
+      "items": [
         {
           "type": "item",
-          "title": "Channels",
-          "slug": "/channels",
-          "href": "/api-docs/partner/pos-solutions/channels",
-          "uri": "docs/api-docs/channels/channels-overview.md"
-        },
-        {
-          "type": "item",
-          "title": "Customers & Subscribers",
-          "slug": "/customers-subscribers",
-          "href": "/api-docs/partner/pos-solutions/customers-subscribers",
-          "uri": "docs/api-docs/customers/customers-subscribers-overview.md"
-        },
-        {
-          "type": "item",
-          "title": "Orders",
-          "slug": "/orders",
-          "href": "/api-docs/partner/pos-solutions/orders",
-          "uri": "docs/api-docs/orders/orders-api-overview.md"
+          "title": "Defining Global Styles",
+          "uri": "/docs/stencil-docs/configure-store-design-ui/defining-global-styles.md"
         }
       ]
     },
     {
       "type": "group",
-      "title": "ERP Solutions",
-      "slug": "/erp-solutions",
+      "title": "customizing-checkout",
       "items": [
         {
           "type": "item",
-          "title": "Capture",
-          "slug": "/capture",
-          "href": "/api-docs/partner/erp-solutions/capture",
-          "uri": "docs/api-docs/capture/capture.md"
+          "title": "Checkout Confirmation Injection",
+          "uri": "/docs/stencil-docs/customizing-checkout/checkout-confirmation-injection.md"
         },
         {
           "type": "item",
-          "title": "Catalog",
-          "slug": "/catalog",
-          "href": "/api-docs/partner/erp-solutions/catalog",
-          "uri": "docs/api-docs/catalog/products-overview.md"
+          "title": "Checkout Sdk Quickstart",
+          "uri": "/docs/stencil-docs/customizing-checkout/checkout-sdk-quickstart.md"
         },
         {
           "type": "item",
-          "title": "Channels",
-          "slug": "/channels",
-          "href": "/api-docs/partner/erp-solutions/channels",
-          "uri": "docs/api-docs/channels/channels-overview.md"
+          "title": "Open Checkout Quick Start",
+          "uri": "/docs/stencil-docs/customizing-checkout/open-checkout-quick-start.md"
         },
         {
           "type": "item",
-          "title": "Customers & Subscribers",
-          "slug": "/customers-subscribers",
-          "href": "/api-docs/partner/erp-solutions/customers-subscribers",
-          "uri": "docs/api-docs/customers/customers-subscribers-overview.md"
+          "title": "Optimized One Page Checkout",
+          "uri": "/docs/stencil-docs/customizing-checkout/optimized-one-page-checkout.md"
         },
         {
           "type": "item",
-          "title": "Orders",
-          "slug": "/orders",
-          "href": "/api-docs/partner/erp-solutions/orders",
-          "uri": "docs/api-docs/orders/orders-api-overview.md"
-        },
-        {
-          "type": "item",
-          "title": "Payments",
-          "slug": "/payments",
-          "href": "/api-docs/partner/erp-solutions/payments",
-          "uri": "docs/api-docs/payments/payments-api-overview.md"
-        },
-        {
-          "type": "item",
-          "title": "Shipping",
-          "slug": "/shipping",
-          "href": "/api-docs/partner/erp-solutions/shipping",
-          "uri": "docs/api-docs/store-management/shipping/shipping-overview.md"
-        },
-        {
-          "type": "item",
-          "title": "Void",
-          "slug": "/void",
-          "href": "/api-docs/partner/erp-solutions/void",
-          "uri": "docs/api-docs/void/void.md"
+          "title": "Paypal Smart Buttons",
+          "uri": "/docs/stencil-docs/customizing-checkout/paypal-smart-buttons.md"
         }
       ]
     },
     {
       "type": "group",
-      "title": "PIM Solutions",
-      "slug": "/pim-solutions",
+      "title": "deploying-a-theme",
       "items": [
         {
           "type": "item",
-          "title": "Catalog",
-          "slug": "/catalog",
-          "href": "/api-docs/partner/pim-solutions/catalog",
-          "uri": "docs/api-docs/catalog/products-overview.md"
+          "title": "Bundling And Pushing",
+          "uri": "/docs/stencil-docs/deploying-a-theme/bundling-and-pushing.md"
         },
         {
           "type": "item",
-          "title": "Channels",
-          "slug": "/channels",
-          "href": "/api-docs/partner/pim-solutions/channels",
-          "uri": "docs/api-docs/channels/channels-overview.md"
+          "title": "Checking A Themes Size",
+          "uri": "/docs/stencil-docs/deploying-a-theme/checking-a-themes-size.md"
+        },
+        {
+          "type": "item",
+          "title": "Naming Your Theme",
+          "uri": "/docs/stencil-docs/deploying-a-theme/naming-your-theme.md"
+        },
+        {
+          "type": "item",
+          "title": "Preparing Thumbnail Images",
+          "uri": "/docs/stencil-docs/deploying-a-theme/preparing-thumbnail-images.md"
+        },
+        {
+          "type": "item",
+          "title": "Theme Best Practices",
+          "uri": "/docs/stencil-docs/deploying-a-theme/theme-best-practices.md"
+        },
+        {
+          "type": "item",
+          "title": "Troubleshooting Theme Uploads",
+          "uri": "/docs/stencil-docs/deploying-a-theme/troubleshooting-theme-uploads.md"
         }
       ]
     },
     {
       "type": "group",
-      "title": "OMS Solutions",
-      "slug": "/oms-solutions",
+      "title": "developing-further",
       "items": [
         {
           "type": "item",
-          "title": "Capture",
-          "slug": "/capture",
-          "href": "/api-docs/partner/oms-solutions/capture",
-          "uri": "docs/api-docs/capture/capture.md"
+          "title": "Add Recaptcha V 2",
+          "uri": "/docs/stencil-docs/developing-further/add-recaptcha-v2.md"
         },
         {
           "type": "item",
-          "title": "Channels",
-          "slug": "/channels",
-          "href": "/api-docs/partner/oms-solutions/channels",
-          "uri": "docs/api-docs/channels/channels-overview.md"
+          "title": "Catalog Price Object",
+          "uri": "/docs/stencil-docs/developing-further/catalog-price-object.md"
         },
         {
           "type": "item",
-          "title": "Customers & Subscribers",
-          "slug": "/customers-subscribers",
-          "href": "/api-docs/partner/oms-solutions/customers-subscribers",
-          "uri": "docs/api-docs/customers/customers-subscribers-overview.md"
+          "title": "Customizing Emails",
+          "uri": "/docs/stencil-docs/developing-further/customizing-emails.md"
         },
         {
           "type": "item",
-          "title": "Orders",
-          "slug": "/orders",
-          "href": "/api-docs/partner/oms-solutions/orders",
-          "uri": "docs/api-docs/orders/orders-api-overview.md"
+          "title": "Customizing Invoices",
+          "uri": "/docs/stencil-docs/developing-further/customizing-invoices.md"
         },
         {
           "type": "item",
-          "title": "Shipping",
-          "slug": "/shipping",
-          "href": "/api-docs/partner/oms-solutions/shipping",
-          "uri": "docs/api-docs/store-management/shipping/shipping-overview.md"
+          "title": "Customizing Printable Packing Slips",
+          "uri": "/docs/stencil-docs/developing-further/customizing-printable-packing-slips.md"
         },
         {
           "type": "item",
-          "title": "Void",
-          "slug": "/void",
-          "href": "/api-docs/partner/oms-solutions/void",
-          "uri": "docs/api-docs/void/void.md"
+          "title": "Google Amp",
+          "uri": "/docs/stencil-docs/developing-further/google-amp.md"
+        },
+        {
+          "type": "item",
+          "title": "Google Analytics Enhanced Ecommerce",
+          "uri": "/docs/stencil-docs/developing-further/google-analytics-enhanced-ecommerce.md"
+        },
+        {
+          "type": "item",
+          "title": "Modifying Forms",
+          "uri": "/docs/stencil-docs/developing-further/modifying-forms.md"
+        },
+        {
+          "type": "item",
+          "title": "Stored Credit Card Management",
+          "uri": "/docs/stencil-docs/developing-further/stored-credit-card-management.md"
+        },
+        {
+          "type": "item",
+          "title": "Theme Updates And Version Control",
+          "uri": "/docs/stencil-docs/developing-further/theme-updates-and-version-control.md"
         }
       ]
     },
     {
       "type": "group",
-      "title": "Marketing Solutions",
-      "slug": "/marketing-solutions",
+      "title": "installing-stencil-cli",
       "items": [
         {
           "type": "item",
-          "title": "Channels",
-          "slug": "/channels",
-          "href": "/api-docs/partner/marketing-solutions/channels",
-          "uri": "docs/api-docs/channels/channels-overview.md"
+          "title": "Installing Stencil",
+          "uri": "/docs/stencil-docs/installing-stencil-cli/installing-stencil.md"
         },
         {
           "type": "item",
-          "title": "Customers & Subscribers",
-          "slug": "/customers-subscribers",
-          "href": "/api-docs/partner/marketing-solutions/customers-subscribers",
-          "uri": "docs/api-docs/customers/customers-subscribers-overview.md"
+          "title": "Live Previewing A Theme",
+          "uri": "/docs/stencil-docs/installing-stencil-cli/live-previewing-a-theme.md"
         },
         {
           "type": "item",
-          "slug": "/",
-          "href": "/api-docs/partner/marketing-solutions/marketing",
-          "title": "Marketing",
-          "uri": "docs/api-docs/partner/marketing-api-overview.md"
+          "title": "Stencil Cli Options And Commands",
+          "uri": "/docs/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands.md"
         },
         {
           "type": "item",
-          "title": "Scripts",
-          "slug": "/scripts",
-          "href": "/api-docs/partner/marketing-solutions/scripts",
-          "uri": "docs/api-docs/storefront/scripts-overview.md"
-        },
-        {
-          "type": "item",
-          "title": "Widgets",
-          "slug": "/widgets",
-          "href": "/api-docs/partner/marketing-solutions/widgets",
-          "uri": "docs/api-docs/storefront/widgets/widgets-overview.md"
+          "title": "Troubleshooting Your Setup",
+          "uri": "/docs/stencil-docs/installing-stencil-cli/troubleshooting-your-setup.md"
         }
       ]
     },
     {
       "type": "group",
-      "title": "Shipping Solutions",
-      "slug": "/shipping-solutions",
+      "title": "javascript-and-event-hooks",
       "items": [
         {
           "type": "item",
-          "title": "Capture",
-          "slug": "/capture",
-          "href": "/api-docs/partner/shipping-solutions/capture",
-          "uri": "docs/api-docs/capture/capture.md"
+          "title": "Adding Javascript",
+          "uri": "/docs/stencil-docs/javascript-and-event-hooks/adding-javascript.md"
         },
         {
           "type": "item",
-          "title": "Channels",
-          "slug": "/channels",
-          "href": "/api-docs/partner/shipping-solutions/channels",
-          "uri": "docs/api-docs/channels/channels-overview.md"
+          "title": "Customizing Javascript",
+          "uri": "/docs/stencil-docs/javascript-and-event-hooks/customizing-javascript.md"
         },
         {
           "type": "item",
-          "title": "Checkout",
-          "slug": "/checkout",
-          "href": "/api-docs/partner/shipping-solutions/checkout",
-          "uri": "docs/api-docs/cart-and-checkout/cart-and-checkout-overview.md"
+          "title": "Event Hooks",
+          "uri": "/docs/stencil-docs/javascript-and-event-hooks/event-hooks.md"
         },
         {
           "type": "item",
-          "title": "Orders",
-          "slug": "/orders",
-          "href": "/api-docs/partner/shipping-solutions/orders",
-          "uri": "docs/api-docs/orders/orders-api-overview.md"
+          "title": "Npm Tutorials",
+          "uri": "/docs/stencil-docs/javascript-and-event-hooks/npm-tutorials.md"
         },
         {
           "type": "item",
-          "title": "Scripts",
-          "slug": "/scripts",
-          "href": "/api-docs/partner/shipping-solutions/scripts",
-          "uri": "docs/api-docs/storefront/scripts-overview.md"
+          "title": "Remote Api Tutorial",
+          "uri": "/docs/stencil-docs/javascript-and-event-hooks/remote-api-tutorial.md"
         },
         {
           "type": "item",
-          "title": "Shipping",
-          "slug": "/shipping",
-          "href": "/api-docs/partner/shipping-solutions/shipping",
-          "uri": "docs/api-docs/store-management/shipping/shipping-overview.md"
-        },
-        {
-          "type": "item",
-          "title": "Widgets",
-          "slug": "/widgets",
-          "href": "/api-docs/partner/shipping-solutions/widgets",
-          "uri": "docs/api-docs/storefront/widgets/widgets-overview.md"
+          "title": "Rendering Html With Ajax",
+          "uri": "/docs/stencil-docs/javascript-and-event-hooks/rendering-html-with-ajax.md"
         }
       ]
     },
     {
       "type": "group",
-      "title": "Payment Solutions",
-      "slug": "/payment-solutions",
+      "title": "localization",
       "items": [
         {
           "type": "item",
-          "title": "Checkout",
-          "slug": "/checkout",
-          "href": "/api-docs/partner/payment-solutions/checkout",
-          "uri": "docs/api-docs/cart-and-checkout/cart-and-checkout-overview.md"
+          "title": "Localization Tutorial",
+          "uri": "/docs/stencil-docs/localization/localization-tutorial.md"
         },
         {
           "type": "item",
-          "title": "Payments",
-          "slug": "/payments",
-          "href": "/api-docs/partner/payment-solutions/payments",
-          "uri": "docs/api-docs/payments/payments-api-overview.md"
+          "title": "Localizing Stores",
+          "uri": "/docs/stencil-docs/localization/localizing-stores.md"
         },
         {
           "type": "item",
-          "title": "Scripts",
-          "slug": "/scripts",
-          "href": "/api-docs/partner/payment-solutions/scripts",
-          "uri": "docs/api-docs/storefront/scripts-overview.md"
+          "title": "Multi Language Checkout",
+          "uri": "/docs/stencil-docs/localization/multi-language-checkout.md"
         },
         {
           "type": "item",
-          "title": "Widgets",
-          "slug": "/widgets",
-          "href": "/api-docs/partner/payment-solutions/widgets",
-          "uri": "docs/api-docs/storefront/widgets/widgets-overview.md"
+          "title": "Translating Regions",
+          "uri": "/docs/stencil-docs/localization/translating-regions.md"
+        },
+        {
+          "type": "item",
+          "title": "Translation Keys",
+          "uri": "/docs/stencil-docs/localization/translation-keys.md"
         }
       ]
+    },
+    {
+      "type": "group",
+      "title": "page-builder",
+      "items": [
+        {
+          "type": "item",
+          "title": "Configuration",
+          "uri": "/docs/stencil-docs/page-builder/configuration.md"
+        },
+        {
+          "type": "item",
+          "title": "Page Builder Overview",
+          "uri": "/docs/stencil-docs/page-builder/page-builder-overview.md"
+        },
+        {
+          "type": "item",
+          "title": "Third Party Widgets",
+          "uri": "/docs/stencil-docs/page-builder/third-party-widgets.md"
+        },
+        {
+          "type": "item",
+          "title": "Widget Ui Schema",
+          "uri": "/docs/stencil-docs/page-builder/widget-ui-schema.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "reference-docs",
+      "items": [
+        {
+          "type": "item",
+          "title": "Common Objects",
+          "uri": "/docs/stencil-docs/reference-docs/common-objects.md"
+        },
+        {
+          "type": "item",
+          "title": "Front Matter Reference",
+          "uri": "/docs/stencil-docs/reference-docs/front-matter-reference.md"
+        },
+        {
+          "type": "item",
+          "title": "Global Objects And Properties",
+          "uri": "/docs/stencil-docs/reference-docs/global-objects-and-properties.md"
+        },
+        {
+          "type": "item",
+          "title": "Handlebars Helpers Reference",
+          "uri": "/docs/stencil-docs/reference-docs/handlebars-helpers-reference.md"
+        },
+        {
+          "type": "item",
+          "title": "Other Objects And Properties Overview",
+          "uri": "/docs/stencil-docs/reference-docs/other-objects-and-properties-overview.md"
+        },
+        {
+          "type": "item",
+          "title": "Stencil Utils Api Reference",
+          "uri": "/docs/stencil-docs/reference-docs/stencil-utils-api-reference.md"
+        },
+        {
+          "type": "item",
+          "title": "Styles And Properties",
+          "uri": "/docs/stencil-docs/reference-docs/styles-and-properties.md"
+        },
+        {
+          "type": "item",
+          "title": "Theme Objects",
+          "uri": "/docs/stencil-docs/reference-docs/theme-objects.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "storefront-customization",
+      "items": [
+        {
+          "type": "item",
+          "title": "Custom Sass Functions",
+          "uri": "/docs/stencil-docs/storefront-customization/custom-sass-functions.md"
+        },
+        {
+          "type": "item",
+          "title": "Custom Templates",
+          "uri": "/docs/stencil-docs/storefront-customization/custom-templates.md"
+        },
+        {
+          "type": "item",
+          "title": "Directory Structure",
+          "uri": "/docs/stencil-docs/storefront-customization/directory-structure.md"
+        },
+        {
+          "type": "item",
+          "title": "Implementing Wcag Guidelines",
+          "uri": "/docs/stencil-docs/storefront-customization/implementing-WCAG-guidelines.md"
+        },
+        {
+          "type": "item",
+          "title": "Localizing Variation Descriptions",
+          "uri": "/docs/stencil-docs/storefront-customization/localizing-variation-descriptions.md"
+        },
+        {
+          "type": "item",
+          "title": "Page Composition And Styling",
+          "uri": "/docs/stencil-docs/storefront-customization/page-composition-and-styling.md"
+        },
+        {
+          "type": "item",
+          "title": "Theme Accessibility",
+          "uri": "/docs/stencil-docs/storefront-customization/theme-accessibility.md"
+        },
+        {
+          "type": "item",
+          "title": "Theme Assets",
+          "uri": "/docs/stencil-docs/storefront-customization/theme-assets.md"
+        },
+        {
+          "type": "item",
+          "title": "Using Custom Fonts And Icons",
+          "uri": "/docs/stencil-docs/storefront-customization/using-custom-fonts-and-icons.md"
+        },
+        {
+          "type": "item",
+          "title": "Using Disqus",
+          "uri": "/docs/stencil-docs/storefront-customization/using-disqus.md"
+        },
+        {
+          "type": "item",
+          "title": "Using Front Matter",
+          "uri": "/docs/stencil-docs/storefront-customization/using-front-matter.md"
+        },
+        {
+          "type": "item",
+          "title": "Wcag Compliance Levels",
+          "uri": "/docs/stencil-docs/storefront-customization/WCAG-compliance-levels.md"
+        }
+      ]
+    },
+    {
+      "type": "divider",
+      "title": "Schemas"
+    },
+    {
+      "type": "item",
+      "title": "Alignment",
+      "uri": "/docs/stencil-docs/page-builder/widget_alignment.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Color",
+      "uri": "/docs/stencil-docs/page-builder/widget_color.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Image Manager",
+      "uri": "/docs/stencil-docs/page-builder/widget_image_manager.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Input",
+      "uri": "/docs/stencil-docs/page-builder/widget_input.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Regex Input",
+      "uri": "/docs/stencil-docs/page-builder/widget_regex_input.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Text",
+      "uri": "/docs/stencil-docs/page-builder/widget_text.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Typography",
+      "uri": "/docs/stencil-docs/page-builder/widget_typography.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Visibility",
+      "uri": "/docs/stencil-docs/page-builder/widget_visibility.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Element Settings",
+      "uri": "/docs/stencil-docs/page-builder/widget_element_settings.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Range",
+      "uri": "/docs/stencil-docs/page-builder/widget_range.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Boolean",
+      "uri": "/docs/stencil-docs/page-builder/widget_boolean.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Box Model",
+      "uri": "/docs/stencil-docs/page-builder/widget_box_model.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Code",
+      "uri": "/docs/stencil-docs/page-builder/widget_code.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Number",
+      "uri": "/docs/stencil-docs/page-builder/widget_number.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Product ID",
+      "uri": "/docs/stencil-docs/page-builder/widget_product_ID.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Product Image",
+      "uri": "/docs/stencil-docs/page-builder/widget_product_image.yaml"
+    },
+    {
+      "type": "item",
+      "title": "Select",
+      "uri": "/docs/stencil-docs/page-builder/widget_select.yaml"
     }
   ]
 }

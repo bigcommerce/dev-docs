@@ -1,7 +1,5 @@
 # BigCommerce APIs Quick Start
 
-
-
 This quick start guide will take you through making your first requests with BigCommerce's APIs.
 
 ## REST API
