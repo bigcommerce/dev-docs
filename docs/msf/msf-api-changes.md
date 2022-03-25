@@ -12,7 +12,7 @@ If you use [cart redirect URLs](https://developer.bigcommerce.com/api-reference/
 
 Previously, a store had a collection of Categories, which were organized in a tree structure. This collection of categories has been migrated into the store's first Category Tree, and you have an opportunity to create additional Trees, which can be assigned to Channels.
 
-![categories-diagram.webp](https://stoplight.io/api/v1/projects/cHJqOjI4MDIz/images/HfM2xB4ksa4)
+![categories-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/categories-diagram.webp)
 
 Previously, a store had a collection of Categories, which were organized in a tree structure. This collection of categories has been migrated into the store's first Category Tree, and you have an opportunity to create additional Trees, which can be assigned to Channels.
 
@@ -28,7 +28,7 @@ If your application interacts with shoppers, you may be able to simply use the [
 
 A **Channel** is a place where the merchant sells products. This could be a storefront website, a marketplace such as Amazon or eBay, a POS system, a marketing feed, or a "Custom" channel which may not fit into one of these types. Merchants create new Channels when they wish to sell in a new context. Channels are useful to organize a merchant's complex business, and can be used to attach many other objects which are related to a particular shopper's experience on the Channel. 
 
-![channels-sites-diagram.webp](https://stoplight.io/api/v1/projects/cHJqOjI4MDIz/images/6uMX12RVuT8)
+![channels-sites-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/channels-sites-diagram.webp)
 
 A channel is defined by:
 
@@ -84,7 +84,7 @@ If your application simply needs to know what the price will be for a given shop
 
 Products must be "assigned" to a Channel in order to be sold on that Channel. For native Stencil storefronts, if a product is not assigned to the storefront's Channel, it will be hidden from that channel's storefront.
 
-![products-diagram.webp](https://stoplight.io/api/v1/projects/cHJqOjI4MDIz/images/Djh2L6UFyPg)
+![products-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/products-diagram.webp)
 
 If your application provides a selling Channel to merchants (e.g. a 3rd-party marketplace integration), it is recommended to check the products assigned to your Channel to understand which products have been marked as available to be sold on your Channel by the merchant. You may also want to consult the [Channel Listings API](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channel-listings/listchannellistings) for extended product information relevant to your Channel.
 
@@ -118,7 +118,7 @@ Unlike many of BigCommerce's APIs, Settings APIs usually don't involve a large c
 
 ### Global vs Contextual settings
 
-![settings-diagram.webp](https://stoplight.io/api/v1/projects/cHJqOjI4MDIz/images/vyW8mSdPW54)
+![settings-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/settings-diagram.webp)
 
 Most BigCommerce stores only sell on a single Channel, typically a single storefront website. When these stores are configuring their settings, they're modifying the "global" versions of those settings, which are used to affect the behavior of their single Channel.
 
@@ -271,7 +271,7 @@ The shopper-facing experience is represented via the Stencil storefront platform
 
 Scripts are associated with a particular Site. Any Scripts that were created previously have been assigned to the default Site (which has an id of `1000` on each store). If you do not supply a `site_id` when creating a Script, it will be assigned to the default Site. In order to support multi-storefront stores, you should explicitly assign Scripts to the appropriate Site on which they are intended to render. If you want the exact same Script to show up on several Sites, you must create the Script on each site.
 
-![scripts-diagram.webp](https://stoplight.io/api/v1/projects/cHJqOjI4MDIz/images/ERuNPsqZmNI)
+![scripts-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/scripts-diagram.webp)
 
 
 [Scripts API reference documentation](https://developer.bigcommerce.com/api-reference/store-management/scripts)
@@ -282,7 +282,7 @@ From a UX perspective, you may wish to prompt merchants who are setting up your 
 
 Pages are associated with a particular Site. Any Pages that were created previously have been assigned to the default Site (which has an id of `1000` on each store).
 
-![pages-diagram.webp](https://stoplight.io/api/v1/projects/cHJqOjI4MDIz/images/BvlyeHi9vig)
+![pages-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/pages-diagram.webp)
 
 
 [Pages API reference documentation](https://developer.bigcommerce.com/api-reference/store-management/store-content/pages/getallpages)
@@ -299,7 +299,7 @@ Going forward, it is recommended to interact directly with the appropriate `site
 
 ### 301 Redirects
 
-![redirects-diagram.webp](https://stoplight.io/api/v1/projects/cHJqOjI4MDIz/images/IB0KeC0AUG4)
+![redirects-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/redirects-diagram.webp)
 
 [Redirects API documentation](https://developer.bigcommerce.com/api-reference/store-management/redirects)
 
@@ -315,7 +315,7 @@ Previously, the Theme `/activate` endpoint would accept a `variation_id` and a `
 
 To support application of stores to different storefront Sites, you must now _instead_ supply a `site_id` and `configuration_id` to indicate exactly which storefront you wish to apply a Theme to, and which set of theme settings (Configurations) should be used.
 
-![themes-diagram.webp](https://stoplight.io/api/v1/projects/cHJqOjI4MDIz/images/JkCLW3yRbaY)
+![themes-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/themes-diagram.webp)
 
 [Themes API documentation](https://developer.bigcommerce.com/api-reference/store-management/themes)
 
