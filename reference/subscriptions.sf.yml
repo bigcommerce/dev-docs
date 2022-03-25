@@ -53,7 +53,7 @@ definitions:
       acceptsAbandonedCartEmails:
         type: boolean
         description: Has subscriber provided consent for receiving Abandon Cart emails.
-    x-internal: true
+    x-internal: false
   Subscription:
     type: object
     description: Subscription properties.
@@ -95,7 +95,7 @@ definitions:
         type: array
         description: |
           The collection of consents the shopper is subscribing to.
-    x-internal: true
+    x-internal: false
 x-stoplight:
   docs:
     includeDownloadLink: true

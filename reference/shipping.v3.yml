@@ -142,7 +142,7 @@ definitions:
             example: 1
             type: integer
       - $ref: '#/definitions/shippingMethod_Base'
-    x-internal: true
+    x-internal: false
   shippingMethod_Base:
     title: shippingMethod_Base
     type: object
@@ -216,7 +216,7 @@ definitions:
         description: Whether or not this shipping zone is the fallback if all others are not valid for the order.
         example: false
         type: boolean
-    x-internal: true
+    x-internal: false
   customsInformation:
     title: customsInformation
     description: Data about the customs information object.
@@ -251,7 +251,7 @@ definitions:
         example: true
       hs_codes:
         $ref: '#/definitions/harmonizedSystemCodes'
-    x-internal: true
+    x-internal: false
   harmonizedSystemCodes:
     title: harmonizedSystemCodes
     description: |-
@@ -263,7 +263,7 @@ definitions:
       CA: '508313'
       AU: '817355'
       ALL: '501000'
-    x-internal: true
+    x-internal: false
   metaCollection:
     title: metaCollection
     description: Meta data relating to pagination
@@ -307,12 +307,12 @@ definitions:
                 type: string
                 description: Query string appended to the resource to show the current page.
                 example: '?limit=1&page=2'
-    x-internal: true
+    x-internal: false
   error_Full:
     title: Error
     description: Meta data relating to pagination
     type: object
-    x-internal: true
+    x-internal: false
 tags:
   - name: Shipping Method
   - name: Shipping Carrier

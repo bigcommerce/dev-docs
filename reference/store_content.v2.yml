@@ -1215,7 +1215,7 @@ definitions:
             example: 3
             type: integer
       - $ref: '#/definitions/blogPost_Base'
-    x-internal: true
+    x-internal: false
   addresses:
     type: object
     properties:
@@ -1228,7 +1228,7 @@ definitions:
         example: /customers/5/addresses
         type: string
     title: addresses
-    x-internal: true
+    x-internal: false
   formField:
     title: formField
     type: object
@@ -1241,7 +1241,7 @@ definitions:
         description: Value of the form field
         type: string
         example: 123BAF
-    x-internal: true
+    x-internal: false
   page_Full:
     title: page_Full
     allOf:
@@ -1252,7 +1252,7 @@ definitions:
             example: 44
             description: ID of the page.
       - $ref: '#/definitions/page_Base'
-    x-internal: true
+    x-internal: false
   redirect:
     title: redirect
     example:
@@ -1281,7 +1281,7 @@ definitions:
     required:
       - path
       - forward
-    x-internal: true
+    x-internal: false
   forward:
     title: forward
     type: object
@@ -1294,7 +1294,7 @@ definitions:
         description: Reference of the redirect. Dynamic redirects will have the category or product number. Manual redirects will have the url that is being directed to.
         example: 111
         type: number
-    x-internal: true
+    x-internal: false
   customer_Full:
     title: customer_Full
     type: object
@@ -1382,7 +1382,7 @@ definitions:
       - first_name
       - last_name
       - email
-    x-internal: true
+    x-internal: false
   categoryAccessLevel:
     title: categoryAccessLevel
     type: object
@@ -1403,7 +1403,7 @@ definitions:
         example: '18,19,23,34'
         items:
           type: string
-    x-internal: true
+    x-internal: false
   timeZone:
     title: timeZone
     type: object
@@ -1426,7 +1426,7 @@ definitions:
         type: boolean
       date_format:
         $ref: '#/definitions/dateFormat'
-    x-internal: true
+    x-internal: false
   count_Response:
     title: count_Response
     example:
@@ -1437,7 +1437,7 @@ definitions:
         description: ''
         example: 27
         type: number
-    x-internal: true
+    x-internal: false
   dateFormat:
     title: dateFormat
     type: object
@@ -1454,7 +1454,7 @@ definitions:
         description: 'A string that defines dates’ extended-display format, in the pattern: M jS Y @ g:i A.'
         example: 'M jS Y @ g:i A'
         type: string
-    x-internal: true
+    x-internal: false
   blogTags:
     type: array
     title: blogTags
@@ -1469,7 +1469,7 @@ definitions:
           example: '1,2,4'
           items:
             type: integer
-    x-internal: true
+    x-internal: false
   blogPost_Base:
     type: object
     title: blogPost_Base
@@ -1527,7 +1527,7 @@ definitions:
     required:
       - title
       - body
-    x-internal: true
+    x-internal: false
   publishedDate:
     type: object
     properties:
@@ -1542,7 +1542,7 @@ definitions:
         type: string
         format: time
         example: '+00:00'
-    x-internal: true
+    x-internal: false
   authentication:
     description: 'Not returned in any responses, but accepts up to two fields allowing you to set the customer’s password. If a password is not supplied, it is generated automatically. For further information about using this object, please see the Customers resource documentation.'
     type: object
@@ -1553,12 +1553,12 @@ definitions:
         type: string
       password_confirmation:
         type: string
-    x-internal: true
+    x-internal: false
   customer_Base:
     type: object
     properties: {}
     title: customer_Base
-    x-internal: true
+    x-internal: false
   page_Base:
     title: page_Base
     type: object
@@ -1651,7 +1651,7 @@ definitions:
       - body
       - feed
       - link
-    x-internal: true
+    x-internal: false
 tags:
   - name: Blog Posts
   - name: Blog Tags

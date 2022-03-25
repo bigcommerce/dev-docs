@@ -955,18 +955,18 @@ components:
         enabled:
           type: boolean
           description: Flag indicates if Web Analytics Provider is enabled or not.
-      x-internal: true
+      x-internal: false
     AnalyticsProviders:
       type: array
       items:
         $ref: '#/components/schemas/AnalyticsProvider'
-      x-internal: true
+      x-internal: false
     RobotsTxtSettings:
       type: object
       properties:
         robots_txt_ssl:
           type: string
-      x-internal: true
+      x-internal: false
     SEOSettings:
       type: object
       properties:
@@ -982,7 +982,7 @@ components:
             - none
         meta_keywords:
           type: string
-      x-internal: true
+      x-internal: false
     StorefrontSearchSettings:
       type: object
       properties:
@@ -996,7 +996,7 @@ components:
         search_suggest:
           type: boolean
       title: ''
-      x-internal: true
+      x-internal: false
     StoreProfile:
       description: 'The basic profile settings for a store, used to give the shopper information about the business from which they are purchasing.'
       type: object
@@ -1007,7 +1007,7 @@ components:
           type: string
         store_address:
           type: string
-      x-internal: true
+      x-internal: false
     Locale:
       description: 'The basic locale settings for a store, used to give shopper information about languages, countries, etc.'
       type: object
@@ -1034,7 +1034,7 @@ components:
             * `default_shopper_language` - content is displayed in a single language based on the set `default_shopper_language`. Only the selected language is supported.
       required:
         - default_shopper_language
-      x-internal: true
+      x-internal: false
     StorefrontStatus:
       title: ''
       type: object
@@ -1046,7 +1046,7 @@ components:
         prelaunch_password:
           type: string
           description: A read-only value representing the auto-generated storefront password.
-      x-internal: true
+      x-internal: false
     ProductSortEnumValues:
       type: string
       title: ProductSortEnumValues
@@ -1061,7 +1061,7 @@ components:
         - lowestprice
         - bestreviewed
       description: The available sorts for PLP pages.
-      x-internal: true
+      x-internal: false
     StorefrontSecuritySettings:
       title: StorefrontSecuritySettings
       type: object
@@ -1079,7 +1079,7 @@ components:
               $ref: '#/components/schemas/HSTSMaxAgeEnumValues'
             includeSubDomains:
               type: boolean
-      x-internal: true
+      x-internal: false
     HSTSMaxAgeEnumValues:
       type: integer
       title: HSTSMaxAgeEnumValues
@@ -1091,7 +1091,7 @@ components:
       minimum: 0
       maximum: 12
       multipleOf: 3
-      x-internal: true
+      x-internal: false
     MetaPaginationObject:
       type: object
       properties:
@@ -1127,7 +1127,7 @@ components:
                 current:
                   type: string
                   example: '?limit=5&page=1'
-      x-internal: true
+      x-internal: false
     AvailableFilter:
       title: AvailableFilter
       type: object
@@ -1145,7 +1145,7 @@ components:
             - product
         name:
           type: string
-      x-internal: true
+      x-internal: false
     EnabledFilter:
       title: EnabledFilter
       oneOf:
@@ -1155,7 +1155,7 @@ components:
         - $ref: '#/components/schemas/EnabledBrandFilter'
         - $ref: '#/components/schemas/EnabledRatingFilter'
         - $ref: '#/components/schemas/EnabledMiscFilter'
-      x-internal: true
+      x-internal: false
     EnabledProductFilter:
       title: EnabledProductFilter
       type: object
@@ -1185,7 +1185,7 @@ components:
             - option_values
             - item_count
       description: A filter that uses product options and custom field data.
-      x-internal: true
+      x-internal: false
     EnabledPriceFilter:
       title: EnabledPriceFilter
       type: object
@@ -1201,7 +1201,7 @@ components:
         collapsed_by_default:
           type: boolean
       description: 'A filter based on the product’s price, shown as a price range on the storefront.'
-      x-internal: true
+      x-internal: false
     EnabledCategoryFilter:
       title: EnabledCategoryFilter
       type: object
@@ -1225,7 +1225,7 @@ components:
           type: boolean
         display_product_count:
           type: boolean
-      x-internal: true
+      x-internal: false
     EnabledRatingFilter:
       title: EnabledRatingFilter
       type: object
@@ -1241,7 +1241,7 @@ components:
         collapsed_by_default:
           type: boolean
       description: A filter based on product review ratings.
-      x-internal: true
+      x-internal: false
     EnabledBrandFilter:
       title: EnabledBrandFilter
       type: object
@@ -1270,13 +1270,13 @@ components:
           type: boolean
         display_product_count:
           type: boolean
-      x-internal: true
+      x-internal: false
     EnabledFilters:
       title: EnabledFilters
       type: array
       items:
         $ref: '#/components/schemas/EnabledFilter'
-      x-internal: true
+      x-internal: false
     EnabledFiltersOverride:
       title: EnabledFiltersOverride
       type: object
@@ -1286,7 +1286,7 @@ components:
         data:
           $ref: '#/components/schemas/EnabledFilters'
       description: 'A new set of enabled Product Filtering filters which should display in a particular context, such as on a particular Channel, or while viewing a particular Category. Array order indicates the display order on the storefront.'
-      x-internal: true
+      x-internal: false
     SearchFilterOverrideScopeIdentifier:
       title: ScopeIdentifier
       type: object
@@ -1295,7 +1295,7 @@ components:
           type: integer
         category_id:
           type: integer
-      x-internal: true
+      x-internal: false
     EnabledTransactionalEmails:
       title: ''
       type: object
@@ -1322,7 +1322,7 @@ components:
           type: boolean
         product_review_email:
           type: boolean
-      x-internal: true
+      x-internal: false
     Error:
       type: object
       description: A standard error object.
@@ -1335,31 +1335,31 @@ components:
         - code
       x-tags:
         - Common
-      x-internal: true
+      x-internal: false
     ErrorResponse400:
       type: object
       properties:
         schema:
           $ref: '#/components/schemas/Error'
-      x-internal: true
+      x-internal: false
     ErrorResponse404:
       type: object
       properties:
         schema:
           $ref: '#/components/schemas/Error'
-      x-internal: true
+      x-internal: false
     ErrorResponse409:
       type: object
       properties:
         schema:
           $ref: '#/components/schemas/Error'
-      x-internal: true
+      x-internal: false
     ErrorResponse422:
       type: object
       properties:
         schema:
           $ref: '#/components/schemas/Error'
-      x-internal: true
+      x-internal: false
     ErrorResponse:
       allOf:
         - $ref: '#/components/schemas/BaseError'
@@ -1367,7 +1367,7 @@ components:
           properties:
             errors:
               $ref: '#/components/schemas/DetailedErrors'
-      x-internal: true
+      x-internal: false
     BaseError:
       type: object
       description: |
@@ -1385,12 +1385,12 @@ components:
           type: string
         instance:
           type: string
-      x-internal: true
+      x-internal: false
     DetailedErrors:
       type: object
       additionalProperties:
         type: string
-      x-internal: true
+      x-internal: false
     EnabledMiscFilter:
       title: EnabledMiscFilter
       type: object
@@ -1414,7 +1414,7 @@ components:
         collapsed_by_default:
           type: boolean
       description: Miscellaneous Filters which appear as a group.
-      x-internal: true
+      x-internal: false
     AvailablePriceFilter:
       title: AvailablePriceFilter
       type: object
@@ -1432,7 +1432,7 @@ components:
         price_range_max:
           type: number
       description: ''
-      x-internal: true
+      x-internal: false
     AvailableOtherFilter:
       title: AvailableOtherFilter
       type: object
@@ -1445,7 +1445,7 @@ components:
             - other
         name:
           type: string
-      x-internal: true
+      x-internal: false
     SearchFilterOverrideContextIdentifier:
       title: ContextIdentifier
       type: object
@@ -1454,7 +1454,7 @@ components:
           type: integer
         category_id:
           type: integer
-      x-internal: true
+      x-internal: false
     LogoSettings:
       type: object
       properties:
@@ -1469,7 +1469,7 @@ components:
             - text
         favicon_url:
           type: string
-      x-internal: true
+      x-internal: false
     ContentSortEnumValues:
       type: string
       title: ContentSortEnumValues
@@ -1478,7 +1478,7 @@ components:
         - relevance
         - atoz
         - ztoa
-      x-internal: true
+      x-internal: false
     ConfiguredFilter:
       title: ConfiguredFilter
       oneOf:
@@ -1488,13 +1488,13 @@ components:
         - $ref: '#/components/schemas/EnabledBrandFilter'
         - $ref: '#/components/schemas/EnabledRatingFilter'
         - $ref: '#/components/schemas/EnabledMiscFilter'
-      x-internal: true
+      x-internal: false
     ConfiguredFilters:
       title: ConfiguredFilters
       type: array
       items:
         $ref: '#/components/schemas/ConfiguredFilter'
-      x-internal: true
+      x-internal: false
     ConfiguredFiltersOverride:
       title: ConfiguredFiltersOverride
       type: object
@@ -1504,7 +1504,7 @@ components:
         context:
           $ref: '#/components/schemas/SearchFilterOverrideContextIdentifier'
       description: 'A new set of enabled Product Filtering filters which should display in a particular context, such as on a particular Channel, or while viewing a particular Category. Array order indicates the display order on the storefront.'
-      x-internal: true
+      x-internal: false
   securitySchemes:
     X-Auth-Token:
       name: X-Auth-Token

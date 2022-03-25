@@ -797,7 +797,7 @@ definitions:
                 description: |
                   Link to the next page returned in the response.
     title: Collection Meta
-    x-internal: true
+    x-internal: false
   Pagination:
     type: object
     description: 'Data about the response, including pagination and collection totals.'
@@ -846,12 +846,12 @@ definitions:
             type: string
             description: |
               Link to the next page returned in the response.
-    x-internal: true
+    x-internal: false
   Meta:
     type: object
     description: Empty meta object; may be used later.
     title: Meta
-    x-internal: true
+    x-internal: false
   ErrorResponse:
     allOf:
       - type: object
@@ -879,7 +879,7 @@ definitions:
               type: string
             title: DetailedErrors
     title: Error Response
-    x-internal: true
+    x-internal: false
   BaseError:
     type: object
     description: |
@@ -898,13 +898,13 @@ definitions:
       instance:
         type: string
     title: Base Error
-    x-internal: true
+    x-internal: false
   DetailedErrors:
     type: object
     additionalProperties:
       type: string
     title: DetailedErrors
-    x-internal: true
+    x-internal: false
   NotFound:
     description: Error payload for the BigCommerce API.
     type: object
@@ -921,7 +921,7 @@ definitions:
       instance:
         type: string
     title: Not Found
-    x-internal: true
+    x-internal: false
   NoContent:
     description: No-content response for the BigCommerce API.
     type: object
@@ -938,7 +938,7 @@ definitions:
       instance:
         type: string
     title: No Content
-    x-internal: true
+    x-internal: false
   script_Full:
     example:
       uuid: 2bf40be2-e57a-4bc8-860a-5bf45edd3795
@@ -971,7 +971,7 @@ definitions:
             description: The date on which this object was last updated.
       - $ref: '#/definitions/script_Base'
     x-examples: {}
-    x-internal: true
+    x-internal: false
   script_Post:
     title: script_Post
     allOf:
@@ -985,7 +985,7 @@ definitions:
         required:
           - name
       - $ref: '#/definitions/script_Base'
-    x-internal: true
+    x-internal: false
   script_Put:
     allOf:
       - type: object
@@ -996,7 +996,7 @@ definitions:
             minLength: 1
             maxLength: 255
       - $ref: '#/definitions/script_Base'
-    x-internal: true
+    x-internal: false
   script_Response:
     type: object
     title: script_Response
@@ -1006,7 +1006,7 @@ definitions:
         $ref: '#/definitions/script_Full'
       meta:
         $ref: '#/definitions/Meta'
-    x-internal: true
+    x-internal: false
   script_responseCollection:
     type: object
     title: script_responseCollection
@@ -1018,7 +1018,7 @@ definitions:
           $ref: '#/definitions/script_Full'
       meta:
         $ref: '#/definitions/CollectionMeta'
-    x-internal: true
+    x-internal: false
   script_Base:
     type: object
     example:
@@ -1096,7 +1096,7 @@ definitions:
       enabled:
         type: boolean
         description: Indicates whether a script is enabled.
-    x-internal: true
+    x-internal: false
 securityDefinitions:
   X-Auth-Token:
     type: apiKey
