@@ -697,53 +697,6 @@ paths:
         name: store_hash
         in: path
         required: true
-  '':
-    post:
-      tags:
-        - Widget Template
-      summary: Create a Widget Template
-      description: Creates a widget template.
-      operationId: betacreateWidgetTemplate
-      parameters:
-        - name: templateBody
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/WidgetTemplatePost'
-      responses:
-        '200':
-          schema:
-            $ref: '#/definitions/WidgetTemplateResponse'
-          description: |
-            A widget template.
-        '422':
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          description: |
-            This is the result of missing required fields, or of invalid data. See the response for more details.
-    get:
-      tags:
-        - Widget Template
-      summary: Get All Widget Templates
-      description: Returns a list of widget templates.
-      operationId: betagetWidgetTemplates
-      parameters:
-        - $ref: '#/parameters/PageParam'
-        - $ref: '#/parameters/LimitParam'
-        - $ref: '#/parameters/FilterWidgetTemplateKindParam'
-        - $ref: '#/parameters/SiteParam'
-        - $ref: '#/parameters/ChannelParam'
-      responses:
-        '200':
-          schema:
-            $ref: '#/definitions/WidgetTemplatesResponse'
-          description: Success
-        '422':
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          description: |
-            This is the result of missing required fields, or of invalid data. See the response for more details.
-    parameters: []
   '/content/widget-templates/{uuid}':
     get:
       tags:
