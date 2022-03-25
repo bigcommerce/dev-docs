@@ -35,13 +35,6 @@ You can process payments charged to either of two main forms of payment: new pay
 > * The API flow does not currently support hosted, offsite, or wallet-type providers, such as Amazon Pay.
 
 ## Stored cards and PayPal accounts
-There are three steps to using a stored card or PayPal account to make a payment.
-
-1. [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget)
-2. [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost)
-3. [Process Payment](/api-reference/store-management/payment-processing/process-payment/paymentspost)
-
-To use stored cards with the Payments API or the Checkout SDK, make sure you enable stored cards in the store's control panel. To enable stored credit cards on your storefront, navigate to **Store Setup › Payments**, and click the tab for your payment gateway. Toggle the switch to enable Stored Credit Cards and click **Save**. For more on enabling stored payment methods, see [Enabling Stored Payment Methods](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards).
 
 <!-- theme: info -->
 > #### Requirements for stored cards
@@ -49,8 +42,30 @@ To use stored cards with the Payments API or the Checkout SDK, make sure you ena
 > * Your store must use Optimized One-Page Checkout.
 > * Your store must use a compatible payment gateway.
 
+<!-- theme: info -->
+> #### Gateways supported for stored cards:
+> * AdyenV2
+> * Authorize.net
+> * Barclaycard Fuse
+> * Bolt
+> * Checkout.com
+> * Cybersource
+> * Mollie
+> * MyVirtualMerchant
+> * Paymetric
+> * PayPal Powered by Braintree
+> * Stripe
+> * StripeV3
+> * Moneris
+> * Chase Merchant Services
 
-1. Make a call to [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget) for the `stored_instruments > token` to pay with a stored card. The `order_id` passes in as a query parameter.
+To use stored cards with the Payments API or the Checkout SDK, make sure you enable stored cards in the store's control panel. To enable stored credit cards on your storefront, navigate to **Store Setup › Payments**, and click the tab for your payment gateway. Toggle the switch to enable Stored Credit Cards and click **Save**. For more on enabling stored payment methods, see [Enabling Stored Payment Methods](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards).
+
+There are three steps to using a stored card or PayPal account to make a payment.
+
+1. [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget)
+
+Make a call to [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget) for the `stored_instruments > token` to pay with a stored card. The `order_id` passes in as a query parameter.
 
 This token is the same as `payment_instrument_token` from [Get Transactions](/api-reference/store-management/order-transactions).
 
@@ -138,7 +153,9 @@ Accept: application/json
 Make a note of the `token` for the target payment method to use as part of processing the payment in the request body.
 
 
-2. Make a request to [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
+2. [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost)
+
+Make a request to [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
 
 ```http title="Example request: Create payment access token" lineNumbers
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens
@@ -162,7 +179,9 @@ Accept: application/json
 }
 ```
 
-3. To process the payment, send a POST request to [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost). You will need several values retrieved with the [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget) request you made in a preceding step. Additionally, this request contains different headers than a typical BigCommerce API request.  Consult the following for more information:
+3. [Process Payment](/api-reference/store-management/payment-processing/process-payment/paymentspost)
+
+To process the payment, send a POST request to [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost). You will need several values retrieved with the [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget) request you made in a preceding step. Additionally, this request contains different headers than a typical BigCommerce API request.  Consult the following for more information:
 
 <!-- theme: info -->
 > #### Authorization header
@@ -221,6 +240,41 @@ If the purchase was successful, the response returns a status of success. The or
 
 
 ## Credit cards
+
+<!-- theme: info -->
+> #### Gateways supported for non-stored cards:
+> * Authorize.net
+> * Adyen
+> * Barclaycard Fuse
+> * Bolt
+> * CardConnect
+> * Chase Integrated Payments
+> * Chase Merchant Services (Orbital)
+> * Checkout.com
+> * Cybersource
+> * Eway Rapid
+> * First Data Payeezy Gateway
+> * Heartland Payment Systems
+> * MIGS
+> * MyVirtualMerchant
+> * NMI
+> * Paymetric
+> * PayPal (Commerce Platform)
+> * PayPal Powered by Braintree
+> * PayPal Payments Pro (Payflow Edition) UK
+> * PayPal Payments Pro (Payflow Edition) US
+> * QuickBooks Payments
+> * Sage Pay/Protx VSP Direct
+> * SecureNet
+> * Stripe
+> * StripeV3
+> * USA ePay
+> * Vantiv
+> * Vantiv Core
+> * Windcave
+> * Worldpay Core
+> * Worldpay
+> * Moneris
 
 There are two steps to using a credit card to make a payment.
 
