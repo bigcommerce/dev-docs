@@ -1274,6 +1274,9 @@ components:
 
 
 
+
+
+
                        {{text}}
                     template_engine: handlebars_v3
                     uuid: 17dcc919-982a-4cc0-8ede-a5b49f9ab6dc
@@ -1553,6 +1556,9 @@ components:
             create_new_version:
               type: boolean
               description: Can be added to create a new widget template version instead of updating the current one.
+            channel_id:
+              type: integer
+              description: The id of the channel on which to place this template.
       title: widgetTemplate_Put
       x-internal: true
     widgetTemplate_Post:
