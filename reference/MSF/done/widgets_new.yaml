@@ -861,6 +861,10 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/ThemeRegions_Resp'
+        '404':
+          $ref: '#/components/responses/Error404_Resp'
+        '422':
+          $ref: '#/components/responses/Error422_Resp'
       summary: Get Theme Regions
       description: Returns a list of unique **Theme Regions** in a file.
       operationId: getContentRegions
@@ -1443,6 +1447,17 @@ components:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
                        {{text}}
                     template_engine: handlebars_v3
                     uuid: 17dcc919-982a-4cc0-8ede-a5b49f9ab6dc
@@ -1878,6 +1893,9 @@ components:
             widget_uuid:
               type: string
               description: A widget identifier.
+            channel_id:
+              type: integer
+              description: The ID of the channel on which this placement exists.
         - $ref: '#/components/schemas/placement_Base'
       x-internal: true
     placement_Full:
