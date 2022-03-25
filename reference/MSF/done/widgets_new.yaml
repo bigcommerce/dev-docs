@@ -1,72 +1,46 @@
 openapi: 3.0.0
 info:
   title: Widgets
-  version: ""
-  description: >-
+  version: ''
+  description: |-
     Create and manage widget templates, widgets, regions, and placements.
-
 
     ## Authentication
 
-
     [Authenticate](/api-docs/getting-started/authentication/rest-api-authentication) requests by including an OAuth `access_token` in the request header.
 
-
     ```http
-
     GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/{{ENDPOINT}}
-
     Content-Type: application/json
-
     X-Auth-Token: {{ACCESS_TOKEN}}
-
     ```
 
-
     ### OAuth scopes
-
     |  **UI Name** | **Permission** | **Parameter** |
-
     | --- | --- | --- |
-
     |  Content | modify | `store_v2_content` |
-
     |  Content | read-only | `store_v2_content_read_only` |
-
 
     For more information on OAuth scopes, see [Authenticating BigCommerce's REST APIs](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
-
     ## Subresources
 
-
     ### Widget templates
-
     [Widget templates](/api-reference/store-management/widgets/widget-template/getwidgettemplates) are reusable Handlebars-enabled HTML templates that define the structure of the widget on a page.
 
-
     ### Widgets
-
     [Widgets](/api-reference/store-management/widgets/widget/getwidgets) are units of content placed on specific pages in a Stencil theme. Widgets consist of a widget configuration and a widget template UUID and render as part of the storefront’s HTML.
 
-
     ### Regions
-
     [Regions](/api-reference/store-management/widgets/regions/getcontentregions) are specific locations in the Stencil theme template files where you can place a widget.
 
-
     ### Placements
-
     [Placements](/api-reference/store-management/widgets/placement/getplacements) determine the region where you place widgets and in what order.
-
 
     ## Additional Information
 
-
     * [Widgets API Overview](/api-docs/store-management/widgets/overview)
-
     * [Widget UI Schema](/stencil-docs/page-builder/widget-ui-schema)
-
     * [Widget UI Input Types](/stencil-docs/page-builder/schema-settings)
 tags:
   - name: Regions
@@ -79,7 +53,7 @@ tags:
   - name: Layout
     description: BigCommerce Layouts API Definition.
 paths:
-  "/stores/{store_hash}/v3/content/widget-templates":
+  '/stores/{store_hash}/v3/content/widget-templates':
     post:
       tags:
         - Widget Template
@@ -100,15 +74,15 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/widgetTemplate_Post"
+              $ref: '#/components/schemas/widgetTemplate_Post'
         required: true
         x-examples:
-          application/json: >-
+          application/json: |-
             {
               "name": "Header Images",
               "template": "{{#each images}}{{/each}}"
             }
-          Custom Configuration Widget: >-
+          Custom Configuration Widget: |-
             {
               "name":"Header Images",
               "template":"{{#each images}}{{/each}}",
@@ -150,10 +124,10 @@ paths:
                     ]
                   }
       responses:
-        "200":
-          $ref: "#/components/responses/WidgetTemplate_Resp"
-        "422":
-          $ref: "#/components/responses/Error422_Resp"
+        '200':
+          $ref: '#/components/responses/WidgetTemplate_Resp'
+        '422':
+          $ref: '#/components/responses/Error422_Resp'
       description: |-
         Creates a **Widget Template**.
 
@@ -175,9 +149,8 @@ paths:
           schema:
             type: integer
         - name: limit
-          description: >
-            Controls the number of items per page in a limited (paginated) list
-            of products.
+          description: |
+            Controls the number of items per page in a limited (paginated) list of products.
           required: false
           in: query
           schema:
@@ -204,10 +177,10 @@ paths:
           schema:
             type: integer
       responses:
-        "200":
-          $ref: "#/components/responses/WidgetTemplateCollection_Resp"
-        "422":
-          $ref: "#/components/responses/Error422_Resp"
+        '200':
+          $ref: '#/components/responses/WidgetTemplateCollection_Resp'
+        '422':
+          $ref: '#/components/responses/Error422_Resp'
       description: Returns a list of **Widget Templates**.
       summary: Get All Widget Templates
     parameters:
@@ -216,7 +189,7 @@ paths:
         required: true
         schema:
           type: string
-  "/stores/{store_hash}/v3/content/widget-templates/{uuid}":
+  '/stores/{store_hash}/v3/content/widget-templates/{uuid}':
     get:
       tags:
         - Widget Template
@@ -240,13 +213,18 @@ paths:
           schema:
             type: string
             default: application/json
+        - schema:
+            type: string
+          in: query
+          name: version_uuid
+          description: This is an optional query parmeter used to attempt to fetch a specific Widget Template version.
       responses:
-        "200":
-          $ref: "#/components/responses/WidgetTemplate_Resp"
-        "404":
-          $ref: "#/components/responses/Error404_Resp"
-        "422":
-          $ref: "#/components/responses/Error422_Resp"
+        '200':
+          $ref: '#/components/responses/WidgetTemplate_Resp'
+        '404':
+          $ref: '#/components/responses/Error404_Resp'
+        '422':
+          $ref: '#/components/responses/Error422_Resp'
       description: Returns a single **Widget Template**.
     put:
       tags:
@@ -275,20 +253,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/widgetTemplate_Put"
+              $ref: '#/components/schemas/widgetTemplate_Put'
         required: true
         x-examples:
           application/json:
             name: Header Images
-            template: "{{#each images}}{{/each}}"
+            template: '{{#each images}}{{/each}}'
             create_new_version: true
       responses:
-        "200":
-          $ref: "#/components/responses/WidgetTemplate_Resp"
-        "404":
-          $ref: "#/components/responses/Error404_Resp"
-        "422":
-          $ref: "#/components/responses/Error422_Resp"
+        '200':
+          $ref: '#/components/responses/WidgetTemplate_Resp'
+        '404':
+          $ref: '#/components/responses/Error404_Resp'
+        '422':
+          $ref: '#/components/responses/Error422_Resp'
       description: Updates a **Widget Template**.
     delete:
       tags:
@@ -314,12 +292,12 @@ paths:
             type: string
             default: application/json
       responses:
-        "204":
+        '204':
           description: An empty response.
-        "404":
-          $ref: "#/components/responses/Error404_Resp"
-        "422":
-          $ref: "#/components/responses/Error422_Resp"
+        '404':
+          $ref: '#/components/responses/Error404_Resp'
+        '422':
+          $ref: '#/components/responses/Error422_Resp'
       description: Deletes a **Widget Template**.
     parameters:
       - name: store_hash
@@ -332,7 +310,7 @@ paths:
         required: true
         schema:
           type: string
-  "/stores/{store_hash}/v3/content/widgets":
+  '/stores/{store_hash}/v3/content/widgets':
     post:
       tags:
         - Widget
@@ -353,34 +331,30 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/widget_Post"
+              $ref: '#/components/schemas/widget_Post'
         required: true
         x-examples:
           application/json:
             name: Header Images
-            template: "{{#each images}}{{/each}}"
+            template: '{{#each images}}{{/each}}'
             widget_configuration:
               images:
-                - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
-                - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on
-                - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
+                - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+                - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
+                - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
             widget_template_uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
       responses:
-        "200":
-          $ref: "#/components/responses/Widget_Resp"
-        "422":
-          $ref: "#/components/responses/Error422_Resp"
-      description: >-
+        '200':
+          $ref: '#/components/responses/Widget_Resp'
+        '422':
+          $ref: '#/components/responses/Error422_Resp'
+      description: |-
         Creates a **Widget**.
-
 
         **Note:** There is a limit of 10,000 widgets per store and 150 widgets per page. For more information, see [Store Limits](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits).
 
-
         **Required Fields**
-
         * name
-
         * widget_template_uuid
     get:
       tags:
@@ -396,9 +370,8 @@ paths:
           schema:
             type: integer
         - name: limit
-          description: >
-            Controls the number of items per page in a limited (paginated) list
-            of products.
+          description: |
+            Controls the number of items per page in a limited (paginated) list of products.
           required: false
           in: query
           schema:
@@ -432,9 +405,8 @@ paths:
           schema:
             type: string
         - in: query
-          name: name:in
-          description: "Use to pass in comma-separated list of widget names. Example:
-            `/widgets?name:in=test-widget-name,header%20images`"
+          name: 'name:in'
+          description: 'Use to pass in comma-separated list of widget names. Example: `/widgets?name:in=test-widget-name,header%20images`'
           schema:
             type: array
             items: {}
@@ -444,10 +416,10 @@ paths:
           schema:
             type: integer
       responses:
-        "200":
-          $ref: "#/components/responses/WidgetCollection_Resp"
-        "422":
-          $ref: "#/components/responses/Error422_Resp"
+        '200':
+          $ref: '#/components/responses/WidgetCollection_Resp'
+        '422':
+          $ref: '#/components/responses/Error422_Resp'
       description: Returns a list of **Widgets**. Optional parameters can be passed in.
     parameters:
       - name: store_hash
@@ -455,7 +427,7 @@ paths:
         required: true
         schema:
           type: string
-  "/stores/{store_hash}/v3/content/widgets/{uuid}":
+  '/stores/{store_hash}/v3/content/widgets/{uuid}':
     get:
       tags:
         - Widget
@@ -480,12 +452,12 @@ paths:
             type: string
             default: application/json
       responses:
-        "200":
-          $ref: "#/components/responses/Widget_Resp"
-        "404":
-          $ref: "#/components/responses/Error404_Resp"
-        "422":
-          $ref: "#/components/responses/Error422_Resp"
+        '200':
+          $ref: '#/components/responses/Widget_Resp'
+        '404':
+          $ref: '#/components/responses/Error404_Resp'
+        '422':
+          $ref: '#/components/responses/Error422_Resp'
       description: Returns a single **Widget**.
     put:
       tags:
@@ -514,24 +486,24 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/widget_Put"
+              $ref: '#/components/schemas/widget_Put'
         required: true
         x-examples:
           application/json:
             name: Header Images
             widget_configuration:
               images:
-                - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
-                - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on
-                - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
+                - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+                - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
+                - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
             widget_template_uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
       responses:
-        "200":
-          $ref: "#/components/responses/Widget_Resp"
-        "404":
-          $ref: "#/components/responses/Error404_Resp"
-        "422":
-          $ref: "#/components/responses/Error422_Resp"
+        '200':
+          $ref: '#/components/responses/Widget_Resp'
+        '404':
+          $ref: '#/components/responses/Error404_Resp'
+        '422':
+          $ref: '#/components/responses/Error422_Resp'
       description: Updates a **Widget**.
     delete:
       tags:
@@ -557,12 +529,12 @@ paths:
             type: string
             default: application/json
       responses:
-        "204":
+        '204':
           description: An empty response.
-        "404":
-          $ref: "#/components/responses/Error404_Resp"
-        "422":
-          $ref: "#/components/responses/Error422_Resp"
+        '404':
+          $ref: '#/components/responses/Error404_Resp'
+        '422':
+          $ref: '#/components/responses/Error422_Resp'
       description: Deletes a **Widget**.
     parameters:
       - name: store_hash
@@ -575,7 +547,7 @@ paths:
         required: true
         schema:
           type: string
-  "/stores/{store_hash}/v3/content/placements":
+  '/stores/{store_hash}/v3/content/placements':
     post:
       tags:
         - Placement
@@ -596,34 +568,29 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/placement_Post"
+              $ref: '#/components/schemas/placement_Post'
         required: true
         x-examples:
           application/json:
             widget_uuid: a8940709-5655-4401-a341-62c44e3180b2
-            entity_id: "21"
+            entity_id: '21'
             template_file: pages/category
             status: active
             sort_order: 1
             region: category_header_banner
       responses:
-        "200":
-          $ref: "#/components/responses/Placement_Resp"
-        "422":
-          $ref: "#/components/responses/Error422_Resp"
-      description: >-
+        '200':
+          $ref: '#/components/responses/Placement_Resp'
+        '422':
+          $ref: '#/components/responses/Error422_Resp'
+      description: |-
         Creates a **Placement**.
 
-
         **Required Fields**
-
         * widget_uuid
-
         * template_file
 
-
         **Template Files**
-
 
         To view the list of values accepted by the `template_file` property, including **custom** templates, see [Placements](/api-docs/store-management/widgets/overview#placements).
     get:
@@ -640,9 +607,8 @@ paths:
           schema:
             type: integer
         - name: limit
-          description: >
-            Controls the number of items per page in a limited (paginated) list
-            of products.
+          description: |
+            Controls the number of items per page in a limited (paginated) list of products.
           required: false
           in: query
           schema:
@@ -655,7 +621,7 @@ paths:
             type: string
         - in: query
           name: template_file
-          description: "The template file, for example: `pages/home`."
+          description: 'The template file, for example: `pages/home`.'
           required: false
           schema:
             type: string
@@ -684,10 +650,10 @@ paths:
             type: string
             default: application/json
       responses:
-        "200":
-          $ref: "#/components/responses/PlacementsCollection_Resp"
-        "422":
-          $ref: "#/components/responses/Error422_Resp"
+        '200':
+          $ref: '#/components/responses/PlacementsCollection_Resp'
+        '422':
+          $ref: '#/components/responses/Error422_Resp'
       description: Returns a list of **Placements**. Optional parameters can be passed in.
     parameters:
       - name: store_hash
@@ -695,7 +661,7 @@ paths:
         required: true
         schema:
           type: string
-  "/stores/{store_hash}/v3/content/placements/{uuid}":
+  '/stores/{store_hash}/v3/content/placements/{uuid}':
     get:
       tags:
         - Placement
@@ -720,12 +686,12 @@ paths:
             type: string
             default: application/json
       responses:
-        "200":
-          $ref: "#/components/responses/Placement_Resp"
-        "404":
-          $ref: "#/components/responses/Error404_Resp"
-        "422":
-          $ref: "#/components/responses/Error422_Resp"
+        '200':
+          $ref: '#/components/responses/Placement_Resp'
+        '404':
+          $ref: '#/components/responses/Error404_Resp'
+        '422':
+          $ref: '#/components/responses/Error422_Resp'
       description: Returns a single **Placement**.
     put:
       tags:
@@ -754,7 +720,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/placement_Put"
+              $ref: '#/components/schemas/placement_Put'
         required: true
         x-examples:
           application/json:
@@ -763,12 +729,12 @@ paths:
             template_file: pages/home
             status: active
       responses:
-        "200":
-          $ref: "#/components/responses/Placement_Resp"
-        "404":
-          $ref: "#/components/responses/Error404_Resp"
-        "422":
-          $ref: "#/components/responses/Error422_Resp"
+        '200':
+          $ref: '#/components/responses/Placement_Resp'
+        '404':
+          $ref: '#/components/responses/Error404_Resp'
+        '422':
+          $ref: '#/components/responses/Error422_Resp'
       description: Updates a **Placement**.
     delete:
       tags:
@@ -794,12 +760,12 @@ paths:
             type: string
             default: application/json
       responses:
-        "204":
+        '204':
           description: An empty response.
-        "404":
-          $ref: "#/components/responses/Error404_Resp"
-        "422":
-          $ref: "#/components/responses/Error422_Resp"
+        '404':
+          $ref: '#/components/responses/Error404_Resp'
+        '422':
+          $ref: '#/components/responses/Error422_Resp'
       description: Deletes a **Placement**.
     parameters:
       - name: store_hash
@@ -812,11 +778,11 @@ paths:
         required: true
         schema:
           type: string
-  "/stores/{store_hash}/v3/content/regions":
+  '/stores/{store_hash}/v3/content/regions':
     get:
       responses:
-        "200":
-          $ref: "#/components/responses/ThemeRegions_Resp"
+        '200':
+          $ref: '#/components/responses/ThemeRegions_Resp'
       summary: Get Theme Regions
       description: Returns a list of unique **Theme Regions** in a file.
       operationId: getContentRegions
@@ -835,7 +801,7 @@ paths:
             default: application/json
         - in: query
           name: template_file
-          description: "The template file, for example: `templateFile=pages/home`."
+          description: 'The template file, for example: `templateFile=pages/home`.'
           required: true
           schema:
             type: string
@@ -853,7 +819,7 @@ x-stoplight:
     includeDownloadLink: true
     showModels: false
 servers:
-  - url: https://api.bigcommerce.com
+  - url: 'https://api.bigcommerce.com'
 components:
   parameters:
     TemplateUUID:
@@ -882,14 +848,14 @@ components:
     FilterTemplateFileParam:
       in: query
       name: template_file
-      description: "The template file, for example: `pages/home`."
+      description: 'The template file, for example: `pages/home`.'
       required: false
       schema:
         type: string
     RequiredTemplateFile:
       in: query
       name: templateFile
-      description: "The template file, for example: `templateFile=pages/home`."
+      description: 'The template file, for example: `templateFile=pages/home`.'
       required: true
       schema:
         type: string
@@ -935,9 +901,8 @@ components:
         type: integer
     LimitParam:
       name: limit
-      description: >
-        Controls the number of items per page in a limited (paginated) list of
-        products.
+      description: |
+        Controls the number of items per page in a limited (paginated) list of products.
       required: false
       in: query
       schema:
@@ -963,7 +928,7 @@ components:
         default: application/json
   responses:
     ThemeRegions_Resp:
-      description: ""
+      description: ''
       content:
         application/json:
           schema:
@@ -972,7 +937,7 @@ components:
               data:
                 type: array
                 items:
-                  $ref: "#/components/schemas/themeRegion"
+                  $ref: '#/components/schemas/themeRegion'
               meta:
                 type: object
                 description: Empty meta object; may be used later.
@@ -984,7 +949,7 @@ components:
                   - name: category_header_banner
                 meta: {}
     LayoutCollectionResponse:
-      description: ""
+      description: ''
       content:
         application/json:
           schema:
@@ -1009,8 +974,7 @@ components:
                       description: The name of the region defined in the stencil theme file.
                     markup:
                       type: string
-                      description: The HTML layout which defines complex poisitoning for
-                        placements.
+                      description: The HTML layout which defines complex poisitoning for placements.
                     date_created:
                       type: string
                       format: datetime
@@ -1022,14 +986,12 @@ components:
                   title: Layout
               meta:
                 type: object
-                description: Data about the response, including pagination and collection
-                  totals.
+                description: 'Data about the response, including pagination and collection totals.'
                 properties:
                   pagination:
                     type: object
-                    description: >
-                      Data about the response, including pagination and
-                      collection totals.
+                    description: |
+                      Data about the response, including pagination and collection totals.
                     properties:
                       total:
                         type: integer
@@ -1041,9 +1003,8 @@ components:
                           Total number of items in the collection response.
                       per_page:
                         type: integer
-                        description: >
-                          The amount of items returned in the collection per
-                          page, controlled by the limit parameter.
+                        description: |
+                          The amount of items returned in the collection per page, controlled by the limit parameter.
                       current_page:
                         type: integer
                         description: |
@@ -1054,13 +1015,12 @@ components:
                           The total number of pages in the collection.
                       links:
                         type: object
-                        description: >
-                          Pagination links for the previous and next parts of
-                          the whole collection.
+                        description: |
+                          Pagination links for the previous and next parts of the whole collection.
                         properties:
                           previous:
                             type: string
-                            description: >
+                            description: |
                               Link to the previous page returned in the response.
                           current:
                             type: string
@@ -1077,14 +1037,11 @@ components:
                 data:
                   - uuid: cacdadcf-07ec-43f3-aec4-f8e3382d7618
                     template_file: pages/category
-                    entity_id: "21"
+                    entity_id: '21'
                     region: category_header_banner
-                    markup: "
-\
-                      
-"
-                    date_created: 2019-02-25T18:38:08.455Z
-                    date_modified: 2019-02-25T18:38:08.455Z
+                    markup: ' '
+                    date_created: '2019-02-25T18:38:08.455Z'
+                    date_modified: '2019-02-25T18:38:08.455Z'
                 meta:
                   pagination:
                     total: 1
@@ -1093,7 +1050,7 @@ components:
                     current_page: 1
                     total_pages: 1
     LayoutResponse:
-      description: ""
+      description: ''
       content:
         application/json:
           schema:
@@ -1118,8 +1075,7 @@ components:
                       description: The name of the region defined in the stencil theme file.
                     markup:
                       type: string
-                      description: The HTML layout which defines complex poisitoning for
-                        placements.
+                      description: The HTML layout which defines complex poisitoning for placements.
                     date_created:
                       type: string
                       format: datetime
@@ -1135,15 +1091,14 @@ components:
                 data:
                   uuid: cacdadcf-07ec-43f3-aec4-f8e3382d7618
                   template_file: pages/category
-                  entity_id: "21"
+                  entity_id: '21'
                   region: category_header_banner
-                  markup: "
-"
-                  date_created: 2019-02-25T18:38:08.455Z
-                  date_modified: 2019-02-25T18:38:08.455Z
+                  markup: ' '
+                  date_created: '2019-02-25T18:38:08.455Z'
+                  date_modified: '2019-02-25T18:38:08.455Z'
                 meta: {}
     PlacementsCollection_Resp:
-      description: ""
+      description: ''
       content:
         application/json:
           schema:
@@ -1152,17 +1107,17 @@ components:
               data:
                 type: array
                 items:
-                  $ref: "#/components/schemas/placement_Full"
+                  $ref: '#/components/schemas/placement_Full'
               meta:
-                $ref: "#/components/schemas/metaCollection"
+                $ref: '#/components/schemas/metaCollection'
           examples:
             response:
               value:
                 data:
                   - channel_id: 1
-                    date_created: 2020-12-21T20:43:16.796Z
-                    date_modified: 2020-12-21T20:43:16.796Z
-                    entity_id: "21"
+                    date_created: '2020-12-21T20:43:16.796Z'
+                    date_modified: '2020-12-21T20:43:16.796Z'
+                    entity_id: '21'
                     region: category_header_banner
                     sort_order: 1
                     status: active
@@ -1170,9 +1125,9 @@ components:
                     uuid: 89eac5b3-91d7-48e5-92e7-ff53ecf07f8c
                     widget:
                       channel_id: 1
-                      date_created: 2020-12-21T19:54:16.406Z
-                      date_modified: 2020-12-21T20:40:45.173Z
-                      description: ""
+                      date_created: '2020-12-21T19:54:16.406Z'
+                      date_modified: '2020-12-21T20:40:45.173Z'
+                      description: ''
                       name: Header Images
                       storefront_api_query_params: {}
                       uuid: 1f05183e-dfa4-4583-af28-250b47e177b2
@@ -1181,21 +1136,21 @@ components:
                         _:
                           id: 1f05183e-dfa4-4583-af28-250b47e177b2
                         images:
-                          - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
-                          - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on
-                          - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
+                          - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+                          - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
+                          - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
                       widget_template:
                         channel_id: 1
                         client_rerender: false
                         current_version_uuid: c863f77b-e5b4-4462-a9ed-2aff9005140e
-                        date_created: 2020-12-21T19:49:29.110Z
-                        date_modified: 2020-12-21T19:49:29.110Z
+                        date_created: '2020-12-21T19:49:29.110Z'
+                        date_modified: '2020-12-21T19:49:29.110Z'
                         icon_name: default
                         kind: custom
                         name: Header Images
                         schema: []
-                        storefront_api_query: ""
-                        template: "{{#each images}}{{/each}}"
+                        storefront_api_query: ''
+                        template: '{{#each images}}{{/each}}'
                         template_engine: handlebars_v3
                         uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
                 meta:
@@ -1206,14 +1161,14 @@ components:
                     total: 1
                     total_pages: 1
     Placement_Resp:
-      description: ""
+      description: ''
       content:
         application/json:
           schema:
             type: object
             properties:
               data:
-                $ref: "#/components/schemas/placement_Full"
+                $ref: '#/components/schemas/placement_Full'
               meta:
                 type: object
           examples:
@@ -1221,9 +1176,9 @@ components:
               value:
                 data:
                   channel_id: 1
-                  date_created: 2020-12-21T20:43:16.796Z
-                  date_modified: 2020-12-21T20:43:16.796Z
-                  entity_id: "21"
+                  date_created: '2020-12-21T20:43:16.796Z'
+                  date_modified: '2020-12-21T20:43:16.796Z'
+                  entity_id: '21'
                   region: category_header_banner
                   sort_order: 1
                   status: active
@@ -1231,9 +1186,9 @@ components:
                   uuid: 89eac5b3-91d7-48e5-92e7-ff53ecf07f8c
                   widget:
                     channel_id: 1
-                    date_created: 2020-12-21T19:54:16.406Z
-                    date_modified: 2020-12-21T20:40:45.173Z
-                    description: ""
+                    date_created: '2020-12-21T19:54:16.406Z'
+                    date_modified: '2020-12-21T20:40:45.173Z'
+                    description: ''
                     name: Header Images
                     storefront_api_query_params: {}
                     uuid: 1f05183e-dfa4-4583-af28-250b47e177b2
@@ -1242,26 +1197,26 @@ components:
                       _:
                         id: 1f05183e-dfa4-4583-af28-250b47e177b2
                       images:
-                        - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
-                        - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on
-                        - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
+                        - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+                        - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
+                        - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
                     widget_template:
                       channel_id: 1
                       client_rerender: false
                       current_version_uuid: c863f77b-e5b4-4462-a9ed-2aff9005140e
-                      date_created: 2020-12-21T19:49:29.110Z
-                      date_modified: 2020-12-21T19:49:29.110Z
+                      date_created: '2020-12-21T19:49:29.110Z'
+                      date_modified: '2020-12-21T19:49:29.110Z'
                       icon_name: default
                       kind: custom
                       name: Header Images
                       schema: []
-                      storefront_api_query: ""
-                      template: "{{#each images}}{{/each}}"
+                      storefront_api_query: ''
+                      template: '{{#each images}}{{/each}}'
                       template_engine: handlebars_v3
                       uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
                 meta: {}
     WidgetTemplateCollection_Resp:
-      description: ""
+      description: ''
       content:
         application/json:
           schema:
@@ -1270,9 +1225,9 @@ components:
               data:
                 type: array
                 items:
-                  $ref: "#/components/schemas/widgetTemplate_Full"
+                  $ref: '#/components/schemas/widgetTemplate_Full'
               meta:
-                $ref: "#/components/schemas/pagination"
+                $ref: '#/components/schemas/pagination'
           examples:
             response:
               value:
@@ -1280,126 +1235,104 @@ components:
                   - channel_id: 1
                     client_rerender: false
                     current_version_uuid: 4bd7619e-7992-4454-8610-84fb16449761
-                    date_created: 2020-12-21T19:36:16.896Z
-                    date_modified: 2020-12-21T19:36:16.896Z
+                    date_created: '2020-12-21T19:36:16.896Z'
+                    date_modified: '2020-12-21T19:36:16.896Z'
                     icon_name: default
                     kind: custom
                     name: Header Images
                     schema: []
-                    storefront_api_query: ""
-                    template: "{{#each images}}{{/each}}"
+                    storefront_api_query: ''
+                    template: '{{#each images}}{{/each}}'
                     template_engine: handlebars_v3
                     uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
                   - channel_id: 1
                     client_rerender: false
                     current_version_uuid: c23dd66b-fa3f-451d-88ef-9f4082c6051e
-                    date_created: 2020-12-21T19:36:59.384Z
-                    date_modified: 2020-12-21T19:36:59.384Z
+                    date_created: '2020-12-21T19:36:59.384Z'
+                    date_modified: '2020-12-21T19:36:59.384Z'
                     icon_name: default
                     kind: custom
                     name: Simple List
                     schema: []
-                    storefront_api_query: ""
+                    storefront_api_query: ''
                     template: '<ul>{{#each list_items}}<li style=''color:{{color}};''>{{text}}</li>{{/each}}</ul>'
                     template_engine: handlebars_v3
                     uuid: 42b42cbb-e2d8-4f2a-97ea-06755032115a
                   - channel_id: 1
                     client_rerender: false
                     current_version_uuid: bc820372-368e-4a96-a6d6-f313edba5617
-                    date_created: 2020-12-21T19:38:08.036Z
-                    date_modified: 2020-12-21T19:38:08.036Z
+                    date_created: '2020-12-21T19:38:08.036Z'
+                    date_modified: '2020-12-21T19:38:08.036Z'
                     icon_name: default
                     kind: custom
                     name: Simple Text with Styling
                     schema: []
-                    storefront_api_query: ""
-                    template: "
-{{text}}
+                    storefront_api_query: ''
+                    template: |2
 
-"
+
+
+
+
+                       {{text}}
                     template_engine: handlebars_v3
                     uuid: 17dcc919-982a-4cc0-8ede-a5b49f9ab6dc
                   - channel_id: 1
                     client_rerender: false
                     current_version_uuid: 873b0a03-b219-46ec-8f06-c3c4522ef25d
-                    date_created: 2020-12-21T19:38:30.223Z
-                    date_modified: 2020-12-21T19:38:30.223Z
+                    date_created: '2020-12-21T19:38:30.223Z'
+                    date_modified: '2020-12-21T19:38:30.223Z'
                     icon_name: default
                     kind: custom
                     name: YouTube Embed
                     schema: []
-                    storefront_api_query: ""
-                    template: 
+                    storefront_api_query: ''
+                    template: null
                     template_engine: handlebars_v3
                     uuid: d9e7fd0e-d5c2-45c9-8919-ce68a5590c12
                   - channel_id: 1
                     client_rerender: false
                     current_version_uuid: 8fa7ff13-fcfb-4106-9c32-5a084224a444
-                    date_created: 2020-12-21T19:38:46.557Z
-                    date_modified: 2020-12-21T19:38:46.557Z
+                    date_created: '2020-12-21T19:38:46.557Z'
+                    date_modified: '2020-12-21T19:38:46.557Z'
                     icon_name: default
                     kind: custom
                     name: Slider Template
                     schema: []
-                    storefront_api_query: ""
-                    template: >-
-                      
-
-
+                    storefront_api_query: ''
+                    template: |-
                       {{#each slides}}
 
-                      
 
 
 
                       {{/each}}
-
-                      
-
-
-                      
                     template_engine: handlebars_v3
                     uuid: 30714957-0e01-4c4e-8551-25591261d0d0
                   - channel_id: 0
                     client_rerender: false
                     current_version_uuid: 7494d009-c695-43ce-a1eb-ba75ef663ba2
-                    date_created: 2020-06-23T18:07:12.110Z
-                    date_modified: 2020-06-23T18:07:12.110Z
+                    date_created: '2020-06-23T18:07:12.110Z'
+                    date_modified: '2020-06-23T18:07:12.110Z'
                     icon_name: default
                     kind: pp-cartpage-fullbanner
                     name: PayPal Credit Banner - Cart Page (728x90)
                     schema: []
-                    storefront_api_query: ""
-                    template: >
-                      
-
-
-                      
-
-                        
-                      
-
+                    storefront_api_query: ''
+                    template: ''
                     template_engine: handlebars_v3
                     uuid: 2ff24732-6848-47ba-9a7f-c8b1d444f270
                   - channel_id: 0
                     client_rerender: false
                     current_version_uuid: ee4978a6-31f9-47e2-ab38-810dd1c78e34
-                    date_created: 2020-06-23T18:07:12.136Z
-                    date_modified: 2020-06-23T18:07:12.136Z
+                    date_created: '2020-06-23T18:07:12.136Z'
+                    date_modified: '2020-06-23T18:07:12.136Z'
                     icon_name: default
                     kind: pp-homepage-fullbanner
                     name: PayPal Credit Banner - Home Page (728x90)
                     schema: []
-                    storefront_api_query: ""
-                    template: >
-                      
-
-
-                      
-
-                        
-                      
-
+                    storefront_api_query: ''
+                    template: ''
                     template_engine: handlebars_v3
                     uuid: 3002bf5b-5eca-4ac2-8f1f-5240c2b74712
                 meta:
@@ -1410,14 +1343,14 @@ components:
                     current_page: 1
                     total_pages: 1
     WidgetTemplate_Resp:
-      description: ""
+      description: ''
       content:
         application/json:
           schema:
             allOf:
               - properties:
                   data:
-                    $ref: "#/components/schemas/widgetTemplate_Full"
+                    $ref: '#/components/schemas/widgetTemplate_Full'
               - properties:
                   meta:
                     type: object
@@ -1429,19 +1362,19 @@ components:
                   channel_id: 1
                   client_rerender: false
                   current_version_uuid: 4bd7619e-7992-4454-8610-84fb16449761
-                  date_created: 2020-12-21T19:36:16.896Z
-                  date_modified: 2020-12-21T19:36:16.896Z
+                  date_created: '2020-12-21T19:36:16.896Z'
+                  date_modified: '2020-12-21T19:36:16.896Z'
                   icon_name: default
                   kind: custom
                   name: Header Images
                   schema: []
-                  storefront_api_query: ""
-                  template: "{{#each images}}{{/each}}"
+                  storefront_api_query: ''
+                  template: '{{#each images}}{{/each}}'
                   template_engine: handlebars_v3
                   uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
                 meta: {}
     WidgetCollection_Resp:
-      description: ""
+      description: ''
       content:
         application/json:
           schema:
@@ -1450,17 +1383,17 @@ components:
               data:
                 type: array
                 items:
-                  $ref: "#/components/schemas/widget_Full"
+                  $ref: '#/components/schemas/widget_Full'
               meta:
-                $ref: "#/components/schemas/metaCollection"
+                $ref: '#/components/schemas/metaCollection'
           examples:
             response:
               value:
                 data:
                   - channel_id: 1
-                    date_created: 2020-12-21T19:54:16.406Z
-                    date_modified: 2020-12-21T19:54:16.406Z
-                    description: ""
+                    date_created: '2020-12-21T19:54:16.406Z'
+                    date_modified: '2020-12-21T19:54:16.406Z'
+                    description: ''
                     name: Header Images
                     storefront_api_query_params: {}
                     uuid: 1f05183e-dfa4-4583-af28-250b47e177b2
@@ -1469,27 +1402,27 @@ components:
                       _:
                         id: 1f05183e-dfa4-4583-af28-250b47e177b2
                       images:
-                        - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
-                        - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on
-                        - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
+                        - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+                        - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
+                        - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
                     widget_template:
                       channel_id: 1
                       client_rerender: false
                       current_version_uuid: c863f77b-e5b4-4462-a9ed-2aff9005140e
-                      date_created: 2020-12-21T19:49:29.110Z
-                      date_modified: 2020-12-21T19:49:29.110Z
+                      date_created: '2020-12-21T19:49:29.110Z'
+                      date_modified: '2020-12-21T19:49:29.110Z'
                       icon_name: default
                       kind: custom
                       name: Header Images
                       schema: []
-                      storefront_api_query: ""
-                      template: "{{#each images}}{{/each}}"
+                      storefront_api_query: ''
+                      template: '{{#each images}}{{/each}}'
                       template_engine: handlebars_v3
                       uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
                   - channel_id: 1
-                    date_created: 2020-12-21T20:26:18.557Z
-                    date_modified: 2020-12-21T20:26:18.557Z
-                    description: ""
+                    date_created: '2020-12-21T20:26:18.557Z'
+                    date_modified: '2020-12-21T20:26:18.557Z'
+                    description: ''
                     name: Simple List
                     storefront_api_query_params: {}
                     uuid: 7a842254-96ad-475f-9fe5-a59695e9685f
@@ -1508,13 +1441,13 @@ components:
                       channel_id: 1
                       client_rerender: false
                       current_version_uuid: c23dd66b-fa3f-451d-88ef-9f4082c6051e
-                      date_created: 2020-12-21T19:36:59.384Z
-                      date_modified: 2020-12-21T19:36:59.384Z
+                      date_created: '2020-12-21T19:36:59.384Z'
+                      date_modified: '2020-12-21T19:36:59.384Z'
                       icon_name: default
                       kind: custom
                       name: Simple List
                       schema: []
-                      storefront_api_query: ""
+                      storefront_api_query: ''
                       template: '<ul>{{#each list_items}}<li style=''color:{{color}};''>{{text}}</li>{{/each}}</ul>'
                       template_engine: handlebars_v3
                       uuid: 42b42cbb-e2d8-4f2a-97ea-06755032115a
@@ -1526,14 +1459,14 @@ components:
                     total: 2
                     total_pages: 1
     Widget_Resp:
-      description: ""
+      description: ''
       content:
         application/json:
           schema:
             type: object
             properties:
               data:
-                $ref: "#/components/schemas/widget_Full"
+                $ref: '#/components/schemas/widget_Full'
               meta:
                 type: object
           examples:
@@ -1541,9 +1474,9 @@ components:
               value:
                 data:
                   channel_id: 1
-                  date_created: 2020-12-21T19:54:16.406Z
-                  date_modified: 2020-12-21T19:54:16.406Z
-                  description: ""
+                  date_created: '2020-12-21T19:54:16.406Z'
+                  date_modified: '2020-12-21T19:54:16.406Z'
+                  description: ''
                   name: Header Images
                   storefront_api_query_params: {}
                   uuid: 1f05183e-dfa4-4583-af28-250b47e177b2
@@ -1552,104 +1485,87 @@ components:
                     _:
                       id: 1f05183e-dfa4-4583-af28-250b47e177b2
                     images:
-                      - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
-                      - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on
-                      - image_source: https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on
+                      - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+                      - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2&imbypass=on'
+                      - image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
                   widget_template:
                     channel_id: 1
                     client_rerender: false
                     current_version_uuid: c863f77b-e5b4-4462-a9ed-2aff9005140e
-                    date_created: 2020-12-21T19:49:29.110Z
-                    date_modified: 2020-12-21T19:49:29.110Z
+                    date_created: '2020-12-21T19:49:29.110Z'
+                    date_modified: '2020-12-21T19:49:29.110Z'
                     icon_name: default
                     kind: custom
                     name: Header Images
                     schema: []
-                    storefront_api_query: ""
-                    template: "{{#each images}}{{/each}}"
+                    storefront_api_query: ''
+                    template: '{{#each images}}{{/each}}'
                     template_engine: handlebars_v3
                     uuid: f8459145-da8f-4d98-93e4-83aa47da61c6
                 meta: {}
     Error422_Resp:
-      description: >
-        This is the result of missing required fields, or of invalid data. See
-        the response for more details.
+      description: |
+        This is the result of missing required fields, or of invalid data. See the response for more details.
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/error_Base"
+            $ref: '#/components/schemas/error_Base'
     Error404_Resp:
       description: The resource was not found.
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/error_Base"
+            $ref: '#/components/schemas/error_Base'
   securitySchemes:
     X-Auth-Token:
       type: apiKey
       name: X-Auth-Token
       in: header
-      description: >-
+      description: |-
         ### OAuth Scopes
-
         |  **UI Name** | **Permission** | **Parameter** |
-
         | --- | --- | --- |
-
         |  Content | modify | `store_v2_content` |
-
         |  Content | read-only | `store_v2_content_read_only` |
-
 
         ### Headers
 
-
         |Header|Parameter|Description|
-
         |-|-|-|
-
         |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
 
         ### Example
 
-
         ```http
-
         GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
         host: api.bigcommerce.com
-
         Content-Type: application/json
-
         X-Auth-Token: {access_token}
-
         ```
-
 
         * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
   schemas:
     widgetTemplate_Put:
       allOf:
-        - $ref: "#/components/schemas/widgetTemplate_Base"
+        - $ref: '#/components/schemas/widgetTemplate_Base'
         - type: object
           properties:
             create_new_version:
               type: boolean
-              description: Can be added to create a new widget template version instead of
-                updating the current one.
+              description: Can be added to create a new widget template version instead of updating the current one.
       title: widgetTemplate_Put
       x-internal: true
     widgetTemplate_Post:
       title: widgetTemplate_Post
       type: object
-      description: ""
+      description: ''
+      x-internal: true
       properties:
         name:
           type: string
           description: User-friendly name.
         schema:
-          $ref: "#/components/schemas/widgetSchema"
+          $ref: '#/components/schemas/widgetSchema'
         template:
           type: string
           description: Handlebars HTML content. Also has access to Stencil Paper helpers.
@@ -1657,13 +1573,15 @@ components:
         storefront_api_query:
           type: string
           description: The GraphQL Storefront API query that provides widget data.
+        channel_id:
+          type: integer
+          description: The id of the channel on which to create this template. Defaults to the first channel created on the store.
       required:
         - name
         - template
-      x-internal: true
     widgetTemplate_Full:
       allOf:
-        - $ref: "#/components/schemas/widgetTemplate_Base"
+        - $ref: '#/components/schemas/widgetTemplate_Base'
         - type: object
           properties:
             uuid:
@@ -1687,15 +1605,14 @@ components:
             icon_name:
               type: string
               default: default
-              description: A read-only value. Do not attempt to set or modify this value in
-                a POST or PUT operation.
+              description: A read-only value. Do not attempt to set or modify this value in a POST or PUT operation.
       title: widgetTemplate_Full
-      description: ""
+      description: ''
       x-internal: true
     widget_Full:
       title: widget_Full
       allOf:
-        - $ref: "#/components/schemas/widget_Base"
+        - $ref: '#/components/schemas/widget_Base'
         - type: object
           properties:
             uuid:
@@ -1703,7 +1620,7 @@ components:
               format: uuid
               description: The primary identifier.
             widget_template:
-              $ref: "#/components/schemas/widgetTemplate_Full"
+              $ref: '#/components/schemas/widgetTemplate_Full'
             date_created:
               type: string
               format: datetime
@@ -1714,8 +1631,7 @@ components:
               description: The date on which this object was last updated.
             version_uuid:
               type: string
-              description: The identifier of the widget template version associated with
-                this widget.
+              description: The identifier of the widget template version associated with this widget.
       x-internal: true
     widget_Post:
       required:
@@ -1740,7 +1656,7 @@ components:
     widget_Put:
       title: widget_Put
       allOf:
-        - $ref: "#/components/schemas/widget_Base"
+        - $ref: '#/components/schemas/widget_Base'
         - properties:
             widget_template_uuid:
               type: string
@@ -1761,7 +1677,7 @@ components:
           required:
             - widget_uuid
             - template_file
-        - $ref: "#/components/schemas/placement_Base"
+        - $ref: '#/components/schemas/placement_Base'
       x-internal: true
     placement_Put:
       title: placement_Put
@@ -1774,7 +1690,7 @@ components:
             widget_uuid:
               type: string
               description: A widget identifier.
-        - $ref: "#/components/schemas/placement_Base"
+        - $ref: '#/components/schemas/placement_Base'
       x-internal: true
     placement_Full:
       title: placement_Full
@@ -1796,19 +1712,19 @@ components:
               type: string
               format: datetime
               description: The date on which this object was last updated.
-        - $ref: "#/components/schemas/placement_Base"
+        - $ref: '#/components/schemas/placement_Base'
         - type: object
           properties:
             widget:
-              $ref: "#/components/schemas/widget_Full"
+              $ref: '#/components/schemas/widget_Full'
       x-internal: true
     metaCollection:
       type: object
-      description: Data about the response, including pagination and collection totals.
+      description: 'Data about the response, including pagination and collection totals.'
       title: metaCollection
       properties:
         pagination:
-          $ref: "#/components/schemas/pagination"
+          $ref: '#/components/schemas/pagination'
       x-internal: true
     pagination:
       type: object
@@ -1825,9 +1741,8 @@ components:
             Total number of items in the collection response.
         per_page:
           type: integer
-          description: >
-            The amount of items returned in the collection per page, controlled
-            by the limit parameter.
+          description: |
+            The amount of items returned in the collection per page, controlled by the limit parameter.
         current_page:
           type: integer
           description: |
@@ -1838,9 +1753,8 @@ components:
             The total number of pages in the collection.
         links:
           type: object
-          description: >
-            Pagination links for the previous and next parts of the whole
-            collection.
+          description: |
+            Pagination links for the previous and next parts of the whole collection.
           properties:
             previous:
               type: string
@@ -1894,13 +1808,10 @@ components:
       properties:
         entity_id:
           type: string
-          description: The identifier of a page you would like to target. For product
-            pages, choose product ID. For category pages, choose category ID.
-            Home page does not support `entity_id`.
+          description: 'The identifier of a page you would like to target. For product pages, choose product ID. For category pages, choose category ID. Home page does not support `entity_id`.'
         sort_order:
           type: integer
-          description: The sort order to control the position of a content widget in a
-            region.
+          description: The sort order to control the position of a content widget in a region.
         region:
           type: string
           description: The name of the region in which to insert content widgets.
@@ -1920,7 +1831,7 @@ components:
           type: string
           description: The user-friendly name.
         schema:
-          $ref: "#/components/schemas/widgetSchema"
+          $ref: '#/components/schemas/widgetSchema'
         template:
           type: string
           format: html
@@ -1928,7 +1839,7 @@ components:
         storefront_api_query:
           type: string
           description: The GraphQL Storefront API query that provides widget data.
-      description: ""
+      description: ''
       x-internal: true
     widget_Base:
       type: object
@@ -1961,13 +1872,12 @@ components:
           typeMeta:
             type: string
           conditional:
-            $ref: "#/components/schemas/widgetSchemaConditional"
+            $ref: '#/components/schemas/widgetSchemaConditional'
       x-internal: true
     widgetSchemaTab:
       type: object
       title: widgetSchemaTab
-      description: "**Tab.** Use the **tab** settings type to create settings visible in
-        Page Builder."
+      description: '**Tab.** Use the **tab** settings type to create settings visible in Page Builder.'
       enum:
         - tab
       properties:
@@ -1979,8 +1889,7 @@ components:
         label:
           type: string
           example: Content
-          description: The user-friendly message to inform the user how this setting will
-            be used.
+          description: The user-friendly message to inform the user how this setting will be used.
         sections:
           type: array
           description: Groups of related settings.
@@ -1990,28 +1899,20 @@ components:
             properties:
               label:
                 type: string
-                description: The user-friendly message to inform the user how this setting
-                  will be used.
+                description: The user-friendly message to inform the user how this setting will be used.
                 example: Product
               settings:
                 type: array
-                description: For examples of schema settings, see [Widget UI Input
-                  Types](/stencil-docs/page-builder/schema-settings).
+                description: 'For examples of schema settings, see [Widget UI Input Types](/stencil-docs/page-builder/schema-settings).'
                 items:
                   type: object
                   title: widgetSchemaSetting_Base
-                  description: For examples of each type of setting, see [Page Builder >
-                    Schema
-                    Settings](/stencil-docs/page-builder/schema-settings/alignment)
-                    in Theme Docs.
+                  description: 'For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
                   properties:
                     type:
                       type: string
-                      description: >-
-                        The type of setting component to display. You can view
-                        the list of elements below to discover which are
-                        available to use.
-
+                      description: |-
+                        The type of setting component to display. You can view the list of elements below to discover which are available to use.
 
                         For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.
                       enum:
@@ -2032,21 +1933,16 @@ components:
                         - toggle
                     label:
                       type: string
-                      description: The user friendly message to inform the user how this
-                        setting will be used.
+                      description: The user friendly message to inform the user how this setting will be used.
                     id:
                       type: string
-                      description: The variable name where the setting value will be
-                        available in the widget template.
+                      description: The variable name where the setting value will be available in the widget template.
                     default:
                       type: string
-                      description: The default value to use when rendering the widget for
-                        the first time. Make sure to set sensible defaults to
-                        make your widget easier to use.
+                      description: The default value to use when rendering the widget for the first time. Make sure to set sensible defaults to make your widget easier to use.
                     typeMeta:
                       type: object
-                      description: Additional information needed based on the selected
-                        setting type.
+                      description: Additional information needed based on the selected setting type.
                       properties:
                         selectOptions:
                           type: array
@@ -2062,11 +1958,7 @@ components:
                     conditional:
                       type: object
                       title: widgetSchemaConditional
-                      description: An optional property that can be added to each setting
-                        to control whether it should be displayed to the user
-                        while editing in Page Builder. This does not clear the
-                        value in the setting, just controls the display of the
-                        setting.
+                      description: 'An optional property that can be added to each setting to control whether it should be displayed to the user while editing in Page Builder. This does not clear the value in the setting, just controls the display of the setting.'
                       x-examples:
                         Conditional attribute:
                           key: backgroundType
@@ -2076,22 +1968,15 @@ components:
                       properties:
                         key:
                           type: string
-                          description: The ID of the `setting` object the conditional
-                            attribute is related to.
+                          description: The ID of the `setting` object the conditional attribute is related to.
                           example: backgroundType
                         operator:
                           type: string
-                          description: "Specifies the operation used to determine whether
-                            to display the setting. The `IN` operator is
-                            currently the only supported operator. The setting
-                            will be displayed if the conditional’s `value`
-                            property is equal to the selected value of the
-                            `selectOptions`. "
+                          description: 'Specifies the operation used to determine whether to display the setting. The `IN` operator is currently the only supported operator. The setting will be displayed if the conditional’s `value` property is equal to the selected value of the `selectOptions`. '
                           example: IN
                         value:
                           type: array
-                          description: A single-object array containing a value from the
-                            `typeMeta`'s `selectOptions`.
+                          description: A single-object array containing a value from the `typeMeta`'s `selectOptions`.
                           items: {}
       x-internal: true
     widgetSchemaTabSections:
@@ -2102,18 +1987,14 @@ components:
           type: string
         settings:
           type: array
-          description: For examples of each type of setting, see [Page Builder > Schema
-            Settings](/stencil-docs/page-builder/schema-settings/alignment) in
-            Theme Docs.
+          description: 'For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
           items:
-            $ref: "#/components/schemas/widgetSchemaSetting_Base"
+            $ref: '#/components/schemas/widgetSchemaSetting_Base'
       x-internal: true
     widgetSchemaArray:
       type: object
       title: widgetSchemaArray
-      description: "**Array.** Use the **array** settings type to build collections of
-        elements within the widget. Each element in the array can contain tabs,
-        sections, and an entire schema."
+      description: '**Array.** Use the **array** settings type to build collections of elements within the widget. Each element in the array can contain tabs, sections, and an entire schema.'
       properties:
         type:
           type: string
@@ -2144,22 +2025,18 @@ components:
           type: array
           items:
             anyOf:
-              - $ref: "#/components/schemas/widgetSchemaHidden"
-              - $ref: "#/components/schemas/widgetSchemaTab"
+              - $ref: '#/components/schemas/widgetSchemaHidden'
+              - $ref: '#/components/schemas/widgetSchemaTab'
       x-internal: true
     widgetSchemaSetting_Base:
       type: object
       title: widgetSchemaSetting_Base
-      description: For examples of each type of setting, see [Page Builder > Schema
-        Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme
-        Docs.
+      description: 'For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
       properties:
         type:
           type: string
-          description: >-
-            The type of setting component to display. You can view the list of
-            elements below to discover which are available to use.
-
+          description: |-
+            The type of setting component to display. You can view the list of elements below to discover which are available to use.
 
             For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.
           enum:
@@ -2180,17 +2057,13 @@ components:
             - toggle
         label:
           type: string
-          description: The user friendly message to inform the user how this setting will
-            be used.
+          description: The user friendly message to inform the user how this setting will be used.
         id:
           type: string
-          description: The variable name where the setting value will be available in the
-            widget template.
+          description: The variable name where the setting value will be available in the widget template.
         default:
           type: string
-          description: The default value to use when rendering the widget for the first
-            time. Make sure to set sensible defaults to make your widget easier
-            to use.
+          description: The default value to use when rendering the widget for the first time. Make sure to set sensible defaults to make your widget easier to use.
         typeMeta:
           type: object
           description: Additional information needed based on the selected setting type.
@@ -2207,26 +2080,22 @@ components:
                     type: string
                     example: image
         conditional:
-          $ref: "#/components/schemas/widgetSchemaConditional"
+          $ref: '#/components/schemas/widgetSchemaConditional'
       x-internal: true
     widgetSchema:
       type: array
-      description: "The schema for the widget’s merchant-facing UI. For more information on
-        the available schema settings, see [Widget UI
-        Schema](/stencil-docs/page-builder/widget-ui-schema). "
-      title: ""
+      description: 'The schema for the widget’s merchant-facing UI. For more information on the available schema settings, see [Widget UI Schema](/stencil-docs/page-builder/widget-ui-schema). '
+      title: ''
       items:
         anyOf:
-          - $ref: "#/components/schemas/widgetSchemaTab"
-          - $ref: "#/components/schemas/widgetSchemaArray"
-          - $ref: "#/components/schemas/widgetSchemaHidden"
+          - $ref: '#/components/schemas/widgetSchemaTab'
+          - $ref: '#/components/schemas/widgetSchemaArray'
+          - $ref: '#/components/schemas/widgetSchemaHidden'
       x-internal: true
     widgetSchemaHidden:
       type: object
       title: widgetSchemaHidden
-      description: "**Hidden.** Use the **hidden** settings type to create controls that
-        have no user interface drawn in Page Builder. Hidden settings are not
-        grouped into any other tabs or arrays."
+      description: '**Hidden.** Use the **hidden** settings type to create controls that have no user interface drawn in Page Builder. Hidden settings are not grouped into any other tabs or arrays.'
       enum:
         - hidden
       properties:
@@ -2237,16 +2106,12 @@ components:
           items:
             type: object
             title: widgetSchemaSetting_Base
-            description: For examples of each type of setting, see [Page Builder > Schema
-              Settings](/stencil-docs/page-builder/schema-settings/alignment) in
-              Theme Docs.
+            description: 'For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.'
             properties:
               type:
                 type: string
-                description: >-
-                  The type of setting component to display. You can view the
-                  list of elements below to discover which are available to use.
-
+                description: |-
+                  The type of setting component to display. You can view the list of elements below to discover which are available to use.
 
                   For examples of each type of setting, see [Page Builder > Schema Settings](/stencil-docs/page-builder/schema-settings/alignment) in Theme Docs.
                 enum:
@@ -2267,21 +2132,16 @@ components:
                   - toggle
               label:
                 type: string
-                description: The user friendly message to inform the user how this setting
-                  will be used.
+                description: The user friendly message to inform the user how this setting will be used.
               id:
                 type: string
-                description: The variable name where the setting value will be available in
-                  the widget template.
+                description: The variable name where the setting value will be available in the widget template.
               default:
                 type: string
-                description: The default value to use when rendering the widget for the
-                  first time. Make sure to set sensible defaults to make your
-                  widget easier to use.
+                description: The default value to use when rendering the widget for the first time. Make sure to set sensible defaults to make your widget easier to use.
               typeMeta:
                 type: object
-                description: Additional information needed based on the selected setting
-                  type.
+                description: Additional information needed based on the selected setting type.
                 properties:
                   selectOptions:
                     type: array
@@ -2297,10 +2157,7 @@ components:
               conditional:
                 type: object
                 title: widgetSchemaConditional
-                description: An optional property that can be added to each setting to
-                  control whether it should be displayed to the user while
-                  editing in Page Builder. This does not clear the value in the
-                  setting, just controls the display of the setting.
+                description: 'An optional property that can be added to each setting to control whether it should be displayed to the user while editing in Page Builder. This does not clear the value in the setting, just controls the display of the setting.'
                 x-examples:
                   Conditional attribute:
                     key: backgroundType
@@ -2310,21 +2167,15 @@ components:
                 properties:
                   key:
                     type: string
-                    description: The ID of the `setting` object the conditional attribute
-                      is related to.
+                    description: The ID of the `setting` object the conditional attribute is related to.
                     example: backgroundType
                   operator:
                     type: string
-                    description: "Specifies the operation used to determine whether to
-                      display the setting. The `IN` operator is currently the
-                      only supported operator. The setting will be displayed if
-                      the conditional’s `value` property is equal to the
-                      selected value of the `selectOptions`. "
+                    description: 'Specifies the operation used to determine whether to display the setting. The `IN` operator is currently the only supported operator. The setting will be displayed if the conditional’s `value` property is equal to the selected value of the `selectOptions`. '
                     example: IN
                   value:
                     type: array
-                    description: A single-object array containing a value from the
-                      `typeMeta`'s `selectOptions`.
+                    description: A single-object array containing a value from the `typeMeta`'s `selectOptions`.
                     items: {}
       x-internal: true
     widgetSchemaTabSectionsSettings:
@@ -2335,10 +2186,7 @@ components:
     widgetSchemaConditional:
       type: object
       title: widgetSchemaConditional
-      description: An optional property that can be added to each setting to control
-        whether it should be displayed to the user while editing in Page
-        Builder. This does not clear the value in the setting, just controls the
-        display of the setting.
+      description: 'An optional property that can be added to each setting to control whether it should be displayed to the user while editing in Page Builder. This does not clear the value in the setting, just controls the display of the setting.'
       x-examples:
         Conditional attribute:
           key: backgroundType
@@ -2348,19 +2196,14 @@ components:
       properties:
         key:
           type: string
-          description: The ID of the `setting` object the conditional attribute is related
-            to.
+          description: The ID of the `setting` object the conditional attribute is related to.
           example: backgroundType
         operator:
           type: string
-          description: "Specifies the operation used to determine whether to display the
-            setting. The `IN` operator is currently the only supported operator.
-            The setting will be displayed if the conditional’s `value` property
-            is equal to the selected value of the `selectOptions`. "
+          description: 'Specifies the operation used to determine whether to display the setting. The `IN` operator is currently the only supported operator. The setting will be displayed if the conditional’s `value` property is equal to the selected value of the `selectOptions`. '
           example: IN
         value:
           type: array
-          description: A single-object array containing a value from the `typeMeta`'s
-            `selectOptions`.
+          description: A single-object array containing a value from the `typeMeta`'s `selectOptions`.
           items: {}
       x-internal: true
