@@ -548,6 +548,7 @@ paths:
         required: true
         schema:
           type: string
+        description: The identifier for a specific widget.
   '/stores/{store_hash}/v3/content/placements':
     post:
       tags:
@@ -1283,6 +1284,22 @@ components:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                        {{text}}
                     template_engine: handlebars_v3
                     uuid: 17dcc919-982a-4cc0-8ede-a5b49f9ab6dc
@@ -1644,11 +1661,14 @@ components:
             version_uuid:
               type: string
               description: The identifier of the widget template version associated with this widget.
+            channel_id:
+              type: integer
+              description: The ID of the channel on which this widget exists.
       x-internal: true
     widget_Post:
-      required:
-        - name
-        - widget_template_uuid
+      title: widget_Post
+      x-internal: true
+      type: object
       properties:
         name:
           type: string
@@ -1663,17 +1683,26 @@ components:
         widget_template_uuid:
           type: string
           description: The widget template UUID.
-      title: widget_Post
-      x-internal: true
+        channel_id:
+          type: integer
+          description: The ID of the channel on which to create this widget. Defaults to the first channel created on the store.
+      required:
+        - name
+        - widget_template_uuid
     widget_Put:
       title: widget_Put
       allOf:
         - $ref: '#/components/schemas/widget_Base'
-        - properties:
+        - type: object
+          properties:
             widget_template_uuid:
               type: string
               description: The widget template UUID.
-          type: object
+            channel_id:
+              type: integer
+            upgrade:
+              type: boolean
+              description: Upgrade the Widget to latest version of the WidgetTemplate.
       x-internal: true
     placement_Post:
       title: placement_Post
