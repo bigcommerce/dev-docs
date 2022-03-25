@@ -189,6 +189,77 @@ paths:
         required: true
         schema:
           type: string
+  /content/widgets/search:
+    get:
+      tags:
+        - Widget
+      summary: Get All Widgets by Search
+      description: Returns a list of widgets by search.
+      operationId: searchWidgets
+      parameters:
+        - $ref: '#/parameters/PageParam'
+        - $ref: '#/parameters/LimitParam'
+        - $ref: '#/parameters/QueryWidgetsParam'
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/WidgetsResponse'
+          description: Success
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+  '/content/widget-templates/{uuid}/preview':
+    post:
+      tags:
+        - Widget Template
+      summary: Render a Widget Template
+      description: Render a widget template and return the widget html.
+      operationId: previewWidget
+      parameters:
+        - $ref: '#/parameters/TemplateUUID'
+        - name: templateBody
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/WidgetTemplatePreview'
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/WidgetTemplatePreviewResponse'
+          description: Success
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    html: string
+                properties:
+                  html:
+                    type: string
+                    minLength: 1
+                    format: html
+                    description: The HTML render of the widget template.
+        '404':
+          description: |
+            The resource was not found.
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+          description: |
+            This is the result of missing required fields, or of invalid data. See the response for more details.
+    parameters:
+      - schema:
+          type: string
+        name: uuid
+        in: path
+        required: true
+        description: The identifier for a specific widget.
   '/stores/{store_hash}/v3/content/widget-templates/{uuid}':
     get:
       tags:
@@ -1271,6 +1342,13 @@ components:
                     schema: []
                     storefront_api_query: ''
                     template: |2
+
+
+
+
+
+
+
 
 
 
