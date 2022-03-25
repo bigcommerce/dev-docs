@@ -197,19 +197,26 @@ paths:
       description: Returns a list of widgets by search.
       operationId: searchWidgets
       parameters:
-        - $ref: '#/parameters/PageParam'
-        - $ref: '#/parameters/LimitParam'
-        - $ref: '#/parameters/QueryWidgetsParam'
+        - in: query
+          name: limit
+          description: Controls the number of items per page in a limited (paginated) list of products.
+          schema:
+            type: integer
+        - in: query
+          name: page
+          description: Specifies the page number in a limited (paginated) list of products.
+          schema:
+            type: integer
+        - in: query
+          name: query
+          description: The query string associated with a widget's name and description.
+          schema:
+            type: string
       responses:
         '200':
-          schema:
-            $ref: '#/definitions/WidgetsResponse'
-          description: Success
+          $ref: '#/components/responses/WidgetCollection_Resp'
         '422':
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          description: |
-            This is the result of missing required fields, or of invalid data. See the response for more details.
+          $ref: '#/components/responses/Error422_Resp'
   '/content/widget-templates/{uuid}/preview':
     post:
       tags:
@@ -1342,6 +1349,25 @@ components:
                     schema: []
                     storefront_api_query: ''
                     template: |2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
