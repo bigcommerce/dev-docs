@@ -1,4 +1,4 @@
-swagger: '2.0'
+openapi: 3.0.0
 info:
   title: Scripts
   version: ''
@@ -8,8 +8,8 @@ info:
     ## OAuth Scopes
     | UI Name                                      | Permission | Parameter                                     |
     |----------------------------------------------|------------|-----------------------------------------------|
-    | Checkout Content<sup>1</sup>                             | modify     | `store_content_checkout`                      |
-    | Checkout Content<sup>1</sup>                             | read-only  | `store_content_checkout_read_only`            |
+    | Checkout Content1                             | modify     | `store_content_checkout`                      |
+    | Checkout Content1                             | read-only  | `store_content_checkout_read_only`            |
     | Content                                       | modify     | `store_v2_content`                            |
     | Content                                       | read-only  | `store_v2_content_read_only`                  |
 
@@ -40,110 +40,124 @@ info:
   termsOfService: ''
   license:
     name: ''
-host: api.bigcommerce.com
-basePath: /
 tags:
   - name: Scripts
-schemes:
-  - https
-produces:
-  - application/json
-consumes:
-  - application/json
 paths:
   '/stores/{store_hash}/v3/content/scripts':
     post:
       summary: Create a Script
       operationId: createScript
       parameters:
-        - name: scriptBody
-          in: body
+        - in: header
+          name: Accept
           required: true
           schema:
-            $ref: '#/definitions/script_Post'
-          x-examples:
-            Script Source URL:
-              name: Bootstrap
-              description: Build responsive websites
-              src: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'
-              auto_uninstall: true
-              load_method: default
-              location: footer
-              visibility: all_pages
-              kind: src
-              consent_category: essential
-            HTML Script Tag:
-              name: Bootstrap
-              description: Build responsive websites
-              html: '<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js\"></script>'
-              auto_uninstall: true
-              load_method: default
-              location: footer
-              visibility: all_pages
-              kind: script_tag
-              consent_category: essential
-          description: ''
-        - in: header
-          type: string
-          name: Accept
-          default: application/json
-          required: true
+            type: string
+            default: application/json
         - name: Content-Type
           in: header
-          type: string
-          default: application/json
           required: true
+          schema:
+            type: string
+            default: application/json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/script_Post'
+            examples:
+              example-1:
+                value:
+                  name: jQuery
+                  uuid: 2bf40be2-e57a-4bc8-860a-5bf45edd3795
+                  description: 'The Write Less, Do More, JavaScript Library.'
+                  src: 'https://code.jquery.com/jquery-3.2.1.min.js'
+                  auto_uninstall: true
+                  load_method: defer
+                  location: head
+                  visibility: storefront
+                  kind: src
+                  api_client_id: d1j42k5q76xsm15fa3g8sp2egytoixo
+                  date_created: '2017-12-05T23:37:45.506Z'
+                  date_modified: '2017-12-05T23:37:45.506Z'
+        required: true
+        x-examples:
+          Script Source URL:
+            name: Bootstrap
+            description: Build responsive websites
+            src: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'
+            auto_uninstall: true
+            load_method: default
+            location: footer
+            visibility: all_pages
+            kind: src
+            consent_category: essential
+          HTML Script Tag:
+            name: Bootstrap
+            description: Build responsive websites
+            html: null
+            auto_uninstall: true
+            load_method: default
+            location: footer
+            visibility: all_pages
+            kind: script_tag
+            consent_category: essential
       responses:
         '200':
-          schema:
-            $ref: '#/definitions/script_Response'
           description: ''
-          examples:
+          content:
             application/json:
-              data:
-                uuid: 2bf40be2-e57a-4bc8-860a-5bf45edd3795
-                name: jQuery
-                description: 'The Write Less, Do More, JavaScript Library.'
-                src: 'https://code.jquery.com/jquery-3.2.1.min.js'
-                auto_uninstall: true
-                load_method: default
-                location: head
-                visibility: storefront
-                kind: src
-                api_client_id: d1j42k5q76xsm15fa3g8sp2egytoixo
-                consent_category: essential
-                date_created: '2017-12-05T23:37:45.506Z'
-                date_modified: '2017-12-05T23:37:45.506Z'
+              schema:
+                $ref: '#/components/schemas/script_Response'
+              examples:
+                response:
+                  value:
+                    data:
+                      uuid: 2bf40be2-e57a-4bc8-860a-5bf45edd3795
+                      name: jQuery
+                      description: 'The Write Less, Do More, JavaScript Library.'
+                      src: 'https://code.jquery.com/jquery-3.2.1.min.js'
+                      auto_uninstall: true
+                      load_method: default
+                      location: head
+                      visibility: storefront
+                      kind: src
+                      api_client_id: d1j42k5q76xsm15fa3g8sp2egytoixo
+                      consent_category: essential
+                      date_created: '2017-12-05T23:37:45.506Z'
+                      date_modified: '2017-12-05T23:37:45.506Z'
         '422':
-          schema:
-            allOf:
-              - type: object
-                description: |
-                  Error payload for the BigCommerce API.
-                properties:
-                  status:
-                    description: |
-                      The HTTP status code.
-                    type: integer
-                  title:
-                    description: |
-                      The error title describing the particular error.
-                    type: string
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                title: Base Error
-              - type: object
-                properties:
-                  errors:
-                    type: object
-                    additionalProperties:
-                      type: string
-                    title: DetailedErrors
-            title: Error Response
           description: |
             This is the result of missing required fields, or of invalid data. See the response for more details.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - type: object
+                    description: |
+                      Error payload for the BigCommerce API.
+                    properties:
+                      status:
+                        description: |
+                          The HTTP status code.
+                        type: integer
+                      title:
+                        description: |
+                          The error title describing the particular error.
+                        type: string
+                      type:
+                        type: string
+                      instance:
+                        type: string
+                    title: Base Error
+                  - type: object
+                    properties:
+                      errors:
+                        type: object
+                        additionalProperties:
+                          type: string
+                        title: DetailedErrors
+                title: Error Response
       tags:
         - Scripts
       description: |-
@@ -168,127 +182,140 @@ paths:
           description: Specifies the page number in a limited (paginated) list of products.
           required: false
           in: query
-          type: integer
+          schema:
+            type: integer
         - name: limit
           description: Controls the number of items per page in a limited (paginated) list of products.
           required: false
           in: query
-          type: integer
+          schema:
+            type: integer
         - name: sort
           description: |
             Field name to sort the scripts by. Note: Since `id` increments when new scripts are added, you can use that field to sort by script create date.
           required: false
           in: query
-          type: string
-          enum:
-            - name
-            - description
-            - date_created
-            - date_modified
+          schema:
+            type: string
+            enum:
+              - name
+              - description
+              - date_created
+              - date_modified
         - name: direction
           description: |
             Sort direction. Acceptable values are: `asc`, `desc`.
           required: false
           in: query
-          type: string
-          enum:
-            - asc
-            - desc
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
         - in: header
-          type: string
           name: Accept
-          default: application/json
           required: true
+          schema:
+            type: string
+            default: application/json
         - name: Content-Type
           in: header
-          type: string
-          default: application/json
           required: true
-        - type: array
-          in: query
+          schema:
+            type: string
+            default: application/json
+        - in: query
           name: 'channel_id:in'
           description: Filters list of scripts by the associated channel_id.
+          schema:
+            type: array
+            items: {}
       responses:
         '200':
-          schema:
-            type: object
-            title: Scripts Response
-            properties:
-              data:
-                type: array
-                items:
-                  $ref: '#/definitions/script_Full'
-              meta:
-                $ref: '#/definitions/CollectionMeta'
           description: ''
-          examples:
+          content:
             application/json:
-              data:
-                - uuid: 311a146b-8322-4b6e-905f-6c9a6037514b
-                  name: jQuery
-                  description: 'The Write Less, Do More, JavaScript Library.'
-                  html: ''
-                  src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'
-                  auto_uninstall: true
-                  load_method: default
-                  location: head
-                  visibility: storefront
-                  kind: src
-                  date_created: '2018-09-17T16:39:43.472Z'
-                  date_modified: '2018-09-17T16:39:43.472Z'
-                  api_client_id: 2d63fbe890f4ac83794d69f361e055
-                  consent_category: essential
-                - uuid: 61826311-5d54-4e81-a7d2-d44243f11e42
-                  name: Bootstrap
-                  description: Build responsive websites
-                  html: ''
-                  src: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'
-                  auto_uninstall: true
-                  load_method: default
-                  location: footer
-                  visibility: all_pages
-                  kind: src
-                  date_created: '2018-09-17T16:45:31.047Z'
-                  date_modified: '2018-09-17T16:45:31.047Z'
-                  api_client_id: 2d63fbe890f4ac83794d69f361e055
-                  consent_category: essential
-              meta:
-                pagination:
-                  total: 2
-                  count: 2
-                  per_page: 50
-                  current_page: 1
-                  total_pages: 1
+              schema:
+                type: object
+                title: Scripts Response
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/script_Full'
+                  meta:
+                    $ref: '#/components/schemas/CollectionMeta'
+              examples:
+                response:
+                  value:
+                    data:
+                      - uuid: 311a146b-8322-4b6e-905f-6c9a6037514b
+                        name: jQuery
+                        description: 'The Write Less, Do More, JavaScript Library.'
+                        html: ''
+                        src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'
+                        auto_uninstall: true
+                        load_method: default
+                        location: head
+                        visibility: storefront
+                        kind: src
+                        date_created: '2018-09-17T16:39:43.472Z'
+                        date_modified: '2018-09-17T16:39:43.472Z'
+                        api_client_id: 2d63fbe890f4ac83794d69f361e055
+                        consent_category: essential
+                      - uuid: 61826311-5d54-4e81-a7d2-d44243f11e42
+                        name: Bootstrap
+                        description: Build responsive websites
+                        html: ''
+                        src: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'
+                        auto_uninstall: true
+                        load_method: default
+                        location: footer
+                        visibility: all_pages
+                        kind: src
+                        date_created: '2018-09-17T16:45:31.047Z'
+                        date_modified: '2018-09-17T16:45:31.047Z'
+                        api_client_id: 2d63fbe890f4ac83794d69f361e055
+                        consent_category: essential
+                    meta:
+                      pagination:
+                        total: 2
+                        count: 2
+                        per_page: 50
+                        current_page: 1
+                        total_pages: 1
         '422':
-          schema:
-            allOf:
-              - type: object
-                description: |
-                  Error payload for the BigCommerce API.
-                properties:
-                  status:
-                    description: |
-                      The HTTP status code.
-                    type: integer
-                  title:
-                    description: |
-                      The error title describing the particular error.
-                    type: string
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                title: Base Error
-              - type: object
-                properties:
-                  errors:
-                    type: object
-                    additionalProperties:
-                      type: string
-                    title: DetailedErrors
-            title: Error Response
           description: |
             This is the result of missing required fields, or of invalid data. See the response for more details.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - type: object
+                    description: |
+                      Error payload for the BigCommerce API.
+                    properties:
+                      status:
+                        description: |
+                          The HTTP status code.
+                        type: integer
+                      title:
+                        description: |
+                          The error title describing the particular error.
+                        type: string
+                      type:
+                        type: string
+                      instance:
+                        type: string
+                    title: Base Error
+                  - type: object
+                    properties:
+                      errors:
+                        type: object
+                        additionalProperties:
+                          type: string
+                        title: DetailedErrors
+                title: Error Response
       tags:
         - Scripts
       description: |-
@@ -296,10 +323,11 @@ paths:
 
         This operation will only return scripts generated by the API key and password used to create the script originally. 
     parameters:
-      - type: string
-        name: store_hash
+      - name: store_hash
         in: path
         required: true
+        schema:
+          type: string
   '/stores/{store_hash}/v3/content/scripts/{uuid}':
     get:
       summary: Get a Script
@@ -309,101 +337,111 @@ paths:
           description: The identifier for a specific script.
           required: true
           in: path
-          type: string
-          format: uuid
+          schema:
+            type: string
+            format: uuid
         - in: header
-          type: string
           name: Accept
-          default: application/json
           required: true
+          schema:
+            type: string
+            default: application/json
         - name: Content-Type
           in: header
-          type: string
-          default: application/json
           required: true
+          schema:
+            type: string
+            default: application/json
       responses:
         '200':
-          schema:
-            $ref: '#/definitions/script_Response'
           description: Success
-          examples:
+          content:
             application/json:
-              data:
-                uuid: 311a146b-8322-4b6e-905f-6c9a6037514b
-                name: jQuery
-                description: 'The Write Less, Do More, JavaScript Library.'
-                html: ''
-                src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'
-                auto_uninstall: true
-                load_method: default
-                location: head
-                visibility: storefront
-                kind: src
-                date_created: '2018-09-17T16:39:43.472Z'
-                date_modified: '2018-09-17T16:39:43.472Z'
-                api_client_id: 2d63fbe890f4ac83794d69f361e055
-                consent_category: essential
-              meta: {}
+              schema:
+                $ref: '#/components/schemas/script_Response'
+              examples:
+                response:
+                  value:
+                    data:
+                      uuid: 311a146b-8322-4b6e-905f-6c9a6037514b
+                      name: jQuery
+                      description: 'The Write Less, Do More, JavaScript Library.'
+                      html: ''
+                      src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'
+                      auto_uninstall: true
+                      load_method: default
+                      location: head
+                      visibility: storefront
+                      kind: src
+                      date_created: '2018-09-17T16:39:43.472Z'
+                      date_modified: '2018-09-17T16:39:43.472Z'
+                      api_client_id: 2d63fbe890f4ac83794d69f361e055
+                      consent_category: essential
+                    meta: {}
         '404':
           description: |
             The resource was not found.
-          schema:
-            allOf:
-              - type: object
-                description: |
-                  Error payload for the BigCommerce API.
-                properties:
-                  status:
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - type: object
                     description: |
-                      The HTTP status code.
-                    type: integer
-                  title:
-                    description: |
-                      The error title describing the particular error.
-                    type: string
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                title: Base Error
-              - type: object
-                properties:
-                  errors:
-                    type: object
-                    additionalProperties:
-                      type: string
-                    title: DetailedErrors
-            title: Error Response
+                      Error payload for the BigCommerce API.
+                    properties:
+                      status:
+                        description: |
+                          The HTTP status code.
+                        type: integer
+                      title:
+                        description: |
+                          The error title describing the particular error.
+                        type: string
+                      type:
+                        type: string
+                      instance:
+                        type: string
+                    title: Base Error
+                  - type: object
+                    properties:
+                      errors:
+                        type: object
+                        additionalProperties:
+                          type: string
+                        title: DetailedErrors
+                title: Error Response
         '422':
-          schema:
-            allOf:
-              - type: object
-                description: |
-                  Error payload for the BigCommerce API.
-                properties:
-                  status:
-                    description: |
-                      The HTTP status code.
-                    type: integer
-                  title:
-                    description: |
-                      The error title describing the particular error.
-                    type: string
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                title: Base Error
-              - type: object
-                properties:
-                  errors:
-                    type: object
-                    additionalProperties:
-                      type: string
-                    title: DetailedErrors
-            title: Error Response
           description: |
             This is the result of missing required fields, or of invalid data. See the response for more details.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - type: object
+                    description: |
+                      Error payload for the BigCommerce API.
+                    properties:
+                      status:
+                        description: |
+                          The HTTP status code.
+                        type: integer
+                      title:
+                        description: |
+                          The error title describing the particular error.
+                        type: string
+                      type:
+                        type: string
+                      instance:
+                        type: string
+                    title: Base Error
+                  - type: object
+                    properties:
+                      errors:
+                        type: object
+                        additionalProperties:
+                          type: string
+                        title: DetailedErrors
+                title: Error Response
       tags:
         - Scripts
       description: Returns a single *Script*.
@@ -415,117 +453,128 @@ paths:
           description: The identifier for a specific script.
           required: true
           in: path
-          type: string
-          format: uuid
-        - name: scriptBody
-          in: body
-          required: true
           schema:
-            $ref: '#/definitions/script_Put'
-          x-examples:
-            application/json:
-              name: jQuery
-              description: 'The Write Less, Do More, JavaScript Library.'
-              html: '<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>'
-              src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'
-              auto_uninstall: true
-              load_method: default
-              location: head
-              visibility: storefront
-              consent_category: essential
-              kind: src
+            type: string
+            format: uuid
         - name: Content-Type
           in: header
-          type: string
-          default: application/json
           required: true
+          schema:
+            type: string
+            default: application/json
         - in: header
-          type: string
           name: Accept
-          default: application/json
           required: true
+          schema:
+            type: string
+            default: application/json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/script_Put'
+        required: true
+        x-examples:
+          application/json:
+            name: jQuery
+            description: 'The Write Less, Do More, JavaScript Library.'
+            html: null
+            src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'
+            auto_uninstall: true
+            load_method: default
+            location: head
+            visibility: storefront
+            consent_category: essential
+            kind: src
       responses:
         '200':
-          schema:
-            $ref: '#/definitions/script_Response'
           description: ''
-          examples:
+          content:
             application/json:
-              data:
-                uuid: 311a146b-8322-4b6e-905f-6c9a6037514b
-                name: jQuery
-                description: 'The Write Less, Do More, JavaScript Library.'
-                html: ''
-                src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'
-                auto_uninstall: true
-                load_method: default
-                location: head
-                visibility: storefront
-                kind: src
-                date_created: '2018-09-17T16:39:43.472Z'
-                date_modified: '2018-09-17T16:39:43.472Z'
-                api_client_id: 2d63fbe890f4ac83794d69f361e055
-              meta: {}
+              schema:
+                $ref: '#/components/schemas/script_Response'
+              examples:
+                response:
+                  value:
+                    data:
+                      uuid: 311a146b-8322-4b6e-905f-6c9a6037514b
+                      name: jQuery
+                      description: 'The Write Less, Do More, JavaScript Library.'
+                      html: ''
+                      src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'
+                      auto_uninstall: true
+                      load_method: default
+                      location: head
+                      visibility: storefront
+                      kind: src
+                      date_created: '2018-09-17T16:39:43.472Z'
+                      date_modified: '2018-09-17T16:39:43.472Z'
+                      api_client_id: 2d63fbe890f4ac83794d69f361e055
+                    meta: {}
         '404':
           description: |
             The resource was not found.
-          schema:
-            allOf:
-              - type: object
-                description: |
-                  Error payload for the BigCommerce API.
-                properties:
-                  status:
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - type: object
                     description: |
-                      The HTTP status code.
-                    type: integer
-                  title:
-                    description: |
-                      The error title describing the particular error.
-                    type: string
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                title: Base Error
-              - type: object
-                properties:
-                  errors:
-                    type: object
-                    additionalProperties:
-                      type: string
-                    title: DetailedErrors
-            title: Error Response
+                      Error payload for the BigCommerce API.
+                    properties:
+                      status:
+                        description: |
+                          The HTTP status code.
+                        type: integer
+                      title:
+                        description: |
+                          The error title describing the particular error.
+                        type: string
+                      type:
+                        type: string
+                      instance:
+                        type: string
+                    title: Base Error
+                  - type: object
+                    properties:
+                      errors:
+                        type: object
+                        additionalProperties:
+                          type: string
+                        title: DetailedErrors
+                title: Error Response
         '422':
-          schema:
-            allOf:
-              - type: object
-                description: |
-                  Error payload for the BigCommerce API.
-                properties:
-                  status:
-                    description: |
-                      The HTTP status code.
-                    type: integer
-                  title:
-                    description: |
-                      The error title describing the particular error.
-                    type: string
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                title: Base Error
-              - type: object
-                properties:
-                  errors:
-                    type: object
-                    additionalProperties:
-                      type: string
-                    title: DetailedErrors
-            title: Error Response
           description: |
             This is the result of missing required fields, or of invalid data. See the response for more details.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - type: object
+                    description: |
+                      Error payload for the BigCommerce API.
+                    properties:
+                      status:
+                        description: |
+                          The HTTP status code.
+                        type: integer
+                      title:
+                        description: |
+                          The error title describing the particular error.
+                        type: string
+                      type:
+                        type: string
+                      instance:
+                        type: string
+                    title: Base Error
+                  - type: object
+                    properties:
+                      errors:
+                        type: object
+                        additionalProperties:
+                          type: string
+                        title: DetailedErrors
+                title: Error Response
       tags:
         - Scripts
       description: Updates a *Script*.
@@ -537,596 +586,104 @@ paths:
           description: The identifier for a specific script.
           required: true
           in: path
-          type: string
-          format: uuid
+          schema:
+            type: string
+            format: uuid
         - in: header
-          type: string
           name: Accept
-          default: application/json
           required: true
+          schema:
+            type: string
+            default: application/json
         - name: Content-Type
           in: header
-          type: string
-          default: application/json
           required: true
+          schema:
+            type: string
+            default: application/json
       responses:
         '204':
           description: ''
-          schema:
-            $ref: '#/definitions/NoContent'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoContent'
         '404':
           description: The resource was not found.
-          schema:
-            allOf:
-              - type: object
-                description: |
-                  Error payload for the BigCommerce API.
-                properties:
-                  status:
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - type: object
                     description: |
-                      The HTTP status code.
-                    type: integer
-                  title:
-                    description: |
-                      The error title describing the particular error.
-                    type: string
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                title: Base Error
-              - type: object
-                properties:
-                  errors:
-                    type: object
-                    additionalProperties:
-                      type: string
-                    title: DetailedErrors
-            title: Error Response
+                      Error payload for the BigCommerce API.
+                    properties:
+                      status:
+                        description: |
+                          The HTTP status code.
+                        type: integer
+                      title:
+                        description: |
+                          The error title describing the particular error.
+                        type: string
+                      type:
+                        type: string
+                      instance:
+                        type: string
+                    title: Base Error
+                  - type: object
+                    properties:
+                      errors:
+                        type: object
+                        additionalProperties:
+                          type: string
+                        title: DetailedErrors
+                title: Error Response
         '422':
-          schema:
-            allOf:
-              - type: object
-                description: |
-                  Error payload for the BigCommerce API.
-                properties:
-                  status:
-                    description: |
-                      The HTTP status code.
-                    type: integer
-                  title:
-                    description: |
-                      The error title describing the particular error.
-                    type: string
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                title: Base Error
-              - type: object
-                properties:
-                  errors:
-                    type: object
-                    additionalProperties:
-                      type: string
-                    title: DetailedErrors
-            title: Error Response
           description: 'This is the result of missing required fields, or of invalid data. See the response for more details.'
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - type: object
+                    description: |
+                      Error payload for the BigCommerce API.
+                    properties:
+                      status:
+                        description: |
+                          The HTTP status code.
+                        type: integer
+                      title:
+                        description: |
+                          The error title describing the particular error.
+                        type: string
+                      type:
+                        type: string
+                      instance:
+                        type: string
+                    title: Base Error
+                  - type: object
+                    properties:
+                      errors:
+                        type: object
+                        additionalProperties:
+                          type: string
+                        title: DetailedErrors
+                title: Error Response
       tags:
         - Scripts
       description: Deletes a *Script*.
     parameters:
-      - type: string
-        name: store_hash
+      - name: store_hash
         in: path
         required: true
-      - type: string
-        name: uuid
+        schema:
+          type: string
+      - name: uuid
         in: path
         required: true
-parameters:
-  FilterWidgetTemplateUUIDParam:
-    in: query
-    name: widget_template_uuid
-    description: The identifier for a specific widget template.
-    type: string
-    format: uuid
-    required: false
-  FilterWidgetTemplateKindParam:
-    in: query
-    name: widget_template_kind
-    description: The kind of widget template.
-    type: string
-    required: false
-  PlacementUUID:
-    name: uuid
-    description: The identifier for a specific placement.
-    required: true
-    in: path
-    type: string
-    format: uuid
-  WidgetUUID:
-    name: uuid
-    description: The identifier for a specific widget.
-    required: true
-    in: path
-    type: string
-    format: uuid
-  ScriptUUID:
-    name: uuid
-    description: The identifier for a specific script.
-    required: true
-    in: path
-    type: string
-    format: uuid
-  FilterWidgetUUIDParam:
-    name: widget_uuid
-    description: The identifier for a specific widget.
-    in: query
-    type: string
-    format: uuid
-    required: false
-  FilterIncludeFieldsParam:
-    name: include_fields
-    description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
-    required: false
-    in: query
-    type: string
-  FilterExcludeFieldsParam:
-    name: exclude_fields
-    description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
-    required: false
-    in: query
-    type: string
-  PageParam:
-    name: page
-    description: Specifies the page number in a limited (paginated) list of products.
-    required: false
-    in: query
-    type: integer
-  LimitParam:
-    name: limit
-    description: Controls the number of items per page in a limited (paginated) list of products.
-    required: false
-    in: query
-    type: integer
-  ScriptsSortKeyParam:
-    name: sort
-    description: |
-      Scripts field name to sort by.
-    required: false
-    in: query
-    type: string
-    enum:
-      - name
-      - description
-      - date_created
-      - date_modified
-  DirectionParam:
-    name: direction
-    description: |
-      Sort direction. Acceptable values are: `asc`, `desc`.
-    required: false
-    in: query
-    type: string
-    enum:
-      - asc
-      - desc
-  TemplateUUID:
-    name: uuid
-    description: The identifier for a specific template.
-    required: true
-    in: path
-    type: string
-    format: uuid
-  RequiredTemplateFile:
-    in: query
-    name: templateFile
-    description: 'The template file, for example: `pages/home`.'
-    type: string
-    required: true
-  QueryWidgetsParam:
-    type: string
-    name: query
-    in: query
-    description: |
-      The query string associated with a widget's name and description.
-  Accept:
-    in: header
-    type: string
-    name: Accept
-    default: application/json
-    required: true
-  Content-Type:
-    name: Content-Type
-    in: header
-    type: string
-    default: application/json
-    required: true
-definitions:
-  CollectionMeta:
-    type: object
-    description: 'Data about the response, including pagination and collection totals.'
-    properties:
-      pagination:
-        type: object
-        description: 'Data about the response, including pagination and collection totals.'
-        title: Pagination
-        properties:
-          total:
-            type: integer
-            description: |
-              Total number of items in the result set.
-            example: 36
-          count:
-            type: integer
-            description: |
-              Total number of items in the collection response.
-            example: 36
-          per_page:
-            type: integer
-            description: |
-              The amount of items returned in the collection per page, controlled by the limit parameter.
-            example: 50
-          current_page:
-            type: integer
-            description: |
-              The page you are currently on within the collection.
-            example: 1
-          total_pages:
-            type: integer
-            description: |
-              The total number of pages in the collection.
-            example: 1
-          links:
-            type: object
-            description: |
-              Pagination links for the previous and next parts of the whole collection.
-            properties:
-              previous:
-                type: string
-                description: |
-                  Link to the previous page returned in the response.
-              current:
-                type: string
-                description: |
-                  Link to the current page returned in the response.
-                example: '?page=1&limit=50'
-              next:
-                type: string
-                description: |
-                  Link to the next page returned in the response.
-    title: Collection Meta
-    x-internal: true
-  Pagination:
-    type: object
-    description: 'Data about the response, including pagination and collection totals.'
-    title: Pagination
-    properties:
-      total:
-        type: integer
-        description: |
-          Total number of items in the result set.
-        example: 36
-      count:
-        type: integer
-        description: |
-          Total number of items in the collection response.
-        example: 36
-      per_page:
-        type: integer
-        description: |
-          The amount of items returned in the collection per page, controlled by the limit parameter.
-        example: 50
-      current_page:
-        type: integer
-        description: |
-          The page you are currently on within the collection.
-        example: 1
-      total_pages:
-        type: integer
-        description: |
-          The total number of pages in the collection.
-        example: 1
-      links:
-        type: object
-        description: |
-          Pagination links for the previous and next parts of the whole collection.
-        properties:
-          previous:
-            type: string
-            description: |
-              Link to the previous page returned in the response.
-          current:
-            type: string
-            description: |
-              Link to the current page returned in the response.
-            example: '?page=1&limit=50'
-          next:
-            type: string
-            description: |
-              Link to the next page returned in the response.
-    x-internal: true
-  Meta:
-    type: object
-    description: Empty meta object; may be used later.
-    title: Meta
-    x-internal: true
-  ErrorResponse:
-    allOf:
-      - type: object
-        description: |
-          Error payload for the BigCommerce API.
-        properties:
-          status:
-            description: |
-              The HTTP status code.
-            type: integer
-          title:
-            description: |
-              The error title describing the particular error.
-            type: string
-          type:
-            type: string
-          instance:
-            type: string
-        title: Base Error
-      - type: object
-        properties:
-          errors:
-            type: object
-            additionalProperties:
-              type: string
-            title: DetailedErrors
-    title: Error Response
-    x-internal: true
-  BaseError:
-    type: object
-    description: |
-      Error payload for the BigCommerce API.
-    properties:
-      status:
-        description: |
-          The HTTP status code.
-        type: integer
-      title:
-        description: |
-          The error title describing the particular error.
-        type: string
-      type:
-        type: string
-      instance:
-        type: string
-    title: Base Error
-    x-internal: true
-  DetailedErrors:
-    type: object
-    additionalProperties:
-      type: string
-    title: DetailedErrors
-    x-internal: true
-  NotFound:
-    description: Error payload for the BigCommerce API.
-    type: object
-    properties:
-      status:
-        description: |
-          404 HTTP status code.
-        type: integer
-      title:
-        description: The error title describing the particular error.
-        type: string
-      type:
-        type: string
-      instance:
-        type: string
-    title: Not Found
-    x-internal: true
-  NoContent:
-    description: No-content response for the BigCommerce API.
-    type: object
-    properties:
-      status:
-        description: |
-          204 HTTP status code.
-        type: integer
-      title:
-        description: The error title describing the situation.
-        type: string
-      type:
-        type: string
-      instance:
-        type: string
-    title: No Content
-    x-internal: true
-  script_Full:
-    example:
-      uuid: 2bf40be2-e57a-4bc8-860a-5bf45edd3795
-      name: jQuery
-      description: 'The Write Less, Do More, JavaScript Library.'
-      src: 'https://code.jquery.com/jquery-3.2.1.min.js'
-      auto_uninstall: true
-      load_method: defer
-      location: head
-      visibility: storefront
-      kind: src
-      api_client_id: d1j42k5q76xsm15fa3g8sp2egytoixo
-      date_created: '2017-12-05T23:37:45.506Z'
-      date_modified: '2017-12-05T23:37:45.506Z'
-    title: script_Full
-    allOf:
-      - type: object
-        properties:
-          uuid:
-            type: string
-            format: uuid
-            description: The primary identifier.
-          date_created:
-            type: string
-            format: date-time
-            description: The date on which this object was initially created.
-          date_modified:
-            type: string
-            format: date-time
-            description: The date on which this object was last updated.
-      - $ref: '#/definitions/script_Base'
-    x-examples: {}
-    x-internal: true
-  script_Post:
-    title: script_Post
-    allOf:
-      - type: object
-        properties:
-          name:
-            type: string
-            description: The user-friendly name.
-            minLength: 1
-            maxLength: 255
-        required:
-          - name
-      - $ref: '#/definitions/script_Base'
-    x-internal: true
-  script_Put:
-    allOf:
-      - type: object
-        properties:
-          name:
-            type: string
-            description: The user-friendly name.
-            minLength: 1
-            maxLength: 255
-      - $ref: '#/definitions/script_Base'
-    x-internal: true
-  script_Response:
-    type: object
-    title: script_Response
-    description: 'For a list of all locations visit [Scripts Visibility](/api-docs/store-management/scripts#script-visibility-locations).'
-    properties:
-      data:
-        $ref: '#/definitions/script_Full'
-      meta:
-        $ref: '#/definitions/Meta'
-    x-internal: true
-  script_responseCollection:
-    type: object
-    title: script_responseCollection
-    description: 'For a list of all locations visit [Scripts Visibility](/api-docs/store-management/scripts#script-visibility-locations).'
-    properties:
-      data:
-        type: array
-        items:
-          $ref: '#/definitions/script_Full'
-      meta:
-        $ref: '#/definitions/CollectionMeta'
-    x-internal: true
-  script_Base:
-    type: object
-    example:
-      uuid: 2bf40be2-e57a-4bc8-860a-5bf45edd3795
-      name: jQuery
-      description: 'The Write Less, Do More, JavaScript Library.'
-      src: 'https://code.jquery.com/jquery-3.2.1.min.js'
-      auto_uninstall: true
-      load_method: defer
-      location: head
-      visibility: storefront
-      kind: src
-      api_client_id: d1j42k5q76xsm15fa3g8sp2egytoixo
-      date_created: '2017-12-05T23:37:45.506Z'
-      date_modified: '2017-12-05T23:37:45.506Z'
-    title: script_Base
-    description: 'Script properties common to `post`, `put`, and `get` requests.'
-    properties:
-      description:
-        type: string
-        description: The user-friendly description.
-      html:
-        type: string
-        description: An html string containing exactly one `script` tag. Only present if `kind` is `script_tag`.
-      src:
-        type: string
-        description: The `src` attribute of the script to load. Only present if `kind` is `src`.
-      auto_uninstall:
-        type: boolean
-        description: It will enable automatic cleanup of the script when the single click app is uninstalled or OAuth token is revoked.
-      load_method:
-        type: string
-        description: 'The load method to use for the script. Values are `default`, `async`, or `defer`. It determines how the script should be loaded into the page.'
-        enum:
-          - default
-          - async
-          - defer
-      location:
-        type: string
-        description: Where on the page to place the script. Values are `head` or `footer`.
-        enum:
-          - head
-          - footer
-      visibility:
-        type: string
-        description: "Which set of pages the script should load on. \n\nPlease note that you need to have `Checkout content` scope to use `all_pages` and `checkout`.\n\n- The current visibility options are `storefront`, `checkout`, `all_pages` and `order_confirmation`.\n\n     `storefront`: All pages that are not `checkout` or `order_confirmation`.\n\t\t \nFor a list of all locations visit [Scripts Visibility](/api-docs/store-management/scripts#script-visibility-locations)."
-        enum:
-          - storefront
-          - all_pages
-          - checkout
-          - order_confirmation
-      kind:
-        type: string
-        description: |-
-          What type of script this is.
-
-          `src` - a `script` tag will be generated with its `src` attribute set to the value of `src`; For scripts that use the src url. By providing a path to the script, we can optimize and serve the script tag automatically for you.
-
-          `script_tag` - The value of `html` will be injected directly onto the page.
-          For scripts which include a raw HTML script_tag to be inserted into the page. The load_method must be default.
-        enum:
-          - src
-          - script_tag
-      api_client_id:
-        type: string
-        description: 'The client id of the API user that created this script, or blank if created by other means.'
-      consent_category:
-        type: string
-        description: 'Consent category for GDPR and CCPA compliance. Defaults to `uknown` when not specified. Scripts with an `uknown` consent category do not display on stores with customer cookie consent banners enabled. '
-        enum:
-          - essential
-          - functional
-          - analytics
-          - targeting
-      enabled:
-        type: boolean
-        description: Indicates whether a script is enabled.
-    x-internal: true
-securityDefinitions:
-  X-Auth-Token:
-    type: apiKey
-    name: X-Auth-Token
-    in: header
-    description: |-
-      ### OAuth Scopes
-      |  **UI Name** | **Permission** | **Parameter** |
-      | --- | --- | --- |
-      |  Content | modify | `store_v2_content` |
-      |  Content | read-only | `store_v2_content_read_only` |
-
-      **Note:**: Injecting scripts into Checkout requires `Checkout Content` scope.
-
-      ### Headers
-
-      |Header|Parameter|Description|
-      |-|-|-|
-      |`X-Auth-Token`|`access_token`|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
-      ### Example
-
-      ```http
-      GET /stores/{$$.env.store_hash}/v3/catalog/summary
-      host: api.bigcommerce.com
-      Content-Type: application/json
-      X-Auth-Token: {access_token}
-      ```
-
-      * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication). 
+        schema:
+          type: string
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
@@ -1134,3 +691,529 @@ x-stoplight:
   docs:
     includeDownloadLink: true
     showModels: false
+servers:
+  - url: 'https://api.bigcommerce.com/'
+components:
+  parameters:
+    FilterWidgetTemplateUUIDParam:
+      in: query
+      name: widget_template_uuid
+      description: The identifier for a specific widget template.
+      required: false
+      schema:
+        type: string
+        format: uuid
+    FilterWidgetTemplateKindParam:
+      in: query
+      name: widget_template_kind
+      description: The kind of widget template.
+      required: false
+      schema:
+        type: string
+    PlacementUUID:
+      name: uuid
+      description: The identifier for a specific placement.
+      required: true
+      in: path
+      schema:
+        type: string
+        format: uuid
+    WidgetUUID:
+      name: uuid
+      description: The identifier for a specific widget.
+      required: true
+      in: path
+      schema:
+        type: string
+        format: uuid
+    ScriptUUID:
+      name: uuid
+      description: The identifier for a specific script.
+      required: true
+      in: path
+      schema:
+        type: string
+        format: uuid
+    FilterWidgetUUIDParam:
+      name: widget_uuid
+      description: The identifier for a specific widget.
+      in: query
+      required: false
+      schema:
+        type: string
+        format: uuid
+    FilterIncludeFieldsParam:
+      name: include_fields
+      description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
+      required: false
+      in: query
+      schema:
+        type: string
+    FilterExcludeFieldsParam:
+      name: exclude_fields
+      description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
+      required: false
+      in: query
+      schema:
+        type: string
+    PageParam:
+      name: page
+      description: Specifies the page number in a limited (paginated) list of products.
+      required: false
+      in: query
+      schema:
+        type: integer
+    LimitParam:
+      name: limit
+      description: Controls the number of items per page in a limited (paginated) list of products.
+      required: false
+      in: query
+      schema:
+        type: integer
+    ScriptsSortKeyParam:
+      name: sort
+      description: |
+        Scripts field name to sort by.
+      required: false
+      in: query
+      schema:
+        type: string
+        enum:
+          - name
+          - description
+          - date_created
+          - date_modified
+    DirectionParam:
+      name: direction
+      description: |
+        Sort direction. Acceptable values are: `asc`, `desc`.
+      required: false
+      in: query
+      schema:
+        type: string
+        enum:
+          - asc
+          - desc
+    TemplateUUID:
+      name: uuid
+      description: The identifier for a specific template.
+      required: true
+      in: path
+      schema:
+        type: string
+        format: uuid
+    RequiredTemplateFile:
+      in: query
+      name: templateFile
+      description: 'The template file, for example: `pages/home`.'
+      required: true
+      schema:
+        type: string
+    QueryWidgetsParam:
+      name: query
+      in: query
+      description: |
+        The query string associated with a widget's name and description.
+      schema:
+        type: string
+    Accept:
+      in: header
+      name: Accept
+      required: true
+      schema:
+        type: string
+        default: application/json
+    Content-Type:
+      name: Content-Type
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
+  securitySchemes:
+    X-Auth-Token:
+      type: apiKey
+      name: X-Auth-Token
+      in: header
+      description: |-
+        ### OAuth Scopes
+        |  **UI Name** | **Permission** | **Parameter** |
+        | --- | --- | --- |
+        |  Content | modify | `store_v2_content` |
+        |  Content | read-only | `store_v2_content_read_only` |
+
+        **Note:**: Injecting scripts into Checkout requires `Checkout Content` scope.
+
+        ### Headers
+
+        |Header|Parameter|Description|
+        |-|-|-|
+        |`X-Auth-Token`|`access_token`|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
+
+        ### Example
+
+        ```http
+        GET /stores/{$$.env.store_hash}/v3/catalog/summary
+        host: api.bigcommerce.com
+        Content-Type: application/json
+        X-Auth-Token: {access_token}
+        ```
+
+        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication). 
+  schemas:
+    CollectionMeta:
+      type: object
+      description: 'Data about the response, including pagination and collection totals.'
+      properties:
+        pagination:
+          type: object
+          description: 'Data about the response, including pagination and collection totals.'
+          title: Pagination
+          properties:
+            total:
+              type: integer
+              description: |
+                Total number of items in the result set.
+              example: 36
+            count:
+              type: integer
+              description: |
+                Total number of items in the collection response.
+              example: 36
+            per_page:
+              type: integer
+              description: |
+                The amount of items returned in the collection per page, controlled by the limit parameter.
+              example: 50
+            current_page:
+              type: integer
+              description: |
+                The page you are currently on within the collection.
+              example: 1
+            total_pages:
+              type: integer
+              description: |
+                The total number of pages in the collection.
+              example: 1
+            links:
+              type: object
+              description: |
+                Pagination links for the previous and next parts of the whole collection.
+              properties:
+                previous:
+                  type: string
+                  description: |
+                    Link to the previous page returned in the response.
+                current:
+                  type: string
+                  description: |
+                    Link to the current page returned in the response.
+                  example: '?page=1&limit=50'
+                next:
+                  type: string
+                  description: |
+                    Link to the next page returned in the response.
+      title: Collection Meta
+      x-internal: true
+    Pagination:
+      type: object
+      description: 'Data about the response, including pagination and collection totals.'
+      title: Pagination
+      properties:
+        total:
+          type: integer
+          description: |
+            Total number of items in the result set.
+          example: 36
+        count:
+          type: integer
+          description: |
+            Total number of items in the collection response.
+          example: 36
+        per_page:
+          type: integer
+          description: |
+            The amount of items returned in the collection per page, controlled by the limit parameter.
+          example: 50
+        current_page:
+          type: integer
+          description: |
+            The page you are currently on within the collection.
+          example: 1
+        total_pages:
+          type: integer
+          description: |
+            The total number of pages in the collection.
+          example: 1
+        links:
+          type: object
+          description: |
+            Pagination links for the previous and next parts of the whole collection.
+          properties:
+            previous:
+              type: string
+              description: |
+                Link to the previous page returned in the response.
+            current:
+              type: string
+              description: |
+                Link to the current page returned in the response.
+              example: '?page=1&limit=50'
+            next:
+              type: string
+              description: |
+                Link to the next page returned in the response.
+      x-internal: true
+    Meta:
+      type: object
+      description: Empty meta object; may be used later.
+      title: Meta
+      x-internal: true
+    ErrorResponse:
+      allOf:
+        - type: object
+          description: |
+            Error payload for the BigCommerce API.
+          properties:
+            status:
+              description: |
+                The HTTP status code.
+              type: integer
+            title:
+              description: |
+                The error title describing the particular error.
+              type: string
+            type:
+              type: string
+            instance:
+              type: string
+          title: Base Error
+        - type: object
+          properties:
+            errors:
+              type: object
+              additionalProperties:
+                type: string
+              title: DetailedErrors
+      title: Error Response
+      x-internal: true
+    BaseError:
+      type: object
+      description: |
+        Error payload for the BigCommerce API.
+      properties:
+        status:
+          description: |
+            The HTTP status code.
+          type: integer
+        title:
+          description: |
+            The error title describing the particular error.
+          type: string
+        type:
+          type: string
+        instance:
+          type: string
+      title: Base Error
+      x-internal: true
+    DetailedErrors:
+      type: object
+      additionalProperties:
+        type: string
+      title: DetailedErrors
+      x-internal: true
+    NotFound:
+      description: Error payload for the BigCommerce API.
+      type: object
+      properties:
+        status:
+          description: |
+            404 HTTP status code.
+          type: integer
+        title:
+          description: The error title describing the particular error.
+          type: string
+        type:
+          type: string
+        instance:
+          type: string
+      title: Not Found
+      x-internal: true
+    NoContent:
+      description: No-content response for the BigCommerce API.
+      type: object
+      properties:
+        status:
+          description: |
+            204 HTTP status code.
+          type: integer
+        title:
+          description: The error title describing the situation.
+          type: string
+        type:
+          type: string
+        instance:
+          type: string
+      title: No Content
+      x-internal: true
+    script_Full:
+      example:
+        uuid: 2bf40be2-e57a-4bc8-860a-5bf45edd3795
+        name: jQuery
+        description: 'The Write Less, Do More, JavaScript Library.'
+        src: 'https://code.jquery.com/jquery-3.2.1.min.js'
+        auto_uninstall: true
+        load_method: defer
+        location: head
+        visibility: storefront
+        kind: src
+        api_client_id: d1j42k5q76xsm15fa3g8sp2egytoixo
+        date_created: '2017-12-05T23:37:45.506Z'
+        date_modified: '2017-12-05T23:37:45.506Z'
+      title: script_Full
+      allOf:
+        - type: object
+          properties:
+            uuid:
+              type: string
+              format: uuid
+              description: The primary identifier.
+            date_created:
+              type: string
+              format: date-time
+              description: The date on which this object was initially created.
+            date_modified:
+              type: string
+              format: date-time
+              description: The date on which this object was last updated.
+        - $ref: '#/components/schemas/script_Base'
+      x-examples: {}
+      x-internal: true
+    script_Post:
+      title: script_Post
+      allOf:
+        - type: object
+          properties:
+            name:
+              type: string
+              description: The user-friendly name.
+              minLength: 1
+              maxLength: 255
+          required:
+            - name
+        - $ref: '#/components/schemas/script_Base'
+      x-internal: true
+    script_Put:
+      allOf:
+        - type: object
+          properties:
+            name:
+              type: string
+              description: The user-friendly name.
+              minLength: 1
+              maxLength: 255
+        - $ref: '#/components/schemas/script_Base'
+      x-internal: true
+    script_Response:
+      type: object
+      title: script_Response
+      description: 'For a list of all locations visit [Scripts Visibility](/api-docs/store-management/scripts#script-visibility-locations).'
+      properties:
+        data:
+          $ref: '#/components/schemas/script_Full'
+        meta:
+          $ref: '#/components/schemas/Meta'
+      x-internal: true
+    script_responseCollection:
+      type: object
+      title: script_responseCollection
+      description: 'For a list of all locations visit [Scripts Visibility](/api-docs/store-management/scripts#script-visibility-locations).'
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/script_Full'
+        meta:
+          $ref: '#/components/schemas/CollectionMeta'
+      x-internal: true
+    script_Base:
+      type: object
+      example:
+        uuid: 2bf40be2-e57a-4bc8-860a-5bf45edd3795
+        name: jQuery
+        description: 'The Write Less, Do More, JavaScript Library.'
+        src: 'https://code.jquery.com/jquery-3.2.1.min.js'
+        auto_uninstall: true
+        load_method: defer
+        location: head
+        visibility: storefront
+        kind: src
+        api_client_id: d1j42k5q76xsm15fa3g8sp2egytoixo
+        date_created: '2017-12-05T23:37:45.506Z'
+        date_modified: '2017-12-05T23:37:45.506Z'
+      title: script_Base
+      description: 'Script properties common to `post`, `put`, and `get` requests.'
+      x-internal: true
+      properties:
+        description:
+          type: string
+          description: The user-friendly description.
+        html:
+          type: string
+          description: An html string containing exactly one `script` tag. Only present if `kind` is `script_tag`.
+        src:
+          type: string
+          description: The `src` attribute of the script to load. Only present if `kind` is `src`.
+        auto_uninstall:
+          type: boolean
+          description: It will enable automatic cleanup of the script when the single click app is uninstalled or OAuth token is revoked.
+        load_method:
+          type: string
+          description: 'The load method to use for the script. Values are `default`, `async`, or `defer`. It determines how the script should be loaded into the page.'
+          enum:
+            - default
+            - async
+            - defer
+        location:
+          type: string
+          description: Where on the page to place the script. Values are `head` or `footer`.
+          enum:
+            - head
+            - footer
+        visibility:
+          type: string
+          description: "Which set of pages the script should load on. \n\nPlease note that you need to have `Checkout content` scope to use `all_pages` and `checkout`.\n\n- The current visibility options are `storefront`, `checkout`, `all_pages` and `order_confirmation`.\n\n     `storefront`: All pages that are not `checkout` or `order_confirmation`.\n\n\t\t \nFor a list of all locations visit [Scripts Visibility](/api-docs/store-management/scripts#script-visibility-locations)."
+          enum:
+            - storefront
+            - all_pages
+            - checkout
+            - order_confirmation
+        kind:
+          type: string
+          description: |-
+            What type of script this is.
+
+            `src` - a `script` tag will be generated with its `src` attribute set to the value of `src`; For scripts that use the src url. By providing a path to the script, we can optimize and serve the script tag automatically for you.
+
+            `script_tag` - The value of `html` will be injected directly onto the page.
+            For scripts which include a raw HTML script_tag to be inserted into the page. The load_method must be default.
+          enum:
+            - src
+            - script_tag
+        api_client_id:
+          type: string
+          description: 'The client id of the API user that created this script, or blank if created by other means.'
+        consent_category:
+          type: string
+          description: 'Consent category for GDPR and CCPA compliance. Defaults to `uknown` when not specified. Scripts with an `uknown` consent category do not display on stores with customer cookie consent banners enabled. '
+          enum:
+            - essential
+            - functional
+            - analytics
+            - targeting
+          example: essential
+        enabled:
+          type: boolean
+          description: Whether the script is enabled or disabled on the storefront.
+        channel_id:
+          type: integer
