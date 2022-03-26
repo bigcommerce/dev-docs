@@ -2139,17 +2139,21 @@ components:
       description: 'A new set of enabled Product Filtering filters which should display in a particular context, such as on a particular Channel, or while viewing a particular Category. Array order indicates the display order on the storefront.'
       x-internal: false
     betaAnalyticsProvider:
+      description: ''
       type: object
-      x-tags:
-        - Models
+      x-examples: {}
       properties:
         id:
           type: integer
           description: Web Analytics Provider ID.
           example: 1
+        channel_id:
+          type: integer
+          example: 1
         name:
           type: string
-          description: Web Analytics Provider title.
+          minLength: 1
+          description: Web Analytics Provider title
           example: Google Analytics
         code:
           type: string
@@ -2158,7 +2162,11 @@ components:
         enabled:
           type: boolean
           description: Flag indicates if Web Analytics Provider is enabled or not.
-          example: true
+        data_tag_enabled:
+          type: boolean
+        version:
+          type: number
+        is_oauth_connected: {}
     betaAnalyticsProviders:
       type: array
       items:
