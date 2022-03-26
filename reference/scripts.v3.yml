@@ -1064,6 +1064,7 @@ components:
         src:
           type: string
           description: The `src` attribute of the script to load. Only present if `kind` is `src`.
+          example: 'https://code.jquery.com/jquery-3.2.1.min.js'
         auto_uninstall:
           type: boolean
           description: It will enable automatic cleanup of the script when the single click app is uninstalled or OAuth token is revoked.
@@ -1100,6 +1101,7 @@ components:
           enum:
             - src
             - script_tag
+          example: src
         api_client_id:
           type: string
           description: 'The client id of the API user that created this script, or blank if created by other means.'
