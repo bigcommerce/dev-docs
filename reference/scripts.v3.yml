@@ -328,6 +328,7 @@ paths:
         required: true
         schema:
           type: string
+          example: 29iql3rwa6
   '/stores/{store_hash}/v3/content/scripts/{uuid}':
     get:
       summary: Get a Script
