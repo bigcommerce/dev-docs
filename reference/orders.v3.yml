@@ -1059,7 +1059,7 @@ paths:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/ChannelOrderSettings'
-                  - $ref: ./scripts_new.yaml#/components/schemas/Meta
+                  - $ref: '#/components/schemas/metaEmpty_Full'
         '400':
           description: Bad request. Authentication Required.
           content:
