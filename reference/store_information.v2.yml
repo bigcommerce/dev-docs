@@ -148,12 +148,14 @@ paths:
           description: ''
           schema:
             type: string
+            default: application/json
         - name: Content-Type
           in: header
           required: true
           description: ''
           schema:
             type: string
+            default: application/json
       responses:
         '200':
           description: ''
@@ -165,12 +167,6 @@ paths:
                 response:
                   value:
                     time: 1529512970
-      x-unitTests: []
-      x-operation-settings:
-        CollectParameters: false
-        AllowDynamicQueryParameters: false
-        AllowDynamicFormParameters: false
-        IsMultiContentStreaming: false
       tags:
         - Time Zone
     parameters:
