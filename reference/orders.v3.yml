@@ -2843,7 +2843,9 @@ components:
       x-tags:
         - Models
       title: GlobalOrderSettings
-      x-examples: {}
+      x-examples:
+        example-1:
+          $ref: '#/components/examples/EnableMultipleOrderNotifications/value'
     ChannelOrderSettings:
       type: object
       properties:
@@ -3514,12 +3516,12 @@ components:
         notifications:
           order_placed:
             email_addresses:
-              - admin@mystore.com
-              - another-email@mystore.com
+              - admin@example.com
+              - another-email@example.com
           forward_invoice:
             email_addresses:
-              - admin@mystore.com
-              - another-email@mystore.com
+              - admin@example.com
+              - another-email@example.com
     GlobalOrderSettingsDisableOrderPlacedNotificatons:
       summary: Disable order placed notifications at global level
       value:
@@ -3532,8 +3534,8 @@ components:
         notifications:
           order_placed:
             email_addresses:
-              - admin@mystore.com
-              - another-email@mystore.com
+              - admin@example.com
+              - another-email@example.com
           forward_invoice:
             email_addresses: []
     ChannelOrderSettingsReset:
