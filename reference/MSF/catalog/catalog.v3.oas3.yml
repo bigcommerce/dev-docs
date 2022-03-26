@@ -12443,6 +12443,14 @@ paths:
         '204':
           description: ''
           content: {}
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+      - $ref: ../../catalog.v3.yml#/parameters/ProductIdParam
+      - $ref: ../../catalog.v3.yml#/parameters/MetafieldIdParam
   '/stores/{store_hash}/v3/catalog/products/{product_id}/reviews':
     get:
       tags:
@@ -13928,6 +13936,12 @@ paths:
         '204':
           description: ''
           content: {}
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
   '/stores/{store_hash}/v3/catalog/categories/{category_id}':
     get:
       tags:
