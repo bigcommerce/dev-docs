@@ -12009,6 +12009,12 @@ paths:
                   type:
                     type: string
       x-codegen-request-body-name: Metafield
+    parameters:
+      - schema:
+          type: string
+        name: ''
+        in: path
+        required: true
   '/stores/{store_hash}/v3/catalog/products/{product_id}/metafields/{metafield_id}':
     get:
       tags:
@@ -30993,6 +30999,12 @@ components:
         type: array
         items:
           type: integer
+    StoreHashParam:
+      name: store_hash
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     X-Auth-Token:
       type: apiKey
