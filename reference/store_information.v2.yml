@@ -1,10 +1,10 @@
 openapi: 3.0.0
 info:
-  version: ""
+  version: ''
   title: Store Information
-  description: Get Store Information endpoint, manage store profile settings.
+  description: 'Get Store Information endpoint, manage store profile settings.'
 paths:
-  "/stores/{store_hash}/v2/store":
+  '/stores/{store_hash}/v2/store':
     get:
       description: Returns metadata about a store.
       summary: Get Store Information
@@ -14,32 +14,32 @@ paths:
         - name: Accept
           in: header
           required: true
-          description: ""
+          description: ''
           schema:
             type: string
             default: application/json
         - name: Content-Type
           in: header
           required: true
-          description: ""
+          description: ''
           schema:
             type: string
             default: application/json
       responses:
-        "200":
-          description: ""
+        '200':
+          description: ''
           content:
             Time:
               schema:
-                $ref: "#/components/schemas/StoreInformation"
+                $ref: '#/components/schemas/StoreInformation'
             application/json:
               examples:
                 response:
                   value:
                     id: abc123
                     domain: my-awesome.store
-                    secure_url: https://my-awesome.stor
-                    control_panel_base_url: https://store-{store_hash}.mybigcommerce.com
+                    secure_url: 'https://my-awesome.stor'
+                    control_panel_base_url: 'https://store-{store_hash}.mybigcommerce.com'
                     status: live
                     name: BigCommerce
                     first_name: Jane
@@ -47,10 +47,10 @@ paths:
                     address: BigCommerce
                     country: United States
                     country_code: US
-                    phone: ""
+                    phone: ''
                     admin_email: jane.does@example.com
                     order_email: info@janedoes.mybigcommerce.com
-                    favicon_url: https://cdn8.bigcommerce.com/r-8816ba2f48b0bcf4bec0c1a954c00e0fc36b/img/bc_favicon.ico
+                    favicon_url: 'https://cdn8.bigcommerce.com/r-8816ba2f48b0bcf4bec0c1a954c00e0fc36b/img/bc_favicon.ico'
                     timezone:
                       name: America/Chicago
                       raw_offset: -21600
@@ -59,30 +59,30 @@ paths:
                       date_format:
                         display: M jS Y
                         export: M jS Y
-                        extended_display: M jS Y @ g:i A
+                        extended_display: 'M jS Y @ g:i A'
                     language: en
                     currency: USD
                     currency_symbol: $
                     decimal_separator: .
-                    thousands_separator: ","
+                    thousands_separator: ','
                     decimal_places: 2
                     currency_symbol_location: left
                     weight_units: Ounces
                     dimension_units: Inches
                     dimension_decimal_places: 2
                     dimension_decimal_token: .
-                    dimension_thousands_token: ","
+                    dimension_thousands_token: ','
                     plan_name: Standard
                     plan_level: Standard
-                    industry: ""
+                    industry: ''
                     logo:
-                      url: https://cdn8.bigcommerce.com/s-{store_hash}/product_images/screen_shot_2018-05-15_at_12.22.26_pm__05547_1529512135.png
+                      url: 'https://cdn8.bigcommerce.com/s-{store_hash}/product_images/screen_shot_2018-05-15_at_12.22.26_pm__05547_1529512135.png'
                     is_price_entered_with_tax: false
                     active_comparison_modules: []
                     features:
                       stencil_enabled: true
                       sitewidehttps_enabled: false
-                      facebook_catalog_id: ""
+                      facebook_catalog_id: ''
                       checkout_type: optimized
             Response Schema:
               examples:
@@ -119,7 +119,7 @@ paths:
                     dimension_units: deserunt
                     dimension_decimal_places: 50514826
                     dimension_decimal_token: deserunt est aliqua Duis
-                    "dimension_thousands_token:": sint voluptate esse tempor
+                    'dimension_thousands_token:': sint voluptate esse tempor
                     plan_name: Ut
                     plan_level: pariatur ullamco veniam ad
                     industry: pariatur culpa est
@@ -131,44 +131,36 @@ paths:
                       sitewidehttps_enabled: anim occaecat exercitation conse
                       facebook_catalog_id: aliquip sed adipisicing quis
                       checkout_type: qui mollit id aliqua ut
-      x-unitTests: []
-      x-operation-settings:
-        CollectParameters: false
-        AllowDynamicQueryParameters: false
-        AllowDynamicFormParameters: false
-        IsMultiContentStreaming: false
     parameters:
       - name: store_hash
         in: path
         required: true
         schema:
           type: string
-  "/stores/{store_hash}/v2/time":
+  '/stores/{store_hash}/v2/time':
     get:
-      description: Returns the system timestamp at the time of the request. The time
-        resource is useful for validating API authentication details and testing
-        client connections.
+      description: Returns the system timestamp at the time of the request. The time resource is useful for validating API authentication details and testing client connections.
       summary: Get System Timestamp
       parameters:
         - name: Accept
           in: header
           required: true
-          description: ""
+          description: ''
           schema:
             type: string
         - name: Content-Type
           in: header
           required: true
-          description: ""
+          description: ''
           schema:
             type: string
       responses:
-        "200":
-          description: ""
+        '200':
+          description: ''
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/timeStamp_Full"
+                $ref: '#/components/schemas/timeStamp_Full'
               examples:
                 response:
                   value:
@@ -198,56 +190,42 @@ x-stoplight:
     includeDownloadLink: true
     showModels: false
 servers:
-  - url: https://api.bigcommerce.com
+  - url: 'https://api.bigcommerce.com'
 components:
   securitySchemes:
     X-Auth-Token:
       type: apiKey
       name: X-Auth-Token
       in: header
-      description: >-
+      description: |-
         ### OAuth Scopes
-
         |  **UI Name** | **Permission** | **Parameter** |
-
         | --- | --- | --- |
-
         |  Information & Settings | modify | `store_v2_information` |
-
         |  Information & Settings | read-only | `store_v2_information_read_only` |
-
 
         ### Headers
 
-
         |Header|Parameter|Description|
-
         |-|-|-|
-
         |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
 
         ### Example
 
-
         ```http
-
         GET /stores/{$$.env.store_hash}/v3/catalog/summary
-
         host: api.bigcommerce.com
-
         Content-Type: application/json
-
         X-Auth-Token: {access_token}
-
         ```
-
 
         * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication). 
   schemas:
     StoreInformation:
       title: Store Information
       type: object
+      x-tags:
+        - Models
       properties:
         id:
           description: Unique store identifier.
@@ -257,9 +235,9 @@ components:
           description: Primary domain name.
           example: your-store-url.com
           type: string
-        secure_URL:
+        secure_url:
           description: Store’s current HTTPS URL.
-          example: https://your-store-url.com
+          example: 'https://your-store-url.com'
           type: string
         control_panel_base_url:
           type: string
@@ -270,13 +248,11 @@ components:
           example: BigCommerce
           type: string
         first_name:
-          description: Primary contact’s first name (as defined during the store sign-up
-            process).
+          description: Primary contact’s first name (as defined during the store sign-up process).
           example: Jane
           type: string
         last_name:
-          description: Primary contact’s last name (as defined during the store sign-up
-            process).
+          description: Primary contact’s last name (as defined during the store sign-up process).
           example: Doe
           type: string
         address:
@@ -284,8 +260,7 @@ components:
           example: BigCommerce
           type: string
         country:
-          description: Country where the store is located (as defined during the store
-            sign-up process).
+          description: Country where the store is located (as defined during the store sign-up process).
           example: United States
           type: string
         phone:
@@ -300,7 +275,7 @@ components:
           example: orders@emai
           type: string
         timezone:
-          $ref: "#/components/schemas/Timezone"
+          $ref: '#/components/schemas/Timezone'
         language:
           description: Default language code.
           example: en
@@ -319,7 +294,7 @@ components:
           type: string
         thousands_separator:
           description: Default thousands separator for values in the currency.
-          example: ","
+          example: ','
           type: string
         decimal_places:
           description: Default decimal places for values in the currency.
@@ -345,7 +320,7 @@ components:
           description: The symbol that separates the whole numbers from the decimal points.
           example: .
           type: string
-        "dimension_thousands_token:":
+        'dimension_thousands_token:':
           description: The symbol used to denote thousands.
           type: string
         plan_name:
@@ -357,8 +332,7 @@ components:
           example: Standard
           type: string
         industry:
-          description: Industry, or vertical category, in which the business operates. (As
-            selected from drop-down list during the store sign-up process.)
+          description: 'Industry, or vertical category, in which the business operates. (As selected from drop-down list during the store sign-up process.)'
           example: Technology
           type: string
         logo:
@@ -366,14 +340,13 @@ components:
           properties:
             url:
               type: string
-              example: https://cdn8.bigcommerce.com/s-{store_hash}/product_images/screen_shot_2018-05-15_at_12.22.26_pm__05547_1529512135.png"
+              example: 'https://cdn8.bigcommerce.com/s-{store_hash}/product_images/screen_shot_2018-05-15_at_12.22.26_pm__05547_1529512135.png"'
         is_price_entered_with_tax:
-          description: A Boolean value that indicates whether or not prices are entered
-            with tax.
+          description: A Boolean value that indicates whether or not prices are entered with tax.
           example: false
           type: boolean
         active_comparison_modules:
-          description: ""
+          description: ''
           type: array
           items: {}
         features:
@@ -383,6 +356,15 @@ components:
             + `facebook_catalog_id` (string)
           type: object
           properties:
+            checkout_type:
+              type: string
+              example: optimized
+              description: 'What type of checkout is enabled on the store. Possible values returned are optimized, single (one page), single_customizable (one page for developers), klarna.'
+            facebook_catalog_id:
+              type: string
+              description: 'Id of the facebook catalog. If there is none, it returns an empty string.'
+            graphql_storefront_api_enabled:
+              type: boolean
             stencil_enabled:
               type: boolean
               example: true
@@ -391,16 +373,6 @@ components:
               type: boolean
               example: false
               description: Indicates if there is sitewide https.
-            facebook_catalog_id:
-              type: string
-              description: Id of the facebook catalog. If there is none, it returns an
-                empty string.
-            checkout_type:
-              type: string
-              example: optimized
-              description: What type of checkout is enabled on the store. Possible values
-                returned are optimized, single (one page), single_customizable
-                (one page for developers), klarna.
             multi_storefront_enabled:
               type: boolean
               description: |-
@@ -408,52 +380,61 @@ components:
 
                 Returns `true` when MSF feature flag is enabled.
                 Returns `false` when MSF feature flag is disabled.
-      x-tags:
-        - Models
+            shopper_consent_tracking_enabled:
+              type: boolean
+            wishlists_enabled:
+              type: boolean
+        account_uuid:
+          type: string
+        default_channel_id:
+          type: integer
+        default_site_id:
+          type: integer
+        plan_is_trial:
+          type: boolean
+        store_id:
+          type: integer
+        status:
+          type: string
+          example: live
     Timezone:
       title: Time Zone
       type: object
       properties:
         name:
-          description: "a string identifying the time zone, in the format:
-            /."
+          description: 'a string identifying the time zone, in the format: /.'
           example: America/Chicago
           type: string
         raw_offset:
-          description: a negative or positive number, identifying the offset from UTC/GMT,
-            in seconds, during winter/standard time.
+          description: 'a negative or positive number, identifying the offset from UTC/GMT, in seconds, during winter/standard time.'
           example: -21600
           type: integer
         dst_offset:
-          description: '"-/+" offset from UTC/GMT, in seconds, during summer/daylight
-            saving time.'
+          description: '"-/+" offset from UTC/GMT, in seconds, during summer/daylight saving time.'
           example: -18000
           type: integer
         dst_correction:
-          description: a boolean indicating whether this time zone observes daylight saving
-            time.
+          description: a boolean indicating whether this time zone observes daylight saving time.
           example: true
           type: boolean
         date_format:
-          $ref: "#/components/schemas/DateFormat"
+          $ref: '#/components/schemas/DateFormat'
       x-internal: false
     DateFormat:
       title: Date Format
       type: object
       properties:
         display:
-          description: "string that defines dates’ display format, in the pattern: M jS Y"
+          description: 'string that defines dates’ display format, in the pattern: M jS Y'
           example: M jS Y
           type: string
         export:
-          description: "string that defines the CSV export format for orders, customers,
-            and products, in the pattern: M jS Y"
+          description: 'string that defines the CSV export format for orders, customers, and products, in the pattern: M jS Y'
           example: M jS Y
           type: string
         extended_display:
-          description: "string that defines dates’ extended-display format, in the pattern:
-            M jS Y @ g:i A."
-          example: M jS Y @ g:i A
+          description: 'string that defines dates’ extended-display format, in the pattern: M jS Y @ g:i A.'
+          example: 'M jS Y @ g:i A'
           type: string
       x-internal: false
     timeStamp_Full:
