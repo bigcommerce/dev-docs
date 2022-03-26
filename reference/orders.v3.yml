@@ -1015,7 +1015,8 @@ paths:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/ChannelOrderSettings'
-                  - $ref: ./scripts_new.yaml#/components/schemas/Meta
+                  - $ref: '#/components/schemas/metaEmpty_Full'
+              examples: {}
         '400':
           description: Bad request. Authentication Required.
           content:
@@ -2874,6 +2875,8 @@ components:
                     type: string
       x-tags:
         - Models
+      title: ChannelOrderSettings
+      x-examples: {}
     ErrorResponse400:
       type: object
       properties:

@@ -367,6 +367,9 @@ components:
       type: object
       title: metaEmpty_Full
       x-internal: false
+      properties:
+        meta:
+          type: object
     error_Full:
       type: object
       title: error_Full
