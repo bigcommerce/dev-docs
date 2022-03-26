@@ -680,11 +680,13 @@ paths:
         required: true
         schema:
           type: string
+          example: 29iql3rwa6
       - name: uuid
         in: path
         required: true
         schema:
           type: string
+          example: 03805148-a592-4803-9482-e91fe5c1be12
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
