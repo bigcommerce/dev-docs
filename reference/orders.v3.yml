@@ -943,7 +943,8 @@ paths:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/GlobalOrderSettings'
-                  - $ref: ./scripts_new.yaml#/components/schemas/Meta
+                  - $ref: '#/components/schemas/metaEmpty_Full'
+              examples: {}
         '400':
           description: Bad request. Authentication Required.
           content:
@@ -2146,6 +2147,9 @@ components:
       type: object
       title: metaEmpty_Full
       x-internal: false
+      properties:
+        meta:
+          type: object
     pagination_Full:
       type: object
       title: pagination_Full
@@ -2837,6 +2841,8 @@ components:
         $ref: '#/components/examples/EnableMultipleOrderNotifications/value'
       x-tags:
         - Models
+      title: GlobalOrderSettings
+      x-examples: {}
     ChannelOrderSettings:
       type: object
       example:
