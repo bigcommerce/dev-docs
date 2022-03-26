@@ -426,7 +426,7 @@ paths:
         - Products
       summary: Update Products (Batch)
       description: |-
-        Updates products in batches. At the time of writing, batches are limited to 10 products.
+        Updates products in batches. Batches are limited to 10 products.
 
         **Required Fields**
         * `id` - product `id` is required for batch updates to products.
@@ -23485,25 +23485,16 @@ components:
       x-internal: false
     product_Put_Collection:
       title: product_Put_Collection
-      type: array
       description: The model for batch updating products.
-      items:
-        title: Product Put
-        type: object
-        description: The model for a PUT to update a product.
-        allOf:
-          - required:
-              - id
-            type: object
-            properties:
-              id:
-                type: integer
-                description: |
-                  The unique numerical ID of the product; increments sequentially. Required on batch product `PUT` requests.
-                x-required:
-                  - put
-          - $ref: '#/definitions/product_Base'
       x-internal: false
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: integer
+          required:
+            - id
+        - $ref: '#/components/schemas/product_Base'
     config_Full:
       title: config_Full
       type: object
