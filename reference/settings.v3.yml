@@ -1552,16 +1552,17 @@ paths:
         - Inventory
       responses:
         '200':
-          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
+          description: OK. `null` indicates that a particular field has not been overridden on a channel level when channel level settings are requested
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/InventoryNotificationsSettings'
-                  meta:
-                    type: object
+                allOf:
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/InventoryNotificationsSettings'
+                  - $ref: ./global_refs.yaml#/components/schemas/meta_Empty
+              examples: {}
         '422':
           description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
