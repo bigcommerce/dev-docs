@@ -967,12 +967,9 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/betaAnalyticsProviders'
-                  meta:
-                    type: object
+                allOf:
+                  - $ref: '#/components/schemas/betaAnalyticsProviders'
+                  - $ref: ./global_refs.yaml#/components/schemas/meta_Empty
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
     parameters:

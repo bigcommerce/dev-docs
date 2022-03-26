@@ -185,6 +185,12 @@ components:
         - lastName
         - email
         - emailVerified
+    meta_Empty:
+      title: meta_Empty
+      type: object
+      properties:
+        meta:
+          type: object
   parameters:
     store_hash:
       name: store_hash
