@@ -1051,6 +1051,40 @@ paths:
                 $ref: '#/components/schemas/betaErrorResponse422'
       tags:
         - Analytics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              x-examples:
+                example-1:
+                  id: 2
+                  channel_id: 1
+                  name: Visual Website Optimizer
+                  code: GA-1234567890
+                  enabled: false
+                  data_tag_enabled: false
+                  version: 1
+                  is_oauth_connected: null
+              properties:
+                id:
+                  type: number
+                channel_id:
+                  type: number
+                name:
+                  type: string
+                  minLength: 1
+                code:
+                  type: string
+                  minLength: 1
+                enabled:
+                  type: boolean
+                data_tag_enabled:
+                  type: boolean
+                version:
+                  type: number
+                is_oauth_connected: {}
     parameters:
       - schema:
           type: integer
