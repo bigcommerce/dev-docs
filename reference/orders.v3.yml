@@ -993,7 +993,7 @@ paths:
         name: store_hash
         in: path
         required: true
-  '/orders/settings/channels/{channel_id}':
+  'stores/{store_hash}/v3/orders/settings/channels/{channel_id}':
     get:
       summary: Get Channel Order Settings
       description: Returns order settings for a specific channel.
@@ -1072,6 +1072,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse422'
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: channel_id
+        in: path
+        required: true
 components:
   schemas:
     GetReturnsSettings:
