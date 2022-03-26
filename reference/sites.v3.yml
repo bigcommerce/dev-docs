@@ -630,7 +630,7 @@ components:
                   type: string
                   description: Query string appended to the resource to show the current page.
                   example: '?limit=1&page=2'
-      x-internal: true
+      x-internal: false
     siteRoute_Full:
       title: siteRoute_Full
       description: Route object used in responses.
@@ -641,7 +641,7 @@ components:
               type: integer
               description: Unique ID for this route. Required when updating an existing route.
         - $ref: '#/components/schemas/siteRoute_Base'
-      x-internal: true
+      x-internal: false
     put_Site:
       type: object
       properties:
@@ -650,7 +650,7 @@ components:
           description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
           example: 'http://kittens.mybigcommerce.com/'
       title: put_Site
-      x-internal: true
+      x-internal: false
     _site:
       type: object
       properties:
@@ -677,12 +677,12 @@ components:
           items:
             $ref: '#/components/schemas/siteRoute_Full'
       title: _site
-      x-internal: true
+      x-internal: false
     _metaEmpty:
       type: object
       description: Empty meta object; may be used later.
       title: _metaEmpty
-      x-internal: true
+      x-internal: false
     _pagination:
       type: object
       description: |
@@ -726,12 +726,12 @@ components:
               description: |
                 Link to the next page returned in the response.
       title: _pagination
-      x-internal: true
+      x-internal: false
     _errors:
       type: object
       description: The keys and values in an errors object will vary depending on the error received.
       title: _errors
-      x-internal: true
+      x-internal: false
     error_Full:
       type: object
       title: error_Full
@@ -746,7 +746,7 @@ components:
           type: string
         type:
           type: string
-      x-internal: true
+      x-internal: false
     errorDetailed_Full:
       type: object
       properties:
@@ -756,7 +756,7 @@ components:
             type: string
           title: DetailedErrors
       title: errorDetailed_Full
-      x-internal: true
+      x-internal: false
     post_Site:
       type: object
       properties:
@@ -768,7 +768,7 @@ components:
           type: integer
           description: 'The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites.'
       title: post_Site
-      x-internal: true
+      x-internal: false
     siteRoute_Base:
       type: object
       title: siteRoute_Base
@@ -807,7 +807,7 @@ components:
             - `{slug}` The **slug** for the requested item (if available). Note: the `slug` value may contain `/` slash
             - `{language}` The **language** string that the client is using
           example: /my-amazing-product
-      x-internal: true
+      x-internal: false
     siteRoutes_Route_Base:
       title: siteRoutes_Route_Base
       type: object
@@ -850,7 +850,7 @@ components:
         - type
         - matching
         - route
-      x-internal: true
+      x-internal: false
     IndexMeta:
       type: object
       description: BC Meta payload for collection-type responses

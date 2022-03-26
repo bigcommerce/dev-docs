@@ -19817,7 +19817,7 @@ components:
           type: string
           description: The name of the option shown on the storefront.
       description: Common Modifier properties.
-      x-internal: true
+      x-internal: false
     productModifier_Full:
       title: productModifier_Full
       description: Product Modifier
@@ -19844,7 +19844,7 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/productModifierOptionValue_Full'
-      x-internal: true
+      x-internal: false
     productModifier_Post:
       title: productModifier_Post
       description: The model for a POST to create a modifier on a product.
@@ -20139,7 +20139,7 @@ components:
               example: Donation
               x-required:
                 - post
-      x-internal: true
+      x-internal: false
     productModifier_Put:
       title: productModifier_Put
       description: The model for a PUT to update a modifier on a product.
@@ -20423,7 +20423,7 @@ components:
                         description: |
                           The unique numeric ID of the value; increments sequentially.
           description: Common Modifier properties.
-      x-internal: true
+      x-internal: false
     productModifierOptionValue_Base:
       title: productModifierOptionValue_Base
       required:
@@ -20461,7 +20461,7 @@ components:
         adjusters:
           $ref: '#/components/schemas/adjusters_Full'
       description: Common Product Modifer `option_value` properties.
-      x-internal: true
+      x-internal: false
     productModifierOptionValue_Full:
       title: productModifierOptionValue_Full
       description: Product Modifer `option_value`.
@@ -20475,7 +20475,7 @@ components:
                 The unique numeric ID of the value; increments sequentially.
             option_id:
               type: integer
-      x-internal: true
+      x-internal: false
     productModifierOptionValue_Post:
       title: productModifierOptionValue_Post
       description: The model for a POST to create a modifier value on a product.
@@ -20572,7 +20572,7 @@ components:
                           type: string
                           description: |
                             The message displayed on the storefront when the purchasing disabled status is `true`.
-      x-internal: true
+      x-internal: false
     productModifierOptionValue_Put:
       title: productModifierOptionValue_Put
       description: The model for a PUT to update a modifier value on a product.
@@ -20677,7 +20677,7 @@ components:
                 The unique numeric ID of the value; increments sequentially.
               x-required:
                 - put
-      x-internal: true
+      x-internal: false
     resp_productionOption:
       title: resp_productionOption
       type: object
@@ -20691,7 +20691,7 @@ components:
             'null':
               type: string
           description: Empty meta object; may be used later.
-      x-internal: true
+      x-internal: false
     productOption_Base:
       title: productOption_Base
       type: object
@@ -20743,7 +20743,7 @@ components:
         option_values:
           $ref: '#/components/schemas/productOptionOptionValue_Full'
       description: Common Option properties.
-      x-internal: true
+      x-internal: false
     productOption_Full:
       title: productOption_Full
       allOf:
@@ -20755,7 +20755,7 @@ components:
               description: |
                 The unique option name, auto-generated from the display name, a timestamp, and the product ID.
               example: Add-a-$5-Donation1535042499-187
-      x-internal: true
+      x-internal: false
     productOption_Post:
       title: productOption_Post
       description: The model for a POST to create options on a product.
@@ -20996,7 +20996,7 @@ components:
               type: string
               description: Publicly available image url
           description: Common Option properties.
-      x-internal: true
+      x-internal: false
     productOption_Put:
       title: productOption_Put
       description: The model for a PUT to update options on a product.
@@ -21237,7 +21237,7 @@ components:
               type: string
               description: Publicly available image url
           description: Common Option properties.
-      x-internal: true
+      x-internal: false
     categoriesTree_Resp:
       title: categoriesTree_Resp
       type: object
@@ -21250,7 +21250,7 @@ components:
           $ref: '#/components/schemas/metaEmpty_Full'
       description: |
         Returns the categories tree, a nested lineage of the categories with parent->child relationship. The Category objects returned are simplified versions of the category objects returned in the rest of this API.
-      x-internal: true
+      x-internal: false
     categoriesTreeNode_Full:
       title: categoriesTreeNode_Full
       type: object
@@ -21281,7 +21281,7 @@ components:
             The custom URL for the category on the storefront.
           example: /towels/bath-towels/
       description: Used to reflect parent <> child category relationships. Used by Category Tree.
-      x-internal: true
+      x-internal: false
     category_Full:
       title: category_Full
       required:
@@ -21388,7 +21388,7 @@ components:
         custom_url:
           $ref: '#/components/schemas/customUrl_Full'
       description: Common Category object properties.
-      x-internal: true
+      x-internal: false
     brand_Full:
       title: brand_Full
       required:
@@ -21446,7 +21446,7 @@ components:
         custom_url:
           $ref: '#/components/schemas/customUrl_Full'
       description: Common Brand properties.
-      x-internal: true
+      x-internal: false
     productVariant_Base:
       title: productVariant_Base
       type: object
@@ -21546,7 +21546,7 @@ components:
           type: string
           example: '012345678905'
       description: Common Variant properties.
-      x-internal: true
+      x-internal: false
     productVariant_Full:
       title: productVariant_Full
       allOf:
@@ -21575,7 +21575,7 @@ components:
               format: double
             calculated_weight:
               type: number
-      x-internal: true
+      x-internal: false
     productVariant_Post:
       title: productVariant_Post
       description: |
@@ -21703,13 +21703,13 @@ components:
                 $ref: '#/components/schemas/productVariantOptionValue_Full'
               x-required:
                 - post
-      x-internal: true
+      x-internal: false
     variantCollection_Put:
       title: variantCollection_Put
       type: array
       items:
         $ref: '#/components/schemas/productVariant_Full'
-      x-internal: true
+      x-internal: false
     variant_Put:
       title: variant_Put
       description: |
@@ -21813,7 +21813,7 @@ components:
               type: integer
               x-required:
                 - put
-      x-internal: true
+      x-internal: false
     productVariant_Post_Product:
       title: productVariant_Post_Product
       description: |
@@ -21859,7 +21859,7 @@ components:
                     description: Common Option Value Product properties.
               x-required:
                 - post
-      x-internal: true
+      x-internal: false
     productVariant_Put_Product:
       title: productVariant_Put_Product
       type: object
@@ -21960,7 +21960,7 @@ components:
           type: string
       description: |
         The model for a PUT to update variants on a product.
-      x-internal: true
+      x-internal: false
     productVariantOptionValue_Full:
       title: productVariantOptionValue_Full
       allOf:
@@ -21985,7 +21985,7 @@ components:
               x-required:
                 - post
         - $ref: '#/components/schemas/productVariantOptionValue_Base'
-      x-internal: true
+      x-internal: false
     productOptionValue_Post_Product:
       title: productOptionValue_Post_Product
       description: The model for a POST to create option values on a product.
@@ -22012,7 +22012,7 @@ components:
               x-required:
                 - post
           description: Common Option Value Product properties.
-      x-internal: true
+      x-internal: false
     productVariantOptionValue_Base:
       title: productVariantOptionValue_Base
       type: object
@@ -22026,7 +22026,7 @@ components:
           description: '`option` ID.'
           example: 151
       description: Common Product Variant Option properties.
-      x-internal: true
+      x-internal: false
     productVariantOptionValue_Post:
       title: productVariantOptionValue_Post
       type: object
@@ -22040,7 +22040,7 @@ components:
           x-required:
             - post
       description: The model for a POST to create option values on a variant.
-      x-internal: true
+      x-internal: false
     resp_productOptionValue:
       title: resp_productOptionValue
       type: object
@@ -22054,7 +22054,7 @@ components:
             'null':
               type: string
           description: Empty meta object; may be used later.
-      x-internal: true
+      x-internal: false
     productOptionOptionValue_Base:
       title: productOptionOptionValue_Base
       required:
@@ -22090,7 +22090,7 @@ components:
             Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state. If no data is available, returns `null`.
           nullable: true
       description: Common Product Option `option_value` properties.
-      x-internal: true
+      x-internal: false
     productOptionOptionValue_Full:
       title: productOptionOptionValue_Full
       description: Product Option `option_value`.
@@ -22102,7 +22102,7 @@ components:
               type: integer
               description: |
                 The unique numeric ID of the value; increments sequentially.
-      x-internal: true
+      x-internal: false
     productOptionValue_Post:
       title: productOptionValue_Post
       description: The model for a POST to create option values on a product.
@@ -22140,7 +22140,7 @@ components:
               description: |
                 Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
           description: Common Option Value properties.
-      x-internal: true
+      x-internal: false
     productOptionValue_Put:
       title: productOptionValue_Put
       description: The model for a PUT to update option values on a product.
@@ -22186,7 +22186,7 @@ components:
                 The unique numeric ID of the value; increments sequentially.
               x-required:
                 - put
-      x-internal: true
+      x-internal: false
     productImage_Base:
       title: productImage_Base
       type: object
@@ -22213,7 +22213,7 @@ components:
           type: string
           description: 'Must be a fully qualified URL path, including protocol. Limit of 8MB per file.'
       description: Common ProductImage properties.
-      x-internal: true
+      x-internal: false
     productImage_Post:
       title: productImage_Post
       description: The model for a POST to create an image on a product.
@@ -22279,7 +22279,7 @@ components:
               type: string
               description: |
                 Must be sent as a multipart/form-data field in the request body.
-      x-internal: true
+      x-internal: false
     productImage_Put:
       title: productImage_Put
       description: The model for a PUT to update applicable Product Image fields.
@@ -22309,7 +22309,7 @@ components:
                 The tiny URL for this image. By default, this is the image size used for thumbnails beneath the product image on a product page.
           description: Common ProductImage properties.
         - $ref: '#/components/schemas/productImage_Base'
-      x-internal: true
+      x-internal: false
     productVideo_Base:
       title: productVideo_Base
       type: object
@@ -22341,7 +22341,7 @@ components:
           description: The ID of the video on a host site.
       description: |
         The model for a POST to create a video on a product.
-      x-internal: true
+      x-internal: false
     productVideo_Full:
       title: productVideo_Full
       description: |
@@ -22362,14 +22362,14 @@ components:
               type: string
               description: |
                 Length of the video. This will be filled in according to data on a host site.
-      x-internal: true
+      x-internal: false
     productVideo_Post:
       title: productVideo_Post
       description: |
         The model for a POST to create a video on a product.
       allOf:
         - $ref: '#/components/schemas/productVideo_Base'
-      x-internal: true
+      x-internal: false
     productVideo_Put:
       title: productVideo_Put
       description: |
@@ -22384,7 +22384,7 @@ components:
                 The unique numeric ID of the product video; increments sequentially.
               x-required:
                 - put
-      x-internal: true
+      x-internal: false
     productReview_Base:
       title: productReview_Base
       required:
@@ -22423,7 +22423,7 @@ components:
           description: |
             Date the product was reviewed. Required in /POST.
           format: date-time
-      x-internal: true
+      x-internal: false
     productReview_Full:
       title: productReview_Full
       description: |
@@ -22450,7 +22450,7 @@ components:
               description: |
                 Date the product review was modified.
               format: date-time
-      x-internal: true
+      x-internal: false
     productReview_Post:
       title: productReview_Post
       description: |
@@ -22493,7 +22493,7 @@ components:
               description: |
                 Date the product was reviewed. Required in /POST.
               format: date-time
-      x-internal: true
+      x-internal: false
     productReview_Put:
       title: productReview_Put
       description: |
@@ -22536,7 +22536,7 @@ components:
               description: |
                 Date the product was reviewed. Required in /POST.
               format: date-time
-      x-internal: true
+      x-internal: false
     resp_productImage:
       title: resp_productImage
       type: object
@@ -22554,7 +22554,7 @@ components:
         * Create Modifier Image
         * Create Category Image
         * Create Brand Image
-      x-internal: true
+      x-internal: false
     resourceImage_Full:
       title: resourceImage_Full
       type: object
@@ -22564,7 +22564,7 @@ components:
           description: |
             A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file.
       description: 'An object containing a publicly accessible image URL, or a form post that contains an image file.'
-      x-internal: true
+      x-internal: false
     product_Post:
       title: product_Post
       description: The model for a POST to create a product.
@@ -22647,7 +22647,7 @@ components:
           type: string
           example: '2018-08-16T00:00:00.000Z'
       description: Catalog Summary object describes a lightweight summary of the catalog.
-      x-internal: true
+      x-internal: false
     metafield_Base:
       title: metafield_Base
       required:
@@ -22747,7 +22747,7 @@ components:
           format: date-time
           example: '2018-05-07T20:14:17.000Z'
       description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is fifty. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
-      x-internal: true
+      x-internal: false
     complexRule_Base:
       title: complexRule_Base
       type: object
@@ -22812,7 +22812,7 @@ components:
           items:
             $ref: '#/components/schemas/complexRuleConditionBase'
       description: Common ComplexRule properties.
-      x-internal: true
+      x-internal: false
     productCustomField_Base:
       title: productCustomField_Base
       required:
@@ -22846,7 +22846,7 @@ components:
           x-required:
             - post
       description: 'Gets custom fields associated with a product. These allow you to specify additional information that will appear on the product’s page, such as a book’s ISBN or a DVD’s release date.'
-      x-internal: true
+      x-internal: false
     productCustomField_Post:
       title: productCustomField_Post
       description: The model for a POST to create a custom field on a product.
@@ -22883,7 +22883,7 @@ components:
               x-required:
                 - post
           description: 'Gets custom fields associated with a product. These allow you to specify additional information that will appear on the product’s page, such as a book’s ISBN or a DVD’s release date.'
-      x-internal: true
+      x-internal: false
     productCustomField_Put:
       title: productCustomField_Put
       required:
@@ -22965,7 +22965,7 @@ components:
           description: |
             (READ-ONLY:) The unique numeric ID of the SKU (v2 API), or Combination, with which the rule condition is associated. This is to maintain cross-compatibility between v2 and v3.
       description: 'Complex rules may return with conditions that apply to one or more variants, or with a single modifier value (if the rules were created using the v2 API or the control panel). Complex rules created or updated in the v3 API must have conditions that either reference multiple `modifier_value_id`’s, or else reference a `modifier_value_id` and a `variant_id`.'
-      x-internal: true
+      x-internal: false
     customUrl_Full:
       title: customUrl_Full
       type: object
@@ -23038,7 +23038,7 @@ components:
             Required in /POST.
           example: 10
       description: Common Bulk Pricing Rule properties
-      x-internal: true
+      x-internal: false
     productOptionConfig_Full:
       title: productOptionConfig_Full
       type: object
@@ -23177,7 +23177,7 @@ components:
             - weight
             - package
       description: The values for option config can vary based on the Modifier created.
-      x-internal: true
+      x-internal: false
     adjuster_Full:
       title: adjuster_Full
       type: object
@@ -23196,7 +23196,7 @@ components:
             The numeric amount by which the adjuster will change either the price or the weight of the variant, when the modifier value is selected on the storefront.
           example: 5
       description: Adjuster for Complex Rules.
-      x-internal: true
+      x-internal: false
     resp_variantBatchError:
       title: resp_variantBatchError
       type: object
@@ -23218,7 +23218,7 @@ components:
                         type: string
       description: |
         Errors during batch usage for the BigCommerce API.
-      x-internal: true
+      x-internal: false
     metaCollection_Full:
       title: metaCollection_Full
       type: object
@@ -23226,7 +23226,7 @@ components:
         pagination:
           $ref: '#/components/schemas/pagination_Full'
       description: 'Data about the response, including pagination and collection totals.'
-      x-internal: true
+      x-internal: false
     pagination_Full:
       title: pagination_Full
       type: object
@@ -23275,12 +23275,12 @@ components:
           description: |
             Pagination links for the previous and next parts of the whole collection.
       description: 'Data about the response, including pagination and collection totals.'
-      x-internal: true
+      x-internal: false
     metaEmpty_Full:
       title: metaEmpty_Full
       type: object
       description: Empty meta object; may be used later.
-      x-internal: true
+      x-internal: false
     errorResponse_Full:
       title: errorResponse_Full
       allOf:
@@ -23289,7 +23289,7 @@ components:
           properties:
             errors:
               $ref: '#/components/schemas/detailedErrors'
-      x-internal: true
+      x-internal: false
     error_Base:
       title: error_Base
       type: object
@@ -23308,7 +23308,7 @@ components:
           type: string
       description: |
         Error payload for the BigCommerce API.
-      x-internal: true
+      x-internal: false
     errorNotFound:
       title: errorNotFound
       type: object
@@ -23325,7 +23325,7 @@ components:
         instance:
           type: string
       description: Error payload for the BigCommerce API.
-      x-internal: true
+      x-internal: false
     giftCertificate_Full:
       title: giftCertificate_Full
       type: object
@@ -23363,7 +23363,7 @@ components:
             - disabled
             - expired
       description: A gift-certificate model.
-      x-internal: true
+      x-internal: false
     errorNoContent:
       title: errorNoContent
       type: object
@@ -23380,14 +23380,14 @@ components:
         instance:
           type: string
       description: No-content response for the BigCommerce API.
-      x-internal: true
+      x-internal: false
     detailedErrors:
       title: detailedErrors
       type: object
       properties:
         additionalProperties:
           type: string
-      x-internal: true
+      x-internal: false
     product_Full:
       title: product_Full
       allOf:
@@ -23438,7 +23438,7 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/productVariant_Full'
-      x-internal: true
+      x-internal: false
     productImage_Full:
       title: productImage_Full
       description: Common ProductImage properties.
@@ -23477,12 +23477,12 @@ components:
                 The date on which the product image was modified.
               format: date-time
           description: Common ProductImage properties.
-      x-internal: true
+      x-internal: false
     metafield_Post:
       title: metafield_Post
       allOf:
         - $ref: '#/components/schemas/metafield_Base'
-      x-internal: true
+      x-internal: false
     product_Put_Collection:
       title: product_Put_Collection
       type: array
@@ -23503,7 +23503,7 @@ components:
                 x-required:
                   - put
           - $ref: '#/definitions/product_Base'
-      x-internal: true
+      x-internal: false
     config_Full:
       title: config_Full
       type: object
@@ -23642,7 +23642,7 @@ components:
             - weight
             - package
       description: The values for option config can vary based on the Modifier created.
-      x-internal: true
+      x-internal: false
     adjusters_Full:
       title: adjusters_Full
       type: object
@@ -23667,7 +23667,7 @@ components:
               type: string
               description: |
                 The message displayed on the storefront when the purchasing disabled status is `true`.
-      x-internal: true
+      x-internal: false
     variant_Base:
       title: variant_Base
       type: object
@@ -23764,7 +23764,7 @@ components:
         Variant properties used on:
         * `/catalog/products/variants`
         * `/catalog/variants`
-      x-internal: true
+      x-internal: false
     product_Base:
       title: product_Base
       required:
@@ -24165,7 +24165,7 @@ components:
               description: Unique ID of the *Metafield*. Read-Only.
               example: 6
         - $ref: '#/components/schemas/metafield_Base'
-      x-internal: true
+      x-internal: false
     metafield_Full:
       title: metafield_Full
       allOf:
@@ -24184,7 +24184,7 @@ components:
                 Date and time when the metafield was last updated. Read-Only.
               format: date-time
               example: '2018-05-07T20:14:17.000Z'
-      x-internal: true
+      x-internal: false
     productVariant_Put:
       title: productVariant_Put
       description: The model for a PUT to update variants on a product.
@@ -24202,7 +24202,7 @@ components:
               type: string
               x-required:
                 - post
-      x-internal: true
+      x-internal: false
     errorResponse_409:
       title: errorResponse_409
       allOf:
@@ -24221,7 +24221,7 @@ components:
           properties:
             errors:
               $ref: '#/components/schemas/detailedErrors'
-      x-internal: true
+      x-internal: false
     errorResponse_422:
       title: errorResponse_422
       allOf:
@@ -24240,7 +24240,7 @@ components:
           properties:
             errors:
               $ref: '#/components/schemas/detailedErrors'
-      x-internal: true
+      x-internal: false
     productSortOrder:
       title: productSortOrder
       required:
@@ -24258,7 +24258,7 @@ components:
           type: integer
           example: 4
       description: The relative priority of the product among other products inside the category.
-      x-internal: true
+      x-internal: false
     betacategory_Full:
       type: object
       description: Common Category object properties.

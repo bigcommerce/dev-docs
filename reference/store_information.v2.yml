@@ -436,7 +436,7 @@ components:
           type: boolean
         date_format:
           $ref: "#/components/schemas/DateFormat"
-      x-internal: true
+      x-internal: false
     DateFormat:
       title: Date Format
       type: object
@@ -455,7 +455,7 @@ components:
             M jS Y @ g:i A."
           example: M jS Y @ g:i A
           type: string
-      x-internal: true
+      x-internal: false
     timeStamp_Full:
       type: object
       properties:
@@ -465,4 +465,4 @@ components:
           minimum: 0
       description: Store Time in Unix format.
       title: timeStamp_Full
-      x-internal: true
+      x-internal: false

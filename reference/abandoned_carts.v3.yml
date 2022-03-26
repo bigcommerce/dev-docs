@@ -366,7 +366,7 @@ components:
     metaEmpty_Full:
       type: object
       title: metaEmpty_Full
-      x-internal: true
+      x-internal: false
     error_Full:
       type: object
       title: error_Full
@@ -381,7 +381,7 @@ components:
           type: string
         type:
           type: string
-      x-internal: true
+      x-internal: false
     errorDetailed_Full:
       type: object
       properties:
@@ -391,7 +391,7 @@ components:
             type: string
           title: DetailedErrors
       title: errorDetailed_Full
-      x-internal: true
+      x-internal: false
     abandonedCartInfo_Full:
       type: object
       title: abandonedCartInfo_Full
@@ -399,7 +399,7 @@ components:
         cart_id:
           type: string
           description: The `cart_id` of the abandoned cart. Can be used to display the abanded cart to the customer via storefront cart or
-      x-internal: true
+      x-internal: false
     AbandonedCartSettings:
       description: Represents all settings related to the abandoned cart functionality of a store
       type: object

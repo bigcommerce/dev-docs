@@ -914,7 +914,7 @@ components:
                   description: |
                     Link to the next page returned in the response.
       title: Collection Meta
-      x-internal: true
+      x-internal: false
     Pagination:
       type: object
       description: 'Data about the response, including pagination and collection totals.'
@@ -963,12 +963,12 @@ components:
               type: string
               description: |
                 Link to the next page returned in the response.
-      x-internal: true
+      x-internal: false
     Meta:
       type: object
       description: Empty meta object; may be used later.
       title: Meta
-      x-internal: true
+      x-internal: false
     ErrorResponse:
       allOf:
         - type: object
@@ -996,7 +996,7 @@ components:
                 type: string
               title: DetailedErrors
       title: Error Response
-      x-internal: true
+      x-internal: false
     BaseError:
       type: object
       description: |
@@ -1015,13 +1015,13 @@ components:
         instance:
           type: string
       title: Base Error
-      x-internal: true
+      x-internal: false
     DetailedErrors:
       type: object
       additionalProperties:
         type: string
       title: DetailedErrors
-      x-internal: true
+      x-internal: false
     NotFound:
       description: Error payload for the BigCommerce API.
       type: object
@@ -1038,7 +1038,7 @@ components:
         instance:
           type: string
       title: Not Found
-      x-internal: true
+      x-internal: false
     NoContent:
       description: No-content response for the BigCommerce API.
       type: object
@@ -1055,7 +1055,7 @@ components:
         instance:
           type: string
       title: No Content
-      x-internal: true
+      x-internal: false
     script_Full:
       example:
         uuid: 2bf40be2-e57a-4bc8-860a-5bf45edd3795
@@ -1088,7 +1088,7 @@ components:
               description: The date on which this object was last updated.
         - $ref: '#/components/schemas/script_Base'
       x-examples: {}
-      x-internal: true
+      x-internal: false
     script_Post:
       title: script_Post
       allOf:
@@ -1102,7 +1102,7 @@ components:
           required:
             - name
         - $ref: '#/components/schemas/script_Base'
-      x-internal: true
+      x-internal: false
     script_Put:
       allOf:
         - type: object
@@ -1113,7 +1113,7 @@ components:
               minLength: 1
               maxLength: 255
         - $ref: '#/components/schemas/script_Base'
-      x-internal: true
+      x-internal: false
     script_Response:
       type: object
       title: script_Response
@@ -1123,7 +1123,7 @@ components:
           $ref: '#/components/schemas/script_Full'
         meta:
           $ref: '#/components/schemas/Meta'
-      x-internal: true
+      x-internal: false
     script_responseCollection:
       type: object
       title: script_responseCollection
@@ -1135,7 +1135,7 @@ components:
             $ref: '#/components/schemas/script_Full'
         meta:
           $ref: '#/components/schemas/CollectionMeta'
-      x-internal: true
+      x-internal: false
     script_Base:
       type: object
       example:
@@ -1153,7 +1153,7 @@ components:
         date_modified: '2017-12-05T23:37:45.506Z'
       title: script_Base
       description: 'Script properties common to `post`, `put`, and `get` requests.'
-      x-internal: true
+      x-internal: false
       properties:
         description:
           type: string
