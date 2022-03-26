@@ -2846,8 +2846,6 @@ components:
       x-examples: {}
     ChannelOrderSettings:
       type: object
-      example:
-        $ref: '#/components/examples/EnableMultipleOrderNotifications/value'
       properties:
         notifications:
           type: object
@@ -2876,7 +2874,6 @@ components:
       x-tags:
         - Models
       title: ChannelOrderSettings
-      x-examples: {}
     ErrorResponse400:
       type: object
       properties:
