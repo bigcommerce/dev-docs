@@ -18,15 +18,11 @@ paths:
   '/stores/{store_hash}/v3/orders/{order_id}/payment_actions/capture':
     post:
       summary: Capture
-      description: >-
-        Capture the payment for an order updating the `payment_status` to
-        `capture pending`.
-
+      description: |-
+        Capture the payment for an order updating the `payment_status` to `capture pending`.
 
         Requires at least one of the following scopes:
-
         * `store_v2_orders`
-
         * `store_v2_transactions`
       operationId: paymentactioncapture
       parameters:
@@ -69,15 +65,11 @@ paths:
   '/stores/{store_hash}/v3/orders/{order_id}/payment_actions/void':
     post:
       summary: Void
-      description: >-
-        Void the payment for an order updating the `payment_status` to `void
-        pending`.
-
+      description: |-
+        Void the payment for an order updating the `payment_status` to `void pending`.
 
         Requires at least one of the following scopes:
-
         * `store_v2_orders`
-
         * `store_v2_transactions`
       operationId: paymentactionvoid
       parameters:
@@ -134,21 +126,15 @@ paths:
     get:
       tags:
         - Transactions
-      description: >-
+      description: |-
         Returns an **order's** transactions.
 
-
         **Usage Notes**
-
-        * Depending on the payment method, different information will be
-        available (not all payment gateways return full card or fraud detail).
-
+        * Depending on the payment method, different information will be available (not all payment gateways return full card or fraud detail).
 
 
         Requires at least one of the following scopes:
-
         * `store_v2_transactions_read_only`
-
         * `store_v2_transactions`
       operationId: getTransactions
       responses:
@@ -218,16 +204,11 @@ paths:
   '/stores/{store_hash}/v3/orders/{order_id}/payment_actions/refund_quotes':
     post:
       summary: Create a Refund Quote
-      description: >-
-        Calculate the tax amount, total refund amount and get available payment
-        options for an order refund by providing items and costs or quantities
-        to refund.
-
+      description: |-
+        Calculate the tax amount, total refund amount and get available payment options for an order refund by providing items and costs or quantities to refund.
 
         Requires at least one of the following scopes:
-
         * `store_v2_orders`
-
         * `store_v2_transactions`
       operationId: postrefundquote
       parameters:
@@ -406,19 +387,13 @@ paths:
         - Payment Actions
     get:
       summary: Get Refunds for Order
-      description: >-
-        Returns a list of refunds ordered by refund ID in ascending order for
-        the given order.
-
+      description: |-
+        Returns a list of refunds ordered by refund ID in ascending order for the given order.
 
         Requires at least one of the following scopes:
-
         * `store_v2_transactions_read_only`
-
         * `store_v2_transactions`
-
         * `store_v2_orders_read_only`
-
         * `store_v2_orders`
       operationId: getorderrefunds
       parameters:
@@ -443,19 +418,13 @@ paths:
   '/stores/{store_hash}/v3/orders/payment_actions/refund_quotes':
     post:
       summary: Create Refund Quotes - BATCH
-      description: >-
-        Calculate the tax amount, total refund amount and get availble payment
-        options for an order refund by providing items and costs or quantities
-        to refund.
-
+      description: |-
+        Calculate the tax amount, total refund amount and get availble payment options for an order refund by providing items and costs or quantities to refund.
 
         This endpoint will accept a batch of one or more.
 
-
         Requires at least one of the following scopes:
-
         * `store_v2_orders`
-
         * `store_v2_transactions`
       operationId: postrefundquotes
       parameters:
@@ -478,9 +447,7 @@ paths:
         '201':
           $ref: '#/components/responses/RefundQuotesBATCH_Resp'
         '422':
-          description: >-
-            Partial success/failure response. Status to roll up to the most
-            severe individual failure to the whole request.
+          description: Partial success/failure response. Status to roll up to the most severe individual failure to the whole request.
           content:
             application/json:
               schema:
@@ -528,10 +495,7 @@ paths:
                         }
                     }
         '503':
-          description: >-
-            Status to roll up to the most severe individual failure to the whole
-            request. Example shows that severe error status is rolled up to the
-            overall response status code.
+          description: Status to roll up to the most severe individual failure to the whole request. Example shows that severe error status is rolled up to the overall response status code.
           content:
             application/json:
               schema:
@@ -635,9 +599,7 @@ paths:
             type: integer
         - in: query
           name: limit
-          description: >-
-            Controls the number of items per page in a limited (paginated) list
-            of items.
+          description: Controls the number of items per page in a limited (paginated) list of items.
           schema:
             type: integer
       responses:
@@ -683,10 +645,7 @@ paths:
         '201':
           $ref: '#/components/responses/refundsBATCH_Resp'
         '422':
-          description: >-
-            Partial success/failure response. HTTP status for the entire
-            response to roll up to the most severe individual failure to the
-            whole request.
+          description: Partial success/failure response. HTTP status for the entire response to roll up to the most severe individual failure to the whole request.
           content:
             application/json:
               schema:
@@ -871,19 +830,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/MetafieldResponse'
         '409':
-          description: >
-            The `Metafield` was in conflict with another `Metafield`. This can
-            be the result of duplicate unique key combinations of the app's
-            client id, namespace, key, resource_type, and resource_id.
+          description: |
+            The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate unique key combinations of the app's client id, namespace, key, resource_type, and resource_id.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
         '422':
-          description: >
-            The `Metafield` was not valid. This is the result of missing
-            required fields, or of invalid data. See the response for more
-            details.
+          description: |
+            The `Metafield` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
           content:
             application/json:
               schema:
@@ -974,7 +929,7 @@ paths:
         '204':
           description: |
             An empty response.
-  /orders/settings:
+  '/stores/{store_hash}/v3/orders/settings':
     get:
       summary: Get Global Order Settings
       description: Returns global order settings.
@@ -986,12 +941,9 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/GlobalOrderSettings'
-                  meta:
-                    type: object
+                allOf:
+                  - $ref: '#/components/schemas/GlobalOrderSettings'
+                  - $ref: ./scripts_new.yaml#/components/schemas/Meta
         '400':
           description: Bad request. Authentication Required.
           content:
@@ -1012,20 +964,16 @@ paths:
               EnableMultipleOrderNotifications:
                 $ref: '#/components/examples/EnableMultipleOrderNotifications'
               DisableOrderPlacedNotificatons:
-                $ref: >-
-                  #/components/examples/GlobalOrderSettingsDisableOrderPlacedNotificatons
+                $ref: '#/components/examples/GlobalOrderSettingsDisableOrderPlacedNotificatons'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/GlobalOrderSettings'
-                  meta:
-                    type: object
+                allOf:
+                  - $ref: '#/components/schemas/GlobalOrderSettings'
+                  - $ref: ./scripts_new.yaml#/components/schemas/Meta
         '400':
           description: Bad request. Authentication Required.
           content:
@@ -1033,14 +981,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse400'
         '422':
-          description: >-
-            Order settings data is not valid. This is the result of missing
-            required fields, or of invalid data. See the response for more
-            details.
+          description: 'Order settings data is not valid. This is the result of missing required fields, or of invalid data. See the response for more details.'
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse422'
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
   '/orders/settings/channels/{channel_id}':
     get:
       summary: Get Channel Order Settings
@@ -1061,12 +1012,9 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/ChannelOrderSettings'
-                  meta:
-                    type: object
+                allOf:
+                  - $ref: '#/components/schemas/ChannelOrderSettings'
+                  - $ref: ./scripts_new.yaml#/components/schemas/Meta
         '400':
           description: Bad request. Authentication Required.
           content:
@@ -1096,25 +1044,20 @@ paths:
               $ref: '#/components/schemas/ChannelOrderSettings'
             examples:
               OverrideOrderPlacedEmailAddressesAndDisableForwardEmailAddresses:
-                $ref: >-
-                  #/components/examples/ChannelOrderSettingsOverrideOrderPlacedEmailAddressesAndDisableForwardEmail
+                $ref: '#/components/examples/ChannelOrderSettingsOverrideOrderPlacedEmailAddressesAndDisableForwardEmail'
               ResetChannelSettings:
                 $ref: '#/components/examples/ChannelOrderSettingsReset'
               DisableMultipleNotificatonsForChannels:
-                $ref: >-
-                  #/components/examples/ChannelOrderSettingsDisableBothNotifications
+                $ref: '#/components/examples/ChannelOrderSettingsDisableBothNotifications'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/ChannelOrderSettings'
-                  meta:
-                    type: object
+                allOf:
+                  - $ref: '#/components/schemas/ChannelOrderSettings'
+                  - $ref: ./scripts_new.yaml#/components/schemas/Meta
         '400':
           description: Bad request. Authentication Required.
           content:
@@ -1122,10 +1065,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse400'
         '422':
-          description: >-
-            Order settings data is not valid. This is the result of missing
-            required fields, or of invalid data. See the response for more
-            details.
+          description: 'Order settings data is not valid. This is the result of missing required fields, or of invalid data. See the response for more details.'
           content:
             application/json:
               schema:
@@ -1382,9 +1322,8 @@ components:
           example: 36
         per_page:
           type: integer
-          description: >
-            The amount of items returned in the collection per page, controlled
-            by the limit parameter.
+          description: |
+            The amount of items returned in the collection per page, controlled by the limit parameter.
           example: 50
         current_page:
           type: integer
@@ -1398,9 +1337,8 @@ components:
           example: 1
         links:
           type: object
-          description: >
-            Pagination links for the previous and next parts of the whole
-            collection.
+          description: |
+            Pagination links for the previous and next parts of the whole collection.
           properties:
             previous:
               type: string
@@ -1516,9 +1454,7 @@ components:
             description: The name of the order product
           returnable_quantity:
             type: integer
-            description: >-
-              The maximum quantity of this item that can presently be requested
-              for return
+            description: The maximum quantity of this item that can presently be requested for return
           total:
             type: string
             format: decimal
@@ -1573,9 +1509,8 @@ components:
               example: 36
             per_page:
               type: integer
-              description: >
-                The amount of items returned in the collection per page,
-                controlled by the limit parameter.
+              description: |
+                The amount of items returned in the collection per page, controlled by the limit parameter.
               example: 50
             current_page:
               type: integer
@@ -1589,9 +1524,8 @@ components:
               example: 1
             links:
               type: object
-              description: >
-                Pagination links for the previous and next parts of the whole
-                collection.
+              description: |
+                Pagination links for the previous and next parts of the whole collection.
               properties:
                 previous:
                   type: string
@@ -1629,9 +1563,8 @@ components:
               example: 36
             per_page:
               type: integer
-              description: >
-                The amount of items returned in the collection per page,
-                controlled by the limit parameter.
+              description: |
+                The amount of items returned in the collection per page, controlled by the limit parameter.
               example: 50
             current_page:
               type: integer
@@ -1645,9 +1578,8 @@ components:
               example: 1
             links:
               type: object
-              description: >
-                Pagination links for the previous and next parts of the whole
-                collection.
+              description: |
+                Pagination links for the previous and next parts of the whole collection.
               properties:
                 previous:
                   type: string
@@ -1699,14 +1631,8 @@ components:
             - settled
         method:
           type: string
-          description: >
-            The payment method: `credit_card` - a credit-card transaction;
-            `electronic_wallet` - an online wallet; `store_credit` - a
-            transaction using store credit; `gift_certificate` - a transaction
-            using a gift certificate; `custom` - manual payment methods; `token`
-            - payment token; `nonce` - temporary payment token; `offsite` -
-            online payment off the site (e.g., PayPal); `offline` - payment
-            method that takes place offline.
+          description: |
+            The payment method: `credit_card` - a credit-card transaction; `electronic_wallet` - an online wallet; `store_credit` - a transaction using store credit; `gift_certificate` - a transaction using a gift certificate; `custom` - manual payment methods; `token` - payment token; `nonce` - temporary payment token; `offsite` - online payment off the site (e.g., PayPal); `offline` - payment method that takes place offline.
           enum:
             - credit_card
             - electronic_wallet
@@ -1763,9 +1689,8 @@ components:
             - testgateway
             - usaepay
         gateway_transaction_id:
-          description: >
-            The transaction ID returned by the payment gateway for this
-            transaction item.
+          description: |
+            The transaction ID returned by the payment gateway for this transaction item.
           type: string
         date_created:
           description: |
@@ -1774,9 +1699,8 @@ components:
           format: date-time
         test:
           type: boolean
-          description: >
-            True if the transaction performed was a test, or if the gateway is
-            in test mode.
+          description: |
+            True if the transaction performed was a test, or if the gateway is in test mode.
         status:
           type: string
           description: |
@@ -1790,9 +1714,8 @@ components:
             Result of gateway fraud review, if any. Default is `false`.
         reference_transaction_id:
           type: integer
-          description: >
-            Identifier for an existing transaction upon which this transaction
-            acts.
+          description: |
+            Identifier for an existing transaction upon which this transaction acts.
         offline:
           $ref: '#/components/schemas/Offline'
         custom:
@@ -1840,14 +1763,8 @@ components:
                 - settled
             method:
               type: string
-              description: >
-                The payment method: `credit_card` - a credit-card transaction;
-                `electronic_wallet` - an online wallet; `store_credit` - a
-                transaction using store credit; `gift_certificate` - a
-                transaction using a gift certificate; `custom` - manual payment
-                methods; `token` - payment token; `nonce` - temporary payment
-                token; `offsite` - online payment off the site; `offline` -
-                payment method that takes place offline.
+              description: |
+                The payment method: `credit_card` - a credit-card transaction; `electronic_wallet` - an online wallet; `store_credit` - a transaction using store credit; `gift_certificate` - a transaction using a gift certificate; `custom` - manual payment methods; `token` - payment token; `nonce` - temporary payment token; `offsite` - online payment off the site; `offline` - payment method that takes place offline.
               enum:
                 - credit_card
                 - electronic_wallet
@@ -1904,9 +1821,8 @@ components:
                 - testgateway
                 - usaepay
             gateway_transaction_id:
-              description: >
-                The transaction ID returned by the payment gateway for this
-                transaction item.
+              description: |
+                The transaction ID returned by the payment gateway for this transaction item.
               type: string
             date_created:
               description: |
@@ -1915,9 +1831,8 @@ components:
               format: date-time
             test:
               type: boolean
-              description: >
-                True if the transaction performed was a test, or if the gateway
-                is in test mode.
+              description: |
+                True if the transaction performed was a test, or if the gateway is in test mode.
             status:
               type: string
               description: |
@@ -1931,9 +1846,8 @@ components:
                 Result of gateway fraud review, if any. Default is `false`.
             reference_transaction_id:
               type: integer
-              description: >
-                Identifier for an existing transaction upon which this
-                transaction acts.
+              description: |
+                Identifier for an existing transaction upon which this transaction acts.
             offline:
               type: object
               description: 'Offline payment (e.g., check or purchase order).'
@@ -1969,9 +1883,8 @@ components:
                 Unique identifier for the transaction.
             order_id:
               type: string
-              description: >
-                Identifier for the BigCommerce Order with which this transaction
-                is associated.
+              description: |
+                Identifier for the BigCommerce Order with which this transaction is associated.
             date_created:
               description: |
                 The datetime of the transaction.
@@ -1979,15 +1892,9 @@ components:
               format: date-time
             payment_instrument_token:
               type: string
-              description: >-
-                This field contains internal BigPay token for stored card that
-                is then mapped to the actual third-party token. We currently do
-                not offer a way to get third party tokens.These tokens are
-                read-only and do not return any information about the payment.
+              description: This field contains internal BigPay token for stored card that is then mapped to the actual third-party token. We currently do not offer a way to get third party tokens.These tokens are read-only and do not return any information about the payment.
             avs_result:
-              description: >-
-                Address Verification Service (AVS) result from the payment
-                gateway.
+              description: Address Verification Service (AVS) result from the payment gateway.
               type: object
               title: AVS Results
               properties:
@@ -2035,9 +1942,8 @@ components:
                   minimum: 0
                   maximum: 21474836.47
                 starting_balance:
-                  description: >
-                    The balance on a gift certificate at the time of this
-                    purchase.
+                  description: |
+                    The balance on a gift certificate at the time of this purchase.
                   type: number
                   format: float
                   example: 100
@@ -2048,11 +1954,8 @@ components:
                   format: float
                   example: 35.42
                 status:
-                  description: >
-                    The status of a gift certificate: `active` - gift
-                    certificate is active; `pending` - gift certificate purchase
-                    is pending; `disabled` - gift certificate is disabled;
-                    `expired` - gift certificate is expired.
+                  description: |
+                    The status of a gift certificate: `active` - gift certificate is active; `pending` - gift certificate purchase is pending; `disabled` - gift certificate is disabled; `expired` - gift certificate is expired.
                   type: string
                   enum:
                     - active
@@ -2099,10 +2002,7 @@ components:
             - unionpay
             - visa
             - vr
-          description: >-
-            **Allowed values**: alelo, alia, american_express, cabal, carnet,
-            dankort, diners_club, discover, elo, forbrugsforeningen, jcb,
-            maestro, master, naranja, sodexo, unionpay, visa, vr
+          description: '**Allowed values**: alelo, alia, american_express, cabal, carnet, dankort, diners_club, discover, elo, forbrugsforeningen, jcb, maestro, master, naranja, sodexo, unionpay, visa, vr'
         card_iin:
           description: |
             The IIN of a credit-card number.
@@ -2187,11 +2087,8 @@ components:
           format: float
           example: 35.42
         status:
-          description: >
-            The status of a gift certificate: `active` - gift certificate is
-            active; `pending` - gift certificate purchase is pending; `disabled`
-            - gift certificate is disabled; `expired` - gift certificate is
-            expired.
+          description: |
+            The status of a gift certificate: `active` - gift certificate is active; `pending` - gift certificate purchase is pending; `disabled` - gift certificate is disabled; `expired` - gift certificate is expired.
           type: string
           enum:
             - active
@@ -2262,9 +2159,7 @@ components:
           type: integer
           format: int32
         per_page:
-          description: >-
-            The amount of items returned in the collection per page, controlled
-            by the limit parameter.
+          description: 'The amount of items returned in the collection per page, controlled by the limit parameter.'
           type: integer
           format: int32
         current_page:
@@ -2343,10 +2238,7 @@ components:
       properties:
         order_id:
           type: integer
-          description: >-
-            Order ID against which this refund will be created. This is optional
-            for creating a single refund request. The order ID is included in
-            the request path.
+          description: Order ID against which this refund will be created. This is optional for creating a single refund request. The order ID is included in the request path.
           example: 1
         items:
           $ref: '#/components/schemas/ItemsRefund'
@@ -2368,9 +2260,7 @@ components:
           example: 1.95
         rounding:
           type: number
-          description: >-
-            Indicates rounding value to bring refund_total to an amount
-            refundable via payment providers (in this case to 2 decimal places)
+          description: Indicates rounding value to bring refund_total to an amount refundable via payment providers (in this case to 2 decimal places)
         adjustment:
           $ref: '#/components/schemas/AdjustmentAmount'
         tax_inclusive:
@@ -2378,19 +2268,13 @@ components:
           description: Indicate if total_refund_amount includes tax amount
         refund_methods:
           type: array
-          description: >
+          description: |
             An array of available refund methods.
 
+            Note that `refund_methods` is an array of refund methods, with each refund method being an array of payment options.
 
-            Note that `refund_methods` is an array of refund methods, with each
-            refund method being an array of payment options.
-
-
-            For example, if the order was placed by a combination of store
-            credit and bank deposit the refund methods would be:
-
+            For example, if the order was placed by a combination of store credit and bank deposit the refund methods would be:
             ```json
-
             {
               "refund_methods": [
                 [
@@ -2433,23 +2317,12 @@ components:
                 ]
               ]
             }
-
             ```
 
-
-            In this case there are three refund methods available to the
-            merchant:
-
+            In this case there are three refund methods available to the merchant:
             1. Refund up to the entire order amount to store credit.
-
-            2. Mark an amount up to the full order amount as refunded
-            externally, through a provider or means not represented directly in
-            BC ("custom").
-
-            3. Refund the amount paid by store credit to store credit, and the
-            amount paid by bank deposit via a manual refund, which will be
-            recorded as being refunded against the bank deposit.
-
+            2. Mark an amount up to the full order amount as refunded externally, through a provider or means not represented directly in BC ("custom").
+            3. Refund the amount paid by store credit to store credit, and the amount paid by bank deposit via a manual refund, which will be recorded as being refunded against the bank deposit.
 
             >
           items:
@@ -2520,9 +2393,7 @@ components:
           example: 9.99
         offline:
           type: boolean
-          description: >-
-            Whether the payment was marked as offline or performed through an
-            online payment service.
+          description: Whether the payment was marked as offline or performed through an online payment service.
           example: true
       example: |-
         {
@@ -2542,15 +2413,11 @@ components:
     QuantityBoundItem:
       type: object
       title: Quantity Bound Item
-      description: >
+      description: |
         Quantity Bound Item
 
-
-        Type of refund item that capture refunding of items in the order that
-        are of type quantity.
-
+        Type of refund item that capture refunding of items in the order that are of type quantity.
         * `PRODUCT`
-
         * `GIFT_WRAPPING`
       properties:
         item_type:
@@ -2575,15 +2442,11 @@ components:
     TaxExemptItem:
       type: object
       title: Tax Exempt (Order Level)
-      description: >-
-        Use this to refund a custom value at the order level. When `item_type`
-        is set to `ORDER`, tax is not re-calculated.
+      description: 'Use this to refund a custom value at the order level. When `item_type` is set to `ORDER`, tax is not re-calculated.'
       properties:
         item_type:
           type: string
-          description: >-
-            The type of refund. When `item_type` is set to `ORDER`, tax is not
-            re-calculated.
+          description: 'The type of refund. When `item_type` is set to `ORDER`, tax is not re-calculated.'
           example: ORDER
           enum:
             - ORDER
@@ -2598,15 +2461,11 @@ components:
     AmountBoundItem:
       type: object
       title: Amount Bound Item
-      description: >
+      description: |
         Amount Bound Item
 
-
-        Type of refund item that capture refunding of items in the order that
-        are of type amount.
-
+        Type of refund item that capture refunding of items in the order that are of type amount.
         * `SHIPPING`
-
         * `HANDLING`
       properties:
         item_type:
@@ -2630,30 +2489,20 @@ components:
     MerchantOverride:
       type: object
       title: Merchant Calculated Override
-      description: >
+      description: |
         Merchant explicitly provided override based on their own calculation.
 
-
         This override gives merchants the flexibility to
+        - bypass any tax correction due to tax rate/providers changes between when a customer places an order and a merchant initiates a refund
+        - use explicit values calculated by external systems (e.g., merchants' own Extended Producer Responsibility or Order Management System)
 
-        - bypass any tax correction due to tax rate/providers changes between
-        when a customer places an order and a merchant initiates a refund
-
-        - use explicit values calculated by external systems (e.g., merchants'
-        own Extended Producer Responsibility or Order Management System)
-
-
-        Note: when using the override, BC internal tax based refund calculation
-        is skipped and therefore order/taxes records are not updated.
+        Note: when using the override, BC internal tax based refund calculation is skipped and therefore order/taxes records are not updated.
       properties:
         total_amount:
           $ref: '#/components/schemas/Amount'
         total_tax:
           type: number
-          description: >-
-            Total tax amount refunded back to the shopper. Use 0 value if there
-            is no tax liability change for the refund or tax does not need to be
-            recorded on the refund and would be handled externally.
+          description: Total tax amount refunded back to the shopper. Use 0 value if there is no tax liability change for the refund or tax does not need to be recorded on the refund and would be handled externally.
       required:
         - total_amount
         - total_tax
@@ -2671,9 +2520,7 @@ components:
           description: Reference to order id
         user_id:
           type: integer
-          description: >-
-            Reference to the user's id who create this refund. This is
-            automatically populated by BigCommerce.
+          description: Reference to the user's id who create this refund. This is automatically populated by BigCommerce.
           readOnly: true
         created:
           type: string
@@ -2687,16 +2534,10 @@ components:
           $ref: '#/components/schemas/Amount'
         total_tax:
           type: number
-          description: >-
-            Total tax amount refunded back to the shopper. Note:
-            `order_level_amount` does not affect tax liability. This can be a
-            negative amount indicating we have collected tax by refunding less
-            to the customer.
+          description: 'Total tax amount refunded back to the shopper. Note: `order_level_amount` does not affect tax liability. This can be a negative amount indicating we have collected tax by refunding less to the customer.'
         uses_merchant_override_values:
           type: boolean
-          description: >-
-            Whether refund amount and tax are provided explicitly by merchant
-            override
+          description: Whether refund amount and tax are provided explicitly by merchant override
         items:
           type: array
           description: Array of items refunded
@@ -2724,19 +2565,13 @@ components:
             - ORDER
         item_id:
           type: integer
-          description: >-
-            order_product.id corresponding to the item_types of PRODUCT,
-            GIFT_WRAPPING. order_address.id corresponding to the item_types of
-            SHIPPING, HANDLING. order.id corresponding to the item_type of
-            ORDER.
+          description: 'order_product.id corresponding to the item_types of PRODUCT, GIFT_WRAPPING. order_address.id corresponding to the item_types of SHIPPING, HANDLING. order.id corresponding to the item_type of ORDER.'
         reason:
           type: string
           description: Reason for refunding an item
         quantity:
           type: integer
-          description: >-
-            Quantity of item refunded. Note: this will only be populated for
-            item_type PRODUCT
+          description: 'Quantity of item refunded. Note: this will only be populated for item_type PRODUCT'
         requested_amount:
           $ref: '#/components/schemas/Amount'
       title: Refund Item
@@ -2790,16 +2625,11 @@ components:
           example: 9.99
         offline:
           type: boolean
-          description: >-
-            Indicates the payment must be done offline due to constraints of the
-            payment provider, such as partial refunds not being supported, or it
-            being offline only such as cash on delivery of bank deposit.
+          description: 'Indicates the payment must be done offline due to constraints of the payment provider, such as partial refunds not being supported, or it being offline only such as cash on delivery of bank deposit.'
           example: true
         offline_provider:
           type: boolean
-          description: >-
-            Indicates if the payment provider is a strictly offline provider,
-            such as cash on delivery or bank deposit.
+          description: 'Indicates if the payment provider is a strictly offline provider, such as cash on delivery or bank deposit.'
           example: true
         offline_reason:
           type: string
@@ -2809,22 +2639,14 @@ components:
     Amount:
       type: number
       format: float
-      description: >-
-        A non-negative 2 decimal place rounded value that represents the amount
-        that can be charged/refunded via payment providers.
+      description: A non-negative 2 decimal place rounded value that represents the amount that can be charged/refunded via payment providers.
       example: 1.99
       title: Amount
       x-internal: true
     AdjustmentAmount:
       type: number
       format: float
-      description: >-
-        A negative or positive 2 decimal place rounded value that represents the
-        difference between the refund amount requested in the refund quote and
-        the actual amount that is refundable on the order. This value is
-        negative when the refund amount requested in the refund quote is more
-        than the total refundable amount. This value is positive when the total
-        refundable amount has increased, e.g. as a result of rounding.
+      description: 'A negative or positive 2 decimal place rounded value that represents the difference between the refund amount requested in the refund quote and the actual amount that is refundable on the order. This value is negative when the refund amount requested in the refund quote is more than the total refundable amount. This value is positive when the total refundable amount has increased, e.g. as a result of rounding.'
       example: -10.2
       title: Adjustment Amount
       x-internal: true
@@ -2869,26 +2691,16 @@ components:
       properties:
         permission_set:
           type: string
-          description: >
-            Determines the visibility and writeability of the field by other API
-            consumers.
-
+          description: |
+            Determines the visibility and writeability of the field by other API consumers.
 
             |Value|Description
-
             |-|-|
-
             |`app_only`|Private to the app that owns the field|
-
             |`read`|Visible to other API consumers|
-
             |`write`|Open for reading and writing by other API consumers|
-
-            |`read_and_sf_access`|Visible to other API consumers, including on
-            storefront|
-
-            |`write_and_sf_access`|Open for reading and writing by other API
-            consumers, including on storefront|
+            |`read_and_sf_access`|Visible to other API consumers, including on storefront|
+            |`write_and_sf_access`|Open for reading and writing by other API consumers, including on storefront|
           enum:
             - app_only
             - read
@@ -2940,9 +2752,8 @@ components:
             - post
         resource_id:
           type: integer
-          description: >
-            The unique identifier for the resource with which the metafield is
-            associated.
+          description: |
+            The unique identifier for the resource with which the metafield is associated.
           minimum: 0
           maximum: 10000000000
           required:
@@ -2952,9 +2763,8 @@ components:
       x-internal: true
     Metafield:
       type: object
-      description: >
-        Allows app partners to write custom data to various resources in the
-        API.
+      description: |
+        Allows app partners to write custom data to various resources in the API.
       allOf:
         - $ref: '#/components/schemas/MetafieldBase'
         - type: object
@@ -3010,9 +2820,7 @@ components:
               type: object
               properties:
                 email_addresses:
-                  description: >-
-                    Email addresses order notifications will be sent to. Empty
-                    array disables order notifications. Not nullable.
+                  description: Email addresses order notifications will be sent to. Empty array disables order notifications. Not nullable.
                   type: array
                   items:
                     type: string
@@ -3021,9 +2829,7 @@ components:
               type: object
               properties:
                 email_addresses:
-                  description: >-
-                    Email addresses order invoices will be forwarded to. Empty
-                    array disables forwarding order invoices. Not nullable.
+                  description: Email addresses order invoices will be forwarded to. Empty array disables forwarding order invoices. Not nullable.
                   type: array
                   items:
                     type: string
@@ -3045,10 +2851,7 @@ components:
               type: object
               properties:
                 email_addresses:
-                  description: >-
-                    Email addresses channel order notifications will be sent to.
-                    If null will fall back to global value. Empty array disables
-                    order notifications for channel.
+                  description: Email addresses channel order notifications will be sent to. If null will fall back to global value. Empty array disables order notifications for channel.
                   type: array
                   nullable: true
                   items:
@@ -3058,10 +2861,7 @@ components:
               type: object
               properties:
                 email_addresses:
-                  description: >-
-                    Email addresses channel order invoices will be forwarded to.
-                    If null will fall back to global value. Empty array disables
-                    forwarding order invoices for channel.
+                  description: Email addresses channel order invoices will be forwarded to. If null will fall back to global value. Empty array disables forwarding order invoices for channel.
                   type: array
                   nullable: true
                   items:
@@ -3204,10 +3004,7 @@ components:
               data:
                 $ref: '#/components/schemas/GetReturnsSettings'
     502_GatewayError:
-      description: >-
-        If something happens during the request that causes it to fail, a 502
-        response will be returned. A new request should be made; however, it
-        could fail.
+      description: 'If something happens during the request that causes it to fail, a 502 response will be returned. A new request should be made; however, it could fail.'
       content:
         application/json:
           schema:
@@ -3216,18 +3013,10 @@ components:
             response:
               value:
                 status: 502
-                title: >-
-                  A login URL could not be generated. Please try another
-                  request.
+                title: A login URL could not be generated. Please try another request.
                 type: /api-docs/getting-started/api-status-codes
     504_GatewayTimeout:
-      description: >-
-        If this occurs, you should retry the request. Typically retrying the
-        request several times will result in a successful request; However, if
-        you are unable to successfully make a request, please check the
-        BigCommerce system status [here](https://status.bigcommerce.com/). A
-        service is likely down and the request will need to be made again when
-        it is back up (in several hours usually)
+      description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
       content:
         application/json:
           schema:
@@ -3249,9 +3038,7 @@ components:
             response:
               value:
                 status: 403
-                title: >-
-                  Unauthorized Access. You do not have permission to make this
-                  request.
+                title: Unauthorized Access. You do not have permission to make this request.
                 type: /api-docs/getting-started/api-status-codes
     400_BadRequest:
       description: |-
@@ -3280,10 +3067,7 @@ components:
                 title: 'Account with {id} not found'
                 type: /api-docs/getting-started/api-status-codes
     422_UnprocessableEntity:
-      description: >-
-        This occurs when missing or unacceptable data is passed for one or more
-        fields. Please correct the values for the fields listed in the errors
-        object.
+      description: This occurs when missing or unacceptable data is passed for one or more fields. Please correct the values for the fields listed in the errors object.
       content:
         application/json:
           schema:
@@ -3298,12 +3082,7 @@ components:
                   name: error.expected.jsstring
                   primary_contact.district: error.expected.jsstring.
     503_ServiceUnavailable:
-      description: >-
-        If this occurs, you should retry the request. If you are unable to
-        successfully make a request, please check the BigCommerce system status
-        [here](https://status.bigcommerce.com/). A service is likely down and
-        the request will need to be made again when it is back up (in several
-        hours usually)
+      description: 'If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
       content:
         application/json:
           schema:
@@ -3540,9 +3319,7 @@ components:
                     links:
                       current: '?page=1&limit=50'
     Transaction_Resp:
-      description: >-
-        Response payload for the BigCommerce Order Transactions API single
-        transaction.
+      description: Response payload for the BigCommerce Order Transactions API single transaction.
       content:
         application/json:
           schema:
@@ -3557,9 +3334,7 @@ components:
                       Unique identifier for the transaction.
                   order_id:
                     type: string
-                    description: >-
-                      Identifier for the BigCommerce Order with which this
-                      transaction is associated.
+                    description: Identifier for the BigCommerce Order with which this transaction is associated.
                   date_created:
                     type: string
                     format: date-time
@@ -3567,12 +3342,7 @@ components:
                       The datetime of the transaction.
                   payment_instrument_token:
                     type: string
-                    description: >-
-                      This field contains internal BigPay token for stored card
-                      that is then mapped to the actual third-party token. We
-                      currently do not offer a way to get third party
-                      tokens.These tokens are read-only and do not return any
-                      information about the payment.
+                    description: This field contains internal BigPay token for stored card that is then mapped to the actual third-party token. We currently do not offer a way to get third party tokens.These tokens are read-only and do not return any information about the payment.
                   avs_result:
                     $ref: '#/components/schemas/AVSResult'
                   cvv_result:
@@ -3684,9 +3454,8 @@ components:
         type: string
     LimitParam:
       name: limit
-      description: >
-        Controls the number of items per page in a limited (paginated) list of
-        products.
+      description: |
+        Controls the number of items per page in a limited (paginated) list of products.
       required: false
       in: query
       schema:
@@ -3707,53 +3476,31 @@ components:
       type: apiKey
       in: header
       name: X-Auth-Token
-      description: >-
+      description: |-
         ### OAuth Scopes
-
         |  **UI Name** | **Permission** | **Parameter** |
-
         | --- | --- | --- |
-
-        |  Order Transactions | read and modify `transactions` and
-        `payment_methods` | `store_v2_transactions` |
-
-        |  Order Transactions | read `transactions` and `payment_methods`  |
-        `store_v2_transactions_read_only` |
-
+        |  Order Transactions | read and modify `transactions` and `payment_methods` | `store_v2_transactions` |
+        |  Order Transactions | read `transactions` and `payment_methods`  | `store_v2_transactions_read_only` |
         |  Orders | read and modify `payment_methods` |`store_v2_orders`|
-
         |  Orders | read `payment_methods` |`store_v2_orders_read_only`|
-
 
         ### Headers
 
-
         |Header|Parameter|Description|
-
         |-|-|-|
-
-        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or
-        installing an app in a BigCommerce control panel.|
-
+        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
         ### Example
 
-
         ```http
-
         GET /stores/{store_hash}/v3/catalog/summary
-
         host: api.bigcommerce.com
-
         Content-Type: application/json
-
         X-Auth-Token: {access_token}
-
         ```
 
-
-        * For more information on Authenticating BigCommerce APIs, see:
-        [Authentication](/api-docs/getting-started/authentication).
+        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
   examples:
     EnableMultipleOrderNotifications:
       summary: Enable order placed and forward invoice notifications
@@ -3774,9 +3521,7 @@ components:
           order_placed:
             email_addresses: []
     ChannelOrderSettingsOverrideOrderPlacedEmailAddressesAndDisableForwardEmail:
-      summary: >-
-        Override order placed email addresses and forward email addresses global
-        value for channel
+      summary: Override order placed email addresses and forward email addresses global value for channel
       value:
         notifications:
           order_placed:
