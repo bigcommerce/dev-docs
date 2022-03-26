@@ -3537,7 +3537,7 @@ components:
           example: '"State Tax"'
           type: string
         class:
-          description: 'The name of the type of tax that was applied. NOTE: will be ''Automatic Tax'' if automatic tax was enabled. Will be ''API Tax Override'' if the order was created with V2orders API.'
+          description: 'The name of the type of tax that was applied. NOTE: will be "Automatic Tax" if automatic tax was enabled. Will be "API Tax Override" if the order was created with V2 Orders API.'
           example: Gift Wrapping
           type: string
         rate:
@@ -4360,7 +4360,7 @@ components:
           type: string
         status:
           type: string
-          description: 'The status will include one of the (string, optional) - values defined under Order Statuses. This value is read-only. Do not attempt to modify or set this value in a POST or PUT operation.'
+          description: 'The status will include one of the (string, options) - values defined under Order Statuses. This value is read-only. Do not attempt to modify or set this value in a POST or PUT operation.'
           example: Awaiting Fulfillment
         subtotal_tax:
           description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
