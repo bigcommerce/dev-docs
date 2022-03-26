@@ -692,7 +692,7 @@ x-stoplight:
     includeDownloadLink: true
     showModels: false
 servers:
-  - url: 'https://api.bigcommerce.com/'
+  - url: 'https://api.bigcommerce.com'
 components:
   parameters:
     FilterWidgetTemplateUUIDParam:
