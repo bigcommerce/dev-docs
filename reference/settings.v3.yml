@@ -955,7 +955,7 @@ paths:
         name: store_hash
         in: path
         required: true
-  '/stores{store_hash}/v3/settings/analytics':
+  '/stores/{store_hash}/v3/settings/analytics':
     get:
       summary: Get All Web Analytics Providers
       description: Returns a list of web analytics providers.
@@ -976,11 +976,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
   '/stores/{store_hash}/v3/settings/analytics/{id}':
     get:
       summary: Get a Web Analytics Provider
