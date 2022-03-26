@@ -439,8 +439,10 @@ components:
     ChannelAbandonedCartSettings:
       description: Represents all settings overrides related to the abandoned cart functionality of a store for a channel
       type: object
+      x-tags:
+        - Models
       properties:
-        enabled:
+        enable_notification:
           description: 'Indicates whether or not abandoned cart notification is on. If it is null, it means there is no override for the specified channel.'
           type: boolean
           nullable: true
@@ -463,23 +465,21 @@ components:
         merchant_email_address:
           description: 'The email address for receiving merchant notifications. If it is null, it means there is no override for the specified channel.'
           type: string
-          nullable: true
           format: email
+          nullable: true
         merchant_abandoned_cart_email_frequency_type:
           description: 'Indicates whether to send an email for every abandoned cart or to send a digest email after X number of abandoned carts. If it is null, it means there is no override for the specified channel.'
           type: string
-          nullable: true
           enum:
             - digest
             - individual
+          nullable: true
         merchant_abandoned_cart_digest_email_frequency:
           description: 'The number of abandoned carts to accumulate before a digest email is sent to a merchant. If it is null, it means there is no override for the specified channel.'
           type: integer
-          nullable: true
           minimum: 2
           maximum: 1000
-      x-tags:
-        - Models
+          nullable: true
     ChannelAbandonedCartSettingsRequest:
       allOf:
         - $ref: '#/components/schemas/ChannelAbandonedCartSettings'
