@@ -65,6 +65,21 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/script_Post'
+            examples:
+              example-1:
+                value:
+                  name: jQuery
+                  uuid: 2bf40be2-e57a-4bc8-860a-5bf45edd3795
+                  description: 'The Write Less, Do More, JavaScript Library.'
+                  src: 'https://code.jquery.com/jquery-3.2.1.min.js'
+                  auto_uninstall: true
+                  load_method: defer
+                  location: head
+                  visibility: storefront
+                  kind: src
+                  api_client_id: d1j42k5q76xsm15fa3g8sp2egytoixo
+                  date_created: '2017-12-05T23:37:45.506Z'
+                  date_modified: '2017-12-05T23:37:45.506Z'
         required: true
         x-examples:
           Script Source URL:
@@ -1071,8 +1086,6 @@ components:
               type: string
               format: date-time
               description: The date on which this object was last updated.
-            channel_id:
-              type: integer
         - $ref: '#/components/schemas/script_Base'
       x-examples: {}
       x-internal: true
@@ -1201,4 +1214,6 @@ components:
           example: essential
         enabled:
           type: boolean
-          description: Indicates whether a script is enabled.
+          description: Whether the script is enabled or disabled on the storefront.
+        channel_id:
+          type: integer
