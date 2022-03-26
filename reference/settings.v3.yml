@@ -1430,7 +1430,7 @@ paths:
         - Catalog
       responses:
         '200':
-          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
+          description: OK. `null` indicates that a particular field has not been overridden on a channel level when channel level settings are requested
           content:
             application/json:
               schema:
@@ -1461,10 +1461,10 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CatalogSettings'
-        description: null set for a particular field removes override on a channel level and means inheritance from a global level
+        description: ''
       responses:
         '200':
-          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
+          description: OK. `null` indicates that a particular field has not been overridden on a channel level when channel level settings are requested
           content:
             application/json:
               schema:
@@ -2799,13 +2799,13 @@ components:
         - Models
     CatalogSettings:
       type: object
+      x-tags:
+        - Models
       properties:
         auto_approve_reviews:
           type: boolean
         enable_product_comparisons:
           type: boolean
-      x-tags:
-        - Models
     InventoryNotificationsSettings:
       type: object
       properties:
