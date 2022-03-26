@@ -403,8 +403,10 @@ components:
     AbandonedCartSettings:
       description: Represents all settings related to the abandoned cart functionality of a store
       type: object
+      x-tags:
+        - Models
       properties:
-        enabled:
+        enable_notification:
           description: Indicates whether or not abandoned cart notification is on
           type: boolean
         email_customer_until_cart_is_recovered:
@@ -434,8 +436,6 @@ components:
           type: integer
           minimum: 2
           maximum: 1000
-      x-tags:
-        - Models
     ChannelAbandonedCartSettings:
       description: Represents all settings overrides related to the abandoned cart functionality of a store for a channel
       type: object
