@@ -2140,41 +2140,27 @@ components:
       x-internal: false
     betaAnalyticsProvider:
       type: object
+      x-tags:
+        - Models
       properties:
         id:
           type: integer
           description: Web Analytics Provider ID.
+          example: 1
         name:
           type: string
           description: Web Analytics Provider title.
+          example: Google Analytics
         code:
           type: string
           description: Web Analytics Provider code.
+          example: GA-1234567890
         enabled:
           type: boolean
           description: Flag indicates if Web Analytics Provider is enabled or not.
-      example:
-        - id: 1
-          name: Google Analytics
-          code: GA-1234567890
-          enabled: true
-      x-tags:
-        - Models
+          example: true
     betaAnalyticsProviders:
       type: array
-      example:
-        - id: 1
-          name: Google Analytics
-          code: GA-1234567890
-          enabled: true
-        - id: 2
-          name: Visual Website Optimizer
-          code: ''
-          enabled: true
-        - id: 3
-          name: Facebook Pixel
-          code: FP-1234567890
-          enabled: false
       items:
         $ref: '#/components/schemas/betaAnalyticsProvider'
       x-tags:
