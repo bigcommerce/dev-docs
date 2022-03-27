@@ -1487,16 +1487,7 @@ paths:
         - Storefront Product
       responses:
         '200':
-          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/StorefrontProductSettings'
-                  meta:
-                    type: object
+          $ref: '#/components/responses/200-storefront-product-settings'
       operationId: get-settings-storefront-product
       description: |-
         Returns product settings.
@@ -1509,20 +1500,6 @@ paths:
     put:
       summary: Update Storefront Product Settings
       operationId: put-settings-storefront-product
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/StorefrontProductSettings'
-                  meta:
-                    type: object
-        '422':
-          $ref: '#/components/responses/422ErrorResp'
       requestBody:
         content:
           application/json:
@@ -1538,6 +1515,14 @@ paths:
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       tags:
         - Storefront Product
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
     parameters:
       - schema:
           type: string
@@ -1586,7 +1571,6 @@ paths:
             schema:
               $ref: '#/components/schemas/InventoryNotificationsSettings'
         description: null set for a particular field removes override on a channel level and means inheritance from a global level
-      responses: null
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
@@ -2956,6 +2940,18 @@ components:
                     type: string
                     minLength: 1
                     example: 'Incorrect value [current__only], it should match one of: current_category_only,child_categories_if_category_empty,child_categories; Incorrect value [besling], it should match one of: featured,newest,bestselling,atoz,ztoa,bestreviewed,lowestprice,highestprice'
+          examples: {}
+    200-storefront-product-settings:
+      description: OK. `null` indicates that a particular field has not been overridden on a channel level when channel level settings are requested
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/StorefrontProductSettings'
+              meta:
+                type: object
           examples: {}
 x-stoplight:
   docs:
