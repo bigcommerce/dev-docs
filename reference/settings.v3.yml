@@ -197,7 +197,7 @@ paths:
         - $ref: '#/components/parameters/KeysToDelete'
       description: Delete storefront SEO settings.
     parameters:
-      - $ref: ''
+      - $ref: '#/components/parameters/store_hash'
   '/stores/{store_hash}/v3/settings/storefront/robotstxt':
     get:
       summary: Get Robots.txt Settings
