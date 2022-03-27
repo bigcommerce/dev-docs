@@ -723,6 +723,31 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GlobalCartSettingsResponse'
+        '400':
+          description: Bad Request. Input is invalid.
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    status: 400
+                    title: Input is invalid
+                    type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+                    detail: Syntax error
+                properties:
+                  status:
+                    type: number
+                  title:
+                    type: string
+                    minLength: 1
+                  type:
+                    type: string
+                    minLength: 1
+                  detail:
+                    type: string
+                    minLength: 1
         '401':
           description: Unauthorized
           content:
@@ -794,6 +819,31 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ChannelCartSettingsResponse'
+        '400':
+          description: Bad Request. Input is invalid.
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    status: 400
+                    title: Input is invalid
+                    type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+                    detail: Syntax error
+                properties:
+                  status:
+                    type: number
+                  title:
+                    type: string
+                    minLength: 1
+                  type:
+                    type: string
+                    minLength: 1
+                  detail:
+                    type: string
+                    minLength: 1
         '401':
           description: Unauthorized
           content:
