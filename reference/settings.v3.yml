@@ -120,11 +120,7 @@ paths:
         - Storefront Status
       description: Update storefront status.
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
   '/stores/{store_hash}/v3/settings/storefront/seo':
     get:
       summary: Get SEO Settings
@@ -201,11 +197,7 @@ paths:
         - $ref: '#/components/parameters/KeysToDelete'
       description: Delete storefront SEO settings.
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
   '/stores/{store_hash}/v3/settings/storefront/robotstxt':
     get:
       summary: Get Robots.txt Settings
@@ -269,11 +261,7 @@ paths:
         - $ref: '#/components/parameters/KeysToDelete'
       description: Delete storefront robots.txt.
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
   '/stores/{store_hash}/v3/settings/storefront/search':
     get:
       summary: Get Search Settings
@@ -357,11 +345,7 @@ paths:
         - $ref: '#/components/parameters/KeysToDelete'
       description: Delete storefront search settings.
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
   '/stores/{store_hash}/v3/settings/search/filters':
     get:
       summary: Get Enabled Filters
@@ -517,11 +501,7 @@ paths:
       tags:
         - Search Filters
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
   '/stores/{store_hash}/v3/settings/search/filters/available':
     get:
       summary: Get Available Filters
@@ -588,11 +568,7 @@ paths:
       tags:
         - Search Filters
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
   '/stores/{store_hash}/v3/settings/search/filters/contexts':
     get:
       summary: Get Contextual Filters
@@ -688,11 +664,7 @@ paths:
       tags:
         - Search Filters
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
   '/stores/{store_hash}/v3/settings/email-statuses':
     get:
       summary: Get Email Statuses
@@ -840,11 +812,7 @@ paths:
                   invoice_email: null
                   product_review_email: null
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
   '/stores/{store_hash}/v3/settings/store/locale':
     get:
       summary: Get Locale Settings
@@ -914,11 +882,7 @@ paths:
         - Store Locale
       description: Updates global locale settings.
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
   '/stores/{store_hash}/v3/settings/analytics':
     get:
       summary: Get All Web Analytics Providers
@@ -1055,11 +1019,7 @@ paths:
         name: id
         in: path
         required: true
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
   '/stores/{store_hash}/v3/settings/store/profile':
     get:
       summary: Get Store Profile Settings
@@ -1122,11 +1082,7 @@ paths:
       tags:
         - Store Profile
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
   '/stores/{store_hash}/v3/settings/storefront/category':
     get:
       summary: Get Storefront Category Settings
@@ -1184,11 +1140,7 @@ paths:
       tags:
         - Storefront Category
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
   '/stores/{store_hash}/v3/settings/storefront/security':
     get:
       summary: Get Storefront Security Settings
@@ -1244,11 +1196,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
   '/stores/{store_hash}/v3/settings/logo':
     get:
       summary: Get Store Logo Settings
@@ -1306,11 +1254,7 @@ paths:
       tags:
         - Logo
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
   '/stores/{store_hash}/v3/settings/logo/image':
     post:
       summary: Create Logo Image
@@ -1336,11 +1280,7 @@ paths:
       tags:
         - Logo Image
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
   '/stores/{store_hash}/v3/settings/favicon/image':
     post:
       summary: Create Favicon Image
@@ -1366,11 +1306,7 @@ paths:
       tags:
         - Favicon Image
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
   '/stores/{store_hash}/v3/settings/catalog':
     get:
       summary: Get Catalog Settings
@@ -1427,11 +1363,7 @@ paths:
       tags:
         - Catalog
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
   '/stores/{store_hash}/v3/settings/storefront/product':
     get:
       summary: Get Storefront Product Settings
@@ -1473,11 +1405,7 @@ paths:
         '422':
           $ref: '#/components/responses/422ErrorResp'
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
   '/stores/{store_hash}/v3/settings/inventory/notifications':
     get:
       summary: Get Inventory Notifications Settings
@@ -1519,11 +1447,7 @@ paths:
       tags:
         - Inventory
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./global_refs.yaml#/components/parameters/store_hash
 components:
   schemas:
     AnalyticsProvider:
