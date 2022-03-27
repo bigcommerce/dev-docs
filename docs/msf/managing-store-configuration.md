@@ -106,10 +106,20 @@ Accept: application/json
 
 Because channel-specific values exist for all store profile object properties, this channel is configured to override all the global default store profile configuration settings. Changes to the global defaults will not affect this channel.
 
-The global settings or the channel-specific settings can be updated with a `PUT` (supporting partial update, similar to `PATCH`):
+## Editing store configuration settings
 
-```http
-PUT /v3/settings/profile
+<!-- theme: info -->
+> #### Global-only settings
+> Currently, the following settings are inherently global and cannot be modified with channel-specific overrides: 
+> * store_address_type
+> * store_country
+
+You can modify global and channel-specific settings alike by sending `PUT` requests to the relevant endpoints. 
+
+The following is an example of a global default configuration update:
+
+```http title="Example request: Update global store profile settings"
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile
 X-Auth-Token: {{ACCESS_TOKEN}}
 X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
@@ -120,9 +130,10 @@ Accept: application/json
 }
 ```
 
+To update channel-specific settings, send a request to the same endpoint along with a value for the `channel_id` query parameter.
 
-```http
-PUT /v3/settings/profile?channel_id=123
+```http title="Example request: Update store profile settings for channel 123"
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=123
 X-Auth-Token: {{ACCESS_TOKEN}}
 X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
@@ -133,32 +144,24 @@ Accept: application/json
 }
 ```
 
-If you wish to "un-override" a channel's settings and return that channel to the global defaults, simply use the `DELETE` method, and pass the keys that should be cleared in addition to the channel ID as URL parameters:
+If you wish to restore global defaults on a channel with a channel-specific configuration, you can "un-override" the channel's settings by sending a `DELETE` request that contains query parameters with the following information:
+* the `channel_id`
+* a comma-separated list of the property `keys` for the values you wish to reset.
 
-```http
-DELETE /v3/settings/profile?channel_id=124&keys=store_name,store_address
+
+```http title="Example request: Reset channel-specific store profile settings to default"
+DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=124&keys=store_name,store_address
 X-Auth-Token: {{ACCESS_TOKEN}}
 X-Auth-Client: {{CLIENT_ID}}
 Accept: application/json
 ```
 
-Note that **global** settings cannot be deleted, only updated.
+<!-- theme: info -->
+> #### Note
+> Global settings cannot be deleted, only updated.
 
-## The cumulative effect of Global and Channel settings
+## The cumulative effect of global and channel-specific settings
 
-For any "touch point" a shopper has with a particular Channel - whether that's viewing the storefront, or when a transactional email sends, when a merchant is printing a packing slip to put into a package being shipped, or any other place where shopper-facing information is displayed - any Channel-specific settings will be overlaid over the existing Global settings to determine the final state of the shopping experience.
+At every point of contact a shopper has with a storefront or other sales channel, channel-specific settings are displayed first. Global default settings will only appear to shoppers when channel-specific values for those properties are not defined. This goes for viewing the storefront or product feed, reading a transactional email, receiving a packing slip, and all other interactions with the channel.
 
-The shopper-facing experience is represented via the Stencil storefront platform as well as the GraphQL Storefront API. If your application is mostly concerned with the shopper-facing "final product" of a particular Channel's configuration, consider using the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) to simplify your integration. As all Storefront API requests are run in the context of a particular Channel, all relevant configuration is automatically applied to the data returned in a Storefront API response. The "Settings APIs" discussed in this article are primarily for use cases related to the **management** or **administration** of store settings.
-
->>> DON'T MISS DEVDOCS-3672
-
-AC
-
-We need to add a note to MSF API docs for:
-
-GET /settings/store/profile
-PUT /settings/store/profile
- 
-the following settings are currently global ONLY and can not be set per channel:  * store_address_type
-
-store_country
+The Settings APIs discussed in this article are primarily for use cases involved with the management or administration of store settings. If your application's proposed implementation of the Settings APIs is mostly concerned with presenting the correct shopper-facing details at their "touch point" with a storefront or other sales channel, consider using the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) to simplify your integration. Storefront API requests are run in the context of the shopper's active channel, so the relevant configuration is already correctly integrated with the data it returns. Stencil-powered storefront themes are also equipped with objects that represent the shopper-facing experience in context.  
