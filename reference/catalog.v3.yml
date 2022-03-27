@@ -16257,11 +16257,7 @@ paths:
           description: ''
           content: {}
     parameters:
-      - name: store_hash
-        in: path
-        required: true
-        schema:
-          type: string
+      - $ref: '#/components/parameters/StoreHashParam'
   '/stores/{store_hash}/v3/catalog/brands/{brand_id}':
     get:
       tags:
@@ -16696,6 +16692,9 @@ paths:
         '204':
           description: ''
           content: {}
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/BrandIdParam'
   '/stores/{store_hash}/v3/catalog/brands/{brand_id}/metafields':
     get:
       tags:
@@ -17112,6 +17111,9 @@ paths:
                   type:
                     type: string
       x-codegen-request-body-name: Metafield
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/BrandIdParam'
   '/stores/{store_hash}/v3/catalog/brands/{brand_id}/metafields/{metafield_id}':
     get:
       tags:
@@ -17546,6 +17548,10 @@ paths:
         '204':
           description: ''
           content: {}
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/BrandIdParam'
+      - $ref: '#/components/parameters/MetafieldIdParam'
   '/stores/{store_hash}/v3/catalog/brands/{brand_id}/image':
     post:
       tags:
@@ -17702,6 +17708,9 @@ paths:
         '204':
           description: ''
           content: {}
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/BrandIdParam'
   '/stores/{store_hash}/v3/catalog/variants':
     get:
       tags:
@@ -18343,6 +18352,8 @@ paths:
                 description: |
                   Errors during batch usage for the BigCommerce API.
       x-codegen-request-body-name: body
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
   '/stores/{store_hash}/v3/catalog/summary':
     get:
       tags:
@@ -18445,6 +18456,8 @@ paths:
                     type: object
                     properties: {}
                     description: Empty meta object; may be used later.
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
   '/stores/{store_hash}/v3/catalog/categories/{category_id}/products/sort-order':
     get:
       tags:
