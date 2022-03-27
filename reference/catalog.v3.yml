@@ -3096,6 +3096,8 @@ paths:
           content: {}
     parameters:
       - $ref: ./settings.v3.yml#/components/parameters/store_hash
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/VideoIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/variants':
     get:
       tags:
@@ -3405,6 +3407,9 @@ paths:
                     type: string
                 description: Error payload for the BigCommerce API.
       x-codegen-request-body-name: Variant
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/variants/{variant_id}':
     get:
       tags:
@@ -3684,6 +3689,10 @@ paths:
         '204':
           description: ''
           content: {}
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/VariantIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/variants/{variant_id}/metafields':
     get:
       tags:
@@ -4027,6 +4036,10 @@ paths:
                   type:
                     type: string
       x-codegen-request-body-name: Metafield
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/VariantIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/variants/{variant_id}/metafields/{metafield_id}':
     get:
       tags:
