@@ -192,15 +192,9 @@ paths:
                     $ref: '#/components/schemas/SEOSettings'
                   meta:
                     type: object
-              examples:
-                example-1:
-                  value:
-                    data:
-                      meta_description: Your BigCommerce Store
-                      meta_keywords: ''
-                      page_title: New BigCommerce Store
-                      www_redirect: no-www
-                    meta: {}
+              examples: {}
+        '422':
+          $ref: '#/components/responses/422ErrorResp'
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
