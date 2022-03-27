@@ -1516,7 +1516,13 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                properties:
+                  data:
+                    $ref: '#/components/schemas/StorefrontProductSettings'
+                  meta:
+                    type: object
+        '422':
+          $ref: '#/components/responses/422ErrorResp'
       requestBody:
         content:
           application/json:
@@ -1580,18 +1586,7 @@ paths:
             schema:
               $ref: '#/components/schemas/InventoryNotificationsSettings'
         description: null set for a particular field removes override on a channel level and means inheritance from a global level
-      responses:
-        '200':
-          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/InventoryNotificationsSettings'
-                  meta:
-                    type: object
+      responses: null
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
@@ -2845,6 +2840,8 @@ components:
     StorefrontProductSettings:
       title: StorefrontProductSettings
       type: object
+      x-tags:
+        - Models
       properties:
         show_product_price:
           type: boolean
@@ -2871,8 +2868,7 @@ components:
           type: boolean
         default_preorder_message:
           type: string
-      x-tags:
-        - Models
+          example: preorder message
     CategoryListingModeEnumValues:
       type: string
       title: CategoryListingModeEnumValues
