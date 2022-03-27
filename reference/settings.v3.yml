@@ -121,7 +121,7 @@ paths:
       description: Update storefront status.
     parameters:
       - $ref: ./global_refs.yaml#/components/parameters/store_hash
-  '{store_hash}/stores/v3/settings/storefront/seo':
+  '/stores/{store_hash}/v3/settings/storefront/seo':
     get:
       summary: Get SEO Settings
       responses:
