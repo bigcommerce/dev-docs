@@ -4297,6 +4297,11 @@ paths:
         '204':
           description: ''
           content: {}
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/VariantIdParam'
+      - $ref: '#/components/parameters/MetafieldIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/variants/{variant_id}/image':
     post:
       tags:
@@ -4468,6 +4473,10 @@ paths:
                   type:
                     type: string
       x-codegen-request-body-name: body
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/VariantIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/options':
     get:
       tags:
@@ -5201,6 +5210,9 @@ paths:
                   type:
                     type: string
       x-codegen-request-body-name: Option
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/options/{option_id}':
     get:
       tags:
@@ -5978,6 +5990,10 @@ paths:
         '204':
           description: ''
           content: {}
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/OptionIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/options/{option_id}/values':
     get:
       tags:
@@ -6319,6 +6335,10 @@ paths:
                   type:
                     type: string
       x-codegen-request-body-name: OptionValue
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/OptionIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/options/{option_id}/values/{value_id}':
     get:
       tags:
@@ -6698,6 +6718,11 @@ paths:
         '204':
           description: ''
           content: {}
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/OptionIdParam'
+      - $ref: '#/components/parameters/ValueIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/modifiers':
     get:
       tags:
