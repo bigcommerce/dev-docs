@@ -9,7 +9,6 @@ info:
 servers:
   - url: 'https://api.bigcommerce.com'
 security:
-  - X-Auth-Client: []
   - X-Auth-Token: []
 tags:
   - name: Cart Items
@@ -690,6 +689,7 @@ paths:
     get:
       summary: Get Global Cart Settings
       description: Returns the global cart settings of a store.
+      operationId: getGlobalCartSettings
       tags:
         - Carts Settings
       responses:
@@ -735,6 +735,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      operationId: updateGlobalCartSettings
     parameters:
       - schema:
           type: string
@@ -767,6 +768,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      operationId: getChannelCartSettings
     put:
       summary: Update Channel Cart Settings
       description: Update the per-channel overrides for the cart settings of a store
@@ -804,6 +806,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      operationId: updateChannelCartSettings
     parameters:
       - schema:
           type: string
