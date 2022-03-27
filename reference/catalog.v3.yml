@@ -1024,7 +1024,9 @@ paths:
         '204':
           description: ''
           content: {}
-  '/stores/{store_hash}/v3/catalog/products/{product_id}':
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+  '/stores/v3/catalog/products/{product_id}':
     get:
       tags:
         - Products
@@ -1610,7 +1612,9 @@ paths:
         '204':
           description: ''
           content: {}
-    parameters: []
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/images':
     get:
       tags:
@@ -2105,6 +2109,9 @@ paths:
                 title: image_url must be present if uploading by url
                 type: /api-docs/getting-started/api-status-codes
       x-codegen-request-body-name: productImage
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/images/{image_id}':
     get:
       tags:
