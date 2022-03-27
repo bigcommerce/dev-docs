@@ -450,9 +450,9 @@
     },
     {
       "type": "item",
-      "href": "/api-docs/multi-storefront/api-suite",
-      "title": "Multi-Storefront API Suite",
-      "uri": "docs/msf/msf-api-suite.md"
+      "href": "/api-docs/multi-storefront/api-guide",
+      "title": "Multi-Storefront API Guide",
+      "uri": "docs/msf/msf-api-guide.md"
     },
     {
       "type": "item",
