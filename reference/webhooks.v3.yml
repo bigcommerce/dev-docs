@@ -2806,7 +2806,7 @@ components:
           type: string
         type:
           type: string
-      x-internal: true
+      x-internal: false
     errorDetailed_Full:
       type: object
       title: errorDetailed_Full
@@ -2816,7 +2816,7 @@ components:
           additionalProperties:
             type: string
           title: DetailedErrors
-      x-internal: true
+      x-internal: false
     webhook_Base:
       type: object
       title: webhook_Base
@@ -2844,7 +2844,7 @@ components:
         - destination
         - is_active
         - headers
-      x-internal: true
+      x-internal: false
     webhook_Full:
       allOf:
         - type: object
@@ -2871,7 +2871,7 @@ components:
               description: Updated time
         - $ref: '#/components/schemas/webhook_Base'
       title: webhook_Full
-      x-internal: true
+      x-internal: false
     Pagination:
       type: object
       description: |
@@ -2904,7 +2904,7 @@ components:
             next:
               type: string
               description: Link to the next page returned in the response.
-      x-internal: true
+      x-internal: false
     webhook_callback_base:
       description: ''
       x-examples:
@@ -2943,7 +2943,7 @@ components:
               example: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               description: The payload data JSON encoded then passed through SH1 encryption.
       type: object
-      x-internal: true
+      x-internal: false
     callback_category_data:
       title: callback_category_data
       type: object
@@ -2961,7 +2961,7 @@ components:
               type: integer
               description: ID of the category
               example: 42
-      x-internal: true
+      x-internal: false
   examples:
     store-cart-created:
       value:

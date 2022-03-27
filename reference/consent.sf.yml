@@ -86,7 +86,7 @@ components:
       required:
         - allow
         - deny
-      x-internal: true
+      x-internal: false
 x-stoplight:
   docs:
     includeDownloadLink: false

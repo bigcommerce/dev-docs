@@ -188,4 +188,4 @@ components:
                 Describes whether the stored credentials are considered complete and configured, ready to be used for Tax Provider API requests.
 
                 Merchants may enable any **configured** tax provider for storefront tax quotation.
-      x-internal: true
+      x-internal: false

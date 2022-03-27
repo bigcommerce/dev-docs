@@ -77,7 +77,7 @@ definitions:
         description: |
           **(Optional)** Field containing the expected IP address for the request. If provided, BigCommerce will check that it matches the browser trying to log in. If there is not a match, it will be rejected.
         example: '"111.222.333.444"'
-    x-internal: true
+    x-internal: false
 tags:
   - name: Login Token
 x-stoplight:

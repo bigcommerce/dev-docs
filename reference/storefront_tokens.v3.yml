@@ -240,7 +240,7 @@ definitions:
     required:
       - channel_id
       - expires_at
-    x-internal: true
+    x-internal: false
   TokenPostSimple:
     type: object
     properties:
@@ -255,7 +255,7 @@ definitions:
           minLength: 1
           maxLength: 1
           pattern: '/^https?:\/\/(?=.{1,254}(?::|$))(?:(?!\d|-)(?![a-z0-9\-]{1,62}-(?:\.|:|$))[a-z0-9\-]{1,63}\b(?!\.$)\.?)+(:\d+)?$/i;'
-    x-internal: true
+    x-internal: false
   Token_Full:
     type: object
     properties:
@@ -263,14 +263,14 @@ definitions:
         $ref: '#/definitions/Token_Base'
       meta:
         type: object
-    x-internal: true
+    x-internal: false
   Token_Base:
     type: object
     properties:
       token:
         type: string
         description: JWT Token for accessing the Storefront API
-    x-internal: true
+    x-internal: false
   ErrorResponse:
     allOf:
       - $ref: '#/definitions/BaseError'
@@ -278,7 +278,7 @@ definitions:
         properties:
           errors:
             $ref: '#/definitions/DetailedErrors'
-    x-internal: true
+    x-internal: false
   BaseError:
     type: object
     description: |
@@ -294,12 +294,12 @@ definitions:
         type: string
       type:
         type: string
-    x-internal: true
+    x-internal: false
   DetailedErrors:
     type: object
     additionalProperties:
       type: string
-    x-internal: true
+    x-internal: false
 host: api.bigcommerce.com
 basePath: /
 schemes:
