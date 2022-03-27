@@ -77,12 +77,6 @@ paths:
                       prelaunch_message: Prelaunch
                       prelaunch_password: mezt1f77gd
                     meta: {}
-        '422':
-          description: The request is missing 1 or more required fields. See the response for more details.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       description: Get storefront status.
@@ -155,12 +149,6 @@ paths:
                       page_title: BigCommerce Store
                       www_redirect: no-www
                     meta: {}
-        '422':
-          description: Provided settings could not be applied for some reason - detailed errors in the response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       description: Get storefront SEO settings.
@@ -239,12 +227,6 @@ paths:
                     data:
                       robots_txt_ssl: string
                     meta: {}
-        '422':
-          description: Provided settings could not be applied for some reason - detailed errors in the response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       description: Get storefront robots.txt.
@@ -316,12 +298,6 @@ paths:
                       product_filtering_enabled: true
                       search_suggest: true
                     meta: {}
-        '422':
-          description: Provided settings could not be applied for some reason - detailed errors in the response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       operationId: ''
@@ -893,12 +869,6 @@ paths:
                       store_country: United States
                       shopper_language_selection_method: default_shopper_language
                     meta: {}
-        '422':
-          description: Provided settings could not be applied for some reason - detailed errors in the response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
       tags:
         - Store Locale
     put:
@@ -1102,7 +1072,7 @@ paths:
          field has not been overridden on a channel level when channel level settings are requested and values are inherited from global level.
       responses:
         '200':
-          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
+          description: OK. `null` indicates that a particular field has not been overridden on a channel level when channel level settings are requested
           content:
             application/json:
               schema:
@@ -1112,12 +1082,6 @@ paths:
                     $ref: '#/components/schemas/betaStoreProfile'
                   meta:
                     type: object
-        '422':
-          description: Provided settings could not be applied for some reason - detailed errors in the response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/betaErrorResponse'
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
@@ -1430,12 +1394,6 @@ paths:
                     $ref: '#/components/schemas/CatalogSettings'
                   meta:
                     type: object
-        '422':
-          description: Provided settings could not be applied for some reason - detailed errors in the response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/betaErrorResponse'
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
     put:
@@ -1541,12 +1499,6 @@ paths:
                         $ref: '#/components/schemas/InventoryNotificationsSettings'
                   - $ref: ./global_refs.yaml#/components/schemas/meta_Empty
               examples: {}
-        '422':
-          description: Provided settings could not be applied for some reason - detailed errors in the response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/betaErrorResponse'
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
     put:
