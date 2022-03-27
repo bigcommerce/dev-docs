@@ -1517,12 +1517,9 @@ paths:
         - Storefront Product
       responses:
         '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
+          $ref: '#/components/responses/200-storefront-product-settings'
+        '422':
+          $ref: '#/components/responses/422ErrorResp'
     parameters:
       - schema:
           type: string
