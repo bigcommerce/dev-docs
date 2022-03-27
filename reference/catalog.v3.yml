@@ -1692,7 +1692,7 @@ paths:
                       title: Product Image
                       type: object
                       allOf:
-                        - $ref: '#/definitions/productImage_Full'
+                        - $ref: '#/components/schemas/productImage_Full'
                   meta:
                     $ref: '#/components/schemas/metaCollection_Full'
                 description: |
@@ -18829,7 +18829,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorRequest'
-      operationId: deleteCategories
+      operationId: deleteTreeCategories
     parameters:
       - $ref: '#/components/parameters/StoreHashParam'
   '/stores/{store_hash}/v3/catalog/trees':
@@ -22621,7 +22621,7 @@ components:
             title: Error Response
             type: object
             allOf:
-              - $ref: '#/definitions/error_Base'
+              - $ref: '#/components/schemas/error_Base'
               - type: object
                 properties:
                   errors:
