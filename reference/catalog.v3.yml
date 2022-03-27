@@ -7560,6 +7560,9 @@ paths:
                   type:
                     type: string
       x-codegen-request-body-name: Modifier
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/modifiers/{modifier_id}':
     get:
       tags:
@@ -8293,6 +8296,10 @@ paths:
         '204':
           description: ''
           content: {}
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/ModifierIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/modifiers/{modifier_id}/values':
     get:
       tags:
@@ -8719,6 +8726,10 @@ paths:
                   type:
                     type: string
       x-codegen-request-body-name: ModifierValue
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/ModifierIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/modifiers/{modifier_id}/values/{value_id}':
     get:
       tags:
@@ -9205,6 +9216,11 @@ paths:
         '204':
           description: ''
           content: {}
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/ModifierIdParam'
+      - $ref: '#/components/parameters/ValueIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/modifiers/{modifier_id}/values/{value_id}/image':
     post:
       tags:
@@ -9404,6 +9420,11 @@ paths:
         '204':
           description: ''
           content: {}
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/ModifierIdParam'
+      - $ref: '#/components/parameters/ValueIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/complex-rules':
     get:
       tags:
@@ -9920,6 +9941,9 @@ paths:
                   type:
                     type: string
       x-codegen-request-body-name: ComplexRule
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/complex-rules/{complex_rule_id}':
     get:
       tags:
@@ -10561,6 +10585,10 @@ paths:
         '204':
           description: ''
           content: {}
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/ComplexRuleIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/custom-fields':
     get:
       tags:
@@ -10855,6 +10883,9 @@ paths:
                   type:
                     type: string
       x-codegen-request-body-name: CustomField
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/custom-fields/{custom_field_id}':
     get:
       tags:
@@ -11192,6 +11223,10 @@ paths:
                   instance:
                     type: string
                 description: Error payload for the BigCommerce API.
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/CustomFieldIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/bulk-pricing-rules':
     get:
       tags:
@@ -11459,6 +11494,9 @@ paths:
                   type:
                     type: string
       x-codegen-request-body-name: BulkPricingRule
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/bulk-pricing-rules/{bulk_pricing_rule_id}':
     get:
       tags:
@@ -11811,6 +11849,10 @@ paths:
                   instance:
                     type: string
                 description: Error payload for the BigCommerce API.
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/BulkPricingRuleIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/metafields':
     get:
       tags:
@@ -12074,11 +12116,8 @@ paths:
                   type:
                     type: string
     parameters:
-      - schema:
-          type: string
-        name: ''
-        in: path
-        required: true
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/metafields/{metafield_id}':
     get:
       tags:
@@ -12519,8 +12558,8 @@ paths:
         name: store_hash
         in: path
         required: true
-      - $ref: ../../catalog.v3.yml#/parameters/ProductIdParam
-      - $ref: ../../catalog.v3.yml#/parameters/MetafieldIdParam
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/MetafieldIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/reviews':
     get:
       tags:
@@ -12879,6 +12918,9 @@ paths:
                     type: string
                 description: Error payload for the BigCommerce API.
       x-codegen-request-body-name: productReview
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
   '/stores/{store_hash}/v3/catalog/products/{product_id}/reviews/{review_id}':
     get:
       tags:
@@ -13288,6 +13330,10 @@ paths:
         '204':
           description: ''
           content: {}
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/ProductIdParam'
+      - $ref: '#/components/parameters/ReviewIdParam'
   '/stores/{store_hash}/v3/catalog/categories':
     get:
       tags:
@@ -14007,11 +14053,7 @@ paths:
           description: ''
           content: {}
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: '#/components/parameters/StoreHashParam'
   '/stores/{store_hash}/v3/catalog/categories/{category_id}':
     get:
       tags:
@@ -14503,6 +14545,9 @@ paths:
         '204':
           description: ''
           content: {}
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/CategoryIdParam'
   '/stores/{store_hash}/v3/catalog/categories/{category_id}/metafields':
     get:
       tags:
@@ -14919,6 +14964,9 @@ paths:
                   type:
                     type: string
       x-codegen-request-body-name: Metafield
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/CategoryIdParam'
   '/stores/{store_hash}/v3/catalog/categories/{category_id}/metafields/{metafield_id}':
     get:
       tags:
@@ -15352,6 +15400,10 @@ paths:
         '204':
           description: ''
           content: {}
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/CategoryIdParam'
+      - $ref: '#/components/parameters/MetafieldIdParam'
   '/stores/{store_hash}/v3/catalog/categories/{category_id}/image':
     post:
       tags:
@@ -15509,7 +15561,10 @@ paths:
         '204':
           description: ''
           content: {}
-  '/stores/{store_hash}/v3/catalog/categories/tree':
+    parameters:
+      - $ref: '#/components/parameters/StoreHashParam'
+      - $ref: '#/components/parameters/CategoryIdParam'
+  '/stores/{store_hash}/v3/catalog/categories/tree/{tree_id}':
     get:
       tags:
         - Category
@@ -15580,6 +15635,13 @@ paths:
                     url: /utility/
                     children: []
                 meta: {}
+    parameters:
+      - schema:
+          type: string
+        name: tree_id
+        in: path
+        required: true
+      - $ref: '#/components/parameters/StoreHashParam'
   '/stores/{store_hash}/v3/catalog/brands':
     get:
       tags:
@@ -16194,6 +16256,12 @@ paths:
         '204':
           description: ''
           content: {}
+    parameters:
+      - name: store_hash
+        in: path
+        required: true
+        schema:
+          type: string
   '/stores/{store_hash}/v3/catalog/brands/{brand_id}':
     get:
       tags:
