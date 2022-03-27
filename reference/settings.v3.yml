@@ -1182,7 +1182,7 @@ paths:
         - Storefront Category
       responses:
         '200':
-          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
+          description: OK. `null` indicates that a particular field has not been overridden on a channel level when channel level settings are requested
           content:
             application/json:
               schema:
@@ -1192,12 +1192,6 @@ paths:
                     $ref: '#/components/schemas/StorefrontCategorySettings'
                   meta:
                     type: object
-        '422':
-          description: Provided settings could not be applied for some reason - detailed errors in the response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/betaErrorResponse'
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
     put:
@@ -1225,6 +1219,8 @@ paths:
                     $ref: '#/components/schemas/StorefrontCategorySettings'
                   meta:
                     type: object
+        '422':
+          $ref: '#/components/responses/422ErrorResp'
       parameters:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
@@ -2706,11 +2702,37 @@ components:
       x-tags:
         - Models
     betaDetailedErrors:
+      description: ''
       type: object
-      additionalProperties:
-        type: string
-      x-tags:
-        - Models
+      properties:
+        status:
+          type: number
+        title:
+          type: string
+          minLength: 1
+        type:
+          type: string
+          minLength: 1
+        errors:
+          type: object
+          properties:
+            '':
+              type: string
+              minLength: 1
+          required:
+            - ''
+      required:
+        - status
+        - title
+        - type
+        - errors
+      x-examples:
+        example-1:
+          status: 422
+          title: JSON data is missing or invalid
+          type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+          errors:
+            '': 'Incorrect value [], it should match one of: current_category_only,child_categories_if_category_empty,child_categories; Incorrect value [], it should match one of: featured,newest,bestselling,atoz,ztoa,bestreviewed,lowestprice,highestprice'
     betaEnabledMiscFilter:
       title: EnabledMiscFilter
       type: object
@@ -2903,6 +2925,42 @@ components:
         | --- | --- | --- |
         |  Information & Settings | modify | `store_v2_information` |
         |  Information & Settings | read-only | `store_v2_information_read_only` |
+  responses:
+    422ErrorResp:
+      description: |
+        `422 Unprocessable Entity` Provided settings could not be applied for some reason - detailed errors in the response.
+      content:
+        application/json:
+          schema:
+            description: ''
+            type: object
+            x-examples:
+              example-1:
+                status: 422
+                title: JSON data is missing or invalid
+                type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+                errors:
+                  '': 'Incorrect value [], it should match one of: current_category_only,child_categories_if_category_empty,child_categories; Incorrect value [], it should match one of: featured,newest,bestselling,atoz,ztoa,bestreviewed,lowestprice,highestprice'
+            properties:
+              status:
+                type: number
+                example: 422
+              title:
+                type: string
+                minLength: 1
+                example: JSON data is missing or invalid
+              type:
+                type: string
+                minLength: 1
+                example: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+              errors:
+                type: object
+                properties:
+                  '':
+                    type: string
+                    minLength: 1
+                    example: 'Incorrect value [current__only], it should match one of: current_category_only,child_categories_if_category_empty,child_categories; Incorrect value [besling], it should match one of: featured,newest,bestselling,atoz,ztoa,bestreviewed,lowestprice,highestprice'
+          examples: {}
 x-stoplight:
   docs:
     includeDownloadLink: true
