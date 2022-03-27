@@ -198,6 +198,5 @@ components:
       required: true
       schema:
         type: string
-        example: 39iql4rta6
-        default: 29iql3rwa6
+        example: 29iql3rwa6
       description: Hash of your store
