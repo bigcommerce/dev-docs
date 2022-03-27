@@ -1679,6 +1679,7 @@ paths:
         > * *Gift Certificates* are treated as a payment methods.
         > * You are not able to purchase a gift certificate with a gift certificate.
         > * The Send a Test Request feature is not currently supported for this endpoint.
+        > * The rate limit is 20/hour (only for unique gift-certificate codes).
       summary: Add Gift Certificate to Checkout
       tags:
         - Checkout Gift Certificates
@@ -2537,6 +2538,7 @@ definitions:
           $ref: '#/definitions/customFields'
     required:
       - countryCode
+    x-internal: false
   customFields:
     title: customFields
     type: object
@@ -2630,6 +2632,7 @@ definitions:
         type: array
         items:
           type: string
+    x-internal: false
   consignmentAvailableShippingOptions:
     title: consignmentAvailableShippingOptions
     allOf:
@@ -3513,6 +3516,7 @@ definitions:
           required:
             - itemId
             - quantity
+    x-internal: false
   GiftCertificateRequest:
     title: Gift Certificate Request
     type: object
@@ -3536,8 +3540,8 @@ definitions:
     type: object
     properties:
       shippingAddress:
-            type: object
-            x-deprecated: true
+        type: object
+        x-deprecated: true
       address:
         title: Address Properties
         type: object
