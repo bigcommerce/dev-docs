@@ -1,6 +1,6 @@
 # Multi-Storefront App Compatibility
 
-Compatible versus optimized
+## Compatible versus optimized
 
 Compatible - works with the data from all storefronts and other sales channels associated with a store
 * Your app can handle the basic structural functions of an app -- see the app guide, esp [handling callbacks]()
