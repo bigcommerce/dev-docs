@@ -67,7 +67,7 @@ info:
     |Type|Platform|Allowed Statuses|
     |--|--|--|
     |`storefront`|`bigcommerce`|`prelaunch`, `active`, `inactive`, `archived`, `deleted`|
-    |`storefront`|**Is not** `bigcommerce` |`active`, `inactive`, `archived`, `deleted`
+    |`storefront`|**Is not** `bigcommerce` |`prelaunch`, `active`, `inactive`, `archived`, `deleted` 
     |`marketing`, `marketplace`, `pos`|N/A|`connected`, `disconnected`, `archived`, `deleted`|
 
     <!-- theme: warning -->
