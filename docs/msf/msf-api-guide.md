@@ -72,7 +72,7 @@ For applications that deal with order management, it is now crucial to include t
 
 Similarly, it's important to provide the appropriate channel-specific information to shoppers if your application is shopper-facing and deals with orders. For example, if your app sends order confirmation emails to customers, you'll need to ensure that any store information, URLs, and links in your email reflect the correct storefront or other sales channel. For more details, see the use case considerations at the end of [Managing Store Configuration](/api-docs/store-management/settings#the-cumulative-effect-of-global-and-channel-specific-settings).
 
-## Price Lists
+## Price lists
 
 [Price List Assignments API documentation](/api-reference/catalog/pricelists-api/price-lists-assignments/getlistofpricelistassignments)
 
@@ -117,110 +117,42 @@ Removing a product from a category does not remove it from the channel. Revoke c
 
 Removing a product from one or all of a channel's categories without revoking the channel assignment will remove the product from the category views and filters, but shoppers will still be able to access the product using search or its direct link. This may be useful for sales campaigns that send shoppers a direct link to purchase a specific product.
 
-## Storefront & Content A
+## Storefront and Content
 
-### Scripts A
+### Scripts
 
-Scripts are associated with a particular Site. Any Scripts that were created previously have been assigned to the default Site (which has an id of `1000` on each store). If you do not supply a `site_id` when creating a Script, it will be assigned to the default Site. In order to support multi-storefront stores, you should explicitly assign Scripts to the appropriate Site on which they are intended to render. If you want the exact same Script to show up on several Sites, you must create the Script on each site.
+Scripts are associated with a particular site. Any scripts that were created previously have been assigned to the default site (which has an id of `1000` on each store). If you do not supply a `site_id` when creating a script, it will be assigned to the default site. To support multi-storefront stores, you should explicitly assign scripts to the appropriate site on which they are intended to render. If you want the exact same script to show up on several sites, you must create the script on each site.
 
 ![scripts-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/scripts-diagram.webp)
 
 
 [Scripts API reference documentation](/api-reference/store-management/scripts)
 
-From a UX perspective, you may wish to prompt merchants who are setting up your app to pick one or more storefront Sites on which your app's storefront functionality should be installed. It is also advisable to provide a way to remove your Scripts from each Site, or install them on new Sites the merchant creates as they expand their business.
-
-### Pages A
-
-Pages are associated with a particular Site. Any Pages that were created previously have been assigned to the default Site (which has an id of `1000` on each store).
-
-![pages-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/pages-diagram.webp)
-
-
-[Pages API reference documentation](/api-reference/store-management/pages/pages/getpages)
-
-A new V3 Pages API has been exposed to service multi-storefront use cases, while also providing several of the usual efficiency benefits of V3 APIs over their V2 equivalents. This new V3 Pages API has `site_id` as a required parameter.
-
-If your application reads Pages-related data, be sure to filter by the appropriate `site_id` when dealing with a particular Site. Similarly, when writing new Pages, be sure to provide the correct `site_id`.
-
-### Widgets A
-
-Widget Templates, Widgets, and Placements are all associated with a particular Site. Any previously existing objects have been assigned to the default Site (which has an id of `1000` on each store).
-
-Going forward, it is recommended to interact directly with the appropriate `site_id` for the storefront you are managing content for using the filters supplied on each endpoint, and be sure to write the correct `site_id` when creating new objects.
-
-### 301 Redirects A
-
-![redirects-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/redirects-diagram.webp)
-
-[Redirects API documentation](/api-reference/store-management/redirects)
-
-Redirects are associated with a particular Site. Any Redirects that were created previously have been assigned to the default Site (which has an id of `1000` on each store).
-
-A new V3 Redirects API has been exposed to service multi-storefront use cases, while also providing several of the usual efficiency benefits of V3 APIs over their V2 equivalents. This new V3 Redirects API has `site_id` as a required parameter.
-
-If your application reads Redirects-related data, be sure to filter by the appropriate `site_id` when dealing with a particular Site. Similarly, when writing in new Redirects, be sure to provide the correct `site_id`.
-
-### Themes A
-
-Previously, the Theme `/activate` endpoint would accept a `variation_id` and a `which` value.
-
-To support application of stores to different storefront Sites, you must now _instead_ supply a `site_id` and `configuration_id` to indicate exactly which storefront you wish to apply a Theme to, and which set of theme settings (Configurations) should be used.
-
-![themes-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/themes-diagram.webp)
-
-[Themes API documentation](/api-reference/store-management/themes)
-
-To understand which Theme is active for a particular Site, you can check the `/v3/sites/ID/active-theme` endpoint.
-
-Themes themselves have remained "global" to the store, but each Theme now exposes a list of Configurations which are any sets of theme settings which have been created for the Theme. Each Theme has a default set of settings, but additional settings can be created by using the Page Builder feature in the BigCommerce control panel, or by creating new Configurations with the public API.
-
-Instead of downloading Themes by using the `/themes/{uuid}/actions/download` endpoint to create a download job, you can instead download the Theme (with its default Configuration) by simply using the `download_url` on the `/themes` collection GET endpoint. This download does not require any processing so it's much faster, but will only contain the default Configuration inside the theme. You can then merge the theme files with any Configuration of your choosing from the `/v3/themes/{uuid}/configurations` endpoint.
-
-**Note:** Since each Theme can define its own Configuration, the JSON response on the Theme Configurations endpoint may differ for each Theme. The Configuration will be a valid JSON object, and will match the theme's Schema. A `/v3/themes/{uuid}/configurations/validate` endpoint can be used to test a potential configuration against the theme's Schema to validate it.
-
-
-# Storefront and Content B
-
-## Scripts B
-
-Scripts are associated with a particular site. Any scripts that were created previously have been assigned to the default site (which has an id of `1000` on each store). If you do not supply a `site_id` when creating a script, it will be assigned to the default site. To support multi-storefront stores, you should explicitly assign scripts to the appropriate site on which they are intended to render. If you want the exact same script to show up on several sites, you must create the script on each site.
-
-<a target="_blank" href="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/scripts-diagram.png">
-  <img src="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/scripts-diagram.png">
-</a>
-
-[Publicly accessible Scripts API documentation](https://developer.bigcommerce.com/api-reference/store-management/scripts)
-
 From the UX perspective, you may wish to prompt merchants who are setting up your app to pick one or more storefront sites on which your app's storefront functionality should be installed. It is also adviseable to provide a way to remove your scripts from each site, or install them on new sites the merchants create as they expand their business.
 
-## Pages B
+### Pages
 
 Pages are associated with a particular site. Any pages that were created previously have been assigned to the default site (which has an id of `1000` on each store).
 
-<a target="_blank" href="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/pages-diagram.png">
-  <img src="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/pages-diagram.png">
-</a>
+![pages-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/pages-diagram.webp)
 
-[Publicly accessible Pages API documentation](https://developer.bigcommerce.com/api-reference/store-management/store-content/pages/getallpages)
+[Pages API reference documentation](/api-reference/store-management/pages/pages/getpages)
 
 The new V3 Pages API has been exposed to service multi-storefront use cases, while also providing several of the usual efficiency benefits of V3 APIs over their V2 equivalents. The V3 Pages API has `site_id` as a required parameter.
 
 If your application reads pages-related data, be sure to filter by the appropriate `site_id` when dealing with a particular site. Similarly, when writing new pages, be sure to provide the correct `site_id`.
 
-## Widgets B
+### Widgets
 
 Widget templates, widgets, and placements are all associated with a particular site. Any previously existing objects have been assigned to the default site (which has an id of `1000` on each store).
 
 Going forward, it is recommended to interact directly with the appropriate `site_id` for the storefront you are managing content for using the filters supplied on each endpoint. When creating new objects, be sure to write the correct `site_id`.
 
-## 301 Redirects B
+### 301 Redirects
 
-<a target="_blank" href="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/redirects-diagram.png">
-  <img src="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/redirects-diagram.png">
-</a>
+![redirects-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/redirects-diagram.webp)
 
-[Publicly accessible Redirects API documentation](https://developer.bigcommerce.com/api-reference/store-management/redirects)
+[Redirects API documentation](/api-reference/store-management/redirects)
 
 Redirects are associated with a particular Ssite. Any redirects that were created previously have been assigned to the default site (which has an id of `1000` on each store).
 
@@ -228,17 +160,14 @@ The new V3 Redirects API has been exposed to service multi-storefront use cases,
 
 If your application reads redirects-related data, be sure to filter by the appropriate `site_id` when dealing with a particular site. Similarly, when writing in new redirects, be sure to provide the correct `site_id`.
 
-## Themes B
+### Themes
 
 Previously, the `/themes/actions/activate` endpoint would accept a `variation_id` and a `which` value.
 
 To support application of stores to different storefront sites, you must now _instead_ supply a `site_id` and `configuration_id` to indicate exactly which storefront you wish to apply a theme to, and which set of theme settings (configurations) should be used.
 
-<a target="_blank" href="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/themes-diagram.png">
-  <img src="https://cdn11.bigcommerce.com/s-grief/content/dev-docs/themes-diagram.png">
-</a>
-
-[Publicly accessible Themes API documentation](https://developer.bigcommerce.com/api-reference/store-management/themes)
+![themes-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/themes-diagram.webp)
+[Themes API documentation](/api-reference/store-management/themes)
 
 To understand which theme is active for a particular site, you can check the `/v3/sites/ID/active-theme` endpoint.
 
@@ -248,21 +177,7 @@ Instead of downloading themes by using the `/themes/{uuid}/actions/download` end
 
 **Note:** Since each theme can define its own configuration, the JSON response on the Theme Configurations endpoint may differ for each theme. The configuration will be a valid JSON object, and will match the theme's schema. A `/v3/themes/{uuid}/configurations/validate` endpoint can be used to test a potential configuration against the theme's schema to validate it.
 
-
-
-
-
-## Subscribers A
-
-[Subscribers API reference documentation](/api-reference/store-management/subscribers)
-
-Each Subscriber now has an `origin_channel_id` property which indicates on which the Channel on which each Subscriber signaled intent to receive a newsletter. If not supplied, will default to 1, but should be supplied with every request explicitly.
-
-If your application deals with Subscribers, be sure to check the `origin_channel_id` to understand exactly where the Subscriber signed up. If you are integrating with an email marketing system, you may want to allow the merchant to pick which email lists will be used for which Channels.
-
-The Subscriber webhooks will also be augmented with an `origin_channel_id` so new subscriptions can be added to the appropriate email list for each storefront.
-
-# Subscribers B
+### Subscribers
 
 [Publicly accessible Subscribers API documentation](https://developer.bigcommerce.com/api-reference/store-management/subscribers)
 
