@@ -22,7 +22,7 @@ Each new channel will use the store's global default values unless the merchant 
 
 The Settings APIs use query parameters to distinguish which set of settings a request is accessing.
 
-Consider the following request to the `GET` store profile settings endpoint:
+Consider the following request to the [Get store profile settings](/api-reference/store-management/settings/store-profile/getstoreprofilesettings) endpoint:
 
 ```http title="Example request: Get store profile settings"
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile
@@ -46,7 +46,7 @@ Because the request did not specify any query parameters, the API returned the *
 
 The merchant's global configuration is used for all storefronts and other channels that have not specified different, channel-specific configuration settings.
 
-To check whether channel-specific values for a setting are defined, send the channel_id as a query parameter in your requests to settings `GET` endpoints.
+To check whether channel-specific values for a setting are defined, send the `channel_id` as a query parameter in your requests to settings endpoints.
 
 ```http title="Example request: Get store profile settings for channel 122"
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=122
@@ -116,7 +116,7 @@ Because channel-specific values exist for all store profile object properties, t
 
 You can modify global and channel-specific settings alike by sending `PUT` requests to the relevant endpoints. 
 
-The following is an example of a global default configuration update:
+The following example uses the [Update store profile settings](/api-reference/store-management/settings/store-profile/putstoreprofilesettings) endpoint to modify a store's global default configuration:
 
 ```http title="Example request: Update global store profile settings"
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile

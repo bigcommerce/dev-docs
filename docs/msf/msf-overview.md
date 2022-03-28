@@ -35,7 +35,7 @@ Each BigCommerce store is provisioned with one channel out of the box, intended 
 
 <!-- theme: info -->
 > #### Backwards compatibility
-> In some cases when a more specific channel cannot be associated with an interaction, channel `1` may be used for backwards compatibility. For example, orders created using the Orders V2 API that do not specify a channel ID will be associated with channel `1`.
+> In some cases when a more specific channel cannot be associated with an interaction, channel `1` may be used for backwards compatibility. For example, orders created using the V2 Orders API that do not specify a channel ID will be associated with channel `1`.
 
 To learn more about upgrading your application to support multi-channel sales, see [Multi-Storefront App Compatibility](/api-docs/apps/multi-storefront#upgrading-existing-apps).
 
@@ -43,7 +43,7 @@ To learn more about upgrading your application to support multi-channel sales, s
 
 [Sites API documentation](/api-reference/store-management/sites)
 
-A **site** is a website owned or controlled exclusively by the merchant, usually for hosting a storefront website. Every site will be tied to exactly one channel, but because not all sales channels are sites, channels are not required to have a site. Sites are mainly relevant to storefront-type Channels, and they serve as containers for settings and objects that only apply to websites.
+A **site** is a website owned or controlled exclusively by the merchant, usually for hosting a storefront website. Every site will be tied to exactly one channel, but because not all sales channels are sites, channels are not required to have a site. Sites are mainly relevant to storefront-type channels, and they serve as containers for settings and objects that only apply to websites.
 
 Every site must have the following properties:
 
@@ -52,7 +52,7 @@ Every site must have the following properties:
 
 Every Stencil storefront has a site, in addition to having a channel of type `storefront` and a platform of type `bigcommerce`.
 
-The first Stencil storefront of each merchant store has an id of `1000` and is also known as the default site. It cannot be deleted.
+The first Stencil storefront of each merchant store has an ID of `1000` and is also known as the default site. It cannot be deleted.
 
 To learn more about upgrading your application to support multi-storefront functionality, see [Multi-Storefront App Compatibility](/api-docs/apps/multi-storefront#upgrading-existing-apps).
 
