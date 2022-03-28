@@ -10,6 +10,8 @@ Optimized - in addition to being channel-aware, optimized apps are *channel exte
 
 The features that will make an app channel-optimized depend exclusively on its use cases, so this guide focuses primarily on ensuring that your app meets the *relevant* requirements before you submit it for approval.
 
+When upgrading your application to support multi-channel functionality, it may make sense to provide merchants with an opportunity to configure how your app behaves differently for each Channel on which they sell. It may also be the case that your application is only relevant to certain Channel types (for example, the `storefront` type, or only `storefront` type Channels on the `bigcommerce` platform), so it's a good idea to fetch the list of Channels immediately after your app's installation to understand if your application is compatible with the merchant's current Channels and surface this information appropriately to users.
+
 ## Setup and channels configuration
 
 Ensure that your app's settings acknowledge multiple storefronts and convey that understanding to the merchant or authorized user. Your app's features should work with any subset of a merchant's channels, including a single channel, some of their channels, or across all the channels in their store. 
@@ -23,15 +25,16 @@ An app that functions correctly with a store's multi-channel product catalog and
 
 1. Products synced to the app should include correct channel assignments. Read more about [retrieving product channel assignments](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/ZG9jOjU0OTY1MDE-products). Merchants who use your app to create products should be able to assign them to one or more channels.
    
-2. Categories synced to the app should include correct channel assignments. Read more about [identifying the category tree](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/ZG9jOjg3NjcxOTA-categories) that's active on a sales channel. Your app should allow merchants to integrate new categories individually into each target channel's active category tree.
+2. Categories synced to the app should include correct channel assignments. Read more about [identifying the category tree](/api-docs/multi-storefront/api-guide#categories) that's active on a sales channel. Your app should allow merchants to integrate new categories individually into each target channel's active category tree.
    
-3. Orders synced to the app should include correct channel assignments. Read more about [retrieving an order's channel_id](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/ZG9jOjI1MDM3NDg-orders).
+3. Orders synced to the app should include correct channel assignments. Orders that your app creates should include correct storefront channel assignments. Your app should be able to assign new orders to one or more channels. Read more about [channel-aware orders](/api-docs/multi-storefront/api-guide#orders).
    
-4. Orders that your app creates should include correct storefront channel assignments. Your app should be able to assign new orders to one or more channels. Read more about [placing channel-aware orders](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/ZG9jOjI1MDM3NDg-orders).
-   
-5. Customers synced to the app should include correct channel access permissions within the app. If your app creates any new customers, it should be able to assign them to one or more channels. Read more about [channel-aware customer access and assignment](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/ZG9jOjM3ODMxNzk-customers).
-   
-6. Customer groups synced to the app should include correct channel assignments. If your app creates any new customer groups, it should be able to assign them to one or more channels. Read more about [channel-aware customer groups]().
+4. Customers synced to the app should include correct channel access permissions within the app. If your app creates any new customers, it should be able to assign them to one or more channels. Read more about [customers and channels](/api-docs/multi-storefront/api-guide#customers). Customer groups synced to the app should also include correct channel assignments. If your app creates any new customer groups, it should be able to assign them to one or more channels.
+
+<!-- theme: info -->
+> #### Price lists
+> Price lists have been substantially upgraded to support multi-channel sales. Read more about [channel-aware price lists](/api-docs/multi-storefront/api-guide#price-lists) 
+
 ## Storefront content
 
 All storefront content that your app creates should be assigned to the channel of the merchant's choosing. Merchants should be able to customize storefront content on a channel-by-channel basis.
@@ -48,9 +51,9 @@ All storefront content that your app creates should be assigned to the channel o
 
 6. Custom template files synced to the app should include correct storefront assignments. Custom template files that the app creates should include configuration options for one or more storefronts. Read more about [widget template objects](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/c2NoOjExNjk0MDE2-widget-template).
 
-7.  Pages synced to the app should include correct storefront assignments. Pages that the app creates should include configuration options for one or more storefronts. Read more about [working with pages' site_id property](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/ZG9jOjExNjkzNzIz-storefront-content#pages).
+7. Pages synced to the app should include correct storefront assignments. Pages that the app creates should include configuration options for one or more storefronts. Read more about [working with pages' site_id property](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/ZG9jOjExNjkzNzIz-storefront-content#pages).
 
-8.  Carts that the app tracks or creates should include the correct `channel_id`. Read more about [channel-aware carts and checkout](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/ZG9jOjExNjkzNzEz-cart-and-checkout).
+8.  Carts that the app tracks or creates should include the correct `channel_id`. Read more about [channel-aware carts and checkout](/api-docs/multi-storefront/api-guide#cart-and-checkout).
 
 ## Additional settings and content
 
