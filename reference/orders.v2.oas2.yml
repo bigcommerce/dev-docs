@@ -35,14 +35,14 @@ info:
 
     * `currency_id` - the display currency ID. Depending on the currency selected, the value may be different from the transactional currency.
     * `currency_code` - the currency code of the display currency used to present prices to the shopper on the storefront. Depending on the currency selected, the value may be different from the transactional currency.
-    * `currency_exchange_rate` - the exchange rate between the store's default currency and the display currency. For orders created using the V2 endpoints, this value is always 1 (only in the storefront this value can be different to 1).
+    * `currency_exchange_rate` - the exchange rate between the store’s default currency and the display currency. For orders created using the V2 endpoints, this value is always 1 (only in the storefront this value can be different to 1).
     * `default_currency_id` - the transactional currency ID.
     * `default_currency_code` - the currency code of the transactional currency the shopper pays in.
 
     The following additional fields are returned on orders when Multi-Currency is enabled on the store:
 
-    * `store_default_currency_code` - the currency code of the store's default currency.
-    * `store_default_to_transactional_exchange_rate` - the exchange rate between the store's default currency and the transactional currency used in the order.
+    * `store_default_currency_code` - the currency code of the store’s default currency.
+    * `store_default_to_transactional_exchange_rate` - the exchange rate between the store’s default currency and the transactional currency used in the order.
 
     **Example:**
 
@@ -98,7 +98,7 @@ paths:
 
         To update a product in an order, include `id` in the body. The body should only contain the fields that need to be updated. Those fields that are omitted will not be changed.
 
-        To remove a product from an order, set that product's `quantity` to `0`.
+        To remove a product from an order, set that product’s `quantity` to `0`.
 
         To learn more about creating or updating orders, see [Orders Overview](/api-docs/orders/orders-api-overview).
       summary: Update an Order
@@ -203,7 +203,7 @@ paths:
     parameters:
       - in: path
         name: order_id
-        description: ID of the order
+        description: ID of the order.
         required: true
         schema:
           type: integer
@@ -532,7 +532,7 @@ paths:
     parameters:
       - in: path
         name: order_id
-        description: ID of the order
+        description: ID of the order.
         required: true
         schema:
           type: integer
@@ -655,7 +655,7 @@ paths:
     parameters:
       - in: path
         name: order_id
-        description: ID of the order
+        description: ID of the order.
         required: true
         schema:
           type: integer
@@ -739,7 +739,7 @@ paths:
     parameters:
       - in: path
         name: order_id
-        description: ID of the order
+        description: ID of the order.
         required: true
         schema:
           type: integer
@@ -764,7 +764,7 @@ paths:
     parameters:
       - in: path
         name: order_id
-        description: ID of the order
+        description: ID of the order.
         required: true
         schema:
           type: integer
@@ -828,14 +828,14 @@ paths:
     parameters:
       - in: path
         name: order_id
-        description: ID of the order
+        description: ID of the order.
         required: true
         schema:
           type: integer
       - name: shipment_id
         in: path
         required: true
-        description: Shipment ID
+        description: Shipment ID.
         schema:
           type: integer
       - schema:
@@ -893,14 +893,14 @@ paths:
     parameters:
       - in: path
         name: order_id
-        description: ID of the order
+        description: ID of the order.
         required: true
         schema:
           type: integer
       - name: product_id
         in: path
         required: true
-        description: ID of the product
+        description: ID of the product.
         schema:
           type: integer
       - schema:
@@ -937,7 +937,7 @@ paths:
     parameters:
       - in: path
         name: order_id
-        description: ID of the order
+        description: ID of the order.
         required: true
         schema:
           type: integer
@@ -1081,7 +1081,7 @@ paths:
       description: |-
         Gets all shipping quotes persisted on an order.
 
-        This is a read only endpoint and the output can vary based on the shipping quote. A shipping quote can only be generated using the storefront at this time. Orders that are created in the control panel or via the API return a 204 for this endpoint since a shipping quote is not generated during that process.
+        This is a read only endpoint and the output can vary based on the shipping quote. A shipping quote can only be generated using the storefront at this time. Orders that are created in the control panel or using the API return a 204 for this endpoint since a shipping quote is not generated during that process.
       parameters:
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
@@ -1091,14 +1091,14 @@ paths:
     parameters:
       - in: path
         name: order_id
-        description: ID of the order
+        description: ID of the order.
         required: true
         schema:
           type: integer
       - name: shipping_address_id
         in: path
         required: true
-        description: Shipping address ID
+        description: Shipping address ID.
         schema:
           type: integer
       - schema:
@@ -1158,7 +1158,7 @@ components:
     customer_id:
       name: customer_id
       in: query
-      description: Customer ID
+      description: Customer ID.
       schema:
         type: integer
     email:
@@ -1307,7 +1307,7 @@ components:
     order_id_path:
       in: path
       name: order_id
-      description: ID of the order
+      description: ID of the order.
       required: true
       schema:
         type: integer
@@ -1315,21 +1315,21 @@ components:
       name: product_id
       in: path
       required: true
-      description: ID of the product
+      description: ID of the product.
       schema:
         type: integer
     shipping_address_id:
       name: shipping_address_id
       in: path
       required: true
-      description: Shipping address ID
+      description: Shipping address ID.
       schema:
         type: integer
     shipment_id:
       name: shipment_id
       in: path
       required: true
-      description: Shipment ID
+      description: Shipment ID.
       schema:
         type: integer
     channel_id:
@@ -1340,7 +1340,7 @@ components:
         type: integer
   responses:
     orderStatusCollection_Resp:
-      description: Get All Order Status Collection Response
+      description: Get All Order Status Collection Response.
       content:
         application/json:
           schema:
@@ -2777,11 +2777,11 @@ components:
                 example: a8458391-ef68-4fe5-9ec1-442e6a767364
                 type: string
               status:
-                description: 'The status will include one of the (string, optiona) - values defined under Order Statuses. This value is read-only. Do not attempt to modify or set this value in a POST or PUT operation.'
+                description: 'The status will include one of the (string, optional) - values defined under Order Statuses. This value is read-only. Do not attempt to modify or set this value in a POST or PUT operation.'
                 example: Awaiting Fulfillment
                 type: string
               custom_status:
-                description: 'Contains the same (string, optiona) - value as the Order Statuses object’s `custom_label` property.'
+                description: 'Contains the same (string, optional) - value as the Order Statuses object’s `custom_label` property.'
                 example: Awaiting Fulfillment
                 type: string
               subtotal_ex_tax:
@@ -2884,7 +2884,7 @@ components:
                 example: Cash on Delivery
                 type: string
               payment_provider_id:
-                description: The external Transaction ID/Payment ID within this order's payment provider (if a payment provider was used).
+                description: The external Transaction ID/Payment ID within this order’s payment provider (if a payment provider was used).
                 example: null
                 type: string
                 nullable: true
@@ -2892,7 +2892,7 @@ components:
                 description: A read-only value. Do not attempt to set or modify this value in a POST or PUT operation.
                 type: string
               refunded_amount:
-                description: 'The amount refunded from this transaction. (Float, Float-As-String, Integer)'
+                description: 'The amount refunded from this transaction; always returns `0`. (Float, Float-As-String, Integer) '
                 example: '0.0000'
                 type: string
               order_is_digital:
@@ -2945,7 +2945,7 @@ components:
                 example: Send Saturday
                 maxLength: 65535
               customer_message:
-                description: 'Message that the customer entered (number, optiona) -o the `Order Comments` box during checkout.'
+                description: 'Message that the customer entered (number, optional) -o the `Order Comments` box during checkout.'
                 example: Thank you
                 type: string
               discount_amount:
@@ -3032,26 +3032,26 @@ components:
                     items:
                       title: Form Fields
                       type: object
-                      description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order via API.
+                      description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order with the API.
                       properties:
                         name:
-                          description: Name of the form field
+                          description: Name of the form field.
                           type: string
                           example: License Id
                           readOnly: true
                         value:
-                          description: Value of the form field
+                          description: Value of the form field.
                           type: string
                           example: 123BAF
                           readOnly: true
                       readOnly: true
               order_source:
-                description: Orders submitted via the store's website will include a `www` value. Orders submitted via the API will be set to `external`. A read-only value. Do not pass in a POST or PUT.
+                description: Orders submitted from the store’s website will include a `www` value. Orders submitted with the API will be set to `external`. A read-only value. Do not pass in a POST or PUT.
                 example: www
                 type: string
               external_source:
                 description: |-
-                  This value identifies an external system that generated the order and submitted it to BigCommerce via the Orders API.
+                  This value identifies an external system that generated the order and submitted it to BigCommerce using the Orders API.
                   * When supplying the value, we recommend combining the type of system and vendor, e.g., ERP (Acumatica) or POS (Square).
                   * If you are migrating historical orders processed on another eCommerce platform to BigCommerce, supply the following code as the value: M-MIG. This code will exclude historical orders from the store’s GMV/order count, which factors into pricing.
                   * If you do not provide a value, then it will default to null..
@@ -3071,7 +3071,7 @@ components:
                 type: string
                 nullable: true
               external_merchant_id:
-                description: ID of the merchant
+                description: ID of the merchant.
                 example: 'null'
                 type: string
                 nullable: true
@@ -3082,12 +3082,11 @@ components:
               tax_provider_id:
                 type: string
                 description: |
-                  BasicTaxProvider - Tax is set to manual.
+                  BasicTaxProvider - Tax is set to manual and order is created in the store.
 
-                  AvaTaxProvider - This is for when the tax provider has been set to automatic and the order was NOT created by the API. Used for Avalara.
+                  AvaTaxProvider - Tax is set to automatic and order is created in the store. Used for Avalara.
 
-                  "" (blank) - When the tax provider is unknown. This includes legacy orders and orders previously created via API.
-                  This can be set when creating an order using a POST.
+                  "" (empty string) - The order is created with the API, or the tax provider is unknown.
                 enum:
                   - BasicTaxProvider
                   - AvaTaxProvider
@@ -3095,7 +3094,7 @@ components:
               customer_locale:
                 type: 'string,'
                 example: en
-                description: The customer's locale
+                description: The customer’s locale.
   requestBodies: null
   securitySchemes:
     X-Auth-Token:
@@ -3142,7 +3141,7 @@ components:
           items:
             $ref: '#/components/schemas/ordersCountStatus'
         count:
-          description: Total number of orders in the store
+          description: Total number of orders in the store.
           example: 45
           type: number
       x-internal: false
@@ -3205,6 +3204,7 @@ components:
       title: orderProducts
       type: object
       description: ''
+      x-internal: false
       properties:
         id:
           description: Numeric ID of this product within this order.
@@ -3237,7 +3237,7 @@ components:
             - physical
             - digital
           example: physical
-          description: Type of product
+          description: Type of product.
         base_price:
           description: 'The product’s base price. (Float, Float-As-String, Integer)'
           example: '54.0000'
@@ -3292,7 +3292,7 @@ components:
           type: string
         cost_price_inc_tax:
           description: |-
-            The product's cost price including tax. (Float, Float-As-String, Integer)
+            The product’s cost price including tax. (Float, Float-As-String, Integer)
             The cost of your products to you; this is never shown to customers, but can be used for accounting purposes. Read Only
           example: '0.0000'
           type: string
@@ -3315,19 +3315,20 @@ components:
           example: '54.0000'
           type: string
         is_refunded:
+          type: boolean
           description: Whether the product has been refunded.
           example: false
-          type: boolean
         refunded_amount:
-          description: 'The amount refunded from this transaction. (Float, Float-As-String, Integer)'
-          example: '0.0000'
           type: string
+          description: 'The amount refunded from this transaction; always returns `0`. (Float, Float-As-String, Integer) '
+          example: '0.0000'
+          deprecated: true
         return_id:
           description: Numeric ID for the refund.
           example: 0
           type: number
         wrapping_name:
-          description: Name of gift-wrapping option
+          description: Name of gift-wrapping option.
           example: 'null'
           type: string
         base_wrapping_cost:
@@ -3358,15 +3359,13 @@ components:
         event_name:
           description: Name of promotional event/delivery date.
           example: 'null'
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
         event_date:
           description: Date of the promotional event/scheduled delivery.
-          type:
-            - string
-            - 'null'
+          type: string
           format: date
+          nullable: true
         fixed_shipping_cost:
           description: 'Fixed shipping cost for this product. (Float, Float-As-String, Integer)'
           example: '0.0000'
@@ -3380,14 +3379,12 @@ components:
         option_set_id:
           description: Numeric ID of the option set applied to the product.
           example: 5
-          type:
-            - integer
-            - 'null'
+          type: integer
+          nullable: true
         parent_order_product_id:
           description: ID of a parent product.
-          type:
-            - integer
-            - 'null'
+          type: integer
+          nullable: true
         is_bundled_product:
           description: Whether this product is bundled with other products.
           example: false
@@ -3407,9 +3404,8 @@ components:
             $ref: '#/components/schemas/orderProductOptions'
         external_id:
           description: 'ID of the order in another system. For example, the Amazon Order ID if this is an Amazon order.This field can be updated in a /POST, but using a /PUT to update the order will return a 400 error. The field ''external_id'' cannot be written to. Please remove it from your request before trying again. It can not be overwritten once set.'
-          type:
-            - string
-            - 'null'
+          type: string
+          nullable: true
         upc:
           type: string
           maxLength: 255
@@ -3425,7 +3421,6 @@ components:
           type: string
           example: Towel Type 1
           description: The product name that is shown to merchant in Control Panel.
-      x-internal: false
     orderCount:
       title: orderCount
       example:
@@ -3542,7 +3537,7 @@ components:
           example: '"State Tax"'
           type: string
         class:
-          description: 'The name of the type of tax that was applied. NOTE: will be ''Automatic Tax'' if automatic tax was enabled.'
+          description: 'The name of the type of tax that was applied. NOTE: will be "Automatic Tax" if automatic tax was enabled. Will be "API Tax Override" if the order was created with V2 Orders API.'
           example: Gift Wrapping
           type: string
         rate:
@@ -3550,7 +3545,7 @@ components:
           example: '8.0000'
           type: string
         priority:
-          description: The order in which the tax is applied
+          description: The order in which the tax is applied.
           example: 0
           type: number
         priority_amount:
@@ -3571,7 +3566,7 @@ components:
             - shipping
             - handling
             - gift-wrapping
-          description: Type of tax on item
+          description: Type of tax on item.
       x-internal: false
     orderShipment:
       title: orderShipment
@@ -3688,7 +3683,7 @@ components:
       readOnly: true
       properties:
         url:
-          description: URL of the shipping address for api requests
+          description: URL of the shipping address for api requests.
           readOnly: true
           example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/shippingaddresses'
           type: string
@@ -3704,12 +3699,12 @@ components:
       readOnly: true
       properties:
         url:
-          description: URL of the coupons for api requests
+          description: URL of the coupons for api requests.
           readOnly: true
           example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/coupons'
           type: string
         resource:
-          description: resource of the coupons
+          description: resource of the coupons.
           readOnly: true
           example: /orders/129/coupons
           type: string
@@ -3824,15 +3819,15 @@ components:
       title: formFields
       type: object
       readOnly: true
-      description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order via API.
+      description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order with the API.
       properties:
         name:
-          description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order via API.
+          description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order with the API.
           readOnly: true
           type: string
           example: License Id
         value:
-          description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order via API.
+          description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order with the API.
           readOnly: true
           type: string
           example: 123BAF
@@ -3892,11 +3887,11 @@ components:
       properties:
         id:
           type: string
-          description: Id of the shipping quote
+          description: ID of the shipping quote.
           example: '24'
         uuid:
           type: string
-          description: uuid of the shipping quote
+          description: uuid of the shipping quote.
           example: a72acc8d-504b-4a40-8534-7c54d997ed59
         timestamp:
           type: string
@@ -3905,7 +3900,7 @@ components:
         shipping_provider_id:
           type: string
           example: bcstatic
-          description: Id of the shipping provider
+          description: ID of the shipping provider.
         shipping_provider_quote:
           type: array
           description: This can vary based on the shipping provider. Manual shipping methods such as fixed will return an empty array. Shipping providers such as UPS will return an object with the shipping information. Since the shipping quote is tied to a shipping address only one quote will return in the response.
@@ -3913,16 +3908,16 @@ components:
         provider_code:
           type: string
           example: shipping_byweight
-          description: Code of the shipping provider
+          description: Code of the shipping provider.
         carrier_code:
           type: string
-          description: Code of the shipping carrier
+          description: Code of the shipping carrier.
         rate_code:
           type: string
           description: Type of delivery. This can vary based on shipping quote.
         rate_id:
           type: string
-          description: This can vary based on shipping quote
+          description: This can vary based on shipping quote.
         method_id:
           type: integer
           description: Shipping method ID
@@ -4028,11 +4023,11 @@ components:
       type: object
       properties:
         id:
-          description: The id of the type of order status
+          description: The id of the type of order status.
           example: 0
           type: integer
         name:
-          description: Name of the type of order status
+          description: Name of the type of order status.
           example: Incomplete
           type: string
         system_label:
@@ -4040,11 +4035,11 @@ components:
           example: Incomplete
           type: string
         custom_label:
-          description: Custom order status label given in the Control Panel
+          description: Custom order status label given in the Control Panel.
           example: Incomplete- Waiting on Shipment
           type: string
         system_description:
-          description: System description of the order status
+          description: System description of the order status.
           example: 'An incomplete order happens when a shopper reached the payment page, but did not complete the transaction.'
           type: string
       x-internal: false
@@ -4056,11 +4051,11 @@ components:
         - type: object
           properties:
             count:
-              description: Number of orders that exist with this status
+              description: Number of orders that exist with this status.
               example: 6
               type: integer
             sort_order:
-              description: The sort order of the order status from the Control Panel
+              description: The sort order of the order status from the Control Panel.
               example: 0
               type: integer
       x-internal: false
@@ -4092,7 +4087,7 @@ components:
         customer_id:
           type: number
         customer_message:
-          description: 'Message that the customer entered (number, optional) -o the `Order Comments` box during checkout.'
+          description: 'Message that the customer entered (number, options) -o the `Order Comments` box during checkout.'
           example: Thank you
           type: string
         date_created:
@@ -4123,7 +4118,7 @@ components:
             - type: null
         external_source:
           description: |-
-            This value identifies an external system that generated the order and submitted it to BigCommerce via the Orders API.
+            This value identifies an external system that generated the order and submitted it to BigCommerce with the the Orders API.
             * When supplying the value, we recommend combining the type of system and vendor, e.g., ERP (Acumatica) or POS (Square).
             * If you are migrating historical orders processed on another eCommerce platform to BigCommerce, supply the following code as the value: M-MIG. This code will exclude historical orders from the store’s GMV/order count, which factors into pricing.
             * If you do not provide a value, then it will default to null.
@@ -4188,13 +4183,13 @@ components:
             - Manual
           type: string
         payment_provider_id:
-          description: The external Transaction ID/Payment ID within this order's payment provider (if a payment provider was used).
+          description: The external Transaction ID/Payment ID within this order’s payment provider (if a payment provider was used).
           example: ''
           type:
             - string
             - number
         refunded_amount:
-          description: 'The amount refunded from this transaction. (Float, Float-As-String, Integer)'
+          description: 'The amount refunded from this transaction; always returns `0`. (Float, Float-As-String, Integer) '
           example: '0.0000'
           type: string
         shipping_cost_ex_tax:
@@ -4223,12 +4218,11 @@ components:
           type: string
         tax_provider_id:
           description: |
-            BasicTaxProvider - Tax is set to manual.
+            BasicTaxProvider - Tax is set to manual and order is created in the store.
 
-            AvaTaxProvider - This is for when the tax provider has been set to automatic and the order was NOT created by the API. Used for Avalara.
+            AvaTaxProvider - Tax is set to automatic and order is created in the store. Used for Avalara.
 
-            "" (blank) - When the tax provider is unknown. This includes legacy orders and orders previously created via API.
-            This can be set when creating an order using a POST.
+            "" (empty string) - The order is created with the API, or the tax provider is unknown.
           enum:
             - BasicTaxProvider
             - AvaTaxProvider
@@ -4237,7 +4231,7 @@ components:
         customer_locale:
           type: string
           example: en
-          description: The customer's locale
+          description: The customer’s locale.
         total_ex_tax:
           description: 'Override value for the total, excluding tax. If specified, the field `total_inc_tax` is also required. (Float, Float-As-String, Integer)'
           example: '225.0000'
@@ -4335,7 +4329,7 @@ components:
           description: 2-letter ISO Alpha-2 code for the country.
         phone:
           type: string
-          description: Recipient's telephone number.
+          description: Recipient’s telephone number.
         email:
           type: string
           example: janedoe@example.com
@@ -4366,7 +4360,7 @@ components:
           type: string
         status:
           type: string
-          description: 'The status will include one of the (string, optiona) - values defined under Order Statuses. This value is read-only. Do not attempt to modify or set this value in a POST or PUT operation.'
+          description: 'The status will include one of the (string, options) - values defined under Order Statuses. This value is read-only. Do not attempt to modify or set this value in a POST or PUT operation.'
           example: Awaiting Fulfillment
         subtotal_tax:
           description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
@@ -4420,21 +4414,33 @@ components:
           example: '0.0000'
           type: string
         currency_id:
-          description: The display currency ID. May be different from transactional currency. A read-only value. Do not pass in a POST or PUT.
+          description: The display currency ID. Depending on the currency selected, the value can be different from the transactional currency. A read-only value. Do not pass in a POST or PUT. In v2 display currency is set to the transactional currency, 'default_currency_id'.
           example: 1
           type: integer
         currency_code:
-          description: The currency code of the display currency used to present prices on the storefront. A read-only value. Do not pass in a POST or PUT.
+          description: The currency code of the display currency used to present prices to the shopper on the storefront. Depending on the currency selected, the value can be different from the transactional currency. A read-only value. Do not pass in a POST or PUT.
           example: USD
           type: string
         currency_exchange_rate:
-          description: 'The exchange rate between the store’s default currency and the display currency. A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
+          description: 'The exchange rate between the store’s default currency and the display currency. A read-only value. Do not pass in a POST or PUT. For orders created using the V2 endpoints, this value is always 1 (only in the storefront this value can be different to 1). (Float, Float-As-String, Integer)'
           example: '1.0000000000'
           type: string
         default_currency_id:
           description: The transactional currency ID. A read-only value. Do not pass in a POST or PUT.
           example: 1
           type: integer
+        default_currency_code:     
+          description: The currency code of the transactional currency the shopper pays in.
+          example: EUR
+          type: string
+        store_default_currency_code: 
+         description: The currency code of the store's default currency.
+         example: USD
+         type: string
+        store_default_to_transactional_exchange_rate:
+          description: The exchange rate between the store's default currency and the transactional currency used in the order.
+          example: '100.0000000000'
+          type: string
         coupon_discount:
           description: 'A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
           example: '5.0000'
@@ -4447,7 +4453,7 @@ components:
           example: false
           type: boolean
         order_source:
-          description: Orders submitted via the store's website will include a `www` value. Orders submitted via the API will be set to `external`. A read-only value. Do not pass in a POST or PUT.
+          description: Orders submitted from the store’s website will include a `www` value. Orders submitted with the API will be set to `external`. This value is read-only. Do not pass in a POST or PUT.
           example: www
           type: string
         products:
@@ -4501,7 +4507,7 @@ components:
           type: string
         id:
           type: integer
-          description: ID of the product line
+          description: ID of the product line.
       required:
         - name
         - quantity
@@ -4573,7 +4579,7 @@ components:
                   - The modifier value for modifier types without a list of defined values, such as text field or date field modifiers.
 
                   Notes:
-                  - The following option types are not currently supported via api:
+                  - The API does not currently support the following option types:
                     - File upload
                     - Pick list
                   - For date modifiers use either the `YYYY-MM-DDThh:mm:ss±hh:mm` or the `YYYY-MM-DD` ISO-8601 formats. The date field modifier values are saved and retuned as timestamps. For values entered using the YYYY-MM-DD format, the store timezone is used when creating the timestamp.
