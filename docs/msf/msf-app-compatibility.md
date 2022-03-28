@@ -2,15 +2,19 @@
 
 ## Compatible versus optimized
 
-*Compatible* - works with the data from all storefronts and other sales channels associated with a store.
-* Your app can handle the basic structural functions of an app
-* Your app is *channel aware* - can work intelligently with the configuration nuances of multiple storefronts and other sales channels
+Multi-storefront *compatible* apps work with the data from all storefronts and other sales channels associated with a store. These apps must handle the core install and load functions. Compatible apps must be *channel aware*; they should be able to work intelligently with the configuration nuances of multiple storefronts and other sales channels
 
-*Optimized* - in addition to being channel-aware, optimized apps are *channel extensible*. They offer features that allow merchants and other users to configure parameters that are unique to each channel, over and above the offerings of BigCommerce. 
+In addition to being channel-aware, *optimized* multi-storefront apps are *channel extensible*. They offer features that allow merchants and other users to configure parameters that are unique to each channel, over and above the offerings of BigCommerce. 
 
-The features that will make an app channel-optimized depend exclusively on its use cases, so this guide focuses primarily on ensuring that your app meets the *relevant* requirements before you submit it for approval.
+The features that will make an app channel-optimized depend exclusively on its use cases, so this guide focuses primarily on ensuring that your app meets the relevant requirements before you submit it for approval.
 
-When upgrading your application to support multi-channel functionality, it may make sense to provide merchants with an opportunity to configure how your app behaves differently for each Channel on which they sell. It may also be the case that your application is only relevant to certain Channel types (for example, the `storefront` type, or only `storefront` type Channels on the `bigcommerce` platform), so it's a good idea to fetch the list of Channels immediately after your app's installation to understand if your application is compatible with the merchant's current Channels and surface this information appropriately to users.
+## Upgrading existing apps
+
+It may make sense to provide merchants with an opportunity to configure different behaviors for each channel on which they sell. Your app might be relevant to only certain channel types; for example, `storefront` type channels on the `bigcommerce` platform. 
+
+It's a good idea to fetch the list of a store's channels immediately after a merchant installs your app. Once your app understands whether your app is compatible with the merchant's current channels, it can inform the merchant per its use case.
+
+You should determine whether your application is only relevant to Stencil storefronts served by BigCommerce, or if it can add value to the merchant's "headless" storefronts that sell through other sites or sales channels. Once your app understands whether or not it is useful in headless contexts, you may wish to show at list of sites to merchants who are setting up your app so they can configure your app differently for each sales channel.
 
 ## Setup and channels configuration
 
@@ -35,8 +39,8 @@ An app that functions correctly with a store's multi-channel product catalog and
 <!-- TODO: test link -->
 4. Customers synced to the app should include correct channel access permissions within the app. If your app creates any new customers, it should be able to assign them to one or more channels. Read more about [customers and channels](/api-docs/multi-storefront/api-guide#customers). Customer groups synced to the app should also include correct channel assignments. If your app creates any new customer groups, it should be able to assign them to one or more channels.
 
-<!-- theme: info -->
 <!-- TODO: test link -->
+<!-- theme: info -->
 > #### Price lists
 > Price lists have been substantially upgraded to support multi-channel sales. Read more about [channel-aware price lists](/api-docs/multi-storefront/api-guide#price-lists) 
 
@@ -59,8 +63,9 @@ All storefront content that your app creates should be assigned to the channel o
 <!-- TODO: test link -->
 5. Themes synced to the app should include correct storefront site assignments. Published themes should include configuration options for any subset of storefronts. Read more about [channel-aware themes](/api-docs/multi-storefront/api-guide#themes).
 
+
 6. Custom template files synced to the app should include correct storefront assignments. Custom template files that the app creates should include configuration options for one or more storefronts. Read more about [widget template objects](/api-reference/b3A6MzU5MDUzMDU-get-a-widget-template).
-7. 
+
 <!-- TODO: test link -->
 7. Pages synced to the app should include correct storefront assignments. Pages that the app creates should include configuration options for one or more storefronts. Read more about [working with pages' site_id property](/api-docs/multi-storefront/api-guide#pages).
    
@@ -75,11 +80,14 @@ All storefront content that your app creates should be assigned to the channel o
 <!-- TODO: update link -->
 2. Newsletter subscribers synced to the app should include the correct storefront channel assignments. Merchants should be able to assign any subscribers that the app creates to one or more channels. Read more about [subscribers](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/ZG9jOjQ0NjQ2MDA-subscribers).
 
+
 3. Currencies synced to the app should include correct channel assignments. Merchants should be able to ensure that currency modifications that the app makes apply to the channel or channels of their choosing. Consult the [store information endpoint](/api-reference/b3A6MzU5MDUxNDM-get-store-information) to learn more about viewing and updating currency properties.
 
 <!-- TODO: update link -->
 4. 301 redirects synced from or written to a merchant's store must include the correct storefront's `site_id`. Read more about [channel-aware 301 redirects](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/ZG9jOjExNjkzNzIz-storefront-content#301-redirects).
 
+
 5. Transactional emails synced from or written to a merchant's store should include the correct `channel_id`. Consult the reference for the [Get transactional email settings](/api-reference/b3A6MzU5MDUwMTE-get-email-statuses) and [Update transactional email settings](/api-reference/b3A6MzU5MDUwMTI-update-email-statuses) endpoints.
+
 
 6. Abandoned cart emails synced from or written to a merchant's store should include the correct `channel_id`. Consult the reference for the [Update channel abandoned cart settings](/api-reference/b3A6NDc1MTI1MTA-update-channel-abandoned-cart-settings) endpoint.

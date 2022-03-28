@@ -1,62 +1,72 @@
-# Multi-Channel and Multi-Storefront Selling
+# Introduction to Multi-Storefront
 
-BigCommerce's platform is evolving to better service sophisticated merchants who wish to maintain multiple eCommerce websites (storefronts) and who may also sell on other channels such as Amazon, eBay, point-of-sale (POS) systems, and so on.
+Some merchants want to sell their products in different places. They may want to maintain multiple website-based eCommerce storefronts, or sell products from their store's catalog on other channels, such as Amazon, eBay, in-person POS (point-of-sale) systems, and so on.
 
-With multi-storefront capabilities, a merchant is no longer limited to serving a single storefront website from a single BigCommerce store, but instead can maintain multiple websites. For each site, they have an opportunity to configure and customize many aspects of the shopping experience in order to support multiple distinct brands (from a shopper's perspective). To this end, many of the existing elements of BigCommerce's data model have evolved to support these new dimensions.
+Multi-storefront capabilities extend the reach of BigCommerce stores. Merchants are no longer relegated to selling from a single storefront website. They can maintain multiple websites, on which they can configure and customize the look, feel, pricing, and organization of the shopping experience to support multiple distinct brands or sales goals. To this end, BigCommerce's data model has evolved significantly to support these new dimensions.
 
-This guide provides an overview of both the brand-new concepts introduced to BigCommerce in order to support these multi-storefront (and multi-channel, where relevant) use cases, as well as extensions to existing parts of our data model.
+We intend to provide these new features with no breaking changes to the platform so that existing single-storefront merchant stores continue to function as they did previously, and the existing APIs function as before for these stores. However, there are several additive changes to the platform. To provide the full multi-storefront, multi-channel support that merchants with complex stores expect and require, our partners must adapt.
 
-Our goal is to launch these new features with no breaking changes to the platform, meaning that existing single-storefront merchant stores will continue to function identically, and the existing APIs will continue to function as they did previously for these stores. However, there are several additive changes to the platform that our partners must adapt to provide the full support for multi-storefront features that these most sophisticated merchants will expect. With this guide, we hope to make this process as easy as possible and provide guidance on how applications might change to support multi-storefront and multi-channel selling.
-
-## New objects & endpoints introduced
+This guide provides an overview of the core features that power multi-storefront, multi-channel stores. Our [Multi-Storefront API Guide](/api-docs/multi-storefront/api-guide) and [Multi-Storefront App Compatibility and Optimization](/api-docs/apps/multi-storefront) article provide guidance on how developers can modify and reimagine applications to support multi-storefront, multi-channel selling.
 
 ![channels-sites-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/channels-sites-diagram.webp)
 
-### Channels
+## Channels
 
-[Channels API documentation](/api-reference/store-management/channels)
+[Channels API reference documentation](/api-reference/store-management/channels)
 
-**Channel** - A place where the merchant sells products such as a storefront website, a marketplace such as Amazon or eBay, a POS system, a marketing feed, or a "Custom" channel that may not fit into one of these types. Merchants create new Channels when they wish to sell in a new context. Channels are useful to organize a merchant's complex business, and can be used to attach many other objects which are related to a particular shopper's experience on the Channel. A channel is defined by:
+A **channel** is a place where a merchant's store sells products. Storefront websites, marketplaces like Amazon and eBay, point-of-sale systems, and marketing feeds are all sales channels. A custom channel may not fit into any one of these types. A merchant creates a new channel to sell in a new context. Channels can help to organize a merchant's complex business by allowing them to sell to many customers in many places from a single catalog in one BigCommerce store. In a transactional context, channel objects link together a variety of other objects that describe a particular shopper's experience on a sales channel. 
 
-- A name which is merchant-defined and not exposed publicly (used for organization)
-- A `type`, which may be `storefront`, `marketing`, `pos`, `marketplace` or `custom`
-- A `platform`, which indicates on which platform the channel is primarily experienced by a shopper.
+![channels-sites-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/channels-sites-diagram.webp)
 
-Consider the [Channels API documentation](/api-reference/store-management/channels) for more information on valid combinations of `type` and `platform`.
+A channel is defined by the following:
 
-A Stencil storefront (meaning a storefront served directly by BigCommerce) will have a type of `storefront` and a platform of `bigcommerce`.
+* A `name`, which is merchant-defined for internal convenience and not exposed to shoppers
+* A `type`, which may be one of the following:
+  * `storefront`, 
+  * `marketing`, 
+  * `pos`, 
+  * `marketplace`
+  * `custom`
+* A `platform`, which indicates the platform on which shoppers primarily use the channel
 
-Each BigCommerce store is provisioned with one channel from the moment of its creation, intended for its first Stencil storefront. The ID of this Channel will be `1` on all BigCommerce stores. This "default channel" may also be used with certain features for backwards compatibility when a more specific Channel cannot be determined. For example, orders created using the V2 Orders API, if they do not supply a specific Channel ID at the moment of creation, will be assumed to be orders for Channel ID `1`.
+Consult the [Channels API documentation](/api-reference/cart-checkout/channels-listings-api/channels/createchannel) for more information on valid combinations of `type` and `platform`. For example, a BigCommerce-hosted Stencil storefront has a type of `storefront` and a platform of `bigcommerce`.
 
-The default Channel (ID `1`) cannot be deleted.
+Each BigCommerce store is provisioned with one channel out of the box, intended for its first Stencil storefront. The ID of this channel is `1` for all BigCommerce stores. This channel may also be referred to as the "default channel", and it cannot be deleted. 
 
-When upgrading your application to support multi-channel functionality, it may make sense to provide merchants with an opportunity to configure how your app behaves differently for each Channel on which they sell. It may also be the case that your application is only relevant to certain Channel types (for example, the `storefront` type, or only `storefront` type Channels on the `bigcommerce` platform), so it's a good idea to fetch the list of Channels immediately after your app's installation to understand if your application is compatible with the merchant's current Channels and surface this information appropriately to users.
+<!-- theme: info -->
+> #### Backwards compatibility
+> In some cases when a more specific channel cannot be associated with an interaction, channel `1` may be used for backwards compatibility. For example, orders created using the Orders V2 API that do not specify a channel ID will be associated with channel `1`.
 
-### Sites
+To learn more about upgrading your application to support multi-channel sales, see [Multi-Storefront App Compatibility](/api-docs/apps/multi-storefront#upgrading-existing-apps).
+
+## Sites
 
 [Sites API documentation](/api-reference/store-management/sites)
 
-**Site** - A website owned or controlled exclusively by the merchant, usually for hosting a storefront website. A Site will always be tied to exactly one Channel, although there is no requirement for Channel to have a Site. Sites are mainly relevant to `storefront`-type Channels, and they serve as a container for settings and objects that only apply to websites.
+A **site** is a website owned or controlled exclusively by the merchant, usually for hosting a storefront website. Every site will be tied to exactly one channel, but because not all sales channels are sites, channels are not required to have a site. Sites are mainly relevant to storefront-type Channels, and they serve as containers for settings and objects that only apply to websites.
 
-A Site is defined by:
+Every site must have the following properties:
 
-- A `channel_id` for the channel it is the website for.
-- A `url` which indicates the public URL of the site.
+* The `channel_id` of the sales channel associated with the site
+* A `url`, which is the public-facing URL of the site
 
-A Stencil storefront, besides having a Channel of type `storefront` and platform `bigcommerce`, will also have a Site.
+Every Stencil storefront has a site, in addition to having a channel of type `storefront` and a platform of type `bigcommerce`.
 
-The first Stencil storefront with new BigCommerce stores has an ID of `1000` on each store, and this default Site cannot be deleted.
+The first Stencil storefront of each merchant store has an id of `1000` and is also known as the default site. It cannot be deleted.
 
-When upgrading your application to support multi-storefront functionality, you should first determine if your application is only relevant to native Stencil storefronts served by BigCommerce, or if it can also support "headless" storefronts that other platforms may serve. Based on this, you may wish to show merchants an appropriate list of Sites when setting up your application and allow configuration of your application differently for each storefront Site.
+To learn more about upgrading your application to support multi-storefront functionality, see [Multi-Storefront App Compatibility](/api-docs/apps/multi-storefront#upgrading-existing-apps).
 
-### Settings & Configuration
-
-[Settings API Overview](/api-docs/store-management/settings)
+## Settings & Configuration
 
 [Settings API Documentation](/api-reference/store-management/settings)
 
-A new set of Settings APIs are being exposed which will allow reading and writing many important elements of the store's configuration, both globally and on the basis of Channel. If your application is in the business of managing settings, you can use these endpoints to assist merchants in the configuration of new Channels complete with appropriate settings. On the other hand, you may wish to respect the settings that a merchant has configured in their store to control details of your application's behavior. These APIs allow you to read the current state of settings both globally and on a per-channel basis.
+The Settings APIs now allow your app to read and write many important elements of the store's configuration, both globally and on a per-channel basis. If your application manages settings, you can use these endpoints to enable merchants to configure different settings for different channels. You may also wish to read and respect any merchant-configured settings that control details of your application's behavior.
 
-If your application interacts with shoppers, you may be able to use the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) instead to get the relevant settings for a given shopper in real-time.
+If your application interacts with shoppers, you may be able to use the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) instead to get the relevant settings for a given shopper in real time.
 
-For a deep-dive into this new class of APIs, see our [Settings API Overview](/api-docs/store-management/settings).
+For a deep dive into this new class of APIs, see our [Settings API Overview](/api-docs/store-management/settings).
+
+## Resources
+* [Multi-Storefront API Guide](/api-docs/multi-storefront/api-guide)
+* [Multi-Storefront App Compatibility and Optimization](/api-docs/apps/multi-storefront)
+* [Settings API Overview](/api-docs/store-management/settings)
