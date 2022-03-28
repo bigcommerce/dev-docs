@@ -2,7 +2,7 @@
 
 ## Compatible versus optimized
 
-Compatible - works with the data from all storefronts and other sales channels associated with a store
+Compatible - works with the data from all storefronts and other sales channels associated with a store.
 * Your app can handle the basic structural functions of an app -- see the app guide, esp [handling callbacks]()
 * Your app is *channel aware* - can work intelligently with the configuration nuances of multiple storefronts and other sales channels
 
@@ -41,30 +41,35 @@ All storefront content that your app creates should be assigned to the channel o
 
 1. Scripts installed using the Scripts API should include correct storefront site assignments. Read more about using the `site_id` to [assign a script to a site](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/ZG9jOjExNjkzNzIz-storefront-content#scripts).
 
-2. Tracking scripts and pixels should be unique to each storefront or other sales channel. Read more about [scripts](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/ZG9jOjExNjkzNzIz-storefront-content#scripts) and consult the [Update a web analytics provider](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/b3A6MTE2OTQxNzE-update-a-web-analytics-provider) endpoint.
+2. Tracking scripts and pixels should be unique to each storefront or other sales channel. Read more about [scripts](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/ZG9jOjExNjkzNzIz-storefront-content#scripts) and consult the [Update a web analytics provider](/api-reference/b3A6NDgxNDAyMzU-update-a-web-analytics-provider) endpoint.
 
 3. If your app creates storefront content or features, merchants should be able to make it accessible on one or more channels. Read more about [channel-aware storefront content](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/ZG9jOjExNjkzNzIz-storefront-content).
 
 4. Any widgets that your app creates should be available on one or more storefronts. Read more about [channel-aware widgets](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/ZG9jOjExNjkzNzIz-storefront-content#widgets).
 
-5. Themes synced to the app should include correct storefront site assignments. Published themes should include configuration options for any subset of storefronts. Read more about [channel-aware themes](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/ZG9jOjExNjkzNzIz-storefront-content#themes).
+5. Themes synced to the app should include correct storefront site assignments. Published themes should include configuration options for any subset of storefronts. Read more about [channel-aware themes](/api-docs/multi-storefront/api-guide#themes).
 
-6. Custom template files synced to the app should include correct storefront assignments. Custom template files that the app creates should include configuration options for one or more storefronts. Read more about [widget template objects](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/c2NoOjExNjk0MDE2-widget-template).
-
-7. Pages synced to the app should include correct storefront assignments. Pages that the app creates should include configuration options for one or more storefronts. Read more about [working with pages' site_id property](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/ZG9jOjExNjkzNzIz-storefront-content#pages).
-
-8.  Carts that the app tracks or creates should include the correct `channel_id`. Read more about [channel-aware carts and checkout](/api-docs/multi-storefront/api-guide#cart-and-checkout).
+6. Custom template files synced to the app should include correct storefront assignments. Custom template files that the app creates should include configuration options for one or more storefronts. Read more about [widget template objects](/api-reference/b3A6MzU5MDUzMDU-get-a-widget-template).
+7. 
+<!-- TODO: test link -->
+7. Pages synced to the app should include correct storefront assignments. Pages that the app creates should include configuration options for one or more storefronts. Read more about [working with pages' site_id property](/api-docs/multi-storefront/api-guide#pages).
+   
+<!-- TODO: test link -->
+8. Carts that the app tracks or creates should include the correct `channel_id`. Read more about [channel-aware carts and checkout](/api-docs/multi-storefront/api-guide#cart-and-checkout).
 
 ## Additional settings and content
 
+<!-- TODO: update link -->
 1. BigCommerce store settings synced to the app should include the correct channel assignments. Merchants should be able to configure store settings that the app creates for one or more channels. Read more about [managing store configuration](/api-docs/store-management/settings).
 
+<!-- TODO: update link -->
 2. Newsletter subscribers synced to the app should include the correct storefront channel assignments. Merchants should be able to assign any subscribers that the app creates to one or more channels. Read more about [subscribers](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/ZG9jOjQ0NjQ2MDA-subscribers).
 
-3. Currencies synced to the app should include correct channel assignments. Merchants should be able to ensure that currency modifications that the app makes apply to the channel or channels of their choosing. Consult the [store information object reference](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/c2NoOjExNjk0MDA1-store-information) to learn more about viewing and updating currency properties.
+3. Currencies synced to the app should include correct channel assignments. Merchants should be able to ensure that currency modifications that the app makes apply to the channel or channels of their choosing. Consult the [store information endpoint](/api-reference/b3A6MzU5MDUxNDM-get-store-information) to learn more about viewing and updating currency properties.
 
+<!-- TODO: update link -->
 4. 301 redirects synced from or written to a merchant's store must include the correct storefront's `site_id`. Read more about [channel-aware 301 redirects](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/ZG9jOjExNjkzNzIz-storefront-content#301-redirects).
 
-5. Transactional emails synced from or written to a merchant's store should include the correct `channel_id`. Consult the reference for the [Get transactional email settings](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/b3A6MTE2OTQxODk-get-transactional-email-settings) and [Update transactional email settings](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/b3A6MTE2OTQxOTA-update-transactional-email-settings) endpoints.
+5. Transactional emails synced from or written to a merchant's store should include the correct `channel_id`. Consult the reference for the [Get transactional email settings](/api-reference/b3A6MzU5MDUwMTE-get-email-statuses) and [Update transactional email settings](/api-reference/b3A6MzU5MDUwMTI-update-email-statuses) endpoints.
 
-6. Abandoned cart emails synced from or written to a merchant's store should include the correct `channel_id`. Consult the reference for the [Update channel abandoned cart settings](https://bigcommerce.stoplight.io/docs/api-beta-multi-storefront/b3A6MTE2OTQwNDA-update-channel-abandoned-cart-settings) endpoint.
+6. Abandoned cart emails synced from or written to a merchant's store should include the correct `channel_id`. Consult the reference for the [Update channel abandoned cart settings](/api-reference/b3A6NDc1MTI1MTA-update-channel-abandoned-cart-settings) endpoint.
