@@ -3421,7 +3421,6 @@ components:
           type: string
           example: Towel Type 1
           description: The product name that is shown to merchant in Control Panel.
-      x-internal: false
     orderCount:
       title: orderCount
       example:
