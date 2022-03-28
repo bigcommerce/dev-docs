@@ -20,7 +20,7 @@ You should determine whether your application is relevant only to Stencil storef
 
 Ensure that your app's settings acknowledge multiple storefronts and convey that understanding to the merchant or authorized user. Your app's features should work with any subset of a merchant's channels, including a single channel, some of their channels, or across all the channels in their store. 
 
-In testing, make sure that users can install and load the app in a store with multiple BigCommerce storefront channels. Use [Channels API](/api-reference/store-management/channels) to work with basic data about the store's channels. Use the [Sites API](/api-reference/store-management/sites) to work with the channels' sites.
+In testing, make sure that users can install and load the app in a store with multiple BigCommerce storefront channels. Use the [Channels API](/api-reference/store-management/channels) to work with basic data about the store's channels. Use the [Sites API](/api-reference/store-management/sites) to work with the channels' sites.
 
 
 ## Reading from and writing to multiple channels
