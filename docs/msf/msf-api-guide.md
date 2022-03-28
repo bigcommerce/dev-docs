@@ -33,7 +33,7 @@ To learn more about upgrading your application to support multi-channel sales, s
 
 When your integration creates a cart or checkout, make sure it specifies the `channel_id` for the storefront or other channel the shopper is using. 
 
-If the cart is associated with the shopper's channel and the relationship between a storefront's channel and site has been properly configured with the [sites API](/api-reference/store-management/sites/sites/post-site), both [cart redirect URLs](/api-reference/cart-checkout/server-server-cart-api/cart-redirect-urls/createcartredirecturl) and [embedded checkout URLs](/api-docs/cart-and-checkout/embedded-checkout/embedded-checkout-overview) will refer the shopper to the correct site. 
+If the cart is associated with the shopper's channel and the relationship between a storefront's channel and site has been properly configured with the [sites API](/api-reference/store-management/sites/sites/post-site), both [cart redirect URLs](/api-reference/cart-checkout/server-server-cart-api/cart-redirect-urls/createcartredirecturl) and [embedded checkout URLs](/api-docs/storefronts/embedded-checkout/embedded-checkout-overview) will refer the shopper to the correct site. 
 
 ## Categories
 
@@ -179,7 +179,7 @@ Instead of downloading themes by using the `/themes/{uuid}/actions/download` end
 
 ### Subscribers
 
-[Publicly accessible Subscribers API documentation](https://developer.bigcommerce.com/api-reference/store-management/subscribers)
+[Subscribers API documentation](https://developer.bigcommerce.com/api-reference/store-management/subscribers)
 
 Each subscriber now has an `origin_channel_id` property that indicates the channel on which that subscriber signaled intent to receive a newsletter. If not supplied, `origin_channel_id` will default to 1, although it should be supplied with every request explicitly.
 
