@@ -440,34 +440,6 @@
     },
     {
       "type": "divider",
-      "title": "Multi-Storefront Implementations"
-    },
-    {
-      "type": "item",
-      "href": "/api-docs/multi-storefront/overview",
-      "title": "Multi-Storefront Overview",
-      "uri": "docs/msf/msf-overview.md"
-    },
-    {
-      "type": "item",
-      "href": "/api-docs/multi-storefront/api-guide",
-      "title": "Multi-Storefront API Guide",
-      "uri": "docs/msf/msf-api-guide.md"
-    },
-    {
-      "type": "item",
-      "href": "/api-docs/store-management/settings",
-      "title": "Managing Store Configuration",
-      "uri": "docs/msf/managing-store-configuration.md"
-    },
-    {
-      "type": "item",
-      "href": "/api-docs/apps/multi-storefront",
-      "title": "App Compatibility & Optimization",
-      "uri": "docs/msf/msf-app-compatibility.md"
-    },
-    {
-      "type": "divider",
       "title": "Building Apps"
     },
     {
