@@ -669,25 +669,30 @@ paths:
         in: path
         required: true
   'stores/{store_hash}/v3/checkouts/settings':
-   get:
-     tags:
-       - Checkout Settings
-     responses:
-       '200':
-         $ref: '#/responses/checkout_settings_resp'
-   'put':
-     tags:
-       - Checkout Settings
-     responses:
-       '200':
-         $ref: '#/responses/checkout_settings_resp'
-     parameters:
-       - name: body
-         in: body
-         required: true
-         description: ''
-         schema:
-           $ref: '#/definitions/CheckoutsSettingsRequest'
+    get:
+      tags:
+        - Checkout Settings
+      responses:
+        '200':
+          $ref: '#/responses/checkout_settings_resp'
+    put:
+      tags:
+        - Checkout Settings
+      responses:
+        '200':
+          $ref: '#/responses/checkout_settings_resp'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: ''
+          schema:
+            $ref: '#/definitions/CheckoutsSettingsRequest'
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
 definitions:
   Checkout:
     title: Checkout
@@ -1143,8 +1148,8 @@ definitions:
               description: ''
               type: string
             shippingAddress:
-                type: object
-                x-deprecated: true
+              type: object
+              x-deprecated: true
             address:
               title: Address Response
               allOf:
@@ -2354,4 +2359,4 @@ responses:
           custom_checkout_script_url: 'https://example.com/custom-checkout-script.js'
           order_confirmation_use_custom_checkout_script: false
           custom_order_confirmation_script_url: 'https://example.com/custom-order-confirmation-script.js'
-        meta: { }
+        meta: {}
