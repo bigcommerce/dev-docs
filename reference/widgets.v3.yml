@@ -223,59 +223,42 @@ paths:
         name: store_hash
         in: path
         required: true
-  '/stores/{store_hash}/v3/content/widget-templates/{uuid}/preview':
+  '/store/{store_hash}/v3/content/widget-templates/{uuid}/preview':
     post:
       tags:
         - Widget Template
       summary: Render a Widget Template
       description: Render a widget template and return the widget html.
       operationId: previewWidget
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/TemplateUUID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WidgetTemplatePreview'
+        required: true
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                description: ''
-                type: object
-                x-examples:
-                  example-1:
-                    html: string
-                properties:
-                  html:
-                    type: string
-                    minLength: 1
-                    format: html
-                    description: The HTML render of the widget template.
+                $ref: '#/components/schemas/WidgetTemplatePreviewResponse'
         '404':
           description: |
             The resource was not found.
-          schema:
-            $ref: '#/components/schemas/error_Base'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
         '422':
-          schema:
-            $ref: '#/components/schemas/error_Base'
           description: |
             This is the result of missing required fields, or of invalid data. See the response for more details.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              description: ''
-              type: object
-              x-examples:
-                example-1:
-                  widget_configuration:
-                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
-              properties:
-                widget_configuration:
-                  type: object
-                  properties:
-                    image_source:
-                      type: string
-                      minLength: 1
-                      example: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
     parameters:
       - schema:
           type: string
@@ -1607,6 +1590,22 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/error_Base'
+          examples:
+            example-1:
+              value:
+                status: 0
+                title: string
+                type: string
+                instance: string
+                errors: {}
+    new:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            properties:
+              id:
+                type: string
   securitySchemes:
     X-Auth-Token:
       type: apiKey
@@ -1636,6 +1635,25 @@ components:
 
         * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
   schemas:
+    WidgetTemplatePreview:
+      properties:
+        widget_configuration:
+          type: object
+          description: The JSON data that populates the template.
+          format: json
+      x-tags:
+        - Models
+    WidgetTemplatePreviewResponse:
+      type: object
+      properties:
+        data:
+          properties:
+            html:
+              type: string
+              description: The HTML render of the widget template.
+              format: html
+      x-tags:
+        - Models
     widgetTemplate_Put:
       allOf:
         - $ref: '#/components/schemas/widgetTemplate_Base'
@@ -1886,11 +1904,37 @@ components:
                 Link to the next page returned in the response.
       title: pagination
       x-internal: false
+    ErrorResponse:
+      allOf:
+        - $ref: "#/components/schemas/BaseError"
+        - type: object
+          properties:
+            errors:
+              $ref: "#/components/schemas/DetailedErrors"
+      x-tags:
+        - Models
     error_Base:
+      type: object
+      description: Error payload for the BigCommerce API.
+      properties:
+        status:
+          description: The HTTP status code.
+          type: integer
+        title:
+          description: The error title describing the particular error.
+          type: string
+        type:
+          type: string
+        instance:
+          type: string
+        errors:
+          type: object
+      x-internal: false
+      title: error_Base
+    BaseError:
       type: object
       description: |
         Error payload for the BigCommerce API.
-      title: error_Base
       properties:
         status:
           description: |
@@ -1904,9 +1948,14 @@ components:
           type: string
         instance:
           type: string
-        errors:
-          type: object
-      x-internal: false
+      x-tags:
+        - Models
+    DetailedErrors:
+      type: object
+      additionalProperties:
+        type: string
+      x-tags:
+        - Models
     themeRegion:
       properties:
         name:
