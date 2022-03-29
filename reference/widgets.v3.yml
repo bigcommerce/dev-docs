@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.0.1
 info:
   title: Widgets
   version: ''
@@ -230,17 +230,9 @@ paths:
       summary: Render a Widget Template
       description: Render a widget template and return the widget html.
       operationId: previewWidget
-      parameters:
-        - $ref: '#/parameters/TemplateUUID'
-        - name: templateBody
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/WidgetTemplatePreview'
+      parameters: []
       responses:
         '200':
-          schema:
-            $ref: '#/definitions/WidgetTemplatePreviewResponse'
           description: Success
           content:
             application/json:
@@ -260,12 +252,30 @@ paths:
           description: |
             The resource was not found.
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/components/schemas/error_Base'
         '422':
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/components/schemas/error_Base'
           description: |
             This is the result of missing required fields, or of invalid data. See the response for more details.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              x-examples:
+                example-1:
+                  widget_configuration:
+                    image_source: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
+              properties:
+                widget_configuration:
+                  type: object
+                  properties:
+                    image_source:
+                      type: string
+                      minLength: 1
+                      example: 'https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on'
     parameters:
       - schema:
           type: string
@@ -905,12 +915,7 @@ paths:
         schema:
           type: string
 security:
-  - X-Auth-Client: []
   - X-Auth-Token: []
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false
 servers:
   - url: 'https://api.bigcommerce.com'
 components:
@@ -1192,18 +1197,6 @@ components:
                       format: datetime
                       description: The date on which this object was last updated.
                   title: Layout
-          examples:
-            response:
-              value:
-                data:
-                  uuid: cacdadcf-07ec-43f3-aec4-f8e3382d7618
-                  template_file: pages/category
-                  entity_id: '21'
-                  region: category_header_banner
-                  markup: ' '
-                  date_created: '2019-02-25T18:38:08.455Z'
-                  date_modified: '2019-02-25T18:38:08.455Z'
-                meta: {}
     PlacementsCollection_Resp:
       description: ''
       content:
@@ -1375,103 +1368,8 @@ components:
                     name: Simple Text with Styling
                     schema: []
                     storefront_api_query: ''
-                    template: |2
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                       {{text}}
+                    template: |
+                      {{text}}
                     template_engine: handlebars_v3
                     uuid: 17dcc919-982a-4cc0-8ede-a5b49f9ab6dc
                   - channel_id: 1
@@ -1484,7 +1382,7 @@ components:
                     name: YouTube Embed
                     schema: []
                     storefront_api_query: ''
-                    template: null
+                    template: ''
                     template_engine: handlebars_v3
                     uuid: d9e7fd0e-d5c2-45c9-8919-ce68a5590c12
                   - channel_id: 1
@@ -1499,10 +1397,6 @@ components:
                     storefront_api_query: ''
                     template: |-
                       {{#each slides}}
-
-
-
-
                       {{/each}}
                     template_engine: handlebars_v3
                     uuid: 30714957-0e01-4c4e-8551-25591261d0d0
