@@ -1341,7 +1341,6 @@ components:
                               id:
                                 type: number
                                 description: ID of the applied discount. Will return
-                                example: coupon
                               discounted_amount:
                                 type: number
                                 description: The discounted amount.
@@ -1357,7 +1356,6 @@ components:
                                 properties:
                                   coupon_code:
                                     type: object
-                                    example: KV56053388J
                                     description: The coupon code
                                     properties:
                                       id:
@@ -1513,7 +1511,6 @@ components:
                               id:
                                 type: number
                                 description: ID of the applied discount. Will return
-                                example: coupon
                               discounted_amount:
                                 type: number
                                 description: The discounted amount.
@@ -1529,7 +1526,6 @@ components:
                                 properties:
                                   coupon_code:
                                     type: object
-                                    example: KV56053388J
                                     description: The coupon code
                                     properties:
                                       id:
@@ -1829,7 +1825,6 @@ components:
                           properties:
                             coupon_code:
                               type: object
-                              example: KV56053388J
                               description: The coupon code
                               properties:
                                 id:
@@ -2004,7 +1999,6 @@ components:
                           properties:
                             coupon_code:
                               type: object
-                              example: KV56053388J
                               description: The coupon code
                               properties:
                                 id:
@@ -2301,7 +2295,6 @@ components:
                     properties:
                       coupon_code:
                         type: object
-                        example: KV56053388J
                         description: The coupon code
                         properties:
                           id:
@@ -2476,7 +2469,6 @@ components:
                     properties:
                       coupon_code:
                         type: object
-                        example: KV56053388J
                         description: The coupon code
                         properties:
                           id:
@@ -2649,7 +2641,6 @@ components:
                 properties:
                   coupon_code:
                     type: object
-                    example: KV56053388J
                     description: The coupon code
                     properties:
                       id:
