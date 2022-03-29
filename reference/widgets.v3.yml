@@ -246,19 +246,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/WidgetTemplatePreviewResponse'
         '404':
-          description: |
-            The resource was not found.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
+          description: Not Found
         '422':
-          description: |
-            This is the result of missing required fields, or of invalid data. See the response for more details.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
+          description: Unprocessable Entity
     parameters:
       - schema:
           type: string
@@ -1906,11 +1896,11 @@ components:
       x-internal: false
     ErrorResponse:
       allOf:
-        - $ref: "#/components/schemas/BaseError"
+        - $ref: '#/components/schemas/BaseError'
         - type: object
           properties:
             errors:
-              $ref: "#/components/schemas/DetailedErrors"
+              $ref: '#/components/schemas/DetailedErrors'
       x-tags:
         - Models
     error_Base:
