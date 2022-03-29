@@ -668,6 +668,26 @@ paths:
         name: store_hash
         in: path
         required: true
+  'stores/{store_hash}/v3/checkouts/settings':
+   get:
+     tags:
+       - Checkout Settings
+     responses:
+       '200':
+         $ref: '#/responses/checkout_settings_resp'
+   'put':
+     tags:
+       - Checkout Settings
+     responses:
+       '200':
+         $ref: '#/responses/checkout_settings_resp'
+     parameters:
+       - name: body
+         in: body
+         required: true
+         description: ''
+         schema:
+           $ref: '#/definitions/CheckoutsSettingsRequest'
 definitions:
   Checkout:
     title: Checkout
@@ -1654,6 +1674,29 @@ definitions:
         example: 75
         description: The order Id.
     x-internal: false
+  CheckoutsSettings:
+    type: object
+    title: Checkouts Settings
+    properties:
+      custom_checkout_script_url:
+        type: string
+      order_confirmation_use_custom_checkout_script:
+        type: boolean
+      custom_order_confirmation_script_url:
+        type: string
+  CheckoutsSettingsRequest:
+    title: Checkouts settings request
+    type: object
+    properties:
+      custom_checkout_script_url:
+        type: string
+        description: Custom checkout script url to replace our default checkout.
+      order_confirmation_use_custom_checkout_script:
+        type: boolean
+        description: When order_confirmation_use_custom_checkout_script=true we default custom_order_confirmation_script_url to empty string.
+      custom_order_confirmation_script_url:
+        type: string
+        description: Custom order confirmation script url to replace our default order confirmation.
 parameters:
   checkoutId:
     name: checkoutId
@@ -1729,6 +1772,7 @@ tags:
   - name: Checkout Consignments
   - name: Checkout Coupons
   - name: Checkout Orders
+  - name: Checkout Settings
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
@@ -2295,3 +2339,19 @@ responses:
         data:
           id: 75
         meta: {}
+  checkout_settings_resp:
+    description: ''
+    schema:
+      type: object
+      properties:
+        data:
+          $ref: '#/definitions/CheckoutsSettings'
+        meta:
+          type: object
+    examples:
+      application/json:
+        data:
+          custom_checkout_script_url: 'https://example.com/custom-checkout-script.js'
+          order_confirmation_use_custom_checkout_script: false
+          custom_order_confirmation_script_url: 'https://example.com/custom-order-confirmation-script.js'
+        meta: { }
