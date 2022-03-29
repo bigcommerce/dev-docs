@@ -1446,6 +1446,9 @@ paths:
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
         - Inventory
+      responses:
+        '200':
+          description: OK
     parameters:
       - $ref: '#/components/parameters/store_hash'
 components:
