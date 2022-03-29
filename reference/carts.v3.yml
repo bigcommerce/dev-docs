@@ -949,13 +949,17 @@ components:
     CartCreatePostData:
       type: object
       title: Cart Create Post Data
+      x-internal: false
+      x-examples: {}
       properties:
         customer_id:
           type: integer
         line_items:
-          oneOf:
-            - $ref: '#/components/schemas/cart_PostVariant'
-            - $ref: '#/components/schemas/cart_PostModifier'
+          type: array
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/cart_PostVariant'
+              - $ref: '#/components/schemas/cart_PostModifier'
         custom_items:
           $ref: '#/components/schemas/cart_PostCustomItem'
         gift_certificates:
@@ -1017,7 +1021,6 @@ components:
         locale:
           type: string
           description: Accepts string of format `xx` or `xx-YY`.
-      x-internal: false
     CartRequestData:
       type: object
       title: Cart Request Data
@@ -2841,50 +2844,47 @@ components:
           description: 'Price of the item. With or without tax, depending on your store’s setup.'
       x-internal: false
     cart_PostVariant:
-      type: array
+      type: object
       title: cart_PostVariant
-      default: line_items
-      items:
-        type: object
-        properties:
-          quantity:
-            type: number
-          product_id:
-            type: number
-          list_price:
-            type: number
-            description: Optional price override
-          variant_id:
-            type: number
-            description: Exists only in Catalog V3
-          name:
-            type: string
-            description: 'Optionally, provide a value to override the product name'
-          gift_wrapping:
-            type: object
-            properties:
-              wrap_together:
-                type: boolean
-                description: Indicates whether we want to wrap items together or separately
-                example: true
-              wrap_details:
-                type: array
-                description: Details of the Gift Wrapping option selected. This can be specified for each line items.
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: number
-                      description: Identifier of the Gift Wrapping Option selected
-                      example: 0
-                    message:
-                      type: string
-                      description: Custom gift message
-                      example: Happy Birthday
-        required:
-          - quantity
-          - product_id
       x-internal: false
+      properties:
+        quantity:
+          type: number
+        product_id:
+          type: number
+        list_price:
+          type: number
+          description: Optional price override
+        variant_id:
+          type: number
+          description: Exists only in Catalog V3
+        name:
+          type: string
+          description: 'Optionally, provide a value to override the product name'
+        gift_wrapping:
+          type: object
+          properties:
+            wrap_together:
+              type: boolean
+              description: Indicates whether we want to wrap items together or separately
+              example: true
+            wrap_details:
+              type: array
+              description: Details of the Gift Wrapping option selected. This can be specified for each line items.
+              items:
+                type: object
+                properties:
+                  id:
+                    type: number
+                    description: Identifier of the Gift Wrapping Option selected
+                    example: 0
+                  message:
+                    type: string
+                    description: Custom gift message
+                    example: Happy Birthday
+          required:
+            - quantity
+            - product_id
     cart_PostModifier:
       type: array
       title: cart_PostModifier
