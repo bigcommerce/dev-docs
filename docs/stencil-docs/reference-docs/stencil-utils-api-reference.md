@@ -22,7 +22,7 @@ If you do not want to support ES6 modules, Stencil Utils can be included as a no
 ## api.js
 
 ### Get page
-![getPage](https://github.com/bigcommerce/stencil-utils/blob/master/src/api.js) 
+[getPage](https://github.com/bigcommerce/stencil-utils/blob/master/spec/api.spec.js) 
  
 This method takes the form `utils.api.getPage(url, options, callback);`.
 
@@ -64,7 +64,7 @@ updateView() {
 The following methods allow your theme to work with [cart](https://github.com/bigcommerce/stencil-utils/blob/9cf7c26b0a1f9ca9da83274ebc375e73f20acac5/src/api/cart.js) contents in customized ways.
 
 ### Get cart
-![getCart](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L11)
+[getCart](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L11)
 
 This method takes the form `utils.api.cart.getCart(options, callback);`.
 
@@ -86,7 +86,7 @@ utils.api.cart.getCart({includeOptions: true}, (err, response) => {
 });
 ```
 ### Get cart quantity
-![getCartQuantity](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L28) 
+[getCartQuantity](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L28) 
 
 Get a sum of the cart line item quantities. It takes the form `utils.api.cart.getCartQuantity(options, callback);`.
 
@@ -111,7 +111,7 @@ utils.api.cart.getCartQuantity({includeOptions: true}, (err, response) => {
 - [`assets/js/theme/global/cart-preview.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/global/cart-preview.js)
 
 ### Item add
-![itemAdd](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L51)
+[itemAdd](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L51)
 
 The `itemAdd`method allows your code to add an item to the cart, with options. This method takes the form `utils.api.cart.itemAdd(FormData, callback);`.
 
@@ -157,7 +157,7 @@ utils.api.cart.itemAdd(this.filterEmptyFilesFromForm(new FormData(form)), (err, 
 
 ### Item update
 
-![itemUpdate](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L70)
+[itemUpdate](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L70)
 
 The `itemUpdate` method allows your code to update a specified cart item’s quantity. This method takes the form `utils.api.cart.itemUpdate(itemId, qty, callback);`.
 
@@ -215,7 +215,7 @@ cartUpdate($target) {
 - [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/d786c6ecbed5ad588ed9489f79e2226455a07b21/assets/js/theme/cart.js)
 
 ### Item remove
-![itemRemove](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L106)
+[itemRemove](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L106)
 
 The `itemRemove` method allows your code to remove items from the cart. This method takes the form `utils.api.cart.itemRemove(itemId, callback);`.
 
@@ -245,7 +245,7 @@ cartRemoveItem(itemId) {
 - [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/d786c6ecbed5ad588ed9489f79e2226455a07b21/assets/js/theme/cart.js)
 
 ### Update
-![update](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L160)
+[update](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L160)
 
 The `update` method allows your code to update the set of items in the cart. It takes the form `utils.api.cart.update(itemId, qty, callback);`.
 
@@ -288,7 +288,7 @@ itemUpdate(itemId, qty, callback) {
 ```
 
 ### Get item gift wrapping options
-![getItemGiftWrappingOptions](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L132)
+[getItemGiftWrappingOptions](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L132)
 
 The `getItemGiftWrappingOptions` method allows your code to retrieve gift-wrapping options for the current cart item, in customized ways. It takes the form `utils.api.cart.getItemGiftWrappingOptions(itemId, callback);`.
 
@@ -326,7 +326,7 @@ bindGiftWrappingEvents() {
 - [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
 
 ### Submit item gift wrapping option
-![submitItemGiftWrappingOption](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L150)
+[submitItemGiftWrappingOption](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L150)
 
 The `submitItemGiftWrappingOption` method allows your code to handle the customer’s gift-wrapping selection for the current cart item. This method takes the form `utils.api.cart.submitItemGiftWrappingOption(itemId, qty, callback);`.
 
@@ -349,7 +349,7 @@ submitItemGiftWrappingOption(itemId, params, callback) {
 ```
 
 ### Get content
-![getContent](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L174)
+[getContent](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L174)
 
 The `getContent` method allows your code to display the cart contents in customized ways. It takes the form `utils.api.cart.getContent(options, callback);`.
 
@@ -403,7 +403,7 @@ refreshContent(remove) {
 - [`assets/js/theme/common/product-details.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/product-details.js)
 
 ### Get shipping quotes
-![getShippingQuotes](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L193)
+[getShippingQuotes](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L193)
 
 The `getShippingQuotes` method allows your code to retrieve shipping-cost quotes for the cart’s contents. It returns `shippingQuote` objects that contain IDs. You must follow `getShippingQuotes` by calling `submitShippingQuote` on a `quoteId`. This method takes the form `utils.api.cart.getShippingQuotes(params, renderWith, callback);`.
 
@@ -420,7 +420,7 @@ See `submitShippingQuotes` for an example.
 - [`assets/js/theme/cart/shipping-estimator.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart/shipping-estimator.js)
 
 ### Submit shipping quote
-![submitShippingQuote](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L218)
+[submitShippingQuote](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L218)
 
 This method takes the form `utils.api.cart.submitShippingQuote(quoteId, callback);`.
 
@@ -471,7 +471,7 @@ bindEstimatorEvents() {
 - [`assets/js/theme/cart/shipping-estimator.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart/shipping-estimator.js)
 
 ### Apply code
-![applyCode](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L234)
+[applyCode](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L234)
 
 The `applyCode` method applies a coupon code or gift certificate to the cart. It takes the form `utils.api.cart.applyCode(code, callback);`.
 
@@ -530,7 +530,7 @@ bindPromoCodeEvents() {
 - [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
 
 ### Apply gift certificate
-![applyGiftCertificate](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L250)
+[applyGiftCertificate](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/cart.js#L250)
 
 This method applies a gift certificate to a cart. It takes the form `utils.api.cart.applyGiftCertificate(code, callback);`.
 
@@ -561,7 +561,7 @@ utils.api.cart.applyGiftCertificate(code, (err, resp) => {
 These methods allow your theme or app to retrieve standardized country names, by numeric ID or by string.
 
 ### Country get by id
-![getById](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/countries.js#L23)
+[getById](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/countries.js#L23)
 
 The country `getById` method retrieves standardized country names by numeric ID. This method takes the form `utils.api.countries.getById(countryId, callback);`.
 
@@ -581,7 +581,7 @@ utils.api.countries.getById(countryId, (err, res) => {
 ```
 
 ### Get by name
-![getByName](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/countries.js#L34)
+[getByName](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/countries.js#L34)
 
 The `getByName` method retrieves states by country name, and returns an array of states that can be used in the callback. It takes the form `utils.api.countries.getByName(countryName, callback);`.
 
@@ -635,7 +635,7 @@ $('select[data-field-type="Country"]').on('change', (event) => {
 ## Product Attributes Resource
 
 ### Option change
-![optionChange](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/product-attributes.js#L24) 
+[optionChange](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/product-attributes.js#L24) 
 
 The `optionChange` method is fired when the customer selects a product option for the current cart item (for example, changing a shirt’s color from a default "yellow" to "green"). This method takes the form `utils.api.productAttributes.optionChange(productId, params, callback);`.
 
@@ -668,7 +668,7 @@ if (_.isEmpty(productAttributesData) && hasOptions) {
 - [`assets/js/theme/cart.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/cart.js)
 
 ### Configure in cart
-![configureInCart](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/product-attributes.js#L50)
+[configureInCart](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/product-attributes.js#L50)
 
 This method configures product options in the cart. It takes the form `utils.api.productAttributes.configureInCart(itemId, options, callback);`.
 
@@ -691,7 +691,7 @@ utils.api.productAttributes.configureInCart(itemId, options, (err, response) => 
 
 ## Product Resource
 ### Product get by id
-![getById](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/product.js)
+[getById](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/product.js)
 
 The product `getById` method allows your code to retrieve, and to present, detailed product information by product ID. This method takes the form `utils.api.product.getById(productId, params, callback);`.
 
@@ -725,7 +725,7 @@ $('body').on('click', '.quickview', (event) => {
 The `search` method allows you to present a customized user interface for search results.
 
 ### Search
-![search](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/search.js)
+[search](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/search.js)
 
 The core search method takes the form `utils.api.search.search(query, params, callback);`.
 
@@ -778,7 +778,7 @@ getCartContent(cartItemHash, onComplete) {
 
 ### Product search attributes
 
-![Product Search Results](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/search.html)
+[Product Search Results](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/search.html)
 
 ```json title="Example: Product search results" lineNumbers
 {
@@ -793,7 +793,7 @@ getCartContent(cartItemHash, onComplete) {
 ## Brands
 
 ### Brand list
-![Brand List Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/brands.html)
+[Brand List Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/brands.html)
 
 ```json title="Example: Brand list object" lineNumbers
 {
@@ -804,7 +804,7 @@ getCartContent(cartItemHash, onComplete) {
 ```
 
 ### Brand page
-![Brand Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/brand.html)
+[Brand Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/brand.html)
 
 ```json title="Example: Brand page object" lineNumbers
 {
@@ -818,7 +818,7 @@ getCartContent(cartItemHash, onComplete) {
 
 ### Cart
 
-![Cart Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/cart.html)
+[Cart Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/cart.html)
 
 ```json title="Example: Cart object" lineNumbers
 {
@@ -832,7 +832,7 @@ getCartContent(cartItemHash, onComplete) {
 
 ### Product
 
-![Product Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html)
+[Product Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html)
 
 ```json title="Example: Product object" lineNumbers
 {
@@ -858,7 +858,7 @@ getCartContent(cartItemHash, onComplete) {
  
 ### Blog
 
-![Blog Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/blog.html)
+[Blog Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/blog.html)
 
 ```json title="Example: Blog object" lineNumbers
 {
@@ -875,7 +875,7 @@ getCartContent(cartItemHash, onComplete) {
 
 ### Category
 
-![Category Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/category.html)
+[Category Page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/category.html)
 
 ```json title="Example: Category page object" lineNumbers
 {
