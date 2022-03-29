@@ -143,14 +143,14 @@ info:
     * [Building Headless Storefronts Guide](/api-docs/storefronts/developers-guide-headless)
   contact: {}
 servers:
-  - url: 'https://api.bigcommerce.com/'
+  - url: 'https://api.bigcommerce.com'
 security:
-  - X-Auth-Client: []
   - X-Auth-Token: []
 tags:
   - name: Sites
     description: 'Enables creation and management of external sites (domains) where shoppers shop. Allows for the correct shopping experience to be delivered and maintained (i.e. redirect URLs, email links) when a shopper goes through the purchasing process.'
   - name: Site Routes
+  - name: Site Certificate
 paths:
   '/stores/{store_hash}/v3/sites':
     post:
@@ -988,11 +988,14 @@ components:
       type: object
       description: |
         Error payload for the BigCommerce API.
+      x-tags:
+        - Models
       properties:
         status:
+          type: integer
           description: |
             The HTTP status code.
-          type: integer
+          example: 404
         title:
           description: |
             The error title describing the particular error.
@@ -1001,8 +1004,6 @@ components:
           type: string
         instance:
           type: string
-      x-tags:
-        - Models
     DetailedErrors:
       type: object
       additionalProperties:
@@ -1153,14 +1154,6 @@ components:
                 $ref: '#/components/schemas/_errors'
               type:
                 type: string
-          examples:
-            response:
-              value:
-                status: 422
-                title: JSON data is missing or invalid
-                type: /api-docs/getting-started/api-status-codes
-                errors:
-                  matching: error.path.missing
     site_RespCollection:
       description: ''
       content:
