@@ -56,6 +56,7 @@ You can process payments charged to either of two main forms of payment: new pay
 * Stripe
 * StripeV3
 * Moneris
+* Chase Merchant Services
 
 To use stored cards with the Payments API or the Checkout SDK, make sure you enable stored cards in the store's control panel. To enable stored credit cards on your storefront, navigate to **Store Setup › Payments**, and click the tab for your payment gateway. Toggle the switch to enable Stored Credit Cards and click **Save**. For more on enabling stored payment methods, see [Enabling Stored Payment Methods](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards).
 
