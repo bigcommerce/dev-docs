@@ -192,6 +192,6 @@ For apps that can check and improve your site's accessibility, see our Site Tool
 - [AccessiBe](https://accessibe.com/)
 
 ### Videos
-- [How Headings Help Screen Reader Users](https://www.youtube.com/watch?v=zRTqCGJ_HwQ)
+- [How Headings Help Screen Reader Users](//youtube.com/watch?v=zRTqCGJ_HwQ)
 - [WebAIM article on Typefaces and Fonts](https://webaim.org/techniques/textlayout/)
-- [Accessible Components: Keyboard access -- Polycasts#49](https://www.youtube.com/watch?v=REVxMvdBYMwaccessioa)
+- [Accessible Components: Keyboard access -- Polycasts#49](//youtube.com/watch?v=REVxMvdBYMwaccessioa)
