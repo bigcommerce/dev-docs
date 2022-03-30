@@ -42,22 +42,20 @@ You can process payments charged to either of two main forms of payment: new pay
 > * Your store must use Optimized One-Page Checkout.
 > * Your store must use a compatible payment gateway.
 
-<!-- theme: info -->
-> #### Gateways supported for stored cards:
-> * AdyenV2
-> * Authorize.net
-> * Barclaycard Fuse
-> * Bolt
-> * Checkout.com
-> * Cybersource
-> * Mollie
-> * MyVirtualMerchant
-> * Paymetric
-> * PayPal Powered by Braintree
-> * Stripe
-> * StripeV3
-> * Moneris
-> * Chase Merchant Services
+#### Gateways supported for stored cards:
+* AdyenV2
+* Authorize.net
+* Barclaycard Fuse
+* Bolt
+* Checkout.com
+* Cybersource
+* Mollie
+* MyVirtualMerchant
+* Paymetric
+* PayPal Powered by Braintree
+* Stripe
+* StripeV3
+* Moneris
 
 To use stored cards with the Payments API or the Checkout SDK, make sure you enable stored cards in the store's control panel. To enable stored credit cards on your storefront, navigate to **Store Setup › Payments**, and click the tab for your payment gateway. Toggle the switch to enable Stored Credit Cards and click **Save**. For more on enabling stored payment methods, see [Enabling Stored Payment Methods](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards).
 
@@ -241,40 +239,39 @@ If the purchase was successful, the response returns a status of success. The or
 
 ## Credit cards
 
-<!-- theme: info -->
-> #### Gateways supported for non-stored cards:
-> * Authorize.net
-> * Adyen
-> * Barclaycard Fuse
-> * Bolt
-> * CardConnect
-> * Chase Integrated Payments
-> * Chase Merchant Services (Orbital)
-> * Checkout.com
-> * Cybersource
-> * Eway Rapid
-> * First Data Payeezy Gateway
-> * Heartland Payment Systems
-> * MIGS
-> * MyVirtualMerchant
-> * NMI
-> * Paymetric
-> * PayPal (Commerce Platform)
-> * PayPal Powered by Braintree
-> * PayPal Payments Pro (Payflow Edition) UK
-> * PayPal Payments Pro (Payflow Edition) US
-> * QuickBooks Payments
-> * Sage Pay/Protx VSP Direct
-> * SecureNet
-> * Stripe
-> * StripeV3
-> * USA ePay
-> * Vantiv
-> * Vantiv Core
-> * Windcave
-> * Worldpay Core
-> * Worldpay
-> * Moneris
+#### Gateways supported for non-stored cards:
+* Authorize.net
+* Adyen
+* Barclaycard Fuse
+* Bolt
+* CardConnect
+* Chase Integrated Payments
+* Chase Merchant Services (Orbital)
+* Checkout.com
+* Cybersource
+* Eway Rapid
+* First Data Payeezy Gateway
+* Heartland Payment Systems
+* MIGS
+* MyVirtualMerchant
+* NMI
+* Paymetric
+* PayPal (Commerce Platform)
+* PayPal Powered by Braintree
+* PayPal Payments Pro (Payflow Edition) UK
+* PayPal Payments Pro (Payflow Edition) US
+* QuickBooks Payments
+* Sage Pay/Protx VSP Direct
+* SecureNet
+* Stripe
+* StripeV3
+* USA ePay
+* Vantiv
+* Vantiv Core
+* Windcave
+* Worldpay Core
+* Worldpay
+* Moneris
 
 There are two steps to using a credit card to make a payment.
 
