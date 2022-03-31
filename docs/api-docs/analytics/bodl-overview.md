@@ -32,7 +32,7 @@ Consult [Stencil object reference](/theme-objects) for more about object propert
 | getQueryParamValue() | `name` |
 
 ## Script examples
-To get started using `BODL` data in your integration, consult the following example snippets.
+To get started using `BODL` data in your integration, consult the following example snippets. You can inject the snippets using the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager?language=en_US) or the [Scripts API](https://developer.bigcommerce.com/api-reference/b3A6MzU5MDQ5NDk-create-a-script).
 
 ### Initialize script
 This script extracts storefront data from the Stencil objects available in the front-end environment to construct a standard `BODL` object.
@@ -103,6 +103,7 @@ This script extracts storefront data from the Stencil objects available in the f
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
   }
 
+// For illustrative purposes only, replace with a reference to your library!
   !function (w, d, t) {
     w.SampleAnalyticsObject=t;var sampleAnalyticsProvider=w[t]=w[t]||[];sampleAnalyticsProvider.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],sampleAnalyticsProvider.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<sampleAnalyticsProvider.methods.length;i++)sampleAnalyticsProvider.setAndDefer(sampleAnalyticsProvider,sampleAnalyticsProvider.methods[i]);sampleAnalyticsProvider.instance=function(t){for(var e=sampleAnalyticsProvider._i[t]||[],n=0;n<sampleAnalyticsProvider.methods.length;n++)sampleAnalyticsProvider.setAndDefer(e,sampleAnalyticsProvider.methods[n]);return e},sampleAnalyticsProvider.load=function(e,n){var i="https://analytics.Sample.com/i18n/pixel/events.js";sampleAnalyticsProvider._i=sampleAnalyticsProvider._i||{},sampleAnalyticsProvider._i[e]=[],sampleAnalyticsProvider._i[e]._u=i,sampleAnalyticsProvider._t=sampleAnalyticsProvider._t||{},sampleAnalyticsProvider._t[e]=+new Date,sampleAnalyticsProvider._o=sampleAnalyticsProvider._o||{},sampleAnalyticsProvider._o[e]=n||{},sampleAnalyticsProvider._partner=sampleAnalyticsProvider._partner||"BigCommerce";var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
 
