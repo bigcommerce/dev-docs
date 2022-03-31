@@ -265,6 +265,15 @@
       "type": "item",
       "title": "Tax Provider API",
       "uri": "reference/tax_provider.yml"
+    },
+    {
+      "type": "divider",
+      "title": "Template Objects"
+    },
+    {
+      "type": "item",
+      "title": "Handlebars Email Template Objects",
+      "uri": "models/email_templates/_all.yml"
     }
   ]
 }
