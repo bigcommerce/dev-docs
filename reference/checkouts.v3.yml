@@ -675,6 +675,8 @@ paths:
       responses:
         '200':
           $ref: '#/responses/checkout_settings_resp'
+      description: ''
+      summary: Get Checkout Settings
     put:
       tags:
         - Checkout Settings
@@ -688,6 +690,7 @@ paths:
           description: ''
           schema:
             $ref: '#/definitions/CheckoutsSettingsRequest'
+      summary: Update Checkout Settings
     parameters:
       - type: string
         name: store_hash
