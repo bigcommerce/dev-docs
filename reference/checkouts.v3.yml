@@ -12,7 +12,7 @@ consumes:
 produces:
   - application/json
 paths:
-  'stores/{store_hash}/v3/checkouts/{checkoutId}':
+  '/stores/{store_hash}/v3/checkouts/{checkoutId}':
     get:
       description: |-
         Returns a *Checkout*.
@@ -145,7 +145,7 @@ paths:
         name: checkoutId
         in: path
         required: true
-  'stores/{store_hash}/v3/checkouts/{checkoutId}/billing-address':
+  '/stores/{store_hash}/v3/checkouts/{checkoutId}/billing-address':
     post:
       description: |-
         Adds a billing address to an existing *Checkout*.
@@ -212,7 +212,7 @@ paths:
         name: checkoutId
         in: path
         required: true
-  'stores/{store_hash}/v3/checkouts/{checkoutId}/billing-address/{addressId}':
+  '/stores/{store_hash}/v3/checkouts/{checkoutId}/billing-address/{addressId}':
     put:
       description: Updates an existing billing address on *Checkout*.
       summary: Update Checkout Billing Address
@@ -273,7 +273,7 @@ paths:
         name: addressId
         in: path
         required: true
-  'stores/{store_hash}/v3/checkouts/{checkoutId}/consignments':
+  '/stores/{store_hash}/v3/checkouts/{checkoutId}/consignments':
     post:
       description: |-
         Adds a new consignment to a checkout.
@@ -391,7 +391,7 @@ paths:
         name: checkoutId
         in: path
         required: true
-  'stores/{store_hash}/v3/checkouts/{checkoutId}/consignments/{consignmentId}':
+  '/stores/{store_hash}/v3/checkouts/{checkoutId}/consignments/{consignmentId}':
     put:
       description: |-
         Updates an existing consignment. Address, line item IDs or the shipping option ID can be updated using this endpoint.
@@ -514,7 +514,7 @@ paths:
         name: consignmentId
         in: path
         required: true
-  'stores/{store_hash}/v3/checkouts/{checkoutId}/coupons':
+  '/stores/{store_hash}/v3/checkouts/{checkoutId}/coupons':
     post:
       description: |-
         Adds a *Coupon Code* to *Checkout*.
@@ -573,7 +573,7 @@ paths:
         name: checkoutId
         in: path
         required: true
-  'stores/{store_hash}/v3/checkouts/{checkoutId}/coupons/{couponCode}':
+  '/stores/{store_hash}/v3/checkouts/{checkoutId}/coupons/{couponCode}':
     delete:
       description: Deletes a *Coupon Code* from *Checkout*.
       summary: Delete Checkout Coupon
@@ -625,7 +625,7 @@ paths:
         name: couponCode
         in: path
         required: true
-  'stores/{store_hash}/v3/checkouts/{checkoutId}/orders':
+  '/stores/{store_hash}/v3/checkouts/{checkoutId}/orders':
     post:
       responses:
         '200':
@@ -668,7 +668,7 @@ paths:
         name: store_hash
         in: path
         required: true
-  'stores/{store_hash}/v3/checkouts/settings':
+  '/stores/{store_hash}/v3/checkouts/settings':
     get:
       tags:
         - Checkout Settings
