@@ -173,6 +173,6 @@ Simply add your new icon SVG file to the `assets/icons/ `folder. Then, from your
 
 ### Additional resources
 * [Stencil Custom Sass Functions](/stencil-docs/storefront-customization/custom-sass-functions)
-* [Custom Icons Video Tutorial](https://www.youtube.com/watch?v=ZwrVN5QrEZY)  (BigCommerce YouTube)
-* [Custom Fonts Video Tutorial](https://www.youtube.com/watch/-w7Hbn_p_pw) (BigCommerce YouTube)
+* [Custom Icons Video Tutorial](//youtube.com/watch?v=ZwrVN5QrEZY)  (BigCommerce YouTube)
+* [Custom Fonts Video Tutorial](//youtube.com/watch/-w7Hbn_p_pw) (BigCommerce YouTube)
 * [Google Fonts](https://fonts.google.com/) (Google)

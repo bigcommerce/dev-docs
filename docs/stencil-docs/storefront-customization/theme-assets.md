@@ -118,5 +118,5 @@ This subdirectory’s children contain CSS for the following page elements.
 * [Getting Started With Foundation 5](https://get.foundation/sites/docs-v5/) (Zurb)
 * [BEM](http://getbem.com/) (Get BEM)
 * [SUIT CSS](https://suitcss.github.io/) (GitHub)
-* [Customizing a Theme (Assets Directory)](https://www.youtube.com/embed/zUDNgprOEts) (YouTube)
+* [Customizing a Theme (Assets Directory)](//youtube.com/embed/zUDNgprOEts) (YouTube)
 * [BigCommerce Sass Styling Guide](https://github.com/bigcommerce/sass-style-guide) (BigCommerce GitHub)
