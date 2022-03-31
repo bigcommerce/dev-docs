@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.0.1
 info:
   title: Widgets
   version: ''
@@ -223,7 +223,7 @@ paths:
         name: store_hash
         in: path
         required: true
-  '/stores/{store_hash}/v3/content/widget-templates/{uuid}/preview':
+  '/store/{store_hash}/v3/content/widget-templates/{uuid}/preview':
     post:
       tags:
         - Widget Template
@@ -231,41 +231,24 @@ paths:
       description: Render a widget template and return the widget html.
       operationId: previewWidget
       parameters:
-        - $ref: '#/parameters/TemplateUUID'
-        - name: templateBody
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/WidgetTemplatePreview'
+        - $ref: '#/components/parameters/TemplateUUID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WidgetTemplatePreview'
+        required: true
       responses:
         '200':
-          schema:
-            $ref: '#/definitions/WidgetTemplatePreviewResponse'
           description: Success
           content:
             application/json:
               schema:
-                description: ''
-                type: object
-                x-examples:
-                  example-1:
-                    html: string
-                properties:
-                  html:
-                    type: string
-                    minLength: 1
-                    format: html
-                    description: The HTML render of the widget template.
+                $ref: '#/components/schemas/WidgetTemplatePreviewResponse'
         '404':
-          description: |
-            The resource was not found.
-          schema:
-            $ref: '#/definitions/ErrorResponse'
+          description: Not Found
         '422':
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          description: |
-            This is the result of missing required fields, or of invalid data. See the response for more details.
+          description: Unprocessable Entity
     parameters:
       - schema:
           type: string
@@ -905,12 +888,7 @@ paths:
         schema:
           type: string
 security:
-  - X-Auth-Client: []
   - X-Auth-Token: []
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false
 servers:
   - url: 'https://api.bigcommerce.com'
 components:
@@ -1192,18 +1170,6 @@ components:
                       format: datetime
                       description: The date on which this object was last updated.
                   title: Layout
-          examples:
-            response:
-              value:
-                data:
-                  uuid: cacdadcf-07ec-43f3-aec4-f8e3382d7618
-                  template_file: pages/category
-                  entity_id: '21'
-                  region: category_header_banner
-                  markup: ' '
-                  date_created: '2019-02-25T18:38:08.455Z'
-                  date_modified: '2019-02-25T18:38:08.455Z'
-                meta: {}
     PlacementsCollection_Resp:
       description: ''
       content:
@@ -1375,103 +1341,8 @@ components:
                     name: Simple Text with Styling
                     schema: []
                     storefront_api_query: ''
-                    template: |2
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                       {{text}}
+                    template: |
+                      {{text}}
                     template_engine: handlebars_v3
                     uuid: 17dcc919-982a-4cc0-8ede-a5b49f9ab6dc
                   - channel_id: 1
@@ -1484,7 +1355,7 @@ components:
                     name: YouTube Embed
                     schema: []
                     storefront_api_query: ''
-                    template: null
+                    template: ''
                     template_engine: handlebars_v3
                     uuid: d9e7fd0e-d5c2-45c9-8919-ce68a5590c12
                   - channel_id: 1
@@ -1499,10 +1370,6 @@ components:
                     storefront_api_query: ''
                     template: |-
                       {{#each slides}}
-
-
-
-
                       {{/each}}
                     template_engine: handlebars_v3
                     uuid: 30714957-0e01-4c4e-8551-25591261d0d0
@@ -1713,6 +1580,22 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/error_Base'
+          examples:
+            example-1:
+              value:
+                status: 0
+                title: string
+                type: string
+                instance: string
+                errors: {}
+    new:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            properties:
+              id:
+                type: string
   securitySchemes:
     X-Auth-Token:
       type: apiKey
@@ -1742,6 +1625,25 @@ components:
 
         * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
   schemas:
+    WidgetTemplatePreview:
+      properties:
+        widget_configuration:
+          type: object
+          description: The JSON data that populates the template.
+          format: json
+      x-tags:
+        - Models
+    WidgetTemplatePreviewResponse:
+      type: object
+      properties:
+        data:
+          properties:
+            html:
+              type: string
+              description: The HTML render of the widget template.
+              format: html
+      x-tags:
+        - Models
     widgetTemplate_Put:
       allOf:
         - $ref: '#/components/schemas/widgetTemplate_Base'
@@ -1992,11 +1894,37 @@ components:
                 Link to the next page returned in the response.
       title: pagination
       x-internal: false
+    ErrorResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseError'
+        - type: object
+          properties:
+            errors:
+              $ref: '#/components/schemas/DetailedErrors'
+      x-tags:
+        - Models
     error_Base:
+      type: object
+      description: Error payload for the BigCommerce API.
+      properties:
+        status:
+          description: The HTTP status code.
+          type: integer
+        title:
+          description: The error title describing the particular error.
+          type: string
+        type:
+          type: string
+        instance:
+          type: string
+        errors:
+          type: object
+      x-internal: false
+      title: error_Base
+    BaseError:
       type: object
       description: |
         Error payload for the BigCommerce API.
-      title: error_Base
       properties:
         status:
           description: |
@@ -2010,9 +1938,14 @@ components:
           type: string
         instance:
           type: string
-        errors:
-          type: object
-      x-internal: false
+      x-tags:
+        - Models
+    DetailedErrors:
+      type: object
+      additionalProperties:
+        type: string
+      x-tags:
+        - Models
     themeRegion:
       properties:
         name:

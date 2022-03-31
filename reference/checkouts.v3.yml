@@ -4,7 +4,7 @@ info:
   title: Checkouts
   description: Create checkouts from existing carts using BigCommerce checkout logic.
 host: api.bigcommerce.com
-basePath: /
+basePath: null
 schemes:
   - https
 consumes:
@@ -12,7 +12,7 @@ consumes:
 produces:
   - application/json
 paths:
-  'stores/{store_hash}/v3/checkouts/{checkoutId}':
+  '/stores/{store_hash}/v3/checkouts/{checkoutId}':
     get:
       description: |-
         Returns a *Checkout*.
@@ -145,7 +145,7 @@ paths:
         name: checkoutId
         in: path
         required: true
-  'stores/{store_hash}/v3/checkouts/{checkoutId}/billing-address':
+  '/stores/{store_hash}/v3/checkouts/{checkoutId}/billing-address':
     post:
       description: |-
         Adds a billing address to an existing *Checkout*.
@@ -212,7 +212,7 @@ paths:
         name: checkoutId
         in: path
         required: true
-  'stores/{store_hash}/v3/checkouts/{checkoutId}/billing-address/{addressId}':
+  '/stores/{store_hash}/v3/checkouts/{checkoutId}/billing-address/{addressId}':
     put:
       description: Updates an existing billing address on *Checkout*.
       summary: Update Checkout Billing Address
@@ -273,7 +273,7 @@ paths:
         name: addressId
         in: path
         required: true
-  'stores/{store_hash}/v3/checkouts/{checkoutId}/consignments':
+  '/stores/{store_hash}/v3/checkouts/{checkoutId}/consignments':
     post:
       description: |-
         Adds a new consignment to a checkout.
@@ -391,7 +391,7 @@ paths:
         name: checkoutId
         in: path
         required: true
-  'stores/{store_hash}/v3/checkouts/{checkoutId}/consignments/{consignmentId}':
+  '/stores/{store_hash}/v3/checkouts/{checkoutId}/consignments/{consignmentId}':
     put:
       description: |-
         Updates an existing consignment. Address, line item IDs or the shipping option ID can be updated using this endpoint.
@@ -514,7 +514,7 @@ paths:
         name: consignmentId
         in: path
         required: true
-  'stores/{store_hash}/v3/checkouts/{checkoutId}/coupons':
+  '/stores/{store_hash}/v3/checkouts/{checkoutId}/coupons':
     post:
       description: |-
         Adds a *Coupon Code* to *Checkout*.
@@ -573,7 +573,7 @@ paths:
         name: checkoutId
         in: path
         required: true
-  'stores/{store_hash}/v3/checkouts/{checkoutId}/coupons/{couponCode}':
+  '/stores/{store_hash}/v3/checkouts/{checkoutId}/coupons/{couponCode}':
     delete:
       description: Deletes a *Coupon Code* from *Checkout*.
       summary: Delete Checkout Coupon
@@ -625,7 +625,7 @@ paths:
         name: couponCode
         in: path
         required: true
-  'stores/{store_hash}/v3/checkouts/{checkoutId}/orders':
+  '/stores/{store_hash}/v3/checkouts/{checkoutId}/orders':
     post:
       responses:
         '200':
@@ -664,6 +664,34 @@ paths:
         in: path
         type: string
         required: true
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/checkouts/settings':
+    get:
+      tags:
+        - Checkout Settings
+      responses:
+        '200':
+          $ref: '#/responses/checkout_settings_resp'
+      description: Get checkout settings
+      summary: Get Checkout Settings
+    put:
+      tags:
+        - Checkout Settings
+      responses:
+        '200':
+          $ref: '#/responses/checkout_settings_resp'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CheckoutsSettingsRequest'
+      summary: Update Checkout Settings
+      description: Update checkout settings
+    parameters:
       - type: string
         name: store_hash
         in: path
@@ -1123,8 +1151,8 @@ definitions:
               description: ''
               type: string
             shippingAddress:
-                type: object
-                x-deprecated: true
+              type: object
+              x-deprecated: true
             address:
               title: Address Response
               allOf:
@@ -1654,6 +1682,29 @@ definitions:
         example: 75
         description: The order Id.
     x-internal: false
+  CheckoutsSettings:
+    type: object
+    title: Checkouts Settings
+    properties:
+      custom_checkout_script_url:
+        type: string
+      order_confirmation_use_custom_checkout_script:
+        type: boolean
+      custom_order_confirmation_script_url:
+        type: string
+  CheckoutsSettingsRequest:
+    title: Checkouts settings request
+    type: object
+    properties:
+      custom_checkout_script_url:
+        type: string
+        description: Custom checkout script url to replace our default checkout.
+      order_confirmation_use_custom_checkout_script:
+        type: boolean
+        description: When order_confirmation_use_custom_checkout_script=true we default custom_order_confirmation_script_url to empty string.
+      custom_order_confirmation_script_url:
+        type: string
+        description: Custom order confirmation script url to replace our default order confirmation.
 parameters:
   checkoutId:
     name: checkoutId
@@ -1729,6 +1780,7 @@ tags:
   - name: Checkout Consignments
   - name: Checkout Coupons
   - name: Checkout Orders
+  - name: Checkout Settings
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
@@ -2294,4 +2346,20 @@ responses:
       application/json:
         data:
           id: 75
+        meta: {}
+  checkout_settings_resp:
+    description: ''
+    schema:
+      type: object
+      properties:
+        data:
+          $ref: '#/definitions/CheckoutsSettings'
+        meta:
+          type: object
+    examples:
+      application/json:
+        data:
+          custom_checkout_script_url: 'https://example.com/custom-checkout-script.js'
+          order_confirmation_use_custom_checkout_script: false
+          custom_order_confirmation_script_url: 'https://example.com/custom-order-confirmation-script.js'
         meta: {}

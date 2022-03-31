@@ -4612,14 +4612,14 @@ paths:
               description: The model for a POST to create options on a product.
               allOf:
                 - title: Option Base
-                  type: object
+                  description: Common Option properties.
                   properties:
                     id:
                       type: integer
                       description: |
                         The unique numerical ID of the option, increments sequentially.
-                      nullable: true
                       example: 55
+                      nullable: true
                     product_id:
                       type: integer
                       description: |
@@ -4655,6 +4655,7 @@ paths:
                     config:
                       title: Option Config
                       type: object
+                      description: The values for option config can vary based on the Modifier created.
                       properties:
                         default_value:
                           type: string
@@ -4685,13 +4686,13 @@ paths:
                           type: string
                           description: |
                             (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                          format: date
+                          format: date-time
                           example: '2018-08-31T00:00:00.000Z'
                         date_latest_value:
                           type: string
                           description: |
                             (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                          format: date
+                          format: date-time
                           example: '2019-01-01T00:00:00.000Z'
                         file_types_mode:
                           type: string
@@ -4796,7 +4797,6 @@ paths:
                             - none
                             - weight
                             - package
-                      description: The values for option config can vary based on the Modifier created.
                     sort_order:
                       type: integer
                       description: 'Order in which the option is displayed on the storefront. '
@@ -4804,15 +4804,14 @@ paths:
                     option_values:
                       minItems: 1
                       type: array
+                      x-required:
+                        - post
+                        - put
                       items:
                         title: Option Value
-                        type: object
                         allOf:
                           - title: Option Value Base
-                            required:
-                              - label
-                              - sort_order
-                            type: object
+                            description: Common Option Value properties.
                             properties:
                               is_default:
                                 type: boolean
@@ -4837,23 +4836,21 @@ paths:
                                   - post
                               value_data:
                                 type: object
-                                properties: {}
                                 description: |
                                   Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
-                            description: Common Option Value properties.
-                          - type: object
-                            properties:
+                            required:
+                              - label
+                              - sort_order
+                          - properties:
                               id:
                                 type: integer
                                 description: |
                                   The unique numeric ID of the value; increments sequentially.
-                      x-required:
-                        - post
-                        - put
+                        type: object
                     image_url:
                       type: string
                       description: Publicly available image url
-                  description: Common Option properties.
+              type: object
         required: true
       responses:
         '200':
@@ -4866,10 +4863,9 @@ paths:
                 properties:
                   data:
                     title: Option
-                    type: object
                     allOf:
                       - title: Option Base
-                        type: object
+                        description: Common Option properties.
                         properties:
                           id:
                             type: integer
@@ -4912,6 +4908,7 @@ paths:
                           config:
                             title: Option Config
                             type: object
+                            description: The values for option config can vary based on the Modifier created.
                             properties:
                               default_value:
                                 type: string
@@ -4942,12 +4939,12 @@ paths:
                                 type: string
                                 description: |
                                   (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                                format: date
+                                format: date-time
                               date_latest_value:
                                 type: string
                                 description: |
                                   (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                                format: date
+                                format: date-time
                               file_types_mode:
                                 type: string
                                 description: |
@@ -5046,7 +5043,6 @@ paths:
                                   - none
                                   - weight
                                   - package
-                            description: The values for option config can vary based on the Modifier created.
                           sort_order:
                             type: integer
                             description: 'Order in which the option is displayed on the storefront. '
@@ -5054,15 +5050,14 @@ paths:
                           option_values:
                             minItems: 1
                             type: array
+                            x-required:
+                              - post
+                              - put
                             items:
                               title: Option Value
-                              type: object
                               allOf:
                                 - title: Option Value Base
-                                  required:
-                                    - label
-                                    - sort_order
-                                  type: object
+                                  description: Common Option Value properties.
                                   properties:
                                     is_default:
                                       type: boolean
@@ -5087,34 +5082,30 @@ paths:
                                         - post
                                     value_data:
                                       type: object
-                                      properties: {}
                                       description: |
                                         Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
-                                  description: Common Option Value properties.
-                                - type: object
-                                  properties:
+                                  required:
+                                    - label
+                                    - sort_order
+                                - properties:
                                     id:
                                       type: integer
                                       description: |
                                         The unique numeric ID of the value; increments sequentially.
-                            x-required:
-                              - post
-                              - put
+                              type: object
                           image_url:
                             type: string
                             description: Publicly available image url
-                        description: Common Option properties.
-                      - type: object
-                        properties:
+                      - properties:
                           name:
                             type: string
                             description: |
                               The unique option name, auto-generated from the display name, a timestamp, and the product ID.
                             example: Add-a-$5-Donation1535042499-187
+                    type: object
                   meta:
                     title: Meta
                     type: object
-                    properties: {}
                     description: Empty meta object; may be used later.
               example:
                 data:
@@ -5155,6 +5146,51 @@ paths:
                       is_default: false
                   config: {}
                 meta: {}
+              examples:
+                example-1:
+                  value:
+                    data:
+                      id: 55
+                      product_id: 4
+                      display_name: Add-a-$5-Donation1535042499-187
+                      type: radio_buttons
+                      config:
+                        default_value: string
+                        checked_by_default: true
+                        checkbox_label: string
+                        date_limited: true
+                        date_limit_mode: earliest
+                        date_earliest_value: '2019-08-24'
+                        date_latest_value: '2019-08-24'
+                        file_types_mode: specific
+                        file_types_supported:
+                          - 'images, documents, other'
+                        file_types_other:
+                          - pdf
+                        file_max_size: 5
+                        text_characters_limited: true
+                        text_min_length: 1
+                        text_max_length: 55
+                        text_lines_limited: true
+                        text_max_lines: 4
+                        number_limited: true
+                        number_limit_mode: lowest
+                        number_lowest_value: 100
+                        number_highest_value: 0
+                        number_integers_only: false
+                        product_list_adjusts_inventory: true
+                        product_list_adjusts_pricing: true
+                        product_list_shipping_calc: none
+                      sort_order: 1
+                      option_values:
+                        - is_default: false
+                          label: Green
+                          sort_order: 0
+                          value_data: {}
+                          id: 0
+                      image_url: string
+                      name: Add-a-$5-Donation1535042499-187
+                    meta: {}
         '409':
           description: |
             Option was in conflict with another option. This is the result of duplicate unique fields, such as `name`.
@@ -5422,13 +5458,13 @@ paths:
                           type: string
                           description: |
                             (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                          format: date
+                          format: date-time
                           example: '2018-08-31T00:00:00.000Z'
                         date_latest_value:
                           type: string
                           description: |
                             (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                          format: date
+                          format: date-time
                           example: '2019-01-01T00:00:00.000Z'
                         file_types_mode:
                           type: string
@@ -6954,13 +6990,13 @@ paths:
                           type: string
                           description: |
                             (date) The earliest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                          format: date
+                          format: date-time
                           example: '2018-08-31T00:00:00.000Z'
                         date_latest_value:
                           type: string
                           description: |
                             (date) The latest date allowed to be entered on the date option, as an ISO-8601 formatted string.
-                          format: date
+                          format: date-time
                           example: '2019-01-01T00:00:00.000Z'
                         file_types_mode:
                           type: string

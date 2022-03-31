@@ -626,6 +626,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PostRefundsRequest'
+            examples: {}
         required: true
         x-examples:
           application/json:
@@ -2348,9 +2349,12 @@ components:
       type: object
       description: Request body for refund requests.
       title: RefundRequest_Post
+      x-internal: false
       properties:
         items:
-          $ref: '#/components/schemas/ItemsRefund'
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemsRefund'
         reason:
           type: string
           description: Reason for refund
@@ -2364,7 +2368,7 @@ components:
       required:
         - items
         - payments
-      x-internal: false
+      x-examples: {}
     PostRefundsRequest:
       type: array
       description: Request body for batch refunds
@@ -2372,6 +2376,7 @@ components:
       items:
         $ref: '#/components/schemas/RefundRequest_Post'
       x-internal: false
+      x-examples: {}
     FailedQuoteError:
       type: object
       description: Failed quote response.
@@ -2389,13 +2394,12 @@ components:
       x-internal: false
     ItemsRefund:
       title: ItemsRefund
-      type: array
-      items:
-        anyOf:
-          - $ref: '#/components/schemas/AmountBoundItem'
-          - $ref: '#/components/schemas/QuantityBoundItem'
-          - $ref: '#/components/schemas/TaxExemptItem'
       x-internal: false
+      anyOf:
+        - $ref: '#/components/schemas/AmountBoundItem'
+        - $ref: '#/components/schemas/QuantityBoundItem'
+        - $ref: '#/components/schemas/TaxExemptItem'
+      x-examples: {}
     PaymentRequest:
       type: object
       properties:
@@ -2411,12 +2415,6 @@ components:
           type: boolean
           description: Whether the payment was marked as offline or performed through an online payment service.
           example: true
-      example: |-
-        {
-            "provider_id": "checkout_paypalexpress",
-            "amount": 9.99,
-            "offline": true
-        }
       title: Payment Request
       x-internal: false
     RefundMethod:
@@ -3173,55 +3171,6 @@ components:
                   $ref: '#/components/schemas/FailedQuoteError'
               meta:
                 $ref: '#/components/schemas/MetaRefund'
-          examples:
-            response:
-              value:
-                data:
-                  - id: 1
-                    order_id: 1
-                    user_id: 1
-                    created: ''
-                    reason: ''
-                    total_amount: 0.05
-                    total_tax: 1
-                    items:
-                      - item_type: PRODUCT
-                        item_id: 1
-                        reason: ''
-                        quantity: 1
-                        requested_amount: 1.99
-                    payments:
-                      - id: 1
-                        provider_id: storecredit
-                        amount: 0.05
-                        offline: true
-                        is_declined: true
-                        declined_message: ''
-                  - id: 2
-                    order_id: 100
-                    user_id: 1
-                    created: ''
-                    reason: ''
-                    total_amount: 0.05
-                    total_tax: 1
-                    items:
-                      - item_type: SHIPPING
-                        item_id: 1
-                        reason: ''
-                        quantity: 1
-                        requested_amount: 1.99
-                    payments:
-                      - id: 1
-                        provider_id: storecredit
-                        amount: 0.05
-                        offline: true
-                        is_declined: true
-                        declined_message: ''
-                errors: []
-                meta:
-                  failure: 0
-                  success: 2
-                  total: 2
     RefundQuote_Resp:
       description: ''
       content:
@@ -3233,19 +3182,6 @@ components:
                 $ref: '#/components/schemas/RefundQuote_Full'
               meta:
                 type: object
-          examples:
-            response:
-              value:
-                data:
-                  order_id: 1
-                  total_refund_amount: 1.99
-                  total_refund_tax_amount: 1.95
-                  rounding: 1
-                  adjustment: 0
-                  tax_inclusive: true
-                  refund_methods:
-                    - ''
-                meta: {}
     Refund_Resp:
       description: ''
       content:
@@ -3257,32 +3193,6 @@ components:
                 $ref: '#/components/schemas/Refund'
               meta:
                 type: object
-          examples:
-            response:
-              value:
-                data:
-                  id: 1
-                  order_id: 1
-                  user_id: 1
-                  created: ''
-                  reason: ''
-                  total_amount: 1.99
-                  total_tax: 1
-                  uses_merchant_override_values: false
-                  items:
-                    - item_type: HANDLING
-                      item_id: 1
-                      reason: ''
-                      quantity: 1
-                      requested_amount: 0.05
-                  payments:
-                    - id: 1
-                      provider_id: checkout_paypalexpress
-                      amount: 1.99
-                      offline: true
-                      is_declined: true
-                      declined_message: ''
-                meta: {}
     TransactionCollection_Resp:
       description: Response payload for the BigCommerce Order Transactions API.
       content:
@@ -3296,47 +3206,6 @@ components:
                   $ref: '#/components/schemas/Transaction'
               meta:
                 $ref: '#/components/schemas/metaCollection_Full'
-          examples:
-            response:
-              value:
-                data:
-                  - id: 85926313
-                    order_id: '121'
-                    event: purchase
-                    method: nonce
-                    amount: 1
-                    currency: USD
-                    gateway: squarev2
-                    gateway_transaction_id: pN5Kd7R9ilEI2ygBawCy7tMF|qwnAFAxRZ7tYRtIpZULg1yMF
-                    status: ok
-                    test: false
-                    fraud_review: false
-                    reference_transaction_id: {}
-                    date_created: '2018-05-08T15:06:12.000Z'
-                    avs_result:
-                      code: ''
-                      message: ''
-                      street_match: ''
-                      postal_match: ''
-                    cvv_result:
-                      code: ''
-                      message: ''
-                    credit_card: {}
-                    gift_certificate: {}
-                    store_credit: {}
-                    offline: {}
-                    custom: {}
-                    payment_instrument_token: {}
-                    payment_method_id: squarev2.card
-                meta:
-                  pagination:
-                    total: 1
-                    count: 1
-                    per_page: 50
-                    current_page: 1
-                    total_pages: 1
-                    links:
-                      current: '?page=1&limit=50'
     Transaction_Resp:
       description: Response payload for the BigCommerce Order Transactions API single transaction.
       content:
@@ -3393,31 +3262,6 @@ components:
                   $ref: '#/components/schemas/FailedQuoteError'
               meta:
                 $ref: '#/components/schemas/Meta'
-          examples:
-            response:
-              value:
-                data:
-                  - order_id: 1
-                    total_refund_amount: 0.05
-                    total_refund_tax_amount: 1.95
-                    rounding: 1
-                    adjustment: 0.05
-                    tax_inclusive: true
-                    refund_methods:
-                      - ''
-                  - order_id: 100
-                    total_refund_amount: 5
-                    total_refund_tax_amount: 0
-                    rounding: 0
-                    adjustment: 0
-                    tax_inclusive: false
-                    refund_methods:
-                      - ''
-                errors: []
-                meta:
-                  failure: 0
-                  success: 2
-                  total: 2
   parameters:
     OrderIdParam:
       name: order_id
