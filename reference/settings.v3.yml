@@ -1028,8 +1028,7 @@ paths:
 
          - Channel ID can be used as a query parameter for getting channel-specific setting. If omitted, you will interact with the global setting only. 
 
-         - `null` indicates that a particular 
-         field has not been overridden on a channel level when channel level settings are requested and values are inherited from global level.
+         - `null` indicates that a particular field has not been overridden on a channel level when channel level settings are requested and values are inherited from global level.
       responses:
         '200':
           description: OK. `null` indicates that a particular field has not been overridden on a channel level when channel level settings are requested
@@ -2118,11 +2117,7 @@ components:
           type: string
         store_address_type:
           $ref: '#/components/schemas/AddressTypeEnumValues'
-        store_country:
-          type: string
-          description: Only supports manipulation on a global level.
-      x-tags:
-        - Models
+      title: 'Store Profile'
     betaStorefrontStatus:
       title: ''
       type: object

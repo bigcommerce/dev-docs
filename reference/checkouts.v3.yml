@@ -4,7 +4,7 @@ info:
   title: Checkouts
   description: Create checkouts from existing carts using BigCommerce checkout logic.
 host: api.bigcommerce.com
-basePath: /
+basePath: null
 schemes:
   - https
 consumes:
@@ -675,6 +675,8 @@ paths:
       responses:
         '200':
           $ref: '#/responses/checkout_settings_resp'
+      description: Get checkout settings
+      summary: Get Checkout Settings
     put:
       tags:
         - Checkout Settings
@@ -685,9 +687,10 @@ paths:
         - name: body
           in: body
           required: true
-          description: ''
           schema:
             $ref: '#/definitions/CheckoutsSettingsRequest'
+      summary: Update Checkout Settings
+      description: Update checkout settings
     parameters:
       - type: string
         name: store_hash
