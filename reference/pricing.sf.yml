@@ -1,5 +1,5 @@
 swagger: '2.0'
-basePath: '/stores/{store_hash}/v3'
+basePath: /
 info:
   title: Pricing
   description: |-
@@ -22,11 +22,15 @@ info:
     | Products | read-only  | `store_v2_products_read_only` |
   version: ''
 paths:
-  /pricing/products:
+  '/stores/{store_hash}/v3/pricing/products':
     post:
       summary: Get Prices (Batch)
       operationId: get-prices
       parameters:
+        - name: store_hash 
+          type: string
+          in: path
+          required: true
         - name: body
           in: body
           required: true
