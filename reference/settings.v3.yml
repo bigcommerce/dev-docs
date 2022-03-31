@@ -2118,11 +2118,7 @@ components:
           type: string
         store_address_type:
           $ref: '#/components/schemas/AddressTypeEnumValues'
-        store_country:
-          type: string
-          description: Only supports manipulation on a global level.
-      x-tags:
-        - Models
+      title: 'Store Profile'
     betaStorefrontStatus:
       title: ''
       type: object
