@@ -73,7 +73,8 @@ For OAuth scope and implementation details, consult [Current Customer API](/api-
 
 ### Unauthenticated Storefront API endpoints
 
-The Storefront API allows you to make client-side requests for carts, checkouts, and orders using JavaScript or an alternative language that compiles to run in the browser. It is a convenience collection of operations that affect one customer at a time. These endpoints are unauthenticated and may be low-risk for your store's use case. You can perform authenticated versions of the same operations using GraphQL or the Store Management REST APIs.
+The Storefront API allows you to make client-side requests for carts, checkouts, and orders using JavaScript or an alternative language that compiles to run in the browser. It's a convenience collection of operations that affect one customer at a time. These endpoints are unauthenticated and may be low-risk for your store's use case. You can perform authenticated versions of the same operations using GraphQL or the Store Management REST APIs.
+
 
 
 ## Resources
