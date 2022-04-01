@@ -6,7 +6,7 @@ The BigCommerce suite of APIs allows you to create apps, automate store processe
 If you want to get started making API requests right away, check out the [Quick Start](/api-docs/getting-started/basics/making-requests) on making requests. 
 
 ## Available APIs
-BigCommerce has several different APIs that let you manage store data, authenticate customers, make client-side queries for product information, and more.
+BigCommerce has several APIs that let you manage store data, authenticate customers, make client-side queries for product information, and more.
 
 ### REST APIs (V2 & V3)
 BigCommerce's REST APIs (for example, the [Catalog API](/api-reference/catalog/catalog-api)) allow you to manage store data and take actions that mimic store administrator activity. Some example uses of the REST APIs are:
@@ -25,7 +25,7 @@ The [Storefront API](/api-reference/cart-checkout/storefront-cart-api) allows yo
 
 ### GraphQL API
 BigCommerce's [GraphQL API](/api-docs/storefront/graphql/graphql-storefront-api-overview) allows you to query product and customer data and store settings remotely or from a store's front end. Some use cases for this API are:
-* Pull a product's data with Javascript into a Stencil theme
+* Pull a product's data with JavaScript into a Stencil theme
 * Access customer data via the front end of a site
 * Fetch category and brand details from a store's front end
 

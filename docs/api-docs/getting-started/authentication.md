@@ -2,8 +2,7 @@
 
 BigCommerce offers a suite of APIs that let you manage store data, sign customers in, make client-side queries for product information, and write apps that integrate third-party services into store operations.
 
-Although each class of APIs configures authentication differently, they're all based on the OAuth2.0 standard.
-
+Although each class of APIs configures authentication differently, all BigCommerce authentication credentials have their roots in the OAuth2.0 standard.
 
 ## Class I: Store Management REST APIs
 
@@ -18,7 +17,7 @@ X-Auth-Token: {{access_token}}
 <!-- theme: info -->
 > Legacy API accounts used HTTP basic authentication. They are no longer available to new stores. [Learn more about migrating](/api-docs/getting-started/authentication/rest-api-authentication#migrating-from-legacy-to-oauth). 
 
-## Class II: GraphQL API
+## Class II: GraphQL APIs
 
 GraphQL API queries use JWT-style bearer tokens to authenticate. Consult the REST token generation endpoint that corresponds to your GraphQL use case to determine the required OAuth scope before you create a store management OAuth API account to request JWTs for your GraphQL queries. Pass the bearer token in the header of the query you want to authenticate. 
 
@@ -28,14 +27,14 @@ For more details, see [GraphQL API Authentication](/api-docs/storefront/graphql/
 Authorization: Bearer {{generated_jwt}}
 ```
 
-## Class III: App APIs
+## Class III: App-specific APIs
 
-Apps add novel ways of using BigCommerce store data and can connect third-party services to merchant stores. Apps authenticate with JWT access tokens. Create an app OAuth API account to enable your app to request and manage BigCommerce-generated JWTs on behalf of merchant stores. You can change the scope of an app OAuth API account at any time. When you modify the OAuth scope, BigCommerce will invalidate the API account's existing JWT access tokens. To generate new access tokens, BigCommerce will prompt your users to reauthorize the app so that they can accept the new OAuth scope.
+Apps add novel ways of using BigCommerce store data and can connect third-party services to merchant stores. Not only can apps use all store management REST APIs. Apps authenticate with access tokens that they generate during installation or in response to some app configuration changes. Create an app OAuth API account to enable your app to request and manage BigCommerce-generated access tokens on behalf of merchant stores. You can change the scope of an app OAuth API account at any time. When you modify the OAuth scope, BigCommerce will invalidate the API account's existing access tokens. To facilitate generating new access tokens, BigCommerce will prompt your users to reauthorize the app so that they can accept the new OAuth scope.
 
-For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/guide/intro). The sections on [Implementing OAuth](/api-docs/apps/guide/auth) and [Callback Handlers](/api-docs/apps/guide/callbacks) are particularly relevant.
+For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/guide/intro). The sections on [Implementing OAuth](/api-docs/apps/guide/auth) and [Callback Handlers](/api-docs/apps/guide/callbacks) are particularly relevant to generating access tokens.
 
 ```http title="App authentication header for store management APIs"
-X-Auth-Token: {{jwt_access_token}}
+X-Auth-Token: {{grant_code_generated_access_token}}
 ```
 
 ### Shipping Provider API
@@ -45,7 +44,7 @@ The Shipping Provider API connects a shipping service to stores and supports a r
 Learn more about working with the [Shipping Provider API](/api-docs/providers/shipping).
 
 ```http title="App authentication header for the Shipping Provider API"
-X-Auth-Token: {{jwt_access_token}}
+X-Auth-Token: {{grant_code_generated_access_token}}
 ```
 
 ### Tax Provider API
@@ -55,9 +54,8 @@ The Tax Provider API connects tax calculation and filing services to stores. You
 Learn more about working with the [Tax Provider API](/api-docs/providers/tax).
 
 ```http title="App authentication header for the Tax Provider API"
-X-Auth-Token: {{jwt_access_token}}
+X-Auth-Token: {{grant_code_generated_access_token}}
 ```
-
 
 ## Class IV: Storefront APIs
 ### Customer Login API
