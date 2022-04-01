@@ -44,7 +44,7 @@ The following endpoints provide extended functionality to channels.
 |[Currencies](/api-reference/store-management/currency-api)|Manage accepted currencies and their display|
 |[Coupons](/api-reference/store-management/marketing)|Manage coupons|
 |[Gift Certificates](/api-reference/store-management/marketing)|Manage gift certificates|
-|[Customer Login](/api-docs/customers/customer-login-api)|Use SSO to login customers|
+|[Customer Login](/api-docs/storefront/customer-login-api)|Use SSO to login customers|
 |[Current Customer](/api-docs/customers/current-customer-api)|Securely identify current customer|
 |[Order Payment Actions](/api-reference/orders/orders-transactions-api)|Authorize, capture, and void order payments|
 |[Order Transactions](/api-reference/orders/orders-transactions-api)|Get order payment transaction data|

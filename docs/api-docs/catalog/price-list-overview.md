@@ -13,7 +13,7 @@ Price lists will provide overridden price values to the Stencil storefront. You 
 
 ### OAuth scopes
 The following OAuth Scopes are required:
-* [Products](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes)
+* [Products](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
 
 ## Price list definitions
 * A **price list** is a collection of price records. Price records make up a price list.
