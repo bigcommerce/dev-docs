@@ -2,7 +2,8 @@
 
 BigCommerce offers a suite of APIs that let you manage store data, sign customers in, make client-side queries for product information, and write apps that integrate third-party services into store operations.
 
-Although each class of APIs configures authentication differently, they are all based on the OAuth2.0 standard.
+Although each class of APIs configures authentication differently, they're all based on the OAuth2.0 standard.
+
 
 ## Class I: Store Management REST APIs
 
