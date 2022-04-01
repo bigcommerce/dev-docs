@@ -30,9 +30,9 @@ BigCommerce's [GraphQL API](/api-docs/storefront/graphql/graphql-storefront-api-
 * Fetch category and brand details from a store's front end
 
 ### Customer Login API
-The [Customer Login API](/api-docs/storefront/customer-login-api) lets you programmatically log in customers to a BigCommerce storefront. Some use cases for this API are:
-* Log in customers to a BigCommerce store via a third-party system
-* Enable login using credentials other than email and password (i.e., using a phone number)
+The [Customer Login API](/api-docs/storefront/customer-login-api) lets you programmatically sign customers in to a BigCommerce storefront. Some use cases for this API are:
+* Sign customers in to a BigCommerce store from a third-party account or a headless storefront
+* Enable login using credentials other than email and password, such as a phone number
 * Integrate a BigCommerce store with an SSO provider
 
 
