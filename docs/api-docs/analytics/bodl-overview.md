@@ -9,6 +9,7 @@ The Big Open Data Layer (shortened as `BODL`, pronounced 'Bottle') is a JavaScri
 BigCommerce checks your storefront for a `BODL` instance once per page render. To ensure that the analytics providers you've chosen have the complete and correct set of data points they require, initialize a standard `BODL` instance with the following schema. If you want to make an alternate custom version of this data layer object with a unique schema, name it something else.
 
 <!-- theme: info -->
+> #### Custom BODL instances
 > When you create custom `BODL` instances, we recommend choosing clear, unique names that are easy to identify programmatically: for example, `BODL_YOUR_APP_NAME`.
 
 ### Standard BODL schema with Stencil object values
