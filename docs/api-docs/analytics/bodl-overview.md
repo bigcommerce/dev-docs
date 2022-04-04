@@ -37,7 +37,7 @@ Consult [Stencil object reference](/theme-objects) for more about object propert
 To get started using BODL data in your integration, consult the following example snippets. You can inject JavaScript snippets into a BigCommerce-hosted storefront using the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager?language=en_US) or the [Scripts API](/api-reference/store-management/scripts/scripts/createscript). The exact methods and syntax that each analytics engine provides vary, but these examples demonstrate way that BODL organizes information for your integration to capture. 
 
 ### Initialize script
-The following script extracts storefront data from the Stencil objects available in the front-end environment to construct a standard BODL object. In a headless environment, the GraphQL Storefront API can expose similar information.
+The following script extracts storefront data from the Stencil objects available in the front-end environment to construct a standard `BODL` object. In a headless environment, the GraphQL Storefront API can expose similar information.
 
 ```handlebars title="Sample Script Code Start: Initialization Script & Page Event" lineNumbers
 <script>
@@ -366,7 +366,7 @@ The following snippet executes when a shopper successfully subscribes to a newsl
 ```
 
 ### View category
-The following snippet collects data about the category that's currently part of the BODL instance.
+The following snippet collects data about the category that's currently part of the `BODL` instance.
 
 ```handlebars title="Sample Script Code Start: View Category Content" lineNumbers
 <script>
@@ -387,7 +387,7 @@ The following snippet collects data about the category that's currently part of 
 ```
 
 ### View product
-The following snippet collects data about the product that's currently part of the BODL instance.
+The following snippet collects data about the product that's currently part of the `BODL` instance.
 
 ```handlebars title="Sample Script Code Start: View Product Content" lineNumbers
 <script>
