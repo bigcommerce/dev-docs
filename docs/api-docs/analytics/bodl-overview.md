@@ -35,7 +35,7 @@ Consult [Stencil object reference](/theme-objects) for more about object propert
 | getQueryParamValue() | `name` |
 
 ## Script examples
-To get started using `BODL` data in your integration, consult the following example snippets. You can inject JavaScript snippets into a BigCommerce-hosted storefront using the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager?language=en_US) or the [Scripts API](/api-reference/store-management/scripts/scripts/createscript). The exact methods and syntax that each analytics engine provides vary, but these examples demonstrate way that `BODL` organizes information for your integration to capture. 
+To get started using `BODL` data in your integration, consult the following example snippets. You can inject JavaScript snippets into a BigCommerce-hosted storefront using the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager?language=en_US) or the [Scripts API](/api-reference/store-management/scripts/scripts/createscript). The exact methods and syntax that each analytics engine provides vary, but these examples demonstrate how `BODL` organizes information for your integration to capture. 
 
 ### Initialize script
 The following script extracts storefront data from the Stencil objects available in the front-end environment to construct a standard `BODL` object. In a headless environment, the GraphQL Storefront API can expose similar information.
@@ -106,7 +106,7 @@ The following script extracts storefront data from the Stencil objects available
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
   }
 
-  // Replace the following example with an analytics instantiation script for your engine of choice
+  // Replace the following example with an analytics instantiation script for your engine of choice.
   !function (w, d, t) {
     w.SampleAnalyticsObject=t;var sampleAnalyticsProvider=w[t]=w[t]||[];sampleAnalyticsProvider.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],sampleAnalyticsProvider.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<sampleAnalyticsProvider.methods.length;i++)sampleAnalyticsProvider.setAndDefer(sampleAnalyticsProvider,sampleAnalyticsProvider.methods[i]);sampleAnalyticsProvider.instance=function(t){for(var e=sampleAnalyticsProvider._i[t]||[],n=0;n<sampleAnalyticsProvider.methods.length;n++)sampleAnalyticsProvider.setAndDefer(e,sampleAnalyticsProvider.methods[n]);return e},sampleAnalyticsProvider.load=function(e,n){var i="https://analytics.sample.com/i18n/pixel/events.js";sampleAnalyticsProvider._i=sampleAnalyticsProvider._i||{},sampleAnalyticsProvider._i[e]=[],sampleAnalyticsProvider._i[e]._u=i,sampleAnalyticsProvider._t=sampleAnalyticsProvider._t||{},sampleAnalyticsProvider._t[e]=+new Date,sampleAnalyticsProvider._o=sampleAnalyticsProvider._o||{},sampleAnalyticsProvider._o[e]=n||{},sampleAnalyticsProvider._partner=sampleAnalyticsProvider._partner||"BigCommerce";var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
 
@@ -284,7 +284,7 @@ The following snippet executes when a shopper successfully creates a new account
 ```
 
 ### Search
-This snippet tracks when an end-user searches for products. Please take note that there is a built-in tracker for the category. However, we have commented out the tracker due to known distortions, which cause reporting of only the first category ID. Only reactivate if needed; use it at your own risk.
+This snippet tracks when an end-user searches for products. Please take note that there is a built-in tracker for the category. However, we have commented out the tracker due to known distortions, which cause reporting of only the first category ID. For this reason, we have not provided a search example snippet. Only reactivate if needed; use it at your own risk.
 
 
 
