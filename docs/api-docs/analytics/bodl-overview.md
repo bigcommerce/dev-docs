@@ -292,7 +292,7 @@ The following snippet is very similar to the preceding Order Complete snippet. I
 
 ```handlebars title="Sample Script Code Start: Start Checkout Event" lineNumbers
 <script>
-  fetch('/api/storefront/carts/{{cart_id}}', {
+  fetch('/api/storefront/checkouts/{{cart_id}}', {
     credentials: 'same-origin'
   })
   .then(function(response) {
