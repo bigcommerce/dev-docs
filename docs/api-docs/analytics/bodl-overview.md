@@ -4,7 +4,7 @@ This functionality is currently in beta. Share your feedback with us using the [
 
 ## Overview
 
-The Big Open Data Layer (shortened as `BODL`, pronounced 'Bottle') is a JavaScript object that exposes storefront data points to BigCommerce and third-party analytics integrations. Instantiating a standard `BODL` object on a BigCommerce-hosted or headless storefront can make the site faster and more efficient by allowing BODL to fetch the data all at once instead of each script independently fetching the same data.
+The Big Open Data Layer (shortened as `BODL`, pronounced 'Bottle') is a JavaScript object that exposes storefront data points to BigCommerce and third-party analytics integrations. Instantiating a standard `BODL` object on a BigCommerce-hosted or headless storefront makes the site more efficient and ensures that analytics providers have access to consistent, clean page data. Because `BODL` consolidates data of interest and presents it as a package, each analytics script does not need to independently fetch the same data.
 
 BigCommerce checks your storefront for a `BODL` instance once per page render. To ensure that the analytics providers you've chosen have the complete and correct set of data points they require, initialize a standard `BODL` instance with the following schema. If you want to make an alternate custom version of this data layer object with a unique schema, name it something else.
 
