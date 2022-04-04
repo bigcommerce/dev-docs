@@ -1,6 +1,6 @@
-# Big Open Data Layer (BODL) - BETA
+# Big Open Data Layer (BODL) - Open Beta
 
-This functionality is currently in BETA. Share your feedback with us via the [Partner Portal](https://partners.bigcommerce.com/). 
+This functionality is currently in beta. Share your feedback with us using the [Partner Portal](https://partners.bigcommerce.com/). 
 
 ## Overview
 
@@ -34,10 +34,10 @@ Consult [Stencil object reference](/theme-objects) for more about object propert
 | getQueryParamValue() | `name` |
 
 ## Script examples
-To get started using `BODL` data in your integration, consult the following example snippets. You can inject the snippets using the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager?language=en_US) or the [Scripts API](https://developer.bigcommerce.com/api-reference/b3A6MzU5MDQ5NDk-create-a-script).
+To get started using BODL data in your integration, consult the following example snippets. You can inject JavaScript snippets into a BigCommerce-hosted storefront using the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager?language=en_US) or the [Scripts API](/api-reference/store-management/scripts/scripts/createscript). The exact methods and syntax that each analytics engine provides vary, but these examples demonstrate way that BODL organizes information for your integration to capture. 
 
 ### Initialize script
-This script extracts storefront data from the Stencil objects available in the front-end environment to construct a standard `BODL` object.
+The following script extracts storefront data from the Stencil objects available in the front-end environment to construct a standard BODL object. In a headless environment, the GraphQL Storefront API can expose similar information.
 
 ```handlebars title="Sample Script Code Start: Initialization Script & Page Event" lineNumbers
 <script>
@@ -105,9 +105,9 @@ This script extracts storefront data from the Stencil objects available in the f
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
   }
 
-// For illustrative purposes only, replace with a reference to your library!
+  // Replace the following example with an analytics instantiation script for your engine of choice
   !function (w, d, t) {
-    w.SampleAnalyticsObject=t;var sampleAnalyticsProvider=w[t]=w[t]||[];sampleAnalyticsProvider.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],sampleAnalyticsProvider.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<sampleAnalyticsProvider.methods.length;i++)sampleAnalyticsProvider.setAndDefer(sampleAnalyticsProvider,sampleAnalyticsProvider.methods[i]);sampleAnalyticsProvider.instance=function(t){for(var e=sampleAnalyticsProvider._i[t]||[],n=0;n<sampleAnalyticsProvider.methods.length;n++)sampleAnalyticsProvider.setAndDefer(e,sampleAnalyticsProvider.methods[n]);return e},sampleAnalyticsProvider.load=function(e,n){var i="https://analytics.Sample.com/i18n/pixel/events.js";sampleAnalyticsProvider._i=sampleAnalyticsProvider._i||{},sampleAnalyticsProvider._i[e]=[],sampleAnalyticsProvider._i[e]._u=i,sampleAnalyticsProvider._t=sampleAnalyticsProvider._t||{},sampleAnalyticsProvider._t[e]=+new Date,sampleAnalyticsProvider._o=sampleAnalyticsProvider._o||{},sampleAnalyticsProvider._o[e]=n||{},sampleAnalyticsProvider._partner=sampleAnalyticsProvider._partner||"BigCommerce";var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+    w.SampleAnalyticsObject=t;var sampleAnalyticsProvider=w[t]=w[t]||[];sampleAnalyticsProvider.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],sampleAnalyticsProvider.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<sampleAnalyticsProvider.methods.length;i++)sampleAnalyticsProvider.setAndDefer(sampleAnalyticsProvider,sampleAnalyticsProvider.methods[i]);sampleAnalyticsProvider.instance=function(t){for(var e=sampleAnalyticsProvider._i[t]||[],n=0;n<sampleAnalyticsProvider.methods.length;n++)sampleAnalyticsProvider.setAndDefer(e,sampleAnalyticsProvider.methods[n]);return e},sampleAnalyticsProvider.load=function(e,n){var i="https://analytics.sample.com/i18n/pixel/events.js";sampleAnalyticsProvider._i=sampleAnalyticsProvider._i||{},sampleAnalyticsProvider._i[e]=[],sampleAnalyticsProvider._i[e]._u=i,sampleAnalyticsProvider._t=sampleAnalyticsProvider._t||{},sampleAnalyticsProvider._t[e]=+new Date,sampleAnalyticsProvider._o=sampleAnalyticsProvider._o||{},sampleAnalyticsProvider._o[e]=n||{},sampleAnalyticsProvider._partner=sampleAnalyticsProvider._partner||"BigCommerce";var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
 
     sampleAnalyticsProvider.load('<%= property_id %>');
     sampleAnalyticsProvider.page();
@@ -136,7 +136,7 @@ This script extracts storefront data from the Stencil objects available in the f
 
 ### Add to cart
 
-The following snippet handles the Add to Cart event by collecting data on each item added, including the product ID, the quantity added, and the price.
+The following snippet handles the Add to Cart event by capturing data about each item added, including the product ID, the quantity added, and the price.
 
 ```handlebars title="Sample Script Code Start: Product Detail Page Add to Cart Event" lineNumbers
 <script>
@@ -183,7 +183,7 @@ The following snippet handles the Add to Cart event by collecting data on each i
 ```
 
 ### Add to wishlist
-The following snippet handles the Add to Wishlist event. This snippet sends individual products specified by the `added_product_id` and a commented section regarding category data. 
+The following snippet handles the Add to Wishlist event. This snippet uses the `added_product_id` to capture data about the individual products a shopper adds to their wishlist. 
 
 ```handlebars title="Sample Script Code Start: Add to Wishlist" lineNumbers
 <script>
@@ -205,7 +205,7 @@ The following snippet handles the Add to Wishlist event. This snippet sends indi
 </script>
 ```
 ### Order complete
-This snippet uses the unauthenticated Storefront API to request the item objects from a completed order and concatenates them into a single array of physical items, digital items, and gift certificates.
+The following snippet uses the unauthenticated Storefront API to request the items from a completed order and concatenate them into a single array of physical items, digital items, and gift certificates.
 
 ```handlebars title="Sample Script Code Start: Purchase Event" lineNumbers
 <script>
@@ -272,8 +272,7 @@ This snippet uses the unauthenticated Storefront API to request the item objects
 ```
 
 ### Registration
-
-This snippet tracks account creation.
+The following snippet executes when a shopper successfully creates a new account. It initiates capture of any data the sample analytics provider collects about account registration.
 
 ```handlebars title="Sample Script Code Start: Registration" lineNumbers
 <script>
@@ -289,7 +288,7 @@ This snippet tracks when an end-user searches for products. Please take note tha
 
 
 ### Start checkout
-This snippet is very similar to the Order Complete snippet above in the formatting, grabbing information about all items in the cart, and separating them into physical items, digital items, and gift certificates.
+The following snippet is very similar to the preceding Order Complete snippet. It uses the unauthenticated Storefront API to request information from the [Get a checkout](/api-reference/storefront/checkouts/checkout/checkoutsbycheckoutidget) endpoint about the line items in a checkout and concatenate them into a single array of physical items, digital items, and gift certificates.
 
 ```handlebars title="Sample Script Code Start: Start Checkout Event" lineNumbers
 <script>
@@ -356,7 +355,7 @@ This snippet is very similar to the Order Complete snippet above in the formatti
 ```
 
 ### Subscribe to newsletter
-A snippet that tracks anytime the user successfully subscribes to a newsletter.
+The following snippet executes when a shopper successfully subscribes to a newsletter. It initiates capture of any data the sample analytics provider collects about newsletter subscription.
 
 ```handlebars title="Sample Script Code Start: Subscribe to Newsletter" lineNumbers
 <script>
@@ -367,7 +366,7 @@ A snippet that tracks anytime the user successfully subscribes to a newsletter.
 ```
 
 ### View category
-A snippet that tracks when the user views a category.
+The following snippet collects data about the category that's currently part of the BODL instance.
 
 ```handlebars title="Sample Script Code Start: View Category Content" lineNumbers
 <script>
@@ -388,7 +387,7 @@ A snippet that tracks when the user views a category.
 ```
 
 ### View product
-A snippet that tracks the viewing of a product.
+The following snippet collects data about the product that's currently part of the BODL instance.
 
 ```handlebars title="Sample Script Code Start: View Product Content" lineNumbers
 <script>
