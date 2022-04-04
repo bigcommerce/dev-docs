@@ -34,7 +34,7 @@ Consult [Stencil object reference](/theme-objects) for more about object propert
 | getQueryParamValue() | `name` |
 
 ## Script examples
-To get started using BODL data in your integration, consult the following example snippets. You can inject JavaScript snippets into a BigCommerce-hosted storefront using the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager?language=en_US) or the [Scripts API](/api-reference/store-management/scripts/scripts/createscript). The exact methods and syntax that each analytics engine provides vary, but these examples demonstrate way that BODL organizes information for your integration to capture. 
+To get started using `BODL` data in your integration, consult the following example snippets. You can inject JavaScript snippets into a BigCommerce-hosted storefront using the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager?language=en_US) or the [Scripts API](/api-reference/store-management/scripts/scripts/createscript). The exact methods and syntax that each analytics engine provides vary, but these examples demonstrate way that `BODL` organizes information for your integration to capture. 
 
 ### Initialize script
 The following script extracts storefront data from the Stencil objects available in the front-end environment to construct a standard `BODL` object. In a headless environment, the GraphQL Storefront API can expose similar information.
