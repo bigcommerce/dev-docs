@@ -44,6 +44,7 @@ A standard `BODL` instance contains the following calculated properties:
 |:---|:---|
 | category: object | name: string, products: array |
 | product: object | id: string, title: string, price: object |
+| customer: object |  |
 
 A standard `BODL` instance contains the following methods:
 
