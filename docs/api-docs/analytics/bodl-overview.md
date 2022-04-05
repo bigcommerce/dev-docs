@@ -135,7 +135,7 @@ The following script extracts storefront data from the Stencil objects available
 </script>
 ```
 
-### Add to cart
+## Add to cart
 
 The following snippet handles the Add to Cart event by capturing data about each item added, including the product ID, the quantity added, and the price.
 
@@ -183,7 +183,7 @@ The following snippet handles the Add to Cart event by capturing data about each
 </script>
 ```
 
-### Add to wishlist
+## Add to wishlist
 The following snippet handles the Add to Wishlist event. This snippet uses the `added_product_id` to capture data about the individual products a shopper adds to their wishlist. 
 
 ```handlebars title="Sample Script Code Start: Add to Wishlist" lineNumbers
@@ -205,12 +205,13 @@ The following snippet handles the Add to Wishlist event. This snippet uses the `
   }
 </script>
 ```
-### Order complete
+
+## Order complete
 The following snippet uses the unauthenticated Storefront API to request the items from a completed order and concatenate them into a single array of physical items, digital items, and gift certificates.
 
 ```handlebars title="Sample Script Code Start: Purchase Event" lineNumbers
 <script>
-  fetch('/api/storefront/order/{{checkout.order.id}}', {
+  fetch('/api/storefront/order/' + BODL.order.id, {
     credentials: 'same-origin'
   })
   .then(function(response) {
@@ -272,7 +273,7 @@ The following snippet uses the unauthenticated Storefront API to request the ite
 </script>
 ```
 
-### Registration
+## Registration
 The following snippet executes when a shopper successfully creates a new account. It initiates capture of any data the sample analytics provider collects about account registration.
 
 ```handlebars title="Sample Script Code Start: Registration" lineNumbers
@@ -355,7 +356,7 @@ The following snippet is very similar to the preceding Order Complete snippet. I
 </script>
 ```
 
-### Subscribe to newsletter
+## Subscribe to newsletter
 The following snippet executes when a shopper successfully subscribes to a newsletter. It initiates capture of any data the sample analytics provider collects about newsletter subscription.
 
 ```handlebars title="Sample Script Code Start: Subscribe to Newsletter" lineNumbers
@@ -366,7 +367,7 @@ The following snippet executes when a shopper successfully subscribes to a newsl
 </script>
 ```
 
-### View category
+## View category
 The following snippet collects data about the category that's currently part of the `BODL` instance.
 
 ```handlebars title="Sample Script Code Start: View Category Content" lineNumbers
@@ -387,7 +388,7 @@ The following snippet collects data about the category that's currently part of 
 </script>
 ```
 
-### View product
+## View product
 The following snippet collects data about the product that's currently part of the `BODL` instance.
 
 ```handlebars title="Sample Script Code Start: View Product Content" lineNumbers
