@@ -29,10 +29,6 @@ info:
 servers:
   - description: Production API Gateway
     url: 'https://api.bigcommerce.com'
-    variables:
-      store_hash:
-        default: abc123
-        description: Store hash used to identify the store.
 paths:
   '/stores/{store_hash}/v3/settings/analytics':
     get:
