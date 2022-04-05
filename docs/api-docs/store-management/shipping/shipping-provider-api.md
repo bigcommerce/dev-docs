@@ -59,7 +59,7 @@ Please include the following information:
 - Your email
 - [Your service URLs](#your-service-urls) 
 - [Whether you prefer single-carrier or multi-carrier status](#single-carrier-versus-multi-carrier-apps)
-- A description of the app: 500 characters max. Include a description you want to display to merchants in their stores 
+- A description of the app (500 characters max). This is the description you want to display to merchants in their stores 
   ![Example Shipping App Description](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/ShippingProviderDescription.PNG)
 
 ## Before development
