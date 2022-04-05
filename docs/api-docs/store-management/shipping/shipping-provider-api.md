@@ -54,13 +54,13 @@ To get your app set up and request a carrier ID, send an email to
 
 Please include the following information:
 
-- Your name
-- Your partner ID
+- Name of app (50 characters max)
 - Your app's ID
 - Your email
-- A description of the app
 - [Your service URLs](#your-service-urls) 
 - [Whether you prefer single-carrier or multi-carrier status](#single-carrier-versus-multi-carrier-apps)
+- A description of the app: 500 characters max. Include a description you want to display to merchants in their stores 
+  ![Example Shipping App Description](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/ShippingProviderDescription.PNG)
 
 ## Before development
 
