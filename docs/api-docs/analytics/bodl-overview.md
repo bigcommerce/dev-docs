@@ -302,12 +302,13 @@ The following snippet executes when a shopper successfully creates a new account
 </script>
 ```
 
-### Search
-This snippet tracks when an end-user searches for products. Please take note that there is a built-in tracker for the category. However, we have commented out the tracker due to known distortions, which cause reporting of only the first category ID. For this reason, we have not provided a search example snippet. Only reactivate if needed; use it at your own risk.
+## Search
 
+A search snippet can capture data about shoppers' searches for products. Our current working implementation contains distortions that limit data capture to only the first category ID in a search. For this reason, we have not provided a search example snippet.
 
+<!-- Please take note that there is a built-in tracker for the category. However, we have commented out the tracker due to known distortions, which cause reporting of only the first category ID. For this reason, we have not provided a search example snippet. Only reactivate if needed; use it at your own risk. -->
 
-### Start checkout
+## Start checkout
 The following snippet is very similar to the preceding Order Complete snippet. It uses the unauthenticated Storefront API to request information from the [Get a checkout](/api-reference/storefront/checkouts/checkout/checkoutsbycheckoutidget) endpoint about the line items in a checkout and concatenate them into a single array of physical items, digital items, and gift certificates.
 
 ```handlebars title="Sample Script Code Start: Start Checkout Event" lineNumbers
