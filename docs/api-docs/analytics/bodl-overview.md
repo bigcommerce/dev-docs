@@ -12,35 +12,49 @@ BigCommerce checks your storefront for a `BODL` instance once per page render. T
 > #### Custom BODL instances
 > When you create custom `BODL` instances, we recommend choosing clear, unique names that are easy to identify programmatically: for example, `BODL_YOUR_APP_NAME`.
 
-### Standard BODL schema with Stencil object values
+The first section that follows captures the standard `BODL` schema. The remainder provide example snippets for using the standard `BODL` object to supply data to third-party analytics engines. The exact methods and syntax that each analytics engine provides vary, but these examples demonstrate how `BODL` organizes information for your integration to capture. Consult the example snippets in this article to get started using `BODL` data in your integration. You can inject JavaScript snippets into a BigCommerce-hosted storefront using the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager?language=en_US) or the [Scripts API](/api-reference/store-management/scripts/scripts/createscript). 
 
-Consult [Stencil object reference](/theme-objects) for more about object properties.
+## Standard BODL schema with Stencil object values
 
-| BODL Property or Method | Stencil Object or Parameter |
-|---|---|
+The example [initialization script](#initialize-bodl) for the standard `BODL` schema adds properties and methods in two ways. First, it captures a set of values from Stencil objects. Then, it adds methods and constructs several additional properties using the Stencil values.
+
+Consult [Stencil object reference](/theme-objects) for more about object properties. In a headless environment, the GraphQL Storefront API can return similar information.
+
+| BODL Property | Stencil Object |
+|:---|:---|
 | breadcrumbs | [{{breadcrumbs}}](/theme-objects/breadcrumbs) |
 | brand | [{{brand}}](/theme-objects/brand) |
 | cartId | [{{cart_id}}](/theme-objects/cart_id) |
 | cartItemAdded | [{{cart.added_item}}](/theme-objects/carts) |
 | categoryProducts | [{{category.products}}](/theme-objects/category) |
 | categoryName | [{{category.name}}](/theme-objects/category) |
+| order | [{{order}}](/theme-objects/order) |
 | productId | [{{product.id}}](/theme-objects/product) |
 | productTitle | [{{product.title}}](/theme-objects/product) |
 | productCurrency | [{{product.price.without_tax.currency}}](/theme-objects/product) |
 | productPrice | [{{product.price.without_tax.value}}](/theme-objects/product) |
 | products | [{{products}}](/theme-objects/products) |
 | search | [{{product_results}}](/theme-objects/product_results) |
-| order | [{{order}}](/theme-objects/order) |
 | wishlist | [{{wishlist}}](/theme-objects/wishlist) |
 
-| getCartItemContentId() | `item` |
-| getQueryParamValue() | `name` |
 
-## Script examples
-To get started using `BODL` data in your integration, consult the following example snippets. You can inject JavaScript snippets into a BigCommerce-hosted storefront using the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager?language=en_US) or the [Scripts API](/api-reference/store-management/scripts/scripts/createscript). The exact methods and syntax that each analytics engine provides vary, but these examples demonstrate how `BODL` organizes information for your integration to capture. 
+A standard `BODL` instance contains the following calculated properties:
 
-### Initialize script
-The following script extracts storefront data from the Stencil objects available in the front-end environment to construct a standard `BODL` object. In a headless environment, the GraphQL Storefront API can expose similar information.
+| BODL Property | First-Level Child Properties | 
+|:---|:---|
+| category: object | name: string, products: array |
+| product: object | id: string, title: string, price: object |
+
+A standard `BODL` instance contains the following methods:
+
+| BODL Method | Parameter(s) | Parameter Properties | Return Value |
+|:---|:---|:---|:---|
+| getCartItemContentId | `item`: object | `item.type`: string, `item.product_id`: string | If the item is a gift certificate, returns the item's `type`. Otherwise, returns the item's `product_id`.  |
+| getQueryParamValue | `name`: string | **X** | Returns the value of the specified query parameter from the window's URL. |
+
+## Initialize BODL
+
+The following script extracts storefront data from the Stencil objects available in the front-end environment to construct a standard `BODL` object.
 
 ```handlebars title="Sample Script Code Start: Initialization Script & Page Event" lineNumbers
 <script>
