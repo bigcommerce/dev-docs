@@ -20,6 +20,8 @@ Consult [Stencil object reference](/theme-objects) for more about object propert
 |---|---|
 | breadcrumbs | [{{breadcrumbs}}](/theme-objects/breadcrumbs) |
 | brand | [{{brand}}](/theme-objects/brand) |
+| cartId | [{{cart_id}}](/theme-objects/cart_id) |
+| cartItemAdded | [{{cart.added_item}}](/theme-objects/carts) |
 | categoryProducts | [{{category.products}}](/theme-objects/category) |
 | categoryName | [{{category.name}}](/theme-objects/category) |
 | productId | [{{product.id}}](/theme-objects/product) |
@@ -30,7 +32,7 @@ Consult [Stencil object reference](/theme-objects) for more about object propert
 | search | [{{product_results}}](/theme-objects/product_results) |
 | order | [{{order}}](/theme-objects/order) |
 | wishlist | [{{wishlist}}](/theme-objects/wishlist) |
-| cartItemAdded | [{{cart.added_item}}](/theme-objects/carts) |
+
 | getCartItemContentId() | `item` |
 | getQueryParamValue() | `name` |
 
@@ -63,10 +65,11 @@ The following script extracts storefront data from the Stencil objects available
     {{inject "order" order}}
     // https://developer.bigcommerce.com/theme-objects/wishlist
     {{inject "wishlist" wishlist}}
-    // https://developer.bigcommerce.com/theme-objects/wishlist
-    {{inject "cartItemAdded" cart.added_item}}
+    // https://developer.bigcommerce.com/theme-objects/cart_id
+    {{inject "cartId" cart_id}}
     // https://developer.bigcommerce.com/theme-objects/cart
     // (Fetching selective cart data to prevent additional payment button object html from causing JS parse error)
+    {{inject "cartItemAdded" cart.added_item}}
   }
   var BODL = JSON.parse({{jsContext}});
 
