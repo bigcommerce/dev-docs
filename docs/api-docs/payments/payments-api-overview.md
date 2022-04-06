@@ -18,7 +18,7 @@ Process payments by making a sequence of requests to the following two API endpo
 
 BigCommerce is only responsible for the security of payment methods while the payment is en route from payment request to payment processor. As a third-party developer, you are responsible for developing your applications in a PCI-compliant manner. You will also need to maintain a PCI compliance certification for third-party service providers from an external Qualified Security Assessor (QSA).
 
-Merchants or shoppers' personal identifiable information (PII) collected by recurring billing apps that consume the BigCommerce Payments API must have its own Privacy Policy sufficient to the requirements of the European Union General Data Protection Requirements (GDPR). The GDPR must be available and displayed to the general public.
+Each recurring billing app that uses the BigCommerce Payments API and collects merchants or shoppers' personally identifiable information (PII) must have its own Privacy Policy sufficient to the requirements of the European Union General Data Protection Requirements (GDPR). The GDPR must be available and displayed to the general public.
 
 
 <!-- theme: warning -->
