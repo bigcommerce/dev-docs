@@ -19,6 +19,8 @@
     },
         "exclude": [
           "/README.md",
-          "CONTRIBUTING.md"
+          "CONTRIBUTING.md",
+          "pull_request_template_CODEOWNER.md",
+          "pull_request_template.md",
         ]
   }
