@@ -31,8 +31,8 @@ Other repositories that contain markdown files and static assets that appear on 
 ├── Gruntfile.js                       # grunt configuration file
 ├── package-lock.json                  # packages for grunt, linting, and spell checking
 ├── package.json                       # packages for grunt, linting, and spell checking
+├── pull_request_template_CODEOWNER.md # template for codeowner dev merges
 ├── pull_request_template.md           # template for most pull requests
-├── staging_master_pr_checklist.md     # template for codeowner dev merges
 └── toc.json                           # Stoplight Platform table of contents configuration file 
 ```
 
