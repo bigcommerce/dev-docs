@@ -3,8 +3,8 @@
 The Payments API enables you to process payments through the store’s connected payment gateway. Merchants can receive a payment for an order that was created using either the [Server to Server Checkout API Orders](/api-reference/store-management/checkouts) endpoint or the [V2 Orders](/api-reference/store-management/orders/orders/createanorder) endpoint.
 
 Process payments by making a sequence of requests to the following two API endpoints:
-* Create a payment token:  `https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens`
-* Process the payment:  `https://payments.bigcommerce.com/stores/{{store_hash}}/payments`
+* Create a payment token:  `https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/payments/access_tokens`
+* Process the payment:  `https://payments.bigcommerce.com/stores/{{STORE_HASH}}/payments`
 
 <!-- theme: success -->
 > #### Required OAuth scopes
@@ -98,7 +98,7 @@ There are three steps to using a stored card or PayPal account to make a payment
 This token is the same as `payment_instrument_token` from [Get Transactions](/api-reference/store-management/order-transactions).
 
 ```http title="Example request: Get payment methods" lineNumbers
-GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/methods?order_id={{order_id}}
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/payments/methods?order_id={{ORDER_ID}}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
@@ -184,7 +184,7 @@ Make a note of the `token` for the target payment method to use as part of proce
 2. Make a request to [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
 
 ```http title="Example request: Create payment access token" lineNumbers
-POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/payments/access_tokens
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -209,15 +209,15 @@ Accept: application/json
 
 <!-- theme: info -->
 > #### Authorization header
-> The `pat_token` is the `data.id` value returned in preceding step.
-> To be valid, the header value string must contain a space between "PAT" and the `{{pat_token}}`.
+> The `PAT_TOKEN` is the `data.id` value returned in preceding step.
+> To be valid, the header value string must contain a space between "PAT" and the `{{PAT_TOKEN}}`.
 
 To process a payment using a stored card, set the `type` to `stored_card`.
 
 ```http title="Example request: Process payment with a stored card" lineNumbers
-POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
+POST https://payments.bigcommerce.com/stores/{{STORE_HASH}}/payments
 Accept: application/vnd.bc.v1+json
-Authorization: PAT {{pat_token}}
+Authorization: PAT {{PAT_TOKEN}}
 Content-Type: application/json
 
 {
@@ -235,7 +235,7 @@ Content-Type: application/json
 To process a payment using a stored PayPal account, set the `type` to `stored_paypal_account`. 
 
 ```http title="Example request: Process payment and save PayPal account" lineNumbers
-POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
+POST https://payments.bigcommerce.com/stores/{{STORE_HASH}}/payments
 Accept: application/vnd.bc.v1+json
 Content-Type: application/json
 
@@ -274,7 +274,7 @@ There are two steps to using a credit card to make a payment.
 1. Make a request to [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
 
 ```http title="Example request: Create payment access token" lineNumbers
-POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/payments/access_tokens
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -301,14 +301,14 @@ Accept: application/json
 
 <!-- theme: info -->
 > #### Authorization header
-> The `pat_token` is the `data.id` value returned in preceding step.
-> To be valid, the header value string should contain a space between "PAT" and the `{{pat_token}}`.
+> The `PAT_TOKEN` is the `data.id` value returned in preceding step.
+> To be valid, the header value string should contain a space between "PAT" and the `{{PAT_TOKEN}}`.
 
 
 ```http title="Example request: Process payment with a credit card" lineNumbers
-POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
+POST https://payments.bigcommerce.com/stores/{{STORE_HASH}}/payments
 Accept: application/vnd.bc.v1+json
-Authorization: PAT {{pat_token}}
+Authorization: PAT {{PAT_TOKEN}}
 Content-Type: application/json
 
 {
@@ -345,9 +345,9 @@ The payments API allows developers to store a credit card while processing a pay
 When processing a credit card payment, set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk), it can store the credit card as part of the checkout.
 
 ```http title="Example request: Process payment and save credit card" lineNumbers
-POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
+POST https://payments.bigcommerce.com/stores/{{STORE_HASH}}/payments
 Accept: application/vnd.bc.v1+json
-Authorization: PAT {{pat_token}}
+Authorization: PAT {{PAT_TOKEN}}
 Content-Type: application/json
 
 {
@@ -372,7 +372,7 @@ It is possible to take payment for an order created using the [Orders API](/api-
 
 
 ```http title="Example request: Create an order" lineNumbers
-POST https://api.bigcommerce.com/stores/{{store_hash}}/v2/orders
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
