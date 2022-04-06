@@ -1,24 +1,34 @@
 {
-    "formats": {
-      "openapi": {
-        "rootDir": "reference",
-        "include": ["**"],
-      },
-      "markdown": {
-        "rootDir": "docs",
-        "include": ["**"]
-      },
-      "image": {
-        "rootDir": "assets/images",
-        "include": ["**"]
-      },
-      "json_schema": {
-        "rootDir": "models",
-        "include": ["**"]
-      }
+  "formats": {
+    "openapi": {
+      "rootDir": "reference",
+      "include": [
+        "**"
+      ]
     },
-        "exclude": [
-          "/README.md",
-          "CONTRIBUTING.md"
-        ]
-  }
+    "markdown": {
+      "rootDir": "docs",
+      "include": [
+        "**"
+      ]
+    },
+    "image": {
+      "rootDir": "assets/images",
+      "include": [
+        "**"
+      ]
+    },
+    "json_schema": {
+      "rootDir": "models",
+      "include": [
+        "**"
+      ]
+    }
+  },
+  "exclude": [
+    "README.md",
+    "CONTRIBUTING.md",
+    "pull_request_template_CODEOWNER.md",
+    "pull_request_template.md"
+  ]
+}
