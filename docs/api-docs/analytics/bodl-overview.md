@@ -1,6 +1,8 @@
-# Big Open Data Layer (BODL) - Open Beta
+# Big Open Data Layer (BODL) 
 
-This functionality is currently in beta. Share your feedback with us using the [Partner Portal](https://partners.bigcommerce.com/). 
+<!-- theme: info -->
+> #### Analytics tracking scripts
+> BigCommerce has enabled a data layer to allow developers to create analytics scripts to access data to track shopper behavior. We are developing this feature in the open to obtain your feedback. You can share your feedback with us using the [Partner Portal](https://partners.bigcommerce.com/). 
 
 ## Overview
 
@@ -44,7 +46,6 @@ A standard `BODL` instance contains the following calculated properties:
 |:---|:---|
 | category: object | name: string, products: array |
 | product: object | id: string, title: string, price: object |
-| customer: object |  |
 
 A standard `BODL` instance contains the following methods:
 
@@ -59,6 +60,10 @@ The following script extracts storefront data from the Stencil objects available
 
 ```handlebars title="Sample Script Code Start: Initialization Script & Page Event" lineNumbers
 <script>
+    {{inject "customerId" customer.id}}
+    {{inject "customerEmail" customer.email}}
+    {{inject "customerPhone" customer.phone}}
+  
   if (typeof BODL === 'undefined') {
     // https://developer.bigcommerce.com/theme-objects/breadcrumbs
     {{inject "breadcrumbs" breadcrumbs}}
@@ -89,6 +94,15 @@ The following script extracts storefront data from the Stencil objects available
   var BODL = JSON.parse({{jsContext}});
 
   if (BODL.categoryName) {
+  
+    if (BODL.customerId) {
+      BODL.customer = {
+        id: BODL.customerId,
+        email: BODL.customerEmail,
+        phone: BODL.customerPhone
+      }
+    }
+
     BODL.category = {
       name: BODL.categoryName,
       products: BODL.categoryProducts,
@@ -132,7 +146,7 @@ The following script extracts storefront data from the Stencil objects available
     sampleAnalyticsProvider.page();
 
     // Advanced Matching
-    if (BODL.customer && BODL.customer.id) {
+    if (BODL.customer) {
       var customerObj = {
         email: BODL.customer.email,
       }
@@ -304,9 +318,27 @@ The following snippet executes when a shopper successfully creates a new account
 
 ## Search
 
-A search snippet can capture data about shoppers' searches for products. Our current working implementation contains distortions that limit data capture to only the first category ID in a search. For this reason, we have not provided a search example snippet.
+A search snippet can capture data about shoppers' searches for products. 
 
-<!-- Please take note that there is a built-in tracker for the category. However, we have commented out the tracker due to known distortions, which cause reporting of only the first category ID. For this reason, we have not provided a search example snippet. Only reactivate if needed; use it at your own risk. -->
+```handlebars title="Sample Script Code Start: Search" lineNumbers
+<script>
+if (BODL.search) {
+  ttq.instance('<%= property_id %>').track('Search', {
+    query: BODL.getQueryParamValue('search_query'),
+    contents: BODL.search.products.map((p) => ({
+      content_id: p.id,
+      // Products can be in multiple categories.
+      // Commenting out as this might distort category reports if only the first one is used. 
+      content_name: p.name,
+      content_type: "product_group",
+      currency: p.price.without_tax.currency,
+      price: p.price.without_tax.value,
+      value: p.price.without_tax.value,
+    }))
+  });
+}
+</script>
+```  
 
 ## Start checkout
 The following snippet is very similar to the preceding Order Complete snippet. It uses the unauthenticated Storefront API to request information from the [Get a checkout](/api-reference/storefront/checkouts/checkout/checkoutsbycheckoutidget) endpoint about the line items in a checkout and concatenate them into a single array of physical items, digital items, and gift certificates.
@@ -425,3 +457,9 @@ The following snippet collects data about the product that's currently part of t
   }
 </script>
 ```
+## Resources
+
+### Related Articles
+
+* [Template Object Reference](https://developer.bigcommerce.com/theme-objects/c2NoOjM3Nzg5MDQ5-config-json) 
+* [Theme Objects](https://developer.bigcommerce.com/stencil-docs/ZG9jOjEzODY0ODAw)
