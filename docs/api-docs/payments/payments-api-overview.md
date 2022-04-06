@@ -269,6 +269,10 @@ There are two steps to using a credit card to make a payment.
 1. [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost)
 2. [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
 
+<!-- theme: info -->
+> #### Implementation note
+> Attempting to process a payment through the API using the full credit card information may fail if the card issuer requires 3DS authentication. In that case, the card must be saved through a shopper-initiated transaction before it can be charged using the Payments API. 
+
 ### Create an access token
 1. Make a request to [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
 
