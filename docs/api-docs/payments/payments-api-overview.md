@@ -8,8 +8,7 @@ Process payments by making a sequence of requests to the following two API endpo
 
 <!-- theme: success -->
 > #### Required OAuth scopes
-> * `Create Payments`
-> * `Get Payment Methods`
+> Consult the [Payments API Reference](/api-reference/store-management/payment-processing) to determine which OAuth permission scopes your application's [API Account](/api-docs/getting-started/authentication/rest-api-authentication) needs.
 > Learn more about BigCommerce API [OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
