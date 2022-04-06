@@ -1980,21 +1980,18 @@ components:
     StoreProfile:
       description: 'The basic profile settings for a store, used to give the shopper information about the business from which they are purchasing.'
       type: object
+      x-internal: false
       properties:
         store_address:
           type: string
         store_address_type:
           $ref: '#/components/schemas/AddressTypeEnumValues'
-        store_country:
-          description: Only supports manipulation on a global level.
-          type: string
         store_email:
           type: string
         store_name:
           type: string
         store_phone:
           type: string
-      x-internal: false
     StorefrontCategorySettings:
       type: object
       properties:
