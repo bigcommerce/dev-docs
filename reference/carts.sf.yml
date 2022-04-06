@@ -250,7 +250,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/deleteCartsItems'
-  '/cart/{cartId}/currency':
+  '/carts/{cartId}/currency':
     post:
       tags:
         - Cart Currency
@@ -258,7 +258,7 @@ paths:
       description: |-
         Update currency of the *Cart*. 
         Promotions and gift certificates that don't apply to the new currency will be removed from your cart.
-        The cart currency would not be able to update if the draft order cart or the cart contains manual discount.
+        You cannot update the cart currency if the draft order cart or the cart contains a manual discount.
 
         <!-- theme: info -->
         > #### Note
