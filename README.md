@@ -6,16 +6,20 @@ OpenAPI Specifications, Swagger, and JSON schema used to generate the human-read
 
 ```shell
 .
-├── circleci             # config for circleci job that runs openapi linter
-    └── config.yml       # - docs: https://meta.stoplight.io/docs/spectral
-├── doc                  # markdown files
-├── models               # yaml schema for various objects
+├── .circleci                          # config for circleci job that runs openapi linter
+    └── config.yml                     # - docs: https://meta.stoplight.io/docs/spectral
+├── docs                               # markdown files
+├── models                             # yaml schema for various objects
     ├── ...
-    └── json2schema.py   # script to easily convert json data to yaml schema
-├── reference            # openapi specification files
-├── .spectral.yaml       # config for stoplight spectral openapi linter
-└── .stoplight.json      # stoplight platform configuration file
-                         # - docs: https://meta.stoplight.io/docs/platform/
+    └── json2schema.py                 # script to easily convert json data to yaml schema
+├── reference                          # openapi specification files
+├── .gitignore                         # gitignore
+├── .spectral.yaml                     # config for stoplight spectral openapi linter
+├── .stoplight.json                    # Stoplight Platform edit view configuration file
+├── CONTRIBUTING.md                    # guidelines for contribution
+├── pull_request_template_CODEOWNER.md # template for codeowner dev merges
+├── pull_request_template.md           # template for most pull requests
+└── toc.json                           # Stoplight Platform table of contents configuration file 
 ```
 
 ## Contributing
