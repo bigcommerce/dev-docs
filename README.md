@@ -17,8 +17,8 @@ OpenAPI Specifications, Swagger, and JSON schema used to generate the human-read
 ├── .spectral.yaml                     # config for stoplight spectral openapi linter
 ├── .stoplight.json                    # Stoplight Platform edit view configuration file
 ├── CONTRIBUTING.md                    # guidelines for contribution
+├── pull_request_template_CODEOWNER.md # template for codeowner dev merges
 ├── pull_request_template.md           # template for most pull requests
-├── staging_master_pr_checklist.md     # template for codeowner dev merges
 └── toc.json                           # Stoplight Platform table of contents configuration file 
 ```
 
