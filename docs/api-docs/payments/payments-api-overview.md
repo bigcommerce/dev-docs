@@ -13,25 +13,61 @@ Process payments by making a sequence of requests to the following two API endpo
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
 
+You can process payments charged to either of two main forms of payment: [stored payment instruments](#stored-cards-and-paypal-accounts) or [new cards](#credit-cards), which weren't previously saved.  The API flow does not currently support hosted, offsite, or wallet-type providers, such as Amazon Pay.
+
 ## PCI compliance
 
 BigCommerce is only responsible for the security of payment methods while the payment is en route from payment request to payment processor. As a third-party developer, you are responsible for developing your applications in a PCI-compliant manner. You will also need to maintain a PCI compliance certification for third-party service providers from an external Qualified Security Assessor (QSA).
 
 Each recurring billing app that uses the BigCommerce Payments API and collects merchants or shoppers' personally identifiable information (PII) must have its own Privacy Policy sufficient to the requirements of the European Union General Data Protection Requirements (GDPR). The GDPR must be available and displayed to the general public.
 
-
 <!-- theme: warning -->
 > #### PCI compliance
 > If your application handles credit card data, you will need to be PCI-compliant. Submit self-assessment questionnaires (**SAQs**) to [compliance@bigcommerce.com](mailto:compliance@bigcommerce.com).
 
-## Processing a payment
+## Compatible payment gateways
 
-You can process payments charged to either of two main forms of payment: new payment instruments or stored instruments. For a list of supported payment gateways and their feature sets, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available). 
+The following table lists the payment gateways that are compatible with our public Payments API. Note that not all gateways support charges to both new and stored payment instruments.
 
-<!-- theme: info -->
-> #### Notes
-> * Attempting to process a payment through the API using the full credit card information may fail if the provider requires 3DS authentication. The card must be saved through a shopper-initiated transaction before it can be charged through the Payments API. 
-> * The API flow does not currently support hosted, offsite, or wallet-type providers, such as Amazon Pay.
+| Payment Gateway   | Stored instruments | New instruments |
+|:------------------|:------------------:|:---------------:|
+| Adyen             |       | **x** |
+| AdyenV2           | **x** |       |
+| Authorize.net     | **x** | **x** |
+| Barclaycard Fuse  | **x** | **x** |
+| Bolt              | **x** | **x** |
+| CardConnect       |       | **x** |
+| Chase Integrated Payments  |       | **x** |
+| Chase Merchant Services    | **x** |       |
+| Chase Merchant Services (Orbital) |       | **x** |
+| Checkout.com      | **x** | **x** |
+| Cybersource       | **x** | **x** |
+| Eway Rapid        |       | **x** |
+| First Data Payeezy Gateway |       | **x** |
+| Heartland Payment Systems  |       | **x** | 
+| MIGS              |       | **x** |
+| Mollie            | **x** |       |
+| Moneris           | **x** | **x** |
+| MyVirtualMerchant | **x** | **x** |
+| NMI               |       | **x** |
+| Paymetric         | **x** | **x** |
+| PayPal (Commerce Platform)  |       | **x** |
+| PayPal Powered by Braintree | **x** | **x** |
+| PayPal Payments Pro (Payflow Edition) UK |       | **x** |
+| PayPal Payments Pro (Payflow Edition) US |       | **x** |
+| QuickBooks Payments         |       | **x** |
+| Sage Pay/Protx VSP Direct   |       | **x** |
+| SecureNet        |       | **x** |
+| Stripe           | **x** | **x** |
+| StripeV3         | **x** | **x** |
+| USA ePay         |       | **x** |
+| Vantiv           |       | **x** |
+| Vantiv Core      |       | **x** |
+| Windcave         |       | **x** |
+| Worldpay         |       | **x** |
+| Worldpay Core    |       | **x** |
+
+To learn more about the BigCommerce-compatible features of these gateways, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available). 
 
 ## Stored cards and PayPal accounts
 
@@ -41,54 +77,22 @@ There are three steps to using a stored card or PayPal account to make a payment
 2. [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost)
 3. [Process Payment](/api-reference/store-management/payment-processing/process-payment/paymentspost)
 
+Before starting development, you should verify that the store and payment gateway are both able to make charges to stored payment instruments.
 
-<!-- theme: info -->
-> #### Requirements for stored cards
-> * Your store must be on a Plus plan or higher.
-> * Your store must use Optimized One-Page Checkout.
-> * Your store must use a compatible payment gateway.
+### Prerequisites for charging stored payment instruments
 
-#### Payment gateways supported for stored and non-stored cards processed through the API:
+To use stored payment instruments with the Payments API or the Checkout SDK, both the payment gateway and the store must be compatible.
 
-|Payment Gateways | Stored cards | Non-stored cards |
-|- | - | - |
-| Adyen |  | X |
-| AdyenV2 | X |  |
-| Authorize.net | X | X |
-| Barclaycard Fuse | X | X |
-| Bolt | X | X |
-| CardConnect |   | X  |
-| Chase Integrated Payments |  |  X |
-| Chase Merchant Services | X |  |
-| Chase Merchant Services (Orbital) |  | X |
-| Checkout.com | X | X |
-| Cybersource  | X | X |
-| Eway Rapid   |   | X |
-| First Data Payeezy Gateway |  | X |
-| Heartland Payment Systems  |  | X | 
-| MIGS       |  | X |
-| Mollie       | X |  |
-| Moneris      | X | X |
-| MyVirtualMerchant | X | X  |
-| NMI |  | X |
-| Paymetric | X | X |
-| PayPal (Commerce Platform) | | X  |
-| PayPal Powered by Braintree | X | X |
-| PayPal Payments Pro (Payflow Edition) UK |   | X |
-| PayPal Payments Pro (Payflow Edition) US |  | X |
-| QuickBooks Payments |  | X |
-| Sage Pay/Protx VSP Direct |   | X |
-| SecureNet |  | X |
-| Stripe | X  | X |
-| StripeV3 | X | X |
-| USA ePay |    | X |
-| Vantiv |    | X |
-| Vantiv Core |    | X |
-| Windcave |    | X |
-| Worldpay |    | X |
-| Worldpay Core |    | X |
+The payment gateway must support making charges to **stored payment instruments**. Consult our table of [compatible payment gateways](#compatible-payment-gateways) to verify that your gateway is listed or select one that is.
 
-To use stored cards with the Payments API or the Checkout SDK, make sure you enable stored cards in the store's control panel. To enable stored credit cards on your storefront, navigate to **Store Setup › Payments**, and click the tab for your payment gateway. Toggle the switch to enable Stored Credit Cards and click **Save**. For more on enabling stored payment methods, see [Enabling Stored Payment Methods](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards).
+The store must:
+* be on a BigCommerce Plus plan or higher;
+* use Optimized One-Page Checkout;
+* have stored credit cards enabled.
+
+Use the store's control panel to enable charging stored credit cards. Navigate to **Store Setup › Payments** and click the tab for your payment gateway. Toggle the switch to enable Stored Credit Cards and click **Save**. For more on enabling stored payment methods, see [Enabling Stored Payment Methods](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards).
+
+### Charging stored instruments
 
 There are three steps to using a stored card or PayPal account to make a payment.
 
@@ -269,6 +273,9 @@ There are two steps to using a credit card to make a payment.
 1. [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost)
 2. [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
 
+The payment gateway your application uses must support making charges to **new payment instruments**. Before beginning development, consult our table of [compatible payment gateways](#compatible-payment-gateways) to verify that your gateway is listed or select one that is.
+
+
 <!-- theme: info -->
 > #### Implementation note
 > Attempting to process a payment through the API using the full credit card information may fail if the card issuer requires 3DS authentication. In that case, the card must be saved through a shopper-initiated transaction before it can be charged using the Payments API. 
@@ -343,7 +350,7 @@ If the purchase was successful, the response returns a status of success. The or
 
 ### Storing credit cards
 
-The payments API allows developers to store a credit card while processing a payment.
+The Payments API allows developers to store a credit card while processing a payment.
 
 When processing a credit card payment, set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk), it can store the credit card as part of the checkout.
 
