@@ -14,13 +14,7 @@ x-stoplight:
     showModels: false
 servers:
   - url: 'https://api.bigcommerce.com'
-    variables:
-      $$.env.store_hash:
-        default: store_hash
   - url: 'https://payments.bigcommerce.com'
-    variables:
-      $$.env.store_hash:
-        default: store_hash
 security:
   - X-Auth-Client: []
   - X-Auth-Token: []
@@ -33,10 +27,7 @@ paths:
       operationId: PaymentsPost
       description: 'Process payments for an order. See [Payment Processing](/api-docs/store-management/payment-processing) for more information.'
       servers:
-        - url: 'https://payments.bigcommerce.com/stores/{$$.env.store_hash}'
-          variables:
-            $$.env.store_hash:
-              default: store_hash
+        - url: 'https://payments.bigcommerce.com'
       parameters:
         - name: Authorization
           in: header
@@ -44,7 +35,7 @@ paths:
           description: 'Authorization header with a valid payment access token is required to access this endpoint e.g. Authorization: PAT a-valid-payment-access-token'
           schema:
             type: string
-            example: 'PAT {PAT} '
+            example: 'PAT {{PAT}}'
         - name: Accept
           in: header
           schema:
@@ -335,7 +326,7 @@ paths:
       description: |-
         This endpoint provides the capability to create a payment access token. The payment access token is required when making request to Payment API for submitting payment for an order.
 
-        After the token is created then use the token to [Process Payments](/api-reference/payments/payments-process-payments/payment/paymentspost).
+        After the token is created, use the token to [Process Payments](/api-reference/payments/payments-process-payments/payment/paymentspost).
 
         **Required Fields**
         * order_id
@@ -344,10 +335,7 @@ paths:
         - Access Tokens
       operationId: PaymentsAccessTokensPost
       servers:
-        - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3'
-          variables:
-            $$.env.store_hash:
-              default: store_hash
+        - url: 'https://api.bigcommerce.com'
       deprecated: false
       parameters:
         - name: Accept
@@ -634,10 +622,7 @@ paths:
         - Accepted Methods
       operationId: PaymentsMethodsGet
       servers:
-        - url: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v3'
-          variables:
-            $$.env.store_hash:
-              default: store_hash
+        - url: 'https://api.bigcommerce.com'
       deprecated: false
       parameters:
         - name: order_id
@@ -952,22 +937,23 @@ components:
         |Header|Parameter|Description|
         |-|-|-|
         |`X-Auth-Token`|`ACCESS_TOKEN`|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-        |`Authorization`|`{PAYMENT_ACCESS_TOKEN}`|Obtained using Create Access Token endpoint.|
+        |`Authorization`|`PAT {{PAYMENT_ACCESS_TOKEN}}`|Obtained using Create Access Token endpoint.|
 
-        ### Example
+        ### Examples
 
-        ```http
-        POST /stores/{$$.env.store_hash}/v3/payments/access_tokens
+        ```http title="Create payment access token"
+        POST /stores/{{STORE_HASH}}/v3/payments/access_tokens
         host: api.bigcommerce.com
         Content-Type: application/json
-        X-Auth-Token: {ACCESS_TOKEN}
+        X-Auth-Token: {{ACCESS_TOKEN}}
         ```
-
-        ```http
+        &nbsp;
+        ```http title="Process payment"
         POST /payments
         host: payments.bigcommerce.com
         Content-Type: application/json
-        Authorization: {PAYMENT_ACCESS_TOKEN}
+        Accept: application/vnd.bc.v1+json
+        Authorization: PAT {{PAYMENT_ACCESS_TOKEN}}
         ```
 
         * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
