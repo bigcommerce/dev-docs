@@ -154,4 +154,4 @@ If you are ready to apply your custom template to the live BigCommerce storefron
 
 ### Additional Resources
 
-* [Custom Templates Video Demo](https://www.youtube.com/watch?v=qgaDX7bhmd8) (YouTube)
+* [Custom Templates Video Demo](//youtube.com/watch?v=qgaDX7bhmd8) (YouTube)
