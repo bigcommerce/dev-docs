@@ -283,6 +283,9 @@ paths:
                         phone: '707070707'
                         postal_code: '33333'
                         state_or_province: California
+                        form_fields: 
+                        - name: "test"
+                          value: "test"
                     authentication:
                       force_password_reset: true
                       new_password: string123
@@ -3292,10 +3295,12 @@ components:
           description: The country name of the customer address.
           type: string
         form_fields:
-          description: Array of form fields. Controlled by `formfields` parameter.
-          type: array
-          items:
-            $ref: '#/components/schemas/formFieldValue_Full'
+                description: Array of form fields. Controlled by `formfields` parameter.
+                type: array
+                items:
+                  allOf:
+                    - $ref: "#/components/schemas/formFieldValue"
+                  title: 'Customer Address Form Field Value'
       required:
         - first_name
         - last_name

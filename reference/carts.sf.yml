@@ -250,6 +250,51 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/deleteCartsItems'
+  '/carts/{cartId}/currency':
+    post:
+      tags:
+        - Cart Currency
+      summary: Update Cart currency
+      description: |-
+        Update currency of the *Cart*. 
+        Promotions and gift certificates that don't apply to the new currency will be removed from your cart.
+        You cannot update the cart currency if the draft order cart or the cart contains a manual discount.
+
+        <!-- theme: info -->
+        > #### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
+      operationId: addCartCurrency
+      parameters:
+        - name: cartId
+          in: path
+          description: This cart's unique ID.
+          required: true
+          schema:
+            type: string
+            format: UUID
+      responses:
+        '200':
+          $ref: '#/components/responses/getCarts'
+        '400':
+          description: 'Bad request. Authentication Required.'
+        '404':
+          description: 'Currency not found'
+        '422': 
+          description: 'Missing or invalid data'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: Cart Currency Request Data
+              required:
+                - currencyCode
+              type: object
+              properties:
+                currencyCode:
+                  type: string
+                  description: currency code
+              x-internal: false
+        description: ''
 components:
   schemas:
     responseCartCoupons:
