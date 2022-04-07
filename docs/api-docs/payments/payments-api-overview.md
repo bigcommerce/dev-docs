@@ -31,41 +31,41 @@ The following table lists the payment gateways that are compatible with our publ
 
 | Payment Gateway   | Stored instruments | New instruments |
 |:------------------|:------------------:|:---------------:|
-| Adyen             |       | **x** |
-| AdyenV2           | **x** |       |
-| Authorize.net     | **x** | **x** |
-| Barclaycard Fuse  | **x** | **x** |
-| Bolt              | **x** | **x** |
-| CardConnect       |       | **x** |
-| Chase Integrated Payments  |       | **x** |
-| Chase Merchant Services    | **x** |       |
-| Chase Merchant Services (Orbital) |       | **x** |
-| Checkout.com      | **x** | **x** |
-| Cybersource       | **x** | **x** |
-| Eway Rapid        |       | **x** |
-| First Data Payeezy Gateway |       | **x** |
-| Heartland Payment Systems  |       | **x** | 
-| MIGS              |       | **x** |
-| Mollie            | **x** |       |
-| Moneris           | **x** | **x** |
-| MyVirtualMerchant | **x** | **x** |
-| NMI               |       | **x** |
-| Paymetric         | **x** | **x** |
-| PayPal (Commerce Platform)  |       | **x** |
-| PayPal Powered by Braintree | **x** | **x** |
-| PayPal Payments Pro (Payflow Edition) UK |       | **x** |
-| PayPal Payments Pro (Payflow Edition) US |       | **x** |
-| QuickBooks Payments         |       | **x** |
-| Sage Pay/Protx VSP Direct   |       | **x** |
-| SecureNet        |       | **x** |
-| Stripe           | **x** | **x** |
-| StripeV3         | **x** | **x** |
-| USA ePay         |       | **x** |
-| Vantiv           |       | **x** |
-| Vantiv Core      |       | **x** |
-| Windcave         |       | **x** |
-| Worldpay         |       | **x** |
-| Worldpay Core    |       | **x** |
+| Adyen             |       | &times; |
+| AdyenV2           | &times; |       |
+| Authorize.net     | &times; | &times; |
+| Barclaycard Fuse  | &times; | &times; |
+| Bolt              | &times; | &times; |
+| CardConnect       |       | &times; |
+| Chase Integrated Payments  |       | &times; |
+| Chase Merchant Services    | &times; |       |
+| Chase Merchant Services (Orbital) |       | &times; |
+| Checkout.com      | &times; | &times; |
+| Cybersource       | &times; | &times; |
+| Eway Rapid        |       | &times; |
+| First Data Payeezy Gateway |       | &times; |
+| Heartland Payment Systems  |       | &times; | 
+| MIGS              |       | &times; |
+| Mollie            | &times; |       |
+| Moneris           | &times; | &times; |
+| MyVirtualMerchant | &times; | &times; |
+| NMI               |       | &times; |
+| Paymetric         | &times; | &times; |
+| PayPal (Commerce Platform)  |       | &times; |
+| PayPal Powered by Braintree | &times; | &times; |
+| PayPal Payments Pro (Payflow Edition) UK |       | &times; |
+| PayPal Payments Pro (Payflow Edition) US |       | &times; |
+| QuickBooks Payments         |       | &times; |
+| Sage Pay/Protx VSP Direct   |       | &times; |
+| SecureNet        |       | &times; |
+| Stripe           | &times; | &times; |
+| StripeV3         | &times; | &times; |
+| USA ePay         |       | &times; |
+| Vantiv           |       | &times; |
+| Vantiv Core      |       | &times; |
+| Windcave         |       | &times; |
+| Worldpay         |       | &times; |
+| Worldpay Core    |       | &times; |
 
 To learn more about the BigCommerce-compatible features of these gateways, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available). 
 
