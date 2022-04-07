@@ -3069,12 +3069,31 @@ components:
           schema:
             type: object
             properties:
-              cart_url:
-                type: string
-                format: url
-              checkout_url:
-                type: string
-                format: url
+              data:
+                type: object
+                properties:
+                  cart_url:
+                    type: string
+                    format: url
+                    example: 'https://store.mybigcommerce.com/cart.php?action=load&id=0aa00afa-a000-00a0-00aae-aa0000f000a0&token=00aaaaa0aa0000000000a000a000f0aa0000afa00aa00afa0a000000000aa0a0'
+                  checkout_url:
+                    type: string
+                    example: 'https://store.mybigcommerce.com/cart.php?action=loadInCheckout&id=1ea11efe-b111-11d1-11ee-cd1110f111b1&token=00aaaaa0aa0000000000a000a000f0aa0000afa00aa00afa0a000000000aa0a0'
+                    format: Url
+                  embedded_checkout_url:
+                    type: string
+                    example: 'https://store.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=0aa00afa-a000-00a0-00aae-aa0000f000a0&token=00aaaaa0aa0000000000a000a000f0aa0000afa00aa00afa0a000000000aa0a0'
+                    format: url
+              meta:
+                type: object
+          examples:
+            example-1:
+              value:
+                data:
+                  cart_url: 'https://store.mybigcommerce.com/cart.php?action=load&id=0aa00afa-a000-00a0-00aae-aa0000f000a0&token=00aaaaa0aa0000000000a000a000f0aa0000afa00aa00afa0a000000000aa0a0'
+                  checkout_url: 'https://store.mybigcommerce.com/cart.php?action=loadInCheckout&id=1ea11efe-b111-11d1-11ee-cd1110f111b1&token=00aaaaa0aa0000000000a000a000f0aa0000afa00aa00afa0a000000000aa0a0'
+                  embedded_checkout_url: 'https://store.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=0aa00afa-a000-00a0-00aae-aa0000f000a0&token=00aaaaa0aa0000000000a000a000f0aa0000afa00aa00afa0a000000000aa0a0'
+                meta: {}
   parameters:
     Accept:
       in: header
