@@ -18600,10 +18600,6 @@ paths:
           in: query
           schema:
             type: string
-        - name: 'keyword:like'
-          in: query
-          schema:
-            type: string
         - name: is_visible
           in: query
           schema:
