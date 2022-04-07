@@ -57,7 +57,7 @@ Learn more about working with the [Tax Provider API](/api-docs/providers/tax).
 X-Auth-Token: {{grant_code_generated_access_token}}
 ```
 
-## Class IV: Storefront APIs
+## Class IV: Storefront REST APIs
 ### Customer Login API
 
 The Customer Login API facilitates alternative sign-in methods by letting your app generate JWTs that authenticate customers to BigCommerce's servers. Create an app OAuth API account to use the Customer Login API for single sign-on.
