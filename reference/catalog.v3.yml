@@ -54,6 +54,7 @@ tags:
   - name: Brand Metafields
   - name: Category
   - name: Categories
+  - name: Categories Batch
   - name: Category Metafields
   - name: Category Images
   - name: Product Sort Order
@@ -74,6 +75,8 @@ tags:
   - name: Product Variant Options
   - name: Product Variant Option Values
   - name: Product Videos
+  - name: Products Channel Assignments
+  - name: Products Category Assignments
   - name: Summary
   - name: Variants
   - name: Catalog
@@ -18738,6 +18741,7 @@ paths:
     get:
       summary: Get All Category Trees
       description: Returns a list of *Category Trees*.
+      operationId: GetCategoryTrees
       parameters:
         - name: 'id:in'
           in: query
@@ -18788,6 +18792,7 @@ paths:
 
         **Usage Notes**
         * `channel_id` is required to create a *Category Tree*.
+      operationId: UpsertCategoryTrees
       requestBody:
         required: true
         content:
@@ -18840,6 +18845,7 @@ paths:
     delete:
       summary: Delete Category Trees
       description: Deletes *Category Trees*. A filter must be supplied with the endpoint.
+      operationId: DeleteCategoryTrees
       parameters:
         - name: 'id:in'
           in: query
@@ -18856,6 +18862,7 @@ paths:
     get:
       summary: Get a Category Tree
       description: Returns a *Category Tree*.
+      operationId: GetCategoryTreeByTreeId
       parameters:
         - name: tree_id
           in: path
@@ -18921,6 +18928,7 @@ paths:
     get:
       summary: Get Products Channel Assignments
       description: Returns a list of products channel assignments.
+      operationId: GetProductsChannelAssignments
       tags:
         - Products Channel Assignments
       parameters:
@@ -18957,6 +18965,7 @@ paths:
     put:
       summary: Create Products Channel Assignments
       description: Creates products channel assignments.
+      operationId: CreateProductsChannelAssignments
       tags:
         - Products Channel Assignments
       requestBody:
@@ -18979,6 +18988,7 @@ paths:
     delete:
       summary: Delete Products Channel Assignments
       description: Delete products channel assignments. A filter must be supplied.
+      operationId: DeleteProductsChannelAssignments
       tags:
         - Products Channel Assignments
       parameters:
@@ -19005,6 +19015,7 @@ paths:
     get:
       summary: Get Products Category Assignments
       description: Returns a list of products category assignments.
+      operationId: GetProductsCategoryAssignments
       tags:
         - Products Category Assignments
       parameters:
@@ -19041,6 +19052,7 @@ paths:
     put:
       summary: Create Products Category Assignments.
       description: Creates products category assignments.
+      operationId: CreateProductsCategoryAssignments
       tags:
         - Products Category Assignments
       requestBody:
@@ -19063,6 +19075,7 @@ paths:
     delete:
       summary: Delete Products Category Assignments
       description: Deletes products category assignments. A filter must be supplied.
+      operationId: DeleteProductsCategoryAssignments
       tags:
         - Products Category Assignments
       parameters:
