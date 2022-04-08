@@ -196,6 +196,6 @@ Translation files for other languages would use a similar format to define key-v
 
 ### Additional resources
 
-* [Customizing a Theme - lang directory Video Demo](https://www.youtube.com/embed/ygiRGfSrmnA) (YouTube)
+* [Customizing a Theme - lang directory Video Demo](//youtube.com/embed/ygiRGfSrmnA) (YouTube)
 * [Handlebars String Helpers](/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers)
 * [JSON translation file](https://github.com/bigcommerce/cornerstone/tree/master/lang) (BigCommerce GitHub)

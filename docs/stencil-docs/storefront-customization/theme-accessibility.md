@@ -101,7 +101,7 @@ Your main heading should be H1 and indicate the main content. The incorrect exam
 
 The correct structure displayed above on the right shows heading levels from largest to smallest communicating more specific information about the previous section.
 
-For an example video on how to create text headings, see [How Headings Help Screen Reader Users](https://www.youtube.com/watch?v=zRTqCGJ_HwQ).
+For an example video on how to create text headings, see [How Headings Help Screen Reader Users](//youtube.com/watch?v=zRTqCGJ_HwQ).
 
 ### Font size and text alignment
 The use of white space around blocks of text makes it easier to read. We recommend the following text formatting:
@@ -160,7 +160,7 @@ To see `tabindex` in action, open the following example in a new tab: [native-ke
 
 Press the `Tab` key and navigate from the top of the page to the bottom, highlighting active elements. You can also use the arrow keys to scroll through the drop-down menu.
 
-For an example video on keyboard accessibility, see [Accessible Components: Keyboard access -- Polycasts#49](https://www.youtube.com/watch?v=REVxMvdBYMw).
+For an example video on keyboard accessibility, see [Accessible Components: Keyboard access -- Polycasts#49](//youtube.com/watch?v=REVxMvdBYMw).
 
 ## Customization
 You can add scripts or code to improve the accessibility of your theme. As stated above, you can use the `tabindex` global attribute to add an element for keyboard navigation. Also, we suggest doing the following:
@@ -192,6 +192,6 @@ For apps that can check and improve your site's accessibility, see our Site Tool
 - [AccessiBe](https://accessibe.com/)
 
 ### Videos
-- [How Headings Help Screen Reader Users](https://www.youtube.com/watch?v=zRTqCGJ_HwQ)
+- [How Headings Help Screen Reader Users](//youtube.com/watch?v=zRTqCGJ_HwQ)
 - [WebAIM article on Typefaces and Fonts](https://webaim.org/techniques/textlayout/)
-- [Accessible Components: Keyboard access -- Polycasts#49](https://www.youtube.com/watch?v=REVxMvdBYMwaccessioa)
+- [Accessible Components: Keyboard access -- Polycasts#49](//youtube.com/watch?v=REVxMvdBYMwaccessioa)
