@@ -606,4 +606,4 @@ Payload objects with the following scopes take the form that follows:
 * [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
 * [Webhooks Tutorial](/api-docs/getting-started/webhooks/setting-up-webhooks)
 * [Webhooks Reference](/api-reference/webhooks)
-* [Channel Webhook Events]()
+* [Channel Webhook Events](/api-docs/channels/guide/webhooks)
