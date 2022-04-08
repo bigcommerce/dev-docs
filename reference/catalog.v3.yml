@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Catalog
   description: |-
-    The Categories API allows you to manage categories. To learn more about catalog resources see [Catalog Overview](https://developer.bigcommerce.com/api-docs/store-management/catalog/catalog-overview).
+    The Categories API allows you to manage categories. To learn more about catalog resources see [Catalog Overview](/api-docs/store-management/catalog/catalog-overview).
 
     - [Authentication](#authentication)
     - [Resources](#resources)
@@ -27,15 +27,15 @@ info:
     | Products | modify     | `store_v2_products`           |
     | Products | read-only  | `store_v2_products_read_only` |
 
-    For more information on OAuth Scopes and Authenticating BigCommerce APIs, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+    For more information on OAuth Scopes and Authenticating BigCommerce APIs, see [Authentication](/api-docs/getting-started/authentication).
 
     ## Resources
 
     ### Webhooks
-    * [Category](https://developer.bigcommerce.com/api-docs/store-management/webhooks/events#category)
+    * [Category](/api-docs/store-management/webhooks/events#category)
 
     ### Related Endpoints
-    * [Catalog API](https://developer.bigcommerce.com/api-reference/store-management/catalog)
+    * [Catalog API](/api-reference/store-management/catalog)
 
     Manage channel-specific categories.
 
@@ -13641,7 +13641,7 @@ paths:
       tags:
         - Category
       summary: Create a Category
-      description: "Creates a *Category*.\n\n**Required Fields**:\n- parent_id: \n\t- To create a child category, set the parent_id to the parent category.\n\t- To create a top level category, set the parent_id to 0.\n- name\n\n**Read-Only Fields**:\n- id\n\n**Limits**:\n- 16,000 categories per store limit.\n- 1,000 categories per product limit.\n- 50 characters category name length.\n- 8 levels of category depth limit.\n- 65,642 characters category description length limit."
+      description: "Creates a *Category*.\n\nUse this endpoint when an API only works with categories of a default BigCommerce storefront (`channel_id=1`). \n\nUse the [Create Categories](/api-reference/store-management/catalog/categories-batch/createcategories) endpoint when an API works with categories across different category trees that belong to different storefront channels.\n\n**Required Fields**:\n- `parent_id`: \n\t- To create a child category, set the `parent_id` to the parent category.\n\t- To create a top level category, set the `parent_id` to `0`.\n- `name`\n\n**Read-Only Fields**:\n- `id`\n\n**Limits**:\n- 16,000 categories per store limit.\n- 1,000 categories per product limit.\n- 50 characters category name length.\n- 8 levels of category depth limit.\n- 65,642 characters category description length limit."
       operationId: createCategory
       parameters:
         - name: store_hash
