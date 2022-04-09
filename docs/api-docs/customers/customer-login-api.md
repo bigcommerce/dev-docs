@@ -32,7 +32,7 @@ You are required to include the `channel_id` when using the login JWTs to embed 
 | `jti` | string | A unique request ID (ex. uuid).|
 | `operation` | string | Must contain the string `"customer_login"`.|
 | `store_hash` | string | The store hash identifying the store the shopper is signing in to.|
-| `channel_id` | integer | Optional field containing the `channel_id` corresponding to the headless storefront the shopper is signing in to. |
+| `channel_id` | integer | Optional field containing the `channel_id` corresponding to the storefront or other sales channel the shopper is signing in to. |
 | `customer_id` | integer | The ID of the shopper who is signing in.|
 | `redirect_to` | string | Optional field containing a relative path for the shopper's destination after sign-in. Defaults to `/account.php`. |
 | `request_ip` | string | Optional field containing the expected IP address for the request. If provided, BigCommerce will check that it matches the browser trying to log in.|
