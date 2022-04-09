@@ -17,7 +17,7 @@ You can use the Customer Login API in the following use cases:
 * Set up continuous login between a BigCommerce store and another application
 * Enable alternative login methods (ex. phone number and SMS password)
 
-Storefront customers are logged in using the access point URL `/login/token/{token}`. The `{token}` must be a JSON Web Token (JWT) containing parameters for the customer login request signed by your application’s OAuth client secret. For more information on the OAuth protocol, see [OAuth](https://oauth.net/2/). 
+Storefront customers are logged in using the access point URL `/login/token/{{TOKEN}}`. The `{{TOKEN}}` must be a JSON Web Token (JWT) containing parameters for the customer login request signed by your application’s OAuth client secret. For more information on the OAuth protocol, see [OAuth](https://oauth.net/2/). 
 
 JWT is an industry standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) for securely transmitting information between two parties. A JWT is a sequence of base64url-encoded strings separated by dots (` . `).  The sections include the header, payload, and signature. For more details, see [Introduction to JSON Web Tokens](https://jwt.io/introduction/). 
 
@@ -42,22 +42,24 @@ You are required to include the `channel_id` when using the login JWTs to embed 
 To enable SSO using the Customer Login API, you will need the following: 
 
 * A BigCommerce store
-* API client ID and client secret with the OAuth Scope set to Customers Login
+* The client ID and client secret for an API account with an OAuth Scope that includes Customers: Login
 * [Node.js](https://nodejs.org/en/) installed on your machine if you plan to use JavaScript
 
 If you do not know your client ID and client secret, obtain the credentials by following the steps outlined in [Creating an API Account](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating). 
-
-Be sure to set the Customers Login scope to Login. 
 
 ![Example OAuth Scope](https://storage.googleapis.com/bigcommerce-production-dev-center/images/scopes.png "Example OAuth Scope")
 
 ## Enable single sign-on
 
-To log a customer into their storefront account using the Customer Login API, your app needs to redirect the customer’s browser to the following access point URL: `https://storedomain.com/login/token/{token}`.
+To sign a customer in to their storefront account using the Customer Login API, your app needs to redirect the customer’s browser to the following access point URL:
 
-The `{token}` parameter is the JWT containing the payload data signed by your app’s OAuth client secret.
+```http title="SSO access point URL"
+https://{{STORE_DOMAIN}}/login/token/{{TOKEN}}
+```
 
-We recommend writing a script to generate a login token since JTW’s `iat` (issued at) claim is only valid for 30 seconds. BigCommerce supplies helper methods for generating login tokens in our [API Client Libraries](/tools-resources).
+The `{{TOKEN}}` parameter is the JWT containing the payload data signed by your app’s OAuth client secret.
+
+We recommend writing a script to generate a login token since this JWT’s `iat` (issued at) claim is only valid for 30 seconds. BigCommerce supplies helper methods for generating login tokens in our [API Client Libraries](/tools-resources).
 
 The beginning of this tutorial focuses on manually creating a token using the debugger tool at [JWT.io](https://jwt.io/). Then, we will explore how to use a JavaScript function to programmatically generate an access point URL. 
 
@@ -67,24 +69,24 @@ To create a JWT, you will need to obtain a `customer_id` using the [Customers v3
 
 1. Send a `GET` request to the [Get All Customers](/api-reference/store-management/customers-v3/customers/customersget) endpoint. Choose a customer and make note of the `customer_id`. 
 
-```json
+```json title="Example customer object" lineNumbers
 {
-    "accepts_product_review_abandoned_cart_emails": true,
-    "authentication": {
-      "force_password_reset": false
-    },
-    "company": "BigCommerce",
-    "customer_group_id": 2,
-    "date_created": "2020-02-06T17:46:33Z",
-    "date_modified": "2020-02-07T19:58:03Z",
-    "email": "customer@email.com",
-    "first_name": "Jane",
-    "id": 1,    #customer_id
-    "last_name": "Doe",
-    "notes": "",
-    "phone": "",
-    "registration_ip_address": "",
-    "tax_exempt_category": "D"
+  "accepts_product_review_abandoned_cart_emails": true,
+  "authentication": {
+    "force_password_reset": false
+  },
+  "company": "BigCommerce",
+  "customer_group_id": 2,
+  "date_created": "2020-02-06T17:46:33Z",
+  "date_modified": "2020-02-07T19:58:03Z",
+  "email": "customer@email.com",
+  "first_name": "Jane",
+  "id": 1,    //customer_id
+  "last_name": "Doe",
+  "notes": "",
+  "phone": "",
+  "registration_ip_address": "",
+  "tax_exempt_category": "D"
 }
 ```
 
@@ -102,17 +104,13 @@ To create a JWT, you will need to obtain a `customer_id` using the [Customers v3
 
 ![JWT Signature](https://storage.googleapis.com/bigcommerce-production-dev-center/images/verify-signature.png "Signature")
 
-6. Copy the login token from the encoded box and paste it into the access point URL replacing the `{token}` parameter. 
-</br>
-Example:
+6. Copy the login token from the encoded box and paste it into the access point URL, replacing the `{{TOKEN}}` parameter. 
 
-```http
+```http title="Example access point URL"
 https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ7Y2xpZW50X2lkfSIsImlhdCI6MTUzNTM5MzExMywianRpIjoie3V1aWR9Iiwib3BlcmF0aW9uIjoiY3VzdG9tZXJfbG9naW4iLCJzdG9yZV9oYXNoIjoie3N0b3JlX2hhc2h9IiwiY3VzdG9tZXJfaWQiOjJ9.J-fAtbjRFGdLsT744DhoprFEDqIfVq72HbDzrbFy6Is
 ```
 
-7. Paste the URL into the address bar of your web browser. 
-
-If the request was successful, you will be logged in as a customer and directed to `/account.php`. If it was unsuccessful, a login attempt error message will be displayed and you will be directed to `/login.php`. 
+1. Paste the URL into the address bar of your web browser. If the request is successful, you will be signed in as a customer and directed to `/account.php`. If it is unsuccessful, a login attempt error message will be displayed and you will be directed to `/login.php`. 
 
 ![Login Error](https://storage.googleapis.com/bigcommerce-production-dev-center/images/invalid-login.png "Login Error")
 
@@ -123,32 +121,29 @@ For common causes of login failure, see [Troubleshooting](#troubleshooting).
 In this part of the tutorial, we will walk you through creating an access point URL using JavaScript. You will need [node.js](https://nodejs.org/en/) installed on your machine to complete this section. 
 
 1. Create and open a new folder by running the following commands in your terminal:
-</br>
 
-```bash
+```bash title="Create a folder"
 $ mkdir urlGenerator
 $ cd urlGenerator
 ```
 
-2. Create a new node project with the following command:
-</br>
+2. Create a new Node project with the following command:
 
-```bash
+```bash title="Create a new Nodejs project"
 $ npm init
 ```
 
-3. Install [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) and [uuid](https://www.npmjs.com/package/uuid) npm packages:
-</br>
+3. Install the [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) and [uuid](https://www.npmjs.com/package/uuid) npm packages:
 
-```bash
-$ npm install jsonwebtoken uuid
+```bash title="Install packages"
+$ npm install -S jsonwebtoken uuid
 ```
 
-4. Open the `urlGenerator` folder in your code editor of choice and create a new JS file.
+4. Open the `urlGenerator` folder in your code editor of choice and create a new JavaScript file called `generate-jwt.js`.
 
-5. Paste the following code into the new JS file:
+5. Paste the following code into the new JavaScript file:
 
-```js
+```js title="Example code: generate-jwt.js" lineNumbers
 const jwt = require('jsonwebtoken');
 const {v4: uuidv4} = require('uuid');
  
@@ -163,7 +158,7 @@ function getLoginUrl(customerId, storeHash, storeUrl, clientId, clientSecret) {
        "customer_id": customerId,
    }
    let token = jwt.sign(payload, clientSecret, {algorithm:'HS256'});
-   return `${storeUrl}/login/token/${token}`;
+   return `${storeUrl}/login/token/${{TOKEN}}`;
 };
  
 const clientId = "Your client id";
@@ -178,16 +173,17 @@ console.log(loginUrl);
 6. Replace your app and customer-specific values in the variables.
 
 7. Run the code: 
-</br>
   
-```bash
-$ node youFileName.js
+```bash title="Run code: generate-jwt.js"
+$ node generate-jwt.js
 ```
 You should receive a complete access point URL as an output. 
 
-8. Copy the URL and paste it into the address bar of your browser. 
+```bash title="Example output: generate-jwt.js"
+https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ7Y2xpZW50X2lkfSIsImlhdCI6MTUzNTM5MzExMywianRpIjoie3V1aWR9Iiwib3BlcmF0aW9uIjoiY3VzdG9tZXJfbG9naW4iLCJzdG9yZV9oYXNoIjoie3N0b3JlX2hhc2h9IiwiY3VzdG9tZXJfaWQiOjJ9.J-fAtbjRFGdLsT744DhoprFEDqIfVq72HbDzrbFy6Is
+```
 
-If the request was successful, you will be logged in as a customer and directed to `/account.php`. If it was unsuccessful, you will receive a login attempt error message and be directed to `/login.php`. For common causes of login failure, see [Troubleshooting](#troubleshooting).
+8. Copy the URL and paste it into the address bar of your browser. If the request is successful, you will be signed in as the customer you specified and directed to `/account.php`. If it is unsuccessful, you will receive a login attempt error message and be directed to `/login.php`. For common causes of login failure, see [Troubleshooting](#troubleshooting).
 
 ### Sample code
 
@@ -199,9 +195,9 @@ Helper methods for generating login tokens are provided in our [API Client Libra
 
 For client libraries in other languages, see [Libraries for Token Signing/Verification](https://jwt.io/#libraries-io).
 
-### Logging out 
+### Signing out 
 
-To log out a customer, set the `redirect_to` field of the JWT’s payload to `/login.php?action=logout`. 
+To sign a customer out, set the `redirect_to` field of the JWT’s payload to `/login.php?action=logout`. 
 
 ## Troubleshooting
 
