@@ -39,7 +39,7 @@ function createCart(url, cartItems) {
     },
     body: JSON.stringify(cartItems),
   })
-  .then(response => response.json());
+  .then(response => response.json())
   .catch(error => console.error(error));
 };
 ```
@@ -145,7 +145,7 @@ function getCart(url) {
     method: "GET",
     credentials: "same-origin"
   })
-  .then(response => response.json());
+  .then(response => response.json())
   .catch(error => console.error(error));
 };
 ```
@@ -235,7 +235,7 @@ function addCartItem(url, cartId, cartItems) {
     },
     body: JSON.stringify(cartItems),
   })
-  .then(response => response.json());
+  .then(response => response.json())
   .catch(error => console.error(error));
 };
 ```
@@ -342,7 +342,7 @@ function deleteCartItem(url, cartId, itemId) {
       "Content-Type": "application/json",
     }
   })
-  .then(response => response.json());
+  .then(response => response.json())
   .catch(error => console.error(error));
 };
 ```
@@ -440,7 +440,7 @@ function addBillingAddress(url, cartId, data) {
     },
     body: JSON.stringify(data),
   })
-  .then(response => response.json());
+  .then(response => response.json())
   .catch(error => console.error(error));
 };
 ```
@@ -580,7 +580,7 @@ function createConsignment(url, cartId, data) {
     },
     body: JSON.stringify(data),
   })
-  .then(response => response.json());
+  .then(response => response.json())
   .catch(error => console.error(error));
 };
 ```
@@ -846,7 +846,8 @@ function updateConsignment(url, cartId, consignmentId, data,) {
     },
     body: JSON.stringify(data),
   })
-  .then(response => response.json());
+  .then(response => response.json())
+  .catch(error => console.error(error));
 };
 ```
 
