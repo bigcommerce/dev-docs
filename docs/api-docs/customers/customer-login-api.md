@@ -19,9 +19,9 @@ You can use the Customer Login API in the following use cases:
 
 Storefront customers are logged in using the access point URL `/login/token/{token}`. The `{token}` must be a JSON Web Token (JWT) containing parameters for the customer login request signed by your application’s OAuth client secret. For more information on the OAuth protocol, see [OAuth](https://oauth.net/2/). 
 
-JWT is an industry-standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) for securely transmitting information between two parties. A JWT represents a sequence of base64url-encoded sections separated by dots (` . `).  The sections include the header, payload, and signature. For more details, see [Introduction to JSON Web Tokens](https://jwt.io/introduction/). 
+JWT is an industry standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) for securely transmitting information between two parties. A JWT is a sequence of base64url-encoded strings separated by dots (` . `).  The sections include the header, payload, and signature. For more details, see [Introduction to JSON Web Tokens](https://jwt.io/introduction/). 
 
-You are required to include the `channel_id` when using the login JWTs to embed checkout for headless storefronts. Default value = 1
+You are required to include the `channel_id` when using the login JWTs to embed checkout for headless storefronts. The default `channel_id` value is `1`.
 
 ### Customer Login JWT payload reference
 
