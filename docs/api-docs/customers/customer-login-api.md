@@ -23,18 +23,18 @@ JWT is an industry-standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) fo
 
 You are required to include the `channel_id` when using the login JWTs to embed checkout for headless storefronts. Default value = 1
 
-**Payload fields reference**
+### Customer Login JWT payload reference
 
 | Field Name | Type | Description |
-|-|-|-|
-| `iss` | string | Indicates the token's issuer. This is your application's Client ID.|
-| `iat` | integer| Time when the token was generated. This is a numeric value indicating the number of seconds since the [Unix epoch](http://en.wikipedia.org/wiki/Unix_time).|
+|:-----------|:-----|:------------|
+| `iss` | string | Indicates the token's issuer. This is your API account's client ID.|
+| `iat` | integer| The time when the token was generated. This is a numeric value indicating the number of seconds since the [Unix epoch](http://en.wikipedia.org/wiki/Unix_time).|
 | `jti` | string | A unique request ID (ex. uuid).|
 | `operation` | string | Must contain the string `"customer_login"`.|
-| `store_hash` | string | Store hash identifying the store you are logging into.|
+| `store_hash` | string | The store hash identifying the store the shopper is signing in to.|
 | `channel_id` | integer | Optional field containing the `channel_id` corresponding to the headless storefront the shopper is signing in to. |
-| `customer_id` | integer | ID of the customer you are logging in.|
-| `redirect_to` | string | Optional field containing a relative path for the shopper's destination after login. Will default to `/account.php`. |
+| `customer_id` | integer | The ID of the shopper who is signing in.|
+| `redirect_to` | string | Optional field containing a relative path for the shopper's destination after sign-in. Defaults to `/account.php`. |
 | `request_ip` | string | Optional field containing the expected IP address for the request. If provided, BigCommerce will check that it matches the browser trying to log in.|
 
 ## Prerequisites
