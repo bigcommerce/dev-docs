@@ -88,7 +88,7 @@ To install a custom checkout on a store, follow these steps:
 
 ### Installing using the Checkout v3 API
 
-To install a custom checkout on a store, use the [Get Checkout Settings](/api-reference/store-management/checkouts/checkout-settings/getcheckoutsettings) and [Update Checkout Settings](/api-reference/store-management/checkouts/checkout-settings/updatecheckoutsettings) endpoints.
+To install a custom checkout on a store, use the [Update Checkout Settings](/api-reference/store-management/checkouts/checkout-settings/updatecheckoutsettings) endpoint to install the loader file.
   
 ## Related resources
 
