@@ -162,7 +162,7 @@ Next, generate cart redirect URLs by sending a `POST` request to `/carts/{{cart_
 
 For some use cases, you may want your customer to log in before they can begin the checkout process.
 
-Customers can log in using the [Customer Login API](/api-docs/storefront/customer-login-api#logging-in-a-customer).
+Customers can log in using the [Customer Login API](/api-docs/storefront/customer-login-api).
 
 You will first need to use JSON Web Token Standard to create a new token. Use a [JWT library](https://jwt.io/#libraries-io) to accomplish this. For more information, see [Create JWT Using the Debugger Tool](/api-docs/storefront/customer-login-api#create-jwt-using-the-debugger-tool).
 
