@@ -2,7 +2,7 @@
 
 <!-- theme: info -->
 > #### Analytics tracking scripts
-> BigCommerce has enabled a data layer to allow developers to create analytics scripts to access data to track shopper behavior. We are developing this feature in the open to obtain your feedback. You can share your feedback with us using the [Partner Portal](https://partners.bigcommerce.com/). 
+> This guide describes how to inject the correct contextual data into analytics scripts that load on BigCommerce storefronts. This information incorporates our current thoughts on enabling a data layer as a native BigCommerce feature. We are developing this approach in the open to obtain your feedback! Please share any feedback on BODL with us using the [Partner Portal](https://partners.bigcommerce.com/). 
 
 ## Overview
 
@@ -60,9 +60,6 @@ The following script extracts storefront data from the Stencil objects available
 
 ```handlebars title="Sample Script Code Start: Initialization Script & Page Event" lineNumbers
 <script>
-    {{inject "customerId" customer.id}}
-    {{inject "customerEmail" customer.email}}
-    {{inject "customerPhone" customer.phone}}
   
   if (typeof BODL === 'undefined') {
     // https://developer.bigcommerce.com/theme-objects/breadcrumbs
@@ -72,6 +69,9 @@ The following script extracts storefront data from the Stencil objects available
     // https://developer.bigcommerce.com/theme-objects/category
     {{inject "categoryProducts" category.products}}
     {{inject "categoryName" category.name}}
+    {{inject "customerId" customer.id}}
+    {{inject "customerEmail" customer.email}}
+    {{inject "customerPhone" customer.phone}}
     // https://developer.bigcommerce.com/theme-objects/product
     {{inject "productId" product.id}}
     {{inject "productTitle" product.title}}
@@ -95,7 +95,6 @@ The following script extracts storefront data from the Stencil objects available
 
   if (BODL.categoryName) {
   
-    if (BODL.customerId) {
       BODL.customer = {
         id: BODL.customerId,
         email: BODL.customerEmail,
@@ -108,7 +107,7 @@ The following script extracts storefront data from the Stencil objects available
       products: BODL.categoryProducts,
     }
   }
-
+  if (BODL.customerId) {
   if (BODL.productTitle) {
     BODL.product = {
       id: BODL.productId,
@@ -326,9 +325,7 @@ if (BODL.search) {
   ttq.instance('<%= property_id %>').track('Search', {
     query: BODL.getQueryParamValue('search_query'),
     contents: BODL.search.products.map((p) => ({
-      content_id: p.id,
-      // Products can be in multiple categories.
-      // Commenting out as this might distort category reports if only the first one is used. 
+      content_id: p.id, 
       content_name: p.name,
       content_type: "product_group",
       currency: p.price.without_tax.currency,
