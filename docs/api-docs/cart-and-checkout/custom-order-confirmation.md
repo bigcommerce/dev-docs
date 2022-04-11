@@ -61,6 +61,11 @@ You can upload a custom order confirmation page to your store's server using Web
 
 ## Installing a custom order confirmation page  
 
+There are two ways to install a custom checkout on a store.
+* Installing using the control panel
+* Installing using the Checkout v3 API
+
+### Installing using the control panel
 To install a custom order confirmation page on a store, follow these steps:
 
 1. Navigate to **Advanced Settings > Checkout** in your store's control panel.
@@ -84,6 +89,10 @@ To install a custom order confirmation page on a store, follow these steps:
 3. Click the **Save** button at the bottom of the page.
 4. Navigate to your live storefront to view your new custom order confirmation page.
 
+### Installing using the Checkout v3 API
+
+To install a custom checkout on a store, use the [Get Checkout Settings](/api-reference/store-management/checkouts/checkout-settings/getcheckoutsettings) and [Update Checkout Settings](/api-reference/store-management/checkouts/checkout-settings/updatecheckoutsettings) endpoints.
+  
 ## Related resources
 
 ### Articles
