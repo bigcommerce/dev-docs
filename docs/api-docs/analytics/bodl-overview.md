@@ -154,17 +154,12 @@ The following script extracts storefront data from the Stencil objects available
       var customerObj = {
         email: BODL.customer.email,
       }
-
       if (BODL.customer.phone) {
-        var phoneNumber = BODL.customer.phone;
-        if (BODL.customer.phone.indexOf('+') === -1) {
-          // No country code, so default to US code
-          phoneNumber = `+1${phoneNumber}`;  
-        }
-
+        // If no country code, default to US/CA code
+        var phoneNumber = BODL.customer.phone.indexOf('+') === -1 ? `+1${BODL.customer.phone}` : BODL.customer.phone;
         customerObj.phone = phoneNumber;
       }
-
+      
       sampleAnalyticsProvider.identify(BODL.customer.id, customerObj);
     }
   }(window, document, 'sampleAnalyticsProvider');
