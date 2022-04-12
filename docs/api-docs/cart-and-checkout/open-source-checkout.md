@@ -60,7 +60,14 @@ You can upload a custom checkout to your store's server using WebDAV. The instru
 5. Copy the contents of the `/dist` folder and paste it into the checkout folder.
 
 ## Installing custom checkouts  
-  
+
+You can install a custom checkout on a store in the following two ways:
+
+* [Install using the control panel](#install-using-the-control-panel)
+* [Install using the V3 Checkout API](#install-using-the-V3-checkout-API)
+
+
+### Install using the control panel
 To install a custom checkout on a store, follow these steps:
 
 1. Navigate to **Advanced Settings > Checkout** in your store's control panel.
@@ -80,6 +87,10 @@ To install a custom checkout on a store, follow these steps:
 4. Click the **Save** button at the bottom of the page.
 5. Navigate to your live storefront to view your new custom checkout.
 
+### Install using the V3 Checkout API
+
+To install a custom checkout on a store, use the [Update Checkout Settings](/api-reference/store-management/checkouts/checkout-settings/updatecheckoutsettings) endpoint to install the loader file.
+  
 ## Related resources
 
 ### Articles
