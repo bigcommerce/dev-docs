@@ -94,20 +94,20 @@ The following script extracts storefront data from the Stencil objects available
   var BODL = JSON.parse({{jsContext}});
 
   if (BODL.categoryName) {
-  
-      BODL.customer = {
-        id: BODL.customerId,
-        email: BODL.customerEmail,
-        phone: BODL.customerPhone
-      }
-    }
-
     BODL.category = {
       name: BODL.categoryName,
       products: BODL.categoryProducts,
     }
   }
+
   if (BODL.customerId) {
+    BODL.customer = {
+      id: BODL.customerId,
+      email: BODL.customerEmail,
+      phone: BODL.customerPhone
+    }
+  }
+
   if (BODL.productTitle) {
     BODL.product = {
       id: BODL.productId,
@@ -116,8 +116,8 @@ The following script extracts storefront data from the Stencil objects available
         without_tax: {
           currency: BODL.productCurrency,
           value: BODL.productPrice,
-        },
-      },
+        }
+      }
     }
   }
 
