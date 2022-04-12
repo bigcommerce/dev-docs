@@ -30,6 +30,9 @@ Consult [Stencil object reference](/theme-objects) for more about object propert
 | cartItemAdded | [{{cart.added_item}}](/theme-objects/carts) |
 | categoryProducts | [{{category.products}}](/theme-objects/category) |
 | categoryName | [{{category.name}}](/theme-objects/category) |
+| customerId | [{{customer.id}}](/theme-objects/customer) |
+| customerEmail | [{{customer.email}}](/theme-objects/customer) |
+| customerPhone | [{{customer.phone}}](/theme-objects/customer) |
 | order | [{{order}}](/theme-objects/order) |
 | productId | [{{product.id}}](/theme-objects/product) |
 | productTitle | [{{product.title}}](/theme-objects/product) |
@@ -46,6 +49,7 @@ A standard `BODL` instance contains the following calculated properties:
 |:---|:---|
 | category: object | name: string, products: array |
 | product: object | id: string, title: string, price: object |
+| customer: object | id: string, email: string, phone: string |
 
 A standard `BODL` instance contains the following methods:
 
@@ -69,6 +73,7 @@ The following script extracts storefront data from the Stencil objects available
     // https://developer.bigcommerce.com/theme-objects/category
     {{inject "categoryProducts" category.products}}
     {{inject "categoryName" category.name}}
+    // https://developer.bigcommerce.com/theme-objects/customer
     {{inject "customerId" customer.id}}
     {{inject "customerEmail" customer.email}}
     {{inject "customerPhone" customer.phone}}
