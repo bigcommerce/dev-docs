@@ -572,19 +572,43 @@ paths:
         name: store_hash
         in: path
         required: true
-    get:
-      summary: Get a Site's Certificate
-      description: Returns SSL certificate information for a specified site.
-      tags:
-        - Site Certificate
-      operationId: get-sites-id-certificate
+    put:
+      summary: ''
+      operationId: put-stores-store_hash-v3-sites-site_id-certificate
       responses:
         '200':
           description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CertificateResponse'
+  '/stores/{store_hash}/v3/sites/checkout-url':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+    put:
+      summary: ''
+      operationId: put-stores-store_hash-v3-sites-checkout-url
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: ''
+      operationId: delete-stores-store_hash-v3-sites-checkout-url
+      responses:
+        '200':
+          description: OK
+  '/sotes/{store_hash}/v3/sites/certificates':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-sotes-store_hash-v3-sites-certificates
 components:
   schemas:
     _metaCollection:
