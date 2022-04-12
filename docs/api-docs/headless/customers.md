@@ -116,6 +116,6 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 
-## Next steps
+## Next step
 
 - [Learn how to create an order](/api-docs/storefronts/guide/orders)

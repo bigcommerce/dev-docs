@@ -30,7 +30,7 @@ In the diagram below, the storefront is where the shopper interacts with product
 |**Application**|Solution built by a developer to control the requests and responses from the BigCommerce APIs. In addition to handling essential ecommerce tasks like requesting product information or sending the request to process a payment, the application layer can also handle the logic for custom functionality, like presenting discount codes based on a shopper's history or pre-filling details on the checkout page. |
 |**BigCommerce**|BigCommerce will respond to the application with the requested data to power the backend ecommerce functionality. It can handle processing payments, storing customer data, retrieving the catalog and order information.|
 
-## Next steps
+## Next step
 
 - [Learn how to create a channel and a channel site](/api-docs/storefronts/guide/channels)
 

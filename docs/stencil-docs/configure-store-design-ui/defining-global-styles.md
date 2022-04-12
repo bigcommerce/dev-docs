@@ -219,4 +219,4 @@ In `templates/components/common/footer.html`, add a reference to the new templat
 Refresh the page. The Categories list should reappear in the footer.
 ## Resources
 ### Additional resources
-- [Customizing a Theme Video](https://www.youtube.com/watch?v=VZYZsDoEOpQ) (YouTube)
+- [Customizing a Theme Video](//youtube.com/watch?v=VZYZsDoEOpQ) (YouTube)

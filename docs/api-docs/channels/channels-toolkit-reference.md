@@ -44,7 +44,7 @@ The following endpoints provide extended functionality to channels.
 |[Currencies](/api-reference/store-management/currency-api)|Manage accepted currencies and their display|
 |[Coupons](/api-reference/store-management/marketing)|Manage coupons|
 |[Gift Certificates](/api-reference/store-management/marketing)|Manage gift certificates|
-|[Customer Login](/api-docs/customers/customer-login-api)|Use SSO to login customers|
+|[Customer Login](/api-docs/storefront/customer-login-api)|Use SSO to login customers|
 |[Current Customer](/api-docs/customers/current-customer-api)|Securely identify current customer|
 |[Order Payment Actions](/api-reference/orders/orders-transactions-api)|Authorize, capture, and void order payments|
 |[Order Transactions](/api-reference/orders/orders-transactions-api)|Get order payment transaction data|
@@ -58,7 +58,7 @@ To assist in the rapid development of apps that match the native UI and UX of th
 |[BigDesign Developer Playground](https://developer.bigcommerce.com/big-design)| BigDesign react component documentation and playground |
 |[CodeSandbox app](https://codesandbox.io/s/mkvv7)| CodeSandbox app showcasing BigDesign components|
 |[Big Design Repo](https://github.com/bigcommerce/big-design)|GitHub repository for BigDesign components|
-|Figma UI kit for BigDesign components|[Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1)|
+|[Figma UI Kit](//figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1)|Figma UI kit for BigDesign components|
 
 ### Required UI components
 

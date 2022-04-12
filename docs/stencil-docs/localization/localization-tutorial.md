@@ -103,6 +103,6 @@ Update your language browser to display the translation on the storefront. The f
 
 ## Related resources
 * [Translation Keys](/stencil-docs/localization/translation-keys)
-* [Customizing a Theme - lang directory Video Demo (YouTube)](https://www.youtube.com/watch?v=ygiRGfSrmnA)
+* [Customizing a Theme - lang directory Video Demo (YouTube)](//youtube.com/watch?v=ygiRGfSrmnA)
 * [JSON translation files (BigCommerce GitHub)](https://github.com/bigcommerce/cornerstone/tree/master/lang)
 * [Handlebars helpers reference](/stencil-docs/reference-docs/handlebars-helpers-reference#string-helpers)

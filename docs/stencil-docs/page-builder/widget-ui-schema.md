@@ -123,5 +123,5 @@ For examples of different schema settings you can use in your custom widget temp
 ## Resources
 - [Widgets API](/api-docs/store-management/widgets/overview)
 - [Widgets Code Samples](/api-docs/storefront/widgets/widgets-code-samples)
-- [Widget UI Input Types](/stencil-docs/page-builder/schema-settings)
+- [Widget UI Input Types](/stencil-docs/page-builder/schema-settings/alignment)
 - [Widgets Tutorial](/api-docs/store-management/widgets/tutorial)

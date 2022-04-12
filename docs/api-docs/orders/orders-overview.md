@@ -71,7 +71,7 @@ Orders processed via all [payment providers](https://support.bigcommerce.com/s/a
 - Carts
 - Checkouts
 
-For more details and a full list of available scopes, see [Oauth Scopes](/api-docs/getting-started/basics/authentication#authentication_oauth-scopes).
+For more details and a full list of available scopes, see [OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
 ## Related resources
 
