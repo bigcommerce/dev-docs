@@ -637,10 +637,109 @@ paths:
         in: path
         required: true
     get:
-      summary: Your GET endpoint
+      summary: GET Site Certificates
       tags: []
-      responses: {}
-      operationId: get-sotes-store_hash-v3-sites-certificates
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    data:
+                      certificates:
+                        - status: shared
+                          installed_certificate:
+                            common_name: cats.com
+                            subject_alternative_names:
+                              - cats.com
+                              - www.cats.com
+                            validity_not_before: '2018-01-04T04:15:50.000Z'
+                            validity_not_after: '2018-01-04T04:15:50.000Z'
+                            signing_algorithm: string
+                            issuer: string
+                            certificate: string
+                            intermediate_certificates: string
+                        - status: shared
+                          installed_certificate:
+                            common_name: dogs.com
+                            subject_alternative_names:
+                              - dogs.com
+                              - www.dogs.com
+                            validity_not_before: '2018-01-04T04:15:50.000Z'
+                            validity_not_after: '2018-01-04T04:15:50.000Z'
+                            signing_algorithm: string
+                            issuer: string
+                            certificate: string
+                            intermediate_certificates: string
+                        - status: shared
+                          installed_certificate:
+                            common_name: checkout.cats.com
+                            subject_alternative_names:
+                              - checkout.cats.com
+                              - www.checkout.cats.com
+                            validity_not_before: '2018-01-04T04:15:50.000Z'
+                            validity_not_after: '2018-01-04T04:15:50.000Z'
+                            signing_algorithm: string
+                            issuer: string
+                            certificate: string
+                            intermediate_certificates: string
+                    meta: {}
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      certificates:
+                        type: array
+                        uniqueItems: true
+                        minItems: 1
+                        items:
+                          type: object
+                          properties:
+                            status:
+                              type: string
+                              minLength: 1
+                            installed_certificate:
+                              type: object
+                              properties:
+                                common_name:
+                                  type: string
+                                  minLength: 1
+                                subject_alternative_names:
+                                  type: array
+                                  items:
+                                    type: object
+                                validity_not_before:
+                                  type: string
+                                  minLength: 1
+                                validity_not_after:
+                                  type: string
+                                  minLength: 1
+                                signing_algorithm:
+                                  type: string
+                                  minLength: 1
+                                issuer:
+                                  type: string
+                                  minLength: 1
+                                certificate:
+                                  type: string
+                                  minLength: 1
+                                intermediate_certificates:
+                                  type: string
+                                  minLength: 1
+                  meta:
+                    type: object
+              examples: {}
+      operationId: get-sites-store_hash-v3-sites-certificates
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: 'url:in'
+          description: Query SSL by one or more urls
 components:
   schemas:
     _metaCollection:
