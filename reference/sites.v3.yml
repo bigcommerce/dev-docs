@@ -740,6 +740,7 @@ paths:
           in: query
           name: 'url:in'
           description: Query SSL by one or more urls
+      description: Returns all SSL/TSL certificates connected to domains within a store
 components:
   schemas:
     _metaCollection:
