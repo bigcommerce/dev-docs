@@ -91,7 +91,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "scope": "store/channel/updated",
+  "scope": "store/channel/501431/product/assigned",
   "destination": "https://yourapp.example.com/webhooks", // custom ports are not supported
   "is_active": true,
   "headers": {}
