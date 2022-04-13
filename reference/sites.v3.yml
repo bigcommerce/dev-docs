@@ -819,17 +819,35 @@ components:
           type: string
           description: When was this site created? RFC 3339
           example: '2018-01-04T04:15:50.000Z'
+          format: date-time
         id:
           type: integer
         updated_at:
           type: string
           description: When was this site defintion last updated? RFC 3339
           example: '2018-01-04T04:15:50.000Z'
+          format: date-time
         url:
           type: string
           description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
           example: 'http://kittens.mybigcommerce.com/'
           deprecated: true
+        urls:
+          type: array
+          items:
+            type: object
+            properties:
+              url:
+                type: string
+              type:
+                type: string
+              created_at:
+                type: string
+                format: date-time
+              updated_at:
+                type: string
+        is_checkout_url_customized:
+          type: boolean
     _metaEmpty:
       type: object
       description: Empty meta object; may be used later.
