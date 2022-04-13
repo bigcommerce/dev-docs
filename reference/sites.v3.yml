@@ -809,13 +809,9 @@ components:
       x-internal: false
     _site:
       type: object
+      title: _site
+      x-internal: false
       properties:
-        id:
-          type: integer
-        url:
-          type: string
-          description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
-          example: 'http://kittens.mybigcommerce.com/'
         channel_id:
           type: integer
           description: 'The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites.'
@@ -823,17 +819,17 @@ components:
           type: string
           description: When was this site created? RFC 3339
           example: '2018-01-04T04:15:50.000Z'
+        id:
+          type: integer
         updated_at:
           type: string
           description: When was this site defintion last updated? RFC 3339
           example: '2018-01-04T04:15:50.000Z'
-        routes:
-          type: array
-          description: (optional - if included) collection of routes defined for this site. Limited to 200 routes side loaded (query routes direction via `/routes` for bulk)
-          items:
-            $ref: '#/components/schemas/siteRoute_Full'
-      title: _site
-      x-internal: false
+        url:
+          type: string
+          description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
+          example: 'http://kittens.mybigcommerce.com/'
+          deprecated: true
     _metaEmpty:
       type: object
       description: Empty meta object; may be used later.
