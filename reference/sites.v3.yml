@@ -573,11 +573,43 @@ paths:
         in: path
         required: true
     put:
-      summary: ''
+      summary: Upsert Site Certificate
       operationId: put-stores-store_hash-v3-sites-site_id-certificate
       responses:
         '200':
           description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              x-examples:
+                example-1:
+                  url: string
+                  certificate: string
+                  private_key: string
+                  intermediate_certificates: string
+              properties:
+                url:
+                  type: string
+                  minLength: 1
+                certificate:
+                  type: string
+                  minLength: 1
+                private_key:
+                  type: string
+                  minLength: 1
+                intermediate_certificates:
+                  type: string
+                  minLength: 1
+              required:
+                - certificate
+                - private_key
+      description: |-
+        - If `url` is not supplied, certificate would be saved for given site "primary" url
+        - `url` must be a valid URL within provided `site_id`
+        - Given endpoint works as UPSERT, supplying SSL certificate for a domain that already has a certificate connected would update SSL certificate for given domain
   '/stores/{store_hash}/v3/sites/checkout-url':
     parameters:
       - schema:
