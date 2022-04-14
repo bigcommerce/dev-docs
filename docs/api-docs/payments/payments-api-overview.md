@@ -37,9 +37,8 @@ The following table lists the payment gateways that are compatible with our publ
 | Barclaycard Fuse  | &times; | &times; |
 | Bolt              | &times; | &times; |
 | CardConnect       |       | &times; |
-| Chase Integrated Payments  |       | &times; |
-| Chase Merchant Services    | &times; |       |
-| Chase Merchant Services (Orbital) |       | &times; |
+| Chase Integrated Payments |         | &times; |
+| Chase Merchant Services   | &times; |  &times;|
 | Checkout.com      | &times; | &times; |
 | Cybersource       | &times; | &times; |
 | Eway Rapid        |       | &times; |
