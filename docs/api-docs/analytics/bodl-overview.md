@@ -2,7 +2,7 @@
 
 <!-- theme: info -->
 > #### Analytics tracking scripts
-> This guide describes how to inject the correct contextual data into analytics scripts that load on BigCommerce storefronts. This information incorporates our current thoughts on enabling a data layer as a native BigCommerce feature. We are developing this approach in the open to obtain your feedback! Please share any feedback on BODL with us using the [Partner Portal](https://partners.bigcommerce.com/). 
+> This guide describes how to inject the correct contextual data into analytics scripts that load on BigCommerce storefronts. This information incorporates our current thoughts on enabling a data layer as a native BigCommerce feature. We are developing this feature in the open to obtain your feedback! Please share any feedback on BODL with us using the [Partner Portal](https://partners.bigcommerce.com/). 
 
 ## Overview
 
@@ -146,7 +146,7 @@ The following script extracts storefront data from the Stencil objects available
   !function (w, d, t) {
     w.SampleAnalyticsObject=t;var sampleAnalyticsProvider=w[t]=w[t]||[];sampleAnalyticsProvider.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],sampleAnalyticsProvider.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<sampleAnalyticsProvider.methods.length;i++)sampleAnalyticsProvider.setAndDefer(sampleAnalyticsProvider,sampleAnalyticsProvider.methods[i]);sampleAnalyticsProvider.instance=function(t){for(var e=sampleAnalyticsProvider._i[t]||[],n=0;n<sampleAnalyticsProvider.methods.length;n++)sampleAnalyticsProvider.setAndDefer(e,sampleAnalyticsProvider.methods[n]);return e},sampleAnalyticsProvider.load=function(e,n){var i="https://analytics.sample.com/i18n/pixel/events.js";sampleAnalyticsProvider._i=sampleAnalyticsProvider._i||{},sampleAnalyticsProvider._i[e]=[],sampleAnalyticsProvider._i[e]._u=i,sampleAnalyticsProvider._t=sampleAnalyticsProvider._t||{},sampleAnalyticsProvider._t[e]=+new Date,sampleAnalyticsProvider._o=sampleAnalyticsProvider._o||{},sampleAnalyticsProvider._o[e]=n||{},sampleAnalyticsProvider._partner=sampleAnalyticsProvider._partner||"BigCommerce";var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
 
-    sampleAnalyticsProvider.load('<%= property_id %>');
+    sampleAnalyticsProvider.load('<%= ANALYTICS_INSTANCE_ID %>');
     sampleAnalyticsProvider.page();
 
     // Advanced Matching
@@ -187,7 +187,7 @@ The following snippet handles the Add to Cart event by capturing data about each
     // References:
     // https://developer.bigcommerce.com/theme-objects/product
     // https://developer.bigcommerce.com/stencil-docs/developing-further/catalog-price-object
-    sampleAnalyticsProvider.instance('<%= property_id %>').track('AddToCart', {
+    sampleAnalyticsProvider.instance('<%= ANALYTICS_INSTANCE_ID %>').track('AddToCart', {
       content_id: BODL.product.id,
       content_category: BODL.breadcrumbs[1] ? BODL.breadcrumbs[1].name : '',
       content_type: 'product_group',
@@ -201,7 +201,7 @@ The following snippet handles the Add to Cart event by capturing data about each
   }));
 
   if (BODL.cartItemAdded) {
-    sampleAnalyticsProvider.instance('<%= property_id %>').track('AddToCart', {
+    sampleAnalyticsProvider.instance('<%= ANALYTICS_INSTANCE_ID %>').track('AddToCart', {
       content_id: BODL.cartItemAdded.product_id,
       content_type: 'product_group',
       content_name: BODL.cartItemAdded.name,
@@ -219,12 +219,9 @@ The following snippet handles the Add to Wishlist event. This snippet uses the `
 
 ```handlebars title="Sample Script Code Start: Add to Wishlist" lineNumbers
 <script>
-  // This only sends one wishlist product: the one that was just added based on the 'added_product_id' param in the url
   if (BODL.wishlist) {
     var addedWishlistItem = BODL.wishlist.items.filter((i) => i.product_id === parseInt(BODL.getQueryParamValue('added_product_id'))).map((p) => ({
       content_id: p.product_id,
-      // Commenting out: category data doesn't currently exist on wishlist items
-      // content_category: p.does_not_exist, 
       content_name: p.name,
       content_type: "product_group",
       currency: p.price.without_tax.currency,
@@ -232,7 +229,7 @@ The following snippet handles the Add to Wishlist event. This snippet uses the `
       value: p.price.without_tax.value,
     }));
     
-    sampleAnalyticsProvider.instance('<%= property_id %>').track('AddToWishlist', addedWishlistItem[0]);
+    sampleAnalyticsProvider.instance('<%= ANALYTICS_INSTANCE_ID %>').track('AddToWishlist', addedWishlistItem[0]);
   }
 </script>
 ```
@@ -294,7 +291,7 @@ The following snippet uses the unauthenticated Storefront API to request the ite
       });
     }
 
-    sampleAnalyticsProvider.instance('<%= property_id %>').track('Purchase', {
+    sampleAnalyticsProvider.instance('<%= ANALYTICS_INSTANCE_ID %>').track('Purchase', {
         "contents": lineItems,
         "value": orderJson.orderAmount,
         "quantity": orderQty,
@@ -310,7 +307,7 @@ The following snippet executes when a shopper successfully creates a new account
 ```handlebars title="Sample Script Code Start: Registration" lineNumbers
 <script>
   if (window.location.pathname.indexOf('/login.php') === 0 && BODL.getQueryParamValue('action') === 'account_created') {
-    sampleAnalyticsProvider.instance('<%= property_id %>').track('Registration');
+    sampleAnalyticsProvider.instance('<%= ANALYTICS_INSTANCE_ID %>').track('Registration');
   }
 </script>
 ```
@@ -322,7 +319,7 @@ A search snippet can capture data about shoppers' searches for products.
 ```handlebars title="Sample Script Code Start: Search" lineNumbers
 <script>
 if (BODL.search) {
-  ttq.instance('<%= property_id %>').track('Search', {
+  sampleAnalyticsProvider.instance('<%= ANALYTICS_INSTANCE_ID %>').track('Search', {
     query: BODL.getQueryParamValue('search_query'),
     contents: BODL.search.products.map((p) => ({
       content_id: p.id, 
@@ -394,7 +391,7 @@ The following snippet is very similar to the preceding Order Complete snippet. I
       });
     }
 
-    sampleAnalyticsProvider.instance('<%= property_id %>').track('StartCheckout', {
+    sampleAnalyticsProvider.instance('<%= ANALYTICS_INSTANCE_ID %>').track('StartCheckout', {
         "contents": lineItems,
         "value": orderJson.orderAmount,
         "quantity": orderQty,
@@ -410,7 +407,7 @@ The following snippet executes when a shopper successfully subscribes to a newsl
 ```handlebars title="Sample Script Code Start: Subscribe to Newsletter" lineNumbers
 <script>
   if (window.location.pathname.indexOf('/subscribe.php') === 0 && BODL.getQueryParamValue('result') === 'success') {
-    sampleAnalyticsProvider.instance('<%= property_id %>').track('Subscribe');
+    sampleAnalyticsProvider.instance('<%= ANALYTICS_INSTANCE_ID %>').track('Subscribe');
   }
 </script>
 ```
@@ -421,15 +418,14 @@ The following snippet collects data about the category that's currently part of 
 ```handlebars title="Sample Script Code Start: View Category Content" lineNumbers
 <script>
   if (BODL.category) {
-    sampleAnalyticsProvider.instance('<%= property_id %>').track('ViewContent', {
+    sampleAnalyticsProvider.instance('<%= ANALYTICS_INSTANCE_ID %>').track('ViewContent', {
       contents: BODL.category.products.map((p) => ({
         content_id: p.id,
         content_category: BODL.category.name,
         content_name: p.name,
         content_type: "product_group",
         currency: p.price.without_tax.currency,
-        price: p.price.without_tax.value,
-        value: p.price.without_tax.value,
+        price: p.price.without_tax.value
       }))
     });
   }
@@ -442,14 +438,13 @@ The following snippet collects data about the product that's currently part of t
 ```handlebars title="Sample Script Code Start: View Product Content" lineNumbers
 <script>
   if (BODL.product) {
-    sampleAnalyticsProvider.instance('<%= property_id %>').track('ViewContent', {
+    sampleAnalyticsProvider.instance('<%= ANALYTICS_INSTANCE_ID %>').track('ViewContent', {
       content_id: BODL.product.id,
       content_category: BODL.breadcrumbs[1] ? BODL.breadcrumbs[1].name : '',
       content_name: BODL.product.title,
       content_type: "product_group",
       currency: BODL.product.price.without_tax.currency,
-      price: BODL.product.price.without_tax.value,
-      value: BODL.product.price.without_tax.value,
+      price: BODL.product.price.without_tax.value
     });
   }
 </script>
