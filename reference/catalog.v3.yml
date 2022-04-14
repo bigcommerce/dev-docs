@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Catalog
   description: |-
-    The Categories API allows you to manage categories. To learn more about catalog resources see [Catalog Overview](https://developer.bigcommerce.com/api-docs/store-management/catalog/catalog-overview).
+    The Categories API allows you to manage categories. To learn more about catalog resources see [Catalog Overview](/api-docs/store-management/catalog/catalog-overview).
 
     - [Authentication](#authentication)
     - [Resources](#resources)
@@ -27,15 +27,15 @@ info:
     | Products | modify     | `store_v2_products`           |
     | Products | read-only  | `store_v2_products_read_only` |
 
-    For more information on OAuth Scopes and Authenticating BigCommerce APIs, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+    For more information on OAuth Scopes and Authenticating BigCommerce APIs, see [Authentication](/api-docs/getting-started/authentication).
 
     ## Resources
 
     ### Webhooks
-    * [Category](https://developer.bigcommerce.com/api-docs/store-management/webhooks/events#category)
+    * [Category](/api-docs/store-management/webhooks/events#category)
 
     ### Related Endpoints
-    * [Catalog API](https://developer.bigcommerce.com/api-reference/store-management/catalog)
+    * [Catalog API](/api-reference/store-management/catalog)
 
     Manage channel-specific categories.
 
@@ -54,6 +54,7 @@ tags:
   - name: Brand Metafields
   - name: Category
   - name: Categories
+  - name: Categories Batch
   - name: Category Metafields
   - name: Category Images
   - name: Product Sort Order
@@ -74,6 +75,8 @@ tags:
   - name: Product Variant Options
   - name: Product Variant Option Values
   - name: Product Videos
+  - name: Products Channel Assignments
+  - name: Products Category Assignments
   - name: Summary
   - name: Variants
   - name: Catalog
@@ -12304,7 +12307,7 @@ paths:
       tags:
         - Product Metafields
       summary: Update a Product Metafield
-      description: "Updates a *Product Metafield*.\n\n**Required Fields**\n* none\n\n**Read-Only Fields**\n* id\n* These fields can only be modified by the app (API credentials) that created the metafield:\n\t* namespace\n\t* key\n\t* permission_set\n\n**Usage Notes**\n* Attempting to modify `namespace`, `key`, and `permission_set` fields using a client ID different from the one used to create those metafields will result in a 403 error message. "
+      description: "Updates a *Product Metafield*.\n\n**Required Fields**\n* none\n\n**Read-Only Fields**\n* id\n* These fields can only be modified using the API account that created the metafield:\n\t* `namespace`\n\t* `key`\n\t* `permission_set`\n\t* `value`\n\n**Usage Notes**\n* Attempting to modify the `namespace`, `key`, `permission_set`, or `value` field using an API account different from the one used to create those metafields will result in a `403` error message. "
       operationId: updateProductMetafield
       parameters:
         - name: metafield_id
@@ -13638,7 +13641,7 @@ paths:
       tags:
         - Category
       summary: Create a Category
-      description: "Creates a *Category*.\n\n**Required Fields**:\n- parent_id: \n\t- To create a child category, set the parent_id to the parent category.\n\t- To create a top level category, set the parent_id to 0.\n- name\n\n**Read-Only Fields**:\n- id\n\n**Limits**:\n- 16,000 categories per store limit.\n- 1,000 categories per product limit.\n- 50 characters category name length.\n- 8 levels of category depth limit.\n- 65,642 characters category description length limit."
+      description: "Creates a *Category*.\n\nUse this endpoint when an API only works with categories of a default BigCommerce storefront (`channel_id=1`). \n\nUse the [Create Categories](/api-reference/store-management/catalog/categories-batch/createcategories) endpoint when an API works with categories across different category trees that belong to different storefront channels.\n\n**Required Fields**:\n- `parent_id`: \n\t- To create a child category, set the `parent_id` to the parent category.\n\t- To create a top level category, set the `parent_id` to `0`.\n- `name`\n\n**Read-Only Fields**:\n- `id`\n\n**Limits**:\n- 16,000 categories per store limit.\n- 1,000 categories per product limit.\n- 50 characters category name length.\n- 8 levels of category depth limit.\n- 65,642 characters category description length limit."
       operationId: createCategory
       parameters:
         - name: store_hash
@@ -18738,6 +18741,7 @@ paths:
     get:
       summary: Get All Category Trees
       description: Returns a list of *Category Trees*.
+      operationId: GetCategoryTrees
       parameters:
         - name: 'id:in'
           in: query
@@ -18788,6 +18792,7 @@ paths:
 
         **Usage Notes**
         * `channel_id` is required to create a *Category Tree*.
+      operationId: UpsertCategoryTrees
       requestBody:
         required: true
         content:
@@ -18840,6 +18845,7 @@ paths:
     delete:
       summary: Delete Category Trees
       description: Deletes *Category Trees*. A filter must be supplied with the endpoint.
+      operationId: DeleteCategoryTrees
       parameters:
         - name: 'id:in'
           in: query
@@ -18856,6 +18862,7 @@ paths:
     get:
       summary: Get a Category Tree
       description: Returns a *Category Tree*.
+      operationId: GetCategoryTreeByTreeId
       parameters:
         - name: tree_id
           in: path
@@ -18921,6 +18928,7 @@ paths:
     get:
       summary: Get Products Channel Assignments
       description: Returns a list of products channel assignments.
+      operationId: GetProductsChannelAssignments
       tags:
         - Products Channel Assignments
       parameters:
@@ -18957,6 +18965,7 @@ paths:
     put:
       summary: Create Products Channel Assignments
       description: Creates products channel assignments.
+      operationId: CreateProductsChannelAssignments
       tags:
         - Products Channel Assignments
       requestBody:
@@ -18979,6 +18988,7 @@ paths:
     delete:
       summary: Delete Products Channel Assignments
       description: Delete products channel assignments. A filter must be supplied.
+      operationId: DeleteProductsChannelAssignments
       tags:
         - Products Channel Assignments
       parameters:
@@ -19005,6 +19015,7 @@ paths:
     get:
       summary: Get Products Category Assignments
       description: Returns a list of products category assignments.
+      operationId: GetProductsCategoryAssignments
       tags:
         - Products Category Assignments
       parameters:
@@ -19041,6 +19052,7 @@ paths:
     put:
       summary: Create Products Category Assignments.
       description: Creates products category assignments.
+      operationId: CreateProductsCategoryAssignments
       tags:
         - Products Category Assignments
       requestBody:
@@ -19063,6 +19075,7 @@ paths:
     delete:
       summary: Delete Products Category Assignments
       description: Deletes products category assignments. A filter must be supplied.
+      operationId: DeleteProductsCategoryAssignments
       tags:
         - Products Category Assignments
       parameters:

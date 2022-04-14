@@ -8,6 +8,7 @@ servers:
 tags:
   - name: Cart
   - name: Cart Items
+  - name: Cart Currency
 paths:
   /carts:
     get:
@@ -254,7 +255,7 @@ paths:
     post:
       tags:
         - Cart Currency
-      summary: Update Cart currency
+      summary: Update Cart Currency
       description: |-
         Update currency of the *Cart*. 
         Promotions and gift certificates that don't apply to the new currency will be removed from your cart.
@@ -276,11 +277,11 @@ paths:
         '200':
           $ref: '#/components/responses/getCarts'
         '400':
-          description: 'Bad request. Authentication Required.'
+          description: Bad request. Authentication Required.
         '404':
-          description: 'Currency not found'
-        '422': 
-          description: 'Missing or invalid data'
+          description: Currency not found
+        '422':
+          description: Missing or invalid data
       requestBody:
         content:
           application/json:
