@@ -164,6 +164,10 @@ paths:
       description: |-
         Adds a discount to an existing *checkout*.
 
+        This discount only applies to `line_items`. When you call this API, you clear out all existing discounts applied to line items, including product and order-based discounts.
+
+        This endpoint splits the discount between line items based on the item value.
+
         Required Fields
         * discounted_amount
       parameters:
@@ -186,9 +190,6 @@ paths:
                         name:
                           type: string
                           example: manual
-                        id:
-                          type: string
-                          example: manual-discount
                       required:
                         - discounted_amount
           x-examples:
@@ -197,7 +198,6 @@ paths:
                 discounts:
                   - discounted_amount: 10
                     name: manual
-                    id: manual-discount
         - type: string
           in: header
           name: Accept
