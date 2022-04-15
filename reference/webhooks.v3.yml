@@ -488,7 +488,7 @@ components:
                     store_hash: sftg45fsd
                     created_at: 1561488106
                     updated_at: 1561488106
-                    scope: '`store/order/*`'
+                    scope: 'store/order/*'
                     destination: 'https://665b65a6.ngrok.io/webhooks`'
                     is_active: true
                     headers:
@@ -644,7 +644,7 @@ components:
                   store_hash: sftg45fsd
                   created_at: 1561488106
                   updated_at: 1561488106
-                  scope: '`store/order/*`'
+                  scope: 'store/order/*'
                   destination: 'https://665b65a6.ngrok.io/webhooks`'
                   is_active: true
                   headers:
@@ -671,7 +671,7 @@ components:
                 store_hash: sftg45fsd
                 created_at: 1561488106
                 updated_at: 1561488106
-                scope: '`store/order/*`'
+                scope: 'store/order/*'
                 destination: 'https://665b65a6.ngrok.io/webhooks`'
                 is_active: true
                 headers:
@@ -3070,7 +3070,7 @@ components:
       properties:
         scope:
           type: string
-          example: '`store/order/*`'
+          example: 'store/order/*'
           description: Event you subscribe to
         destination:
           type: string
@@ -3235,7 +3235,3 @@ components:
               description: ID of the category
               example: 42
       x-internal: false
-  examples:
-    store-cart-created:
-      value:
-        description: Example shared example
