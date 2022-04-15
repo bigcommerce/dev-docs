@@ -155,7 +155,29 @@ paths:
                         description: 'List of all the webhooks associated with the provider API User account, filtered by ''active'' parameter.'
                         type: array
                         items:
-                          $ref: '#/components/schemas/webhook_Full'
+                          type: object
+                          properties:
+                            id:
+                              type: number
+                            client_id:
+                              type: string
+                              minLength: 1
+                            store_hash:
+                              type: string
+                              minLength: 1
+                            scope:
+                              type: string
+                              minLength: 1
+                            destination:
+                              type: string
+                              minLength: 1
+                            headers: {}
+                            is_active:
+                              type: boolean
+                            created_at:
+                              type: number
+                            updated_at:
+                              type: number
                       blacklisted_domains:
                         description: List of domains (destinations) that are currently on the blacklist and are not being sent webhooks.
                         type: array
@@ -169,6 +191,19 @@ paths:
                             time_left:
                               description: Remaining time in seconds that the domain is on the blacklist.
                               type: integer
+                            reasons:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  failure_description:
+                                    type: string
+                                  count:
+                                    type: integer
+                                  timestamp:
+                                    type: integer
+                                    format: int64
+                                    description: UTC timestamp in seconds that the events was created
                   meta:
                     type: object
               examples:
@@ -246,28 +281,8 @@ paths:
                     - user@example.com
         required: true
       responses:
-        '200':
-          description: Successful operation.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: object
-                  meta:
-                    type: object
-              examples:
-                Example - V3:
-                  value:
-                    data:
-                      emails:
-                        - email2@bigcommerce.com
-                    meta: {}
-                Example - V2:
-                  value:
-                    emails:
-                      - email2@bigcommerce.com
+        '204':
+          description: No Content
         '400':
           description: Bad request.
         '401':
