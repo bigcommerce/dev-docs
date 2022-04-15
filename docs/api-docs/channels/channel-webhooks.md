@@ -25,7 +25,8 @@ Updates to any of the following fields trigger a `store/channel/updated` event:
 * `is_enabled` (to be deprecated)
 * `config_meta`
 
-## Creating webhook
+### Creating webhook
+
 
 To create a webhook that subscribes to channel events, send a `POST` request to the [Create a webhook](/api-reference/webhooks/webhooks/createwebhooks) endpoint. Set the `scope` property value equal to the **Name / Scope** of the webhook you want to create.
 
