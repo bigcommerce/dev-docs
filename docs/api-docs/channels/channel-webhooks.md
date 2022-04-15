@@ -1,12 +1,21 @@
 # Channel Webhooks
 
-Developers building third-party sales channels or multi-storefront capabilities might need notification when a channel in BigCommerce changes so that they can perform downstream actions required to set up or deactivate the channel. To facilitate this, we've added `store/channel` webhook events that fire when you create or update a channel. This article assumes that you're familiar with webhooks and introduces channel-related events. For a more general introduction to webhooks, see [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks).
+Developers building third-party sales channels or multi-storefront capabilities might need notification when a channel in BigCommerce changes so that they can perform downstream actions required to set up or deactivate the channel. To facilitate this, we've added `store/channel` webhook events that fire when you create or update a channel. This article assumes that you're familiar with webhooks. It introduces channel-related events and is a reference for all BigCommerce channel webhook events and their callback payloads. For an introduction to webhooks on BigCommerce, see [Webhooks Overview](/api-docs/store-management/webhooks/overview#callback-payload). For a more general introduction to webhooks, see [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks).
 
 To learn more about sales channels, see the [Channels Overview](/api-docs/channels/guide/overview). To learn more about how sales channels function in the context of multi-storefront or multi-channel sales, see the [channels section of the Multi-Storefront Overview](/api-docs/multi-storefront/overview#channels).
 
-## Channel-related webhook 
+There are three kinds of webhooks events that relate to channels: settings, product assignment, and channel event webhooks.
 
-### Events
+## Creating a webhook
+
+To see an example request-response pair for creating a webhook, consult the [creating a webhook section of the Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks#creating-a-webhook).
+
+## Callback structure
+
+For webhook callback structure reference, see [Webhook Events](/api-docs/store-management/webhooks/webhook-events#callback-structure)
+
+## Channel events 
+
 The following webhook events fire in response to actions that govern a store's sales channels:
 
 | Name / Scope          | Description | Corresponding Endpoint |
@@ -15,47 +24,13 @@ The following webhook events fire in response to actions that govern a store's s
 | store/channel/created | Fires when a channel is created using the control panel or the API | [Create a channel](/api-reference/store-management/channels/channels/createchannel) |
 | store/channel/updated | Fires when a channel is updated using the control panel or the API | [Update a channel](/api-reference/store-management/channels/channels/updatechannel) |
 
-Updates to any of the following fields trigger a `store/channel/updated` event:
-
-* `name`
-* `external_id`
-* `status`
-* `is_listable_from_ui`
-* `is_visible`
-* `is_enabled` (to be deprecated)
-* `config_meta`
-
-### Creating webhook
-
-
-To create a webhook that subscribes to channel events, send a `POST` request to the [Create a webhook](/api-reference/webhooks/webhooks/createwebhooks) endpoint. Set the `scope` property value equal to the **Name / Scope** of the webhook you want to create.
-
-```http title="Example request: Create a webhook" lineNumbers
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
-X-Auth-Token: {{ACCESS_TOKEN}}
-Content-Type: application/json
-Accept: application/json
-
-{
-  "scope": "store/channel/updated",
-  "destination": "https://yourapp.example.com/webhooks", // custom ports are not supported
-  "is_active": true,
-  "headers": {}
-}
-```
-
-To learn more about creating webhooks, see the [Webhooks Tutorial](/api-docs/store-management/webhooks/tutorial).
-
-### Callbacks
-
-
-When a channel event fires, BigCommerce sends the webhook `destination` URL a channel payload object with the following form:
+Channel event payloads take the form that follows:
 
 ```json title="Example channel event payload object" lineNumbers
 {
  "store_id": "11111",
  "producer": "stores/abcde",
- "created_at": 1335335335
+ "created_at": 1335335335,
  "scope": "store/channel/created",
  "data": {
     "type": "channel", // will always be channel
@@ -65,74 +40,29 @@ When a channel event fires, BigCommerce sends the webhook `destination` URL a ch
 }
  ```
 
-For a complete reference of all BigCommerce webhook events and their callback payloads, see [Webhook Events](https://developer.bigcommerce.com/docs/ZG9jOjIyMDczNA-webhook-events).
+### Channel update events
 
-## Channel-specific webhook
+Changes to any of the following fields trigger a `store/channel/updated` event:
 
-### Events
+* name
+* external_id
+* status
+* is_listable_from_ui
+* is_visible
+* is_enabled (to be deprecated)
+* config_meta
 
-The following webhook events fire in response to actions that affect one specific channel on a store:
+## Settings
 
-**Settings**
+The following settings webhook event fires in response to actions that affect a specific channel on a store:
 
-| Name / Scope                                           | Description                                               | Corresponding Endpoint |
-|:-------------------------------------------------------|:----------------------------------------------------------|:---------|
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
 | store/channel/{channel_id}/settings/profile/updated    | Fires when any of the store profile settings that apply to the specified channel are updated. Fires for both channel-specific profile settings changes and for changes to any global defaults that the specified channel inherits.  | [Update store profile settings](/api-reference/store-management/settings/store-profile/putstoreprofilesettings) |
 
-**Product assignment**
+Settings payload objects take the form that follows:
 
-| Name / Scope                                           | Description                                               | Corresponding Endpoint |
-|:-------------------------------------------------------|:----------------------------------------------------------|:---------|
-| store/channel/{channel_id}/product/assigned            | Fires when a product is assigned to the specified channel | [Create product channel assignments](/api-reference/store-management/catalog/products-channel-assignments/createproductchannelassignments) |
-| store/channel/{channel_id}/product/unassigned          | Fires when a product is removed from the specified channel | [Delete product channel assignments](/api-reference/store-management/catalog/products-channel-assignments/deleteproductchannelassignments) |
-| store/channel/{channel_id}/category/product/assigned   | Fires when a product is assigned to a category in the specified channel's category tree | [Create product category assignments](/api-reference/store-management/catalog/products-category-assignments/createproductscategoryassignments) |
-| store/channel/{channel_id}/category/product/unassigned | Fires when a product is removed from a category in the specified channel's category tree | [Delete product category assignments](/api-reference/store-management/catalog/products-category-assignments/deleteproductscategoryassignments) |
-
-
-### Creating
-
-To create a webhook that subscribes to channel events, send a `POST` request to the [Create a webhook](/api-reference/webhooks/webhooks/createwebhooks) endpoint. Set the `scope` property value equal to the **Name / Scope** of the webhook you want to create.
-
-**Settings**
-```http title="Example request: Update store profile settings" lineNumbers
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
-X-Auth-Token: {{ACCESS_TOKEN}}
-Content-Type: application/json
-Accept: application/json
-
-{
-  "scope": "store/channel/{channel_id}/settings/profile/updated",
-  "destination": "https://yourapp.example.com/webhooks", // custom ports are not supported
-  "is_active": true,
-  "headers": {}
-}
-```
-
-**Product assignment**
-
-```http title="Example request: Assign a product to a channel" lineNumbers
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
-X-Auth-Token: {{ACCESS_TOKEN}}
-Content-Type: application/json
-Accept: application/json
-
-{
-  "scope": "store/channel/{channel_id}/product/assigned",
-  "destination": "https://yourapp.example.com/webhooks", // custom ports are not supported
-  "is_active": true,
-  "headers": {}
-}
-```
-
-To learn more about creating webhooks, see the [Webhooks Tutorial](/api-docs/store-management/webhooks/tutorial).
-
-### Callbacks
-
-When a channel event fires, BigCommerce sends the webhook `destination` URL a channel payload object with the following form:
-
-**Settings**
-
-```json title="Example channel event payload object" lineNumbers
+```json title="Example settings profile payload object" lineNumbers
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -143,8 +73,20 @@ When a channel event fires, BigCommerce sends the webhook `destination` URL a ch
 }
  ```
 
-**Product assignment**
-```json title="Example channel event payload object" lineNumbers
+## Product assignment
+
+The following product assignment webhook events fire in response to actions that affect a specific channel on a store:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/product/assigned            | Fires when a product is assigned to the specified channel | [Create product channel assignments](/api-reference/store-management/catalog/products-channel-assignments/createproductchannelassignments) |
+| store/channel/{channel_id}/product/unassigned          | Fires when a product is removed from the specified channel | [Delete product channel assignments](/api-reference/store-management/catalog/products-channel-assignments/deleteproductchannelassignments) |
+| store/channel/{channel_id}/category/product/assigned   | Fires when a product is assigned to a category in the specified channel's category tree | [Create product category assignments](/api-reference/store-management/catalog/products-category-assignments/createproductscategoryassignments) |
+| store/channel/{channel_id}/category/product/unassigned | Fires when a product is removed from a category in the specified channel's category tree | [Delete product category assignments](/api-reference/store-management/catalog/products-category-assignments/deleteproductscategoryassignments) |
+
+Product assignment payload objects take the form that follows:
+
+```json title="Example product assignment payload object" lineNumbers
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -157,7 +99,7 @@ When a channel event fires, BigCommerce sends the webhook `destination` URL a ch
 }
  ```
  
-For a complete reference of all BigCommerce webhook events and their callback payloads, see [Webhook Events](https://developer.bigcommerce.com/docs/ZG9jOjIyMDczNA-webhook-events).
+For a complete reference of all BigCommerce webhook events and their callback payloads, see [Webhook Events](/api-docs/store-management/webhooks/webhook-events).
 
 ## Resources
 
