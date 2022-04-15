@@ -27,9 +27,9 @@ Each recurring billing app that uses the BigCommerce Payments API and collects m
 
 ## Compatible payment gateways
 
-The following table lists the payment gateways that are compatible with our public Payments API. Note that not all gateways support charges to both new and stored payment instruments.
+The following table lists the payment gateways that are compatible with our public Payments API. Note that not all gateways support processing a payment using both stored payment instruments and raw card data.
 
-| Payment Gateway   | Stored instruments | New instruments |
+| Payment Gateway   | Stored instruments | Raw card data   |
 |:------------------|:------------------:|:---------------:|
 | Adyen             |       | &times; |
 | AdyenV2           | &times; |       |
@@ -273,7 +273,7 @@ There are two steps to using a credit card to make a payment.
 1. [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost)
 2. [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
 
-The payment gateway your application uses must support making charges to **new payment instruments**. Before beginning development, consult our table of [compatible payment gateways](#compatible-payment-gateways) to verify that your gateway is listed or select one that is.
+The payment gateway your application uses must support the ability for raw card data to be sent directly over the API. Before beginning development, consult our table of [compatible payment gateways](#compatible-payment-gateways) to verify that your gateway is listed or select one that is.
 
 
 <!-- theme: info -->
