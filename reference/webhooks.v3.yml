@@ -489,7 +489,7 @@ components:
                     store_hash: sftg45fsd
                     created_at: 1561488106
                     updated_at: 1561488106
-                    scope: 'store/order/*'
+                    scope: store/order/*
                     destination: 'https://665b65a6.ngrok.io/webhooks`'
                     is_active: true
                     headers:
@@ -645,7 +645,7 @@ components:
                   store_hash: sftg45fsd
                   created_at: 1561488106
                   updated_at: 1561488106
-                  scope: 'store/order/*'
+                  scope: store/order/*
                   destination: 'https://665b65a6.ngrok.io/webhooks`'
                   is_active: true
                   headers:
@@ -672,7 +672,7 @@ components:
                 store_hash: sftg45fsd
                 created_at: 1561488106
                 updated_at: 1561488106
-                scope: 'store/order/*'
+                scope: store/order/*
                 destination: 'https://665b65a6.ngrok.io/webhooks`'
                 is_active: true
                 headers:
@@ -3068,14 +3068,15 @@ components:
     webhook_Base:
       type: object
       title: webhook_Base
+      x-internal: false
       properties:
         scope:
           type: string
-          example: 'store/order/*'
+          example: store/order/*
           description: Event you subscribe to
         destination:
           type: string
-          example: 'https://665b65a6.ngrok.io/webhooks`'
+          example: 'https://665b65a6.ngrok.io/webhooks'
           description: 'URL must be active, return a 200 response, and be served on port 443 (custom ports not currently supported).'
         is_active:
           type: boolean
@@ -3096,7 +3097,6 @@ components:
         - scope
         - destination
         - headers
-      x-internal: false
     webhook_Full:
       allOf:
         - type: object
