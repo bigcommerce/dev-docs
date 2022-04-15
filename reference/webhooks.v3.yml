@@ -127,7 +127,7 @@ paths:
     get:
       operationId: getHooksAdmin
       summary: Get Admin Info
-      description: 'List all notification emails, webhooks and blacklisted domains associated with the API user.'
+      description: 'List all notification emails, webhooks, and blocklisted domains associated with the API user.'
       parameters:
         - name: active
           in: query
