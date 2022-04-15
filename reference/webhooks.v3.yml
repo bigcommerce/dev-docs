@@ -123,6 +123,215 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
+  '/store/{store_hash}/v3/hooks/admin':
+    get:
+      operationId: getHooksAdmin
+      summary: Get Admin Info
+      description: 'List all notification emails, webhooks and blacklisted domains associated with the API user.'
+      parameters:
+        - name: active
+          in: query
+          description: Enables user to filter for webhooks that are active or not.
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      emails:
+                        description: Email addresses to be sent notifications.
+                        type: array
+                        items:
+                          type: string
+                          format: email
+                      hooks_list:
+                        description: 'List of all the webhooks associated with the provider API User account, filtered by ''active'' parameter.'
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/webhook_Full'
+                      blacklisted_domains:
+                        description: List of domains (destinations) that are currently on the blacklist and are not being sent webhooks.
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            destination:
+                              description: Domain URL to which webhooks are sent.
+                              type: string
+                              format: url
+                            time_left:
+                              description: Remaining time in seconds that the domain is on the blacklist.
+                              type: integer
+                  meta:
+                    type: object
+              examples:
+                Example - V3:
+                  value:
+                    data:
+                      emails:
+                        - user@example.com
+                      hooks_list:
+                        - id: 0
+                          client_id: string
+                          store_hash: string
+                          scope: /store/product/created
+                          destination: string
+                          headers:
+                            property1: string
+                            property2: string
+                          is_active: true
+                          created_at: 0
+                          updated_at: 0
+                      blacklisted_domains:
+                        - destination: string
+                          time_left: 0
+                    meta: {}
+                Example - V2:
+                  value:
+                    emails:
+                      - user@example.com
+                    hooks_list:
+                      - id: 0
+                        client_id: string
+                        store_hash: string
+                        scope: /store/product/created
+                        destination: string
+                        headers:
+                          property1: string
+                          property2: string
+                        is_active: true
+                        created_at: 0
+                        updated_at: 0
+                    blacklisted_domains:
+                      - destination: string
+                        time_left: 0
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthorized - the v3 Auth client ID or token in the request are not a valid combination for this store.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Webhooks Admin
+    put:
+      operationId: putHooksAdmin
+      summary: Update Email Notifications
+      description: |
+        Update email addresses to which notification emails will be sent when any domain associated with the API user is blacklisted or when a webhook is deactivated. Supports `upsert` functionality in the case that no email address exists yet.
+      requestBody:
+        description: List of notification emails.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                emails:
+                  type: array
+                  items:
+                    type: string
+                    format: email
+            examples:
+              Example:
+                value:
+                  emails:
+                    - user@example.com
+        required: true
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                  meta:
+                    type: object
+              examples:
+                Example - V3:
+                  value:
+                    data:
+                      emails:
+                        - email2@bigcommerce.com
+                    meta: {}
+                Example - V2:
+                  value:
+                    emails:
+                      - email2@bigcommerce.com
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthorized - the v3 Auth client ID or token in the request are not a valid combination for this store.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Invalid JSON request body - missing or invalid data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Webhooks Admin
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+  '/store/{store_hash}/v3/events':
+    get:
+      tags:
+        - Webhooks API
+      summary: Get Events
+      parameters:
+        - $ref: '#/components/parameters/FilterPageParam'
+        - $ref: '#/components/parameters/FilterLimitParam'
+        - $ref: '#/components/parameters/FilterMaxCreatedAtParam'
+        - $ref: '#/components/parameters/FilterMinCreatedAtParam'
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/HistoryEvent'
+                  meta:
+                    type: object
+                    properties:
+                      pagination:
+                        $ref: '#/components/schemas/Pagination'
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthorized - the v3 Auth client ID or token in the request are not a valid combination for this store.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      description: ''
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
 tags:
   - name: Webhooks
   - name: Callbacks
@@ -2833,6 +3042,10 @@ components:
           type: boolean
           example: true
           description: If webhook is active or not
+        events_history_enabled:
+          type: boolean
+          example: true
+          description: Identifies whether events are stored that could not be received.
         headers:
           type: object
           description: 'You can pass in any number of custom headers to validate webhooks being returned. '
@@ -2872,6 +3085,28 @@ components:
         - $ref: '#/components/schemas/webhook_Base'
       title: webhook_Full
       x-internal: false
+    HistoryEvent:
+      type: object
+      properties:
+        scope:
+          type: string
+          description: Alias where the event occurred.
+        store_id:
+          type: string
+          description: A numerical identifier that is unique to each store.
+        data:
+          type: object
+          description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
+        hash:
+          type: string
+          description: The payload data json encoded then passed through SH1 encryption.
+        created_at:
+          type: integer
+          format: int64
+          description: UTC timestamp in seconds that the events was created.
+        producer:
+          type: string
+          description: Will always follow the pattern stores/store_hash. This is the store that created the webhook.
     Pagination:
       type: object
       description: |
