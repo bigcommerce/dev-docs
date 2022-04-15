@@ -265,29 +265,6 @@ paths:
                           - failure_description: string
                             count: 0
                             timestamp: -9223372036854776000
-                example-1:
-                  value:
-                    data:
-                      emails:
-                        - user@example.com
-                      hooks_list:
-                        - id: 0
-                          client_id: string
-                          store_hash: string
-                          scope: string
-                          destination: string
-                          headers: {}
-                          is_active: true
-                          created_at: 0
-                          updated_at: 0
-                      blocked_domains:
-                        - destination: string
-                          time_left: 0
-                          reasons:
-                            - failure_description: string
-                              count: 0
-                              timestamp: -9223372036854776000
-                    meta: {}
         '400':
           description: Bad request.
           content:
