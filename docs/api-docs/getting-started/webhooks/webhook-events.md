@@ -2,6 +2,10 @@
 
 This article contains a complete reference of all BigCommerce webhook events and their callback payloads. For an introduction to webhooks on BigCommerce, see [Webhooks Overview](/api-docs/store-management/webhooks/overview#callback-payload).
 
+# Creating a webhook
+
+To see an example request-response pair for creating a webhook, consult the [creating a webhook section of the Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks#creating-a-webhook).
+
 ## Callback structure
 
 | Property     | Description |
@@ -117,7 +121,7 @@ Payload objects with the following scopes take the form that follows:
 * `store/cart/lineItem/updated`
 * `store/cart/lineItem/deleted`
 
-```json title="Example care line item payload object" lineNumbers
+```json title="Example cart line item payload object" lineNumbers
 {
     "scope": "store/cart/lineItem/created",
     "store_id": "1025646",
@@ -164,7 +168,7 @@ Payload objects with the following scopes take the form that follows:
 ```
 ## Channel
 
-Consult the [Channel Webhooks Guide](/api-docs/channels/guide/webhooks).
+Consult the [channel events section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#channel-events).
 ## Customer
 
 | Name / Scope             | Description |
@@ -336,6 +340,10 @@ Payload objects with the following scopes take the form that follows:
 }
 ```
 
+## Product assignment
+
+Consult the [product assignment section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#product-assignment).
+
 ## Products
 
 | Name / Scope             | Description |
@@ -420,6 +428,10 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 <!-- theme: info -->
 > #### Note
 > Setting a thumbnail triggers an updated event only when that thumbnail is the first to be set. For example, setting an image as a thumbnail **after deleting all images** will trigger an updated event. However, changing the current thumbnail, uploading an additional product image and setting it as the thumbnail, or even deleting all thumbnails, does not generate an update event. 
+
+## Settings
+
+Consult the [settings section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#settings).
 
 ## Shipment
 
@@ -604,6 +616,6 @@ Payload objects with the following scopes take the form that follows:
 ### Related articles
 
 * [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
-* [Webhooks Tutorial](/api-docs/getting-started/webhooks/setting-up-webhooks)
-* [Webhooks Reference](/api-reference/webhooks)
+* [Webhooks Tutorial](/api-docs/store-management/webhooks/tutorial)
+* [Webhooks Reference](/api-reference/store-management/webhooks)
 * [Channel Webhook Events](/api-docs/channels/guide/webhooks)
