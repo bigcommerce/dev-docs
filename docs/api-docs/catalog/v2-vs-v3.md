@@ -11,7 +11,7 @@ For differences in resources, see the [Difference between V2 and V3 Catalog APIs
 
 <!-- theme: info -->
 > #### Note
-> * All V2 Catalog REST APIs are deprecated. For information on deprecated endpoints, see [Deprecations and sunsets](/api-reference#deprecations-and-sunsets).
+> * All V2 Catalog REST APIs are deprecated. For information on deprecated endpoints, see [Deprecations and sunsets](/api-docs/getting-started/deprecations-and-sunsets).
 > * BigCommerce will not introduce new resources in V2 APIs.
 > * BigCommerce will eventually migrate all existing V2 resources to V3.
 > * Not all V2 resources have V3 counterparts. 
@@ -36,13 +36,13 @@ You can now create variants and modifiers in one call without having to create o
 
 **Variant options**
 
-[Variant options](/api-docs/store-management/catalog/catalog-overview#variant-option) represent options used for variant generation. A shopper has to choose from available variant options before adding a product to the cart. Variant options include multiple-choice types such as swatch, rectangle, radio button, and dropdown.
+[Variant options](/api-docs/store-management/catalog/catalog-overview#variant-options) represent options used for variant generation. A shopper has to choose from available variant options before adding a product to the cart. Variant options include multiple-choice types such as swatch, rectangle, radio button, and dropdown.
 
 *Variant options example:* size or color.
 
 **Variants**
 
-[Variants](/api-docs/store-management/catalog/catalog-overview#variant) are created based on the combination of variant options and have their own attributes such as image, prices, weight, and stock level.
+[Variants](/api-docs/store-management/catalog/catalog-overview#variants) are created based on the combination of variant options and have their own attributes such as image, prices, weight, and stock level.
 
 *Variant example:* large blue t-shirt.
 
@@ -53,7 +53,7 @@ Modifiers include multiple-choice types such as swatch, rectangle, radio button,
 
 <!-- theme: info -->
 > #### Note
-> Product [variant options](/api-reference/store-management/catalog/product-options/getoptionbyid) and [modifiers](/api-reference/store-management/catalog/product-modifiers/getmodifierbyid) created using the V3 Catalog API belong to a single product instance and cannot be attached to other products in the catalog.
+> Product [variant options](/api-reference/store-management/catalog/product-variant-options/getoptionbyid) and [modifiers](/api-reference/store-management/catalog/product-modifiers/getmodifierbyid) created using the V3 Catalog API belong to a single product instance and cannot be attached to other products in the catalog.
 
 
 
@@ -102,7 +102,7 @@ In V3, any variants or modifier adjusters created with non-null core properties 
 * [Deprecations and sunsets](/api-docs/getting-started/deprecations-and-sunsets)
 
 ### Endpoints
-* [V3 Product Complex Rules](/api-reference/store-management/catalog/product-complex-rules)
-* [V3 Product Options](/api-reference/store-management/catalog/product-options)
-* [V3 Product Modifiers](/api-reference/store-management/catalog/product-modifiers)
-* [V3 Product Variants](/api-reference/store-management/catalog/product-variants)
+* [V3 Catalog: Get Product Complex Rules](/api-reference/store-management/catalog/product-complex-rules/getcomplexrules)
+* [V3 Catalog: Get Product Variant Options](/api-reference/store-management/catalog/product-variant-options/getoptions)
+* [V3 Catalog: Get Product Modifiers](/api-reference/store-management/catalog/product-modifiers/getmodifiers)
+* [V3 Catalog: Get Product Variants](/api-reference/store-management/catalog/product-variants/getvariantsbyproductid)
