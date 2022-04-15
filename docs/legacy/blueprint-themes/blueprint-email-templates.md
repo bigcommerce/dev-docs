@@ -20,7 +20,7 @@ Sent to the recipient of a gift certificate.
 | `%%LNG_GiftCertificateEmailInstructions%%` | "For instructions on how to redeem your gift certificate please <a href='%s/giftcertificates.php?action=redeem'>click here</a>." |
 | `%%LNG_GiftCertificateEmailAttached%%` | "Your gift certificate is attached to this email." |
 | `%%LNG_GiftCertificateEmailWarning%%` | "Please download or print a copy of your gift certificate for safe keeping as gift certificates are non-transferable." |
-| `%%GLOBAL_EmailFooter%%` | "**%s**<br><a href="%s.mybigcommerce.com/">http://%s.mybigcommerce.com/</a><br>%s is powered by BigCommerce. <a href="bigcommerce.com">Launch your own store for free</a> with BigCommerce." |
+| `%%GLOBAL_EmailFooter%%` | "&lt;b&gt;%s</b><br><a href="%s.mybigcommerce.com/">http://%s.mybigcommerce.com/</a><br>%s is powered by BigCommerce. <a href="bigcommerce.com">Launch your own store for free</a> with BigCommerce." |
 
 ## Abandoned Cart Email Template
 
