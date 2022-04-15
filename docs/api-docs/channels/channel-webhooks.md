@@ -46,7 +46,8 @@ Accept: application/json
 
 To learn more about creating webhooks, see the [Webhooks Tutorial](/api-docs/store-management/webhooks/tutorial).
 
-## Callbacks
+### Callbacks
+
 
 When a channel event fires, BigCommerce sends the webhook `destination` URL a channel payload object with the following form:
 
