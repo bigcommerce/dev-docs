@@ -52,7 +52,7 @@ Some payment methods, like PayPal, Amazon, etc., require you to provide addition
 The Checkout JS SDK and associated documentation is available from the [BigCommerce SDK Repo.](https://github.com/bigcommerce/checkout-sdk-js)
 
 ## How can I update the SDK?
-The following steps describe how you can update your Checkout SDK to create a custom checkout experience.
+The following steps describe how you can update your Checkout SDK when using a custom checkout.
 
 1. Fork and clone [checkout-js](https://github.com/bigcommerce/checkout-js); then, install dependencies.
 
@@ -75,7 +75,8 @@ For Apple Pay, this value needs to be "1.215.0" or greater.
 
 4. Run `npm install` in your terminal to update your store to reflect the change.
 5. Enable the gateway in your control panel.
-6. Confirm your store is using Optimized One-Page Checkout and this payment gateway will appear in every checkout.
+
+The payment gateway will appear in every checkout.
 
 ## Support and customization
 - Enterprise clients can reach out to their account manager to review services and resources available.
