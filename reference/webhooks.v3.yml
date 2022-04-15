@@ -158,27 +158,36 @@ paths:
                           type: object
                           properties:
                             id:
-                              type: number
+                              type: integer
+                              description: ID of the webhook
                             client_id:
                               type: string
                               minLength: 1
+                              description: 'Client ID, unique to the store'
                             store_hash:
                               minLength: 1
                               type: string
+                              description: Store permanent ID
                             scope:
                               type: string
                               minLength: 1
+                              description: Event you subscribe to
                             destination:
                               type: string
                               minLength: 1
+                              description: 'URL must be active, return a 200 response, and be served on port 443 (custom ports not currently supported)'
                             headers:
                               type: object
+                              description: You can pass in any number of custom headers to validate webhooks being returned.
                             is_active:
                               type: boolean
+                              description: If webhook is active or not
                             created_at:
-                              type: number
+                              type: integer
+                              description: Created time
                             updated_at:
-                              type: number
+                              type: integer
+                              description: Updated time
                       blocked_domains:
                         description: List of domains (destinations) that are currently on the blacklist and are not being sent webhooks.
                         type: array
