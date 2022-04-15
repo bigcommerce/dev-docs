@@ -281,12 +281,16 @@ paths:
                     meta: {}
         '400':
           description: Bad request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_Full'
         '401':
           description: Unauthorized - the v3 Auth client ID or token in the request are not a valid combination for this store.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/error_Full'
       tags:
         - Webhooks Admin
     put:
@@ -322,13 +326,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/error_Full'
         '422':
           description: Invalid JSON request body - missing or invalid data.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/error_Full'
       tags:
         - Webhooks Admin
     parameters:
