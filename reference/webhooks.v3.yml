@@ -163,15 +163,16 @@ paths:
                               type: string
                               minLength: 1
                             store_hash:
-                              type: string
                               minLength: 1
+                              type: string
                             scope:
                               type: string
                               minLength: 1
                             destination:
                               type: string
                               minLength: 1
-                            headers: {}
+                            headers:
+                              type: object
                             is_active:
                               type: boolean
                             created_at:
