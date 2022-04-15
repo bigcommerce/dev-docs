@@ -48,7 +48,7 @@ To make it easier for store owners who might wish to translate, or otherwise mod
 | `%%LNG_AdvancedSearchingAnd%%` | "&lt;em&gt;not&lt;/em&gt; specifies that the term must not be present in the search results." |
 | `%%LNG_AdvancedSearchingKeywords%%` | "The words 'and', 'or' and 'not' are special keywords used to join words." |
 | `%%LNG_AdvancedSearchingNot%%` | "&lt;em&gt;not&lt;/em&gt; specifies that the term must not be present in the search results." |
-| `%%LNG_AdvancedSearchingOr%%` | "<em>or</em> specifies that either of the terms must be present in the results." |
+| `%%LNG_AdvancedSearchingOr%%` | "&lt;em&gt;or&lt;/em&gt; specifies that either of the terms must be present in the results." |
 | `%%LNG_AdvancedSearchingPhrases%%` | "If you wish to search for a phrase, enclose it within &lt;em&gt;&quot;double quotes&quot;&lt;/em&gt;" |
 | `%%LNG_AlphaAsc%%` | "Alphabetical: A to Z" |
 | `%%LNG_AlphaDesc%%` | "Alphabetical: Z to A" |
@@ -93,7 +93,7 @@ To make it easier for store owners who might wish to translate, or otherwise mod
 | `%%LNG_BrandName%%` | "Brand Name" |
 | `%%LNG_Brands%%` | "Brands" |
 | `%%LNG_BrandsTagCloud%%` | "Brands Tag Cloud" |
-| `%%LNG_BrandTagCloudHelp%%` | "The &lt;em>brands tag cloud&lt;/em&gt; shows all of the brands available for purchase.&lt;br /&gt;&lt;br /&gt;The bigger the brand appears, the more products it contains.&lt;br /&gt;&lt;br /&gt;Click on a brand below to see all products listed under that brand.&lt;br /&gt;&lt;br />" |
+| `%%LNG_BrandTagCloudHelp%%` | "The &lt;em&gt;brands tag cloud&lt;/em&gt; shows all of the brands available for purchase.&lt;br /&gt;&lt;br /&gt;The bigger the brand appears, the more products it contains.&lt;br /&gt;&lt;br /&gt;Click on a brand below to see all products listed under that brand.&lt;br /&gt;&lt;br /&gt;" |
 | `%%LNG_BulkDiscountLink%%` | "Buy in bulk and save" |
 | `%%LNG_BulkDiscountThickBoxIntro%%` | "Below are the available bulk discount rates for each individual item when you purchase a certain amount" |
 | `%%LNG_BulkDiscountThickBoxIntro%%` | "Below are the available bulk discount rates for each individual item when you purchase a certain amount" |
@@ -206,15 +206,15 @@ To make it easier for store owners who might wish to translate, or otherwise mod
 | `%%LNG_CouponCode%%` | "Coupon Code" |
 | `%%LNG_CouponCodeIntro%%` | "If you have a coupon code, enter it in the box below and click 'Go'." |
 | `%%LNG_CreateAccount%%` | "Create Account" |
-| `%%LNG_CreateAccountIntro1%%` | **Checkout:** "Fill in the fields below to create an "<br>**Express Checkout:** "Checkout faster" |
+| `%%LNG_CreateAccountIntro1%%` | &lt;b&gt;Checkout:&lt;/b&gt; "Fill in the fields below to create an "&lt;br&gt;&lt;b&gt;Express Checkout:&lt;/b&gt; "Checkout faster" |
 
-| `%%LNG_CreateAccountIntro2%%` | **Checkout:** "account. You'll be able to shop and check out faster on your next visit, check your order status online, and optionally receive updates on special offers and events."<br>**Express Checkout:** "Save multiple addresses in your address book" |
+| `%%LNG_CreateAccountIntro2%%` | &lt;b&gt;Checkout:&lt;/b&gt; "account. You'll be able to shop and check out faster on your next visit, check your order status online, and optionally receive updates on special offers and events."&lt;br&gt;&lt;b&gt;Express Checkout:&lt;/b&gt; "Save multiple addresses in your address book" |
 
 | `%%LNG_CreateAccountIntro3%%` | "Access order history and track your orders" |
 | `%%LNG_CreateAccountIntro4%%` | "Checkout faster at" |
 | `%%LNG_CreateAccountIntro5%%` | "and save multiple addresses in your address book." |
 | `%%LNG_CreateAccountIntroTitle%%` | "Create an account with us and you'll be able to:" |
-| `%%LNG_CreateAccountLoginIntro%%` | "&lt;p>Create an account with us and you'll be able to:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Check out faster&lt;/li&gt;&lt;li&gt;Save multiple shipping addresses&lt;/li&gt;&lt;li&gt;Access your order history&lt;/li&gt;&lt;li&gt;Track new orders&lt;/li&gt;&lt;li&gt;Save items to your wish list&lt;/li&gt;&lt;/ul&gt;" |
+| `%%LNG_CreateAccountLoginIntro%%` | "&lt;p&gt;Create an account with us and you'll be able to:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Check out faster&lt;/li&gt;&lt;li&gt;Save multiple shipping addresses&lt;/li&gt;&lt;li&gt;Access your order history&lt;/li&gt;&lt;li&gt;Track new orders&lt;/li&gt;&lt;li&gt;Save items to your wish list&lt;/li&gt;&lt;/ul&gt;" |
 | `%%LNG_CreateAccountPersonalIntro%%` | "Enter your email address and password to create your account." |
 | `%%LNG_CreateAccountShippingIntro%%` | "Enter the name and address you'd like us to ship your order to." |
 | `%%LNG_CreateAccountThanks%%` | "Your Account Has Been Created" |
@@ -785,7 +785,7 @@ To make it easier for store owners who might wish to translate, or otherwise mod
 | `%%LNG_ShopByPrice%%` | "Shop by Price" |
 | `%%LNG_ShowingReviews%%` | "Showing reviews" |
 | `%%LNG_ShowSearchForm%%` | "Show Search Form" |
-| `%%LNG_SideCartTotalCost%%` | "Your sub total is **%s**." |
+| `%%LNG_SideCartTotalCost%%` | "Your sub total is &lt;b&gt;%s&lt;/b&gt;." |
 | `%%LNG_Sitemap%%` | "Sitemap" |
 | `%%LNG_SitemapIntroduction%%` | "A sitemap lists all pages available on a website. The sitemap for web pages on `%%GLOBAL_StoreName%%` is shown below:" |
 | `%%LNG_SitemapSeeAll%%` | "See All" |
