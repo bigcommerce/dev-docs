@@ -376,7 +376,6 @@ The following request [Creates a variant option](/api-reference/store-management
 <!-- theme: info -->
 > If a product has variant options created using the V2 API, you cannot add additional variant options using the V3 API.
 
-### Create variant options
 
 ```http title="Example request: Create variant options" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/options
@@ -413,33 +412,20 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 <!-- theme: warning -->
 > #### V2 SKU rules will override variant pricing
-> Creating SKU rules via the V2 API or via CSV import will alter or override any variant price or sale price added to a product via the control panel, V3 API, or Price Lists UI.
-
-### Variant examples:
-
-| Product | Variant option | Variant |
-| -- | -- | -- |
-| T-Shirt | Blue<br />-<br /> Small<br /> Medium<br /> Large| SM-BLU<br /> SM-MED <br /> SM-LARG
-| Backpack | Black<br />Yellow<br />-<br />2L <br /> 3L<br /> 8L |BLACK-2L<br />BLACK-3L<br />BLACK 8L<br />-<br />YELLOW-2L<br />YELLOW-3L<br />YELLOW-8L|
+> If you create SKU rules using the V2 API or CSV import, those rules will alter or override any variant price or sale price added to a product using the control panel, the V3 API, or the Price Lists UI.
 
 ## Creating variants
 
 You can create variants in two ways:
-* From existing variant options, using [Create a Product Variant](/docs/rest-management/catalog/product-variants#create-a-product-variant) endpoint.
 
-* By adding variants with options and SKUs, using [Create a Product](/docs/rest-management/catalog/products#create-a-product) endpoint.
+You can define variants by specifying options and SKUs when you initially create the product, using the [Create a product](/api-reference/store-management/catalog/products/createproduct) endpoint.  You can also use existing variant options and the [Create a product variant](/api-reference/store-management/catalog/product-variants/createvariant) endpoint to add new variants.
+
+The following uses existing variant options to create variants.
+
+First, view all the existing product variant options using the [Get all product variant options](/api-reference/store-management/catalog/product-variant-options/getoptions) endpoint.
 
 
-The example below will go over using existing variant options to create the variants.
-
-To fetch variant information, send a `GET` request to `/v3/catalog/products/{{product_id}}/options`.
-
-```http filename="Example request: Get product variant options" showLineNumbers copy
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/options
-Accept: application/json
-Content-Type: application/json
-X-Auth-Token: {{ACCESS_TOKEN}}
-
+```json title="Example response: Get product variant options" lineNumbers
 {
   "data": [
     {
@@ -488,7 +474,7 @@ In the above response, there are two variant options of size and color with thre
 
 To combine the variant option values into variants and build out SKUs use the following endpoint:
 
-`https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/variants`
+`https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/products/{{product_id}}/variants`
 
 <!-- theme: info -->
 > #### Note
