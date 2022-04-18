@@ -21,7 +21,7 @@ To make it easier for store owners who might wish to translate, or otherwise mod
 | `%%LNG_AccountEnterLastName%%` | "Please type in your last name." |
 | `%%LNG_AccountEnterPassword%%` | "Please type in a password." |
 | `%%LNG_AccountEnterPhoneNumber%%` | "Please type in your phone number." |
-| `%%LNG_AccountEnterValidEmail%%` | "Please type in a valid email address, such as joe@aol.com" |
+| `%%LNG_AccountEnterValidEmail%%` | "Please type in a valid email address, such as &lt;a href='mailto:joe@example.com'&gt;joe@example.com&lt;/a&gt;" |
 | `%%LNG_AccountInboxIntroNoOrders%%` | "Once you place an order you'll have full access to your inbox from this page." |
 | `%%LNG_AccountNoRecentItems%%` | "You haven't looked at any items on our site. When you do, they will appear here." |
 | `%%LNG_AccountOrdersIntro%%` | "Your completed orders with us are shown below. Click 'View Order' to view an orders details." |
@@ -188,7 +188,7 @@ To make it easier for store owners who might wish to translate, or otherwise mod
 | `%%LNG_ContactEmail%%` | "Email Address" |
 | `%%LNG_ContactFormDetails%%` | "Here are their details" |
 | `%%LNG_ContactFormEmail1%%` | "A user has submitted the contact form on your store." |
-| `%%LNG_ContactFormEnterEmail%%` | "Please enter a valid email address, such as john@example.com." |
+| `%%LNG_ContactFormEnterEmail%%` | "Please enter a valid email address, such as &lt;a href='mailto:joe@example.com'&gt;joe@example.com&lt;/a&gt;." |
 | `%%LNG_ContactFormEnterQuestion%%` | "You forgot to enter your question/comment." |
 | `%%LNG_ContactName%%` | "Full Name" |
 | `%%LNG_ContactOrderNo%%` | "Order Number" |
@@ -496,7 +496,7 @@ To make it easier for store owners who might wish to translate, or otherwise mod
 | `%%LNG_LoadingPleaseWait%%` | "Loading... Please wait..." |
 | `%%LNG_Login%%` | "Sign in" |
 | `%%LNG_LoginEnterPassword%%` | "Please type in your password." |
-| `%%LNG_LoginEnterValidEmail%%` | "Please type in a valid email address, such as joe@aol.com" |
+| `%%LNG_LoginEnterValidEmail%%` | "Please type in a valid email address, such as &lt;a href='mailto:joe@example.com'&gt;joe@example.com&lt;/a&gt;" |
 | `%%LNG_LoginWord%%` | "Sign In" |
 | `%%LNG_LowInventoryWarningAdjust%%` | "Click here to adjust the inventory level for this product." |
 | `%%LNG_LowInventoryWarningAll%%` | "Click here to view all products with a low inventory level." |
@@ -521,7 +521,7 @@ To make it easier for store owners who might wish to translate, or otherwise mod
 | `%%LNG_NewProductsFeed%%` | "New Products RSS Feed" |
 | `%%LNG_NewsletterEnterEmail%%` | "You forgot to type in your email address." |
 | `%%LNG_NewsletterEnterFirstName%%` | "You forgot to type in your first name." |
-| `%%LNG_NewsletterEnterValidEmail%%` | "Please enter a valid email address, such as john@example.com." |
+| `%%LNG_NewsletterEnterValidEmail%%` | "Please enter a valid email address, such as &lt;a href='mailto:joe@example.com'&gt;joe@example.com&lt;/a&gt;." |
 | `%%LNG_NewsletterSpecialOffersText%%` | "I'd like to receive special offers" |
 | `%%LNG_NewsletterSubscription%%` | "Newsletter Subscription" |
 | `%%LNG_Next%%` | "Next" |
