@@ -10,7 +10,7 @@ Sent to the recipient of a gift certificate.
 
 ### Available Variables
 | Variable | Description |
-|-|-|
+|:---------|:------------|
 | `%%LNG_GiftCertificateEmailYouHaveReceived%%` | "You have received a Gift Certificate for" |
 | `%%GLOBAL_StoreName%%` | The name of the store. |
 | `%%LNG_Dear%%` | "Dear" |
@@ -28,7 +28,7 @@ Sent when a customer abandons a shopping cart.
 
 ### Available Variables
 | Variable | Description |
-|-|-|
+|:---------|:------------|
 | `%%GLOBAL_AC_EmailBody%%` | "Hi %s,&lt;br&gt;You recently visited our online store and we noticed that you didn't complete your order for the following items:" |
 | `%%GLOBAL_EmailFooter%%` | "&lt;%s&gt;&lt;br&gt;&lt;a href="%s.mybigcommerce.com/"&gt;http://%s.mybigcommerce.com/&lt;/a&gt;&lt;br&gt;%s is powered by BigCommerce. &lt;a href="bigcommerce.com"&gt;Launch your own store for free&lt;/a&gt; with BigCommerce." |
 | `%%GLOBAL_AC_UnsubscribeLink%%` | Link to unsubscribe page associated with the store. |
@@ -75,7 +75,7 @@ Sent when an order's status is changed.
 
 ### Available Variables
 | Variable | Description |
-|-|-|
+|:---------|:------------|
 | `%%LNG_OrderStatusChanged%%` | "Order Status Changed" |
 | `%%GLOBAL_OrderStatusChangedHi%%` | "Hi %s" |
 | `%%LNG_OrderStatusChangedIntro%%` | "An order you recently placed on our website has had its status changed." |
@@ -97,7 +97,7 @@ Sent when a customer submits a return request.
 
 ### Available Variables
 | Variable | Description |
-|-|-|
+|:---------|:------------|
 | `%%LNG_NotificationConfirmationForReturn%%` | "Confirmation for Return Request for Order ID" |
 | `%%GLOBAL_OrderId%%` | Order ID number |
 | `%%GLOBAL_IMG_PATH%%` | The URI of the directory in which the site’s image files reside. |

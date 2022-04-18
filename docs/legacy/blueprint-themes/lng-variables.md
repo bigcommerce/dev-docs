@@ -5,7 +5,7 @@ The Blueprint theme uses the following LNG variables to reference text strings. 
 To make it easier for store owners who might wish to translate, or otherwise modify, their strings: Use these variables instead of hard-coding string values into your theme.
 
 | Variable | Default string value |
-|---|---|
+|:---------|:---------------------|
 | `%%LNG_AC_AbandonedCartConvertedHeading%%` | "An abandoned cart was converted to an order" |
 | `%%LNG_AC_AbandonedCartNoticeHeading%%` | "Abandoned Cart Notice" |
 | `%%LNG_AC_CartContentsSubheading%%` | "Products In Cart" |
