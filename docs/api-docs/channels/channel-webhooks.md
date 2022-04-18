@@ -52,23 +52,28 @@ Changes to any of the following fields trigger a `store/channel/updated` event:
 * is_enabled (to be deprecated)
 * config_meta
 
-## Settings
+## Categories
 
-The following settings webhook event fires in response to actions that affect a specific channel on a store:
+The following categories webhook events fire in response to actions that affect a specific channel on a store:
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| store/channel/{channel_id}/settings/profile/updated    | Fires when any of the store profile settings that apply to the specified channel are updated. Fires for both channel-specific profile settings changes and for changes to any global defaults that the specified channel inherits.  | [Update store profile settings](/api-reference/store-management/settings/store-profile/putstoreprofilesettings) |
+| store/channel/{channel_id}/category/*            | Fires when a product is assigned to the specified channel | [Create product channel assignments](/api-reference/store-management/catalog/products-channel-assignments/createproductchannelassignments) |
+| store/channel/{channel_id}/category/created      | Fires when a product is removed from the specified channel | [Delete product channel assignments](/api-reference/store-management/catalog/products-channel-assignments/deleteproductchannelassignments) |
+| store/channel/{channel_id}/category/updated      | Fires when a product is assigned to a category in the specified channel's category tree | [Create product category assignments](/api-reference/store-management/catalog/products-category-assignments/createproductscategoryassignments)     |
+| store/channel/{channel_id}/category/deleted      | Fires when a product is removed from a category in the specified channel's category tree | [Delete product category assignments](/api-reference/store-management/catalog/products-category-assignments/deleteproductscategoryassignments) |
 
-Settings payload objects take the form that follows:
+Categories payload objects take the form that follows:
 
-```json title="Example settings profile payload object" lineNumbers
+```json title="Example product assignment payload object" lineNumbers
 {
  "store_id": "11111",
  "producer": "stores/abcde",
  "created_at": 1641641646,
- "scope": "store/channel/1/settings/profile/updated",
- "data": {},
+ "scope": "store/channel/1/product/assigned",
+ "data": {
+    "product_id": 127
+  },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
  ```
@@ -95,6 +100,48 @@ Product assignment payload objects take the form that follows:
  "data": {
     "product_id": 127
   },
+ "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+}
+ ```
+## Settings
+
+The following settings webhook event fires in response to actions that affect a specific channel on a store:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/settings/profile/updated    | Fires when any of the store profile settings that apply to the specified channel are updated. Fires for both channel-specific profile settings changes and for changes to any global defaults that the specified channel inherits.  | [Update store profile settings](/api-reference/store-management/settings/store-profile/putstoreprofilesettings) |
+
+Settings payload objects take the form that follows:
+
+```json title="Example settings profile payload object" lineNumbers
+{
+ "store_id": "11111",
+ "producer": "stores/abcde",
+ "created_at": 1641641646,
+ "scope": "store/channel/1/settings/profile/updated",
+ "data": {},
+ "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+}
+ ```
+ 
+ ## Site
+
+The following settings webhook event fires in response to actions that affect a specific channel on a store:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/settings/site/updated       | Fires when a site is updated, created, or deleted for a given channel | [Update a channel site](/api-reference/store-management/channels/channel-site/put-channel-site), [Update a site](/api-reference/store-management/sites/sites/put-site), [Create a channel site](/api-reference/store-management/channels/channel-site/postchannelsite), [Create a site](/api-reference/store-management/sites/sites/post-site), [Delete a channel site](/api-reference/store-management/channels/channel-site/deletechannelschannelidsite), or [Delete a site](/api-reference/store-management/sites/sites/delete-site) |
+
+
+Site payload objects take the form that follows:
+
+```json title="Example settings profile payload object" lineNumbers
+{
+ "store_id": "11111",
+ "producer": "stores/abcde",
+ "created_at": 1641641646,
+ "scope": "store/channel/1/settings/profile/updated",
+ "data": {},
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
  ```
