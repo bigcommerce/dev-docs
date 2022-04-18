@@ -40,8 +40,8 @@ With the Checkout JS SDK, you can build a [custom checkout presentation](https:/
 
 The Checkout JS SDK allows you to present the checkout process to the shopper in any way you like and, through front-end technologies and external web services, augment the checkout with extra information.
 
-However, the Checkout JS SDK does not allow you to change the checkout's underpinnings   - you must still conform to the model of the Checkout API underpinning the SDK to complete a Checkout and create an Order in BigCommerce.
-The SDK does not allow you to implement custom payment, shipping, or tax calculation providers into the checkout. Instead, you can use the configured providers for these services on a given store via our Checkout API.
+However, the Checkout JS SDK does not allow you to change the checkout's underpinnings -- you must still conform to the model of the Checkout API underpinning the SDK to complete a Checkout and create an Order in BigCommerce.
+The SDK does not allow you to implement custom payment, shipping, or tax calculation providers into the checkout. Instead, you can use the configured providers for these services on a given store using our Checkout API.
 
 ### Required payment method initialization options 
 Some payment methods, like PayPal, Amazon, etc., require you to provide additional initialization options. Amazon requires a container ID to initialize its payment widget. The PayPal method requires specific options to initialize the PayPal Smart Payment button on the checkout page that substitutes a standard submit button. For more details on adjusting your code to make it work with the PayPal method, see the [BigCommerce SDK Repo](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/paypalcommercepaymentinitializeoptions.md).
@@ -52,16 +52,17 @@ Some payment methods, like PayPal, Amazon, etc., require you to provide addition
 The Checkout JS SDK and associated documentation is available from the [BigCommerce SDK Repo.](https://github.com/bigcommerce/checkout-sdk-js)
 
 ## How can I update the SDK?
-The following steps describe how you can update your Checkout SDK when using a custom checkout.
+The following steps describe how to update the Checkout SDK package in your existing custom checkout implementation.
 
-1. Fork and clone [checkout-js](https://github.com/bigcommerce/checkout-js); then, install dependencies.
+1. Fork and clone [checkout-js](https://github.com/bigcommerce/checkout-js), then install its dependencies with the clean slate install command.
 
-```bash
+```shell title="Clone your fork and install dependencies"
 # Clone the repo
-git clone https://github.com/bigcommerce/checkout-js
+git clone https://github.com/<your-user-name>/checkout-js checkout-js
 
-# Install dependencies
 cd checkout-js
+
+# Install dependencies with a clean slate
 npm ci
 ```
 
@@ -69,8 +70,8 @@ npm ci
 3. Update the value for "@bigcommerce/checkout-sdk". Enter the minimum version for the gateway to work. 
 For Apple Pay, this value needs to be "1.215.0" or greater. 
 
-| Previous checkout-sdk value |  New checkout-sdk value |
-| - | - |
+| Previous version value |  New version value |
+|:-----------------------|:-------------------|
 | "@bigcommerce/checkout-sdk": "^1.199.0", | "@bigcommerce/checkout-sdk": "^1.215.0",|
 
 4. Run `npm install` in your terminal to update your store to reflect the change.
