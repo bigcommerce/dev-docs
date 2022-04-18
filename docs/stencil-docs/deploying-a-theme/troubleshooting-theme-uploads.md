@@ -24,7 +24,7 @@ Custom theme uploads must meet these restrictions:
 | TR-500 | The zip file is larger than the 50 MB limit, or the parsed JSON for templates exceeds the 1 MB size limit. |
 | TR-600 | The zip file is missing a required file (`theme-name/templates/pages/home.html`). |
 | TR-601 | The zip file is missing some parsed template file(s); or, one or more non-`.html` files are present in the `theme-name/templates/`</nobr> subdirectory. |
-| TR-800 | There was a problem processing the contained `config.json` file. <b>Please check the `config.json` documentation for the required keys and for keys that require values. |
+| TR-800 | There was a problem processing the contained `config.json` file. Please check the `config.json` documentation for the required keys and for keys that require values. |
 | TR-900 | The contained `config.json` file is missing the required developer information. |
 | TR-901 | A theme variation defined in the contained config.json file is missing its required external ID. |
 | TR-902 | Two or more theme variations defined in the contained config.json file share an external ID. All external IDs must be unique. | 
