@@ -22,18 +22,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/webhook_Base'
-            examples:
-              Example:
-                value:
-                  headers: {}
-                  scope: '{$$.env.scope}'
-                  destination: '{$$.env.destination}'
-                  is_active: true
-        x-examples:
-          application/json:
-            scope: store/order/*
-            destination: 'https://665b65a6.ngrok.io/webhooks'
-            headers: {}
       tags:
         - Webhooks
     get:
@@ -236,12 +224,12 @@ paths:
                           created_at: 0
                           updated_at: 0
                       blocked_domains:
-                        - destination: string
+                        - destination: 'https://example.com'
                           time_left: 0
                           reasons:
                             - failure_description: string
                               count: 0
-                              timestamp: -9223372036854776000
+                              timestamp: 1650294607
                     meta: {}
                 Example - V2:
                   value:
@@ -265,7 +253,7 @@ paths:
                         reasons:
                           - failure_description: string
                             count: 0
-                            timestamp: -9223372036854776000
+                            timestamp: 1650294607
         '400':
           description: Bad request.
           content:
@@ -338,6 +326,7 @@ paths:
         - $ref: '#/components/parameters/FilterLimitParam'
         - $ref: '#/components/parameters/FilterMaxCreatedAtParam'
         - $ref: '#/components/parameters/FilterMinCreatedAtParam'
+      operationId: getWebhookEvents
       responses:
         '200':
           description: Successful operation.
@@ -362,7 +351,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/error_Full'
       description: |
         Get a list of events that were sent but not successfully received. Only events that are failed to be received are stored. Events are stored for not less than one week.
     parameters:
@@ -376,19 +365,8 @@ tags:
   - name: Callbacks
 security:
   - X-Auth-Token: []
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: true
 servers:
   - url: 'https://api.bigcommerce.com'
-    variables:
-      $$.env.store_hash:
-        default: '{$$.env.store_hash}'
-  - url: 'https://api.bigcommerce.com'
-    variables:
-      $$.env.store_hash:
-        default: '{$$.env.store_hash}'
 components:
   parameters:
     WebhookId:
@@ -699,7 +677,7 @@ components:
         ### Example
 
         ```http
-        GET /stores/{$$.env.store_hash}/v3/catalog/summary
+        GET /stores/{store_hash}/v3/catalog/summary
         host: api.bigcommerce.com
         Content-Type: application/json
         X-Auth-Token: {access_token}
@@ -1021,9 +999,6 @@ components:
         ```
 
         ### Callback schema:
-      x-examples:
-        example-1:
-          $ref: '#/components/examples/store-cart-created'
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
         - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
@@ -1254,9 +1229,6 @@ components:
         ```
 
         ### Callback schema:
-      x-examples:
-        example-1:
-          $ref: '#/components/examples/store-cart-created'
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
         - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
@@ -1299,9 +1271,6 @@ components:
         ```
 
         ### Callback schema:
-      x-examples:
-        example-1:
-          $ref: '#/components/examples/store-cart-created'
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
         - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
@@ -1747,9 +1716,6 @@ components:
         ```
 
         ### Callback schema:
-      x-examples:
-        example-1:
-          $ref: '#/components/examples/store-cart-created'
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
         - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
