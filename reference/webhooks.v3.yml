@@ -68,11 +68,7 @@ paths:
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: '#/components/parameters/store_hash'
       - $ref: '#/components/parameters/WebhookId'
     put:
       responses:
@@ -111,17 +107,18 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
-  '/store/{store_hash}/v3/hooks/admin':
+  '/stores/{store_hash}/v3/hooks/admin':
     get:
       operationId: getHooksAdmin
       summary: Get Admin Info
       description: 'List all notification emails, webhooks, and blocklisted domains associated with the API user.'
       parameters:
-        - name: active
+        - name: is_active
           in: query
           description: Enables user to filter for webhooks that are active or not.
           schema:
             type: boolean
+            example: true
       responses:
         '200':
           description: Successful operation.
@@ -307,12 +304,8 @@ paths:
       tags:
         - Webhooks Admin
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-  '/store/{store_hash}/v3/events':
+      - $ref: '#/components/parameters/store_hash'
+  '/stores/{store_hash}/v3/events':
     get:
       tags:
         - Webhooks API
@@ -351,11 +344,7 @@ paths:
       description: |
         Get a list of events that were sent but not successfully received. Only events that are failed to be received are stored. Events are stored for not less than one week.
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: '#/components/parameters/store_hash'
 tags:
   - name: Webhooks
   - name: Callbacks
@@ -372,6 +361,8 @@ components:
       required: true
       schema:
         type: integer
+        minimum: 1
+        example: 501431
     IsActive:
       name: is_active
       in: query
@@ -401,6 +392,7 @@ components:
       required: false
       schema:
         type: integer
+        example: 1
     FilterLimitParam:
       name: limit
       in: query
