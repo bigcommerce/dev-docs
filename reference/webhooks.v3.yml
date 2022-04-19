@@ -8,7 +8,46 @@ paths:
     post:
       responses:
         '200':
-          $ref: '#/components/responses/webhook_Resp'
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/webhook_Full'
+                  meta:
+                    $ref: '#/components/schemas/Pagination'
+              examples:
+                application/json:
+                  value:
+                    data:
+                      id: 18048287
+                      client_id: m9r6keqmo7h7f23btnpwernbez1kglkl
+                      store_hash: sftg45fsd
+                      created_at: 1561488106
+                      updated_at: 1561488106
+                      scope: store/order/*
+                      destination: 'https://665b65a6.ngrok.io/webhooks`'
+                      is_active: true
+                      headers:
+                        custom: string
+                    meta:
+                      pagination:
+                        count: 5
+                        current_page: 1
+                        links:
+                          current: '?limit=100&page=1'
+                          next: '?limit=100&page=1'
+                          previous: '?limit=100&page=1'
+                        per_page: 100
+                        total: 5
+                        total_pages: 1
+          links:
+            getHook:
+              operationId: getWebhook
+              parameters:
+                webhook_id: $response.body#/id
         '400':
           $ref: '#/components/responses/400_BadRequest'
         '401':
@@ -53,7 +92,12 @@ paths:
         - $ref: '#/components/parameters/FilterByScope'
         - $ref: '#/components/parameters/FilterByDestination'
     parameters:
-      - $ref: '#/components/parameters/store_hash'
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+        description: Hash of your BigCommerce store
   '/stores/{store_hash}/v3/hooks/{webhook_id}':
     get:
       responses:
@@ -68,8 +112,13 @@ paths:
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
     parameters:
-      - $ref: '#/components/parameters/store_hash'
       - $ref: '#/components/parameters/WebhookId'
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+        description: Hash of your BigCommerce store
     put:
       responses:
         '200':
@@ -119,6 +168,12 @@ paths:
           schema:
             type: boolean
             example: true
+        - schema:
+            type: string
+          name: store_hash
+          in: path
+          required: true
+          description: Hash of your BigCommerce store
       responses:
         '200':
           description: Successful operation.
@@ -136,6 +191,7 @@ paths:
                         items:
                           type: string
                           format: email
+                          example: 'mark@example.com, test@example.com, webhooks@example.com'
                       hooks_list:
                         description: 'List of all the webhooks associated with the provider API User account, filtered by ''active'' parameter.'
                         type: array
@@ -157,6 +213,7 @@ paths:
                               type: string
                               minLength: 1
                               description: Event you subscribe to
+                              example: store/order/*
                             destination:
                               type: string
                               minLength: 1
@@ -202,55 +259,7 @@ paths:
                                     description: UTC timestamp in seconds that the events was created
                   meta:
                     type: object
-              examples:
-                Example - V3:
-                  value:
-                    data:
-                      emails:
-                        - user@example.com
-                      hooks_list:
-                        - id: 0
-                          client_id: string
-                          store_hash: string
-                          scope: /store/product/created
-                          destination: string
-                          headers:
-                            property1: string
-                            property2: string
-                          is_active: true
-                          created_at: 0
-                          updated_at: 0
-                      blocked_domains:
-                        - destination: 'https://example.com'
-                          time_left: 0
-                          reasons:
-                            - failure_description: string
-                              count: 0
-                              timestamp: 1650294607
-                    meta: {}
-                Example - V2:
-                  value:
-                    emails:
-                      - user@example.com
-                    hooks_list:
-                      - id: 0
-                        client_id: string
-                        store_hash: string
-                        scope: /store/product/created
-                        destination: string
-                        headers:
-                          property1: string
-                          property2: string
-                        is_active: true
-                        created_at: 0
-                        updated_at: 0
-                    blocked_domains:
-                      - destination: string
-                        time_left: 0
-                        reasons:
-                          - failure_description: string
-                            count: 0
-                            timestamp: 1650294607
+              examples: {}
         '400':
           description: Bad request.
           content:
@@ -263,7 +272,7 @@ paths:
         - Webhooks Admin
     put:
       operationId: putHooksAdmin
-      summary: Update Email Notifications
+      summary: Upsert Email Notifications
       description: |
         Update email addresses to which notification emails will be sent when any domain associated with the API user is blocklisted or when a webhook is deactivated. Supports `upsert` functionality in the case that no email address exists yet.
       requestBody:
@@ -278,6 +287,7 @@ paths:
                   items:
                     type: string
                     format: email
+                    example: 'mark@example.com, test@example.com, webhooks@example.com'
             examples:
               Example:
                 value:
@@ -304,8 +314,13 @@ paths:
       tags:
         - Webhooks Admin
     parameters:
-      - $ref: '#/components/parameters/store_hash'
-  '/stores/{store_hash}/v3/events':
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+        description: Hash of your BigCommerce store
+  '/stores/{store_hash}/v3/hooks/events':
     get:
       tags:
         - Webhooks API
@@ -344,7 +359,11 @@ paths:
       description: |
         Get a list of events that were sent but not successfully received. Only events that are failed to be received are stored. Events are stored for not less than one week.
     parameters:
-      - $ref: '#/components/parameters/store_hash'
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
 tags:
   - name: Webhooks
   - name: Callbacks
@@ -362,7 +381,7 @@ components:
       schema:
         type: integer
         minimum: 1
-        example: 501431
+        example: 22561593
     IsActive:
       name: is_active
       in: query
@@ -429,72 +448,74 @@ components:
       schema:
         type: string
         default: application/json
-    store_hash:
-      name: store_hash
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Hash of your BigCommerce store
   responses:
     webhooks_Resp:
       description: ''
       content:
-        v3:
+        application/json:
           schema:
+            description: ''
             type: object
             properties:
               data:
                 type: array
+                uniqueItems: true
+                minItems: 1
                 items:
-                  $ref: '#/components/schemas/webhook_Full'
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    client_id:
+                      type: string
+                      minLength: 1
+                    store_hash:
+                      type: string
+                      minLength: 1
+                    scope:
+                      type: string
+                      minLength: 1
+                    destination:
+                      type: string
+                      minLength: 1
+                    headers:
+                      type: object
+                      nullable: true
+                    is_active:
+                      type: boolean
+                    created_at:
+                      type: number
+                    updated_at:
+                      type: number
               meta:
                 type: object
                 properties:
                   pagination:
-                    $ref: '#/components/schemas/Pagination'
-          examples:
-            v3:
-              value:
-                data:
-                  - id: 18048287
-                    client_id: m9r6keqmo7h7f23btnpwernbez1kglkl
-                    store_hash: sftg45fsd
-                    created_at: 1561488106
-                    updated_at: 1561488106
-                    scope: store/order/*
-                    destination: 'https://665b65a6.ngrok.io/webhooks`'
-                    is_active: true
-                    headers:
-                      custom: string
-                meta:
-                  pagination:
-                    count: 5
-                    current_page: 1
-                    links:
-                      current: '?limit=100&page=1'
-                      next: '?limit=100&page=1'
-                      previous: '?limit=100&page=1'
-                    per_page: 100
-                    total: 5
-                    total_pages: 1
-        v2:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/webhook_Full'
-          examples:
-            v2:
-              value:
-                - id: 18048287
-                  client_id: m9r6keqmo7h7f23btnp3anbez1kglkl
-                  store_hash: anbez1k
-                  scope: store/order/*
-                  destination: 'https://665b65a6.ngrok.io/webhooks'
-                  headers: {}
-                  is_active: true
-                  created_at: 1561488106
-                  updated_at: 1561488106
+                    type: object
+                    properties:
+                      total:
+                        type: number
+                      count:
+                        type: number
+                      per_page:
+                        type: number
+                      current_page:
+                        type: number
+                      total_pages:
+                        type: number
+                      links:
+                        type: object
+                        properties:
+                          previous:
+                            type: string
+                            minLength: 1
+                          current:
+                            type: string
+                            minLength: 1
+                          next:
+                            type: string
+                            minLength: 1
+          examples: {}
     502_GatewayError:
       description: 'If something happens during the request that causes it to fail, a 502 response will be returned. A new request should be made; however, it could fail.'
       content:
@@ -601,16 +622,52 @@ components:
     webhook_Resp:
       description: Example response
       content:
-        v3:
+        application/json:
           schema:
+            description: ''
             type: object
+            x-examples:
+              example-1:
+                data:
+                  id: 22041448
+                  client_id: hm6ttr1z8fzu2utb7d1p9qile9jtugv
+                  store_hash: 29iql3rwa6
+                  scope: store/order/*
+                  destination: 'https://665b65a6.ngrok.io/webhooks'
+                  headers: null
+                  is_active: false
+                  created_at: 1626812212
+                  updated_at: 1627588222
+                meta: {}
             properties:
               data:
-                $ref: '#/components/schemas/webhook_Full'
+                type: object
+                properties:
+                  id:
+                    type: number
+                  client_id:
+                    type: string
+                    minLength: 1
+                  store_hash:
+                    type: string
+                    minLength: 1
+                  scope:
+                    type: string
+                    minLength: 1
+                  destination:
+                    type: string
+                    minLength: 1
+                  headers: {}
+                  is_active:
+                    type: boolean
+                  created_at:
+                    type: number
+                  updated_at:
+                    type: number
               meta:
-                $ref: '#/components/schemas/Pagination'
+                type: object
           examples:
-            v3:
+            application/json:
               value:
                 data:
                   id: 18048287
@@ -634,22 +691,6 @@ components:
                     per_page: 100
                     total: 5
                     total_pages: 1
-        v2:
-          schema:
-            $ref: '#/components/schemas/webhook_Full'
-          examples:
-            v2:
-              value:
-                id: 18048287
-                client_id: m9r6keqmo7h7f23btnpwernbez1kglkl
-                store_hash: sftg45fsd
-                created_at: 1561488106
-                updated_at: 1561488106
-                scope: store/order/*
-                destination: 'https://665b65a6.ngrok.io/webhooks`'
-                is_active: true
-                headers:
-                  custom: string
     401_Unauthorized:
       description: Unauthorized - the v3 Auth client ID or token in the request are not a valid combination for this store.
       content:
@@ -3057,6 +3098,7 @@ components:
         headers:
           type: object
           description: 'You can pass in any number of custom headers to validate webhooks being returned. '
+          nullable: true
           properties:
             custom:
               type: string
