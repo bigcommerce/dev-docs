@@ -1,22 +1,15 @@
 # GraphQL Storefront API
 
-* **Host**: {$$.env.store_domain}/graphql
-* **Protocols**: `https`
-* **Accepts**: `application/json`
-* **Responds with**: `application/json`
-
-Download Spec: [storefront_tokens.v3.yml](https://bigcommerce.stoplight.io/api/v1/projects/bigcommerce/api-reference/nodes/reference/storefront_tokens.v3.yml?branch=master&amp;deref=all&amp;format=json)
-
 Use GraphQL to query data for headless storefronts and BigCommerce [Stencil](/stencil-docs/getting-started/about-stencil)-powered storefronts.
 
-## GraphQL Playground
+## GraphQL playground
 
 To access the GraphQL Storefront API Playground and documentation, [log in to your store](https://login.bigcommerce.com/deep-links/manage) and navigate to **Advanced Settings** **>** **Storefront API Playground**.
 
 If you don't yet have a store and would like to experiment making queries against a staging site, [visit the Dev Center's GraphQL Playground directly](/graphql-playground).
 
 
-## GraphQL Explorer
+## GraphQL explorer
 
 To explore Storefront nodes in an interactive graph, check out the [GraphQL Explorer](/graphql-explorer).
 
@@ -40,8 +33,6 @@ Accept: application/json
   ]
 }
 ```
-
-[![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/storefront/graphql-api-tokens/api-token/createtoken#requestrunner)
 
 
 ### Tokens via handlebars
@@ -76,9 +67,7 @@ Accept: application/json
 
 ```
 
-[![Open in Request Runner](/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation#requestrunner)
-
-[Response](/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation#responses):
+**Response:**
 
 ```json
 {
