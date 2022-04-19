@@ -364,6 +364,7 @@ paths:
         name: store_hash
         in: path
         required: true
+        description: Hash of your BigCommerce store
 tags:
   - name: Webhooks
   - name: Callbacks
@@ -3090,7 +3091,6 @@ components:
           type: boolean
           example: true
           description: If webhook is active or not
-          default: true
         events_history_enabled:
           type: boolean
           example: true
