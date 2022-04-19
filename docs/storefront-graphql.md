@@ -2,14 +2,14 @@
 
 Use GraphQL to query data for headless storefronts and BigCommerce [Stencil](/stencil-docs/getting-started/about-stencil)-powered storefronts.
 
-## GraphQL playground
+## GraphQL Playground
 
 To access the GraphQL Storefront API Playground and documentation, [log in to your store](https://login.bigcommerce.com/deep-links/manage) and navigate to **Advanced Settings** **>** **Storefront API Playground**.
 
 If you don't yet have a store and would like to experiment making queries against a staging site, [visit the Dev Center's GraphQL Playground directly](/graphql-playground).
 
 
-## GraphQL explorer
+## GraphQL Explorer
 
 To explore Storefront nodes in an interactive graph, check out the [GraphQL Explorer](/graphql-explorer).
 
