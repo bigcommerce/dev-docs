@@ -170,7 +170,8 @@ Settings payload objects take the form that follows:
 }
  ```
  
- ## Site
+ ## Sites
+
 
 The following settings webhook event fires in response to actions that affect a specific channel on a store:
 
