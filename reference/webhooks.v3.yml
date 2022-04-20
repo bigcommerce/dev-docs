@@ -2915,16 +2915,17 @@ components:
           description: |
             The HTTP status code.
           type: integer
-          example: 422
         title:
           description: |
             The error title describing the particular error.
           type: string
-          example: JSON data is missing or invalid
         type:
           description: Typically a link to BigCommerce API Status codes
           type: string
-          example: '/api-docs/getting-started/api-status-codes'
+      example:
+        status: 422
+        title: JSON data is missing or invalid
+        type: '/api-docs/getting-started/api-status-codes'
       x-internal: false
     errorDetailed_Full:
       type: object
