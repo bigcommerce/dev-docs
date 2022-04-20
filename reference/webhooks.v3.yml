@@ -559,6 +559,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/error_Full'
+          examples:
+            response:
+              value:
+                status: 401
+                title: Unauthorized - the v3 Auth client ID or token in the request are not a valid combination for this store.
+                type: /api-docs/getting-started/api-status-codes
     403_Unauthorized:
       description: ''
       content:
