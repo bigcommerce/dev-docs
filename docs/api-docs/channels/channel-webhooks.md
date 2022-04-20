@@ -173,7 +173,8 @@ Settings payload objects take the form that follows:
  ## Sites
 
 
-The following settings webhook event fires in response to actions that affect a specific channel on a store:
+The following sites webhook events fire in response to actions that affect a site associated with a specific channel on a store:
+
 
 | Name / Scope | Description | Corresponding Endpoints |
 |:-------------|:------------|:-----------------------|
