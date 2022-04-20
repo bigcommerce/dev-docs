@@ -53,6 +53,77 @@ Changes to any of the following fields trigger a `store/channel/updated` event:
 * is_enabled (to be deprecated)
 * config_meta
 
+
+## Carts
+
+The following carts webhook events fire in response to actions that affect a cart associated with a specific channel on a store:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/cart/*            | Fires on all cart changes associated with a given channel | [store/cart/*](/api-reference/store-management/webhooks/models/store-cart-wildcard) |
+| store/channel/{channel_id}/cart/created      | Fires on new cart created for a given channel | [store/cart/created](/api-reference/store-management/webhooks/models/store-cart-created)  |
+| store/channel/{channel_id}/cart/updated      | Fires when a cart is updated for a given channel | [store/cart/updated](/api-reference/store-management/webhooks/models/store-cart-updated) |
+| store/channel/{channel_id}/cart/deleted      | Fires when a cart is removed for a given channel | [store/cart/deleted](/api-reference/store-management/webhooks/models/store-cart-deleted) |
+| store/channel/{channel_id}/cart/couponApplied | Fires when a new coupon code is applied to a cart for a given channel | [store/cart/couponApplied](/api-reference/store-management/webhooks/models/store-cart-couponapplied)  |
+| store/channel/{channel_id}/cart/abandoned    | Fires when a cart is abandoned from a given channel  | [store/cart/abandoned](/api-reference/store-management/webhooks/models/store-cart-abandoned) |
+| store/channel/{channel_id}/cart/converted    | Fires when a cart is converted into an order for a given channel | [store/cart/converted](/api-reference/store-management/webhooks/models/store-cart-converted) |
+
+
+<!-- theme: info -->
+> You must include the `cart_id` in the payload.
+
+
+
+Cart payload objects take the form that follows:
+
+```json title="Example cart profile payload object" lineNumbers
+{
+ "store_id": "11111",
+ "producer": "stores/abcde",
+ "created_at": 1641641646,
+ "scope": "store/channel/1/cart/created",
+  "data": {
+    "cart_id": "41696c19-486f-40a8-ae2a-389d5d24e0c9"
+  },
+ "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+}
+ ```
+
+
+## Cart line item
+
+The following cart line item webhook events fire in response to actions that affect a cart items associated with a specific channel on a store:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/cart/lineItem/*       | Fires on all cart line item changes associated with a given channel | [store/cart/lineItem/*](/api-reference/store-management/webhooks/models/store-cart-lineitem-wildcard) |
+| store/channel/{channel_id}/cart/lineItem/created      | Fires when a new item is added to a cart for a given channel | [store/cart/lineItem/created](/api-reference/store-management/webhooks/models/store-cart-lineitem-created)  |
+| store/channel/{channel_id}/cart/lineItem/updated      | Fires when an item's quantity has changed or the product options change for a given channel  | [store/cart/lineItem/updated](/api-reference/store-management/webhooks/models/store-cart-lineitem-updated) |
+| store/channel/{channel_id}/cart/lineItem/deleted      | Fires when items are deleted from the cart for a given channel | [store/cart/lineItem/deleted](/api-reference/store-management/webhooks/models/store-cart-lineitem-deleted) |
+
+
+<!-- theme: info -->
+> You must include the `cart_id` in the payload.
+
+
+
+Cart line items payload objects take the form that follows:
+
+```json title="Example cart line items profile payload object" lineNumbers
+{
+ "store_id": "11111",
+ "producer": "stores/abcde",
+ "created_at": 1641641646,
+ "scope": "store/channel/1/cart/lineItems/created",
+  "data": {
+    "cart_id": "41696c19-486f-40a8-ae2a-389d5d24e0c9",
+    "cart_item_id":  "af133539-0d83-464d-870d-776e2672e8f4"
+  },
+ "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+}
+ ```
+
+
 ## Categories
 
 The following categories webhook events fire in response to actions that affect a specific channel on a store:
