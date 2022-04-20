@@ -72,9 +72,9 @@ paths:
         '200':
           $ref: '#/components/responses/webhooks_Resp'
         '400':
-          description: Bad Request
+          $ref: '#/components/responses/400_BadRequest'
         '401':
-          description: Unauthorized - the v3 Auth client ID or token in the request are not a valid combination for this store.
+          $ref: '#/components/responses/401_Unauthorized'
       summary: Get Webhooks
       description: |-
         Returns a list of all webhooks on a store associated to the `client_id` used to authenticate the request.
@@ -261,11 +261,7 @@ paths:
                     type: object
               examples: {}
         '400':
-          description: Bad request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_Full'
+          $ref: '#/components/responses/400_BadRequest'
         '401':
           $ref: '#/components/responses/401_Unauthorized'
       tags:
@@ -298,19 +294,11 @@ paths:
         '204':
           description: No Content
         '400':
-          description: Bad request.
+          $ref: '#/components/responses/400_BadRequest'
         '401':
-          description: Unauthorized - the v3 Auth client ID or token in the request are not a valid combination for this store.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_Full'
+          $ref: '#/components/responses/401_Unauthorized'
         '422':
-          description: Invalid JSON request body - missing or invalid data.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_Full'
+          $ref: '#/components/responses/422_UnprocessableEntity'
       tags:
         - Webhooks Admin
     parameters:
@@ -349,13 +337,9 @@ paths:
                       pagination:
                         $ref: '#/components/schemas/Pagination'
         '400':
-          description: Bad request.
+          $ref: '#/components/responses/400_BadRequest'
         '401':
-          description: Unauthorized - the v3 Auth client ID or token in the request are not a valid combination for this store.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_Full'
+          $ref: '#/components/responses/401_Unauthorized'
       description: |
         Get a list of events that were sent but not successfully received. Only events that are failed to be received are stored. Events are stored for not less than one week.
     parameters:
@@ -2909,8 +2893,8 @@ components:
           description: Typically a link to BigCommerce API Status codes
           type: string
       example:
-        status: 422
-        title: JSON data is missing or invalid
+        status: 404
+        title: Not found
         type: '/api-docs/getting-started/api-status-codes'
       x-internal: false
     errorDetailed_Full:
