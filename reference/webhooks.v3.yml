@@ -17,7 +17,10 @@ paths:
                   data:
                     $ref: '#/components/schemas/webhook_Full'
                   meta:
-                    $ref: '#/components/schemas/Pagination'
+                    type: object
+                    properties:
+                      pagination:
+                        $ref: '#/components/schemas/Pagination'
               examples:
                 application/json:
                   value:
@@ -259,6 +262,9 @@ paths:
                                     description: UTC timestamp in seconds that the events was created
                   meta:
                     type: object
+                    properties:
+                      pagination:
+                        $ref: '#/components/schemas/Pagination'
               examples: {}
         '400':
           $ref: '#/components/responses/400_BadRequest'
@@ -477,30 +483,7 @@ components:
                 type: object
                 properties:
                   pagination:
-                    type: object
-                    properties:
-                      total:
-                        type: number
-                      count:
-                        type: number
-                      per_page:
-                        type: number
-                      current_page:
-                        type: number
-                      total_pages:
-                        type: number
-                      links:
-                        type: object
-                        properties:
-                          previous:
-                            type: string
-                            minLength: 1
-                          current:
-                            type: string
-                            minLength: 1
-                          next:
-                            type: string
-                            minLength: 1
+                    $ref: '#/components/schemas/Pagination'
           examples: {}
     502_GatewayError:
       description: 'If something happens during the request that causes it to fail, a 502 response will be returned. A new request should be made; however, it could fail.'
@@ -650,6 +633,9 @@ components:
                     type: number
               meta:
                 type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
           examples:
             application/json:
               value:
