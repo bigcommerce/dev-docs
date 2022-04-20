@@ -741,9 +741,7 @@ components:
 
         Cart creation also fires the `store/cart/updated` webhook.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -757,7 +755,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       title: store/cart/created
       allOf:
@@ -796,9 +793,7 @@ components:
         - Quantity
         - Item Price
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -812,7 +807,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -839,9 +833,7 @@ components:
       description: |-
         This webhook fires whenever a cart is deleted. Cart deletion occurs either when all items have been removed from a cart which causes auto-deletion, or when an API consumer explicitly removes the cart through a `DELETE` request. Cart deletion ends the lifecycle of the cart. The `store/cart/updated` webhook also fires when the last item is removed.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -855,7 +847,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -882,9 +873,7 @@ components:
       description: |-
         This webhook fires whenever a new coupon code is applied to a cart. The webhook request body includes the ID of the coupon code.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -899,7 +888,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -930,9 +918,7 @@ components:
       description: |-
         This webhook fires after a cart is abandoned. A cart becomes abandoned when no changes occur for at least one hour after the last modified property. This webhook is available for all store plans, regardless of whether the Abandoned Cart Saver feature is enabled.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -947,7 +933,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -976,9 +961,7 @@ components:
       description: |-
         This webhook fires when a cart is converted into an order, which is typically after the checkout payment step on the storefront. At this point, the cart is automatically deleted and no longer accessible. This webhook returns both the cart ID and order ID for correlation purposes.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -993,7 +976,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1024,9 +1006,7 @@ components:
       description: |-
         This webhook subscribes to all cart line item events. 
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1041,7 +1021,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
         - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
@@ -1068,9 +1047,7 @@ components:
       description: |-
         This webhook fires when a new item is added to the cart.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1085,7 +1062,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1120,9 +1096,7 @@ components:
         - Quantity
         - Item Price
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1137,7 +1111,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1168,9 +1141,7 @@ components:
       description: |-
         This webhook fires when an item is deleted from the cart.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1185,7 +1156,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1226,9 +1196,7 @@ components:
       description: |-
         This webhook fires when a category is created.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1242,7 +1210,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1255,9 +1222,7 @@ components:
       description: |-
         This webhook fires when a category is updated. <br><br>Fields that trigger event:<ul><li>Url</li><li>Name</li><li>Redirect old URLs</li><li>Description</li><li>Parent Category</li><li>Template Layout File</li><li>Sort Order</li><li>Default Product Sort</li><li>Category Image</li><li>Page Title</li><li>Meta Keywords</li><li>Meta Description</li><li>Search Keywords</li><li>Google Product Category</li><li>Enable Google Shopping</li></ul>
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1271,7 +1236,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
         - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
@@ -1297,9 +1261,7 @@ components:
       description: |-
         This webhook fires when a category is deleted.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1313,7 +1275,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
         - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
@@ -1347,9 +1308,7 @@ components:
       description: |-
         This webhook fires when a channel is created via control panel or API.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1363,7 +1322,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1394,9 +1352,7 @@ components:
 
         Fields that trigger event:<ul><li>name</li><li>external_id</li><li>status</li><li>is_listable_from_ui</li><li>is_visible</li><li>is_enabled (to be deprecated)</li><li>config_meta</li></ul>
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1410,7 +1366,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1448,9 +1403,7 @@ components:
       description: |-
         This webhook fires when a new customer is created.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1464,7 +1417,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1493,9 +1445,7 @@ components:
       description: |-
         This webhook fires when a customer is updated. In addition, this webhook fires when you initially enter custom form field values within the account sign-up form. Please note that changing existing data in customer form fields and changing a customerʼs address will not trigger the webhook to fire.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1509,7 +1459,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1538,9 +1487,7 @@ components:
       description: |-
         This webhook fires when a customer is deleted.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1553,8 +1500,6 @@ components:
           }
         }
         ```
-
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1583,9 +1528,7 @@ components:
       description: |-
         This webhook fires when a customer address is updated.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1602,7 +1545,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1636,9 +1578,7 @@ components:
       description: |-
         This webhook fires when a customer address is created.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1655,7 +1595,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1689,9 +1628,7 @@ components:
       description: |-
         This webhook fires when a customer address is deleted.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1708,7 +1645,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1742,9 +1678,7 @@ components:
       description: |-
         This webhook fires when a customer default payment instrument is updated.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1758,7 +1692,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
         - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
@@ -1791,9 +1724,7 @@ components:
       description: |-
         This webhook fires if an order is created using the control panel, an app or via the API.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1807,7 +1738,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1837,9 +1767,7 @@ components:
 
         Fields that trigger event: <ul><li>Status</li><li>Coupon Code</li><li>Billing and Shipping Address</li><li>Product Type</li><li>Search Keywords</li><li>Related Products</li><li>Warranty Information</li><li>Page Title</li><li>Meta Description</li><li>Gift Wrapping options</li><li>Bin Picking Number (BPN)</li><li>Fixed Shipping Price</li><li>Free Shipping</li><li>Open Graph Sharing Type</li><li>Availability Text</li><li>Purchasability</li><li>Release Date</li><li>Remove pre-order status on this date</li></ul>
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1853,7 +1781,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1881,9 +1808,7 @@ components:
       description: |-
         This webhook fires when an order is archived.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1896,7 +1821,6 @@ components:
           }
         }
         ```
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1924,9 +1848,7 @@ components:
       description: |-
         This webhook only fires if the order status has changed, such as `Pending` to `Awaiting Payment`
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1944,7 +1866,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1982,9 +1903,7 @@ components:
       description: |-
         This webhook fires when an order message is created by customer or in control panel.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2001,7 +1920,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2035,9 +1953,7 @@ components:
       description: |-
         This webhook fires when a refund has been submitted against an order.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2054,7 +1970,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2093,9 +2008,7 @@ components:
       description: |-
         This webhook fires when a product is deleted.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2109,7 +2022,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2137,9 +2049,7 @@ components:
       description: |-
         This webhook fires when a new product is created.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2153,7 +2063,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2185,9 +2094,7 @@ components:
 
         Fields that do not trigger event<ul><li>Manufacturer Part Number (MPN)</li><li>Global Trade Number (GTN)</li><li>Tax Provider Tax Code</li><li>Product Image</li><li>Product Image Description</li><li>Product Files</li><li>Customs Information</li></ul>
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2201,7 +2108,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2229,9 +2135,7 @@ components:
       description: |-
         This webhook fires when product inventory is updated. <br><br>Fields that trigger event: <ul><li>Inventory Stock</li></ul>Fields that do not trigger event: <ul><li>Track Inventory</li><li>Inventory Low Stock</li></ul>
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2250,7 +2154,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2297,9 +2200,7 @@ components:
       description: |-
         This webhook fires if a product’s inventory increases or decreases. <br><br>Fields that trigger event: <ul><li>Quantity</li></ul>
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2318,7 +2219,6 @@ components:
         }
         ```
 
-         ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2370,9 +2270,7 @@ components:
       description: |-
         This webhook fires when a shipment is created.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2387,7 +2285,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2420,9 +2317,7 @@ components:
 
         Fields that trigger event:<ul><li>Shipping Tracking Number</li></ul>
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2437,7 +2332,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2468,9 +2362,7 @@ components:
       description: |-
         This webhook fires when a shipment is deleted.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2485,7 +2377,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2521,9 +2412,7 @@ components:
       description: |-
         This webhook fires when a new SKU is created.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2541,7 +2430,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2579,9 +2467,7 @@ components:
       description: |-
         This webhook fires when a SKU is updated.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2599,7 +2485,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2637,9 +2522,7 @@ components:
       description: |-
         This webhook fires when a SKU is deleted.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2657,7 +2540,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2695,9 +2577,7 @@ components:
       description: |-
         This webhook fires when a SKU is updated.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2717,7 +2597,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2768,9 +2647,7 @@ components:
       description: |-
         This webhook fires when the inventory is updated.<br><br>Fields that trigger event:<ul><li>Quantity</li></ul>
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2790,7 +2667,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2841,9 +2717,7 @@ components:
       description: |-
         This webhook fires when a client store is canceled and uninstalled from the platform.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2856,7 +2730,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2882,9 +2755,7 @@ components:
         Fields that trigger event
         <ul><li>Store Name</li><li>Store Address</li><li>Store Country</li><li>Address Type</li><li>Email</li><li>Phone</li></ul>
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2897,7 +2768,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2925,9 +2795,7 @@ components:
       description: |-
         This webhook fires when a subscriber is created. 
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2941,7 +2809,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2968,9 +2835,7 @@ components:
       description: |-
         The webhook fires when a subscriber is updated. 
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2984,7 +2849,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -3011,9 +2875,7 @@ components:
       description: |-
         This webhook fires when a subscriber is deleted.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -3027,7 +2889,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
