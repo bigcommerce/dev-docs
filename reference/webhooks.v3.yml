@@ -193,7 +193,7 @@ paths:
                           format: email
                           example: 'webhooks@example.com'
                       hooks_list:
-                        description: 'List of all the webhooks associated with the provider API User account, filtered by ''active'' parameter.'
+                        description: 'List of all the webhooks associated with the provider API account, filtered by the "active" parameter.'
                         type: array
                         items:
                           type: object
