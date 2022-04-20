@@ -530,6 +530,18 @@ components:
                 status: 502
                 title: A login URL could not be generated. Please try another request.
                 type: /api-docs/getting-started/api-status-codes
+    503_ServiceUnavailable:
+      description: 'If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce [system status](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Full'
+          examples:
+            response:
+              value:
+                status: 503
+                title: Service Unavailable
+                type: /api-docs/getting-started/api-status-codes
     504_GatewayTimeout:
       description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce [system status](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
       content:
@@ -543,18 +555,6 @@ components:
                 title: Gateway Timeout
                 type: /api-docs/getting-started/api-status-codes
                 errors: {}
-    403_Unauthorized:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/error_Full'
-          examples:
-            response:
-              value:
-                status: 403
-                title: Unauthorized Access. You do not have permission to make this request.
-                type: /api-docs/getting-started/api-status-codes
     400_BadRequest:
       description: |-
         Malformed request syntax. Typically need to fix the JSON
@@ -568,6 +568,24 @@ components:
               value:
                 status: 400
                 title: Input is invalid.
+                type: /api-docs/getting-started/api-status-codes
+    401_Unauthorized:
+      description: Unauthorized - the v3 Auth client ID or token in the request are not a valid combination for this store.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Full'
+    403_Unauthorized:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Full'
+          examples:
+            response:
+              value:
+                status: 403
+                title: Unauthorized Access. You do not have permission to make this request.
                 type: /api-docs/getting-started/api-status-codes
     404_NotFound:
       description: 'If the requested account resource is not found for the franchise, return a 404 Not Found.'
@@ -595,18 +613,6 @@ components:
                 type: /api-docs/getting-started/api-status-codes
                 errors:
                   destination: error.path.missing.
-    503_ServiceUnavailable:
-      description: 'If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce [system status](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/error_Full'
-          examples:
-            response:
-              value:
-                status: 503
-                title: Service Unavailable
-                type: /api-docs/getting-started/api-status-codes
     webhook_Resp:
       description: Example response
       content:
@@ -679,12 +685,6 @@ components:
                     per_page: 100
                     total: 5
                     total_pages: 1
-    401_Unauthorized:
-      description: Unauthorized - the v3 Auth client ID or token in the request are not a valid combination for this store.
-      content:
-        application/json:
-          schema:
-            type: object
   securitySchemes:
     X-Auth-Token:
       type: apiKey
