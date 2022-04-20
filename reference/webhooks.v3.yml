@@ -232,7 +232,7 @@ paths:
                               type: integer
                               description: Updated time
                       blocked_domains:
-                        description: List of domains (destinations) that are currently on the blacklist and are not being sent webhooks.
+                        description: List of domains (destinations) that are currently on the denylist and are not being sent webhooks.
                         type: array
                         items:
                           type: object
@@ -242,7 +242,7 @@ paths:
                               type: string
                               format: url
                             time_left:
-                              description: Remaining time in seconds that the domain is on the blacklist.
+                              description: Remaining time in seconds that the domain is on the denylist.
                               type: integer
                             reasons:
                               type: array
