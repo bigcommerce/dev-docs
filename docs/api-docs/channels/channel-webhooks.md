@@ -116,7 +116,8 @@ Category tree payload objects take the form that follows:
 
 
 
-## Product assignment
+## Product assignments
+
 
 The following product assignment webhook events fire in response to actions that affect a specific channel on a store:
 
