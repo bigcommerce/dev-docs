@@ -531,7 +531,7 @@ components:
                 title: A login URL could not be generated. Please try another request.
                 type: /api-docs/getting-started/api-status-codes
     504_GatewayTimeout:
-      description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
+      description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce [system status](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
       content:
         application/json:
           schema:
@@ -610,7 +610,7 @@ components:
                 errors:
                   destination: error.path.missing.
     503_ServiceUnavailable:
-      description: 'If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
+      description: 'If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce [system status](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
       content:
         application/json:
           schema:
