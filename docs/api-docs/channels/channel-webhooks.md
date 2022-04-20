@@ -144,7 +144,8 @@ Product assignment payload objects take the form that follows:
  ```
 ## Settings
 
-The following settings webhook event fires in response to actions that affect a specific channel on a store:
+The following settings webhook events fire in response to actions that affect a specific channel on a store:
+
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
