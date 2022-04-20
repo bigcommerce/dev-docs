@@ -586,21 +586,7 @@ components:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              status:
-                type: integer
-              title:
-                type: string
-              type:
-                type: string
-              errors:
-                type: object
-                properties:
-                  name:
-                    type: string
-                  primary_contact.district:
-                    type: string
+            $ref: '#/components/schemas/errorDetailed_Full'
           examples:
             response:
               value:
@@ -2931,11 +2917,19 @@ components:
       type: object
       title: errorDetailed_Full
       properties:
+        status:
+          description: |
+            The HTTP status code.
+          type: integer
+        title:
+          description: |
+            The error title describing the particular error.
+          type: string
+        type:
+          description: Typically a link to BigCommerce API Status codes
+          type: string
         errors:
           type: object
-          additionalProperties:
-            type: string
-          title: DetailedErrors
       x-internal: false
     webhook_Base:
       type: object
