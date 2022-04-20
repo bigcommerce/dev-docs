@@ -323,7 +323,7 @@ paths:
   '/stores/{store_hash}/v3/hooks/events':
     get:
       tags:
-        - Webhooks API
+        - Webhooks
       summary: Get Events
       parameters:
         - $ref: '#/components/parameters/FilterPageParam'
@@ -367,6 +367,7 @@ paths:
         description: Hash of your BigCommerce store
 tags:
   - name: Webhooks
+  - name: Webhooks Admin
   - name: Callbacks
 security:
   - X-Auth-Token: []
