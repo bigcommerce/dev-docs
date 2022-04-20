@@ -49,7 +49,7 @@ You can complete the GraphQL query call with any HTTP library. Use the `data.tok
 
 ```http title="Example GraphQL query" lineNumbers
 POST /graphql
-Authorization: Bearer {{TOKEN}}
+Authorization: Bearer {{JWT}}
 Content-Type: application/json
 
 {
