@@ -160,7 +160,7 @@ paths:
     get:
       operationId: getHooksAdmin
       summary: Get Admin Info
-      description: 'List all notification emails, webhooks, and blocklisted domains associated with the API user.'
+      description: 'List all notification emails, webhooks, and denylisted domains associated with the API account.'
       parameters:
         - name: is_active
           in: query
@@ -274,7 +274,7 @@ paths:
       operationId: putHooksAdmin
       summary: Upsert Email Notifications
       description: |
-        Update email addresses to which notification emails will be sent when any domain associated with the API user is blocklisted or when a webhook is deactivated. Supports `upsert` functionality in the case that no email address exists yet.
+        Update email addresses to which notification emails will be sent when any domain associated with the API account is denylisted or when a webhook is deactivated. Supports `upsert` functionality in the case that no email address exists yet.
       requestBody:
         description: List of notification emails.
         content:
