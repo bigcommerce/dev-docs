@@ -706,17 +706,13 @@ components:
       in: header
       description: |-
         ### OAuth Scopes
-        |  **UI Name** | **Permission** | **Parameter** |
-        | --- | --- | --- |
-        |  - | - | - |
-
-        **Note**: Creating and mangaing webhooks require the default scope used when an API User account is created.
+        None required. Create and manage webhooks with the default scope of an API Account.
 
         ### Headers
 
-        |Header|Parameter|Description|
-        |-|-|-|
-        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
+        | Header | Parameter | Description |
+        |:-------|:----------|:------------|
+        | `X-Auth-Token` | `access_token ` | Obtained by creating an API account or installing an app in a BigCommerce control panel. |
 
         ### Example
 
