@@ -28,7 +28,7 @@ paths:
                       created_at: 1561488106
                       updated_at: 1561488106
                       scope: store/order/*
-                      destination: 'https://665b65a6.ngrok.io/webhooks`'
+                      destination: 'https://665b65a6.ngrok.io/webhooks'
                       is_active: true
                       headers:
                         custom: string
@@ -660,7 +660,7 @@ components:
                   created_at: 1561488106
                   updated_at: 1561488106
                   scope: store/order/*
-                  destination: 'https://665b65a6.ngrok.io/webhooks`'
+                  destination: 'https://665b65a6.ngrok.io/webhooks'
                   is_active: true
                   headers:
                     custom: string
