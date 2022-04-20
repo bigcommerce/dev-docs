@@ -706,7 +706,7 @@ components:
       in: header
       description: |-
         ### OAuth Scopes
-        None required. Create and manage webhooks with the default scope of an API Account.
+        None required. Create and manage webhooks with the default scope of an API account.
 
         ### Headers
 
@@ -828,7 +828,7 @@ components:
     store_cart_deleted:
       title: store/cart/deleted
       description: |-
-        This webhook fires whenever a cart is deleted. Cart deletion occurs either when all items have been removed from a cart which causes auto-deletion, or when an API consumer explicitly removes the cart through a `DELETE` request. Cart deletion ends the lifecycle of the cart. The `store/cart/updated` webhook also fires when the last item is removed.
+        This webhook fires whenever a cart is deleted. Cart deletion occurs either when all items have been removed from a cart which causes auto-deletion, or when an API consumer explicitly removes the cart using a `DELETE` request. Cart deletion ends the lifecycle of the cart. The `store/cart/updated` webhook also fires when the last item is removed.
 
         ```json title="Example callback object" lineNumbers
         {
