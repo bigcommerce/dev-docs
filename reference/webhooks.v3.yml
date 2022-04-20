@@ -2892,10 +2892,6 @@ components:
         type:
           description: Typically a link to BigCommerce API Status codes
           type: string
-      example:
-        status: 404
-        title: Not found
-        type: '/api-docs/getting-started/api-status-codes'
       x-internal: false
     errorDetailed_Full:
       type: object
