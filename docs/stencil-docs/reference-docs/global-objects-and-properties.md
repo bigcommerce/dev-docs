@@ -163,6 +163,8 @@ The table below displays properties for the individual category objects within t
 
 The code example below displays the global `{{products.featured}}` object on the `cornerstone/templates/pages/home.html` page template from [Stencil's base Cornerstone theme](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L5) (GitHub).
 
+`{{products.featured}}` returns 10 products by default.
+
 First, you must declare the object using Front Matter. To declare the object, the following front matter must be placed at the top of the template HTML page. This following declaration also limits the number of featured products to be displayed:
 
 ```yml title="Example: Frontmatter declaration"
