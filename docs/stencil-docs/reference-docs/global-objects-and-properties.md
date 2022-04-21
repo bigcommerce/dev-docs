@@ -244,6 +244,8 @@ No properties available for this object.
 
 To access the global `{{products.new}}` object on your page, you must first use front matter to declare the object at the top of your page template.
 
+`{{products.new}}` returns 10 products by default. 
+
 The code example below declares the global `{{products.new}}` object on the `cornerstone/templates/pages/home.html` page template from [Stencil's base Cornerstone Theme](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L3) (GitHub).
 
 ```yml title="Example: Frontmatter declaration"
