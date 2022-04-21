@@ -1811,7 +1811,7 @@ parameters:
       - consignments.available_shipping_options
 securityDefinitions:
   Checkouts:
-    name: API Key
+    name: X-Auth-Token
     type: apiKey
     in: query
 tags:
