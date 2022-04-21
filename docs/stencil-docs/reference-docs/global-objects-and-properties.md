@@ -151,6 +151,7 @@ The table below displays properties for the individual category objects within t
 | **selected** | Container for the selected search facets (selected facets contain properties below) |
 | &nbsp;&nbsp;remove_all_url | URL to remove all selected search restrictions |
 | &nbsp;&nbsp;items | Currently enabled search facets |
+
 ## Featured Products
 
 **Description:** Renders a list of all the featured products for the BigCommerce storefront.
