@@ -174,7 +174,7 @@ paths:
         Required Fields
         * discounted_amount
       tags:
-        - Checkout
+        - Checkout Discounts
       parameters:
         - in: body
           name: body
@@ -1825,6 +1825,7 @@ tags:
   - name: Checkout Billing Address
   - name: Checkout Consignments
   - name: Checkout Coupons
+  - name: Checkout Discounts
   - name: Checkout Orders
   - name: Checkout Settings
 security:
