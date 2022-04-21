@@ -22,7 +22,6 @@ x-stoplight:
     includeDownloadLink: false
     showModels: false
 security:
-  - X-Auth-Client: []
   - X-Auth-Token: []
 info:
   version: ''
@@ -32,23 +31,23 @@ info:
 
     ## Authentication
 
-    Requests can be authenticated by sending an `access_token` via `X-Auth-Token` HTTP header:
+    Authenticate requests by passing an API account `access_token` in the `X-Auth-Token` HTTP header:
 
     ```http
-    GET /stores/{store_hash}/v3/customers
+    GET /stores/{{STORE_HASH}}/v3/customers
     host: api.bigcommerce.com
     Accept: application/json
-    X-Auth-Token: {access_token}
+    X-Auth-Token: {{ACCESS_TOKEN}}
     ```
 
-    |Header|Parameter|Description|
-    |-|-|-|
-    |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
+    | Header | Parameter | Description |
+    |:-------|:----------|:------------|
+    | `X-Auth-Token` | `access_token` | Obtained by creating an API account or installing an app in a BigCommerce control panel. |
 
     ### OAuth Scopes
 
     | UI Name                                      | Permission | Parameter                                     |
-    |----------------------------------------------|------------|-----------------------------------------------|
+    |:---------------------------------------------|:-----------|:----------------------------------------------|
     | Customers                                    | modify     | `store_v2_customers`                          |
     | Customers                                    | read-only  | `store_v2_customers_read_only`                |
     | Stored Payment Instruments                   | modify     | `store_stored_payment_instruments`            |
@@ -57,7 +56,7 @@ info:
     For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
 
     ## Resources
-    * [Customer and Subscribers Overview](/api-docs/customers/customers-subscribers-overview).
+    * [Customer and Subscribers Overview](/api-docs/store-management/customers).
   contact: {}
 paths:
   '/stores/{store_hash}/v3/customers':
@@ -309,24 +308,7 @@ paths:
           content:
             application/json:
               schema:
-                title: Error Response
-                type: object
-                properties:
-                  status:
-                    description: The HTTP status code.
-                    type: integer
-                    format: int32
-                  title:
-                    description: The error title describing the particular error.
-                    type: string
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                  errors:
-                    type: object
-                    additionalProperties:
-                      type: string
+                $ref: '#/components/schemas/ErrorResponse'
               examples:
                 response:
                   value:
@@ -367,24 +349,7 @@ paths:
           content:
             application/json:
               schema:
-                title: Error Response
-                type: object
-                properties:
-                  status:
-                    description: The HTTP status code.
-                    type: integer
-                    format: int32
-                  title:
-                    description: The error title describing the particular error.
-                    type: string
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                  errors:
-                    type: object
-                    additionalProperties:
-                      type: string
+                $ref: '#/components/schemas/ErrorResponse'
       requestBody:
         content:
           application/json:
@@ -643,24 +608,7 @@ paths:
           content:
             application/json:
               schema:
-                title: Error Response
-                type: object
-                properties:
-                  status:
-                    description: The HTTP status code.
-                    type: integer
-                    format: int32
-                  title:
-                    description: The error title describing the particular error.
-                    type: string
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                  errors:
-                    type: object
-                    additionalProperties:
-                      type: string
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
         - Customer Addresses
     put:
@@ -669,14 +617,12 @@ paths:
 
         **Required Fields**
         * **id** -- ID of the *Customer Address*
-        * **customer_id** -- ID of the *Customer*.
 
         **Limits**
         * Limit of **3** concurrent requests.
 
         **Notes**
         * A unique customer address is a combination of the following core address fields:
-          * **customer_id**
           * **first_name**
           * **last_name**
           * **company**
@@ -688,7 +634,7 @@ paths:
           * **country_code**
           * **state_or_province**
           * **postal_code**
-        * An attempt to update an address such that it becomes identical to another address that already exists will result in no change to the target address or custom form field values, an HTTP 200 return code, and the address will be absent from the response body.
+        * An attempt to update an address such that it becomes identical to another address that already exists will result in no change to the target address or custom form field values. The response will have an HTTP 200 return code, and the address will be absent from the response body.
       summary: Update a Customer Address
       operationId: CustomersAddressesPut
       deprecated: false
@@ -724,14 +670,12 @@ paths:
                     country_code: US
                     phone: '1234567890'
                     address_type: residential
-                    customer_id: 11
                     form_fields: 
                       - name: "test"
                         value: "test"
               example-2-form-fields:
                 value:
                   - id: 11
-                    customer_id: 11
                     form_fields: 
                       - name: "test"
                         value: "test"
@@ -749,7 +693,6 @@ paths:
               country_code: US
               phone: '1234567890'
               address_type: residential
-              customer_id: 23
       responses:
         '200':
           $ref: '#/components/responses/AddressCollectionResponsePostPut'
@@ -759,24 +702,7 @@ paths:
           content:
             application/json:
               schema:
-                title: Error Response
-                type: object
-                properties:
-                  status:
-                    description: The HTTP status code.
-                    type: integer
-                    format: int32
-                  title:
-                    description: The error title describing the particular error.
-                    type: string
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                  errors:
-                    type: object
-                    additionalProperties:
-                      type: string
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
         - Customer Addresses
     delete:
@@ -859,50 +785,21 @@ paths:
           content:
             application/json:
               schema:
-                title: Error Response
-                type: object
-                properties:
-                  status:
-                    description: The HTTP status code.
-                    type: integer
-                    format: int32
-                  title:
-                    description: The error title describing the particular error.
-                    type: string
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                  errors:
-                    type: object
-                    additionalProperties:
-                      type: string
+                $ref: '#/components/schemas/ErrorResponse'
         '429':
           description: |
             Allowed number of requests exceeded.
           content:
             application/json:
               schema:
-                title: Error Response
-                type: object
-                properties:
-                  status:
-                    description: The HTTP status code.
-                    type: integer
-                    format: int32
-                    example: 429
-                  title:
-                    description: The error title describing the particular error.
-                    type: string
-                    example: Too many requests
-                  type:
-                    type: string
-                    example: /api-docs/getting-started/api-status-codes
-                  errors:
-                    type: object
-                    additionalProperties:
-                      type: string
-                    example: {}
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    status: 429
+                    title: Too many requests
+                    type: /api-docs/getting-started/api-status-codes
+                    errors: {}
     parameters:
       - schema:
           type: string
@@ -1221,24 +1118,7 @@ paths:
           content:
             application/json:
               schema:
-                title: Error Response
-                type: object
-                properties:
-                  status:
-                    description: The HTTP status code.
-                    type: integer
-                    format: int32
-                  title:
-                    description: The error title describing the particular error.
-                    type: string
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                  errors:
-                    type: object
-                    additionalProperties:
-                      type: string
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
         - Customer Attributes
     put:
@@ -1287,24 +1167,7 @@ paths:
           content:
             application/json:
               schema:
-                title: Error Response
-                type: object
-                properties:
-                  status:
-                    description: The HTTP status code.
-                    type: integer
-                    format: int32
-                  title:
-                    description: The error title describing the particular error.
-                    type: string
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                  errors:
-                    type: object
-                    additionalProperties:
-                      type: string
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
         - Customer Attributes
     delete:
@@ -1467,7 +1330,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/attribueValue_Base'
+                $ref: '#/components/schemas/attributeValue_Base'
             examples:
               Example:
                 value:
@@ -1503,24 +1366,7 @@ paths:
           content:
             application/json:
               schema:
-                title: Error Response
-                type: object
-                properties:
-                  status:
-                    description: The HTTP status code.
-                    type: integer
-                    format: int32
-                  title:
-                    description: The error title describing the particular error.
-                    type: string
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                  errors:
-                    type: object
-                    additionalProperties:
-                      type: string
+                $ref: '#/components/schemas/ErrorResponse'
       tags:
         - Customer Attribute Values
     delete:
@@ -1578,24 +1424,7 @@ paths:
           content:
             application/json:
               schema:
-                title: Error Response
-                type: object
-                properties:
-                  status:
-                    description: The HTTP status code.
-                    type: integer
-                    format: int32
-                  title:
-                    description: The error title describing the particular error.
-                    type: string
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                  errors:
-                    type: object
-                    additionalProperties:
-                      type: string
+                $ref: '#/components/schemas/ErrorResponse'
       summary: Get Customer Form Field Values
       description: |-
         Returns a list of form field values for the Customer or Customer Address object.
@@ -1672,24 +1501,7 @@ paths:
           content:
             application/json:
               schema:
-                title: Error Response
-                type: object
-                properties:
-                  status:
-                    description: The HTTP status code.
-                    type: integer
-                    format: int32
-                  title:
-                    description: The error title describing the particular error.
-                    type: string
-                  type:
-                    type: string
-                  instance:
-                    type: string
-                  errors:
-                    type: object
-                    additionalProperties:
-                      type: string
+                $ref: '#/components/schemas/ErrorResponse'
       summary: Upsert Customer Form Field Values
       description: |-
         Updates form field values on the Customer or Customer Address objects. Multiple form field values can be updated in one call.
@@ -1866,7 +1678,7 @@ paths:
                         email: example@email.com
                         company: Test Company
                         address1: 1 Sample Street
-                        address2: Appt 1
+                        address2: Apt 1
                         city: Las Vegas
                         postal_code: '90854'
                         state_or_province: Nevada
@@ -1941,7 +1753,7 @@ components:
                       - first_name: string
                         last_name: string
                         address1: Addr1
-                        addres2: ''
+                        address2: ''
                         city: string
                         state_or_province: string
                         postal_code: string
@@ -2769,31 +2581,6 @@ components:
       type: apiKey
       name: X-Auth-Token
       in: header
-      description: |-
-        ### OAuth Scopes
-        |  **UI Name** | **Permission** | **Parameter** |
-        | --- | --- | --- |
-        |  Customers | modify | `store_v2_customers` |
-        |  Customers | read-only | `store_v2_customers_read_only` |
-        | Stored Payment Instruments| modify | `store_stored_payment_instruments`|
-        | Stored Payment Instruments| read-only | `store_stored_payment_instruments_read_only` |
-
-        ### Headers
-
-        |Header|Parameter|Description|
-        |-|-|-|
-        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
-        ### Example
-
-        ```http
-        GET /stores/{store_hash}/v3/catalog/summary
-        host: api.bigcommerce.com
-        Content-Type: application/json
-        X-Auth-Token: {access_token}
-        ```
-
-        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
   schemas:
     Pagination:
       title: Pagination
@@ -2843,6 +2630,7 @@ components:
           description: The error title describing the particular error.
           type: string
         type:
+          description: A link to a list of BigCommerce API status codes.
           type: string
         instance:
           type: string
@@ -2947,7 +2735,7 @@ components:
           $ref: '#/components/schemas/CustomerStoredCreditAmounts'
         accepts_product_review_abandoned_cart_emails:
           type: boolean
-          description: Determines if the customer is signed up to receive either product review or abandoned cart emails or recieve both emails.
+          description: Determines if the customer is signed up to receive either product review or abandoned cart emails or receive both emails.
         origin_channel_id: 
           type: integer
           description: Channel ID of the customer that has created the form.
@@ -3011,7 +2799,7 @@ components:
           $ref: '#/components/schemas/customerAuthentication_PostPut'
         accepts_product_review_abandoned_cart_emails:
           type: boolean
-          description: It determines if the customer is signed up to receive either product review or abandoned cart emails or recieve both emails.
+          description: It determines if the customer is signed up to receive either product review or abandoned cart emails or receive both emails.
         store_credit_amounts:
           $ref: '#/components/schemas/CustomerStoredCreditAmounts'
         origin_channel_id: 
@@ -3088,7 +2876,7 @@ components:
           $ref: '#/components/schemas/customerAuthentication_PostPut'
         accepts_product_review_abandoned_cart_emails:
           type: boolean
-          description: It determines if the customer is signed up to receive either product review or abandoned cart emails or recieve both emails.
+          description: It determines if the customer is signed up to receive either product review or abandoned cart emails or receive both emails.
         store_credit_amounts:
           $ref: '#/components/schemas/CustomerStoredCreditAmounts'
         origin_channel_id: 
@@ -3108,8 +2896,8 @@ components:
       required:
         - id
       x-internal: false
-    attribueValue_Base:
-      title: attribueValue_Base
+    attributeValue_Base:
+      title: attributeValue_Base
       type: object
       properties:
         id:
@@ -3372,11 +3160,6 @@ components:
           enum:
             - residential
             - commercial
-        customer_id:
-          description: The customer ID.
-          type: integer
-          format: int32
-          example: 1
         id:
           description: The unique numeric ID of the address.
           type: integer
@@ -3389,13 +3172,11 @@ components:
           items:
             $ref: "#/components/schemas/formFieldValue"  
       required:
-        - customer_id
         - id
       x-examples:
         example-1:
           value:
-            - customer_id: 1
-              id: 18
+            - id: 18
               first_name: sam
       x-internal: false
     address_Post:
@@ -3888,7 +3669,7 @@ components:
           example: 1 Sample Street
         address2:
           type: string
-          example: Appt 1
+          example: Apt 1
         city:
           type: string
           example: Las Vegas
