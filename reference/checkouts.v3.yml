@@ -173,6 +173,8 @@ paths:
 
         Required Fields
         * discounted_amount
+      tags:
+        - Checkout
       parameters:
         - in: body
           name: body
