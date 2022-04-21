@@ -348,7 +348,7 @@ paths:
         '401':
           $ref: '#/components/responses/401_Unauthorized'
       description: |
-        Get a list of events that were sent but not successfully received. Only events that are failed to be received are stored. Events are stored for not less than one week.
+        Get a list of events that were sent but not successfully received. Events are stored for not less than one week.
     parameters:
       - schema:
           type: string
