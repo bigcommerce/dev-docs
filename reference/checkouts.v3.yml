@@ -164,8 +164,6 @@ paths:
       responses:
         '200':
           $ref: '#/responses/CheckoutResponse'
-      tags:
-        - Checkout Discounts
       description: |-
         Adds a discount to an existing *checkout*.
 
