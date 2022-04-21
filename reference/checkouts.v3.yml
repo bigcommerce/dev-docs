@@ -2,7 +2,10 @@ swagger: '2.0'
 info:
   version: '3.0'
   title: Checkouts
-  description: Create checkouts from existing carts using BigCommerce checkout logic.
+  description: |-
+    For more information on authenticating BigCommerce APIs, see [Authentication](/api-docs/getting-started/authentication).
+
+    Create and manage checkouts from existing carts using BigCommerce checkout logic.
 host: api.bigcommerce.com
 basePath: null
 schemes:
@@ -1810,10 +1813,11 @@ parameters:
     enum:
       - consignments.available_shipping_options
 securityDefinitions:
-  Checkouts:
-    name: X-Auth-Token
+  X-Auth-Token:
     type: apiKey
-    in: query
+    in: header
+    name: X-Auth-Token
+    description: ''
 tags:
   - name: Checkout
   - name: Checkout Billing Address
@@ -1823,11 +1827,6 @@ tags:
   - name: Checkout Settings
 security:
   - X-Auth-Client: []
-  - X-Auth-Token: []
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false
 responses:
   CheckoutResponse:
     description: ''
