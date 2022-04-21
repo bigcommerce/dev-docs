@@ -791,7 +791,8 @@ components:
     store_cart_deleted:
       title: store/cart/deleted
       description: |-
-        This webhook fires whenever a cart is deleted. Cart deletion occurs either when all items have been removed from a cart which causes auto-deletion, or when an API consumer explicitly removes the cart using a `DELETE` request. Cart deletion ends the lifecycle of the cart. The `store/cart/updated` webhook also fires when the last item is removed.
+        This webhook fires whenever a cart is deleted. Carts are deleted in two ways; when all items are removed from a cart, and when an API consumer explicitly removes the cart using a `DELETE` request. Cart deletion ends the cart lifecycle. The `store/cart/updated` webhook also fires when the last item is removed.
+
 
         ```json title="Example callback object" lineNumbers
         {
@@ -876,7 +877,8 @@ components:
     store_cart_abandoned:
       title: store/cart/abandoned
       description: |-
-        This webhook fires after a cart is abandoned. A cart becomes abandoned when no changes occur for at least one hour after the last modified property. This webhook is available for all store plans, regardless of whether the Abandoned Cart Saver feature is enabled.
+        This webhook fires after a cart is abandoned. BigCommerce considers a cart abandoned when it has no activity for at least one hour. This webhook is available for all store plans, regardless of whether the Abandoned Cart Saver feature is enabled.
+
 
         ```json title="Example callback object" lineNumbers
         {
@@ -919,7 +921,8 @@ components:
     store_cart_converted:
       title: store/cart/converted
       description: |-
-        This webhook fires when a cart is converted into an order, which is typically after the checkout payment step on the storefront. At this point, the cart is automatically deleted and no longer accessible. This webhook returns both the cart ID and order ID for correlation purposes.
+        This webhook fires when a cart/checkout is converted into an order, which is typically after the checkout payment step on the storefront. At this point, the cart is automatically deleted and no longer accessible. This webhook returns both the cart/checkout ID and order ID for correlation purposes.
+
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1180,7 +1183,8 @@ components:
     store_category_updated:
       title: store/category/updated
       description: |-
-        This webhook fires when a category is updated. <br><br>Fields that trigger event:<ul><li>Url</li><li>Name</li><li>Redirect old URLs</li><li>Description</li><li>Parent Category</li><li>Template Layout File</li><li>Sort Order</li><li>Default Product Sort</li><li>Category Image</li><li>Page Title</li><li>Meta Keywords</li><li>Meta Description</li><li>Search Keywords</li><li>Google Product Category</li><li>Enable Google Shopping</li></ul>
+        This webhook fires when a category is updated. <br><br>Changes to the following fields trigger this event:<ul><li>Url</li><li>Name</li><li>Redirect old URLs</li><li>Description</li><li>Parent Category</li><li>Template Layout File</li><li>Sort Order</li><li>Default Product Sort</li><li>Category Image</li><li>Page Title</li><li>Meta Keywords</li><li>Meta Description</li><li>Search Keywords</li><li>Google Product Category</li><li>Enable Google Shopping</li></ul>
+
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1310,7 +1314,8 @@ components:
       description: |-
         This webhook fires when a channel is updated via control panel or API. 
 
-        Fields that trigger event:<ul><li>name</li><li>external_id</li><li>status</li><li>is_listable_from_ui</li><li>is_visible</li><li>is_enabled (to be deprecated)</li><li>config_meta</li></ul>
+        Changes to the following fields trigger this event:<ul><li>name</li><li>external_id</li><li>status</li><li>is_listable_from_ui</li><li>is_visible</li><li>is_enabled (to be deprecated)</li><li>config_meta</li></ul>
+
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1403,7 +1408,8 @@ components:
     store_customer_updated:
       title: store/customer/updated
       description: |-
-        This webhook fires when a customer is updated. In addition, this webhook fires when you initially enter custom form field values within the account sign-up form. Please note that changing existing data in customer form fields and changing a customerʼs address will not trigger the webhook to fire.
+        This webhook fires when a customer is updated. In addition, this webhook fires when a shopper initially enters custom form field values within the account sign-up form. Please note that neither changing existing data in customer form fields nor changing a customerʼs address will trigger the webhook.
+
 
         ```json title="Example callback object" lineNumbers
         {
@@ -2093,7 +2099,8 @@ components:
     store_product_inventory_updated:
       title: store/product/inventory/updated
       description: |-
-        This webhook fires when product inventory is updated. <br><br>Fields that trigger event: <ul><li>Inventory Stock</li></ul>Fields that do not trigger event: <ul><li>Track Inventory</li><li>Inventory Low Stock</li></ul>
+        This webhook fires when product inventory is updated. <br><br>Changes to the following fields trigger this event: <ul><li>Inventory Stock</li></ul>Fields that do not trigger event: <ul><li>Track Inventory</li><li>Inventory Low Stock</li></ul>
+
 
         ```json title="Example callback object" lineNumbers
         {
@@ -2712,7 +2719,8 @@ components:
       description: |-
         This webhook fires when changes are made to store settings. 
 
-        Fields that trigger event
+        Changes to the following fields trigger this event:
+
         <ul><li>Store Name</li><li>Store Address</li><li>Store Country</li><li>Address Type</li><li>Email</li><li>Phone</li></ul>
 
         ```json title="Example callback object" lineNumbers
