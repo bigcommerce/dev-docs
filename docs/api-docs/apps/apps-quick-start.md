@@ -9,7 +9,7 @@ To successfully complete this tutorial, you will need the following:
 * [BigCommerce sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store) (required to develop and test apps)
 * [Developer Portal Account](https://devtools.bigcommerce.com/) (required to register apps)
 * Experience using [npm](https://www.npmjs.com/)
-* Node.js version 10.14+
+* Node.js 14.x
 
 ## Get started
 
