@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   version: ''
   title: Storefront Checkouts
-  description: Manage checkout operations and data via front-end JavaScript on BigCommerce stencil powered storefronts.
+  description: Manage checkout operations and data using front-end JavaScript on BigCommerce Stencil-powered storefronts.
 host: '{$$.env.store_domain}'
 basePath: /api/storefront
 consumes:
@@ -356,7 +356,7 @@ paths:
       description: |-
         Updates a *Checkout Line Item*. Updates an existing, single line item in the cart.
 
-        If a variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the [Add Cart Line Items](/api-reference/cart-checkout/storefront-cart-api/cart-items/addcartlineitem) endpoint.
+        If a variant needs to be changed or updated, the product will need to be removed and re-added to the cart with the correct variants using the [Add Cart Line Items](/api-reference/storefront/carts/cart-items/addcartlineitem) endpoint.
 
 
         <!-- theme: info -->
@@ -1187,7 +1187,27 @@ paths:
           description: Unable to determine if provided email is associated with an account. The customer must sign-in.
   '/checkouts/{checkoutId}/consignments':
     post:
-      description: "Adds a new *Consignment* to *Checkout*.\n\nThere are two steps to add a new shipping address and shipping options with line items. \n1. Add a new Consignment to Checkout.\n* \tSend a POST to Consignments with each shipping address and line items IDs. Each address can have its own line item IDs.\n* \tAs part of the request URL make sure to add `include=consignments.availableShippingOptions` to return the available shipping options based on line items and shipping locations. This will return `availableShippingOptions` in the response.\n2. [Update the Consignment](/api-reference/cart-checkout/storefront-checkout-api/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) with Shipping Options.\n\n**Required Query**\n* consignments.availableShippingOptions\n\n**Required Fields**\n* shipping_address\n* line_items\n\nTo learn more about creating a Checkout Consignment see [Working with the Fetch API](/api-docs/cart-and-checkout/working-sf-apis).\n\n<!-- theme: info --> \n\n> #### Note\n> The Send a Test Request feature is not currently supported for this endpoint."
+      description: |-
+        Adds a new *Consignment* to *Checkout*.
+        
+        There are two steps to add a new shipping address and shipping options with line items. 
+        1. Add a new Consignment to Checkout.
+          * Send a POST to Consignments with each shipping address and line items IDs. Each address can have its own line item IDs.
+          * As part of the request URL make sure to add `include=consignments.availableShippingOptions` to return the available shipping options based on line items and shipping locations. This will return `availableShippingOptions` in the response.
+        2. [Update the Consignment](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) with Shipping Options.
+        
+        **Required Query**
+        * consignments.availableShippingOptions
+        
+        **Required Fields**
+        * shipping_address (deprecated) or address
+        * line_items
+        
+        To learn more about creating a Checkout Consignment, see the [Carts and Checkouts Tutorial](/api-docs/storefront/tutorials/carts).
+        
+        <!-- theme: info --> 
+        > #### Note
+        > The Send a Test Request feature is not currently supported for this endpoint.
       summary: Create a Consignment
       tags:
         - Checkout Consignments
@@ -1365,7 +1385,23 @@ paths:
               customerMessage: ''
   '/checkouts/{checkoutId}/consignments/{consignmentId}':
     put:
-      description: "Updates an existing consignment. Either the shipping address, one or more line item IDs, or the shipping option ID can be updated in a single call to this endpoint.\n\nThere are two steps to add a new shipping address and shipping options with line items. \n1. Add a new Consignment to Checkout.\n2. Update the Consignment with Shipping Options.\n* \t Update each *Consignment* `shippingOptionId` (shipping address and line items) with the `availableShippingOption > id` from Step One. \n\n**Required Fields**\n* shippingOptionId\n\nTo learn more about creating a Checkout Consignment see [Checkout Consignment API](/api-docs/checkouts/checkout-consignment).\n\n<!-- theme: info --> \n\n> #### Note\n> * You cannot pass both an `address` and a `shippingOptionId` because the shipping option may not be available for the new address \n> * The Send a Test Request feature is not currently supported for this endpoint."
+      description: |-
+        Updates an existing consignment. Either the shipping address, one or more line item IDs, or the shipping option ID can be updated in a single call to this endpoint.
+        
+        There are two steps to add a new shipping address and shipping options with line items. 
+        1. Add a new Consignment to Checkout.
+        2. Update the Consignment with Shipping Options.
+          * Update each *Consignment* `shippingOptionId` (shipping address and line items) with the `availableShippingOption > id` from Step One. 
+        
+        **Required Fields**
+        * shippingOptionId
+        
+        To learn more about creating a Checkout Consignment see [Checkout Consignment API](/api-docs/checkouts/checkout-consignment).
+        
+        <!-- theme: info --> 
+        > #### Note
+        > * You cannot pass both an `address` and a `shippingOptionId` because the shipping option may not be available for the new address 
+        > * The Send a Test Request feature is not currently supported for this endpoint.
       tags:
         - Checkout Consignments
       operationId: CheckoutsConsignmentsByCheckoutIdAndConsignmentIdPut
