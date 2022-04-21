@@ -8,7 +8,53 @@ paths:
     post:
       responses:
         '200':
-          $ref: '#/components/responses/webhook_Resp'
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/webhook_Full'
+                  meta:
+                    type: object
+                    properties:
+                      pagination:
+                        $ref: '#/components/schemas/Pagination'
+              examples:
+                application/json:
+                  value:
+                    data:
+                      id: 18048287
+                      client_id: m9r6keqmo7h7f23btnpwernbez1kglkl
+                      store_hash: sftg45fsd
+                      created_at: 1561488106
+                      updated_at: 1561488106
+                      scope: store/order/*
+                      destination: 'https://665b65a6.ngrok.io/webhooks'
+                      is_active: true
+                      headers:
+                        custom: string
+                    meta:
+                      pagination:
+                        count: 5
+                        current_page: 1
+                        links:
+                          current: '?limit=100&page=1'
+                          next: '?limit=100&page=1'
+                          previous: '?limit=100&page=1'
+                        per_page: 100
+                        total: 5
+                        total_pages: 1
+          links:
+            getHook:
+              operationId: getWebhook
+              parameters:
+                webhook_id: $response.body#/id
+        '400':
+          $ref: '#/components/responses/400_BadRequest'
+        '401':
+          $ref: '#/components/responses/401_Unauthorized'
         '422':
           $ref: '#/components/responses/422_UnprocessableEntity'
       summary: Create a Webhook
@@ -22,24 +68,16 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/webhook_Base'
-            examples:
-              Example:
-                value:
-                  headers: {}
-                  scope: '{$$.env.scope}'
-                  destination: '{$$.env.destination}'
-                  is_active: true
-        x-examples:
-          application/json:
-            scope: store/order/*
-            destination: 'https://665b65a6.ngrok.io/webhooks'
-            headers: {}
       tags:
         - Webhooks
     get:
       responses:
         '200':
           $ref: '#/components/responses/webhooks_Resp'
+        '400':
+          $ref: '#/components/responses/400_BadRequest'
+        '401':
+          $ref: '#/components/responses/401_Unauthorized'
       summary: Get Webhooks
       description: |-
         Returns a list of all webhooks on a store associated to the `client_id` used to authenticate the request.
@@ -62,7 +100,8 @@ paths:
         name: store_hash
         in: path
         required: true
-  '/stores/{store_hash}/v3/hooks/{id}':
+        description: Hash of your BigCommerce store
+  '/stores/{store_hash}/v3/hooks/{webhook_id}':
     get:
       responses:
         '200':
@@ -76,16 +115,13 @@ paths:
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
     parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
+      - $ref: '#/components/parameters/WebhookId'
       - schema:
           type: string
         name: store_hash
         in: path
         required: true
+        description: Hash of your BigCommerce store
     put:
       responses:
         '200':
@@ -123,24 +159,211 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
+  '/stores/{store_hash}/v3/hooks/admin':
+    get:
+      operationId: getHooksAdmin
+      summary: Get Admin Info
+      description: 'List all notification emails, webhooks, and denylisted domains associated with the API account.'
+      parameters:
+        - name: is_active
+          in: query
+          description: Enables user to filter for webhooks that are active or not.
+          schema:
+            type: boolean
+            example: true
+        - schema:
+            type: string
+          name: store_hash
+          in: path
+          required: true
+          description: Hash of your BigCommerce store
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      emails:
+                        description: Email addresses to be sent notifications.
+                        type: array
+                        items:
+                          type: string
+                          format: email
+                          example: 'webhooks@example.com'
+                      hooks_list:
+                        description: 'List of all the webhooks associated with the provider API account, filtered by the "active" parameter.'
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              description: ID of the webhook
+                            client_id:
+                              type: string
+                              minLength: 1
+                              description: 'Client ID, unique to the store'
+                            store_hash:
+                              minLength: 1
+                              type: string
+                              description: Store permanent ID
+                            scope:
+                              type: string
+                              minLength: 1
+                              description: Event you subscribe to
+                              example: store/order/*
+                            destination:
+                              type: string
+                              minLength: 1
+                              description: 'URL must be active, return a 200 response, and be served on port 443 (custom ports not currently supported)'
+                            headers:
+                              type: object
+                              description: You can pass in any number of custom headers to validate webhooks being returned.
+                            is_active:
+                              type: boolean
+                              description: If webhook is active or not
+                              default: true
+                            created_at:
+                              type: integer
+                              description: Created time
+                            updated_at:
+                              type: integer
+                              description: Updated time
+                      blocked_domains:
+                        description: List of domains (destinations) that are currently on the denylist and are not being sent webhooks.
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            destination:
+                              description: Domain URL to which webhooks are sent.
+                              type: string
+                              format: url
+                            time_left:
+                              description: Remaining time in seconds that the domain is on the denylist.
+                              type: integer
+                            reasons:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  failure_description:
+                                    type: string
+                                  count:
+                                    type: integer
+                                  timestamp:
+                                    type: integer
+                                    format: int64
+                                    description: UTC timestamp in seconds that the events was created
+                  meta:
+                    type: object
+                    properties:
+                      pagination:
+                        $ref: '#/components/schemas/Pagination'
+              examples: {}
+        '400':
+          $ref: '#/components/responses/400_BadRequest'
+        '401':
+          $ref: '#/components/responses/401_Unauthorized'
+      tags:
+        - Webhooks Admin
+    put:
+      operationId: putHooksAdmin
+      summary: Upsert Email Notifications
+      description: |
+        Update email addresses that are sent notification emails when any domain associated with the API account is denylisted or when a webhook is deactivated. Supports `upsert` functionality in the case that no email address exists yet.
+
+      requestBody:
+        description: List of notification emails.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                emails:
+                  type: array
+                  items:
+                    type: string
+                    format: email
+                    example: 'webhooks@example.com'
+            examples:
+              Example:
+                value:
+                  emails:
+                    - user@example.com
+        required: true
+      responses:
+        '204':
+          description: No Content
+        '400':
+          $ref: '#/components/responses/400_BadRequest'
+        '401':
+          $ref: '#/components/responses/401_Unauthorized'
+        '422':
+          $ref: '#/components/responses/422_UnprocessableEntity'
+      tags:
+        - Webhooks Admin
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+        description: Hash of your BigCommerce store
+  '/stores/{store_hash}/v3/hooks/events':
+    get:
+      tags:
+        - Webhooks
+      summary: Get Events
+      parameters:
+        - $ref: '#/components/parameters/FilterPageParam'
+        - $ref: '#/components/parameters/FilterLimitParam'
+        - $ref: '#/components/parameters/FilterMaxCreatedAtParam'
+        - $ref: '#/components/parameters/FilterMinCreatedAtParam'
+      operationId: getWebhookEvents
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/HistoryEvent'
+                  meta:
+                    type: object
+                    properties:
+                      pagination:
+                        $ref: '#/components/schemas/Pagination'
+        '400':
+          $ref: '#/components/responses/400_BadRequest'
+        '401':
+          $ref: '#/components/responses/401_Unauthorized'
+      description: |
+        Get a list of events that were sent but not successfully received. Events are stored for not less than one week.
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+        description: Hash of your BigCommerce store
 tags:
   - name: Webhooks
+  - name: Webhooks Admin
   - name: Callbacks
 security:
   - X-Auth-Token: []
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: true
 servers:
   - url: 'https://api.bigcommerce.com'
-    variables:
-      $$.env.store_hash:
-        default: '{$$.env.store_hash}'
-  - url: 'https://api.bigcommerce.com'
-    variables:
-      $$.env.store_hash:
-        default: '{$$.env.store_hash}'
 components:
   parameters:
     WebhookId:
@@ -150,6 +373,8 @@ components:
       required: true
       schema:
         type: integer
+        minimum: 1
+        example: 22561593
     IsActive:
       name: is_active
       in: query
@@ -179,6 +404,7 @@ components:
       required: false
       schema:
         type: integer
+        example: 1
     FilterLimitParam:
       name: limit
       in: query
@@ -219,61 +445,47 @@ components:
     webhooks_Resp:
       description: ''
       content:
-        v3:
+        application/json:
           schema:
+            description: ''
             type: object
             properties:
               data:
                 type: array
+                uniqueItems: true
+                minItems: 1
                 items:
-                  $ref: '#/components/schemas/webhook_Full'
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    client_id:
+                      type: string
+                      minLength: 1
+                    store_hash:
+                      type: string
+                      minLength: 1
+                    scope:
+                      type: string
+                      minLength: 1
+                    destination:
+                      type: string
+                      minLength: 1
+                    headers:
+                      type: object
+                      nullable: true
+                    is_active:
+                      type: boolean
+                    created_at:
+                      type: number
+                    updated_at:
+                      type: number
               meta:
                 type: object
                 properties:
                   pagination:
                     $ref: '#/components/schemas/Pagination'
-          examples:
-            v3:
-              value:
-                data:
-                  - id: 18048287
-                    client_id: m9r6keqmo7h7f23btnpwernbez1kglkl
-                    store_hash: sftg45fsd
-                    created_at: 1561488106
-                    updated_at: 1561488106
-                    scope: '`store/order/*`'
-                    destination: 'https://665b65a6.ngrok.io/webhooks`'
-                    is_active: true
-                    headers:
-                      custom: string
-                meta:
-                  pagination:
-                    count: 5
-                    current_page: 1
-                    links:
-                      current: '?limit=100&page=1'
-                      next: '?limit=100&page=1'
-                      previous: '?limit=100&page=1'
-                    per_page: 100
-                    total: 5
-                    total_pages: 1
-        v2:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/webhook_Full'
-          examples:
-            v2:
-              value:
-                - id: 18048287
-                  client_id: m9r6keqmo7h7f23btnp3anbez1kglkl
-                  store_hash: anbez1k
-                  scope: store/order/*
-                  destination: 'https://665b65a6.ngrok.io/webhooks'
-                  headers: {}
-                  is_active: true
-                  created_at: 1561488106
-                  updated_at: 1561488106
+          examples: {}
     502_GatewayError:
       description: 'If something happens during the request that causes it to fail, a 502 response will be returned. A new request should be made; however, it could fail.'
       content:
@@ -286,8 +498,20 @@ components:
                 status: 502
                 title: A login URL could not be generated. Please try another request.
                 type: /api-docs/getting-started/api-status-codes
+    503_ServiceUnavailable:
+      description: 'If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce [system status](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Full'
+          examples:
+            response:
+              value:
+                status: 503
+                title: Service Unavailable
+                type: /api-docs/getting-started/api-status-codes
     504_GatewayTimeout:
-      description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
+      description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce [system status](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
       content:
         application/json:
           schema:
@@ -299,18 +523,6 @@ components:
                 title: Gateway Timeout
                 type: /api-docs/getting-started/api-status-codes
                 errors: {}
-    403_Unauthorized:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/error_Full'
-          examples:
-            response:
-              value:
-                status: 403
-                title: Unauthorized Access. You do not have permission to make this request.
-                type: /api-docs/getting-started/api-status-codes
     400_BadRequest:
       description: |-
         Malformed request syntax. Typically need to fix the JSON
@@ -324,6 +536,30 @@ components:
               value:
                 status: 400
                 title: Input is invalid.
+                type: /api-docs/getting-started/api-status-codes
+    401_Unauthorized:
+      description: Unauthorized - the v3 Auth client ID or token in the request are not a valid combination for this store.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Full'
+          examples:
+            response:
+              value:
+                status: 401
+                title: Unauthorized - the v3 Auth client ID or token in the request are not a valid combination for this store.
+                type: /api-docs/getting-started/api-status-codes
+    403_Unauthorized:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_Full'
+          examples:
+            response:
+              value:
+                status: 403
+                title: Unauthorized Access. You do not have permission to make this request.
                 type: /api-docs/getting-started/api-status-codes
     404_NotFound:
       description: 'If the requested account resource is not found for the franchise, return a 404 Not Found.'
@@ -342,21 +578,7 @@ components:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              status:
-                type: integer
-              title:
-                type: string
-              type:
-                type: string
-              errors:
-                type: object
-                properties:
-                  name:
-                    type: string
-                  primary_contact.district:
-                    type: string
+            $ref: '#/components/schemas/errorDetailed_Full'
           examples:
             response:
               value:
@@ -365,31 +587,58 @@ components:
                 type: /api-docs/getting-started/api-status-codes
                 errors:
                   destination: error.path.missing.
-    503_ServiceUnavailable:
-      description: 'If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/error_Full'
-          examples:
-            response:
-              value:
-                status: 503
-                title: Service Unavailable
-                type: /api-docs/getting-started/api-status-codes
     webhook_Resp:
       description: Example response
       content:
-        v3:
+        application/json:
           schema:
+            description: ''
             type: object
+            x-examples:
+              example-1:
+                data:
+                  id: 22041448
+                  client_id: hm6ttr1z8fzu2utb7d1p9qile9jtugv
+                  store_hash: 29iql3rwa6
+                  scope: store/order/*
+                  destination: 'https://665b65a6.ngrok.io/webhooks'
+                  headers: null
+                  is_active: false
+                  created_at: 1626812212
+                  updated_at: 1627588222
+                meta: {}
             properties:
               data:
-                $ref: '#/components/schemas/webhook_Full'
+                type: object
+                properties:
+                  id:
+                    type: number
+                  client_id:
+                    type: string
+                    minLength: 1
+                  store_hash:
+                    type: string
+                    minLength: 1
+                  scope:
+                    type: string
+                    minLength: 1
+                  destination:
+                    type: string
+                    minLength: 1
+                  headers: {}
+                  is_active:
+                    type: boolean
+                  created_at:
+                    type: number
+                  updated_at:
+                    type: number
               meta:
-                $ref: '#/components/schemas/Pagination'
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
           examples:
-            v3:
+            application/json:
               value:
                 data:
                   id: 18048287
@@ -397,8 +646,8 @@ components:
                   store_hash: sftg45fsd
                   created_at: 1561488106
                   updated_at: 1561488106
-                  scope: '`store/order/*`'
-                  destination: 'https://665b65a6.ngrok.io/webhooks`'
+                  scope: store/order/*
+                  destination: 'https://665b65a6.ngrok.io/webhooks'
                   is_active: true
                   headers:
                     custom: string
@@ -413,22 +662,6 @@ components:
                     per_page: 100
                     total: 5
                     total_pages: 1
-        v2:
-          schema:
-            $ref: '#/components/schemas/webhook_Full'
-          examples:
-            v2:
-              value:
-                id: 18048287
-                client_id: m9r6keqmo7h7f23btnpwernbez1kglkl
-                store_hash: sftg45fsd
-                created_at: 1561488106
-                updated_at: 1561488106
-                scope: '`store/order/*`'
-                destination: 'https://665b65a6.ngrok.io/webhooks`'
-                is_active: true
-                headers:
-                  custom: string
   securitySchemes:
     X-Auth-Token:
       type: apiKey
@@ -436,22 +669,18 @@ components:
       in: header
       description: |-
         ### OAuth Scopes
-        |  **UI Name** | **Permission** | **Parameter** |
-        | --- | --- | --- |
-        |  - | - | - |
-
-        **Note**: Creating and mangaing webhooks require the default scope used when an API User account is created.
+        None required. Create and manage webhooks with the default scope of an API account.
 
         ### Headers
 
-        |Header|Parameter|Description|
-        |-|-|-|
-        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
+        | Header | Parameter | Description |
+        |:-------|:----------|:------------|
+        | `X-Auth-Token` | `access_token ` | Obtained by creating an API account or installing an app in a BigCommerce control panel. |
 
         ### Example
 
         ```http
-        GET /stores/{$$.env.store_hash}/v3/catalog/summary
+        GET /stores/{store_hash}/v3/catalog/summary
         host: api.bigcommerce.com
         Content-Type: application/json
         X-Auth-Token: {access_token}
@@ -472,9 +701,7 @@ components:
 
         Cart creation also fires the `store/cart/updated` webhook.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -488,7 +715,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       title: store/cart/created
       allOf:
@@ -527,9 +753,7 @@ components:
         - Quantity
         - Item Price
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -543,7 +767,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -568,11 +791,10 @@ components:
     store_cart_deleted:
       title: store/cart/deleted
       description: |-
-        This webhook fires whenever a cart is deleted. Cart deletion occurs either when all items have been removed from a cart which causes auto-deletion, or when an API consumer explicitly removes the cart through a `DELETE` request. Cart deletion ends the lifecycle of the cart. The `store/cart/updated` webhook also fires when the last item is removed.
+        This webhook fires whenever a cart is deleted. Carts are deleted in two ways; when all items are removed from a cart, and when an API consumer explicitly removes the cart using a `DELETE` request. Cart deletion ends the cart lifecycle. The `store/cart/updated` webhook also fires when the last item is removed.
 
-        ### Example callback:
 
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -586,7 +808,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -613,9 +834,7 @@ components:
       description: |-
         This webhook fires whenever a new coupon code is applied to a cart. The webhook request body includes the ID of the coupon code.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -630,7 +849,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -659,11 +877,10 @@ components:
     store_cart_abandoned:
       title: store/cart/abandoned
       description: |-
-        This webhook fires after a cart is abandoned. A cart becomes abandoned when no changes occur for at least one hour after the last modified property. This webhook is available for all store plans, regardless of whether the Abandoned Cart Saver feature is enabled.
+        This webhook fires after a cart is abandoned. BigCommerce considers a cart abandoned when it has no activity for at least one hour. This webhook is available for all store plans, regardless of whether the Abandoned Cart Saver feature is enabled.
 
-        ### Example callback:
 
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -678,7 +895,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -705,11 +921,10 @@ components:
     store_cart_converted:
       title: store/cart/converted
       description: |-
-        This webhook fires when a cart is converted into an order, which is typically after the checkout payment step on the storefront. At this point, the cart is automatically deleted and no longer accessible. This webhook returns both the cart ID and order ID for correlation purposes.
+        This webhook fires when a cart/checkout is converted into an order, which is typically after the checkout payment step on the storefront. At this point, the cart is automatically deleted and no longer accessible. This webhook returns both the cart/checkout ID and order ID for correlation purposes.
 
-        ### Example callback:
 
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -724,7 +939,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -755,9 +969,7 @@ components:
       description: |-
         This webhook subscribes to all cart line item events. 
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -772,10 +984,6 @@ components:
         }
         ```
 
-        ### Callback schema:
-      x-examples:
-        example-1:
-          $ref: '#/components/examples/store-cart-created'
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
         - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
@@ -802,9 +1010,7 @@ components:
       description: |-
         This webhook fires when a new item is added to the cart.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -819,7 +1025,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -854,9 +1059,7 @@ components:
         - Quantity
         - Item Price
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -871,7 +1074,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -902,9 +1104,7 @@ components:
       description: |-
         This webhook fires when an item is deleted from the cart.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -919,7 +1119,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -960,9 +1159,7 @@ components:
       description: |-
         This webhook fires when a category is created.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -976,7 +1173,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -987,11 +1183,10 @@ components:
     store_category_updated:
       title: store/category/updated
       description: |-
-        This webhook fires when a category is updated. <br><br>Fields that trigger event:<ul><li>Url</li><li>Name</li><li>Redirect old URLs</li><li>Description</li><li>Parent Category</li><li>Template Layout File</li><li>Sort Order</li><li>Default Product Sort</li><li>Category Image</li><li>Page Title</li><li>Meta Keywords</li><li>Meta Description</li><li>Search Keywords</li><li>Google Product Category</li><li>Enable Google Shopping</li></ul>
+        This webhook fires when a category is updated. <br><br>Changes to the following fields trigger this event:<ul><li>Url</li><li>Name</li><li>Redirect old URLs</li><li>Description</li><li>Parent Category</li><li>Template Layout File</li><li>Sort Order</li><li>Default Product Sort</li><li>Category Image</li><li>Page Title</li><li>Meta Keywords</li><li>Meta Description</li><li>Search Keywords</li><li>Google Product Category</li><li>Enable Google Shopping</li></ul>
 
-        ### Example callback:
 
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1005,10 +1200,6 @@ components:
         }
         ```
 
-        ### Callback schema:
-      x-examples:
-        example-1:
-          $ref: '#/components/examples/store-cart-created'
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
         - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
@@ -1034,9 +1225,7 @@ components:
       description: |-
         This webhook fires when a category is deleted.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1050,10 +1239,6 @@ components:
         }
         ```
 
-        ### Callback schema:
-      x-examples:
-        example-1:
-          $ref: '#/components/examples/store-cart-created'
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
         - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
@@ -1087,9 +1272,7 @@ components:
       description: |-
         This webhook fires when a channel is created via control panel or API.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1103,7 +1286,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1132,11 +1314,10 @@ components:
       description: |-
         This webhook fires when a channel is updated via control panel or API. 
 
-        Fields that trigger event:<ul><li>name</li><li>external_id</li><li>status</li><li>is_listable_from_ui</li><li>is_visible</li><li>is_enabled (to be deprecated)</li><li>config_meta</li></ul>
+        Changes to the following fields trigger this event:<ul><li>name</li><li>external_id</li><li>status</li><li>is_listable_from_ui</li><li>is_visible</li><li>is_enabled (to be deprecated)</li><li>config_meta</li></ul>
 
-        ### Example callback:
 
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1150,7 +1331,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1188,9 +1368,7 @@ components:
       description: |-
         This webhook fires when a new customer is created.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1204,7 +1382,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1231,11 +1408,10 @@ components:
     store_customer_updated:
       title: store/customer/updated
       description: |-
-        This webhook fires when a customer is updated. In addition, this webhook fires when you initially enter custom form field values within the account sign-up form. Please note that changing existing data in customer form fields and changing a customerʼs address will not trigger the webhook to fire.
+        This webhook fires when a customer is updated. In addition, this webhook fires when a shopper initially enters custom form field values within the account sign-up form. Please note that neither changing existing data in customer form fields nor changing a customerʼs address will trigger the webhook.
 
-        ### Example callback:
 
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1249,7 +1425,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1278,9 +1453,7 @@ components:
       description: |-
         This webhook fires when a customer is deleted.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1293,8 +1466,6 @@ components:
           }
         }
         ```
-
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1323,9 +1494,7 @@ components:
       description: |-
         This webhook fires when a customer address is updated.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1342,7 +1511,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1376,9 +1544,7 @@ components:
       description: |-
         This webhook fires when a customer address is created.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1395,7 +1561,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1429,9 +1594,7 @@ components:
       description: |-
         This webhook fires when a customer address is deleted.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1448,7 +1611,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1482,9 +1644,7 @@ components:
       description: |-
         This webhook fires when a customer default payment instrument is updated.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1498,10 +1658,6 @@ components:
         }
         ```
 
-        ### Callback schema:
-      x-examples:
-        example-1:
-          $ref: '#/components/examples/store-cart-created'
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
         - description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
@@ -1534,9 +1690,7 @@ components:
       description: |-
         This webhook fires if an order is created using the control panel, an app or via the API.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1550,7 +1704,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1580,9 +1733,7 @@ components:
 
         Fields that trigger event: <ul><li>Status</li><li>Coupon Code</li><li>Billing and Shipping Address</li><li>Product Type</li><li>Search Keywords</li><li>Related Products</li><li>Warranty Information</li><li>Page Title</li><li>Meta Description</li><li>Gift Wrapping options</li><li>Bin Picking Number (BPN)</li><li>Fixed Shipping Price</li><li>Free Shipping</li><li>Open Graph Sharing Type</li><li>Availability Text</li><li>Purchasability</li><li>Release Date</li><li>Remove pre-order status on this date</li></ul>
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1596,7 +1747,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1624,9 +1774,7 @@ components:
       description: |-
         This webhook fires when an order is archived.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1639,7 +1787,6 @@ components:
           }
         }
         ```
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1667,9 +1814,7 @@ components:
       description: |-
         This webhook only fires if the order status has changed, such as `Pending` to `Awaiting Payment`
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1687,7 +1832,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1725,9 +1869,7 @@ components:
       description: |-
         This webhook fires when an order message is created by customer or in control panel.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1744,7 +1886,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1778,9 +1919,7 @@ components:
       description: |-
         This webhook fires when a refund has been submitted against an order.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1797,7 +1936,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1836,9 +1974,7 @@ components:
       description: |-
         This webhook fires when a product is deleted.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1852,7 +1988,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1880,9 +2015,7 @@ components:
       description: |-
         This webhook fires when a new product is created.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1896,7 +2029,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1928,9 +2060,7 @@ components:
 
         Fields that do not trigger event<ul><li>Manufacturer Part Number (MPN)</li><li>Global Trade Number (GTN)</li><li>Tax Provider Tax Code</li><li>Product Image</li><li>Product Image Description</li><li>Product Files</li><li>Customs Information</li></ul>
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1944,7 +2074,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -1970,11 +2099,10 @@ components:
     store_product_inventory_updated:
       title: store/product/inventory/updated
       description: |-
-        This webhook fires when product inventory is updated. <br><br>Fields that trigger event: <ul><li>Inventory Stock</li></ul>Fields that do not trigger event: <ul><li>Track Inventory</li><li>Inventory Low Stock</li></ul>
+        This webhook fires when product inventory is updated. <br><br>Changes to the following fields trigger this event: <ul><li>Inventory Stock</li></ul>Fields that do not trigger event: <ul><li>Track Inventory</li><li>Inventory Low Stock</li></ul>
 
-        ### Example callback:
 
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -1993,7 +2121,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2040,9 +2167,7 @@ components:
       description: |-
         This webhook fires if a product’s inventory increases or decreases. <br><br>Fields that trigger event: <ul><li>Quantity</li></ul>
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2061,7 +2186,6 @@ components:
         }
         ```
 
-         ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2113,9 +2237,7 @@ components:
       description: |-
         This webhook fires when a shipment is created.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2130,7 +2252,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2163,9 +2284,7 @@ components:
 
         Fields that trigger event:<ul><li>Shipping Tracking Number</li></ul>
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2180,7 +2299,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2211,9 +2329,7 @@ components:
       description: |-
         This webhook fires when a shipment is deleted.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2228,7 +2344,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2264,9 +2379,7 @@ components:
       description: |-
         This webhook fires when a new SKU is created.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2284,7 +2397,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2322,9 +2434,7 @@ components:
       description: |-
         This webhook fires when a SKU is updated.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2342,7 +2452,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2380,9 +2489,7 @@ components:
       description: |-
         This webhook fires when a SKU is deleted.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2400,7 +2507,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2438,9 +2544,7 @@ components:
       description: |-
         This webhook fires when a SKU is updated.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2460,7 +2564,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2511,9 +2614,7 @@ components:
       description: |-
         This webhook fires when the inventory is updated.<br><br>Fields that trigger event:<ul><li>Quantity</li></ul>
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2533,7 +2634,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2584,9 +2684,7 @@ components:
       description: |-
         This webhook fires when a client store is canceled and uninstalled from the platform.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2599,7 +2697,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2622,12 +2719,11 @@ components:
       description: |-
         This webhook fires when changes are made to store settings. 
 
-        Fields that trigger event
+        Changes to the following fields trigger this event:
+
         <ul><li>Store Name</li><li>Store Address</li><li>Store Country</li><li>Address Type</li><li>Email</li><li>Phone</li></ul>
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2640,7 +2736,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2668,9 +2763,7 @@ components:
       description: |-
         This webhook fires when a subscriber is created. 
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2684,7 +2777,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2711,9 +2803,7 @@ components:
       description: |-
         The webhook fires when a subscriber is updated. 
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2727,7 +2817,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2754,9 +2843,7 @@ components:
       description: |-
         This webhook fires when a subscriber is deleted.
 
-        ### Example callback:
-
-        ```json
+        ```json title="Example callback object" lineNumbers
         {
           "created_at": 1561482670,
           "store_id": "1025646",
@@ -2770,7 +2857,6 @@ components:
         }
         ```
 
-        ### Callback schema:
       x-examples: {}
       allOf:
         - $ref: '#/components/schemas/webhook_callback_base'
@@ -2805,46 +2891,59 @@ components:
             The error title describing the particular error.
           type: string
         type:
+          description: Typically a link to BigCommerce API Status codes
           type: string
       x-internal: false
     errorDetailed_Full:
       type: object
       title: errorDetailed_Full
       properties:
+        status:
+          description: |
+            The HTTP status code.
+          type: integer
+        title:
+          description: |
+            The error title describing the particular error.
+          type: string
+        type:
+          description: Typically a link to BigCommerce API Status codes
+          type: string
         errors:
           type: object
-          additionalProperties:
-            type: string
-          title: DetailedErrors
       x-internal: false
     webhook_Base:
       type: object
       title: webhook_Base
+      x-internal: false
       properties:
         scope:
           type: string
-          example: '`store/order/*`'
+          example: store/order/*
           description: Event you subscribe to
         destination:
           type: string
-          example: 'https://665b65a6.ngrok.io/webhooks`'
+          example: 'https://665b65a6.ngrok.io/webhooks'
           description: 'URL must be active, return a 200 response, and be served on port 443 (custom ports not currently supported).'
         is_active:
           type: boolean
           example: true
           description: If webhook is active or not
+        events_history_enabled:
+          type: boolean
+          example: true
+          description: Identifies whether events are stored that could not be received.
         headers:
           type: object
           description: 'You can pass in any number of custom headers to validate webhooks being returned. '
+          nullable: true
           properties:
             custom:
               type: string
       required:
         - scope
         - destination
-        - is_active
         - headers
-      x-internal: false
     webhook_Full:
       allOf:
         - type: object
@@ -2872,6 +2971,28 @@ components:
         - $ref: '#/components/schemas/webhook_Base'
       title: webhook_Full
       x-internal: false
+    HistoryEvent:
+      type: object
+      properties:
+        scope:
+          type: string
+          description: Alias where the event occurred.
+        store_id:
+          type: string
+          description: A numerical identifier that is unique to each store.
+        data:
+          type: object
+          description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
+        hash:
+          type: string
+          description: The payload data json encoded then passed through SH1 encryption.
+        created_at:
+          type: integer
+          format: int64
+          description: UTC timestamp in seconds that the events was created.
+        producer:
+          type: string
+          description: Will always follow the pattern stores/store_hash. This is the store that created the webhook.
     Pagination:
       type: object
       description: |
@@ -2962,7 +3083,3 @@ components:
               description: ID of the category
               example: 42
       x-internal: false
-  examples:
-    store-cart-created:
-      value:
-        description: Example shared example
