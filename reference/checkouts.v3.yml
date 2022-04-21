@@ -164,6 +164,8 @@ paths:
       responses:
         '200':
           $ref: '#/responses/CheckoutResponse'
+      tags:
+        - Checkout Discounts
       description: |-
         Adds a discount to an existing *checkout*.
 
@@ -1825,8 +1827,6 @@ tags:
   - name: Checkout Coupons
   - name: Checkout Orders
   - name: Checkout Settings
-security:
-  - X-Auth-Client: []
 responses:
   CheckoutResponse:
     description: ''
@@ -2590,3 +2590,5 @@ responses:
           order_confirmation_use_custom_checkout_script: false
           custom_order_confirmation_script_url: 'https://example.com/custom-order-confirmation-script.js'
         meta: {}
+security:
+  - X-Auth-Token: []
