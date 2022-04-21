@@ -603,11 +603,12 @@ query {
       // ...
 ```
 
-In general, to reduce complexity, reduce the number of objects requested. For example, do the following:
+To reduce complexity, reduce the number of objects requested. For example, do the following:
 * Limit collections to a smaller page size (for example, `first:10` instead of `first:50`).
-
 * Reduce the number of items in nested collections.
 * Request less fields.
+
+Image queries will return 10 by default.
 
 ## Related resources
 
