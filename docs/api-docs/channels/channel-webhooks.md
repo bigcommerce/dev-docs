@@ -53,6 +53,21 @@ Changes to any of the following fields trigger a `store/channel/updated` event:
 * is_enabled (to be deprecated)
 * config_meta
 
+## Abandoned Cart
+
+The following abandoned cart webhook event fires in response to actions that affect a specific channel on a store:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/notifications/abandonedCart/updated     |Fires when a abandoned cart notification is updated for a given channel. | [Update channel abandoned cart settings](/api-reference/store-management/abandoned-carts/abandoned-carts-settings/updatechannelabandonedcartsettings) |
+
+
+Abandoned cart payload objects take the form that follows:
+
+```json title="Example Abandoned cart profile payload object" lineNumbers
+
+ ```
+
 
 ## Carts
 
@@ -60,8 +75,8 @@ The following carts webhook events fire in response to actions that affect a car
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| store/channel/{channel_id}/cart/*            | Fires on all cart changes associated with a given channel | [store/cart/*](/api-reference/store-management/webhooks/models/store-cart-wildcard) |
-| store/channel/{channel_id}/cart/created      | Fires on new cart created for a given channel | [store/cart/created](/api-reference/store-management/webhooks/models/store-cart-created)  |
+| store/channel/{channel_id}/cart/*            | Fires on all cart changes associated with a given channel | [store/cart/\*]() |
+| store/channel/{channel_id}/cart/created      | Fires on new cart created for a given channel | [Create a cart](/api-reference/store-management/carts/cart/createacart)  |
 | store/channel/{channel_id}/cart/updated      | Fires when a cart is updated for a given channel | [store/cart/updated](/api-reference/store-management/webhooks/models/store-cart-updated) |
 | store/channel/{channel_id}/cart/deleted      | Fires when a cart is removed for a given channel | [store/cart/deleted](/api-reference/store-management/webhooks/models/store-cart-deleted) |
 | store/channel/{channel_id}/cart/couponApplied | Fires when a new coupon code is applied to a cart for a given channel | [store/cart/couponApplied](/api-reference/store-management/webhooks/models/store-cart-couponapplied)  |
@@ -96,16 +111,14 @@ The following cart line item webhook events fire in response to actions that aff
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| store/channel/{channel_id}/cart/lineItem/*       | Fires on all cart line item changes associated with a given channel | [store/cart/lineItem/*](/api-reference/store-management/webhooks/models/store-cart-lineitem-wildcard) |
-| store/channel/{channel_id}/cart/lineItem/created      | Fires when a new item is added to a cart for a given channel | [store/cart/lineItem/created](/api-reference/store-management/webhooks/models/store-cart-lineitem-created)  |
+| store/channel/{channel_id}/cart/lineItem/*       | Fires on all cart line item changes associated with a given channel | [store/cart/lineItem/\*](/api-reference/store-management/webhooks/models/store-cart-lineitem-wildcard) |
+| store/channel/{channel_id}/cart/lineItem/created      | Fires when a new item is added to a cart for a given channel | [Create a cart](/api-reference/store-management/carts/cart/createacart) and [Update Cart Line Item](/api-reference/store-management/carts/cart-items/updatecartlineitem) |
 | store/channel/{channel_id}/cart/lineItem/updated      | Fires when an item's quantity has changed or the product options change for a given channel  | [store/cart/lineItem/updated](/api-reference/store-management/webhooks/models/store-cart-lineitem-updated) |
 | store/channel/{channel_id}/cart/lineItem/deleted      | Fires when items are deleted from the cart for a given channel | [store/cart/lineItem/deleted](/api-reference/store-management/webhooks/models/store-cart-lineitem-deleted) |
 
 
 <!-- theme: info -->
-> You must include the `cart_id` in the payload.
-
-
+> You must include the `channel_id` in the payload.
 
 Cart line items payload objects take the form that follows:
 
@@ -181,10 +194,68 @@ Category tree payload objects take the form that follows:
 }
  ```
 
+## Customers
+
+The following customers webhook event fires in response to actions that affect a specific channel on a store:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| store/customer/channel/login/access/updated         |Fires when subscribed to customer login to channel updates | [Update customers](/api-reference/store-management/customers-v3/customers/customersput) or [Delete category trees](/api-reference/store-management/catalog/category-trees/deletecategorytrees) |
+
+<!-- theme: info -->
+> You must include the `channel_id` in the payload.
+
+
+Customers payload objects take the form that follows:
+
+```json title="Example Customers profile payload object" lineNumbers
+{
+ "store_id": "11111",
+ "producer": "stores/abcde",
+ "created_at": 1641641646,
+ "scope": "store/customer/channel/login/access/updated",
+ "data": {
+    "customer_id": 22,
+    "channel_ids": [
+      1
+   ]
+  },
+ "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+}
+ ```
+
+
 ## Orders
 
+The following orders webhook events fire in response to actions that affect a specific channel on a store:
 
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/order/*                  | Fires on all order events associated with a given channel | [Create an order](/api-reference/store-management/orders/orders/createanorder) |
+| store/channel/{channel_id}/order/created            | Fires on new order creation for a  given channel | [Create an order](/api-reference/store-management/orders/orders/createanorder) |
+| store/channel/{channel_id}/order/updated            | Fires when an order is updated for a given channel | [Update an order](/api-reference/store-management/orders/orders/updateanorder) |
+| store/channel/{channel_id}/order/archived           | Fires when an order is archived from a given channel | [Archive an order](/api-reference/store-management/orders/orders/deleteanorder) |
+| store/channel/{channel_id}/order/statusUpdated        | Fires when an order status has changed for a given channel | [store/order/statusUpdated](/api-reference/store-management/webhooks/models/store-order-statusupdated) |
+| store/channel/{channel_id}/order/message/created      | Fires when an order message is created by customer or in the control panel | [store/order/message/created](/api-reference/store-management/webhooks/models/store-order-message-created)  |
+| store/channel/{channel_id}/order/refund/created       | Fires when a refund has been submitted against an order for a given channel | [store/order/refund/created](/api-reference/store-management/webhooks/models/store-order-refund-created) |
 
+<!-- theme: info -->
+> You must include the `order_id` in the payload.
+
+Order payload objects take the form that follows:
+
+```json title="Example order payload object" lineNumbers
+{
+ "store_id": "11111",
+ "producer": "stores/abcde",
+ "created_at": 1641641646,
+ "scope": "store/channel/1/order/updated",
+ "data": {
+    "order_id": 127
+  },
+ "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+}
+ ```
 
 
 ## Product assignments
