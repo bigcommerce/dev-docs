@@ -247,7 +247,7 @@
           "title": "Handlebars Reference",
           "slug": "/handlebars",
           "href": "/api-docs/store-management/email-templates/handlebars",
-          "uri": "../../api-reference/nodes/models/email_templates/_all.yml"
+          "uri": "https://raw.githubusercontent.com/bigcommerce/api-specs/master/models/email_templates/_all.yml"
         }
       ]
     },
