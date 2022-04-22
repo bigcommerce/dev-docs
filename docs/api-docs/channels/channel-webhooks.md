@@ -75,19 +75,17 @@ The following carts webhook events fire in response to actions that affect a car
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| store/channel/{channel_id}/cart/*            | Fires on all cart changes associated with a given channel | [store/cart/\*]() |
+| store/channel/{channel_id}/cart/*            | Fires on all cart changes associated with a given channel | not applicable |
 | store/channel/{channel_id}/cart/created      | Fires on new cart created for a given channel | [Create a cart](/api-reference/store-management/carts/cart/createacart)  |
-| store/channel/{channel_id}/cart/updated      | Fires when a cart is updated for a given channel | [store/cart/updated](/api-reference/store-management/webhooks/models/store-cart-updated) |
-| store/channel/{channel_id}/cart/deleted      | Fires when a cart is removed for a given channel | [store/cart/deleted](/api-reference/store-management/webhooks/models/store-cart-deleted) |
-| store/channel/{channel_id}/cart/couponApplied | Fires when a new coupon code is applied to a cart for a given channel | [store/cart/couponApplied](/api-reference/store-management/webhooks/models/store-cart-couponapplied)  |
-| store/channel/{channel_id}/cart/abandoned    | Fires when a cart is abandoned from a given channel  | [store/cart/abandoned](/api-reference/store-management/webhooks/models/store-cart-abandoned) |
-| store/channel/{channel_id}/cart/converted    | Fires when a cart is converted into an order for a given channel | [store/cart/converted](/api-reference/store-management/webhooks/models/store-cart-converted) |
+| store/channel/{channel_id}/cart/updated      | Fires when a cart is updated for a given channel | not applicable |
+| store/channel/{channel_id}/cart/deleted      | Fires when a cart is removed for a given channel | [Delete a cart](/api-reference/store-management/carts/cart/deleteacart) |
+| store/channel/{channel_id}/cart/couponApplied | Fires when a new coupon code is applied to a cart for a given channel | not applicable  |
+| store/channel/{channel_id}/cart/abandoned    | Fires when a cart is abandoned from a given channel  | not applicable |
+| store/channel/{channel_id}/cart/converted    | Fires when a cart is converted into an order for a given channel | not applicable |
 
 
 <!-- theme: info -->
 > You must include the `cart_id` in the payload.
-
-
 
 Cart payload objects take the form that follows:
 
@@ -111,10 +109,10 @@ The following cart line item webhook events fire in response to actions that aff
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| store/channel/{channel_id}/cart/lineItem/*       | Fires on all cart line item changes associated with a given channel | [store/cart/lineItem/\*](/api-reference/store-management/webhooks/models/store-cart-lineitem-wildcard) |
-| store/channel/{channel_id}/cart/lineItem/created      | Fires when a new item is added to a cart for a given channel | [Create a cart](/api-reference/store-management/carts/cart/createacart) and [Update Cart Line Item](/api-reference/store-management/carts/cart-items/updatecartlineitem) |
-| store/channel/{channel_id}/cart/lineItem/updated      | Fires when an item's quantity has changed or the product options change for a given channel  | [store/cart/lineItem/updated](/api-reference/store-management/webhooks/models/store-cart-lineitem-updated) |
-| store/channel/{channel_id}/cart/lineItem/deleted      | Fires when items are deleted from the cart for a given channel | [store/cart/lineItem/deleted](/api-reference/store-management/webhooks/models/store-cart-lineitem-deleted) |
+| store/channel/{channel_id}/cart/lineItem/*       | Fires on all cart line item changes associated with a given channel | not applicable |
+| store/channel/{channel_id}/cart/lineItem/created      | Fires when a new item is added to a cart for a given channel | [Add cart line items](/api-reference/store-management/carts/cart-items/addcartlineitem) |
+| store/channel/{channel_id}/cart/lineItem/updated      | Fires when an item's quantity has changed or the product options change for a given channel  | [Update Cart Line Item](/api-reference/store-management/carts/cart-items/updatecartlineitem) |
+| store/channel/{channel_id}/cart/lineItem/deleted      | Fires when items are deleted from the cart for a given channel | [Delete cart line item](/api-reference/store-management/carts/cart-items/deletecartlineitem) |
 
 
 <!-- theme: info -->
@@ -145,8 +143,8 @@ The following categories webhook events fire in response to actions that affect 
 |:-------------|:------------|:-----------------------|
 | store/channel/{channel_id}/category/*            | Fires when a product is assigned to the specified channel | [Create product channel assignments](/api-reference/store-management/catalog/products-channel-assignments/createproductchannelassignments) |
 | store/channel/{channel_id}/category/created      | Fires when a product is removed from the specified channel | [Delete product channel assignments](/api-reference/store-management/catalog/products-channel-assignments/deleteproductchannelassignments) |
-| store/channel/{channel_id}/category/updated      | Fires when a product is assigned to a category in the specified channel's category tree | [Create product category assignments](/api-reference/store-management/catalog/products-category-assignments/createproductscategoryassignments)     |
-| store/channel/{channel_id}/category/deleted      | Fires when a product is removed from a category in the specified channel's category tree | [Delete product category assignments](/api-reference/store-management/catalog/products-category-assignments/deleteproductscategoryassignments) |
+| store/channel/{channel_id}/category/updated      | Fires when a product is assigned to a category in the specified channel's category tree | [Create product category assignments](/api-reference/store-management/catalog/products-category-assignments/createproductscategoryassignment  |
+| store/channel/{channel_id}/category/deleted      | Fires when a product is removed from a category in the specified channel's category tree | [Delete product category assignments](/api-reference/store-management/catalog/products-category-assignments/deleteproductscategoryassignments)|
 
 <!-- theme: info -->
 > You must include the `tree_id` or `category_id` in the payload.
@@ -224,6 +222,30 @@ Customers payload objects take the form that follows:
 }
  ```
 
+## Email templates
+
+The following email templates webhook event fires in response to actions that affect a specific channel on a store:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/settings/emailStatus/*         |Fires when subscribed to all email statuses events per channel | not applicable |
+| store/channel/{channel_id}/settings/emailStatus/updated   |Fires when email statuses are updated per channel | [Update Transactional Email Settings](/api-reference/store-management/settings/email-statuses/put-settings-transactional-emails-enabled) |
+| store/channel/{channel_id}/settings/emailStatus/deleted    |Fires when email status overrides are deleted per channel | not applicable |
+| store/channel/{channel_id}/email/templates/updated    |Fires when email templates are updated per channel | [Update a template](/api-reference/store-management/email-templates/email-templates/updateemailtemplate) |
+| store/channel/{channel_id}/email/templates/deleted    |Fires when email templated overrides are deleted per channel | [Delete a template](/api-reference/store-management/email-templates/email-templates/deleteemailtemplateoverride) |
+
+<!-- theme: info -->
+> You must include the `channel_id` in the payload.
+
+
+Email templates payload objects take the form that follows:
+
+```json title="Example Email templates profile payload object" lineNumbers
+
+
+
+ ```
+
 
 ## Orders
 
@@ -231,13 +253,13 @@ The following orders webhook events fire in response to actions that affect a sp
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| store/channel/{channel_id}/order/*                  | Fires on all order events associated with a given channel | [Create an order](/api-reference/store-management/orders/orders/createanorder) |
+| store/channel/{channel_id}/order/*                  | Fires on all order events associated with a given channel | not applicable |
 | store/channel/{channel_id}/order/created            | Fires on new order creation for a  given channel | [Create an order](/api-reference/store-management/orders/orders/createanorder) |
 | store/channel/{channel_id}/order/updated            | Fires when an order is updated for a given channel | [Update an order](/api-reference/store-management/orders/orders/updateanorder) |
 | store/channel/{channel_id}/order/archived           | Fires when an order is archived from a given channel | [Archive an order](/api-reference/store-management/orders/orders/deleteanorder) |
-| store/channel/{channel_id}/order/statusUpdated        | Fires when an order status has changed for a given channel | [store/order/statusUpdated](/api-reference/store-management/webhooks/models/store-order-statusupdated) |
-| store/channel/{channel_id}/order/message/created      | Fires when an order message is created by customer or in the control panel | [store/order/message/created](/api-reference/store-management/webhooks/models/store-order-message-created)  |
-| store/channel/{channel_id}/order/refund/created       | Fires when a refund has been submitted against an order for a given channel | [store/order/refund/created](/api-reference/store-management/webhooks/models/store-order-refund-created) |
+| store/channel/{channel_id}/order/statusUpdated        | Fires when an order status has changed for a given channel | not applicable |
+| store/channel/{channel_id}/order/message/created      | Fires when an order message is created by customer or in the control panel | not applicable  |
+| store/channel/{channel_id}/order/refund/created       | Fires when a refund has been submitted against an order for a given channel | not applicable |
 
 <!-- theme: info -->
 > You must include the `order_id` in the payload.
@@ -298,6 +320,8 @@ The following settings webhook events fire in response to actions that affect a 
 | store/channel/{channel_id}/settings/product/updated | Fires when product settings were updated per given channel. | [Update storefront product settings](/api-reference/store-management/settings/storefront-product/updatestorefrontproductsettings) |
 | store/channel/{channel_id}/settings/catalog/updated | Fires when catalog settings were updated per given channel. | [Update catalog settings](/api-reference/store-management/settings/catalog/putcatalogsettings) |
 | store/channel/{channel_id}/notifications/inventory/updated | Fires when inventory notification settings were updated per given channel. | [Update inventory notifications settings](/api-reference/store-management/settings/inventory/putinventorynotificationssettings) |
+| store/channel/{channel_id}/settings/searchContextFilters/updated | Fires when search context filters are updated per given channel. | [Upsert Contextual Filters](/api-reference/store-management/settings/search-filters/upsertcontexts) |
+
 
 
 Settings payload objects take the form that follows:
@@ -307,14 +331,33 @@ Settings payload objects take the form that follows:
  "store_id": "11111",
  "producer": "stores/abcde",
  "created_at": 1641641646,
- "scope": "store/channel/1/settings/profile/updated",
- "data": {},
+ "scope": "store/channel/1/settings/searchContextFilters/updated",
+ "data": {
+   "category_id": 29
+ },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
  ```
+ ## Scripts
+ 
+ The following scripts webhook events fire in response to actions that affect a site associated with a specific channel on a store:
+
+
+| Name / Scope | Description | Corresponding Endpoints |
+|:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/script/created       | Fires when a script is created for a given channel | [Create a script](//api-reference/store-management/scripts/scripts/createscript) |
+| store/channel/{channel_id}/script/updated       | Fires when a script is updated for a given channel | [Update a script](/api-reference/store-management/scripts/scripts/updatescript) |
+
+
+
+
+Site payload objects take the form that follows:
+
+```json title="Example settings profile payload object" lineNumbers
+
+ ```
  
  ## Sites
-
 
 The following sites webhook events fire in response to actions that affect a site associated with a specific channel on a store:
 
@@ -343,6 +386,25 @@ Site payload objects take the form that follows:
   },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
+ ```
+ 
+ ## Web pages
+
+The following web pages webhook events fire in response to actions that affect a specific channel on a store:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/page/created             | Fires on page creation for a given channel        | not applicable |
+| store/channel/{channel_id}/page/updated             | Fires when a page is updated for a  given channel | [Create an order](/api-reference/store-management/orders/orders/createanorder) |
+
+
+<!-- theme: info -->
+> You must include the `order_id` in the payload.
+
+Web pages payload objects take the form that follows:
+
+```json title="Example order payload object" lineNumbers
+
  ```
  
 For a complete reference of all BigCommerce webhook events and their callback payloads, see [Webhook Events](/api-docs/store-management/webhooks/webhook-events).
