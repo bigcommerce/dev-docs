@@ -221,6 +221,8 @@ Customers payload objects take the form that follows:
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
  ```
+ 
+ 
 
 ## Email templates
 
@@ -313,6 +315,9 @@ The following settings webhook events fire in response to actions that affect a 
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/settings/logo/updated    | Fires when any of the logo settings that apply to the specified channel are updated.| [Update store logo settings](/api-reference/store-management/settings/putstorelogosettings) |
+| store/channel/{channel_id}/settings/logo/image/updated  | Fires when any of the logo image settings that apply to the specified channel are updated.| not applicable |
+| store/channel/{channel_id}/settings/favicon/image/updated  | Fires when any of the favicon image settings that apply to the specified channel are updated.| not applicable |
 | store/channel/{channel_id}/settings/profile/updated    | Fires when any of the store profile settings that apply to the specified channel are updated. Fires for both channel-specific profile settings changes and for changes to any global defaults that the specified channel inherits.  | [Update store profile settings](/api-reference/store-management/settings/store-profile/putstoreprofilesettings) |
 | store/channel/{channel_id}/settings/SEO/updated | Fires when SEO settings were updated per given channel. | [Update storefront SEO settings](/api-reference/store-management/settings/storefront-seo/putsettingsstorefrontseo) |
 | store/channel/{channel_id}/settings/robots/updated | Fires when search engine robot settings were updated per given channel. | [Update robots.txt settings](/api-reference/store-management/settings/storefront-robotstxt/putsettingsstorefrontrobotstxt) |
@@ -321,8 +326,9 @@ The following settings webhook events fire in response to actions that affect a 
 | store/channel/{channel_id}/settings/catalog/updated | Fires when catalog settings were updated per given channel. | [Update catalog settings](/api-reference/store-management/settings/catalog/putcatalogsettings) |
 | store/channel/{channel_id}/notifications/inventory/updated | Fires when inventory notification settings were updated per given channel. | [Update inventory notifications settings](/api-reference/store-management/settings/inventory/putinventorynotificationssettings) |
 | store/channel/{channel_id}/settings/searchContextFilters/updated | Fires when search context filters are updated per given channel. | [Upsert Contextual Filters](/api-reference/store-management/settings/search-filters/upsertcontexts) |
-
-
+| store/channel/{channel_id}/settings/defaultCustomerGroup/updated | Fires when default customer group is updated per given channel. | [Update a customer group](/api-reference/store-management/customers-v2/customer-groups/updateacustomergroup) |
+| store/channel/{channel_id}/settings/customerPrivacy/updated | Fires when customer privacy settings are updated per given channel. | [Update customer settings per channel](/api-reference/store-management/customers-v3/customer-settings-channel/customersettingschannelput) |
+| store/channel/{channel_id}/settings/checkout/updated | Fires when customer settings are updated per given channel. | [Update checkout settings per channel](/api-reference/store-management/checkouts/checkout-settings/updatecheckoutsettings) |
 
 Settings payload objects take the form that follows:
 
@@ -388,18 +394,65 @@ Site payload objects take the form that follows:
 }
  ```
  
+## Social media links
+
+The following social media links webhook events fire in response to actions that affect a site associated with a specific channel on a store:
+
+
+| Name / Scope | Description | Corresponding Endpoints |
+|:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/settings/route/updated | Fires when a site is created, updated, or deleted for a given channel | [Create a site route](/api-reference/store-management/sites/site-routes/post-site-route), [Update site's routes](/api-reference/store-management/sites/site-routes/putsitessiteidroutes), [Update a site route](/api-reference/b3A6MzU5MDUxMDA-update-a-site-route), or [Delete a site route](/api-reference/b3A6MzU5MDUxMDE-delete-a-site-route) |
+
+
+<!-- theme: info -->
+> You must include the `site_id` in the payload.
+
+
+
+Site payload objects take the form that follows:
+
+```json title="Example settings profile payload object" lineNumbers
+{
+ "store_id": "11111",
+ "producer": "stores/abcde",
+ "created_at": 1641641646,
+ "scope": "store/channel/1/settings/site/updated",
+  "data": {
+    "site_id": 1001
+  },
+ "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+}
+ ```
+ 
+ 
+ ## Themes
+
+The following themes webhook events fire in response to actions that affect a specific channel on a store:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/theme/configuration/created      | Fires when a theme configuration is creation for a given channel   | not applicable |
+| store/channel/{channel_id}/theme/configuration/activated    | Fires when a theme configuration is activated for a given channel |  |
+
+
+
+Themes payload objects take the form that follows:
+
+```json title="Example theme payload object" lineNumbers
+
+ ```
+ 
+ 
+ 
  ## Web pages
 
 The following web pages webhook events fire in response to actions that affect a specific channel on a store:
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| store/channel/{channel_id}/page/created             | Fires on page creation for a given channel        | not applicable |
-| store/channel/{channel_id}/page/updated             | Fires when a page is updated for a  given channel | [Create an order](/api-reference/store-management/orders/orders/createanorder) |
+| store/channel/{channel_id}/page/created             | Fires on page creation for a given channel        | [Create a page](/api-reference/store-management/store-content/pages/createapage) |
+| store/channel/{channel_id}/page/updated             | Fires when a page is updated for a  given channel | [Update a page](/api-reference/store-management/store-content/pages/updateapage) |
 
-
-<!-- theme: info -->
-> You must include the `order_id` in the payload.
 
 Web pages payload objects take the form that follows:
 
