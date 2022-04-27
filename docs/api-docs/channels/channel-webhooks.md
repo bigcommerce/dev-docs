@@ -191,6 +191,36 @@ Category tree payload objects take the form that follows:
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
  ```
+ 
+ ## Currency
+
+The following currency webhook event fires in response to actions that affect a specific channel on a store:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| store/customer/channel/login/access/updated         |Fires when subscribed to customer login to channel updates | [Update customers](/api-reference/store-management/customers-v3/customers/customersput) or [Delete category trees](/api-reference/store-management/catalog/category-trees/deletecategorytrees) |
+
+<!-- theme: info -->
+> You must include the `channel_id` in the payload.
+
+
+Customers payload objects take the form that follows:
+
+```json title="Example Customers profile payload object" lineNumbers
+{
+ "store_id": "11111",
+ "producer": "stores/abcde",
+ "created_at": 1641641646,
+ "scope": "store/customer/channel/login/access/updated",
+ "data": {
+    "customer_id": 22,
+    "channel_ids": [
+      1
+   ]
+  },
+ "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+}
+ ```
 
 ## Customers
 
@@ -247,7 +277,29 @@ Email templates payload objects take the form that follows:
 
 
  ```
+## Notifications
 
+The following notifications webhook events fire in response to actions that affect a specific channel on a store:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/notifications/inventory/updated   | Fires when any of the notification settings that apply to the inventory are updated with a given channel | [Update inventory notifications settings](/api-reference/store-management/settings/inventory/putinventorynotificationssettings) |
+| store/channel/{channel_id}/notifications/order/created        | Fires when a notification is created for a new order for a given channel | [Create an order](/api-reference/store-management/orders/orders/createanorder) |
+| store/channel/{channel_id}/notifications/abandonedCart/updated            | Fires when an order is updated for a given channel | [Update an order](/api-reference/store-management/orders/orders/updateanorder) |
+
+
+Notifications payload objects take the form that follows:
+
+```json title="Example order payload object" lineNumbers
+{
+ "store_id": "11111",
+ "producer": "stores/abcde",
+ "created_at": 1641641646,
+ "scope": "store/channel/1/notifications/abandonedCart/updated",
+ "data": {},
+ "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+}
+ ```
 
 ## Orders
 
