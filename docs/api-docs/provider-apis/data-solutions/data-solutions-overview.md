@@ -162,28 +162,252 @@ Accept: application/json
 
 ## Facebook Pixel
 
+| Field | Type | Description |
+| ------------- | -------- |  -------- |
+| id | integer | Id of the Web Analytic. `1` for Google Analytics |
+| channel_id | integer | Id of the storefront channel. Default is `0`. |
+| name | string | Name of Web Analytic `Google Analytics` |
+| enabled | boolean | Whether merchant has enabled Google Analytics in their store |
+| pixel_id | string | |
+| is_oauth_connected | boolean | |
+
 ### Get a Web Analytic
+
+```JSON title="Sample Request" lineNumbers
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+```
+
+```JSON title="Sample Response" lineNumbers
+{
+    "data": {
+        "id": 3,
+        "channel_id": 0,
+        "name": "Facebook Pixel",
+        "enabled": true,
+        "pixel_id": "1158961408242086",
+        "is_oauth_connected": true
+    },
+    "meta": {}
+}
+```
+
 ### Update a Web Analytic
+
+
+```JSON title="Sample Request" lineNumbers
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+    "data": {
+        "id": 3,
+        "channel_id": 0,
+        "name": "Facebook Pixel",
+        "enabled": true,
+        "pixel_id": "1158961408242086",
+        "is_oauth_connected": true
+    },
+    "meta": {}
+}
+
+```
+
+```JSON title="Sample Response" lineNumbers
+{
+    "data": {
+        "id": 3,
+        "channel_id": 0,
+        "name": "Facebook Pixel",
+        "enabled": true,
+        "pixel_id": "1158961408242086",
+        "is_oauth_connected": true
+    },
+    "meta": {}
+}
+```
 
 ## Segment
 
 ### Get a Web Analytic
 
+```JSON title="Sample Request" lineNumbers
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+```
+
+```JSON title="Sample Response" lineNumbers
+{
+    "data": {
+        "id": 4,
+        "channel_id": 0,
+        "name": "Segment.com",
+        "enabled": false,
+        "api_key": "zyqsE73vEsJGDbYfXM6rKpM4vR4DuYd1",
+        "data_tag_enabled": true
+    },
+    "meta": {}
+}
+```
+
 ### Update a Web Analytic
+
+```JSON title="Sample Request" lineNumbers
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+    "data": {
+        "id": 4,
+        "channel_id": 0,
+        "name": "Segment.com",
+        "enabled": false,
+        "api_key": "zyqsE73vEsJGDbYfXM6rKpM4vR4DuYd1",
+        "data_tag_enabled": true
+    },
+    "meta": {}
+}
+
+```
+
+```JSON title="Sample Response" lineNumbers
+{
+    "data": {
+        "id": 4,
+        "channel_id": 0,
+        "name": "Segment.com",
+        "enabled": false,
+        "api_key": "zyqsE73vEsJGDbYfXM6rKpM4vR4DuYd1",
+        "data_tag_enabled": true
+    },
+    "meta": {}
+}
+```
+
 
 ## Site Verification Tags
 
 ### Get a Web Analytic
 
+```JSON title="Sample Request" lineNumbers
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+```
+
+```JSON title="Sample Response" lineNumbers
+{
+    "data": {
+        "id": 6,
+        "channel_id": 0,
+        "name": "Site Verification Tags",
+        "enabled": false,
+        "verification_tag": ""
+    },
+    "meta": {}
+}
+```
+
 ### Update a Web Analytic
+
+```JSON title="Sample Request" lineNumbers
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+    "data": {
+        "id": 6,
+        "channel_id": 0,
+        "name": "Site Verification Tags",
+        "enabled": false,
+        "verification_tag": ""
+    },
+    "meta": {}
+}
+
+```
+
+```JSON title="Sample Response" lineNumbers
+{
+    "data": {
+        "id": 6,
+        "channel_id": 0,
+        "name": "Site Verification Tags",
+        "enabled": false,
+        "verification_tag": ""
+    },
+    "meta": {}
+}
+```
 
 ## Affiliate Conversion Tracking
 
-
-
 ### Get a Web Analytic
 
+```JSON title="Sample Request" lineNumbers
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+```
+
+```JSON title="Sample Response" lineNumbers
+{
+    "data": {
+        "id": 7,
+        "channel_id": 0,
+        "name": "Affiliate Conversion Tracking",
+        "enabled": false,
+        "connection": ""
+    },
+    "meta": {}
+}
+```
+
 ### Update a Web Analytic
+
+```JSON title="Sample Request" lineNumbers
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+    "data": {
+        "id": 7,
+        "channel_id": 0,
+        "name": "Affiliate Conversion Tracking",
+        "enabled": false,
+        "connection": ""
+    },
+    "meta": {}
+}
+
+```
+
+```JSON title="Sample Response" lineNumbers
+{
+    "data": {
+        "id": 7,
+        "channel_id": 0,
+        "name": "Affiliate Conversion Tracking",
+        "enabled": false,
+        "connection": ""
+    },
+    "meta": {}
+}
+```
 
 
 ## Get All Web Analytics
