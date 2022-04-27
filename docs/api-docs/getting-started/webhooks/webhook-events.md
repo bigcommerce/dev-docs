@@ -343,7 +343,7 @@ Payload objects with the following scopes take the form that follows:
 | store/product/* | Subscribe to all store/product events. |
 |store/product/deleted| Product is deleted.|
 | store/product/created | A new product is created. |
-| store/product/updated |Occurs when product details are edited. For a full list of product fields that trigger an updated event, consult the following section on [product updated events](#store-information-updated-events). |
+| store/product/updated |Occurs when product details are edited. For a full list of product fields that trigger an updated event, consult the following section on [product updated events](#product-update-events). |
 | store/product/inventory/updated| Product inventory is updated. |
 | store/product/inventory/order/updated| Fires if a product’s inventory is decremented or incremented, including when an order is placed. Webhook responds to inventory updates made using the control panel, CSV import, API or an app.|
 
