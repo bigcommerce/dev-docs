@@ -1,4 +1,4 @@
-# Data Solutions
+# Data Solutions API
 
 This article introduces how to get web analytics using the Data Solutions API. Because each web analytic requires different fields in the request and/or response, this article is divided by web analytic.  
 
