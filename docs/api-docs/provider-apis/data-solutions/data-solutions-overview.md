@@ -15,7 +15,7 @@ You can get **all** web analytics, get a **single** web analytic, or **update** 
 
 ## Google Analytics
 
-| Field | Type | Description 
+| Field | Type | Description |
 | ------------- | -------- |  -------- |
 | id | integer | Id of the Web Analytic. `1` for Google Analytics |
 | channel_id | integer | Id of the storefront channel. Default is `0`. |
@@ -34,7 +34,7 @@ The version corresponds with the "Connect with Field" merchants use to connect t
 Send a `GET` request to `/stores/{{STORE_HASH}}/v3/settings/analytics{id}`. 
 
 ```JSON title="Sample Request" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics{id}
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -95,11 +95,95 @@ Accept: application/json
 
 ## Visual Website Optimizer
 
+| Field | Type | Description |
+| ------------- | -------- |  -------- |
+| id | integer | Id of the Web Analytic. `1` for Google Analytics |
+| channel_id | integer | Id of the storefront channel. Default is `0`. |
+| name | string | Name of Web Analytic `Google Analytics` |
+| enabled | boolean | Whether merchant has enabled Google Analytics in their store |
+| vwo_smartcode | string | |
+
+### Get a Web Analytic
+
+
+```JSON title="Sample Request" lineNumbers
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+```
+
+```JSON title="Sample Response" lineNumbers
+{
+    "data": {
+        "id": 2,
+        "channel_id": 0,
+        "name": "Visual Website Optimizer",
+        "enabled": false,
+        "vwo_smartcode": ""
+    },
+    "meta": {}
+}
+```
+
+### Update a Web Analytic
+
+
+```JSON title="Sample Request" lineNumbers
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+    "data": {
+        "id": 2,
+        "channel_id": 0,
+        "name": "Visual Website Optimizer",
+        "enabled": false,
+        "vwo_smartcode": "example"
+    },
+    "meta": {}
+}
+```
+```JSON title="Sample Response" lineNumbers
+{
+    "data": {
+        "id": 2,
+        "channel_id": 0,
+        "name": "Visual Website Optimizer",
+        "enabled": false,
+        "vwo_smartcode": "example"
+    },
+    "meta": {}
+}
+```
+
 
 ## Facebook Pixel
+
+### Get a Web Analytic
+### Update a Web Analytic
+
 ## Segment
+
+### Get a Web Analytic
+
+### Update a Web Analytic
+
 ## Site Verification Tags
+
+### Get a Web Analytic
+
+### Update a Web Analytic
+
 ## Affiliate Conversion Tracking
+
+
+
+### Get a Web Analytic
+
+### Update a Web Analytic
 
 
 ## Get All Web Analytics
