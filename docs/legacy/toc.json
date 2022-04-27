@@ -1,0 +1,189 @@
+{
+  "items": [
+    {
+      "type": "divider",
+      "title": "Products"
+    },
+    {
+      "type": "item",
+      "title": "V2 versus V3",
+      "uri": "v2-products/v2-v3.md"
+    },
+    {
+      "type": "divider",
+      "title": "v2 Catalog Products"
+    },
+    {
+      "type": "item",
+      "title": "SKU",
+      "uri": "v2-catalog-products/v2-product-sku.md"
+    },
+    {
+      "type": "item",
+      "title": "Videos",
+      "uri": "v2-catalog-products/v2-product-videos.md"
+    },
+    {
+      "type": "item",
+      "title": "Product Rules",
+      "uri": "v2-catalog-products/v2-product-rules.md"
+    },
+    {
+      "type": "item",
+      "title": "Product Reviews",
+      "uri": "v2-catalog-products/v2-product-reviews.md"
+    },
+    {
+      "type": "item",
+      "title": "Product Options",
+      "uri": "v2-catalog-products/v2-product-options.md"
+    },
+    {
+      "type": "item",
+      "title": "Product Images",
+      "uri": "v2-catalog-products/v2-product-images.md"
+    },
+    {
+      "type": "item",
+      "title": "Option Values",
+      "uri": "v2-catalog-products/v2-option-values.md"
+    },
+    {
+      "type": "item",
+      "title": "Option Set Options",
+      "uri": "v2-catalog-products/v2-option-set-options.md"
+    },
+    {
+      "type": "item",
+      "title": "Option Sets",
+      "uri": "v2-catalog-products/v2-option-sets.md"
+    },
+    {
+      "type": "item",
+      "title": "Options",
+      "uri": "v2-catalog-products/v2-options.md"
+    },
+    {
+      "type": "item",
+      "title": "Custom Fields",
+      "uri": "v2-catalog-products/v2-custom-fields.md"
+    },
+    {
+      "type": "item",
+      "title": "Categories",
+      "uri": "v2-catalog-products/v2-categories.md"
+    },
+    {
+      "type": "item",
+      "title": "Bulk Pricing Rules",
+      "uri": "v2-catalog-products/v2-bulk-pricing.md"
+    },
+    {
+      "type": "item",
+      "title": "Products",
+      "uri": "v2-catalog-products/v2-products.md"
+    },
+    {
+      "type": "item",
+      "title": "Brands",
+      "uri": "v2-catalog-products/v2-brands.md"
+    },
+    {
+      "type": "divider",
+      "title": "Blueprint Themes"
+    },
+    {
+      "type": "item",
+      "title": "ReCAPTCHA v2",
+      "uri": "blueprint-themes/recaptcha-two.md"
+    },
+    {
+      "type": "item",
+      "title": "Anatomy of a Theme",
+      "uri": "blueprint-themes/anatomy-of-a-theme.md"
+    },
+    {
+      "type": "item",
+      "title": "Blueprint and Developer Mode",
+      "uri": "blueprint-themes/blueprint-and-developer-mode.md"
+    },
+    {
+      "type": "item",
+      "title": "Theme Update Process",
+      "uri": "blueprint-themes/blueprint-theme-update-process.md"
+    },
+    {
+      "type": "item",
+      "title": "Style Editor",
+      "uri": "blueprint-themes/style-editor.md"
+    },
+    {
+      "type": "item",
+      "title": "Product Filtering Toolkit",
+      "uri": "blueprint-themes/product-filtering-toolkit.md"
+    },
+    {
+      "type": "item",
+      "title": "Template Syntax",
+      "uri": "blueprint-themes/blueprint-template-syntax.md"
+    },
+    {
+      "type": "item",
+      "title": "Store-Wide Global Panels",
+      "uri": "blueprint-themes/store-wide-global-panels.md"
+    },
+    {
+      "type": "item",
+      "title": "Store-Wide Global Variables",
+      "uri": "blueprint-themes/store-wide-global-variables.md"
+    },
+    {
+      "type": "item",
+      "title": "Global Variables",
+      "uri": "blueprint-themes/global-variables.md"
+    },
+    {
+      "type": "item",
+      "title": "LNG Variables",
+      "uri": "blueprint-themes/lng-variables.md"
+    },
+    {
+      "type": "item",
+      "title": "Email Templates",
+      "uri": "blueprint-themes/blueprint-email-templates.md"
+    },
+    {
+      "type": "item",
+      "title": "Checkout Styling",
+      "uri": "blueprint-themes/checkout-styling.md"
+    },
+    {
+      "type": "divider",
+      "title": "Blueprint Reference"
+    },
+    {
+      "type": "item",
+      "title": "Layouts",
+      "uri": "blueprint-reference/blueprint-layouts.md"
+    },
+    {
+      "type": "item",
+      "title": "Panels",
+      "uri": "blueprint-reference/blueprint-panels.md"
+    },
+    {
+      "type": "item",
+      "title": "Snippets",
+      "uri": "blueprint-reference/blueprint-snippets.md"
+    },
+    {
+      "type": "divider",
+      "title": "Stencil Themes"
+    },
+    {
+      "type": "item",
+      "title": "Stored Credit Card Management",
+      "uri": "stencil-themes/stored-credit-card-management.md"
+    }
+  ]
+}

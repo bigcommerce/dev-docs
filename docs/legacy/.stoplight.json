@@ -1,0 +1,10 @@
+{
+  "exclude": [
+    "stencil-themes/installing-legacy-theme-modules.md"
+  ],
+  "formats": {
+    "markdown": {
+      "rootDir": "blueprint-reference"
+    }
+  }
+}
