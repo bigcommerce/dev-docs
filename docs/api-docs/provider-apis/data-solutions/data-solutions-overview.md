@@ -97,10 +97,10 @@ Accept: application/json
 
 | Field | Type | Description |
 | ------------- | -------- |  -------- |
-| id | integer | Id of the Web Analytic. `1` for Google Analytics |
+| id | integer | Id of the Web Analytic. `2` for Visual Website Optimizer |
 | channel_id | integer | Id of the storefront channel. Default is `0`. |
-| name | string | Name of Web Analytic `Google Analytics` |
-| enabled | boolean | Whether merchant has enabled Google Analytics in their store |
+| name | string | Name of Web Analytic `Visual Website Optimizer` |
+| enabled | boolean | Whether merchant has enabled Visual Website Optimizer in their store |
 | vwo_smartcode | string | |
 
 ### Get a Web Analytic
@@ -164,10 +164,10 @@ Accept: application/json
 
 | Field | Type | Description |
 | ------------- | -------- |  -------- |
-| id | integer | Id of the Web Analytic. `1` for Google Analytics |
+| id | integer | Id of the Web Analytic. `1` for Facebook Pixel |
 | channel_id | integer | Id of the storefront channel. Default is `0`. |
-| name | string | Name of Web Analytic `Google Analytics` |
-| enabled | boolean | Whether merchant has enabled Google Analytics in their store |
+| name | string | Name of Web Analytic `Facebook Pixel` |
+| enabled | boolean | Whether merchant has enabled Facebook Pixel in their store |
 | pixel_id | string | |
 | is_oauth_connected | boolean | |
 
@@ -233,6 +233,15 @@ Accept: application/json
 
 ## Segment
 
+| Field | Type | Description |
+| ------------- | -------- |  -------- |
+| id | integer | Id of the Web Analytic. `1` for Segment |
+| channel_id | integer | Id of the storefront channel. Default is `0`. |
+| name | string | Name of Web Analytic `Segment` |
+| enabled | boolean | Whether merchant has enabled Segment in their store |
+| api_key | string | |
+| data_tag_enabled | boolean | |
+
 ### Get a Web Analytic
 
 ```JSON title="Sample Request" lineNumbers
@@ -295,6 +304,14 @@ Accept: application/json
 
 ## Site Verification Tags
 
+| Field | Type | Description |
+| ------------- | -------- |  -------- |
+| id | integer | Id of the Web Analytic. `1` for Site Verification Tags |
+| channel_id | integer | Id of the storefront channel. Default is `0`. |
+| name | string | Name of Web Analytic `Site Verification Tags` |
+| enabled | boolean | Whether merchant has enabled Site Verification Tags in their store |
+| verification_tag | string | |
+
 ### Get a Web Analytic
 
 ```JSON title="Sample Request" lineNumbers
@@ -352,6 +369,14 @@ Accept: application/json
 ```
 
 ## Affiliate Conversion Tracking
+
+| Field | Type | Description |
+| ------------- | -------- |  -------- |
+| id | integer | Id of the Web Analytic. `1` for Affiliate Conversion Tracking |
+| channel_id | integer | Id of the storefront channel. Default is `0`. |
+| name | string | Name of Web Analytic `Affiliate Conversion Tracking` |
+| enabled | boolean | Whether merchant has enabled Affiliate Conversion Tracking in their store |
+| connection | string | |
 
 ### Get a Web Analytic
 
