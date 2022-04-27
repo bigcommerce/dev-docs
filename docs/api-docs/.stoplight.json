@@ -1,0 +1,46 @@
+{
+  "exclude": [
+    "apps/building-apps-guide.md",
+    "apps/tutorials/apps-node-react.md",
+    "cart-and-checkout/channels-sites-routes.md",
+    "channels/channels-pos-tutorial.md",
+    "developers-guide-headless.md",
+    "getting-started/available-apis.md",
+    "getting-started/building-apps-bigcommerce.md",
+    "getting-started/building-apps-bigcommerce/building-apps.md",
+    "getting-started/building-apps-bigcommerce/types-of-apps.md",
+    "orders/orders-overview.md",
+    "partner/app-store-approval-requirements.md",
+    "partner/technology-program.md",
+    "store-management/shipping.md",
+    "store-management/shipping/test.md",
+    "storefront/graphql/rendering-widgets.md",
+    "storefront/widgets.md"
+  ],
+  "formats": {
+    "openapi": {
+      "rootDir": "void",
+      "include": [
+        "**"
+      ]
+    },
+    "json_schema": {
+      "rootDir": "storefront",
+      "include": [
+        "**"
+      ]
+    },
+    "markdown": {
+      "rootDir": "getting-started",
+      "include": [
+        "**"
+      ]
+    },
+    "image": {
+      "rootDir": "apps",
+      "include": [
+        "**"
+      ]
+    }
+  }
+}
