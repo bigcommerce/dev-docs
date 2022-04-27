@@ -53,6 +53,42 @@ Accept: application/json
 
 ### Update a Web Analytic
 
+Send a `PUT` request to `/stores/{{STORE_HASH}}/v3/settings/analytics{id}`. 
+```JSON title="Sample Request" lineNumbers
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics{id}
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+    "data": {
+        "id": 1,
+        "channel_id": 0,
+        "name": "Google Analytics",
+        "enabled": true,
+        "version": 2,
+        "data_tag_enabled": true,
+        "property_id": "UA-215662744-1"
+    },
+    "meta": {}
+}
+```
+
+```JSON title="Sample Response" lineNumbers
+{
+    "data": {
+        "id": 1,
+        "channel_id": 0,
+        "name": "Google Analytics",
+        "enabled": true,
+        "version": 2,
+        "data_tag_enabled": true,
+        "property_id": "UA-215662744-1"
+    },
+    "meta": {}
+}
+```
+
 ## Visual Website Optimizer
 ## Facebook Pixel
 ## Segment
