@@ -26,11 +26,11 @@ You can get **all** web analytics, get a **single** web analytic, or **update** 
 | tracking_code | string | Code merchant uses to connect Google Analytics to store. Only returned if version is `1`. |
 | property_id | string | Id merchant uses to connect Google Analytics to store. Only returned if version is `2`.  |
 
-The version corresponds with the "Connect with Field" that a merchant is using to connect to Google Analytics. This connection field affects the fields that are requested and returned in [Get a Google Analytic](#get-a-google-analytic) and [Update a Google Analytic](#update-a-google-analytic).
+The version corresponds with the "Connect with Field" that a merchant is using to connect to Google Analytics. This connection field affects the fields that are requested and returned in [Get the Google Analytic](#get-the-google-analytic) and [Update the Google Analytic](#update-the-google-analytic).
 ![Version on Google Analytics](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Version%20for%20Google%20Analytics.png).
 
 
-## Get a Google Analytic
+## Get the Google Analytic
 Send a `GET` request to `/stores/{{STORE_HASH}}/v3/settings/analytics{id}`. 
 
 When a merchant uses `tracking_code` for the connection field, your response will have a version of `1` as well as the `tracking_code` field:
@@ -80,7 +80,7 @@ Accept: application/json
     "meta": {}
 }
 ```
-## Update a Google Analytic
+## Update the Google Analytic
 
 Send a `PUT` request to `/stores/{{STORE_HASH}}/v3/settings/analytics{id}`. 
 
@@ -131,7 +131,7 @@ Accept: application/json
 | enabled | boolean | Whether merchant has [enabled Visual Website Optimizer](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
 | vwo_smartcode | string | | 
 
-## Get a Web Analytic
+## Get the Visual Website Optimizer Analytic
 
 
 ```JSON title="Sample Request" lineNumbers
@@ -154,7 +154,7 @@ Accept: application/json
 }
 ```
 
-## Update a Web Analytic
+## Update the Visual Website Optimizer Analytic
 
 
 ```JSON title="Sample Request" lineNumbers
@@ -199,7 +199,7 @@ Accept: application/json
 | pixel_id | string | |
 | is_oauth_connected | boolean | |
 
-## Get a Web Analytic
+## Get the Facebook Pixel Analytic
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
@@ -222,7 +222,7 @@ Accept: application/json
 }
 ```
 
-## Update a Web Analytic
+## Update the Facebook Pixcel Analytic
 
 
 ```JSON title="Sample Request" lineNumbers
@@ -271,7 +271,7 @@ Accept: application/json
 | api_key | string | |
 | data_tag_enabled | boolean | |
 
-## Get a Web Analytic
+## Get the Segment Analytic
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
@@ -294,7 +294,7 @@ Accept: application/json
 }
 ```
 
-## Update a Web Analytic
+## Update the Segment Analytic
 
 ```JSON title="Sample Request" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
@@ -341,7 +341,7 @@ Accept: application/json
 | enabled | boolean | Whether merchant has [enabled Site Verification Tags](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
 | verification_tag | string | |
 
-## Get a Web Analytic
+## Get the Site Verification Tags Analytic
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
@@ -363,7 +363,7 @@ Accept: application/json
 }
 ```
 
-## Update a Web Analytic
+## Update the Site Verification Tags Analytic
 
 ```JSON title="Sample Request" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
@@ -409,7 +409,7 @@ Accept: application/json
 | enabled | boolean | Whether merchant has [enabled Affiliate Conversion Tracking](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
 | connection | string | |
 
-## Get a Web Analytic
+## Get the Affiliate Conversion Tracking Analytic
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
@@ -431,7 +431,7 @@ Accept: application/json
 }
 ```
 
-## Update a Web Analytic
+## Update the Affiliate Conversion Tracking Analytic
 
 ```JSON title="Sample Request" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
