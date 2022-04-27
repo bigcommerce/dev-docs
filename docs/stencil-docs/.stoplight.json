@@ -1,0 +1,22 @@
+{
+  "exclude": [
+    "customizing-checkout/checkout-sdk-example.md",
+    "configure-store-design-ui/defining-ui-options.md",
+    "configure-store-design-ui/store-design-overview.md",
+    "javascript-and-event-hooks/dynamic-content-rendering.md"
+  ],
+  "formats": {
+    "openapi": {
+      "rootDir": "page-builder",
+      "include": [
+        "**"
+      ]
+    },
+    "markdown": {
+      "rootDir": "getting-started",
+      "include": [
+        "**"
+      ]
+    }
+  }
+}
