@@ -26,16 +26,38 @@ You can get **all** web analytics, get a **single** web analytic, or **update** 
 | tracking_code | string | Code merchant uses to connect Google Analytics to store. Only returned if version is `1`. |
 | property_id | string | Id merchant uses to connect Google Analytics to store. Only returned if version is `2`.  |
 
-The version corresponds with the "Connect with Field" that a merchant is using to connect to Google Analytics. When a merchant uses `tracking_code` for the connection field, your response will have a version of `1` as well as the `tracking_code` field:
+The version corresponds with the "Connect with Field" that a merchant is using to connect to Google Analytics. This connection field affects the fields that are requested and returned in [Get a Google Analytic](#get-a-google-analytic) and [Update a Google Analytic](#update-a-google-analytic).
+![Version on Google Analytics](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Version%20for%20Google%20Analytics.png).
 
 
+### Get a Google Analytic
+Send a `GET` request to `/stores/{{STORE_HASH}}/v3/settings/analytics{id}`. 
+
+When a merchant uses `tracking_code` for the connection field, your response will have a version of `1` as well as the `tracking_code` field:
+
+```JSON title="Sample Request" lineNumbers
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+```
+
+```JSON title="Sample Response" lineNumbers
+{
+    "data": {
+        "id": 1,
+        "channel_id": 0,
+        "name": "Google Analytics",
+        "enabled": true,
+        "version": 1,
+        "data_tag_enabled": true,
+        "tracking_code": "GA-1234567890"
+    },
+    "meta": {}
+}
+```
 
 When a merchant uses `property_id` for the connection field, your response will have a version of `2` as well as the `property_id` field:
-
-![Version on Google Analytics](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Version%20for%20Google%20Analytics.png)
-
-### Get a Web Analytic
-Send a `GET` request to `/stores/{{STORE_HASH}}/v3/settings/analytics{id}`. 
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
@@ -53,15 +75,16 @@ Accept: application/json
         "enabled": true,
         "version": 2,
         "data_tag_enabled": true,
-        "property_id": "UA-215662744-1"
+        "property_id": "GA-1234567890"
     },
     "meta": {}
 }
 ```
-
-### Update a Web Analytic
+### Update a Google Analytic
 
 Send a `PUT` request to `/stores/{{STORE_HASH}}/v3/settings/analytics{id}`. 
+
+
 ```JSON title="Sample Request" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -76,7 +99,7 @@ Accept: application/json
         "enabled": true,
         "version": 2,
         "data_tag_enabled": true,
-        "property_id": "UA-215662744-1"
+        "property_id": "GA-1234567890"
     },
     "meta": {}
 }
@@ -91,7 +114,7 @@ Accept: application/json
         "enabled": true,
         "version": 2,
         "data_tag_enabled": true,
-        "property_id": "UA-215662744-1"
+        "property_id": "GA-1234567890"
     },
     "meta": {}
 }
