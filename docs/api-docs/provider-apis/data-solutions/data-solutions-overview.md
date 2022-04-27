@@ -21,12 +21,12 @@ You can get **all** web analytics, get a **single** web analytic, or **update** 
 | channel_id | integer | Id of the storefront channel. Default is `0`. |
 | name | string | Name of Web Analytic `Google Analytics` |
 | enabled | boolean | Whether merchant has enabled Google Analytics in their store |
-| version | integer | Type of connection field that merchant is using to connect to Google Analytics. Value of 1 corresponds to `tracking_code`. Value of 2 corresponds to `property_id`.|
+| version | integer | Type of connection field that merchant is using to connect to Google Analytics. |
 | data_tag_enabled | boolean | |
 | tracking_code | string | Code merchant uses to connect Google Analytics to store. Only returned if version is `1`. |
 | property_id | string | Id merchant uses to connect Google Analytics to store. Only returned if version is `2`.  |
 
-The version corresponds with the "Connect with Field" merchants use to connect to Google Analytics (`tracking_code` or `property_id`):
+The version corresponds with the "Connect with Field" merchants use to connect to Google Analytics. Version of 1 corresponds to `tracking_code`. Version of 2 corresponds to `property_id`:
 
 ![Version on Google Analytics](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Version%20for%20Google%20Analytics.png)
 
