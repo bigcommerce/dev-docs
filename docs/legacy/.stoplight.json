@@ -4,7 +4,10 @@
   ],
   "formats": {
     "markdown": {
-      "rootDir": "blueprint-reference"
+      "rootDir": "docs",
+      "include": [
+        "**"
+      ]
     }
   }
 }
