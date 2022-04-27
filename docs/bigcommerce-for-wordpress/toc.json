@@ -1,0 +1,110 @@
+{
+  "items": [
+    {
+      "type": "divider",
+      "title": "Getting Started"
+    },
+    {
+      "type": "item",
+      "title": "Introduction",
+      "uri": "getting-started/introduction.md"
+    },
+    {
+      "type": "item",
+      "title": "Install",
+      "uri": "getting-started/install.md"
+    },
+    {
+      "type": "item",
+      "title": "App Compatibility",
+      "uri": "getting-started/app-compatibility.md"
+    },
+    {
+      "type": "item",
+      "title": "Supported Features",
+      "uri": "getting-started/supported-features.md"
+    },
+    {
+      "type": "item",
+      "title": "Gutenberg Support",
+      "uri": "getting-started/gutenberg-support.md"
+    },
+    {
+      "type": "item",
+      "title": "Site Launch Checklist",
+      "uri": "getting-started/site-launch-checklist.md"
+    },
+    {
+      "type": "divider",
+      "title": "Setup"
+    },
+    {
+      "type": "item",
+      "title": "Plugin Settings",
+      "uri": "setup/plugin-settings.md"
+    },
+    {
+      "type": "item",
+      "title": "Product Import",
+      "uri": "setup/product-import.md"
+    },
+    {
+      "type": "item",
+      "title": "Multisite",
+      "uri": "setup/multi-site.md"
+    },
+    {
+      "type": "item",
+      "title": "Shortcodes",
+      "uri": "setup/shortcodes.md"
+    },
+    {
+      "type": "item",
+      "title": "Troubleshooting",
+      "uri": "setup/troubleshooting.md"
+    },
+    {
+      "type": "divider",
+      "title": "Extending the Plugin"
+    },
+    {
+      "type": "item",
+      "title": "AMP for the Plugin",
+      "uri": "extending-the-plugin/amp-for-the-plugin.md"
+    },
+    {
+      "type": "item",
+      "title": "Customization Guide",
+      "uri": "extending-the-plugin/customization-guide.md"
+    },
+    {
+      "type": "item",
+      "title": "Proxy REST API Endpoints",
+      "uri": "extending-the-plugin/proxy-rest-api-endpoints.md"
+    },
+    {
+      "type": "item",
+      "title": "Code Reference",
+      "uri": "extending-the-plugin/code-reference.md"
+    },
+    {
+      "type": "item",
+      "title": "Multi-Channel Capabilities",
+      "uri": "extending-the-plugin/multi-channel-capabilities.md"
+    },
+    {
+      "type": "item",
+      "title": "Creating Reliable Cron Jobs",
+      "uri": "extending-the-plugin/bigcommerce-for-wordpress-cron.md"
+    },
+    {
+      "type": "divider",
+      "title": "Changelog"
+    },
+    {
+      "type": "item",
+      "title": "BigCommerce for Wordpress Changelog",
+      "uri": "changelog/plugin-changelog.md"
+    }
+  ]
+}

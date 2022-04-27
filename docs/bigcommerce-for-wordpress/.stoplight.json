@@ -1,0 +1,12 @@
+{
+  "exclude": [
+  ],
+  "formats": {
+    "markdown": {
+      "rootDir": "getting-started",
+      "include": [
+        "**"
+      ]
+    }
+  }
+}
