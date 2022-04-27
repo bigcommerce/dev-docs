@@ -258,7 +258,7 @@ product:
   "
   ```
   
-We suggest testing GraphQL queries using the [storefront API playground](/api-reference/storefront/graphql#graphql-playground) to refine them before adding them to your template. You can launch the playground in the context of your store by clicking the **Storefront API Playground** link under the **Advanced Settings** menu in your store's control panel.
+We suggest testing GraphQL queries using the [storefront API playground](https://developer.bigcommerce.com/graphql-playground) to refine them before adding them to your template. You can launch the playground in the context of your store by clicking the **Storefront API Playground** link under the **Advanced Settings** menu in your store's control panel.
   
 Once you have added a query to your template's front matter block, execution happens automatically when the page loads. The data returned by the query will be returned in the page's context and made available to the handlebars under the `gql` key. For example, you can retrieve the variant data from the above query in `product.html` like this:
 ```handlebars
