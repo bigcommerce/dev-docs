@@ -53,25 +53,11 @@ Changes to any of the following fields trigger a `store/channel/updated` event:
 * is_enabled (to be deprecated)
 * config_meta
 
-## Abandoned cart notifications
-
-The following abandoned cart notifications webhook event fires in response to actions that affect a specific channel on a store:
-
-| Name / Scope | Description | Corresponding Endpoint |
-|:-------------|:------------|:-----------------------|
-| store/channel/{channel_id}/notifications/abandonedCart/updated     |Fires when a abandoned cart notification is updated for a given channel. | [Update channel abandoned cart settings](/api-reference/store-management/abandoned-carts/abandoned-carts-settings/updatechannelabandonedcartsettings) |
 
 
-Abandoned cart payload objects take the form that follows:
+## Cart
 
-```json title="Example Abandoned cart profile payload object" lineNumbers
-
- ```
-
-
-## Carts
-
-The following carts webhook events fire in response to actions that affect a cart associated with a specific channel on a store:
+The following cart webhook events fire in response to actions that affect a cart associated with a specific channel on a store:
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
@@ -141,10 +127,10 @@ The following categories webhook events fire in response to actions that affect 
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| store/channel/{channel_id}/category/*            | Fires when a product is assigned to the specified channel | [Create product channel assignments](/api-reference/store-management/catalog/products-channel-assignments/createproductchannelassignments) |
-| store/channel/{channel_id}/category/created      | Fires when a product is removed from the specified channel | [Delete product channel assignments](/api-reference/store-management/catalog/products-channel-assignments/deleteproductchannelassignments) |
-| store/channel/{channel_id}/category/updated      | Fires when a product is assigned to a category in the specified channel's category tree | [Create product category assignments](/api-reference/store-management/catalog/products-category-assignments/createproductscategoryassignment  |
-| store/channel/{channel_id}/category/deleted      | Fires when a product is removed from a category in the specified channel's category tree | [Delete product category assignments](/api-reference/store-management/catalog/products-category-assignments/deleteproductscategoryassignments)|
+| store/channel/{channel_id}/category/*            | Fires when when subscribed to all category tree events per channel | not applicable |
+| store/channel/{channel_id}/category/created      | Fires when a new category is created within a category tree that is assigned to a given channel | [Create categories](/api-reference/store-management/catalog/categories-batch/createcategories) |
+| store/channel/{channel_id}/category/updated      | Fires when a category is updated within a category tree that is assigned to a given channel | [Update categories](/api-reference/store-management/catalog/categories-batch/updatecategories)  |
+| store/channel/{channel_id}/category/deleted      | Fires when a category is removed from a category tree that is assigned to a given channel | [Delete categories](/api-reference/store-management/catalog/categories-batch/deletecategories)|
 
 <!-- theme: info -->
 > You must include the `tree_id` or `category_id` in the payload.
@@ -192,35 +178,6 @@ Category tree payload objects take the form that follows:
 }
  ```
  
- ## Currency
-
-The following currency webhook event fires in response to actions that affect a specific channel on a store:
-
-| Name / Scope | Description | Corresponding Endpoint |
-|:-------------|:------------|:-----------------------|
-| store/customer/channel/login/access/updated         |Fires when subscribed to customer login to channel updates | [Update customers](/api-reference/store-management/customers-v3/customers/customersput) or [Delete category trees](/api-reference/store-management/catalog/category-trees/deletecategorytrees) |
-
-<!-- theme: info -->
-> You must include the `channel_id` in the payload.
-
-
-Customers payload objects take the form that follows:
-
-```json title="Example Customers profile payload object" lineNumbers
-{
- "store_id": "11111",
- "producer": "stores/abcde",
- "created_at": 1641641646,
- "scope": "store/customer/channel/login/access/updated",
- "data": {
-    "customer_id": 22,
-    "channel_ids": [
-      1
-   ]
-  },
- "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
-}
- ```
 
 ## Customers
 
@@ -228,7 +185,7 @@ The following customers webhook event fires in response to actions that affect a
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| store/customer/channel/login/access/updated         |Fires when subscribed to customer login to channel updates | [Update customers](/api-reference/store-management/customers-v3/customers/customersput) or [Delete category trees](/api-reference/store-management/catalog/category-trees/deletecategorytrees) |
+| store/customer/channel/login/access/updated         |Fires when subscribed to customer login to channel updates | [Update a customer](/api-reference/b3A6MzU5MDQ1Mjk-update-a-customer)  |
 
 <!-- theme: info -->
 > You must include the `channel_id` in the payload.
@@ -248,55 +205,6 @@ Customers payload objects take the form that follows:
       1
    ]
   },
- "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
-}
- ```
- 
- 
-
-## Email templates
-
-The following email templates webhook event fires in response to actions that affect a specific channel on a store:
-
-| Name / Scope | Description | Corresponding Endpoint |
-|:-------------|:------------|:-----------------------|
-| store/channel/{channel_id}/settings/emailStatus/*         |Fires when subscribed to all email statuses events per channel | not applicable |
-| store/channel/{channel_id}/settings/emailStatus/updated   |Fires when email statuses are updated per channel | [Update Transactional Email Settings](/api-reference/store-management/settings/email-statuses/put-settings-transactional-emails-enabled) |
-| store/channel/{channel_id}/settings/emailStatus/deleted    |Fires when email status overrides are deleted per channel | not applicable |
-| store/channel/{channel_id}/email/templates/updated    |Fires when email templates are updated per channel | [Update a template](/api-reference/store-management/email-templates/email-templates/updateemailtemplate) |
-| store/channel/{channel_id}/email/templates/deleted    |Fires when email templated overrides are deleted per channel | [Delete a template](/api-reference/store-management/email-templates/email-templates/deleteemailtemplateoverride) |
-
-<!-- theme: info -->
-> You must include the `channel_id` in the payload.
-
-
-Email templates payload objects take the form that follows:
-
-```json title="Example Email templates profile payload object" lineNumbers
-
-
-
- ```
-## Notifications
-
-The following notifications webhook events fire in response to actions that affect a specific channel on a store:
-
-| Name / Scope | Description | Corresponding Endpoint |
-|:-------------|:------------|:-----------------------|
-| store/channel/{channel_id}/notifications/inventory/updated   | Fires when any of the notification settings that apply to the inventory are updated with a given channel | [Update inventory notifications settings](/api-reference/store-management/settings/inventory/putinventorynotificationssettings) |
-| store/channel/{channel_id}/notifications/order/created        | Fires when a notification is created for a new order for a given channel | [Create an order](/api-reference/store-management/orders/orders/createanorder) |
-| store/channel/{channel_id}/notifications/abandonedCart/updated            | Fires when an order is updated for a given channel | [Update an order](/api-reference/store-management/orders/orders/updateanorder) |
-
-
-Notifications payload objects take the form that follows:
-
-```json title="Example order payload object" lineNumbers
-{
- "store_id": "11111",
- "producer": "stores/abcde",
- "created_at": 1641641646,
- "scope": "store/channel/1/notifications/abandonedCart/updated",
- "data": {},
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
  ```
@@ -360,6 +268,30 @@ Product assignment payload objects take the form that follows:
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
  ```
+## Routes
+
+
+The following routes webhook events fire in response to actions that affect a specific channel on a store:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/settings/route/updated | Fires when a route is updated for a given channel | [Update site's routes](/api-reference/store-management/sites/site-routes/putsitessiteidroutes) or [Update a site route](/api-reference/b3A6MzU5MDUxMDA-update-a-site-route) |
+
+Routes payload objects take the form that follows:
+
+```json title="Example route payload object" lineNumbers
+{
+ "store_id": "11111",
+ "producer": "stores/abcde",
+ "created_at": 1641641646,
+ "scope": "store/channel/1/settings/route/updated",
+ "data": {
+    "site_id": 1000
+  },
+ "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+}
+ ``` 
+
 ## Settings
 
 The following settings webhook events fire in response to actions that affect a specific channel on a store:
@@ -367,20 +299,27 @@ The following settings webhook events fire in response to actions that affect a 
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
+| store/settings/*   | Fires when subscribed to all global settings updates  | not applicable |
+| store/channel/{channel_id}/settings/*   | Fires when subscribed to all settings updates per channel | not applicable |
+| store/settings/locale/updated    | Fires when any of the global locale settings are updated. Fires for both channel-specific locale settings changes and for changes to any global defaults that the specified channel inherits.  | [Update locale settings](/api-reference/store-management/settings/store-locale/putsettingsstorelocale) |
+| store/settings/profile/updated    | Fires when any of the global store profile settings are updated. Fires for both channel-specific profile settings changes and for changes to any global defaults that the specified channel inherits.  | [Update store profile settings](/api-reference/store-management/settings/store-profile/putstoreprofilesettings) |
+| store/channel/{channel_id}/settings/profile/updated    | Fires when any of the store profile settings that apply to the specified channel are updated. Fires for both channel-specific profile settings changes and for changes to any global defaults that the specified channel inherits.  | [Update store profile settings](/api-reference/store-management/settings/store-profile/putstoreprofilesettings) |
+| store/settings/logo/updated    | Fires when any of the global logo settings are updated.| [Update store logo settings](/api-reference/store-management/settings/putstorelogosettings) |
 | store/channel/{channel_id}/settings/logo/updated    | Fires when any of the logo settings that apply to the specified channel are updated.| [Update store logo settings](/api-reference/store-management/settings/putstorelogosettings) |
 | store/channel/{channel_id}/settings/logo/image/updated  | Fires when any of the logo image settings that apply to the specified channel are updated.| not applicable |
 | store/channel/{channel_id}/settings/favicon/image/updated  | Fires when any of the favicon image settings that apply to the specified channel are updated.| not applicable |
-| store/channel/{channel_id}/settings/profile/updated    | Fires when any of the store profile settings that apply to the specified channel are updated. Fires for both channel-specific profile settings changes and for changes to any global defaults that the specified channel inherits.  | [Update store profile settings](/api-reference/store-management/settings/store-profile/putstoreprofilesettings) |
+| store/channel/{channel_id}/settings/checkout/updated | Fires when checkout settings were updated per given channel. | [Update storefront status](/api-reference/store-management/settings/storefront-status/putsettingsstorefrontstatus) |
+| store/channel/{channel_id}/settings/status/updated | Fires when status settings were updated per given channel. | [Update checkout settings](/api-reference/store-management/checkouts/checkout-settings/updatecheckoutsettings) |
 | store/channel/{channel_id}/settings/SEO/updated | Fires when SEO settings were updated per given channel. | [Update storefront SEO settings](/api-reference/store-management/settings/storefront-seo/putsettingsstorefrontseo) |
 | store/channel/{channel_id}/settings/robots/updated | Fires when search engine robot settings were updated per given channel. | [Update robots.txt settings](/api-reference/store-management/settings/storefront-robotstxt/putsettingsstorefrontrobotstxt) |
 | store/channel/{channel_id}/settings/category/updated | Fires when category settings were updated per given channel. | [Update storefront category settings](/api-reference/store-management/settings/storefront-category/putsettingsstorefrontcategory) |
 | store/channel/{channel_id}/settings/product/updated | Fires when product settings were updated per given channel. | [Update storefront product settings](/api-reference/store-management/settings/storefront-product/updatestorefrontproductsettings) |
 | store/channel/{channel_id}/settings/catalog/updated | Fires when catalog settings were updated per given channel. | [Update catalog settings](/api-reference/store-management/settings/catalog/putcatalogsettings) |
-| store/channel/{channel_id}/notifications/inventory/updated | Fires when inventory notification settings were updated per given channel. | [Update inventory notifications settings](/api-reference/store-management/settings/inventory/putinventorynotificationssettings) |
+| store/channel/{channel_id}/settings/security/updated | Fires when security settings are updated per given channel. | [Update storefront security settings](/api-reference/store-management/settings/storefront-security/putsettingsstorefrontsecurity) |
 | store/channel/{channel_id}/settings/searchContextFilters/updated | Fires when search context filters are updated per given channel. | [Upsert Contextual Filters](/api-reference/store-management/settings/search-filters/upsertcontexts) |
+| store/channel/{channel_id}/settings/checkout/updated | Fires when customer settings are updated per given channel. | [Update checkout settings per channel](/api-reference/store-management/checkouts/checkout-settings/updatecheckoutsettings) |
 | store/channel/{channel_id}/settings/defaultCustomerGroup/updated | Fires when default customer group is updated per given channel. | [Update a customer group](/api-reference/store-management/customers-v2/customer-groups/updateacustomergroup) |
 | store/channel/{channel_id}/settings/customerPrivacy/updated | Fires when customer privacy settings are updated per given channel. | [Update customer settings per channel](/api-reference/store-management/customers-v3/customer-settings-channel/customersettingschannelput) |
-| store/channel/{channel_id}/settings/checkout/updated | Fires when customer settings are updated per given channel. | [Update checkout settings per channel](/api-reference/store-management/checkouts/checkout-settings/updatecheckoutsettings) |
 
 Settings payload objects take the form that follows:
 
@@ -431,7 +370,6 @@ The following sites webhook events fire in response to actions that affect a sit
 | Name / Scope | Description | Corresponding Endpoints |
 |:-------------|:------------|:-----------------------|
 | store/channel/{channel_id}/settings/site/updated       | Fires when a site is updated, created, or deleted for a given channel | [Update a channel site](/api-reference/store-management/channels/channel-site/put-channel-site), [Update a site](/api-reference/store-management/sites/sites/put-site), [Create a channel site](/api-reference/store-management/channels/channel-site/postchannelsite), [Create a site](/api-reference/store-management/sites/sites/post-site), [Delete a channel site](/api-reference/store-management/channels/channel-site/deletechannelschannelidsite), or [Delete a site](/api-reference/store-management/sites/sites/delete-site) |
-| store/channel/{channel_id}/settings/route/updated | Fires when a site is created, updated, or deleted for a given channel | [Create a site route](/api-reference/store-management/sites/site-routes/post-site-route), [Update site's routes](/api-reference/store-management/sites/site-routes/putsitessiteidroutes), [Update a site route](/api-reference/b3A6MzU5MDUxMDA-update-a-site-route), or [Delete a site route](/api-reference/b3A6MzU5MDUxMDE-delete-a-site-route) |
 
 
 <!-- theme: info -->
@@ -441,7 +379,7 @@ The following sites webhook events fire in response to actions that affect a sit
 
 Site payload objects take the form that follows:
 
-```json title="Example settings profile payload object" lineNumbers
+```json title="Example site profile payload object" lineNumbers
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -453,48 +391,6 @@ Site payload objects take the form that follows:
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
  ```
- 
-## Social media links
-
-The following social media links webhook events fire in response to actions that affect a site associated with a specific channel on a store:
-
-
-| Name / Scope | Description | Corresponding Endpoints |
-|:-------------|:------------|:-----------------------|
-| store/channel/{channel_id}/settings/route/updated | Fires when a social media link is created, updated, or deleted for a given channel | | not applicable |
-
-
-Social media links payload objects take the form that follows:
-
-```json title="Example settings profile payload object" lineNumbers
-{
- "store_id": "11111",
- "producer": "stores/abcde",
- "created_at": 1641641646,
- "scope": "store/channel/1/socialMediaLinks/updated",
- "data": {},
- "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
-}
- ```
- 
- 
- ## Themes
-
-The following themes webhook events fire in response to actions that affect a specific channel on a store:
-
-| Name / Scope | Description | Corresponding Endpoint |
-|:-------------|:------------|:-----------------------|
-| store/channel/{channel_id}/theme/configuration/created      | Fires when a theme configuration is creation for a given channel   | not applicable |
-| store/channel/{channel_id}/theme/configuration/activated    | Fires when a theme configuration is activated for a given channel |  |
-
-
-
-Themes payload objects take the form that follows:
-
-```json title="Example theme payload object" lineNumbers
-
- ```
- 
  
  
  ## Web pages
