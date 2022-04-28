@@ -812,14 +812,12 @@ components:
         created_at:
           type: string
           description: When was this site created? RFC 3339
-          example: '2018-01-04T04:15:50.000Z'
           format: date-time
         id:
           type: integer
         updated_at:
           type: string
           description: When was this site defintion last updated? RFC 3339
-          example: '2018-01-04T04:15:50.000Z'
           format: date-time
         url:
           type: string
@@ -828,18 +826,22 @@ components:
           deprecated: true
         urls:
           type: array
+          description: An array of all URLs generated for this site.
           items:
             type: object
             properties:
               url:
                 type: string
+                example: 'https://mymaindomain.com'
               type:
                 type: string
+                example: primary
               created_at:
                 type: string
                 format: date-time
               updated_at:
                 type: string
+                format: date-time
         is_checkout_url_customized:
           type: boolean
     _metaEmpty:
@@ -1331,20 +1333,7 @@ components:
                   $ref: '#/components/schemas/_site'
               meta:
                 $ref: '#/components/schemas/_metaCollection'
-          examples:
-            response:
-              value:
-                data:
-                  - channel_id: 1
-                    created_at: '2019-05-14T15:43:11.000Z'
-                    id: 1000
-                    updated_at: '2019-12-09T23:19:59.000Z'
-                    url: 'https://2wy5z.csb.app'
-                meta:
-                  pagination:
-                    limit: 50
-                    offset: 0
-                    total_items: 1
+          examples: {}
     siteRoute_Resp:
       description: ''
       content:
