@@ -201,6 +201,17 @@ paths:
           description: Controls the number of items per page in a limited (paginated) list of items.
           schema:
             type: integer
+        - schema:
+            type: integer
+            example: 1
+          in: query
+          name: 'channel_id:in'
+          description: Filters returned sites by a channel ID
+        - schema:
+            type: string
+          in: query
+          name: 'url_type:in'
+          description: Filters returned sites in `data.urls` array by a URL type
     parameters:
       - name: store_hash
         in: path
