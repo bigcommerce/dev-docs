@@ -502,11 +502,96 @@ paths:
           $ref: '#/components/responses/single_listing_resp'
         '404':
           $ref: '#/components/responses/listing_not_found_resp'
+  '/stores/{store_hash}/v3/channels/site/checkout-url':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+      - $ref: ./sites.v3.yml#/components/parameters/ChannelIdPathParam
+    put:
+      summary: PUT checkout url to existing site
+      tags:
+        - Channel Site Checkout Url
+      description: ''
+      operationId: put-checkout-url
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutCheckoutUrl'
+        description: PUT checkout url to existing site
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Site'
+            Example 1:
+              examples:
+                response:
+                  value: |-
+                    {
+                        "id": 1,
+                        "url": "https://kittens.mybigcommerce.com/",
+                        "channel_id": 1,
+                        "created_at": "2018-01-04T04:15:50.000Z",
+                        "updated_at": "2018-01-04T04:15:50.000Z",
+                        "urls": [
+                            {
+                                "url": "https://kittens.mybigcommerce.com",
+                                "type": "primary",
+                                "created_at": "2022-03-22T13:08:59Z",
+                                "updated_at": "2022-03-22T13:08:59Z"
+                            },
+                            {
+                                "url": "https://store-abc.store.bcdev",
+                                "type": "canonical",
+                                "created_at": "2022-03-22T13:08:59Z",
+                                "updated_at": "2022-03-22T13:08:59Z"
+                            },
+                            {
+                                "url": "https://checkout.kittens.mybigcommerce.com",
+                                "type": "checkout",
+                                "created_at": "2022-03-23T10:21:11Z",
+                                "updated_at": "2022-03-29T13:44:22Z"
+                            }
+                        ],
+                        "is_checkout_url_customized": true
+                    }
+    delete:
+      summary: DELETE Checkout URL
+      operationId: delete-checkout-url
+      description: 'Deletes a checkout URL from a site. After deletion, a shared checkout URL is used.'
+      tags:
+        - Channel Site Checkout Url
+      responses:
+        '200':
+          description: OK
+          content:
+            Example 1:
+              examples:
+                response:
+                  value: |-
+                    {
+                      "data": {},
+                      "meta": {}
+                    }
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                  meta:
+                    type: object
   '/stores/{store_hash}/v3/channels/{channel_id}/site':
     get:
       summary: Get a Channel Site
       description: |
-        Alias of GET /sites?channel_id=channel_id
+        Alias of `GET /sites?channel_id=channel_id`
 
         Returns site data for given channel.
       operationId: get-channel-site
@@ -1631,6 +1716,12 @@ components:
       format: int64
       description: The ID of the channel.
       x-internal: false
+    PutCheckoutUrl:
+      type: object
+      properties:
+        url:
+          type: string
+          description: 'Unique url for checkout, should be valid and sub-domain of primary channel url.'
     ChannelIdForListing:
       type: integer
       format: int64
@@ -2225,6 +2316,61 @@ components:
           description: |
             The total number of pages in the collection.
       x-internal: false
+    Site:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+          description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
+          example: 'http://kittens.mybigcommerce.com/'
+        channel_id:
+          type: integer
+          description: 'The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites.'
+        created_at:
+          type: string
+          description: When was this site created? RFC 3339
+          example: '2018-01-04T04:15:50.000Z'
+        updated_at:
+          type: string
+          description: When was this site defintion last updated? RFC 3339
+          example: '2018-01-04T04:15:50.000Z'
+        ssl_status:
+          type: string
+          enum:
+            - dedicated
+            - shared
+          description: 'Indicates if a private/dedicated SSL is installed on this site, or if it''s using shared SSL.'
+        urls:
+          type: array
+          description: 'All urls belongs to site, including primary, canonical and checkout url'
+          items:
+            $ref: '#/components/schemas/Url'
+        is_checkout_url_customized:
+          type: boolean
+          description: shows weather checkout domain customized (belongs directly to channel). False means it uses fallback to default channel primary url.
+    Url:
+      type: object
+      properties:
+        url:
+          type: string
+          description: url of site
+        type:
+          type: string
+          description: url type
+          enum:
+            - primary
+            - canonical
+            - checkout
+        created_at:
+          type: string
+          description: When was this url was created?
+          example: '2018-01-04T04:15:50.000Z'
+        updated_at:
+          type: string
+          description: When was this url last updated?
+          example: '2018-01-04T04:15:50.000Z'
     site_Put:
       type: object
       properties:
