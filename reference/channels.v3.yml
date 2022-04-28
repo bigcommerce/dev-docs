@@ -504,8 +504,18 @@ paths:
           $ref: '#/components/responses/listing_not_found_resp'
   '/stores/{store_hash}/v3/channels/{channel_id}/site/checkout-url':
     parameters:
-      - $ref: ./catalog.v3.yml#/components/parameters/StoreHashParam
-      - $ref: '#/components/parameters/channel_id_path_param'
+      - name: channel_id
+        description: The ID of a channel
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
     put:
       summary: Upsert a Site's Checkout URL
       tags:
