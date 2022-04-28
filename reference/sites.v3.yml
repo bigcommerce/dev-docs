@@ -585,7 +585,9 @@ paths:
         required: true
     get:
       summary: Get information about certificate status of Site
-      tags: []
+      description: 'Get information about certificate status of Site'
+      tags: 
+        - Site Certificate
       operationId: get-sites-id-certificate
       responses:
         '200':
@@ -597,6 +599,8 @@ paths:
     put:
       summary: Add certificate to existing site
       operationId: put-site-id-certificate
+      tags:
+        - Site Certificate
       requestBody:
         content:
           application/json:
@@ -631,7 +635,8 @@ paths:
         required: true
     get:
       summary: GET Site Certificates
-      tags: []
+      tags: 
+        - Site Certificate
       responses:
         '200':
           description: OK
@@ -1457,12 +1462,6 @@ components:
         |  Sites & Routes | modify | `store_sites` |
         |  Sites & Routes | read-only | `store_sites_read_only` |
   parameters:
-    ChannelIdPathParam:
-      in: path
-      name: channel_id
-      schema:
-        type: integer
-      required: true
     SiteIdPathParam:
       in: path
       name: site_id
