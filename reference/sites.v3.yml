@@ -629,7 +629,7 @@ paths:
       responses:
         '200':
           description: OK
-  '/sotes/{store_hash}/v3/sites/certificates':
+  '/stores/{store_hash}/v3/sites/certificates':
     parameters:
       - schema:
           type: string
