@@ -61,7 +61,7 @@ When a webhook is triggered, BigCommerce will `POST` a light payload containing 
 **statusUpdated POST request body**
 ```json
 {
- "store_id":11111,
+ "store_id":"11111",
  "producer":"stores/abcde",
  "scope":"store/order/statusUpdated",
  "data":{

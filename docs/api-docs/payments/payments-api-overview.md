@@ -3,59 +3,104 @@
 The Payments API enables you to process payments through the store’s connected payment gateway. Merchants can receive a payment for an order that was created using either the [Server to Server Checkout API Orders](/api-reference/store-management/checkouts) endpoint or the [V2 Orders](/api-reference/store-management/orders/orders/createanorder) endpoint.
 
 Process payments by making a sequence of requests to the following two API endpoints:
-* Create a payment token:  `https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens`
-* Process the payment:  `https://payments.bigcommerce.com/stores/{{store_hash}}/payments`
+* Create a payment token:  `https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/payments/access_tokens`
+* Process the payment:  `https://payments.bigcommerce.com/stores/{{STORE_HASH}}/payments`
 
 <!-- theme: success -->
 > #### Required OAuth scopes
-> * `Create Payments`
-> * `Get Payment Methods`
+> Consult the [Payments API Reference](/api-reference/store-management/payment-processing) to determine which OAuth permission scopes your application's [API Account](/api-docs/getting-started/authentication/rest-api-authentication) needs.
 > Learn more about BigCommerce API [OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38daa68bda00ba9d4734)
+
+You can process payments charged to either of two main forms of payment: [stored payment instruments](#stored-cards-and-paypal-accounts) or [new cards](#credit-cards), which weren't previously saved.  The API flow does not currently support hosted, offsite, or wallet-type providers, such as Amazon Pay.
 
 ## PCI compliance
 
 BigCommerce is only responsible for the security of payment methods while the payment is en route from payment request to payment processor. As a third-party developer, you are responsible for developing your applications in a PCI-compliant manner. You will also need to maintain a PCI compliance certification for third-party service providers from an external Qualified Security Assessor (QSA).
 
-Merchants or shoppers' personal identifiable information (PII) collected by recurring billing apps that consume the BigCommerce Payments API must have its own Privacy Policy sufficient to the requirements of the European Union General Data Protection Requirements (GDPR). The GDPR must be available and displayed to the general public.
-
+Each recurring billing app that uses the BigCommerce Payments API and collects merchants or shoppers' personally identifiable information (PII) must have its own Privacy Policy sufficient to the requirements of the European Union General Data Protection Requirements (GDPR). The GDPR must be available and displayed to the general public.
 
 <!-- theme: warning -->
 > #### PCI compliance
 > If your application handles credit card data, you will need to be PCI-compliant. Submit self-assessment questionnaires (**SAQs**) to [compliance@bigcommerce.com](mailto:compliance@bigcommerce.com).
 
-## Processing a payment
+## Compatible payment gateways
 
-You can process payments charged to either of two main forms of payment: new payment instruments or stored instruments. For a list of supported payment gateways and their feature sets, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available). 
+The following table lists the payment gateways that are compatible with our public Payments API. Note that not all gateways support processing a payment using both stored payment instruments and raw card data.
 
-<!-- theme: info -->
-> #### Notes
-> * Attempting to process a payment through the API using the full credit card information may fail if the provider requires 3DS authentication. The card must be saved through a shopper-initiated transaction before it can be charged through the Payments API. 
-> * The API flow does not currently support hosted, offsite, or wallet-type providers, such as Amazon Pay.
+| Payment Gateway   | Stored instruments | Raw card data   |
+|:------------------|:------------------:|:---------------:|
+| Adyen             |       | &times; |
+| AdyenV2           | &times; |       |
+| Authorize.net     | &times; | &times; |
+| Barclaycard Fuse  | &times; | &times; |
+| Bolt              | &times; | &times; |
+| CardConnect       |       | &times; |
+| Chase Integrated Payments |         | &times; |
+| Chase Merchant Services   | &times; |  &times;|
+| Checkout.com      | &times; | &times; |
+| Cybersource       | &times; | &times; |
+| Eway Rapid        |       | &times; |
+| First Data Payeezy Gateway |       | &times; |
+| Heartland Payment Systems  |       | &times; | 
+| MIGS              |       | &times; |
+| Mollie            | &times; |       |
+| Moneris           | &times; | &times; |
+| MyVirtualMerchant | &times; | &times; |
+| NMI               |       | &times; |
+| Paymetric         | &times; | &times; |
+| PayPal (Commerce Platform)  |       | &times; |
+| PayPal Powered by Braintree | &times; | &times; |
+| PayPal Payments Pro (Payflow Edition) UK |       | &times; |
+| PayPal Payments Pro (Payflow Edition) US |       | &times; |
+| QuickBooks Payments         |       | &times; |
+| Sage Pay/Protx VSP Direct   |       | &times; |
+| SecureNet        |       | &times; |
+| Stripe           | &times; | &times; |
+| StripeV3         | &times; | &times; |
+| USA ePay         |       | &times; |
+| Vantiv           |       | &times; |
+| Vantiv Core      |       | &times; |
+| Windcave         |       | &times; |
+| Worldpay         |       | &times; |
+| Worldpay Core    |       | &times; |
+
+To learn more about the BigCommerce-compatible features of these gateways, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available). 
 
 ## Stored cards and PayPal accounts
+
 There are three steps to using a stored card or PayPal account to make a payment.
 
 1. [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget)
 2. [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost)
 3. [Process Payment](/api-reference/store-management/payment-processing/process-payment/paymentspost)
 
-To use stored cards with the Payments API or the Checkout SDK, make sure you enable stored cards in the store's control panel. To enable stored credit cards on your storefront, navigate to **Store Setup › Payments**, and click the tab for your payment gateway. Toggle the switch to enable Stored Credit Cards and click **Save**. For more on enabling stored payment methods, see [Enabling Stored Payment Methods](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards).
+Before starting development, you should verify that the store and payment gateway are both able to make charges to stored payment instruments.
 
-<!-- theme: info -->
-> #### Requirements for stored cards
-> * Your store must be on a Plus plan or higher.
-> * Your store must use Optimized One-Page Checkout.
-> * Your store must use a compatible payment gateway.
+### Prerequisites for charging stored payment instruments
 
+To use stored payment instruments with the Payments API or the Checkout SDK, both the payment gateway and the store must be compatible.
+
+The payment gateway must support making charges to **stored payment instruments**. Consult our table of [compatible payment gateways](#compatible-payment-gateways) to verify that your gateway is listed or select one that is.
+
+The store must:
+* be on a BigCommerce Plus plan or higher;
+* use Optimized One-Page Checkout;
+* have stored credit cards enabled.
+
+Use the store's control panel to enable charging stored credit cards. Navigate to **Store Setup › Payments** and click the tab for your payment gateway. Toggle the switch to enable Stored Credit Cards and click **Save**. For more on enabling stored payment methods, see [Enabling Stored Payment Methods](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards).
+
+### Charging stored instruments
+
+There are three steps to using a stored card or PayPal account to make a payment.
 
 1. Make a call to [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget) for the `stored_instruments > token` to pay with a stored card. The `order_id` passes in as a query parameter.
 
 This token is the same as `payment_instrument_token` from [Get Transactions](/api-reference/store-management/order-transactions).
 
 ```http title="Example request: Get payment methods" lineNumbers
-GET https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/methods?order_id={{order_id}}
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/payments/methods?order_id={{ORDER_ID}}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Accept: application/json
 ```
@@ -141,7 +186,7 @@ Make a note of the `token` for the target payment method to use as part of proce
 2. Make a request to [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
 
 ```http title="Example request: Create payment access token" lineNumbers
-POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/payments/access_tokens
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -166,15 +211,15 @@ Accept: application/json
 
 <!-- theme: info -->
 > #### Authorization header
-> The `pat_token` is the `data.id` value returned in preceding step.
-> To be valid, the header value string must contain a space between "PAT" and the `{{pat_token}}`.
+> The `PAT_TOKEN` is the `data.id` value returned in preceding step.
+> To be valid, the header value string must contain a space between "PAT" and the `{{PAT_TOKEN}}`.
 
 To process a payment using a stored card, set the `type` to `stored_card`.
 
 ```http title="Example request: Process payment with a stored card" lineNumbers
-POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
+POST https://payments.bigcommerce.com/stores/{{STORE_HASH}}/payments
 Accept: application/vnd.bc.v1+json
-Authorization: PAT {{pat_token}}
+Authorization: PAT {{PAT_TOKEN}}
 Content-Type: application/json
 
 {
@@ -192,7 +237,7 @@ Content-Type: application/json
 To process a payment using a stored PayPal account, set the `type` to `stored_paypal_account`. 
 
 ```http title="Example request: Process payment and save PayPal account" lineNumbers
-POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
+POST https://payments.bigcommerce.com/stores/{{STORE_HASH}}/payments
 Accept: application/vnd.bc.v1+json
 Content-Type: application/json
 
@@ -227,11 +272,18 @@ There are two steps to using a credit card to make a payment.
 1. [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost)
 2. [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
 
+The payment gateway your application uses must be able to send raw card data through our API. Before beginning development, consult our table of [compatible payment gateways](#compatible-payment-gateways) to verify that your gateway is listed or select one that is.
+
+
+<!-- theme: info -->
+> #### Implementation note
+> Attempting to process a payment through the API using the full credit card information may fail if the card issuer requires 3DS authentication. In that case, the card must be saved through a shopper-initiated transaction before it can be charged using the Payments API. 
+
 ### Create an access token
 1. Make a request to [Create Access Token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) to get the authorization token that needs to be passed in the header when processing the payment. The ID of the order needs to be part of the request body.
 
 ```http title="Example request: Create payment access token" lineNumbers
-POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/payments/access_tokens
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/payments/access_tokens
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -258,14 +310,14 @@ Accept: application/json
 
 <!-- theme: info -->
 > #### Authorization header
-> The `pat_token` is the `data.id` value returned in preceding step.
-> To be valid, the header value string should contain a space between "PAT" and the `{{pat_token}}`.
+> The `PAT_TOKEN` is the `data.id` value returned in preceding step.
+> To be valid, the header value string should contain a space between "PAT" and the `{{PAT_TOKEN}}`.
 
 
 ```http title="Example request: Process payment with a credit card" lineNumbers
-POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
+POST https://payments.bigcommerce.com/stores/{{STORE_HASH}}/payments
 Accept: application/vnd.bc.v1+json
-Authorization: PAT {{pat_token}}
+Authorization: PAT {{PAT_TOKEN}}
 Content-Type: application/json
 
 {
@@ -297,14 +349,14 @@ If the purchase was successful, the response returns a status of success. The or
 
 ### Storing credit cards
 
-The payments API allows developers to store a credit card while processing a payment.
+The Payments API allows developers to store a credit card while processing a payment.
 
 When processing a credit card payment, set `save_instrument: true`. The shopper can also store credit cards during checkout. If you are using the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk), it can store the credit card as part of the checkout.
 
 ```http title="Example request: Process payment and save credit card" lineNumbers
-POST https://payments.bigcommerce.com/stores/{{store_hash}}/payments
+POST https://payments.bigcommerce.com/stores/{{STORE_HASH}}/payments
 Accept: application/vnd.bc.v1+json
-Authorization: PAT {{pat_token}}
+Authorization: PAT {{PAT_TOKEN}}
 Content-Type: application/json
 
 {
@@ -329,7 +381,7 @@ It is possible to take payment for an order created using the [Orders API](/api-
 
 
 ```http title="Example request: Create an order" lineNumbers
-POST https://api.bigcommerce.com/stores/{{store_hash}}/v2/orders
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/orders
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json

@@ -151,6 +151,7 @@ The table below displays properties for the individual category objects within t
 | **selected** | Container for the selected search facets (selected facets contain properties below) |
 | &nbsp;&nbsp;remove_all_url | URL to remove all selected search restrictions |
 | &nbsp;&nbsp;items | Currently enabled search facets |
+
 ## Featured Products
 
 **Description:** Renders a list of all the featured products for the BigCommerce storefront.
@@ -162,6 +163,8 @@ The table below displays properties for the individual category objects within t
 **Usage Example:**
 
 The code example below displays the global `{{products.featured}}` object on the `cornerstone/templates/pages/home.html` page template from [Stencil's base Cornerstone theme](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L5) (GitHub).
+
+`{{products.featured}}` returns 10 products by default.
 
 First, you must declare the object using Front Matter. To declare the object, the following front matter must be placed at the top of the template HTML page. This following declaration also limits the number of featured products to be displayed:
 
@@ -243,6 +246,8 @@ No properties available for this object.
 **Usage Example:**
 
 To access the global `{{products.new}}` object on your page, you must first use front matter to declare the object at the top of your page template.
+
+`{{products.new}}` returns 10 products by default. 
 
 The code example below declares the global `{{products.new}}` object on the `cornerstone/templates/pages/home.html` page template from [Stencil's base Cornerstone Theme](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/home.html#L3) (GitHub).
 
@@ -602,6 +607,8 @@ All possible values for `{{page_type}}` are:
 **Object Properties:** References the [product card model](/stencil-docs/stencil-object-model-reference/stencil-objects/common-objects/common-product-card-model).
 
 **Usage Example:**
+
+`{{products.top_sellers}}` returns 10 products by default.
 
 To access the global`{{products.top_sellers}}` object on your page, you must first use [front matter](/stencil-docs/front-matter/front-matter-attributes-reference) to declare the object at the top of your page template. For example, you would place this front-matter declaration at the top of your template file:
 
