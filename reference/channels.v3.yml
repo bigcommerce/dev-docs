@@ -557,6 +557,30 @@ paths:
                         ],
                         "is_checkout_url_customized": true
                     }
+        '422':
+          description: Unprocessable Entity. Your checkout and storefront must be within the same main domain like `example.com` and `subdomain.example.com`
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  example-1:
+                    status: 422
+                    title: 'Incorrect checkout url https://bc.kittykat.me. Your checkout and storefront must be within the same main domain like “main.com” and “subdomain.main.com”'
+                    type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+                    errors: {}
+                properties:
+                  status:
+                    type: integer
+                    default: 422
+                  title:
+                    type: string
+                    example: 'Incorrect checkout url https://checkout.example.com. Your checkout and storefront must be within the same main domain like “main.com” and “subdomain.main.com'
+                  type:
+                    type: string
+                    default: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+                  errors:
+                    type: object
     delete:
       summary: Delete a Site's Checkout URL
       operationId: delete-checkout-url
