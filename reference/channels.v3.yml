@@ -515,17 +515,17 @@ paths:
         in: path
         required: true
     put:
-      summary: PUT checkout url to existing site
+      summary: Upsert a Site's Checkout URL
       tags:
         - Channel Site Checkout Url
-      description: ''
+      description: Creates or updates (upserts) a site's checkout URL
       operationId: put-checkout-url
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/PutCheckoutUrl'
-        description: PUT checkout url to existing site
+        description: ''
       responses:
         '200':
           description: OK
@@ -566,9 +566,9 @@ paths:
                         "is_checkout_url_customized": true
                     }
     delete:
-      summary: DELETE Checkout URL
+      summary: Delete a Site's Checkout URL
       operationId: delete-checkout-url
-      description: 'Deletes a checkout URL from a site. After deletion, a shared checkout URL is used.'
+      description: 'Deletes a site''s checkout URL. After deletion, a shared checkout URL is used.'
       tags:
         - Channel Site Checkout Url
       responses:
@@ -1725,7 +1725,10 @@ components:
       properties:
         url:
           type: string
-          description: 'Unique url for checkout, should be valid and sub-domain of primary channel url.'
+          description: Unique site checkout URL. Must be valid and a sub-domain of primary channel url.
+          format: uri
+          example: 'https://checkout.kittens.mybigcommerce.com'
+      title: ''
     ChannelIdForListing:
       type: integer
       format: int64
