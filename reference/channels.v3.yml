@@ -502,14 +502,18 @@ paths:
           $ref: '#/components/responses/single_listing_resp'
         '404':
           $ref: '#/components/responses/listing_not_found_resp'
-  '/stores/{store_hash}/v3/channels/site/checkout-url':
+  '/stores/{store_hash}/v3/channels/{channel_id}/site/checkout-url':
     parameters:
       - schema:
           type: string
         name: store_hash
         in: path
         required: true
-      - $ref: ./sites.v3.yml#/components/parameters/ChannelIdPathParam
+      - schema:
+          type: string
+        name: channel_id
+        in: path
+        required: true
     put:
       summary: PUT checkout url to existing site
       tags:
