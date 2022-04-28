@@ -2,7 +2,10 @@ swagger: '2.0'
 info:
   version: '3.0'
   title: Checkouts
-  description: Create checkouts from existing carts using BigCommerce checkout logic.
+  description: |-
+    For more information on authenticating BigCommerce APIs, see [Authentication](/api-docs/getting-started/authentication).
+
+    Create and manage checkouts from existing carts using BigCommerce checkout logic.
 host: api.bigcommerce.com
 basePath: null
 schemes:
@@ -145,6 +148,71 @@ paths:
         name: checkoutId
         in: path
         required: true
+  '/stores/{store_hash}/v3/checkouts/{checkoutId}/discounts':
+    parameters:
+      - type: string
+        name: store_hash
+        in: path
+        required: true
+      - type: string
+        name: checkoutId
+        in: path
+        required: true
+    post:
+      summary: Add Discount to Checkout
+      operationId: post-store_hash-v3-checkouts-checkoutId-discounts
+      responses:
+        '200':
+          $ref: '#/responses/CheckoutResponse'
+      description: |-
+        Adds a discount to an existing *checkout*.
+
+        This discount only applies to `line_items`. When you call this API, you clear out all existing discounts applied to line items, including product and order-based discounts.
+
+        This endpoint splits the discount between line items based on the item value.
+
+        Required Fields
+        * discounted_amount
+      tags:
+        - Checkout Discounts
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              cart:
+                type: object
+                properties:
+                  discounts:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        discounted_amount:
+                          type: number
+                          example: 10
+                        name:
+                          type: string
+                          example: manual
+                      required:
+                        - discounted_amount
+          x-examples:
+            example-1:
+              cart:
+                discounts:
+                  - discounted_amount: 10
+                    name: manual
+        - type: string
+          in: header
+          name: Accept
+          required: true
+          default: application/json
+        - type: string
+          in: header
+          name: Content-Type
+          required: true
+          default: application/json
   '/stores/{store_hash}/v3/checkouts/{checkoutId}/billing-address':
     post:
       description: |-
@@ -1749,45 +1817,17 @@ parameters:
 securityDefinitions:
   X-Auth-Token:
     type: apiKey
-    name: X-Auth-Token
     in: header
-    description: |-
-      ### OAuth Scopes
-      |  **UI Name** | **Permission** | **Parameter** |
-      | --- | --- | --- |
-      |  Checkouts | modify | `store_checkout` |
-      |  Checkouts | read-only | `store_checkout_read_only` |
-
-      ### Headers
-
-      |Header|Parameter|Description|
-      |-|-|-|
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
-
-      ### Example
-
-      ```http
-      GET /stores/{$$.env.store_hash}/v3/catalog/summary
-      host: api.bigcommerce.com
-      Content-Type: application/json
-      X-Auth-Token: {access_token}
-      ```
-
-      * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
+    name: X-Auth-Token
+    description: ''
 tags:
   - name: Checkout
   - name: Checkout Billing Address
   - name: Checkout Consignments
   - name: Checkout Coupons
+  - name: Checkout Discounts
   - name: Checkout Orders
   - name: Checkout Settings
-security:
-  - X-Auth-Client: []
-  - X-Auth-Token: []
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false
 responses:
   CheckoutResponse:
     description: ''
@@ -2333,6 +2373,194 @@ responses:
                     - cartpage
                   text: Some text
         meta: {}
+      example-1:
+        data:
+          id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+          cart:
+            id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+            customer_id: 0
+            email: string
+            currency:
+              code: string
+            base_amount: 0
+            channel_id: 0
+            discount_amount: 0
+            cart_amount_inc_tax: 0
+            cart_amount_ex_tax: 0
+            coupons:
+              - code: string
+                id: 0
+                coupon_type: string
+                discounted_amount: 0
+            discounts:
+              - id: string
+                discounted_amount: 0
+            line_items:
+              physical_items:
+                - quantity: 0
+                  id: string
+                  variant_id: 0
+                  product_id: 0
+                  sku: string
+                  name: string
+                  url: string
+                  is_taxable: true
+                  image_url: string
+                  discounts:
+                    - id: string
+                      discounted_amount: 0
+                  coupons: 0
+                  discount_amount: 0
+                  coupon_amount: 0
+                  list_price: 0
+                  sale_price: 0
+                  extended_list_price: 0
+                  extended_sale_price: 0
+                  is_require_shipping: true
+                  is_mutable: true
+                  parent_id: 0
+                  gift_wrapping:
+                    name: string
+                    message: string
+                    amount: 0
+                    amount_as_integer: 0
+              digital_items:
+                - quantity: 0
+                  id: string
+                  variant_id: 0
+                  parent_id: 0
+                  product_id: 0
+                  sku: string
+                  name: string
+                  url: string
+                  is_mutable: true
+                  is_require_shipping: true
+                  is_taxable: true
+                  image_url: string
+                  discounts:
+                    - id: string
+                      discounted_amount: 0
+                  coupons: 0
+                  discount_amount: 0
+                  coupon_amount: 0
+                  list_price: 0
+                  sale_price: 0
+                  extended_list_price: 0
+                  extended_sale_price: 0
+              gift_certificates:
+                - theme: string
+                  amount: 0
+                  sender:
+                    name: string
+                    email: string
+                  recipient:
+                    name: string
+                    email: string
+                  id: string
+                  name: string
+                  taxable: true
+                  message: string
+              custom_items:
+                - quantity: 0
+                  id: string
+                  extended_list_price: 0
+                  list_price: 0
+                  sku: string
+                  name: string
+                  image_url: string
+            created_time: string
+            updated_time: string
+          billing_address:
+            first_name: string
+            last_name: string
+            email: string
+            company: string
+            address1: string
+            address2: string
+            city: string
+            state_or_province: string
+            state_or_province_code: string
+            country_code: string
+            postal_code: string
+            phone: string
+            custom_fields:
+              - field_id: string
+                field_value: string
+            id: string
+          consignments:
+            - id: string
+              shippingAddress: {}
+              address:
+                first_name: string
+                last_name: string
+                email: string
+                company: string
+                address1: string
+                address2: string
+                city: string
+                state_or_province: string
+                state_or_province_code: string
+                country_code: string
+                postal_code: string
+                phone: string
+                custom_fields:
+                  - field_id: string
+                    field_value: string
+                id: string
+              available_shipping_options:
+                - description: string
+                  id: string
+                  type: string
+                  image_url: string
+                  cost: 0
+                  transit_time: string
+                  additional_description: string
+              selected_shipping_option:
+                description: string
+                id: string
+                type: string
+                image_url: string
+                cost: 0
+                transit_time: string
+                additional_description: string
+              coupon_discounts:
+                - code: string
+                  amount: 0
+              discounts:
+                - id: 0
+              shipping_cost_inc_tax: 0
+              shipping_cost_ex_tax: 0
+              handling_cost_inc_tax: 0
+              handling_cost_ex_tax: 0
+              line_item_ids:
+                - string
+          taxes:
+            - name: string
+              amount: 0
+          coupons:
+            - code: string
+              id: 0
+              discounted_amount: 0
+              coupon_type: 1
+          order_id: string
+          shipping_cost_total_inc_tax: 0
+          shipping_cost_total_ex_tax: 0
+          handling_cost_total_inc_tax: 0
+          handling_cost_total_ex_tax: 0
+          tax_total: 0
+          subtotal_inc_tax: 0
+          subtotal_ex_tax: 0
+          grand_total: 0
+          created_time: string
+          updated_time: string
+          customer_message: string
+          promotions:
+            banners:
+              id: string
+              type: string
+              page:
+                - string
+              text: string
   order_Resp:
     description: ''
     schema:
@@ -2363,3 +2591,5 @@ responses:
           order_confirmation_use_custom_checkout_script: false
           custom_order_confirmation_script_url: 'https://example.com/custom-order-confirmation-script.js'
         meta: {}
+security:
+  - X-Auth-Token: []
