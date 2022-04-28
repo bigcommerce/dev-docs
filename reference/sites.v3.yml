@@ -628,7 +628,9 @@ paths:
         - Given endpoint works as UPSERT, supplying SSL certificate for a domain that already has a certificate connected would update SSL certificate for given domain'
   '/stores/{store_hash}/v3/sites/certificates':
     parameters:
-      - $ref: ./catalog.v3.yml#/components/parameters/StoreHashParam
+      - in: path
+        name: store_hash
+        required: true
     get:
       summary: Get Site SSL/TSL Certificates
       tags:
