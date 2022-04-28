@@ -584,12 +584,6 @@ paths:
             schema:
               description: ''
               type: object
-              x-examples:
-                example-1:
-                  url: string
-                  certificate: string
-                  private_key: string
-                  intermediate_certificates: string
               properties:
                 url:
                   type: string
