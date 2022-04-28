@@ -504,16 +504,8 @@ paths:
           $ref: '#/components/responses/listing_not_found_resp'
   '/stores/{store_hash}/v3/channels/{channel_id}/site/checkout-url':
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-      - schema:
-          type: string
-        name: channel_id
-        in: path
-        required: true
+      - $ref: ./catalog.v3.yml#/components/parameters/StoreHashParam
+      - $ref: '#/components/parameters/channel_id_path_param'
     put:
       summary: Upsert a Site's Checkout URL
       tags:
@@ -575,14 +567,6 @@ paths:
         '200':
           description: OK
           content:
-            Example 1:
-              examples:
-                response:
-                  value: |-
-                    {
-                      "data": {},
-                      "meta": {}
-                    }
             application/json:
               schema:
                 type: object
