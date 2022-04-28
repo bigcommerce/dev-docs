@@ -599,7 +599,7 @@ paths:
         - Channel Site Checkout Url
       responses:
         '200':
-          description: OK
+          description: OK. `data` and `meta` are empty objects.
           content:
             application/json:
               schema:
