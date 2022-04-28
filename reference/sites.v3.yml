@@ -584,9 +584,9 @@ paths:
         in: path
         required: true
     get:
-      summary: Get information about certificate status of Site
-      description: 'Get information about certificate status of Site'
-      tags: 
+      summary: Get a Site's SSL/TSL Certificate Information
+      description: Get information about certificate status of Site
+      tags:
         - Site Certificate
       operationId: get-sites-id-certificate
       responses:
@@ -597,7 +597,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CertificateResponse'
     put:
-      summary: Add certificate to existing site
+      summary: Upsert a Site's SSL/TSL Certificate Information
       operationId: put-site-id-certificate
       tags:
         - Site Certificate
@@ -628,14 +628,10 @@ paths:
         - Given endpoint works as UPSERT, supplying SSL certificate for a domain that already has a certificate connected would update SSL certificate for given domain'
   '/stores/{store_hash}/v3/sites/certificates':
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
+      - $ref: ./catalog.v3.yml#/components/parameters/StoreHashParam
     get:
-      summary: GET Site Certificates
-      tags: 
+      summary: Get Site SSL/TSL Certificates
+      tags:
         - Site Certificate
       responses:
         '200':
@@ -737,8 +733,8 @@ paths:
             type: string
           in: query
           name: 'url:in'
-          description: Query SSL by one or more urls
-      description: Returns all SSL/TSL certificates connected to domains within a store
+          description: Query certificates by one or more urls
+      description: Returns all SSL/TSL certificates connected to a store's domains.
 components:
   schemas:
     _metaCollection:
@@ -1180,7 +1176,7 @@ components:
         url:
           type: string
           description: URL for the site.
-          example: 'kittens.mybigcommerce.com'
+          example: kittens.mybigcommerce.com
         certificate:
           $ref: '#/components/schemas/CertificateWrite'
     InstalledCertificateDetail:
