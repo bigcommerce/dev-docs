@@ -521,7 +521,7 @@ paths:
       tags:
         - Channel Site Checkout Url
       description: Creates or updates (upserts) a site's checkout URL
-      operationId: put-checkout-url
+      operationId: putCheckoutUrl
       requestBody:
         content:
           application/json:
@@ -615,7 +615,7 @@ paths:
       description: |
         Alias of `GET /sites?channel_id=channel_id`
 
-        Returns site data for given channel.
+        Returns site data for the specified channel.
       operationId: get-channel-site
       parameters:
         - name: channel_id
@@ -991,19 +991,10 @@ components:
             type: object
             properties:
               data:
-                $ref: '#/components/schemas/site_Full'
+                $ref: '#/components/schemas/Site'
               meta:
                 $ref: '#/components/schemas/EmptyMeta'
-          examples:
-            response:
-              value:
-                data:
-                  id: 1
-                  url: 'https://www.my-awesome-site.com'
-                  channel_id: 18735
-                  created_at: '2019-08-05T18:26:21Z'
-                  updated_at: '2019-08-05T18:26:21Z'
-                meta: {}
+          examples: {}
     invalid_channel_id_resp:
       description: Invalid channel ID is provided.
       content:
@@ -1743,7 +1734,7 @@ components:
       properties:
         url:
           type: string
-          description: Unique site checkout URL. Must be valid and a sub-domain of primary channel url.
+          description: Unique site checkout URL. Must be valid and a sub-domain of primary channel URL.
           format: uri
           example: 'https://checkout.kittens.mybigcommerce.com'
       title: ''
@@ -1833,7 +1824,7 @@ components:
       x-internal: false
     EnabledCurrencies:
       type: array
-      description: 'Currencies that are enabled for the given channel in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three character alphabetic format.'
+      description: 'Currencies that are enabled for the specified channel in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three character alphabetic format.'
       items:
         type: string
       x-internal: false
@@ -2348,19 +2339,21 @@ components:
           type: integer
         url:
           type: string
-          description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
+          description: The fully qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
           example: 'http://kittens.mybigcommerce.com/'
         channel_id:
           type: integer
-          description: 'The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites.'
+          description: 'The channel to which this site is attached. Each site belongs to a single channel, and each channel can have either zero or more sites.'
         created_at:
           type: string
-          description: When was this site created? RFC 3339
+          description: 'The date-time that this site was created, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
           example: '2018-01-04T04:15:50.000Z'
+          format: date-time
         updated_at:
           type: string
-          description: When was this site defintion last updated? RFC 3339
+          description: 'The date-time that this site was last updated, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
           example: '2018-01-04T04:15:50.000Z'
+          format: date-time
         ssl_status:
           type: string
           enum:
@@ -2369,33 +2362,35 @@ components:
           description: 'Indicates if a private/dedicated SSL is installed on this site, or if it''s using shared SSL.'
         urls:
           type: array
-          description: 'All urls belongs to site, including primary, canonical and checkout url'
+          description: 'All URLs that belong to the site, including `primary`, `canonical`, and `checkout` URLs.'
           items:
             $ref: '#/components/schemas/Url'
         is_checkout_url_customized:
           type: boolean
-          description: shows weather checkout domain customized (belongs directly to channel). False means it uses fallback to default channel primary url.
+          description: Indicates whether the channel uses a custom checkout domain. When `false`, the checkout domain falls back to the default channel’s primary URL.
     Url:
       type: object
       properties:
         url:
           type: string
-          description: url of site
+          description: URL of site
         type:
           type: string
-          description: url type
+          description: URL type
           enum:
             - primary
             - canonical
             - checkout
         created_at:
           type: string
-          description: When was this url was created?
           example: '2018-01-04T04:15:50.000Z'
+          format: date-time
+          description: 'The date-time that this URL was created, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
         updated_at:
           type: string
-          description: When was this url last updated?
+          description: 'The date-time that this URL was last updated, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
           example: '2018-01-04T04:15:50.000Z'
+          format: date-time
     site_Put:
       type: object
       properties:
@@ -2465,7 +2460,7 @@ components:
               matching:
                 type: string
                 description: |-
-                  (entity_id?) For a given type, which resources should match this route? e.g For a route with the type: "product" and matching: "5" this route would be used for the product with the ID of 5.
+                  (entity_id?) For the specified type, which resources should match this route? e.g For a route with the type: "product" and matching: "5" this route would be used for the product with the ID of 5.
 
                   Depending on the type of resource, this may be an ID (matching a specific item), or a "*" wildcard matching all items of that type.
                 example: '5'
