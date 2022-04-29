@@ -951,40 +951,6 @@ components:
                   example: '?page=1&limit=50'
       x-tags:
         - Models
-    Site:
-      type: object
-      properties:
-        id:
-          type: integer
-        url:
-          type: string
-          description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
-          example: 'http://kittens.mybigcommerce.com/'
-        channel_id:
-          type: integer
-          description: 'The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites.'
-        created_at:
-          type: string
-          description: When was this site created? RFC 3339
-          example: '2018-01-04T04:15:50.000Z'
-        updated_at:
-          type: string
-          description: When was this site defintion last updated? RFC 3339
-          example: '2018-01-04T04:15:50.000Z'
-        ssl_status:
-          type: string
-          enum:
-            - dedicated
-            - shared
-          description: Indicates whether this site has a private/dedicated SSL certificate installed, or it’s using a shared certificate.
-        urls:
-          type: array
-          description: 'All urls belongs to site, including primary, canonical and checkout url'
-          items:
-            $ref: '#/components/schemas/Url'
-        is_checkout_url_customized:
-          type: boolean
-          description: shows weather checkout domain customized (belongs directly to channel). False means it uses fallback to default channel primary url.
     Url:
       type: object
       properties:
