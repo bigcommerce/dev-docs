@@ -625,7 +625,7 @@ paths:
       description: |-
         - If a value for `url` is not supplied, the saved certificate is associated with the specified site’s "primary" URL.
         - `url` must be a valid URL within provided `site_id`
-        - Given endpoint works as UPSERT, supplying SSL certificate for a domain that already has a certificate connected would update SSL certificate for given domain'
+        - Use caution. Because this endpoint upserts, supplying an SSL certificate for a domain that already has a certificate connected overwrites the domain’s extant certificate.'
 components:
   schemas:
     _metaCollection:
