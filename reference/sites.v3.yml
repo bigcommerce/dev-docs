@@ -201,6 +201,17 @@ paths:
           description: Controls the number of items per page in a limited (paginated) list of items.
           schema:
             type: integer
+        - schema:
+            type: integer
+            example: 1
+          in: query
+          name: 'channel_id:in'
+          description: Filters returned sites by channel ID
+        - schema:
+            type: string
+          in: query
+          name: 'url_type:in'
+          description: Filters sites returned in the `data.urls` array by their URL type
     parameters:
       - name: store_hash
         in: path
@@ -210,7 +221,7 @@ paths:
   '/stores/{store_hash}/v3/sites/{site_id}':
     get:
       summary: Get a Site
-      operationId: get-site
+      operationId: getSite
       parameters:
         - name: site_id
           in: path
@@ -225,7 +236,7 @@ paths:
       description: 'Get a site with site ID `{site_id}`.'
     put:
       summary: Update a Site
-      operationId: put-site
+      operationId: putSite
       parameters:
         - name: site_id
           in: path
@@ -249,7 +260,7 @@ paths:
       description: 'Update a site with site ID `{site_id}`.'
     delete:
       summary: Delete a Site
-      operationId: delete-site
+      operationId: deleteSite
       parameters:
         - name: site_id
           in: path
@@ -573,11 +584,11 @@ paths:
         in: path
         required: true
     get:
-      summary: Get a Site's Certificate
-      description: Returns SSL certificate information for a specified site.
+      summary: Get a Site's SSL/TSL Certificate Information
+      description: Get information about a site's SSL/TSL certificate.
       tags:
         - Site Certificate
-      operationId: get-sites-id-certificate
+      operationId: getSitesIdCertificate
       responses:
         '200':
           description: OK
@@ -585,6 +596,35 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CertificateResponse'
+    put:
+      summary: Upsert a Site's SSL/TSL Certificate Information
+      operationId: putSiteIdCertificate
+      tags:
+        - Site Certificate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InstallCertificateData'
+        description: ''
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyResponse'
+            Example:
+              examples:
+                response:
+                  value: |-
+                    {
+                        "data": {},
+                        "meta": {}
+                    }
+      description: |-
+        - If a value for `url` is not supplied, the saved certificate is associated with the specified site’s `primary` URL.
+        - Use caution. Because this endpoint upserts, supplying an SSL certificate for a domain that already has a certificate connected overwrites the domain’s extant certificate.'
 components:
   schemas:
     _metaCollection:
@@ -658,26 +698,35 @@ components:
           type: integer
         url:
           type: string
-          description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
+          description: The fully qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
           example: 'http://kittens.mybigcommerce.com/'
         channel_id:
           type: integer
-          description: 'The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites.'
+          description: 'The channel to which this site is attached. Each site belongs to a single channel, and each channel can have either zero or more sites.'
         created_at:
           type: string
-          description: When was this site created? RFC 3339
+          description: 'The date-time that this site was created, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
           example: '2018-01-04T04:15:50.000Z'
+          format: date-time
         updated_at:
           type: string
-          description: When was this site defintion last updated? RFC 3339
+          description: 'The date-time that this site was last updated, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
           example: '2018-01-04T04:15:50.000Z'
-        routes:
+          format: date-time
+        ssl_status:
+          type: string
+          enum:
+            - dedicated
+            - shared
+          description: 'Indicates if a private/dedicated SSL is installed on this site, or if it''s using shared SSL.'
+        urls:
           type: array
-          description: (optional - if included) collection of routes defined for this site. Limited to 200 routes side loaded (query routes direction via `/routes` for bulk)
+          description: 'All URLs that belong to the site, including `primary`, `canonical`, and `checkout` URLs.'
           items:
-            $ref: '#/components/schemas/siteRoute_Full'
-      title: _site
-      x-internal: false
+            $ref: '#/components/schemas/Url'
+        is_checkout_url_customized:
+          type: boolean
+          description: Indicates whether the channel uses a custom checkout domain. When `false`, the checkout domain falls back to the default channel’s primary URL.
     _metaEmpty:
       type: object
       description: Empty meta object; may be used later.
@@ -732,6 +781,13 @@ components:
       description: The keys and values in an errors object will vary depending on the error received.
       title: _errors
       x-internal: false
+    EmptyResponse:
+      type: object
+      properties:
+        data:
+          type: object
+        meta:
+          type: object
     error_Full:
       type: object
       title: error_Full
@@ -887,6 +943,29 @@ components:
                   example: '?page=1&limit=50'
       x-tags:
         - Models
+    Url:
+      type: object
+      properties:
+        url:
+          type: string
+          description: URL of site
+        type:
+          type: string
+          description: URL type
+          enum:
+            - primary
+            - canonical
+            - checkout
+        created_at:
+          type: string
+          description: 'The date-time that this URL was created, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
+          example: '2018-01-04T04:15:50.000Z'
+          format: date-time
+        updated_at:
+          type: string
+          description: 'The date-time that this URL was last updated, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
+          example: '2018-01-04T04:15:50.000Z'
+          format: date-time
     SiteCreate:
       type: object
       properties:
@@ -936,6 +1015,15 @@ components:
           type: object
       x-tags:
         - Models
+    InstallCertificateData:
+      type: object
+      properties:
+        url:
+          type: string
+          description: URL for the site.
+          example: kittens.mybigcommerce.com
+        certificate:
+          $ref: '#/components/schemas/CertificateWrite'
     InstalledCertificateDetail:
       title: CertificateInfo
       description: 'Details about the installed certificate, including the raw certificate data, without the private key.'
@@ -1167,20 +1255,7 @@ components:
                   $ref: '#/components/schemas/_site'
               meta:
                 $ref: '#/components/schemas/_metaCollection'
-          examples:
-            response:
-              value:
-                data:
-                  - channel_id: 1
-                    created_at: '2019-05-14T15:43:11.000Z'
-                    id: 1000
-                    updated_at: '2019-12-09T23:19:59.000Z'
-                    url: 'https://2wy5z.csb.app'
-                meta:
-                  pagination:
-                    limit: 50
-                    offset: 0
-                    total_items: 1
+          examples: {}
     siteRoute_Resp:
       description: ''
       content:
@@ -1228,12 +1303,6 @@ components:
         |  Sites & Routes | modify | `store_sites` |
         |  Sites & Routes | read-only | `store_sites_read_only` |
   parameters:
-    ChannelIdPathParam:
-      in: path
-      name: channel_id
-      schema:
-        type: integer
-      required: true
     SiteIdPathParam:
       in: path
       name: site_id
