@@ -16,10 +16,9 @@ servers:
   - url: 'https://api.bigcommerce.com'
   - url: 'https://payments.bigcommerce.com'
 security:
-  - X-Auth-Client: []
   - X-Auth-Token: []
 paths:
-  '/stores/{store_hash}/v3/payments':
+  '/stores/{store_hash}/payments':
     post:
       summary: Process Payment
       tags:
@@ -43,11 +42,14 @@ paths:
             enum:
               - application/vnd.bc.v1+json
             default: application/vnd.bc.v1+json
+          required: true
+          description: This required value must be `application/vnd.bc.v1+json`
         - name: Content-Type
           in: header
           schema:
             type: string
             default: application/json
+          required: true
       requestBody:
         content:
           application/json:
