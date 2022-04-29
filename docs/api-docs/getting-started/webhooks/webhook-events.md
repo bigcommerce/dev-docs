@@ -36,6 +36,8 @@ Callback payloads take the following form. The `data` property will contain vary
 
 ## Carts
 
+<!-- theme: info -->
+> For channel-specific webhooks, consult the [carts section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#carts).
 
 | Name / Scope            | Description |
 |:------------------------|:------------|
@@ -108,6 +110,9 @@ Payload objects with the `store/cart/converted` scope take the form that follows
 
 ## Cart line items
 
+<!-- theme: info -->
+> For channel-specific webhooks, consult the [cart line items section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#cart-line-items).
+
 | Name / Scope            | Description |
 |:------------------------|:------------|
 | store/cart/lineItem/* | Subscribe to all cart line item events. This webhook will fire when a change occurs to line items in the cart. This can be when items are added to a cart, removed or updated.(Ex. change to quantity, product options or price). |
@@ -139,6 +144,9 @@ Payload objects with the following scopes take the form that follows:
 
 ## Categories
 
+<!-- theme: info -->
+> For channel-specific webhooks, consult the [category section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#categories).
+
 | Name / Scope            | Description |
 |:------------------------|:------------|
 | store/category/* | Subscribe to all store/category events. |
@@ -166,11 +174,17 @@ Payload objects with the following scopes take the form that follows:
     "producer": "stores/{store_hash}"
 }
 ```
+
 ## Category trees
+
+Consult the [category trees section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#category-trees).
 ## Channel
 
 Consult the [channel events section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#channel-events).
 ## Customers
+
+<!-- theme: info -->
+> For channel-specific webhooks, consult the [customers section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#customers).
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
@@ -230,6 +244,9 @@ Payload objects with the following scopes take the form that follows:
 ```
 
 ## Orders
+
+<!-- theme: info -->
+> For channel-specific webhooks, consult the [orders section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#orders).
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
@@ -343,7 +360,9 @@ Payload objects with the following scopes take the form that follows:
 
 ## Pages
 
+Consult the [pages section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#pages).
 ## Product assignments
+
 Consult the [product assignment section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#product-assignment).
 
 ## Products
@@ -431,7 +450,14 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 > #### Note
 > Setting a thumbnail triggers an updated event only when that thumbnail is the first to be set. For example, setting an image as a thumbnail **after deleting all images** will trigger an updated event. However, changing the current thumbnail, uploading an additional product image and setting it as the thumbnail, or even deleting all thumbnails, does not generate an update event. 
 
+
 ## Routes
+
+Consult the [routes section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#routes).
+
+## Scripts
+
+Consult the [scripts section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#scripts).
 ## Settings
 
 Consult the [settings section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#settings).
@@ -468,6 +494,9 @@ Payload objects with the following scopes take the form that follows:
 
 
 ## Sites
+
+Consult the [sites section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#sites).
+## SKUs
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
