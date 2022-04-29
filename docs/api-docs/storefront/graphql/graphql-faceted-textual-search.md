@@ -6,9 +6,9 @@ This can be done using the `SearchProducts` field.
 
 This page walks you through how to query products and facets. See [GraphQL Playground](/graphql-playground) for full schema documentation.  
 
-## How to Filter for Products and Facets
+## How to Filter Products and Facets
 
-At least one filter must be specified in the argument for `SearchProducts`. You may filter by price, rating, among other features and attributes of products: 
+To use the Faceted and Textual Search feature, specify a filter in the argument for `SearchProducts`. For Faceted Search, you can filter by price, rating, among other features and attributes of products. For Textual Search, use the `searchTerm` field. 
 
 ```GraphQL title=Filters for Products and Facets" lineNumbers
 ...
@@ -118,7 +118,7 @@ query {
 }
 ```
 
-You can sort the products that are returned using the `sort` field. Here is an example request that sorts products in alphabetical order:
+You can sort the products that are returned using the `sort` field. Here is an example request that searches for products using a search term and sorts the products in alphabetical order:
 
 ```GraphQL title="Request" lineNumbers
 query {
