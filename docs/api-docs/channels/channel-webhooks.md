@@ -78,7 +78,7 @@ Cart payload objects take the form that follows:
  "created_at": 1641641646,
  "scope": "store/channel/1/cart/created",
   "data": {
-    "cart_id": "41696c19-486f-40a8-ae2a-389d5d24e0c9"
+    "cart_id": "41696c19-486f-40a8-ae2a-389d5d24e0c9" // ID of the cart
   },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
@@ -105,8 +105,8 @@ Cart line items payload objects take the form that follows:
  "created_at": 1641641646,
  "scope": "store/channel/1/cart/lineItems/created",
   "data": {
-    "cart_id": "41696c19-486f-40a8-ae2a-389d5d24e0c9",
-    "cart_item_id":  "af133539-0d83-464d-870d-776e2672e8f4"
+    "cart_id": "41696c19-486f-40a8-ae2a-389d5d24e0c9", // ID of the cart
+    "cart_item_id":  "af133539-0d83-464d-870d-776e2672e8f4" //ID of the cart line item
   },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
@@ -133,8 +133,8 @@ Categories payload objects take the form that follows:
  "created_at": 1641641646,
  "scope": "store/channel/1/category/created",
  "data": {
-    "category_id": 35,
-    "tree_id": 1
+    "category_id": 35, // ID of the category
+    "tree_id": 1 // ID of the catalog/category tree
   },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
@@ -157,7 +157,7 @@ Category tree payload objects take the form that follows:
  "created_at": 1641641646,
  "scope": "store/channel/1/categoryTree/updated",
  "data": {
-    "tree_id": 1
+    "tree_id": 1 // ID of the category tree
   },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
@@ -181,8 +181,8 @@ Customers payload objects take the form that follows:
  "created_at": 1641641646,
  "scope": "store/customer/channel/login/access/updated",
  "data": {
-    "customer_id": 22,
-    "channel_ids": [
+    "customer_id": 22, // ID of the customer
+    "channel_ids": [ // array of channels that the customer has accessed
       1
    ]
   },
@@ -213,7 +213,7 @@ Order payload objects take the form that follows:
  "created_at": 1641641646,
  "scope": "store/channel/1/order/updated",
  "data": {
-    "order_id": 127
+    "order_id": 127 // ID of the order
   },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
@@ -241,7 +241,7 @@ Product assignment payload objects take the form that follows:
  "created_at": 1641641646,
  "scope": "store/channel/1/product/assigned",
  "data": {
-    "product_id": 127
+    "product_id": 127 // ID of the product
   },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
@@ -331,7 +331,7 @@ Scripts payload objects take the form that follows:
  "created_at": 1641641646,
  "scope": "store/channel/1/script/created",
  "data": {
-   "uuid": "0187cc6c-cebf-45f9-93b8-7dd0a2e09774"
+   "uuid": "0187cc6c-cebf-45f9-93b8-7dd0a2e09774" // ID of the script
  },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
@@ -356,7 +356,7 @@ Site payload objects take the form that follows:
  "created_at": 1641641646,
  "scope": "store/channel/1/settings/site/updated",
   "data": {
-    "site_id": 1001
+    "site_id": 1001 // ID of the site
   },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
@@ -382,7 +382,7 @@ Web pages payload objects take the form that follows:
  "created_at": 1641641646,
  "scope": "store/channel/1/page/created",
   "data": {
-    "page_id": 11
+    "page_id": 11 // ID of the page
   },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
