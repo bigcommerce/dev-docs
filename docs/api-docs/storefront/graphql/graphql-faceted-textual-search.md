@@ -220,8 +220,334 @@ query {
 }
 ```
 
-
 ## How to Get Facets
+
+To get facets, specify `filters` as a field in `searchProducts`. Here is an example request that returns facets that have products with a rating between three and five: 
+
+```GraphQL title="Request" lineNumbers
+query {
+  site {
+    search {
+      searchProducts(
+        filters: {
+           rating:{
+             minRating:3,
+             maxRating:5
+           }
+        }
+      ) {
+         filters {
+           edges {
+             node {
+               __typename
+               name
+               isCollapsedByDefault
+               ... on CategorySearchFilter {
+                 name
+                 displayProductCount
+                 isCollapsedByDefault
+                 categories {
+                   edges {
+                     node {
+                       entityId
+                       isSelected
+                       productCount
+                       subCategories {
+                         edges {
+                           node {
+                             entityId
+                             name
+                           }
+                         }
+                       }
+                     }
+                   }
+                 }
+               }
+               ... on BrandSearchFilter {
+                 name
+                 displayProductCount
+                 isCollapsedByDefault
+                 brands {
+                   edges {
+                     node {
+                       entityId
+                       name
+                       isSelected
+                       productCount
+                     }
+                   }
+                 }
+               }
+               ... on RatingSearchFilter {
+                 name
+                 isCollapsedByDefault
+                 ratings {
+                   edges {
+                     node {
+                       value
+                       isSelected
+                       productCount
+                     }
+                   }
+                 }
+               }
+               ... on ProductAttributeSearchFilter {
+                 name
+                 displayProductCount
+                 isCollapsedByDefault
+                 attributes {
+                   edges {
+                     node {
+                       value
+                       isSelected
+                       productCount
+                     }
+                   }
+                 }
+               }
+               ... on PriceSearchFilter {
+                 name
+                 isCollapsedByDefault
+                 selected {
+                   minPrice
+                   maxPrice
+                 }
+               }
+               ... on OtherSearchFilter {
+                 name
+                 displayProductCount
+                 isCollapsedByDefault
+                 freeShipping {
+                   isSelected
+                   productCount
+                 }
+                 isInStock {
+                   isSelected
+                   productCount
+                 }
+                 isFeatured {
+                   isSelected
+                   productCount
+                 }
+               }
+             }
+           }
+         }
+      }
+    }
+  }
+}
+```
+
+```JSON title="Response" lineNumbers
+{
+  "data": {
+    "site": {
+      "search": {
+        "searchProducts": {
+          "filters": {
+            "edges": [
+              {
+                "node": {
+                  "__typename": "CategorySearchFilter",
+                  "name": "Category",
+                  "isCollapsedByDefault": false,
+                  "displayProductCount": true,
+                  "categories": {
+                    "edges": [
+                      {
+                        "node": {
+                          "entityId": 19,
+                          "isSelected": false,
+                          "productCount": 1,
+                          "subCategories": {
+                            "edges": []
+                          }
+                        }
+                      },
+                      {
+                        "node": {
+                          "entityId": 21,
+                          "isSelected": false,
+                          "productCount": 1,
+                          "subCategories": {
+                            "edges": []
+                          }
+                        }
+                      },
+                      {
+                        "node": {
+                          "entityId": 23,
+                          "isSelected": false,
+                          "productCount": 2,
+                          "subCategories": {
+                            "edges": []
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "node": {
+                  "__typename": "BrandSearchFilter",
+                  "name": "Brand",
+                  "isCollapsedByDefault": false,
+                  "displayProductCount": true,
+                  "brands": {
+                    "edges": [
+                      {
+                        "node": {
+                          "entityId": 36,
+                          "name": "OFS",
+                          "isSelected": false,
+                          "productCount": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "node": {
+                  "__typename": "ProductAttributeSearchFilter",
+                  "name": "Color",
+                  "isCollapsedByDefault": false,
+                  "displayProductCount": true,
+                  "attributes": {
+                    "edges": [
+                      {
+                        "node": {
+                          "value": "Black",
+                          "isSelected": false,
+                          "productCount": 1
+                        }
+                      },
+                      {
+                        "node": {
+                          "value": "Blue",
+                          "isSelected": false,
+                          "productCount": 1
+                        }
+                      },
+                      {
+                        "node": {
+                          "value": "Orange",
+                          "isSelected": false,
+                          "productCount": 1
+                        }
+                      },
+                      {
+                        "node": {
+                          "value": "Silver",
+                          "isSelected": false,
+                          "productCount": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "node": {
+                  "__typename": "ProductAttributeSearchFilter",
+                  "name": "Size",
+                  "isCollapsedByDefault": false,
+                  "displayProductCount": true,
+                  "attributes": {
+                    "edges": [
+                      {
+                        "node": {
+                          "value": "Large",
+                          "isSelected": false,
+                          "productCount": 1
+                        }
+                      },
+                      {
+                        "node": {
+                          "value": "Medium",
+                          "isSelected": false,
+                          "productCount": 1
+                        }
+                      },
+                      {
+                        "node": {
+                          "value": "Small",
+                          "isSelected": false,
+                          "productCount": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "node": {
+                  "__typename": "PriceSearchFilter",
+                  "name": "Price",
+                  "isCollapsedByDefault": false,
+                  "selected": {
+                    "minPrice": null,
+                    "maxPrice": null
+                  }
+                }
+              },
+              {
+                "node": {
+                  "__typename": "RatingSearchFilter",
+                  "name": "Rating",
+                  "isCollapsedByDefault": true,
+                  "ratings": {
+                    "edges": [
+                      {
+                        "node": {
+                          "value": "3",
+                          "isSelected": true,
+                          "productCount": 2
+                        }
+                      },
+                      {
+                        "node": {
+                          "value": "4",
+                          "isSelected": false,
+                          "productCount": 2
+                        }
+                      },
+                      {
+                        "node": {
+                          "value": "5",
+                          "isSelected": false,
+                          "productCount": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "node": {
+                  "__typename": "OtherSearchFilter",
+                  "name": "Other",
+                  "isCollapsedByDefault": true,
+                  "displayProductCount": true,
+                  "freeShipping": null,
+                  "isInStock": {
+                    "isSelected": false,
+                    "productCount": 2
+                  },
+                  "isFeatured": null
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+```
 
 ## Putting it all Together: Products and Facets
 
