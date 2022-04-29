@@ -8,7 +8,30 @@ There are three kinds of webhooks events that relate to channels: settings, prod
 
 ## Creating a webhook
 
-To see an example request-response pair for creating a webhook, consult the [creating a webhook section of the Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks#creating-a-webhook).
+To create a webhook, send a `POST` request to `/stores/{{STORE_HASH}}/v3/hooks`. 
+
+**Webhooks POST request headers and body**
+
+```http
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "scope": "store/channel/{channel_id}/cart/created", // replace {channel_id} with the actual channel_id
+  "destination": "https://665b65a6.ngrok.io/webhooks", // Replace 6a35e97b.ngrok.io with your HTTPS tunnel URL
+  "is_active": true
+}
+```
+<!-- theme: info -->
+> #### Note
+> * The `destination` URL must be served on port **443**; custom ports are not currently supported.
+> * Make sure to replace {channel_id} with the actual channel ID number subscribed to receive each of the events.
+> * Make sure to replace 6a35e97b.ngrok.io with your ngrok HTTPS tunnel URL.
+> * Following the creation of a webhook, it can take up to one minute for BigCommerce to start making `POST` requests to the destination server.
+
+For information on creating a webhook, consult the [creating a webhook section of the Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks#creating-a-webhook).
 
 ## Callback structure
 
@@ -334,13 +357,9 @@ The following settings webhook events fire in response to actions that affect a 
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| store/settings/*   | Fires when subscribed to all global settings updates.  | not applicable |
 | store/channel/{channel_id}/settings/*   | Fires when subscribed to all settings updates for the specified channel. | not applicable |
-| store/settings/locale/updated    | Fires when any of the global locale settings are updated. Fires for both channel-specific locale settings changes and for changes to any global defaults that the specified channel inherits.  | [Update locale settings](/api-reference/store-management/settings/store-locale/putsettingsstorelocale) |
 | store/settings/profile/updated    | Fires when any of the global store profile settings are updated. Fires for both channel-specific profile settings changes and for changes to any global defaults that the specified channel inherits.  | [Update store profile settings](/api-reference/store-management/settings/store-profile/putstoreprofilesettings) |
-| store/channel/{channel_id}/settings/profile/updated    | Fires when any of the store profile settings that apply to the specified channel are updated. Fires for both channel-specific profile settings changes and for changes to any global defaults that the specified channel inherits.  | [Update store profile settings](/api-reference/store-management/settings/store-profile/putstoreprofilesettings) |
 | store/settings/logo/updated    | Fires when any of the global logo settings are updated.| [Update store logo settings](/api-reference/store-management/settings/putstorelogosettings) |
-| store/channel/{channel_id}/settings/logo/updated    | Fires when any of the logo settings that apply to the specified channel are updated.| [Update store logo settings](/api-reference/store-management/settings/putstorelogosettings) |
 | store/channel/{channel_id}/settings/logo/image/updated  | Fires when any of the logo image settings that apply to the specified channel are updated.| not applicable |
 | store/channel/{channel_id}/settings/favicon/image/updated  | Fires when any of the favicon image settings that apply to the specified channel are updated.| not applicable |
 | store/channel/{channel_id}/settings/checkout/updated | Fires when checkout settings that affect a specified channel are updated. | [Update storefront status](/api-reference/store-management/settings/storefront-status/putsettingsstorefrontstatus) |
