@@ -221,7 +221,7 @@ paths:
   '/stores/{store_hash}/v3/sites/{site_id}':
     get:
       summary: Get a Site
-      operationId: get-site
+      operationId: getSite
       parameters:
         - name: site_id
           in: path
@@ -236,7 +236,7 @@ paths:
       description: 'Get a site with site ID `{site_id}`.'
     put:
       summary: Update a Site
-      operationId: put-site
+      operationId: putSite
       parameters:
         - name: site_id
           in: path
@@ -260,7 +260,7 @@ paths:
       description: 'Update a site with site ID `{site_id}`.'
     delete:
       summary: Delete a Site
-      operationId: delete-site
+      operationId: deleteSite
       parameters:
         - name: site_id
           in: path
