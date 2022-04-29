@@ -717,7 +717,7 @@ components:
           deprecated: true
         urls:
           type: array
-          description: An array of all URLs generated for this site.
+          description: Array of all URLs generated for this site.
           items:
             type: object
             properties:
