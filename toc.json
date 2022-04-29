@@ -894,6 +894,18 @@
       "href": "/api-docs/partner/staying-current",
       "uri": "docs/api-docs/partner/staying-current.md"
     },
+      {
+      "type": "group",
+      "title": "Analytics Solutions",
+      "items": [
+        {
+          "type": "item",
+          "title": "BODL",
+          "href": "/api-docs/partner/analytics-solutions/BODL",
+          "uri": "docs/api-docs/analytics/BODL.md"
+        }
+      ]
+    },
     {
       "type": "group",
       "title": "POS Solutions",
