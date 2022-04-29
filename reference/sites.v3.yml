@@ -694,47 +694,40 @@ components:
       x-internal: false
     _site:
       type: object
-      title: _site
-      x-internal: false
       properties:
-        channel_id:
-          type: integer
-          description: 'The channel this site is attached to. Each site belongs to a single channel, and each channel can have either zero or one sites.'
-        created_at:
-          type: string
-          description: When was this site created? RFC 3339
-          format: date-time
         id:
           type: integer
-        updated_at:
-          type: string
-          description: When was this site defintion last updated? RFC 3339
-          format: date-time
         url:
           type: string
-          description: The Fully Qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
+          description: The fully qualified URL (including host and scheme) where this site is hosted. All URLs generated for this site will be appended to this.
           example: 'http://kittens.mybigcommerce.com/'
-          deprecated: true
+        channel_id:
+          type: integer
+          description: 'The channel to which this site is attached. Each site belongs to a single channel, and each channel can have either zero or more sites.'
+        created_at:
+          type: string
+          description: 'The date-time that this site was created, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
+          example: '2018-01-04T04:15:50.000Z'
+          format: date-time
+        updated_at:
+          type: string
+          description: 'The date-time that this site was last updated, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
+          example: '2018-01-04T04:15:50.000Z'
+          format: date-time
+        ssl_status:
+          type: string
+          enum:
+            - dedicated
+            - shared
+          description: 'Indicates if a private/dedicated SSL is installed on this site, or if it''s using shared SSL.'
         urls:
           type: array
-          description: Array of all URLs generated for this site.
+          description: 'All URLs that belong to the site, including `primary`, `canonical`, and `checkout` URLs.'
           items:
-            type: object
-            properties:
-              url:
-                type: string
-                example: 'https://mymaindomain.com'
-              type:
-                type: string
-                example: primary
-              created_at:
-                type: string
-                format: date-time
-              updated_at:
-                type: string
-                format: date-time
+            $ref: '#/components/schemas/Url'
         is_checkout_url_customized:
           type: boolean
+          description: Indicates whether the channel uses a custom checkout domain. When `false`, the checkout domain falls back to the default channel’s primary URL.
     _metaEmpty:
       type: object
       description: Empty meta object; may be used later.
@@ -956,22 +949,24 @@ components:
       properties:
         url:
           type: string
-          description: url of site
+          description: URL of site
         type:
           type: string
-          description: url type
+          description: URL type
           enum:
             - primary
             - canonical
             - checkout
         created_at:
           type: string
-          description: When was this url was created?
+          description: 'The date-time that this URL was created, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
           example: '2018-01-04T04:15:50.000Z'
+          format: date-time
         updated_at:
           type: string
-          description: When was this url last updated?
+          description: 'The date-time that this URL was last updated, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
           example: '2018-01-04T04:15:50.000Z'
+          format: date-time
     SiteCreate:
       type: object
       properties:
@@ -986,12 +981,6 @@ components:
           $ref: '#/components/schemas/CertificateWrite'
       x-tags:
         - Models
-    PutCheckoutUrl:
-      type: object
-      properties:
-        url:
-          type: string
-          description: 'Unique url for checkout, should be valid and sub-domain of primary channel url.'
     CertificateWrite:
       title: CertificateWrite
       type: object
