@@ -1,8 +1,7 @@
 # Big Open Data Layer (BODL) 
 
 <!-- theme: info -->
-> #### Analytics tracking scripts
-> This guide describes how to inject the correct contextual data into analytics scripts that load on BigCommerce storefronts. This information incorporates our current thoughts on enabling a data layer as a native BigCommerce feature. We are developing this feature in the open to obtain your feedback! Please share any feedback on BODL with us using the [Partner Portal](https://partners.bigcommerce.com/). 
+> This guide describes how to configure and use a data layer that can simplify injecting contextual data into analytics scripts on BigCommerce storefronts. This information incorporates our current thoughts on how a native BigCommerce data layer might work. We are developing this feature in the open to obtain your feedback! Please use the [Partner Portal](https://partners.bigcommerce.com/) to share your thoughts. 
 
 ## Overview
 
@@ -56,7 +55,7 @@ A standard `BODL` instance contains the following methods:
 | BODL Method | Parameter(s) | Parameter Properties | Return Value |
 |:---|:---|:---|:---|
 | getCartItemContentId | `item`: object | `item.type`: string, `item.product_id`: string | If the item is a gift certificate, returns the item's `type`. Otherwise, returns the item's `product_id`.  |
-| getQueryParamValue | `name`: string | **X** | Returns the value of the specified query parameter from the window's URL. |
+| getQueryParamValue | `name`: string | **&times;** | Returns the value of the specified query parameter from the window's URL. |
 
 ## Initialize BODL
 
@@ -64,7 +63,6 @@ The following script extracts storefront data from the Stencil objects available
 
 ```handlebars title="Sample Script Code Start: Initialization Script & Page Event" lineNumbers
 <script>
-  
   if (typeof BODL === 'undefined') {
     // https://developer.bigcommerce.com/theme-objects/breadcrumbs
     {{inject "breadcrumbs" breadcrumbs}}
@@ -146,6 +144,7 @@ The following script extracts storefront data from the Stencil objects available
   !function (w, d, t) {
     w.SampleAnalyticsObject=t;var sampleAnalyticsProvider=w[t]=w[t]||[];sampleAnalyticsProvider.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],sampleAnalyticsProvider.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<sampleAnalyticsProvider.methods.length;i++)sampleAnalyticsProvider.setAndDefer(sampleAnalyticsProvider,sampleAnalyticsProvider.methods[i]);sampleAnalyticsProvider.instance=function(t){for(var e=sampleAnalyticsProvider._i[t]||[],n=0;n<sampleAnalyticsProvider.methods.length;n++)sampleAnalyticsProvider.setAndDefer(e,sampleAnalyticsProvider.methods[n]);return e},sampleAnalyticsProvider.load=function(e,n){var i="https://analytics.sample.com/i18n/pixel/events.js";sampleAnalyticsProvider._i=sampleAnalyticsProvider._i||{},sampleAnalyticsProvider._i[e]=[],sampleAnalyticsProvider._i[e]._u=i,sampleAnalyticsProvider._t=sampleAnalyticsProvider._t||{},sampleAnalyticsProvider._t[e]=+new Date,sampleAnalyticsProvider._o=sampleAnalyticsProvider._o||{},sampleAnalyticsProvider._o[e]=n||{},sampleAnalyticsProvider._partner=sampleAnalyticsProvider._partner||"BigCommerce";var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
 
+    // the templating syntax of the analytics instance variable depends on your engine's library of choice
     sampleAnalyticsProvider.load('<%= ANALYTICS_INSTANCE_ID %>');
     sampleAnalyticsProvider.page();
 
