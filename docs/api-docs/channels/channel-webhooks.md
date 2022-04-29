@@ -39,7 +39,7 @@ Channel event payloads take the form that follows:
   },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
- ```
+```
 
 ### Channel update events
 
@@ -75,7 +75,7 @@ The following cart webhook events fire in response to actions that affect a cart
 
 Cart payload objects take the form that follows:
 
-```json title="Example cart profile payload object" lineNumbers
+```json title="Example cart payload object" lineNumbers
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -86,7 +86,7 @@ Cart payload objects take the form that follows:
   },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
- ```
+```
 
 
 ## Cart line item
@@ -118,7 +118,7 @@ Cart line items payload objects take the form that follows:
   },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
- ```
+```
 
 
 ## Categories
@@ -150,7 +150,7 @@ Categories payload objects take the form that follows:
   },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
- ```
+```
 ## Category tree
 
 The following category tree webhook event fires in response to actions that affect a specific channel on a store:
@@ -165,7 +165,7 @@ The following category tree webhook event fires in response to actions that affe
 
 Category tree payload objects take the form that follows:
 
-```json title="Example Category tree profile payload object" lineNumbers
+```json title="Example category tree payload object" lineNumbers
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -176,7 +176,7 @@ Category tree payload objects take the form that follows:
   },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
- ```
+```
  
 
 ## Customers
@@ -193,7 +193,7 @@ The following customers webhook event fires in response to actions that affect a
 
 Customers payload objects take the form that follows:
 
-```json title="Example Customers profile payload object" lineNumbers
+```json title="Example customers payload object" lineNumbers
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -207,7 +207,7 @@ Customers payload objects take the form that follows:
   },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
- ```
+```
 
 ## Orders
 
@@ -239,7 +239,7 @@ Order payload objects take the form that follows:
   },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
- ```
+```
 
 
 ## Product assignments
@@ -267,7 +267,7 @@ Product assignment payload objects take the form that follows:
   },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
- ```
+```
 ## Routes
 
 
@@ -290,12 +290,11 @@ Routes payload objects take the form that follows:
   },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
- ``` 
+``` 
 
 ## Settings
 
 The following settings webhook events fire in response to actions that affect a specific channel on a store:
-
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
@@ -334,11 +333,10 @@ Settings payload objects take the form that follows:
  },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
- ```
- ## Scripts
+```
+## Scripts
  
  The following scripts webhook events fire in response to actions that affect a site associated with a specific channel on a store:
-
 
 | Name / Scope | Description | Corresponding Endpoints |
 |:-------------|:------------|:-----------------------|
@@ -348,7 +346,7 @@ Settings payload objects take the form that follows:
 
 Scripts payload objects take the form that follows:
 
-```json title="Example settings profile payload object" lineNumbers
+```json title="Example scripts payload object" lineNumbers
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -360,9 +358,9 @@ Scripts payload objects take the form that follows:
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
 
- ```
+```
  
- ## Sites
+## Sites
 
 The following sites webhook events fire in response to actions that affect a site associated with a specific channel on a store:
 
@@ -379,7 +377,7 @@ The following sites webhook events fire in response to actions that affect a sit
 
 Site payload objects take the form that follows:
 
-```json title="Example site profile payload object" lineNumbers
+```json title="Example site payload object" lineNumbers
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -390,10 +388,10 @@ Site payload objects take the form that follows:
   },
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
- ```
+```
  
  
- ## Web pages
+## Pages
 
 The following web pages webhook events fire in response to actions that affect a specific channel on a store:
 
@@ -417,7 +415,7 @@ Web pages payload objects take the form that follows:
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
 
- ```
+```
  
 For a complete reference of all BigCommerce webhook events and their callback payloads, see [Webhook Events](/api-docs/store-management/webhooks/webhook-events).
 
