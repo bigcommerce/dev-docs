@@ -919,7 +919,7 @@ query {
 }
 ```
 
-If a merchant has not enabled product filtering, you will receive an empty array for the returned facets, though products will still be returned):
+If a merchant has not enabled product filtering, you will receive an empty array for the returned facets, though products will still be returned:
 
 ```JSON title="Response" lineNumbers
 {
