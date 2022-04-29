@@ -976,7 +976,7 @@ components:
           enum:
             - dedicated
             - shared
-          description: 'Indicates if a private/dedicated SSL is installed on this site, or if it''s using shared SSL.'
+          description: Indicates whether this site has a private/dedicated SSL certificate installed, or it’s using a shared certificate.
         urls:
           type: array
           description: 'All urls belongs to site, including primary, canonical and checkout url'
