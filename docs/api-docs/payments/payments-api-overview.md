@@ -284,7 +284,6 @@ In the case of store credit and gift certificates:
 * If store credit and/or gift certificate covers the entire order amount, the order will be moved to an Awaiting Fulfillment status.
 * The order will stay in Pending status until it is fully paid. You can make the remaining order payment using other payment methods (Credit card, stored card, or store PayPal account) in the next payment request.
 
-For more information, see [Store Credit/Gift Certificate usage in S2S APIs](https://bc-eng-docs.herokuapp.com/domains/payments/technical-initiatives/s2s-store-credit-gift-certificate-usage.html).
 
 ## Credit cards
 
