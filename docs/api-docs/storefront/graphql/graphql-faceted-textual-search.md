@@ -964,3 +964,6 @@ If a merchant has not enabled product filtering, you will receive an empty array
 ```
 
 ## Related Resources
+
+- [Storefront GraphQL Overview](/docs/ZG9jOjIyMDczOQ-graph-ql-storefront-api-overview)
+- [Storefront GraphQL Playground](/graphql-playground)
