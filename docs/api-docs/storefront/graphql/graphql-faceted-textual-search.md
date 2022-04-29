@@ -2,7 +2,7 @@
 
 With Storefront GraphQL's Faceted and Textual Search, you can ...
 
-These features are available by using the `SearchProducts` field. A merchant must enable Product Filtering for facets to be returned. In addition, only facets that a merchant marks visible will be returned. 
+These features are available by using the `SearchProducts` field. A merchant must [enable Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings?language=en_US#setup) for facets to be returned. In addition, only facets that a merchant marks visible will be returned. 
 
 This page walks you through how to filter and query products and facets. See [GraphQL Playground](/graphql-playground) for full schema documentation.  
 
