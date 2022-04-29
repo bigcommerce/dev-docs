@@ -2,7 +2,7 @@
 
 This article contains a complete reference of all BigCommerce webhook events and their callback payloads. For an introduction to webhooks on BigCommerce, see [Webhooks Overview](/api-docs/store-management/webhooks/overview#callback-payload).
 
-# Creating a webhook
+## Creating a webhook
 
 To see an example request-response pair for creating a webhook, consult the [creating a webhook section of the Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks#creating-a-webhook).
 
@@ -34,7 +34,7 @@ Callback payloads take the following form. The `data` property will contain vary
 }
 ```
 
-## Cart
+## Carts
 
 
 | Name / Scope            | Description |
@@ -106,7 +106,7 @@ Payload objects with the `store/cart/converted` scope take the form that follows
 }
 ```
 
-## Cart line item
+## Cart line items
 
 | Name / Scope            | Description |
 |:------------------------|:------------|
@@ -137,7 +137,7 @@ Payload objects with the following scopes take the form that follows:
 ```
 
 
-## Category
+## Categories
 
 | Name / Scope            | Description |
 |:------------------------|:------------|
@@ -166,10 +166,11 @@ Payload objects with the following scopes take the form that follows:
     "producer": "stores/{store_hash}"
 }
 ```
+## Category trees
 ## Channel
 
 Consult the [channel events section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#channel-events).
-## Customer
+## Customers
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
@@ -340,8 +341,9 @@ Payload objects with the following scopes take the form that follows:
 }
 ```
 
-## Product assignment
+## Pages
 
+## Product assignments
 Consult the [product assignment section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#product-assignment).
 
 ## Products
@@ -429,11 +431,12 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 > #### Note
 > Setting a thumbnail triggers an updated event only when that thumbnail is the first to be set. For example, setting an image as a thumbnail **after deleting all images** will trigger an updated event. However, changing the current thumbnail, uploading an additional product image and setting it as the thumbnail, or even deleting all thumbnails, does not generate an update event. 
 
+## Routes
 ## Settings
 
 Consult the [settings section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#settings).
 
-## Shipment
+## Shipments
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
@@ -463,7 +466,8 @@ Payload objects with the following scopes take the form that follows:
 }
 ```
 
-## SKU
+
+## Sites
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
@@ -529,7 +533,7 @@ Payload objects with the following scopes take the form that follows:
 ```
 
 
-## Store
+## Stores
 
 | Name / Scope              | Description |
 |:--------------------------|:------------|
@@ -582,7 +586,7 @@ Changes to the following store settings will trigger a `store/information/update
 }
 ```
 
-## Subscriber
+## Subscribers
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|

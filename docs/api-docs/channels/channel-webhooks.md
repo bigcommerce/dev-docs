@@ -55,7 +55,7 @@ Changes to any of the following fields trigger a `store/channel/updated` event:
 
 
 
-## Cart
+## Carts
 
 The following cart webhook events fire in response to actions that affect a cart associated with a specific channel on a store:
 
@@ -85,7 +85,7 @@ Cart payload objects take the form that follows:
 ```
 
 
-## Cart line item
+## Cart line items
 
 The following cart line item webhook events fire in response to actions that affect a cart items associated with a specific channel on a store:
 
@@ -139,7 +139,7 @@ Categories payload objects take the form that follows:
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
 ```
-## Category tree
+## Category trees
 
 The following category tree webhook event fires in response to actions that affect a specific channel on a store:
 
@@ -220,8 +220,8 @@ Order payload objects take the form that follows:
 ```
 
 
-## Product assignments
 
+## Pages
 
 The following product assignment webhook events fire in response to actions that affect a specific channel on a store:
 
@@ -246,10 +246,9 @@ Product assignment payload objects take the form that follows:
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
 ```
-## Routes
+ 
 
-
-The following routes webhook events fire in response to actions that affect a specific channel on a store:
+## Product assignments
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
@@ -270,7 +269,7 @@ Routes payload objects take the form that follows:
 }
 ``` 
 
-## Settings
+## Routes
 
 The following settings webhook events fire in response to actions that affect a specific channel on a store:
 
@@ -338,7 +337,7 @@ Scripts payload objects take the form that follows:
 
 ```
  
-## Sites
+## Settings
 
 The following sites webhook events fire in response to actions that affect a site associated with a specific channel on a store:
 
@@ -361,9 +360,9 @@ Site payload objects take the form that follows:
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
 ```
- 
- 
-## Pages
+## Sites
+
+The following sites webhook events fire in response to actions that affect a site associated with a specific channel on a store:
 
 The following web pages webhook events fire in response to actions that affect a specific channel on a store:
 
