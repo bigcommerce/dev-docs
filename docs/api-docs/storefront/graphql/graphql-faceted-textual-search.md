@@ -569,7 +569,6 @@ query {
       ) {
         products(first: 5) {
           edges {
-            cursor
             node {
               entityId
               name
@@ -694,7 +693,6 @@ query {
           "products": {
             "edges": [
               {
-                "cursor": "WyJbc2FtcGxlXSAxIGwgbGUgcGFyZmFpdCBqYXIiLDkzXQ==",
                 "node": {
                   "entityId": 93,
                   "name": "[Sample] 1 L Le Parfait Jar",
@@ -706,7 +704,6 @@ query {
                 }
               },
               {
-                "cursor": "WyJbc2FtcGxlXSBvcmJpdCB0ZXJyYXJpdW0gLSBsYXJnZSIsODBd",
                 "node": {
                   "entityId": 80,
                   "name": "[Sample] Orbit Terrarium - Large",
@@ -914,6 +911,50 @@ query {
                 }
               }
             ]
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+If a merchant has not enabled product filtering, you will receive an empty array for the returned facets, though products will still be returned):
+
+```JSON title="Response" lineNumbers
+{
+  "data": {
+    "site": {
+      "search": {
+        "searchProducts": {
+          "products": {
+            "edges": [
+              {
+                "node": {
+                  "entityId": 93,
+                  "name": "[Sample] 1 L Le Parfait Jar",
+                  "prices": {
+                    "price": {
+                      "value": 7
+                    }
+                  }
+                }
+              },
+              {
+                "node": {
+                  "entityId": 80,
+                  "name": "[Sample] Orbit Terrarium - Large",
+                  "prices": {
+                    "price": {
+                      "value": 109
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "filters": {
+            "edges": []
           }
         }
       }
