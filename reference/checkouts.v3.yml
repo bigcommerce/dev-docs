@@ -173,6 +173,8 @@ paths:
 
         Required Fields
         * discounted_amount
+      tags:
+        - Checkout Discounts
       parameters:
         - in: body
           name: body
@@ -1823,10 +1825,9 @@ tags:
   - name: Checkout Billing Address
   - name: Checkout Consignments
   - name: Checkout Coupons
+  - name: Checkout Discounts
   - name: Checkout Orders
   - name: Checkout Settings
-security:
-  - X-Auth-Client: []
 responses:
   CheckoutResponse:
     description: ''
@@ -2590,3 +2591,5 @@ responses:
           order_confirmation_use_custom_checkout_script: false
           custom_order_confirmation_script_url: 'https://example.com/custom-order-confirmation-script.js'
         meta: {}
+security:
+  - X-Auth-Token: []
