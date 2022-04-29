@@ -623,7 +623,7 @@ paths:
                         "meta": {}
                     }
       description: |-
-        - If `url` is not supplied, certificate would be saved for given site "primary" url
+        - If a value for `url` is not supplied, the saved certificate is associated with the specified site’s "primary" URL.
         - `url` must be a valid URL within provided `site_id`
         - Given endpoint works as UPSERT, supplying SSL certificate for a domain that already has a certificate connected would update SSL certificate for given domain'
 components:
