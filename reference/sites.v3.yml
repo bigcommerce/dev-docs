@@ -585,10 +585,10 @@ paths:
         required: true
     get:
       summary: Get a Site's SSL/TSL Certificate Information
-      description: Get information about certificate status of Site
+      description: Get information about a site's SSL/TSL certificate.
       tags:
         - Site Certificate
-      operationId: get-sites-id-certificate
+      operationId: getSitesIdCertificate
       responses:
         '200':
           description: OK
@@ -598,7 +598,7 @@ paths:
                 $ref: '#/components/schemas/CertificateResponse'
     put:
       summary: Upsert a Site's SSL/TSL Certificate Information
-      operationId: put-site-id-certificate
+      operationId: putSiteIdCertificate
       tags:
         - Site Certificate
       requestBody:
@@ -623,8 +623,7 @@ paths:
                         "meta": {}
                     }
       description: |-
-        - If a value for `url` is not supplied, the saved certificate is associated with the specified site’s "primary" URL.
-        - `url` must be a valid URL within provided `site_id`
+        - If a value for `url` is not supplied, the saved certificate is associated with the specified site’s `primary` URL.
         - Use caution. Because this endpoint upserts, supplying an SSL certificate for a domain that already has a certificate connected overwrites the domain’s extant certificate.'
 components:
   schemas:
