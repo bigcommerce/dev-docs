@@ -69,10 +69,6 @@ The following cart webhook events fire in response to actions that affect a cart
 | store/channel/{channel_id}/cart/abandoned    | Fires when a cart is abandoned from a given channel  | not applicable |
 | store/channel/{channel_id}/cart/converted    | Fires when a cart is converted into an order for a given channel | not applicable |
 
-
-<!-- theme: info -->
-> You must include the `cart_id` in the payload.
-
 Cart payload objects take the form that follows:
 
 ```json title="Example cart payload object" lineNumbers
@@ -99,10 +95,6 @@ The following cart line item webhook events fire in response to actions that aff
 | store/channel/{channel_id}/cart/lineItem/created      | Fires when a new item is added to a cart for a given channel | [Add cart line items](/api-reference/store-management/carts/cart-items/addcartlineitem) |
 | store/channel/{channel_id}/cart/lineItem/updated      | Fires when an item's quantity has changed or the product options change for a given channel  | [Update Cart Line Item](/api-reference/store-management/carts/cart-items/updatecartlineitem) |
 | store/channel/{channel_id}/cart/lineItem/deleted      | Fires when items are deleted from the cart for a given channel | [Delete cart line item](/api-reference/store-management/carts/cart-items/deletecartlineitem) |
-
-
-<!-- theme: info -->
-> You must include the `channel_id` in the payload.
 
 Cart line items payload objects take the form that follows:
 
@@ -132,10 +124,6 @@ The following categories webhook events fire in response to actions that affect 
 | store/channel/{channel_id}/category/updated      | Fires when a category is updated within a category tree that is assigned to a given channel | [Update categories](/api-reference/store-management/catalog/categories-batch/updatecategories)  |
 | store/channel/{channel_id}/category/deleted      | Fires when a category is removed from a category tree that is assigned to a given channel | [Delete categories](/api-reference/store-management/catalog/categories-batch/deletecategories)|
 
-<!-- theme: info -->
-> You must include the `tree_id` or `category_id` in the payload.
-
-
 Categories payload objects take the form that follows:
 
 ```json title="Example categories payload object" lineNumbers
@@ -158,9 +146,6 @@ The following category tree webhook event fires in response to actions that affe
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
 | store/channel/{channel_id}/categoryTree/updated     |Fires when a site is updated, created, or deleted for a given channel. | [Upsert category trees](/api-reference/store-management/catalog/category-trees/upsertcategorytrees) or [Delete category trees](/api-reference/store-management/catalog/category-trees/deletecategorytrees) |
-
-<!-- theme: info -->
-> You must include the `tree_id` in the payload.
 
 
 Category tree payload objects take the form that follows:
@@ -186,10 +171,6 @@ The following customers webhook event fires in response to actions that affect a
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
 | store/customer/channel/login/access/updated         |Fires when subscribed to customer login to channel updates | [Update a customer](/api-reference/b3A6MzU5MDQ1Mjk-update-a-customer)  |
-
-<!-- theme: info -->
-> You must include the `channel_id` in the payload.
-
 
 Customers payload objects take the form that follows:
 
@@ -222,9 +203,6 @@ The following orders webhook events fire in response to actions that affect a sp
 | store/channel/{channel_id}/order/statusUpdated        | Fires when an order status has changed for a given channel | not applicable |
 | store/channel/{channel_id}/order/message/created      | Fires when an order message is created by customer or in the control panel | not applicable  |
 | store/channel/{channel_id}/order/refund/created       | Fires when a refund has been submitted against an order for a given channel | not applicable |
-
-<!-- theme: info -->
-> You must include the `order_id` in the payload.
 
 Order payload objects take the form that follows:
 
@@ -368,12 +346,6 @@ The following sites webhook events fire in response to actions that affect a sit
 | Name / Scope | Description | Corresponding Endpoints |
 |:-------------|:------------|:-----------------------|
 | store/channel/{channel_id}/settings/site/updated       | Fires when a site is updated, created, or deleted for a given channel | [Update a channel site](/api-reference/store-management/channels/channel-site/put-channel-site), [Update a site](/api-reference/store-management/sites/sites/put-site), [Create a channel site](/api-reference/store-management/channels/channel-site/postchannelsite), [Create a site](/api-reference/store-management/sites/sites/post-site), [Delete a channel site](/api-reference/store-management/channels/channel-site/deletechannelschannelidsite), or [Delete a site](/api-reference/store-management/sites/sites/delete-site) |
-
-
-<!-- theme: info -->
-> You must include the `site_id` in the payload.
-
-
 
 Site payload objects take the form that follows:
 
