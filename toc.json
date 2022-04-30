@@ -900,8 +900,8 @@
       "items": [
         {
           "type": "item",
-          "title": "BODL",
-          "href": "/api-docs/partner/analytics-solutions/BODL",
+          "title": "Big Open Data Layer (BODL)",
+          "href": "/api-docs/partner/analytics-solutions/bodl",
           "uri": "docs/api-docs/analytics/bodl-overview.md"
         }
       ]
