@@ -1,4 +1,4 @@
-# Using Storefront GraphQL's Faceted and Textual Search
+# Storefront GraphQL's Faceted and Textual Search
 
 BigCommerce storefront search features are available in the Storefront GraphQL API so that storefront API consumers can use BigCommerce's backend search to rebuild their faceted search UI. These built-in capabilities allow Stencil developers to build on top of our search engine, as well as merchants on headless storefronts to access search, sort, and filtering capabilities available from BigCommerce. 
 
