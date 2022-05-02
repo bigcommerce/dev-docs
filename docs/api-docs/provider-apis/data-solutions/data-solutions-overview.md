@@ -13,7 +13,7 @@ You can get **all** web analytics, get a **single** web analytic, or **update** 
 | Site Verification Tags | 6 |
 | Affiliate Conversion Tracking | 7 |
 
-# Google Analytics
+## Google Analytics
 
 | Field | Type | Description |
 | ------------- | -------- |  -------- |
@@ -30,7 +30,7 @@ The version corresponds with the "Connect with Field" that a merchant is using t
 ![Version on Google Analytics](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Version%20for%20Google%20Analytics.png).
 
 
-## Get the Google Analytic
+### Get the Google Analytic
 Send a `GET` request to `/stores/{{STORE_HASH}}/v3/settings/analytics{id}`. 
 
 When a merchant uses `tracking_code` for the connection field, your response will have a version of `1` as well as the `tracking_code` field:
@@ -80,7 +80,7 @@ Accept: application/json
     "meta": {}
 }
 ```
-## Update the Google Analytic
+### Update the Google Analytic
 
 Send a `PUT` request to `/stores/{{STORE_HASH}}/v3/settings/analytics{id}`. 
 
@@ -121,7 +121,7 @@ Accept: application/json
 ```
 &nbsp;
 
-# Visual Website Optimizer
+## Visual Website Optimizer
 
 | Field | Type | Description |
 | ------------- | -------- |  -------- |
@@ -131,7 +131,7 @@ Accept: application/json
 | enabled | boolean | Whether merchant has [enabled Visual Website Optimizer](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
 | vwo_smartcode | string | | 
 
-## Get the Visual Website Optimizer Analytic
+### Get the Visual Website Optimizer Analytic
 
 
 ```JSON title="Sample Request" lineNumbers
@@ -154,7 +154,7 @@ Accept: application/json
 }
 ```
 
-## Update the Visual Website Optimizer Analytic
+### Update the Visual Website Optimizer Analytic
 
 
 ```JSON title="Sample Request" lineNumbers
@@ -188,7 +188,7 @@ Accept: application/json
 ```
 &nbsp;
 
-# Facebook Pixel
+## Facebook Pixel
 
 | Field | Type | Description |
 | ------------- | -------- |  -------- |
@@ -199,7 +199,7 @@ Accept: application/json
 | pixel_id | string | |
 | is_oauth_connected | boolean | |
 
-## Get the Facebook Pixel Analytic
+### Get the Facebook Pixel Analytic
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
@@ -222,7 +222,7 @@ Accept: application/json
 }
 ```
 
-## Update the Facebook Pixcel Analytic
+### Update the Facebook Pixcel Analytic
 
 
 ```JSON title="Sample Request" lineNumbers
@@ -260,7 +260,7 @@ Accept: application/json
 ```
 &nbsp;
 
-# Segment
+## Segment
 
 | Field | Type | Description |
 | ------------- | -------- |  -------- |
@@ -271,7 +271,7 @@ Accept: application/json
 | api_key | string | |
 | data_tag_enabled | boolean | |
 
-## Get the Segment Analytic
+### Get the Segment Analytic
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
@@ -294,7 +294,7 @@ Accept: application/json
 }
 ```
 
-## Update the Segment Analytic
+### Update the Segment Analytic
 
 ```JSON title="Sample Request" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
@@ -331,7 +331,7 @@ Accept: application/json
 ```
 &nbsp;
 
-# Site Verification Tags
+## Site Verification Tags
 
 | Field | Type | Description |
 | ------------- | -------- |  -------- |
@@ -341,7 +341,7 @@ Accept: application/json
 | enabled | boolean | Whether merchant has [enabled Site Verification Tags](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
 | verification_tag | string | |
 
-## Get the Site Verification Tags Analytic
+### Get the Site Verification Tags Analytic
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
@@ -363,7 +363,7 @@ Accept: application/json
 }
 ```
 
-## Update the Site Verification Tags Analytic
+### Update the Site Verification Tags Analytic
 
 ```JSON title="Sample Request" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
@@ -399,7 +399,7 @@ Accept: application/json
 
 &nbsp;
 
-# Affiliate Conversion Tracking
+## Affiliate Conversion Tracking
 
 | Field | Type | Description |
 | ------------- | -------- |  -------- |
@@ -409,7 +409,7 @@ Accept: application/json
 | enabled | boolean | Whether merchant has [enabled Affiliate Conversion Tracking](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
 | connection | string | |
 
-## Get the Affiliate Conversion Tracking Analytic
+### Get the Affiliate Conversion Tracking Analytic
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
@@ -431,7 +431,7 @@ Accept: application/json
 }
 ```
 
-## Update the Affiliate Conversion Tracking Analytic
+### Update the Affiliate Conversion Tracking Analytic
 
 ```JSON title="Sample Request" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
@@ -467,7 +467,7 @@ Accept: application/json
 
 &nbsp;
 
-# Get All Web Analytics
+## Get All Web Analytics
 
 To get all web analytics, send a `GET` request to `/stores/{{STORE_HASH}}/v3/settings/analytics`. All six web analytics will be returned. As shown, fields for codes in which a merchant has not entered a value will return as an empty string.     
 
@@ -534,7 +534,7 @@ Accept: application/json
 
 &nbsp;
 
-# Related Resources
+## Related Resources
 - [Overview Web Analytics](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics)
 - [Google Analytics](https://support.bigcommerce.com/s/article/Setting-Up-Google-Analytics?language=en_US)
 - [Visual Website Optimizer](...)
