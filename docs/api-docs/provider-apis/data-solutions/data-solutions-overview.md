@@ -92,16 +92,13 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "data": {
-        "id": 1,
-        "channel_id": 0,
-        "name": "Google Analytics",
-        "enabled": true,
-        "version": 2,
-        "data_tag_enabled": true,
-        "property_id": "GA-1234567890"
-    },
-    "meta": {}
+    "id": 1,
+    "channel_id": 0,
+    "name": "Google Analytics",
+    "enabled": true,
+    "version": 2,
+    "data_tag_enabled": true,
+    "property_id": "GA-1234567890"
 }
 ```
 
