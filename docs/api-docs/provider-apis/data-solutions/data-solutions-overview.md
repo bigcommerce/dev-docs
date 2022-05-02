@@ -161,14 +161,11 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "data": {
-        "id": 2,
-        "channel_id": 0,
-        "name": "Visual Website Optimizer",
-        "enabled": false,
-        "vwo_smartcode": "example"
-    },
-    "meta": {}
+"id": 2,
+"channel_id": 0,
+"name": "Visual Website Optimizer",
+"enabled": false,
+"vwo_smartcode": "example"
 }
 ```
 ```JSON title="Sample Response" lineNumbers
