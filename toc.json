@@ -87,7 +87,7 @@
         },
         {
           "type": "item",
-          "title": "Overview",
+          "title": "Faceted and Textual Search",
           "uri": "docs/api-docs/storefront/graphql/graphql-faceted-textual-search.md"
         },
         {
