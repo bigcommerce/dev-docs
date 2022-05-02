@@ -294,15 +294,12 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "data": {
-        "id": 4,
-        "channel_id": 0,
-        "name": "Segment.com",
-        "enabled": false,
-        "api_key": "zyqsE73vEsJGDbYfXM6rKpM4vR4DuYd1",
-        "data_tag_enabled": true
-    },
-    "meta": {}
+  "id": 4,
+  "channel_id": 0,
+  "name": "Segment.com",
+  "enabled": false,
+  "api_key": "SEG-1234567890",
+  "data_tag_enabled": true
 }
 
 ```
@@ -314,7 +311,7 @@ Accept: application/json
         "channel_id": 0,
         "name": "Segment.com",
         "enabled": false,
-        "api_key": "zyqsE73vEsJGDbYfXM6rKpM4vR4DuYd1",
+        "api_key": "SEG-1234567890",
         "data_tag_enabled": true
     },
     "meta": {}
