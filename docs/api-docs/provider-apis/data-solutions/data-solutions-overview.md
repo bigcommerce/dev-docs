@@ -209,14 +209,14 @@ Accept: application/json
         "channel_id": 0,
         "name": "Facebook Pixel",
         "enabled": true,
-        "pixel_id": "1158961408242086",
+        "pixel_id": "FP-1234567890",
         "is_oauth_connected": true
     },
     "meta": {}
 }
 ```
 
-### Update the Facebook Pixcel Analytic
+### Update the Facebook Pixel Analytic
 
 
 ```JSON title="Sample Request" lineNumbers
@@ -226,15 +226,12 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "data": {
-        "id": 3,
-        "channel_id": 0,
-        "name": "Facebook Pixel",
-        "enabled": true,
-        "pixel_id": "1158961408242086",
-        "is_oauth_connected": true
-    },
-    "meta": {}
+  "id": 3,
+  "channel_id": 0,
+  "name": "Facebook Pixel",
+  "enabled": true,
+  "pixel_id": "FP-1234567890",
+  "is_oauth_connected": true
 }
 
 ```
@@ -246,7 +243,7 @@ Accept: application/json
         "channel_id": 0,
         "name": "Facebook Pixel",
         "enabled": true,
-        "pixel_id": "1158961408242086",
+        "pixel_id": "FP-1234567890",
         "is_oauth_connected": true
     },
     "meta": {}
