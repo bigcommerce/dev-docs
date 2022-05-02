@@ -7,32 +7,38 @@
     {
       "type": "item",
       "title": "Introduction",
-      "uri": "getting-started/introduction.md"
+      "uri": "getting-started/introduction.md",
+      "slug": "getting-started/introduction"
     },
     {
       "type": "item",
       "title": "Install",
-      "uri": "getting-started/install.md"
+      "uri": "getting-started/install.md",
+      "slug": "getting-started/install"
     },
     {
       "type": "item",
       "title": "App Compatibility",
-      "uri": "getting-started/app-compatibility.md"
+      "uri": "getting-started/app-compatibility.md",
+      "slug": "getting-started/app-compatibility"
     },
     {
       "type": "item",
       "title": "Supported Features",
-      "uri": "getting-started/supported-features.md"
+      "uri": "getting-started/supported-features.md",
+      "slug": "getting-started/supported-features"
     },
     {
       "type": "item",
       "title": "Gutenberg Support",
-      "uri": "getting-started/gutenberg-support.md"
+      "uri": "getting-started/gutenberg-support.md",
+      "slug": "getting-started/gutenberg-support"
     },
     {
       "type": "item",
       "title": "Site Launch Checklist",
-      "uri": "getting-started/site-launch-checklist.md"
+      "uri": "getting-started/site-launch-checklist.md",
+      "slug": "getting-started/site-launch-checklist"
     },
     {
       "type": "divider",
@@ -41,27 +47,32 @@
     {
       "type": "item",
       "title": "Plugin Settings",
-      "uri": "setup/plugin-settings.md"
+      "uri": "setup/plugin-settings.md",
+      "slug": "setup/plugin-settings"
     },
     {
       "type": "item",
       "title": "Product Import",
-      "uri": "setup/product-import.md"
+      "uri": "setup/product-import.md",
+      "slug": "setup/product-import"
     },
     {
       "type": "item",
       "title": "Multisite",
-      "uri": "setup/multi-site.md"
+      "uri": "setup/multi-site.md",
+      "slug": "setup/multi-site"
     },
     {
       "type": "item",
       "title": "Shortcodes",
-      "uri": "setup/shortcodes.md"
+      "uri": "setup/shortcodes.md",
+      "slug": "setup/shortcodes"
     },
     {
       "type": "item",
       "title": "Troubleshooting",
-      "uri": "setup/troubleshooting.md"
+      "uri": "setup/troubleshooting.md",
+      "slug": "setup/troubleshooting"
     },
     {
       "type": "divider",
@@ -70,32 +81,38 @@
     {
       "type": "item",
       "title": "AMP for the Plugin",
-      "uri": "extending-the-plugin/amp-for-the-plugin.md"
+      "uri": "extending-the-plugin/amp-for-the-plugin.md",
+      "slug": "extending-the-plugin/amp-for-the-plugin"
     },
     {
       "type": "item",
       "title": "Customization Guide",
-      "uri": "extending-the-plugin/customization-guide.md"
+      "uri": "extending-the-plugin/customization-guide.md",
+      "slug": "extending-the-plugin/customization-guide"
     },
     {
       "type": "item",
       "title": "Proxy REST API Endpoints",
-      "uri": "extending-the-plugin/proxy-rest-api-endpoints.md"
+      "uri": "extending-the-plugin/proxy-rest-api-endpoints.md",
+      "slug": "extending-the-plugin/proxy-rest-api-endpoints"
     },
     {
       "type": "item",
       "title": "Code Reference",
-      "uri": "extending-the-plugin/code-reference.md"
+      "uri": "extending-the-plugin/code-reference.md",
+      "slug": "extending-the-plugin/code-reference"
     },
     {
       "type": "item",
       "title": "Multi-Channel Capabilities",
-      "uri": "extending-the-plugin/multi-channel-capabilities.md"
+      "uri": "extending-the-plugin/multi-channel-capabilities.md",
+      "slug": "extending-the-plugin/multi-channel-capabilities"
     },
     {
       "type": "item",
       "title": "Creating Reliable Cron Jobs",
-      "uri": "extending-the-plugin/bigcommerce-for-wordpress-cron.md"
+      "uri": "extending-the-plugin/bigcommerce-for-wordpress-cron.md",
+      "slug": "extending-the-plugin/bigcommerce-for-wordpress-cron"
     },
     {
       "type": "divider",
@@ -104,7 +121,8 @@
     {
       "type": "item",
       "title": "BigCommerce for Wordpress Changelog",
-      "uri": "changelog/plugin-changelog.md"
+      "uri": "changelog/plugin-changelog.md",
+      "slug": "changelog/plugin-changelog"
     }
   ]
 }

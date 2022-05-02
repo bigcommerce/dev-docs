@@ -7,17 +7,20 @@
     {
       "type": "item",
       "title": "About Stencil",
-      "uri": "getting-started/about-stencil.md"
+      "uri": "getting-started/about-stencil.md",
+      "slug": "getting-started/about-stencil"
     },
     {
       "type": "item",
       "title": "Stencil Technology Stack",
-      "uri": "getting-started/stencil-technology-stack.md"
+      "uri": "getting-started/stencil-technology-stack.md",
+      "slug": "getting-started/stencil-technology-stack"
     },
     {
       "type": "item",
       "title": "Transitioning to Stencil",
-      "uri": "getting-started/transitioning-to-stencil.md"
+      "uri": "getting-started/transitioning-to-stencil.md",
+      "slug": "getting-started/transitioning-to-stencil"
     },
     {
       "type": "divider",
@@ -26,22 +29,26 @@
     {
       "type": "item",
       "title": "Installing Stencil CLI",
-      "uri": "installing-stencil-cli/installing-stencil.md"
+      "uri": "installing-stencil-cli/installing-stencil.md",
+      "slug": "installing-stencil-cli/installing-stencil"
     },
     {
       "type": "item",
       "title": "Live Previewing a Theme",
-      "uri": "installing-stencil-cli/live-previewing-a-theme.md"
+      "uri": "installing-stencil-cli/live-previewing-a-theme.md",
+      "slug": "installing-stencil-cli/live-previewing-a-theme"
     },
     {
       "type": "item",
       "title": "Stencil CLI Options and Commands",
-      "uri": "installing-stencil-cli/stencil-cli-options-and-commands.md"
+      "uri": "installing-stencil-cli/stencil-cli-options-and-commands.md",
+      "slug": "installing-stencil-cli/stencil-cli-options-and-commands"
     },
     {
       "type": "item",
       "title": "Troubleshooting Stencil CLI",
-      "uri": "installing-stencil-cli/troubleshooting-your-setup.md"
+      "uri": "installing-stencil-cli/troubleshooting-your-setup.md",
+      "slug": "installing-stencil-cli/troubleshooting-your-setup"
     },
     {
       "type": "divider",
@@ -50,47 +57,56 @@
     {
       "type": "item",
       "title": "Directory Structure",
-      "uri": "storefront-customization/directory-structure.md"
+      "uri": "storefront-customization/directory-structure.md",
+      "slug": "storefront-customization/directory-structure"
     },
     {
       "type": "item",
       "title": "Theme Assets",
-      "uri": "storefront-customization/theme-assets.md"
+      "uri": "storefront-customization/theme-assets.md",
+      "slug": "storefront-customization/theme-assets"
     },
     {
       "type": "item",
       "title": "Custom Sass Functions",
-      "uri": "storefront-customization/custom-sass-functions.md"
+      "uri": "storefront-customization/custom-sass-functions.md",
+      "slug": "storefront-customization/custom-sass-functions"
     },
     {
       "type": "item",
       "title": "Using Front Matter",
-      "uri": "storefront-customization/using-front-matter.md"
+      "uri": "storefront-customization/using-front-matter.md",
+      "slug": "storefront-customization/using-front-matter"
     },
     {
       "type": "item",
       "title": "Page Composition and Styling",
-      "uri": "storefront-customization/page-composition-and-styling.md"
+      "uri": "storefront-customization/page-composition-and-styling.md",
+      "slug": "storefront-customization/page-composition-and-styling"
     },
     {
       "type": "item",
       "title": "Custom Templates",
-      "uri": "storefront-customization/custom-templates.md"
+      "uri": "storefront-customization/custom-templates.md",
+      "slug": "storefront-customization/custom-templates"
     },
     {
       "type": "item",
       "title": "Localizing Variation Descriptions",
-      "uri": "storefront-customization/localizing-variation-descriptions.md"
+      "uri": "storefront-customization/localizing-variation-descriptions.md",
+      "slug": "storefront-customization/localizing-variation-descriptions"
     },
     {
       "type": "item",
       "title": "Fonts and Icons",
-      "uri": "storefront-customization/using-custom-fonts-and-icons.md"
+      "uri": "storefront-customization/using-custom-fonts-and-icons.md",
+      "slug": "storefront-customization/using-custom-fonts-and-icons"
     },
     {
       "type": "item",
       "title": "Add Comments with Disqus",
-      "uri": "storefront-customization/using-disqus.md"
+      "uri": "storefront-customization/using-disqus.md",
+      "slug": "storefront-customization/using-disqus"
     },
     {
       "type": "divider",
@@ -99,17 +115,20 @@
     {
       "type": "item",
       "title": "Developing Accessible Themes",
-      "uri": "storefront-customization/theme-accessibility.md"
+      "uri": "storefront-customization/theme-accessibility.md",
+      "slug": "storefront-customization/theme-accessibility"
     },
     {
       "type": "item",
       "title": "WCAG Compliance Levels",
-      "uri": "storefront-customization/WCAG-compliance-levels.md"
+      "uri": "storefront-customization/WCAG-compliance-levels.md",
+      "slug": "storefront-customization/WCAG-compliance-levels"
     },
     {
       "type": "item",
       "title": "Implementing WCAG Guidelines - Examples",
-      "uri": "storefront-customization/implementing-WCAG-guidelines.md"
+      "uri": "storefront-customization/implementing-WCAG-guidelines.md",
+      "slug": "storefront-customization/implementing-WCAG-guidelines"
     },
     {
       "type": "divider",
@@ -118,27 +137,32 @@
     {
       "type": "item",
       "title": "Overview",
-      "uri": "page-builder/page-builder-overview.md"
+      "uri": "page-builder/page-builder-overview.md",
+      "slug": "page-builder/page-builder-overview"
     },
     {
       "type": "item",
       "title": "Theme Styles Configuration",
-      "uri": "page-builder/configuration.md"
+      "uri": "page-builder/configuration.md",
+      "slug": "page-builder/configuration"
     },
     {
       "type": "item",
       "title": "Defining Global Styles",
-      "uri": "configure-store-design-ui/defining-global-styles.md"
+      "uri": "configure-store-design-ui/defining-global-styles.md",
+      "slug": "configure-store-design-ui/defining-global-styles"
     },
     {
       "type": "item",
       "title": "Third-Party Widgets",
-      "uri": "page-builder/third-party-widgets.md"
+      "uri": "page-builder/third-party-widgets.md",
+      "slug": "page-builder/third-party-widgets"
     },
     {
       "type": "item",
       "title": "Widget UI Schema",
-      "uri": "page-builder/widget-ui-schema.md"
+      "uri": "page-builder/widget-ui-schema.md",
+      "slug": "page-builder/widget-ui-schema"
     },
     {
       "type": "group",
@@ -148,87 +172,104 @@
         {
           "type": "item",
           "title": "Alignment",
-          "uri": "page-builder/widget_alignment.yaml"
+          "uri": "page-builder/widget_alignment.yaml",
+          "slug": "page-builder/widget_alignment.y"
         },
         {
           "type": "item",
           "title": "Boolean",
-          "uri": "page-builder/widget_boolean.yaml"
+          "uri": "page-builder/widget_boolean.yaml",
+          "slug": "page-builder/widget_boolean.y"
         },
         {
           "type": "item",
           "title": "Box Model",
-          "uri": "page-builder/widget_box_model.yaml"
+          "uri": "page-builder/widget_box_model.yaml",
+          "slug": "page-builder/widget_box_model.y"
         },
         {
           "type": "item",
           "title": "Code",
-          "uri": "page-builder/widget_code.yaml"
+          "uri": "page-builder/widget_code.yaml",
+          "slug": "page-builder/widget_code.y"
         },
         {
           "type": "item",
           "title": "Color",
-          "uri": "page-builder/widget_color.yaml"
+          "uri": "page-builder/widget_color.yaml",
+          "slug": "page-builder/widget_color.y"
         },
         {
           "type": "item",
           "title": "Element Settings",
-          "uri": "page-builder/widget_element_settings.yaml"
+          "uri": "page-builder/widget_element_settings.yaml",
+          "slug": "page-builder/widget_element_settings.y"
         },
         {
           "type": "item",
           "title": "Image Manager",
-          "uri": "page-builder/widget_image_manager.yaml"
+          "uri": "page-builder/widget_image_manager.yaml",
+          "slug": "page-builder/widget_image_manager.y"
         },
         {
           "type": "item",
           "title": "Input",
-          "uri": "page-builder/widget_input.yaml"
+          "uri": "page-builder/widget_input.yaml",
+          "slug": "page-builder/widget_input.y"
         },
         {
           "type": "item",
           "title": "Number",
-          "uri": "page-builder/widget_number.yaml"
+          "uri": "page-builder/widget_number.yaml",
+          "slug": "page-builder/widget_number.y"
         },
         {
           "type": "item",
           "title": "Product ID",
-          "uri": "page-builder/widget_product_ID.yaml"
+          "uri": "page-builder/widget_product_ID.yaml",
+          "slug": "page-builder/widget_product_ID.y"
         },
         {
           "type": "item",
           "title": "Product Image",
-          "uri": "page-builder/widget_product_image.yaml"
+          "uri": "page-builder/widget_product_image.yaml",
+          "slug": "page-builder/widget_product_image.y"
         },
         {
           "type": "item",
           "title": "Range",
-          "uri": "page-builder/widget_range.yaml"
+          "uri": "page-builder/widget_range.yaml",
+          "slug": "page-builder/widget_range.y"
         },
         {
           "type": "item",
           "title": "Regex Input",
-          "uri": "page-builder/widget_regex_input.yaml"
+          "uri": "page-builder/widget_regex_input.yaml",
+          "slug": "page-builder/widget_regex_input.y"
         },
         {
           "type": "item",
           "title": "Select",
-          "uri": "page-builder/widget_select.yaml"
+          "uri": "page-builder/widget_select.yaml",
+          "slug": "page-builder/widget_select.y"
         },
         {
           "type": "item",
           "title": "Text",
-          "uri": "page-builder/widget_text.yaml"
+          "uri": "page-builder/widget_text.yaml",
+          "slug": "page-builder/widget_text.y"
         },
         {
           "type": "item",
           "title": "Typography",
-          "uri": "page-builder/widget_typography.yaml"
+          "uri": "page-builder/widget_typography.yaml",
+          "slug": "page-builder/widget_typography.y"
         },
         {
           "type": "item",
           "title": "Visibility",
-          "uri": "page-builder/widget_visibility.yaml"
+          "uri": "page-builder/widget_visibility.yaml",
+          "slug": "page-builder/widget_visibility.y"
         }
       ]
     },
@@ -239,32 +280,38 @@
     {
       "type": "item",
       "title": "Adding Javascript",
-      "uri": "javascript-and-event-hooks/adding-javascript.md"
+      "uri": "javascript-and-event-hooks/adding-javascript.md",
+      "slug": "javascript-and-event-hooks/adding-javascript"
     },
     {
       "type": "item",
       "title": "Event Hooks",
-      "uri": "javascript-and-event-hooks/event-hooks.md"
+      "uri": "javascript-and-event-hooks/event-hooks.md",
+      "slug": "javascript-and-event-hooks/event-hooks"
     },
     {
       "type": "item",
       "title": "Customizing Javascript",
-      "uri": "javascript-and-event-hooks/customizing-javascript.md"
+      "uri": "javascript-and-event-hooks/customizing-javascript.md",
+      "slug": "javascript-and-event-hooks/customizing-javascript"
     },
     {
       "type": "item",
       "title": "Rendering HTML with Ajax",
-      "uri": "javascript-and-event-hooks/rendering-html-with-ajax.md"
+      "uri": "javascript-and-event-hooks/rendering-html-with-ajax.md",
+      "slug": "javascript-and-event-hooks/rendering-html-with-ajax"
     },
     {
       "type": "item",
       "title": "Remote API Tutorial",
-      "uri": "javascript-and-event-hooks/remote-api-tutorial.md"
+      "uri": "javascript-and-event-hooks/remote-api-tutorial.md",
+      "slug": "javascript-and-event-hooks/remote-api-tutorial"
     },
     {
       "type": "item",
       "title": "Add React Components with NPM",
-      "uri": "javascript-and-event-hooks/npm-tutorials.md"
+      "uri": "javascript-and-event-hooks/npm-tutorials.md",
+      "slug": "javascript-and-event-hooks/npm-tutorials"
     },
     {
       "type": "divider",
@@ -273,32 +320,38 @@
     {
       "type": "item",
       "title": "Customize Invoices",
-      "uri": "developing-further/customizing-invoices.md"
+      "uri": "developing-further/customizing-invoices.md",
+      "slug": "developing-further/customizing-invoices"
     },
     {
       "type": "item",
       "title": "Edit Packing Slips with WedDAV",
-      "uri": "developing-further/customizing-printable-packing-slips.md"
+      "uri": "developing-further/customizing-printable-packing-slips.md",
+      "slug": "developing-further/customizing-printable-packing-slips"
     },
     {
       "type": "item",
       "title": "Edit Email Templates with WebDAV",
-      "uri": "developing-further/customizing-emails.md"
+      "uri": "developing-further/customizing-emails.md",
+      "slug": "developing-further/customizing-emails"
     },
     {
       "type": "item",
       "title": "Catalog Price Object Examples",
-      "uri": "developing-further/catalog-price-object.md"
+      "uri": "developing-further/catalog-price-object.md",
+      "slug": "developing-further/catalog-price-object"
     },
     {
       "type": "item",
       "title": "Modify the Login Form",
-      "uri": "developing-further/modifying-forms.md"
+      "uri": "developing-further/modifying-forms.md",
+      "slug": "developing-further/modifying-forms"
     },
     {
       "type": "item",
       "title": "BundleB2B",
-      "uri": "partner-apps/bundleb2b/b2b-edition.md"
+      "uri": "partner-apps/bundleb2b/b2b-edition.md",
+      "slug": "partner-apps/bundleb2b/b2b-edition"
     },
     {
       "type": "group",
@@ -308,30 +361,35 @@
           "type": "item",
           "title": "Add Stored Payment Methods",
           "meta": "2.6.0",
-          "uri": "developing-further/stored-credit-card-management.md"
+          "uri": "developing-further/stored-credit-card-management.md",
+          "slug": "developing-further/stored-credit-card-management"
         },
         {
           "type": "item",
           "title": "Enable PayPal Smart Buttons",
           "meta": "2.6.0",
-          "uri": "customizing-checkout/paypal-smart-buttons.md"
+          "uri": "customizing-checkout/paypal-smart-buttons.md",
+          "slug": "customizing-checkout/paypal-smart-buttons"
         },
         {
           "type": "item",
           "title": "Add reCAPTCHA V2",
           "meta": "1.6.0",
-          "uri": "developing-further/add-recaptcha-v2.md"
+          "uri": "developing-further/add-recaptcha-v2.md",
+          "slug": "developing-further/add-recaptcha-v2"
         },
         {
           "type": "item",
           "title": "Implement Google AMP",
           "meta": "1.6.0",
-          "uri": "developing-further/google-amp.md"
+          "uri": "developing-further/google-amp.md",
+          "slug": "developing-further/google-amp"
         },
         {
           "type": "item",
           "title": "Add Google Data Tags",
-          "uri": "developing-further/google-analytics-enhanced-ecommerce.md"
+          "uri": "developing-further/google-analytics-enhanced-ecommerce.md",
+          "slug": "developing-further/google-analytics-enhanced-ecommerce"
         }
       ]
     },
@@ -342,37 +400,44 @@
     {
       "type": "item",
       "title": "Restyle Optimized One-Page Checkout",
-      "uri": "customizing-checkout/optimized-one-page-checkout.md"
+      "uri": "customizing-checkout/optimized-one-page-checkout.md",
+      "slug": "customizing-checkout/optimized-one-page-checkout"
     },
     {
       "type": "item",
       "title": "Checkout/Confirmation Injection Options",
-      "uri": "customizing-checkout/checkout-confirmation-injection.md"
+      "uri": "customizing-checkout/checkout-confirmation-injection.md",
+      "slug": "customizing-checkout/checkout-confirmation-injection"
     },
     {
       "type": "item",
       "title": "Checkout SDK",
-      "uri": "customizing-checkout/checkout-sdk.md"
+      "uri": "customizing-checkout/checkout-sdk.md",
+      "slug": "customizing-checkout/checkout-sdk"
     },
     {
       "type": "item",
       "title": "Checkout SDK Tutorial",
-      "uri": "customizing-checkout/checkout-sdk-quickstart.md"
+      "uri": "customizing-checkout/checkout-sdk-quickstart.md",
+      "slug": "customizing-checkout/checkout-sdk-quickstart"
     },
     {
       "type": "item",
       "title": "Open Checkout Tutorial",
-      "uri": "customizing-checkout/open-checkout-quick-start.md"
+      "uri": "customizing-checkout/open-checkout-quick-start.md",
+      "slug": "customizing-checkout/open-checkout-quick-start"
     },
     {
       "type": "item",
       "title": "Installing Custom Checkouts",
-      "uri": "customizing-checkout/open-source-checkout.md"
+      "uri": "customizing-checkout/open-source-checkout.md",
+      "slug": "customizing-checkout/open-source-checkout"
     },
     {
       "type": "item",
       "title": "Installing Custom Order Confirmation Pages",
-      "uri": "customizing-checkout/custom-order-confirmation.md"
+      "uri": "customizing-checkout/custom-order-confirmation.md",
+      "slug": "customizing-checkout/custom-order-confirmation"
     },
     {
       "type": "divider",
@@ -381,27 +446,32 @@
     {
       "type": "item",
       "title": "Localizing Stores",
-      "uri": "localization/localizing-stores.md"
+      "uri": "localization/localizing-stores.md",
+      "slug": "localization/localizing-stores"
     },
     {
       "type": "item",
       "title": "Translation Keys",
-      "uri": "localization/translation-keys.md"
+      "uri": "localization/translation-keys.md",
+      "slug": "localization/translation-keys"
     },
     {
       "type": "item",
       "title": "Translating Regions",
-      "uri": "localization/translating-regions.md"
+      "uri": "localization/translating-regions.md",
+      "slug": "localization/translating-regions"
     },
     {
       "type": "item",
       "title": "Multi-Language Checkout",
-      "uri": "localization/multi-language-checkout.md"
+      "uri": "localization/multi-language-checkout.md",
+      "slug": "localization/multi-language-checkout"
     },
     {
       "type": "item",
       "title": "Localization Tutorial",
-      "uri": "localization/localization-tutorial.md"
+      "uri": "localization/localization-tutorial.md",
+      "slug": "localization/localization-tutorial"
     },
     {
       "type": "divider",
@@ -410,37 +480,44 @@
     {
       "type": "item",
       "title": "Theme Variations",
-      "uri": "deploying-a-theme/naming-your-theme.md"
+      "uri": "deploying-a-theme/naming-your-theme.md",
+      "slug": "deploying-a-theme/naming-your-theme"
     },
     {
       "type": "item",
       "title": "Checking a Theme's Size",
-      "uri": "deploying-a-theme/checking-a-themes-size.md"
+      "uri": "deploying-a-theme/checking-a-themes-size.md",
+      "slug": "deploying-a-theme/checking-a-themes-size"
     },
     {
       "type": "item",
       "title": "Preparing Thumbnail Images",
-      "uri": "deploying-a-theme/preparing-thumbnail-images.md"
+      "uri": "deploying-a-theme/preparing-thumbnail-images.md",
+      "slug": "deploying-a-theme/preparing-thumbnail-images"
     },
     {
       "type": "item",
       "title": "Bundling and Pushing a Theme",
-      "uri": "deploying-a-theme/bundling-and-pushing.md"
+      "uri": "deploying-a-theme/bundling-and-pushing.md",
+      "slug": "deploying-a-theme/bundling-and-pushing"
     },
     {
       "type": "item",
       "title": "Theme Best Practices",
-      "uri": "deploying-a-theme/theme-best-practices.md"
+      "uri": "deploying-a-theme/theme-best-practices.md",
+      "slug": "deploying-a-theme/theme-best-practices"
     },
     {
       "type": "item",
       "title": "Troubleshooting Theme Uploads",
-      "uri": "deploying-a-theme/troubleshooting-theme-uploads.md"
+      "uri": "deploying-a-theme/troubleshooting-theme-uploads.md",
+      "slug": "deploying-a-theme/troubleshooting-theme-uploads"
     },
     {
       "type": "item",
       "title": "Theme Updates and Version Control",
-      "uri": "developing-further/theme-updates-and-version-control.md"
+      "uri": "developing-further/theme-updates-and-version-control.md",
+      "slug": "developing-further/theme-updates-and-version-control"
     },
     {
       "type": "divider",
@@ -449,7 +526,8 @@
     {
       "type": "item",
       "title": "Stencil Utils",
-      "uri": "reference-docs/stencil-utils-api-reference.md"
+      "uri": "reference-docs/stencil-utils-api-reference.md",
+      "slug": "reference-docs/stencil-utils-api-reference"
     },
     {
       "type": "group",
@@ -458,39 +536,46 @@
         {
           "type": "item",
           "title": "Theme Objects",
-          "uri": "reference-docs/theme-objects.md"
+          "uri": "reference-docs/theme-objects.md",
+          "slug": "reference-docs/theme-objects"
         },
         {
           "type": "item",
           "title": "Global Objects and Properties",
-          "uri": "reference-docs/global-objects-and-properties.md"
+          "uri": "reference-docs/global-objects-and-properties.md",
+          "slug": "reference-docs/global-objects-and-properties"
         },
         {
           "type": "item",
           "title": "Common Objects",
-          "uri": "reference-docs/common-objects.md"
+          "uri": "reference-docs/common-objects.md",
+          "slug": "reference-docs/common-objects"
         },
         {
           "type": "item",
           "title": "Other Objects and Properties Overview",
-          "uri": "reference-docs/other-objects-and-properties-overview.md"
+          "uri": "reference-docs/other-objects-and-properties-overview.md",
+          "slug": "reference-docs/other-objects-and-properties-overview"
         },
         {
           "type": "item",
           "title": "Theme Styles and Properties",
-          "uri": "reference-docs/styles-and-properties.md"
+          "uri": "reference-docs/styles-and-properties.md",
+          "slug": "reference-docs/styles-and-properties"
         }
       ]
     },
     {
       "type": "item",
       "title": "Handlebars Helpers Reference",
-      "uri": "reference-docs/handlebars-helpers-reference.md"
+      "uri": "reference-docs/handlebars-helpers-reference.md",
+      "slug": "reference-docs/handlebars-helpers-reference"
     },
     {
       "type": "item",
       "title": "Front Matter Reference",
-      "uri": "reference-docs/front-matter-reference.md"
+      "uri": "reference-docs/front-matter-reference.md",
+      "slug": "reference-docs/front-matter-reference"
     }
   ]
 }
