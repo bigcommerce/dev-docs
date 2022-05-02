@@ -145,7 +145,7 @@ Accept: application/json
         "channel_id": 0,
         "name": "Visual Website Optimizer",
         "enabled": false,
-        "vwo_smartcode": ""
+        "vwo_smartcode": "VWO-1234567890"
     },
     "meta": {}
 }
@@ -165,7 +165,7 @@ Accept: application/json
 "channel_id": 0,
 "name": "Visual Website Optimizer",
 "enabled": false,
-"vwo_smartcode": "example"
+"vwo_smartcode": "VWO-1234567890"
 }
 ```
 ```JSON title="Sample Response" lineNumbers
@@ -175,7 +175,7 @@ Accept: application/json
         "channel_id": 0,
         "name": "Visual Website Optimizer",
         "enabled": false,
-        "vwo_smartcode": "example"
+        "vwo_smartcode": "VWO-1234567890"
     },
     "meta": {}
 }
@@ -278,7 +278,7 @@ Accept: application/json
         "channel_id": 0,
         "name": "Segment.com",
         "enabled": false,
-        "api_key": "zyqsE73vEsJGDbYfXM6rKpM4vR4DuYd1",
+        "api_key": "SEG-1234567890",
         "data_tag_enabled": true
     },
     "meta": {}
@@ -360,14 +360,11 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "data": {
-        "id": 6,
-        "channel_id": 0,
-        "name": "Site Verification Tags",
-        "enabled": false,
-        "verification_tag": ""
-    },
-    "meta": {}
+  "id": 6,
+  "channel_id": 0,
+  "name": "Site Verification Tags",
+  "enabled": false,
+  "verification_tag": ""
 }
 
 ```
@@ -408,14 +405,11 @@ Accept: application/json
 
 ```JSON title="Sample Response" lineNumbers
 {
-    "data": {
-        "id": 7,
-        "channel_id": 0,
-        "name": "Affiliate Conversion Tracking",
-        "enabled": false,
-        "connection": ""
-    },
-    "meta": {}
+  "id": 7,
+  "channel_id": 0,
+  "name": "Affiliate Conversion Tracking",
+  "enabled": false,
+  "connection": "<script>js code here...</script>"
 }
 ```
 
@@ -433,7 +427,7 @@ Accept: application/json
         "channel_id": 0,
         "name": "Affiliate Conversion Tracking",
         "enabled": false,
-        "connection": ""
+        "connection": "<script>js code here...</script>"
     },
     "meta": {}
 }
@@ -447,7 +441,7 @@ Accept: application/json
         "channel_id": 0,
         "name": "Affiliate Conversion Tracking",
         "enabled": false,
-        "connection": ""
+        "connection": "<script>js code here...</script>"
     },
     "meta": {}
 }
@@ -476,21 +470,21 @@ Accept: application/json
             "enabled": true,
             "version": 2,
             "data_tag_enabled": true,
-            "property_id": "UA-215662744-1"
+            "property_id": "GA-1234567890"
         },
         {
             "id": 2,
             "channel_id": 0,
             "name": "Visual Website Optimizer",
             "enabled": false,
-            "vwo_smartcode": ""
+            "vwo_smartcode": "VWO-1234567890"
         },
         {
             "id": 3,
             "channel_id": 0,
             "name": "Facebook Pixel",
             "enabled": true,
-            "pixel_id": "1158961408242086",
+            "pixel_id": "FP-1234567890",
             "is_oauth_connected": true
         },
         {
@@ -498,7 +492,7 @@ Accept: application/json
             "channel_id": 0,
             "name": "Segment.com",
             "enabled": false,
-            "api_key": "zyqsE73vEsJGDbYfXM6rKpM4vR4DuYd1",
+            "api_key": "SEG-1234567890",
             "data_tag_enabled": true
         },
         {
@@ -513,7 +507,7 @@ Accept: application/json
             "channel_id": 0,
             "name": "Affiliate Conversion Tracking",
             "enabled": false,
-            "connection": ""
+            "connection": "<script>js code here...</script>"
         }
     ],
     "meta": {}
