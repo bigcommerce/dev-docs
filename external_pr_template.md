@@ -1,5 +1,5 @@
 # External Pull Request
-Open a PR to the `master` branch.
+Open a PR to the `staging` branch.
 
 **PRs that contain force-pushes will be rejected.** Update your fork's master branch and reconcile with your feature branch before pushing. Repeat the process for mid-review edits.
 

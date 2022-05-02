@@ -1,7 +1,9 @@
 # DevDocs ticket: [DEVDOCS-{number}](https://bigcommercecloud.atlassian.net/browse/DEVDOCS-{number})
 ## Other ticket: [{project}-{number}](https://bigcommercecloud.atlassian.net/browse/{project}-{number})
 
-Create a DevDocs ticket for this PR in Jira using [our PR collector](#). This will create a feature branch in our target repo with the same name as the ticket. **Open your PR to the ticket's feature branch.**
+We need a DevDocs ticket to process your request. **Open your PR to a feature branch named for the corresponding DEVDOCS ticket**. 
+
+If a DevDocs ticket does not exist, ping your [Operational Readiness SME](https://bigcommercecloud.atlassian.net/l/c/kT4FoiNA) to have one created for you. When a DevDocs ticket exists, ping your [DevDocs SME](https://bigcommercecloud.atlassian.net/l/c/fjz6jyH4) to have them create a ticket branch. We plan to automate this action soon.
 
 **PRs that contain force-pushes will be rejected.** Update your fork's master branch and reconcile with your feature branch before pushing. Repeat the process for mid-review edits.
 
