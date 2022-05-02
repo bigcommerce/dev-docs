@@ -2,11 +2,16 @@
 
 BigCommerce storefront search features are available in the Storefront GraphQL API. These built-in capabilities allow Stencil developers to build on top of our search engine, as well as headless merchants to have search, sort, and filtering capabilities available from BigCommerce. 
 
-
+With Storefront GraphQL's Faceted and Textual Search, you can:
+- Load category pages with no selections, including the both the facets and products relevant to the search results 
+- Load category pages with facet selections for specific facets
+- Load featured products from specific categories
+- Quicksearch products by using search terms (textual search)
+- Sort products alphabetically, by newest to oldest, etc
 
 These features are available by using the `SearchProducts` field. A merchant must [enable Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings?language=en_US#setup) for facets to be returned. In addition, only facets that a merchant marks visible will be returned. 
 
-This page walks you through how to filter and query products and facets. See [GraphQL Playground](/graphql-playground) for full schema documentation.  
+This page walks you through how to filter and query products and facets to display on your storefront. See [GraphQL Playground](/graphql-playground) for full schema documentation.  
 
 ## How to Filter Products and Facets
 
