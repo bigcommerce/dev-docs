@@ -6,14 +6,10 @@ The B2B Edition of BigCommerce is a bundled offering of the BigCommerce Enterpri
 
 B3 offers multiple enhancements to your BigCommerce store, including:
 
-- Corporate account management
-- Sales representative masquerade
-- Shared shopping lists
-- Payment method visibility control
-- Company address book management
-- Sales representative quoting
-- Buy again
-- Trade professional application
+- Customer account management
+- All-in-one ordering tools
+- Quoting management
+- Invoice & payment management
 
 ## B3 integration with BigCommerce
 
