@@ -227,6 +227,9 @@ query {
 }
 ```
 
+<!-- theme: info -->
+> **Note** The `sort` affects only the list of products returned. A merchant's product filtering settings determines how facets are sorted. 
+
 ## How to Get Facets
 
 To get facets, specify `filters` as a field in `searchProducts`. Here is an example request that returns facets that have products with a rating between three and five: 
