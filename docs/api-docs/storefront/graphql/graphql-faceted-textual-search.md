@@ -228,7 +228,7 @@ query {
 ```
 
 <!-- theme: info -->
-> **Note** The `sort` affects only the list of products returned. A merchant's product filtering settings determines how facets are sorted. 
+> **Note** The `sort` affects only the list of products returned. A merchant's [product filtering settings](https://support.bigcommerce.com/s/article/Product-Filtering-Settings?language=en_US#setup) determines how facets are sorted. 
 
 ## How to Get Facets
 
