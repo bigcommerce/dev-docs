@@ -9,7 +9,7 @@ With Storefront GraphQL's Faceted and Textual Search, you can:
 - Quicksearch products by using search terms (textual search)
 - Sort products alphabetically, by newest to oldest, etc
 
-These features are available by using the `SearchProducts` field. A merchant must [enable Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings?language=en_US#setup) for facets to be returned. In addition, only facets that a merchant marks as visible in their Product Filtering settings will be returned. 
+You can access these features by querying the `SearchProducts` field. Note that you can only query facets, filter by rating, or filter by "in-stock" if the merchant is on a Pro or Enterprise plan. A merchant must [enable Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings?language=en_US#setup) for facets to be returned. In addition, only facets that a merchant marks as visible in their Product Filtering settings will be returned. 
 
 This page walks you through how to filter and query products and facets to display on your storefront. See [GraphQL Playground](/graphql-playground) for full schema documentation.  
 
