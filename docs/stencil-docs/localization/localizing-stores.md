@@ -37,6 +37,8 @@ BigCommerce supports these uneditable strings in the following languages:
 * [German](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-de-DE.po)
 * [Italian](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-it-IT.po)
 * [Portuguese (Brazil)](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-pt-BR.po)
+* [Spanish (Mexico)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-es-MX.po)
+* [Spanish (Spain)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-es-ES.po)
 * [Swedish](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-sv-SE.po)
 
 
@@ -129,4 +131,6 @@ To customize payment and checkout messages, define these variables in the theme 
 * [German](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-de-DE.po)
 * [Italian](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-it-IT.po)
 * [Portuguese (Brazil)](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-pt-BR.po)
+* [Spanish (Mexico)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-es-MX.po)
+* [Spanish (Spain)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-es-ES.po)
 * [Swedish](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-sv-SE.po)
