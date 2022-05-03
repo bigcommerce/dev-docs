@@ -196,6 +196,8 @@ Accept: application/json
 
 ### Get the Facebook Pixel Analytic
 
+If a merchant has not entered a Pixel ID, `pixel_id` will return as an empty string.
+
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -265,6 +267,8 @@ Accept: application/json
 
 ### Get the Segment Analytic
 
+If a merchant has not entered an API Key, `api_key` will return as an empty string.
+
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -332,6 +336,8 @@ Accept: application/json
 
 ### Get the Site Verification Tags Analytic
 
+If a merchant has not entered a verification tag, `verification_tag` will return as an empty string.
+
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -393,9 +399,11 @@ Accept: application/json
 | channel_id | integer | Id of the storefront channel. Default is `0`. |
 | name | string | Name of Web Analytic `Affiliate Conversion Tracking` |
 | enabled | boolean | Whether merchant has [enabled Affiliate Conversion Tracking](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
-| connection | string | |
+| connection | string | Affiliate Conversion Tracking Code |
 
 ### Get the Affiliate Conversion Tracking Analytic
+
+If a merchant has not entered an Affiliate Conversion Tracking Code, `connection` will return as an empty string.
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
