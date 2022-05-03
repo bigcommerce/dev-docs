@@ -351,8 +351,8 @@ The following settings webhook events fire in response to actions that affect a 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
 | store/channel/{channel_id}/settings/*   | Fires when subscribed to all settings updates for the specified channel. | not applicable |
-| store/settings/profile/updated    | Fires when any of the global store profile settings are updated. Fires for both channel-specific profile settings changes and for changes to any global defaults that the specified channel inherits.  | [Update store profile settings](/api-reference/store-management/settings/store-profile/putstoreprofilesettings) |
-| store/settings/logo/updated    | Fires when any of the global logo settings are updated.| [Update store logo settings](/api-reference/store-management/settings/putstorelogosettings) |
+| store/channel/{channel_id}/settings/profile/updated    | Fires when any of the global store profile settings are updated. Fires for both channel-specific profile settings changes and for changes to any global defaults that the specified channel inherits.  | [Update store profile settings](/api-reference/store-management/settings/store-profile/putstoreprofilesettings) |
+| store/channel/{channel_id}/settings/logo/updated    | Fires when any of the global logo settings are updated.| [Update store logo settings](/api-reference/store-management/settings/putstorelogosettings) |
 | store/channel/{channel_id}/settings/logo/image/updated  | Fires when any of the logo image settings that apply to the specified channel are updated.| not applicable |
 | store/channel/{channel_id}/settings/favicon/image/updated  | Fires when any of the favicon image settings that apply to the specified channel are updated.| not applicable |
 | store/channel/{channel_id}/settings/checkout/updated | Fires when checkout settings that affect a specified channel are updated. | [Update storefront status](/api-reference/store-management/settings/storefront-status/putsettingsstorefrontstatus) |
