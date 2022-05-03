@@ -589,7 +589,7 @@
         },
         {
           "type": "item",
-          "title": "Creating Channel Webooks",
+          "title": "Creating Channel Webhooks",
           "href": "/api-docs/channels/guide/webhooks",
           "flag": "new",
           "uri": "docs/api-docs/channels/channel-webhooks.md"
