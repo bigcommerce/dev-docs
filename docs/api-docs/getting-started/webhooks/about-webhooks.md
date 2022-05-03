@@ -44,9 +44,9 @@ Accept: application/json
 ```
 
 <!-- theme: info -->
-> #### Note
-> * Following the creation of a webhook, it can take up to one minute for BigCommerce to start making `POST` requests to the destination server.
+> #### Notes
 > * The `destination` URL must be served on port **443**; custom ports are not currently supported.
+> * It can take up to one minute for a newly created webhook to work.
 
 
 ## Callback payload

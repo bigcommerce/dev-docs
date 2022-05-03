@@ -4,7 +4,7 @@ This article contains a complete reference of all BigCommerce webhook events and
 
 ## Creating a webhook
 
-To see an example request-response pair for creating a webhook, consult the [creating a webhook section of the Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks#creating-a-webhook).
+To see an example request-response pair for creating a webhook, consult the creating a webhook section of the [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks#creating-a-webhook) or the [Channel Webhooks Guide](/api-docs/channels/guide/webhooks#creating-a-webhook).
 
 ## Callback structure
 
@@ -178,7 +178,7 @@ Payload objects with the following scopes take the form that follows:
 ## Category trees
 
 Consult the [category trees section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#category-trees).
-## Channel
+## Channel events
 
 Consult the [channel events section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#channel-events).
 ## Customers

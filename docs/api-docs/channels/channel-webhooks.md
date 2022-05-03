@@ -4,15 +4,11 @@ Developers building third-party sales channels or multi-storefront capabilities 
 
 To learn more about sales channels, see the [Channels Overview](/api-docs/channels/guide/overview). To learn more about how sales channels function in the context of multi-storefront or multi-channel sales, see the [channels section of the Multi-Storefront Overview](/api-docs/multi-storefront/overview#channels).
 
-There are three kinds of webhooks events that relate to channels: settings, product assignment, and channel event webhooks.
-
 ## Creating a webhook
 
-To create a webhook, send a `POST` request to `/stores/{{STORE_HASH}}/v3/hooks`. 
+To create a webhook, send a request to the [Create a webhook](/api-reference/store-management/webhooks/webhooks/createwebhooks) endpoint. 
 
-**Webhooks POST request headers and body**
-
-```http
+```http title="Example request: Create a webhook" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -20,16 +16,15 @@ Accept: application/json
 
 {
   "scope": "store/channel/{channel_id}/cart/created", // replace {channel_id} with the actual channel_id
-  "destination": "https://665b65a6.ngrok.io/webhooks", // Replace 6a35e97b.ngrok.io with your HTTPS tunnel URL
+  "destination": "https://placeholder.ngrok.io/webhooks", // replace placeholder.ngrok.io with your HTTPS tunnel URL
   "is_active": true
 }
 ```
+
 <!-- theme: info -->
-> #### Note
+> #### Notes
 > * The `destination` URL must be served on port **443**; custom ports are not currently supported.
-> * Make sure to replace {channel_id} with the actual channel ID number subscribed to receive each of the events.
-> * Make sure to replace 6a35e97b.ngrok.io with your ngrok HTTPS tunnel URL.
-> * Following the creation of a webhook, it can take up to one minute for BigCommerce to start making `POST` requests to the destination server.
+> * It can take up to one minute for a newly created webhook to work.
 
 For information on creating a webhook, consult the [creating a webhook section of the Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks#creating-a-webhook).
 
@@ -75,8 +70,6 @@ Changes to any of the following fields trigger a `store/channel/updated` event:
 * is_visible
 * is_enabled (to be deprecated)
 * config_meta
-
-
 
 ## Carts
 
