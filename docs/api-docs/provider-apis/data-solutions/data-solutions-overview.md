@@ -33,7 +33,7 @@ The version corresponds with the "Connect with Field" that a merchant is using t
 ### Get the Google Analytic
 Send a `GET` request to `/stores/{{STORE_HASH}}/v3/settings/analytics{id}`. 
 
-When a merchant uses `tracking_code` for the connection field, your response will have a version of `1` as well as the `tracking_code` field:
+When a merchant uses `tracking_code` for the connection field, your response will have a version of `1` as well as the `tracking_code` field. If a merchant has not entered a tracking code, `tracking_code` will return as an empty string.
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
@@ -57,7 +57,7 @@ Accept: application/json
 }
 ```
 
-When a merchant uses `property_id` for the connection field, your response will have a version of `2` as well as the `property_id` field:
+When a merchant uses `property_id` for the connection field, your response will have a version of `2` as well as the `property_id` field. If a merchant has not entered a property ID, `property_id` will return as an empty string.
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
@@ -130,6 +130,7 @@ Accept: application/json
 
 ### Get the Visual Website Optimizer Analytic
 
+If a merchant has not entered a VWO Smartcode, `vwo_smartcode` will return as an empty string.
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
@@ -451,7 +452,7 @@ Accept: application/json
 
 ## Get All Web Analytics
 
-To get all web analytics, send a `GET` request to `/stores/{{STORE_HASH}}/v3/settings/analytics`. All six web analytics will be returned. As shown, fields for codes in which a merchant has not entered a value will return as an empty string.     
+To get all web analytics, send a `GET` request to `/stores/{{STORE_HASH}}/v3/settings/analytics`. All six web analytics will be returned. As shown, fields for codes (e.g. `verification_tag`) in which a merchant has not entered a value will return as an empty string.     
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics
