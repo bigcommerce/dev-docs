@@ -6,7 +6,7 @@ To learn more about sales channels, see the [Channels Overview](/api-docs/channe
 
 ## Creating a webhook
 
-To create a webhook, send a request to the [Create a webhook](/api-reference/store-management/webhooks/webhooks/createwebhooks) endpoint. 
+To create a webhook, send a request to the [Create a webhook](/api-reference/store-management/webhooks/webhooks/createwebhooks) endpoint. Follow the process described in the [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks#creating-a-webhook), but in this case, you will need to add the `channel_id` to subscribe to events per specific channel. 
 
 ```http title="Example request: Create a webhook" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
