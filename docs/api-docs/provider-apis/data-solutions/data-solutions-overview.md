@@ -13,6 +13,8 @@ You can get **all** web analytics, get a **single** web analytic, or **update** 
 | Site Verification Tags | 6 |
 | Affiliate Conversion Tracking | 7 |
 
+**Note**: Web Analytic id 5 is no longer in use.
+
 ## Google Analytics
 
 | Field | Type | Description |
