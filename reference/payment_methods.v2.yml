@@ -117,7 +117,7 @@ securityDefinitions:
       ### OAuth Scopes
       |  **UI Name** | **Permission** | **Parameter** |
       | --- | --- | --- |
-      |  Get Payment Methods | read-only | `store_payments_methods_read` |
+      |  Information & Settings | read-only | `store_payments_methods_read` |
 
       ### Headers
 
@@ -136,7 +136,6 @@ securityDefinitions:
 
       * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication). 
 security:
-  - X-Auth-Client: []
   - X-Auth-Token: []
 x-stoplight:
   docs:
