@@ -8,7 +8,7 @@ B3 offers multiple enhancements to your BigCommerce store, including the followi
 
 - Customer account management
 - All-in-one ordering tools
-- Quoting management
+- Quote management
 - Invoice & payment management
 
 ## B3 integration with BigCommerce
