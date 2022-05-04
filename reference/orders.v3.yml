@@ -14,6 +14,7 @@ tags:
   - name: Metafields
   - name: Payment Actions
   - name: Transactions
+  - name: Order Settings
 paths:
   '/stores/{store_hash}/v3/orders/{order_id}/payment_actions/capture':
     post:
@@ -782,7 +783,7 @@ paths:
       description: |
         Gets a `Metafield` object list, by `order_id`.
 
-        The maxiumum number of metafields is 50 per order.
+        The maxiumum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID.
       operationId: getOrderMetafieldsByOrderId
       parameters:
         - $ref: '#/components/parameters/PageParam'
@@ -812,7 +813,7 @@ paths:
       description: |-
         Creates an order `Metafield`.
 
-        The maxiumum number of metafields is 50 per order.
+        The maxiumum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID.
       operationId: createOrderMetafield
       requestBody:
         content:
@@ -894,7 +895,7 @@ paths:
       description: |-
         Updates a `Metafield` object.
 
-        The maxiumum number of metafields is 50 per order.
+        The maxiumum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID.
       operationId: updateOrderMetafield
       requestBody:
         content:
@@ -934,6 +935,7 @@ paths:
     get:
       summary: Get Global Order Settings
       description: Returns global order settings.
+      operationId: GetGlobalOrderSettings
       tags:
         - Order Settings
       responses:
@@ -955,6 +957,7 @@ paths:
     put:
       summary: Update Global Order Settings
       description: Updates global order settings.
+      operationId: UpdateGlobalOrderSettings
       tags:
         - Order Settings
       requestBody:
@@ -998,6 +1001,7 @@ paths:
     get:
       summary: Get Channel Order Settings
       description: Returns order settings for a specific channel.
+      operationId: GetChannelOrderSettings
       tags:
         - Order Settings
       parameters:
@@ -1030,6 +1034,7 @@ paths:
         Updates order settings for a specific channel. 
 
          **Note:** You must override both notifications `email_addresses` or neither, i.e. either both notification `email_addresses` are an array of valid email addresses, or both `email_addresses` must be null. You may not have one set to an array of addesses and the other set to `null`.
+      operationId: UpdateChannelOrderSettings
       tags:
         - Order Settings
       parameters:
