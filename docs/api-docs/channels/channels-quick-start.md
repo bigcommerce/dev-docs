@@ -56,49 +56,31 @@ We recommend that apps also create navigation sections to better integrate the a
 
 ![Channel Settings Overview Tab](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-channel-overview.png "Channel Settings Overview Tab")
 
-To create a channel with navigation, include a `config_meta` object in the [create a channel](/api-reference/store-management/channels/channels/createchannel) request.
+To create a channel with navigation, use the [Channel Menus API](/api-reference/store-management/channels/channels/postChannelMenus) after creating a channel record.
 
 ```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/channel-menus
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 
 {
-  "name": "Solution Name",
-  "type": "storefront",
-  "platform": "drupal",
-  "external_id": "",
-  "status": "connected",
-  "is_listable_from_ui": true,
-  "is_visible": true,
-  "config_meta": {
-    "app": {
-      "id": 24483,
-      "sections": [
-        {
-          "title": "Overview",
-          "query_path": "overview"
-        },
-        {
-          "title": "Import",
-          "query_path": "import"
-        },
-        {
-          "title": "Settings",
-          "query_path": "settings"
-        }
-      ]
+  "custom_app_sections": [
+    {
+      "title": "Overview",
+      "query_path": "overview"
+    },
+    {
+      "title": "Import",
+      "query_path": "import"
+    },
+    {
+      "title": "Settings",
+      "query_path": "settings"
     }
-  }
+  ]
 }
 ```
-
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channels/createchannel#requestrunner) -->
-
-<!-- theme: info -->
-> #### Note
-> For additional information on [channel](/api-reference/store-management/channels/channels) `config_meta` properties, see the [create a channel request body schema](/api-reference/store-management/channels/channels/createchannel#request-body).
 
 ## Related resources
 

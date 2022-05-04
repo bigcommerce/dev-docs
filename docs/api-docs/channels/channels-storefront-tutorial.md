@@ -33,29 +33,7 @@ Accept: application/json
   "is_visible": true,
   "config_meta": {
     "app": {
-      "id": 112233,
-      "sections": [
-        {
-          "title": "Overview",
-          "query_path": "overview"
-        },
-        {
-          "title": "Storefront Settings",
-          "query_path": "storefront_settings"
-        },
-        {
-          "title": "Domains",
-          "query_path": "domains"
-        },
-        {
-          "title": "Notifications",
-          "query_path": "notifications"
-        },
-        {
-          "title": "Currencies",
-          "query_path": "currencies"
-        }
-      ]
+      "id": 112233
     }
   }
 }
@@ -98,29 +76,19 @@ Accept: application/json
 
 ## Configuring UI sections
 
-Define and configure the channel's UI tabs displayed in the control panel by passing in a `config_meta` object.
+Define and configure the channel's UI tabs displayed in the control panel by using the [Channel Menus API](/api-reference/store-management/channels/channels/postChannelMenus).
 
 ```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/channel-menus
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
-
 {
-  "name": "Deity Falcon PWA Storefront",
-  ...
-  "config_meta": {
-    "app": {
-      "id": 112233,
-      "sections": [
-        {
-          "title": "Overview",
-          "query_path": "overview"
-        }
-          ...
-      ]
+  "custom_app_sections": [
+    {
+      "title": "Overview",
+      "query_path": "overview"
     }
-  }
 }
 ```
 
@@ -128,9 +96,7 @@ Accept: application/json
  
 <!-- theme:info -->
 > #### Note
-> You can [find an app's ID](/api-docs/apps/tutorials/id) in the URL when editing the app in the [Developer Portal](/api-docs/apps/guide/developer-portal).
-
-
+> These UI sections were previously managed via `config_meta`. As of March 29, 2022, changes to UI sections via `config_meta` are dual written to the new API when `config_meta.app.sections` exists in the payload.
 
 ## Protected UI sections
 
@@ -143,40 +109,21 @@ The following protected sections are provided by BigCommerce.
 | `Notifications`       | `notifications`       | Renders channel specific notification settings |
 | [`Currencies`](#currencies-settings)          | `currencies`          | Renders channel specific currency settings     |
 
-Include protected sections in the [create channel request](/api-reference/store-management/channels/channels/createchannel) to display BigCommerce provided channel specific settings.
+Include protected sections in the [create channel menus request](/api-reference/store-management/channels/channels/postChannelMenus) to display BigCommerce-provided channel-specific settings.
 
 ```http
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/channel-menus
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 
 {
-  "name": "Dog US",
-  ...
-  "config_meta": {
-    "app": {
-      "id": 112233,
-      "sections": [
-        {
-          "title": "Storefront Settings",
-          "query_path": "storefront_settings"
-        },
-        {
-          "title": "Domains",
-          "query_path": "domains"
-        },
-        {
-          "title": "Notifications",
-          "query_path": "notifications"
-        },
-        {
-          "title": "Currencies",
-          "query_path": "currencies"
-        }
-      ]
-    }
-  }
+  "bigcommerce_protected_app_sections": [
+    "storefront_settings",
+    "domains",
+    "notifications",
+    "currencies"
+  ]
 }
 ```
 
@@ -184,14 +131,9 @@ Included protected sections display above custom sections.
 
 ![Protected Sections](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-protected-custom-settings.png "Protected Sections")
 
-<!-- theme: warning -->
-> #### Note
-> Any content an app attempts to render to the control panel iFrame for a protected section will be overridden by the BigCommerce provided content.
-
-
 ## Storefront settings
 
-Include the `Storefront Settings` [protected section](#protected-ui-sections) in the channel's `config_meta` object to render the BigCommerce provided **Storefront Settings** tab on the channel's settings page.
+Include the `storefront_settings` [protected section](#protected-ui-sections) in the Channel Menus' `bigcommerce_protected_app_sections` array to render the BigCommerce-provided **Storefront Settings** tab on the channel's settings page.
 
 ![Channel Storefront Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-storefront-settings.png "Channel Storefront Settings")
 
@@ -224,7 +166,7 @@ Accept: application/json
 
 ## Currencies settings
 
-Include the `Currencies` [protected section](#protected-ui-sections) in the channel's `config_meta` object to render the BigCommerce provided **Currencies** tab on the channel's settings page.
+Include the `currencies` [protected section](#protected-ui-sections) in the Channel Menus' `bigcommerce_protected_app_sections` array to render the BigCommerce-provided **Currencies** tab on the channel's settings page.
 
 ![Channel Currency Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-currencies.png "Channel Currency Settings")
 
@@ -257,7 +199,7 @@ Accept: application/json
 
 ## Notification settings
 
-Include the `Notifications` [protected section](#protected-ui-sections) in the channel's `config_meta` object to render the BigCommerce provided **Notifications** tab on the channel's settings page.
+Include the `notifications` [protected section](#protected-ui-sections) in the Channel Menus' `bigcommerce_protected_app_sections` array to render the BigCommerce-provided **Notifications** tab on the channel's settings page.
 
 ![Channel Notification Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-notifications-small.png "Channel Notification Settings")
 
