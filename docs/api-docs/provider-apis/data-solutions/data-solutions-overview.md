@@ -462,7 +462,7 @@ Accept: application/json
 
 ## Get All Web Analytics
 
-To get all web analytics, send a `GET` request to `/stores/{{STORE_HASH}}/v3/settings/analytics`. All six web analytics will be returned. As shown, fields for codes (e.g. `verification_tag`) in which a merchant has not entered a value will return as an empty string.     
+All six web analytics will be returned. As shown, fields for codes (e.g. `verification_tag`) in which a merchant has not entered a value will return as an empty string.     
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics
