@@ -91,9 +91,7 @@ The requirements and options for the `.stencil` or `config.stencil.json` (if usi
 
 * The HTML files must reside in either the brand, category, product, or page subdirectories.
 
-* All brand URLs are nested under the /brands/ parent. Use URL encoding with brand URLs.
-
-* That parent for brand URLs is /brands/ (plural), while the corresponding subdirectory for HTML files is /brand/ (singular).
+* Use URL encoding for special characters in URLs.
 
 * After editing your `.stencil` file or `config.stencil.json` files (if using Stencil V3.1 release or later), you must restart stencil to see your changes locally. Enter `stencil start` in the command prompt, appending any appropriate switches for your workflow (e.g.: `stencil start -e -n`).
 
