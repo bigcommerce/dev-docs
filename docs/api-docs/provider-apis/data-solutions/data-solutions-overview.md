@@ -37,7 +37,6 @@ The version corresponds with the "Connect with Field" that a merchant is using t
 
 
 ### Get the Google Analytic
-Send a `GET` request to `/stores/{{STORE_HASH}}/v3/settings/analytics{id}`. 
 
 When a merchant uses `tracking_code` for the connection field, your response will have a version of `1` as well as the `tracking_code` field. If a merchant has not entered a tracking code, `tracking_code` will return as an empty string.
 
