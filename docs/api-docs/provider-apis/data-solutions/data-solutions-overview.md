@@ -87,9 +87,6 @@ Accept: application/json
 ```
 ### Update the Google Analytic
 
-Send a `PUT` request to `/stores/{{STORE_HASH}}/v3/settings/analytics{id}`. 
-
-
 ```JSON title="Sample Request" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
