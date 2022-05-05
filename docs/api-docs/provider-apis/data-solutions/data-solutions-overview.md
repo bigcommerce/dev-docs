@@ -26,7 +26,7 @@ You can get **all** web analytics, get a **single** web analytic, or **update** 
 | id | integer | Id of the Web Analytic. `1` for Google Analytics |
 | channel_id | integer | Id of the storefront channel. Default is `0`. |
 | name | string | Name of Web Analytic `Google Analytics` |
-| enabled | boolean | Whether merchant has [enabled Google Analytics](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
+| enabled | boolean | Indicates whether merchant has [enabled Google Analytics](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
 | version | integer | Corresponds to connection field that merchant is using to connect to Google Analytics. Value is `1` for `tracking_code` or `2` for `property_id`. |
 | data_tag_enabled | boolean | |
 | tracking_code | string | Code merchant uses to connect Google Analytics to store. Only returned if version is `1`. |
@@ -127,8 +127,8 @@ Accept: application/json
 | id | integer | Id of the Web Analytic. `2` for Visual Website Optimizer |
 | channel_id | integer | Id of the storefront channel. Default is `0`. |
 | name | string | Name of Web Analytic `Visual Website Optimizer` |
-| enabled | boolean | Whether merchant has [enabled Visual Website Optimizer](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
-| vwo_smartcode | string | | 
+| enabled | boolean | Indicates whether merchant has [enabled Visual Website Optimizer](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
+| vwo_smartcode | string | Visual Website Optimizer Smartcode used to connect store to Visual Website Optimizer analytic| 
 
 ### Get the Visual Website Optimizer Analytic
 
@@ -192,9 +192,9 @@ Accept: application/json
 | id | integer | Id of the Web Analytic. `1` for Facebook Pixel |
 | channel_id | integer | Id of the storefront channel. Default is `0`. |
 | name | string | Name of Web Analytic `Facebook Pixel` |
-| enabled | boolean | Whether merchant has [enabled Facebook Pixel](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
-| pixel_id | string | |
-| is_oauth_connected | boolean | |
+| enabled | boolean | Indicates whether merchant has [enabled Facebook Pixel](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
+| pixel_id | string | Facebook Pixel ID used to connect store to Faceboook Pixel |
+| is_oauth_connected | boolean | Indicates whether store has been granted OAuth token to connect to FB Pixel|
 
 ### Get the Facebook Pixel Analytic
 
@@ -263,9 +263,9 @@ Accept: application/json
 | id | integer | Id of the Web Analytic. `1` for Segment |
 | channel_id | integer | Id of the storefront channel. Default is `0`. |
 | name | string | Name of Web Analytic `Segment` |
-| enabled | boolean | Whether merchant has [enabled Segment](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
-| api_key | string | |
-| data_tag_enabled | boolean | |
+| enabled | boolean | Indicates whether merchant has [enabled Segment](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
+| api_key | string | Segment API key used to connect store to Segment |
+| data_tag_enabled | boolean | Indicates whether data tags are enabled by Segment Analytic |
 
 ### Get the Segment Analytic
 
@@ -333,8 +333,8 @@ Accept: application/json
 | id | integer | Id of the Web Analytic. `1` for Site Verification Tags |
 | channel_id | integer | Id of the storefront channel. Default is `0`. |
 | name | string | Name of Web Analytic `Site Verification Tags` |
-| enabled | boolean | Whether merchant has [enabled Site Verification Tags](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
-| verification_tag | string | |
+| enabled | boolean | Indicates whether merchant has [enabled Site Verification Tags](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
+| verification_tag | string | Site Verification Tag |
 
 ### Get the Site Verification Tags Analytic
 
@@ -400,7 +400,7 @@ Accept: application/json
 | id | integer | Id of the Web Analytic. `1` for Affiliate Conversion Tracking |
 | channel_id | integer | Id of the storefront channel. Default is `0`. |
 | name | string | Name of Web Analytic `Affiliate Conversion Tracking` |
-| enabled | boolean | Whether merchant has [enabled Affiliate Conversion Tracking](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
+| enabled | boolean | Indicates whether merchant has [enabled Affiliate Conversion Tracking](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
 | connection | string | Affiliate Conversion Tracking Code |
 
 ### Get the Affiliate Conversion Tracking Analytic
