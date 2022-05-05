@@ -27,10 +27,10 @@ You can get **all** web analytics, get a **single** web analytic, or **update** 
 | channel_id | integer | Id of the storefront channel. Default is `0`. |
 | name | string | Name of Web Analytic `Google Analytics` |
 | enabled | boolean | Indicates whether merchant has [enabled Google Analytics](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
-| version | integer | Corresponds to connection field that merchant is using to connect to Google Analytics. Value is `1` for `tracking_code` or `2` for `property_id`. |
-| data_tag_enabled | boolean | |
-| tracking_code | string | Code merchant uses to connect Google Analytics to store. Only returned if version is `1`. |
-| property_id | string | Id merchant uses to connect Google Analytics to store. Only returned if version is `2`.  |
+| version | integer | Corresponds to connection field that merchant is using to connect to Google Analytics. Value is `1` when tracking code is used. Value is `2` when property id is used. |
+| data_tag_enabled | boolean | Indicates whether data tags are enabled by Google Analytics |
+| tracking_code | string | Tracking code merchant uses to connect Google Analytics to store. Only returned if version is `1`. |
+| property_id | string | Property id merchant uses to connect Google Analytics to store. Only returned if version is `2`.  |
 
 The version corresponds with the "Connect with Field" that a merchant is using to connect to Google Analytics. This connection field affects the fields that are requested and returned in [Get the Google Analytic](#get-the-google-analytic) and [Update the Google Analytic](#update-the-google-analytic).
 ![Version on Google Analytics](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Version%20for%20Google%20Analytics.png).
@@ -38,7 +38,7 @@ The version corresponds with the "Connect with Field" that a merchant is using t
 
 ### Get the Google Analytic
 
-When a merchant uses `tracking_code` for the connection field, your response will have a version of `1` as well as the `tracking_code` field. If a merchant has not entered a tracking code, `tracking_code` will return as an empty string.
+When a merchant uses tracking code for the connection field, your response will have a version of `1` as well as the `tracking_code` field. If a merchant has not entered a tracking code, `tracking_code` will return as an empty string.
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
@@ -62,7 +62,7 @@ Accept: application/json
 }
 ```
 
-When a merchant uses `property_id` for the connection field, your response will have a version of `2` as well as the `property_id` field. If a merchant has not entered a property ID, `property_id` will return as an empty string.
+When a merchant uses property id for the connection field, your response will have a version of `2` as well as the `property_id` field. If a merchant has not entered a property ID, `property_id` will return as an empty string.
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
