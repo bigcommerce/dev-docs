@@ -1,6 +1,10 @@
 # Data Solutions API
 
-This article introduces how to get web analytics using the Data Solutions API. Because each web analytic requires different fields in the request and/or response, this article is divided by web analytic.  
+The Data Solutions API allows you to configure **storefront** channel settings for a store's prebuilt data analytic solutions.  
+
+Note that a store has global settings for data solutions, from which any storefront channel can inherit. A merchant can override these global settings with storefront-specific settings for their data solutions. This API configures settings for **storefront** channels at the store's global level (`channel_id` is 0) and at the specific storefront channel level.   
+
+This article introduces how to get web analytics using the Data Solutions API. Because each web analytic requires different fields in the request and/or response, this article is divided by web analytic.
 
 You can get **all** web analytics, get a **single** web analytic, or **update** a single analytic. To get or update a **single** web analytic, the `id` of the Web Analytic must be specified in the path.
 
