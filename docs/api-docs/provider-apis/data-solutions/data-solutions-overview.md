@@ -354,7 +354,7 @@ Accept: application/json
         "channel_id": 0,
         "name": "Site Verification Tags",
         "enabled": false,
-        "verification_tag": ""
+        "verification_tag": "<meta name=\"google-site-verification\" content=\"twLOPnFqwX5JK2-RksTZp_QEkfUPPgfGJ0_UHrEKLcY\" />"
     },
     "meta": {}
 }
@@ -373,7 +373,7 @@ Accept: application/json
   "channel_id": 0,
   "name": "Site Verification Tags",
   "enabled": false,
-  "verification_tag": ""
+  "verification_tag": "<meta name=\"google-site-verification\" content=\"twLOPnFqwX5JK2-RksTZp_QEkfUPPgfGJ0_UHrEKLcY\" />"
 }
 
 ```
@@ -385,7 +385,7 @@ Accept: application/json
         "channel_id": 0,
         "name": "Site Verification Tags",
         "enabled": false,
-        "verification_tag": ""
+        "verification_tag": "<meta name=\"google-site-verification\" content=\"twLOPnFqwX5JK2-RksTZp_QEkfUPPgfGJ0_UHrEKLcY\" />"
     },
     "meta": {}
 }
