@@ -30,7 +30,7 @@ Additionally, you can use the B3 REST API to create, read, update, and delete it
 ### Prerequisites for customizing B3
 
 - [Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil)
-- [Node.js 12 and npm](https://nodejs.org/en/download/releases/)
+- [Node.js 14 and npm](https://nodejs.org/en/download/releases/)
 - [Stencil API token](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) to push BigCommerce theme using Stencil CLI
 - A code editor
 - Access to your BigCommerce store dashboard with Store Owner permissions

@@ -25,7 +25,7 @@ Discounts | When a shopper meets certain criteria or takes certain actions to au
 
 ### Webhooks
 * [Products](/api-docs/store-management/webhooks/events#products)
-* [Cart](/api-docs/store-managment/webhooks/events#cart)
+* [Cart](/api-docs/store-managment/webhooks/events#carts)
 
 ### Related endpoints
 * [Storefront Cart API](/api-reference/cart-checkout/storefront-cart-api) 

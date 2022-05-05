@@ -4,7 +4,7 @@ This section covers the Payment Card Industry Data Security Standard compliance 
 
 ## What is PCI DSS
 
-The Payment Card Industry Data Security Standard (**PCI DSS**) is a set of requirements designed to ensure that all companies that process, store, or transmit credit card information maintain a secure environment. For an in-depth guide to what PCI DSS is, how to achieve it for your business, and a compliance checklist, see [Everything You Need to Know About Achieving PCI Compliance](https://www.bigcommerce.com/blog/pci-compliance/).
+The Payment Card Industry Data Security Standard (**PCI DSS**) is a set of requirements designed to ensure that all companies that process, store, or transmit credit card information maintain a secure environment. For an in-depth guide to what PCI DSS is, how to achieve it for your business, and a compliance checklist, see [Everything You Need to Know About Achieving PCI Compliance](https://www.bigcommerce.com/articles/ecommerce/pci-compliance/).
 
 ## Who is responsible
 

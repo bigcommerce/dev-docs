@@ -61,3 +61,4 @@ To start working with the GraphQL API, consult the [GraphQL Storefront API Overv
 
 ## Customer Login API
 The Customer Login API is a Server-to-Server API, which means to make requests against it, you will need a backend service. To view a sample request, see sample code within our [PHP client](https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421).
+

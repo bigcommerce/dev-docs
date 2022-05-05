@@ -1,8 +1,8 @@
 # Controlled Merge with link check
 
 ## Included Tickets / PRs
-* [DEVDOCS-](https://jira.bigcommerce.com/browse/DEVDOCS-) - #PRnumber - @person
-* [DEVDOCS-](https://jira.bigcommerce.com/browse/DEVDOCS-) - #PRnumber - @person
+* [DEVDOCS-](https://bigcommercecloud.atlassian.net/browse/DEVDOCS-) - #PRnumber - @person
+* [DEVDOCS-](https://bigcommercecloud.atlassian.net/browse/DEVDOCS-) - #PRnumber - @person
 
 ## To Do
 Indicate when done.
