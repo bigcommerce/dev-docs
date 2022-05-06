@@ -1285,7 +1285,7 @@ definitions:
                       type: string
               type: object
             available_shipping_options:
-              description: This is available only when "include=available_shipping_options" is presented in the URL.
+              description: This is available only when "include=consignments.available_shipping_options" is presented in the URL.
               type: array
               items:
                 title: Selected Shipping Option
