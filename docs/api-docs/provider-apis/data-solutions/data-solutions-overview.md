@@ -8,7 +8,7 @@ This article introduces how to configure web analytics using the Data Solutions 
 
 You can get **all** web analytics, get a **single** web analytic, or **update** a single analytic. To get or update a **single** web analytic, the `id` of the web analytic must be specified in the path.
 
-| Web Analytic | Id |
+| Web analytic | ID |
 | ------------- | -------- |
 | Google Analytics | 1 |
 | Visual Website Optimizer | 2 |
