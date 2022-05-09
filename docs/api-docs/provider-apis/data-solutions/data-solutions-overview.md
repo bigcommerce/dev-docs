@@ -25,7 +25,7 @@ You can get **all** web analytics, get a **single** web analytic, or **update** 
 | ------------- | -------- |  -------- |
 | id | integer | ID of the web analytic. `1` for Google Analytics |
 | channel_id | integer | ID of the storefront channel. Default is `0`. |
-| name | string | Name of Web Analytic `Google Analytics` |
+| name | string | Name of web analytic `Google Analytics` |
 | enabled | boolean | Indicates whether merchant has [enabled Google Analytics](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
 | version | integer | Corresponds to connection field that merchant is using to connect to Google Analytics. Value is `1` when tracking code is used. Value is `2` when property id is used. |
 | data_tag_enabled | boolean | Indicates whether data tags are enabled by Google Analytics |
