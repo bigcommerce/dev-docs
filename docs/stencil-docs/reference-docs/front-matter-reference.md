@@ -298,7 +298,8 @@ The following is the complete list of available variables:
 * `contact-us.html`: `$pageId`
 * `blog-post.html`: `$blogPostId`
   
-You can also query data without using variables. The following query returns the product category tree as a JSON object.
+You can also query data without using variables. The following query returns the product category tree as a JSON object:
+
   
  ```yaml lineNumbers
 gql: "query CategoryTree3LevelsDeep {
