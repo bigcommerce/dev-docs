@@ -317,6 +317,7 @@ paths:
                   - status
                   - title
                   - type
+      security: []
     parameters:
       - schema:
           type: string
