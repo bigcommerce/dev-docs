@@ -62,7 +62,7 @@ Accept: application/json
 }
 ```
 
-When a merchant uses property id for the connection field, your response will have a version of `2` as well as the `property_id` field. If a merchant has not entered a property ID, `property_id` will return as an empty string.
+When a merchant uses property id for the connection field, your response will have a version of `2` and the `property_id` field. If a merchant has not entered a property ID, `property_id` will return as an empty string.
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
