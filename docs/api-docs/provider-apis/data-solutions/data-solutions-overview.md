@@ -460,7 +460,7 @@ Accept: application/json
 
 &nbsp;
 
-## Get All Web Analytics
+## Get all web analytics
 
 All six web analytics will be returned. As shown, fields for codes (e.g. `verification_tag`) in which a merchant has not entered a value will return as an empty string.     
 
