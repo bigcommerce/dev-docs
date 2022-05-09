@@ -124,7 +124,7 @@ Accept: application/json
 
 | Field | Type | Description |
 | ------------- | -------- |  -------- |
-| id | integer | Id of the Web Analytic. `2` for Visual Website Optimizer |
+| id | integer | ID of the Web analytic. `2` for Visual Website Optimizer |
 | channel_id | integer | Id of the storefront channel. Default is `0`. |
 | name | string | Name of Web Analytic `Visual Website Optimizer` |
 | enabled | boolean | Indicates whether merchant has [enabled Visual Website Optimizer](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
