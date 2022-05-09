@@ -399,7 +399,7 @@ Accept: application/json
 | ------------- | -------- |  -------- |
 | id | integer | ID of the web analytic. `1` for Affiliate Conversion Tracking |
 | channel_id | integer | ID of the storefront channel. Default is `0`. |
-| name | string | Name of Web Analytic `Affiliate Conversion Tracking` |
+| name | string | Name of web analytic `Affiliate Conversion Tracking` |
 | enabled | boolean | Indicates whether merchant has [enabled Affiliate Conversion Tracking](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
 | connection | string | Affiliate Conversion Tracking Code |
 
