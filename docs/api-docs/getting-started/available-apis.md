@@ -8,7 +8,7 @@
 | [V2 Store Management REST](#v2-store-management-rest-apis) | `api.bigcommerce.com/stores/{{STORE_HASH}}/v2/` | Exposes many resources (including webhooks) |
 | [Webhooks](#webhooks) | `api.bigcommerce.com/stores/{{STORE_HASH}}/v2/hooks` | Webhooks are managed using the `v2` API and are listed separately here for visibility |
 | [Payment Processing REST](#payment-processing-api) | `payments.bigcommerce.com/stores/` | Exposes `/payments` endpoint for processing order payments|
-| [Storefront REST](#storefront-api) | `{{STORE_DOMAIN}}/api/storefront/` | Client API that exposes storefront data to stencil themes|
+| [Storefront REST](#storefront-rest-api) | `{{STORE_DOMAIN}}/api/storefront/` | Client API that exposes storefront data to stencil themes|
 | [Storefront GraphQL API](#storefront-graphql-api) | `{{STORE_DOMAIN}}/graphql` | Client API for fetching storefront data via GraphQL queries |
 | [Customer Login](#customer-login-api) | `{{STORE_DOMAIN}}/login/token/` | Client API that enables single sign-on (SSO) for customer logins |
 | [Current Customer](#current-customer-api) | `{{STORE_DOMAIN}}/customer/current.jwt` | Client API for confirming a customer's identity in the browser|

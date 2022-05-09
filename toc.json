@@ -6,7 +6,7 @@
     },
     {
       "type": "item",
-      "title": "Quick Start",
+      "title": "API Request Quick Start",
       "href": "/api-docs/getting-started/making-requests",
       "uri": "docs/api-docs/getting-started/making-requests.md"
     },

@@ -1,9 +1,8 @@
 # About Our APIs
 
-The BigCommerce suite of APIs allows you to create apps, automate store processes, and build headless ecommerce solutions. You can download or purchase third-party apps at our [App Marketplace](https://www.bigcommerce.com/apps/). We recommend that you explore the marketplace before you start building to get a feel for what's possible.
+The BigCommerce suite of APIs empowers you to create apps, automate store processes, and build headless ecommerce solutions. 
 
-
-If you want to get started making API requests right away, check out the [Quick Start](/api-docs/getting-started/basics/making-requests) on making requests. 
+If you're new to building BigCommerce apps, we recommend that you start by exploring the [App Marketplace](https://www.bigcommerce.com/apps/) to get a feel for what's possible. When you want to get started experimenting with our APIs, check out the [API Request Quick Start](/api-docs/getting-started/basics/making-requests). 
 
 ## Available APIs
 BigCommerce has several APIs that let you manage store data, authenticate customers, make client-side queries for product information, and more.
@@ -121,16 +120,16 @@ Server-to-Server requests require the `Accept`, `X-Auth-Token`, and `Content-Typ
 
 ### Media types
 
-A media type is the format of the request or response body. BigCommerce APIs accept requests and send responses in JSON. You should encode requests using the UTF-8 character set since other character sets can have unpredictable results.
+A media type is the format of the request or response body. BigCommerce APIs accept requests and send responses in JSON. Encode requests using the UTF-8 character set; other character sets can have unpredictable results.
 
 
 ### Content types
 
 ### Request content type
-When performing a request that contains a body (eg. POST or PUT), the type of content you are sending needs to be specified in the `Content-Type` header.
+When performing a request that contains a body, specify the type of content you are sending with the `Content-Type` header. This typically applies to `PUT` and `POST` requests.
 
 ### Response content type
-There are two ways you can specify the type of content you would like to receive. The first method is to specify the `Accept` header. The second is to supply an extension to the resource you're requesting.
+When requesting a resource that returns a body, specify the type of content you want to receive with the `Accept` header. Alternatively, you can supply an extension to the resource you're requesting.
 
 
 The priority in which you can process these methods are:

@@ -29,7 +29,11 @@ Authorization: Bearer {{generated_jwt}}
 
 ## Class III: App-specific APIs
 
-Apps add novel ways of using BigCommerce store data and can connect third-party services to merchant stores. Not only can apps use all store management REST APIs. Apps authenticate with access tokens that they generate during installation or in response to some app configuration changes. Create an app OAuth API account to enable your app to request and manage BigCommerce-generated access tokens on behalf of merchant stores. You can change the scope of an app OAuth API account at any time. When you modify the OAuth scope, BigCommerce will invalidate the API account's existing access tokens. To facilitate generating new access tokens, BigCommerce will prompt your users to reauthorize the app so that they can accept the new OAuth scope.
+Apps add novel ways of using BigCommerce store data and can connect third-party services to merchant stores. Apps can use store management REST APIs in addition to the following app-specific APIs. Apps authenticate with access tokens that they generate during installation or in response to app configuration changes. 
+
+Create an app OAuth API account to enable your app to request and manage BigCommerce-generated access tokens on behalf of merchant stores. 
+
+You can change the scope of an app OAuth API account at any time. When you modify the OAuth scope, BigCommerce will invalidate the API account's existing access tokens. To facilitate generating new access tokens, BigCommerce will prompt your users to reauthorize the app so that they can accept the new OAuth scope.
 
 For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/guide/intro). The sections on [Implementing OAuth](/api-docs/apps/guide/auth) and [Callback Handlers](/api-docs/apps/guide/callbacks) are particularly relevant to generating access tokens.
 
