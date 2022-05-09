@@ -462,7 +462,7 @@ Accept: application/json
 
 ## Get all web analytics
 
-All six web analytics will be returned. As shown, fields for codes (e.g. `verification_tag`) in which a merchant has not entered a value will return as an empty string.     
+All six web analytics will be returned. As shown, fields for codes (such as `verification_tag`) in which a merchant has not entered a value will return as an empty string.     
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics
