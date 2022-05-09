@@ -1,19 +1,20 @@
-# The B2B Edition of BigCommerce
+# B2B Edition 
 
-The BigCommerce platform offers BundleB2B (B3) functionality which allows businesses to easily facilitate online operations and improve the self-service experience for BigCommerce store owners and their customers.
+The BigCommerce platform offers BundleB2B (B3) functionality which allows businesses to streamline online operations and improve experience for BigCommerce store owners and their customers.
 
-The B2B Edition of BigCommerce is a bundled offering of the BigCommerce Enterprise solution, B3, and [six BigCommerce themes optimized for B3](https://support.bigcommerce.com/s/article/B2B-Edition?language=en_US#themes).
+The B2B Edition is a packaged offering of the BigCommerce Enterprise plan, B3, and [six BigCommerce themes optimized for B3](https://support.bigcommerce.com/s/article/B2B-Edition?language=en_US#themes).
 
-B3 offers multiple enhancements to your BigCommerce store, including the following:
+B3 offers multiple B2B feature enhancements to your BigCommerce store, including the following:
 
-- Customer account management
-- All-in-one ordering tools
+- Customer account hierarchy with user roles and permissions
+- Shared shopping lists and buy again functionality
+- Sales representative enablement tools
 - Quote management
 - Invoice & payment management
 
 ## Installing B3 
 
-B3 comes pre-installed with your theme if you purchase the B2B Edition of BigCommerce. If you purchased B3 separately for an existing BigCommerce plan, you can install the B3 app from the BigCommerce App Marketplace and manually integrate it with your BigCommerce theme.
+B3 comes pre-installed with your theme if you purchase the B2B Edition. If you purchased B3 separately for an existing BigCommerce plan, you can install the B3 app from the BigCommerce App Marketplace and manually integrate it with your BigCommerce theme.
 
 The B3 admin panel is accessible from the My Apps section of your store's dashboard. The client-facing portions of the app are loaded dynamically with JavaScript.
 
