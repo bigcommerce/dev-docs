@@ -6,7 +6,7 @@ Note that a store has global settings for data solutions, from which any storefr
 
 This article introduces how to configure web analytics using the Data Solutions API. Because each web analytic requires different fields in the request and/or response, this article is divided by web analytics.
 
-You can get **all** web analytics, get a **single** web analytic, or **update** a single analytic. To get or update a **single** web analytic, the `id` of the Web Analytic must be specified in the path.
+You can get **all** web analytics, get a **single** web analytic, or **update** a single analytic. To get or update a **single** web analytic, the `id` of the web analytic must be specified in the path.
 
 | Web Analytic | Id |
 | ------------- | -------- |
