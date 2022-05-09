@@ -530,10 +530,8 @@ Accept: application/json
 ## Related Resources
 - [Overview Web Analytics](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics)
 - [Google Analytics](https://support.bigcommerce.com/s/article/Setting-Up-Google-Analytics?language=en_US)
-- [Visual Website Optimizer](...)
 - [Facebook Pixel](https://support.bigcommerce.com/s/article/Facebook-Pixel?language=en_US)
 - [Segment](https://support.bigcommerce.com/s/article/Setting-up-Segment-com?language=en_US)
-- [Site Verification Tags](...)
 - [Affiliate Conversion Tracking](https://support.bigcommerce.com/s/article/Passing-Order-Data-to-Affiliate-Programs?language=en_US)
 
 
