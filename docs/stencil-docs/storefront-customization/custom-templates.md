@@ -91,7 +91,7 @@ The requirements and options for the `.stencil` or `config.stencil.json` (if usi
 
 * The HTML files must reside in either the brand, category, product, or page subdirectories.
 
-* All brand URLs are nested under the /brands/ parent. Use URL encoding with brand URLs.
+* When mapping URLs, make sure to convert any special characters to their [URL-encoded equivalents](https://www.urlencoder.org/).
 
 * That parent for brand URLs is /brands/ (plural), while the corresponding subdirectory for HTML files is /brand/ (singular).
 
