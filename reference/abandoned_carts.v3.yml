@@ -8,8 +8,8 @@ info:
     ## OAuth Scopes
     | UI Name                                      | Permission | Parameter                                     |
     |----------------------------------------------|------------|-----------------------------------------------|
-    | Carts                                        | modify     | `store_cart`                                  |
-    | Carts                                        | read-only  | `store_cart_read_only`                        |
+    | Information & Settings                       | read-only  | `store_v2_information_read_only`              |
+    | Information & Settings                       | modify     | `store_v2_information`                        |
 
     For more information on OAuth Scopes, see: [Authentication](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
@@ -34,8 +34,9 @@ paths:
     get:
       summary: Get Global Abandoned Cart Settings
       description: Returns the global abandoned cart settings of a store.
+      operationId: getGlobalAbandonedCartSettings
       tags:
-        - Abandoned Carts Settings
+        - Abandoned Cart Settings
       responses:
         '200':
           description: OK
@@ -49,9 +50,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      parameters: []
     put:
       summary: Update Global Abandoned Cart Settings
       description: Updates the global abandoned cart settings of a store.
+      operationId: UpdateGlobalAbandonedCartSettings
       tags:
         - Abandoned Carts Settings
       requestBody:
@@ -89,6 +92,7 @@ paths:
     get:
       summary: Get Channel Abandoned Cart Settings
       description: Returns the per-channel overrides for the abandoned cart settings of a store.
+      operationId: getChannelAbandonedCartSettings
       tags:
         - Abandoned Carts Settings
       parameters:
@@ -113,7 +117,14 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
     put:
       summary: Update Channel Abandoned Cart Settings
-      description: Updates the per-channel overrides for the abandoned cart settings of a store.
+      description: |-
+        Updates the per-channel overrides for the abandoned cart settings of a store.
+
+        #### OAuth Scopes
+        | UI Name                                      | Permission | Parameter                                     |
+        |----------------------------------------------|------------|-----------------------------------------------|     
+        | Information & Settings                       | modify     | `store_v2_information`                        |
+      operationId: UpdateChannelAbandonedCartSettings
       tags:
         - Abandoned Carts Settings
       parameters:
@@ -148,6 +159,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      security: []
     parameters:
       - schema:
           type: string
@@ -203,11 +215,12 @@ paths:
         schema:
           type: string
 security:
-  - X-Auth-Client: []
   - X-Auth-Token: []
   - OAuthScopes: []
 tags:
   - name: Abandoned Carts
+  - name: Abandoned Cart Settings
+  - name: Abandoned Carts Settings
 x-stoplight:
   docs:
     includeDownloadLink: true
@@ -343,8 +356,9 @@ components:
         ### OAuth Scopes
         |  **UI Name** | **Permission** | **Parameter** |
         | --- | --- | --- |
-        |  Carts | modify | `store_cart` |
-        |  Carts | read-only | `store_cart_read_only` |
+        | Information & Settings  | read-only  | `store_v2_information_read_only`|
+        | Information & Settings  | modify     | `store_v2_information`          |
+
 
         ### Headers
 
