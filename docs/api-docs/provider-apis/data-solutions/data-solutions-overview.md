@@ -38,7 +38,7 @@ The version corresponds with the "Connect with Field" that a merchant is using t
 
 ### Get the Google Analytic
 
-When a merchant uses tracking code for the connection field, your response will have a version of `1` as well as the `tracking_code` field. If a merchant has not entered a tracking code, `tracking_code` will return as an empty string.
+When a merchant uses a tracking code for the connection field, your response will have a version of `1` and the `tracking_code` field. If a merchant has not entered a tracking code, `tracking_code` will return as an empty string.
 
 ```JSON title="Sample Request" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
