@@ -23,7 +23,7 @@ You can get **all** web analytics, get a **single** web analytic, or **update** 
 
 | Field | Type | Description |
 | ------------- | -------- |  -------- |
-| id | integer | Id of the Web Analytic. `1` for Google Analytics |
+| id | integer | ID of the web analytic. `1` for Google Analytics |
 | channel_id | integer | Id of the storefront channel. Default is `0`. |
 | name | string | Name of Web Analytic `Google Analytics` |
 | enabled | boolean | Indicates whether merchant has [enabled Google Analytics](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
