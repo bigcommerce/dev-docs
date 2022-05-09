@@ -260,7 +260,7 @@ Accept: application/json
 
 | Field | Type | Description |
 | ------------- | -------- |  -------- |
-| id | integer | Id of the Web Analytic. `1` for Segment |
+| id | integer | ID of the web analytic. `1` for Segment |
 | channel_id | integer | Id of the storefront channel. Default is `0`. |
 | name | string | Name of Web Analytic `Segment` |
 | enabled | boolean | Indicates whether merchant has [enabled Segment](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
