@@ -30,7 +30,7 @@ You can get **all** web analytics, get a **single** web analytic, or **update** 
 | version | integer | Corresponds to connection field that merchant is using to connect to Google Analytics. Value is `1` when tracking code is used. Value is `2` when property id is used. |
 | data_tag_enabled | boolean | Indicates whether data tags are enabled by Google Analytics |
 | tracking_code | string | Tracking code merchant uses to connect Google Analytics to store. Only returned if the version is `1`. |
-| property_id | string | Property id merchant uses to connect Google Analytics to store. Only returned if version is `2`.  |
+| property_id | string | Property id merchant uses to connect Google Analytics to store. Only returned if the version is `2`.  |
 
 The version corresponds with the "Connect with Field" that a merchant is using to connect to Google Analytics. This connection field affects the fields that are requested and returned in [Get the Google Analytic](#get-the-google-analytic) and [Update the Google Analytic](#update-the-google-analytic).
 ![Version on Google Analytics](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Version%20for%20Google%20Analytics.png).
