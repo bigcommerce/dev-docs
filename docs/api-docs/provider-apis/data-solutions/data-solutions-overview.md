@@ -261,7 +261,7 @@ Accept: application/json
 | Field | Type | Description |
 | ------------- | -------- |  -------- |
 | id | integer | ID of the web analytic. `1` for Segment |
-| channel_id | integer | Id of the storefront channel. Default is `0`. |
+| channel_id | integer | ID of the storefront channel. Default is `0`. |
 | name | string | Name of Web Analytic `Segment` |
 | enabled | boolean | Indicates whether merchant has [enabled Segment](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
 | api_key | string | Segment API key used to connect store to Segment |
