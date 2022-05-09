@@ -1,6 +1,6 @@
 # Data Solutions API
 
-The Data Solutions API allows you to configure **storefront** channel settings for a store's prebuilt data analytic solutions.  
+The Data Solutions API lets you configure **storefront** channel settings for a store's prebuilt data analytic solutions.  
 
 Note that a store has global settings for data solutions, from which any storefront channel can inherit. A merchant can override these global settings with storefront-specific settings for their data solutions. This API configures settings for **storefront** channels at the store's global level (`channel_id` is 0) and at the specific storefront channel level.   
 
