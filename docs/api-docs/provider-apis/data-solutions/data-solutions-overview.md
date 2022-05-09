@@ -190,7 +190,7 @@ Accept: application/json
 | Field | Type | Description |
 | ------------- | -------- |  -------- |
 | id | integer | Id of the Web Analytic. `1` for Facebook Pixel |
-| channel_id | integer | Id of the storefront channel. Default is `0`. |
+| channel_id | integer | ID of the storefront channel. Default is `0`. |
 | name | string | Name of Web Analytic `Facebook Pixel` |
 | enabled | boolean | Indicates whether merchant has [enabled Facebook Pixel](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
 | pixel_id | string | Facebook Pixel ID used to connect store to Facebook Pixel |
