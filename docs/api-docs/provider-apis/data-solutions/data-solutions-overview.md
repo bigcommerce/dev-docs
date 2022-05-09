@@ -332,7 +332,7 @@ Accept: application/json
 | ------------- | -------- |  -------- |
 | id | integer | Id of the Web Analytic. `1` for Site Verification Tags |
 | channel_id | integer | Id of the storefront channel. Default is `0`. |
-| name | string | Name of Web Analytic `Site Verification Tags` |
+| name | string | Name of web analytic `Site Verification Tags` |
 | enabled | boolean | Indicates whether merchant has [enabled Site Verification Tags](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
 | verification_tag | string | Site Verification Tag |
 
