@@ -169,4 +169,4 @@ For the complete list of API endpoints, see [BundleB2B OpenAPI Documentation](ht
 - [RESTful APIs call](https://developer.bundleb2b.net/storefront/api-call.html)
 - [Customize display text](https://developer.bundleb2b.net/storefront/text.html)
 - [Customize page containers](https://developer.bundleb2b.net/storefront/containers.html)
-- [Javascript overwrite or injection](https://developer.bundleb2b.net/storefront/js.html)
+- [JavaScript overwrite or injection](https://developer.bundleb2b.net/storefront/js.html)
