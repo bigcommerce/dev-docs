@@ -80,22 +80,28 @@
         },
         {
           "type": "item",
+          "title": "Faceted and Textual Search",
+          "href": "/api-docs/storefront/graphql/search",
+          "uri": "docs/api-docs/storefront/graphql/graphql-faceted-textual-search.md"
+        },
+        {
+          "type": "item",
           "title": "Code Samples",
           "href": "/api-docs/storefront/graphql/graphql-storefront-api-samples",
           "flag": "code samples",
           "uri": "docs/api-docs/storefront/graphql/graphql-api-examples.md"
         },
+        // {
+        //   "type": "item",
+        //   "title": "Storefront GraphQL Explorer",
+        //   "href": "",
+        //   "uri": ""
+        // },
         {
           "type": "item",
-          "title": "GraphQL Playground",
+          "title": "Storefront GraphQL Playground",
           "href": "/api-docs/storefront/graphql/playground",
-          "uri": "assets/html/graphql/playground.html"
-        },
-        {
-          "type": "item",
-          "title": "GraphQL Explorer",
-          "href": "/api-docs/storefront/graphql/explorer",
-          "uri": "assets/html/graphql/voyager.html"
+          "uri": "https://developer.bigcommerce.com/graphql-playground"
         }
       ]
     },
@@ -760,6 +766,22 @@
     },
     {
       "type": "divider",
+      "title": "Working with Analytics"
+    },
+    {
+      "type": "item",
+      "title": "Channel-Aware Data Solutions",
+      "href": "/api-docs/store-management/settings/data-solutions",
+      "uri": "docs/api-docs/analytics/data-solutions-overview.md"
+    },
+    {
+      "type": "item",
+      "title": "Big Open Data Layer (BODL)",
+      "href": "/api-docs/partner/analytics-solutions/bodl",
+      "uri": "docs/api-docs/analytics/bodl-overview.md"
+    },
+    {
+      "type": "divider",
       "title": "Partner Information"
     },
     {
@@ -893,18 +915,6 @@
       "title": "Staying Current with Platform Changes",
       "href": "/api-docs/partner/staying-current",
       "uri": "docs/api-docs/partner/staying-current.md"
-    },
-    {
-      "type": "group",
-      "title": "Analytics Solutions",
-      "items": [
-        {
-          "type": "item",
-          "title": "Big Open Data Layer (BODL)",
-          "href": "/api-docs/partner/analytics-solutions/bodl",
-          "uri": "docs/api-docs/analytics/bodl-overview.md"
-        }
-      ]
     },
     {
       "type": "group",
