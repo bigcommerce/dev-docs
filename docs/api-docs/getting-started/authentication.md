@@ -61,7 +61,13 @@ Learn more about working with the [Tax Provider API](/api-docs/providers/tax).
 X-Auth-Token: {{grant_code_generated_access_token}}
 ```
 
-## Class IV: Storefront REST APIs
+## Class IV: Payment Processing API
+
+The Payment Processing API uses a unique authentication.
+
+For OAuth scope and implementation details, consult the[Payments API](/api-docs/store-management/payment-processing) article and the API reference for [Create a payment access token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) and [Process a payment](/api-reference/store-management/payment-processing/process-payment/paymentspost).
+
+## Class V: Storefront REST APIs
 ### Customer Login API
 
 The Customer Login API facilitates alternative sign-in methods by letting your app generate JWTs that authenticate customers to BigCommerce's servers. Create an app OAuth API account to use the Customer Login API for single sign-on.
