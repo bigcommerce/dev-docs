@@ -16,8 +16,10 @@ BigCommerce's OAuth API accounts access tokens to authenticate requests. Create 
 
 For more details, see [Obtaining Store API Credentials](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
 
-```http title="Example access token authentication header"
+```http title="Example request with the X-Auth-Token header"
+METHOD https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
 X-Auth-Token: {{access_token}}
+Accept: ...
 ```
 
 <!-- theme: info -->
@@ -47,7 +49,47 @@ For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/g
 > * The [Tax Provider API](/api-docs/providers/tax), which connects tax calculation and filing services to stores.
 > Depending on your use case, you might choose to interact with a third-party provider app using a store API account. 
 
-## Dynamic tokens: the Authorization header and beyond
+## Dynamic tokens: the Authorization header
+
+Consult the REST token generation endpoint that corresponds to your use case to determine the required OAuth scope before you create an OAuth API account to request dynamic tokens.
+
+First, request a short term token by hitting a REST endpoint that uses an X-Auth-Token header using an API account with OAuth scopes that allow the actions you want the Auth header request to do.
+
+```http title="Example request for a limited-use Authentication header token"
+METHOD https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/some-token-generating-endpoint
+X-Auth-Token: {{access_token}} # the OAuth scopes of this access token allow the stuff you want to do with the limited-use token
+Accept: ...
+
+... # request body, if any
+
+```
+&nbsp;
+```json title="Example response with limited-use token"
+{
+  // ... other response object properties
+  "someTokenKey": "0123456789abcdef" // the name of the token property varies
+                                     // the token datatype varies
+}
+```
+
+1. The second step varies based on the endpoint
+
+
+
+### GraphQL APIs
+
+You can use a store management OAuth API account to request JWT-style bearer tokens to authenticate your GraphQL queries. Pass the string `Bearer {{token}}` as the `Authorization` header of the query you want to authenticate.
+
+For more details, see [GraphQL API Authentication](/api-docs/storefront/graphql/graphql-storefront-api-overview#authentication) and [Obtaining Store API Credentials](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
+
+```http title="GraphQL authentication header"
+
+Authorization: Bearer {{generated_jwt}}
+Content-Type: application/json
+```
+
+
+* payment processing
 
 ## Class II: GraphQL APIs
 
