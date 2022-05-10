@@ -2,7 +2,7 @@
 
 The Data Solutions API lets you configure **storefront** channel settings for a store's prebuilt data analytic solutions.  
 
-Note that a store has global settings for data solutions, from which any storefront channel can inherit. A merchant can override these global settings with storefront-specific settings for their data solutions. This API configures settings for **storefront** channels at the store's global level (`channel_id` is `0`) and at the specific storefront channel level (using `channel_id` in the query). If no channel ID is specified in the query, the default channel is the global channel `0`.    
+Note that a store has global settings for data solutions, from which any storefront channel can inherit. A merchant can override these global settings with storefront-specific settings for their data solutions. This API configures settings for **storefront** channels at the store's global level (`channel_id` is `0`) and at the specific storefront channel level (by specifying a `channel_id` in the query). If no channel ID is specified in the query, the default channel is the global channel `0`.    
 
 <!-- theme: info -->
 > **Note**: You can obtain storefront channel IDs using [Get All Channels](/api-reference/store-management/channels/channels/listchannels). 
