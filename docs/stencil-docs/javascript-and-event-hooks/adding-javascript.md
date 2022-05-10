@@ -1,4 +1,4 @@
-# Adding Javascript to Your Stencil Theme
+# Adding JavaScript to Your Stencil Theme
 
 
 
@@ -34,7 +34,7 @@ Many third-party JavaScript components are distributed with npm. When you use th
 
 The npm package manager facilitates the management of third-party JavaScript components by placing each JavaScript component in the correct directories. However, as a developer, you will still need to edit your theme files to wire up the JavaScript component to expose it on your storefront. You will find several examples of this on the following pages.
 
-## Page types and Javascript API
+## Page types and JavaScript API
 
 Stencil themes include an API for running JavaScript on a per-page basis. To properly write JavaScript for your theme, you will have the following page types available to you:
 
