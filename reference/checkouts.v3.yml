@@ -2591,5 +2591,9 @@ responses:
           order_confirmation_use_custom_checkout_script: false
           custom_order_confirmation_script_url: 'https://example.com/custom-order-confirmation-script.js'
         meta: {}
-security:
-  - X-Auth-Token: []
+      'WebDAV protocol':
+        data:
+          custom_checkout_script_url: 'webdav:vtz-checkout/dist/auto-loader.js'
+          order_confirmation_use_custom_checkout_script: false
+          custom_order_confirmation_script_url: 'webdav:vtz-order-confirmation/dist/auto-loader.js'
+        meta: {}
