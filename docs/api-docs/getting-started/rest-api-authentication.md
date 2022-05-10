@@ -68,7 +68,8 @@ To revoke store API credentials, you must delete the corresponding store API acc
 <!-- theme: error -->
 > #### Delete carefully
 > Deleting an account cannot be undone, so be sure before clicking the trash can icon. You can also use the checkboxes on the left side to delete multiple accounts at once – but be especially careful when using this option.
-> 
+
+
 ### Deleting a store API account
 
 To delete a store API account:
@@ -118,6 +119,7 @@ To get app API credentials, create and sign in to your BigCommerce [Developer Po
 During the app installation process, your app uses the client ID and client secret to obtain an OAuth token authorized against the store installing the app. For a detailed look at this process, see [Authenticating an app](/api-docs/apps/guide/auth).
 
 ## Use cases by credential type
+??revise??
 
 | Use Case | App API Credentials | Store API Credentials |
 |:---|:---:|:---:|

@@ -4,18 +4,50 @@ BigCommerce offers a suite of APIs that let you manage store data, sign customer
 
 Although each class of APIs configures authentication differently, all BigCommerce authentication credentials have their roots in the OAuth2.0 standard.
 
-## Class I: Store Management REST APIs
+## Static tokens: the X-Auth-Token header
 
-BigCommerce's Store Management REST APIs use OAuth API account access tokens to authenticate requests. Create a store management OAuth API account to generate and manage access tokens, and pass the access token in the header of the request you want to authenticate.
+* X-Auth-Token header is for rest endpoints only, but not all rest endpoints use it
+* it takes the access_token from store or app credentials
+* permissions come from OAuth scope
+* callout on provider APIs
+* cover the difference between app & store here or in rest-api-authentication?
+
+BigCommerce's OAuth API accounts access tokens to authenticate requests. Create a store management OAuth API account to generate and manage access tokens, and pass the access token in the header of the request you want to authenticate.
 
 For more details, see [Obtaining Store API Credentials](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
 
-```http title="Store management REST authentication header"
+```http title="Example access token authentication header"
 X-Auth-Token: {{access_token}}
 ```
 
 <!-- theme: info -->
 > Legacy API accounts used HTTP basic authentication. They are no longer available to new stores. [Learn more about migrating](/api-docs/getting-started/authentication/rest-api-authentication#migrating-from-legacy-to-oauth). 
+
+### App credentials versus store credentials
+
+* Store credentials can never have a different access token
+* Can't modify the scope
+* If compromised, must be deleted
+* Will never apply to more than one store
+* Update and delete access to some properties, much as [metafields](), is restricted to the API account that created them. If this is a problem, choose app credentials
+
+* App credentials require you to register a [Developer Portal]() account
+* Can modify the scope
+* Can force generation of new access tokens by modifying scope
+* As long as client id & secret are secure, can force generation of new access tokens to re-secure applications
+* The new access tokens can then update and delete API account-restricted resources, such as [metafields]()
+* Can be used on multiple store: is liberated from the scope of a single store when the app is approved to be a public production app
+
+For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/guide/intro). The sections on [Implementing OAuth](/api-docs/apps/guide/auth) and [Callback Handlers](/api-docs/apps/guide/callbacks) are particularly relevant to generating access tokens.
+
+<!-- theme: info -->
+> #### App-specific APIs
+> We recommend that you implement some REST APIs exclusively through an app. These APIs currently include the following:
+> * The [Shipping Provider API](/api-docs/providers/shipping), which connects a shipping service to stores and supports a range of shipping-related actions, such as custom rate table calculations.
+> * The [Tax Provider API](/api-docs/providers/tax), which connects tax calculation and filing services to stores.
+> Depending on your use case, you might choose to interact with a third-party provider app using a store API account. 
+
+## Dynamic tokens: the Authorization header and beyond
 
 ## Class II: GraphQL APIs
 
@@ -35,31 +67,12 @@ Create an app OAuth API account to enable your app to request and manage BigComm
 
 You can change the scope of an app OAuth API account at any time. When you modify the OAuth scope, BigCommerce will invalidate the API account's existing access tokens. To facilitate generating new access tokens, BigCommerce will prompt your users to reauthorize the app so that they can accept the new OAuth scope.
 
-For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/guide/intro). The sections on [Implementing OAuth](/api-docs/apps/guide/auth) and [Callback Handlers](/api-docs/apps/guide/callbacks) are particularly relevant to generating access tokens.
+
 
 ```http title="App authentication header for store management APIs"
 X-Auth-Token: {{grant_code_generated_access_token}}
 ```
 
-### Shipping Provider API
-
-The Shipping Provider API connects a shipping service to stores and supports a range of shipping-related actions, such as custom rate table calculations. You must create or work within an app to use the Shipping Provider API. Create an app OAuth API account to use it.
-
-Learn more about working with the [Shipping Provider API](/api-docs/providers/shipping).
-
-```http title="App authentication header for the Shipping Provider API"
-X-Auth-Token: {{grant_code_generated_access_token}}
-```
-
-### Tax Provider API
-
-The Tax Provider API connects tax calculation and filing services to stores. You must create or work within an app to use the Tax Provider API. Create an app OAuth API account to use it.
-
-Learn more about working with the [Tax Provider API](/api-docs/providers/tax).
-
-```http title="App authentication header for the Tax Provider API"
-X-Auth-Token: {{grant_code_generated_access_token}}
-```
 
 ## Class IV: Payment Processing API
 
