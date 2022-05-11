@@ -214,7 +214,7 @@
           "type": "item",
           "title": "Handlebars Reference",
           "href": "/api-docs/store-management/email-templates/handlebars",
-          "uri": "https://raw.githubusercontent.com/bigcommerce/api-specs/master/models/email_templates/_all.yml"
+          "uri": "https://developer.bigcommerce.com/api-docs/store-management/email-templates/handlebars"
         }
       ]
     },
@@ -589,7 +589,7 @@
         },
         {
           "type": "item",
-          "title": "Creating Channel Webooks",
+          "title": "Creating Channel Webhooks",
           "href": "/api-docs/channels/guide/webhooks",
           "flag": "new",
           "uri": "docs/api-docs/channels/channel-webhooks.md"
@@ -893,6 +893,18 @@
       "title": "Staying Current with Platform Changes",
       "href": "/api-docs/partner/staying-current",
       "uri": "docs/api-docs/partner/staying-current.md"
+    },
+    {
+      "type": "group",
+      "title": "Analytics Solutions",
+      "items": [
+        {
+          "type": "item",
+          "title": "Big Open Data Layer (BODL)",
+          "href": "/api-docs/partner/analytics-solutions/bodl",
+          "uri": "docs/api-docs/analytics/bodl-overview.md"
+        }
+      ]
     },
     {
       "type": "group",
