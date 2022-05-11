@@ -87,6 +87,11 @@
         },
         {
           "type": "item",
+          "title": "Faceted and Textual Search",
+          "uri": "docs/api-docs/storefront/graphql/graphql-faceted-textual-search.md"
+        },
+        {
+          "type": "item",
           "title": "GraphQL Playground",
           "href": "/api-docs/storefront/graphql/playground",
           "uri": "assets/html/graphql/playground.html"
