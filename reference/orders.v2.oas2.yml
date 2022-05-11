@@ -681,7 +681,7 @@ paths:
       operationId: getAllOrderShipments
     post:
       description: |
-        Creates an *Order Shipment*. For more details, see [Shipping an Order](/api-docs/orders/orders-api-overview#shipping-an-order).
+        Creates an *Order Shipment*. For more details, see [Shipping an Order](/api-docs/orders/orders-api-overview#creating-order-shipments).
 
         **Required Fields**
         *   order_address_id
@@ -703,20 +703,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/orderShipment_Post'
-            examples:
-              application/json:
-                value:
-                  tracking_number: EJ958083578UK
-                  comments: Janes Order
-                  order_address_id: '128'
-                  shipping_provider: ''
-                  items:
-                    - order_product_id: 194
-                      product_id: 0
-                      quantity: 1
-                    - order_product_id: 195
-                      product_id: 0
-                      quantity: 1
+            examples: {}
         required: true
       responses:
         '201':
@@ -4414,11 +4401,11 @@ components:
           example: '0.0000'
           type: string
         currency_id:
-          description: The display currency ID. Depending on the currency selected, the value can be different from the transactional currency. A read-only value. Do not pass in a POST or PUT. In v2 display currency is set to the transactional currency, 'default_currency_id'.
+          description: 'The display currency ID. Depending on the currency selected, the value can be different from the transactional currency. A read-only value. Do not pass in a POST or PUT. In v2 display currency is set to the transactional currency, ''default_currency_id''.'
           example: 1
           type: integer
         currency_code:
-          description: The currency code of the display currency used to present prices to the shopper on the storefront. Depending on the currency selected, the value can be different from the transactional currency. A read-only value. Do not pass in a POST or PUT.
+          description: 'The currency code of the display currency used to present prices to the shopper on the storefront. Depending on the currency selected, the value can be different from the transactional currency. A read-only value. Do not pass in a POST or PUT.'
           example: USD
           type: string
         currency_exchange_rate:
@@ -4429,14 +4416,14 @@ components:
           description: The transactional currency ID. A read-only value. Do not pass in a POST or PUT.
           example: 1
           type: integer
-        default_currency_code:     
+        default_currency_code:
           description: The currency code of the transactional currency the shopper pays in.
           example: EUR
           type: string
-        store_default_currency_code: 
-         description: The currency code of the store's default currency.
-         example: USD
-         type: string
+        store_default_currency_code:
+          description: The currency code of the store's default currency.
+          example: USD
+          type: string
         store_default_to_transactional_exchange_rate:
           description: The exchange rate between the store's default currency and the transactional currency used in the order.
           example: '100.0000000000'
