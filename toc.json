@@ -214,7 +214,7 @@
           "type": "item",
           "title": "Handlebars Reference",
           "href": "/api-docs/store-management/email-templates/handlebars",
-          "uri": "docs/stencil-docs/reference-docs/handlebars-helpers-reference.md"
+          "uri": "https://developer.bigcommerce.com/api-docs/store-management/email-templates/handlebars"
         }
       ]
     },
