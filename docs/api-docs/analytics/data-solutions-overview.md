@@ -45,7 +45,7 @@ The version corresponds with the "Connect with Field" that a merchant uses to co
 When a merchant uses a tracking code for the connection field, your response will have a version of `1` and the `tracking_code` field. If a merchant has not entered a tracking code, `tracking_code` will return as an empty string.
 
 ```JSON title="Sample Request" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -92,7 +92,7 @@ Accept: application/json
 ### Update the Google Analytic
 
 ```JSON title="Sample Request" lineNumbers
-PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics{id}
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -139,7 +139,7 @@ Accept: application/json
 If a merchant has not entered a VWO Smartcode, `vwo_smartcode` will return as an empty string.
 
 ```JSON title="Sample Request" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -162,7 +162,7 @@ Accept: application/json
 
 
 ```JSON title="Sample Request" lineNumbers
-PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -205,7 +205,7 @@ Accept: application/json
 If a merchant has not entered a Pixel ID, `pixel_id` will return as an empty string.
 
 ```JSON title="Sample Request" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -229,7 +229,7 @@ Accept: application/json
 
 
 ```JSON title="Sample Request" lineNumbers
-PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -276,7 +276,7 @@ Accept: application/json
 If a merchant has not entered an API Key, `api_key` will return as an empty string.
 
 ```JSON title="Sample Request" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -299,7 +299,7 @@ Accept: application/json
 ### Update the Segment Analytic
 
 ```JSON title="Sample Request" lineNumbers
-PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -345,7 +345,7 @@ Accept: application/json
 If a merchant has not entered a verification tag, `verification_tag` will return as an empty string.
 
 ```JSON title="Sample Request" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -367,7 +367,7 @@ Accept: application/json
 ### Update the Site Verification Tags Analytic
 
 ```JSON title="Sample Request" lineNumbers
-PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -412,7 +412,7 @@ Accept: application/json
 If a merchant has not entered an Affiliate Conversion Tracking Code, `connection` will return as an empty string.
 
 ```JSON title="Sample Request" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -431,7 +431,7 @@ Accept: application/json
 ### Update the Affiliate Conversion Tracking Analytic
 
 ```JSON title="Sample Request" lineNumbers
-PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -469,7 +469,7 @@ Accept: application/json
 All six web analytics will be returned. As shown, fields for codes (such as `verification_tag`) in which a merchant has not entered a value will return as an empty string.     
 
 ```JSON title="Sample Request" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
