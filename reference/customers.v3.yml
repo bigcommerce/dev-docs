@@ -2788,7 +2788,7 @@ components:
           type: array
           maxItems: 10
           items:
-            $ref: '#/components/schemas/customerAddresses_Base'
+            $ref: '#/components/schemas/customerAddresses_CustomerPost'
         attributes:
           description: Array of customer attributes. Limited to 10.
           type: array
@@ -3359,6 +3359,94 @@ components:
         - country_code
       description: The `address` object for the `customer` object's `addresses` array.
       x-internal: false
+    customerAddresses_CustomerPost:
+      title: customerAddresses_CustomerPost
+      example:
+        address1: Addr 1
+        address2: ''
+        address_type: residential
+        city: San Francisco
+        company: History
+        country_code: US
+        first_name: Ronald
+        last_name: Swimmer
+        phone: '707070707'
+        postal_code: '33333'
+        state_or_province: California
+        form_fields: 
+          - name: "test"
+            value: "test"
+      type: object
+      properties:
+        first_name:
+          description: The first name associated with the customer address.
+          type: string
+          minLength: 1
+          maxLength: 255
+        last_name:
+          description: The last name of the customer address.
+          type: string
+          minLength: 1
+          maxLength: 255
+        company:
+          description: The company of the customer address.
+          type: string
+          minLength: 0
+          maxLength: 255
+        address1:
+          description: The address 1 line.
+          type: string
+        address2:
+          description: The address 2 line.
+          type: string
+        city:
+          description: The city of the customer address.
+          type: string
+          minLength: 0
+          maxLength: 100
+        state_or_province:
+          description: The state or province name. Required for countries in which valid addresses must contain a state/province.
+          type: string
+          minLength: 0
+          maxLength: 100
+        postal_code:
+          description: The postal code of the customer address. Required for countries in which valid addresses must have postal codes.
+          type: string
+          minLength: 0
+          maxLength: 30
+        country_code:
+          description: The country code of the customer address.
+          type: string
+          minLength: 2
+          maxLength: 2
+        phone:
+          description: The phone number of the customer address.
+          type: string
+          minLength: 0
+          maxLength: 50
+        address_type:
+          title: Address Type
+          description: The address type. Residential or Commercial.
+          example: residential
+          type: string
+          enum:
+            - residential
+            - commercial
+        form_fields:
+          description: Array of form fields. Controlled by `formfields` parameter.
+          type: array
+          items:
+            allOf:
+              - $ref: "#/components/schemas/formFieldValue"
+            title: 'Customer Address Form Field Value'    
+      required:
+        - first_name
+        - last_name
+        - address1
+        - city
+        - country_code
+      description: The `address` object for the `customer` object's `addresses` array.
+      x-internal: false  
     customerAuthentication_PostPut:
       title: customerAuthentication_PostPut
       allOf:
