@@ -56,7 +56,12 @@ See [GraphQL Playground](/graphql-playground) for descriptions of each filter.
 
 To get products, specify `products` as a field in `searchProducts`. Here is an example request that returns the first two products with a rating between three and five: 
 
-```GraphQL title="Request" lineNumbers
+<!--
+type: tab
+title: GQL Query
+-->
+
+```GraphQL lineNumbers
 query {
   site {
     search {
@@ -86,7 +91,13 @@ query {
   }
 }
 ```
-```JSON title="Response" lineNumbers
+
+<!--
+type: tab
+title: JSON Response
+-->
+
+```JSON lineNumbers
 {
   "data": {
     "site": {
@@ -124,10 +135,16 @@ query {
   }
 }
 ```
+<!-- type: tab-end -->
 
 You can sort the products that are returned using the `sort` field. Here is an example request that searches for products using a search term and sorts the products in alphabetical order:
 
-```GraphQL title="Request" lineNumbers
+<!--
+type: tab
+title: GQL Query
+-->
+
+```GraphQL lineNumbers
 query {
   site {
     search {
@@ -155,7 +172,12 @@ query {
   }
 }
 ```
-```JSON title="Response" lineNumbers
+<!--
+type: tab
+title: JSON Response
+-->
+
+```JSON lineNumbers
 {
   "data": {
     "site": {
@@ -226,6 +248,9 @@ query {
   }
 }
 ```
+
+<!-- type: tab-end -->
+
 The `sort` affects only the list of products returned. A merchant's [Product Filtering settings](https://support.bigcommerce.com/s/article/Product-Filtering-Settings?language=en_US#setup) determines how facets are sorted. 
 
 <!-- theme: info -->
@@ -237,7 +262,12 @@ The `sort` affects only the list of products returned. A merchant's [Product Fil
 
 To get facets, specify `filters` as a field in `searchProducts`. Here is an example request that returns facets that have products with a rating between three and five: 
 
-```GraphQL title="Request" lineNumbers
+<!--
+type: tab
+title: GQL Query
+-->
+
+```GraphQL lineNumbers
 query {
   site {
     search {
@@ -352,8 +382,12 @@ query {
   }
 }
 ```
+<!--
+type: tab
+title: JSON Response
+-->
 
-```JSON title="Response" lineNumbers
+```JSON lineNumbers
 {
   "data": {
     "site": {
@@ -561,12 +595,19 @@ query {
   }
 }
 ```
+<!-- type: tab-end -->
 
 ## Putting it all Together: Products and Facets
 
 To get both products and facets, specify `products` and `filters` as a field in `searchProducts`. 
 
-```GraphQL title="Request" lineNumbers
+<!--
+type: tab
+title: GQL Query
+-->
+
+
+```GraphQL lineNumbers
 query {
   site {
     search {
@@ -696,8 +737,12 @@ query {
   }
 }
 ```
+<!--
+type: tab
+title: JSON Response
+-->
 
-```JSON title="Response" lineNumbers
+```JSON lineNumbers
 {
   "data": {
     "site": {
@@ -931,10 +976,11 @@ query {
   }
 }
 ```
+<!-- type: tab-end -->
 
 If a merchant has not enabled product filtering, you will receive an empty array for the returned facets, though products will still be returned:
 
-```JSON title="Response" lineNumbers
+```JSON title="JSON Response" lineNumbers
 {
   "data": {
     "site": {
