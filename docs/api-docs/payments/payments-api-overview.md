@@ -236,7 +236,7 @@ Content-Type: application/json
 
 To process a payment using a stored PayPal account, set the `type` to `stored_paypal_account`. 
 
-```http title="Example request: Process payment and save PayPal account" lineNumbers
+```http title="Example request: Process payment with a stored PayPal account" lineNumbers
 POST https://payments.bigcommerce.com/stores/{{STORE_HASH}}/payments
 Accept: application/vnd.bc.v1+json
 Content-Type: application/json
@@ -545,6 +545,6 @@ Payment gateways that use 3D Secure meet the EU's Strong Customer Authentication
 * [Process Payment](/api-reference/payments/payments-process-payments/payment/paymentspost)
 
 ### Webhooks
-* [Cart](/api-docs/store-management/webhooks/webhook-events#cart)
+* [Carts](/api-docs/store-management/webhooks/webhook-events#carts)
 * [Customer Payment Instrument](/api-docs/store-management/webhooks/webhook-events#customer)
 * [Orders](/api-docs/store-management/webhooks/webhook-events#orders)
