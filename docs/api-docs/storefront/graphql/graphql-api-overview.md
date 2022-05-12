@@ -161,7 +161,7 @@ fetch('/graphql', {
 It's also possible to generate tokens for use in server-to-server interactions with a trusted consumer using the [Create a customer impersonation token](/api-reference/storefront/graphql-api-tokens/customer-impersonation-token/createtokenwithcustomerimpersonation) endpoint.
 
 ```http title="Example request: Create a customer impersonation token"
-POST https://api.bigcommerce.com/stores/{store_id}/v3/storefront/api-token-customer-impersonation
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/api-token-customer-impersonation
 X-Auth-Token: {{access_token}}
 Accept: application/json
 Content-Type: application/json
