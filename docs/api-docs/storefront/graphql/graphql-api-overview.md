@@ -1,6 +1,8 @@
 # GraphQL Storefront API Overview
 
-
+<!-- theme: success -->
+> #### Early access
+> The GraphQL Storefront API is in early access and is feature-incomplete. It will remain in early access until we reach the minimum amount of functionality necessary to power an end-to-end shopping experience. As new features are added to the API, we'll announce them in our [Developer Changelog](/changelog#labels/storefront-api).
 
 BigCommerce's GraphQL Storefront API makes it possible to query storefront data from within a [Stencil](/stencil-docs/getting-started/about-stencil) theme or remote site. This means information previously only available on the back-end using [Stencil's template logic](/stencil-docs/reference-docs/global-objects-and-properties) can now be accessed with front-end JavaScript. For example, with the GraphQL Storefront API, it is possible to do the following:
 
@@ -15,11 +17,9 @@ Additionally, by leveraging the power of [GraphQL](https://graphql.org/), data f
 
 This article is a general overview of BigCommerce's GraphQL Storefront API; it includes sections on authentication and how to access a store's GraphQL Playground. To see specific examples of how GraphQL can be used to query storefront data, see [GraphQL Storefront API Example Queries](/api-docs/storefront/graphql/graphql-storefront-api-samples).
 
-<!-- theme: warning -->
+<!-- theme: info -->
 > #### Note
-> * The GraphQL Storefront API is in early access and is feature-incomplete. It will remain in early access until we reach the minimum amount of functionality necessary to power an end-to-end shopping experience.
-> * As new features are added to the API, we'll announce them in our [Developer Changelog](/changelog#labels/storefront-api).
-> * BigCommerce legacy Blueprint themes currently do not support the GraphQL API and Playground.
+> BigCommerce legacy Blueprint themes do not support the GraphQL API and Playground.
 
 ## See it in action
 
