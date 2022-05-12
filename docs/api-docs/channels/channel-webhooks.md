@@ -219,7 +219,7 @@ The following emails webhook events fire in response to actions that affect a sp
 
 Emails payload objects take the form that follows:
 
-```json title="Example notifications payload object" lineNumbers
+```json title="Example emails payload object" lineNumbers
 {
  "store_id": "11111",
  "producer": "stores/abcde",
@@ -314,11 +314,11 @@ For a complete reference of all BigCommerce webhook events and their callback pa
 
 ## Price list assignments
 
-The following pricelist assignment webhook events fire in response to actions that affect a specific channel on a store:
+The following price list assignment webhook event fires in response to actions that affect a specific channel on a store:
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| store/priceList/assignment/updated       | Fires when a pricelist assignment has changed (assigned, reassigned, or unassigned). | [Create price list assignments](/api-reference/store-management/price-lists/price-lists/createpricelist ) |
+| store/priceList/assignment/updated       | Fires when a price list assignment is assigned, reassigned, or unassigned. | [Create price list assignments](/api-reference/store-management/price-lists/price-lists/createpricelist ) |
 
 
 Price list assignment payload objects take the form that follows:
@@ -479,7 +479,7 @@ Site payload objects take the form that follows:
 }
 ```
 ## Social media links
-The following social media links webhook events fire in response to actions that affect a site associated with a specific channel on a store:
+The following social media links webhook event fires in response to actions that affect a site associated with a specific channel on a store:
 
 
 | Name / Scope | Description | Corresponding Endpoints |
@@ -489,7 +489,7 @@ The following social media links webhook events fire in response to actions that
 
 Social media link payload objects take the form that follows:
 
-```json title="Example theme payload object" lineNumbers
+```json title="Example social media links payload object" lineNumbers
 {
  "store_id": "11111",
  "producer": "stores/abcde",
