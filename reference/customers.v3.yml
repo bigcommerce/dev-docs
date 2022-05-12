@@ -319,7 +319,7 @@ paths:
                       .customer_create: Error creating customers
     put:
       description: |-
-        Updates Customers. Subresource updates are not supported. Multiple customers can be updated in one call.
+        Updates Customers. Subresource updates are not supported. Up to 10 customers can be updated in one call.
 
         **Required Fields**
         * id -- ID of the *Customer* This must be included in the request body
