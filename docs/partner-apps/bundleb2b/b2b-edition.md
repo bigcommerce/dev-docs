@@ -1,6 +1,6 @@
 # B2B Edition 
 
-The BigCommerce platform offers BundleB2B (B3) functionality which allows businesses to streamline online operations and improve experience for BigCommerce store owners and their customers.
+BigCommerce offers optional business-to-business (B2B) functionality with BundleB2B (B3), allowing businesses to streamline online operations and improve the experience for BigCommerce store owners and their B2B customers.
 
 The B2B Edition is a packaged offering of the BigCommerce Enterprise plan, B3, and [six BigCommerce themes optimized for B3](https://support.bigcommerce.com/s/article/B2B-Edition?language=en_US#themes).
 
@@ -13,8 +13,6 @@ B3 offers multiple B2B feature enhancements to your BigCommerce store, including
 - Invoice & payment management
 
 ## Installing B3 
-
-B3 comes pre-installed with your theme if you purchase the B2B Edition. If you purchased B3 separately for an existing BigCommerce plan, you can install the B3 app from the BigCommerce App Marketplace and manually integrate it with your BigCommerce theme.
 
 The B3 admin panel is accessible from the My Apps section of your store's dashboard. The client-facing portions of the app are loaded dynamically with JavaScript.
 
