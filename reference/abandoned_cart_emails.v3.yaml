@@ -17,10 +17,6 @@ produces:
 servers:
   - url: 'https://api.bigcommerce.com'
     description: BigCommerce API Gateway
-    variables:
-      store_hash:
-        default: abc123
-        description: Store hash used to identify the store.
 paths:
   '/stores/{store_hash}/v3/settings/marketing/abandoned-cart-emails':
     get:

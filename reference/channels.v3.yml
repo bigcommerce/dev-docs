@@ -696,7 +696,7 @@ x-stoplight:
 servers:
   - url: 'https://api.bigcommerce.com'
     variables:
-      $$.env.store_hash:
+      store_hash:
         default: store_hash
 components:
   parameters:

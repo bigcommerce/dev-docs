@@ -143,10 +143,6 @@ info:
 servers:
   - url: 'https://api.bigcommerce.com'
     description: Production API Gateway
-    variables:
-      store_hash:
-        default: abc123
-        description: Store hash used to identify the store.
 paths:
   '/stores/{store_hash}/v3/storefront/custom-template-associations':
     get:

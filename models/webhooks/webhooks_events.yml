@@ -32,7 +32,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/cart/lineItem/created
@@ -73,7 +73,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/cart/lineItem/updated
@@ -105,7 +105,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/cart/lineItem/deleted
@@ -146,7 +146,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/information/updated
@@ -172,7 +172,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/customer/created
@@ -198,7 +198,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/customer/updated
@@ -225,7 +225,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/customer/deleted
@@ -258,7 +258,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/sku/created
@@ -299,7 +299,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/sku/updated
@@ -330,7 +330,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/sku/deleted
@@ -356,7 +356,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/category/created
@@ -382,7 +382,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/category/updated
@@ -408,7 +408,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/category/deleted
@@ -434,7 +434,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/order/created
@@ -458,7 +458,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/order/deleted
@@ -491,7 +491,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/cart/created
@@ -532,7 +532,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/cart/updated
@@ -561,7 +561,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/cart/deleted
@@ -604,7 +604,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/product/created
@@ -628,7 +628,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/product/updated
@@ -671,7 +671,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/product/deleted
@@ -697,7 +697,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/cart/couponApplied
@@ -724,7 +724,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/cart/abandoned
@@ -755,7 +755,7 @@ paths:
                 id: 09346904-4175-44fd-be53-f7e598531b6c
               hash: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
               created_at: 1561482670
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
       tags:
         - Events
       summary: /store/cart/converted
@@ -888,7 +888,7 @@ paths:
             application/json:
               created_at: 1588186633
               store_id: your-store-id
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
               scope: store/shipment/created
               hash: 3f83e5a23d36021c4ce56d6ec0bc1342e7911a02
               data:
@@ -916,7 +916,7 @@ paths:
             application/json:
               created_at: 1588187671
               store_id: your-store-id
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
               scope: store/shipment/updated
               hash: d17122edf13c9ab42dbad6d27b20bcc2359969a1
               data:
@@ -943,7 +943,7 @@ paths:
             application/json:
               created_at: 1588187853
               store_id: your-store-id
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
               scope: store/shipment/deleted
               hash: 8f44a0a832b4a1a50c717e26a76cf55633fd90db
               data:
@@ -965,7 +965,7 @@ paths:
             application/json:
               created_at: 1588350739
               store_id: your-store-id
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
               scope: store/subscriber/created
               hash: 20c29c5a40f23b1ca7111e683f3062ceab48f732
               data:
@@ -993,7 +993,7 @@ paths:
             application/json:
               created_at: 1588352004
               store_id: your-store-id
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
               scope: store/subscriber/updated
               hash: cb693beb1655af64b9ab88ff6339f2f6f90f28cb
               data:
@@ -1017,7 +1017,7 @@ paths:
             application/json:
               created_at: 1588352705
               store_id: your-store-id
-              producer: 'stores/{$$.env.store_hash}'
+              producer: 'stores/{store_hash}'
               scope: store/subscriber/deleted
               hash: f696143917af309148b31978001c90317331a394
               data:
