@@ -41,8 +41,7 @@ The GraphQL Storefront API Playground will be opened.
 
 <!-- theme: info -->
 > #### Note
-> * GraphQL Playground is a [GraphQL IDE](https://github.com/andev-software/graphql-ide) built on Electron. For more information, see [GraphQL Playground](https://electronjs.org/apps/graphql-playground) on [electronjs.org](https://electronjs.org)
-> * If the **Storefront API Playground** link is not visible, the store may not be using a Stencil theme. Apply a Stencil theme to use the Storefront GraphQL API.
+> If the **Storefront API Playground** link is not visible, the store may not be using a Stencil theme. Apply a Stencil theme to use the Storefront GraphQL API.
 
 
 ## Using the GraphQL Playground
