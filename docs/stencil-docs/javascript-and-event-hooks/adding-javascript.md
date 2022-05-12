@@ -36,7 +36,7 @@ The npm package manager facilitates the management of third-party JavaScript com
 
 ## Page types and JavaScript API
 
-Stencil themes include an API for running JavaScript on a per-page basis. To properly write JavaScript for your theme, you will have the following page types available to you:
+To help you encapsulate your theme's logic, Stencil themes include an API for running JavaScript on a per-page basis. The following page types are available:
 
 * `pages/account/addresses`
 * `pages/account/add-address`
