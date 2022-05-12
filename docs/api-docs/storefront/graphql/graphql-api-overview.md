@@ -120,6 +120,10 @@ Content-Type: application/json
 ```
 &nbsp;
 <!-- theme: info -->
+> #### Notes
+> * The `allowed_cors_origins` array currently accepts only one origin. Generate a fresh token for each origin.
+> * The `channel_id` for the default Stencil storefront is `1`. To learn more about channels, see [the channels section of the Multi-Storefront Overview](/api-docs/multi-storefront/overview#channels). For more about using the GraphQL Storefront API on custom channels, consult this article's [FAQ section on alternate channels](#i-want-to-run-requests-in-the-context-of-another-channel).
+
 ```json title="Example response: Create a GraphQL Storefront API token" lineNumbers
 {
   "token":"...eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9...",
@@ -147,11 +151,6 @@ fetch('/graphql', {
 .catch(error => console.error(error));
 ```
 
-<!-- theme: warning -->
-> #### Note
-> * `1` can be passed in for the `channel_id` for generating tokens for use on the default Stencil storefront.
-> * To create a channel for a remote site, see [Create Channel](/api-reference/store-management/channels/channels/createchannel) in the API Reference.
-> * `allowed_cors_origins` array accepts only a single origin currently -- one token must be generated for each origin.
 
 ### Customer impersonation tokens
 
