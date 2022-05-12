@@ -269,48 +269,6 @@ In addition to JavaScript's native Fetch API, you can use GraphQL a client libra
 >   products(first: 10) 
 > ```
 
-## Querying from external systems
-
-If you wish to use the GraphQL Storefront API from an external system, there are a few considerations.
-
-- Which Channel do you wish to run requests in the context of?
-- Are you running requests from a server or a frontend application/browser?
-- If you are running requests from a frontend application, do you need to show customer-specific information or only anonymous information?
-- If you are running requests from a server, do you need the ability to impersonate customers?
-
-As a best practice, you should create tokens that expire and rotate them regularly before their expiry. However, you are also permitted to create long-lived tokens.
-
-#### I want to run requests in the context of the store's default channel (Channel ID 1)
-
-You have two options for public URLs you can use to run requests:
-
-- The store's default storefront URL, e.g. `https://store.com/graphql`
-- The store's permanent URL, e.g. `https://store-STOREHASH.mybigcommerce.com/graphql`
-
-#### I want to run requests from the perspective of another Channel
-
-You should use the Channel's Permanent URL of the form `https://store-STOREHASH-CHANNELID.mybigcommerce.com/graphql`.
-
-For example, if your store hash is `abc123` and your channel ID is `456`, the correct URL would be `https://store-abc123-456.mybigcommerce.com/graphql`.
-
-Note that you must create your Storefront API Token with the same channel ID, or your request will be rejected.
-
-In order for the Channel's Permanent URL to be available, you must [create a Site](/api-reference/cart-checkout/sites-routes-api/sites/post-site) for the channel.
-
-#### I want to run requests from a frontend application or browser (e.g. React app), and I only show anonymous information/I do not support logging in as a customer
-
-Use a normal Storefront API Token. You can use an anonymous `fetch` or `XHR` mode that does not send cookies along with the request. When creating your token, be sure to specify the origin from which your requests will be run in order to whitelist this origin for [CORS.](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
-
-
-#### I want to run requests from a server and I don't need customer impersonation abilities
-
-Use normal Storefront API Tokens. According to the [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), you should not create a token that has permissions you do not need.
-
-
-#### I want to run requests from a server and I need customer impersonation abilities
-
-Use a Customer Impersonation Storefront API Token and store it securely on your server like other secrets. When you need to run requests in the context of a particular Customer (for example, if they've logged in to your application), send their BigCommerce Customer ID along with the request as the `X-Bc-Customer-Id` header.
-
 ## Pagination
 
 The GraphQL Storefront API follows the [GraphQL Cursor Connections Specification](https://facebook.github.io/relay/graphql/connections.htm) for pagination. If this is your first time working with GraphQL pagination, see [Apollo's Blog Post "Explaining GraphQL Connections"](https://blog.apollographql.com/explaining-graphql-connections-c48b7c3d6976) for an accessible introduction. If you've worked with other GraphQL APIs, pagination on BigCommerce should look familiar.
@@ -591,6 +549,51 @@ To reduce complexity, reduce the number of objects requested. For example, do th
 * Request less fields.
 
 Image queries will return 10 by default.
+
+
+## FAQ: Querying from alternate channels and external systems
+
+If you wish to use the GraphQL Storefront API from an external system, there are a few considerations.
+
+- Which channel do you wish to run requests in the context of?
+- Are you running requests from a server or a front-end application?
+- If you are running requests from a front-end application, do you need to show customer-specific information, or only anonymous information?
+- If you are running requests from a server, do you need the ability to impersonate customers?
+
+As a best practice, you should create tokens that expire and rotate them regularly before their expiry. However, you are also permitted to create long-lived tokens.
+
+#### I want to run requests in the context of the store's default channel (channel ID 1)
+
+There are two public URLs you can use to run requests:
+
+- The storefront's vanity URL; for example, `https://example.com/graphql`
+- The store's permanent URL; for example, `https://store-STOREHASH.mybigcommerce.com/graphql`
+
+#### I want to run requests in the context of another channel
+
+Use the channel's permanent URL of the form `https://store-STOREHASH-CHANNELID.mybigcommerce.com/graphql`.
+
+For example, if your store hash is `abc123` and your channel ID is `456`, the channel's permanent URL is `https://store-abc123-456.mybigcommerce.com/graphql`. 
+
+To create a channel's permanent URL, [Create a site](/api-reference/store-management/sites/sites/post-site) for the channel.
+
+<!-- theme: info -->
+> #### Note 
+> When you create a GraphQL Storefront API token, include the channel ID of the channel on which you wish to use the token. Otherwise, your requests will be rejected. See this article's section on [Creating a token](#creating-a-token).
+
+#### I want to run requests from a front-end application or browser. I only show anonymous information, or I do not support signing in as a customer
+
+Use a normal GraphQL Storefront API token. You can use an anonymous `fetch` or `XHR` mode that does not send cookies along with the request. When creating your token, be sure to specify the origin from which your requests will be run in order to whitelist this origin for [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
+
+
+#### I want to run requests from a server, and I don't need customer impersonation abilities
+
+Use normal GraphQL Storefront API tokens. According to the [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), you should not create a token that has permissions you do not need.
+
+
+#### I want to run requests from a server, and I need customer impersonation abilities
+
+Use a Customer Impersonation token and store it securely on your server like other secrets. When you need to run requests in the context of a particular customer (for example, if they've logged in to your application), send their BigCommerce Customer ID along with the request as the `X-Bc-Customer-Id` header.
 
 ## Related resources
 
