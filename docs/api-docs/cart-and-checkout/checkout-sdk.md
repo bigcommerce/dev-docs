@@ -54,20 +54,11 @@ The Checkout JS SDK and associated documentation is available from the [BigComme
 ## How can I update the SDK?
 The following steps describe how to update the Checkout SDK package in your existing custom checkout implementation.
 
-1. Fork and clone [checkout-js](https://github.com/bigcommerce/checkout-js), then install its dependencies with the clean slate install command.
+1. Open your store's `package.json` file in your text editor.
+2. Update the value for "@bigcommerce/checkout-sdk". Enter the minimum version for the gateway to work. 
+<!-- checkout: info -->
+> #### Note: See [Changelog.md](https://github.com/bigcommerce/checkout-sdk-js/blob/master/CHANGELOG.md) for checkout-sdk version information.
 
-```shell title="Clone your fork and install dependencies"
-# Clone the repo
-git clone https://github.com/<your-user-name>/checkout-js checkout-js
-
-cd checkout-js
-
-# Install dependencies with a clean slate
-npm ci
-```
-
-2. Open your store's `package.json` file in your text editor.
-3. Update the value for "@bigcommerce/checkout-sdk". Enter the minimum version for the gateway to work. 
 For Apple Pay, this value needs to be "1.215.0" or greater. 
 
 | Previous version value |  New version value |
