@@ -24059,14 +24059,12 @@ components:
       items:
         oneOf:
           - allOf:
-              - $ref: '#/components/schemas/CategoryUuidData'
-              - $ref: '#/components/schemas/ParentIdCreateData'
-              - $ref: '#/components/schemas/CategoryData'
-          - allOf:
               - $ref: '#/components/schemas/TreeIdCreateData'
+              - $ref: '#/components/schemas/ParentIdCreateData'
               - $ref: '#/components/schemas/CategoryData'
       x-tags:
         - Models
+      title: Create Categories
     UpdateCategories:
       type: array
       items:
