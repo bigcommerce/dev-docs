@@ -289,7 +289,7 @@ query paginateProducts {
 
 You can run this query against an example storefront using the [GraphQL Playground](/graphql-playground?tabs=firstThreeProducts).
 
-The results will look something like the following:
+The results look something like the following:
 
 ```json title="Example response: first three products" lineNumbers
 {
@@ -392,7 +392,7 @@ The results will look something like this (notice the last product `entityId: 82
 ```
 
 
-This same approach can be used to *slice* any GraphQL connection and paginate through the *slices* using `startCursor` and `endCursor`. For example, we could get the first thirty brands with the following query:
+This same approach can be used to *slice* any GraphQL connection and paginate through the *slices* using `startCursor` and `endCursor`. For example, the following query gets the first thirty brands:
 
 ```graphql title="Example query using slices" lineNumbers
 query brands {
@@ -439,7 +439,7 @@ And given the following results:
 }
 ```
 
-The next thirty could be retrieved by making a new query and passing in the `endCursor` from the first page of results:
+You can retrieve the next thirty by making a new query and passing in the `endCursor` from the first page of results:
 
 ```graphql title="Example query using slices and cursor" lineNumbers
 query brands {
@@ -562,15 +562,15 @@ There are two public URLs you can use to run requests:
 
 ### I want to run requests in the context of another channel
 
-Use the channel's permanent URL of the form `https://store-STOREHASH-CHANNELID.mybigcommerce.com/graphql`.
+Use the channel's permanent URL in the following form: `https://store-STOREHASH-CHANNELID.mybigcommerce.com/graphql`.
 
 For example, if your store hash is `abc123` and your channel ID is `456`, the channel's permanent URL is `https://store-abc123-456.mybigcommerce.com/graphql`. 
 
-To create a channel's permanent URL, [Create a site](/api-reference/store-management/sites/sites/post-site) for the channel.
+To expose a channel's permanent URL, [create a site](/api-reference/store-management/sites/sites/post-site) for the channel.
 
 <!-- theme: info -->
 > #### Note 
-> When you create a GraphQL Storefront API token, include the channel ID of the channel on which you wish to use the token. Otherwise, your requests will be rejected. See this article's section on [Creating a token](#creating-a-token).
+> When you create a GraphQL Storefront API token, include the channel ID of the channel on which you wish to use the token. Otherwise, the server will reject your requests. See this article's section on [Creating a token](#creating-a-token).
 
 ### I want to run requests from a front-end application or browser. I only show anonymous information, or I do not support signing in as a customer
 
