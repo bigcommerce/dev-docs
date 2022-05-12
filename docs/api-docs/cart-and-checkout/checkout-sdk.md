@@ -54,28 +54,13 @@ The Checkout JS SDK and associated documentation is available from the [BigComme
 ## How can I update the SDK?
 The following steps describe how to update the Checkout SDK package in your existing custom checkout implementation.
 
-1. Load checkout-sdk.
+1. Update the SDK by either running `npm install @bigcommerce/checkout-sdk@<latest-version-numer>` in your terminal, or
+update the version number in your checkout's package.json file, then run npm install.
  
-Run `npm install @bigcommerce/checkout-sdk@<latest/version number>` in your terminal.
-
-OR
-
-You can open your store's `package.json` file in your text editor.
-
-2. Update the value for "@bigcommerce/checkout-sdk". Enter the minimum version for the gateway to work. 
 <!-- checkout: info -->
 > Note: See [Changelog.md](https://github.com/bigcommerce/checkout-sdk-js/blob/master/CHANGELOG.md) for checkout-sdk version information.
 
-   For Apple Pay, this value needs to be "1.215.0" or greater. 
-
-| Previous version value |  New version value |
-|:-----------------------|:-------------------|
-| "@bigcommerce/checkout-sdk": "^1.199.0", | "@bigcommerce/checkout-sdk": "^1.215.0",|
-
-3. Run `npm install` in your terminal to update your store to reflect the change.
-4. Test the updated SDK.
-
-The payment gateway will appear in every checkout.
+2. Test the updated SDK.
 
 ## Support and customization
 - Enterprise clients can reach out to their account manager to review services and resources available.
