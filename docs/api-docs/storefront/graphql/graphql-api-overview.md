@@ -254,17 +254,13 @@ fetch('/graphql', {
 .catch(error => console.error(error));
 ```
 
-In addition to JavaScript's native Fetch API, you can use GraphQL a client library to query BigCommerce. [Apollo](https://www.apollographql.com/docs/react/) is a popular GraphQL client that's easy to use in BigCommerce themes. For a quick example of adding Apollo Client to Cornerstone, checkout this [Cornerstone commit](https://github.com/bigcommerce/cornerstone/commit/508feeb1b00d2bb2940771e5e91250a08b6be4d9) on GitHub. GraphQL is a standard with client libraries in many languages, so feel free to explore your options.
+You can limit the number of items retrieved for the nodes that return multiple items. See the section on [pagination](#pagination) later in this article.
 
-<!-- theme: info -->
+Client libraries like [Apollo](https://www.apollographql.com/docs/react/) offer features that can simplify GraphQL implementations, such as [declarative data fetching](https://www.apollographql.com/docs/react/data/queries), [state management](https://www.apollographql.com/docs/react/local-state/local-state-management), and [caching](https://www.apollographql.com/docs/react/caching/overview) for more consistent UI components. For an example of adding Apollo Client to the Cornerstone theme, check out this [Cornerstone commit](https://github.com/bigcommerce/cornerstone/commit/508feeb1b00d2bb2940771e5e91250a08b6be4d9) on GitHub.
 > #### Note
 > * If pasted directly into a script in [**Storefront** > **Script Manager**](https://support.bigcommerce.com/s/article/Using-Script-Manager), the output from `console.log(json)` will be viewable in the browser's JavaScript Console.
 > * The above code must be used in a place where the `{{settings.storefront_api.token}}` handlebars variable can be accessed in order to get credentials for the API request.
 > * The `fetch` request `credentials` property must be set to `same-origin` (even when making request from a Stencil theme).
-> * You can control the number of items retrieved for the nodes that return multiple items. Use the `first` argument to retrieve a specific number of records from a query. The example below returns the first ten products. 
-> ```graphql
->   products(first: 10) 
-> ```
 
 ## Pagination
 
