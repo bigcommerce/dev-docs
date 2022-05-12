@@ -208,12 +208,14 @@ As a best practice, you should inject the password using GraphQL query variables
 
 ## Querying within a BigCommerce storefront
 
-GraphQL Storefront API calls can be made directly from within a Stencil theme or from a script in [Storefront > Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
+GraphQL Storefront API calls can be made directly from within a Stencil theme or from a script in the store's [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager). If a GraphQL query is added to a script using Script Manager, any output printed with `console.log()` will be visible in the browser's JavaScript Console.
+
+The following example request uses the `{{settings.storefront_api.token}}` Handlebars object and [JavaScript's Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch):
+
 <!-- theme: info -->
 > #### Note
 > The `fetch` request's `credentials` property must be set to `same-origin`.
 
-Here's an example request using the `{{settings.storefront_api.token}}` handlebars object and [JavaScript's Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API):
 
 ```js title="Example request: GraphQL query using Stencil token" lineNumbers
 fetch('/graphql', {
@@ -258,9 +260,6 @@ fetch('/graphql', {
 You can limit the number of items retrieved for the nodes that return multiple items. See the section on [pagination](#pagination) later in this article.
 
 Client libraries like [Apollo](https://www.apollographql.com/docs/react/) offer features that can simplify GraphQL implementations, such as [declarative data fetching](https://www.apollographql.com/docs/react/data/queries), [state management](https://www.apollographql.com/docs/react/local-state/local-state-management), and [caching](https://www.apollographql.com/docs/react/caching/overview) for more consistent UI components. For an example of adding Apollo Client to the Cornerstone theme, check out this [Cornerstone commit](https://github.com/bigcommerce/cornerstone/commit/508feeb1b00d2bb2940771e5e91250a08b6be4d9) on GitHub.
-> #### Note
-> * If pasted directly into a script in [**Storefront** > **Script Manager**](https://support.bigcommerce.com/s/article/Using-Script-Manager), the output from `console.log(json)` will be viewable in the browser's JavaScript Console.
-> * The above code must be used in a place where the `{{settings.storefront_api.token}}` handlebars variable can be accessed in order to get credentials for the API request.
 
 ## Pagination
 
