@@ -24173,6 +24173,8 @@ components:
         - Models
     CategoryData:
       type: object
+      x-tags:
+        - Models
       properties:
         name:
           type: string
@@ -24198,12 +24200,20 @@ components:
           type: boolean
         default_product_sort:
           type: string
+          enum:
+            - use_store_settings
+            - featured
+            - newest
+            - best_selling
+            - avg_customer_review
+            - alpha_asc
+            - alpha_desc
+            - price_asc
+            - price_desc
         image_url:
           type: string
         url:
           $ref: '#/components/schemas/Url'
-      x-tags:
-        - Models
     Urls:
       type: array
       items:
