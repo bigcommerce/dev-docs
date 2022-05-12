@@ -206,8 +206,34 @@ Customers payload objects take the form that follows:
 }
 ```
 
+## Emails
+The following emails webhook events fire in response to actions that affect a specific channel on a store:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/settings/emailStatus/updated        | Fires when an email status is updated per a specified channel. | [Update transactional email settings](/api-reference/store-management/settings/email-statuses/put-settings-transactional-emails-enabled) |
+| store/channel/{channel_id}/settings/emailStatus/deleted        | Fires when an email status was deleted per a specified channel. | [Update transactional email settings](/api-reference/store-management/settings/email-statuses/put-settings-transactional-emails-enabled) |
+| store/channel/{channel_id}/email/templates/updated        | Fires when an email template is updated per a specified channel. | [Update a template](/api-reference/store-management/email-templates/email-templates/updateemailtemplate) |
+| store/channel/{channel_id}/email/templates/deleted        | Fires when an email template was deleted per a specified channel. | [Delete email template override](/api-reference/store-management/email-templates/email-templates/deleteemailtemplateoverride) |
+
+
+Emails payload objects take the form that follows:
+
+```json title="Example notifications payload object" lineNumbers
+{
+ "store_id": "11111",
+ "producer": "stores/abcde",
+ "created_at": 1641641646,
+ "scope": "store/channel/1/settings/emailStatus/updated",
+ "data": {
+    "template_kind": "product_review_email"
+  },
+ "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+}
+```
+
 ## Notifications
-The following orders webhook events fire in response to actions that affect a specific channel on a store:
+The following notifications webhook events fire in response to actions that affect a specific channel on a store:
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
