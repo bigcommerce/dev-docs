@@ -152,7 +152,6 @@ fetch('/graphql', {
 > * `1` can be passed in for the `channel_id` for generating tokens for use on the default Stencil storefront.
 > * To create a channel for a remote site, see [Create Channel](/api-reference/store-management/channels/channels/createchannel) in the API Reference.
 > * `allowed_cors_origins` array accepts only a single origin currently -- one token must be generated for each origin.
-> * The `fetch` request `credentials` property must be set to `same-origin` (even when making request from a Stencil theme).
 
 ### Customer impersonation tokens
 
@@ -211,6 +210,9 @@ As a best practice, you should inject the password using GraphQL query variables
 ## Querying within a BigCommerce storefront
 
 GraphQL Storefront API calls can be made directly from within a Stencil theme or from a script in [Storefront > Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
+<!-- theme: info -->
+> #### Note
+> The `fetch` request's `credentials` property must be set to `same-origin`.
 
 Here's an example request using the `{{settings.storefront_api.token}}` handlebars object and [JavaScript's Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API):
 
@@ -260,7 +262,6 @@ Client libraries like [Apollo](https://www.apollographql.com/docs/react/) offer 
 > #### Note
 > * If pasted directly into a script in [**Storefront** > **Script Manager**](https://support.bigcommerce.com/s/article/Using-Script-Manager), the output from `console.log(json)` will be viewable in the browser's JavaScript Console.
 > * The above code must be used in a place where the `{{settings.storefront_api.token}}` handlebars variable can be accessed in order to get credentials for the API request.
-> * The `fetch` request `credentials` property must be set to `same-origin` (even when making request from a Stencil theme).
 
 ## Pagination
 
