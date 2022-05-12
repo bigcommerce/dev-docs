@@ -211,8 +211,8 @@ The following orders webhook events fire in response to actions that affect a sp
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
-| store/channel/{channel_id}/notifications/abandonedCart/updated        | Fires when an abandoned cart notification is updated per a specified channel. | [Update channel abandoned cart settings](/api-reference/store-management/abandoned-carts/abandoned-carts-settings/updatechannelabandonedcartsettings) |
-
+| store/channel/{channel_id}/notifications/abandonedCart/updated        | Fires when an abandoned cart notification is updated per a specified channel. | [Update channel abandoned cart settings](/api-reference/store-management/abandoned-carts/abandoned-carts-settings/updatechannelabandonedcartsettings) 
+| store/channel/{channel_id}/notifications/inventory/updated        | Fires when an inventory notification is updated per a specified channel. | [Update inventory notifications settings](/api-reference/store-management/settings/inventory/putinventorynotificationssettings) |
 
 Notifications payload objects take the form that follows:
 
