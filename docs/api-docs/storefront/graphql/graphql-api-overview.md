@@ -102,7 +102,7 @@ curl 'https://{bigcommerce_storefront_domain}.com/graphql'\
 
 ### Creating a token
 
-Use the [Create a GraphQL API token](/api-reference/storefront/graphql-api-tokens/api-token/createtoken) REST endpoint to request JWT bearer tokens that authenticate cross-origin requests to the Storefront API. Your JWT will have the same OAuth scopes as the REST API account that creates it, so ensure that the API account you use for the following request has sufficient permissions to make your GraphQL queries. 
+Use the [Create a GraphQL Storefront API token](/api-reference/store-management/tokens/api-token/createtoken) REST endpoint to request JWT-style bearer tokens that authenticate cross-origin requests to the GraphQL Storefront API. Consult the endpoint's documentation to determine what OAuth scopes it requires. In addition, ensure that the API account you use for the following request has sufficient permissions to make your GraphQL queries. **Your JWT will have the same OAuth scopes as the REST API account that creates it.** 
 
 ```http title="Example request: Create a GraphQL Storefront API token"
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/api-token
@@ -152,13 +152,11 @@ fetch('/graphql', {
 > * `1` can be passed in for the `channel_id` for generating tokens for use on the default Stencil storefront.
 > * To create a channel for a remote site, see [Create Channel](/api-reference/store-management/channels/channels/createchannel) in the API Reference.
 > * `allowed_cors_origins` array accepts only a single origin currently -- one token must be generated for each origin.
-> * `/storefront/api-token` endpoint requires the `Manage` `Storefront API Tokens` OAuth Scope.
-> * `storefront/api-token-customer-impersonation` endpoint requires the `Manage` `Storefront API Customer Impersonation Tokens` OAuth Scope.
 > * The `fetch` request `credentials` property must be set to `same-origin` (even when making request from a Stencil theme).
 
 ### Customer impersonation tokens
 
-It's also possible to generate tokens for use in server-to-server interactions with a trusted consumer using the [Create a customer impersonation token](/api-reference/storefront/graphql-api-tokens/customer-impersonation-token/createtokenwithcustomerimpersonation) endpoint.
+It's also possible to generate tokens for use in server-to-server interactions with a trusted consumer using the [Create a customer impersonation token](/api-reference/storefront/graphql-api-tokens/customer-impersonation-token/createtokenwithcustomerimpersonation) endpoint. Consult the endpoint's documentation to determine what OAuth scopes it requires.
 
 ```http title="Example request: Create a customer impersonation token"
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/api-token-customer-impersonation
