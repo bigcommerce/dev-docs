@@ -21,9 +21,9 @@ For a request to succeed, the access token's API account must have permission to
 
 To find the specific OAuth scopes your requests require, consult the root API reference pages for the families of endpoints you plan to use. For example, see the [OAuth scopes for the Email Templates endpoints](/api-reference/store-management/email-templates). We also maintain a [list of all our OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
-The following tabs presadzfasdfs
+### X-Auth-Token authentication examples
 
-### X-Auth-Token authentication example requests
+The following tabs contain examples of how to authenticate requests by passing an access token to the `X-Auth-Token` header.
 
 <!--
 type: tab
@@ -89,11 +89,12 @@ Accept: application/json
 > * The [Tax Provider API](/api-docs/providers/tax), which connects tax calculation and filing services to stores.
 > Depending on your use case, you might choose to interact with a third-party provider app using a store API account. 
 
+
 ## Dynamic tokens: the Authorization header
 
 Consult the REST token generation endpoint that corresponds to your use case to determine the required OAuth scope before you create an OAuth API account to request dynamic tokens.
 
-First, request a short term token by hitting a REST endpoint that uses an X-Auth-Token header using an API account with OAuth scopes that allow the actions you want the Auth header request to do.
+First, request a dynamic token by hitting a REST endpoint that uses the X-Auth-Token header, using an API account with OAuth scopes that allow the actions you want the Auth header request to do. Some Authorization header endpoints provide alternate methods of obtaining tokens.
 
 ```http title="Example request for a limited-use Authentication header token"
 METHOD https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/some-token-generating-endpoint
