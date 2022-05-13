@@ -10,7 +10,7 @@ info:
     Requests can be authenticated by sending an `access_token` via `X-Auth-Token` HTTP header.
 
     ```http
-    GET /stores/{$$.env.store_hash}/v3/themes
+    GET /stores/{store_hash}/v3/themes
     host: api.bigcommerce.com
     Accept: application/json
     X-Auth-Token: {access_token}
@@ -801,7 +801,7 @@ x-stoplight:
 servers:
   - url: 'https://api.bigcommerce.com'
     variables:
-      $$.env.store_hash:
+      store_hash:
         default: unknown
 components:
   parameters:
@@ -906,7 +906,7 @@ components:
         ### Example
 
         ```http
-        GET /stores/{$$.env.store_hash}/v3/catalog/summary
+        GET /stores/{store_hash}/v3/catalog/summary
         host: api.bigcommerce.com
         Content-Type: application/json
         X-Auth-Token: {access_token}

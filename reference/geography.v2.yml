@@ -325,7 +325,7 @@ x-stoplight:
 servers:
   - url: 'https://api.bigcommerce.com'
     variables:
-      $$.env.store_hash:
+      store_hash:
         default: unknown
 components:
   responses:

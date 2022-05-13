@@ -1221,7 +1221,7 @@ definitions:
     properties:
       url:
         description: Full URL of where the resource is located.
-        example: 'https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/customers/5/addresses'
+        example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/customers/5/addresses'
         type: string
       resource:
         description: Resource being accessed.
@@ -1678,7 +1678,7 @@ securityDefinitions:
       ### Example
 
       ```http
-      GET /stores/{$$.env.store_hash}/v3/catalog/summary
+      GET /stores/{store_hash}/v3/catalog/summary
       host: api.bigcommerce.com
       Content-Type: application/json
       X-Auth-Token: {access_token}

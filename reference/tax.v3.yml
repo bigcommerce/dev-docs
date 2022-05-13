@@ -131,9 +131,6 @@ tags:
   - name: Tax Provider Connection
 servers:
   - url: 'https://api.bigcommerce.com'
-    variables:
-      store_hash:
-        default: unknown
 components:
   parameters:
     provider_id:
@@ -164,7 +161,7 @@ components:
         ### Example
 
         ```http
-        GET /stores/{$$.env.store_hash}/v3/catalog/summary
+        GET /stores/{store_hash}/v3/catalog/summary
         host: api.bigcommerce.com
         Content-Type: application/json
         X-Auth-Token: {access_token}
