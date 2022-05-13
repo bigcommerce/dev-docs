@@ -6,7 +6,7 @@ Note that a store has global settings for data solutions, from which any storefr
 
 <!-- theme: info -->
 > #### Note
-> You can obtain storefront channel IDs using the [Get all channels](/api-reference/store-management/channels/channels/listchannels) endpoint. 
+> You can obtain storefront channel IDs using the [Get All Channels](/api-reference/store-management/channels/channels/listchannels) endpoint. 
 
 This article introduces how to configure web analytics using the Data Solutions API. Because each web analytic requires different fields in the request and/or response, this article is divided by web analytics.
 
@@ -44,14 +44,24 @@ The version corresponds with the "Connect with Field" that a merchant uses to co
 
 When a merchant uses a tracking code for the connection field, your response will have a version of `1` and the `tracking_code` field. If a merchant has not entered a tracking code, `tracking_code` will return as an empty string.
 
-```JSON title="Sample Request" lineNumbers
+<!--
+type: tab
+title: Request
+-->
+
+```JSON title="Example GET request with X-Auth-Token header" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
 
-```JSON title="Sample Response" lineNumbers
+<!--
+type: tab
+title: Response
+-->
+
+```JSON title="Example GET response" lineNumbers
 {
     "data": {
         "id": 1,
@@ -66,16 +76,28 @@ Accept: application/json
 }
 ```
 
+<!-- type: tab-end -->
+
 When a merchant uses property id for the connection field, your response will have a version of `2` and the `property_id` field. If a merchant has not entered a property ID, `property_id` will return as an empty string.
 
-```JSON title="Sample Request" lineNumbers
+<!--
+type: tab
+title: Request
+-->
+
+```JSON title="Example GET request with X-Auth-Token header" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
 
-```JSON title="Sample Response" lineNumbers
+<!--
+type: tab
+title: Response
+-->
+
+```JSON title="Example GET response" lineNumbers
 {
     "data": {
         "id": 1,
@@ -89,9 +111,17 @@ Accept: application/json
     "meta": {}
 }
 ```
+
+<!-- type: tab-end -->
+
 ### Update the Google Analytic
 
-```JSON title="Sample Request" lineNumbers
+<!--
+type: tab
+title: Request
+-->
+
+```JSON title="Example PUT request with X-Auth-Token header" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -108,7 +138,12 @@ Accept: application/json
 }
 ```
 
-```JSON title="Sample Response" lineNumbers
+<!--
+type: tab
+title: Response
+-->
+
+```JSON title="Example PUT response" lineNumbers
 {
     "data": {
         "id": 1,
@@ -122,6 +157,8 @@ Accept: application/json
     "meta": {}
 }
 ```
+<!-- type: tab-end -->
+
 &nbsp;
 
 ## Visual Website Optimizer
@@ -138,14 +175,24 @@ Accept: application/json
 
 If a merchant has not entered a VWO Smartcode, `vwo_smartcode` will return as an empty string.
 
-```JSON title="Sample Request" lineNumbers
+<!--
+type: tab
+title: Request
+-->
+
+```JSON title="Example GET request with X-Auth-Token header" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
 
-```JSON title="Sample Response" lineNumbers
+<!--
+type: tab
+title: Response
+-->
+
+```JSON title="Example GET response" lineNumbers
 {
     "data": {
         "id": 2,
@@ -157,11 +204,16 @@ Accept: application/json
     "meta": {}
 }
 ```
+<!-- type: tab-end -->
 
 ### Update the Visual Website Optimizer Analytic
 
+<!--
+type: tab
+title: Request
+-->
 
-```JSON title="Sample Request" lineNumbers
+```JSON title="Example PUT request with X-Auth-Token header" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -175,7 +227,13 @@ Accept: application/json
 "vwo_smartcode": "VWO-1234567890"
 }
 ```
-```JSON title="Sample Response" lineNumbers
+
+<!--
+type: tab
+title: Response
+-->
+
+```JSON title="Example PUT response" lineNumbers
 {
     "data": {
         "id": 2,
@@ -187,6 +245,8 @@ Accept: application/json
     "meta": {}
 }
 ```
+<!-- type: tab-end -->
+
 &nbsp;
 
 ## Facebook Pixel
@@ -204,14 +264,23 @@ Accept: application/json
 
 If a merchant has not entered a Pixel ID, `pixel_id` will return as an empty string.
 
-```JSON title="Sample Request" lineNumbers
+<!--
+type: tab
+title: Request
+-->
+
+```JSON title="Example GET request with X-Auth-Token header" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
+<!--
+type: tab
+title: Response
+-->
 
-```JSON title="Sample Response" lineNumbers
+```JSON title="Example GET response" lineNumbers
 {
     "data": {
         "id": 3,
@@ -224,11 +293,16 @@ Accept: application/json
     "meta": {}
 }
 ```
+<!-- type: tab-end -->
 
 ### Update the Facebook Pixel Analytic
 
+<!--
+type: tab
+title: Request
+-->
 
-```JSON title="Sample Request" lineNumbers
+```JSON title="Example PUT request with X-Auth-Token header" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -244,8 +318,12 @@ Accept: application/json
 }
 
 ```
+<!--
+type: tab
+title: Response
+-->
 
-```JSON title="Sample Response" lineNumbers
+```JSON title="Example PUT response" lineNumbers
 {
     "data": {
         "id": 3,
@@ -258,6 +336,8 @@ Accept: application/json
     "meta": {}
 }
 ```
+<!-- type: tab-end -->
+
 &nbsp;
 
 ## Segment
@@ -275,14 +355,24 @@ Accept: application/json
 
 If a merchant has not entered an API Key, `api_key` will return as an empty string.
 
-```JSON title="Sample Request" lineNumbers
+<!--
+type: tab
+title: Request
+-->
+
+```JSON title="Example GET request with X-Auth-Token header" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
 
-```JSON title="Sample Response" lineNumbers
+<!--
+type: tab
+title: Response
+-->
+
+```JSON title="Example GET response" lineNumbers
 {
     "data": {
         "id": 4,
@@ -295,10 +385,16 @@ Accept: application/json
     "meta": {}
 }
 ```
+<!-- type: tab-end -->
 
 ### Update the Segment Analytic
 
-```JSON title="Sample Request" lineNumbers
+<!--
+type: tab
+title: Request
+-->
+
+```JSON title="Example PUT request with X-Auth-Token header" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -315,7 +411,12 @@ Accept: application/json
 
 ```
 
-```JSON title="Sample Response" lineNumbers
+<!--
+type: tab
+title: Response
+-->
+
+```JSON title="Example PUT response" lineNumbers
 {
     "data": {
         "id": 4,
@@ -328,6 +429,8 @@ Accept: application/json
     "meta": {}
 }
 ```
+<!-- type: tab-end -->
+
 &nbsp;
 
 ## Site Verification Tags
@@ -344,14 +447,24 @@ Accept: application/json
 
 If a merchant has not entered a verification tag, `verification_tag` will return as an empty string.
 
-```JSON title="Sample Request" lineNumbers
+<!--
+type: tab
+title: Request
+-->
+
+```JSON title="Example GET request with X-Auth-Token header" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
 
-```JSON title="Sample Response" lineNumbers
+<!--
+type: tab
+title: Response
+-->
+
+```JSON title="Example GET response" lineNumbers
 {
     "data": {
         "id": 6,
@@ -364,9 +477,16 @@ Accept: application/json
 }
 ```
 
+<!-- type: tab-end -->
+
 ### Update the Site Verification Tags Analytic
 
-```JSON title="Sample Request" lineNumbers
+<!--
+type: tab
+title: Request
+-->
+
+```JSON title="Example PUT request with X-Auth-Token header" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -382,7 +502,12 @@ Accept: application/json
 
 ```
 
-```JSON title="Sample Response" lineNumbers
+<!--
+type: tab
+title: Response
+-->
+
+```JSON title="Example PUT response" lineNumbers
 {
     "data": {
         "id": 6,
@@ -394,6 +519,7 @@ Accept: application/json
     "meta": {}
 }
 ```
+<!-- type: tab-end -->
 
 &nbsp;
 
@@ -411,14 +537,24 @@ Accept: application/json
 
 If a merchant has not entered an Affiliate Conversion Tracking Code, `connection` will return as an empty string.
 
-```JSON title="Sample Request" lineNumbers
+<!--
+type: tab
+title: Request
+-->
+
+```JSON title="Example GET request with X-Auth-Token header" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
 
-```JSON title="Sample Response" lineNumbers
+<!--
+type: tab
+title: Response
+-->
+
+```JSON title="Example GET response" lineNumbers
 {
   "id": 7,
   "channel_id": 0,
@@ -428,9 +564,16 @@ Accept: application/json
 }
 ```
 
+<!-- type: tab-end -->
+
 ### Update the Affiliate Conversion Tracking Analytic
 
-```JSON title="Sample Request" lineNumbers
+<!--
+type: tab
+title: Request
+-->
+
+```JSON title="Example PUT request with X-Auth-Token header" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -449,7 +592,12 @@ Accept: application/json
 
 ```
 
-```JSON title="Sample Response" lineNumbers
+<!--
+type: tab
+title: Response
+-->
+
+```JSON title="Example PUT response" lineNumbers
 {
     "data": {
         "id": 7,
@@ -462,20 +610,32 @@ Accept: application/json
 }
 ```
 
+<!-- type: tab-end -->
+
 &nbsp;
 
 ## Get all web analytics
 
 All six web analytics will be returned. As shown, fields for codes (such as `verification_tag`) in which a merchant has not entered a value will return as an empty string.     
 
-```JSON title="Sample Request" lineNumbers
+<!--
+type: tab
+title: Request
+-->
+
+```JSON title="Example GET request with X-Auth-Token header" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 ```
 
-```JSON title="Sample Response" lineNumbers
+<!--
+type: tab
+title: Response
+-->
+
+```JSON title="Example GET response" lineNumbers
 {
     "data": [
         {
@@ -528,6 +688,7 @@ Accept: application/json
     "meta": {}
 }
 ```
+<!-- type: tab-end -->
 
 &nbsp;
 
