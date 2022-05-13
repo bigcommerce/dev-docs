@@ -61,7 +61,7 @@ type: tab
 title: GQL Query
 -->
 
-```GraphQL lineNumbers
+```GraphQL title="Example" lineNumbers
 query {
   site {
     search {
@@ -97,7 +97,7 @@ type: tab
 title: JSON Response
 -->
 
-```JSON lineNumbers
+```JSON title="Example" lineNumbers
 {
   "data": {
     "site": {
@@ -144,7 +144,7 @@ type: tab
 title: GQL Query
 -->
 
-```GraphQL lineNumbers
+```GraphQL title="Example" lineNumbers
 query {
   site {
     search {
@@ -177,7 +177,7 @@ type: tab
 title: JSON Response
 -->
 
-```JSON lineNumbers
+```JSON title="Example" lineNumbers
 {
   "data": {
     "site": {
@@ -267,7 +267,7 @@ type: tab
 title: GQL Query
 -->
 
-```GraphQL lineNumbers
+```GraphQL title="Example" lineNumbers
 query {
   site {
     search {
@@ -387,7 +387,7 @@ type: tab
 title: JSON Response
 -->
 
-```JSON lineNumbers
+```JSON title="Example" lineNumbers
 {
   "data": {
     "site": {
@@ -607,7 +607,7 @@ title: GQL Query
 -->
 
 
-```GraphQL lineNumbers
+```GraphQL title="Example" lineNumbers
 query {
   site {
     search {
@@ -742,7 +742,7 @@ type: tab
 title: JSON Response
 -->
 
-```JSON lineNumbers
+```JSON title="Example" lineNumbers
 {
   "data": {
     "site": {
@@ -980,7 +980,12 @@ title: JSON Response
 
 If a merchant has not enabled product filtering, you will receive an empty array for the returned facets, though products will still be returned:
 
-```JSON title="JSON Response" lineNumbers
+<!--
+type: tab
+title: JSON Response
+-->
+
+```JSON title="Example" lineNumbers
 {
   "data": {
     "site": {
@@ -1021,6 +1026,8 @@ If a merchant has not enabled product filtering, you will receive an empty array
   }
 }
 ```
+
+<!-- type: tab-end -->
 
 ## Related Resources
 
