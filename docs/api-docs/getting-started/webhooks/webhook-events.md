@@ -145,7 +145,7 @@ Payload objects with the following scopes take the form that follows:
 ## Categories
 
 <!-- theme: info -->
-> For channel-specific webhooks, consult the [category section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#categories).
+> For channel-specific webhooks, consult the [categories section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#categories).
 
 | Name / Scope            | Description |
 |:------------------------|:------------|
@@ -242,6 +242,15 @@ Payload objects with the following scopes take the form that follows:
     "producer": "stores/{store_hash}"
 }
 ```
+
+
+## Emails
+
+Consult the [emails section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#emails).
+
+## Notifications
+
+Consult the [notifications section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#notifications).
 
 ## Orders
 
@@ -361,6 +370,11 @@ Payload objects with the following scopes take the form that follows:
 ## Pages
 
 Consult the [pages section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#pages).
+
+## Price list assignments
+
+Consult the [price list assignments section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#price-list-assignments).
+
 ## Product assignments
 
 Consult the [product assignment section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#product-assignment).
@@ -562,6 +576,11 @@ Payload objects with the following scopes take the form that follows:
 ```
 
 
+
+## Social media links
+
+Consult the [social media links section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#social-media-links).
+
 ## Stores
 
 | Name / Scope              | Description |
@@ -643,6 +662,10 @@ Payload objects with the following scopes take the form that follows:
     "producer": "stores/{store_hash}"
 }
 ```
+
+## Themes
+
+Consult the [themes section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#themes).
 
 ## Resources
 
