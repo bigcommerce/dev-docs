@@ -21,23 +21,26 @@ For a request to succeed, the access token's API account must have permission to
 
 To find the specific OAuth scopes your requests require, consult the root API reference pages for the families of endpoints you plan to use. For example, see the [OAuth scopes for the Email Templates endpoints](/api-reference/store-management/email-templates). We also maintain a [list of all our OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
-The following tabs pres
+The following tabs presadzfasdfs
 
 ### X-Auth-Token authentication example requests
 
 <!--
-  type: tab
-  title: GET request
+type: tab
+title: GET request
 -->
+
 ```http title="Example GET request with X-Auth-Token header"
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
 X-Auth-Token: {{access_token}}
 Accept: application/json
 ```
+
 <!--
-  type: tab
-  title: POST request
+type: tab
+title: POST request
 -->
+
 ```http title="Example POST request with X-Auth-Token header"
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
 X-Auth-Token: {{access_token}}
@@ -48,10 +51,12 @@ Content-Type: application/json
   // request body
 }
 ```
+
 <!--
-  type: tab
-  title: PUT request
+type: tab
+title: PUT request
 -->
+
 ```http title="Example PUT request with X-Auth-Token header"
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
 X-Auth-Token: {{access_token}}
@@ -61,17 +66,21 @@ Content-Type: application/json
 {
   // request body
 }
+
 ```
 <!--
-  type: tab
-  title: DELETE request
+type: tab
+title: DELETE request
 -->
+
 ```http title="Example DELETE request with X-Auth-Token header"
-METHOD https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
+DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
 X-Auth-Token: {{access_token}}
 Accept: application/json
 ```
+
 <!-- type: tab-end -->
+
 
 <!-- theme: info -->
 > #### App-specific APIs
