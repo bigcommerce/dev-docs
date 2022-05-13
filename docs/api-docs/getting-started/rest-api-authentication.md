@@ -1,10 +1,29 @@
-# Guide to OAuth API Accounts for REST Endpoints
+# Guide to OAuth API Accounts
 
 BigCommerce offers two types of OAuth API accounts to developers who wish to use BigCommerce's REST APIs: store management credentials and app credentials. This article describes the difference between the two, how to obtain and revoke account credentials, and the use cases for each.  It also contains a reference for available OAuth scopes, and provides a compelling list of reasons to migrate from legacy API tokens to OAuth credentials.
+
+In addition to authenticating REST APIs, BigCommerce API accounts are the fundamental authentication layer for all authenticated API requests. To learn more about different authentication schemes, see [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis).
 
 ## What is a BigCommerce OAuth API account?
 
 Every parent set of API credentials that you request for your store is its own **API account**. An API account consists of an `access_token`, a `client_id`, a `client_secret`, your `api_path` and a `client_name` that you define to help tell your API accounts apart. The `access_token` can change, but the parent `client_id` and `client_secret` will never change. Guard them closely. It's best practice to limit the [OAuth scope](#oauth-scopes) of each account to only the privileges needed to complete that app or user's designated tasks, so you should create separate API accounts for each app, store API user, and/or function.
+
+### Choosing the right kind of API account
+
+* Store credentials can never have a different access token
+* Can't modify the scope
+* If compromised, must be deleted
+* Will never apply to more than one store
+* Update and delete access to some properties, much as [metafields](), is restricted to the API account that created them. If this is a problem, choose app credentials
+
+* App credentials require you to register a [Developer Portal]() account
+* Can modify the scope
+* Can force generation of new access tokens by modifying scope
+* As long as client id & secret are secure, can force generation of new access tokens to re-secure applications
+* The new access tokens can then update and delete API account-restricted resources, such as [metafields]()
+* Can be used on multiple stores: is liberated from the scope of a single store when the app is approved to be a public production app
+
+For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/guide/intro). The sections on [Implementing OAuth](/api-docs/apps/guide/auth) and [Callback Handlers](/api-docs/apps/guide/callbacks) are particularly relevant to generating access tokens.
 
 ### All OAuth API accounts
 
