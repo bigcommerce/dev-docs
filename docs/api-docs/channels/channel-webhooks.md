@@ -182,7 +182,7 @@ Category tree payload objects take the form that follows:
 
 ## Customers
 
-The following customers webhook event fires in response to actions that affect a specific channel on a store:
+The following customers webhook event fires in response to customer changes:
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
@@ -314,7 +314,7 @@ For a complete reference of all BigCommerce webhook events and their callback pa
 
 ## Price list assignments
 
-The following price list assignment webhook event fires in response to actions that affect a specific channel on a store:
+The following price list assignment webhook event fires in response to price list assignment changes:
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
