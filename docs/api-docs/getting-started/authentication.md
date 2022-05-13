@@ -71,7 +71,7 @@ METHOD https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
 X-Auth-Token: {{access_token}}
 Accept: application/json
 ```
-
+<!-- type: tab-end -->
 
 <!-- theme: info -->
 > #### App-specific APIs
