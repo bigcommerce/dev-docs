@@ -182,7 +182,7 @@ Category tree payload objects take the form that follows:
 
 ## Customers
 
-The following customers webhook event fires in response to actions that affect a specific channel on a store:
+The following customers webhook event fires in response to customer changes:
 
 | Name / Scope | Description | Corresponding Endpoint |
 |:-------------|:------------|:-----------------------|
@@ -202,6 +202,53 @@ Customers payload objects take the form that follows:
       1
    ]
   },
+ "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+}
+```
+
+## Emails
+The following emails webhook events fire in response to actions that affect a specific channel on a store:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/settings/emailStatus/updated        | Fires when an email status is updated per a specified channel. | [Update transactional email settings](/api-reference/store-management/settings/email-statuses/put-settings-transactional-emails-enabled) |
+| store/channel/{channel_id}/settings/emailStatus/deleted        | Fires when an email status was deleted per a specified channel. | [Update transactional email settings](/api-reference/store-management/settings/email-statuses/put-settings-transactional-emails-enabled) |
+| store/channel/{channel_id}/email/templates/updated        | Fires when an email template is updated per a specified channel. | [Update a template](/api-reference/store-management/email-templates/email-templates/updateemailtemplate) |
+| store/channel/{channel_id}/email/templates/deleted        | Fires when an email template was deleted per a specified channel. | [Delete email template override](/api-reference/store-management/email-templates/email-templates/deleteemailtemplateoverride) |
+
+
+Emails payload objects take the form that follows:
+
+```json title="Example emails payload object" lineNumbers
+{
+ "store_id": "11111",
+ "producer": "stores/abcde",
+ "created_at": 1641641646,
+ "scope": "store/channel/1/settings/emailStatus/updated",
+ "data": {
+    "template_kind": "product_review_email"
+  },
+ "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+}
+```
+
+## Notifications
+The following notifications webhook events fire in response to actions that affect a specific channel on a store:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/notifications/abandonedCart/updated        | Fires when an abandoned cart notification is updated per a specified channel. | [Update channel abandoned cart settings](/api-reference/store-management/abandoned-carts/abandoned-carts-settings/updatechannelabandonedcartsettings) 
+| store/channel/{channel_id}/notifications/inventory/updated        | Fires when an inventory notification is updated per a specified channel. | [Update inventory notifications settings](/api-reference/store-management/settings/inventory/putinventorynotificationssettings) |
+
+Notifications payload objects take the form that follows:
+
+```json title="Example notifications payload object" lineNumbers
+{
+ "store_id": "11111",
+ "producer": "stores/abcde",
+ "created_at": 1641641646,
+ "scope": "store/channel/1/notifications/abandonedCart/updated",
+ "data": {},
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
 ```
@@ -264,6 +311,32 @@ Web pages payload objects take the form that follows:
 ```
  
 For a complete reference of all BigCommerce webhook events and their callback payloads, see [Webhook Events](/api-docs/store-management/webhooks/webhook-events).
+
+## Price list assignments
+
+The following price list assignment webhook event fires in response to price list assignment changes:
+
+| Name / Scope | Description | Corresponding Endpoint |
+|:-------------|:------------|:-----------------------|
+| store/priceList/assignment/updated       | Fires when a price list assignment is assigned, reassigned, or unassigned. | [Create price list assignments](/api-reference/store-management/price-lists/price-lists/createpricelist ) |
+
+
+Price list assignment payload objects take the form that follows:
+
+```json title="Example price list assignment payload object" lineNumbers
+{
+ "store_id": "11111",
+ "producer": "stores/abcde",
+ "created_at": 1641641646,
+ "scope": "store/priceList/assignment/updated",
+ "data": {
+    "price_list_id": 2,
+    "channel_id": 1,
+    "customer_group_id" : 3
+  },
+ "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+}
+```
 
 ## Product assignments
 
@@ -403,8 +476,57 @@ Site payload objects take the form that follows:
  "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
 }
 ```
+## Social media links
+The following social media links webhook event fires in response to actions that affect a site associated with a specific channel on a store:
+
+
+| Name / Scope | Description | Corresponding Endpoints |
+|:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/socialMediaLinks/updated     | Fires when a social media link associated with the specified channel is updated. | Not applicable |
+
+
+Social media link payload objects take the form that follows:
+
+```json title="Example social media links payload object" lineNumbers
+{
+ "store_id": "11111",
+ "producer": "stores/abcde",
+ "created_at": 1641641646,
+ "scope": "store/channel/1/socialMediaLinks/updated",
+ "data": {},
+ "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+}
+```
+
  
- 
+ ## Themes
+
+The following themes webhook events fire in response to actions that affect a site associated with a specific channel on a store:
+
+
+| Name / Scope | Description | Corresponding Endpoints |
+|:-------------|:------------|:-----------------------|
+| store/channel/{channel_id}/theme/configuration/created     | Fires when a theme associated with the specified channel is created. | Not applicable |
+| store/channel/{channel_id}/theme/configuration/activated   | Fires when a theme associated with the specified channel is published.| Not applicable|
+
+
+Theme payload objects take the form that follows:
+
+```json title="Example theme payload object" lineNumbers
+{
+ "store_id": "11111",
+ "producer": "stores/abcde",
+ "created_at": 1641641646,
+ "scope": "store/channel/1/theme/configuration/created",
+  "data": {
+    "theme_id": "e3d82ce0-9bae-0133-0de7-525400970412",
+    "variation_id": "f49489c0-8678-013a-2933-5227bc3d7181",
+    "version_id": "f4337c30-8678-013a-2933-5227bc3d7181",
+    "configuration_id": "2dc1c3f0-b2cf-013a-a341-2aac1278f99c"
+  },
+ "hash": "3f9ea420af83450d7ef9f78b08c8af25b2213637"
+}
+```
 
 ## Resources
 
