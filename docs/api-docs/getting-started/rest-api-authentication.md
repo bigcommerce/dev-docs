@@ -25,6 +25,14 @@ Every parent set of API credentials that you request for your store is its own *
 
 For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/guide/intro). The sections on [Implementing OAuth](/api-docs/apps/guide/auth) and [Callback Handlers](/api-docs/apps/guide/callbacks) are particularly relevant to generating access tokens.
 
+
+<!-- theme: info -->
+> #### App-specific APIs
+> We recommend that you implement some REST APIs exclusively through an app. These APIs currently include the following:
+> * The [Shipping Provider API](/api-docs/providers/shipping), which connects a shipping service to stores and supports a range of shipping-related actions, such as custom rate table calculations.
+> * The [Tax Provider API](/api-docs/providers/tax), which connects tax calculation and filing services to stores.
+> Depending on your use case, you might choose to interact with a third-party provider app using a store API account. 
+
 ### All OAuth API accounts
 
 An API account's **client ID** uniquely identifies the app or user making a request. 

@@ -82,14 +82,6 @@ Accept: application/json
 <!-- type: tab-end -->
 
 
-<!-- theme: info -->
-> #### App-specific APIs
-> We recommend that you implement some REST APIs exclusively through an app. These APIs currently include the following:
-> * The [Shipping Provider API](/api-docs/providers/shipping), which connects a shipping service to stores and supports a range of shipping-related actions, such as custom rate table calculations.
-> * The [Tax Provider API](/api-docs/providers/tax), which connects tax calculation and filing services to stores.
-> Depending on your use case, you might choose to interact with a third-party provider app using a store API account. 
-
-
 ## Dynamic tokens: the Authorization header
 
 Consult the REST token generation endpoint that corresponds to your use case to determine the required OAuth scope before you create an OAuth API account to request dynamic tokens.
