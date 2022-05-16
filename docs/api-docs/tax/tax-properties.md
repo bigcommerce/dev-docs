@@ -1,15 +1,14 @@
 # Tax Properties for Products
 
-Tax properties are ... They allow you merchants to receive more accurate tax calculations for a shopper's cart by factoring in ...  
+Tax properties are ... They allow merchants and shoppers to receive more accurate tax calculations from third-party tax providers by factoring in ...   
 
 The tax properties feature will allow you to:
--Add tax properties to **products**. Unlike tax codes, you can add **multiple** tax properties to a single product
--Add tax property fields that vary between tax providers (have **variable** inputs to tax calculations)      
-
+-Add tax property fields that are specific to a tax provider (have **variable** inputs for tax calculations)      
+-Associate tax properties to **products**. Unlike tax codes, you can add **multiple** tax properties to a single product
 
 ## Tax Properties
 
-
+You must first add tax properties from a tax provider to the store. The `code` for a tax property must be provided by the tax provider. Both `code` and `display_name` are required.   
 
 ### Create Tax Properties
 
@@ -69,7 +68,11 @@ title: Response
 
 <!-- type: tab-end -->
 
+The response provides an `id` for each tax property that is used to get, update, or delete a specific tax property.
+
 ### Update Tax Properties
+
+You may update a tax property's `code`, `display_name`, and `description`. Only fields that you specify will be updated.   
 
 <!--
 type: tab
@@ -89,7 +92,7 @@ Accept: application/json
       "display_name": "Example Tax Property 1",
       "description": "Automobile Industry"
     }  
-  ]
+]
 ```
 
 <!--
@@ -205,7 +208,7 @@ No Response
 ## Product Tax Properties 
 
 Tax properties can be associated with products (i.e. Product Tax Property). To do so,
-specify the product using its product ID. The `product_id` field has the same value as the `id` field from [Get All Products](/api-reference/store-management/catalog/products/getproducts). 
+specify the product using its product ID. The `product_id` field has the same value as the `id` field from [Get All Products](/api-reference/store-management/catalog/products/getproducts). Note that you can add multiple tax properties for a product.
 
 ### Update Product with Tax Properties
 
@@ -270,7 +273,7 @@ title: Response
 
 <!-- theme:info -->
 > #### Note:
-> Product Tax Properties are sent to the Tax Provider via the Tax Provider API. To see this in action, see [Estimate Taxes](...). 
+> Product Tax Properties are sent to the tax provider via the Tax Provider API. To see this in action, see [Estimate Taxes](...). 
 
 
 ### Get Product Tax Properties 
@@ -355,3 +358,6 @@ title: Response
 <!-- type: tab-end -->
 
 ## Related Resources 
+
+- [Tax Properties API Reference](...)
+- [Tax Provider API Doc](...) See how tax properties are sent to tax providers 
