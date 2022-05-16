@@ -54,7 +54,10 @@ The Checkout JS SDK and associated documentation is available from the [BigComme
 ## How can I update the SDK?
 The following steps describe how to update the Checkout SDK package in your existing custom checkout implementation.
 
-1. Update the SDK by either running `npm install @bigcommerce/checkout-sdk@<latest-version-numer>` in your terminal, or
+1. In your terminal, navigate to the project root of your customer checkout implementation. You can update the SDK in one of the two following ways:
+
+* Run `npm install @bigcommerce/checkout-sdk@<latest-version-number>` in the terminal. 
+
 update the version number in your checkout's package.json file, then run npm install.
  
 <!-- theme: info -->
