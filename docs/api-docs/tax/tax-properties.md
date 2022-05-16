@@ -13,14 +13,91 @@ The tax properties feature will allow you to:
 
 ### Create Tax Properties
 
+<!--
+type: tab
+title: Request
+-->
+
+```JSON title="Example POST request with X-Auth-Token header 
+
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```JSON title="Example POST response 
+
+```
+
+<!-- type: tab-end -->
+
 ### Update Tax Properties
+
+<!--
+type: tab
+title: Request
+-->
+
+```JSON title="Example PUT request with X-Auth-Token header 
+
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```JSON title="Example PUT response 
+
+```
+
+<!-- type: tab-end -->
 
 ### Get Tax Properties
 
+<!--
+type: tab
+title: Request
+-->
+
+```JSON title="Example GET request with X-Auth-Token header 
+
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```JSON title="Example GET response 
+
+```
+
+<!-- type: tab-end -->
+
 ### Delete Tax Properties
 
-### Send Tax Properties to Tax Provider API
+<!--
+type: tab
+title: Request
+-->
 
+```JSON title="Example DELETE request with X-Auth-Token header 
+
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```JSON title="Example DELETE response 
+
+```
+
+<!-- type: tab-end -->
 
 
 
@@ -28,10 +105,74 @@ The tax properties feature will allow you to:
 
 ### Add Product Tax Properties
 
+<!--
+type: tab
+title: Request
+-->
+
+```JSON title="Example POST request with X-Auth-Token header 
+
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```JSON title="Example POST response 
+
+```
+
+<!-- type: tab-end -->
+
+
+<!-- theme:info -->
+> #### Note:
+> Product Tax Properties are sent to the Tax Provider via the Tax Provider API. To see this in action, see [Estimate Taxes](...). 
+
+
 ### Get Product Tax Properties 
+
+<!--
+type: tab
+title: Request
+-->
+
+```JSON title="Example POST request with X-Auth-Token header 
+
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```JSON title="Example POST response 
+
+```
+
+<!-- type: tab-end -->
 
 ### Delete Product Tax Properties
 
+<!--
+type: tab
+title: Request
+-->
 
+```JSON title="Example POST request with X-Auth-Token header 
+
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```JSON title="Example POST response 
+
+```
+
+<!-- type: tab-end -->
 
 ## Related Resources 
