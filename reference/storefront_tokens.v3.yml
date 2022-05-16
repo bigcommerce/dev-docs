@@ -222,7 +222,6 @@ paths:
         in: path
         required: true
 security:
-  - X-Auth-Client: []
   - X-Auth-Token: []
 definitions:
   TokenPostImpersonation:

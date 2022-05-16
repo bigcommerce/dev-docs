@@ -792,7 +792,6 @@ paths:
       operationId: get-themes-theme_uuid-custom-templates
       description: Enumerate available custom templates for in the theme files in a specific theme version for each supported entity type.
 security:
-  - X-Auth-Client: []
   - X-Auth-Token: []
 x-stoplight:
   docs:
@@ -1491,9 +1490,6 @@ components:
       description: 'These are the minium request headers needed for BigCommerce. '
       title: Request Headers
       properties:
-        X-Auth-Client:
-          type: string
-          example: '{X-Auth-Client}'
         Accepts:
           type: string
           default: application/json

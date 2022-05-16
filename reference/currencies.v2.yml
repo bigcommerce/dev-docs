@@ -451,7 +451,6 @@ parameters:
     required: true
 security:
   - X-Auth-Token: []
-  - X-Auth-Client: []
 x-stoplight:
   docs:
     includeDownloadLink: true
