@@ -143,7 +143,7 @@ title: Response
 {
     "data": [
         {
-            "id": 3,
+            "id": 1,
             "code": "A-123456789",
             "display_name": "Example Tax Property 1",
             "description": "Automobile Industry",
@@ -151,7 +151,7 @@ title: Response
             "updated_at": 1652476111
         },
         {
-            "id": 4,
+            "id": 2,
             "code": "B-123456789",
             "display_name": "Example Tax Property 2",
             "description": "Clothing Industry",
