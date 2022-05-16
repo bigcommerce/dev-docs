@@ -198,7 +198,7 @@ title: Response
 -->
 
 ```JSON title="Example DELETE response 
-No Response
+No response
 ```
 
 <!-- type: tab-end -->
@@ -342,10 +342,7 @@ title: Response
 -->
 
 ```JSON title="Example DELETE response 
-{
-    "data": [],
-    "meta": {}
-}
+No response
 ```
 
 <!-- type: tab-end -->
