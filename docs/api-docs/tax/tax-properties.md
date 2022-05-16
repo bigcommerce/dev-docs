@@ -209,8 +209,8 @@ type: tab
 title: Request
 -->
 
-```JSON title="Example POST request with X-Auth-Token header 
-POST https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/properties
+```JSON title="Example PUT request with X-Auth-Token header 
+PUT https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/properties
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -223,7 +223,7 @@ type: tab
 title: Response
 -->
 
-```JSON title="Example POST response 
+```JSON title="Example PUT response 
 
 ```
 
