@@ -7,7 +7,7 @@ The B2B Edition is a packaged offering of the BigCommerce Enterprise plan, B3, a
 B3 offers multiple B2B feature enhancements to your BigCommerce store, including the following:
 
 - Customer account hierarchy with user roles and permissions
-- Shared shopping lists and buy again functionality
+- Shared shopping lists and "buy again" functionality
 - Sales representative enablement tools
 - Quote management
 - Invoice & payment management
