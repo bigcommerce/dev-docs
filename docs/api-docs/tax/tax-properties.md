@@ -322,7 +322,7 @@ title: Response
 
 ### Delete Product Tax Properties
 
-To delete the tax properties associated with products, you must specify the `product_id` for the products in the query. 
+To delete the tax properties associated with products, you must specify the `product_id` for the products you wish to delete in the query. 
 
 <!--
 type: tab
@@ -330,7 +330,7 @@ title: Request
 -->
 
 ```JSON title="Example DELETE request with X-Auth-Token header 
-DELETE https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/properties?product_id:in=113
+DELETE https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/properties?product_id:in=113,117
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -343,14 +343,7 @@ title: Response
 
 ```JSON title="Example DELETE response 
 {
-    "data": [
-        {
-          "product_id": 117,
-          "tax_properties": {
-            "B-123456789": "800"
-          }
-        }
-    ],
+    "data": [],
     "meta": {}
 }
 ```
