@@ -57,7 +57,7 @@ The following steps describe how to update the Checkout SDK package in your exis
 1. Update the SDK by either running `npm install @bigcommerce/checkout-sdk@<latest-version-numer>` in your terminal, or
 update the version number in your checkout's package.json file, then run npm install.
  
-<!-- checkout: info -->
+<!-- theme: info -->
 > Note: See [Changelog.md](https://github.com/bigcommerce/checkout-sdk-js/blob/master/CHANGELOG.md) for checkout-sdk version information.
 
 2. Test the updated SDK.
