@@ -40,7 +40,7 @@ With the Checkout JS SDK, you can build a [custom checkout presentation](https:/
 
 The Checkout JS SDK allows you to present the checkout process to the shopper in any way you like and, through front-end technologies and external web services, augment the checkout with extra information.
 
-However, the Checkout JS SDK does not allow you to change the checkout's underpinnings -- you must still conform to the model of the Checkout API underpinning the SDK to complete a Checkout and create an Order in BigCommerce.
+However, the Checkout JS SDK does not allow you to change the checkout's underpinnings. You must still conform to the SDK's model of the Checkout API to complete a checkout and create an order in BigCommerce.
 The SDK does not allow you to implement custom payment, shipping, or tax calculation providers into the checkout. Instead, you can use the configured providers for these services on a given store using our Checkout API.
 
 ### Required payment method initialization options 
