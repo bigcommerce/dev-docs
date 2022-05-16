@@ -14,7 +14,7 @@ B3 offers multiple B2B feature enhancements to your BigCommerce store, including
 
 ## Installing B3 
 
-The B3 admin panel is accessible from the My Apps section of your store's dashboard. The client-facing portions of the app are loaded dynamically with JavaScript.
+The B3 admin panel is accessible from the **My Apps** section of your store control panel. The client-facing portions of the app are loaded dynamically with JavaScript.
 
 ## Customizing B3
 
