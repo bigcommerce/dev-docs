@@ -226,9 +226,15 @@ search:
 |`product_results`|`limit` defines the number of product search results displayed per page. The range of possible values is 1–100 products.|
   
 ## GraphQL attributes
-You can add [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) queries to your theme via the front matter block in a template file. For example, you can request a product's variants by augmenting the existing [product.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html):
-  
- ```yaml lineNumbers
+You can add [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) queries to your theme via the front matter block in a template file. For example, you can request a product's variants by augmenting the existing [product.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html), as well as a category's products by augmenting the existing [category.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/category.html): 
+
+
+<!--
+type: tab
+title: Product
+-->
+
+ ```yaml title="Front matter block in product.html template" lineNumbers
 product:
   videos:
       limit: {{theme_settings.productpage_videos_count}}
@@ -255,12 +261,44 @@ gql: "query productById($productId: Int!) {
   }
 }"
 ```
-  
+
+<!--
+type: tab
+title: Category
+-->
+
+ ```yaml title="Front matter block in category.html template" lineNumbers
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+gql: "query categoryById ($categoryId: Int!){
+	site {
+    category(entityId: $categoryId) {
+      products {
+        edges {
+          node {
+            sku
+          }
+        }
+      }
+    }
+  }
+}"
+```
+
+<!-- type: tab-end -->
+
 We suggest testing GraphQL queries using the [storefront API playground](https://developer.bigcommerce.com/graphql-playground) to refine them before adding them to your template. You can launch the playground in the context of your store by clicking the **Storefront API Playground** link under the **Advanced Settings** menu in your store's control panel.
   
-Once you have added a query to your template's front matter block, execution happens automatically when the page loads. The data returned by the query will be returned in the page's context and made available to the handlebars under the `gql` key. For example, you can retrieve the variant data from the above query in `product.html` like this:
+Once you have added a query to your template's front matter block, execution happens automatically when the page loads. The data returned by the query will be returned in the page's context and made available to the handlebars under the `gql` key. The following examples illustrate how you can retrieve the variant data from the above query in `product.html`, as well as a category's product data from the above query in `category.html`:
 
-```handlebars lineNumbers
+<!--
+type: tab
+title: Product
+-->
+
+```handlebars title="Handlebar in product.html template" lineNumbers
 {{#if gql.data.site.product}}
 {{#each gql.data.site.product.variants.edges}}
   {{#with node}}
@@ -269,6 +307,24 @@ Once you have added a query to your template's front matter block, execution hap
 {{/each}}
 {{/if}}
 ```
+
+<!--
+type: tab
+title: Category
+-->
+
+```handlebars title="Handlebar in category.html template" lineNumbers
+{{#if gql.data.site.category}}
+{{#each gql.data.site.category.product.edges}}
+  {{#with node}}
+    {{sku}} {{! - - sku code from each product from GQL response}}
+  {{/with}}
+{{/each}}
+{{/if}}
+```
+
+<!-- type: tab-end -->
+
 If the GraphQL query is invalid, Stencil returns an `errors` object with `locations` and `message` properties similar to the following example:
 ```json lineNumbers
 {
