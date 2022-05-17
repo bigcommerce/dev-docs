@@ -204,7 +204,7 @@ If you're using the Storefront API from a browser, for example, on top of your S
 
 
 
-```graphQL title="Login Mutation" lineNumbers
+```graphql title="Example query: login mutation" lineNumbers
 mutation Login($email: String!, $pass: String!) {
   login(email: $email, password: $pass) {
     result
@@ -219,7 +219,7 @@ As a best practice, you should inject the password using GraphQL query variables
 You can use a logout mutation to sign out of a customer account:
 
 
-```graphQL title="Logout Mutation" lineNumbers 
+```graphql title="Example query: logout mutation" lineNumbers
 mutation Logout {
    logout {
      result
