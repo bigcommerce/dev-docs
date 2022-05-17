@@ -211,7 +211,7 @@
           "type": "item",
           "title": "Handlebars Reference",
           "href": "/api-docs/store-management/email-templates/handlebars",
-          "uri": "https://raw.githubusercontent.com/bigcommerce/api-specs/master/models/email_templates/_all.yml"
+          "uri": "https://developer.bigcommerce.com/api-docs/store-management/email-templates/handlebars"
         }
       ]
     },
