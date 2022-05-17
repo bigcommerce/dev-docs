@@ -28,6 +28,9 @@ For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/g
 
 <!-- theme: info -->
 > #### App-specific APIs
+> Some APIs are only accessible with app API accounts. These include:
+> * The [Current Customer API](/api-docs/storefront/current-customer-api);
+> 
 > We recommend that you implement some REST APIs exclusively through an app. These APIs currently include the following:
 > * The [Shipping Provider API](/api-docs/providers/shipping), which connects a shipping service to stores and supports a range of shipping-related actions, such as custom rate table calculations.
 > * The [Tax Provider API](/api-docs/providers/tax), which connects tax calculation and filing services to stores.
