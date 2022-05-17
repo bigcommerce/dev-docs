@@ -216,7 +216,8 @@ As a best practice, you should inject the password using GraphQL query variables
 
 ![GraphQL Playground Query Variables](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-overview-01.png "GraphQL Playground Query Variables")
 
-You can use a logout mutation to log out of a customer account:
+You can use a logout mutation to sign out of a customer account:
+
 
 ```graphQL title="Logout Mutation" lineNumbers 
 mutation Logout {
