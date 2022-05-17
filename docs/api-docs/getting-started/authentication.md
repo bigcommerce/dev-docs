@@ -101,7 +101,7 @@ title: Example Request: Current Customer API
 -->
 
 ```js title="Example front-end request" lineNumbers
-var customerJWT = (apiAccountClientId) => {
+const customerJWT = (apiAccountClientId) => {
   return fetch('/customer/current.jwt?app_client_id=' + apiAccountClientId)
   .then(response => {
     if(response.status === 200) {
@@ -180,7 +180,7 @@ For OAuth scope and implementation details, consult the ??following
 First, request a dynamic token by hitting the ??possessive?? REST endpoint that uses the X-Auth-Token header, using an API account with OAuth scopes that allow the actions you want the Auth header request to do. Consider the following:
 
 ```http title="Example request: limited-use auth token"
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/some-token-generating-endpoint
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/some-token-generating-endpoint
 X-Auth-Token: {{access_token}} # the OAuth scopes of this access token must allow the stuff you want to do with the limited-use token
 Accept: application/json
 Content-Type: application/json
@@ -195,15 +195,94 @@ Then, include the returned token with an identifying string in the Authorization
 #### The GraphQL Storefront API
 For the GraphQL Storefront API, your response-request pair will look something like the following:
 
-<!-- tabs! -->
+<!-- 
+type: tab
+title: Example Response: Create a token
+-->
+
+```json title="Example response: Create a GraphQL Storefront API token" lineNumbers
+{
+  "token":"BigCommerceProvidedJwt.dotDelimited.threePartString",
+  "meta": {
+    // ...
+  }
+}
+```
+
+<!-- 
+type: tab
+title: Example Query: GraphQL Storefront API
+-->
+
+```js title="Example query: GraphQL Storefront API" lineNumbers
+
+const gqlStorefrontQuery = (token, gqlQueryString) => {
+  // example token is "BigCommerceProvidedJwt.dotDelimited.threePartString"
+  let authHeader = `Bearer ${token}`; // there's a space between "Bearer" and the token
+  let requestBody = {
+    query: gqlQueryString
+  };
+  return fetch('/graphql', {
+    method: 'POST',
+    credentials: 'same-origin',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': authHeader 
+    },
+    body: JSON.stringify(requestBody)
+  })
+  .then(response => response.json())
+  .then(result => {
+    console.log(result); // GraphQL query response
+    // do stuff...
+  })
+  .catch(error => console.error(error));
+}
+```
+
+<!-- type: tab-end -->
 
 
 #### The Payment Processing API
 The Payment Processing response-request pair should resemble the following pair:
 
-<!-- tabs! -->
+<!-- 
+type: tab
+title: Example Response: Create a token
+-->
 
+```json title="Example response: Create a payment access token" lineNumbers
+{
+  "data": {
+    "id": "BigCommerceProvidedJwt.dotDelimited.threePartString"
+  },
+  "meta": {
+     // ...
+  }
+}
+```
 
+<!-- 
+type: tab
+title: Example Request: Process a payment
+-->
+
+```http title="Example request: Process a payment" lineNumbers
+
+# example TOKEN is BigCommerceProvidedJwt.dotDelimited.threePartString
+
+POST https://payments.bigcommerce.com/stores/{{STORE_HASH}}/payments
+Accept: application/vnd.bc.v1+json # note uncommon accept header value
+Authorization: PAT {{TOKEN}} # there's a space between "PAT" and the token
+Content-Type: application/json
+
+{
+  // ...
+}
+
+```
+
+<!-- type: tab-end -->
 
 ### The Customer Login API
 <!-- access point URL with JWT as path parameter -->
