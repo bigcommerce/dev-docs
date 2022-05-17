@@ -249,23 +249,32 @@ title: Response
 {
     "data": [
         {
-          "product_id": 113,
-          "tax_properties": {
-            "A-123456789": "405",
-            "B-123456789": "111"
-          }
+            "product_id": 113,
+            "tax_properties": {
+                "A-123456789": "405",
+                "B-123456789": "111"
+            }
         },
         {
-          "product_id": 117,
-          "tax_properties": {
-            "B-123456789": "800"
-          }
+            "product_id": 117,
+            "tax_properties": {
+                "B-123456789": "800"
+            }
         }
     ],
-    "meta": {}
+    "meta": {
+        "pagination": {
+            "total": 2,
+            "count": 2,
+            "per_page": 50,
+            "current_page": 1,
+            "total_pages": 1,
+            "links": {
+                "current": "?page=1&limit=50"
+            }
+        }
+    }
 }
-
-
 ```
 
 <!-- type: tab-end -->
@@ -301,20 +310,31 @@ title: Response
 {
     "data": [
         {
-          "product_id": 113,
-          "tax_properties": {
-            "A-123456789": "405",
-            "B-123456789": "111"
-          }
+            "product_id": 113,
+            "tax_properties": {
+                "A-123456789": "405",
+                "B-123456789": "111"
+            }
         },
         {
-          "product_id": 117,
-          "tax_properties": {
-            "B-123456789": "800"
-          }
+            "product_id": 117,
+            "tax_properties": {
+                "B-123456789": "800"
+            }
         }
     ],
-    "meta": {}
+    "meta": {
+        "pagination": {
+            "total": 2,
+            "count": 2,
+            "per_page": 50,
+            "current_page": 1,
+            "total_pages": 1,
+            "links": {
+                "current": "?product_id%3Ain=113%2C117&page=1&limit=50"
+            }
+        }
+    }
 }
 ```
 
