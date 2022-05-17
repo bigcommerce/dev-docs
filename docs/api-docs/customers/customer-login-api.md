@@ -3,7 +3,11 @@
  
 
 ## Introduction
-In this tutorial, you will learn how to enable single sign-on for storefront customers using the Customer Login API and JSON Web Tokens.
+In this tutorial, you will learn how to enable single sign-on for storefront customers using the Customer Login API and JSON Web Tokens. 
+
+<!-- theme:info -->
+>#### Note:
+>You can also use the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-login) to log in and log out of a customer's acccount.  
 
 ## Overview
 
