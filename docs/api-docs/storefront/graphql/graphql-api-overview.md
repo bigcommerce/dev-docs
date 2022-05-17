@@ -193,8 +193,7 @@ curl 'https://store.com/graphql' -H 'Authorization: Bearer TOKEN_GOES_HERE' -H '
 
 If you're using the GraphQL Storefront API from a browser, for example, on top of your Stencil storefront, you can use the new Customer Login mutation to sign in to a customer account with an email address and a password. For server-side integrations, consider a customer impersonation token instead. This will set a session cookie in the browser which will authenticate the customer account on future requests:
 
-
-```graphql title="Example customer login mutation"
+```graphql title="Example query: login mutation" lineNumbers
 mutation Login($email: String!, $pass: String!) {
   login(email: $email, password: $pass) {
     result
@@ -205,6 +204,17 @@ mutation Login($email: String!, $pass: String!) {
 As a best practice, you should inject the password using GraphQL query variables. This prevents the password from being exposed in the query itself. In the [GraphQL Playground](/graphql-playground), you can set the variables for the request.
 
 ![GraphQL Playground Query Variables](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/graphql-overview-01.png "GraphQL Playground Query Variables")
+
+You can use a logout mutation to sign out of a customer account:
+
+
+```graphql title="Example query: logout mutation" lineNumbers
+mutation Logout {
+   logout {
+     result
+   }
+ }
+```
 
 ## Querying within a BigCommerce storefront
 
