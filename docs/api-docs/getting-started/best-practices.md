@@ -128,7 +128,7 @@ After waiting for the given number of milliseconds, your client can go back to m
 ### Making requests in parallel
 You might wish to increase the amount of work your application can do in a given unit of time by sending multiple HTTP requests to the BigCommerce API in parallel. This is perfectly acceptable. However, your application should monitor the rate limiting headers to avoid an HTTP `429` response. Methods for doing this include:
 * Slowing your rate of API requests when `X-Rate-Limit-Requests-Left` is nearing zero.
-* Determining an acceptable average rate of requests, by dividing `X-Rate-Limit-Requests-Quota` by `X-Rate-Limit-Time-Window-Seconds`, and then self-throttling to that rate.
+* Determining an acceptable average rate of requests, by dividing `X-Rate-Limit-Requests-Quota` by `X-Rate-Limit-Time-Window-Ms`, and then self-throttling to that rate.
 
 <!-- theme: warning -->
 > #### Note
