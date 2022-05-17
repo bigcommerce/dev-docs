@@ -274,6 +274,11 @@
       "type": "item",
       "title": "Handlebars Email Template Objects",
       "uri": "models/email_templates/_all.yml"
+    },
+    {
+      "type": "item",
+      "title": "Template Object Reference",
+      "uri": "https://developer.bigcommerce.com/theme-objects"
     }
   ]
 }
