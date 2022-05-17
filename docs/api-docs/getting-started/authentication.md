@@ -93,21 +93,22 @@ Calls to the Current Customer API request BigCommerce-generated JWTs that confir
 
 For OAuth scope and implementation details, consult [Current Customer API](/api-docs/storefront/current-customer-api) and [Get Current Customer](/api-reference/storefront/current-customers/current-customers/getcurrentcustomer).
 
-The following request-response-payload sequence shows the authentication scheme for the Current Customer API:
+The following request-response sequence shows the authentication scheme for the Current Customer API:
 
 <!-- 
 type: tab
 title: Example Request: Current Customer API
 -->
 
-```js title="Example front-end request" lineNumbers
+```js title="Example GET request: Current Customer API" lineNumbers
 const customerJWT = (apiAccountClientId) => {
-  return fetch('/customer/current.jwt?app_client_id=' + apiAccountClientId)
+  let route = `/customer/current.jwt?app_client_id=${apiAccountClientId}`;
+  return fetch(route)
   .then(response => {
     if(response.status === 200) {
       return response.text();
     } else {
-      return new Error('response.status is' + response.status);
+      return new Error(`response.status is ${response.status}`);
     }
   })
   .then(jwt => {
@@ -126,31 +127,6 @@ title: Example Response: Current Customer API
 ```shell title="Example response.text(): JWT string"
 # response body: see payload tab to view decoded payload
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJpZCI6NDkyNywiZW1haWwiOiJqb2huLmRvZUBnbWFpbC5jb20iLCJncm91cF9pZCI6IjYifSwiaXNzIjoiYmMvYXBwcyIsInN1YiI6ImFiYzEyMyIsImlhdCI6MTQ4MDgzMTg2MywiZXhwIjoxNDgwODMyNzYzLCJ2ZXJzaW9uIjoxLCJhdWQiOiI2c3YxNnRmeDNqNWdzb3BtNDJzczVkZDY3ZzJzcnZxIiwiYXBwbGljYXRpb25faWQiOiI2c3YxNnRhc2RncjJiNWhzNWRkNjdnMnNydnEiLCJzdG9yZV9oYXNoIjoiYWJjMTIzIiwib3BlcmF0aW9uIjoiY3VycmVudF9jdXN0b21lciJ9.uYTDTJzhDOog7PE1yLNeP6zDNdFMb91fS-NZrJpsts0
-```
-
-<!-- 
-type: tab
-title: Example Payload: Current Customer API
--->
-
-```json title="Example response: Decoded JWT" lineNumbers
-// experiment with decoding at jwt.io
-{
-  "customer": {
-    "id": 4927,
-    "email": "john.doe@gmail.com",
-    "group_id": "6"
-  },
-  "iss": "bc/apps",
-  "sub": "abc123",
-  "iat": 1480831863,
-  "exp": 1480832763,
-  "version": 1,
-  "aud": "xxxxxxxxanotheralphanumstringxxxxx",
-  "application_id": "xxxxxxxxathirdalphanumstringxxxxx",
-  "store_hash": "abc123",
-  "operation": "current_customer"
-}
 ```
 
 <!-- type: tab-end -->
@@ -289,12 +265,31 @@ Content-Type: application/json
 
 ??example, rewrite
 
-The Customer Login API facilitates alternative sign-in methods by letting your app generate JWTs that authenticate customers to BigCommerce's servers. Create an app OAuth API account to use the Customer Login API for single sign-on.
+The Customer Login API is BigCommerce's mechanism for single sign-on. Your app or implementation generates signed JWTs that simultaneously authenticate your request and identify the customer you want to sign in. You need an app API account to use the Customer Login API.
 
-```http title="Form of request to Customer Login API"
-# direct browser to this URL
-GET https://store.example.com/login/token/{{jwt_that_your_app_generated}}
+```js title="Example GET request: Customer Login API"
+
+const loginCustomer = (yourStoreUrl, yourJwt) => {
+  let route = `${yourStoreUrl}/login/token/${yourJwt}`;
+  return fetch(route)
+  .then(response => {
+    console.log(response);
+    if(response.status === 200) {
+      // resolve any parts of the response to work with...
+      return Promise.all([response.url, response.text()]);
+    } else {
+      return new Error(`response.status is ${response.status}`);
+    }
+  })
+  .then(([url, content]) => {
+    console.log(url); // navigate to URL, or
+    console.log(content); // work with page content
+    // etc...
+  })
+  .catch(error => console.error(error));
+}
 ```
+
 
 For OAuth scope and implementation details, consult [Customer Login API](/api-docs/storefront/customer-login-api) and [SSO API Reference](/api-reference/storefront/customer-login-sso).
 
