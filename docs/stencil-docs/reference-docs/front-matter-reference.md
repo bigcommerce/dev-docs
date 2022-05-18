@@ -290,7 +290,8 @@ gql: "query categoryById ($categoryId: Int!){
 
 <!-- type: tab-end -->
 
-We suggest testing GraphQL queries using the [storefront API playground](https://developer.bigcommerce.com/graphql-playground) to refine them before adding them to your template. You can launch the playground in the context of your store by clicking the **Storefront API Playground** link under the **Advanced Settings** menu in your store's control panel.
+We suggest testing and refining GraphQL queries before adding them to your template. You can use the [GraphQL Storefront API playground](https://developer.bigcommerce.com/graphql-playground). To launch the playground in the context of your store, navigate to the **Advanced Settings** menu in your store control panel and click the **Storefront API Playground** link.
+
   
 Once you have added a query to your template's front matter block, execution happens automatically when the page loads. The data returned by the query will be returned in the page's context and made available to the handlebars under the `gql` key. The following examples illustrate how you can retrieve the variant data from the above query in `product.html`, as well as a category's product data from the above query in `category.html`:
 
