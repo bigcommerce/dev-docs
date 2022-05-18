@@ -301,7 +301,8 @@ type: tab
 title: Product
 -->
 
-```handlebars title="Handlebar in product.html template" lineNumbers
+```handlebars title="Example gql Handlebars object in product.html template" lineNumbers
+
 {{#if gql.data.site.product}}
 {{#each gql.data.site.product.variants.edges}}
   {{#with node}}
