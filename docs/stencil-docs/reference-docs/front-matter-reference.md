@@ -226,7 +226,8 @@ search:
 |`product_results`|`limit` defines the number of product search results displayed per page. The range of possible values is 1–100 products.|
   
 ## GraphQL attributes
-You can add [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) queries to your theme via the front matter block in a template file. For example, you can request a product's variants by augmenting the existing [product.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html), as well as a category's products by augmenting the existing [category.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/category.html): 
+You can add [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) queries to your theme using the front matter block in a template file. For example, you can request a product's variants by augmenting the existing [product.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/product.html), or a category's products by augmenting the existing [category.html template](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/category.html): 
+
 
 
 <!--
