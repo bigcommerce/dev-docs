@@ -291,7 +291,7 @@
         {
           "type": "item",
           "title": "Tax Properties",
-          "href": "/api-docs/store-management/tax-properties",
+          "href": "/api-docs/store-management/tax/tax-properties",
           "uri": "docs/api-docs/tax/tax-properties.md"
         }
       ]
