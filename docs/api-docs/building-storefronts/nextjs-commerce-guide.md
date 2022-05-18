@@ -80,9 +80,9 @@ To get started with Next.js Commerce, you'll need to deploy a live version direc
 2. Navigate to the locally cloned project's root directory and create a copy of the `.env.template` file. Rename the newly created file `.env.local` and insert your environmental variables using the following as a reference:
 
 ```bash title=".env.template"
-BIGCOMMERCE_STOREFRONT_API_URL=https://store-${STORE_ID}.mybigcommerce.com/graphql
+BIGCOMMERCE_STOREFRONT_API_URL=https://store-${STORE_HASH}.mybigcommerce.com/graphql
 BIGCOMMERCE_STOREFRONT_API_TOKEN=${STOREFRONT_TOKEN}
-BIGCOMMERCE_STORE_API_URL=https://api.bigcommerce.com/stores/${STORE_ID}
+BIGCOMMERCE_STORE_API_URL=https://api.bigcommerce.com/stores/${STORE_HASH}
 BIGCOMMERCE_STORE_API_TOKEN=${STORE_TOKEN}
 BIGCOMMERCE_STORE_API_CLIENT_ID=${STORE_CLIENT}
 ```
@@ -91,7 +91,7 @@ BIGCOMMERCE_STORE_API_CLIENT_ID=${STORE_CLIENT}
 COMMERCE_PROVIDER=bigcommerce
 BIGCOMMERCE_STOREFRONT_API_URL=https://store-${STORE_HASH}-${CHANNEL_ID}.mybigcommerce.com/graphql
 BIGCOMMERCE_STOREFRONT_API_TOKEN=${STOREFRONT_API_TOKEN}
-BIGCOMMERCE_STORE_API_URL=https://api.bigcommerce.com/stores/${STORE_ID}
+BIGCOMMERCE_STORE_API_URL=https://api.bigcommerce.com/stores/${STORE_HASH}
 BIGCOMMERCE_STORE_API_TOKEN=${STORE_TOKEN}
 BIGCOMMERCE_STORE_API_CLIENT_ID=${STORE_CLIENT}
 BIGCOMMERCE_CHANNEL_ID=${CHANNEL_ID}

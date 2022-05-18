@@ -8,21 +8,21 @@ Your app may need to be notified when specific events occur on a BigCommerce sto
 ## Available webhooks
 
 The following resources have webhooks events available to apps:
-* [Carts](/api-docs/store-management/webhooks/webhook-events#cart)
+* [Carts](/api-docs/store-management/webhooks/webhook-events#carts)
 
-* [Cart Line Items](/api-docs/store-management/webhooks/webhook-events#cart-line-item)
+* [Cart Line Items](/api-docs/store-management/webhooks/webhook-events#cart-line-items)
 
-* [Categories](/api-docs/store-management/webhooks/webhook-events#category)
+* [Categories](/api-docs/store-management/webhooks/webhook-events#categories)
 
-* [Customers](/api-docs/store-management/webhooks/webhook-events#customer)
+* [Customers](/api-docs/store-management/webhooks/webhook-events#customers)
 
 * [Orders](/api-docs/store-management/webhooks/webhook-events#orders)
 
 * [Products](/api-docs/getting-started/webhooks/webhook-events#products)
-* [Shipments](/api-docs/getting-started/webhooks/webhook-events#shipment)
-* [SKUs](/api-docs/getting-started/webhooks/webhook-events#sku)
-* [Stores](/api-docs/getting-started/webhooks/webhook-events#store)
-* [Subscribers](/api-docs/getting-started/webhooks/webhook-events#subscriber)
+* [Shipments](/api-docs/getting-started/webhooks/webhook-events#shipments)
+* [SKUs](/api-docs/getting-started/webhooks/webhook-events#skus)
+* [Stores](/api-docs/getting-started/webhooks/webhook-events#stores)
+* [Subscribers](/api-docs/getting-started/webhooks/webhook-events#subscribers)
 
 [Learn more about webhook events](/api-docs/getting-started/webhooks/webhook-events#orders).
 
@@ -73,7 +73,7 @@ Accept: application/json
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
 * [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
-* [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
+* [Figma UI Kit](//figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 
 ### Blog posts
