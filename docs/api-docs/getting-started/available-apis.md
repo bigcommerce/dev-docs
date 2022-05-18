@@ -63,16 +63,16 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 |  [Brand Images](/api-reference/catalog/catalog-api/brand-images) | Create and manage brand images | `/catalog/brands/{id}/images` |
 |  [Brand Metafields](/api-reference/catalog/catalog-api/brand-metafields) | Create and manage brand metafields | `/catalog/brands/{id}/metafields` |
 |  [Brands](/api-reference/catalog/catalog-api/brands) | Create and manage brands | `/catalog/brands` |
-|  [Carts](/api-reference/cart-checkout/server-server-cart-api) | Create an manage store carts headlessly | `/carts` |
+|  [Carts](/api-reference/cart-checkout/server-server-cart-api) | Create and manage store carts headlessly | `/carts` |
 |  [Categories](/api-reference/catalog/catalog-api/category) | Create and manage categories | `/catalog/categories` |
 |  [Category Images](/api-reference/catalog/catalog-api/category-images) | Create and manage category images | `/catalog/categories/{id}/images` |
 |  [Category Metafields](/api-reference/catalog/catalog-api/category-metafields) | Create and manage category metafields | `/catalog/categories/{id}/metafields` |
-|  [Channels](/api-reference/cart-checkout/channels-listings-api/channels) | Create and manage catalog listings and channels | `/channels` |
+|  [Channels](/api-reference/store-management/channels/channels) | Create and manage catalog listings and channels | `/channels` |
 |  [Checkouts](/api-reference/cart-checkout/server-server-checkout-api) | Create checkouts headlessly | `/checkouts` |
 |  [Customer Addresses](/api-reference/store-management/customers-v3/customer-addresses) | Create and manage customer addresses | `/customers/addresses` |
 |  [Customer Attribute Values](/api-reference/store-management/customers-v3/customer-attribute-values) | Create and manage customer attribute values | `/customers/attribute-values` |
 |  [Customer Attributes](/api-reference/store-management/customers-v3/customer-attributes) | Create and manage customer attributes | `/customers/attributes` |
-|  [Customer Form Field Values](/api-reference/store-management/customers-v3/customer-form-fields) | Create an manage customer form field values | `/customers/form-field-values` |
+|  [Customer Form Field Values](/api-reference/store-management/customers-v3/customer-form-fields) | Create and manage customer form field values | `/customers/form-field-values` |
 |  [Customers](/api-reference/store-management/customers-v3/customers) | Create and manage customers and their addresses | `/customers` |
 |  [Order Transactions](/api-reference/store-management/order-transactions) | View order payment information | `/orders/{id}/transactions` |
 |  [Payment Processing Methods](/api-reference/payments/payments-create-payment-token-api/payment-methods) | Get order payment methods for processing | `/payments/methods` |
@@ -97,8 +97,8 @@ Like the **V2 API**, BigCommerce's **V3 REST API** exposes many endpoints develo
 |  [Redirects](/api-reference/storefront/redirects) | Manage 301 Redirects for Storefronts | `/storefront/redirects` |
 |  [Scripts](/api-reference/store-management/scripts) | Add client-side code to a store | `/content/scripts` |
 |  [Sites](/api-reference/cart-checkout/sites-routes-api) | Manage sites and routing for headless storefronts | `/sites` |
-|  [Storefront API Token](/api-reference/cart-checkout/storefront-api-token/api-token) | Create Auth Tokens for use with Storefront APIs | `/api-token` |
-|  [Storefront Customer Impersonation Token](/api-reference/cart-checkout/storefront-api-token/customer-impersonation-token) | Create a storefront API token for customer impersonation | `/api-token-customer-impersonation` |
+|  [Storefront API Token](/api-reference/store-management/tokens/api-token/createtoken) | Create Auth Tokens for use with Storefront APIs | `/api-token` |
+|  [Storefront Customer Impersonation Token](/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation) | Create a storefront API token for customer impersonation | `/api-token-customer-impersonation` |
 |  [Subscribers](/api-reference/store-management/subscribers) | Create and manage store newsletter subscribers | `/customers/subscribers` |
 |  [Themes](/api-reference/store-management/themes) | Create and manage store theme's | `/themes` |
 |  [Variants](/api-reference/catalog/catalog-api/variants) | Get and update all variants | `/catalog/variants` |
@@ -177,7 +177,7 @@ The **Customer Login API** enables single sign-on (SSO). It allows apps to progr
 
 |  Resource | Description | Endpoint|
 |-|-|-|
-| [Customer Login](/api-docs/customers/customer-login-api)| Use JWT & SSO to login a customer| `/login/token/{token}` |
+| [Customer Login](/api-docs/storefront/customer-login-api)| Use JWT & SSO to login a customer| `/login/token/{token}` |
 
 **Additional Information**: [Customers & Subscribers Overview](/api-docs/customers/customers-subscribers-overview)
 
@@ -313,7 +313,7 @@ Sunset endpoints will be phased out and removed from the API. Once sunset, the e
 **V3 Sunsets**
 |Endpoint|Date of Deactivation| Alternative |
 |-|-|-|
-|Channels API `is_activated` property| May, 10, 2020|[Channels API](/api-reference/cart-checkout/channels-listings-api/channels/listchannels) `status` property
+|Channels API `is_activated` property| May, 10, 2020|[Channels API](/api-reference/store-management/channels/channels/listchannels) `status` property
 
 
 **Additional Information:** [V2 versus V3 API](/legacy/v2-products/v2-v3#Whats-not-in-V3)

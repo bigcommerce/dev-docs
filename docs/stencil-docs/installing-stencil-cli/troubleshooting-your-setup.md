@@ -129,7 +129,7 @@ If you receive the error message -bash: `stencil: command not found`, ensure tha
 
 ### Redirect Bash shell
 
-If you receive the error message -bash: stencil: command not found, enter echo $NVM_DIR. If this command returns nothing, then run source ~/.bash_profile and try running running stencil commands again.
+If you receive the error message -bash: stencil: command not found, enter echo $NVM_DIR. If this command returns nothing, then run source ~/.bash_profile and try running stencil commands again.
 
 ### Check/Specify `nvm` version
 
@@ -153,7 +153,7 @@ If executing the `stencil start` command generates an `Unauthorized, please use 
 
 ### 403 errors
 
-If the Stencil server responds with a `403` error and you are using a proxy-based domain service like Cloudflare or Amazon Cloudfront, modify the hosts file on your machine to map the localhost to the IP address of the BigCommerce server.
+If the Stencil server responds with a `403` error and you are using a proxy-based domain service like Cloudflare or Amazon Cloudfront, modify your hosts file to map the localhost to your BigCommerce store IP address.
 
 ## 500 errors
 

@@ -41,7 +41,7 @@ Single click app authorization and authentication occurs via [OAuth2 authorizati
 
 <!-- theme: info -->
 > #### Note
-> * API token creation is a permission reserved for the [store owner](https://forum.bigcommerce.com/s/article/Store-API-Accounts#creating) user account.
+> * API token creation is a permission reserved for the [store owner](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) user account.
 > * An app can request authentication *on behalf* of a store owner, allowing your app to make API requests against store data.
 > * All app callbacks must be served over `https` (you should also have access to your app's server logs which will allow you to see the information in the request).
 
@@ -198,7 +198,7 @@ For additional details, see [Security Considerations in RC6749](https://tools.ie
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
 * [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
-* [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
+* [Figma UI Kit](//figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 
 ### Blog posts

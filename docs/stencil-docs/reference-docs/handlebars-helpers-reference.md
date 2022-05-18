@@ -1421,7 +1421,7 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [isArray](https://github.com/helpers/handlebars-helpers#isArray) | array | Returns `true` if value is an es5 array. |
 | [last](https://github.com/helpers/handlebars-helpers#last) | array | Returns the last item, or last `n` items of an array or string. |
 | [length](https://github.com/helpers/handlebars-helpers#length) | array | Returns the length of the given string or array. |
-| [lengthEqual](https://github.com/helpers/handlebars-helpers#lengthEqual) | array | Returns true if the the length of the given value is equal to the given `length`. |
+| [lengthEqual](https://github.com/helpers/handlebars-helpers#lengthEqual) | array | Returns true if the length of the given value is equal to the given `length`. |
 | [map](https://github.com/helpers/handlebars-helpers#map) | array | Returns a new array created by calling `function` on each element of the given array. |
 | [some](https://github.com/helpers/handlebars-helpers#some) | array | Block helper that returns the block if the callback returns `true` for some value in the given array. |
 | [sort](https://github.com/helpers/handlebars-helpers#sort) | array | Sorts the given array. If an array of objects is passed, you may optionally pass a `key` to sort on as the second argument.  |

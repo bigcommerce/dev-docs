@@ -22,7 +22,7 @@ For more information on the enhanced capabilities of Stencil, see the [Stencil v
 
 When transitioning any store from Blueprint to Stencil, you should be aware of a few key differences. Transitioning to Stencil allows developers to do the following:
 - [Develop locally on Stencil CLI](#developing-locally-on-stencil-cli)
-- [Use Handlebars instead of global variables](#use-handlebars)
+- [Use Handlebars instead of global variables](#using-handlebars)
 - [Customize Page Builder mode](#customize-page-builder-mode)
 - [Create custom templates](#create-custom-templates)
 
@@ -74,7 +74,7 @@ Unlike Blueprint, Stencil does not require that custom template file names start
 ### Resources
 
 For more information about switching to Stencil, see the following resources:
-- [Getting Started with the Stencil Framework - Youtube Playlist](https://www.youtube.com/watch?v=s5_GjU51h-w&list=PLwTYtMwfzbe7EZiIWPAmPtuwRHkY7BG-0&index=1)
+- [Getting Started with the Stencil Framework - YouTube Playlist](//youtube.com/watch?v=s5_GjU51h-w&list=PLwTYtMwfzbe7EZiIWPAmPtuwRHkY7BG-0&index=1)
 - [Stencil Theme Editor](https://support.bigcommerce.com/s/article/Stencil-Themes)
 - [Editing Stencil Theme Files](https://support.bigcommerce.com/s/article/Stencil-Themes#edit)
 - [Personalizing Your Stencil Theme](https://support.bigcommerce.com/articles/Learning/Personalizing-your-New-Theme)

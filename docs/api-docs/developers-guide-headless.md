@@ -16,7 +16,7 @@ Want to build a headless storefront powered by a BigCommerce back-end, but don't
 
 |  Solution | Method of Integration | Platform | Type |
 | --- | --- | --- | --- |
-| [BigCommerce for Wordpress](https://wordpress.org/plugins/bigcommerce/) | WordPress Plugin | WordPress | CMS |
+| [BigCommerce for WordPress](https://wordpress.org/plugins/bigcommerce/) | WordPress Plugin | WordPress | CMS |
 | [BigCommerce for Drupal](https://www.drupal.org/project/bigcommerce) | Drupal Module | Drupal | CMS |
 | [Bloomreach](https://www.bigcommerce.com/apps/bloomreach/) | BigCommerce App | Bloomreach | CMS / DXP |
 | [DEITY Falcon](https://www.bigcommerce.com/apps/deity-falcon-pwa-storefront/) | BigCommerce App | DEITY Falcon | PWA |
@@ -46,7 +46,7 @@ Need to build a custom solution from scratch? BigCommerce has APIs, SDKs, and to
 * [Create storefront channels with the Channels API](/api-docs/channels/quick-start).
 * [Manage sites and routes for headless storefronts with the sites and routes API](/api-reference/store-management/sites).
 * [Manage 301 redirects for one or more storefronts with Redirects V3 API](/api-reference/store-management/redirects)
-* [Create storefront specific product listings with the Channels API](/api-reference/cart-checkout/channels-listings-api).
+* [Create storefront specific product listings with the Channels API](/api-reference/store-management/channels).
 * [Query storefront data with GraphQL](/api-docs/storefront/graphql/graphql-storefront-api-overview).
 * [Use customer impersonation tokens to query data specific to the shopper](/api-docs/storefront/graphql/graphql-storefront-api-overview#customer-impersonation-tokens).
 * [Create carts with the Server-to-Server Carts API](/api-reference/cart-checkout/server-server-cart-api).
@@ -134,7 +134,7 @@ If you need complete control over the checkout page, you have the option to buil
 
 If a shopper creates a cart as a guest then logs into the store, you can use the following process to associate the cart to the customer and log them in at the same time. The [Server to Server Cart API](/api-reference/cart-checkout/server-server-cart-api) is used since it allows for the front end to be bypassed when creating a cart.
 
-When a cart is created, your app should store the `cart_id`.  The `cart_id` is used to generated a `redirect_url`. Using the [Customer Login API](/api-docs/customers/customer-login-api) set the `redirect_to` parameter as the generated cart or checkout redirect url. This will both log the customer in and show them either the cart or checkout depending on which url was used.  To make sure the cart is matched to the right customer you should compare the entered email address to what is the store’s database.
+When a cart is created, your app should store the `cart_id`.  The `cart_id` is used to generated a `redirect_url`. Using the [Customer Login API](/api-docs/storefront/customer-login-api) set the `redirect_to` parameter as the generated cart or checkout redirect url. This will both log the customer in and show them either the cart or checkout depending on which url was used.  To make sure the cart is matched to the right customer you should compare the entered email address to what is the store’s database.
 
 To populate the `customer_id` on the cart with the correct data, use the email address entered to match against the [Customers API](/api-reference/customer-subscribers/v3-customers-api). If the email address matches what the customer input and what is in the BigCommerce database then proceed with login. If a match is not found then direct the customer to a [sign up](/api-reference/customer-subscribers/v3-customers-api/customers/customerspost) screen.
 
@@ -180,8 +180,6 @@ Merchants can use BigCommerce's [PCI DSS AOC](https://support.mybigcommerce.com/
 | Checkout and Payments API | Responsible for the PCI DSS compliance requirements applicable stated in BigCommerce as a storefront or BigCommerce as a backend<sup>1</sup> |  Responsible for the PCI DSS compliance requirements applicable stated in BigCommerce as a storefront or BigCommerce as a backend<sup>1</sup> |
 
 <!-- theme: info -->
-
-
 > #### Note
 > The way your business consumes the SDKs (either BigCommerce as a storefront and backend or BigCommerce as a backend) determines BigCommerce's  responsibilities; It is possible to use one more of BigCommerce's technology stack at the same time. Your PCI DSS compliance responsibilities will be a combination of each stack consumed.
 
@@ -225,7 +223,7 @@ Merchants can use BigCommerce's [PCI DSS AOC](https://support.mybigcommerce.com/
 
 ### Articles
 - [Customers Overview](/api-docs/customers/customers-subscribers-overview)
-- [Customer Login API](/api-docs/customers/customer-login-api)
+- [Customer Login API](/api-docs/storefront/customer-login-api)
 - [Launching your store](https://support.bigcommerce.com/s/article/Launching-Your-Store)
 - [PCI Compliance](https://support.bigcommerce.com/s/article/PCI-Compliance)
 - [Multisite Ecommerce with WordPress and BigCommerce](https://medium.com/bigcommerce-developer-blog/multi-site-ecommerce-with-wordpress-and-bigcommerce-40dee194f8a)

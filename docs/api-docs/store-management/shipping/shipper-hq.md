@@ -41,15 +41,14 @@ When you set Shipping Origins using the API, you cannot delete the fields using 
 
 ## Add ShipperHQ metafield
 
-<!--
-title: "SHQ Add Metafield Request"
-subtitle: "/POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/metafields"
-lineNumbers: true
--->
-
 To add a ShipperHQ metafield, set the `namespace` field to `shipping.shipperhq`: 
 
-```json
+```http title="Example request: Add ShipperHQ metafield" lineNumbers
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/catalog/products/{{product_id}}/metafields
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
 {
 	"permission_set": "write",
 	"key": "shipping-origins",
@@ -57,18 +56,11 @@ To add a ShipperHQ metafield, set the `namespace` field to `shipping.shipperhq`:
 	"namespace": "shipping.shipperhq"
 }
 ```
-
-<!--
-title: "SHQ Add Metafield Response"
-subtitle: ""
-lineNumbers: true
--->
-
-Response: 
-
-```json
+&nbsp;
+```json title="Example response: Add ShipperHQ metafield" lineNumbers
 {
-	"data": [{
+	"data": [
+		{
 			"id": 51,
 			"key": "shipping-origins",
 			"value": "[\"Alaska\",\"California\"]",

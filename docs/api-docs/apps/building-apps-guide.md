@@ -101,7 +101,7 @@ content
 ### Related Articles
 * [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Authentication](/api-docs/getting-started/authentication)
-* [Customer Login API](/api-docs/customers/customer-login-api)
+* [Customer Login API](/api-docs/storefront/customer-login-api)
 * [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements)
 * [Store Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) (Knowledge Base)
 * [Supported Browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers) (Knowledge Base)
@@ -111,6 +111,5 @@ content
 * [Big Design Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2) (BigCommerce Developer Blog)
 ### Additonal Resources
 * [Same Origin Policy](https://en.wikipedia.org/wiki/Same-origin_policy) (Wikipedia)
-* [Craft a P3P Policy to Make IE Behave](https://www.techrepublic.com/blog/software-engineer/craft-a-p3p-policy-to-make-ie-behave/) (Tech Republic)
 * [Quick Look at P3P](https://blogs.msdn.microsoft.com/ieinternals/2013/09/17/a-quick-look-at-p3p/) (Microsoft Blogs)
 * [Google Cloud](https://cloud.google.com/) (Google)

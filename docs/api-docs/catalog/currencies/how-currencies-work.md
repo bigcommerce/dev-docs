@@ -146,7 +146,7 @@ To create a price record in multiple currencies via API, send a `POST` request t
 
 ## S-2-S Cart and Checkout
 
-You can set up the cart currency when creating a [Server to Server Cart](/api-reference/cart-checkout/server-server-cart-api/cart/createacart). You can set up the currency in the [control panel](#multi-currency_setup) first. 
+You can set up the cart currency when creating a [Server to Server Cart](/api-reference/cart-checkout/server-server-cart-api/cart/createacart). You can set up the currency in the [control panel](https://support.bigcommerce.com/s/article/Managing-Currencies?language=en_US#mc) first. 
 
 **Example POST Create a Cart** 
 *[https://api.bigcommerce.com/stores/{storehash}/v3/carts](/api-reference/cart-checkout/server-server-cart-api/cart/createacart)*
@@ -311,7 +311,8 @@ You can create cart level discounts in your currency of choice. The shopper must
 | Store Credit      | not converted currently. If a customer has `$10.00 USD` worth of store credit and tries to transact in `EUR` , store credit of `€10.00` will be applied. |
 | Credit Cards      | Processed through Stripe Payment Gateway or Test Payment Gateway                                                                                       |
 
-<div class="HubBlock HubBlock--image flex is-viewing is-padded is-standalone"><div class="HubBlock-inner flex-1 w-full"><div class="HubBlock-content"><div class="justify-center text-center"><div class="ImageBlock-title">Gift Certificates</div><img style="max-width:805px" src="https://raw.githubusercontent.com/tatiana-perry/dev-docs-images/master/currency_beta/gift_certificates_multi_currency.png" alt="Control Panel Order History" class="ui centered fluid image"></div></div></div></div>
+
+![Gift Certificates](https://raw.githubusercontent.com/tatiana-perry/dev-docs-images/master/currency_beta/gift_certificates_multi_currency.png "Gift Certificates")
 
 ## Gift certificates
 

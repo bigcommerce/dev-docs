@@ -80,11 +80,11 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/cart-checkout/channels-listings-api/channels/createchannel#requestrunner) -->
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channels/createchannel#requestrunner) -->
 
 Once created, channels show up in the product list within the control panel so the merchant can choose which products should be available on it. The orders list is updated to include a filter to show which orders came in from the channel. The value of the `name` property is displayed to the merchant in the control panel.
 
-[View reference documentation for the Create a Channel request](/api-reference/cart-checkout/channels-listings-api/channels/createchannel).
+[View reference documentation for the Create a Channel request](/api-reference/store-management/channels/channels/createchannel).
 
 <!-- theme: info -->
 > #### Note

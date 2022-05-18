@@ -31,7 +31,7 @@ In the base path, the store hash is the `123456`. You will use this to make API 
 
 To get started making requests, see [API Requests](/api-docs/getting-started/basics/making-requests).
 
-![#### Create an API Account](//s3.amazonaws.com/user-content.stoplight.io/6012/1536087816482 "#### Create an API Account")
+![Create an API Account](//s3.amazonaws.com/user-content.stoplight.io/6012/1536087816482 "Create an API Account")
 
 <!-- theme: warning -->
 > #### Save your credentials
@@ -46,7 +46,7 @@ To revoke Store API Credentials:
 2. Navigate to **Advanced Settings** > **API Accounts** and click the check box next to the account you want to delete.
 3. In the Actions column at right, click the trash can icon.
 
-![#### Revoking API Credentials](//s3.amazonaws.com/user-content.stoplight.io/6012/1537388177603 "#### Revoking API Credentials")
+![Revoking API Credentials](//s3.amazonaws.com/user-content.stoplight.io/6012/1537388177603 "Revoking API Credentials")
 
 <!-- theme: danger -->
 > #### Delete carefully
@@ -62,18 +62,18 @@ To get app API credentials, create and log into your BigCommerce [Developer Port
 2. Give your app a name. This name will only be visible to you.
 3. Click **Create**. A pop-up box will display showing Your Profile, App Summary, and Category.
 
-![#### Create an App](//s3.amazonaws.com/user-content.stoplight.io/6012/1537389767940 "#### Create an App")
+![Create an App](//s3.amazonaws.com/user-content.stoplight.io/6012/1537389767940 "Create an App")
 
 4. Click on **Step 3 - Technical**. Fill out the App Features sections with app type, callback URLs, and scope.
 
-#### Step 3 - Technical
-![#### Step 3 - Technical](//s3.amazonaws.com/user-content.stoplight.io/6012/1537389883100 "#### Step 3 - Technical")
+
+![Step 3 - Technical](//s3.amazonaws.com/user-content.stoplight.io/6012/1537389883100 "Step 3 - Technical")
 
 5. In the lower right-hand corner of the popup box, click **Update & Close**.
 6. A new pop up will show asking if you want to change the OAuth scopes. Click **Confirm Update**.
 7. You will be routed back to the Developer Portal home page and your app will be listed. Click **View Client ID**.
 
-![#### View Client Id](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390078741 "#### View Client Id")
+![View Client Id](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390078741 "View Client Id")
 
 8. Copy your client ID and client secret. The client ID and client secret can be accessed by clicking **View Client ID**.
 
@@ -84,8 +84,7 @@ To get app API credentials, create and log into your BigCommerce [Developer Port
 The client secret value is a secret that your app and BigCommerce share. You only need to pass the client secret value once, during the app installation sequence. Thereafter, BigCommerce uses it to sign payloads in load, uninstall, and remove user requests, and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.
 
 
-
-![#### Client Id and Client Secret](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390135692 "#### Client Id and Client Secret")
+![Client Id and Client Secret](//s3.amazonaws.com/user-content.stoplight.io/6012/1537390135692 "Client Id and Client Secret")
 
 <!-- theme: warning -->
 > #### Delete apps carefully
@@ -244,13 +243,13 @@ All OAuth scopes except `default` have `read_only` scopes that allow only `GET` 
 ||| [/v3/channels/{channel_id}/site](/api-reference/cart-checkout/sites-routes-api) |
 ||| [/v3/sites/{site_id}/routes](/api-reference/cart-checkout/sites-routes-api) |
 | Channel Settings | store_channel_settings | View and modify a list of channels |
-||| [/v3/channels](/api-reference/cart-checkout/channels-listings-api) |
+||| [/v3/channels](/api-reference/store-management/channels) |
 || store_channel_settings_read_only | View a list of channels |
-||| [/v3/channels](/api-reference/cart-checkout/channels-listings-api) |
+||| [/v3/channels](/api-reference/store-management/channels) |
 | Channel Listings | store_channel_listings | View and modify a list of all channel listings for a particular channel |
-||| [/v3/channels/listings](/api-reference/cart-checkout/channels-listings-api) |
+||| [/v3/channels/listings](/api-reference/store-management/channels) |
 || store_channel_listings_read_only | View a list of all channel listings for a particular channel |
-||| [/v3/channels/listings](/api-reference/cart-checkout/channels-listings-api) |
+||| [/v3/channels/listings](/api-reference/store-management/channels) |
 | Storefront API Tokens | store_storefront_api | Create a storefront API token |
 ||| [/v3/storefront/api-token](/api-reference/cart-checkout/storefront-api-token)
 | Storefront API Customer Impersonation Tokens | store_storefront_api_customer_impersonation | Create a storefront API token that allows for customer impersonation |

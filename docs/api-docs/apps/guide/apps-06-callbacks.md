@@ -35,7 +35,7 @@ GET /load?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
 
-The steps steps to handle this callback are as follows:
+The steps to handle this callback are as follows:
 1. [Verify the signed payload](#verifying-the-signed-payload).
 2. [Identify the user](#identifying-users).
 3. Respond with HTML for the control panel iFrame.
@@ -49,7 +49,7 @@ GET /uninstall?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
 
-The steps steps to handle this callback are as follows:
+The steps to handle this callback are as follows:
 1. [Verify the signed payload](#verifying-the-signed-payload).
 2. [Identify the user](#identifying-users).
 3. Remove the user's data from your app's database.
@@ -63,7 +63,7 @@ GET /remove_user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
 
-The steps steps to handle this callback are as follows:
+The steps to handle this callback are as follows:
 1. [Verify the signed payload](#verifying-the-signed-payload).
 2. [Identify the user](#identifying-users).
 3. Remove the user's data from your app's database.
@@ -213,7 +213,7 @@ The following BigCommerce API clients expose helper methods for verifying the `s
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
 * [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
-* [Figma UI Kit](https://www.figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
+* [Figma UI Kit](//figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 
 ### Blog posts
