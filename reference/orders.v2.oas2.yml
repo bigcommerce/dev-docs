@@ -1105,7 +1105,6 @@ tags:
   - name: Order Shipping Addresses Quotes
 security:
   - X-Auth-Token: []
-  - X-Auth-Client: []
 x-stoplight:
   docs:
     includeDownloadLink: true

@@ -540,7 +540,6 @@ paths:
             headers:
               Accept: application/json
               Content-Type: application/json
-              X-Auth-Client: Your Client Id
               X-Auth-Token: Your Token
           expectedResponse:
             x-allowExtraHeaders: true
@@ -1051,7 +1050,6 @@ paths:
             headers:
               Accept: application/json
               Content-Type: application/json
-              X-Auth-Client: Your Client Id
               X-Auth-Token: Your Token
           expectedResponse:
             x-allowExtraHeaders: true
@@ -1959,11 +1957,6 @@ paths:
           type: string
           description: ''
           default: application/json
-        - name: X-Auth-Client
-          in: header
-          required: true
-          type: string
-          description: ''
         - name: X-Auth-Token
           in: header
           required: true
@@ -2966,7 +2959,6 @@ securityDefinitions:
       * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication). 
 security:
   - X-Auth-Token: []
-  - X-Auth-Client: []
 parameters:
   customer_id:
     name: customer_id
