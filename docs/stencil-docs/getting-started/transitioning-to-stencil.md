@@ -74,7 +74,7 @@ Unlike Blueprint, Stencil does not require that custom template file names start
 ### Resources
 
 For more information about switching to Stencil, see the following resources:
-- [Getting Started with the Stencil Framework - YouTube Playlist](https://www.youtube.com/watch?v=s5_GjU51h-w&list=PLwTYtMwfzbe7EZiIWPAmPtuwRHkY7BG-0&index=1)
+- [Getting Started with the Stencil Framework - YouTube Playlist](//youtube.com/watch?v=s5_GjU51h-w&list=PLwTYtMwfzbe7EZiIWPAmPtuwRHkY7BG-0&index=1)
 - [Stencil Theme Editor](https://support.bigcommerce.com/s/article/Stencil-Themes)
 - [Editing Stencil Theme Files](https://support.bigcommerce.com/s/article/Stencil-Themes#edit)
 - [Personalizing Your Stencil Theme](https://support.bigcommerce.com/articles/Learning/Personalizing-your-New-Theme)

@@ -1,18 +1,15 @@
 # BigCommerce Developer Documentation
 
-- [Directory Structure](#directory-structure)
-- [Contributing](#contributing)
-- [Recommending Changes](#recommending-changes)
+This repository contains the markdown files and static assets powering [developer.bigcommerce.com](https://developer.bigcommerce.com/), which includes [API Docs](https://developer.bigcommerce.com/docs), [Theme Docs](https://developer.bigcommerce.com/stencil-docs), [BigCommerce for WordPress](https://developer.bigcommerce.com/bigcommerce-for-wordpress), and [Legacy Docs](https://developer.bigcommerce.com/legacy).
 
-This repo contains the markdown files and static assets powering [developer.bigcommerce.com](https://developer.bigcommerce.com/stencil-docs), which includes: [API Docs](https://developer.bigcommerce.com/api-docs), [Theme Docs](https://developer.bigcommerce.com/stencil-docs), [BigCommerce for WordPress](https://developer.bigcommerce.com/bigcommerce-for-wordpress), and [Legacy Docs](https://developer.bigcommerce.com/legacy).
+Other repositories that contain markdown files and static assets that appear on [developer.bigcommerce.com](https://developer.bigcommerce.com/) include [theme-context-object-schemas](https://github.com/bigcommerce/theme-context-object-schemas/) for [Theme Objects](https://developer.bigcommerce.com/theme-objects) and [api-specs](https://github.com/bigcommerce/api-specs) for [API Reference](https://developer.bigcommerce.com/api-reference).
 
 ## Directory Structure
 
-**`./`**
 ```shell
 .
 ├── _project                           # Process stuff: templates, style guides, etc
-│    ├── _components.md                # Example markup for common doc components
+│    ├── _components.md                # Not in use: example markup for common doc components
 │    ├── _doc_style_guide.md           # Style guide for docs
 │    ├── _page_template.md             # Stub markup to use when creating a new doc
 │    └── _spec_style_guide.md          # Style Guide for API Spec files
@@ -22,13 +19,21 @@ This repo contains the markdown files and static assets powering [developer.bigc
 │    ├── api-docs                      # API docs
 │    ├── bigcommerce-for-wordpress     # BigCommerce for WordPress docs
 │    ├── legacy                        # Legacy Blueprint and V2 API docs
+│    ├── msf                           # MSF docs
+│    ├── partner-apps                  # Docs for some partner integrations
 │    └── stencil-docs                  # Theme docs
-├── specs                              # Open API Specification files and JSON Schema
+├── .gitignore                         # gitignore
+├── .nojekyll                          # 
 ├── .spelling                          # mdspell dictionary
+├── .stoplight.json                    # Stoplight Platform edit view configuration file
 ├── .textlintrc                        # textlint configuration file
+├── CONTRIBUTING.md                    # guidelines for contribution
 ├── Gruntfile.js                       # grunt configuration file
 ├── package-lock.json                  # packages for grunt, linting, and spell checking
 ├── package.json                       # packages for grunt, linting, and spell checking
+├── pull_request_template_CODEOWNER.md # template for codeowner dev merges
+├── pull_request_template.md           # template for most pull requests
+└── toc.json                           # Stoplight Platform table of contents configuration file 
 ```
 
 ## Contributing

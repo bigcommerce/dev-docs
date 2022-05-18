@@ -7,7 +7,7 @@ Your application can send shoppers a one-time link via email that will sign them
 
 Use cases for this include:
 * Reducing friction for customers, allowing them to proceed without needing to reset their passwords
-* Providing an alternate method for signing in customers versus using the [Customer Login API](/api-docs/customers/customer-login-api)
+* Providing an alternate method for signing in customers versus using the [Customer Login API](/api-docs/storefront/customer-login-api)
 
 ## Sending the request
 

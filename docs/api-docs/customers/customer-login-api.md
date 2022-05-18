@@ -19,21 +19,22 @@ You can use the Customer Login API in the following use cases:
 
 Storefront customers are logged in using the access point URL `/login/token/{token}`. The `{token}` must be a JSON Web Token (JWT) containing parameters for the customer login request signed by your application’s OAuth client secret. For more information on the OAuth protocol, see [OAuth](https://oauth.net/2/). 
 
-JWT is an industry-standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) for securely transmitting information between two parties. A JWT represents a sequence of base64url-encoded sections separated by dots (` . `).  The sections include the header, payload, and signature. For more details, see [Introduction to JSON Web Tokens](https://jwt.io/introduction/). 
+JWT is an industry standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) for securely transmitting information between two parties. A JWT is a sequence of base64url-encoded strings separated by dots (` . `).  The sections include the header, payload, and signature. For more details, see [Introduction to JSON Web Tokens](https://jwt.io/introduction/). 
 
-You are required to include the `channel_id` when using the login JWTs to embed checkout for headless storefronts. Default value = 1
+You are required to include the `channel_id` when using the login JWTs to embed checkout for headless storefronts. The default `channel_id` value is `1`.
 
-**Payload fields reference**
+### Customer Login JWT payload reference
 
 | Field Name | Type | Description |
-|-|-|-|
-| `iss` | string | Indicates the token's issuer. This is your application's Client ID.|
-| `iat` | integer| Time when the token was generated. This is a numeric value indicating the number of seconds since the [Unix epoch](http://en.wikipedia.org/wiki/Unix_time).|
+|:-----------|:-----|:------------|
+| `iss` | string | Indicates the token's issuer. This is your API account's client ID.|
+| `iat` | integer| The time when the token was generated. This is a numeric value indicating the number of seconds since the [Unix epoch](http://en.wikipedia.org/wiki/Unix_time).|
 | `jti` | string | A unique request ID (ex. uuid).|
 | `operation` | string | Must contain the string `"customer_login"`.|
-| `store_hash` | string | Store hash identifying the store you are logging into.|
-| `customer_id` | integer | ID of the customer you are logging in.|
-| `redirect_to` | string | Optional field containing a relative path for the shopper's destination after login. Will default to `/account.php`. |
+| `store_hash` | string | The store hash identifying the store the shopper is signing in to.|
+| `channel_id` | integer | Optional field containing the `channel_id` corresponding to the storefront the shopper is signing in to. |
+| `customer_id` | integer | The ID of the shopper who is signing in.|
+| `redirect_to` | string | Optional field containing a relative path for the shopper's destination after sign-in. Defaults to `/account.php`. |
 | `request_ip` | string | Optional field containing the expected IP address for the request. If provided, BigCommerce will check that it matches the browser trying to log in.|
 
 ## Prerequisites
@@ -211,7 +212,7 @@ To log out a customer, set the `redirect_to` field of the JWT’s payload to `/l
 ## Related resources 
 
 ### Articles
-* [Authenticating BigCommerce’s REST APIs](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials#obtaining-store-api-credentials)
+* [Authenticating BigCommerce’s REST APIs](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials)
 * [BigCommerce APIs Quick Start](/api-docs/getting-started/making-requests)
 * [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts)
 * [Introduction to JSON Web Tokens](https://jwt.io/introduction/)

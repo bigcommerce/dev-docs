@@ -25,9 +25,9 @@ Embedded Checkout requires the BigCommerce Checkout SDK to invoke a method to re
 
 ## Logged-In customers
 
-The [Customer Login API](/api-docs/customers/customer-login-api) allows you to manage customers in two steps. First, you need to pass the `customer_id` when creating the cart. Second, you need to log in the customer, so the session is active when the checkout loads.
+The [Customer Login API](/api-docs/storefront/customer-login-api) allows you to manage customers in two steps. First, you need to pass the `customer_id` when creating the cart. Second, you need to log in the customer, so the session is active when the checkout loads.
 
-You are required to include the `channel_id` in the login JWTs to embed checkout for headless storefronts. Default value = 1. For more information, see the [Embedded Checkout Overview](https://developer.bigcommerce.com/api-docs/storefronts/embedded-checkout/embedded-checkout-overview).
+You are required to include the `channel_id` in the login JWTs to embed checkout for headless storefronts. The default `channel_id` value is `1`. For more information, see the [Embedded Checkout Overview](/api-docs/storefronts/embedded-checkout/embedded-checkout-overview).
 
 
 ## FAQ
