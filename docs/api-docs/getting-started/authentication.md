@@ -148,9 +148,9 @@ The following table describes??... oauth
 For OAuth scope and implementation details, consult the ??following 
 
 | API | Obtain an auth token | Authorization header endpoint | Header value | API account type |
-|:----|:---------------------|:------------------------------|:------------|
-[GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) | [Create a token](/api-reference/storefront/graphql-api-tokens/api-token/createtoken), Stencil context | [Create a Storefront query](/api-reference/graphql/storefront-graphql-reference) | Bearer {{TOKEN}} | store |
-[Payments API](/api-docs/store-management/payment-processing) | [Create a payment access token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) | [Process a payment](/api-reference/store-management/payment-processing/process-payment/paymentspost) | PAT {{TOKEN}} | app or store |
+|:----|:---------------------|:------------------------------|:-------------|:-----------------|
+| [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) | [Create a token](/api-reference/storefront/graphql-api-tokens/api-token/createtoken), Stencil context | [Create a Storefront query](/api-reference/graphql/storefront-graphql-reference) | Bearer {{TOKEN}} | store |
+| [Payments API](/api-docs/store-management/payment-processing) | [Create a payment access token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) | [Process a payment](/api-reference/store-management/payment-processing/process-payment/paymentspost) | PAT {{TOKEN}} | app or store |
 
 
 First, request a dynamic token by hitting the ??possessive?? REST endpoint that uses the X-Auth-Token header, using an API account with OAuth scopes that allow the actions you want the Auth header request to do. Consider the following:
