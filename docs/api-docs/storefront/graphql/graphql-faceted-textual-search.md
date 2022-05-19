@@ -154,7 +154,7 @@ query {
         }
         sort: A_TO_Z
       ) {
-        products(first: 5) {
+        products(first: 2) {
           edges {
             node {
               entityId
@@ -203,39 +203,6 @@ title: JSON Response
                   "prices": {
                     "price": {
                       "value": 225
-                    }
-                  }
-                }
-              },
-              {
-                "node": {
-                  "entityId": 103,
-                  "name": "[Sample] Canvas Laundry Cart",
-                  "prices": {
-                    "price": {
-                      "value": 200
-                    }
-                  }
-                }
-              },
-              {
-                "node": {
-                  "entityId": 88,
-                  "name": "[Sample] Chemex Coffeemaker 3 Cup",
-                  "prices": {
-                    "price": {
-                      "value": 49.5
-                    }
-                  }
-                }
-              },
-              {
-                "node": {
-                  "entityId": 107,
-                  "name": "[Sample] Dustpan & Brush",
-                  "prices": {
-                    "price": {
-                      "value": 34.95
                     }
                   }
                 }
@@ -322,41 +289,6 @@ query {
                    }
                  }
                }
-               ... on RatingSearchFilter {
-                 name
-                 isCollapsedByDefault
-                 ratings {
-                   edges {
-                     node {
-                       value
-                       isSelected
-                       productCount
-                     }
-                   }
-                 }
-               }
-               ... on ProductAttributeSearchFilter {
-                 name
-                 displayProductCount
-                 isCollapsedByDefault
-                 attributes {
-                   edges {
-                     node {
-                       value
-                       isSelected
-                       productCount
-                     }
-                   }
-                 }
-               }
-               ... on PriceSearchFilter {
-                 name
-                 isCollapsedByDefault
-                 selected {
-                   minPrice
-                   maxPrice
-                 }
-               }
                ... on OtherSearchFilter {
                  name
                  displayProductCount
@@ -422,16 +354,6 @@ title: JSON Response
                             "edges": []
                           }
                         }
-                      },
-                      {
-                        "node": {
-                          "entityId": 23,
-                          "isSelected": false,
-                          "productCount": 2,
-                          "subCategories": {
-                            "edges": []
-                          }
-                        }
                       }
                     ]
                   }
@@ -449,122 +371,6 @@ title: JSON Response
                         "node": {
                           "entityId": 36,
                           "name": "OFS",
-                          "isSelected": false,
-                          "productCount": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              },
-              {
-                "node": {
-                  "__typename": "ProductAttributeSearchFilter",
-                  "name": "Color",
-                  "isCollapsedByDefault": false,
-                  "displayProductCount": true,
-                  "attributes": {
-                    "edges": [
-                      {
-                        "node": {
-                          "value": "Black",
-                          "isSelected": false,
-                          "productCount": 1
-                        }
-                      },
-                      {
-                        "node": {
-                          "value": "Blue",
-                          "isSelected": false,
-                          "productCount": 1
-                        }
-                      },
-                      {
-                        "node": {
-                          "value": "Orange",
-                          "isSelected": false,
-                          "productCount": 1
-                        }
-                      },
-                      {
-                        "node": {
-                          "value": "Silver",
-                          "isSelected": false,
-                          "productCount": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              },
-              {
-                "node": {
-                  "__typename": "ProductAttributeSearchFilter",
-                  "name": "Size",
-                  "isCollapsedByDefault": false,
-                  "displayProductCount": true,
-                  "attributes": {
-                    "edges": [
-                      {
-                        "node": {
-                          "value": "Large",
-                          "isSelected": false,
-                          "productCount": 1
-                        }
-                      },
-                      {
-                        "node": {
-                          "value": "Medium",
-                          "isSelected": false,
-                          "productCount": 1
-                        }
-                      },
-                      {
-                        "node": {
-                          "value": "Small",
-                          "isSelected": false,
-                          "productCount": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              },
-              {
-                "node": {
-                  "__typename": "PriceSearchFilter",
-                  "name": "Price",
-                  "isCollapsedByDefault": false,
-                  "selected": {
-                    "minPrice": null,
-                    "maxPrice": null
-                  }
-                }
-              },
-              {
-                "node": {
-                  "__typename": "RatingSearchFilter",
-                  "name": "Rating",
-                  "isCollapsedByDefault": true,
-                  "ratings": {
-                    "edges": [
-                      {
-                        "node": {
-                          "value": "3",
-                          "isSelected": true,
-                          "productCount": 2
-                        }
-                      },
-                      {
-                        "node": {
-                          "value": "4",
-                          "isSelected": false,
-                          "productCount": 2
-                        }
-                      },
-                      {
-                        "node": {
-                          "value": "5",
                           "isSelected": false,
                           "productCount": 1
                         }
@@ -621,7 +427,7 @@ query {
         }
         sort: A_TO_Z
       ) {
-        products(first: 5) {
+        products(first: 2) {
           edges {
             node {
               entityId
@@ -677,41 +483,6 @@ query {
                    }
                  }
                }
-               ... on RatingSearchFilter {
-                 name
-                 isCollapsedByDefault
-                 ratings {
-                   edges {
-                     node {
-                       value
-                       isSelected
-                       productCount
-                     }
-                   }
-                 }
-               }
-               ... on ProductAttributeSearchFilter {
-                 name
-                 displayProductCount
-                 isCollapsedByDefault
-                 attributes {
-                   edges {
-                     node {
-                       value
-                       isSelected
-                       productCount
-                     }
-                   }
-                 }
-               }
-               ... on PriceSearchFilter {
-                 name
-                 isCollapsedByDefault
-                 selected {
-                   minPrice
-                   maxPrice
-                 }
-               }
                ... on OtherSearchFilter {
                  name
                  displayProductCount
@@ -744,237 +515,111 @@ title: JSON Response
 
 ```JSON title="Example" lineNumbers
 {
-  "data": {
-    "site": {
-      "search": {
-        "searchProducts": {
-          "products": {
-            "edges": [
-              {
-                "node": {
-                  "entityId": 93,
-                  "name": "[Sample] 1 L Le Parfait Jar",
-                  "prices": {
-                    "price": {
-                      "value": 7
+    "data": {
+      "site": {
+        "search": {
+          "searchProducts": {
+            "products": {
+              "edges": [
+                {
+                  "node": {
+                    "entityId": 93,
+                    "name": "[Sample] 1 L Le Parfait Jar",
+                    "prices": {
+                      "price": {
+                        "value": 7
+                      }
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "entityId": 80,
+                    "name": "[Sample] Orbit Terrarium - Large",
+                    "prices": {
+                      "price": {
+                        "value": 109
+                      }
                     }
                   }
                 }
-              },
-              {
-                "node": {
-                  "entityId": 80,
-                  "name": "[Sample] Orbit Terrarium - Large",
-                  "prices": {
-                    "price": {
-                      "value": 109
+              ]
+            },
+            "filters": {
+              "edges": [
+                {
+                  "node": {
+                    "__typename": "CategorySearchFilter",
+                    "name": "Category",
+                    "isCollapsedByDefault": false,
+                    "displayProductCount": true,
+                    "categories": {
+                      "edges": [
+                        {
+                          "node": {
+                            "entityId": 19,
+                            "isSelected": false,
+                            "productCount": 1,
+                            "subCategories": {
+                              "edges": []
+                            }
+                          }
+                        },
+                        {
+                          "node": {
+                            "entityId": 21,
+                            "isSelected": false,
+                            "productCount": 1,
+                            "subCategories": {
+                              "edges": []
+                            }
+                          }
+                        }
+                      ]
                     }
                   }
-                }
-              }
-            ]
-          },
-          "filters": {
-            "edges": [
-              {
-                "node": {
-                  "__typename": "CategorySearchFilter",
-                  "name": "Category",
-                  "isCollapsedByDefault": false,
-                  "displayProductCount": true,
-                  "categories": {
-                    "edges": [
-                      {
-                        "node": {
-                          "entityId": 19,
-                          "isSelected": false,
-                          "productCount": 1,
-                          "subCategories": {
-                            "edges": []
+                },
+                {
+                  "node": {
+                    "__typename": "BrandSearchFilter",
+                    "name": "Brand",
+                    "isCollapsedByDefault": false,
+                    "displayProductCount": true,
+                    "brands": {
+                      "edges": [
+                        {
+                          "node": {
+                            "entityId": 36,
+                            "name": "OFS",
+                            "isSelected": false,
+                            "productCount": 1
                           }
                         }
-                      },
-                      {
-                        "node": {
-                          "entityId": 21,
-                          "isSelected": false,
-                          "productCount": 1,
-                          "subCategories": {
-                            "edges": []
-                          }
-                        }
-                      },
-                      {
-                        "node": {
-                          "entityId": 23,
-                          "isSelected": false,
-                          "productCount": 2,
-                          "subCategories": {
-                            "edges": []
-                          }
-                        }
-                      }
-                    ]
+                      ]
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "__typename": "OtherSearchFilter",
+                    "name": "Other",
+                    "isCollapsedByDefault": true,
+                    "displayProductCount": true,
+                    "freeShipping": null,
+                    "isInStock": {
+                      "isSelected": false,
+                      "productCount": 2
+                    },
+                    "isFeatured": null
                   }
                 }
-              },
-              {
-                "node": {
-                  "__typename": "BrandSearchFilter",
-                  "name": "Brand",
-                  "isCollapsedByDefault": false,
-                  "displayProductCount": true,
-                  "brands": {
-                    "edges": [
-                      {
-                        "node": {
-                          "entityId": 36,
-                          "name": "OFS",
-                          "isSelected": false,
-                          "productCount": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              },
-              {
-                "node": {
-                  "__typename": "ProductAttributeSearchFilter",
-                  "name": "Color",
-                  "isCollapsedByDefault": false,
-                  "displayProductCount": true,
-                  "attributes": {
-                    "edges": [
-                      {
-                        "node": {
-                          "value": "Black",
-                          "isSelected": false,
-                          "productCount": 1
-                        }
-                      },
-                      {
-                        "node": {
-                          "value": "Blue",
-                          "isSelected": false,
-                          "productCount": 1
-                        }
-                      },
-                      {
-                        "node": {
-                          "value": "Orange",
-                          "isSelected": false,
-                          "productCount": 1
-                        }
-                      },
-                      {
-                        "node": {
-                          "value": "Silver",
-                          "isSelected": false,
-                          "productCount": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              },
-              {
-                "node": {
-                  "__typename": "ProductAttributeSearchFilter",
-                  "name": "Size",
-                  "isCollapsedByDefault": false,
-                  "displayProductCount": true,
-                  "attributes": {
-                    "edges": [
-                      {
-                        "node": {
-                          "value": "Large",
-                          "isSelected": false,
-                          "productCount": 1
-                        }
-                      },
-                      {
-                        "node": {
-                          "value": "Medium",
-                          "isSelected": false,
-                          "productCount": 1
-                        }
-                      },
-                      {
-                        "node": {
-                          "value": "Small",
-                          "isSelected": false,
-                          "productCount": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              },
-              {
-                "node": {
-                  "__typename": "PriceSearchFilter",
-                  "name": "Price",
-                  "isCollapsedByDefault": false,
-                  "selected": {
-                    "minPrice": null,
-                    "maxPrice": null
-                  }
-                }
-              },
-              {
-                "node": {
-                  "__typename": "RatingSearchFilter",
-                  "name": "Rating",
-                  "isCollapsedByDefault": true,
-                  "ratings": {
-                    "edges": [
-                      {
-                        "node": {
-                          "value": "3",
-                          "isSelected": true,
-                          "productCount": 2
-                        }
-                      },
-                      {
-                        "node": {
-                          "value": "4",
-                          "isSelected": false,
-                          "productCount": 2
-                        }
-                      },
-                      {
-                        "node": {
-                          "value": "5",
-                          "isSelected": false,
-                          "productCount": 1
-                        }
-                      }
-                    ]
-                  }
-                }
-              },
-              {
-                "node": {
-                  "__typename": "OtherSearchFilter",
-                  "name": "Other",
-                  "isCollapsedByDefault": true,
-                  "displayProductCount": true,
-                  "freeShipping": null,
-                  "isInStock": {
-                    "isSelected": false,
-                    "productCount": 2
-                  },
-                  "isFeatured": null
-                }
-              }
-            ]
+              ]
+            }
           }
         }
       }
     }
   }
-}
 ```
 <!-- type: tab-end -->
 
