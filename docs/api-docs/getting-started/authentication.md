@@ -321,7 +321,6 @@ const storefrontCall = (endpoint, requestBody = null) => {
     init.body = JSON.stringify(requestBody);
     init.headers["Content-Type"] = endpoint.content;
   }
-  console.log(init);
 
   return fetch(resource, init)
   .then(response => {
