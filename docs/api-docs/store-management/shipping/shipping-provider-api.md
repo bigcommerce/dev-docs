@@ -54,13 +54,16 @@ To get your app set up and request a carrier ID, send an email to
 
 Please include the following information:
 
-- Your name
-- Your partner ID
+- Name of app
 - Your app's ID
 - Your email
 - A description of the app
 - [Your service URLs](#your-service-urls) 
 - [Whether you prefer single-carrier or multi-carrier status](#single-carrier-versus-multi-carrier-apps)
+
+<!-- theme:info -->
+> #### Note
+> The description of the app is displayed to merchants in the store control panel.
 
 ## Before development
 
