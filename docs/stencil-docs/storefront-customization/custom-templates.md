@@ -118,7 +118,7 @@ Beyond the single URL mapped to each template in the above examples, you have th
 
 ## Specifying custom front matter
 
-You can specify front matter on a custom template if you only need to render certain resources (such as 'New Products') on that page. Specifying only the attributes you need will reduce page load time. If you don't explicitly specify front matter for your custom template, the front matter for the default page template will be available. See [Using Front Matter](/stencil-docs/storefront-customization/using-front-matter) for more information on using front matter.
+You can specify front matter on a custom template by injecting data into the front matter of a generic template first, then the custom template will inherit it. If you don't explicitly specify front matter for your custom template, the front matter for the default page template will be available. See [Using Front Matter](/stencil-docs/storefront-customization/using-front-matter) for more information on using front matter.
 
 ## Theme upload
 
