@@ -341,9 +341,10 @@ const storefrontCall = (endpoint, requestBody = null) => {
 }
 
 ```
+&nbsp;
 
 <!-- 
-type: tab,
+type: tab
 title: storefrontCall GET request 
 -->
 
@@ -359,8 +360,9 @@ let endpoint = {
 storefrontCall(endpoint);
 
 ```
+
 <!-- 
-type: tab,
+type: tab
 title: storefrontCall POST request 
 -->
 
@@ -386,11 +388,11 @@ storefrontCall(endpoint, requestBody);
 
 ```
 
-
 <!-- 
-type: tab,
+type: tab
 title: storefrontCall PUT request 
 -->
+
 ```js title="Example PUT call: Update checkout billing address" lineNumbers
 let endpoint = {
   route: "/checkouts/123abc45-de67-89f0-123a-bcd456ef7890/billing-address/123abc456def7",
@@ -418,7 +420,7 @@ storefrontCall(endpoint, requestBody);
 ```
 
 <!-- 
-type: tab,
+type: tab
 title: storefrontCall DELETE request 
 -->
 
