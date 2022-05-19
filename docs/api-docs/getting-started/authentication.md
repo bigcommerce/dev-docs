@@ -102,8 +102,8 @@ title: Example Request: Current Customer API
 
 ```js title="Example GET request: Current Customer API" lineNumbers
 const customerJWT = (apiAccountClientId) => {
-  let route = `/customer/current.jwt?app_client_id=${apiAccountClientId}`;
-  return fetch(route)
+  let resource = `/customer/current.jwt?app_client_id=${apiAccountClientId}`;
+  return fetch(resource)
   .then(response => {
     if(response.status === 200) {
       return response.text();
@@ -125,7 +125,7 @@ title: Example Response: Current Customer API
 -->
 
 ```shell title="Example response.text(): JWT string"
-# response body: see payload tab to view decoded payload
+# response body
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJpZCI6NDkyNywiZW1haWwiOiJqb2huLmRvZUBnbWFpbC5jb20iLCJncm91cF9pZCI6IjYifSwiaXNzIjoiYmMvYXBwcyIsInN1YiI6ImFiYzEyMyIsImlhdCI6MTQ4MDgzMTg2MywiZXhwIjoxNDgwODMyNzYzLCJ2ZXJzaW9uIjoxLCJhdWQiOiI2c3YxNnRmeDNqNWdzb3BtNDJzczVkZDY3ZzJzcnZxIiwiYXBwbGljYXRpb25faWQiOiI2c3YxNnRhc2RncjJiNWhzNWRkNjdnMnNydnEiLCJzdG9yZV9oYXNoIjoiYWJjMTIzIiwib3BlcmF0aW9uIjoiY3VycmVudF9jdXN0b21lciJ9.uYTDTJzhDOog7PE1yLNeP6zDNdFMb91fS-NZrJpsts0
 ```
 
@@ -269,9 +269,9 @@ The Customer Login API is BigCommerce's mechanism for single sign-on. Your app o
 
 ```js title="Example GET request: Customer Login API"
 
-const loginCustomer = (yourStoreUrl, yourJwt) => {
-  let route = `${yourStoreUrl}/login/token/${yourJwt}`;
-  return fetch(route)
+const loginCustomer = (yourJwt) => {
+  let resource = `${window.location.origin}/login/token/${yourJwt}`;
+  return fetch(resource)
   .then(response => {
     console.log(response);
     if(response.status === 200) {
@@ -297,12 +297,145 @@ For OAuth scope and implementation details, consult [Customer Login API](/api-do
 
 
 
-## Unauthenticated endpoints: the Storefront APIs
+## Unauthenticated endpoints: the REST Storefront APIs
 
 ??example of no particular headers? cors??
 
 The Storefront APIs allow you to make client-side requests for carts, checkouts, and orders using JavaScript or an alternative language that compiles to run in the browser. They are a convenience collection of operations that affect one customer at a time. These endpoints are unauthenticated and may be low-risk for your store's use case. You can perform authenticated versions of the same operations using GraphQL or the Store Management REST APIs.
 
+
+
+```js title="Example script: REST Storefront API call" lineNumbers
+
+const storefrontCall = (endpoint, requestBody = null) => {
+  let resource = `${window.location.origin}/api/storefront${endpoint.route}`;
+  let init = {
+    method: endpoint.method,
+    credentials: "same-origin",
+    headers: {
+      // note: no authorization
+      "Accept": endpoint.accept,
+    }
+  }
+  if(requestBody) {
+    init.body = JSON.stringify(requestBody);
+    init.headers["Content-Type"] = endpoint.content;
+  }
+  console.log(init);
+
+  return fetch(resource, init)
+  .then(response => {
+    console.log(response);
+    if(response.status === endpoint.success) {
+      // resolve promise using the Fetch API method that correlates with the endpoint.accept value
+      return response.json(); // or response.text()
+    } else {
+      return new Error(`response.status is ${response.status}`);
+    }
+  })
+  .then(result => {
+    console.log(result); // requested data
+    // do stuff...
+  })
+  .catch(error => console.error(error));
+}
+
+```
+
+<!-- 
+type: tab,
+title: storefrontCall GET request 
+-->
+
+```js title="Example GET call: Get a cart" lineNumbers
+let endpoint = {
+  route: "/carts?include=lineItems.physicalItems.options",
+  method: "GET",
+  accept: "application/json",
+  // content: "application/json",
+  success: 200 
+}
+
+storefrontCall(endpoint);
+
+```
+<!-- 
+type: tab,
+title: storefrontCall POST request 
+-->
+
+```js title="Example POST call: Add cart line items" lineNumbers
+let endpoint = {
+  route: "/carts/123abc45-de67-89f0-123a-bcd456ef7890/items", 
+  method: "POST", 
+  accept: "application/json",
+  content: "application/json",
+  success: 200
+}
+
+let requestBody = {
+  lineItems: [
+    {
+      productId: 123,
+      quantity: 3
+    }
+  ]
+}
+
+storefrontCall(endpoint, requestBody);
+
+```
+
+
+<!-- 
+type: tab,
+title: storefrontCall PUT request 
+-->
+```js title="Example PUT call: Update checkout billing address" lineNumbers
+let endpoint = {
+  route: "/checkouts/123abc45-de67-89f0-123a-bcd456ef7890/billing-address/123abc456def7",
+  method: "PUT",
+  accept: "application/json",
+  content: "application/json",
+  success: 200
+}
+
+let requestBody = {
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "email": "janedoe@example.com",
+  "company": "BigCommerce",
+  "address1": "123 Main Street",
+  "address2": "Apt 1",
+  "city": "Austin",
+  "stateOrProvinceCode": "TX",
+  "countryCode": "US",
+  "postalCode": "78701"
+}
+
+storefrontCall(endpoint, requestBody);
+
+```
+
+<!-- 
+type: tab,
+title: storefrontCall DELETE request 
+-->
+
+```js title="Example DELETE call: Delete a cart" lineNumbers
+let endpoint = {
+  route: "/carts/123abc45-de67-89f0-123a-bcd456ef7890",
+  method: "DELETE", 
+  accept: "application/json", 
+  // content: "application/json", 
+  success: 204
+}
+
+storefrontCall(endpoint);
+
+```
+
+<!-- type: tab-end -->
 
 
 ## Resources
