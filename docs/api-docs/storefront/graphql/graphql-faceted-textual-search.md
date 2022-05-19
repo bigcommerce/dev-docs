@@ -227,7 +227,7 @@ The `sort` affects only the list of products returned. A merchant's [Product Fil
 
 ## How to Get Facets
 
-To get facets, specify `filters` as a field in `searchProducts`. Here is an example request that returns facets that have products with a rating between three and five: 
+To get facets, specify `filters` as a field in `searchProducts`. Here is an example request that returns the specified facets that have products with a rating between three and five: 
 
 <!--
 type: tab
@@ -402,6 +402,8 @@ title: JSON Response
 }
 ```
 <!-- type: tab-end -->
+
+For a complete list of facets that can be returned, see [GraphQL Playground](/graphql-playground).
 
 ## Putting it all Together: Products and Facets
 
