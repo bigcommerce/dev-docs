@@ -119,7 +119,7 @@ Examples:
 
 - Amazon
 - eBay
-- Facebook by Meta Marketplace
+- Facebook Marketplace
 - Jet
 - Walmart
 
@@ -129,11 +129,11 @@ A platform on which merchants communicate their brand and products with their sh
 
 Examples:
 
-- Facebook by Meta Ads
+- Facebook Ads
 - Google Shopping
 - WordPress Blog
 - Pinterest
-- Facebook by Instagram
+- Instagram by Meta
 
 ## Building a channel app
 
