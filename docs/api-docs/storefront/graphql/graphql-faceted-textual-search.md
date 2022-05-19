@@ -274,21 +274,6 @@ query {
                    }
                  }
                }
-               ... on BrandSearchFilter {
-                 name
-                 displayProductCount
-                 isCollapsedByDefault
-                 brands {
-                   edges {
-                     node {
-                       entityId
-                       name
-                       isSelected
-                       productCount
-                     }
-                   }
-                 }
-               }
                ... on OtherSearchFilter {
                  name
                  displayProductCount
@@ -353,26 +338,6 @@ title: JSON Response
                           "subCategories": {
                             "edges": []
                           }
-                        }
-                      }
-                    ]
-                  }
-                }
-              },
-              {
-                "node": {
-                  "__typename": "BrandSearchFilter",
-                  "name": "Brand",
-                  "isCollapsedByDefault": false,
-                  "displayProductCount": true,
-                  "brands": {
-                    "edges": [
-                      {
-                        "node": {
-                          "entityId": 36,
-                          "name": "OFS",
-                          "isSelected": false,
-                          "productCount": 1
                         }
                       }
                     ]
@@ -470,21 +435,6 @@ query {
                    }
                  }
                }
-               ... on BrandSearchFilter {
-                 name
-                 displayProductCount
-                 isCollapsedByDefault
-                 brands {
-                   edges {
-                     node {
-                       entityId
-                       name
-                       isSelected
-                       productCount
-                     }
-                   }
-                 }
-               }
                ... on OtherSearchFilter {
                  name
                  displayProductCount
@@ -575,26 +525,6 @@ title: JSON Response
                             "subCategories": {
                               "edges": []
                             }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                },
-                {
-                  "node": {
-                    "__typename": "BrandSearchFilter",
-                    "name": "Brand",
-                    "isCollapsedByDefault": false,
-                    "displayProductCount": true,
-                    "brands": {
-                      "edges": [
-                        {
-                          "node": {
-                            "entityId": 36,
-                            "name": "OFS",
-                            "isSelected": false,
-                            "productCount": 1
                           }
                         }
                       ]
