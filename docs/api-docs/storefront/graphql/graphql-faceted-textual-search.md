@@ -1,8 +1,8 @@
-# Storefront GraphQL's Faceted and Textual Search
+# Faceted and Textual Search with the GraphQL Storefront API
 
 BigCommerce storefront search features are available in the Storefront GraphQL API so that storefront API consumers can use BigCommerce's backend search to rebuild their faceted and textual search UI. These built-in capabilities allow Stencil developers to build on top of our search engine, as well as merchants on headless storefronts to access search, sort, and filtering capabilities available from BigCommerce. 
 
-With Storefront GraphQL's Faceted and Textual Search, you can:
+With the GraphQL Storefront API's faceted and textual search, you can:
 - Load category pages with no selections, including the both the facets and products relevant to the search results 
 - Load category pages with facet selections for specific facets
 - Load featured products from specific categories
@@ -11,13 +11,13 @@ With Storefront GraphQL's Faceted and Textual Search, you can:
 
 You can access these features by querying the `SearchProducts` field. Note that you can query facets, filter by rating, or filter by "in-stock" only if the merchant is on a Pro or Enterprise plan. A merchant must [enable Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings?language=en_US#setup) for facets to be returned. In addition, only facets that a merchant marks as visible in their Product Filtering settings will be returned. 
 
-This page walks you through how to filter and query products and facets to display on your storefront. See [GraphQL Playground](/graphql-playground) for full schema documentation.  
+This page walks you through how to filter and query products and facets to display on your storefront. See the [GraphQL Storefront Playground](/graphql-playground) for full schema documentation.  
 
 ## Filter products and facets
 
-To use the Faceted and Textual Search feature, specify a filter in the argument for `SearchProducts`. For Faceted Search, you can filter by price, rating, among other features and attributes of products. For Textual Search, use the `searchTerm` field. 
+To use faceted and textual search, specify a filter in the argument for `SearchProducts`. For faceted search, you can filter by price, rating, among other features and attributes of products. For textual search, use the `searchTerm` field. 
 
-```GraphQL title=Filters for Products and Facets" lineNumbers
+```graphql title=Filters for products and facets" lineNumbers
 ...
   searchProducts(
   filters: {
@@ -50,7 +50,7 @@ To use the Faceted and Textual Search feature, specify a filter in the argument 
 ```
 These filters affect **both** the products and facets that are returned. For example, filtering by rating returns only products that are within the specified rating range, as well as only facets that have products within the rating range. 
 
-See [GraphQL Playground](/graphql-playground) for descriptions of each filter. 
+See the [GraphQL Storefront Playground](/graphql-playground) for descriptions of each filter. 
 
 ## Get products
 
@@ -368,9 +368,9 @@ title: JSON Response
 ```
 <!-- type: tab-end -->
 
-For a complete list of facets that can be returned, see [GraphQL Playground](/graphql-playground).
+For a complete list of facets that can be returned, see the [GraphQL Storefront Playground](/graphql-playground).
 
-## Putting it all Together: Products and Facets
+## Put it all together: get products and facets
 
 To get both products and facets, specify `products` and `filters` as a field in `searchProducts`. 
 
@@ -608,5 +608,5 @@ title: JSON Response
 
 ## Resources
 
-- [Storefront GraphQL Overview](/api-docs/storefront/graphql/graphql-storefront-api-overview)
-- [Storefront GraphQL Playground](/graphql-playground)
+- [GraphQL Storefront API Overview](/api-docs/storefront/graphql/graphql-storefront-api-overview)
+- [GraphQL Storefront Playground](/graphql-playground)
