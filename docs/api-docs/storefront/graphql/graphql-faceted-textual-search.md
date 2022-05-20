@@ -58,10 +58,10 @@ To get products, specify `products` as a field in `searchProducts`. Here is an e
 
 <!--
 type: tab
-title: GQL Query
+title: Example query
 -->
 
-```GraphQL title="Example" lineNumbers
+```graphql title="Example" lineNumbers
 query {
   site {
     search {
@@ -94,10 +94,10 @@ query {
 
 <!--
 type: tab
-title: JSON Response
+title: Example response
 -->
 
-```JSON title="Example" lineNumbers
+```json title="Example" lineNumbers
 {
   "data": {
     "site": {
@@ -141,10 +141,10 @@ You can sort the products that are returned using the `sort` field. Here is an e
 
 <!--
 type: tab
-title: GQL Query
+title: Example query
 -->
 
-```GraphQL title="Example" lineNumbers
+```graphql title="Example" lineNumbers
 query {
   site {
     search {
@@ -174,10 +174,10 @@ query {
 ```
 <!--
 type: tab
-title: JSON Response
+title: Example response
 -->
 
-```JSON title="Example" lineNumbers
+```json title="Example" lineNumbers
 {
   "data": {
     "site": {
@@ -231,10 +231,10 @@ To get facets, specify `filters` as a field in `searchProducts`. Here is an exam
 
 <!--
 type: tab
-title: GQL Query
+title: Example query
 -->
 
-```GraphQL title="Example" lineNumbers
+```graphql title="Example" lineNumbers
 query {
   site {
     search {
@@ -301,10 +301,10 @@ query {
 ```
 <!--
 type: tab
-title: JSON Response
+title: Example response
 -->
 
-```JSON title="Example" lineNumbers
+```json title="Example" lineNumbers
 {
   "data": {
     "site": {
@@ -376,11 +376,11 @@ To get both products and facets, specify `products` and `filters` as a field in 
 
 <!--
 type: tab
-title: GQL Query
+title: Example query
 -->
 
 
-```GraphQL title="Example" lineNumbers
+```graphql title="Example" lineNumbers
 query {
   site {
     search {
@@ -462,10 +462,10 @@ query {
 ```
 <!--
 type: tab
-title: JSON Response
+title: Example response
 -->
 
-```JSON title="Example" lineNumbers
+```json title="Example" lineNumbers
 {
     "data": {
       "site": {
@@ -559,10 +559,10 @@ If a merchant has not enabled product filtering, you will receive an empty array
 
 <!--
 type: tab
-title: JSON Response
+title: Example response
 -->
 
-```JSON title="Example" lineNumbers
+```json title="Example" lineNumbers
 {
   "data": {
     "site": {
