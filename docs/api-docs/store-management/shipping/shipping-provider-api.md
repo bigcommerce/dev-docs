@@ -73,7 +73,7 @@ BigCommerce sends requests to your server to get information back about shipping
 
 Because BigCommerce sends requests to your app, you need to provide BigCommerce with the following:
 
-- **Provide Shipping Rates URL**: a URL that accepts quote requests from BigCommerce. You will provide shipping quotes from this URL.
+- **Request Shipping Rates URL**: a URL that accepts quote requests from BigCommerce. You will provide shipping quotes from this URL.
 - **Validate Connection Options URL** (optional): a URL to check and validate connection options during app registration. BigCommerce will send requests to this URL to ensure that a merchant’s connection settings are valid. You can perform any necessary checks, such as looking up a merchant's app credentials in your database or calling a downstream service to verify them. 
 
 These urls can be any valid HTTPS URLs that use port `443`, for example `https://example.com/rate`. Replace `example.com` and `rate` with your own host and path. 
@@ -82,17 +82,17 @@ These urls can be any valid HTTPS URLs that use port `443`, for example `https:/
 
 BigCommerce will send and receive data from your service URLs using JSON.  
 
-- To see how BigCommerce will format requests for rates and how you will need to format responses, see [Provide shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). 
+- To see how BigCommerce will format requests for rates and how you will need to format responses, see [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). 
 
-- To see how BigCommerce will format requests for validating merchant connection options and how you will need to format responses, see [Validate Connection Options](/api-reference/providers/shipping-provider-api/shipping-provider/validateconnectionoptions).
+- To see how BigCommerce will format requests for validating merchant connection options and how you will need to format responses, see [Validate connection options](/api-reference/providers/shipping-provider-api/shipping-provider/validateconnectionoptions).
 
 ### Error handling
 
-To handle errors, include human-readable error messages in the responses that you send. Here are example responses that include error messages for the [Provide shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) endpoint and the [Validate Connection Options](/api-reference/providers/shipping-provider-api/shipping-provider/validateconnectionoptions) endpoint. The error message appears under the `messages` key.
+To handle errors, include human-readable error messages in the responses that you send. Here are example responses that include error messages for the [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) endpoint and the [Validate Connection Options](/api-reference/providers/shipping-provider-api/shipping-provider/validateconnectionoptions) endpoint. The error message appears under the `messages` key.
 
 <!--
 type: tab
-title: Provide Shipping Rates
+title: Request Shipping Rates
 -->
 
 ```json title="Example response with error message" lineNumbers
@@ -214,12 +214,9 @@ title: Response
 > It is best practice to authenticate the user and store against your database or the downstream provider service. However, if you did not configure the Validate Connection Options URL, a merchant's credentials are assumed to be valid as long as they pass type checks.
 
 
-
-
 ## Providing Shipping Rates
 
-Whenever shipping rates are required, BigCommerce checks its internal cache for valid entries. BigCommerce uses valid entries and does not call the shipping carrier. If a valid cache entry does not exist, BigCommerce makes a request to the Quote URL with details of the items to be shipped, the shipping origin, and the shipping destination. If you configured any connection settings or zone settings, include these. The shipping carrier must then respond with zero or more shipping quotes.
-
+Whenever shipping rates are required, BigCommerce checks its internal cache for valid entries. If valid entries are present, BigCommerce uses these entries and does not make a request to your carrier. If a valid cache entry does not exist, BigCommerce makes a request to the [Request Shipping Rates URL]() that you provided. The request will include details of the items to be shipped, the shipping origin, the shipping destination, and any connection or zone settings for your carrier. Your carrier must then respond with shipping quote(s).
 
 ```http title="Example request: Shipping rates" lineNumbers
 POST https://example.com/rate
