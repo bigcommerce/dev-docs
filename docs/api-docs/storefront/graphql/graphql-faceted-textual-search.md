@@ -13,7 +13,7 @@ You can access these features by querying the `SearchProducts` field. Note that 
 
 This page walks you through how to filter and query products and facets to display on your storefront. See [GraphQL Playground](/graphql-playground) for full schema documentation.  
 
-## How to Filter Products and Facets
+## Filter products and facets
 
 To use the Faceted and Textual Search feature, specify a filter in the argument for `SearchProducts`. For Faceted Search, you can filter by price, rating, among other features and attributes of products. For Textual Search, use the `searchTerm` field. 
 
@@ -52,7 +52,7 @@ These filters affect **both** the products and facets that are returned. For exa
 
 See [GraphQL Playground](/graphql-playground) for descriptions of each filter. 
 
-## How to Get Products
+## Get products
 
 To get products, specify `products` as a field in `searchProducts`. Here is an example request that returns the first two products with a rating between three and five: 
 
@@ -225,7 +225,7 @@ The `sort` affects only the list of products returned. A merchant's [Product Fil
 > For a list of product fields that `searchTerm` searches, see [Store Search Product Fields](https://support.bigcommerce.com/s/article/Store-Search?language=en_US#best-practices).
 
 
-## How to Get Facets
+## Get facets
 
 To get facets, specify `filters` as a field in `searchProducts`. Here is an example request that returns the specified facets that have products with a rating between three and five: 
 
@@ -606,7 +606,7 @@ title: JSON Response
 
 <!-- type: tab-end -->
 
-## Related Resources
+## Resources
 
 - [Storefront GraphQL Overview](/api-docs/storefront/graphql/graphql-storefront-api-overview)
 - [Storefront GraphQL Playground](/graphql-playground)
