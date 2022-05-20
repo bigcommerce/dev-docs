@@ -17,7 +17,7 @@ This page walks you through how to filter and query products and facets to displ
 
 To use faceted and textual search, specify a filter in the argument for `SearchProducts`. For faceted search, you can filter by price, rating, among other features and attributes of products. For textual search, use the `searchTerm` field. 
 
-```graphql title=Filters for products and facets" lineNumbers
+```graphql title="Filters for products and facets" lineNumbers
 ...
   searchProducts(
   filters: {
