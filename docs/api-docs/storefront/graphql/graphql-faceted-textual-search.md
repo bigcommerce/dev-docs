@@ -48,7 +48,7 @@ To use the Faceted and Textual Search feature, specify a filter in the argument 
 ) { 
 ...
 ```
-These filters affect **both** the products and facets that are returned. For example, filtering by rating returns only products that are within the specified rating range, as well as only facets that have products within the rating range. 
+These filters affect **both** the products and facets that are returned. For example, filtering by rating returns only products within the specified rating range and only facets that have products within the rating range.
 
 See [GraphQL Playground](/graphql-playground) for descriptions of each filter. 
 
