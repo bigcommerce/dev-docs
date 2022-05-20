@@ -410,11 +410,11 @@ If no shipping quotes are available, the your carrier will send a response with 
 }
 ```
 
-When a merchant uninstalls an app with an associated shipping carrier, you also automatically remove all the shipping methods and connection info for that carrier from the store. You can no longer make quote requests, and users will no longer see shipping quotes for that carrier.
+When a merchant uninstalls your app from the store, the merchant removes all shipping methods and connection info for your carrier(s) from the store. BigCommerce will no longer be able to make quote requests and receive shipping quotes from your carrier.
 
 <!-- theme: info -->
 > #### Note
-> The response payload will display shipping quotes from lowest to highest price.
+> The response displays shipping quotes from lowest to highest price.
 
 ## Including product metadata in rate requests
 
