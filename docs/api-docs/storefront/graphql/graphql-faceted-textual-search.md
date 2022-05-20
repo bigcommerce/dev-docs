@@ -3,11 +3,11 @@
 BigCommerce's GraphQL Storefront API lets you power your storefront's faceted and textual search with results from our back-end search engine. These built-in capabilities allow Stencil developers to build on top of our search engine, and it enables merchants on headless storefronts to use BigCommerce's search, sort, and filtering capabilities. 
 
 With the GraphQL Storefront API's faceted and textual search, you can:
-- Load category pages with no selections, including the both the facets and products relevant to the search results 
+- Load category pages with no selections, including both the facets and products relevant to the search results 
 - Load category pages with facet selections for specific facets
 - Load featured products from specific categories
-- Quicksearch products by using search terms (textual search)
-- Sort products alphabetically, by newest to oldest, etc
+- Quickly search products by using search terms (textual search)
+- Sort products alphabetically, from newest to oldest, and more
 
 You can access these features by querying the `SearchProducts` field. Note that you can query facets, filter by rating, or filter by "in-stock" only if the merchant is on a Pro or Enterprise plan. A merchant must [enable Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings?language=en_US#setup) for facets to be returned. In addition, only facets that a merchant marks as visible in their Product Filtering settings will be returned. 
 
@@ -48,7 +48,7 @@ To use faceted and textual search, specify a filter in the argument for `SearchP
 ) { 
 ...
 ```
-These filters affect **both** the products and facets that are returned. For example, filtering by rating returns only products that are within the specified rating range, as well as only facets that have products within the rating range. 
+These filters affect **both** the products and facets that are returned. For example, filtering by rating returns only products within the specified rating range and only facets that have products within the rating range.
 
 See the [GraphQL Storefront Playground](/graphql-playground) for descriptions of each filter. 
 
@@ -221,7 +221,7 @@ title: Example response
 The `sort` affects only the list of products returned. A merchant's [Product Filtering settings](https://support.bigcommerce.com/s/article/Product-Filtering-Settings?language=en_US#setup) determines how facets are sorted. 
 
 <!-- theme: info -->
-> **Note** 
+> #### Note
 > For a list of product fields that `searchTerm` searches, see [Store Search Product Fields](https://support.bigcommerce.com/s/article/Store-Search?language=en_US#best-practices).
 
 
