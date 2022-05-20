@@ -218,7 +218,12 @@ title: Response
 
 Whenever shipping rates are required, BigCommerce checks its internal cache for valid entries. If valid entries are present, BigCommerce uses these entries and does not make a request to your carrier. If a valid cache entry does not exist, BigCommerce makes a request to the [Request Shipping Rates URL](#your-service-urls) that you provided. The request will include details of the items to be shipped, the shipping origin, the shipping destination, and any connection or zone settings for your carrier. Your carrier must then respond with shipping quote(s).
 
-```http title="Example request: Shipping rates" lineNumbers
+<!--
+type: tab
+title: Request
+--> 
+
+```json title="Example POST request with X-Auth-Token header" lineNumbers
 POST https://example.com/rate
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -307,8 +312,12 @@ Accept: application/json
   "rate_options": []
 }
 ```
-&nbsp;
-```json title="Example response: Shipping rates" lineNumbers
+<!--
+type: tab
+title: Response
+--> 
+
+```json title="Example POST response" lineNumbers
 {
   "quote_id": "example_quote",
   "messages": [],
@@ -389,9 +398,11 @@ Accept: application/json
 }
 ```
 
-If no shipping quotes are available, the shipping carrier will send a response with the following format for the shipping quote:
+<!-- type: tab-end  -->
 
-```json title="Example response: No shipping rates" lineNumbers
+If no shipping quotes are available, the your carrier will send a response with the following format for the shipping quote:
+
+```json title="Example POST response" lineNumbers
 {
   "quote_id": "example_quote",
   "messages": [],
