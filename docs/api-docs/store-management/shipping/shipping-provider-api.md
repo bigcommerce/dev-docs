@@ -170,7 +170,11 @@ A merchant can navigate to the Shipping Manager UI to enable your carrier app, i
 
 An API user can connect your carrier to the store by using the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. The connection fields that you provided BigCommerce are sent in the request.
 
-### Validate Connection Options
+<!-- theme:info  -->
+> #### Note: 
+> When a merchant uninstalls your app from the store, the merchant removes all shipping methods and connection info for your carrier(s) from the store. BigCommerce will no longer be able to make quote requests and receive shipping quotes from your carrier.
+
+### Validate connection options
 
 When a merchant or API user tries to [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store), BigCommerce will send a request to validate the connection options that they provide if you configured a Validate Connection Options URL for the carrier during app setup. Your response should indicate if the credentials are valid and explain what is wrong. 
 
@@ -211,10 +215,10 @@ title: Response
 
 <!-- theme: info -->
 > #### Credential validation
-> It is best practice to authenticate the user and store against your database or the downstream provider service. However, if you did not configure the Validate Connection Options URL, a merchant's credentials are assumed to be valid as long as they pass type checks.
+> It is best practice to authenticate the user and store against your database or the downstream provider service. However, if you did not provide a Validate Connection Options URL, a merchant's credentials are assumed to be valid as long as they pass type checks.
 
 
-## Providing Shipping Rates
+### Providing shipping rates
 
 Whenever shipping rates are required, BigCommerce checks its internal cache for valid entries. If valid entries are present, BigCommerce uses these entries and does not make a request to your carrier. If a valid cache entry does not exist, BigCommerce makes a request to the [Request Shipping Rates URL](#your-service-urls) that you provided. The request will include details of the items to be shipped, the shipping origin, the shipping destination, and any connection or zone settings for your carrier. Your carrier must then respond with shipping quote(s).
 
@@ -410,22 +414,19 @@ If no shipping quotes are available, the your carrier will send a response with 
 }
 ```
 
-When a merchant uninstalls your app from the store, the merchant removes all shipping methods and connection info for your carrier(s) from the store. BigCommerce will no longer be able to make quote requests and receive shipping quotes from your carrier.
-
 <!-- theme: info -->
 > #### Note
 > The response displays shipping quotes from lowest to highest price.
 
-## Including product metadata in rate requests
+#### Product metadata in rate requests
 
-BigCommerce passes carrier-specific product metadata to a carrier service in a rate request via product and variant metafields. This product metadata can be useful if your service depends on specific fields that are not existent on BigCommerce products or variants by default.
+When requesting rates, BigCommerce passes product metadata specifc to your carrier via product and variant metafields. This product metadata can be useful if your service depends on specific fields that are not existent on BigCommerce products or variants by default.
 
-To pass metadata in a rate request, the metafield must meet the following requirements:
+The metafields you receive from BigCommerce requests have the following characteristics:   
 
-- it must be a product or variant metafield (you cannot pass category, brand, or other metafields in rate requests)
-- the metafield `permission_set` must be `read` or `write`
-- the metafield `namespace` must match this format: `shipping_carrier_<carrier_id>` (example: `shipping_carrier_72`)
-
+- Are product or variant metafields (category, brand, or other metafields cannot be passed in rate requests) 
+- Have a metafield `permission_set` of `read` or `write`
+- Have a metafield `namespace` that matches this format: `shipping_carrier_<carrier_id>` (for example, `shipping_carrier_72`)
 
 The carrier registration process described in the [Sign up](#sign-up) section provides the `carrier_id`.
 
@@ -433,7 +434,6 @@ For more information on product and variant metafields, see:
 
 - [API Reference > Store Management > Catalog > Product Metafields](/api-reference/store-management/catalog/product-metafields)
 - [API Reference > Store Management > Catalog > Product Variant Metafields](/api-reference/store-management/catalog/product-variants-metafields)
-
 
 
 ## Definitions
