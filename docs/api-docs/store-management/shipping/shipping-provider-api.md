@@ -73,8 +73,8 @@ BigCommerce sends requests to your server to get information back about shipping
 
 Because BigCommerce sends requests to your app, you need to provide BigCommerce with the following:
 
-- a URL that accepts quote requests from BigCommerce. You will provide shipping quotes from this URL.
-- (optional) a URL to check and validate connection options during app registration. BigCommerce will send requests to this URL to ensure that a merchant’s connection settings are valid. You can perform any necessary checks, such as looking up a merchant's app credentials in your database or calling a downstream service to verify them. 
+- **Provide Shipping Rates URL**: a URL that accepts quote requests from BigCommerce. You will provide shipping quotes from this URL.
+- **Validate Connection Options URL** (optional): a URL to check and validate connection options during app registration. BigCommerce will send requests to this URL to ensure that a merchant’s connection settings are valid. You can perform any necessary checks, such as looking up a merchant's app credentials in your database or calling a downstream service to verify them. 
 
 These urls can be any valid HTTPS URLs that use port `443`, for example `https://example.com/rate`. Replace `example.com` and `rate` with your own host and path. 
 
@@ -135,48 +135,37 @@ Building a BigCommerce app allows you to create [app API credentials](/api-docs/
 
 For more information, see our [Introduction to Building Apps](/api-docs/apps/guide/intro).
 
-## Control Panel installation workflow
 
-During the app setup, if you configure the Check Connection Options URL for the carrier, an attempt to connect the carrier via the Shipping Manager UI or the Connect Carrier API causes a request to be made to that URL with the provided options. The resource should respond by indicating if the credentials are valid and explain what is wrong. If you did not configure this URL, this check is not required and the credentials are assumed valid as long as they pass type checks.
+## Submitting the app
+
+Before submitting your app, make sure you have the following information.
+
+**Single-carrier or multi-carrier**
+
+A single-carrier app will offer one service, such as USPS. A multi-carrier app will offer more than one carrier such as USPS, DHL, and Canada Post.
+
+**Name and description**
+
+Name and description of the shipping carrier or carriers.
+
+**Logo**
+
+A 70x70 pixel logo that represents the shipping carrier app.
+
+**Configuration fields**
+
+Any shipping zone-specific or connection-specific fields to be made available to merchants or APIs for configuration. Configuration fields can include which rates to offer, packaging type, or packing method.
+
+To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
+
+## Configuring Connection Settings
+
+Once a merchant installs your app on their store, merchants and API users can configure connection settings. A merchant can navigate to the Shipping Manager and enable, configure, and disable the carrier for any defined zone. An API user can create, update, and delete carrier connections.
+
+### Configuring Connection Settings for Merchants
 
 
-**Example request to validate connection options**
-
-`https://example.com/check_connection_options`
-
-```http lineNumbers
-
-X-Auth-Token: {{ACCESS_TOKEN}}
-Content-Type: application/json
-Accept: application/json
-{
-  "connection_options": {
-    "account_id": "a1ty"
-  }
-}
-```
-
-**Example response**
-
-```json
-{
-  "valid": false,
-  "messages": [
-    {
-      "text": "Your account ID is invalid",
-      "type": "ERROR"
-    }
-  ]
-}
-```
-
-<!-- theme: info -->
-> #### Credential validation
-> It is best practice to authenticate the user and store against your database or the downstream provider service.
-
-Once you install the app, it will be made available for configuration by merchants and API users. A merchant can navigate to the Shipping Manager and enable, configure, and disable the carrier for any defined zone.
-
-## API installation workflow
+### Configuring Connection Settings for API users 
 
 To set up a carrier using the API, first, connect it using the Connect Carrier API. Make a request containing the connection settings required by your carrier. The ID of the carrier is required. The carrier ID will be issued by BigCommerce when your carrier is registered. All connection fields are unique to each carrier. If your carrier doesn’t require any connection settings, send an empty object for the `connection` settings property.
 
@@ -209,7 +198,51 @@ Accept: application/json
 
 Once connected, it’s possible to create shipping methods for a connected carrier in any shipping zone. You can query shipping zones using the Shipping Zones resource. For any zone, a request can be made to the Shipping Methods resource using the zone ID from the Shipping Zones resource to create a new method for the connected carrier. You are required to enter the shipping carrier’s ID in the type field.
 
+## Validate Connection Options
 
+If you configure a Validate Connection Options URL for the carrier during app setup, BigCommerce will make a request to the URL when a merchant attempts to connect the carrier via the Shipping Manager UI or when an API user uses the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection ) endpoint. Your response should indicate if the credentials are valid and explain what is wrong. 
+
+<!--
+type: tab
+title: Request
+-->
+
+```json title="Example POST request with with X-Auth-Token header" lineNumbers
+POST https://example.com/check_connection_options_example
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+{
+  "connection_options": {
+    "account_id": "example"
+  }
+}
+```
+
+<!--
+type: tab
+title: Response
+--> 
+
+```json title="Example POST response" lineNumbers
+{
+  "valid": false,
+  "messages": [
+    {
+      "text": "Your account ID is invalid",
+      "type": "ERROR"
+    }
+  ]
+}
+```
+<!-- type: tab-end  -->
+
+<!-- theme: info -->
+> #### Credential validation
+> It is best practice to authenticate the user and store against your database or the downstream provider service. However, if you did not configure the Validate Connection Options URL, a merchant's credentials are assumed to be valid as long as they pass type checks.
+
+
+## Shipping Methohds
 ```http title="Example request: Create a shipping method in a specified zone" lineNumbers
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v2/shipping/zones/{{zone_id}}/methods
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -429,7 +462,7 @@ If no shipping quotes are available, the shipping carrier will send a response w
 }
 ```
 
-When you uninstall an app with an associated shipping carrier, you also automatically remove all the shipping methods and connection info for that carrier from the store. You can no longer make quote requests, and users will no longer see shipping quotes for that carrier.
+When a merchant uninstalls an app with an associated shipping carrier, you also automatically remove all the shipping methods and connection info for that carrier from the store. You can no longer make quote requests, and users will no longer see shipping quotes for that carrier.
 
 <!-- theme: info -->
 > #### Note
@@ -453,27 +486,6 @@ For more information on product and variant metafields, see:
 - [API Reference > Store Management > Catalog > Product Metafields](/api-reference/store-management/catalog/product-metafields)
 - [API Reference > Store Management > Catalog > Product Variant Metafields](/api-reference/store-management/catalog/product-variants-metafields)
 
-## Submitting the app
-
-Before submitting your app, make sure you have the following information.
-
-**Single-carrier or multi-carrier**
-
-A single-carrier app will offer one service, such as USPS. A multi-carrier app will offer more than one carrier such as USPS, DHL, and Canada Post.
-
-**Name and description**
-
-Name and description of the shipping carrier or carriers.
-
-**Logo**
-
-A 70x70 pixel logo that represents the shipping carrier app.
-
-**Configuration fields**
-
-Any shipping zone-specific or connection-specific fields to be made available to merchants or APIs for configuration. Configuration fields can include which rates to offer, packaging type, or packing method.
-
-To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
 
 
 ## Definitions
