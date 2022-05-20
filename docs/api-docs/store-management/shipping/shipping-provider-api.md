@@ -171,7 +171,7 @@ A merchant can navigate to the Shipping Manager UI to enable your carrier app, i
 An API user can connect your carrier to the store by using the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. The connection fields that you provided BigCommerce are sent in the request.
 
 <!-- theme:info  -->
-> #### Note: 
+> #### Note 
 > When a merchant uninstalls your app from the store, the merchant removes all shipping methods and connection info for your carrier(s) from the store. BigCommerce will no longer be able to make quote requests and receive shipping quotes from your carrier.
 
 ### Validate connection options
