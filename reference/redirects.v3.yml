@@ -30,8 +30,8 @@ securityDefinitions:
       ### OAuth Scopes
       |  **UI Name** | **Permission** | **Parameter** |
       | --- | --- | --- |
-      |  Carts | modify | `store_cart` |
-      |  Carts | read-only | `store_cart_read_only` |
+      |  Content | modify | `store_v2_content` |
+      |  Content | read-only | `store_v2_content_read_only` |
 
       ### Headers
 
