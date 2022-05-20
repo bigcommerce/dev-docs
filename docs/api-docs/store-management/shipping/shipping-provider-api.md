@@ -71,19 +71,20 @@ BigCommerce sends requests to your server to get information back about shipping
 
 ### Your service URLs
 
-Because BigCommerce sends your app requests, you need to provide BigCommerce with a URL that accepts quote requests and, optionally, a URL to check and validate connection options during app registration. These can be any valid HTTPS URLs that use port `443`, for example:
+Because BigCommerce sends requests to your app, you need to provide BigCommerce with the following:
 
-`https://example.com/rate`
+- a URL that accepts quote requests from BigCommerce. You will provide shipping quotes from this URL.
+- (optional) a URL to check and validate connection options during app registration. BigCommerce will send requests to this URL to ensure that a merchant’s connection settings are valid. You can perform any necessary checks, such as looking up a merchant's app credentials in your database or calling a downstream service to verify them. 
 
-Replace `example.com` and `rate` with your own host and path.
-
-### Routes
-
-You should create a URL to provide shipping quotes on your API and check the available shipping rates. The second URL (optional) checks to ensure the merchant’s connection settings are valid. It can perform any checks necessary to do so, such as looking up credentials in your database or calling a downstream service to verify them.
+These urls can be any valid HTTPS URLs that use port `443`, for example `https://example.com/rate`. Replace `example.com` and `rate` with your own host and path. 
 
 ### Request and response bodies
 
-BigCommerce will send and receive data using JSON. The request for rates will always be formatted using the [Base Rate Request Model](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). The response for rates should be formatted using the [Carrier Quote Object](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). Format the request to check for merchant app credentials as Check Connection Options request payload, and the response should be formatted using the Check Connection Options response payload.
+BigCommerce will send and receive data from your service URLs using JSON.  
+
+- To see how BigCommerce will format requests for rates and how you will need to format responses, see [Provide shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). 
+
+- To see how BigCommerce will format requests for validating merchant connection options and how you will need to format responses, see [Validate Connection Options](/api-reference/providers/shipping-provider-api/shipping-provider/validateconnectionoptions).
 
 ### Error handling
 
