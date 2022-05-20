@@ -154,7 +154,7 @@ A 70x70 pixel logo that represents the shipping carrier app.
 
 **Configuration fields**
 
-Any shipping zone-specific or connection-specific fields to be made available to merchants or APIs for configuration. Configuration fields can include which rates to offer, packaging type, or packing method.
+Any shipping zone-specific or connection-specific fields that you want merchants or API users to use when they [connect your app to their store](#how-your-app-will-be-connected-to-a-store). Configuration fields can include which rates to offer, packaging type, or packing method. BigCommerce will also include these fields when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce). 
 
 To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
 
@@ -218,9 +218,9 @@ title: Response
 > It is best practice to authenticate the user and store against your database or the downstream provider service. However, if you did not provide a Validate Connection Options URL, a merchant's credentials are assumed to be valid as long as they pass type checks.
 
 
-### Providing shipping rates
+### Provide shipping rates to BigCommerce
 
-Whenever shipping rates are required, BigCommerce checks its internal cache for valid entries. If valid entries are present, BigCommerce uses these entries and does not make a request to your carrier. If a valid cache entry does not exist, BigCommerce makes a request to the [Request Shipping Rates URL](#your-service-urls) that you provided. The request will include details of the items to be shipped, the shipping origin, the shipping destination, and any connection or zone settings for your carrier. Your carrier must then respond with shipping quote(s).
+When BigCommerce needs shipping rates, BigCommerce checks its internal cache for valid entries. If valid entries are present, BigCommerce uses these entries and does not make a request to your carrier. If a valid cache entry does not exist, BigCommerce makes a request to the [Request Shipping Rates URL](#your-service-urls) that you provided. The request will include details of the items to be shipped, the shipping origin, the shipping destination, and any connection or zone settings for your carrier. Your carrier must then respond with shipping quote(s).
 
 <!--
 type: tab
