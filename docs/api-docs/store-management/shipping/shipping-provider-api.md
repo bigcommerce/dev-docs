@@ -216,7 +216,7 @@ title: Response
 
 ## Providing Shipping Rates
 
-Whenever shipping rates are required, BigCommerce checks its internal cache for valid entries. If valid entries are present, BigCommerce uses these entries and does not make a request to your carrier. If a valid cache entry does not exist, BigCommerce makes a request to the [Request Shipping Rates URL]() that you provided. The request will include details of the items to be shipped, the shipping origin, the shipping destination, and any connection or zone settings for your carrier. Your carrier must then respond with shipping quote(s).
+Whenever shipping rates are required, BigCommerce checks its internal cache for valid entries. If valid entries are present, BigCommerce uses these entries and does not make a request to your carrier. If a valid cache entry does not exist, BigCommerce makes a request to the [Request Shipping Rates URL](#your-service-urls) that you provided. The request will include details of the items to be shipped, the shipping origin, the shipping destination, and any connection or zone settings for your carrier. Your carrier must then respond with shipping quote(s).
 
 ```http title="Example request: Shipping rates" lineNumbers
 POST https://example.com/rate
