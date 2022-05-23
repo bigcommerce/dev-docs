@@ -58,7 +58,7 @@ To get products, specify `products` as a field in `searchProducts`. Here is an e
 
 <!--
 type: tab
-title: Example query
+title: Query
 -->
 
 ```graphql title="Example" lineNumbers
@@ -94,7 +94,7 @@ query {
 
 <!--
 type: tab
-title: Example response
+title: Response
 -->
 
 ```json title="Example" lineNumbers
@@ -141,7 +141,7 @@ You can sort the products that are returned using the `sort` field. Here is an e
 
 <!--
 type: tab
-title: Example query
+title: Query
 -->
 
 ```graphql title="Example" lineNumbers
@@ -174,7 +174,7 @@ query {
 ```
 <!--
 type: tab
-title: Example response
+title: Response
 -->
 
 ```json title="Example" lineNumbers
@@ -231,7 +231,7 @@ To get facets, specify `filters` as a field in `searchProducts`. Here is an exam
 
 <!--
 type: tab
-title: Example query
+title: Query
 -->
 
 ```graphql title="Example" lineNumbers
@@ -301,7 +301,7 @@ query {
 ```
 <!--
 type: tab
-title: Example response
+title: Response
 -->
 
 ```json title="Example" lineNumbers
@@ -376,7 +376,7 @@ To get both products and facets, specify `products` and `filters` as a field in 
 
 <!--
 type: tab
-title: Example query
+title: Query
 -->
 
 
@@ -462,7 +462,7 @@ query {
 ```
 <!--
 type: tab
-title: Example response
+title: Response
 -->
 
 ```json title="Example" lineNumbers
@@ -559,7 +559,7 @@ If a merchant has not enabled product filtering, you will receive an empty array
 
 <!--
 type: tab
-title: Example response
+title: Response
 -->
 
 ```json title="Example" lineNumbers
