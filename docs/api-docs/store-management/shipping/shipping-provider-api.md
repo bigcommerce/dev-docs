@@ -127,7 +127,7 @@ title: Validate Connection Options
 
 <!-- type: tab-end  -->
 
-## Developing the app
+## Develop the app
 
 To use the Shipping Provider API to provide shipping quotes, you must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click). 
 
@@ -135,8 +135,95 @@ Building a BigCommerce app allows you to create [app API credentials](/api-docs/
 
 For more information, see our [Introduction to Building Apps](/api-docs/apps/guide/intro).
 
+### Configuration fields
 
-## Submitting the app
+Connection fields are any shipping zone-specific or connection-specific fields that you would like merchants or API users to use when they [connect your app to their store](#how-your-app-will-be-connected-to-a-store). 
+
+Configuration fields can include which rates to offer, packaging type, or packing method. 
+
+If you would like connection options to be set up for your carrier, please specify the following for each connection option:
+- Label: This is the text that will be displayed on the merchant's UI
+- Whether or not the connection option is required 
+- Type of connection option
+
+These are the types of connection options that we currently allow:
+- Text
+- Checkbox 
+- Select
+- Multi Select
+- Password
+
+Here are examples of a what you may have for a connection option:
+
+<!-- 
+type: tab
+title: Text 
+-->
+
+```text title="" lineNumbers 
+- Label: Special ID
+- Required: false
+- Type: text
+```
+
+<!-- 
+type: tab
+title: Checkbox 
+-->
+
+```text title="" lineNumbers 
+- Label: 
+- Required: false
+- Type: Checkbox
+- Values: Enable Expedited Shipping
+```
+
+<!-- 
+type: tab
+title: Select 
+-->
+
+```text title="" lineNumbers 
+- Label: Packaging Type
+- Required: false
+- Type: select
+- Values: Anti-corrosive, Plastics, Cardboard
+```
+
+<!-- 
+type: tab
+title: Multi Select
+-->
+
+```text title="" lineNumbers 
+- Label: Packaging Method
+- Required: false
+- Type: Multi Select
+- Values: Extra primary packaging, Extra secondary packaging, Extra tertiary packaging
+```
+
+<!-- 
+type: tab
+title: Password 
+--> 
+
+```text title="" lineNumbers 
+- Label: API Key
+- Required: true
+- Type: password
+```
+
+<!-- type: tab-end -->
+
+
+You can submit the configuration fields when you [submit the app](#submit-the-app). We will then send you a `code` for each connection option. API users will specify each `code` as a property under the `connection` object when they [connect your carrier to their store](#...). BigCommerce will also include each `code` when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce) as properties under the `connection` object. 
+
+
+For example, if you choose to have an API key and expedited shipping connection option as a text and checkbox 
+
+![Connect Carrier via UI](https://storage.googleapis.com/bigcommerce-production-dev-center/images/connection%20settings.png) 
+
+## Submit the app
 
 Before submitting your app, make sure you have the following information.
 
@@ -154,7 +241,7 @@ A 70x70 pixel logo that represents the shipping carrier app.
 
 **Configuration fields**
 
-Any shipping zone-specific or connection-specific fields that you want merchants or API users to use when they [connect your app to their store](#how-your-app-will-be-connected-to-a-store). Configuration fields can include which rates to offer, packaging type, or packing method. BigCommerce will also include these fields when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce). 
+If you would like a connection options setup for your carrier please specify properties you would like to use as connection options. 
 
 To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
 
