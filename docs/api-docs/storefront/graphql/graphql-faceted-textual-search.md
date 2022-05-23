@@ -2,7 +2,7 @@
 
 Faceted search is a method of helping shoppers navigate a store's product inventory by categorizing products into various categories, brands, product features, and more. Textual search is a method of retrieving products based on product fields, for example, product name and description. BigCommerce storefront search features are available in the Storefront GraphQL API so that storefront API consumers can use BigCommerce's backend search to rebuild their faceted and textual search UI. These built-in capabilities allow Stencil developers to build on top of our search engine, as well as merchants on headless storefronts to access search, sort, and filtering capabilities available from BigCommerce. 
 
-With Storefront GraphQL's Faceted and Textual Search, you can:
+The GraphQL Storefront API's faceted and textual search lets you create the following features:
 - Load category pages with no selections, including both the facets and products relevant to the search results 
 - Load category pages with facet selections for specific facets
 - Load featured products from specific categories
