@@ -539,7 +539,7 @@ For more information on product and variant metafields, see:
 
 No, you can only publish one app at a time. The others can be for use as testing or as private apps.
 
-## Related resources
+## Resources
 
 ### Articles
 - [App Store Approval Requirements](/api-docs/apps/guide/requirements)
