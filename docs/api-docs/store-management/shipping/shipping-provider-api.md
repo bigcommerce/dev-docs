@@ -228,17 +228,11 @@ To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcomm
 
 - Whether your app is single-carrier or multi-carrier
 
-- Name and description
+- Name and description of the shipping carrier(s)
 
-  Name and description of the shipping carrier or carriers.
+- Logo: A 70x70 pixel logo that represents the shipping carrier app
 
-- Logo
-
-  A 70x70 pixel logo that represents the shipping carrier app.
-
-- Configuration fields
-
-  If you would like connection options to be set up for your carrier, specify the properties you would like to use as connection options (see [Configuration Fields](#configuration-fields)). 
+- Configuration fields: If you would like connection options to be set up for your carrier, specify the properties you would like to use as connection options (see [Configuration Fields](#configuration-fields)). 
 
 ## What's Next?
 
