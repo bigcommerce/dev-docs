@@ -296,17 +296,14 @@ For OAuth scope and implementation details, consult [Customer Login API](/api-do
 
 
 
-
 ## Same-origin CORS authentication
 
-The following set of APIs does not use any authentication other than [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
-### the REST Storefront APIs
+The following set of APIs relies on [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) headers for authentication. You do not need to send any BigCommerce-specific tokens along with your requests to these endpoints.
+### REST Storefront APIs
 
-??example of no particular headers? cors??
+The REST Storefront API allows you to make client-side requests for carts, checkouts, and orders using JavaScript or an alternative language that compiles to run in the browser. It is a convenience collection of operations that affect one customer at a time and run in the context of the customer's current session on a BigCommerce-hosted storefront. You can perform authenticated versions of the same operations using the GraphQL Storefront API or the REST Store Management APIs.
 
-The Storefront APIs allow you to make client-side requests for carts, checkouts, and orders using JavaScript or an alternative language that compiles to run in the browser. They are a convenience collection of operations that affect one customer at a time. These endpoints are unauthenticated and may be low-risk for your store's use case. You can perform authenticated versions of the same operations using GraphQL or the Store Management REST APIs.
-
-
+The following examples illustrate how to make calls to the REST Storefront API.
 
 ```js title="Example script: REST Storefront API call" lineNumbers
 
