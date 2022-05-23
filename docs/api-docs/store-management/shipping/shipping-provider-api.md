@@ -21,7 +21,7 @@ This article is a guide to developing an app that will make your shipping rates 
 
 ## Shipping app overview
 
-![Carrier Service API](https://s3.amazonaws.com/user-content.stoplight.io/6012/1552664566834 "Carrier Service API")
+![Shipping App Overview](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Shipping%20App%20Overview.png)
 
 ### Single-carrier versus multi-carrier apps
 
