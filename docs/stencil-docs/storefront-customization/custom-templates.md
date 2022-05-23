@@ -120,44 +120,34 @@ Beyond the single URL mapped to each template in the above examples, you have th
 
 You can't specify front matter on a custom template, but you can still access front matter-injected data. Custom templates inherit front matter from their corresponding default template. Specify the data you would like your custom template to access in the default template's front matter. See [Using Front Matter](/stencil-docs/storefront-customization/using-front-matter) for more information on using front matter. The following example shows data you can inject into `templates/pages/brand.html` to access data in `templates/pages/custom/brand/custom-brand.html`. After [mapping](/api-reference/store-management/themes/theme-custom-templates/get-themes-theme-uuid-custom-templates#mapping-multiple-urls) the custom template to the default page, the cart object displays on the page.
 
-<table>
-<tr>
-<th>brand.html</th>
-<th>custom-brand.html</th>
-</tr>
-<tr>
-<td>
+
+<!-- 
+type: tab
+title: Default template - brand.html
+-->
   
-```yml title="Example: Injecting front matter objects"
+```handlebars title="Example: Specifying front matter in default templates"
 ---
 brand:
   products:
      limit: {{theme_settings.brandpage_products_per_page}}
 cart: true
 ---
-<div>Cart: {{{json cart}}}</div>
-```
-  
-</td>
-<td>
-
-```yml title="Example: Accessing front matter-injected data"
-
-
-
-
-    
-
-    
-
-    
-
-<div>You have {{cart.items}} items in your cart!</div>
+<div>...</div>
 ```
 
-</td>
-</tr>
-</table>
+<!-- 
+type: tab
+title: Custom template - custom-brand.html
+-->
+
+```handlebars title="Example: Using front matter-injected data in custom templates"
+<div>
+  <h3>You have {{cart.quantity}} item{{#unless cart.quantity '==' 1}}s{{/unless}} in your cart!</h3>
+</div>
+```
+
+<!-- type: tab-end -->
 
 
 
