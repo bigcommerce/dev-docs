@@ -190,7 +190,7 @@ Here are the contents of our `dynamicTab1.html` file:
 </div>
 ```
 
-### Dynamic Tabs Javascript 
+### Dynamic Tabs JavaScript 
 
 Again, the JavaScript code to implement Dynamic Tabs is invoked in the PageManager class' before method. The Dynamic Tabs code is more complex, and it relies on other classes we wrote to get content from the external server and cache it in the browser.
 
