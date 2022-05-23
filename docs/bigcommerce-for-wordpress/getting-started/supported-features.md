@@ -18,11 +18,11 @@ The BigCommerce for WordPress (BC4WP) plugin supports the following features:
 * Gutenberg and Classic Editor integration
 * Google accelerated mobile pages 
 * Google address autocomplete 
-* Facebook Pixel 
+* Facebook by Meta Pixel 
 * Enterprise systems integrations (connect to existing ERP suites, PIM software, OMS solutions, POS systems, or marketing automation tools)
 * Faceted search with FacetWP and search with SearchWP
 * Multi-site selling
-* Multi-channel selling (eBay, Amazon, Facebook, Instagram, Google Shopping, Square, and more) and Central Management (bulk listing, automatic inventory syncing, unified order and fulfillment management)
+* Multi-channel selling (eBay, Amazon, Facebook by Meta, Instagram by Meta, Google Shopping, Square, and more) and Central Management (bulk listing, automatic inventory syncing, unified order and fulfillment management)
 * Shopper wishlists
 * Shipping calculator
 * Abandoned cart recovery
