@@ -160,7 +160,7 @@ type: tab
 title: Text 
 -->
 
-```text title="" lineNumbers 
+```text title="Example Connection Option" lineNumbers 
 - Label: Special ID
 - Required: false
 - Type: text
@@ -171,8 +171,8 @@ type: tab
 title: Checkbox 
 -->
 
-```text title="" lineNumbers 
-- Label: 
+```text title="Example Connection Option" lineNumbers 
+- Label: Shipping Rate
 - Required: false
 - Type: Checkbox
 - Values: Enable Expedited Shipping
@@ -183,7 +183,7 @@ type: tab
 title: Select 
 -->
 
-```text title="" lineNumbers 
+```text title="Example Connection Option" lineNumbers 
 - Label: Packaging Type
 - Required: false
 - Type: select
@@ -195,7 +195,7 @@ type: tab
 title: Multi Select
 -->
 
-```text title="" lineNumbers 
+```text title="Example Connection Option" lineNumbers 
 - Label: Packaging Method
 - Required: false
 - Type: Multi Select
@@ -207,7 +207,7 @@ type: tab
 title: Password 
 --> 
 
-```text title="" lineNumbers 
+```text title="Example Connection Option" lineNumbers 
 - Label: API Key
 - Required: true
 - Type: password
