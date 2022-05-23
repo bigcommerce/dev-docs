@@ -736,6 +736,7 @@ paths:
     get:
       tags:
         - Checkout Settings
+      operationId: GetCheckoutSettings
       responses:
         '200':
           $ref: '#/responses/checkout_settings_resp'
@@ -744,6 +745,7 @@ paths:
     put:
       tags:
         - Checkout Settings
+      operationId: UpdateCheckoutSettings
       responses:
         '200':
           $ref: '#/responses/checkout_settings_resp'
@@ -1762,13 +1764,14 @@ definitions:
     properties:
       custom_checkout_script_url:
         type: string
-        description: Custom checkout script url to replace our default checkout.
+        description: 'Custom checkout script url to replace our default checkout. To reset a store to optimized one-page checkout, pass an empty string for `custom_checkout_script_url` and `custom_order_confirmation_script_url`.'
       order_confirmation_use_custom_checkout_script:
         type: boolean
         description: When order_confirmation_use_custom_checkout_script=true we default custom_order_confirmation_script_url to empty string.
       custom_order_confirmation_script_url:
         type: string
-        description: Custom order confirmation script url to replace our default order confirmation.
+        description: 'Custom order confirmation script url to replace our default order confirmation. To reset a store to optimized one-page checkout, pass an empty string for `custom_checkout_script_url` and `custom_order_confirmation_script_url`.'
+    description: ''
 parameters:
   checkoutId:
     name: checkoutId
