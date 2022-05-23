@@ -346,10 +346,6 @@ paths:
       description: |-
         Adds a new consignment to a checkout.
 
-        **Limits:**
-        * 50 line item limit for guest shoppers
-        * 600 line item limit for logged-in shoppers
-
         For more information about working with consignments, see [Checkout consignment](/api-docs/checkouts/checkout-consignment).  
 
         Though the only required `address` properties to create a consignment are `email` and `country_code`, to successfully [create an order](/api-reference/store-management/checkouts/checkout-orders/createanorder) the `address` requires the following properties:
@@ -2591,7 +2587,7 @@ responses:
           order_confirmation_use_custom_checkout_script: false
           custom_order_confirmation_script_url: 'https://example.com/custom-order-confirmation-script.js'
         meta: {}
-      'WebDAV protocol':
+      WebDAV protocol:
         data:
           custom_checkout_script_url: 'webdav:vtz-checkout/dist/auto-loader.js'
           order_confirmation_use_custom_checkout_script: false
