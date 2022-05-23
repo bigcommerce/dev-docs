@@ -1,21 +1,19 @@
 # Shipping Providers
 
-Shipping service providers wishing to offer shipping services and rates to BigCommerce merchants and shoppers can implement BigCommerce Shipping Provider endpoints. Once they implement and accept their service into BigCommerce's shipping carrier registry, merchants will have access to enable and configure the service through their BigCommerce control panel. Once enabled on a store, BigCommerce will automatically retrieve the service options and rates using the provider's endpoints and display them to merchants in the store's control panel and to shoppers on the storefront.
-
-Merchants can also use shipping provider endpoints to retrieve rates from custom shipping tables or an in-house shipping rate calculation service.
+Shipping service providers who wish to offer shipping services and rates to BigCommerce merchants and shoppers can implement endpoints through BigCommerce. Once they implement and accept their service into BigCommerce's shipping carrier registry, merchants can then enable and configure the service through their BigCommerce control panel. Once enabled on a store, BigCommerce will automatically retrieve the service options and rates using the provider's endpoints and display them to merchants in the store's control panel and to shoppers on the storefront.
 
 The Shipping Provider API allows many functionalities:
 
 - Drop-shippers can require their own rates
-- Merchants can use an already-existing shipping table 
+- Merchants can retrieve rates from custom shipping tables or in-house shipping rate calculation services 
 - Shoppers can create a combination of in-store pickup and shipping options
 
-This article is a guide to developing an app that will make your shipping rates available to merchants and shoppers on demand.
+This article guides developers on how to create a shipping provider app that will make your shipping rates available to merchants and shoppers on demand.
 
 ### Prerequisites
 
 * Required [OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) scopes: `Information and Settings`
-* BigCommerce [single-click app](/api-docs/apps/guide/types#single-click)
+* Get familiar with [Introduction to Building Apps](/api-docs/getting-started/building-apps-bigcommerce/building-apps) for building [single-click apps](/api-docs/apps/guide/types#single-click).
 
 
 ## Shipping app overview
@@ -128,7 +126,7 @@ title: Validate Connection Options
 
 ## Develop the app
 
-To use the Shipping Provider API to provide shipping quotes, you must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click). 
+To use the Shipping Provider API to provide shipping quotes, you must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click). For more info on how to get started, see [BigCommerce Apps Quick Start](/api-docs/partner/getting-started/app-development/tutorials/quick-start).
 
 Building a BigCommerce app allows you to create [app API credentials](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis#app-api-credentials) and promote your solution in the BigCommerce app marketplace. Having a BigCommerce app allows merchants to configure shipping provider settings and/or order fulfillment via an iFrame in the BigCommerce control panel.
 
