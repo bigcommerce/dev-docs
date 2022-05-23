@@ -4094,7 +4094,7 @@ components:
             - type: string
             - type: null
         external_merchant_id:
-          description: 'The merchant ID represents an upstream order from an external system. It is the source of truth for orders. After setting it, you can not write to or update the `external_merchant_id`. For example, you can update the Facebook page ID in a /POST request, but a /PUT request to update the order will return a 400 error. Please remove it from your request before trying again.'
+          description: 'The merchant ID represents an upstream order from an external system. It is the source of truth for orders. After setting it, you can not write to or update the `external_merchant_id`. For example, you can update the Facebook by Meta page ID in a /POST request, but a /PUT request to update the order will return a 400 error. Please remove it from your request before trying again.'
           example: null
           oneOf:
             - type: string
