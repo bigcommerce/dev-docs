@@ -67,7 +67,7 @@ Please include the following information:
 
 ## Before development
 
-BigCommerce sends requests to your server to get information back about shipping quotes, credential validation, and configuration.  To handle these requests smoothly, consider the following:
+BigCommerce sends requests to your server to validate merchant credentials and obtain shipping quotes. To handle these requests smoothly, consider the following:
 
 ### Your service URLs
 
@@ -225,25 +225,23 @@ For example, if you choose to have an API key and expedited shipping connection 
 
 ## Submit the app
 
-Before submitting your app, make sure you have the following information.
+To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>. Include the following information when you submit your app:
 
-**Single-carrier or multi-carrier**
+- Whether your app is single-carrier or multi-carrier
 
-A single-carrier app will offer one service, such as USPS. A multi-carrier app will offer more than one carrier such as USPS, DHL, and Canada Post.
+  A single-carrier app will offer one service, such as USPS. A multi-carrier app will offer more than one carrier such as USPS, DHL, and Canada Post.
 
-**Name and description**
+- Name and description
 
-Name and description of the shipping carrier or carriers.
+  Name and description of the shipping carrier or carriers.
 
-**Logo**
+- Logo
 
-A 70x70 pixel logo that represents the shipping carrier app.
+  A 70x70 pixel logo that represents the shipping carrier app.
 
-**Configuration fields**
+- Configuration fields
 
-If you would like a connection options setup for your carrier please specify properties you would like to use as connection options. 
-
-To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
+  If you would like connection options to be set up for your carrier, specify the properties you would like to use as connection options (see [Configuration Fields](#configuration-fields)). 
 
 ## What's Next?
 
