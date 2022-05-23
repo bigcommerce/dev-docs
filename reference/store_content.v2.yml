@@ -242,7 +242,7 @@ paths:
               title: Welcome to BigCommerce
               url: /blog/welcome-bigcommerce/
               preview_url: /blog/welcome-bigcommerce/
-              body: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook with the #1 ecommerce platform. </p>'
+              body: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>'
               tags:
                 - BigCommerce
                 - welcome
@@ -344,7 +344,7 @@ paths:
               title: Welcome to BigCommerce
               url: /blog/welcome-bigcommerce/
               preview_url: /blog/welcome-bigcommerce/
-              body: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook with the #1 ecommerce platform. </p>'
+              body: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>'
               tags:
                 - BigCommerce
                 - welcome
@@ -415,7 +415,7 @@ paths:
               title: Welcome to BigCommerce
               url: /blog/welcome-bigcommerce/
               preview_url: /blog/welcome-bigcommerce/
-              body: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook with the #1 ecommerce platform. </p>'
+              body: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>'
               tags:
                 - BigCommerce
                 - welcome
@@ -1489,7 +1489,7 @@ definitions:
       body:
         type: string
         description: Text body of the blog post.
-        example: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook with the #1 ecommerce platform. </p>'
+        example: '<p>Customize your site, manage shipping and payments, and list your products on Amazon, eBay, and Facebook by Meta with the #1 ecommerce platform. </p>'
       tags:
         description: Tags to characterize the blog post.
         type: array

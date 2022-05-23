@@ -164,9 +164,9 @@ paths:
                   - option_id: 121
                     option_value: 10
                     name: Size
-                    name_id: 125
+                    nameId: 125
                     value: Small
-                    value_id: 125
+                    valueId: 125
       tags:
         - Cart
       responses:
@@ -1447,13 +1447,13 @@ components:
                         name:
                           type: string
                           description: 'The product option name. For example, Color or Size'
-                        name_id:
+                        nameId:
                           type: number
                           description: The product option identifier.
                         value:
                           type: string
                           description: 'The product option value. For example, Red or Medium'
-                        value_id:
+                        valueId:
                           type: number
                           description: The product option value identifier.
                       title: Product Option
@@ -1621,13 +1621,13 @@ components:
                         name:
                           type: string
                           description: 'The product option name. For example, Color or Size'
-                        name_id:
+                        nameId:
                           type: number
                           description: The product option identifier.
                         value:
                           type: string
                           description: 'The product option value. For example, Red or Medium'
-                        value_id:
+                        valueId:
                           type: number
                           description: The product option value identifier.
                       title: Product Option
@@ -1917,13 +1917,13 @@ components:
                   name:
                     type: string
                     description: 'The product option name. For example, Color or Size'
-                  name_id:
+                  nameId:
                     type: number
                     description: The product option identifier.
                   value:
                     type: string
                     description: 'The product option value. For example, Red or Medium'
-                  value_id:
+                  valueId:
                     type: number
                     description: The product option value identifier.
                 title: Product Option
@@ -2091,13 +2091,13 @@ components:
                   name:
                     type: string
                     description: 'The product option name. For example, Color or Size'
-                  name_id:
+                  nameId:
                     type: number
                     description: The product option identifier.
                   value:
                     type: string
                     description: 'The product option value. For example, Red or Medium'
-                  value_id:
+                  valueId:
                     type: number
                     description: The product option value identifier.
                 title: Product Option
@@ -2263,13 +2263,13 @@ components:
               name:
                 type: string
                 description: 'The product option name. For example, Color or Size'
-              name_id:
+              nameId:
                 type: number
                 description: The product option identifier.
               value:
                 type: string
                 description: 'The product option value. For example, Red or Medium'
-              value_id:
+              valueId:
                 type: number
                 description: The product option value identifier.
             title: Product Option
@@ -2284,13 +2284,13 @@ components:
         name:
           type: string
           description: 'The product option name. For example, Color or Size'
-        name_id:
+        nameId:
           type: number
           description: The product option identifier.
         value:
           type: string
           description: 'The product option value. For example, Red or Medium'
-        value_id:
+        valueId:
           type: number
           description: The product option value identifier.
       title: Product Option
@@ -2458,9 +2458,9 @@ components:
                 value:
                   type: string
                   description: Override selected Option Value
-                name_id:
+                nameId:
                   type: integer
-                value_id:
+                valueId:
                   type: integer
         required:
           - quantity

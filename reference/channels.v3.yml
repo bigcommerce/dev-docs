@@ -39,8 +39,8 @@ info:
     | `vend`            | `pos`                     |
     | `clover`          | `pos`                     |
     | `talech`          | `pos`                     |
-    | `facebook`        | `marketplace`,`marketing` |
-    | `instagram`       | `marketplace`,`marketing` |
+    | `facebook by meta`| `marketplace`,`marketing` |
+    | `instagram by meta`| `marketplace`,`marketing`|
     | `amazon`          | `marketplace`             |
     | `ebay`            | `marketplace`             |
     | `pinterest`       | `marketplace`             |
@@ -96,6 +96,7 @@ tags:
   - name: Channel Currency Assignments
   - name: Channel Listings
   - name: Channel Site
+  - name: Channel Site Checkout Url
 paths:
   '/stores/{store_hash}/v3/channels':
     get:
@@ -138,7 +139,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateChannelReq'
             examples:
-              Create a Facebook Channel:
+              Create Facebook by Meta Channel:
                 $ref: '#/components/examples/create_channel_req_example'
         required: true
       responses:
@@ -209,7 +210,7 @@ paths:
             schema:
               $ref: '#/components/schemas/UpdateChannelReq'
             examples:
-              Update a Facebook Channel:
+              Update a Facebook by Meta Channel:
                 $ref: '#/components/examples/update_channel_req_example'
         required: true
       responses:
@@ -758,7 +759,7 @@ components:
         items:
           type: string
         example:
-          - 'facebook, amazon'
+          - 'facebook by meta, amazon'
     date_created:
       name: date_created
       description: 'Filter items by date_created. For example, `date_created=2019-09-04T00:00:00`, `date_created=2019-09-04`, or `date_created=1567573200`'
@@ -1150,8 +1151,8 @@ components:
   examples:
     create_channel_req_example:
       value:
-        name: Facebook
-        platform: facebook
+        name: Facebook by Meta
+        platform: facebook by meta
         type: marketplace
         status: connected
         config_meta:
@@ -1164,7 +1165,7 @@ components:
                 query_path: settings
     update_channel_req_example:
       value:
-        name: Facebook
+        name: Facebook by Meta
         status: connected
         is_listable_from_ui: false
         config_meta:
@@ -1318,10 +1319,10 @@ components:
                   - title: Settings
                     query_path: settings
             type: marketplace
-            platform: facebook
+            platform: facebook by meta
             is_enabled: true
             date_modified: '2021-05-13T15:41:39Z'
-            name: Facebook
+            name: Facebook by Meta
             status: connected
         meta:
           pagination:
@@ -1352,10 +1353,10 @@ components:
                 - title: Settings
                   query_path: settings
           type: marketplace
-          platform: facebook
+          platform: facebook by meta
           is_enabled: true
           date_modified: '2021-05-13T15:41:39Z'
-          name: Facebook
+          name: Facebook by Meta
           status: connected
         meta: {}
     single_channel_with_currencies_resp_example:
@@ -1376,10 +1377,10 @@ components:
                 - title: Settings
                   query_path: settings
           type: marketplace
-          platform: facebook
+          platform: facebook by meta
           is_enabled: true
           date_modified: '2021-05-13T15:41:39Z'
-          name: Facebook
+          name: Facebook by Meta
           status: connected
           currencies:
             channel_id: 667159
@@ -1580,7 +1581,7 @@ components:
     error_409_resp_example:
       value:
         status: 409
-        title: 'Channel already exists with name: "Facebook", platform: "facebook", and type: "marketplace"'
+        title: 'Channel already exists with name: "Facebook by Meta", platform: "facebook by meta", and type: "marketplace"'
         type: /api-docs/getting-started/api-status-codes
         errors: {}
     error_422_invalid_filter_value_resp_example:

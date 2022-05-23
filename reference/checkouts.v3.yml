@@ -346,10 +346,6 @@ paths:
       description: |-
         Adds a new consignment to a checkout.
 
-        **Limits:**
-        * 50 line item limit for guest shoppers
-        * 600 line item limit for logged-in shoppers
-
         For more information about working with consignments, see [Checkout consignment](/api-docs/checkouts/checkout-consignment).  
 
         Though the only required `address` properties to create a consignment are `email` and `country_code`, to successfully [create an order](/api-reference/store-management/checkouts/checkout-orders/createanorder) the `address` requires the following properties:
@@ -740,6 +736,7 @@ paths:
     get:
       tags:
         - Checkout Settings
+      operationId: GetCheckoutSettings
       responses:
         '200':
           $ref: '#/responses/checkout_settings_resp'
@@ -748,6 +745,7 @@ paths:
     put:
       tags:
         - Checkout Settings
+      operationId: UpdateCheckoutSettings
       responses:
         '200':
           $ref: '#/responses/checkout_settings_resp'
@@ -1766,13 +1764,14 @@ definitions:
     properties:
       custom_checkout_script_url:
         type: string
-        description: Custom checkout script url to replace our default checkout.
+        description: 'Custom checkout script url to replace our default checkout. To reset a store to optimized one-page checkout, pass an empty string for `custom_checkout_script_url` and `custom_order_confirmation_script_url`.'
       order_confirmation_use_custom_checkout_script:
         type: boolean
         description: When order_confirmation_use_custom_checkout_script=true we default custom_order_confirmation_script_url to empty string.
       custom_order_confirmation_script_url:
         type: string
-        description: Custom order confirmation script url to replace our default order confirmation.
+        description: 'Custom order confirmation script url to replace our default order confirmation. To reset a store to optimized one-page checkout, pass an empty string for `custom_checkout_script_url` and `custom_order_confirmation_script_url`.'
+    description: ''
 parameters:
   checkoutId:
     name: checkoutId
@@ -2591,7 +2590,7 @@ responses:
           order_confirmation_use_custom_checkout_script: false
           custom_order_confirmation_script_url: 'https://example.com/custom-order-confirmation-script.js'
         meta: {}
-      'WebDAV protocol':
+      WebDAV protocol:
         data:
           custom_checkout_script_url: 'webdav:vtz-checkout/dist/auto-loader.js'
           order_confirmation_use_custom_checkout_script: false

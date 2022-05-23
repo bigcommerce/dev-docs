@@ -357,7 +357,7 @@ components:
               description: 'What type of checkout is enabled on the store. Possible values returned are optimized, single (one page), single_customizable (one page for developers), klarna.'
             facebook_catalog_id:
               type: string
-              description: 'Id of the facebook catalog. If there is none, it returns an empty string.'
+              description: 'Id of the facebook by meta catalog. If there is none, it returns an empty string.'
             graphql_storefront_api_enabled:
               type: boolean
             stencil_enabled:
