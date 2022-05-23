@@ -4,18 +4,17 @@ Shipping service providers wishing to offer shipping services and rates to BigCo
 
 Merchants can also use shipping provider endpoints to retrieve rates from custom shipping tables or an in-house shipping rate calculation service.
 
-Some use cases for the Shipping Provider API are:
+The Shipping Provider API allows many functionalities:
 
-- A drop-shipper that requires their own rates
-- A merchant that already has a shipping table
-- Third-party logistics
-- Create a combination of in-store pickup and shipping options for shoppers
+- Drop-shippers can require their own rates
+- Merchants can use an already-existing shipping table 
+- Shoppers can create a combination of in-store pickup and shipping options
 
 This article is a guide to developing an app that will make your shipping rates available to merchants and shoppers on demand.
 
 ### Prerequisites
 
-* Required [OAuth](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) scopes: `Information and Settings`
+* Required [OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) scopes: `Information and Settings`
 * BigCommerce [single-click app](/api-docs/apps/guide/types#single-click)
 
 
