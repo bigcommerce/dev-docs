@@ -10,7 +10,12 @@ To set up a carrier using the API, first, connect it using the Connect Carrier A
 
 The *code* is what you would use as a property under the connection object for the connections api.
 
-```http title="Example carrier connection request with connection settings" lineNumbers
+<!--
+type: tab
+title: Request
+-->
+
+```json title="Example POST request with X-Auth-Token header" lineNumbers
 POST https://example.com/shipping/carrier/connection
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -24,8 +29,23 @@ Accept: application/json
   }
 }
 ```
-&nbsp;
-```http title="Example carrier connection request without connection settings" lineNumbers
+
+<!--
+type: tab
+title: Response
+-->
+
+
+<!-- type: tab-end -->
+
+If a carrier has no connection settings, you can use an empty `connection` object: 
+
+<!--
+type: tab
+title: Request
+-->
+
+```http title="Example POST request with X-Auth-Token header" lineNumbers
 POST https://example.com/shipping/carrier/connection
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -37,24 +57,117 @@ Accept: application/json
 }
 ```
 
+<!--
+type: tab
+title: Response
+-->
+
+<!-- type: tab-end -->
+
 Once connected, it’s possible to create shipping methods for a connected carrier in any shipping zone. You can query shipping zones using the Shipping Zones resource. For any zone, a request can be made to the Shipping Methods resource using the zone ID from the Shipping Zones resource to create a new method for the connected carrier. You are required to enter the shipping carrier’s ID in the type field.
 
 ### Update a Connection
 
+<!--
+type: tab
+title: Request
+-->
 
+```json title="Example PUT request with X-Auth-Token header" lineNumbers
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example PUT response" lineNumbers
+```
+
+<!-- type: tab-end -->
 
 ### Delete a Connection
 
+<!--
+type: tab
+title: Request
+-->
 
+```json title="Example DELETE request with X-Auth-Token header" lineNumbers
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example DELETE response" lineNumbers
+```
+
+<!-- type: tab-end -->
 
 ## Manage shipping zones
 
 ### Create a shipping zone
 
+<!--
+type: tab
+title: Request
+-->
+
+```json title="Example POST request with X-Auth-Token header" lineNumbers
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example POST response" lineNumbers
+```
+
+<!-- type: tab-end -->
+
 ### Update a shipping zone
+
+<!--
+type: tab
+title: Request
+-->
+
+```json title="Example PUT request with X-Auth-Token header" lineNumbers
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example PUT response" lineNumbers
+```
+
+<!-- type: tab-end -->
 
 
 ### Get a shipping zone
+
+<!--
+type: tab
+title: Request
+-->
+
+```json title="Example GET request with X-Auth-Token header" lineNumbers
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example GET response" lineNumbers
+```
+
+<!-- type: tab-end -->
 
 
 <!-- theme:info -->
@@ -63,12 +176,37 @@ Once connected, it’s possible to create shipping methods for a connected carri
 
 ### Delete a shipping zone
 
+<!--
+type: tab
+title: Request
+-->
+
+```json title="Example DELETE request with X-Auth-Token header" lineNumbers
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example DELETE response" lineNumbers
+```
+
+<!-- type: tab-end -->
+
 
 ## Manage shipping methods
 
+
 ### Create a shipping method
 
-```http title="Example request: Create a shipping method in a specified zone" lineNumbers
+
+<!--
+type: tab
+title: Request
+-->
+
+```json title="Example POST request with X-Auth-Token header" lineNumbers
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v2/shipping/zones/{{zone_id}}/methods
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -84,8 +222,13 @@ Accept: application/json
   "enabled": true
 }
 ```
-&nbsp;
-```json title="Example response: Create a shipping method in a specified zone" lineNumbers
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example POST response" lineNumbers
 {
   "id": 24,
   "name": "Per Order Test",
@@ -101,10 +244,53 @@ Accept: application/json
 }
 ```
 
+<!-- type: tab-end -->
+
+
+
+
+
+
 ### Update a shipping method
+
+<!--
+type: tab
+title: Request
+-->
+
+```json title="Example PUT request with X-Auth-Token header" lineNumbers
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example PUT response" lineNumbers
+```
+
+<!-- type: tab-end -->
 
 
 ### Get a shipping method
+
+<!--
+type: tab
+title: Request
+-->
+
+```json title="Example GET request with X-Auth-Token header" lineNumbers
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example GET response" lineNumbers
+```
+
+<!-- type: tab-end -->
 
 
 <!-- theme:info -->
@@ -113,3 +299,24 @@ Accept: application/json
 
 ### Delete a shipping method
 
+
+<!--
+type: tab
+title: Request
+-->
+
+```json title="Example DELETE request with X-Auth-Token header" lineNumbers
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example DELETE response" lineNumbers
+```
+
+<!-- type: tab-end -->
+
+
+## Resources
