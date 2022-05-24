@@ -372,7 +372,7 @@ For a complete list of facets that can be returned, see the [GraphQL Storefront 
 
 ## Put it all together: get products and facets
 
-To get both products and facets, specify `products` and `filters` as a field in `searchProducts`. 
+To get both products and facets, specify both `products` and `filters` fields in `searchProducts`. 
 
 <!--
 type: tab
