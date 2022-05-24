@@ -10,16 +10,17 @@ Our API accounts come in a few different flavors to meet the needs of different 
 
 ## Stable tokens
 
-Most of our APIs use credentials that do not expire based on a time frame. Depending on the type of API account the credentials belong to, they may expire based on user or developer actions. For more on events that expire tokens, see ???[app API account reference]()???.
+Most of our APIs use credentials that do not expire based on a time frame. Depending on the type of API account the credentials belong to, they may expire based on user or developer actions. 
+<!-- For more on events that expire tokens, see ??forthcoming apps article??. -->
 
 The following sections describe the two authentication schemes we currently have that use stable tokens. They include example requests and indicate the endpoints to which the schemes apply.
 
-### The X-Auth-Token header
+### Access tokens
 
 <!-- theme: info -->
 > Legacy API accounts used HTTP basic authentication. They are no longer available to new stores. [Learn more about migrating](/api-docs/getting-started/authentication/rest-api-authentication#migrating-from-legacy-to-oauth).
 
-Most of our REST endpoints use the X-Auth-Token header to authenticate to BigCommerce servers. For more about the APIs that do **NOT** use the X-Auth-Token header, consult this article's sections on [dynamic tokens](#dynamic-tokens) and [unauthenticated endpoints](#unauthenticated-endpoints).
+Most of our REST endpoints use the X-Auth-Token header to authenticate to BigCommerce servers. For more about the APIs that do **NOT** use the X-Auth-Token header, consult this article's sections on [dynamic tokens](#dynamic-tokens) and [same-origin CORS authentication](#same-origin-cors-authentication).
 
 The X-Auth-Token header uses access tokens to authenticate requests. [Create an OAuth API account](/api-docs/getting-started/authentication/rest-api-authentication#all-oauth-api-accounts) to generate access tokens. Pass the access token as the value of the `X-Auth-Token` header of the request you want to authenticate.
 
@@ -440,13 +441,9 @@ storefrontCall(endpoint);
 
 
 ## Resources
-??reconsider these
+
 ### Related articles
 * [Creating API Accounts](/api-docs/getting-started/authentication/rest-api-authentication)
 * [OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
+<!-- jwts in apps, graphql storefront playground -->
 
-### Outside reading
-* [OAuth 2.0 Simplified (oauth.net)](https://oauth.net/getting-started/)
-* [What the Heck is OAuth (Okta)](https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth)
-* [An Introduction to OAuth 2 (Digital Ocean)](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2)
-* [RFC6749 Standard (IETF)](https://tools.ietf.org/html/rfc6749)
