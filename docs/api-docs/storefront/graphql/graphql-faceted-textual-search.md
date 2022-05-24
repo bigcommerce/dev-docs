@@ -368,7 +368,7 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-For a complete list of facets that can be returned, see the [GraphQL Storefront Playground](/graphql-playground).
+For a complete list of facets, see the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground).
 
 ## Put it all together: get products and facets
 
