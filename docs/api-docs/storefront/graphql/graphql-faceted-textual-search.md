@@ -11,7 +11,7 @@ The GraphQL Storefront API's faceted and textual search lets you create the foll
 
 You can access these features by querying the `SearchProducts` field. Note that you can query facets, filter by rating, or filter by "in-stock" only if the merchant is on a Pro or Enterprise plan. A merchant must [enable Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings?language=en_US#setup) for facets to be returned. In addition, only facets that a merchant marks as visible in their Product Filtering settings will be returned. 
 
-This page walks you through how to filter and query products and facets to display on your storefront. See the [GraphQL Storefront Playground](/graphql-playground) for full schema documentation.  
+This page walks you through how to filter and query products and facets to display on your storefront. See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation.  
 
 ## Filter products and facets
 
