@@ -1,8 +1,8 @@
 # Using a 3rd-Party Shipping Provider
 
-Once a merchant installs a Shipping Provider app on their store, merchants and API users can add connection settings. A merchant can navigate to the Shipping Manager and enable your carrier app, input carrier connection settings, and disable your carrier app for any defined zone. An API user can create, update, and delete carrier connections.
+Once a merchant installs and enables a Shipping Provider app on their store, merchants and API users can add connection settings to carriers. Merchants and API users can then create shipping zones and shipping methods. This article is a guide for API users on how to manage carrier connections, shipping zones, and shipping methods.
 
-## Shipping Carriers 
+## Manage connections to shipping carriers 
 
 ### Create a Connection
 
@@ -39,11 +39,35 @@ Accept: application/json
 
 Once connected, it’s possible to create shipping methods for a connected carrier in any shipping zone. You can query shipping zones using the Shipping Zones resource. For any zone, a request can be made to the Shipping Methods resource using the zone ID from the Shipping Zones resource to create a new method for the connected carrier. You are required to enter the shipping carrier’s ID in the type field.
 
+### Update a Connection
 
-## Shipping Zones
 
 
-## Shipping Methohds
+### Delete a Connection
+
+
+
+## Manage shipping zones
+
+### Create a shipping zone
+
+### Update a shipping zone
+
+
+### Get a shipping zone
+
+
+<!-- theme:info -->
+> #### Note
+> It is also possible to [Get all shipping zones](/api-reference/store-management/shipping-api/shipping-zones/getallshippingzones).
+
+### Delete a shipping zone
+
+
+## Manage shipping methods
+
+### Create a shipping method
+
 ```http title="Example request: Create a shipping method in a specified zone" lineNumbers
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v2/shipping/zones/{{zone_id}}/methods
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -76,3 +100,16 @@ Accept: application/json
   "is_fallback": false
 }
 ```
+
+### Update a shipping method
+
+
+### Get a shipping method
+
+
+<!-- theme:info -->
+> #### Note
+> It is also possible to [Get all shipping methods](/api-reference/store-management/shipping-api/shipping-method/getshippingmethodszone).
+
+### Delete a shipping method
+
