@@ -6,7 +6,7 @@ Note that a store has global settings for data solutions, from which any storefr
 
 <!-- theme: info -->
 > #### Note
-> You can obtain storefront channel IDs using the [Get All Channels](/api-reference/store-management/channels/channels/listchannels) endpoint. 
+> You can obtain storefront channel IDs using the [Get all channels](/api-reference/store-management/channels/channels/listchannels) endpoint. 
 
 This article introduces how to configure web analytics using the Data Solutions API. Because each web analytic requires different fields in the request and/or response, this article is divided by web analytics.
 
