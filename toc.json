@@ -66,7 +66,7 @@
     {
       "type": "item",
       "title": "GraphQL Storefront API Reference",
-      "uri": "assets/html/graphql-playground.html"
+      "uri": "https://developer.bigcommerce.com/graphql-api-reference"
     },
     {
       "type": "divider",
