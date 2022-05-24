@@ -1,6 +1,5 @@
 # API Status Codes
 
-
 The BigCommerce API responds to each request with an HTTP status code that depends on the result from the request. Error responses might also include an error message in the body to assist in resolving the problem.
 
 
