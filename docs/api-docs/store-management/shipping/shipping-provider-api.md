@@ -242,7 +242,7 @@ A merchant can navigate to the Shipping Manager UI to enable your carrier app, i
 
 ![Connect Carrier via UI](https://storage.googleapis.com/bigcommerce-production-dev-center/images/connection%20settings.png) 
 
-An API user can connect your carrier to the store by using the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. The connection fields that you provided BigCommerce are sent in the request.
+An API user can connect your carrier to the store by using the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. The carrier ID that you obtained during app setup, as well as the connection fields that you provided BigCommerce are sent in the request.
 
 <!-- theme:info  -->
 > #### Note 
