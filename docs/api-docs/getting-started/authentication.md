@@ -28,7 +28,7 @@ For a request to succeed, the access token's API account must have permission to
 
 To find the specific OAuth scopes your requests require, consult the root API reference pages for the families of endpoints you plan to use. For example, see the [OAuth scopes for the Email Templates endpoints](/api-reference/store-management/email-templates). We also maintain a [list of all our OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
-#### X-Auth-Token authentication examples
+#### X-Auth-Token header examples
 
 The following tabs contain examples of how to authenticate requests by passing an access token to the `X-Auth-Token` header.
 
@@ -88,11 +88,11 @@ Accept: application/json
 
 <!-- type: tab-end -->
 
-### The Current Customer API
+### Client ID
 
-Calls to the Current Customer API request BigCommerce-generated JWTs that confirm a customer's identity and logged-in status. This API authenticates by sending an app API account's **client ID** as a query parameter. BigCommerce responds with a JWT that your app or implementation can decode to verify the customer's identity.
+The Current Customer API use a combination of client ID and JWT to authenticate the requestor and secure customer data. The requestor sends an **app API account's client ID** as a query parameter, and our servers return a BigCommerce-generated JWT that your app can decode to identify the customer who is currently signed in.
 
-For OAuth scope and implementation details, consult [Current Customer API](/api-docs/storefront/current-customer-api) and [Get Current Customer](/api-reference/storefront/current-customers/current-customers/getcurrentcustomer).
+For OAuth scope and implementation details, consult the [Current Customer API](/api-docs/storefront/current-customer-api) article and [Get current customer](/api-reference/storefront/current-customers/current-customers/getcurrentcustomer) endpoint reference.
 
 The following request-response sequence shows the authentication scheme for the Current Customer API:
 
@@ -101,7 +101,7 @@ type: tab
 title: Example Request: Current Customer API
 -->
 
-```js title="Example GET request: Current Customer API" lineNumbers
+```js title="Example GET request" lineNumbers
 const customerJWT = (apiAccountClientId) => {
   let resource = `/customer/current.jwt?app_client_id=${apiAccountClientId}`;
   return fetch(resource)
@@ -125,7 +125,7 @@ type: tab
 title: Example Response: Current Customer API
 -->
 
-```shell title="Example response.text(): JWT string"
+```shell title="Example text response: JWT string"
 # response body
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJpZCI6NDkyNywiZW1haWwiOiJqb2huLmRvZUBnbWFpbC5jb20iLCJncm91cF9pZCI6IjYifSwiaXNzIjoiYmMvYXBwcyIsInN1YiI6ImFiYzEyMyIsImlhdCI6MTQ4MDgzMTg2MywiZXhwIjoxNDgwODMyNzYzLCJ2ZXJzaW9uIjoxLCJhdWQiOiI2c3YxNnRmeDNqNWdzb3BtNDJzczVkZDY3ZzJzcnZxIiwiYXBwbGljYXRpb25faWQiOiI2c3YxNnRhc2RncjJiNWhzNWRkNjdnMnNydnEiLCJzdG9yZV9oYXNoIjoiYWJjMTIzIiwib3BlcmF0aW9uIjoiY3VycmVudF9jdXN0b21lciJ9.uYTDTJzhDOog7PE1yLNeP6zDNdFMb91fS-NZrJpsts0
 ```
