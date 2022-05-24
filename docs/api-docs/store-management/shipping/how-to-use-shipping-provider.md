@@ -1,6 +1,8 @@
 # Using a 3rd-Party Shipping Provider
 
-Once a merchant installs and enables a Shipping Provider app on their store, merchants and API users can add connection settings to carriers. Merchants and API users can then create shipping zones and shipping methods. This article is a guide for API users on how to manage carrier connections, shipping zones, and shipping methods.
+Once a merchant installs and enables a Shipping Provider app on their store, merchants and API users can connect a carrier. Merchants and API users can then create shipping zones and shipping methods for the connected carrier. They can create shipping methods for the connected carrier in any shipping zone. 
+
+This article is a guide for API users on how to manage carrier connections, shipping zones, and shipping methods.
 
 ## Manage connections to shipping carriers 
 
@@ -62,8 +64,6 @@ title: Response
 
 <!-- type: tab-end -->
 
-Once connected, it’s possible to create shipping methods for a connected carrier in any shipping zone. You can query shipping zones using the Shipping Zones resource. For any zone, a request can be made to the Shipping Methods resource using the zone ID from the Shipping Zones resource to create a new method for the connected carrier. You are required to enter the shipping carrier’s ID in the type field.
-
 ### Update a Connection
 
 <!--
@@ -116,6 +116,8 @@ title: Response
 <!-- type: tab-end -->
 
 ## Manage shipping zones
+
+Once you have connected a carrier, create shipping zones for the connected carrier. You can query shipping zones using the Shipping Zones resource. For any zone, a request can be made to the Shipping Methods resource using the zone ID from the Shipping Zones resource to create a new method for the connected carrier. You are required to enter the shipping carrier’s ID in the type field.
 
 ### Create a shipping zone
 
