@@ -137,7 +137,7 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-You can sort the products that are returned using the `sort` field. Here is an example request that searches for products using a search term and sorts the products in alphabetical order:
+You can sort the products that are returned using the `sort` field. Here is an example query that searches for products using a search term and sorts the returned products in alphabetical order:
 
 <!--
 type: tab
