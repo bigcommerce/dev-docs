@@ -99,6 +99,13 @@
         // },
         {
           "type": "item",
+          "title": "GraphQL Storefront Explorer",
+          "href": "/api-docs/storefront/graphql/explorer",
+          "uri": "https://developer.bigcommerce.com/graphql-explorer"
+        },
+        {
+
+          "type": "item",
           "title": "Storefront GraphQL Playground",
           "href": "/api-docs/storefront/graphql/playground",
           "uri": "https://developer.bigcommerce.com/graphql-playground"
