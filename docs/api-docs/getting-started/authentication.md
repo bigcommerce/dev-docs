@@ -20,15 +20,15 @@ The following sections describe the two authentication schemes we currently have
 <!-- theme: info -->
 > Legacy API accounts used HTTP basic authentication. They are no longer available to new stores. [Learn more about migrating](/api-docs/getting-started/authentication/rest-api-authentication#migrating-from-legacy-to-oauth).
 
-Most of our REST endpoints use the X-Auth-Token header to authenticate to BigCommerce servers. For more about the APIs that do **NOT** use the X-Auth-Token header, consult this article's sections on [dynamic tokens](#dynamic-tokens) and [same-origin CORS authentication](#same-origin-cors-authentication).
+Most of our REST endpoints use the `X-Auth-Token` header to authenticate to BigCommerce servers. For more about the APIs that do **NOT** use the `X-Auth-Token` header, consult this article's sections on [dynamic tokens](#dynamic-tokens) and [same-origin CORS authentication](#same-origin-cors-authentication).
 
-The X-Auth-Token header uses access tokens to authenticate requests. [Create an OAuth API account](/api-docs/getting-started/authentication/rest-api-authentication#all-oauth-api-accounts) to generate access tokens. Pass the access token as the value of the `X-Auth-Token` header of the request you want to authenticate.
+The `X-Auth-Token` header uses access tokens to authenticate requests. [Create an OAuth API account](/api-docs/getting-started/authentication/rest-api-authentication#all-oauth-api-accounts) to generate access tokens. Pass the access token as the value of the `X-Auth-Token` header of the request you want to authenticate.
 
 For a request to succeed, the access token's API account must have permission to receive the response. Configure your API account with the minimum set of OAuth scopes that your implementation needs. 
 
 To find the specific OAuth scopes your requests require, consult the root API reference pages for the families of endpoints you plan to use. For example, see the [OAuth scopes for the Email Templates endpoints](/api-reference/store-management/email-templates). We also maintain a [list of all our OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
-#### X-Auth-Token header examples
+#### X-Auth-Token header example requests
 
 The following tabs contain examples of how to authenticate requests by passing an access token to the `X-Auth-Token` header.
 
@@ -134,27 +134,41 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJpZCI6NDkyNywiZW1haWwiOiJ
 
 ## Dynamic tokens
 
-A number of our APIs use tokens that vary over time. Some can be used an unlimited number of times within an expiration window; others must be unique to each request. The following sections describe a series of authentication schemes, give example requests, and list the endpoints to which they apply along with links to learn more. 
+A number of our APIs authenticate with JSON web tokens, or _JWTs_. JWTs authorize both the requestor and the recipient because they contain a signed payload that the recipient must successfully decrypt before working with the transmitted data. Some JWTs can be used an unlimited number of times within an expiration window; others must be unique to each request. 
+
+Our JWT-based authentication schemes fall into the following categories:
+* The user passes a **BigCommerce-generated** JWT as part of the value of the `Authorization` header
+* The user sends BigCommerce a **user-generated** JWT
+* **BigCommerce-encrypted payload JWTs** send apps information as part of a signed JWT's payload
+
+All requests that use JWTs require at least two steps. In addition to the request itself, you must also either get, make, or decrypt the JWT that the request sends or receives. The following sections describe the steps for these three JWT-based authentication schemes, reference the endpoints to which they apply, and give example requests.
 
 <!-- theme: warning -->
 > #### Ensure your tokens are in scope
-> Consult the documentation for your target endpoint and the REST token generation endpoint that correspond to your use case to determine the required OAuth scopes before you create an OAuth API account to request dynamic tokens.
+> Consult the documentation for your target endpoint and the REST token generation endpoint that correspond to your use case to determine the required OAuth scopes before you create an API account to request dynamic tokens.
 
-### The Authorization header
+### BigCommerce-generated JWTs
 
-Currently, two endpoints use the Authorization header: the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) and the [Process a payment](/api-reference/store-management/payment-processing/process-payment/paymentspost) endpoint.
+Some APIs authenticate with an `Authorization` header that contains a string concatenated with a BigCommerce-generated JWT. Requests to these APIs contain the following two parts:
+* The user requests the JWT from BigCommerce, or extracts it from context
+* The user sends the intended request
 
-The following table describes??... oauth
+The following table lists the APIs that use the `Authorization` header, along with information about obtaining a token and forming a valid header value. For OAuth scope, expiry window, and other implementation details, consult the **Endpoint Reference** column. 
 
-For OAuth scope and implementation details, consult the ??following 
-
-| API | Obtain an auth token | Authorization header endpoint | Header value | API account type |
-|:----|:---------------------|:------------------------------|:-------------|:-----------------|
-| [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) | [Create a token](/api-reference/storefront/graphql-api-tokens/api-token/createtoken), Stencil context | [Create a Storefront query](/api-reference/graphql/storefront-graphql-reference) | Bearer {{TOKEN}} | store |
-| [Payments API](/api-docs/store-management/payment-processing) | [Create a payment access token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) | [Process a payment](/api-reference/store-management/payment-processing/process-payment/paymentspost) | PAT {{TOKEN}} | app or store |
+| API description | Obtain a JWT | Endpoint reference | API account type | Authorization header value |
+|:----------------|:-------------|:-------------------|:-----------------|:---------------------------|
+| [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) | [Create a token](/api-reference/storefront/graphql-api-tokens/api-token/createtoken), Stencil context | [Create a Storefront query](/api-reference/graphql/storefront-graphql-reference) | store | `Bearer {{TOKEN}}` |
+| [Payments API](/api-docs/store-management/payment-processing) | [Create a payment access token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) | [Process a payment](/api-reference/store-management/payment-processing/process-payment/paymentspost) | app or store | `PAT {{TOKEN}}` |
 
 
-First, request a dynamic token by hitting the ??possessive?? REST endpoint that uses the X-Auth-Token header, using an API account with OAuth scopes that allow the actions you want the Auth header request to do. Consider the following:
+To obtain a dynamic token, send a request to the REST endpoint listed in the **Obtain a JWT** column or consult the article listed in the **API Description** column. Use an API account that has the OAuth scopes you need to make your target request. 
+
+### Authorization header example requests
+
+<!-- 
+type: tab
+title: Example request: Dynamic token
+-->
 
 ```http title="Example request: limited-use auth token"
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/some-token-generating-endpoint
@@ -169,13 +183,13 @@ Content-Type: application/json
 
 Then, include the returned token with an identifying string in the Authorization header of your request.
 
-#### The GraphQL Storefront API
-For the GraphQL Storefront API, your response-request pair will look something like the following:
-
 <!-- 
 type: tab
-title: Example Response: Create a token
+title: GraphQL Storefront API
 -->
+
+#### GraphQL Storefront API
+For the GraphQL Storefront API, your response-request pair will look something like the following:
 
 ```json title="Example response: Create a GraphQL Storefront API token" lineNumbers
 {
@@ -186,10 +200,7 @@ title: Example Response: Create a token
 }
 ```
 
-<!-- 
-type: tab
-title: Example Query: GraphQL Storefront API
--->
+&nbsp;
 
 ```js title="Example query: GraphQL Storefront API" lineNumbers
 
@@ -217,16 +228,13 @@ const gqlStorefrontQuery = (token, gqlQueryString) => {
 }
 ```
 
-<!-- type: tab-end -->
-
-
-#### The Payment Processing API
-The Payment Processing response-request pair should resemble the following pair:
-
 <!-- 
 type: tab
-title: Example Response: Create a token
+title: Payment Processing API
 -->
+
+#### Payment Processing API
+The Payment Processing response-request pair should resemble the following pair:
 
 ```json title="Example response: Create a payment access token" lineNumbers
 {
@@ -239,10 +247,7 @@ title: Example Response: Create a token
 }
 ```
 
-<!-- 
-type: tab
-title: Example Request: Process a payment
--->
+&nbsp;
 
 ```http title="Example request: Process a payment" lineNumbers
 
@@ -261,12 +266,20 @@ Content-Type: application/json
 
 <!-- type: tab-end -->
 
-### The Customer Login API
-<!-- access point URL with JWT as path parameter -->
+### User-generated JWTs
 
-??example, rewrite
+Some APIs rely on the app or implementation to send user-generated JWTs that simultaneously authenticate the request and contain the request body in their payload. Requests to these APIs contain the following two parts:
+* The user encrypts, or signs, the JWT
+* The user sends the intended request
 
-The Customer Login API is BigCommerce's mechanism for single sign-on. Your app or implementation generates signed JWTs that simultaneously authenticate your request and identify the customer you want to sign in. You need an app API account to use the Customer Login API.
+The following table lists the APIs rely on user-generated JWTs. For OAuth scope, expiry window, and other implementation details, consult the **Endpoint Reference** column. 
+
+| API description | Create a JWT | Endpoint reference | API account type |
+|:----------------|:-------------|:-------------------|:-----------------|
+| [Customer Login API](/api-docs/storefront/customer-login-api) | See API description | [SSO API Reference](/api-reference/storefront/customer-login-sso) | app |
+
+### Customer Login API example request
+For the Customer Login API, your request will look something like the following:
 
 ```js title="Example GET request: Customer Login API"
 
@@ -291,16 +304,18 @@ const loginCustomer = (yourJwt) => {
 }
 ```
 
+### BigCommerce-encrypted payload JWTs
 
-For OAuth scope and implementation details, consult [Customer Login API](/api-docs/storefront/customer-login-api) and [SSO API Reference](/api-reference/storefront/customer-login-sso).
-
-
-
+Apps rely on BigCommerce-encrypted payload JWTs to ??describe new JWT section, revise bullet points, link??
+* The user receives the JWT
+* then decrypts it
+* and does stuff
 
 ## Same-origin CORS authentication
 
 The following set of APIs relies on [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) headers for authentication. You do not need to send any BigCommerce-specific tokens along with your requests to these endpoints.
-### REST Storefront APIs
+
+### REST Storefront API
 
 The REST Storefront API allows you to make client-side requests for carts, checkouts, and orders using JavaScript or an alternative language that compiles to run in the browser. It is a convenience collection of operations that affect one customer at a time and run in the context of the customer's current session on a BigCommerce-hosted storefront. You can perform authenticated versions of the same operations using the GraphQL Storefront API or the REST Store Management APIs.
 
