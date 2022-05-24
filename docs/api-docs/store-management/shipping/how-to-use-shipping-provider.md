@@ -239,7 +239,7 @@ title: Request
 -->
 
 ```json title="Example POST request with X-Auth-Token header" lineNumbers
-POST ttps://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods
+POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
