@@ -218,7 +218,7 @@ title: Response
 
 <!-- type: tab-end -->
 
-The `sort` affects only the list of products returned. A merchant's [Product Filtering settings](https://support.bigcommerce.com/s/article/Product-Filtering-Settings?language=en_US#setup) determines how facets are sorted. 
+The `sort` affects only the list of products returned. A merchant's [Product Filtering settings](https://support.bigcommerce.com/s/article/Product-Filtering-Settings?language=en_US#setup) determine how facets are sorted. 
 
 <!-- theme: info -->
 > #### Note
