@@ -609,4 +609,4 @@ title: Response
 ## Resources
 
 - [GraphQL Storefront API Overview](/api-docs/storefront/graphql/graphql-storefront-api-overview)
-- [GraphQL Storefront Playground](/graphql-playground)
+- [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground)
