@@ -50,7 +50,7 @@ To use faceted and textual search, specify a filter in the argument for `SearchP
 ```
 These filters affect **both** the products and facets that are returned. For example, filtering by rating returns only products within the specified rating range and only facets that have products within the rating range.
 
-See the [GraphQL Storefront Playground](/graphql-playground) for descriptions of each filter. 
+See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for descriptions of each filter. 
 
 ## Get products
 
