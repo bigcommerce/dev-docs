@@ -33,7 +33,7 @@ Decoding the supplied JWT lets your app do the following:
 
 Once the store owner installs your app, it appears on the **Apps** sub-menu list in their store's control panel, as well as their authorized users' control panels. When a user clicks your app's listing, BigCommerce dispatches a `GET` request to the `/load` route you've written. The following is an example request:
 
-```http
+```http title="Load GET request from BigCommerce to your app"
 GET /load?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
@@ -44,16 +44,17 @@ After you [verify the payload](#decode-and-verify-the-jwt), [identify the reques
 
 When the store owner clicks the **Uninstall** button on your app's card in their store's control panel, BigCommerce dispatches a `GET` request to the `/uninstall` route you've written. The following is an example request:
 
-```http
+```http title="Uninstall GET request from BigCommerce to your app"
 GET /uninstall?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
+
 After you [verify the payload](#decode-and-verify-the-jwt) and [identify the requesting user](#work-with-payload-claims), handle any business internal to your app, such as marking the user inactive in your app's database or decrementing the number of active installations. You do not need to send a response. If you do not write a handler for the `GET /uninstall` endpoint, BigCommerce will still uninstall your app from the owner's store, but your app will not know that.
 ## Revoke user access with /remove_user
 
 When the store owner revokes a user's authorization to access your app at **Account Settings** **>** **Users** in the store control panel, BigCommerce dispatches a `GET` request to the `/remove_user` route you've written.
 
-```http
+```http title="Remove user GET request from BigCommerce to your app"
 GET /remove_user?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: your_app.example.com
 ```
@@ -64,7 +65,7 @@ After you [verify the payload](#decode-and-verify-the-jwt) and [identify the req
 
 BigCommerce's payload JWTs implement the JWT-JWS specification that the [IETF's](https://www.ietf.org/) open standard [RFC 7515](https://datatracker.ietf.org/doc/html/rfc7515) defines. The `signed_payload_jwt` is composed of three distinct **base64URL**-encoded strings concatenated with the `.` character.
 
-```javascript
+```js title="Form of payload JWT"
 header_b64.payload_claims_b64.signature_b64
 ```
 
@@ -97,55 +98,16 @@ Use the following steps to decode, verify, and parse the JWTs that BigCommerce s
 > To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. Comparison techniques vary by programming language and signing algorithm. Ruby and PHP [code samples](#code-samples) for HS256 hashes follow. 
 > We recommend writing middleware or using an existing [library in your language of choice](https://jwt.io/libraries) to help you decode, verify, and parse JWTs.
 
+### Code samples
 
-## Work with payload claims
+The following examples decode and verify callback JWTs:
 
-The following is an example of the payload claims in a BigCommerce app callback JWT:
+<!-- 
+type: tab
+title: PHP
+-->
 
-```json
-{
-  "aud": "U8RphZeDjQc4kLVSzNjePo0CMjq7yOg", // your app's CLIENT_ID
-  "iss": "bc",
-  "iat": 1640037763,
-  "nbf": 1640037758,
-  "exp": 1640124163,
-  "jti": "c5f0bcf5-a504-4ae6-8dcc-0e40eaa5a070", // JWT unique identifier
-  "sub": "stores/z4zn3wo", // STORE_HASH
-  "user": {
-    "id": 9128,
-    "email": "user@mybigcommerce.com"
-  },
-  "owner": {
-    "id": 9128,
-    "email": "user@mybigcommerce.com"
-  },
-  "url": "/" // deep link, if any
-}
-```
-
-| Name          | Data Type | Value Description                                 |
-|:--------------|:----------|:--------------------------------------------------|
-| `user.id`     | integer   | ID of user initiating callback                    |
-| `user.email`  | string    | email of the user initiating callback             |
-| `owner.id`    | integer   | ID of store owner                                 |
-| `owner.email` | string    | email address of store owner                      |
-| `context`     | string    | `stores/` + `store_hash`; ex: `stores/store_hash` |
-| `store_hash`  | string    | unique identified for store used in API requests  |
-| `timestamp`   | float     | Unix time when callback generated                 |
-
-Use the payload claims' data to identify the store and user. What your app should do with this information typically depends on whether it supports [multiple users](/api-docs/apps/guide/users). Refer to the following table for instructions:
-
-| Endpoint           | Multiple Users Enabled                                                                                      | Multiple Users Not Enabled |
-|:-------------------|:------------------------------------------------------------------------------------------------------------|:---------------------------|
-| `GET /load`        | Compare user to store owner or existing user; if no match, it's a new user; add them to the app's database. | Matches store owner        |
-| `GET /uninstall`   | Compare user to store owner or existing user; only store owner can uninstall an app.                        | Matches store owner        |
-| `GET /remove_user` | Compare user to users stored in app database; remove matching user from database.                           | N/A                        |
-
-## Code samples
-
-### Decode and verify with PHP
-
-```php
+```php lineNumbers
 function verifySignedPayload($signed_payload_jwt, $client_secret)
 {
     // decompose the jwt 
@@ -184,9 +146,12 @@ function verifySignedPayload($signed_payload_jwt, $client_secret)
 
 ```
 
-### Decode and verify with Ruby
+<!-- 
+type: tab
+title: Ruby
+-->
 
-```ruby
+```ruby lineNumbers
 require "base64"
 require "openssl"
 require "json"
@@ -239,6 +204,51 @@ def secure_compare(a, b)
   a == b
 end
 ```
+
+<!-- type: tab-end -->
+
+## Work with payload claims
+
+The following is an example of the payload claims in a BigCommerce app callback JWT:
+
+```json title="Example: app callback payload" lineNumbers
+{
+  "aud": "U8RphZeDjQc4kLVSzNjePo0CMjq7yOg", // your app's CLIENT_ID
+  "iss": "bc",
+  "iat": 1640037763,
+  "nbf": 1640037758,
+  "exp": 1640124163,
+  "jti": "c5f0bcf5-a504-4ae6-8dcc-0e40eaa5a070", // JWT unique identifier
+  "sub": "stores/z4zn3wo", // STORE_HASH
+  "user": {
+    "id": 9128,
+    "email": "user@mybigcommerce.com"
+  },
+  "owner": {
+    "id": 9128,
+    "email": "user@mybigcommerce.com"
+  },
+  "url": "/" // deep link, if any
+}
+```
+
+| Name          | Data Type | Value Description                                 |
+|:--------------|:----------|:--------------------------------------------------|
+| `user.id`     | integer   | ID of user initiating callback                    |
+| `user.email`  | string    | email of the user initiating callback             |
+| `owner.id`    | integer   | ID of store owner                                 |
+| `owner.email` | string    | email address of store owner                      |
+| `context`     | string    | `stores/` + `store_hash`; ex: `stores/store_hash` |
+| `store_hash`  | string    | unique identified for store used in API requests  |
+| `timestamp`   | float     | Unix time when callback generated                 |
+
+Use the payload claims' data to identify the store and user. What your app should do with this information typically depends on whether it supports [multiple users](/api-docs/apps/guide/users). Refer to the following table for instructions:
+
+| Endpoint | Multiple Users Enabled | Multiple Users Not Enabled |
+|:---------|:-----------------------|:---------------------------|
+| `GET /load` | Compare user to store owner or existing user; if no match, it's a new user; add them to the app's database. | Matches store owner |
+| `GET /uninstall` | Compare user to store owner or existing user; only store owner can uninstall an app. | Matches store owner |
+| `GET /remove_user` | Compare user to users stored in app database; remove matching user from database. | N/A |
 
 ## Helpful tools
 The following BigCommerce API clients expose helper methods for verifying the `signed_payload_jwt`:
