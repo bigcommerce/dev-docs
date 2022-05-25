@@ -90,11 +90,16 @@ Accept: application/json
 
 ### Client ID
 
-The Current Customer API use a combination of client ID and JWT to authenticate the requestor and secure customer data. The requestor sends an **app API account's client ID** as a query parameter, and our servers return a BigCommerce-generated JWT that your app can decode to identify the customer who is currently signed in.
+Some APIs use a combination of client ID and JWT to authenticate the requestor and secure customer data. The requestor sends an API account's client ID as a query parameter, and our servers return a BigCommerce-generated JWT that your app can decode to receive the response. For example, the Current Customer API's JWT payload identifies the customer who is currently signed in.
 
-For OAuth scope and implementation details, consult the [Current Customer API](/api-docs/storefront/current-customer-api) article and [Get current customer](/api-reference/storefront/current-customers/current-customers/getcurrentcustomer) endpoint reference.
+The following table lists the APIs that authenticate with a client ID. For OAuth scopes, consult the **Endpoint Reference** column. 
 
-The following request-response sequence shows the authentication scheme for the Current Customer API:
+
+| API description | Endpoint reference | API account type | Query parameter | Query argument |
+|:----------------|:-------------------|:-----------------|:----------------|:---------------|
+| [Current Customer API](/api-docs/storefront/current-customer-api) | [Get current customer](/api-reference/storefront/current-customers/current-customers/getcurrentcustomer) | app | `app_client_id` | API account client ID |
+
+### Current Customer API example request
 
 <!-- 
 type: tab
@@ -188,8 +193,7 @@ type: tab
 title: GraphQL Storefront API
 -->
 
-#### GraphQL Storefront API
-For the GraphQL Storefront API, your response-request pair will look something like the following:
+GraphQL Storefront response-request pairs resemble the following:
 
 ```json title="Example response: Create a GraphQL Storefront API token" lineNumbers
 {
@@ -230,11 +234,10 @@ const gqlStorefrontQuery = (token, gqlQueryString) => {
 
 <!-- 
 type: tab
-title: Payment Processing API
+title: Payments API
 -->
 
-#### Payment Processing API
-The Payment Processing response-request pair should resemble the following pair:
+Payments response-request pairs resemble the following:
 
 ```json title="Example response: Create a payment access token" lineNumbers
 {
@@ -272,7 +275,7 @@ Some APIs rely on the app or implementation to send user-generated JWTs that sim
 * The user encrypts, or signs, the JWT
 * The user sends the intended request
 
-The following table lists the APIs rely on user-generated JWTs. For OAuth scope, expiry window, and other implementation details, consult the **Endpoint Reference** column. 
+The following table lists the APIs that rely on user-generated JWTs. For OAuth scope, expiry window, and other implementation details, consult the **Endpoint Reference** column. 
 
 | API description | Create a JWT | Endpoint reference | API account type |
 |:----------------|:-------------|:-------------------|:-----------------|
@@ -306,7 +309,7 @@ const loginCustomer = (yourJwt) => {
 
 ### BigCommerce-encrypted payload JWTs
 
-BigCommerce-encrypted payload JWTs let apps listen to and reason about events that affect them, but happen outside the app itself. These events include users installing, loading, and uninstalling the app. Working with these JWTs includes the following parts:
+BigCommerce-encrypted payload JWTs let control panel apps listen to and reason about events that affect them, but happen outside the app itself. These events include users installing, loading, and uninstalling the app. Working with these JWTs includes the following parts:
 * The app receives the JWT from BigCommerce
 * The app validates the JWT, then decrypts its payload
 * The payload's data informs what the app does next

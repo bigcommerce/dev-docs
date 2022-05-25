@@ -13,14 +13,12 @@ BigCommerce's REST APIs (for example, the [Catalog API](/api-reference/catalog/c
 * Create a coupon
 * Manage a customer's store account details
 
-The [REST Storefront API](/api-reference/cart-checkout/storefront-cart-api) allows you to manage customer carts checkouts and order information client-side. Some use cases for this API are:
 ## REST Storefront API
 The [REST Storefront API](/api-reference/cart-checkout/storefront-cart-api) allows you to manage customer carts and checkouts and order information client-side. Some use cases for this API are:
 * Add an item with JavaScript to a shopper's cart from the Storefront
 * Programmatically retrieve and display information to a customer about their recent order
 * Update the billing address of a checkout
 * Clear a customer's current cart
-
 
 ## GraphQL Storefront API
 BigCommerce's [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) allows you to query product and customer data and store settings remotely or from a store's front end. Some use cases for this API are:

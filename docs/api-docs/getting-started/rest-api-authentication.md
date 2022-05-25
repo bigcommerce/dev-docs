@@ -148,22 +148,21 @@ To get app API credentials, create and sign in to your BigCommerce [Developer Po
 
 During the app installation process, your app uses the client ID and client secret to obtain an OAuth token authorized against the store installing the app. For a detailed look at this process, see [Authenticating an app](/api-docs/apps/guide/auth).
 
-## Use cases by credential type
-??revise??
+## API and use case credential types
 
-| Use Case | App API Credentials | Store API Credentials |
-|:---|:---:|:---:|
-| From Developer Portal | **x** | |
-| From Store Control Panel | | **x** |
-| Single-click Apps (Marketplace) | **x** | |
-| Private Apps | **x** |
-| Hidden Apps | **x** | |
-| Connector Apps | | **x** |
-| Scripts | | **x** |
-| Testing | | **x** |
-| V2 | **x** | **x** |
-| V3 | **x** | **x** |
-| Webhooks | **x** | **x** |
+| API or Use Case | App API Account | Store API Account |
+|:----------------|:---------------:|:-----------------:|
+| REST Store Management APIs | &times; | &times; |
+| REST Storefront API |  | &times; |
+| GraphQL Storefront API |  | &times; |
+| Customer Login API | &times; |  |
+| Current Customer API | &times; |  |
+| Payments API | &times; | &times; |
+| Apps hosted in the store control panel (single-click app) | &times; |  |
+| Manual connection between a third-party app and a store |  | &times; |
+| Single-store front-end scripts |  | &times; |
+
+
 
 ## Migrating from legacy to OAuth
 
