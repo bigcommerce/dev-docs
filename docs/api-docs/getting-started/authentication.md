@@ -306,10 +306,12 @@ const loginCustomer = (yourJwt) => {
 
 ### BigCommerce-encrypted payload JWTs
 
-Apps rely on BigCommerce-encrypted payload JWTs to ??describe new JWT section, revise bullet points, link??
-* The user receives the JWT
-* then decrypts it
-* and does stuff
+BigCommerce-encrypted payload JWTs let apps listen to and reason about events that affect them, but happen outside the app itself. These events include users installing, loading, and uninstalling the app. Working with these JWTs includes the following parts:
+* The app receives the JWT from BigCommerce
+* The app validates the JWT, then decrypts its payload
+* The payload's data informs what the app does next
+
+To learn more, see our [Apps Guide](api-docs/apps/guide/intro), especially the articles on [authorization, installation](/api-docs/apps/guide/auth), and other [app callback events](/api-docs/apps/guide/callbacks). 
 
 ## Same-origin CORS authentication
 
