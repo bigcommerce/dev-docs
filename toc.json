@@ -76,22 +76,35 @@
         },
         {
           "type": "item",
+          "title": "Faceted and Textual Search",
+          "href": "/api-docs/storefront/graphql/search",
+          "uri": "docs/api-docs/storefront/graphql/graphql-faceted-textual-search.md"
+        },
+        {
+          "type": "item",
           "title": "Code Samples",
           "href": "/api-docs/storefront/graphql/graphql-storefront-api-samples",
           "flag": "code samples",
           "uri": "docs/api-docs/storefront/graphql/graphql-api-examples.md"
         },
+        // {
+        //  "type": "item",
+        //  "title": "Storefront GraphQL Explorer",
+        //  "href": "",
+        //  "uri": ""
+        // },
         {
           "type": "item",
-          "title": "GraphQL Playground",
-          "href": "/api-docs/storefront/graphql/playground",
-          "uri": "assets/html/graphql/playground.html"
+          "title": "GraphQL Storefront Explorer",
+          "href": "/api-docs/storefront/graphql/explorer",
+          "uri": "https://developer.bigcommerce.com/graphql-explorer"
         },
         {
+
           "type": "item",
-          "title": "GraphQL Explorer",
-          "href": "/api-docs/storefront/graphql/explorer",
-          "uri": "assets/html/graphql/voyager.html"
+          "title": "GraphQL Storefront Playground",
+          "href": "/api-docs/storefront/graphql/playground",
+          "uri": "https://developer.bigcommerce.com/graphql-playground"
         }
       ]
     },

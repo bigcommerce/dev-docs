@@ -15,15 +15,15 @@ BigCommerce's REST APIs (for example, the [Catalog API](/api-reference/catalog/c
 * Manage a customer's store account details
 
 ### Storefront API
-The [Storefront API](/api-reference/cart-checkout/storefront-cart-api) allows you to manage customer carts and checkouts and order information client-side. Some use cases for this API are:
-* Add an item with JavaScript to a shopper's cart from the Storefront
+The [Storefront API](/api-reference/cart-checkout/storefront-cart-api) allows you to manage customer carts, checkouts, and order information client-side. Example use cases include the following:
+* Add an item with JavaScript to a shopper's cart from a Stencil storefront
 * Programmatically retrieve and display information to a customer about their recent order
 * Update the billing address of a checkout
 * Clear a customer's current cart
 
 
 ### GraphQL API
-BigCommerce's [GraphQL API](/api-docs/storefront/graphql/graphql-storefront-api-overview) allows you to query product and customer data and store settings remotely or from a store's front end. Some use cases for this API are:
+BigCommerce's [GraphQL API](/api-docs/storefront/graphql/graphql-storefront-api-overview) allows you to query product, customer, and store settings headlessly or from a store's front end. Example use cases include:
 * Pull a product's data with JavaScript into a Stencil theme
 * Access customer data via the front end of a site
 * Fetch category and brand details from a store's front end
