@@ -1,6 +1,6 @@
 # Using a 3rd-Party Shipping Provider
 
-Shipping providers apps allow merchants to use shipping solutions from third-party shipping providers. Once a merchant installs and enables a shipping provider app on their store, API users can connect the carrier. API users can then create shipping zones **for the connected carrier**, as well as shipping methods for the connected carrier in any shipping zone. 
+Shipping provider apps allow merchants and shoppers to have real-time shipping quotes . Once a merchant installs a shipping provider app on their store, API users can connect the carrier. An API user can then enable the carrier for specific zones. This makes the real-time shipping method available to shoppers for those zones during checkout.
 
 This article is a guide for API users on how to manage carrier connections, shipping zones, and shipping methods.
 
@@ -8,7 +8,7 @@ This article is a guide for API users on how to manage carrier connections, ship
 
 ### Create a Connection
 
-To set up a carrier using the API, connect it using the [Create a Carrier Connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. Make a request containing the connection settings required by your carrier. The ID of the carrier is required. All connection fields are unique to each carrier. 
+To set up a carrier using the API, connect it using the [Create a Carrier Connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. Make a request containing the ID of the carrier and any configuration fields that the carrier requires. All configuration fields are unique to each carrier. 
 
 <!--
 type: tab
@@ -35,6 +35,9 @@ type: tab
 title: Response
 -->
 
+```json title="Example POST response" lineNumbers
+No content
+```
 
 <!-- type: tab-end -->
 
@@ -62,9 +65,15 @@ type: tab
 title: Response
 -->
 
+```json title="Example POST response" lineNumbers
+No content
+```
+
 <!-- type: tab-end -->
 
 ### Update a Connection
+
+You use the same request fields when you update a connection as when you create a connection. 
 
 <!--
 type: tab
@@ -77,6 +86,13 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 
+{
+  "carrier_id": "carrier_33",
+  "connection": {
+    "key": "userKey 2",
+    "account_number": "userAccountNumber"
+  }
+}
 ```
 
 <!--
@@ -85,7 +101,7 @@ title: Response
 -->
 
 ```json title="Example PUT response" lineNumbers
-
+No content
 ```
 
 <!-- type: tab-end -->
