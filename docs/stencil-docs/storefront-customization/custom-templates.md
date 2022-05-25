@@ -91,9 +91,7 @@ The requirements and options for the `.stencil` or `config.stencil.json` (if usi
 
 * The HTML files must reside in either the brand, category, product, or page subdirectories.
 
-* All brand URLs are nested under the /brands/ parent. Use URL encoding with brand URLs.
-
-* That parent for brand URLs is /brands/ (plural), while the corresponding subdirectory for HTML files is /brand/ (singular).
+* When mapping URLs, make sure to convert any special characters to their [URL-encoded equivalents](https://www.urlencoder.org/).
 
 * After editing your `.stencil` file or `config.stencil.json` files (if using Stencil V3.1 release or later), you must restart stencil to see your changes locally. Enter `stencil start` in the command prompt, appending any appropriate switches for your workflow (e.g.: `stencil start -e -n`).
 
@@ -120,7 +118,38 @@ Beyond the single URL mapped to each template in the above examples, you have th
 
 ## Specifying custom front matter
 
-You can specify front matter on a custom template if you only need to render certain resources (such as 'New Products') on that page. Specifying only the attributes you need will reduce page load time. If you don't explicitly specify front matter for your custom template, the front matter for the default page template will be available. See [Using Front Matter](/stencil-docs/storefront-customization/using-front-matter) for more information on using front matter.
+You can't specify front matter on a custom template, but you can still access front matter-injected data. Custom templates inherit front matter from their corresponding default template. Specify the data you would like your custom template to access in the default template's front matter. See [Using Front Matter](/stencil-docs/storefront-customization/using-front-matter) for more information on using front matter. The following example shows data you can inject into `templates/pages/brand.html` to access data in `templates/pages/custom/brand/custom-brand.html`. After [mapping](/stencil-docs/storefront-customization/custom-templates#mapping-multiple-urls) the custom template to the default page, the cart object displays on the page.
+
+
+<!-- 
+type: tab
+title: Default template - brand.html
+-->
+  
+```handlebars title="Example: Specifying front matter in default templates"
+---
+brand:
+  products:
+     limit: {{theme_settings.brandpage_products_per_page}}
+cart: true
+---
+<div>...</div>
+```
+
+<!-- 
+type: tab
+title: Custom template - custom-brand.html
+-->
+
+```handlebars title="Example: Using front matter-injected data in custom templates"
+<div>
+  <h3>You have {{cart.quantity}} item{{#unless cart.quantity '==' 1}}s{{/unless}} in your cart!</h3>
+</div>
+```
+
+<!-- type: tab-end -->
+
+
 
 ## Theme upload
 

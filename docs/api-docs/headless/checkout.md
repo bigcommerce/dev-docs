@@ -41,7 +41,7 @@ Embedded Checkout lets you embed the BigCommerce hosted checkout into your headl
 
 For a sequence of API calls required to create an Embedded Checkout, refer to the [Embedded Checkout tutorial](/api-docs/storefronts/embedded-checkout/embedded-checkout-tutorial). 
 
-For a list of supported payment gateways, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways?language=en_US#all-available).
+For a list of supported payment gateways, see [Compatible payment gateways](/api-docs/store-management/payment-processing#compatible-payment-gateways).
 
 ## Using the Checkouts API
 

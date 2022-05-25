@@ -2,6 +2,10 @@
 
 This article contains a complete reference of all BigCommerce webhook events and their callback payloads. For an introduction to webhooks on BigCommerce, see [Webhooks Overview](/api-docs/store-management/webhooks/overview#callback-payload).
 
+## Creating a webhook
+
+To see an example request-response pair for creating a webhook, consult the creating a webhook section of the [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks#creating-a-webhook) or the [Channel Webhooks Guide](/api-docs/channels/guide/webhooks#creating-a-webhook).
+
 ## Callback structure
 
 | Property     | Description |
@@ -30,8 +34,10 @@ Callback payloads take the following form. The `data` property will contain vary
 }
 ```
 
-## Cart
+## Carts
 
+<!-- theme: info -->
+> For channel-specific webhooks, consult the [carts section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#carts).
 
 | Name / Scope            | Description |
 |:------------------------|:------------|
@@ -102,7 +108,10 @@ Payload objects with the `store/cart/converted` scope take the form that follows
 }
 ```
 
-## Cart line item
+## Cart line items
+
+<!-- theme: info -->
+> For channel-specific webhooks, consult the [cart line items section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#cart-line-items).
 
 | Name / Scope            | Description |
 |:------------------------|:------------|
@@ -117,7 +126,7 @@ Payload objects with the following scopes take the form that follows:
 * `store/cart/lineItem/updated`
 * `store/cart/lineItem/deleted`
 
-```json title="Example care line item payload object" lineNumbers
+```json title="Example cart line item payload object" lineNumbers
 {
     "scope": "store/cart/lineItem/created",
     "store_id": "1025646",
@@ -133,7 +142,10 @@ Payload objects with the following scopes take the form that follows:
 ```
 
 
-## Category
+## Categories
+
+<!-- theme: info -->
+> For channel-specific webhooks, consult the [categories section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#categories).
 
 | Name / Scope            | Description |
 |:------------------------|:------------|
@@ -162,10 +174,17 @@ Payload objects with the following scopes take the form that follows:
     "producer": "stores/{store_hash}"
 }
 ```
-## Channel
 
-Consult the [Channel Webhooks Guide](/api-docs/channels/guide/webhooks).
-## Customer
+## Category trees
+
+Consult the [category trees section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#category-trees).
+## Channel events
+
+Consult the [channel events section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#channel-events).
+## Customers
+
+<!-- theme: info -->
+> For channel-specific webhooks, consult the [customers section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#customers).
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
@@ -224,7 +243,19 @@ Payload objects with the following scopes take the form that follows:
 }
 ```
 
+
+## Emails
+
+Consult the [emails section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#emails).
+
+## Notifications
+
+Consult the [notifications section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#notifications).
+
 ## Orders
+
+<!-- theme: info -->
+> For channel-specific webhooks, consult the [orders section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#orders).
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
@@ -336,6 +367,18 @@ Payload objects with the following scopes take the form that follows:
 }
 ```
 
+## Pages
+
+Consult the [pages section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#pages).
+
+## Price list assignments
+
+Consult the [price list assignments section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#price-list-assignments).
+
+## Product assignments
+
+Consult the [product assignment section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#product-assignment).
+
 ## Products
 
 | Name / Scope             | Description |
@@ -421,7 +464,19 @@ Changes to any of the following fields will trigger a `store/product/updated` ev
 > #### Note
 > Setting a thumbnail triggers an updated event only when that thumbnail is the first to be set. For example, setting an image as a thumbnail **after deleting all images** will trigger an updated event. However, changing the current thumbnail, uploading an additional product image and setting it as the thumbnail, or even deleting all thumbnails, does not generate an update event. 
 
-## Shipment
+
+## Routes
+
+Consult the [routes section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#routes).
+
+## Scripts
+
+Consult the [scripts section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#scripts).
+## Settings
+
+Consult the [settings section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#settings).
+
+## Shipments
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
@@ -451,7 +506,11 @@ Payload objects with the following scopes take the form that follows:
 }
 ```
 
-## SKU
+
+## Sites
+
+Consult the [sites section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#sites).
+## SKUs
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
@@ -517,7 +576,12 @@ Payload objects with the following scopes take the form that follows:
 ```
 
 
-## Store
+
+## Social media links
+
+Consult the [social media links section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#social-media-links).
+
+## Stores
 
 | Name / Scope              | Description |
 |:--------------------------|:------------|
@@ -570,7 +634,7 @@ Changes to the following store settings will trigger a `store/information/update
 }
 ```
 
-## Subscriber
+## Subscribers
 
 | Name / Scope             | Description |
 |:-------------------------|:------------|
@@ -599,11 +663,15 @@ Payload objects with the following scopes take the form that follows:
 }
 ```
 
+## Themes
+
+Consult the [themes section of the Channel Webhooks Guide](/api-docs/channels/guide/webhooks#themes).
+
 ## Resources
 
 ### Related articles
 
 * [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
-* [Webhooks Tutorial](/api-docs/getting-started/webhooks/setting-up-webhooks)
-* [Webhooks Reference](/api-reference/webhooks)
+* [Webhooks Tutorial](/api-docs/store-management/webhooks/tutorial)
+* [Webhooks Reference](/api-reference/store-management/webhooks)
 * [Channel Webhook Events](/api-docs/channels/guide/webhooks)
