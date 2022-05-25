@@ -1,6 +1,6 @@
 # Using a 3rd-Party Shipping Provider
 
-Once a merchant installs and enables a Shipping Provider app on their store, merchants and API users can connect a carrier. Merchants and API users can then create shipping zones and shipping methods for the connected carrier. They can create shipping methods for the connected carrier in any shipping zone. 
+Shipping providers apps allow merchants to use shipping solutions from third-party shipping providers. Once a merchant installs and enables a shipping provider app on their store, API users can connect the carrier. API users can then create shipping zones **for the connected carrier**, as well as shipping methods for the connected carrier in any shipping zone. 
 
 This article is a guide for API users on how to manage carrier connections, shipping zones, and shipping methods.
 
