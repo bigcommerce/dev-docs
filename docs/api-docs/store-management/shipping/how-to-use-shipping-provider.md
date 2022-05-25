@@ -2,7 +2,7 @@
 
 Shipping provider apps (also known as carriers) allow merchants and shoppers to have real-time shipping quotes. Once a merchant installs a shipping provider app on their store, API users can connect the carrier. An API user can then enable the carrier for specific shipping zones. This makes the real-time shipping method available to shoppers for those zones during checkout.
 
-This article is a guide for API users on how to manage carrier connections on a store and enable/disable real-time shipping methods from these carriers. Because BigCommerce's shipping zone endpoints are not specific to third-party shipping providers, this guide does not cover how to manage shipping zones.
+This article is a guide for API users on how to manage carrier connections on a store and enable/disable real-time shipping methods from these carriers. Managing shipping zones is out of the scope for this article because BigCommerce's shipping zone endpoints are not specific to third-party shipping providers.
 
 ## Prerequisites
 - Merchant has installed the shipping provider app
