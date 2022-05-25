@@ -134,23 +134,25 @@ For more information, see our [Introduction to Building Apps](/api-docs/apps/gui
 
 ### Configuration fields
 
-Connection fields are any shipping zone-specific or connection-specific fields that you would like merchants or API users to use when they [connect your app to their store](#how-your-app-will-be-connected-to-a-store). 
+Configuration fields are any shipping zone-specific or connection-specific fields that you would like merchants or API users to use when they [connect your app to their store](#how-your-app-will-be-connected-to-a-store). For example, configuration fields can include which rates to offer, packaging type, or packing method. As shown in the figures, you can choose to have these fields under various tabs in the merchant control panel, such as a connection tab or a settings tab: 
 
-Configuration fields can include which rates to offer, packaging type, or packing method. 
+![FedEx Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/FedEx%20Settings.png)
 
-If you would like connection options to be set up for your carrier, please specify the following for each connection option:
+![FedEx Connection Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/FedEx%20Connection%20Settings.png)
+
+If you would like configuration options to be set up for your carrier, please specify the following for each configuration option:
 - Label: This is the text that will be displayed on the merchant's UI
-- Whether or not the connection option is required 
-- Type of connection option
+- Whether or not the configuration option is required 
+- Type of configuration option
 
-These are the types of connection options that we currently allow:
+These are the types of configuration options that we currently allow:
 - Text
 - Checkbox 
 - Select
 - Multi Select
 - Password
 
-Here are examples of a what you may have for a connection option:
+Here are examples of what you can have for each type of configuration option:
 
 <!-- 
 type: tab
@@ -158,8 +160,8 @@ title: Text
 -->
 
 ```text title="Example Connection Option" lineNumbers 
-- Label: Special ID
-- Required: false
+- Label: Account Key
+- Required: true
 - Type: text
 ```
 
@@ -205,7 +207,7 @@ title: Password
 --> 
 
 ```text title="Example Connection Option" lineNumbers 
-- Label: API Key
+- Label: Password
 - Required: true
 - Type: password
 ```
@@ -213,12 +215,8 @@ title: Password
 <!-- type: tab-end -->
 
 
-You can submit the configuration fields when you [submit the app](#submit-the-app). We will then send you a `code` for each connection option. API users will specify each `code` as a property under the `connection` object when they [connect your carrier to their store](#...). BigCommerce will also include each `code` when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce) as properties under the `connection` object. 
+You can submit the configuration fields when you [submit the app](#submit-the-app). We will then send you a `code` for each configuration option. API users will specify each `code` as a property under the `connection` object when they [connect your carrier to their store](#...). BigCommerce will also include each `code` when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce) as properties under the `connection` object. 
 
-
-For example, if you choose to have an API key and expedited shipping connection option as a text and checkbox 
-
-![Connect Carrier via UI](https://storage.googleapis.com/bigcommerce-production-dev-center/images/connection%20settings.png) 
 
 ## Submit the app
 
