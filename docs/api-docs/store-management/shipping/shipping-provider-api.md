@@ -148,11 +148,11 @@ If you would like configuration options to be set up for your carrier, please sp
 - **Required**: Whether or not the configuration option is required 
 - **Type**: Type of configuration option
 
-These are the types of configuration options that we currently allow, along with :
+These are the types of configuration options that we currently allow:
 - Text
 - Checkbox 
 - Select
-- Multi Select
+- Multi-select
 - Password
 
 Here are examples of what you would specify for each type of configuration option:
@@ -194,13 +194,13 @@ title: Select
 
 <!-- 
 type: tab
-title: Multi Select
+title: Multi-select
 -->
 
 ```text title="Example Connection Option" lineNumbers 
 - Label: Packaging Method
 - Required: false
-- Type: Multi Select
+- Type: Multi-select
 - Values: Extra primary packaging, Extra secondary packaging, Extra tertiary packaging
 ```
 
