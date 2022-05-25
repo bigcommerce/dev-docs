@@ -144,9 +144,9 @@ Configuration fields are any shipping zone-specific or connection-specific field
 
 #### What should you provide BigCommerce?
 If you would like configuration options to be set up for your carrier, please specify the following for each configuration option when you [submit your app](#submit-your-app)
-- Label: This is the text that will be displayed on the merchant's UI when they connect
-- Whether or not the configuration option is required 
-- Type of configuration option
+- **Label**: This is the text that will be displayed on the merchant's UI when they connect
+- **Required**: Whether or not the configuration option is required 
+- **Type**: Type of configuration option
 
 These are the types of configuration options that we currently allow, along with :
 - Text
