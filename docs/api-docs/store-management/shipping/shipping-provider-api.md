@@ -262,7 +262,7 @@ Accept: application/json
 
 <!-- theme:info  -->
 > #### Note 
-> When a merchant uninstalls your app from the store, the merchant removes all shipping methods and connection info for your carrier(s) from the store. BigCommerce will no longer be able to make quote requests and receive shipping quotes from your carrier.
+> If a merchant uninstalls your app from the store, the merchant removes all shipping methods and connection info for your carrier(s) from the store. BigCommerce will no longer be able to make quote requests and receive shipping quotes from your carrier.
 
 ### Validate connection options
 
