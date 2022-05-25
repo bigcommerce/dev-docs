@@ -97,6 +97,7 @@ tags:
   - name: Channel Listings
   - name: Channel Site
   - name: Channel Site Checkout Url
+  - name: Channel Menus
 paths:
   '/stores/{store_hash}/v3/channels':
     get:
@@ -688,6 +689,88 @@ paths:
       tags:
         - Channel Site
       summary: Delete a Channel Site
+  '/stores/{store_hash}/v3/channels/{channel_id}/channel-menus':
+    get:
+      summary: Get Channel Menus
+      description: |
+        Returns list of Control Panel side navigation menus for a channel.
+      operationId: get-channel-menus
+      parameters:
+        - name: channel_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - schema:
+            type: string
+          name: store_hash
+          in: path
+          required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/channel_menus_Resp'
+      tags:
+        - Channel Menus
+    post:
+      responses:
+        '200':
+          $ref: '#/components/responses/channel_menus_Resp'
+      summary: Create Channel Menus
+      operationId: postChannelMenus
+      parameters:
+        - name: channel_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - schema:
+            type: string
+          name: store_hash
+          in: path
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/channel_menus_Post'
+            examples: {}
+      tags:
+        - Channel Menus
+      description: Creates or replaces list of control panel side navigation menus for a channel.
+    delete:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: integer
+                  meta:
+                    type: object
+                    properties: {}
+                x-examples:
+                  example-1:
+                    data: 1
+                    meta: {}
+      description: Deletes control panel side navigation menus for a channel.
+      tags:
+        - Channel Menus
+      summary: Delete Channel Menus
+      parameters:
+        - name: channel_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - schema:
+            type: string
+          name: store_hash
+          in: path
+          required: true
+    parameters: []
 security:
   - X-Auth-Token: []
 x-stoplight:
@@ -996,6 +1079,25 @@ components:
               meta:
                 $ref: '#/components/schemas/EmptyMeta'
           examples: {}
+    channel_menus_Resp:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  bigcommerce_protected_app_sections:
+                    $ref: '#/components/schemas/BigcommerceProtectedAppSections'
+                  custom_app_sections:
+                    $ref: '#/components/schemas/CustomAppSections'
+              meta:
+                $ref: '#/components/schemas/EmptyMeta'
+          examples:
+            response:
+              $ref: '#/components/examples/channel_menus_resp_example'
     invalid_channel_id_resp:
       description: Invalid channel ID is provided.
       content:
@@ -1548,6 +1650,26 @@ components:
               date_created: '2021-05-24T17:46:33Z'
               date_modified: '2021-05-24T17:46:33Z'
         meta: {}
+    channel_menus_resp_example:
+      value:
+        data:
+          bigcommerce_protected_app_sections:
+            - social
+            - carousel
+            - domains
+            - currencies
+            - notifications
+            - storefront_settings
+          custom_app_sections:
+            - title: Overview
+              query_path: overview
+            - title: Products
+              query_path: products
+            - title: Campaigns
+              query_path: campaigns
+            - title: Settings
+              query_path: settings
+        meta: {}
     error_400_resp_example:
       value:
         status: 400
@@ -1913,7 +2035,7 @@ components:
               description: 'The unique `id` given to an app registered in [DevTools](https://devtools.bigcommerce.com/); used to create links to the app in channel manager. `app.id` is optional; however, if you''re building an app that creates or manages a channel, we recommend including it to ensure the user interface in the control panel works properly. Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request. [Learn how to find an App''s ID](/api-docs/apps/tutorials/id).'
             sections:
               type: array
-              description: 'If set, when the app is loaded within the control panel, the navigation `sections` will be directly embedded in the control panel navigation.'
+              description: 'Sections are now deprecated under config_meta. The new /channel-menus endpoints should be used instead. If set, when the app is loaded within the control panel, the navigation `sections` will be directly embedded in the control panel navigation.'
               items:
                 type: object
                 properties:
@@ -1924,6 +2046,7 @@ components:
                   query_path:
                     type: string
                     description: The value that will be passed to the app's iFrame in the URL and will allow the app to display the appropriate section within the app iFrame in the control panel.
+              deprecated: true
       x-internal: false
     CurrencyNotRequiredWithChannelId:
       type: object
@@ -2221,6 +2344,37 @@ components:
           items:
             $ref: '#/components/schemas/ChannelProductVariantFull'
       x-internal: false
+    BigcommerceProtectedAppSections:
+      type: array
+      description: 'List of pre-built UI pages an app developer can choose to enable for a channel.  More information can be found [here](https://developer.bigcommerce.com/docs/ZG9jOjM4MzMyMzA-building-storefront-channels#protected-ui-sections)'
+      items:
+        type: string
+        enum:
+          - storefront_settings
+          - social
+          - carousel
+          - domains
+          - currencies
+          - notifications
+    channel_menus_Post:
+      type: object
+      properties:
+        bigcommerce_protected_app_sections:
+          $ref: '#/components/schemas/BigcommerceProtectedAppSections'
+        custom_app_sections:
+          $ref: '#/components/schemas/CustomAppSections'
+    CustomAppSections:
+      type: array
+      items:
+        type: object
+        properties:
+          title:
+            type: string
+            description: Text displayed to the merchant
+          query_path:
+            type: string
+            description: Value used in the `section` query param
+        x-internal: false
     Error:
       type: object
       properties:
@@ -2368,7 +2522,7 @@ components:
             $ref: '#/components/schemas/Url'
         is_checkout_url_customized:
           type: boolean
-          description: Indicates whether the channel uses a custom checkout domain. When `false`, the checkout domain falls back to the default channel’s primary URL.
+          description: 'Indicates whether the channel uses a custom checkout domain. When `false`, the checkout domain falls back to the default channel’s primary URL.'
     Url:
       type: object
       properties:
