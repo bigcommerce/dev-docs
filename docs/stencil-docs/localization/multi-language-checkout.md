@@ -64,14 +64,21 @@ You can provide values for all of the checkout's supported translation keys even
 
 | Supported Language | Required Translation File Name |
 |-|-|
-| German | `de.json` |
-| Spanish (Mexico) | `es-MX.json` |
-| Spanish | `es.json` |
+| Danish | da.json   |
+| Dutch  | nl.json   |
+| English | en.json  |
 | French | `fr.json` |
+| German | `de.json` |
 | Italian | `it.json` |
-| Dutch | `nl.json` |
+| Portuguese| `pt.json`|
 | Portuguese (Brazil)| `pt-BR.json`|
-| Portuguese (Portugal) | `pt.json`|
+| Spanish (Argentina) | `es-AR.json` |
+| Spanish (Chile) | `es-CL.json` |
+| Spanish (Columbia) | `es-CO.json` |
+| Spanish (Latin America & Caribbean) | `es-419.json` |
+| Spanish (Mexico)| `es-MX.json` |
+| Spanish (Peru)| `es-PE.json` |
+| Spanish (Spain)| `es.json` |
 | Swedish | `sv.json`|
 
 4. Replace the values with appropriate phrases in each file's target language.
