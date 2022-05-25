@@ -234,13 +234,31 @@ To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcomm
 
 ### How your app will be connected to a store
 
-Once a merchant installs your app on their store, merchants and API users can connect your carrier to the store (your carrier can be connected via UI or API). 
+Once a merchant installs your app on their store, merchants and API users can connect your carrier to their store by using the configuration options that you provided when you submitted your app.    
 
-A merchant can navigate to the Shipping Manager UI to enable your carrier app, input carrier connection settings, and disable your carrier app for any defined zone. This figure shows an example of how the connection fields that you provided BigCommerce will be shown to merchants in the control panel:
+A merchant can navigate to the Shipping Manager UI to enable your carrier app, input carrier connection settings, and disable your carrier app for any defined zone. For example, if you provided a text field for API Key and a checkbox field for enabling expedited shipping, these fields are shown to merchants in the control panel:
 
 ![Connect Carrier via UI](https://storage.googleapis.com/bigcommerce-production-dev-center/images/connection%20settings.png) 
 
-An API user can connect your carrier to the store by using the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. The carrier ID that you obtained during app setup, as well as the connection fields that you provided BigCommerce are sent in the request.
+<!-- theme:info -->
+> The UI displays the configuration field's `label` field that you provided when you submitted the app.
+
+An API user can connect your carrier to the store by using the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. In the request, API users will send the carrier ID that you obtained during app setup, as well as values for your app's configuration fields. Specifically, API users will specify the `code` for each configuration field as a property under the `connection` object when they connect to your carrier, for example:    
+
+```json title="Example POST request with X-Auth-Token header" lineNumbers
+POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/carrier/connection
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "carrier_id": "carrier_33",
+  "connection": {
+    "api_key": "example key",
+    "expedited": "1"
+  }
+}
+```
 
 <!-- theme:info  -->
 > #### Note 
