@@ -1,41 +1,40 @@
 # About Our APIs
 
-The BigCommerce suite of APIs empowers you to create apps, automate store processes, and build headless ecommerce solutions. 
+The BigCommerce suite of APIs empowers you to create apps, automate store processes, and build headless ecommerce solutions. You can manage store data, authenticate customers, make client-side queries for product information, and more.
 
 If you're new to building BigCommerce apps, we recommend that you start by exploring the [App Marketplace](https://www.bigcommerce.com/apps/) to get a feel for what's possible. When you want to get started experimenting with our APIs, check out the [API Request Quick Start](/api-docs/getting-started/basics/making-requests). 
 
-## Available APIs
-BigCommerce has several APIs that let you manage store data, authenticate customers, make client-side queries for product information, and more.
+The following APIs are currently available.
 
-### REST APIs (V2 & V3)
+## REST Store Management APIs (V2 & V3)
 BigCommerce's REST APIs (for example, the [Catalog API](/api-reference/catalog/catalog-api)) allow you to manage store data and take actions that mimic store administrator activity. Some example uses of the REST APIs are:
 * Add and update products in a store
 * Update a customer's order and change the order status
 * Create a coupon
 * Manage a customer's store account details
 
-### Storefront API
-The [Storefront API](/api-reference/cart-checkout/storefront-cart-api) allows you to manage customer carts and checkouts and order information client-side. Some use cases for this API are:
+## REST Storefront API
+The [REST Storefront API](/api-reference/cart-checkout/storefront-cart-api) allows you to manage customer carts and checkouts and order information client-side. Some use cases for this API are:
 * Add an item with JavaScript to a shopper's cart from the Storefront
 * Programmatically retrieve and display information to a customer about their recent order
 * Update the billing address of a checkout
 * Clear a customer's current cart
 
 
-### GraphQL API
-BigCommerce's [GraphQL API](/api-docs/storefront/graphql/graphql-storefront-api-overview) allows you to query product and customer data and store settings remotely or from a store's front end. Some use cases for this API are:
+## GraphQL Storefront API
+BigCommerce's [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) allows you to query product and customer data and store settings remotely or from a store's front end. Some use cases for this API are:
 * Pull a product's data with JavaScript into a Stencil theme
 * Access customer data via the front end of a site
 * Fetch category and brand details from a store's front end
 
-### Customer Login API
+## Customer Login API
 The [Customer Login API](/api-docs/storefront/customer-login-api) lets you programmatically sign customers in to a BigCommerce storefront. Some use cases for this API are:
 * Sign customers in to a BigCommerce store from a third-party account or a headless storefront
 * Enable login using credentials other than email and password, such as a phone number
 * Integrate a BigCommerce store with an SSO provider
 
 
-### Current Customer API
+## Current Customer API
 BigCommerce's [Current Customer API](/api-docs/customers/current-customer-api) allows you to determine which customer is logged in to a storefront during a session.
 * Confirm a customer's identity in the browser
 * Validate a customer's identity to display specific information to them from an external app
