@@ -1,6 +1,5 @@
 # API Best Practices
 
-
 ## Ensure your integration is up-to-date
 
 BigCommerce frequently enhances its core product and is actively developing v3 API endpoints. By using the newest API version, you will ensure that your app has access to the latest resources. You will also be better positioned to provide a user experience consistent with what merchants will see in their BigCommerce store’s control panel. To stay up to date, bookmark our [changelog](/changelog).
