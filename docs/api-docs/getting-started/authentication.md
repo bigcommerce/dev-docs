@@ -137,9 +137,9 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJpZCI6NDkyNywiZW1haWwiOiJ
 A number of our APIs authenticate with JSON web tokens, or _JWTs_. JWTs authorize both the requestor and the recipient because they contain a signed payload that the recipient must successfully decrypt before working with the transmitted data. Some JWTs can be used an unlimited number of times within an expiration window; others must be unique to each request. 
 
 Our JWT-based authentication schemes fall into the following categories:
-* The user passes a **BigCommerce-generated** JWT as part of the value of the `Authorization` header
-* The user sends BigCommerce a **user-generated** JWT
-* **BigCommerce-encrypted payload JWTs** send apps information as part of a signed JWT's payload
+* The user passes a [BigCommerce-generated JWT](#bigcommerce-generated-jwts) as part of the value of the `Authorization` header
+* The user sends BigCommerce a [user-generated JWT](#user-generated-jwts)
+* [BigCommerce-encrypted payload JWTs](#bigcommerce-encrypted-payload-jwts) send apps information as part of a signed JWT's payload
 
 All requests that use JWTs require at least two steps. In addition to the request itself, you must also either get, make, or decrypt the JWT that the request sends or receives. The following sections describe the steps for these three JWT-based authentication schemes, reference the endpoints to which they apply, and give example requests.
 
