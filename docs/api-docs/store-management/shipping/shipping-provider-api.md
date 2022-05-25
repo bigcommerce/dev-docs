@@ -134,25 +134,28 @@ For more information, see our [Introduction to Building Apps](/api-docs/apps/gui
 
 ### Configuration fields
 
+#### What are configuration fields?
 Configuration fields are any shipping zone-specific or connection-specific fields that you would like merchants or API users to use when they [connect your app to their store](#how-your-app-will-be-connected-to-a-store). For example, configuration fields can include which rates to offer, packaging type, or packing method. As shown in the figures, you can choose to have these fields under various tabs in the merchant control panel, such as a connection tab or a settings tab: 
 
 ![FedEx Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/FedEx%20Settings.png)
 
 ![FedEx Connection Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/FedEx%20Connection%20Settings.png)
 
-If you would like configuration options to be set up for your carrier, please specify the following for each configuration option:
-- Label: This is the text that will be displayed on the merchant's UI
+
+#### What should you provide BigCommerce?
+If you would like configuration options to be set up for your carrier, please specify the following for each configuration option when you [submit your app](#submit-your-app)
+- Label: This is the text that will be displayed on the merchant's UI when they connect
 - Whether or not the configuration option is required 
 - Type of configuration option
 
-These are the types of configuration options that we currently allow:
+These are the types of configuration options that we currently allow, along with :
 - Text
 - Checkbox 
 - Select
 - Multi Select
 - Password
 
-Here are examples of what you can have for each type of configuration option:
+Here are examples of what you would specify for each type of configuration option:
 
 <!-- 
 type: tab
@@ -214,11 +217,9 @@ title: Password
 
 <!-- type: tab-end -->
 
+Note that for the select and multi-select configuration options, you need to provide the values that are available for merchants and API users.
 
-You can submit the configuration fields when you [submit the app](#submit-the-app). We will then send you a `code` for each configuration option. API users will specify each `code` as a property under the `connection` object when they [connect your carrier to their store](#...). BigCommerce will also include each `code` when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce) as properties under the `connection` object. 
-
-
-## Submit the app
+## Submit your app
 
 To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>. Include the following information when you submit your app:
 
@@ -228,7 +229,11 @@ To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcomm
 
 - Logo: A 70x70 pixel logo that represents the shipping carrier app
 
-- Configuration fields: If you would like connection options to be set up for your carrier, specify the properties you would like to use as connection options (see [Configuration Fields](#configuration-fields)). 
+- Configuration fields: 
+
+  If you would like connection options to be set up for your carrier, specify the properties you would like to use as connection options (see [Configuration Fields](#configuration-fields)). 
+
+  We will then send you a `code` for each configuration option. API users will specify each `code` when they [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store). BigCommerce will also include each `code` when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce) as properties under the `connection` object. 
 
 ## What's Next?
 
@@ -241,7 +246,7 @@ A merchant can navigate to the Shipping Manager UI to enable your carrier app, i
 ![Connect Carrier via UI](https://storage.googleapis.com/bigcommerce-production-dev-center/images/connection%20settings.png) 
 
 <!-- theme:info -->
-> The UI displays the configuration field's `label` field that you provided when you submitted the app.
+> The UI displays the configuration field's `label` field that you provided when you submitted your app.
 
 An API user can connect your carrier to the store by using the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. In the request, API users will send the carrier ID that you obtained during app setup, as well as values for your app's configuration fields. Specifically, API users will specify the `code` for each configuration field as a property under the `connection` object when they connect to your carrier, for example:    
 
