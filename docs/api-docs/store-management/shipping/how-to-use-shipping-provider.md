@@ -1,8 +1,13 @@
 # Using a 3rd-Party Shipping Provider
 
-Shipping provider apps allow merchants and shoppers to have real-time shipping quotes . Once a merchant installs a shipping provider app on their store, API users can connect the carrier. An API user can then enable the carrier for specific zones. This makes the real-time shipping method available to shoppers for those zones during checkout.
+Shipping provider apps (also known as carriers) allow merchants and shoppers to have real-time shipping quotes. Once a merchant installs a shipping provider app on their store, API users can connect the carrier. An API user can then enable the carrier for specific shipping zones. This makes the real-time shipping method available to shoppers for those zones during checkout.
 
-This article is a guide for API users on how to manage carrier connections, shipping zones, and shipping methods.
+This article is a guide for API users on how to manage carrier connections on a store and enable/disable real-time shipping methods from these carriers. Because BigCommerce's shipping zone endpoints are not specific to third-party shipping providers, this guide does not cover how to manage shipping zones.
+
+## Prerequisites
+- Merchant has installed the shipping provider app
+- You have obtained OAuth Scopes: `Information & Settings`
+- You or the merchant have created shipping zones. You can create zones with the [Create a shipping zone](/api-reference/store-management/shipping-api/shipping-zones/createashippingzones) endpoint.
 
 ## Manage connections to shipping carriers 
 
