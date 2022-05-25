@@ -18,13 +18,13 @@
     },
     {
       "type": "item",
-      "title": "Authenticating BigCommerce APIs",
+      "title": "Authentication Schemes",
       "href": "/api-docs/getting-started/authentication/authenticating-bigcommerce-apis",
       "uri": "docs/api-docs/getting-started/authentication.md"
     },
     {
       "type": "item",
-      "title": "Guide to OAuth API Accounts",
+      "title": "API Accounts & OAuth Scopes",
       "slug": "/rest-api-authentication",
       "href": "/api-docs/getting-started/authentication/rest-api-authentication",
       "uri": "docs/api-docs/getting-started/rest-api-authentication.md"
@@ -48,7 +48,6 @@
       "href": "/api-docs/getting-started/best-practices",
       "uri": "docs/api-docs/getting-started/best-practices.md"
     },
-
     {
       "type": "item",
       "title": "Deprecations and Sunsets",
