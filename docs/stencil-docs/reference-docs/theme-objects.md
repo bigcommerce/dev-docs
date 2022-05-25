@@ -69,13 +69,11 @@ To use dynamic data from the template in client-side code, use the inject helper
 
 <!-- ... -->
 
-var jsContext = JSON.parse({{jsContext}});
-
 ```
 **client code:**
 
 ```js
-// client-side code
+// client-side code (assets/js/theme/category.js)
 console.log(this.context.categoryId);
 ```
 
