@@ -13,7 +13,7 @@ This article is a guide for API users on how to manage carrier connections and r
 
 When a merchant installs a shipping provider app, the carrier appears in the merchant's control panel under real-time shipping methods, but is not connected to the store by default. You must first connect the carrier to the store.
 
-![]('Installed versus Connected Carrier')  
+![Connected vs Installed Carrier](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Installed%20vs%20Connected%20Carrier.png 'Connected versus Installed Carrier. USPS is connected, while FedEx is only installed.')  
 
 ### Create a Connection
 
@@ -147,7 +147,7 @@ title: Response
 
 When you connect a carrier, the carrier is disabled by default. To obtain real-time shipping quotes, you must enable it. You can enable a connected carrier for any shipping zone by using the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) endpoint. 
 
-![]('Connected versus Enabled Carrier')  
+![Enabled vs Connected Carrier](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Enabled%20vs%20Connected%20Carrier.png 'Enabled versus Connected Carrier. USPS is enabled, while FedEx is only connected.')  
 
 
 ### Create a shipping method
