@@ -24066,20 +24066,16 @@ components:
         - Models
       title: Create Categories
     UpdateCategories:
-      type: array
-      items:
-        oneOf:
-          - allOf:
-              - $ref: '#/components/schemas/CategoryIdUpdateData'
-              - $ref: '#/components/schemas/CategoryUuidData'
-              - $ref: '#/components/schemas/ParentIdUpdateData'
-              - $ref: '#/components/schemas/CategoryData'
-          - allOf:
-              - $ref: '#/components/schemas/CategoryIdUpdateData'
-              - $ref: '#/components/schemas/TreeIdUpdateData'
-              - $ref: '#/components/schemas/CategoryData'
       x-tags:
         - Models
+      type: array
+      items:
+        allOf:
+          - $ref: '#/components/schemas/TreeIdUpdateData'
+          - $ref: '#/components/schemas/CategoryIdUpdateData'
+          - $ref: '#/components/schemas/CategoryUuidData'
+          - $ref: '#/components/schemas/ParentIdUpdateData'
+          - $ref: '#/components/schemas/CategoryData'
     Category:
       type: object
       properties:
@@ -24638,6 +24634,26 @@ components:
               $ref: '#/components/schemas/beta5DetailedErrors'
       x-tags:
         - Models
+    default_product_sort:
+      title: default_product_sort
+      x-stoplight:
+        id: d4p6v45ywcfi3
+      type: object
+      properties:
+        default_product_sort:
+          type: string
+          description: |
+            Determines how the products are sorted on category page load.
+          enum:
+            - use_store_settings
+            - featured
+            - newest
+            - best_selling
+            - alpha_asc
+            - alpha_desc
+            - avg_customer_review
+            - price_asc
+            - price_desc
   responses:
     BrandCollectionResponse:
       description: ''
