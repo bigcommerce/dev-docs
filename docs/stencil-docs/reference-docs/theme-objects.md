@@ -67,13 +67,10 @@ To use dynamic data from the template in client-side code, use the inject helper
 
 {{inject "categoryId" category.id}}
 
-<!-- ... -->
-
 ```
-**client code:**
 
 ```js
-// client-side code (assets/js/theme/category.js)
+// onReady() in assets/js/theme/category.js
 console.log(this.context.categoryId);
 ```
 
