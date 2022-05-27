@@ -1,8 +1,8 @@
 # Shipping Providers
 
-Shipping service providers who wish to offer shipping services and rates to BigCommerce merchants and shoppers can implement endpoints through BigCommerce. Once they implement and accept their service into BigCommerce's shipping carrier registry, merchants can then enable and configure the service through their BigCommerce control panel. Once enabled on a store, BigCommerce will automatically retrieve the service options and rates using the provider's endpoints and display them to merchants in the store's control panel and to shoppers on the storefront.
+Shipping service providers who wish to offer shipping services and rates to BigCommerce merchants and shoppers can implement endpoints through BigCommerce. Once they implement and accept their service into BigCommerce's shipping carrier registry, merchants and API users can then connect and enable the service to their store. Once enabled on a store, BigCommerce will automatically retrieve the service options and rates using the provider's endpoints and display them to merchants in the store's control panel and to shoppers on the storefront.
 
-The Shipping Provider API allows many functionalities:
+The Shipping Provider API provides many benefits:
 
 - Drop-shippers can require their own rates
 - Merchants can retrieve rates from custom shipping tables or in-house shipping rate calculation services 
@@ -12,7 +12,6 @@ This article guides developers on how to create a shipping provider app that wil
 
 ### Prerequisites
 
-* Required [OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) scopes: `Information and Settings`
 * Get familiar with [Introduction to Building Apps](/api-docs/getting-started/building-apps-bigcommerce/building-apps) for building [single-click apps](/api-docs/apps/guide/types#single-click).
 
 
