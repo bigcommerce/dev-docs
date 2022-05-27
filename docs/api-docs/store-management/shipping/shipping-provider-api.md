@@ -240,7 +240,7 @@ To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcomm
 
 ### How your app will be connected to a store
 
-Once a merchant installs your app on their store, merchants and API users can connect your carrier to their store by using the configuration options that you provided when you submitted your app.    
+Once a merchant installs your app on their store, merchants and API users can connect your carrier to their store by using the connection options that you provided when you submitted your app.    
 
 A merchant can navigate to the Shipping Manager UI to enable your carrier app, input carrier connection settings, and disable your carrier app for any defined zone. For example, if you provided a text field for API Key and a checkbox field for enabling expedited shipping, these fields are shown to merchants in the control panel:
 
@@ -249,7 +249,7 @@ A merchant can navigate to the Shipping Manager UI to enable your carrier app, i
 <!-- theme:info -->
 > The UI displays the configuration field's `label` field that you provided when you submitted your app.
 
-An API user can connect your carrier to the store by using the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. In the request, API users will send the carrier ID that you obtained during app setup, as well as values for your app's configuration fields. Specifically, API users will specify the `code` for each configuration field as a property under the `connection` object when they connect to your carrier, for example:    
+API users can connect your carrier to the store by using the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. In the request, API users will send the carrier ID that you obtained during app setup, as well as values for your app's connection options. Specifically, API users will specify the `code` for each connection option as a property under the `connection` object when they connect to your carrier, for example:    
 
 ```json title="Example POST request with X-Auth-Token header" lineNumbers
 POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/carrier/connection
@@ -265,6 +265,8 @@ Accept: application/json
   }
 }
 ```
+
+API users must then define and enable a shipping method for your carrier using the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) endpoint. For more info on how API users will use your carrier, see [Using a Third-Party Shipping Provider](...).
 
 <!-- theme:info  -->
 > #### Note 
