@@ -266,7 +266,7 @@ Accept: application/json
 }
 ```
 
-API users can then define and enable a shipping method for your carrier using the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) endpoint. For more info on how API users will use your carrier, see [Using a Third-Party Shipping Provider](...).
+API users can then define and enable a shipping method for your carrier using the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) endpoint. They can enable multiple real-time shipping methods for your carrier app in any shipping zone. For more info on how API users will use your carrier, see [Using a Third-Party Shipping Provider](...).
 
 <!-- theme:info  -->
 > #### Note 
