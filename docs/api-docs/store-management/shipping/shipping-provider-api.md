@@ -537,7 +537,7 @@ For more information on product and variant metafields, see:
 
 | Name | Description |
 | ---- | ---- |
-| Configuration Fields | The fields the merchant will see in the control panel. Merchants can navigate to the Shipping Manager and enable, configure, and disable the carrier for any defined zone. They will also be able to activate the app using the Carrier Connection API. Then use the Shipping Zones API and Shipping Methods API to configure the app from there.|
+| Configuration Fields | Connection and shipping settings fields. Merchant will see in the control panel. Merchants enable, connect, and disable the carrier for any defined zone using these fields in Shipping Manager. API users also use these fields when they connect the app and define shipping methods for your carrier.|
 | Quote URL | A URL for a resource of the shipping carrier that accepts quote requests and responds with shipping quotes. For more on the Quote URL, see a typical app workflow below.|
 | Single Carrier or Multi Carrier | A single carrier app will offer only one shipping provider. A multi carrier app will aggregate multiple shipping carriers in one app.|
 | Countries Available | A list of countries where you can use the shipping carrier. The default behavior is that the carrier is available for every shipping origin. In most cases, this list should be as broad as possible. For example, if your carrier operates worldwide, make it available worldwide. You can limit the countries further than what the shipping carrier has provided. If the service is worldwide, then leave this field blank to specify that it is worldwide. Specifying the use of the shipping carrier is an optional step. |
