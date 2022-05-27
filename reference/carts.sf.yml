@@ -82,7 +82,7 @@ paths:
             format: UUID
       responses:
         '204':
-          $ref: '#/components/responses/deleteCarts'
+          description: No Content
   '/carts/{cartId}/items':
     post:
       tags:

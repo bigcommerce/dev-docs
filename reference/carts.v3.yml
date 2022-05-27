@@ -34,7 +34,7 @@ paths:
         * A **cart** `id` is the same as a **checkout** `id`.
         * A cart can be created by adding an existing **catalog item** or a **custom item**.
         * Carts are valid for **30 days** from the **last modification** (this includes creating the cart or editing the cart).
-        * If a product has modifiers, omit the `variant_id` and instead use the `option_selections` array to describe both the **variant** and the **modifier** selections.
+        * If a product has modifiers, use the `option_selections` array to describe the **modifier** selection(s).
         * The format and data type of a cart's `option_value` is defined by the `value_data` object of a product's [variant option value](/api-reference/store-management/catalog/product-variant-option-values/getoptionvaluebyid), [modifier value](/api-reference/store-management/catalog/product-modifier-values/getmodifiervaluebyid), or a combination of both.
         * Redirect URLs can only be generated from carts created using the **Server-to-Server Carts API**. 
         * To get cart `redirect_urls` in the response, append the following query parameter to the request URL: `include=redirect_urls`.
@@ -72,6 +72,93 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CartCreatePostData'
+            examples:
+              Simple Product:
+                value:
+                  customer_id: 0
+                  line_items:
+                    - quantity: 2
+                      product_id: 126
+                      list_price: 5
+                      name: calendar
+                  channel_id: 1
+                  currency:
+                    code: USD
+                  locale: en-US
+              Cart with a variant:
+                value:
+                  customer_id: 0
+                  line_items:
+                    - quantity: 2
+                      product_id: 118
+                      list_price: 25
+                      variant_id: 140
+                      name: shirt
+                  channel_id: 1
+                  currency:
+                    code: USD
+                  locale: en-US
+              Cart with date option:
+                value:
+                  line_items:
+                    - quantity: 1
+                      product_id: 128
+                      variant_id: 144
+                      option_selections:
+                        - option_id: 147
+                          option_value: '{“day”:”01”, “month”:”02”, “year”:”2020”}'
+              'Cart with variant, a checkbox, and a pick list modifier':
+                value:
+                  customer_id: 0
+                  line_items:
+                    - quantity: 1
+                      variant_id: 141
+                      product_id: 118
+                      list_price: 30
+                      name: shirt
+                      options:
+                        - name: Size
+                          nameId: 125
+                          value: Large
+                          valueId: 127
+                        - name: Add a $5 Donation
+                          nameId: 126
+                          value: 'No'
+                          valueId: 129
+                  channel_id: 1
+                  currency:
+                    code: usd
+                  locale: en
+              Custom item:
+                value:
+                  customer_id: 0
+                  line_items: []
+                  custom_items:
+                    - sku: custom-item-sku
+                      name: table
+                      quantity: 1
+                      list_price: 30
+                      gift_wrapping:
+                        wrap_together: true
+                        wrap_details:
+                          - id: 0
+                            message: Happy Birthday
+                  gift_certificates:
+                    - name: Tobi Day
+                      theme: Happy Birthday
+                      amount: 1
+                      quantity: 1
+                      sender:
+                        name: Brandi Tyler
+                        email: Brandi.Tyler@mail.com
+                      recipient:
+                        name: Tobi Day
+                        email: Tobi.Day@mail.com
+                      message: Happy Birthday
+                  channel_id: 1
+                  currency:
+                    code: usd
+                  locale: en
         description: |-
           **Examples:**
 
@@ -954,7 +1041,7 @@ components:
       properties:
         customer_id:
           type: integer
-        line_item:
+        line_items:
           type: array
           items:
             anyOf:
@@ -1018,9 +1105,11 @@ components:
               type: string
               format: ISO-4217
               description: 'The [transactional currency](/api-docs/multi-currency/guide/introduction#multi-currency-definitions) code for the cart as a [ISO-4217](https://www.iso.org/iso-4217-currency-codes.html) formatted string; required when multi-currency is enabled. Passing in a non-transactional display currency will result in a `400` error.'
+              example: usd
         locale:
           type: string
           description: Accepts string of format `xx` or `xx-YY`.
+          example: en-US
     CartRequestData:
       type: object
       title: Cart Request Data
@@ -2426,6 +2515,19 @@ components:
           required:
             - quantity
             - product_id
+      description: Product with a variant
+      x-examples:
+        example-1:
+          quantity: 0
+          product_id: 0
+          list_price: 0
+          variant_id: 0
+          name: string
+          gift_wrapping:
+            wrap_together: true
+            wrap_details:
+              - id: 0
+                message: Happy Birthday
     cart_PostModifier:
       type: array
       title: cart_PostModifier
@@ -2465,8 +2567,21 @@ components:
         required:
           - quantity
           - product_id
-      description: ''
+      description: Product with a modifier
       x-internal: false
+      x-examples:
+        example-1:
+          - quantity: 0
+            product_id: 0
+            list_price: 0
+            name: string
+            option_selections:
+              - option_id: 0
+                option_value: 0
+                name: string
+                value: string
+                name_id: 0
+                value_id: 0
     Cart_Line_Item_Update_Put:
       type: object
       title: Cart_Line_Item_Update_Put

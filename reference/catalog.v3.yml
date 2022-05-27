@@ -6893,6 +6893,9 @@ paths:
 
         **Read-Only Fields**
         * `id`
+
+        **Notes**
+        It takes two separate requests to create a new checkbox modifier with option values. Perform a request to create a modifier, then perform a second request to update option values.
       operationId: createModifier
       parameters:
         - name: product_id
