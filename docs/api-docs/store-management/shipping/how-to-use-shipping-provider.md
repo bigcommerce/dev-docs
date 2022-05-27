@@ -32,10 +32,10 @@ Accept: application/json
 
 {	
   "carrier_id" : "endicia",
-	"connection": {
-		"account_id" : "example_id",
-		"pass_phrase" : "example_passphrase"
-	}
+  "connection": {
+      "account_id" : "example_id",
+      "pass_phrase" : "example_passphrase"
+  }
 }
 ```
 
@@ -99,10 +99,10 @@ Accept: application/json
 
 {	
   "carrier_id" : "endicia",
-	"connection": {
-		"account_id" : "example_id_2",
-		"pass_phrase" : "example_passphrase"
-	}
+  "connection": {
+      "account_id" : "example_id_2",
+      "pass_phrase" : "example_passphrase"
+  }
 }
 ```
 
@@ -176,13 +176,13 @@ Accept: application/json
   "type": "endicia",
   "settings": {
       "carrier_options": {
-        "show_transit_time": "1",
-        "packaging_type": "FlatRateLegalEnvelope",
-        "delivery_services": [
-            "PriorityExpress",
-            "ParcelSelect",
-            "MediaMail"
-        ]
+          "show_transit_time": "1",
+          "packaging_type": "FlatRateLegalEnvelope",
+          "delivery_services": [
+              "PriorityExpress",
+              "ParcelSelect",
+              "MediaMail"
+          ]
       }
   },
   "enabled": true,
@@ -273,12 +273,12 @@ title: Response
    "type": "endicia",
    "settings": {
       "carrier_options": {
-         "show_transit_time": "1",
-         "packaging": "FlatRateLegalEnvelope",
-         "packaging_type": "FlatRateLegalEnvelope",
-         "delivery_services": {
-            "value": "MediaMail"
-         }
+          "show_transit_time": "1",
+          "packaging": "FlatRateLegalEnvelope",
+          "packaging_type": "FlatRateLegalEnvelope",
+          "delivery_services": {
+              "value": "MediaMail"
+          }
       }
    },
    "enabled": "true",
@@ -313,17 +313,17 @@ title: Response
 
 ```json title="Example GET response" lineNumbers
 {
-   "id": "29",
-   "name": "USPS",
-   "type": "endicia",
-   "settings": {
+  "id": "29",
+  "name": "USPS",
+  "type": "endicia",
+  "settings": {
       "carrier_options": {
-         "show_transit_time": "1",
-         "packaging": "FlatRateLegalEnvelope",
-         "packaging_type": "FlatRateLegalEnvelope",
-         "delivery_services": [
-            "MediaMail"
-         ]
+          "show_transit_time": "1",
+          "packaging": "FlatRateLegalEnvelope",
+          "packaging_type": "FlatRateLegalEnvelope",
+          "delivery_services": [
+              "MediaMail"
+          ]
       }
    },
    "enabled": "true",
