@@ -30,12 +30,12 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 
-{
-  "carrier_id": "carrier_33",
-  "connection": {
-    "key": "userKey",
-    "account_number": "userAccountNumber"
-  }
+{	
+  "carrier_id" : "endicia",
+	"connection": {
+		"account_id" : "example_id",
+		"pass_phrase" : "example_passphrase"
+	}
 }
 ```
 
@@ -64,7 +64,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "carrier_id": "carrier_33",
+  "carrier_id": "example_carrier",
   "connection": {}
 }
 ```
@@ -84,7 +84,7 @@ When you connect a carrier, the carrier is disabled by default. To obtain real-t
 
 ### Update a Connection
 
-You use the same request fields when you update a connection as when you create a connection. 
+When you update a connection, use the same fields for a carrier as [Create a connection](#create-a-connection). 
 
 <!--
 type: tab
@@ -97,12 +97,12 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 
-{
-  "carrier_id": "carrier_33",
-  "connection": {
-    "key": "userKey 2",
-    "account_number": "userAccountNumber"
-  }
+{	
+  "carrier_id" : "endicia",
+	"connection": {
+		"account_id" : "example_id_2",
+		"pass_phrase" : "example_passphrase"
+	}
 }
 ```
 
@@ -119,6 +119,8 @@ No content
 
 ### Delete a Connection
 
+To delete a connection, specify `carrier_id` in the request body.
+
 <!--
 type: tab
 title: Request
@@ -129,6 +131,10 @@ DELETE https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/carrier/conne
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
+
+{
+  "carrier_id": "example_carrier"
+}
 ```
 
 <!--
@@ -137,7 +143,7 @@ title: Response
 -->
 
 ```json title="Example DELETE response" lineNumbers
-
+No content
 ```
 
 <!-- type: tab-end -->
@@ -164,15 +170,25 @@ POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
+
 {
-  "name": "Example Shipping Carrier",
-  "type": "carrier_33",
+  "name": "USPS",
+  "type": "endicia",
   "settings": {
-    "carrier_options": {
-      "account_id": "a1ty"
-    }
+      "carrier_options": {
+        "show_transit_time": "1",
+        "packaging_type": "FlatRateLegalEnvelope",
+        "delivery_services": [
+            "PriorityExpress",
+            "ParcelSelect",
+            "MediaMail"
+        ]
+      }
   },
-  "enabled": true
+  "enabled": true,
+  "handling_fees": {
+      "fixed_surcharge": "0"
+  }
 }
 ```
 
@@ -183,22 +199,32 @@ title: Response
 
 ```json title="Example POST response" lineNumbers
 {
-  "id": 24,
-  "name": "Per Order Test",
-  "type": "perorder",
-  "settings": {
-    "rate": 8.3
-  },
-  "enabled": true,
-  "handling_fees": {
-    "fixed_surcharge": 3
-  },
-  "is_fallback": false
+   "id": "29",
+   "name": "USPS",
+   "type": "endicia",
+   "settings": {
+      "carrier_options": {
+         "show_transit_time": "1",
+         "packaging": "FlatRateLegalEnvelope",
+         "packaging_type": "FlatRateLegalEnvelope",
+         "delivery_services": [
+            "PriorityExpress",
+            "ParcelSelect",
+            "MediaMail"
+         ]
+      }
+   },
+   "enabled": "true",
+   "handling_fees": {
+      "fixed_surcharge": "0"
+   },
+   "is_fallback": "false"
 }
 ```
 
 <!-- type: tab-end -->
 
+To see a full list of available `carrier_options`values for a carrier, see [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod).
 
 <!-- theme:info -->
 > After you enable a connected carrier, you can obtain its real-time shipping quotes by using the [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) endpoint. 
@@ -215,6 +241,24 @@ PUT https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
+
+{
+  "name": "USPS",
+  "type": "endicia",
+  "settings": {
+      "carrier_options": {
+        "show_transit_time": "1",
+        "packaging_type": "FlatRateLegalEnvelope",
+        "delivery_services": [
+            "MediaMail"
+        ]
+      }
+  },
+  "enabled": true,
+  "handling_fees": {
+      "fixed_surcharge": "0"
+  }
+}
 ```
 
 <!--
@@ -223,6 +267,26 @@ title: Response
 -->
 
 ```json title="Example PUT response" lineNumbers
+{
+   "id": "29",
+   "name": "USPS",
+   "type": "endicia",
+   "settings": {
+      "carrier_options": {
+         "show_transit_time": "1",
+         "packaging": "FlatRateLegalEnvelope",
+         "packaging_type": "FlatRateLegalEnvelope",
+         "delivery_services": {
+            "value": "MediaMail"
+         }
+      }
+   },
+   "enabled": "true",
+   "handling_fees": {
+      "fixed_surcharge": "0"
+   },
+   "is_fallback": "false"
+}
 ```
 
 <!-- type: tab-end -->
@@ -248,6 +312,26 @@ title: Response
 -->
 
 ```json title="Example GET response" lineNumbers
+{
+   "id": "29",
+   "name": "USPS",
+   "type": "endicia",
+   "settings": {
+      "carrier_options": {
+         "show_transit_time": "1",
+         "packaging": "FlatRateLegalEnvelope",
+         "packaging_type": "FlatRateLegalEnvelope",
+         "delivery_services": [
+            "MediaMail"
+         ]
+      }
+   },
+   "enabled": "true",
+   "handling_fees": {
+      "fixed_surcharge": "0"
+   },
+   "is_fallback": "false"
+}
 ```
 
 <!-- type: tab-end -->
@@ -278,6 +362,7 @@ title: Response
 -->
 
 ```json title="Example DELETE response" lineNumbers
+No content
 ```
 
 <!-- type: tab-end -->
