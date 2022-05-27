@@ -1,6 +1,6 @@
-# Register a Shipping Provider
+# Creating a Shipping Provider App
 
-Shipping service providers who wish to offer shipping services and rates to BigCommerce merchants and shoppers can implement endpoints through BigCommerce. Once they implement and accept their service into BigCommerce's shipping carrier registry, merchants and API users can then connect and enable the service to their store. Once enabled on a store, BigCommerce will automatically retrieve the service options and rates using the provider's endpoints and display them to merchants in the store's control panel and to shoppers on the storefront.
+Shipping service providers who wish to offer shipping services and rates to BigCommerce merchants and shoppers can implement endpoints through BigCommerce. Once they implement and accept their service into BigCommerce's shipping carrier registry, merchants and API users can connect and enable the service on their store. BigCommerce will then automatically retrieve the service options and rates using the provider's endpoints, displaying them to merchants in the store's control panel and to shoppers on the storefront.
 
 The Shipping Provider API provides many benefits:
 
@@ -8,7 +8,7 @@ The Shipping Provider API provides many benefits:
 - Merchants can retrieve rates from custom shipping tables or in-house shipping rate calculation services 
 - Shoppers can create a combination of in-store pickup and shipping options
 
-This article guides developers on how to create a shipping provider app that will make your shipping rates available to merchants and shoppers on demand.
+This article guides developers on how to create and register a BigCommerce shipping provider app that will make your shipping rates available to merchants and shoppers on demand.
 
 ### Prerequisites
 
@@ -235,7 +235,7 @@ To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcomm
 
   We will then send you a `code` for each configuration option. API users will specify the `code` for the options when they [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store)and define your carrier's shipping method for their shipping zones. BigCommerce will also include each `code` when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce) as properties under the `zone_options` and `connection_options` object. 
 
-## What's Next?
+## What's next?
 
 ### How your app will be connected to a store
 
@@ -325,7 +325,7 @@ title: Request
 --> 
 
 ```json title="Example POST request with X-Auth-Token header" lineNumbers
-POST https://example.com/rate
+POST https://example.com/rate_example
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -525,7 +525,7 @@ The metafields you receive from BigCommerce requests have the following characte
 - Have a metafield `permission_set` of `read` or `write`
 - Have a metafield `namespace` that matches this format: `shipping_carrier_<carrier_id>` (for example, `shipping_carrier_72`)
 
-The carrier registration process described in the [Sign up](#sign-up) section provides the `carrier_id`.
+  The carrier registration process described in the [Sign up](#sign-up) section provides the `carrier_id`.
 
 For more information on product and variant metafields, see:
 
