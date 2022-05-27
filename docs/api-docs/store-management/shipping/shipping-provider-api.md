@@ -1,6 +1,6 @@
 # Creating a Shipping Provider App
 
-Shipping service providers who wish to offer shipping services and rates to BigCommerce merchants and shoppers can implement endpoints through BigCommerce. Once they implement and accept their service into BigCommerce's shipping carrier registry, merchants and API users can connect and enable the service on their store. BigCommerce will then automatically retrieve the service options and rates using the provider's endpoints, displaying them to merchants in the store's control panel and to shoppers on the storefront.
+Shipping service providers who wish to offer shipping services and rates to BigCommerce merchants and shoppers can implement endpoints through BigCommerce. Once they implement and accept their service into BigCommerce's shipping carrier registry, merchants and API users can connect and enable the service on their store. BigCommerce will then automatically retrieve the service options and rates using the provider's endpoints, displaying them to merchants in the store's control panel and to shoppers on the storefront. Merchants can define and enable multiple real-time shipping methods for your carrier app in any shipping zone.
 
 The Shipping Provider API provides many benefits:
 
@@ -246,7 +246,7 @@ A merchant can navigate to the Shipping Manager UI to input carrier connection s
 
 ![Connect Carrier via UI](https://storage.googleapis.com/bigcommerce-production-dev-center/images/connection%20settings.png 'Connection options in Shipping Manager') 
 
-A merchant can then define and enable multiple real-time shipping methods for your carrier app in any shipping zone. 
+After connecting your carrier, a merchant can define and enable multiple real-time shipping methods for your carrier app in any shipping zone. 
 
 #### How API users will use your app
 API users can connect your carrier to the store by using the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. In the request, API users will send the carrier ID that you obtained during app setup, as well as values for your app's connection options. Specifically, API users will specify the `code` for each connection option as a property under the `connection` object when they connect to your carrier, for example:    
