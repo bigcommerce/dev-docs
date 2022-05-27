@@ -24077,55 +24077,51 @@ components:
           - $ref: '#/components/schemas/ParentIdUpdateData'
           - $ref: '#/components/schemas/CategoryData'
     Category:
-      type: object
-      properties:
-        category_uuid:
-          type: string
-          format: uuid
-        category_id:
-          type: integer
-        parent_id:
-          type: integer
-        tree_id:
-          type: integer
-        name:
-          type: string
-        description:
-          type: string
-        views:
-          type: integer
-        sort_order:
-          type: integer
-        page_title:
-          type: string
-        search_keywords:
-          type: string
-        meta_keywords:
-          type: array
-          items:
-            type: string
-        meta_description:
-          type: string
-        layout_file:
-          type: string
-        is_visible:
-          type: boolean
-        default_product_sort:
-          type: string
-        image_url:
-          type: string
-        url:
-          $ref: '#/components/schemas/Url'
       x-tags:
         - Models
+      title: Category
+      allOf:
+        - type: object
+          properties:
+            description:
+              type: string
+            views:
+              type: integer
+            sort_order:
+              type: integer
+            page_title:
+              type: string
+            search_keywords:
+              type: string
+            meta_keywords:
+              type: array
+              items:
+                type: string
+            meta_description:
+              type: string
+            layout_file:
+              type: string
+            is_visible:
+              type: boolean
+            image_url:
+              type: string
+            url:
+              $ref: '#/components/schemas/Url'
+        - $ref: '#/components/schemas/default_product_sort'
+        - $ref: '#/components/schemas/CategoryUuidData'
+        - $ref: '#/components/schemas/CategoryIdUpdateData'
+        - $ref: '#/components/schemas/ParentIdUpdateData'
+        - $ref: '#/components/schemas/TreeIdCreateData'
+        - $ref: '#/components/schemas/name'
     CategoryUuidData:
       type: object
+      x-tags:
+        - Models
       properties:
         category_uuid:
           type: string
           format: uuid
-      x-tags:
-        - Models
+      title: category_uuid
     CategoryIdUpdateData:
       type: object
       properties:
@@ -24168,48 +24164,38 @@ components:
       x-tags:
         - Models
     CategoryData:
-      type: object
       x-tags:
         - Models
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        views:
-          type: integer
-        sort_order:
-          type: integer
-        page_title:
-          type: string
-        search_keywords:
-          type: string
-        meta_keywords:
-          type: array
-          items:
-            type: string
-        meta_description:
-          type: string
-        layout_file:
-          type: string
-        is_visible:
-          type: boolean
-        default_product_sort:
-          type: string
-          enum:
-            - use_store_settings
-            - featured
-            - newest
-            - best_selling
-            - avg_customer_review
-            - alpha_asc
-            - alpha_desc
-            - price_asc
-            - price_desc
-        image_url:
-          type: string
-        url:
-          $ref: '#/components/schemas/Url'
+      allOf:
+        - type: object
+          properties:
+            name:
+              type: string
+            description:
+              type: string
+            views:
+              type: integer
+            sort_order:
+              type: integer
+            page_title:
+              type: string
+            search_keywords:
+              type: string
+            meta_keywords:
+              type: array
+              items:
+                type: string
+            meta_description:
+              type: string
+            layout_file:
+              type: string
+            is_visible:
+              type: boolean
+            image_url:
+              type: string
+            url:
+              $ref: '#/components/schemas/Url'
+        - $ref: '#/components/schemas/default_product_sort'
     Urls:
       type: array
       items:
@@ -24654,6 +24640,86 @@ components:
             - avg_customer_review
             - price_asc
             - price_desc
+    name:
+      title: name
+      x-stoplight:
+        id: pvlld3ivlue8r
+      type: object
+      properties:
+        name:
+          type: string
+    description:
+      title: description
+      x-stoplight:
+        id: nqse2ss1vdn0t
+      type: object
+      properties:
+        description:
+          type: string
+    views:
+      title: views
+      x-stoplight:
+        id: 3k376vbqyg3n9
+      type: object
+      properties:
+        views:
+          type: integer
+    sort_order:
+      title: sort_order
+      x-stoplight:
+        id: j0qwto4du42sa
+      type: object
+      properties:
+        id:
+          type: string
+    page_title:
+      title: page_title
+      x-stoplight:
+        id: 1uez56zt56fjc
+      type: object
+      properties:
+        id:
+          type: string
+    search_keywords:
+      title: search_keywords
+      x-stoplight:
+        id: fw43b5e97xvkk
+      type: object
+      properties:
+        id:
+          type: string
+    meta_keywords:
+      title: meta_keywords
+      x-stoplight:
+        id: 9ivxctwjh0f7c
+      type: object
+      properties:
+        id:
+          type: string
+    layout_file:
+      title: layout_file
+      x-stoplight:
+        id: 8ro4opxprrm98
+      type: object
+      properties:
+        id:
+          type: string
+    is_visible:
+      title: is_visible
+      x-stoplight:
+        id: li0w0wuuw8r0l
+      type: object
+      properties:
+        is_visible:
+          type: boolean
+    image_url:
+      title: image_url
+      x-stoplight:
+        id: 9e3k4ybx92jno
+      type: object
+      properties:
+        image_url:
+          type: string
   responses:
     BrandCollectionResponse:
       description: ''
