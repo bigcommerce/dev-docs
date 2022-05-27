@@ -135,15 +135,16 @@ For more information, see our [Introduction to Building Apps](/api-docs/apps/gui
 ### Configuration fields
 
 #### What are configuration fields?
-Configuration fields are any shipping zone-specific or connection-specific fields that you would like merchants or API users to use when they [connect your app to their store](#how-your-app-will-be-connected-to-a-store). For example, configuration fields can include which rates to offer, packaging type, or packing method. As shown in the figures, you can choose to have these fields under various tabs in the merchant control panel, such as a connection tab or a settings tab: 
+Configuration fields are connection options or shipping settings options that you would like merchants or API users to use with your carrier. For example, connection options include keys/passwords, while settings options usually include which rates to offer, packaging type, packing method, and more. The following figures show how your setting options and connection options will appear in the merchant control panel when a merchant [connects your app to their store](#how-your-app-will-be-connected-to-a-store):
 
-![FedEx Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/FedEx%20Settings.png)
+![FedEx Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/FedEx%20Settings.png 'Setting options')
 
-![FedEx Connection Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/FedEx%20Connection%20Settings.png)
+![FedEx Connection Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/FedEx%20Connection%20Settings.png 'Connection options')
 
+API users will also use connection options when they [connect your app to their store](#how-your-app-will-be-connected-to-a-store). They will use the settings options when defining your carrier's shipping method for specific shipping zones.  
 
 #### What should you provide BigCommerce?
-If you would like configuration options to be set up for your carrier, please specify the following for each configuration option when you [submit your app](#submit-your-app)
+If you would like configuration (connection or settings) options to be set up for your carrier, please specify the following for each configuration option when you [submit your app](#submit-your-app)
 - **Label**: This is the text that will be displayed on the merchant's UI when they connect
 - **Required**: Whether or not the configuration option is required 
 - **Type**: Type of configuration option
@@ -231,9 +232,9 @@ To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcomm
 
 - Configuration fields: 
 
-  If you would like connection options to be set up for your carrier, specify the properties you would like to use as connection options (see [Configuration Fields](#configuration-fields)). 
+  If you would like [configuration fields](#configuration-fields) to be set up for your carrier, specify the properties you would like to use for these connection and/or settings options. 
 
-  We will then send you a `code` for each configuration option. API users will specify each `code` when they [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store). BigCommerce will also include each `code` when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce) as properties under the `connection` object. 
+  We will then send you a `code` for each configuration option. API users will specify the `code` for the options when they [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store)and define your carrier's shipping method for their shipping zones. BigCommerce will also include each `code` when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce) as properties under the `zone_options` and `connection_options` object. 
 
 ## What's Next?
 
