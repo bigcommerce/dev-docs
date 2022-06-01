@@ -134,11 +134,12 @@ paths:
                   lineItems:
                     - quantity: 2
                       productId: 230
+                      variantId: 124
                       optionSelections:
                         - optionId: 10
                           optionValue: 117
                         - optionId: 11
-                          optionValue: test
+                          optionValue: 125
         description: ''
   '/carts/{cartId}/items/{itemId}':
     put:
@@ -908,6 +909,8 @@ components:
             quantity:
               type: number
               description: Quantity of this item.
+            variantId:
+              type: number
             optionSelections:
               type: array
               items:
@@ -918,7 +921,7 @@ components:
                       optionId:
                         type: number
                         description: 'ID of the option, same as the `nameId`.'
-                        example: 125
+                        example: 10
                       optionValue:
                         description: 'Value of the option, same as the `valueId`.'
                         oneOf:
@@ -938,13 +941,14 @@ components:
           required:
             - productId
             - quantity
+            - variantId
             - optionSelections
       x-examples:
         example-1:
           productId: 0
           quantity: 0
-      type: object
       x-internal: false
+      type: object
     requestLineItemGiftCertificateRecipient:
       title: Contact Entity
       type: object
