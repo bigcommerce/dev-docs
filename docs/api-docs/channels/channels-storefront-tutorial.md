@@ -76,7 +76,7 @@ Accept: application/json
 
 ## Configuring UI sections
 
-Define and configure the channel's UI tabs displayed in the control panel by using the [Channel Menus API](/api-reference/store-management/channels/channels/postChannelMenus).
+Define and configure the navigation menu items displayed in the control panel for the channel by creating channel menus using the [Channel Menus API](/api-reference/store-management/channels/channels/postChannelMenus).
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/channel-menus
@@ -109,7 +109,7 @@ The following protected sections are provided by BigCommerce.
 | `Notifications`       | `notifications`       | Renders channel specific notification settings |
 | [`Currencies`](#currencies-settings)          | `currencies`          | Renders channel specific currency settings     |
 
-Include protected sections in the [create channel menus request](/api-reference/store-management/channels/channels/postChannelMenus) to display BigCommerce-provided channel-specific settings.
+Include protected sections in the [create channel menus request](/api-reference/store-management/channels/channels/postChannelMenus) to display BigCommerce-provided channel-specific settings pages.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}}/channel-menus
@@ -133,7 +133,7 @@ Included protected sections display above custom sections.
 
 ## Storefront settings
 
-Include the `storefront_settings` [protected section](#protected-ui-sections) in the Channel Menus' `bigcommerce_protected_app_sections` array to render the BigCommerce-provided **Storefront Settings** tab on the channel's settings page.
+Include the `storefront_settings` [protected section](#protected-ui-sections) in the Channel Menus' `bigcommerce_protected_app_sections` array to render the BigCommerce-provided **Storefront Settings** menu item in the channel's navigation and corresponding settings page.
 
 ![Channel Storefront Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-storefront-settings.png "Channel Storefront Settings")
 
@@ -166,7 +166,7 @@ Accept: application/json
 
 ## Currencies settings
 
-Include the `currencies` [protected section](#protected-ui-sections) in the Channel Menus' `bigcommerce_protected_app_sections` array to render the BigCommerce-provided **Currencies** tab on the channel's settings page.
+Include the `currencies` [protected section](#protected-ui-sections) in the Channel Menus' `bigcommerce_protected_app_sections` array to render the BigCommerce-provided **Currencies** menu item in the channel's navigation and corresponding settings page.
 
 ![Channel Currency Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-currencies.png "Channel Currency Settings")
 
@@ -199,7 +199,7 @@ Accept: application/json
 
 ## Notification settings
 
-Include the `notifications` [protected section](#protected-ui-sections) in the Channel Menus' `bigcommerce_protected_app_sections` array to render the BigCommerce-provided **Notifications** tab on the channel's settings page.
+Include the `notifications` [protected section](#protected-ui-sections) in the Channel Menus' `bigcommerce_protected_app_sections` array to render the BigCommerce-provided **Notifications** menu item in the channel's navigation and corresponding settings page.
 
 ![Channel Notification Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-notifications-small.png "Channel Notification Settings")
 
