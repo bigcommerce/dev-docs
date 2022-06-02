@@ -27,6 +27,7 @@ Consider the following request to the [Get store profile settings](/api-referenc
 ```http title="Example request: Get store profile settings"
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile
 X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
 Accept: application/json
 ```
 &nbsp;
@@ -50,6 +51,7 @@ To check whether channel-specific values for a setting are defined, send the `ch
 ```http title="Example request: Get store profile settings for channel 122"
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=122
 X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
 Accept: application/json
 ```
 &nbsp;
@@ -67,6 +69,7 @@ The following request-response pair shows an example of a channel that does have
 ```http title="Example request: Get store profile settings for channel 123"
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=123
 X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
 Accept: application/json
 ```
 &nbsp;
@@ -86,6 +89,7 @@ The following request-response pair shows an example of a channel with a complet
 ```http title="Example request: Get store profile settings for channel 124"
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=124
 X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
 Accept: application/json
 ```
 &nbsp;
@@ -117,6 +121,7 @@ The following example uses the [Update store profile settings](/api-reference/st
 ```http title="Example request: Update global store profile settings"
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile
 X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -130,6 +135,7 @@ To update channel-specific settings, send a request to the same endpoint along w
 ```http title="Example request: Update store profile settings for channel 123"
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=123
 X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 
@@ -146,6 +152,7 @@ If you wish to restore global defaults on a channel with a channel-specific conf
 ```http title="Example request: Reset channel-specific store profile settings to default"
 DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/profile?channel_id=124&keys=store_name,store_address
 X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Client: {{CLIENT_ID}}
 Accept: application/json
 ```
 
