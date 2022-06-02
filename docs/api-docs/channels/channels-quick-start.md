@@ -44,12 +44,11 @@ Accept: application/json
 }
 ```
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/channels/channels/createchannel#requestrunner) -->
-
 <!-- theme: info -->
-> #### Note
+> **Note**
 > - For a list of accepted `type` and `platform` values, see [Channels API Reference](/api-reference/store-management/channels#platform).
 > - For instructions on finding your app's ID, see [Find and App's ID](/api-docs/apps/tutorials/id).
+
 ## Create a channel with navigation
 
 We recommend that apps also create navigation sections to better integrate the app's interface within the BigCommerce control panel.
@@ -65,20 +64,17 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "custom_app_sections": [
-    {
-      "title": "Overview",
-      "query_path": "overview"
-    },
-    {
-      "title": "Import",
-      "query_path": "import"
-    },
-    {
-      "title": "Settings",
-      "query_path": "settings"
-    }
-  ]
+    "bigcommerce_protected_app_sections": [
+      "domains",
+      "currencies",
+      "storefront_settings"
+    ],
+    "custom_app_sections": [
+      {
+        "title": "Overview",
+        "query_path": "overview"
+      }
+    ]  
 }
 ```
 

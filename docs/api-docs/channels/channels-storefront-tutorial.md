@@ -83,31 +83,32 @@ POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels/{{CHANNEL_ID}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
+
 {
-  "custom_app_sections": [
-    {
-      "title": "Overview",
-      "query_path": "overview"
-    }
+   "bigcommerce_protected_app_sections":[],
+   "custom_app_sections":[
+      {
+         "title":"Overview",
+         "query_path":"overview"
+      }
+   ]
 }
 ```
 
-<!-- theme: info -->
- 
 <!-- theme:info -->
 > #### Note
 > These UI sections were previously managed via `config_meta`. As of March 29, 2022, changes to UI sections via `config_meta` are dual written to the new API when `config_meta.app.sections` exists in the payload.
 
 ## Protected UI sections
 
-The following protected sections are provided by BigCommerce.
+The following protected sections are provided by BigCommerce:
 
 | Title               | Query                 | Description                                    |
 | ------------------- | --------------------- | ---------------------------------------------- |
-| [`Storefront Settings`](#storefront-settings) | `storefront_settings` | Renders channel specific storefront settings   |
+|`Storefront Settings` | `storefront_settings` | Renders channel specific storefront settings   |
 | `Domains`             | `domains`             | Renders channel specific domain settings       |
 | `Notifications`       | `notifications`       | Renders channel specific notification settings |
-| [`Currencies`](#currencies-settings)          | `currencies`          | Renders channel specific currency settings     |
+| `Currencies`          | `currencies`          | Renders channel specific currency settings     |
 
 Include protected sections in the [create channel menus request](/api-reference/store-management/channels/channels/postChannelMenus) to display BigCommerce-provided channel-specific settings pages.
 
@@ -118,12 +119,12 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "bigcommerce_protected_app_sections": [
-    "storefront_settings",
-    "domains",
-    "notifications",
-    "currencies"
-  ]
+   "bigcommerce_protected_app_sections":[
+      "storefront_settings",
+      "currencies",
+      "domains"
+   ],
+   "custom_app_sections":[]
 }
 ```
 
@@ -170,12 +171,11 @@ Include the `currencies` [protected section](#protected-ui-sections) in the Chan
 
 ![Channel Currency Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-sf-currencies.png "Channel Currency Settings")
 
-You can manage channel specific currency settings using the Channel API [Currency Assignments](/api-reference/store-management/channels/channel-currency-assignments) endpoints. For example, To [get a channel's currency assignments](/api-reference/store-management/channels/channel-currency-assignments/get-channels-channel-id-currency-assignments), send a `GET` request to `/v3/channels/{channel_id}/currency-assignments`.
+You can manage channel specific currency settings using the Channel API [Currency Assignments](/api-reference/store-management/channels/channel-currency-assignments) endpoints. For example, To [get a channel's currency assignments](/api-reference/store-management/channels/channel-currency-assignments/get-channels-channel-id-currency-assignments), send a `GET` request to `/v3/channels/{{CHANNEL_ID}}/currency-assignments`.
 
 ```http
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v3/channels/{channel_id}/currency-assignments
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v3/channels/{{CHANNEL_ID}}/currency-assignments
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 ```
