@@ -25,14 +25,12 @@
     {
       "type": "item",
       "title": "API Accounts & OAuth Scopes",
-      "slug": "/rest-api-authentication",
       "href": "/api-docs/getting-started/authentication/rest-api-authentication",
       "uri": "docs/api-docs/getting-started/rest-api-authentication.md"
     },
     {
       "type": "item",
       "title": "API Status Codes",
-      "slug": "/api-status-codes",
       "href": "/api-docs/getting-started/api-status-codes",
       "uri": "docs/api-docs/getting-started/api-status-codes.md"
     },
