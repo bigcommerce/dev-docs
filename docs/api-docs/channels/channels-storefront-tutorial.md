@@ -233,7 +233,6 @@ You can manage channel specific currency settings using the Channel API [Currenc
 ```http
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}}/v3/channels/{channel_id}/currency-assignments
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Content-Type: application/json
 Accept: application/json
 ```
