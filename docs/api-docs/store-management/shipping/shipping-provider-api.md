@@ -270,7 +270,7 @@ API users can then define and enable a shipping method for your carrier using th
 
 ### Validate connection options
 
-When a merchant tries to [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store), BigCommerce will send a request to validate the connection options that they provide if you configured a Check Connection Options URL for your carrier during app setup. Your response should indicate if the credentials are valid and explain what is wrong. 
+When a merchant tries to [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store), BigCommerce will send a request to validate the connection options that the merchant provides if you configured a Check Connection Options URL for your carrier during app setup. Your response should indicate if the credentials are valid and explain what is wrong. For more info, see the [Validate connection options](/api-reference/providers/shipping-provider-api/shipping-provider/validateconnectionoptions) endpoint.  
 
 <!--
 type: tab
