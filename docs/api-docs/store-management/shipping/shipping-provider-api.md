@@ -78,7 +78,7 @@ These urls can be any valid HTTPS URLs that use port `443`, for example `https:/
 
 BigCommerce will send and receive data from your service URLs using JSON.  
 
-- To see how BigCommerce will format requests for rates and how you will need to format responses, see [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). 
+- To see how BigCommerce will format requests for rates and how you will need to format responses, see the [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) endpoint. 
 
 - To see how BigCommerce will format requests for validating merchant connection options and how you will need to format responses, see the [Validate connection options](/api-reference/providers/shipping-provider-api/shipping-provider/validateconnectionoptions) endpoint.
 
@@ -125,11 +125,11 @@ title: Validate Connection Options
 
 ## Develop the app
 
-To use the Shipping Provider API to provide shipping quotes, you must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click). For more info on how to get started, see [BigCommerce Apps Quick Start](/api-docs/partner/getting-started/app-development/tutorials/quick-start).
+To use the Shipping Provider API to provide shipping quotes, you must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click). For more info on how to get started, see the [BigCommerce Apps Quick Start](/api-docs/partner/getting-started/app-development/tutorials/quick-start) article.
 
 Building a BigCommerce app allows you to create [app API credentials](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis#app-api-credentials) and promote your solution in the BigCommerce app marketplace. Having a BigCommerce app allows merchants to configure shipping provider settings and/or order fulfillment via an iFrame in the BigCommerce control panel.
 
-For more information, see our [Introduction to Building Apps](/api-docs/apps/guide/intro).
+For more information, see our [Introduction to Building Apps](/api-docs/apps/guide/intro) article.
 
 ### Configuration fields
 
@@ -266,7 +266,7 @@ Accept: application/json
 }
 ```
 
-API users can then define and enable a shipping method for your carrier using the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) endpoint. They can enable multiple real-time shipping methods for your carrier app in any shipping zone. For more info on how API users will use your carrier, see [Using a Third-Party Shipping Provider](...).
+API users can then define and enable a shipping method for your carrier using the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) endpoint. They can enable multiple real-time shipping methods for your carrier app in any shipping zone. For more info on how API users will use your carrier, see the [Use a Third-Party Shipping Provider](...) article.
 
 <!-- theme:info  -->
 > #### Note 
@@ -528,10 +528,10 @@ The metafields you receive from BigCommerce requests have the following characte
 
   The carrier registration process described in the [Sign up](#sign-up) section provides the `carrier_id`.
 
-For more information on product and variant metafields, see:
+For more information on product and variant metafields, see the following Catalog API endpoints:
 
-- [API Reference > Store Management > Catalog > Product Metafields](/api-reference/store-management/catalog/product-metafields)
-- [API Reference > Store Management > Catalog > Product Variant Metafields](/api-reference/store-management/catalog/product-variants-metafields)
+- [Product Metafields](/api-reference/store-management/catalog/product-metafields)
+- [Product Variant Metafields](/api-reference/store-management/catalog/product-variants-metafields)
 
 
 ## Definitions
