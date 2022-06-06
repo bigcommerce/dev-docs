@@ -84,8 +84,6 @@ No content
 
 <!-- type: tab-end -->
 
-When you connect a carrier, the carrier is disabled by default. To obtain real-time shipping quotes, you must enable it (see [Create a shipping method](#create-a-shipping-method)).
-
 ### Update a connection
 
 When you update a connection, use the same fields for a carrier as [Create a connection](#create-a-connection). 
@@ -228,7 +226,7 @@ title: Response
 
 <!-- type: tab-end -->
 
-To see a full list of available `carrier_options`values for a carrier, see [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod).
+To see a full list of available `carrier_options`values for a carrier, see the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) reference.
 
 <!-- theme:info -->
 > After you enable a connected carrier, you can obtain its real-time shipping quotes by using the [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) endpoint. 
