@@ -528,10 +528,10 @@ The metafields you receive from BigCommerce requests have the following characte
 
   The carrier registration process described in the [Sign up](#sign-up) section provides the `carrier_id`.
 
-For more information on product and variant metafields, see the following Catalog API endpoints:
+For more information on product and variant metafields, see the following Catalog V3 API endpoints:
 
-- [Product Metafields](/api-reference/store-management/catalog/product-metafields)
-- [Product Variant Metafields](/api-reference/store-management/catalog/product-variants-metafields)
+- Product Metafields, e.g. [Get All Product Metafields](/api-reference/store-management/catalog/product-metafields/getproductmetafieldsbyproductid)
+- Product Variant Metafields, e.g. [Product Variant Metafields](/api-reference/store-management/catalog/product-variants-metafields/getvariantmetafieldsbyproductidandvariantid)
 
 
 ## Definitions
