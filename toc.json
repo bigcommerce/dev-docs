@@ -278,6 +278,12 @@
         },
         {
           "type": "item",
+          "title": "Use a Third-Party Shipping Provider",
+          "href": "/api-docs/store-management/shipping/use-shipping-provider",
+          "uri": "docs/api-docs/store-management/shipping/use-a-shipping-provider.md"
+        },
+        {
+          "type": "item",
           "title": "Shipper HQ",
           "href": "/api-docs/store-management/shipping/shipper-hq",
           "uri": "docs/api-docs/store-management/shipping/shipper-hq.md"
