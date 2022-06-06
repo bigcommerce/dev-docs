@@ -1,7 +1,3 @@
----
-stoplight-id: 1612902a608a7
----
-
 # Use a Third-Party Shipping Provider
 
 Shipping provider apps (also known as carriers) allow merchants and shoppers to obtain **real-time** shipping quotes. Once a merchant installs a shipping provider app on their store, API users can connect the carrier to the store. API users can then define and enable multiple shipping methods for a carrier for any shipping zone. This makes real-time shipping methods available to shoppers for those zones during checkout.
