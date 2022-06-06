@@ -70,7 +70,7 @@ BigCommerce sends requests to your server to validate merchant credentials and o
 Because BigCommerce sends requests to your app, you need to provide BigCommerce with the following:
 
 - **Quote URL**: a URL that accepts quote requests from BigCommerce. You will provide shipping quotes from this URL.
-- **Validate Connection Options URL** (optional): a URL to check and validate connection options during app registration. BigCommerce will send requests to this URL to ensure that a merchant’s connection settings are valid. You can perform any necessary checks, such as looking up a merchant's app credentials in your database or calling a downstream service to verify them. 
+- **Check Connection Options URL** (optional): a URL to check and validate connection options during app registration. BigCommerce will send requests to this URL to ensure that a merchant’s connection settings are valid. You can perform any necessary checks, such as looking up a merchant's app credentials in your database or calling a downstream service to verify them. 
 
 These urls can be any valid HTTPS URLs that use port `443`, for example `https://example.com/rate`. Replace `example.com` and `rate` with your own host and path. 
 
@@ -80,7 +80,7 @@ BigCommerce will send and receive data from your service URLs using JSON.
 
 - To see how BigCommerce will format requests for rates and how you will need to format responses, see [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates). 
 
-- To see how BigCommerce will format requests for validating merchant connection options and how you will need to format responses, see [Validate connection options](/api-reference/providers/shipping-provider-api/shipping-provider/validateconnectionoptions).
+- To see how BigCommerce will format requests for validating merchant connection options and how you will need to format responses, see the [Validate connection options](/api-reference/providers/shipping-provider-api/shipping-provider/validateconnectionoptions) endpoint.
 
 ### Error handling
 
@@ -274,7 +274,7 @@ API users can then define and enable a shipping method for your carrier using th
 
 ### Validate connection options
 
-When a merchant tries to [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store), BigCommerce will send a request to validate the connection options that they provide if you configured a Validate Connection Options URL for the carrier during app setup. Your response should indicate if the credentials are valid and explain what is wrong. 
+When a merchant tries to [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store), BigCommerce will send a request to validate the connection options that they provide if you configured a Check Connection Options URL for the carrier during app setup. Your response should indicate if the credentials are valid and explain what is wrong. 
 
 <!--
 type: tab
@@ -313,7 +313,7 @@ title: Response
 
 <!-- theme: info -->
 > #### Credential validation
-> It is best practice to authenticate the user and store against your database or the downstream provider service. However, if you did not provide a Validate Connection Options URL, a merchant's credentials are assumed to be valid as long as they pass type checks.
+> It is best practice to authenticate the user and store against your database or the downstream provider service. However, if you did not provide a Check Connection Options URL, a merchant's credentials are assumed to be valid as long as they pass type checks.
 
 
 ### Provide shipping rates to BigCommerce
@@ -544,7 +544,7 @@ For more information on product and variant metafields, see:
 | Countries Available | A list of countries where you can use the shipping carrier. The default behavior is that the carrier is available for every shipping origin. In most cases, this list should be as broad as possible. For example, if your carrier operates worldwide, make it available worldwide. You can limit the countries further than what the shipping carrier has provided. If the service is worldwide, then leave this field blank to specify that it is worldwide. Specifying the use of the shipping carrier is an optional step. |
 | Shipping Carrier | A shipping carrier provides real-time quotes to BigCommerce. If a shipping carrier uses more than one shipping provider, then it becomes a multi-carrier aggregator. A carrier includes a name, a description, and a logo.|
 | Multi-Carrier Aggregator | A shipping solution that provides shipping quotes for multiple carriers. |
-| Validate Connection Options URL | An optional URL for a shipping carrier resource that accepts check requests containing the connection options provided by a user when enabling the carrier and indicates whether or not those settings are valid.|
+| Check Connection Options URL | An optional URL for a shipping carrier resource that accepts check requests containing the connection options provided by a user when enabling the carrier and indicates whether or not those settings are valid.|
 | Shipping Quote | An estimation of the cost to ship a set of items from an origin to a destination.|
 | Shipping Zone | Describes a set of destination addresses and the applicable shipping settings, such as handling fees and available shipping methods.|
 | Shipping Origin | The location from which goods are shipped. This origin determines which shipping carriers are available for the merchant to configure in the control panel.|
