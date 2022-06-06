@@ -2,7 +2,7 @@
 
 Shipping provider apps (also known as carriers) allow merchants and shoppers to obtain **real-time** shipping quotes. Once a merchant installs a shipping provider app on their store, API users can connect the carrier to the store. API users can then define and enable multiple shipping methods for a carrier for any shipping zone. This makes real-time shipping methods available to shoppers for those zones during checkout.
 
-This article is a guide for API users on how to manage carrier connections and real-time shipping methods from these carriers.
+This article is a guide for API users on how to manage carrier connections and real-time shipping methods from carriers using the [Shipping V2 API](/api-reference/store-management/shipping-api).
 
 ## Prerequisites
 - Merchant has installed the shipping provider app
