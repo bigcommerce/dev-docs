@@ -1,4 +1,4 @@
-# Creating a Shipping Provider App
+# Become a Shipping Provider
 
 Shipping service providers who wish to offer shipping services and rates to BigCommerce merchants and shoppers can implement endpoints through BigCommerce. Once they implement and accept their service into BigCommerce's shipping carrier registry, merchants and API users can connect and enable the service on their store. BigCommerce will then automatically retrieve the service options and rates using the provider's endpoints, displaying them to merchants in the store's control panel and to shoppers on the storefront. Merchants can define and enable multiple real-time shipping methods for your carrier app in any shipping zone.
 
