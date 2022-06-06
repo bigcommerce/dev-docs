@@ -1,13 +1,17 @@
 # Using a Third-Party Shipping Provider
 
-Shipping provider apps (also known as carriers) allow merchants and shoppers to obtain **real-time** shipping quotes. Once a merchant installs a shipping provider app on their store, API users can connect the carrier to the store. API users can then define and enable multiple shipping methods for a carrier in any shipping zone. This makes real-time shipping methods available to shoppers for those zones during checkout.
+Shipping provider apps (also known as carriers) allow merchants and shoppers to obtain **real-time** shipping quotes. Once a merchant installs a shipping provider app on their store, API users can connect the carrier to the store. API users can then define and enable multiple shipping methods for a carrier for any shipping zone. This makes real-time shipping methods available to shoppers for those zones during checkout.
 
-This article is a guide for API users on how to manage carrier connections and real-time shipping methods from these carriers. Managing shipping zones is out of the scope for this article because BigCommerce's shipping zone endpoints are not specific to third-party shipping providers.
+This article is a guide for API users on how to manage carrier connections and real-time shipping methods from these carriers. Managing shipping zones is out of the scope for this article because BigCommerce's shipping zone endpoints are not specifically tailored to third-party shipping providers.
 
 ## Prerequisites
 - Merchant has installed the shipping provider app
 - You have obtained the required [OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes): `Information & Settings`
 - You or the merchant have created shipping zones. You can create zones with the [Create a shipping zone](/api-reference/store-management/shipping-api/shipping-zones/createashippingzones) endpoint.
+
+<!-- theme:info -->
+> #### Note
+> USPS, FedEx, and UPS carriers are pre-installed on stores. 
 
 ## Manage connections to shipping carriers 
 
@@ -151,14 +155,14 @@ No content
 
 ## Manage shipping methods
 
-When you connect a carrier, the carrier is disabled by default. To obtain real-time shipping quotes, you must enable it. You can enable a connected carrier for any shipping zone by using the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) endpoint. 
+After you connect a carrier, you must define and enable a shipping method for the carrier in a shipping zone. You can define and enable multiple shipping methods for a carrier for any zone.    
 
 ![Enabled vs Connected Carrier](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Enabled%20vs%20Connected%20Carrier.png 'Enabled versus Connected Carrier. USPS is enabled, while FedEx is only connected.')  
 
 
 ### Create a shipping method
 
-To specify the shipping zone, use the zone ID (`id`) from the [Get all shipping zones](/api-reference/store-management/shipping-api/shipping-zones/getallshippingzones) endpoint. The shipping carrier’s ID is required. 
+You can define and enable a method for the connected carrier in any shipping zone by using the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) endpoint. Specify the shipping zone in the path using the zone ID (`id`) from the [Get all shipping zones](/api-reference/store-management/shipping-api/shipping-zones/getallshippingzones) endpoint. The shipping carrier’s ID is required. 
 
 <!--
 type: tab
