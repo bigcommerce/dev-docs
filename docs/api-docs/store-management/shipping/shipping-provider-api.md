@@ -213,7 +213,7 @@ title: Password
 
 <!-- type: tab-end -->
 
-Note that for the select and multi-select configuration options, you need to provide the values that are available for merchants and API users.
+For the select and multi-select configuration options, note that you need to provide values that are available for merchants and API users.
 
 ## Submit your app
 
@@ -229,7 +229,7 @@ To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcomm
 
   If you would like [configuration fields](#configuration-fields) to be set up for your carrier, specify the properties you would like to use for these connection and/or settings options. 
 
-  We will then send you a `code` for each configuration option. API users will specify the `code` for connections options when they [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store). BigCommerce will also include the `code` for each connection option when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce) as properties under the `connection_options` object. API users specify the `code` for settings options when they define your carrier's shipping method for their shipping zones.  
+  We will then send you a `code` for each configuration option. API users will specify the `code` for connections options when they [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store). BigCommerce will also include the `code` for each connection option when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce). API users specify the `code` for settings options when they define your carrier's shipping method for their shipping zones.  
 
 ## What's next?
 
@@ -270,7 +270,7 @@ API users can then define and enable a shipping method for your carrier using th
 
 ### Validate connection options
 
-When a merchant tries to [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store), BigCommerce will send a request to validate the connection options that they provide if you configured a Check Connection Options URL for the carrier during app setup. Your response should indicate if the credentials are valid and explain what is wrong. 
+When a merchant tries to [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store), BigCommerce will send a request to validate the connection options that they provide if you configured a Check Connection Options URL for your carrier during app setup. Your response should indicate if the credentials are valid and explain what is wrong. 
 
 <!--
 type: tab
@@ -527,7 +527,7 @@ The metafields you receive from BigCommerce requests have the following characte
 For more information on product and variant metafields, see the following Catalog V3 API endpoints:
 
 - Product Metafields, e.g. [Get All Product Metafields](/api-reference/store-management/catalog/product-metafields/getproductmetafieldsbyproductid)
-- Product Variant Metafields, e.g. [Product Variant Metafields](/api-reference/store-management/catalog/product-variants-metafields/getvariantmetafieldsbyproductidandvariantid)
+- Product Variant Metafields, e.g. [Get All Product Variant Metafields](/api-reference/store-management/catalog/product-variants-metafields/getvariantmetafieldsbyproductidandvariantid)
 
 
 ## Definitions
