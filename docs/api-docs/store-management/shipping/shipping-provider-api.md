@@ -233,7 +233,7 @@ To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcomm
 
   If you would like [configuration fields](#configuration-fields) to be set up for your carrier, specify the properties you would like to use for these connection and/or settings options. 
 
-  We will then send you a `code` for each configuration option. API users will specify the `code` for the options when they [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store)and define your carrier's shipping method for their shipping zones. BigCommerce will also include each `code` when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce) as properties under the `zone_options` and `connection_options` object. 
+  We will then send you a `code` for each configuration option. API users will specify the `code` for connections options when they [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store). BigCommerce will also include the `code` for each connection option when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce) as properties under the `connection_options` object. API users specify the `code` for settings options when they define your carrier's shipping method for their shipping zones.  
 
 ## What's next?
 
