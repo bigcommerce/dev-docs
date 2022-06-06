@@ -95,7 +95,7 @@ To get started making requests, see [API Requests](/api-docs/getting-started/bas
 
 To revoke store API credentials, you must delete the corresponding store API account. If the `client_id` and `client_secret` are compromised, or the account has become unnecessary, secure your account by deleting the API account. You cannot recover a deleted API account, so take care.
 
-<!-- theme: error -->
+<!-- theme: danger -->
 > #### Delete carefully
 > Deleting an account cannot be undone, so be sure before clicking the trash can icon. You can also use the checkboxes on the left side to delete multiple accounts at once – but be especially careful when using this option.
 
@@ -141,9 +141,10 @@ To get app API credentials, create and sign in to your BigCommerce [Developer Po
 
 ![Client ID and client secret](https://s3.amazonaws.com/user-content.stoplight.io/6012/1537390135692 "Client ID and client secret")
 
-<!-- theme: warning -->
+<!-- theme: danger -->
 > #### Delete apps carefully
-> If you delete the app, there is no way to recover the client ID and client secret.
+> If you delete the app, there is no way to recover the client ID or client secret.
+
 ### Next steps
 
 During the app installation process, your app uses the client ID and client secret to obtain an OAuth token authorized against the store installing the app. For a detailed look at this process, see [Authenticating an app](/api-docs/apps/guide/auth).
@@ -166,7 +167,7 @@ During the app installation process, your app uses the client ID and client secr
 
 ## Migrating from legacy to OAuth
 
-<!-- theme: error -->
+<!-- theme: warning -->
 > #### Legacy API Accounts
 > As of February 2022, BigCommerce no longer issues legacy API Accounts (accounts using HTTP basic auth) to new stores. Starting July 2018, new BigCommerce stores were no longer able to create legacy API Accounts (accounts using HTTP basic auth) within their control panels. 
 > We strongly recommend migrating to OAuth as soon as possible. Existing legacy API Accounts will continue to work until further notice.
