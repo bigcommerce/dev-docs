@@ -12,7 +12,7 @@ This article guides developers on how to create and register a BigCommerce shipp
 
 ### Prerequisites
 
-* Get familiar with [Introduction to Building Apps](/api-docs/getting-started/building-apps-bigcommerce/building-apps) for building [single-click apps](/api-docs/apps/guide/types#single-click).
+* Get familiar with the [Introduction to Building Apps](/api-docs/getting-started/building-apps-bigcommerce/building-apps) article for building [single-click apps](/api-docs/apps/guide/types#single-click).
 
 
 ## Shipping app overview
@@ -21,17 +21,13 @@ This article guides developers on how to create and register a BigCommerce shipp
 
 ### Single-carrier versus multi-carrier apps
 
-A single-carrier app offers one service, for example, USPS. A multi-carrier app offers more than one carrier, for example, USPS, DHL, and Canada Post. You can only associate one registered shipping carrier with an app. This [registered carrier](#definitions) can provide quotes from multiple downstream carriers. 
+A single-carrier app offers one service, for example, USPS. A multi-carrier app offers more than one carrier, for example, USPS, DHL, and Canada Post. You can only associate one registered shipping carrier with an app. This registered carrier can provide quotes from multiple downstream carriers. 
 
 BigCommerce makes a distinction between single-carrier and multi-carrier shipping providers. The primary difference is how the quote displays in the customer's cart at checkout. If your app is registered as a single carrier, the name of the carrier providing the quote will appear beside the name of the shipping quote in the customer's list of shipping rate options. The carrier name will not appear in quotes from multi-carrier apps. The following images illustrate the difference:
 
-**Single-carrier quote example**
+![Single-carrier quote example](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Single%20Carrier%20Example.png 'Single-carrier quote example')
 
-![Single-carrier quote example](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Single%20Carrier%20Example.png)
-
-**Multi-carrier quote example**
-
-![Multi-carrier quote example](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Multi%20Carrier%20Example.png)
+![Multi-carrier quote example](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Multi%20Carrier%20Example.png 'Multi-carrier quote example')
 
 ## Sign up
 When your app is complete, it will be listed in our carrier registry, so that your shipping rates are available for merchants and shoppers to use. Register your app and get a carrier ID to get started.
@@ -140,7 +136,7 @@ Configuration fields are connection options or shipping settings options that yo
 
 ![FedEx Connection Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/FedEx%20Connection%20Settings.png 'Connection options')
 
-API users will also use connection options when they [connect your app to their store](#how-your-app-will-be-connected-to-a-store). They will use the settings options when defining your carrier's shipping method for specific shipping zones.  
+API users will also use connection options when they connect your app to their store. They will use the settings options when defining shipping methods that use your carrier.  
 
 #### What should you provide BigCommerce?
 If you would like configuration (connection or settings) options to be set up for your carrier, please specify the following for each configuration option when you [submit your app](#submit-your-app)
@@ -162,7 +158,7 @@ type: tab
 title: Text 
 -->
 
-```text title="Example Connection Option" lineNumbers 
+```text title="Example connection option" lineNumbers 
 - Label: Account Key
 - Required: true
 - Type: text
@@ -173,7 +169,7 @@ type: tab
 title: Checkbox 
 -->
 
-```text title="Example Connection Option" lineNumbers 
+```text title="Example connection option" lineNumbers 
 - Label: Shipping Rate
 - Required: false
 - Type: Checkbox
@@ -185,7 +181,7 @@ type: tab
 title: Select 
 -->
 
-```text title="Example Connection Option" lineNumbers 
+```text title="Example connection option" lineNumbers 
 - Label: Packaging Type
 - Required: false
 - Type: select
@@ -197,7 +193,7 @@ type: tab
 title: Multi-select
 -->
 
-```text title="Example Connection Option" lineNumbers 
+```text title="Example connection option" lineNumbers 
 - Label: Packaging Method
 - Required: false
 - Type: Multi-select
@@ -209,7 +205,7 @@ type: tab
 title: Password 
 --> 
 
-```text title="Example Connection Option" lineNumbers 
+```text title="Example connection option" lineNumbers 
 - Label: Password
 - Required: true
 - Type: password
