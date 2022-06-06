@@ -19,7 +19,7 @@ When a merchant installs a shipping provider app, the carrier appears in the mer
 
 ![Connected vs Installed Carrier](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Installed%20vs%20Connected%20Carrier.png 'Connected versus Installed Carrier. USPS is connected, while FedEx is only installed.')  
 
-### Create a Connection
+### Create a connection
 
 To set up a carrier using the API, connect it using the [Create a Carrier Connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. Make a request containing the ID of the carrier and any configuration fields that the carrier requires. All configuration fields are unique to each carrier. 
 
@@ -86,7 +86,7 @@ No content
 
 When you connect a carrier, the carrier is disabled by default. To obtain real-time shipping quotes, you must enable it (see [Create a shipping method](#create-a-shipping-method)).
 
-### Update a Connection
+### Update a connection
 
 When you update a connection, use the same fields for a carrier as [Create a connection](#create-a-connection). 
 
@@ -121,7 +121,7 @@ No content
 
 <!-- type: tab-end -->
 
-### Delete a Connection
+### Delete a connection
 
 To delete a connection, specify `carrier_id` in the request body.
 
@@ -374,5 +374,4 @@ No content
 
 ## Resources
 
-- [Shipping V2 API Reference](/api-reference/store-management/shipping-api)
-- 
+- [Shipping V2 API](/api-reference/store-management/shipping-api) 
