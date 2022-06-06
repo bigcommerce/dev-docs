@@ -534,13 +534,13 @@ For more information on product and variant metafields, see the following Catalo
 
 | Name | Description |
 | ---- | ---- |
-| Configuration Fields | Optional connection and shipping settings fields. Merchants and API users use these fields to connect your carrier to their store and define define shipping methods for your carrier in a zone.|
+| Configuration Fields | Optional connection and shipping settings fields. Merchants and API users use these fields to connect your carrier to their store and define define shipping methods for your carrier in a zone. |
 | Quote URL | A URL you provide when you [request a carrier ID](#request-a-carrier-id) that accepts quote requests from BigCommerce and responds with shipping quotes.|
-| Single Carrier or Multi Carrier | A single carrier app will offer only one shipping provider. A multi carrier app will aggregate multiple shipping carriers in one app. See [Single-carrier versus multi-carrier apps](#single-carrier-versus-multi-carrier-apps)|
+| Single Carrier or Multi Carrier | A single carrier app will offer only one shipping provider. A multi carrier app will aggregate multiple shipping carriers in one app. For more info, see [Single-carrier versus multi-carrier apps](#single-carrier-versus-multi-carrier-apps).|
 | Countries Available | A list of countries where you can use the shipping carrier. The default behavior is that the carrier is available for every shipping origin. In most cases, this list should be as broad as possible. For example, if your carrier operates worldwide, make it available worldwide. You can limit the countries further than what the shipping carrier has provided. If the service is worldwide, then leave this field blank to specify that it is worldwide. Specifying the use of the shipping carrier is an optional step. |
 | Shipping Carrier | A shipping carrier provides real-time quotes to BigCommerce. If a shipping carrier uses more than one shipping provider, then it becomes a multi-carrier aggregator. A carrier includes a name, a description, and a logo.|
 | Multi-Carrier Aggregator | A shipping solution that provides shipping quotes for multiple carriers. |
-| Check Connection Options URL | An optional URL for a shipping carrier resource that accepts check requests containing the connection options provided by a user when enabling the carrier and indicates whether or not those settings are valid.|
+| Check Connection Options URL | An optional URL for a shipping carrier resource that accepts check requests containing the connection options provided by a user when connecting the carrier and indicates whether or not those settings are valid. You provide this URL when you [request a carrier ID](#request-a-carrier-id).|
 | Shipping Quote | An estimation of the cost to ship a set of items from an origin to a destination.|
 | Shipping Zone | Describes a set of destination addresses and the applicable shipping settings, such as handling fees and available shipping methods.|
 | Shipping Origin | The location from which goods are shipped. This origin determines which shipping carriers are available for the merchant to configure in the control panel.|
