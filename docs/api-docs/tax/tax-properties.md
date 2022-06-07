@@ -54,16 +54,16 @@ title: Response
             "code": "A-123456789",
             "display_name": "Example Tax Property 1",
             "description": "Food Industry",
-            "created_at": 1652474631,
-            "updated_at": 1652474631
+            "created_at": "2022-05-17T14:25:21+00:00",
+            "updated_at": "2022-05-17T14:25:21+00:00"
         },
         {
             "id": 2,
             "code": "B-123456789",
             "display_name": "Example Tax Property 2",
             "description": "Clothing Industry",
-            "created_at": 1652474631,
-            "updated_at": 1652474631
+            "created_at": "2022-05-17T14:25:21+00:00",
+            "updated_at": "2022-05-17T14:25:21+00:00"
         }
     ],
     "meta": {}
@@ -112,8 +112,8 @@ title: Response
             "code": "A-123456789",
             "display_name": "Example Tax Property 1",
             "description": "Automobile Industry",
-            "created_at": 1652474631,
-            "updated_at": 1652476111
+            "created_at": "2022-05-17T14:25:21+00:00",
+            "updated_at": "2022-05-21T14:25:21+00:00"
         }
     ],
     "meta": {}
@@ -151,16 +151,16 @@ title: Response
             "code": "A-123456789",
             "display_name": "Example Tax Property 1",
             "description": "Automobile Industry",
-            "created_at": 1652474631,
-            "updated_at": 1652476111
+            "created_at": "2022-05-17T14:25:21+00:00",
+            "updated_at": "2022-05-21T14:25:21+00:00"
         },
         {
             "id": 2,
             "code": "B-123456789",
             "display_name": "Example Tax Property 2",
             "description": "Clothing Industry",
-            "created_at": 1652474631,
-            "updated_at": 1652476372
+            "created_at": "2022-05-17T14:25:21+00:00",
+            "updated_at": "2022-05-17T14:25:21+00:00"
         }
     ],
     "meta": {
