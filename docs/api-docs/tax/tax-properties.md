@@ -198,7 +198,7 @@ title: Response
 -->
 
 ```json title="Example DELETE response" lineNumbers 
-No response
+No content
 ```
 
 <!-- type: tab-end -->
@@ -362,7 +362,7 @@ title: Response
 -->
 
 ```json title="Example DELETE response" lineNumbers 
-No response
+No content
 ```
 
 <!-- type: tab-end -->
