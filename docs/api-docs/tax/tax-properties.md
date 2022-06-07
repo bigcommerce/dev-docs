@@ -1,23 +1,23 @@
 # Tax Properties for Products
 
-Tax properties are ... They allow merchants and shoppers to receive more accurate tax calculations from third-party tax providers by factoring in ...   
+Tax properties are inputs that merchants can provide into a tax provider's tax calculation to receive more accurate tax calculations from third-party tax providers. These properties are specific to a tax provider and allow merchants and shoppers to have tax-related fields factored into their tax rates. 
 
-The tax properties feature will allow you to:
+The Tax Property V3 API will allow you to perform the following functions:
 -Add tax property fields that are specific to a tax provider (have **variable** inputs for tax calculations)      
 -Associate tax properties to **products**. Unlike tax codes, you can add **multiple** tax properties to a single product
 
-## Tax Properties
+## Tax properties
 
 You must first add tax properties from a tax provider to the store. The `code` for a tax property must be provided by the tax provider. Both `code` and `display_name` are required.   
 
-### Create Tax Properties
+### Create tax properties
 
 <!--
 type: tab
 title: Request
 -->
 
-```JSON title="Example POST request with X-Auth-Token header 
+```json title="Example POST request with X-Auth-Token header" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/properties
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -42,7 +42,7 @@ type: tab
 title: Response
 -->
 
-```JSON title="Example POST response 
+```json title="Example POST response" lineNumbers 
 {
     "data": [
         {
@@ -70,7 +70,7 @@ title: Response
 
 The response provides an `id` for each tax property that is used to get, update, or delete a specific tax property.
 
-### Update Tax Properties
+### Update tax properties
 
 You may update a tax property's `code`, `display_name`, and `description`. Only fields that you specify will be updated.   
 
@@ -79,7 +79,7 @@ type: tab
 title: Request
 -->
 
-```JSON title="Example PUT request with X-Auth-Token header 
+```json title="Example PUT request with X-Auth-Token header" lineNumbers 
 PUT https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/properties
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -100,7 +100,7 @@ type: tab
 title: Response
 -->
 
-```JSON title="Example PUT response 
+```json title="Example PUT response" lineNumbers 
 {
     "data": [
         {
@@ -118,7 +118,7 @@ title: Response
 
 <!-- type: tab-end -->
 
-### Get Tax Properties
+### Get tax properties
 
 You can get either all the tax properties in your store or only specific tax properties by specifying the `id` for the tax properties in the query.
 
@@ -127,7 +127,7 @@ type: tab
 title: Request
 -->
 
-```JSON title="Example GET request with X-Auth-Token header 
+```json title="Example GET request with X-Auth-Token header" lineNumbers 
 GET https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/properties
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -139,7 +139,7 @@ type: tab
 title: Response
 -->
 
-```JSON title="Example GET response 
+```json title="Example GET response" lineNumbers 
 {
     "data": [
         {
@@ -176,7 +176,7 @@ title: Response
 
 <!-- type: tab-end -->
 
-### Delete Tax Properties
+### Delete tax properties
 
 To delete tax properties, you must specify the `id` for the tax properties in the query.
 
@@ -185,7 +185,7 @@ type: tab
 title: Request
 -->
 
-```JSON title="Example DELETE request with X-Auth-Token header 
+```json title="Example DELETE request with X-Auth-Token header" lineNumbers 
 DELETE https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/properties?id:in=1,2
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -197,7 +197,7 @@ type: tab
 title: Response
 -->
 
-```JSON title="Example DELETE response 
+```json title="Example DELETE response" lineNumbers 
 No response
 ```
 
@@ -205,19 +205,19 @@ No response
 
 
 
-## Product Tax Properties 
+## Product tax properties 
 
 Tax properties can be associated with products (i.e. Product Tax Property). To do so,
 specify the product using its product ID. The `product_id` field has the same value as the `id` field from [Get All Products](/api-reference/store-management/catalog/products/getproducts). Note that you can add multiple tax properties for a product.
 
-### Update Product with Tax Properties
+### Update product with tax properties
 
 <!--
 type: tab
 title: Request
 -->
 
-```JSON title="Example PUT request with X-Auth-Token header 
+```json title="Example PUT request with X-Auth-Token header" lineNumbers 
 PUT https://api.bigcommerce.com/stores/{{Store-Hash}}/v3/tax/products/properties
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -245,7 +245,7 @@ type: tab
 title: Response
 -->
 
-```JSON title="Example PUT response 
+```json title="Example PUT response" lineNumbers 
 {
     "data": [
         {
@@ -285,7 +285,7 @@ title: Response
 > Product Tax Properties are sent to the tax provider via the Tax Provider API. To see this in action, see [Estimate Taxes](...). 
 
 
-### Get Product Tax Properties 
+### Get product tax properties 
 
 To get the tax properties associated with products, you must specify the `product_id` for the products in the query. 
 
@@ -294,7 +294,7 @@ type: tab
 title: Request
 -->
 
-```JSON title="Example GET request with X-Auth-Token header 
+```json title="Example GET request with X-Auth-Token header" lineNumbers 
 GET https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/properties?product_id:in=113,117
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -306,7 +306,7 @@ type: tab
 title: Response
 -->
 
-```JSON title="Example GET response 
+```json title="Example GET response" lineNumbers 
 {
     "data": [
         {
@@ -340,7 +340,7 @@ title: Response
 
 <!-- type: tab-end -->
 
-### Delete Product Tax Properties
+### Delete product tax properties
 
 To delete the tax properties associated with products, you must specify the `product_id` for the products you wish to delete in the query. 
 
@@ -349,7 +349,7 @@ type: tab
 title: Request
 -->
 
-```JSON title="Example DELETE request with X-Auth-Token header 
+```json title="Example DELETE request with X-Auth-Token header" lineNumbers 
 DELETE https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/properties?product_id:in=113,117
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -361,13 +361,13 @@ type: tab
 title: Response
 -->
 
-```JSON title="Example DELETE response 
+```json title="Example DELETE response" lineNumbers 
 No response
 ```
 
 <!-- type: tab-end -->
 
-## Related Resources 
+## Resources 
 
-- [Tax Properties API Reference](...)
+- [Tax Properties V3 API Reference](...)
 - [Tax Provider API Doc](...) See how tax properties are sent to tax providers 
