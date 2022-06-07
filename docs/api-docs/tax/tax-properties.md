@@ -207,7 +207,7 @@ No response
 
 ## Product tax properties 
 
-Tax properties can be associated with products (i.e. Product Tax Property). To do so,
+Tax properties can be associated with products (i.e. product tax property). To do so,
 specify the product using its product ID. The `product_id` field has the same value as the `id` field from [Get All Products](/api-reference/store-management/catalog/products/getproducts). Note that you can add multiple tax properties for a product.
 
 ### Update product with tax properties
@@ -282,7 +282,7 @@ title: Response
 
 <!-- theme:info -->
 > #### Note:
-> Product Tax Properties are sent to the tax provider via the Tax Provider API. To see this in action, see [Estimate Taxes](...). 
+> Product tax properties are sent to the tax provider via the Tax Provider API. To see this in action, see [Estimate Taxes](...). 
 
 
 ### Get product tax properties 
