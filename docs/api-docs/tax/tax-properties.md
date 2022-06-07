@@ -6,6 +6,10 @@ The Tax Property V3 API will allow you to perform the following functions:
 - Add tax property fields that are specific to a tax provider (have **variable** inputs for tax calculations)      
 - Associate tax properties to **products**. Unlike tax codes, you can add **multiple** tax properties to a single product
 
+<!-- theme:info -->
+> #### Note
+> Currently, tax properties can be associated to products at the **product level**. 
+
 ## Tax properties
 
 You must first add tax properties from a tax provider to the store. The `code` for a tax property must be provided by the tax provider. Both `code` and `display_name` are required.   
