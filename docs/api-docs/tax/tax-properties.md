@@ -208,7 +208,7 @@ No content
 ## Product tax properties 
 
 Tax properties can be associated with products (i.e. product tax property). To do so,
-specify the product using its product ID. The `product_id` field has the same value as the `id` field from [Get All Products](/api-reference/store-management/catalog/products/getproducts). Note that you can add multiple tax properties for a product.
+specify the product using its product ID. The `product_id` field has the same value as the `id` field from the [Get all products](/api-reference/store-management/catalog/products/getproducts) endpoint. Note that you can add multiple tax properties for a product.
 
 ### Update product with tax properties
 
@@ -282,7 +282,7 @@ title: Response
 
 <!-- theme:info -->
 > #### Note:
-> Product tax properties are sent to the tax provider via the Tax Provider API. To see this in action, see [Estimate Taxes](...). 
+> Product tax properties are sent when BigCommerce makes a request to a provider for taxes estimations, tax quote commits, and tax quote adjustments. For more info, see the [Tax Provider API](/api-reference/providers/tax-provider-api).
 
 
 ### Get product tax properties 
