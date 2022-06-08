@@ -17,7 +17,7 @@ This article guides developers on how to create and register a BigCommerce shipp
 
 ## Shipping app overview
 
-![Shipping App Overview](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Shipping%20App%20Overview.png)
+![Shipping App Overview](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Shipping%20App%20Overview.png 'Shipping Provider API')
 
 ### Single-carrier versus multi-carrier apps
 
