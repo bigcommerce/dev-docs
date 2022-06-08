@@ -278,7 +278,7 @@ title: Request
 -->
 
 ```json title="Example POST request with with X-Auth-Token header" lineNumbers
-POST https://example.com/check_connection_options_example
+POST https://example.com/check_connection_options
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -314,7 +314,7 @@ title: Response
 
 ### Provide shipping rates to BigCommerce
 
-When BigCommerce needs shipping rates, BigCommerce checks its internal cache for valid entries. If valid entries are present, BigCommerce uses these entries and does not make a request to your carrier. If a valid cache entry does not exist, BigCommerce makes a request to the [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) endpoint, which uses the [Quote URL](#your-service-urls) that you provided. The request will include details of the items to be shipped, the shipping origin, the shipping destination, and [connection or zone settings options](#configuration-fields) for your carrier. Note that the `code` for each connection and settings option is included in the request under the `connection_options` and `zone_options` objects, respectively. Your carrier must then respond with shipping quote(s).
+When BigCommerce needs shipping rates, BigCommerce checks its internal cache for valid entries. If valid entries are present, BigCommerce uses these entries and does not make a request to your carrier. If a valid cache entry does not exist, BigCommerce makes a request to the [Quote URL](#your-service-urls) that you provided. The request will include details of the items to be shipped, the shipping origin, the shipping destination, and [connection or zone settings options](#configuration-fields) for your carrier. Note that the `code` for each connection and settings option is included in the request under the `connection_options` and `zone_options` objects, respectively. Your carrier must then respond with shipping quote(s). For more info, see the [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) endpoint.
 
 <!--
 type: tab
@@ -322,7 +322,7 @@ title: Request
 --> 
 
 ```json title="Example POST request with X-Auth-Token header" lineNumbers
-POST https://example.com/rate_example
+POST https://example.com/rate
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
