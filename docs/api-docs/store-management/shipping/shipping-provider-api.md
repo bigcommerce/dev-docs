@@ -248,7 +248,7 @@ After connecting your carrier, a merchant can define and enable multiple real-ti
 API users can connect your carrier to the store by using the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. In the request, API users will send the carrier ID that you obtained during app setup, as well as values for your app's connection options. Specifically, API users will specify the `code` for each connection option as a property under the `connection` object when they connect to your carrier, for example:    
 
 ```json title="Example POST request with X-Auth-Token header" lineNumbers
-POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/carrier/connection
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/carrier/connection
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -282,6 +282,7 @@ POST https://example.com/check_connection_options
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
+
 {
   "connection_options": {
     "account_id": "example"
