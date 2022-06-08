@@ -84,7 +84,7 @@ title: Request
 -->
 
 ```json title="Example PUT request with X-Auth-Token header" lineNumbers 
-PUT https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/properties
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/properties
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -130,7 +130,7 @@ title: Request
 -->
 
 ```json title="Example GET request with X-Auth-Token header" lineNumbers 
-GET https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/properties
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/properties
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -188,7 +188,7 @@ title: Request
 -->
 
 ```json title="Example DELETE request with X-Auth-Token header" lineNumbers 
-DELETE https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/properties?id:in=1,2
+DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/properties?id:in=1,2
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -220,7 +220,7 @@ title: Request
 -->
 
 ```json title="Example PUT request with X-Auth-Token header" lineNumbers 
-PUT https://api.bigcommerce.com/stores/{{Store-Hash}}/v3/tax/products/properties
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/products/properties
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -297,7 +297,7 @@ title: Request
 -->
 
 ```json title="Example GET request with X-Auth-Token header" lineNumbers 
-GET https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/products/properties?product_id:in=113,117
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/products/properties?product_id:in=113,117
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -352,7 +352,7 @@ title: Request
 -->
 
 ```json title="Example DELETE request with X-Auth-Token header" lineNumbers 
-DELETE https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/products/properties?product_id:in=113,117
+DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/products/properties?product_id:in=113,117
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
