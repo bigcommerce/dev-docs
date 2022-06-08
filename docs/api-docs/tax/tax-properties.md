@@ -92,8 +92,6 @@ Accept: application/json
 [
     {
       "id": 1,
-      "code": "A-123456789",
-      "display_name": "Example Tax Property 1",
       "description": "Automobile Industry"
     }  
 ]
