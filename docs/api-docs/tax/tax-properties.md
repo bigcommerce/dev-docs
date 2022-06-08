@@ -22,7 +22,7 @@ title: Request
 -->
 
 ```json title="Example POST request with X-Auth-Token header" lineNumbers
-POST https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/properties
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/properties
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -211,7 +211,7 @@ No content
 
 ## Product tax properties 
 
-Tax properties can be associated with products (i.e. product tax property). To do so,
+Tax properties can be associated with products, creating a product tax property. To do so,
 specify the product using its product ID. The `product_id` field has the same value as the `id` field from the [Get all products](/api-reference/store-management/catalog/products/getproducts) endpoint. Note that you can add multiple tax properties for a product.
 
 ### Update product with tax properties
