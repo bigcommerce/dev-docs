@@ -124,7 +124,7 @@ title: Response
 
 ### Get tax properties
 
-You can get either all the tax properties in your store or only specific tax properties by specifying the `id` for the tax properties in the query.
+You can get all the tax properties in your store or only specific tax properties. To get specific tax properties, specify the `id` for the tax properties in the query.
 
 <!--
 type: tab
@@ -182,7 +182,7 @@ title: Response
 
 ### Delete tax properties
 
-To delete tax properties, you must specify the `id` for the tax properties in the query.
+To delete tax properties, you must specify the `id` in the query for the tax properties you wish to delete.
 
 <!--
 type: tab
@@ -212,7 +212,7 @@ No content
 ## Product tax properties 
 
 Tax properties can be associated with products, creating a product tax property. To do so,
-specify the product using its product ID. The `product_id` field has the same value as the `id` field from the [Get all products](/api-reference/store-management/catalog/products/getproducts) endpoint. Note that you can add multiple tax properties for a product.
+specify the product using its product ID. The `product_id` field has the same value as the `id` field from the [Get all products](/api-reference/store-management/catalog/products/getproducts) endpoint. Note that you can add multiple tax properties for a single product.
 
 ### Update product with tax properties
 
@@ -285,13 +285,13 @@ title: Response
 
 
 <!-- theme:info -->
-> #### Note:
+> #### Note
 > Product tax properties are sent when BigCommerce makes a request to a provider for taxes estimations, tax quote commits, and tax quote adjustments. For more info, see the [Tax Provider API](/api-reference/providers/tax-provider-api).
 
 
 ### Get product tax properties 
 
-To get the tax properties associated with products, you must specify the `product_id` for the products in the query. 
+To get the tax properties that are associated with a product, you must specify the `product_id` for the products in the query. 
 
 <!--
 type: tab
@@ -346,7 +346,7 @@ title: Response
 
 ### Delete product tax properties
 
-To delete the tax properties associated with products, you must specify the `product_id` for the products you wish to delete in the query. 
+You can disassociate tax properties from a product. To do so, you must specify the `product_id` for the products in the query. This disassociates all the tax properties from a product. 
 
 <!--
 type: tab
