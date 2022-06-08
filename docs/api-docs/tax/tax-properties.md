@@ -10,6 +10,8 @@ The Tax Property V3 API will allow you to perform the following functions:
 > #### Note
 > Currently, tax properties can be associated to products at the **product level**. 
 
+For more info, see the [Tax Property V3 API](/api-reference/store-management/tax-properties) reference.
+
 ## Tax properties
 
 You must first add tax properties from a tax provider to the store. The `code` for a tax property must be provided by the tax provider. Both `code` and `display_name` are required.   
@@ -371,5 +373,4 @@ No content
 
 ## Resources 
 
-- [Tax Properties V3 API Reference](...)
-- [Tax Provider API Doc](...) See how tax properties are sent to tax providers 
+- [Tax Properties V3 API Reference](/api-reference/store-management/tax-properties)
