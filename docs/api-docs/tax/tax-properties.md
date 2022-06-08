@@ -297,7 +297,7 @@ title: Request
 -->
 
 ```json title="Example GET request with X-Auth-Token header" lineNumbers 
-GET https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/properties?product_id:in=113,117
+GET https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/products/properties?product_id:in=113,117
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -352,7 +352,7 @@ title: Request
 -->
 
 ```json title="Example DELETE request with X-Auth-Token header" lineNumbers 
-DELETE https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/properties?product_id:in=113,117
+DELETE https://api.bigcommerce.com/stores/{{STORE-HASH}}/v3/tax/products/properties?product_id:in=113,117
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
