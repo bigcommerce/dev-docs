@@ -290,7 +290,7 @@ title: Response
 
 ### Get product tax properties 
 
-To get the tax properties that are associated with a product, you must specify the `product_id` for the products in the query. 
+To get the tax properties associated with a product, you must specify the `product_id` for the products in the query. 
 
 <!--
 type: tab
