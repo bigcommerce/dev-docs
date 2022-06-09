@@ -8,7 +8,7 @@ The Tax Property V3 API will allow you to perform the following functions:
 
 <!-- theme:info -->
 > #### Note
-> Currently, tax properties can be associated to products at the **product level**. 
+> Currently, you can associate tax properties to products at the **product level**. 
 
 For more info, see the [Tax Property V3 API](/api-reference/store-management/tax-properties) reference.
 
