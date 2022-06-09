@@ -74,7 +74,7 @@ title: Response
 
 <!-- type: tab-end -->
 
-The response provides an `id` for each tax property that is used to get, update, or delete a specific tax property.
+The response provides an `id` for each tax property which you can use to get, update, or delete a specific tax property.
 
 ### Update tax properties
 
