@@ -31,41 +31,41 @@ The following table lists the payment gateways that are compatible with our publ
 
 | Payment Gateway   | Stored instruments | Raw card data   |
 |:------------------|:------------------:|:---------------:|
-| Adyen             |       | &times; |
-| AdyenV2           | &times; |       |
-| Authorize.net     | &times; | &times; |
-| Barclaycard Fuse  | &times; | &times; |
-| Bolt              | &times; | &times; |
-| CardConnect       |       | &times; |
-| Chase Integrated Payments |         | &times; |
-| Chase Merchant Services   | &times; |  &times;|
-| Checkout.com      | &times; | &times; |
-| Commonwealth Bank | &times; | &times; |
-| Cybersource       | &times; | &times; |
-| Eway Rapid        |       | &times; |
-| First Data Payeezy Gateway |       | &times; |
-| Heartland Payment Systems  |       | &times; | 
-| MIGS              |       | &times; |
-| Mollie            | &times; |       |
-| Moneris           | &times; | &times; |
-| MyVirtualMerchant | &times; | &times; |
-| NMI               |       | &times; |
-| Paymetric         | &times; | &times; |
-| PayPal (Commerce Platform)  |       | &times; |
-| PayPal Powered by Braintree | &times; | &times; |
-| PayPal Payments Pro (Payflow Edition) UK |       | &times; |
-| PayPal Payments Pro (Payflow Edition) US |       | &times; |
-| QuickBooks Payments         |       | &times; |
-| Sage Pay/Protx VSP Direct   |       | &times; |
-| SecureNet        |       | &times; |
-| Stripe           | &times; | &times; |
-| StripeV3         | &times; | &times; |
-| USA ePay         |       | &times; |
-| Vantiv           |       | &times; |
-| Vantiv Core      |       | &times; |
-| Windcave         |       | &times; |
-| Worldpay         |       | &times; |
-| Worldpay Core    |       | &times; |
+| Adyen             |                    | &check;         |
+| AdyenV2           | &check;            |                 |
+| Authorize.net     | &check;            | &check;         |
+| Barclaycard Fuse  | &check;            | &check;         |
+| Bolt              | &check;            | &check;         |
+| CardConnect       |                    | &check;         |
+| Chase Integrated Payments |            | &check;         |
+| Chase Merchant Services   | &check;    | &check;         | 
+| Checkout.com      | &check;            | &check;         |
+| Commonwealth Bank | &check;            | &check;         |
+| Cybersource       | &check;            | &check;         |
+| Eway Rapid        |                    | &check;         |
+| First Data Payeezy Gateway |           | &check;         |
+| Heartland Payment Systems  |           | &check;         | 
+| MIGS              |                    | &check;         |
+| Mollie            | &check;            |                 |
+| Moneris           | &check;            | &check;         |
+| MyVirtualMerchant | &check;            | &check;         |
+| NMI               |                    | &check;         |
+| Paymetric         | &check;            | &check;         |
+| PayPal (Commerce Platform)  |          | &check;         |
+| PayPal Powered by Braintree | &check;  | &check;         |
+| PayPal Payments Pro (Payflow Edition) UK |     | &check; |
+| PayPal Payments Pro (Payflow Edition) US |     | &check; |
+| QuickBooks Payments                      |     | &check; |
+| Sage Pay/Protx VSP Direct                |     | &check; |
+| SecureNet        |                             | &check; |
+| Stripe           | &check;                     | &check; |
+| StripeV3         | &check;                     | &check; |
+| USA ePay         |                             | &check; |
+| Vantiv           |                             | &check; |
+| Vantiv Core      |                             | &check; |
+| Windcave         |                             | &check; |
+| Worldpay         |                             | &check; |
+| Worldpay Core    |                             | &check; |
 
 To learn more about the BigCommerce-compatible features of these gateways, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available). 
 
