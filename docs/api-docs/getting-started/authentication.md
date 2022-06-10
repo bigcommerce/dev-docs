@@ -2,23 +2,23 @@
 
 BigCommerce offers a suite of APIs that let you manage store data, sign customers in, make client-side queries for product information, and write apps that integrate third-party services into store operations.
 
-This article provides an overview of the authentication schemes that our APIs use organized by the header or other mechanism they use to authenticate with our servers.
+This article provides an overview of the authentication schemes that our APIs use, organized by the header or other mechanism they use to authenticate with our servers.
 
-Regardless of authentication scheme, BigCommerce **API accounts** play a role in every authenticated request to our servers.
+Regardless of the subject API's authentication scheme, BigCommerce **API accounts** play a role in every authenticated request to our servers.
 
-Our API accounts come in a few different flavors to meet the needs of different use cases. For example, app API accounts work well in multi-store contexts, whereas store API accounts are a good choice for front-end applications. **Some endpoints only work with one kind of API account.** For a thorough explanation of the differences, check out the section on [choosing the right kind of API account](/api-docs/getting-started/authentication/rest-api-authentication#choosing-the-right-kind-of-api-account) in our API accounts article.
+Our API accounts come in a few different flavors to meet the needs of different use cases. For example, app API accounts work well in multi-store contexts, whereas store API accounts are a good choice for frontend applications. **Some endpoints only work with one kind of API account.** For a thorough explanation of the differences, check out the section on [choosing the right kind of API account](/api-docs/getting-started/authentication/rest-api-authentication#choosing-the-right-kind-of-api-account) in our API accounts article.
 
 ## Stable tokens
 
-Most of our APIs use credentials that do not expire based on a time frame. Depending on the type of API account the credentials belong to, they may expire based on user or developer actions. 
+Most of our APIs use credentials that do not expire based on a time frame. Depending on the type of API account the credentials belong to, they might expire based on user or developer actions. 
 <!-- For more on events that expire tokens, see ??forthcoming apps article??. -->
 
-The following sections describe the two authentication schemes we currently have that use stable tokens. They include example requests and indicate the endpoints to which the schemes apply.
+The following sections describe the two authentication schemes we use that rely on stable tokens. They include example requests and list or describe the endpoints to which the schemes apply.
 
 ### Access tokens
 
 <!-- theme: info -->
-> Legacy API accounts used HTTP basic authentication. They are no longer available to new stores. [Learn more about migrating](/api-docs/getting-started/authentication/rest-api-authentication#migrating-from-legacy-to-oauth).
+> Legacy API accounts used HTTP basic authentication. They are no longer available to new stores. For more information, see [API Accounts: Migrating from legacy to OAuth](/api-docs/getting-started/authentication/rest-api-authentication#migrating-from-legacy-to-oauth).
 
 Most of our REST endpoints use the `X-Auth-Token` header to authenticate to BigCommerce servers. For more about the APIs that do **NOT** use the `X-Auth-Token` header, consult this article's sections on [dynamic tokens](#dynamic-tokens) and [same-origin CORS authentication](#same-origin-cors-authentication).
 
@@ -90,7 +90,7 @@ Accept: application/json
 
 ### Client ID
 
-Some APIs use a combination of client ID and JWT to authenticate the requestor and secure customer data. The requestor sends an API account's client ID as a query parameter, and our servers return a BigCommerce-generated JWT that your app can decode to receive the response. For example, the Current Customer API's JWT payload identifies the customer who is currently signed in.
+Another **stable token**-based scheme involves mutual authentication. The requesting app identifies itself by sending an API account's client ID as a query parameter, and our servers return a BigCommerce-generated JSON web token, or _JWT_, which securely encrypts merchant data. The app can decode the JWT to view the response. For example, the Current Customer API's JWT payload identifies currently signed in customer.
 
 The following table lists the APIs that authenticate with a client ID. For OAuth scopes, consult the **Endpoint Reference** column. 
 
@@ -139,7 +139,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJpZCI6NDkyNywiZW1haWwiOiJ
 
 ## Dynamic tokens
 
-A number of our APIs authenticate with JSON web tokens, or _JWTs_. JWTs authorize both the requestor and the recipient because they contain a signed payload that the recipient must successfully decrypt before working with the transmitted data. Some JWTs can be used an unlimited number of times within an expiration window; others must be unique to each request. 
+Several of our APIs authenticate with JSON web tokens, or _JWTs_. JWTs authorize both the requester and the recipient because they contain a signed payload that the recipient must successfully decrypt before working with the transmitted data. Some JWTs can be used unlimited times within an expiration window; others must be unique to each request.
 
 Our JWT-based authentication schemes fall into the following categories:
 * The user passes a [BigCommerce-generated JWT](#bigcommerce-generated-jwts) as part of the value of the `Authorization` header
@@ -149,14 +149,16 @@ Our JWT-based authentication schemes fall into the following categories:
 All requests that use JWTs require at least two steps. In addition to the request itself, you must also either get, make, or decrypt the JWT that the request sends or receives. The following sections describe the steps for these three JWT-based authentication schemes, reference the endpoints to which they apply, and give example requests.
 
 <!-- theme: warning -->
-> #### Ensure your tokens are in scope
-> Consult the documentation for your target endpoint and the REST token generation endpoint that correspond to your use case to determine the required OAuth scopes before you create an API account to request dynamic tokens.
+> #### Make sure your tokens are in scope
+> Before you create an API account to request dynamic tokens, determine the required OAuth scopes by consulting the documentation for your target endpoint and its corresponding REST token generation endpoint.
 
 ### BigCommerce-generated JWTs
 
 Some APIs authenticate with an `Authorization` header that contains a string concatenated with a BigCommerce-generated JWT. Requests to these APIs contain the following two parts:
-* The user requests the JWT from BigCommerce, or extracts it from context
-* The user sends the intended request
+1. The user obtains the JWT by:
+   * Making an API request to BigCommerce, or 
+   * On Stencil storefronts, extracting it from the page's context.
+2. The user sends the intended request.
 
 The following table lists the APIs that use the `Authorization` header, along with information about obtaining a token and forming a valid header value. For OAuth scope, expiry window, and other implementation details, consult the **Endpoint Reference** column. 
 
@@ -165,8 +167,7 @@ The following table lists the APIs that use the `Authorization` header, along wi
 | [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) | [Create a token](/api-reference/storefront/graphql-api-tokens/api-token/createtoken), Stencil context | [Create a Storefront query](/api-reference/graphql/storefront-graphql-reference) | store | `Bearer {{TOKEN}}` |
 | [Payments API](/api-docs/store-management/payment-processing) | [Create a payment access token](/api-reference/store-management/payment-processing/access-tokens/paymentsaccesstokenspost) | [Process a payment](/api-reference/store-management/payment-processing/process-payment/paymentspost) | app or store | `PAT {{TOKEN}}` |
 
-
-To obtain a dynamic token, send a request to the REST endpoint listed in the **Obtain a JWT** column or consult the article listed in the **API Description** column. Use an API account that has the OAuth scopes you need to make your target request. 
+To obtain a dynamic token, send a request to the REST endpoint listed in the **Obtain a JWT** column or consult the article listed in the **API Description** column. Use an API account with the OAuth scopes you need to make your target request. 
 
 ### Authorization header example requests
 
@@ -318,13 +319,13 @@ To learn more, see our [Apps Guide](api-docs/apps/guide/intro), especially the a
 
 ## Same-origin CORS authentication
 
-The following set of APIs relies on [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) headers for authentication. You do not need to send any BigCommerce-specific tokens along with your requests to these endpoints.
+The following APIs rely on [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) headers for authentication. You do not need to send any BigCommerce-specific tokens with your requests to these endpoints.
 
 ### REST Storefront API
 
-The REST Storefront API allows you to make client-side requests for carts, checkouts, and orders using JavaScript or an alternative language that compiles to run in the browser. It is a convenience collection of operations that affect one customer at a time and run in the context of the customer's current session on a BigCommerce-hosted storefront. You can perform authenticated versions of the same operations using the GraphQL Storefront API or the REST Store Management APIs.
+The REST Storefront API lets you make client-side requests for carts, checkouts, and orders using JavaScript or an alternative language that compiles to run in the browser. It is a convenience collection of operations that affect one customer at a time and run in the context of the customer's current session on a BigCommerce-hosted storefront. You can perform authenticated versions of the same operations using the GraphQL Storefront API or the REST Store Management APIs.
 
-The following examples illustrate how to make calls to the REST Storefront API.
+The following examples illustrate how to make calls to the REST Storefront API:
 
 ```js title="Example script: REST Storefront API call" lineNumbers
 
