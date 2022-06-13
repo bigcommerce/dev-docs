@@ -57,13 +57,17 @@ Please include the following information:
 > #### Note
 > The description of the app is displayed to merchants in the store control panel.
 
-## Before development
+## Develop the app
 
-BigCommerce sends requests to your server to validate merchant credentials and obtain shipping quotes. To handle these requests smoothly, consider the following:
+To use the Shipping Provider API to provide shipping quotes, you must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click). For more info on how to get started, see the [BigCommerce Apps Quick Start](/api-docs/partner/getting-started/app-development/tutorials/quick-start) article.
+
+Building a BigCommerce app allows you to create [app API credentials](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis#app-api-credentials) and promote your solution in the BigCommerce app marketplace. Having a BigCommerce app allows merchants to configure shipping provider settings and/or order fulfillment via an iFrame in the BigCommerce control panel.
+
+For more information, see our [Introduction to Building Apps](/api-docs/apps/guide/intro) article.
 
 ### Your service URLs
 
-Because BigCommerce sends requests to your app, you need to provide BigCommerce with the following:
+BigCommerce sends requests to your server to validate merchant credentials and obtain shipping quotes. To handle these requests smoothly, you need to provide BigCommerce with the following:
 
 - **Quote URL**: a URL that accepts quote requests from BigCommerce. You will provide shipping quotes from this URL.
 - **Check Connection Options URL** (optional): a URL to check and validate connection options during app registration. BigCommerce will send requests to this URL to ensure that a merchant’s connection settings are valid. You can perform any necessary checks, such as looking up a merchant's app credentials in your database or calling a downstream service to verify them. 
@@ -118,14 +122,6 @@ title: Validate Connection Options
 ```
 
 <!-- type: tab-end  -->
-
-## Develop the app
-
-To use the Shipping Provider API to provide shipping quotes, you must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click). For more info on how to get started, see the [BigCommerce Apps Quick Start](/api-docs/partner/getting-started/app-development/tutorials/quick-start) article.
-
-Building a BigCommerce app allows you to create [app API credentials](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis#app-api-credentials) and promote your solution in the BigCommerce app marketplace. Having a BigCommerce app allows merchants to configure shipping provider settings and/or order fulfillment via an iFrame in the BigCommerce control panel.
-
-For more information, see our [Introduction to Building Apps](/api-docs/apps/guide/intro) article.
 
 ### Configuration fields
 
