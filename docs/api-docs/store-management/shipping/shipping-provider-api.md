@@ -1,6 +1,6 @@
 # Become a Shipping Provider
 
-Shipping service providers who wish to offer shipping services and rates to BigCommerce merchants and shoppers can implement endpoints through BigCommerce. Once they implement and accept their service into BigCommerce's shipping carrier registry, merchants and API users can connect and enable the service on their store. BigCommerce will then automatically retrieve the service options and rates using the provider's endpoints, displaying them to merchants in the store's control panel and to shoppers on the storefront. Merchants can define and enable multiple real-time shipping methods for your carrier app in any shipping zone.
+Shipping service providers who wish to offer shipping services and rates to BigCommerce merchants and shoppers can implement endpoints through BigCommerce. Once they implement the endpoints and BigCommerce registers their shipping provider app, a merchant designated as store owner can install their app on the store. Merchants and API users can then connect and enable the service on their store via the Shipping Manager UI and the [Shipping V2 API](/api-reference/store-management/shipping-api), respectively. BigCommerce will then automatically retrieve the service options and rates using the provider's endpoints, displaying them to merchants in the store's control panel and to shoppers on the storefront. Merchants can define and enable multiple real-time shipping methods for your carrier app in any shipping zone.
 
 The Shipping Provider API provides many benefits:
 
@@ -225,7 +225,7 @@ To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcomm
 
   If you would like [configuration fields](#configuration-fields) to be set up for your carrier, specify the properties you would like to use for these connection and/or settings options. 
 
-  We will then send you a `code` for each configuration option. API users will specify the `code` for connections options when they [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store). BigCommerce will also include the `code` for each connection option when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce). API users specify the `code` for settings options when they define your carrier's shipping method for their shipping zones.  
+  We will then send you a `code` for each configuration option. We recommend that you document your configuration option codes for API users who wish to use your carrier. For example, API users will specify the `code` for connections options when they [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store). BigCommerce will also include the `code` for each connection option when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce). API users specify the `code` for settings options when they define your carrier's shipping method for their shipping zones.  
 
 ## What's next?
 
@@ -257,6 +257,10 @@ Accept: application/json
   }
 }
 ```
+
+<!-- theme:info -->
+> #### Note
+> We recommend that you document your connection option codes for API users who wish to connect your carrier.
 
 API users can then define and enable a shipping method for your carrier using the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) endpoint. They can enable multiple real-time shipping methods for your carrier app in any shipping zone. For more info on how API users will use your carrier, see the [Use a Third-Party Shipping Provider](/api-docs/store-management/shipping/use-shipping-provider) article.
 
