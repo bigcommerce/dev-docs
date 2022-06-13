@@ -1,6 +1,6 @@
 # Use a Real-Time Carrier
 
-Real-time carriers allow merchants and shoppers to obtain **real-time** shipping quotes. There are two types of real-time carriers: native integrations and shipping provider apps. Shipping provider apps require merchants to install the app on their store. Once a merchant installs a shipping provider app on their store, API users can connect the carrier to the store. API users can then define and enable multiple shipping methods for a carrier for any shipping zone. This makes real-time shipping methods available to shoppers for those zones during checkout. 
+Real-time carriers allow merchants and shoppers to obtain **real-time** shipping quotes. There are two types of real-time carriers: native integrations and shipping provider apps. Shipping provider apps require merchants to install the app on their store. Once a merchant installs a shipping provider app on their store, API users and merchants can connect the carrier to the store. API users and merchants can then define and enable multiple shipping methods for a carrier for any shipping zone. This makes real-time shipping methods available to shoppers for those zones during checkout. 
 
 This article is a guide for API users on how to manage carrier connections and real-time shipping methods from carriers using the [Shipping V2 API](/api-reference/store-management/shipping-api).
 
@@ -226,7 +226,7 @@ title: Response
 
 <!-- type: tab-end -->
 
-To see a full list of available `carrier_options`values for a carrier, see the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) reference.
+For more carrier options, see the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) reference. Contact the carrier to get a full list of available carrier options.
 
 <!-- theme:info -->
 > After you enable a connected carrier, you can obtain its real-time shipping quotes by using the [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) endpoint. 
