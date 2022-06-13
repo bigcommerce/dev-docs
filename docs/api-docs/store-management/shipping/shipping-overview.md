@@ -27,9 +27,13 @@ An example of a shipping zone might be North America. Within that shipping zone,
 
 ## Real-time carriers
 
-BigCommerce offers native integrations with many real-time shipping carriers such as UPS, FedEx, and USPS. The [Shipping Carrier Connection](/api-reference/store-management/shipping-api/shipping-carrier) resource allows you to connect an account for one of our natively supported shipping carrier integrations. For a guide on how to use real-time carriers, see [How to Use a Third-Party Shipping Provider](/api-docs/store-management/shipping/use-shipping-provider).  
+BigCommerce supports two types of real-time carriers: native integrations and third-party shipping provider apps. You can connect real-time carriers to your account using the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/updateacarrierconnection) endpoint. For a guide on how to use real-time carriers, see [How to Use a Real-Time Carrier](/api-docs/store-management/shipping/use-shipping-provider). 
 
-For a list of all supported carriers, see [Real-Time Quote Providers](https://support.bigcommerce.com/s/article/Setting-Up-a-Real-Time-Shipping-Quote-Shipping-Method?language=en_US#providers).
+### Native integrations 
+BigCommerce offers native integrations with many real-time shipping carriers such as UPS, FedEx, and USPS. For a list of all supported native integrations, see [Real-Time Quote Providers](https://support.bigcommerce.com/s/article/Setting-Up-a-Real-Time-Shipping-Quote-Shipping-Method?language=en_US#providers).
+
+### Third-party shipping provider apps 
+BigCommerce offers third-party shipping provider apps that merchants must install on their store. If you would like to offer a shipping solution, see [Become a Shipping Provider](/api-docs/providers/shipping).
 
 ## Related resources
 
