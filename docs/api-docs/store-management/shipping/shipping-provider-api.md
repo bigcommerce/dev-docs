@@ -262,7 +262,7 @@ Accept: application/json
 > #### Note
 > We recommend that you document your connection option codes for API users who wish to connect your carrier.
 
-API users can then define and enable a shipping method for your carrier using the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) endpoint. They can enable multiple real-time shipping methods for your carrier app in any shipping zone. For more info on how API users will use your carrier, see the [Use a Third-Party Shipping Provider](/api-docs/store-management/shipping/use-shipping-provider) article.
+API users can then define and enable a shipping method for your carrier using the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) endpoint. They can enable multiple real-time shipping methods for your carrier app in any shipping zone. For more info on how API users will use your carrier, see the [Use a Real-Time Carrier](/api-docs/store-management/shipping/use-real-time-carrier) article.
 
 <!-- theme:info  -->
 > #### Note 
