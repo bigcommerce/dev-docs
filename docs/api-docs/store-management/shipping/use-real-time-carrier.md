@@ -1,17 +1,17 @@
 # Use a Real-Time Carrier
 
-Shipping provider apps (also known as carriers) allow merchants and shoppers to obtain **real-time** shipping quotes. Once a merchant installs a shipping provider app on their store, API users can connect the carrier to the store. API users can then define and enable multiple shipping methods for a carrier for any shipping zone. This makes real-time shipping methods available to shoppers for those zones during checkout.
+Real-time carriers allow merchants and shoppers to obtain **real-time** shipping quotes. There are two types of real-time carriers: native integrations and shipping provider apps. Shipping provider apps require merchants to install the app on their store. Once a merchant installs a shipping provider app on their store, API users can connect the carrier to the store. API users can then define and enable multiple shipping methods for a carrier for any shipping zone. This makes real-time shipping methods available to shoppers for those zones during checkout. 
 
 This article is a guide for API users on how to manage carrier connections and real-time shipping methods from carriers using the [Shipping V2 API](/api-reference/store-management/shipping-api).
 
 ## Prerequisites
-- Merchant has installed the shipping provider app
+- For shipping provider apps only: Merchant has installed the shipping provider app. 
 - You have obtained the required [OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes): `Information & Settings`
 - You or the merchant have created shipping zones. You can create zones with the [Create a shipping zone](/api-reference/store-management/shipping-api/shipping-zones/createashippingzones) endpoint.
 
 <!-- theme:info -->
 > #### Note
-> USPS, FedEx, and UPS carriers are pre-installed on stores. 
+> USPS, FedEx, and UPS carriers are native-integrations. For a full list of native integrations, see the [Real-Time Shipping Providers](https://support.bigcommerce.com/s/article/Setting-Up-a-Real-Time-Shipping-Quote-Shipping-Method#providers) article.
 
 ## Manage connections to shipping carriers 
 
