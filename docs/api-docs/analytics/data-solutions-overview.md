@@ -165,7 +165,7 @@ title: Response
 
 | Field | Type | Description |
 | ------------- | -------- |  -------- |
-| id | integer | ID of the Web analytic. `2` for Visual Website Optimizer |
+| id | integer | ID of the web analytic. `2` for Visual Website Optimizer |
 | channel_id | integer | ID of the storefront channel. Default is `0`. |
 | name | string | Name of web analytic `Visual Website Optimizer` |
 | enabled | boolean | Indicates whether merchant has [enabled Visual Website Optimizer](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics) in their store |
@@ -692,8 +692,8 @@ title: Response
 
 &nbsp;
 
-## Related Resources
-- [Overview Web Analytics](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics)
+## Resources
+- [Web Analytics Overview](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics)
 - [Google Analytics](https://support.bigcommerce.com/s/article/Setting-Up-Google-Analytics?language=en_US)
 - [Facebook Pixel](https://support.bigcommerce.com/s/article/Facebook-Pixel?language=en_US)
 - [Segment](https://support.bigcommerce.com/s/article/Setting-up-Segment-com?language=en_US)
