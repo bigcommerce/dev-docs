@@ -65,10 +65,12 @@ paths:
                     - payment_method_id
                   properties:
                     instrument:
-                      oneOf:
+                      anyOf:
                         - $ref: '#/components/schemas/Card'
                         - $ref: '#/components/schemas/StoredCard'
-                        - $ref: '#/components/schemas/StoredPaypalAccount'
+                        - $ref: '#/components/schemas/StoredPayPalAccount'
+                        - $ref: '#/components/schemas/GiftCertificate'
+                        - $ref: '#/components/schemas/StoreCredit'
                     payment_method_id:
                       description: Identifier for payment method that will be used for this payment and `id` from the Get Accepted Payment Methods API
                       type: string
@@ -102,14 +104,26 @@ paths:
                       verification_value: '1142'
                     payment_method_id: adyenv2.scheme
                     save_instrument: true
-              Paypal Stored Card:
+              Stored PayPal Account:
                 value:
                   payment:
                     instrument:
-                      type: stored_card
-                      token: 57606614f6b7a50bddc927d40399e47ed2c8d874a9f131b4861c650073fe17f5
-                      verification_value: '123'
-                    payment_method_id: braintree.card
+                      type: stored_paypal_account
+                      token: 2c129313bcffe4501ec5fa2764c8c16320e38c7ba9e8cdf95583b541bb05ad91
+                    payment_method_id: braintree.paypal
+              Gift Certificate:
+                value:
+                  payment:
+                    instrument:
+                      type: gift_certificate
+                      gift_certificate_code: ABC-DEF-GXX
+                    payment_method_id: bigcommerce.gift_certificate
+              Store Credit:
+                value:
+                  payment:
+                    instrument:
+                      type: store_credit
+                    payment_method_id: bigcommerce.store_credit
         required: true
         x-examples:
           application/json:
@@ -884,6 +898,18 @@ components:
             response:
               value:
                 data:
+                  - id: bigcommerce.gift_certificate
+                    name: Gift Certificate
+                    test_mode: false
+                    type: gift_certificate
+                    supported_instruments: []
+                    stored_instruments: []
+                  - id: bigcommerce.store_credit
+                    name: Store Credit
+                    test_mode: false
+                    type: store_credit
+                    supported_instruments: []
+                    stored_instruments: []
                   - id: stripe.card
                     name: Stripe
                     test_mode: true
@@ -1098,74 +1124,75 @@ components:
           issue_month: 1
           issue_year: 0
           issue_number: 0
+      x-internal: false
       properties:
         type:
-          description: Type to classify this payment instrument
-          example: card
           type: string
           default: card
+          example: card
+          description: Type to classify this payment instrument (required)
         cardholder_name:
-          description: Cardholder's full name
           type: string
           minLength: 1
+          description: Cardholderʼs full name (required)
         number:
-          description: Credit card number
           type: string
           minLength: 1
+          description: Credit card number (required)
         expiry_month:
-          description: Expiry month of this card
           type: integer
+          format: int32
           minimum: 1
           maximum: 12
-          format: int32
+          description: Expiry month of this card (required)
         expiry_year:
-          description: Expiry year of this card
           type: integer
           format: int32
+          description: Expiry year of this card (required)
         verification_value:
           type: string
-          description: Verification value of this card (CVV or last_4)
           minLength: 3
           maxLength: 4
+          description: Verification value of this card (CVV)
         issue_month:
-          description: Issue month of this card
           type: integer
+          description: Issue month of this card
+          format: int32
           minimum: 1
           maximum: 12
-          format: int32
         issue_year:
+          type: integer
+          format: int32
           description: Issue year of this card
-          type: integer
-          format: int32
         issue_number:
-          description: Issue number of this card
           type: integer
           format: int32
-      required:
-        - type
-        - cardholder_name
-        - number
-        - expiry_month
-        - expiry_year
-      x-internal: false
+          description: Issue number of this card
     StoredCard:
       title: Stored Card
       type: object
+      x-internal: false
+      x-examples:
+        example-1:
+          type: stored_card
+          token: stringstringstringstringstringstringstringstringstringstringstri
+          verification_value: 1142
       properties:
         type:
-          description: Type to classify this payment instrument
+          description: Type to classify this payment instrument (required)
           example: stored_card
           type: string
           default: stored_card
         token:
-          description: Identifier representing this stored card
+          description: Identifier representing this stored card (required)
           type: string
           minLength: 64
           maxLength: 64
-      required:
-        - type
-        - token
-      x-internal: false
+        verification_value:
+          type: string
+          description: Verification value of this card (CVV)
+          minLength: 3
+          maxLength: 4
     BasePaymentResponse:
       title: Base Payment Response
       type: object
@@ -1205,24 +1232,25 @@ components:
             - success
             - pending
       x-internal: false
-    StoredPaypalAccount:
-      title: StoredPaypalAccount
+    StoredPayPalAccount:
+      title: StoredPayPalAccount
       type: object
+      x-internal: false
       properties:
         type:
           type: string
-          description: Type to classify this payment instrument
+          description: Type to classify this payment instrument (required)
           enum:
             - stored_paypal_account
         token:
-          description: Identifier representing this stored paypal account
+          description: Identifier representing this stored PayPal account (required)
           type: string
           minLength: 64
           maxLength: 64
-      required:
-        - type
-        - token
-      x-internal: false
+      x-examples:
+        example-1:
+          type: stored_paypal_account
+          token: stringstringstringstringstringstringstringstringstringstringstri
     Order:
       title: Order
       type: object
@@ -1307,7 +1335,7 @@ components:
           minLength: 4
           maxLength: 4
         token:
-          description: 'Identifier representing this stored card. This is used to identify cards within BigCommerce. It is the same as the `payment_access_token` that returns via the [Get Transactions endpoint](/api-reference/store-management/order-transactions/transactions/gettransactions).'
+          description: A BigCommerce-generated identifier that represents the stored card.
           type: string
           minLength: 64
           maxLength: 64
@@ -1515,8 +1543,8 @@ components:
         - MAESTRO
         - STORED_CARD
       x-internal: false
-    StoredPaypalAccountInstrument:
-      title: StoredPaypalAccountInstrument
+    StoredPayPalAccountInstrument:
+      title: StoredPayPalAccountInstrument
       type: object
       properties:
         email:
@@ -1543,8 +1571,8 @@ components:
         - is_default
         - type
       x-internal: false
-    SupportedPaypalAccountInstrument:
-      title: SupportedPaypalAccountInstrument
+    SupportedPayPalAccountInstrument:
+      title: SupportedPayPalAccountInstrument
       type: object
       properties:
         instrument_type:
@@ -1555,3 +1583,31 @@ components:
       required:
         - instrument_type
       x-internal: false
+    GiftCertificate:
+      title: GiftCertificate
+      x-stoplight:
+        id: azxvgrjgbxoew
+      type: object
+      properties:
+        type:
+          type: string
+          example: gift_certificate
+        gift_certificate_code:
+          type: string
+          example: ABC-DEF-GXX
+      x-examples:
+        example-1:
+          type: gift_certificate
+          gift_certificate_code: ABC-DEF-GXX
+    StoreCredit:
+      title: StoreCredit
+      x-stoplight:
+        id: f7p4sz9rsvsyf
+      type: object
+      properties:
+        type:
+          type: string
+          example: store_credit
+      x-examples:
+        example-1:
+          type: store_credit
