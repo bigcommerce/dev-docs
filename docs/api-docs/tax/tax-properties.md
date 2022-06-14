@@ -14,7 +14,7 @@ For more info, see the [Tax Property V3 API](/api-reference/store-management/tax
 
 ## Tax properties
 
-You must first add tax properties from a tax provider to the store. The tax provider must provide the `code` for a tax property. Both `code` and `display_name` are required.   
+You must first add tax properties, as specified by your tax provider, to the store. The tax provider must provide the `code` for a tax property. Both `code` and `display_name` are required.   
 
 ### Create tax properties
 
