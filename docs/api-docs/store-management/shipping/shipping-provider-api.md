@@ -520,7 +520,7 @@ When requesting rates, BigCommerce passes product metadata specifc to your carri
 The metafields you receive from BigCommerce requests have the following characteristics:   
 
 - Are product or variant metafields (category, brand, or other metafields cannot be passed in rate requests) 
-- Have a metafield `permission_set` of `read` or `write`
+- Have a metafield `permission_set` of `read`, `write`, `read_and_sf_access`, and `write_and_sf_access`.
 - Have a metafield `namespace` that matches this format: `shipping_carrier_<carrier_id>` (for example, `shipping_carrier_72`)
 
   The carrier registration process described in the [Sign up](#sign-up) section provides the `carrier_id`.
