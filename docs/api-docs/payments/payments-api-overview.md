@@ -40,7 +40,6 @@ The following table lists the payment gateways that are compatible with our publ
 | Chase Integrated Payments |            | &check;         |
 | Chase Merchant Services   | &check;    | &check;         | 
 | Checkout.com      | &check;            | &check;         |
-| Commonwealth Bank | &check;            | &check;         |
 | Cybersource       | &check;            | &check;         |
 | Eway Rapid        |                    | &check;         |
 | First Data Payeezy Gateway |           | &check;         |
