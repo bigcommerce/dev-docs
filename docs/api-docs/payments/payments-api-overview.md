@@ -278,11 +278,11 @@ Content-Type: application/json
 }
 ```
 
-If the purchase was successful, the response returns a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error codes](#error-codes) for troubleshooting.
+If the purchase was successful, the response returns a status of success. The order is then automatically moved to an **Awaiting Fulfillment** status. If you get a different response, see [Error codes](#error-codes) for troubleshooting.
 
 In the case of store credit and gift certificates:
-* If store credit and/or gift certificate covers the entire order amount, the order will be moved to an Awaiting Fulfillment status.
-* The order will stay in Pending status until it is fully paid. You can make the remaining order payment using other payment methods (credit card, stored card, or store PayPal account) in the next payment request.
+* If store credit and/or gift certificate covers the entire order amount, the order will be moved to an **Awaiting Fulfillment** status.
+* The order will stay in **Pending** status until it is fully paid. You can make the remaining order payment using other payment methods (credit card, stored card, or stored PayPal account) in the next payment request.
 
 
 ## Credit cards
@@ -365,7 +365,7 @@ Content-Type: application/json
 }
 ```
 
-If the purchase was successful, the response returns a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error codes](#error-codes) for troubleshooting.
+If the purchase was successful, the response returns a status of success. The order is then automatically moved to an **Awaiting Fulfillment** status. If you get a different response, see [Error codes](#error-codes) for troubleshooting.
 
 ### Storing credit cards
 
@@ -506,7 +506,7 @@ You can create orders using the [Server to Server API Endpoints](/api-reference/
 | `30050` | Payment instrument could not be saved. | Credit card information is incorrect. | Check that the card information is correct.<br> * `expiry_month` is two digits<br>* `expiry_year` is four digits |
 | `30051` | That stored payment instrument could not be found. Please try a different payment option. |  The card requested for payment is not associated to the shopper.| Use [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget) to see available vaulted cards |
 | `30100` | Payment access token could not be created. | N/A|N/A|
-| `30101` | Order is invalid. | The order is in the wrong status. | Orders must be in Incomplete Status with a `status_id:0`. <br>  The order must be created by the Checkout SDK, Checkout API, or V2 Orders API. Orders created in the control panel and set to an incomplete status will return this error. |
+| `30101` | Order is invalid. | The order is in the wrong status. | Orders must be in **Incomplete** Status with a `status_id:0`. <br>  The order must be created by the Checkout SDK, Checkout API, or V2 Orders API. Orders created in the control panel and set to an **Incomplete** status will return this error. |
 | `30102` | Your card details could not be verified. Please double check them and try again. | The card information provided was incorrect.<br>The token provided was incorrect. | Check that the shopper information provided is correct.<br>Make sure the token in the authorization header field is correct. |
 | `30103` | Your card has expired. Please try again with a valid card. |N/A | N/A|
 | `30104` | There was a problem processing your card. Please contact your card issuer. |N/A |N/A|
