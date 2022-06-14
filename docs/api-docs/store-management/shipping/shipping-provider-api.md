@@ -10,7 +10,7 @@ The Shipping Provider API provides many benefits:
 
 This article guides developers on how to create and register a BigCommerce shipping provider app that will make your shipping rates available to merchants and shoppers on demand.
 
-### Prerequisites
+## Prerequisites
 
 * Get familiar with the [Introduction to Building Apps](/api-docs/getting-started/building-apps-bigcommerce/building-apps) article for building [single-click apps](/api-docs/apps/guide/types#single-click).
 
@@ -29,34 +29,6 @@ BigCommerce makes a distinction between single-carrier and multi-carrier shippin
 
 ![Multi-carrier quote example](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Multi%20Carrier%20Example.png 'Multi-carrier quote example')
 
-## Sign up
-When your app is complete, it will be listed in our carrier registry, so that your shipping rates are available for merchants and shoppers to use. Register your app and get a carrier ID to get started.
-
-
-### Register your app
-
-We need your app ID to generate a carrier ID for your shipping service. To get your app ID, [create a draft app](/api-docs/apps/guide/development#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Step 3: Technical tab](/api-docs/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID. 
-
-![App ID](https://s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224 "App ID")
-
-### Request a carrier ID
-
-To get your app set up and request a carrier ID, send an email to
-<a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
-
-Please include the following information:
-
-- Name of app
-- Your app's ID
-- Your email
-- A description of the app
-- [Your service URLs](#your-service-urls) 
-- [Whether you prefer single-carrier or multi-carrier status](#single-carrier-versus-multi-carrier-apps)
-
-<!-- theme:info -->
-> #### Note
-> The description of the app is displayed to merchants in the store control panel.
-
 ## Develop the app
 
 To use the Shipping Provider API to provide shipping quotes, you must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click). For more info on how to get started, see the [BigCommerce Apps Quick Start](/api-docs/partner/getting-started/app-development/tutorials/quick-start) article.
@@ -64,6 +36,12 @@ To use the Shipping Provider API to provide shipping quotes, you must build a Bi
 Building a BigCommerce app allows you to create [app API credentials](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis#app-api-credentials) and promote your solution in the BigCommerce app marketplace. Having a BigCommerce app allows merchants to configure shipping provider settings and/or order fulfillment via an iFrame in the BigCommerce control panel.
 
 For more information, see our [Introduction to Building Apps](/api-docs/apps/guide/intro) article.
+
+### Your app ID
+
+BigCommerce assigns your app an ID when you create an app. You will need the app ID when you [submit your app](#submit-your-app). To get your app ID, [create a draft app](/api-docs/apps/guide/development#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Step 3: Technical tab](/api-docs/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID. 
+
+![App ID](https://s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224 "App ID")
 
 ### Your service URLs
 
@@ -211,21 +189,33 @@ title: Password
 
 For the select and multi-select configuration options, note that you need to provide values that are available for merchants and API users.
 
-## Submit your app
+## Sign up
+After you finish developing the app, you can submit your app to BigCommerce. BigCommerce will register your app as a shipping provider. 
 
-To submit your app, send an email to <a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>. Include the following information when you submit your app:
+### Submit your app
+Send an email to
+<a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
 
-- Whether your app is single-carrier or multi-carrier
+Please include the following information:
 
-- Name and description of the shipping carrier(s)
-
+- Name of app
+- [Your app ID](#your-app-id)
+- Your email
+- A description of the app. The description is displayed to merchants in the store control panel.
 - Logo: A 70x70 pixel logo that represents the shipping carrier app
-
+- [Your service URLs](#your-service-urls) 
+- [Whether you prefer single-carrier or multi-carrier status](#single-carrier-versus-multi-carrier-apps)
 - Configuration fields: 
 
   If you would like [configuration fields](#configuration-fields) to be set up for your carrier, specify the properties you would like to use for these connection and/or settings options. 
 
-  We will then send you a `code` for each configuration option. We recommend that you document your configuration option codes for API users who wish to use your carrier. For example, API users will specify the `code` for connections options when they [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store). BigCommerce will also include the `code` for each connection option when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce). API users specify the `code` for settings options when they define your carrier's shipping method for their shipping zones.  
+### What you will receive
+
+After submitting your app, you will receive the following:
+- Carrier ID. Both single-carrier and multi-carrier shipping providers receive one `carrier_id`
+- A `code` for each configuration option 
+ 
+We recommend that you document your carrier ID and configuration option codes for API users who wish to use your carrier. For example, API users will specify the `carrier_id` and `code` for connections options when they [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store). BigCommerce will also include the `code` for each connection option when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce). API users specify the `code` for settings options when they define your carrier's shipping method for their shipping zones.  
 
 ## What's next?
 
