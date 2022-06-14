@@ -53,17 +53,16 @@ To delete a store API account, consult our Knowledge Base article on [Deleting a
 > Some resources are only accessible to the API account that created them. These include webhooks and metafields. If you need to revoke a store API account, plan accordingly.
 
 
-
 ## App API accounts
 
-Developers create app API accounts in the [Developer Portal](https://devtools.bigcommerce.com). Most apps use access tokens generated from the API account's `client_ID`, `client_secret`, and a grant `code` to read and change store data once the store owner installs and authorizes the app. The vast majority of app API access tokens must be generated in a grant code authorization flow.
+You can [create app API accounts](#obtaining-app-api-credentials) in the [Developer Portal](https://devtools.bigcommerce.com). Most apps use access tokens generated from the API account's `client_ID`, `client_secret`, and a grant `code` to read and change store data once the store owner installs and authorizes the app. [Generate access tokens](#app-access-tokens) with the BigCommerce-initiated grant code authorization flow.
 
-Some APIs may use app OAuth API accounts to implement authentication patterns other than the traditional OAuth grant `code` to `access_token` pipeline. As of this writing, this includes the [Current Customer API](/api-docs/storefront/current-customer-api). Consult the documentation for the API you want to use to learn more about the authentication pattern it requires. For a summary of the authentication methods in each of our APIs, read about [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis).
+Some APIs use app API accounts to implement alternative authentication patterns. For a summary of all our authentication methods, see [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis).
 ### Obtaining app API credentials
 
-To get app API credentials, you need a BigCommerce [Developer Portal](https://devtools.bigcommerce.com) account. Create or sign in, then navigate to **My Apps** at the top right and perform the following steps:
+To get app API credentials, you need a BigCommerce [Developer Portal](https://devtools.bigcommerce.com) account. Once you have an account, sign in and perform the following steps:
 
-1. Click **Create an app**.
+1. Click the **Create an app** button on the right side of the landing page.
 
 ![Create an App](https://s3.amazonaws.com/user-content.stoplight.io/6012/1537389767940 "Create an App")
 
@@ -73,9 +72,11 @@ To get app API credentials, you need a BigCommerce [Developer Portal](https://de
 
 ![Step 2 - Technical](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-technical.png "Step 2 - Technical")
 
-5. In the lower right-hand corner of the popup box, click **Update & Close**.
-6. A new modal will appear, asking if you want to change the OAuth scopes. Click **Confirm Update**. ?? does this happen for a new account?
-7. Back on the Developer Portal landing page, find your app listed under the **Create an app** button. To view your client ID and client secret, click **View Client ID** next to the relevant app. You can access them from this view until you delete the app.
+![Assign OAuth scopes](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-oauth-scopes.png "Assign OAuth scopes")
+
+5. Click **Update & Close** at the lower right-hand corner of the modal.
+6. A new modal will appear, asking if you want to add new OAuth scopes. Click **Confirm Update**.
+7. Back on the Developer Portal landing page, find your app listed under the **Create an app** button. To view your client ID and client secret, click **View Client ID** next to the relevant app. You can access your API account credentials until you delete the app.
 
 ![View Client ID](https://s3.amazonaws.com/user-content.stoplight.io/6012/1537390078741 "View Client ID")
 
@@ -83,9 +84,11 @@ To get app API credentials, you need a BigCommerce [Developer Portal](https://de
 
 ### App access tokens
 
-App API accounts do not come pre-configured with an access token. Each time a store installs your app, BigCommerce initiates a grant code authorization flow to help your app generate a dedicated access token for that merchant's store. For further details, see [Authenticating an app](/api-docs/apps/guide/auth).
+App API accounts do not come pre-configured with an access token. Each time a store installs your app, BigCommerce initiates a grant code authorization flow to help your app generate a dedicated access token for that store. For further details, see [Authenticating an app](/api-docs/apps/guide/auth).
 
 ### Revoking app API credentials
+
+There is no way to manually force-regenerate app API account access tokens, but you can 
 
 <!-- theme: danger -->
 > #### Delete apps carefully
