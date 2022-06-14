@@ -1,97 +1,44 @@
-# Guide to OAuth API Accounts
+# Guide to API Accounts
 
-BigCommerce offers two types of OAuth API accounts to developers who wish to use BigCommerce's REST APIs: store management credentials and app credentials. This article describes the difference between the two, how to obtain and revoke account credentials, and the use cases for each.  It also contains a reference for available OAuth scopes, and provides a compelling list of reasons to migrate from legacy API tokens to OAuth credentials.
+BigCommerce offers two types of OAuth-based API accounts to developers who wish to use BigCommerce's REST APIs: store management credentials and app credentials. This article describes the difference between the two, how to obtain and revoke account credentials, and the use cases for each. It also contains a reference for available OAuth scopes and provides a compelling list of reasons to migrate from legacy API tokens to OAuth credentials.
 
 In addition to authenticating REST APIs, BigCommerce API accounts are the fundamental authentication layer for all authenticated API requests. To learn more about different authentication schemes, see [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis).
 
-## What is a BigCommerce OAuth API account?
+## API accounts
 
-Every parent set of API credentials that you request for your store is its own **API account**. An API account consists of an `access_token`, a `client_id`, a `client_secret`, your `api_path` and a `client_name` that you define to help tell your API accounts apart. The `access_token` can change, but the parent `client_id` and `client_secret` will never change. Guard them closely. It's best practice to limit the [OAuth scope](#oauth-scopes) of each account to only the privileges needed to complete that app or user's designated tasks, so you should create separate API accounts for each app, store API user, and/or function.
+Every parent set of API credentials that you request for your store is its own **API account**. At its simplest, an API account consists of the following: 
+* the `client_id` uniquely identifies the app or user, or the _client_, making a request;
+* the `client_secret`, which is a cryptographically secure value known only to the client and BigCommerce.
 
-### Choosing the right kind of API account
+Every active API account has at least one `access_token`. [Store API accounts](#store-api-accounts) include a static `access_token` that does not change. [App API accounts](#app-api-accounts) expect each application to generate a unique `access_token` for every store that installs the app.
 
-* Store credentials can never have a different access token
-* Can't modify the scope
-* If compromised, must be deleted
-* Will never apply to more than one store
-* Update and delete access to some properties, much as [metafields](), is restricted to the API account that created them. If this is a problem, choose app credentials
-
-* App credentials require you to register a [Developer Portal]() account
-* Can modify the scope
-* Can force generation of new access tokens by modifying scope
-* As long as client id & secret are secure, can force generation of new access tokens to re-secure applications
-* The new access tokens can then update and delete API account-restricted resources, such as [metafields]()
-* Can be used on multiple stores: is liberated from the scope of a single store when the app is approved to be a public production app
-
-For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/guide/intro). The sections on [Implementing OAuth](/api-docs/apps/guide/auth) and [Callback Handlers](/api-docs/apps/guide/callbacks) are particularly relevant to generating access tokens.
-
+**Guard these values closely.** The `client_id` and `client_secret` will never change; `access_token`s do not expire based on time and cannot be manually invalidated. It's best practice to limit each account's [OAuth scope](#oauth-scopes) to only the privileges needed to complete that app or user's designated tasks. Create separate API accounts for each app, store API user, and/or function.
 
 <!-- theme: info -->
-> #### App-specific APIs
-> Some APIs are only accessible with app API accounts. These include:
-> * The [Current Customer API](/api-docs/storefront/current-customer-api);
-> 
-> We recommend that you implement some REST APIs exclusively through an app. These APIs currently include the following:
-> * The [Shipping Provider API](/api-docs/providers/shipping), which connects a shipping service to stores and supports a range of shipping-related actions, such as custom rate table calculations.
-> * The [Tax Provider API](/api-docs/providers/tax), which connects tax calculation and filing services to stores.
-> Depending on your use case, you might choose to interact with a third-party provider app using a store API account. 
+> Although the **client ID** value uniquely identifies the app or user making a request, you don't need to pass it in the header of each API request.
 
-### All OAuth API accounts
+## Store API accounts
 
-An API account's **client ID** uniquely identifies the app or user making a request. 
+Merchants generate single-store API credentials when they create API accounts in their store control panel (**Advanced Settings** > **API Accounts**). Use these credentials to read and change one store's data with BigCommerce's APIs. Store API accounts' access tokens and OAuth scopes can't be changed. 
 
-The **client secret** value is a secret that your app and BigCommerce share. 
+In addition to the [API account components](#api-accounts) in the preceding section, store API accounts contain the following attributes out of the box:
+* an `access_token`, which accompanies most REST API requests;
+* the **client name** is a label for your convenience, and it doesn't accompany requests;
+* the **API path** is the URL to which you make requests. The API path won't change, but it will have `/v3/` or `/v2/` appended to it, depending on which version is current for the endpoint you're querying.
 
-### App OAuth API accounts
+Most APIs that work with store API accounts use the `access_token` to authenticate requests to BigCommerce. However, a few use the access token to generate a temporary credential. To learn more about special cases that involve store credentials, read about [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis) and consult the documentation for the API you want to use.
 
-Developers create app API accounts in the [Developer Portal](https://devtools.bigcommerce.com). Most apps use access tokens generated from the API account's `client_ID`, `client_secret`, and a grant `code` to read and change store data once the store owner installs and authorizes the app. The vast majority of app API access tokens must be generated in an authorization grant code flow.
-
-Some APIs may use app OAuth API accounts to implement authentication patterns other than the traditional OAuth grant `code` to `access_token` pipeline. As of this writing, this includes the [Current Customer API](/api-docs/storefront/current-customer-api). Consult the documentation for the API you want to use to learn more about the authentication pattern it requires. For a summary of the authentication methods in each of our APIs, read about [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis).
-### Store OAuth API accounts
-
-Merchants generate single-store API credentials when they create store OAuth API accounts in their store's control panel (**Advanced Settings** > **API Accounts**). Use these credentials to read and change one store's data using BigCommerce's APIs. Generate store API OAuth access tokens manually in the control panel's **API Accounts** view, or programmatically by authorization grant code.
-
-Most of the time, you will use the **access token** to authenticate your requests to BigCommerce.  However, `access_token`s can be invalidated, so the authentication library or middleware that your software uses should use the `client_id` and `client_secret` to request a new `access_token` when the old one no longer works.
-
-Although the **client ID** value uniquely identifies the app or user making a request, you no longer need to pass it in the header of each API request. Typically, the `access_token` will suffice. For more particulars about when BigCommerce will need your `client_id` rather than just your `access_token`, or bearer token, read about [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis) and consult the documentation for the API you want to use.
-
-The **API path** for your store will not change, but it will have `/v3/` or `/v2/` appended to it, depending on which version is current for the endpoint you're querying.
-
-The **client name** is for your convenience and is not currently required to send or receive requests.
-
-
-<!-- theme: warning -->
+<!-- theme: danger -->
 > #### Be careful with client secrets
-> Although you never want to send your `client_id`, `client_secret`, or `access_token` in plain text or an unencrypted payload, **be particularly careful with the `client_secret`.**  An attacker can use your `client_secret` to both sign and decrypt JWTs sent between you and BigCommerce.
+> Do not send your `client_secret` or `access_token` in plain text or an unencrypted payload. **Be particularly careful with the `client_secret`.** An attacker can use your `client_secret` to both sign and decrypt JWTs sent between you and BigCommerce.
 
-## Obtaining store API credentials
+### Obtaining store API credentials
 
-To create a store API account, do the following:
+To create a store API account, consult our Knowledge Base article on [Creating a Store API Account](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#creating).
 
-1. Navigate to **Advanced Settings** > **API Accounts** > **Create API Account**.
-2. Give the account a name, for internal reference only.
-3. In the **OAuth Scopes** section, select the minimum scopes your use case requires.
-4. Click **Save**.
+To get started making requests, see [Getting Started](/api-docs/getting-started/basics/making-requests).
 
-If your save is successful, the browser displays a pop-up that contains an `access_token`, and most browsers also download a `.txt` file containing the full set of API account credentials. Save the token and `.txt` file somewhere secure. You will need the token to make API requests and the additional credentials to request new tokens. The `.txt` file also contains the base API path for your store, preconfigured for the V3 API. The API path contains your store hash, which is part of most API requests. 
-
-```yml title="Example: .txt download for store OAuth API account"
-ACCESS TOKEN: xxxxalphanumstringxxxx
-CLIENT NAME: products read-write # user-defined identifier
-API PATH: https://api.bigcommerce.com/stores/123456/v3/ # the store hash here is 123456
-CLIENT ID: xxxxdifferentalphanumstringxxxx
-CLIENT SECRET: xxxxhexadecimalstringxxxx
-```
-
-<!-- theme: warning -->
-> #### Save your credentials
-> There is no way to re-display this pop-up or download the .txt file again after selecting Done, so be sure to securely store the credentials before exiting this screen.
-
-![Create an API Account](https://s3.amazonaws.com/user-content.stoplight.io/6012/1536087816482 "Create an API Account")
-
-To get started making requests, see [API Requests](/api-docs/getting-started/basics/making-requests).
-
-## Revoking store API credentials
+### Revoking store API credentials
 
 To revoke store API credentials, you must delete the corresponding store API account. If the `client_id` and `client_secret` are compromised, or the account has become unnecessary, secure your account by deleting the API account. You cannot recover a deleted API account, so take care.
 
@@ -99,57 +46,55 @@ To revoke store API credentials, you must delete the corresponding store API acc
 > #### Delete carefully
 > Deleting an account cannot be undone, so be sure before clicking the trash can icon. You can also use the checkboxes on the left side to delete multiple accounts at once – but be especially careful when using this option.
 
+To delete a store API account, consult our Knowledge Base article on [Deleting a Store API Account](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#deleting).
 
-### Deleting a store API account
+<!-- theme: warning -->
+> #### Don't forget your webhooks and metafields
+> Some resources are only accessible to the API account that created them. These include webhooks and metafields. If you need to revoke a store API account, plan accordingly.
 
-To delete a store API account:
-1. Sign in to the store, using the store owner’s username and password.
-2. Navigate to **Advanced Settings** > **API Accounts** and click the checkbox next to the account you want to delete.
-3. In the **Actions** column on the right, click the trash can icon.
 
-![Revoking API Credentials](https://s3.amazonaws.com/user-content.stoplight.io/6012/1537388177603 "Revoking API Credentials")
 
-## Obtaining app API credentials
+## App API accounts
 
-To get app API credentials, create and sign in to your BigCommerce [Developer Portal](https://devtools.bigcommerce.com) account. Navigate to **My Apps** in the top-right corner, then:
+Developers create app API accounts in the [Developer Portal](https://devtools.bigcommerce.com). Most apps use access tokens generated from the API account's `client_ID`, `client_secret`, and a grant `code` to read and change store data once the store owner installs and authorizes the app. The vast majority of app API access tokens must be generated in a grant code authorization flow.
 
-1. Click **Create an app**.  
-2. Give your app a name. This name will only be visible to you.
-3. Click **Create**. A pop-up box will display showing Your Profile, App Summary, and Category.
+Some APIs may use app OAuth API accounts to implement authentication patterns other than the traditional OAuth grant `code` to `access_token` pipeline. As of this writing, this includes the [Current Customer API](/api-docs/storefront/current-customer-api). Consult the documentation for the API you want to use to learn more about the authentication pattern it requires. For a summary of the authentication methods in each of our APIs, read about [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis).
+### Obtaining app API credentials
+
+To get app API credentials, you need a BigCommerce [Developer Portal](https://devtools.bigcommerce.com) account. Create or sign in, then navigate to **My Apps** at the top right and perform the following steps:
+
+1. Click **Create an app**.
 
 ![Create an App](https://s3.amazonaws.com/user-content.stoplight.io/6012/1537389767940 "Create an App")
 
-4. Click on **Step 3 - Technical**. Fill out the App Features sections with app type, callback URLs, and scope.
+2. Give your app a name. This name is only visible to you.
+3. Click **Create**.
+4. At the top of the modal that opens next, click **Step 2 - Technical**. Scroll down to assign your app the desired OAuth scopes. 
 
-![Step 3 - Technical](https://s3.amazonaws.com/user-content.stoplight.io/6012/1537389883100 "Step 3 - Technical")
-
-![Step 3 - Technical](//s3.amazonaws.com/user-content.stoplight.io/6012/1537389883100 "Step 3 - Technical")
+![Step 2 - Technical](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-technical.png "Step 2 - Technical")
 
 5. In the lower right-hand corner of the popup box, click **Update & Close**.
-6. A new pop up will show asking if you want to change the OAuth scopes. Click **Confirm Update**.
-7. You will be routed back to the Developer Portal home page and your app will be listed. Click **View Client ID**.
+6. A new modal will appear, asking if you want to change the OAuth scopes. Click **Confirm Update**. ?? does this happen for a new account?
+7. Back on the Developer Portal landing page, find your app listed under the **Create an app** button. To view your client ID and client secret, click **View Client ID** next to the relevant app. You can access them from this view until you delete the app.
 
 ![View Client ID](https://s3.amazonaws.com/user-content.stoplight.io/6012/1537390078741 "View Client ID")
 
-8. Copy your client ID and client secret. The client ID and client secret can be accessed by clicking **View Client ID**.
-
-<!-- theme: info -->
-> #### Client IDs and client secrets in apps
-> The client ID value uniquely identifies your app. However, you no longer need to pass it in the header of all your requests to the API.
-> You only need to pass the client secret value once, during the app installation sequence. Thereafter, BigCommerce uses it to sign payloads in load, uninstall, and remove user requests, and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.
-
-
 ![Client ID and client secret](https://s3.amazonaws.com/user-content.stoplight.io/6012/1537390135692 "Client ID and client secret")
+
+### App access tokens
+
+App API accounts do not come pre-configured with an access token. Each time a store installs your app, BigCommerce initiates a grant code authorization flow to help your app generate a dedicated access token for that merchant's store. For further details, see [Authenticating an app](/api-docs/apps/guide/auth).
+
+### Revoking app API credentials
 
 <!-- theme: danger -->
 > #### Delete apps carefully
 > If you delete the app, there is no way to recover the client ID or client secret.
 
-### Next steps
+## Choosing the right kind of API account
 
-During the app installation process, your app uses the client ID and client secret to obtain an OAuth token authorized against the store installing the app. For a detailed look at this process, see [Authenticating an app](/api-docs/apps/guide/auth).
 
-## API and use case credential types
+
 
 | API or Use Case | App API Account | Store API Account |
 |:----------------|:---------------:|:-----------------:|
@@ -163,6 +108,34 @@ During the app installation process, your app uses the client ID and client secr
 | Manual connection between a third-party app and a store |  | &times; |
 | Single-store front-end scripts |  | &times; |
 
+
+
+
+* Store credentials can never have a different access token
+* Can't modify the scope
+* If compromised, must be deleted
+* Will never apply to more than one store
+* Update and delete access to some properties, much as [metafields](), is restricted to the API account that created them. If this is a problem, choose app credentials
+
+App credentials require you to register a [Developer Portal](https://devtools.bigcommerce.com) account and create an app.
+* Can modify the scope
+* Can force generation of new access tokens by modifying scope
+* As long as client id & secret are secure, can force generation of new access tokens to re-secure applications
+* The new access tokens can then update and delete API account-restricted resources, such as [metafields]()
+* Can be used on multiple stores: is liberated from the scope of a single store when the app is approved to be a public production app
+
+For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/guide/intro). The sections on [Implementing OAuth](/api-docs/apps/guide/auth) and [Callback Handlers](/api-docs/apps/guide/callbacks) are particularly relevant to generating access tokens.
+
+### App-specific APIs
+Some APIs are only accessible with app API accounts. These include:
+* the [Current Customer API](/api-docs/storefront/current-customer-api) and
+* the [Customer Login API](/api-docs/storefront/customer-login-api).
+
+We recommend that you implement some REST APIs exclusively through an app. These include:
+* the [Shipping Provider API](/api-docs/providers/shipping) and
+* the [Tax Provider API](/api-docs/providers/tax).
+
+Depending on your use case, you might choose to interact with a third-party provider app using a store API account. 
 
 
 ## Migrating from legacy to OAuth
@@ -195,7 +168,7 @@ When you update your API connections to use OAuth instead of legacy basic authen
 * Create an API account appropriate to your use case. Keeping in mind the API endpoints your connections use, create either a store API account or an app API account per the preceding instructions. Configure the account with the correct scopes for the work your use case does. We recommend adhering to industry standard security practices; provision the API account with the minimum scope that your application requires.
 * If you use one of our [client libraries](/tools-resources), consult the library’s documentation for establishing an optimal OAuth configuration.
 * After you create your connection, update your connection parameters as follows:
-  * Use `https://api.bigcommerce.com` as the gateway URL instead of the BigCommerce store’s secure hostname. For example, route requests that formerly went to  `https://store-abc123.mybigcommerce.com/api/v2/orders/123` or `https://my-custom-store-domain.com/api/v2/orders/123` to `https://api.bigcommerce.com/stores/{{store_hash}}/v2/orders/123`.
+  * Use `https://api.bigcommerce.com` as the gateway URL instead of the BigCommerce store’s secure hostname. For example, route requests that formerly went to `https://store-abc123.mybigcommerce.com/api/v2/orders/123` or `https://my-custom-store-domain.com/api/v2/orders/123` to `https://api.bigcommerce.com/stores/{{store_hash}}/v2/orders/123`.
   * Rewrite your HTTP request headers to use the `X-Auth-Token` header to pass the API account's `access_token` instead of the `Authentication` header. For more information, see [Authentication](/api-docs/getting-started/authentication).
 
 Rate limiting works differently for OAuth API connections. For details, see the [Rate Limits section](/api-docs/getting-started/best-practices#api-rate-limits) of our API best practices article.
