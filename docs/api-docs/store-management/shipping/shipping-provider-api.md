@@ -511,7 +511,7 @@ If no shipping quotes are available, the your carrier will send a response with 
 
 <!-- theme: info -->
 > #### Note
-> The response displays shipping quotes from lowest to highest price.
+> BigCommerce will display the shipping quotes that you return from lowest to highest price.
 
 #### Product metadata in rate requests
 
