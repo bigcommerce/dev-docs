@@ -19,11 +19,11 @@ This article guides developers on how to create and register a BigCommerce shipp
 
 ![Shipping App Overview](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Shipping%20App%20Overview.png 'Shipping Provider API')
 
-### Single-carrier versus multi-carrier apps
+### Single-carrier versus multi-carrier shipping providers
 
-A single-carrier app offers one service, for example, USPS. A multi-carrier app offers more than one service, for example, USPS, DHL, and Canada Post. In both cases, BigCommerce registers only one shipping carrier with your app. If your app is multi-carrier, the registered carrier provides quotes from multiple downstream carriers. 
+A single-carrier shipping provider offers one service, for example, USPS. A multi-carrier shipping provider offers more than one service, for example, USPS, DHL, and Canada Post. In both cases, BigCommerce registers only one shipping carrier with the provider. If you are a multi-carrier shipping provider, the registered carrier provides quotes from multiple downstream carriers. 
 
-BigCommerce makes a distinction between single-carrier and multi-carrier shipping providers when we register your app. The primary difference is how quotes display in the customer's cart at checkout. If your app is registered as a single carrier, the name of the carrier providing the quote appears beside the name of the shipping quote in the customer's list of shipping rate options. The carrier name does not appear in quotes from multi-carrier apps. The following images illustrate the difference:
+BigCommerce makes a distinction between single-carrier and multi-carrier shipping providers when we register your app. Your carrier status affects how quotes display in the customer's cart at checkout. Specifically, if your app is registered as a single carrier, the name of the carrier providing the quote appears beside the name of the shipping quote in the customer's list of shipping rate options. The carrier name does not appear in quotes from multi-carrier apps. The following images illustrate the difference:
 
 ![Single-carrier quote example](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Single%20Carrier%20Example.png 'Single-carrier quote example')
 
@@ -205,7 +205,7 @@ Include the following information:
 - A description of the app. The description is displayed to merchants in the store control panel.
 - Logo: A 70x70 pixel logo that represents the shipping carrier app
 - [Your service URLs](#your-service-urls) 
-- [Whether you prefer single-carrier or multi-carrier status](#single-carrier-versus-multi-carrier-apps)
+- [Whether you prefer single-carrier or multi-carrier status](#single-carrier-versus-multi-carrier-shipping-providers)
 - [Configuration fields](#configuration-fields): For a list of items you need to provide, see [types of configuration options](#what-are-the-types-of-configuration-options).
 
 ### What you will receive
@@ -531,7 +531,7 @@ For more information on product and variant metafields, see the following Catalo
 | Countries Available | A list of countries where you can use the shipping carrier. The default behavior is that the carrier is available for every shipping origin. In most cases, this list should be as broad as possible. For example, if your carrier operates worldwide, make it available worldwide. You can limit the countries further than what the shipping carrier has provided. If the service is worldwide, then leave this field blank to specify that it is worldwide. Specifying the use of the shipping carrier is an optional step. |
 | Settings Options | Optional fields that merchants and API users can use to specify your real-time shipping method, including available rates, packaging types, and packing methods. 
 | Shipping Carrier | A service that facilitates delivery, such as UPS and FedEx. |
-| Shipping Provider | A shipping solution that provides shipping rates to BigCommerce. A shipping provider can provide rates for one or more carriers. For more info, see [Single-carrier versus multi-carrier apps](#single-carrier-versus-multi-carrier-apps). |
+| Shipping Provider | A shipping solution that provides shipping rates to BigCommerce. A shipping provider can provide rates for one or more carriers. For more info, see [Single-carrier versus multi-carrier shipping providers](#single-carrier-versus-multi-carrier-shipping-providers). |
 | Shipping Quote | An estimation of the cost to ship a set of items from an origin to a destination.|
 | Shipping Zone | Describes a set of destination addresses and the applicable shipping settings, such as handling fees and available shipping methods.|
 | Shipping Origin | The location from which goods are shipped. This origin determines which shipping carriers are available for the merchant to configure in the control panel.|
