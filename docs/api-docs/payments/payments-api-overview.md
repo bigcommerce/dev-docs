@@ -537,7 +537,11 @@ Yes, checkouts and orders with more than one consignment can use the Payments AP
 
 **Is store credit supported?**
 
-Yes, the Payments API supports store credit usage under a few conditions. The store credit payment method is only available for an order when transacting in the store's default currency and when the shopper has an available store credit balance. Store credit is **not** available for orders created by guest shoppers.
+Yes, the Payments API supports the store credit payment method under the following conditions: 
+- The shopper is transacting in the store's default currency. 
+- The shopper has a positive store credit balance. 
+
+Store credit is _not_ available for orders created by guest shoppers.
 
 **Are gift certificates supported?**
 
