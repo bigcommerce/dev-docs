@@ -39,7 +39,7 @@ For more information, see our [Introduction to Building Apps](/api-docs/apps/gui
 
 ### Your app ID
 
-BigCommerce assigns your app an ID when you create an app. You will need the app ID when you [submit your app](#submit-your-app). To get your app ID, [create a draft app](/api-docs/apps/guide/development#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Step 3: Technical tab](/api-docs/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID. 
+BigCommerce assigns your app an ID when you create an app. You will need the app ID when you [sign up](#sign-up) as a shipping provider. To get your app ID, [create a draft app](/api-docs/apps/guide/development#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Step 3: Technical tab](/api-docs/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID. 
 
 ![App ID](https://s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224 "App ID")
 
@@ -112,12 +112,7 @@ Configuration fields are connection options or shipping settings options that yo
 
 API users will also use connection options when they connect your app to their store. They will use the settings options when defining shipping methods that use your carrier.  
 
-#### What should you provide BigCommerce?
-If you would like configuration (connection or settings) options to be set up for your carrier, please specify the following for each configuration option when you [submit your app](#submit-your-app)
-- **Label**: This is the text that will be displayed on the merchant's UI when they connect
-- **Required**: Whether or not the configuration option is required 
-- **Type**: Type of configuration option
-
+#### What are the types of configuration options?
 These are the types of configuration options that we currently allow:
 - Text
 - Checkbox 
@@ -125,7 +120,14 @@ These are the types of configuration options that we currently allow:
 - Multi-select
 - Password
 
-Here are examples of what you would specify for each type of configuration option:
+If you would like configuration (connection or settings) options to be set up for your carrier, please specify the following for each configuration option when you [sign up](#sign-up)
+- **Label**: This is the text that will be displayed on the merchant's UI when they connect
+- **Required**: Whether or not the configuration option is required 
+- **Type**: Type of configuration option
+
+For the select and multi-select configuration options, you need to specify the values that are available for merchants and API users.
+
+Here are examples of what you would specify for the various types of configuration option:
 
 <!-- 
 type: tab
@@ -187,12 +189,11 @@ title: Password
 
 <!-- type: tab-end -->
 
-For the select and multi-select configuration options, note that you need to provide values that are available for merchants and API users.
 
 ## Sign up
-After you finish developing the app, you can submit your app to BigCommerce. BigCommerce will register your app as a shipping provider. 
+After you finish developing the app, you can sign up to be a shipping provider. Submit your app to BigCommerce and BigCommerce will register your app as a shipping provider. 
 
-### Submit your app
+### What should you provide BigCommerce?
 Send an email to
 <a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
 
@@ -207,7 +208,7 @@ Please include the following information:
 - [Whether you prefer single-carrier or multi-carrier status](#single-carrier-versus-multi-carrier-apps)
 - Configuration fields: 
 
-  If you would like [configuration fields](#configuration-fields) to be set up for your carrier, specify the properties you would like to use for these connection and/or settings options. 
+  If you would like [configuration fields](#configuration-fields) to be set up for your carrier, specify the connection and/or settings options. For a list of things you need to provide, see [types of configuration options](#what-are-the-types-of-configuration-options).
 
 ### What you will receive
 
@@ -513,7 +514,7 @@ The metafields you receive from BigCommerce requests have the following characte
 - Have a metafield `permission_set` of `read`, `write`, `read_and_sf_access`, and `write_and_sf_access`.
 - Have a metafield `namespace` that matches this format: `shipping_carrier_<carrier_id>` (for example, `shipping_carrier_72`)
 
-  The carrier registration process described in the [Sign up](#sign-up) section provides the `carrier_id`.
+  You receive the `carrier_id` when you [sign up](#sign-up) as a shipping provider.
 
 For more information on product and variant metafields, see the following Catalog V3 API endpoints:
 
@@ -526,12 +527,12 @@ For more information on product and variant metafields, see the following Catalo
 | Name | Description |
 | ---- | ---- |
 | Configuration Fields | Optional connection and shipping settings fields. Merchants and API users use these fields to connect your carrier to their store and define define shipping methods for your carrier in a zone. |
-| Quote URL | A URL you provide when you [request a carrier ID](#request-a-carrier-id) that accepts quote requests from BigCommerce and responds with shipping quotes.|
+| Quote URL | A URL you provide when you [sign up](#sign-up) that accepts quote requests from BigCommerce and responds with shipping quotes.|
 | Single Carrier or Multi Carrier | A single carrier app will offer only one shipping provider. A multi carrier app will aggregate multiple shipping carriers in one app. For more info, see [Single-carrier versus multi-carrier apps](#single-carrier-versus-multi-carrier-apps).|
 | Countries Available | A list of countries where you can use the shipping carrier. The default behavior is that the carrier is available for every shipping origin. In most cases, this list should be as broad as possible. For example, if your carrier operates worldwide, make it available worldwide. You can limit the countries further than what the shipping carrier has provided. If the service is worldwide, then leave this field blank to specify that it is worldwide. Specifying the use of the shipping carrier is an optional step. |
 | Shipping Carrier | A shipping carrier provides real-time quotes to BigCommerce. If a shipping carrier uses more than one shipping provider, then it becomes a multi-carrier aggregator. A carrier includes a name, a description, and a logo.|
 | Multi-Carrier Aggregator | A shipping solution that provides shipping quotes for multiple carriers. |
-| Check Connection Options URL | An optional URL for a shipping carrier resource that accepts check requests containing the connection options provided by a user when connecting the carrier and indicates whether or not those settings are valid. You provide this URL when you [request a carrier ID](#request-a-carrier-id).|
+| Check Connection Options URL | An optional URL for a shipping carrier resource that accepts check requests containing the connection options provided by a user when connecting the carrier and indicates whether or not those settings are valid. You provide this URL when you [sign up](#sign-up).|
 | Shipping Quote | An estimation of the cost to ship a set of items from an origin to a destination.|
 | Shipping Zone | Describes a set of destination addresses and the applicable shipping settings, such as handling fees and available shipping methods.|
 | Shipping Origin | The location from which goods are shipped. This origin determines which shipping carriers are available for the merchant to configure in the control panel.|
