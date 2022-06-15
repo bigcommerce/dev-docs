@@ -537,11 +537,15 @@ Yes, checkouts and orders with more than one consignment can use the Payments AP
 
 **Is store credit supported?**
 
-Store credit is not a supported payment method with the Payments API. Store credit can still be used by the shopper on the storefront, part of the control panel, or with the Checkout API.
+Yes, the Payments API supports the store credit payment method under the following conditions: 
+- The shopper is transacting in the store's default currency. 
+- The shopper has a positive store credit balance. 
+
+Store credit is _not_ available for orders created by guest shoppers.
 
 **Are gift certificates supported?**
 
-The Payment Processing API is for processing payments through a store's payment gateway. Since BigCommerce store gift cards are not processed through a payment gateway, they can not be processed through the Payment Processing API.
+Yes, the Payments API supports the gift certificate payment method. However, it is only available when a store has the gift certificate feature enabled for the order’s transactional currency.
 
 **Are offline payment methods supported?**
 The Payments API processes credit card payments through supported payment gateways; it does not expose methods for processing [offline payment methods](https://support.bigcommerce.com/s/article/Offline-Payment-Methods) such as cash on delivery.
