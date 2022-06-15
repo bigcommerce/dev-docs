@@ -206,15 +206,15 @@ Include the following information:
 - Logo: A 70x70 pixel logo that represents the shipping carrier app
 - [Your service URLs](#your-service-urls) 
 - [Whether you prefer single-carrier or multi-carrier status](#single-carrier-versus-multi-carrier-apps)
-- Configuration fields: 
+- [Configuration fields](#configuration-fields): 
 
-  If you would like [configuration fields](#configuration-fields) to be set up for your carrier, specify the connection and/or settings options. For a list of things you need to provide, see [types of configuration options](#what-are-the-types-of-configuration-options).
+  If you would like configuration fields to be set up for your carrier, specify the connection and/or settings options. For a list of things you need to provide, see [types of configuration options](#what-are-the-types-of-configuration-options).
 
 ### What you will receive
 
 After submitting your app, you will receive the following:
 - Carrier ID. Both single-carrier and multi-carrier shipping providers receive one `carrier_id`
-- A `code` for each configuration option 
+- Codes: Each configuration option has a corresponding `code`.
  
 We recommend that you document your carrier ID and configuration option codes for API users who wish to use your carrier. For example, API users will specify the `carrier_id` and `code` for connections options when they [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store). BigCommerce will also include the `code` for each connection option when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce). API users specify the `code` for settings options when they define your carrier's shipping method for their shipping zones.  
 
