@@ -113,14 +113,14 @@ Configuration fields are connection options or shipping settings options that yo
 API users will also use connection options when they connect your app to their store. They will use the settings options when defining shipping methods that use your carrier.  
 
 #### What are the types of configuration options?
-These are the types of configuration options that we currently allow:
+These are the types of configuration (connection or settings) options that we currently allow:
 - Text
 - Checkbox 
 - Select
 - Multi-select
 - Password
 
-If you would like configuration (connection or settings) options to be set up for your carrier, specify the following for each configuration option when you [sign up](#sign-up):
+If you would like configuration options to be set up for your carrier, specify the following for each configuration option when you [sign up](#sign-up):
 - **Label**: This is the text that will be displayed on the merchant's UI when they connect
 - **Required**: Whether or not the configuration option is required 
 - **Type**: Type of configuration option
@@ -527,7 +527,7 @@ For more information on product and variant metafields, see the following Catalo
 
 | Name | Description |
 | ---- | ---- |
-| Configuration Fields | Optional connection and shipping settings fields. Merchants and API users use these fields to connect your carrier to their store and define define shipping methods for your carrier in a zone. |
+| Configuration Fields | Optional connection and shipping settings fields. Merchants and API users use these fields to connect your carrier to their store and define define shipping methods for your carrier in a zone. For more info, see [Configuration fields](#configuration-fields). |
 | Quote URL | A URL you provide when you [sign up](#sign-up) that accepts quote requests from BigCommerce and responds with shipping quotes.|
 | Countries Available | A list of countries where you can use the shipping carrier. The default behavior is that the carrier is available for every shipping origin. In most cases, this list should be as broad as possible. For example, if your carrier operates worldwide, make it available worldwide. You can limit the countries further than what the shipping carrier has provided. If the service is worldwide, then leave this field blank to specify that it is worldwide. Specifying the use of the shipping carrier is an optional step. |
 | Check Connection Options URL | An optional URL for a shipping carrier resource that accepts check requests containing the connection options provided by a user when connecting the carrier and indicates whether or not those settings are valid. You provide this URL when you [sign up](#sign-up).|
