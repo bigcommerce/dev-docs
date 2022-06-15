@@ -301,8 +301,9 @@ title: Response
 
 <!-- theme: info -->
 > #### Credential validation
-> It is best practice to authenticate the user and store against your database or the downstream provider service. However, if you did not provide a Check Connection Options URL, a merchant's credentials are assumed to be valid as long as they pass type checks.
+> It is best practice to authenticate the user and store against your database or the downstream provider service. However, if you did not provide a Check Connection Options URL, a merchant's credentials are assumed to be valid as long as they pass type checks. 
 
+Note that you can also authenticate merchant credentials when BigCommerce requests rates from your shipping provider in real time, as the connection options are also included in those requests.
 
 ### Provide shipping rates to BigCommerce
 
