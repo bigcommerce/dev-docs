@@ -29,7 +29,7 @@ title: Request
 -->
 
 ```json title="Example POST request with X-Auth-Token header" lineNumbers
-POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/carrier/connection
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/carrier/connection
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -62,7 +62,7 @@ title: Request
 -->
 
 ```json title="Example POST request with X-Auth-Token header" lineNumbers
-POST ttps://api.bigcommerce.com/stores/{store_hash}/v2/shipping/carrier/connection
+POST ttps://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/carrier/connection
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -94,7 +94,7 @@ title: Request
 -->
 
 ```json title="Example PUT request with X-Auth-Token header" lineNumbers
-PUT https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/carrier/connection
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/carrier/connection
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -129,7 +129,7 @@ title: Request
 -->
 
 ```json title="Example DELETE request with X-Auth-Token header" lineNumbers
-DELETE https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/carrier/connection
+DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/carrier/connection
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -168,7 +168,7 @@ title: Request
 -->
 
 ```json title="Example POST request with X-Auth-Token header" lineNumbers
-POST https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/zones/{zone_id}/methods
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -239,7 +239,7 @@ title: Request
 -->
 
 ```json title="Example PUT request with X-Auth-Token header" lineNumbers
-PUT https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods/{method_id}
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/zones/{zone_id}/methods/{method_id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -302,7 +302,7 @@ title: Request
 -->
 
 ```json title="Example GET request with X-Auth-Token header" lineNumbers
-GET https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods/{method_id}
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/zones/{zone_id}/methods/{method_id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -352,7 +352,7 @@ title: Request
 -->
 
 ```json title="Example DELETE request with X-Auth-Token header" lineNumbers
-DELETE https://api.bigcommerce.com/stores/{store_hash}/v2/shipping/zones/{zone_id}/methods/{method_id}
+DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/zones/{zone_id}/methods/{method_id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
