@@ -21,13 +21,13 @@ This article guides developers on how to create and register a BigCommerce shipp
 
 ### Single-carrier versus multi-carrier shipping providers
 
-A single-carrier shipping provider offers one service, for example, USPS. A multi-carrier shipping provider offers more than one service, for example, USPS, DHL, and Canada Post. In both cases, BigCommerce registers only one shipping carrier with the provider. If you are a multi-carrier shipping provider, the registered carrier provides quotes from multiple downstream carriers. 
+A single-carrier shipping provider offers one service, for example, USPS. A multi-carrier shipping provider offers more than one service, for example, USPS, DHL, and Canada Post. In both cases, BigCommerce registers only one shipping carrier for a provider during [sign up](#sign-up). If you are a multi-carrier shipping provider, the registered carrier provides quotes from multiple downstream carriers. 
 
-BigCommerce makes a distinction between single-carrier and multi-carrier shipping providers when we register your app. Your carrier status affects how quotes display in the customer's cart at checkout. Specifically, if your app is registered as a single carrier, the name of the carrier providing the quote appears beside the name of the shipping quote in the customer's list of shipping rate options. The carrier name does not appear in quotes from multi-carrier apps. The following images illustrate the difference:
+BigCommerce makes a distinction between single-carrier and multi-carrier shipping providers when you sign up. Your carrier status affects how your quotes display in the customer's cart at checkout. Specifically, if you sign up as a single carrier, the name of the carrier providing the quote appears beside the name of the shipping quote in the customer's list of shipping rate options. The carrier name does not appear in quotes if you sign up as a multi-carrier shipping provider. The following images illustrate the difference:
 
-![Single-carrier quote example](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Single%20Carrier%20Example.png 'Single-carrier quote example')
+![Single-carrier quote example](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Single%20Carrier%20Example.png 'Single-carrier quote')
 
-![Multi-carrier quote example](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Multi%20Carrier%20Example.png 'Multi-carrier quote example')
+![Multi-carrier quote example](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Multi%20Carrier%20Example.png 'Multi-carrier quote')
 
 ## Develop the app
 
