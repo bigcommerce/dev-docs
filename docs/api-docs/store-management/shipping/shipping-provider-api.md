@@ -104,7 +104,7 @@ title: Validate Connection Options
 ### Configuration fields
 
 #### What are configuration fields?
-Configuration fields are connection options or shipping settings options that you would like merchants or API users to use with your carrier. For example, connection options include keys/passwords, while settings options usually include which rates to offer, packaging type, packing method, and more. The following figures show how your setting options and connection options will appear in the merchant control panel when a merchant [connects your app to their store](#how-your-app-will-be-connected-to-a-store):
+Configuration fields are optional connection options or shipping settings options that you would like merchants or API users to use with your carrier. For example, connection options include keys/passwords, while settings options usually include which rates to offer, packaging type, packing method, and more. The following figures show how your setting options and connection options will appear in the merchant control panel when a merchant [connects your app to their store](#how-your-app-will-be-connected-to-a-store):
 
 ![FedEx Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/FedEx%20Settings.png 'Setting options')
 
@@ -206,14 +206,12 @@ Include the following information:
 - Logo: A 70x70 pixel logo that represents the shipping carrier app
 - [Your service URLs](#your-service-urls) 
 - [Whether you prefer single-carrier or multi-carrier status](#single-carrier-versus-multi-carrier-apps)
-- [Configuration fields](#configuration-fields): 
-
-  If you would like configuration fields to be set up for your carrier, specify the connection and/or settings options. For a list of things you need to provide, see [types of configuration options](#what-are-the-types-of-configuration-options).
+- [Configuration fields](#configuration-fields): For a list of items you need to provide, see [types of configuration options](#what-are-the-types-of-configuration-options).
 
 ### What you will receive
 
 After submitting your app, you will receive the following:
-- Carrier ID. Both single-carrier and multi-carrier shipping providers receive one `carrier_id`
+- Carrier ID: Both single-carrier and multi-carrier shipping providers receive one `carrier_id`
 - Codes: Each configuration option has a corresponding `code`.
  
 We recommend that you document your carrier ID and configuration option codes for API users who wish to use your carrier. For example, API users will specify the `carrier_id` and `code` for connections options when they [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store). BigCommerce will also include the `code` for each connection option when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce). API users specify the `code` for settings options when they define your carrier's shipping method for their shipping zones.  
