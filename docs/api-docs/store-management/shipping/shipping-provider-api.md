@@ -527,7 +527,9 @@ For more information on product and variant metafields, see the following Catalo
 
 | Name | Description |
 | ---- | ---- |
-| Configuration Fields | Optional connection and shipping settings fields. Merchants and API users use these fields to connect your carrier to their store and define define shipping methods for your carrier in a zone. For more info, see [Configuration fields](#configuration-fields). |
+| Configuration Fields | Connection and settings options. Merchants and API users use these fields to connect your carrier to their store and define shipping methods for your carrier in a zone. For more info, see [Configuration fields](#configuration-fields). |
+| Connection Options | Optional fields that merchants and API users can use to connect your carrier to a store, including keys and passwords. |
+| Settings Options | Optional fields that merchants and API users can use to specify your real-time shipping method, including available rates, packaging types, and packing methods. |
 | Quote URL | A URL you provide when you [sign up](#sign-up) that accepts quote requests from BigCommerce and responds with shipping quotes.|
 | Countries Available | A list of countries where you can use the shipping carrier. The default behavior is that the carrier is available for every shipping origin. In most cases, this list should be as broad as possible. For example, if your carrier operates worldwide, make it available worldwide. You can limit the countries further than what the shipping carrier has provided. If the service is worldwide, then leave this field blank to specify that it is worldwide. Specifying the use of the shipping carrier is an optional step. |
 | Check Connection Options URL | An optional URL for a shipping carrier resource that accepts check requests containing the connection options provided by a user when connecting the carrier and indicates whether or not those settings are valid. You provide this URL when you [sign up](#sign-up).|
