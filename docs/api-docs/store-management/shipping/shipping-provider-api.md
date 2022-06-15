@@ -45,7 +45,7 @@ BigCommerce assigns your app an ID when you create an app. You will need the app
 
 ### Your service URLs
 
-BigCommerce sends requests to your server to validate merchant credentials and obtain shipping quotes. To handle these requests smoothly, you need to provide BigCommerce with the following:
+BigCommerce sends requests to your server to validate merchant credentials and obtain shipping quotes. To handle these requests smoothly, you need to provide BigCommerce with the following when you [sign up](#sign-up):
 
 - **Quote URL**: a URL that accepts quote requests from BigCommerce. You will provide shipping quotes from this URL.
 - **Check Connection Options URL** (optional): a URL to check and validate connection options during app registration. BigCommerce will send requests to this URL to ensure that a merchant’s connection settings are valid. You can perform any necessary checks, such as looking up a merchant's app credentials in your database or calling a downstream service to verify them. 
@@ -120,7 +120,7 @@ These are the types of configuration options that we currently allow:
 - Multi-select
 - Password
 
-If you would like configuration (connection or settings) options to be set up for your carrier, please specify the following for each configuration option when you [sign up](#sign-up)
+If you would like configuration (connection or settings) options to be set up for your carrier, specify the following for each configuration option when you [sign up](#sign-up):
 - **Label**: This is the text that will be displayed on the merchant's UI when they connect
 - **Required**: Whether or not the configuration option is required 
 - **Type**: Type of configuration option
@@ -197,7 +197,7 @@ After you finish developing the app, you can sign up to be a shipping provider. 
 Send an email to
 <a href="mailto:shippingproviderapi@bigcommerce.com">shippingproviderapi@bigcommerce.com</a>.
 
-Please include the following information:
+Include the following information:
 
 - Name of app
 - [Your app ID](#your-app-id)
