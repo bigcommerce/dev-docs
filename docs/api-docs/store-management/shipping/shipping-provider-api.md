@@ -135,7 +135,7 @@ title: Text
 -->
 
 ```text title="Example connection option" lineNumbers 
-- Label: Account Key
+- Label: Display Name
 - Required: true
 - Type: text
 ```
