@@ -104,7 +104,7 @@ title: Validate Connection Options
 ### Configuration fields
 
 #### What are configuration fields?
-Configuration fields are optional connection options or shipping settings options that you would like merchants or API users to use with your carrier. For example, connection options include keys/passwords, while settings options usually include which rates to offer, packaging type, packing method, and more. The following figures show how your setting options and connection options will appear in the merchant control panel when a merchant [connects your app to their store](#how-your-app-will-be-connected-to-a-store):
+Configuration fields are optional connection options or shipping settings options that you would like merchants or API users to use with your carrier. For example, connection options include keys/passwords and are set for the entire store. Settings options can be set for each shipping zone and include which rates to offer, packaging type, packing method, and more. The following figures show how your setting options and connection options will appear in the merchant control panel when a merchant [connects your app to their store](#how-your-app-will-be-connected-to-a-store):
 
 ![FedEx Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/FedEx%20Settings.png 'Setting options')
 
