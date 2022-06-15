@@ -223,9 +223,9 @@ We recommend that you document your carrier ID and configuration option codes fo
 Once a merchant installs your app on their store, merchants and API users can connect your carrier to their store by using the connection options that you provided when you submitted your app.    
 
 #### How merchants will use your app
-A merchant can navigate to the Shipping Manager UI to input carrier connection settings. The UI displays the connection option's `label` that you provided when you submitted your app. The following figure shows how connection options are shown to merchants in the control panel, if you provided a text field for API Key and a checkbox field for enabling expedited shipping:
+A merchant can navigate to the Shipping Manager UI to input carrier connection options. The UI displays the connection option's `label` that you provided when you submitted your app. The following figure is an example of how connection options are shown to merchants in the control panel:
 
-![Connect Carrier via UI](https://storage.googleapis.com/bigcommerce-production-dev-center/images/connection%20settings.png 'Connection options in Shipping Manager') 
+![Connect Carrier via UI](https://storage.googleapis.com/bigcommerce-production-dev-center/images/connection%20options%20example.png 'Connection options in Shipping Manager') 
 
 After connecting your carrier, a merchant can define and enable multiple real-time shipping methods for your carrier app in any shipping zone. 
 
@@ -238,11 +238,11 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 
-{
-  "carrier_id": "carrier_33",
+{	
+  "carrier_id" : "endicia",
   "connection": {
-    "api_key": "example key",
-    "expedited": "1"
+      "account_id" : "example_id",
+      "pass_phrase" : "example_passphrase"
   }
 }
 ```
