@@ -1,6 +1,6 @@
 # Use a Real-Time Carrier
 
-Real-time carriers allow merchants and shoppers to obtain **real-time** shipping quotes. There are two types of real-time carriers: native integrations and shipping provider apps. Shipping provider apps require merchants to install the app on their store. Once a merchant installs a shipping provider app on their store, API users and merchants can connect the carrier to the store. API users and merchants can then define and enable multiple shipping methods for a carrier for any shipping zone. This makes real-time shipping methods available to shoppers for those zones during checkout. 
+Real-time carriers allow merchants and shoppers to obtain **real-time** shipping quotes. There are two types of real-time carriers: native integrations and shipping provider apps. Shipping provider apps require merchants to install the app on their store. Once a merchant installs a shipping provider app on their store, API users and merchants can connect the carrier to the store. API users and merchants can then define and enable a shipping method for a carrier in one or more shipping zones. They can define and enable a different shipping method in each shipping zone for the same carrier. Enabling a zone's real-time shipping method makes the method available to shoppers in that zone during checkout. 
 
 This article is a guide for API users on how to manage carrier connections and real-time shipping methods from carriers using the [Shipping V2 API](/api-reference/store-management/shipping-api).
 
@@ -153,7 +153,7 @@ No content
 
 ## Manage shipping methods
 
-After you connect a carrier, you must define and enable a shipping method for the carrier in one or more shipping zones. You can define and enable a different shipping method in each shipping zone using the same carrier.    
+After you connect a carrier, you must define and enable a shipping method for the carrier in one or more shipping zones. You can define and enable a different shipping method in each shipping zone for the same carrier.    
 
 ![Enabled vs Connected Carrier](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Enabled%20vs%20Connected%20Carrier.png 'Enabled versus Connected Carrier. USPS is enabled, while FedEx is only connected.')  
 
