@@ -416,6 +416,30 @@ paths:
         required: true
         schema:
           type: string
+  '/stores/{store_hash}/v3/orders/payment_actions/refunds/{refund_id}':
+    get:
+      summary: Get a Refund
+      description: Returns a refund by refund ID.
+      operationId: RefundID_Get
+      responses:
+        '200':
+          $ref: '#/components/responses/RefundID_Response'
+      tags:
+        - Payment Actions
+    parameters:
+      - name: refund_id
+        in: path
+        description: Refund ID.
+        required: true
+        schema:
+          type: integer
+      - name: store_hash
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/Content-Type'
   '/stores/{store_hash}/v3/orders/payment_actions/refund_quotes':
     post:
       summary: Create Refund Quotes - BATCH
@@ -2374,6 +2398,136 @@ components:
         - items
         - payments
       x-examples: {}
+    RefundID_Get:
+      type: object
+      x-examples:
+        Example:
+          data:
+            id: 12
+            order_id: 180
+            user_id: 0
+            created: '2022-06-16T16:44:15+00:00'
+            reason: ''
+            total_amount: 50
+            total_tax: 5
+            uses_merchant_override_values: false
+            payments:
+              - id: 13
+                provider_id: storecredit
+                amount: 50
+                offline: true
+                is_declined: false
+                declined_message: ''
+            items:
+              - item_type: PRODUCT
+                item_id: 87
+                quantity: 1
+                requested_amount: null
+                reason: incididunt exercitation enim
+          meta: {}
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: integer
+              description: |
+                Refund ID for the returned refund
+            order_id:
+              type: integer
+              description: Order ID associated with the refund
+            user_id:
+              type: integer
+              description: |
+                Reference to the user ID who created the refund. This is automatically populated by BigCommerce.
+            created:
+              type: string
+              description: |
+                Timestamp of when the refund was created
+              format: date-time
+            reason:
+              type: string
+              description: |
+                Reason for refund
+            total_amount:
+              type: number
+              description: |
+                A non-negative 2 decimal place rounded value that represents the amount that can be refunded with the correct payment provider(s).
+              example: 109.11
+            total_tax:
+              type: number
+              description: |
+                Total tax amount refunded back to the shopper. This can be a negative amount indicating we have collected tax by refunding less to the customer.
+            uses_merchant_override_values:
+              type: boolean
+              description: |
+                Whether refund amount and tax are provided explicitly by merchant override.
+            payments:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: |
+                      Reference to refund payment ID
+                  provider_id:
+                    type: string
+                    description: |
+                      Reference to payment provider
+                      example: storecredit
+                  amount:
+                    type: number
+                    description: |
+                      A non-negative two decimal place rounded value represents the amount that can be charged/refunded via payment providers.
+                    example: 109.11
+                  offline:
+                    type: boolean
+                    description: |
+                      Indicates whether the payment was offline
+                  is_declined:
+                    type: boolean
+                    description: |
+                      Indicates if this payment has been declined by the payment provider
+                  declined_message:
+                    type: string
+                    description: |
+                      Message indicates why the payment was declined
+            items:
+              type: array
+              items:
+                type: object
+                properties:
+                  item_type:
+                    type: string
+                    description: |
+                      Type of item that was refunded
+                    enum:
+                      - PRODUCT
+                      - GIFT_WRAPPING
+                      - SHIPPING
+                      - HANDLING
+                      - ORDER
+                  item_id:
+                    type: integer
+                    description: |
+                      `order_product.id` corresponding to the item_types of PRODUCT, GIFT_WRAPPING. `order_address.id` corresponding to the item_types of SHIPPING, HANDLING. `order.id` corresponding to the item_type of ORDER.
+                  quantity:
+                    type: integer
+                    description: |
+                      Quantity of item refunded. Note: this will only be populated for item_type PRODUCT
+                  requested_amount:
+                    type: string
+                    description: |
+                      A non-negative two decimal place rounded value that represents the amount that can be refunded with the payment provider(s).
+                    example: '109.11'
+                    nullable: true
+                  reason:
+                    type: string
+                    description: |
+                      Reason for refunding an item
+        meta:
+          type: object
     PostRefundsRequest:
       type: array
       description: Request body for batch refunds
@@ -3267,6 +3421,38 @@ components:
                   $ref: '#/components/schemas/FailedQuoteError'
               meta:
                 $ref: '#/components/schemas/Meta'
+    RefundID_Response:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RefundID_Get'
+          examples:
+            Example:
+              value:
+                data:
+                  id: 12
+                  order_id: 180
+                  user_id: 0
+                  created: '2022-06-16T16:44:15+00:00'
+                  reason: ''
+                  total_amount: 50
+                  total_tax: 5
+                  uses_merchant_override_values: false
+                  payments:
+                    - id: 13
+                      provider_id: storecredit
+                      amount: 50
+                      offline: true
+                      is_declined: false
+                      declined_message: ''
+                  items:
+                    - item_type: PRODUCT
+                      item_id: 87
+                      quantity: 1
+                      requested_amount: null
+                      reason: incididunt exercitation enim
+                meta: {}
   parameters:
     OrderIdParam:
       name: order_id
