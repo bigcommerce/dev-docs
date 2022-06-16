@@ -1,3 +1,7 @@
+---
+stoplight-id: 8093a34240fc9
+---
+
 # Store Logs API
 
 The store log tracks events that take place in your store. The store log is comprised of the **system log** and the **staff action log**. 
