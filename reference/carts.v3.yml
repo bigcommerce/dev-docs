@@ -276,6 +276,8 @@ paths:
 
         To add a custom item use `custom_items`. 
 
+        Overriding a product's `list_price` will make that item ineligible for V3 product level promotions.
+
         If a product has modifiers, omit the `variant_id` and instead use the `option_selections` array to describe both the **variant** and the **modifier** selections.
       parameters:
         - name: cartId

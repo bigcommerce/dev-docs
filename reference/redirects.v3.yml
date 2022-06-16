@@ -135,14 +135,14 @@ paths:
           examples:
             example-1:
               data:
-                - from_path: /old-url
+                - from_path: /old-url/
                   site_id: 0
                   to:
                     type: product
                     entity_id: 0
-                    url: /new-url
+                    url: /new-url/
                   id: 0
-                  to_url: 'https://store-domain.com/new-url'
+                  to_url: 'https://store-domain.com/new-url/'
               meta:
                 pagination:
                   total: 246
@@ -163,12 +163,12 @@ paths:
               $ref: '#/definitions/301RedirectUpsert'
           x-examples:
             example-1:
-              - from_path: /old-url
+              - from_path: /old-url/
                 site_id: 0
                 to:
                   type: product
                   entity_id: 0
-                  url: /new-url
+                  url: /new-url/
     delete:
       summary: Delete Redirects
       tags:
@@ -231,10 +231,11 @@ definitions:
   301RedirectUpsert:
     type: object
     description: 'Data necessary to create or update a redirect. If there’s a conflict on the from_path and site_id, the redirect will be overwritten with new data.'
+    x-internal: false
     properties:
       from_path:
         type: string
-        example: /old-url
+        example: /old-url/
       site_id:
         type: integer
       to:
@@ -242,7 +243,6 @@ definitions:
     required:
       - from_path
       - site_id
-    x-internal: false
   301RedirectRead:
     type: object
     description: 'Full detail of a Redirect, optionally including the full destination URL.'
@@ -304,6 +304,7 @@ definitions:
   RedirectTo:
     title: RedirectTo
     type: object
+    x-internal: false
     properties:
       type:
         type: string
@@ -318,9 +319,8 @@ definitions:
         type: integer
       url:
         type: string
-        example: /new-url
+        example: /new-url/
         maxLength: 2048
-    x-internal: false
   DetailedErrors:
     type: object
     additionalProperties:
