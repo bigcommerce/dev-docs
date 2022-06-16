@@ -1,6 +1,6 @@
 # Become a Shipping Provider
 
-Shipping service providers who wish to offer shipping services and rates to BigCommerce merchants and shoppers can implement endpoints through BigCommerce. Once they implement the endpoints and BigCommerce registers their shipping provider app, a merchant designated as store owner can install their app on the store. Merchants and API users can then connect and enable the service on their store via the Shipping Manager UI and the [Shipping V2 API](/api-reference/store-management/shipping-api), respectively. BigCommerce will then automatically retrieve the service options and rates using the provider's endpoints, displaying them to merchants in the store's control panel and to shoppers on the storefront. Merchants can define and enable multiple real-time shipping methods for your carrier app in any shipping zone.
+Shipping service providers who wish to offer shipping services and rates to BigCommerce merchants and shoppers can implement endpoints through BigCommerce. Once they implement the endpoints and BigCommerce registers their shipping provider app, a merchant designated as store owner can install their app on the store. Merchants and API users can then connect and enable the service on their store via the Shipping Manager UI and the [Shipping V2 API](/api-reference/store-management/shipping-api), respectively. BigCommerce will then automatically retrieve the service options and rates using the provider's endpoints, displaying them to merchants in the store's control panel and to shoppers on the storefront. Merchants can define and enable a real-time shipping methods for your carrier app in one or more shipping zone.
 
 The Shipping Provider API provides many benefits:
 
@@ -227,7 +227,7 @@ A merchant can navigate to the Shipping Manager UI to input carrier connection o
 
 ![Connect Carrier via UI](https://storage.googleapis.com/bigcommerce-production-dev-center/images/connection%20options%20example.png 'Connection options in Shipping Manager') 
 
-After connecting your carrier, a merchant can define and enable multiple real-time shipping methods for your carrier app in any shipping zone. 
+After connecting your carrier, a merchant can define and enable a real-time shipping method for your carrier app in one or more shipping zones. 
 
 #### How API users will use your app
 API users can connect your carrier to the store by using the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. In the request, API users will send the carrier ID that you received when you signed up, as well as values for your app's connection options. Specifically, API users will specify the `code` for each connection option as a property under the `connection` object when they connect to your carrier, for example:    
@@ -251,7 +251,7 @@ Accept: application/json
 > #### Note
 > We recommend that you document your connection option codes for API users who wish to connect your carrier.
 
-API users can then define and enable a shipping method for your carrier using the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) endpoint. In the request, API users will send values for your app's settings options. They can enable multiple real-time shipping methods for your carrier app in any shipping zone. For more info on how API users will use your carrier, see the [Use a Real-Time Carrier](/api-docs/store-management/shipping/use-real-time-carrier) article.
+API users can then define and enable a shipping method for your carrier in one or more shipping zones by using the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) endpoint. In the request, API users will send values for your app's settings options which help determine the rates that your app sends to BigCommerce when BigCommerce requests a quote. For more info on how API users will use your carrier, see the [Use a Real-Time Carrier](/api-docs/store-management/shipping/use-real-time-carrier) article.
 
 <!-- theme:info  -->
 > #### Note 
