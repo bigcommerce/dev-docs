@@ -39,7 +39,7 @@ For more information, see our [Introduction to Building Apps](/api-docs/apps/gui
 
 ### Your app ID
 
-BigCommerce assigns your app an ID when you create an app. You will need the app ID when you [sign up](#sign-up) as a shipping provider. To get your app ID, [create a draft app](/api-docs/apps/guide/development#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Step 3: Technical tab](/api-docs/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID. 
+BigCommerce assigns your app an ID when you create an app. You will need the app ID when you [sign up](#sign-up) as a shipping provider. To get your app ID, [create a draft app](/api-docs/apps/guide/development#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Technical tab](/api-docs/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID. 
 
 ![App ID](https://s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224 "App ID")
 
