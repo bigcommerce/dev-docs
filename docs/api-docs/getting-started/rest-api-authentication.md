@@ -58,6 +58,9 @@ To delete a store API account, consult our Knowledge Base article on [Deleting a
 You can [create app API accounts](#obtaining-app-api-credentials) in the [Developer Portal](https://devtools.bigcommerce.com). Most apps use access tokens generated from the API account's `client_ID`, `client_secret`, and a grant `code` to read and change store data once the store owner installs and authorizes the app. [Generate access tokens](#app-access-tokens) with the BigCommerce-initiated grant code authorization flow.
 
 Some APIs use app API accounts to implement alternative authentication patterns. For a summary of all our authentication methods, see [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis).
+
+
+For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/guide/intro). The sections on [Implementing OAuth](/api-docs/apps/guide/auth) and [Callback Handlers](/api-docs/apps/guide/callbacks) are particularly relevant to generating access tokens.
 ### Obtaining app API credentials
 
 To get app API credentials, you need a BigCommerce [Developer Portal](https://devtools.bigcommerce.com) account. Once you have an account, sign in and perform the following steps:
@@ -75,6 +78,11 @@ To get app API credentials, you need a BigCommerce [Developer Portal](https://de
 ![Assign OAuth scopes](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-oauth-scopes.png "Assign OAuth scopes")
 
 5. Click **Update & Close** at the lower right-hand corner of the modal.
+
+<!-- theme: info -->
+> #### Information optional
+> When you create or edit an app in the Dev Portal, no app information fields are mandatory unless you're preparing the app for BigCommerce [App Marketplace](https://bigcommerce.com/apps) approval.
+
 6. A new modal will appear, asking if you want to add new OAuth scopes. Click **Confirm Update**.
 7. Back on the Developer Portal landing page, find your app listed under the **Create an app** button. To view your client ID and client secret, click **View Client ID** next to the relevant app. You can access your API account credentials until you delete the app.
 
@@ -88,20 +96,24 @@ App API accounts do not come pre-configured with an access token. Each time a st
 
 ### Revoking app API credentials
 
-There is no way to manually force-regenerate app API account access tokens, but you can 
+There is no way to manually revoke or force-regenerate app API account access tokens. However, either of the following actions triggers a token refresh:
+* When the store owner's email address changes
+* When you modify the app API account's OAuth scopes
+
+After one of these changes, the store owner will be prompted to review the change and reauthorize the app the next time they click the app icon in the store control panel.
 
 <!-- theme: danger -->
 > #### Delete apps carefully
-> If you delete the app, there is no way to recover the client ID or client secret.
+> When you delete an app in the Dev Portal, there is no way to recover the client ID or client secret. If you choose to do this, don't forget to mitigate potential loss of [webhook and metafield](#dont-forget-your-webhooks-and-metafields)-related data and functionality.
 
 ## Choosing the right kind of API account
 
-
-
+Where both types of API account are supported, review the preceding sections to make an informed choice about which best fits your use case.
 
 | API or Use Case | App API Account | Store API Account |
 |:----------------|:---------------:|:-----------------:|
 | REST Store Management APIs | &times; | &times; |
+| REST Provider APIs | &times; |  |
 | REST Storefront API |  | &times; |
 | GraphQL Storefront API |  | &times; |
 | Customer Login API | &times; |  |
@@ -110,36 +122,6 @@ There is no way to manually force-regenerate app API account access tokens, but 
 | Apps hosted in the store control panel (single-click app) | &times; |  |
 | Manual connection between a third-party app and a store |  | &times; |
 | Single-store front-end scripts |  | &times; |
-
-
-
-
-* Store credentials can never have a different access token
-* Can't modify the scope
-* If compromised, must be deleted
-* Will never apply to more than one store
-* Update and delete access to some properties, much as [metafields](), is restricted to the API account that created them. If this is a problem, choose app credentials
-
-App credentials require you to register a [Developer Portal](https://devtools.bigcommerce.com) account and create an app.
-* Can modify the scope
-* Can force generation of new access tokens by modifying scope
-* As long as client id & secret are secure, can force generation of new access tokens to re-secure applications
-* The new access tokens can then update and delete API account-restricted resources, such as [metafields]()
-* Can be used on multiple stores: is liberated from the scope of a single store when the app is approved to be a public production app
-
-For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/guide/intro). The sections on [Implementing OAuth](/api-docs/apps/guide/auth) and [Callback Handlers](/api-docs/apps/guide/callbacks) are particularly relevant to generating access tokens.
-
-### App-specific APIs
-Some APIs are only accessible with app API accounts. These include:
-* the [Current Customer API](/api-docs/storefront/current-customer-api) and
-* the [Customer Login API](/api-docs/storefront/customer-login-api).
-
-We recommend that you implement some REST APIs exclusively through an app. These include:
-* the [Shipping Provider API](/api-docs/providers/shipping) and
-* the [Tax Provider API](/api-docs/providers/tax).
-
-Depending on your use case, you might choose to interact with a third-party provider app using a store API account. 
-
 
 ## Migrating from legacy to OAuth
 
@@ -168,7 +150,7 @@ If you haven't already, we recommend that you migrate from legacy API credential
 
 When you update your API connections to use OAuth instead of legacy basic authentication, you will need to do the following:
 
-* Create an API account appropriate to your use case. Keeping in mind the API endpoints your connections use, create either a store API account or an app API account per the preceding instructions. Configure the account with the correct scopes for the work your use case does. We recommend adhering to industry standard security practices; provision the API account with the minimum scope that your application requires.
+* Create an API account appropriate to your use case. Keeping in mind the API endpoints your connections use, create either a store API account or an app API account per the preceding instructions. Configure the account with the correct OAuth scopes for your use case. We recommend adhering to industry standard security practices; add only the essential scopes that your application requires. If you're using an app API account, you can always modify the scope later.
 * If you use one of our [client libraries](/tools-resources), consult the library’s documentation for establishing an optimal OAuth configuration.
 * After you create your connection, update your connection parameters as follows:
   * Use `https://api.bigcommerce.com` as the gateway URL instead of the BigCommerce store’s secure hostname. For example, route requests that formerly went to `https://store-abc123.mybigcommerce.com/api/v2/orders/123` or `https://my-custom-store-domain.com/api/v2/orders/123` to `https://api.bigcommerce.com/stores/{{store_hash}}/v2/orders/123`.
