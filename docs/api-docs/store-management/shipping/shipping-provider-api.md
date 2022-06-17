@@ -206,7 +206,10 @@ Include the following information:
 - Logo: A 70x70 pixel logo that represents the shipping carrier app
 - [Your service URLs](#your-service-urls) 
 - [Whether you prefer single-carrier or multi-carrier status](#single-carrier-versus-multi-carrier-shipping-providers)
-- [Configuration fields](#configuration-fields): For a list of items you need to provide, see [types of configuration options](#what-are-the-types-of-configuration-options).
+- [Configuration fields](#configuration-fields) (optional): For a list of items you need to provide, see [types of configuration options](#what-are-the-types-of-configuration-options).
+- Countries Available (optional): A list of countries where merchants can use your carrier. Merchants who have a store origin address outside this list will not be able to use your carrier. 
+  
+  In most cases, this list should be as broad as possible. For example, if your carrier operates worldwide, make it available worldwide. You can limit the countries further than what your shipping carrier offers.  If you don't provide the countries available, your carrier is available worldwide (i.e. for every shipping origin). 
 
 ### What you will receive
 
@@ -528,7 +531,6 @@ For more information on product and variant metafields, see the following Catalo
 | Check Connection Options URL | An optional URL for a shipping carrier resource that accepts check requests containing the connection options provided by a user when connecting the carrier and indicates whether or not those settings are valid. You provide this URL when you [sign up](#sign-up).|
 | Configuration Fields | Connection and settings options. Merchants and API users use these fields to connect your carrier to their store and define shipping methods for your carrier in a zone. For more info, see [Configuration fields](#configuration-fields). |
 | Connection Options | Optional fields that merchants and API users can use to connect your carrier to a store, including keys and passwords. |
-| Countries Available | A list of countries where you can use the shipping carrier. The default behavior is that the carrier is available for every shipping origin. In most cases, this list should be as broad as possible. For example, if your carrier operates worldwide, make it available worldwide. You can limit the countries further than what the shipping carrier has provided. If the service is worldwide, then leave this field blank to specify that it is worldwide. Specifying the use of the shipping carrier is an optional step. |
 | Settings Options | Optional fields that merchants and API users can use to specify your real-time shipping method, including available rates, packaging types, and packing methods. 
 | Shipping Carrier | A service that facilitates delivery, such as UPS and FedEx. |
 | Shipping Provider | A shipping solution that provides shipping rates to BigCommerce. A shipping provider can provide rates for one or more carriers. For more info, see [Single-carrier versus multi-carrier shipping providers](#single-carrier-versus-multi-carrier-shipping-providers). |
