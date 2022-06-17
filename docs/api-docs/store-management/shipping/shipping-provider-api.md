@@ -110,7 +110,11 @@ Configuration fields are optional connection options or shipping settings option
 
 ![FedEx Connection Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/FedEx%20Connection%20Settings.png 'Connection options')
 
-API users will also use connection options when they connect your app to their store. They will use the settings options when defining shipping methods that use your carrier.  
+
+#### How will configuration fields be used?
+ 
+- **API users** and **merchants** use connection options when they [connect your app to a store](#how-your-app-will-be-connected-to-a-store). They will use the settings options when defining shipping methods that use your carrier. 
+- **BigCommerce** will include values for connection options when we when we need you to [vaiidate connection options](#validate-connection-options) and [provide shipping rates](#provide-shipping-rates-to-bigcommerce). BigCommerce also sends settings options when we need you to provide shipping rates. 
 
 #### What are the types of configuration options?
 These are the types of configuration (connection or settings) options that we currently allow:
@@ -122,6 +126,7 @@ These are the types of configuration (connection or settings) options that we cu
 
 If you would like configuration options to be set up for your carrier, specify the following for each configuration option when you [sign up](#sign-up):
 - **Label**: This is the text that will be displayed on the merchant's UI when they connect
+- **Code**: This is an identifying code for the configuration option. Use snake case for codes. For a list of where these codes will be sent, see [How configuration fields are used](#how-will-configuration-fields-be-used)
 - **Required**: Whether or not the configuration option is required 
 - **Type**: Type of configuration option
 
@@ -209,15 +214,13 @@ Include the following information:
 - [Configuration fields](#configuration-fields) (optional): For a list of items you need to provide, see [types of configuration options](#what-are-the-types-of-configuration-options).
 - Countries Available (optional): A list of countries where merchants can use your carrier. Merchants who have a store origin address outside this list will not be able to use your carrier. 
   
-  In most cases, this list should be as broad as possible. For example, if your carrier operates worldwide, make it available worldwide. You can limit the countries further than what your shipping carrier offers.  If you don't provide the countries available, your carrier is available worldwide (i.e. for every shipping origin). 
+  In most cases, this list should be as broad as possible. For example, if your carrier operates worldwide, make it available worldwide. You can limit the countries further than what your shipping carrier offers. If you don't provide the countries available, your carrier is available worldwide (i.e. for every shipping origin). 
 
-### What you will receive
+After submitting your app, you will receive the a carrier ID. Both single-carrier and multi-carrier shipping providers receive one `carrier_id`.
 
-After submitting your app, you will receive the following:
-- Carrier ID: Both single-carrier and multi-carrier shipping providers receive one `carrier_id`
-- Codes: Each configuration option has a corresponding `code`.
+### What should you document for API users?
  
-We recommend that you document your carrier ID and configuration option codes for API users who wish to use your carrier. For example, API users will specify the `carrier_id` and `code` for connections options when they [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store). BigCommerce will also include the `code` for each connection option when we [request rates from your carrier](#provide-shipping-rates-to-bigcommerce). API users specify the `code` for settings options when they define your carrier's shipping method for their shipping zones.  
+We recommend that you document your carrier ID and configuration option codes for API users who wish to use your carrier. For example, API users will specify the `carrier_id` and `code` for connections options when they [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store). API users specify the `code` for settings options when they define your carrier's shipping method for their shipping zones.  
 
 ## What's next?
 
