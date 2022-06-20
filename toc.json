@@ -18,7 +18,7 @@
     },
     {
       "type": "item",
-      "title": "Authentication Schemes",
+      "title": "Authentication & Example Requests",
       "href": "/api-docs/getting-started/authentication/authenticating-bigcommerce-apis",
       "uri": "docs/api-docs/getting-started/authentication.md"
     },
