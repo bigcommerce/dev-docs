@@ -90,7 +90,7 @@ Accept: application/json
 
 ### Client ID
 
-Another **stable token**-based scheme involves mutual authentication. The requesting app identifies itself by sending an API account's client ID as a query parameter, and our servers return a BigCommerce-generated JSON web token, or _JWT_, which securely encrypts merchant data. The app can decode the JWT to view the response. For example, the Current Customer API's JWT payload identifies currently signed in customer.
+Another **stable token**-based scheme involves mutual authentication. The requesting app identifies itself by sending an API account's client ID as a query parameter, and our servers return a BigCommerce-generated JSON web token, or _JWT_, which securely encrypts merchant data. The app can decode the JWT to view the response. For example, the Current Customer API's JWT payload identifies the currently signed-in customer.
 
 The following table lists the APIs that authenticate with a client ID. For OAuth scopes, consult the **Endpoint Reference** column. 
 
