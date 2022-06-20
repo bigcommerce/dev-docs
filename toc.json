@@ -17,22 +17,22 @@
       "uri": "docs/api-docs/getting-started/about-our-api.md"
     },
     {
-      "type": "group",
-      "title": "Authentication",
-      "items": [
-        {
-          "type": "item",
-          "title": "Authenticating BigCommerce APIs",
-          "href": "/api-docs/getting-started/authentication/authenticating-bigcommerce-apis",
-          "uri": "docs/api-docs/getting-started/authentication.md"
-        },
-        {
-          "type": "item",
-          "title": "V2 and V3 REST API Authentication",
-          "href": "/api-docs/getting-started/authentication/rest-api-authentication",
-          "uri": "docs/api-docs/getting-started/rest-api-authentication.md"
-        }
-      ]
+      "type": "item",
+      "title": "Authentication & Example Requests",
+      "href": "/api-docs/getting-started/authentication/authenticating-bigcommerce-apis",
+      "uri": "docs/api-docs/getting-started/authentication.md"
+    },
+    {
+      "type": "item",
+      "title": "API Accounts & OAuth Scopes",
+      "href": "/api-docs/getting-started/authentication/rest-api-authentication",
+      "uri": "docs/api-docs/getting-started/rest-api-authentication.md"
+    },
+    {
+      "type": "item",
+      "title": "API Status Codes",
+      "href": "/api-docs/getting-started/api-status-codes",
+      "uri": "docs/api-docs/getting-started/api-status-codes.md"
     },
     {
       "type": "item",
@@ -45,12 +45,6 @@
       "title": "Best Practices",
       "href": "/api-docs/getting-started/best-practices",
       "uri": "docs/api-docs/getting-started/best-practices.md"
-    },
-    {
-      "type": "item",
-      "title": "API Status Codes",
-      "href": "/api-docs/getting-started/api-status-codes",
-      "uri": "docs/api-docs/getting-started/api-status-codes.md"
     },
     {
       "type": "item",
