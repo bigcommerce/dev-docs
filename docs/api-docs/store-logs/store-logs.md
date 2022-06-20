@@ -46,7 +46,7 @@ title: Request
 -->
 
 ```json title="Example GET request with X-Auth-Token header" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?type=design
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -58,6 +58,40 @@ title: Response
 -->
 
 ```json title="Example GET response" lineNumbers
+{
+    "data": [
+        {
+            "id": 1,
+            "type": "design",
+            "module": "Theme Download",
+            "severity": "success",
+            "summary": "example@bigcommerce.com Downloaded Cornerstone-6.2.0.zip, 2zs05d70-3fb3-113m-43t0-179242c3acd9",
+            "message": "example@bigcommerce.com Downloaded Cornerstone-6.2.0.zip, 2zs05d70-3fb3-113m-43t0-179242c3acd9",
+            "date_created": "2021-12-16T19:10:26+00:00"
+        },
+        {
+            "id": 6,
+            "type": "design",
+            "module": "Theme Download",
+            "severity": "success",
+            "summary": "example@bigcommerce.com Downloaded LifeStyle-1.4.1.zip, 8e2a49c1-f85d-3149-ghce-5e2ba6d55p34",
+            "message": "example@bigcommerce.com Downloaded LifeStyle-1.4.1.zip, 8e2a49c1-f85d-3149-ghce-5e2ba6d55p34",
+            "date_created": "2021-12-22T15:27:09+00:00"
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "total": 2,
+            "count": 2,
+            "per_page": 50,
+            "current_page": 1,
+            "total_pages": 1,
+            "links": {
+                "current": "?type=design&page=1&limit=50"
+            }
+        }
+    }
+}
 ```
 
 <!-- type: tab-end -->
