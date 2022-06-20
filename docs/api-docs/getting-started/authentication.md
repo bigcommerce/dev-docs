@@ -460,6 +460,18 @@ storefrontCall(endpoint);
 
 <!-- type: tab-end -->
 
+## Developer-configured authentication
+
+Unlike our other APIs, we do not host the REST Provider APIs. The Provider API specifications describe _requests that BigCommerce sends_ the provider app's server, and the responses that we expect in return. 
+
+The following table describes the authentication characteristics of our REST Provider APIs.
+
+| API description | API reference | Configuration reference | Associated API account | Authentication method |
+|:----------------|:--------------|:------------------------|:-----------------------|:----------------------|
+| [Shipping Provider API](/api-docs/providers/shipping) | [Shipping Provider Reference](/api-reference/providers/shipping-provider-api) | [Configure during registration](/api-docs/providers/shipping#configuration-fields), and/or with [Update a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/updateacarrierconnection) | implemented in an app | developer-defined request body keys | 
+| [Tax Provider API](/api-docs/providers/tax) | [Tax Provider Reference](/api-reference/providers/tax-provider-api) | [Update a tax provider connection](/api-reference/store-management/tax/tax-provider-connection/provider-connection-put) | implemented in an app | `Authorization: Basic {{base64encode(username:password)}}` |
+
+In the Tax Provider API `Authorization` header, the username and password belong to the app's tax provider service. What this username and password actually refer to is up to the app developer. 
 
 ## Resources
 
