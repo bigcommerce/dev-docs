@@ -8,7 +8,7 @@ In addition to authenticating REST APIs, BigCommerce API accounts are the fundam
 
 Every parent set of API credentials that you request for your store is its own **API account**. At its simplest, an API account consists of the following: 
 * the `client_id` uniquely identifies the app or user, or the _client_, making a request;
-* the `client_secret`, which is a cryptographically secure value known only to the client and BigCommerce.
+* the `client_secret` is a cryptographically secure value known only to the client and BigCommerce.
 
 Every active API account has at least one `access_token`. [Store API accounts](#store-api-accounts) include a static `access_token` that does not change. [App API accounts](#app-api-accounts) expect each application to generate a unique `access_token` for every store that installs the app.
 
@@ -19,12 +19,12 @@ Every active API account has at least one `access_token`. [Store API accounts](#
 
 ## Store API accounts
 
-Merchants generate single-store API credentials when they create API accounts in their store control panel (**Advanced Settings** > **API Accounts**). Use these credentials to read and change one store's data with BigCommerce's APIs. Store API accounts' access tokens and OAuth scopes can't be changed. 
+Merchants generate single-store API credentials when they create API accounts in their store control panel (**Advanced Settings** > **API Accounts**). Use these credentials to read and change one store's data with BigCommerce's APIs. You can't change store API accounts' access tokens or OAuth scopes. 
 
 In addition to the [API account components](#api-accounts) in the preceding section, store API accounts contain the following attributes out of the box:
 * an `access_token`, which accompanies most REST API requests;
 * the **client name** is a label for your convenience, and it doesn't accompany requests;
-* the **API path** is the URL to which you make requests. The API path won't change, but it will have `/v3/` or `/v2/` appended to it, depending on which version is current for the endpoint you're querying.
+* the **API path** is the URL to which you make requests. The API path won't change, but it will have `/v3/` or `/v2/` appended to it, depending on the current version for the endpoint you're querying.
 
 Most APIs that work with store API accounts use the `access_token` to authenticate requests to BigCommerce. However, a few use the access token to generate a temporary credential. To learn more about special cases that involve store credentials, read about [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis) and consult the documentation for the API you want to use.
 
@@ -161,7 +161,7 @@ Rate limiting works differently for OAuth API connections. For details, see the 
 
 **Scope** grants and limits a program's ability to read and write data. Set the scopes to the minimum level of access your implementation needs.
 
-All OAuth scopes except `default` provide `read-only` permissions scopes, so that you can limit some accounts to sending `GET` and `HEAD` requests.
+All OAuth scopes except `default` provide `read-only` permissions scopes so that you can limit some accounts to sending `GET` and `HEAD` requests.
 
 <!-- theme: info -->
 > Webhooks are accessible from the default scope that is automatically accessible to all API accounts.
@@ -184,24 +184,24 @@ All OAuth scopes except `default` provide `read-only` permissions scopes, so tha
 | Orders | read-only | `store_v2_orders_read_only` | View orders | [/v2/orders](/api-reference/orders/orders-api) <br>[/v2/order_statuses](/api-reference/orders/orders-api) |
 | Order Transactions | modify | `store_v2_transactions` | View and modify order transactions | [/v3/orders/{id}/transactions](/api-reference/orders/orders-transactions-api) |
 | Order Transactions | read-only | `store_v2_transactions_read_only` | View order transactions | [/v3/orders/{id}/transactions](/api-reference/orders/orders-transactions-api) |
-| Create Payments | modify | `store_payments_access_token_create` | Process Payments | [/payments/access_tokens](/api-reference/payments/payments-create-payment-token-api)|
-| Get Payment Methods | read-only | `store_payments_methods_read` | Get Order Payment Methods | [/payments](/api-reference/payments/payments-process-payments) |
+| Create Payments | modify | `store_payments_access_token_create` | Process payments | [/payments/access_tokens](/api-reference/payments/payments-create-payment-token-api)|
+| Get Payment Methods | read-only | `store_payments_methods_read` | Get a list of payment methods | [/payments](/api-reference/payments/payments-process-payments) |
 | Products | modify | `store_v2_products` | View and modify products, brands, categories, and other product information. | [/v3/catalog](/api-reference/catalog/catalog-api) <br>[/v3/pricelists](/api-reference/price-lists/pricelists-api) |
 | Products | read-only | `store_v2_products_read_only` | View products | [/v3/catalog](/api-reference/catalog/catalog-api) <br>[/v3/pricelists](/api-reference/price-lists/pricelists-api) |
 | Themes | modify | `store_themes_manage` | View and modify themes | [/v3/themes](/api-reference/themes/themes-api) |
 | Themes | read-only | `store_themes_read_only` | View themes | [/v3/themes](/api-reference/themes/themes-api) |
-| Carts | modify | `store_cart` | View and Modify carts | [/v3/carts](/api-reference/cart-checkout/storefront-cart-api) |
-| Carts | read-only | `store_cart_read_only` | View Carts | [/v3/carts](/api-reference/cart-checkout/storefront-cart-api) |
+| Carts | modify | `store_cart` | View and modify carts | [/v3/carts](/api-reference/cart-checkout/storefront-cart-api) |
+| Carts | read-only | `store_cart_read_only` | View carts | [/v3/carts](/api-reference/cart-checkout/storefront-cart-api) |
 | Checkouts | modify | `store_checkout` | View and modify a checkout | [/v3/checkouts](/api-reference/cart-checkout/storefront-checkout-api) |
 | Checkouts | read-only | `store_checkout_read_only` | View checkout content | [/v3/checkouts](/api-reference/cart-checkout/storefront-checkout-api) |
 | Sites & Routes | modify | `store_sites` | View and modify sites and routes | [/v3/channels/{channel_id}/site](/api-reference/cart-checkout/sites-routes-api) <br>[/v3/sites/{site_id}/routes](/api-reference/cart-checkout/sites-routes-api) |
-| Sites & Routes | read-only | `store_sites_read_only` | View external storefronts with Non-BigCommerce URLs | [/v3/channels/{channel_id}/site](/api-reference/cart-checkout/sites-routes-api) <br>[/v3/sites/{site_id}/routes](/api-reference/cart-checkout/sites-routes-api) |
+| Sites & Routes | read-only | `store_sites_read_only` | View external storefronts with non-BigCommerce URLs | [/v3/channels/{channel_id}/site](/api-reference/cart-checkout/sites-routes-api) <br>[/v3/sites/{site_id}/routes](/api-reference/cart-checkout/sites-routes-api) |
 | Channel Settings | modify | `store_channel_settings` | View and modify a list of channels | [/v3/channels](/api-reference/cart-checkout/channels-listings-api) |
 | Channel Settings | read-only | `store_channel_settings_read_only` | View a list of channels | [/v3/channels](/api-reference/cart-checkout/channels-listings-api) |
 | Channel Listings | modify | `store_channel_listings` | View and modify a list of all channel listings for a particular channel | [/v3/channels/listings](/api-reference/cart-checkout/channels-listings-api) |
 | Channel Listings | read-only | `store_channel_listings_read_only` | View a list of all channel listings for a particular channel | [/v3/channels/listings](/api-reference/cart-checkout/channels-listings-api) |
 | Storefront API Tokens | modify | `store_storefront_api` | Create a storefront API token | [/v3/storefront/api-token](/api-reference/store-management/tokens/createtoken) |
-| Storefront API Customer Impersonation Tokens | modify | `store_storefront_api_customer_impersonation` | Create a storefront API token that allows for customer impersonation | [/v3/storefront/api-token-customer-impersonation](/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation) |
+| Storefront API Customer Impersonation Tokens | modify | `store_storefront_api_customer_impersonation` | Create a storefront API token that allows customer impersonation | [/v3/storefront/api-token-customer-impersonation](/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation) |
 
 ## Resources
 * [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis)
