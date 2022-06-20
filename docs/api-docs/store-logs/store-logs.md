@@ -65,8 +65,8 @@ title: Response
             "type": "design",
             "module": "Theme Download",
             "severity": "success",
-            "summary": "example@bigcommerce.com Downloaded Cornerstone-6.2.0.zip, 2zs05d70-3fb3-113m-43t0-179242c3acd9",
-            "message": "example@bigcommerce.com Downloaded Cornerstone-6.2.0.zip, 2zs05d70-3fb3-113m-43t0-179242c3acd9",
+            "summary": "user@example.com Downloaded Cornerstone-6.2.0.zip, 2zs05d70-3fb3-113m-43t0-179242c3acd9",
+            "message": "user@example.com Downloaded Cornerstone-6.2.0.zip, 2zs05d70-3fb3-113m-43t0-179242c3acd9",
             "date_created": "2021-12-16T19:10:26+00:00"
         },
         {
@@ -74,8 +74,8 @@ title: Response
             "type": "design",
             "module": "Theme Download",
             "severity": "success",
-            "summary": "example@bigcommerce.com Downloaded LifeStyle-1.4.1.zip, 8e2a49c1-f85d-3149-ghce-5e2ba6d55p34",
-            "message": "example@bigcommerce.com Downloaded LifeStyle-1.4.1.zip, 8e2a49c1-f85d-3149-ghce-5e2ba6d55p34",
+            "summary": "user@example.com Downloaded LifeStyle-1.4.1.zip, 8e2a49c1-f85d-3149-ghce-5e2ba6d55p34",
+            "message": "user@example.com Downloaded LifeStyle-1.4.1.zip, 8e2a49c1-f85d-3149-ghce-5e2ba6d55p34",
             "date_created": "2021-12-22T15:27:09+00:00"
         }
     ],
@@ -105,7 +105,7 @@ title: Request
 -->
 
 ```json title="Example GET request with X-Auth-Token header" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?module=order status
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -117,6 +117,31 @@ title: Response
 -->
 
 ```json title="Example GET response" lineNumbers
+{
+    "data": [
+        {
+            "id": 2,
+            "type": "ordersettings",
+            "module": "Order Status",
+            "severity": "success",
+            "summary": "Successfully customized order status",
+            "message": "{\"id\":11,\"customLabelBefore\":\"Awaiting Shipment\",\"customLabelAfter\":\"Package ready to be picked up by Fed Ex\",\"userId\":4,\"userUid\":3172923,\"userEmail\":\"user@example.com\",\"userRole\":\"admin\"}",
+            "date_created": "2021-12-18T04:46:40+00:00"
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "total": 1,
+            "count": 1,
+            "per_page": 50,
+            "current_page": 1,
+            "total_pages": 1,
+            "links": {
+                "current": "?module=order+status&page=1&limit=50"
+            }
+        }
+    }
+}
 ```
 
 <!-- type: tab-end -->
