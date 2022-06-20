@@ -27,7 +27,7 @@ info:
     - [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method)
     - [Shipping Carriers](/api-reference/store-management/shipping-api/shipping-carrier)
   termsOfService: ''
-host: api.bigcommerce.com
+host: your_app.example.com
 schemes:
   - https
 consumes:
@@ -35,9 +35,15 @@ consumes:
 produces:
   - application/json
 paths:
-  '/stores/{store_hash}/v3/rate':
+  '/rate':
     post:
-      description: Request shipping rates.
+      description: |-
+        Request shipping rates. BigCommerce sends a request for shipping quotes to the shipping provider's URL. The shipping provider responds with shipping quotes.
+
+        <!-- theme:info -->
+        > #### Note
+        > * The `your_app.example.com` and `rate` are the host and path specific to the shipping provider. 
+        > * The Send a Test Request feature is not currently supported for this endpoint.  
       parameters:
         - in: body
           name: body
@@ -343,14 +349,15 @@ paths:
       tags:
         - Shipping Provider
       operationId: requestShippingRates
-    parameters:
-      - type: string
-        name: store_hash
-        in: path
-        required: true
-  '/stores/{store_hash}/v3/check_connection_options':
+  '/check_connection_options':
     post:
-      description: Validate connection options.
+      description: |-
+        Validate connection options. BigCommerce sends a request to the shipping provider's URL in order to check a merchant's connection credentials. The shipping provider sends a response indicating whether a merchant has valid credentials. 
+
+        <!-- theme:info -->
+        > #### Note
+        > * The `your_app.example.com` and `check_connection_options` are the host and path specific to the shipping provider.  
+        > * The Send a Test Request feature is not currently supported for this endpoint.  
       parameters:
         - in: body
           name: body
@@ -377,11 +384,6 @@ paths:
       tags:
         - Shipping Provider
       operationId: validateConnectionOptions
-    parameters:
-      - type: string
-        name: store_hash
-        in: path
-        required: true
 tags:
   - name: Shipping Provider
 x-stoplight:
