@@ -311,6 +311,40 @@ title: Response
 -->
 
 ```json title="Example GET response" lineNumbers
+{
+    "data": [
+        {
+            "id": 1,
+            "type": "design",
+            "module": "Theme Download",
+            "severity": "success",
+            "summary": "user@example.com Downloaded Cornerstone-6.2.0.zip, 2zs05d70-3fb3-113m-43t0-179242c3acd9",
+            "message": "user@example.com Downloaded Cornerstone-6.2.0.zip, 2zs05d70-3fb3-113m-43t0-179242c3acd9",
+            "date_created": "2021-12-16T19:10:26+00:00"
+        },
+        {
+            "id": 2,
+            "type": "ordersettings",
+            "module": "Order Status",
+            "severity": "success",
+            "summary": "Successfully customized order status",
+            "message": "{\"id\":11,\"customLabelBefore\":\"Awaiting Shipment\",\"customLabelAfter\":\"Package ready to be picked up by Fed Ex\",\"userId\":4,\"userUid\":3172923,\"userEmail\":\"user@example.com\",\"userRole\":\"admin\"}",
+            "date_created": "2021-12-18T04:46:40+00:00"
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "total": 2,
+            "count": 2,
+            "per_page": 2,
+            "current_page": 1,
+            "total_pages": 1,
+            "links": {
+                "current": "?limit=2&page=1"
+            }
+        }
+    }
+}
 ```
 
 <!-- type: tab-end -->
