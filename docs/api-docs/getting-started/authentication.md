@@ -462,6 +462,8 @@ storefrontCall(endpoint);
 
 ## Developer-configured authentication
 
+### REST Provider APIs
+
 Unlike our other APIs, we do not host the REST Provider APIs. The Provider API specifications describe _requests that BigCommerce sends_ the provider app's server, and the responses that we expect in return. 
 
 The following table describes the authentication characteristics of our REST Provider APIs.
