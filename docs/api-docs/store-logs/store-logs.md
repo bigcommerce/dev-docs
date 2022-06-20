@@ -21,7 +21,7 @@ title: Request
 -->
 
 ```json title="Example GET request with X-Auth-Token header" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?id:in=5,7
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -33,6 +33,40 @@ title: Response
 -->
 
 ```json title="Example GET response" lineNumbers
+{
+    "data": [
+        {
+            "id": 5,
+            "type": "emailintegration",
+            "module": "Export Only",
+            "severity": "success",
+            "summary": "Subscriber andrea.dao@bigcommerce.com stored for export.",
+            "message": null,
+            "date_created": "2021-12-20T23:15:24+00:00"
+        },
+        {
+            "id": 7,
+            "type": "shipping",
+            "module": "FedEx Ground Home Delivery (5-7 Business Days) (flatrate)",
+            "severity": "success",
+            "summary": "Successfully retrieved shipping quote",
+            "message": "{\"quoteId\":\"1640216655\",\"cacheInfo\":\"cached for 3600s\",\"customerGroup\":{\"id\":2,\"name\":\"Wholesale Customers\"},\"customerEmail\":\"andreaminghweidao@gmail.com\",\"customerId\":2,\"destination\":{\"streetAddress1\":\"6233 123rd AVE\",\"streetAddress2\":\"\",\"city\":\"Bellevue\",\"postcode\":\"98006\",\"stateName\":\"Washington\",\"stateIso2\":\"WA\",\"countryIso2\":\"US\",\"addressType\":\"residential\"},\"items\":[{\"name\":\"Corn on the Cob Flower (ABC-1111-PI)\",\"id\":\"113\",\"quantity\":1,\"weight\":32,\"width\":4,\"height\":4,\"length\":4,\"attributes\":[],\"omittedReason\":\"\"}],\"groupedResults\":{\"flatrate\":{\"rates\":[{\"handling\":0,\"price\":3,\"description\":\"FedEx Ground Home Delivery (5-7 Business Days)\",\"additionalDescription\":\"\"}],\"carrierType\":\"flatrate\"}},\"settings\":[]}",
+            "date_created": "2021-12-22T23:44:15+00:00"
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "total": 2,
+            "count": 2,
+            "per_page": 50,
+            "current_page": 1,
+            "total_pages": 1,
+            "links": {
+                "current": "?id%3Ain=5%2C7&page=1&limit=50"
+            }
+        }
+    }
+}
 ```
 
 <!-- type: tab-end -->
