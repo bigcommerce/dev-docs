@@ -40,7 +40,7 @@ title: Response
             "type": "emailintegration",
             "module": "Export Only",
             "severity": "success",
-            "summary": "Subscriber andrea.dao@bigcommerce.com stored for export.",
+            "summary": "Subscriber subscriber@example.com stored for export.",
             "message": null,
             "date_created": "2021-12-20T23:15:24+00:00"
         },
@@ -50,7 +50,7 @@ title: Response
             "module": "FedEx Ground Home Delivery (5-7 Business Days) (flatrate)",
             "severity": "success",
             "summary": "Successfully retrieved shipping quote",
-            "message": "{\"quoteId\":\"1640216655\",\"cacheInfo\":\"cached for 3600s\",\"customerGroup\":{\"id\":2,\"name\":\"Wholesale Customers\"},\"customerEmail\":\"andreaminghweidao@gmail.com\",\"customerId\":2,\"destination\":{\"streetAddress1\":\"6233 123rd AVE\",\"streetAddress2\":\"\",\"city\":\"Bellevue\",\"postcode\":\"98006\",\"stateName\":\"Washington\",\"stateIso2\":\"WA\",\"countryIso2\":\"US\",\"addressType\":\"residential\"},\"items\":[{\"name\":\"Corn on the Cob Flower (ABC-1111-PI)\",\"id\":\"113\",\"quantity\":1,\"weight\":32,\"width\":4,\"height\":4,\"length\":4,\"attributes\":[],\"omittedReason\":\"\"}],\"groupedResults\":{\"flatrate\":{\"rates\":[{\"handling\":0,\"price\":3,\"description\":\"FedEx Ground Home Delivery (5-7 Business Days)\",\"additionalDescription\":\"\"}],\"carrierType\":\"flatrate\"}},\"settings\":[]}",
+            "message": "{\"quoteId\":\"2470214433\",\"cacheInfo\":\"cached for 3600s\",\"customerGroup\":{\"id\":4,\"name\":\"Wholesale Customers\"},\"customerEmail\":\"customer@example.com\",\"customerId\":4,\"destination\":{\"streetAddress1\":\"123 Example Street\",\"streetAddress2\":\"\",\"city\":\"Austin\",\"postcode\":\"12345\",\"stateName\":\"Texas\",\"stateIso2\":\"TX\",\"countryIso2\":\"US\",\"addressType\":\"residential\"},\"items\":[{\"name\":\"example product (ABC-1234)\",\"id\":\"23\",\"quantity\":2,\"weight\":32,\"width\":4,\"height\":4,\"length\":4,\"attributes\":[],\"omittedReason\":\"\"}],\"groupedResults\":{\"flatrate\":{\"rates\":[{\"handling\":0,\"price\":3,\"description\":\"FedEx Ground Home Delivery (5-7 Business Days)\",\"additionalDescription\":\"\"}],\"carrierType\":\"flatrate\"}},\"settings\":[]}",
             "date_created": "2021-12-22T23:44:15+00:00"
         }
     ],
