@@ -127,40 +127,39 @@ Where both types of API account are supported, review the preceding sections to 
 
 <!-- theme: warning -->
 > #### Legacy API Accounts
-> As of February 2022, BigCommerce no longer issues legacy API Accounts (accounts using HTTP basic auth) to new stores. Starting July 2018, new BigCommerce stores were no longer able to create legacy API Accounts (accounts using HTTP basic auth) within their control panels. 
-> We strongly recommend migrating to OAuth as soon as possible. Existing legacy API Accounts will continue to work until further notice.
+> BigCommerce no longer issues legacy API Accounts to new stores. Existing legacy API Accounts will continue to work until further notice. **Migrate to OAuth as soon as possible.**
 
 ### Benefits of migrating to OAuth
 
-If you haven't already, we recommend that you migrate from legacy API credentials to OAuth. Migration provides a wealth of benefits, including the following:
+We recommend migrating from legacy API credentials to OAuth, if you haven't already. Migration provides a wealth of benefits, including the following:
 
-* **Unified requests**: Send all OAuth requests to a single URL: `https://api.bigcommerce.com`. Using a common hostname prevents any interruption of service when a store's domain or SSL changes or expires.
+* **Unified requests**: Send all OAuth requests to a single URL: `https://api.bigcommerce.com`. Using a common hostname prevents interruptions of service when a store's domain or SSL/TLS certificate changes or expires.
 
 * **Latest and greatest APIs**: BigCommerce’s V3 APIs are accessible exclusively with OAuth.
 
 * **Webhook subscriptions**: OAuth API accounts can subscribe to real-time event notifications using BigCommerce’s webhooks.
 
-* **Shared secrets**: Use new APIs and endpoints that require shared secrets, including the Storefront Customer Login API and the Storefront Current Customer identification endpoint.
+* **Shared secrets**: Use new APIs and endpoints that require shared secrets, including the [Customer Login](/api-docs/storefront/customer-login-api) and [Current Customer](/api-docs/storefront/current-customer-api) APIs.
 
 * **Zippier responses**: Responses to OAuth requests use gzip compression and less of your bandwidth.
 
-* **Better security with granular permissions**: All OAuth tokens are scoped to specific operations and endpoints. If you suspect a breach, revoke, reissue, and get on with your day.
+* **Better security with granular permissions**: All OAuth tokens are scoped to specific operations and endpoints. If you suspect a breach, you will know which resources could be affected.
 
 ### How to migrate
 
-When you update your API connections to use OAuth instead of legacy basic authentication, you will need to do the following:
+Before you update your API connections to use OAuth instead of legacy basic authentication, take the following actions:
 
 * Create an API account appropriate to your use case. Keeping in mind the API endpoints your connections use, create either a store API account or an app API account per the preceding instructions. Configure the account with the correct OAuth scopes for your use case. We recommend adhering to industry standard security practices; add only the essential scopes that your application requires. If you're using an app API account, you can always modify the scope later.
 * If you use one of our [client libraries](/tools-resources), consult the library’s documentation for establishing an optimal OAuth configuration.
 * After you create your connection, update your connection parameters as follows:
   * Use `https://api.bigcommerce.com` as the gateway URL instead of the BigCommerce store’s secure hostname. For example, route requests that formerly went to `https://store-abc123.mybigcommerce.com/api/v2/orders/123` or `https://my-custom-store-domain.com/api/v2/orders/123` to `https://api.bigcommerce.com/stores/{{store_hash}}/v2/orders/123`.
-  * Rewrite your HTTP request headers to use the `X-Auth-Token` header to pass the API account's `access_token` instead of the `Authentication` header. For more information, see [Authentication](/api-docs/getting-started/authentication).
+  * Rewrite your HTTP request headers to use the `X-Auth-Token` header to pass the API account's `access_token` instead of the `Authorization` header. For more information, see [Authentication](/api-docs/getting-started/authentication).
 
 Rate limiting works differently for OAuth API connections. For details, see the [Rate Limits section](/api-docs/getting-started/best-practices#api-rate-limits) of our API best practices article.
 
 ## OAuth scopes
 
-**Scope** grants and limits a program's ability to read and write data. Set the scopes to the minimum level of access needed to accomplish the task at hand.
+**Scope** grants and limits a program's ability to read and write data. Set the scopes to the minimum level of access your implementation needs.
 
 All OAuth scopes except `default` provide `read-only` permissions scopes, so that you can limit some accounts to sending `GET` and `HEAD` requests.
 
