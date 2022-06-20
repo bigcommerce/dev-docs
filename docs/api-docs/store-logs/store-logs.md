@@ -155,7 +155,7 @@ title: Request
 -->
 
 ```json title="Example GET request with X-Auth-Token header" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?severity=2
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -167,6 +167,40 @@ title: Response
 -->
 
 ```json title="Example GET response" lineNumbers
+{
+    "data": [
+        {
+            "id": 3,
+            "type": "general",
+            "module": "",
+            "severity": "notices",
+            "summary": "Marking order 1234000002 as deleted.",
+            "message": "Marking order 1234000002 as deleted.",
+            "date_created": "2021-12-19T19:12:31+00:00"
+        },
+        {
+            "id": 4,
+            "type": "general",
+            "module": "",
+            "severity": "notices",
+            "summary": "Restoring order 1234000002",
+            "message": "Restoring order 1234000002",
+            "date_created": "2021-12-19T19:15:56+00:00"
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "total": 2,
+            "count": 2,
+            "per_page": 50,
+            "current_page": 1,
+            "total_pages": 1,
+            "links": {
+                "current": "?severity=2&page=1&limit=50"
+            }
+        }
+    }
+}
 ```
 
 <!-- type: tab-end -->
