@@ -108,17 +108,17 @@ After one of these changes, the store owner will be prompted to review the chang
 
 ## Choosing the right kind of API account
 
-Where both types of API account are supported, review the preceding sections to make an informed choice about which best fits your use case.
+Where both types of API account are supported, review the preceding sections to make an informed choice about which best fits your use case. In the following table, links go to the relevant section of our [Authentication](/api-docs/getting-started/authentication) article.
 
 | API or Use Case | App API Account | Store API Account |
 |:----------------|:---------------:|:-----------------:|
-| REST Store Management APIs | &times; | &times; |
-| REST Provider APIs | &times; |  |
-| REST Storefront API |  | &times; |
-| GraphQL Storefront API |  | &times; |
-| Customer Login API | &times; |  |
-| Current Customer API | &times; |  |
-| Payments API | &times; | &times; |
+| [REST Store Management APIs](/api-docs/getting-started/authentication#access-tokens) | &times; | &times; |
+| [REST Storefront API](/api-docs/getting-started/authentication#same-origin-cors-authentication) |  | &times; |
+| [GraphQL Storefront API](/api-docs/getting-started/authentication#bigcommerce-generated-jwts) |  | &times; |
+| [Customer Login API](/api-docs/getting-started/authentication#user-generated-jwts) | &times; |  |
+| [Current Customer API](/api-docs/getting-started/authentication#client-id) | &times; |  |
+| [Payments API](/api-docs/getting-started/authentication#bigcommerce-generated-jwts) | &times; | &times; |
+| [Apps that host REST Provider APIs (provider apps)](/api-docs/getting-started/authentication#developer-configured-authentication) | &times; |  |
 | Apps hosted in the store control panel (single-click app) | &times; |  |
 | Manual connection between a third-party app and a store |  | &times; |
 | Single-store front-end scripts |  | &times; |
