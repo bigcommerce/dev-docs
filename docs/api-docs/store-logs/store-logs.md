@@ -4,7 +4,7 @@ stoplight-id: 8093a34240fc9
 
 # Store Logs API
 
-The store log tracks events that take place in your store. The store log is comprised of the **system log** and the **staff action log**. 
+The [store log](https://support.bigcommerce.com/s/article/Using-Store-Logs) tracks events that take place in your store. The store log is comprised of the **system log** and the **staff action log**. 
 
 The Store Logs V3 API lets you retrieve your store's **system log**. The **system log** tracks events that take place on your storefront, including shipping quote requests, newsletter sign-ups, and more. Each of those events creates an entry in the system log that includes the event type, summary, reporter (module), severity, and creation date and time. You can retrieve only entries that have occurred within the past 365 days. 
 
@@ -335,3 +335,4 @@ title: Response
 
 
 ## Resources
+- [Store Logs API reference](...)
