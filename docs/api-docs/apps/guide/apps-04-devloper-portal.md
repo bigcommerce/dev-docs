@@ -1,63 +1,35 @@
 # Managing Apps in the Developer Portal
 
+Create, edit, and submit apps for approval using the [Developer Portal](https://devtools.bigcommerce.com/). In [Beginning App Development](/api-docs/apps/guide/development) we briefly touched on how to create a draft app. In this article, we'll go over how to perform other common app management tasks. To get started, sign in or create an account in the [Developer Portal](https://devtools.bigcommerce.com/).  
 
-
-App developers create, edit, and submit apps for approval using the [Developer Portal](https://devtools.bigcommerce.com/). In [Beginning App Development](/api-docs/apps/guide/development) we briefly touched on how to create a draft app. In this article, we'll go over how to perform other common app management tasks in the [Developer Portal](https://devtools.bigcommerce.com/). For detailed instructions on submitting apps for approval, see [Publishing Apps](/api-docs/apps/guide/publishing).
-
-## Signing in
-
-Sign in or create a [Developer Portal](https://devtools.bigcommerce.com) account at [devtools.bigcommerce.com](https://devtools.bigcommerce.com).
 
 <!-- theme: info -->
 > #### Note
-> * `DRAFT` apps can only be installed on stores owned by the same email address as the developer portal account's email address.
+> `DRAFT` apps can only be installed on stores owned by the same email address as the developer portal account's email address.
 
+## Create an app
 
+To create an app, sign in to [Developer Portal](https://devtools.bigcommerce.com), then follow the instructions to [obtain app API credentials](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-app-api-credentials).
 
-## Creating apps
+## Edit the app
 
-To create an app, do the following:
-
-1. Navigate to **[My Apps](https://devtools.bigcommerce.com/my/apps)**.
-2. Click **Create an app**.
-3. Give the app a name.
-4. Click **Create**.
+Edit an app by clicking the **Edit App** pencil icon to the right of the app you want to edit.
 
 ![Developer Portal](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps-04-developer-portal-01.png "Developer Portal")
 
-[Learn more about completing registration fields and submitting apps for approval](/api-docs/apps/guide/publishing).
-
 <!-- theme: info -->
-> #### Note
-> * The app's name is only visible in the developer portal.
+> #### Marketplace delay
+> Edits can take up to 24 hours to appear in the [App Marketplace](https://www.bigcommerce.com/apps/), but changes are immediately effective and visible in your existing users' store control panels.
+
+## Edit technical details
+
+Click **Edit App**, then navigate to the technical tab to edit enabled features, callback URLs, and OAuth scopes. After saving, edits to enabled features, callbacks URLs, and OAuth scopes are effective immediately for all app users.
+
+![Technical Details](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-technical.png "Technical Details")
+
+![OAuth Scopes](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-oauth-scopes.png "OAuth Scopes")
 
 
-
-## Editing apps
-
-Edit an app by clicking **Edit App**.
-
-![Developer Portal](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps-04-developer-portal-01.png "Developer Portal")
-
-[Learn more about completing registration fields and submitting apps for approval](/api-docs/apps/guide/publishing).
-
-<!-- theme: info -->
-> #### Note
-> * After saving, edits are effective immediately in the control panel; however, edits can take up to 24 hours to appear in the [Apps Marketplace](https://www.bigcommerce.com/apps/).
-
-
-
-## Editing technical details
-
-Click **Edit App**, then navigate to the technical tab to edit enabled features, callback URLs, and OAuth scopes.
-
-![Technical Details](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps-04-developer-portal-04.png "Technical Details")
-
-[Learn more about completing registration fields and submitting apps for approval](/api-docs/apps/guide/publishing).
-
-<!-- theme: warning -->
-> #### Note
-> * After saving, edits to enabled features, callbacks URLs, and OAuth scopes are effective immediately for all app users.
 
 
 
@@ -70,8 +42,8 @@ Click **View Client ID** to view an app's API credentials.
 [Learn how to use app credentials in the app OAuth flow](/api-docs/apps/guide/auth).
 
 <!-- theme: info -->
-> #### Note
-> * [OAuth Client ID is no longer required to authenticate requests to api.bigcommerce.com](/changelog#posts/o-auth-client-id-is-no-longer-required-for-requests-to-api-bigcommerce-com).
+> #### The X-Auth-Client header is deprecated
+> Your API account's client ID is [no longer a required header value](https://developer.bigcommerce.com/changelog#posts/o-auth-client-id-is-no-longer-required-for-requests-to-api-bigcommerce-com).
 
 
 

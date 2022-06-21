@@ -15,7 +15,7 @@ Every active API account has at least one `access_token`. [Store API accounts](#
 **Guard these values closely.** The `client_id` and `client_secret` will never change; `access_token`s do not expire based on time and cannot be manually invalidated. It's best practice to limit each account's [OAuth scope](#oauth-scopes) to only the privileges needed to complete that app or user's designated tasks. Create separate API accounts for each app, store API user, and/or function.
 
 <!-- theme: info -->
-> Although the **client ID** value uniquely identifies the app or user making a request, you don't need to pass it in the header of each API request.
+> Although the **client ID** value uniquely identifies the app or user making a request, you [no longer need to pass it in the header](https://developer.bigcommerce.com/changelog#posts/o-auth-client-id-is-no-longer-required-for-requests-to-api-bigcommerce-com) of each API request.
 
 ## Store API accounts
 
