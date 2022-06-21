@@ -41,6 +41,7 @@ The following table lists the payment gateways that are compatible with our publ
 | Chase Merchant Services   | &check;    | &check;         | 
 | Checkout.com      | &check;            | &check;         |
 | Cybersource       | &check;            | &check;         |
+| Cybersource V2    | &check;            | &check;         |
 | Eway Rapid        |                    | &check;         |
 | First Data Payeezy Gateway |           | &check;         |
 | Heartland Payment Systems  |           | &check;         | 
