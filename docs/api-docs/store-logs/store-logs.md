@@ -21,6 +21,8 @@ When you use no query parameters in your request, the API returns 20 entries wit
 
 ### Filter by log ID
 
+You can filter the entries by log ID by using the `id` query parameter. 
+
 <!--
 type: tab
 title: Request
@@ -80,7 +82,7 @@ title: Response
 
 ### Filter by type 
 
-You can filter the entries by type, for example, `general` (general messages), `payment` (payment gateways), `shipping` (shipping quotes), and more. The following example filters entries by the type `design`. 
+You can filter the entries by type by using the `type` query parameter. Examples of log type include `general` (general messages), `payment` (payment gateways), `shipping` (shipping quotes), and more. The following example filters entries by the type `design`. 
 
 <!--
 type: tab
@@ -141,7 +143,7 @@ title: Response
 
 ### Filter by module 
 
-You can filter the entries by module that further categorize the type of log. For example, the log type `shipping` has many modules including `Zone based free shipping (freeshipping)` and `FedEx Ground Home Delivery (5-7 Business Days) (flatrate)`. Examples of modules for other log types include `export only`, `email message`, `theme download`, and more. The following example filters entries by the module `order status`.
+You can filter the entries by `module`by using the `module` query parameter. Modules can further categorize the type of log. For example, the log type `shipping` has many modules including `Zone based free shipping (freeshipping)` and `FedEx Ground Home Delivery (5-7 Business Days) (flatrate)`. Examples of modules for other log types include `export only`, `email message`, `theme download`, and more. The following example filters entries by the module `order status`.
 
 <!--
 type: tab
@@ -193,7 +195,7 @@ title: Response
 
 ### Filter by severity 
 
-Each log entry has an associated outcome, or severity. You can filter the results by log severity by using the severity's corresponding integer in the query. 
+Each log entry has an associated outcome, or severity. You can filter the results by log severity by using the `severity` query parameter and specifying the severity's corresponding integer in the query. 
 
 | Severity | Query Integer |
 | --- | --- |
