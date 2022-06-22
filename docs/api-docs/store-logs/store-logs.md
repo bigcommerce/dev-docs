@@ -269,7 +269,7 @@ title: Request
 -->
 
 ```json title="Example GET request with X-Auth-Token header" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?date_created:min=2021-12-20
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
