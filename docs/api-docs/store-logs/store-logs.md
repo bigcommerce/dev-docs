@@ -260,32 +260,6 @@ title: Response
 
 <!-- type: tab-end -->
 
-
-### Filter by date created 
-
-<!--
-type: tab
-title: Request
--->
-
-```json title="Example GET request with X-Auth-Token header" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?date_created:min=2021-12-20
-X-Auth-Token: {{ACCESS_TOKEN}}
-Content-Type: application/json
-Accept: application/json
-```
-
-<!--
-type: tab
-title: Response
--->
-
-```json title="Example GET response" lineNumbers
-```
-
-<!-- type: tab-end -->
-
-
 ### Filter by paginated results   
 
 You can specify the page and number of entries returned per page using the query parameters `page` and `limit`, respectively. The following example shows a response that starts at entry 4, as you request page 2 with 3 entries per page.  
