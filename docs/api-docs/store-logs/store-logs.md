@@ -139,6 +139,8 @@ title: Response
 
 ### Filter by module 
 
+You can filter the results by module that further categorize the type of log. For example, the log type `shipping` has many modules including `Zone based free shipping (freeshipping)` and `FedEx Ground Home Delivery (5-7 Business Days) (flatrate)`. Examples of modules for other log types include `export only`, `email message`, `theme download`, and more. The following example filters entries by the module `order status`.
+
 <!--
 type: tab
 title: Request
