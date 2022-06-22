@@ -335,4 +335,4 @@ title: Response
 
 
 ## Resources
-- [Store Logs API reference](...)
+- [Store Logs API reference](/api-reference/store-management/store-logs)
