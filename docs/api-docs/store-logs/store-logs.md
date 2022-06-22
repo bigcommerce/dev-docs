@@ -80,6 +80,8 @@ title: Response
 
 ### Filter by type 
 
+You can filter the entries by type, for example, `general` (general messages), `payment` (payment gateways), `shipping` (shipping quotes), and more. The following example filters entries by the type `design`. 
+
 <!--
 type: tab
 title: Request
@@ -139,7 +141,7 @@ title: Response
 
 ### Filter by module 
 
-You can filter the results by module that further categorize the type of log. For example, the log type `shipping` has many modules including `Zone based free shipping (freeshipping)` and `FedEx Ground Home Delivery (5-7 Business Days) (flatrate)`. Examples of modules for other log types include `export only`, `email message`, `theme download`, and more. The following example filters entries by the module `order status`.
+You can filter the entries by module that further categorize the type of log. For example, the log type `shipping` has many modules including `Zone based free shipping (freeshipping)` and `FedEx Ground Home Delivery (5-7 Business Days) (flatrate)`. Examples of modules for other log types include `export only`, `email message`, `theme download`, and more. The following example filters entries by the module `order status`.
 
 <!--
 type: tab
