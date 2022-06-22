@@ -189,6 +189,15 @@ title: Response
 
 ### Filter by severity 
 
+Each log entry has an associated outcome, or severity. You can filter the results by log severity by using the severity's corresponding integer in the query. 
+
+| Severity | Query Integer |
+| --- | --- |
+| Success | 1 |
+| Notice | 2 |
+| Warning | 3 |
+| Error | 4 | 
+
 <!--
 type: tab
 title: Request
@@ -272,6 +281,8 @@ title: Response
 
 
 ### Filter by paginated results   
+
+You can specify the page and number of entries returned per page using the query parameters `page` and `limit`, respectively. The following example shows a response that starts at entry 4, as you request page 2 with 3 entries per page.  
 
 <!--
 type: tab
