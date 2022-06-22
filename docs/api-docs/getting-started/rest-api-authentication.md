@@ -63,32 +63,7 @@ For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/g
 
 ### Obtaining app API credentials
 
-To get app API credentials, you need a BigCommerce [Developer Portal](https://devtools.bigcommerce.com) account. Once you have an account, sign in and perform the following steps:
 
-1. Click the **Create an app** button on the right side of the landing page.
-
-![Create an App](https://s3.amazonaws.com/user-content.stoplight.io/6012/1537389767940 "Create an App")
-
-2. Give your app a name. This name is only visible to you.
-3. Click **Create**.
-4. At the top of the modal that opens next, click **Step 2 - Technical**. Scroll down to assign your app the desired OAuth scopes. 
-
-![Step 2 - Technical](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-technical.png "Step 2 - Technical")
-
-![Assign OAuth scopes](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-oauth-scopes.png "Assign OAuth scopes")
-
-5. Click **Update & Close** at the lower right-hand corner of the modal.
-
-<!-- theme: info -->
-> #### Information optional
-> When you create or edit an app in the Dev Portal, no app information fields are mandatory unless you're preparing the app for BigCommerce [App Marketplace](https://bigcommerce.com/apps) approval.
-
-6. A new modal will appear, asking if you want to add new OAuth scopes. Click **Confirm Update**.
-7. Back on the Developer Portal landing page, find your app listed under the **Create an app** button. To view your client ID and client secret, click **View Client ID** next to the relevant app. You can access your API account credentials until you delete the app.
-
-![View Client ID](https://s3.amazonaws.com/user-content.stoplight.io/6012/1537390078741 "View Client ID")
-
-![Client ID and client secret](https://s3.amazonaws.com/user-content.stoplight.io/6012/1537390135692 "Client ID and client secret")
 
 ### App access tokens
 
