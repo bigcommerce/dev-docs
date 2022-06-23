@@ -26,7 +26,7 @@ To create an app, sign in to or create an account with the [Developer Portal](ht
 
 <!-- theme: info -->
 > #### Information optional
-> When you create or edit an app in the Dev Portal, no app information fields are mandatory unless you're preparing the app for BigCommerce [Apps Marketplace](https://bigcommerce.com/apps) approval.
+> When you create or edit an app in the Dev Portal, no app information fields are mandatory unless you're preparing the app for BigCommerce [Apps Marketplace](https://bigcommerce.com/apps) approval. To learn more about completing an app profile for approval, see our [App Publishing Guide](/api-docs/apps/guide/publishing).
 
 6. A new dialog box will open, asking if you want to add new OAuth scopes. Click **Confirm Update**.
 7. You can view the client ID and client secret any time; see the following section on [viewing credentials](#view-credentials).
