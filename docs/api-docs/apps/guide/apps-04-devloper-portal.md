@@ -46,9 +46,7 @@ Click **View Client ID** to view an app's API credentials.
 
 [Learn how to use app credentials in the app OAuth flow](/api-docs/apps/guide/auth).
 
-<!-- theme: info -->
-> #### The X-Auth-Client header is deprecated
-> Your API account's client ID is [no longer a required header value](https://developer.bigcommerce.com/changelog#posts/o-auth-client-id-is-no-longer-required-for-requests-to-api-bigcommerce-com).
+To edit an app, navigate to the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps) and click the **Edit App** pencil icon to the right of the app you want to edit.
 
 ## Edit the app
 
