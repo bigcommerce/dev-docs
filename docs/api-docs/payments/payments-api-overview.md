@@ -50,6 +50,7 @@ The following table lists the payment gateways that are compatible with our publ
 | Moneris           | &check;            | &check;         |
 | MyVirtualMerchant | &check;            | &check;         |
 | NMI               |                    | &check;         |
+| Opayo Direct      | &check;            | &check;         |
 | Paymetric         | &check;            | &check;         |
 | PayPal (Commerce Platform)  |          | &check;         |
 | PayPal Powered by Braintree | &check;  | &check;         |
