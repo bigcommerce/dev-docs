@@ -14,9 +14,6 @@ Every active API account has at least one `access_token`. [Store API accounts](#
 
 **Guard these values closely.** The `client_id` and `client_secret` will never change; `access_token`s do not expire based on time and cannot be manually invalidated. It's best practice to limit each account's [OAuth scope](#oauth-scopes) to only the privileges needed to complete that app or user's designated tasks. Create separate API accounts for each app, store API user, and/or function.
 
-<!-- theme: info -->
-> Although the **client ID** value uniquely identifies the app or user making a request, you [no longer need to pass it in the header](https://developer.bigcommerce.com/changelog#posts/o-auth-client-id-is-no-longer-required-for-requests-to-api-bigcommerce-com) of each API request.
-
 ## Store API accounts
 
 Merchants generate single-store API credentials when they create API accounts in their store control panel (**Advanced Settings** > **API Accounts**). Use these credentials to read and change one store's data with BigCommerce's APIs. You can't change store API accounts' access tokens or OAuth scopes. 
@@ -63,7 +60,7 @@ For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/g
 
 ### Obtaining app API credentials
 
-
+To create an app and its associated API account, consult our article on [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#create-an-app).
 
 ### App access tokens
 
@@ -79,7 +76,7 @@ After one of these changes, the store owner will be prompted to review the chang
 
 <!-- theme: danger -->
 > #### Delete apps carefully
-> When you delete an app in the Dev Portal, there is no way to recover the client ID or client secret. If you choose to do this, don't forget to mitigate potential loss of [webhook and metafield](#dont-forget-your-webhooks-and-metafields)-related data and functionality.
+> When you delete an app in the [Dev Portal](https://devtools.bigcommerce.com), there is no way to recover the client ID or client secret. If you choose to do this, don't forget to mitigate potential loss of [webhook and metafield](#dont-forget-your-webhooks-and-metafields)-related data and functionality.
 
 ## Choosing the right kind of API account
 
