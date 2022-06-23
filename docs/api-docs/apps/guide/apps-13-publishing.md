@@ -1,7 +1,5 @@
 # Publishing an App
 
-
-
 After completing development, verifying best practices, and checking approval requirements, you may submit your app for Marketplace approval in the [Developer Portal](https://devtools.bigcommerce.com/). This article takes you step-by-step through the submission form and provides descriptions for each field.
 
 ## Before you begin
@@ -25,7 +23,7 @@ We also recommend giving special attention to the following search indexed field
 
 To begin the app certification process, we'll need some basic information about you.
 
-![DevTools 01](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-01.png  "DevTools 01")
+![App Summary](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-summary.png  "App Summary")
 
 | Field           | Description                                                                                            |
 | --------------- | ------------------------------------------------------------------------------------------------------ |
@@ -46,7 +44,7 @@ To begin the app certification process, we'll need some basic information about 
 
 Specify app type, multiple users support, callback URLs, and OAuth scopes; and, provide detailed testing instructions.
 
-![DevTools 02](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-02.png  "DevTools 02")
+![Technical](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-technical.png  "Technical")
 
 | Field                  | Description                                                                |
 | ---------------------- | -------------------------------------------------------------------------- |
@@ -62,7 +60,7 @@ Specify app type, multiple users support, callback URLs, and OAuth scopes; and, 
 
 Provide a helpful description with screenshots and a video to promote your app. We recommend bullet points followed by short paragraphs with headers. Aim for 200 words in total.
 
-![DevTools 03](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-03.png  "DevTools 03")
+![Details](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-details.png  "Details")
 
 | Field                      | Description                                                                                                                               |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
@@ -76,19 +74,25 @@ Provide a helpful description with screenshots and a video to promote your app. 
 | App Screenshot             | Screenshots of app UI inside BigCommerce                                                                                                  |
 | Alternate Logo             | Used if app featured in Marketplace carousel; should be 259 x 158px (or larger at ratio); dark background and light branding; no taglines |
 
+## App Supported Features
+
+Indicate whether your app supports multi-storefront functionality.
+
+![App Supported Features](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-msf.png "App Supported Features")
+
 ## Review submission
 
 Review the information added before submitting the app.
 
-![DevTools 04](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-04.png  "DevTools 04")
+![Review](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-review.png "Review")
 
 ## Submit your app for approval
 
-Ensure all information is complete; test the app before submitting for review.
+Ensure all information is complete, then click **Submit for Review** to pay the review and listing fee and submit the app. Test the app before submitting to avoid pay additional review fees.
 
-![DevTools 05](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-05.png "DevTools 05")
+![Payment & Submission](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-submit.png "Payment & Submission")
 
-If you have any questions about your submission, email [appstore@bigcommerce.com](mailto:appstore@bigcommerce.com).
+If you have any questions about your submission, email [AppStore@bigcommerce.com](mailto:appstore@bigcommerce.com).
 
 ## FAQ
 
