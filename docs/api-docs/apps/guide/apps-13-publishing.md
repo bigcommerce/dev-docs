@@ -5,7 +5,7 @@ After completing development, verifying best practices, and checking approval re
 ## Before you begin
 
 Your listing on the [Apps Marketplace](https://www.bigcommerce.com/apps/) plays a major role in your app's success. A good listing accomplishes three goals:
-*  Shows users how your platform or solution differs from competitive offerings
+   Shows users how your platform or solution differs from competitive offerings
 * Includes keywords so prospective users can find your listing in searches
 * Sets up clear and accurate user expectations as to your solution's features and functionality
 
@@ -74,7 +74,7 @@ Provide a helpful description with screenshots and a video to promote your app. 
 | App Screenshot             | Screenshots of app UI inside BigCommerce                                                                                                  |
 | Alternate Logo             | Used if app featured in Marketplace carousel; should be 259 x 158px (or larger at ratio); dark background and light branding; no taglines |
 
-## App Supported Features
+## Add supported features
 
 Indicate whether your app supports multi-storefront functionality.
 
@@ -88,7 +88,7 @@ Review the information added before submitting the app.
 
 ## Submit your app for approval
 
-Ensure all information is complete, then click **Submit for Review** to pay the review and listing fee and submit the app. Test the app before submitting to avoid pay additional review fees.
+Ensure all information is complete, then click **Submit for Review** to pay the review and listing fee and submit the app. Test the app before submitting it to avoid paying additional review fees.
 
 ![Payment & Submission](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-submit.png "Payment & Submission")
 

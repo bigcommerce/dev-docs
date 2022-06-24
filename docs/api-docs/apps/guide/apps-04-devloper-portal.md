@@ -1,6 +1,6 @@
 # Managing Apps in the Developer Portal
 
-Create, edit, and submit apps for approval using the [Developer Portal](https://devtools.bigcommerce.com/). In [Beginning App Development](/api-docs/apps/guide/development) we briefly touched on how to create a draft app. In this article, we'll go over how to perform other common app management tasks. To get started, sign in or create an account in the [Developer Portal](https://devtools.bigcommerce.com/).  
+Create, edit, and submit apps for approval using the [Developer Portal](https://devtools.bigcommerce.com/). In [Beginning App Development](/api-docs/apps/guide/development), we briefly touched on how to create a draft app. In this article, we'll go over how to perform other common app management tasks. To get started, sign in or create an account in the [Developer Portal](https://devtools.bigcommerce.com/).
 
 <!-- theme: info -->
 > #### Store email address constraint
@@ -8,7 +8,7 @@ Create, edit, and submit apps for approval using the [Developer Portal](https://
 
 ## Create an app
 
-To create an app, sign in to or create an account with the [Developer Portal](https://devtools.bigcommerce.com). Creating an app also creates an app API account. To learn more about app API accounts, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts).
+To create an app, sign in or create an account with the [Developer Portal](https://devtools.bigcommerce.com). Creating an app also creates an app API account. To learn more about app API accounts, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts).
 
 1. Click the **Create an app** button on the right side of the landing page.
 
@@ -26,11 +26,11 @@ To create an app, sign in to or create an account with the [Developer Portal](ht
 
 <!-- theme: info -->
 > #### Information optional
-> When you create or edit an app in the Dev Portal, no app information fields are mandatory unless you're preparing the app for BigCommerce [Apps Marketplace](https://bigcommerce.com/apps) approval. To learn more about completing an app profile for approval, see our [App Publishing Guide](/api-docs/apps/guide/publishing).
+> No app profile fields are mandatory unless you're preparing the app for BigCommerce [Apps Marketplace](https://bigcommerce.com/apps) approval. To learn more about preparing an app for approval, see our [App Publishing Guide](/api-docs/apps/guide/publishing).
 
-6. A new dialog box will open, asking if you want to add new OAuth scopes. Click **Confirm Update**.
-7. You can view the client ID and client secret any time; see the following section on [viewing credentials](#view-credentials).
-8. To learn about deleting an app and its API account, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#delete-apps-carefully)
+1. A new dialog box will open, asking if you want to add new OAuth scopes. Click **Confirm Update**.
+2. You can view the client ID and client secret any time; see the following section on [viewing credentials](#view-credentials).
+3. To learn about deleting an app and its API account, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#delete-apps-carefully)
 
 ## View credentials
 
@@ -68,7 +68,7 @@ To learn more about modifying your app to support multi-storefront, see [Multi-S
 
 ## Submit an app for approval
 
-Submit apps for [Apps Marketplace](https://www.bigcommerce.com/apps) approval by navigating to the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps), then finding the app you want approved and clicking the **Submit** checkmark icon to the right of its listing. If you've left any required fields incomplete, the Dev Portal will prompt you to complete the app's profile. [Learn more about completing app registration fields and submitting apps for approval](/api-docs/apps/guide/publishing).
+Submit apps for [Apps Marketplace](https://www.bigcommerce.com/apps) approval by navigating to the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps), then finding the app you want approved and clicking the **Submit** checkmark icon to the right of its listing. If you've left any required fields incomplete, the Dev Portal will prompt you to complete the app's profile. To learn more about completing app registration fields and submitting apps for approval, consult our [App Publishing Guide](/api-docs/apps/guide/publishing).
 
 ![Developer Portal](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps-04-developer-portal-01.png "Developer Portal")
 

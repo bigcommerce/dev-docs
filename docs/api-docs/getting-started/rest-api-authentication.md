@@ -76,7 +76,7 @@ After one of these changes, the store owner will be prompted to review the chang
 
 <!-- theme: danger -->
 > #### Delete apps carefully
-> When you delete an app in the [Dev Portal](https://devtools.bigcommerce.com), there is no way to recover the client ID or client secret. If you choose to do this, don't forget to mitigate potential loss of [webhook and metafield](#dont-forget-your-webhooks-and-metafields)-related data and functionality.
+> When you delete an app in the [Dev Portal](https://devtools.bigcommerce.com), there is no way to recover the client ID or client secret. If you choose to do this, don't forget to mitigate the potential loss of [webhook and metafield](#dont-forget-your-webhooks-and-metafields)-related data and functionality.
 
 ## Choosing the right kind of API account
 
