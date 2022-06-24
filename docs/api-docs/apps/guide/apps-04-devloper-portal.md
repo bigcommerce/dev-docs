@@ -28,9 +28,11 @@ To create an app, sign in or create an account with the [Developer Portal](https
 > #### Information optional
 > No app profile fields are mandatory unless you're preparing the app for BigCommerce [Apps Marketplace](https://bigcommerce.com/apps) approval. To learn more about preparing an app for approval, see our [App Publishing Guide](/api-docs/apps/guide/publishing).
 
-1. A new dialog box will open, asking if you want to add new OAuth scopes. Click **Confirm Update**.
-2. You can view the client ID and client secret any time; see the following section on [viewing credentials](#view-credentials).
-3. To learn about deleting an app and its API account, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#delete-apps-carefully)
+6. A new dialog box will open, asking if you want to add new OAuth scopes. Click **Confirm Update**.
+
+You can view the client ID and client secret any time; see the following section on [viewing credentials](#view-credentials).
+
+To learn about the risks of deleting an app and its API account, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#delete-apps-carefully)
 
 ## View credentials
 
