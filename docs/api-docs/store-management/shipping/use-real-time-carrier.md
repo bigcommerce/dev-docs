@@ -341,7 +341,7 @@ title: Response
 
 <!-- theme:info -->
 > #### Note
-> It is also possible to [Get all shipping methods](/api-reference/store-management/shipping-api/shipping-method/getshippingmethodszone).
+You can also [Get all shipping methods](/api-reference/store-management/shipping-api/shipping-method/getshippingmethodszone) in one request.
 
 ### Delete a shipping method
 
