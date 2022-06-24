@@ -254,7 +254,8 @@ Accept: application/json
 ```
 
 <!-- theme:info -->
-> #### Note
+> #### Document connection options
+
 > We recommend that you document your connection option codes for API users who wish to connect your carrier.
 
 API users can then define and enable a shipping method for your carrier in one or more shipping zones by using the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) endpoint. In the request, API users will send values for your app's settings options which help determine the rates that your app sends to BigCommerce when BigCommerce requests a quote. For more info on how API users will use your carrier, see the [Use a Real-Time Carrier](/api-docs/store-management/shipping/use-real-time-carrier) article.
