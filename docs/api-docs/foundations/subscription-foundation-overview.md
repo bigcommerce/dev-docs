@@ -1,20 +1,21 @@
-# Stripe Billing
-Stripe billing is an open-source "subscribe and save" solution that makes it easy to create custom subscription billing and invoices for your business.
+# Subscription Foundation
+
+Subscription Foundation is an open-source "subscribe and save" solution that makes it easy to create custom subscription billing and invoices for your business.
 
 ## Prerequisites
-To set up Stripe billing, you will need the following:
+To set up subscription billing, you will need the following:
 * [BigCommerce sandbox store](https://developer.bigcommerce.com/docs/ZG9jOjM4MzMyNTE-create-a-sandbox-store?source=subscription-foundation) (required to develop and test apps)
 * [Developer Portal Account](https://devtools.bigcommerce.com/?source=subscription-foundation) (required to register apps)
 * Experience using [npm](https://www.npmjs.com/)
 * Node.js 14.x
 
 ## Requirements
-Before enabling Stripe, the store must be using [Optimized One-Page Checkout](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss).
+Stripe comes pre-integrated within Subscription Foundation. Before enabling Stripe, the store must be using [Optimized One-Page Checkout](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss).
 
-## Setup
+## Set up
 The set up consists of exposing the app to the internet, registering the app, setting up Stripe, creating and updating the environment file, and installing app dependencies before running the app.
 
-See the [README.md](https://github.com/bigcommerce/subscription-foundation/blob/main/README.md) file for detailed steps for installing Stripe billing. 
+See the [README.md](https://github.com/bigcommerce/subscription-foundation/blob/main/README.md) file for detailed steps for installing Subscription Foundation. 
 
 ## Troubleshooting
 ### Seeing {"Environment variable not found} when creating the DB tables and initial client
