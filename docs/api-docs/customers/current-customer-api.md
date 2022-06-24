@@ -21,32 +21,41 @@ To address this need, BigCommerce provides a Current Customer endpoint that your
 
 Below is an example JavaScript code snippet that will access this JWT. To test the JWT functionality, you can install this JavaScript on your sandbox BigCommerce store. You must include your application's client ID in the request to identify the requesting application.
 
-```html
-<script type="text/javascript">
-  function customerJWT() {
-    var appClientId = '**BC_CLIENT_ID**'; // TODO: Fill this in with your app's client ID
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-      if (xmlhttp.readyState == 4) {
-        if (xmlhttp.status == 200) {
-          alert('Customer JWT:\n' + xmlhttp.responseText);
-        } else if (xmlhttp.status == 404) {
-          alert('Not logged in!');
-        } else {
-          alert('Something went wrong');
-        }
-      }
-    };
-    xmlhttp.open(
-      'GET',
-      '/customer/current.jwt?app_client_id=' + appClientId,
-      true
-    );
-    xmlhttp.send();
-  }
-  customerJWT();
-</script>
+<!--
+type: tab
+title: Example Javascript: Current Customer API
+-->
+
+```js title="Example Javascript Snippet" lineNumbers
+const customerJWT = (apiAccountClientId) => {
+  let resource = `/customer/current.jwt?app_client_id=${apiAccountClientId}`;
+  return fetch(resource)
+  .then(response => {
+    if(response.status === 200) {
+      return response.text();
+    } else {
+      return new Error(`response.status is ${response.status}`);
+    }
+  })
+  .then(jwt => {
+    console.log(jwt); // JWT here
+    // decode...
+  })
+  .catch(error => console.error(error));
+}
 ```
+
+<!--
+type: tab
+title: Example Response: Current Customer API
+-->
+
+```shell title="Example text response: JWT string"
+# response body
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJpZCI6NDkyNywiZW1haWwiOiJqb2huLmRvZUBnbWFpbC5jb20iLCJncm91cF9pZCI6IjYifSwiaXNzIjoiYmMvYXBwcyIsInN1YiI6ImFiYzEyMyIsImlhdCI6MTQ4MDgzMTg2MywiZXhwIjoxNDgwODMyNzYzLCJ2ZXJzaW9uIjoxLCJhdWQiOiI2c3YxNnRmeDNqNWdzb3BtNDJzczVkZDY3ZzJzcnZxIiwiYXBwbGljYXRpb25faWQiOiI2c3YxNnRhc2RncjJiNWhzNWRkNjdnMnNydnEiLCJzdG9yZV9oYXNoIjoiYWJjMTIzIiwib3BlcmF0aW9uIjoiY3VycmVudF9jdXN0b21lciJ9.uYTDTJzhDOog7PE1yLNeP6zDNdFMb91fS-NZrJpsts0
+```
+
+<!-- type: tab-end -->
 
 The above JavaScript should alert the browser with a JWT token after logging into the storefront with a customer account. The JWT returned from this endpoint (example below) can be decoded on [JWT.IO](https://jwt.io/).
 
