@@ -203,7 +203,6 @@ After you finish developing the app, you can sign up to be a shipping provider. 
 Send an email to [ShippingProviderAPI@bigcommerce.com](mailto:shippingproviderapi@bigcommerce.com) that includes the following information:
 
 
-Include the following information:
 
 - Name of app
 - [Your app ID](#your-app-id)
