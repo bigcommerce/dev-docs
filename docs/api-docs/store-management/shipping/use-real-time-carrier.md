@@ -121,7 +121,7 @@ No content
 
 ### Delete a connection
 
-To delete a connection, specify `carrier_id` in the request body.
+To delete a connection, send the `carrier_id` in the request body.
 
 <!--
 type: tab
