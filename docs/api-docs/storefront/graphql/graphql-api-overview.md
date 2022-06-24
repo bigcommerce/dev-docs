@@ -596,6 +596,10 @@ Use normal GraphQL Storefront API tokens. According to the [Principle of least p
 
 Use a Customer Impersonation token and store it securely on your server like other secrets. When you need to run requests in the context of a particular customer (for example, if they've logged in to your application), send their BigCommerce Customer ID along with the request as the `X-Bc-Customer-Id` header.
 
+### I want a list of GraphQL error messages
+
+For a list of GraphQL error messages, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+
 ## Related resources
 
 ### Tools
