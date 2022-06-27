@@ -74,6 +74,8 @@ This article covers [REST](#rest-api-http-status-codes) and [GraphQL](#graphql-a
 
 ## GraphQL API HTTP status codes
 
+All GraphQL errors return a 401 HTTP status code.
+
 | Code | Text | Purpose |
 |:----:|:-----|:--------|
 | **401** | **Unauthorized** | This response is sent when your client failed to provide credentials or its credentials were invalid. |
