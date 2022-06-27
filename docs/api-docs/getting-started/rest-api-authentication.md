@@ -14,9 +14,6 @@ Every active API account has at least one `access_token`. [Store API accounts](#
 
 **Guard these values closely.** The `client_id` and `client_secret` will never change; `access_token`s do not expire based on time and cannot be manually invalidated. It's best practice to limit each account's [OAuth scope](#oauth-scopes) to only the privileges needed to complete that app or user's designated tasks. Create separate API accounts for each app, store API user, and/or function.
 
-<!-- theme: info -->
-> Although the **client ID** value uniquely identifies the app or user making a request, you don't need to pass it in the header of each API request.
-
 ## Store API accounts
 
 Merchants generate single-store API credentials when they create API accounts in their store control panel (**Advanced Settings** > **API Accounts**). Use these credentials to read and change one store's data with BigCommerce's APIs. You can't change store API accounts' access tokens or OAuth scopes. 
@@ -63,32 +60,7 @@ For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/g
 
 ### Obtaining app API credentials
 
-To get app API credentials, you need a BigCommerce [Developer Portal](https://devtools.bigcommerce.com) account. Once you have an account, sign in and perform the following steps:
-
-1. Click the **Create an app** button on the right side of the landing page.
-
-![Create an App](https://s3.amazonaws.com/user-content.stoplight.io/6012/1537389767940 "Create an App")
-
-2. Give your app a name. This name is only visible to you.
-3. Click **Create**.
-4. At the top of the modal that opens next, click **Step 2 - Technical**. Scroll down to assign your app the desired OAuth scopes. 
-
-![Step 2 - Technical](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-technical.png "Step 2 - Technical")
-
-![Assign OAuth scopes](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-oauth-scopes.png "Assign OAuth scopes")
-
-5. Click **Update & Close** at the lower right-hand corner of the modal.
-
-<!-- theme: info -->
-> #### Information optional
-> When you create or edit an app in the Dev Portal, no app information fields are mandatory unless you're preparing the app for BigCommerce [App Marketplace](https://bigcommerce.com/apps) approval.
-
-6. A new modal will appear, asking if you want to add new OAuth scopes. Click **Confirm Update**.
-7. Back on the Developer Portal landing page, find your app listed under the **Create an app** button. To view your client ID and client secret, click **View Client ID** next to the relevant app. You can access your API account credentials until you delete the app.
-
-![View Client ID](https://s3.amazonaws.com/user-content.stoplight.io/6012/1537390078741 "View Client ID")
-
-![Client ID and client secret](https://s3.amazonaws.com/user-content.stoplight.io/6012/1537390135692 "Client ID and client secret")
+To create an app and its associated API account, consult our article on [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#create-an-app).
 
 ### App access tokens
 
@@ -104,7 +76,9 @@ After one of these changes, the store owner will be prompted to review the chang
 
 <!-- theme: danger -->
 > #### Delete apps carefully
-> When you delete an app in the Dev Portal, there is no way to recover the client ID or client secret. If you choose to do this, don't forget to mitigate potential loss of [webhook and metafield](#dont-forget-your-webhooks-and-metafields)-related data and functionality.
+> When you delete an app in the [Dev Portal](https://devtools.bigcommerce.com), there is no way to recover the client ID or client secret. If you choose to do this, don't forget to mitigate the potential loss of [webhook and metafield](#dont-forget-your-webhooks-and-metafields)-related data and functionality.
+
+To delete an app API account, consult our article on [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#delete-an-app).
 
 ## Choosing the right kind of API account
 
@@ -164,8 +138,8 @@ Rate limiting works differently for OAuth API connections. For details, see the 
 All OAuth scopes except `default` provide `read-only` permissions scopes so that you can limit some accounts to sending `GET` and `HEAD` requests.
 
 <!-- theme: info -->
+> #### Webhooks scope
 > Webhooks are accessible from the default scope that is automatically accessible to all API accounts.
-
 
 | UI Name | Permission | Parameter | Description | Resources |
 |:--------|:-----------|:----------|:------------|:----------|
