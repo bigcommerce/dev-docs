@@ -19,70 +19,15 @@ To address this need, BigCommerce provides a Current Customer endpoint that your
 
 ## Example JavaScript
 
-Below is an example JavaScript code snippet that will access this JWT. To test the JWT functionality, you can install this JavaScript on your sandbox BigCommerce store. You must include your application's client ID in the request to identify the requesting application.
+Install this [Current Customer API example](https://developer.bigcommerce.com/docs/e861a9c6b77b5-authentication#current-customer-api-example-request) JavaScript on your sandbox BigCommerce store to test JWT functionality. Include your application's client ID in the request to identify the requesting application.
 
-<!--
-type: tab
-title: Example Javascript: Current Customer API
--->
+<!-- theme: info -->
+>#### Note
+>The example JWT code block is decoded identifying the currently signed-in customer.
 
-```js title="Example Javascript Snippet" lineNumbers
-const customerJWT = (apiAccountClientId) => {
-  let resource = `/customer/current.jwt?app_client_id=${apiAccountClientId}`;
-  return fetch(resource)
-  .then(response => {
-    if(response.status === 200) {
-      return response.text();
-    } else {
-      return new Error(`response.status is ${response.status}`);
-    }
-  })
-  .then(jwt => {
-    console.log(jwt); // JWT here
-    // decode...
-  })
-  .catch(error => console.error(error));
-}
-```
+The JavaScript should alert the browser with a JWT token after logging into the storefront with a customer account. 
 
-<!--
-type: tab
-title: Example Response: Current Customer API
--->
-
-```shell title="Example text response: JWT string"
-# response body
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJpZCI6NDkyNywiZW1haWwiOiJqb2huLmRvZUBnbWFpbC5jb20iLCJncm91cF9pZCI6IjYifSwiaXNzIjoiYmMvYXBwcyIsInN1YiI6ImFiYzEyMyIsImlhdCI6MTQ4MDgzMTg2MywiZXhwIjoxNDgwODMyNzYzLCJ2ZXJzaW9uIjoxLCJhdWQiOiI2c3YxNnRmeDNqNWdzb3BtNDJzczVkZDY3ZzJzcnZxIiwiYXBwbGljYXRpb25faWQiOiI2c3YxNnRhc2RncjJiNWhzNWRkNjdnMnNydnEiLCJzdG9yZV9oYXNoIjoiYWJjMTIzIiwib3BlcmF0aW9uIjoiY3VycmVudF9jdXN0b21lciJ9.uYTDTJzhDOog7PE1yLNeP6zDNdFMb91fS-NZrJpsts0
-```
-
-<!-- type: tab-end -->
-
-The above JavaScript should alert the browser with a JWT token after logging into the storefront with a customer account. The JWT returned from this endpoint (example below) can be decoded on [JWT.IO](https://jwt.io/).
-
-If a shopper is browsing as a guest, BigCommerce will return a `404` response, and you will see an error message. Wrapping your script in a `{{#if customer}}` Handlebars helper will check for a logged-in customer before running the request. For more information, visit Handlebars Helpers. [Handlebars Helpers](/stencil-docs/reference-docs/handlebars-helpers-reference#if).
-
-**Example Logged In Customers Response**
-
-```json
-{
-  "customer": {
-    "id": 4927,
-    "email": "john.doe@gmail.com",
-    "group_id": "6"
-  },
-  "iss": "bc/apps",
-  "sub": "abc123",
-  "iat": 1480831863,
-  "exp": 1480832763,
-  "version": 1,
-  "aud": "6sv16tfx3j5gsopm42ss5dd67g2srvq",
-  "application_id": "6sv16tasdgr2b5hs5dd67g2srvq",
-  "store_hash": "abc123",
-  "operation": "current_customer"
-}
-```
-
-By design, your application should send this token to the application’s server, validate it against your client secret, and then use it as a trusted indication of the logged-in customer's identity, before displaying confidential information to them.
+The second tab in the *Current API example request* displays the plain text example response. 
 
 An end-to-end example that displays a customer's recently purchased products is available in our [Ruby](https://github.com/bigcommerce/hello-world-app-ruby-sinatra/) and [PHP](https://github.com/bigcommerce/hello-world-app-php-silex/) sample apps.
 
