@@ -140,4 +140,3 @@ To learn about mitigating the risks of deleting an app and its API account, see 
 * [Partner Portal](https://partners.bigcommerce.com/English/) (partners.bigcommerce.com)
 * [Technology Partner Program](https://partners.bigcommerce.com/English/register_email.aspx) (partners.bigcommerce.com)
 * [BigCommerce Apps Marketplace](https://www.bigcommerce.com/apps/) (bigcommerce.com)
-* [Media Kit](https://www.bigcommerce.com/press/media-kit/) (bigcommerce.com)
