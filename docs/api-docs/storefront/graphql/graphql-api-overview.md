@@ -598,7 +598,8 @@ Use a Customer Impersonation token and store it securely on your server like oth
 
 ### I want a list of GraphQL error messages
 
-For a list of GraphQL error messages, see [API Status Codes](/api-docs/getting-started/api-status-codes).
+For a list of GraphQL error messages, see [API Status Codes](/api-docs/getting-started/api-status-codes#graphql-api-http-status-codes).
+
 
 ## Related resources
 
