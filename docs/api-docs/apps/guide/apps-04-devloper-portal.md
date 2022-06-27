@@ -132,6 +132,7 @@ To learn about mitigating the risks of deleting an app and its API account, see 
 * [Implementing App OAuth](/api-docs/apps/guide/auth)
 * [App Approval Requirements](/api-docs/apps/guide/requirements)
 * [Publishing an App](/api-docs/apps/guide/publishing)
+* [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication).
 
 ### Other resources
 
