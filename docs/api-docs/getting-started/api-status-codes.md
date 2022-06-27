@@ -85,5 +85,6 @@ All GraphQL errors return a 401 HTTP status code.
 | | "GraphQL invalid credentials. JWT is expired" | Token has expired. |
 | | "GraphQL invalid credentials. JWT channel id doesn't match channel id of the URL" | Channel ID mismatch (channel ID in the token does not match channel ID of the site/URL). |
 | | "Unknown JWT token" | JWT was revoked. |
-| | "GraphQL invalid credentials. JWT has no valid Json" or "GraphQL invalid credentials. JWT has Json of an unknown format" | Invalid JWT sent. Token has no valid JSON. |
+| | "GraphQL invalid credentials. JWT has no valid Json" | Invalid JWT sent. Token has no valid JSON. |
+| | "GraphQL invalid credentials. JWT has Json of an unknown format" | Invalid JWT sent. Token has no valid JSON. |
 | | "GraphQL invalid credentials. JWT store id doesn't match store id of the URL" | Store ID in the token does not match store ID of the site/URL). |
