@@ -26,7 +26,7 @@ To begin the app certification process, we'll need some basic information about 
 ![App Summary](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-summary.png  "App Summary")
 
 | Field           | Description                                                                                            |
-| --------------- | ------------------------------------------------------------------------------------------------------ |
+|:----------------|:-------------------------------------------------------------------------------------------------------|
 | Contact Name    | Email address created when applying for your Partner ID                                                |
 | Partner Name    | Name of your company​; attributed on the detail page                                                    |
 | Partner Website | URL to your homepage                                                                                   |
@@ -47,7 +47,7 @@ Specify app type, multiple users support, callback URLs, and OAuth scopes; and, 
 ![Technical](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-technical.png  "Technical")
 
 | Field                  | Description                                                                |
-| ---------------------- | -------------------------------------------------------------------------- |
+|:-----------------------|:---------------------------------------------------------------------------|
 | Multiple Users         | Optionally allow your app to be accessible to store users other than owner |
 | App Type               | Type of app; single-click recommended                                      |
 | Auth Callback URL      | Requested when `install` clicked                                           |
@@ -62,17 +62,17 @@ Provide a helpful description with screenshots and a video to promote your app. 
 
 ![Details](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-details.png  "Details")
 
-| Field                      | Description                                                                                                                               |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| App Details                | Value proposition; avoid fluff or buzzwords; not be indexed for search; 200 words max                                                     |
-| Videos                     | Videos highlighting purpose and value of your app                                                                                         |
+| Field | Description |
+|:------|:------------|
+| App Details | Value proposition; avoid fluff or buzzwords; not be indexed for search; 200 words max |
+| Videos | Videos highlighting purpose and value of your app |
 | Case Studies | Case studies demonstrating how merchants have benefited from using your app. 4 max |
-| Features                   | App's major features; include title and description for each; title is search indexed; rich text accepted; 5 max                          |
-| Legal Termals & Privacy    | App privacy policy and ToS links; legally required                                                                                        |
-| International Optimization | Countries app optimized for and countries app does not support                                                                            |
-| Help Guides                | Links to app's user and installation guides; highly recommended                                                                           |
+| Features | App's major features; include title and description for each; title is search indexed; rich text accepted; 5 max |
+| Legal Terms & Privacy | App privacy policy and ToS links; legally required |
+| International Optimization | Countries app optimized for and countries app does not support |
+| Help Guides | Links to app's user and installation guides; highly recommended |
 | App Screenshot | Screenshots of app UI in a BigCommerce store's control panel |
-| Alternate Logo             | Used if app featured in Marketplace carousel; should be 259 x 158px (or larger at ratio); dark background and light branding; no taglines |
+| Alternate Logo | Used if app featured in Marketplace carousel; should be 259 x 158px (or larger at ratio); dark background and light branding; no taglines |
 
 ## Add supported features
 
