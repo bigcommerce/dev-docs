@@ -520,7 +520,7 @@ paths:
                         }
                     }
         '503':
-          description: Status to roll up to the most severe individual failure to the whole request. Example shows that severe error status is rolled up to the overall response status code.
+          description: Every request in the batch failed. The error object describes the failure for each component request.
           content:
             application/json:
               schema:
@@ -736,7 +736,7 @@ paths:
                         }
                     }
         '503':
-          description: All failure response.
+          description: "Every request in the batch failed. The error object describes the failure for each component request."
           content:
             application/json:
               schema:
@@ -752,7 +752,7 @@ paths:
                       $ref: '#/components/schemas/FailedQuoteError'
                   meta:
                     type: object
-            "All failure response. \nHTTP status code for the entire batch request to roll up to the most severe individual failure to the whole request.":
+            Example 1:
               examples:
                 response:
                   value: |-
