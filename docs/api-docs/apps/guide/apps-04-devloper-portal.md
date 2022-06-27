@@ -50,19 +50,19 @@ To edit an app, navigate to the Dev Portal's [My Apps dashboard](https://devtool
 > #### Marketplace delay
 > Edits can take up to 24 hours to appear in the [App Marketplace](https://www.bigcommerce.com/apps/), but changes are immediately effective and visible in your existing users' store control panels.
 
-## Edit technical details
+### Edit technical details
 
-In the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps), click the **Edit App** pencil icon to the right of the app you want to edit. At the top of the dialog that opens, click the **Technical** tab to edit enabled features, callback URLs, and OAuth scopes. To save your change, click the **Update & Close** button on the dialog's lower right. After saving, edits are effective immediately for all app users.
+Once you enter the **Edit App** dialog, click the **Technical** tab to edit enabled features, callback URLs, and OAuth scopes. To save your change, click the **Update & Close** button on the dialog's lower right. After saving, edits are effective immediately for all app users.
 
 ![Technical Details](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-technical.png "Technical Details")
 
 ![OAuth Scopes](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-oauth-scopes.png "OAuth Scopes")
 
-## Enable multi-storefront functionality
+### Enable multi-storefront functionality
 
 If your app supports stores that sell through multiple storefronts or sales channels, add that information to the app's profile.
 
-In the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps), click the **Edit App** pencil icon to the right of the app you want to edit. At the top of the dialog that opens, click the **App Supported Features** tab. Select either **Single Storefront** or **Multi Storefront**, then save your change by clicking the **Update & Close** button on the dialog's lower right.
+Once you enter the **Edit App** dialog, click the **App Supported Features** tab. Select either **Single Storefront** or **Multi Storefront**, then save your change by clicking the **Update & Close** button on the dialog's lower right.
 
 To learn more about modifying your app to support multi-storefront, see [Multi-Storefront App Compatibility and Optimization](/api-docs/apps/multi-storefront)
 
