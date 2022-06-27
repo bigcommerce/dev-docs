@@ -138,8 +138,8 @@ Rate limiting works differently for OAuth API connections. For details, see the 
 All OAuth scopes except `default` provide `read-only` permissions scopes so that you can limit some accounts to sending `GET` and `HEAD` requests.
 
 <!-- theme: info -->
+> #### Webhooks scope
 > Webhooks are accessible from the default scope that is automatically accessible to all API accounts.
-
 
 | UI Name | Permission | Parameter | Description | Resources |
 |:--------|:-----------|:----------|:------------|:----------|

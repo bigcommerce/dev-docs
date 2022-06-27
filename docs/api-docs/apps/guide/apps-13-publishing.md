@@ -5,7 +5,7 @@ After completing development, verifying best practices, and checking approval re
 ## Before you begin
 
 Your listing on the [Apps Marketplace](https://www.bigcommerce.com/apps/) plays a major role in your app's success. A good listing accomplishes three goals:
-   Shows users how your platform or solution differs from competitive offerings
+* Shows users how your platform or solution differs from competitive offerings
 * Includes keywords so prospective users can find your listing in searches
 * Sets up clear and accurate user expectations as to your solution's features and functionality
 
@@ -49,7 +49,7 @@ Specify app type, multiple users support, callback URLs, and OAuth scopes; and, 
 | Field                  | Description                                                                |
 | ---------------------- | -------------------------------------------------------------------------- |
 | Multiple Users         | Optionally allow your app to be accessible to store users other than owner |
-| App Type               | Type of app; single-Click recommended                                      |
+| App Type               | Type of app; single-click recommended                                      |
 | Auth Callback URL      | Requested when `install` clicked                                           |
 | Load Callback URL      | Requested when user launches app                                           |
 | Uninstall Callback URL | Requested when store owner clicks uninstall                                |
@@ -66,12 +66,12 @@ Provide a helpful description with screenshots and a video to promote your app. 
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | App Details                | Value proposition; avoid fluff or buzzwords; not be indexed for search; 200 words max                                                     |
 | Videos                     | Videos highlighting purpose and value of your app                                                                                         |
-| Case Studies               | case studies demonstrating how merchants have benefited from using your app. 4 max                                                        |
+| Case Studies | Case studies demonstrating how merchants have benefited from using your app. 4 max |
 | Features                   | App's major features; include title and description for each; title is search indexed; rich text accepted; 5 max                          |
 | Legal Termals & Privacy    | App privacy policy and ToS links; legally required                                                                                        |
 | International Optimization | Countries app optimized for and countries app does not support                                                                            |
 | Help Guides                | Links to app's user and installation guides; highly recommended                                                                           |
-| App Screenshot             | Screenshots of app UI inside BigCommerce                                                                                                  |
+| App Screenshot | Screenshots of app UI in a BigCommerce store's control panel |
 | Alternate Logo             | Used if app featured in Marketplace carousel; should be 259 x 158px (or larger at ratio); dark background and light branding; no taglines |
 
 ## Add supported features
