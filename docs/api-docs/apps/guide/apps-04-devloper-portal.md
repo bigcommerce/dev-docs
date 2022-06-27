@@ -56,7 +56,7 @@ To learn more about using an app API account to generate store-specific access t
 
 ![Menu - edit app](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-app-menu-edit-app.png "Edit an App")
 
-2. The ***edit app dialog** opens. It is identical to the app registration dialog.
+2. The **edit app dialog** opens. It is identical to the app registration dialog.
 
 ![Edit app dialog](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-edit-dialog-landing.png "Edit App / App Registration Dialog Landing View")
 
@@ -71,7 +71,7 @@ To learn more about using an app API account to generate store-specific access t
 
 ![Technical Details](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-technical.png "Technical Details")
 
-![OAuth Scopes](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-oauth-scopes.png "OAuth Scopes")
+![Assign OAuth scopes](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-oauth-scopes-tight.png "Assign OAuth scopes")
    
 2. To save your change, click the **Update & Close** button on the edit dialog's lower right corner. 
 
@@ -107,9 +107,9 @@ To learn more about completing app registration fields and submitting apps for a
 
 ## Deleting apps
 
-Deleting an app also deletes its API account. This is a destructive action that you should not take lightly, particularly if your app is in production. It may have far-reaching negative impacts on your users' stores.
+Deleting an app also deletes its API account. This is a destructive action; you can't recover the app or its API account. Do not delete an app without serious consideration, particularly if it is in production. It is likely to have far-reaching negative impacts on your users' stores.
 
-To learn about the risks of deleting an app and its API account, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#delete-apps-carefully).
+To learn about mitigating the risks of deleting an app and its API account, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#delete-apps-carefully).
 
 1. To delete an app, navigate to the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps) and click the **Delete App** trash can icon to the right of the app you want to edit. 
 
