@@ -8,43 +8,58 @@ Create, edit, and submit apps for approval using the [Developer Portal](https://
 
 ## Create an app
 
-To create an app, sign in or create an account with the [Developer Portal](https://devtools.bigcommerce.com). Creating an app also creates an app API account. To learn more about app API accounts, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts).
-
-1. Click the **Create an app** button on the right side of the landing page.
-
-![Create an App](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps-04-developer-portal-01.png "Create an App")
-
-2. Give your app a name. This name is only visible to you.
-3. Click **Create**.
-4. At the top of the dialog that opens next, click the **Technical** tab. Scroll down to assign your app the desired OAuth scopes. 
-
-![Technical](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-technical.png "Technical")
-
-![Assign OAuth scopes](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-oauth-scopes.png "Assign OAuth scopes")
-
-5. Click the **Update & Close** button on the dialog's lower right.
+Creating an app also creates an app API account. To learn more about app API accounts, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts). To create an app, do the following:
 
 <!-- theme: info -->
 > #### Information optional
 > No app profile fields are mandatory unless you're preparing the app for BigCommerce [Apps Marketplace](https://bigcommerce.com/apps) approval. To learn more about preparing an app for approval, see our [App Publishing Guide](/api-docs/apps/guide/publishing).
 
-6. A new dialog box will open, asking if you want to add new OAuth scopes. Click **Confirm Update**.
+1. Sign in or create an account with the [Developer Portal](https://devtools.bigcommerce.com).
+
+2. Click the **Create an app** button on the right side of the landing page.
+
+![Create an App](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-create-app.png "Create an App")
+
+3. Give your app a name in the **What would you like to call your app?** dialog. This name is only visible to you. Once complete, click the **Create** button.
+
+![Name the app](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-name-app-dialog.png "Name the App")
+
+4. The **app registration dialog** appears; click the **Technical** tab at the top.
+
+![Technical](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-technical.png "Technical")
+
+5. Scroll down to the **OAuth scopes** section and toggle the necessary OAuth scopes for your app.
+
+![Assign OAuth scopes](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-oauth-scopes-tight.png "Assign OAuth scopes")
+
+6. Click the **Update & Close** button on the registration dialog's lower right corner.
+
+7. A new dialog opens, asking if you want to add new OAuth scopes. Click **Confirm Update**.
+
+![Confirm OAuth changes](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-oauth-scopes-confirm.png "Confirm OAuth changes")
 
 You can view the client ID and client secret any time; see the following section on [viewing credentials](#view-credentials).
 
-To learn about the risks of deleting an app and its API account, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#delete-apps-carefully)
-
 ## View credentials
 
-To view an app API account's credentials, navigate to the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps) and click the **View Client ID** padlock icon to the right of the relevant app's listing. The dialog box that opens will reveal your API account credentials. To learn more about using an app API account to generate store-specific access tokens, see [Implementing the OAuth Flow](/api-docs/apps/guide/auth).
+1. To view an app API account's credentials, navigate to the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps) and click the **View Client ID** padlock icon to the right of the relevant app's listing. 
 
-![Developer Portal](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps-04-developer-portal-01.png "Developer Portal")
+![Menu - view client ID](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-app-menu-client-id.png "View Client ID")
+
+2. A dialog box opens to reveal your API account credentials.
+
+To learn more about using an app API account to generate store-specific access tokens, see [Implementing the OAuth Flow](/api-docs/apps/guide/auth).
 
 ## Edit an app
 
-To edit an app, navigate to the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps) and click the **Edit App** pencil icon to the right of the app you want to edit.
+1. To edit an app, navigate to the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps) and click the **Edit App** pencil icon to the right of the app you want to edit.
 
-![Developer Portal](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps-04-developer-portal-01.png "Developer Portal")
+![Menu - edit app](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-app-menu-edit-app.png "Edit an App")
+
+2. The ***edit app dialog** opens. It is identical to the app registration dialog.
+
+![Edit app dialog](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-edit-dialog-landing.png "Edit App / App Registration Dialog Landing View")
+
 
 <!-- theme: info -->
 > #### Marketplace delay
@@ -52,28 +67,57 @@ To edit an app, navigate to the Dev Portal's [My Apps dashboard](https://devtool
 
 ### Edit technical details
 
-Once you enter the **Edit App** dialog, click the **Technical** tab to edit enabled features, callback URLs, and OAuth scopes. To save your change, click the **Update & Close** button on the dialog's lower right. After saving, edits are effective immediately for all app users.
+1. Once you [enter the app dialog](#edit-an-app), click the **Technical** tab at the top to edit enabled features, callback URLs, and OAuth scopes. 
 
 ![Technical Details](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-technical.png "Technical Details")
 
 ![OAuth Scopes](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-oauth-scopes.png "OAuth Scopes")
+   
+2. To save your change, click the **Update & Close** button on the edit dialog's lower right corner. 
+
+3. A new dialog opens, asking if you want to add new OAuth scopes. Click **Confirm Update**.
+
+![Confirm OAuth changes](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-oauth-scopes-confirm.png "Confirm OAuth changes")
+
+4. After saving, edits are effective immediately for all app users.
 
 ### Enable multi-storefront functionality
 
 If your app supports stores that sell through multiple storefronts or sales channels, add that information to the app's profile.
 
-Once you enter the **Edit App** dialog, click the **App Supported Features** tab. Select either **Single Storefront** or **Multi Storefront**, then save your change by clicking the **Update & Close** button on the dialog's lower right.
-
-To learn more about modifying your app to support multi-storefront, see [Multi-Storefront App Compatibility and Optimization](/api-docs/apps/multi-storefront)
+1. Once you [enter the edit app dialog](#edit-an-app), click the **App Supported Features** tab at the top. 
 
 ![MSF Toggle](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-msf.png "Toggle MSF on the App Supported Features tab")
 
+2. Select either **Single Storefront** or **Multi Storefront**. 
+
+3. To save your change, click the **Update & Close** button on the edit dialog's lower right corner. 
+
+To learn more about modifying your app to support multi-storefront, see [Multi-Storefront App Compatibility and Optimization](/api-docs/apps/multi-storefront)
+
 ## Submit an app for approval
 
-Submit apps for [Apps Marketplace](https://www.bigcommerce.com/apps) approval by navigating to the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps), then finding the app you want approved and clicking the **Submit** checkmark icon to the right of its listing. If you've left any required fields incomplete, the Dev Portal will prompt you to complete the app's profile. To learn more about completing app registration fields and submitting apps for approval, consult our [App Publishing Guide](/api-docs/apps/guide/publishing).
+1. Submit apps for [Apps Marketplace](https://www.bigcommerce.com/apps) approval by navigating to the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps), then finding the app you want approved and clicking the **Submit** checkmark icon to the right of its listing. 
 
-![Developer Portal](https://storage.googleapis.com/bigcommerce-production-dev-center/images/apps-04-developer-portal-01.png "Developer Portal")
+![Menu - submit](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-app-menu-submit.png "Submit an App")
 
+2. The registration dialog opens; complete the app's profile. 
+ 
+To learn more about completing app registration fields and submitting apps for approval, consult our [App Publishing Guide](/api-docs/apps/guide/publishing).
+
+## Deleting apps
+
+Deleting an app also deletes its API account. This is a destructive action that you should not take lightly, particularly if your app is in production. It may have far-reaching negative impacts on your users' stores.
+
+To learn about the risks of deleting an app and its API account, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#delete-apps-carefully).
+
+1. To delete an app, navigate to the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps) and click the **Delete App** trash can icon to the right of the app you want to edit. 
+
+![Menu - delete app](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-app-menu-delete.png "Delete an App")
+
+2. The **delete app dialog** opens to verify whether you truly want to delete the app. Click **Delete**.
+
+![Delete App Dialog](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-delete-app-confirm.png "Delete App Dialog")
 
 ## Next steps
 * [Implement the OAuth flow](/api-docs/apps/guide/auth).
