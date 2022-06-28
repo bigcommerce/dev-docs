@@ -71,15 +71,17 @@ To develop and test the app, you'll install it on your [sandbox store](#configur
 
 Further steps in this guide require access to the Dev Portal, so keep it handy.
 
-## Stripe setup
+## Configure Stripe
 
-BigCommerce has configured the app to connect multiple BC Stores into one instance. Because of this, you’ll need two Stripe accounts. One for the Connect account which the app will use, and another, which is what the merchant connects to the app and BC store (in the payments area) themselves.
+We've designed this integration to use Stripe Connect so that your app can create and manage separate Stripe accounts for each of your merchants' stores. Because of this, you’ll need two Stripe accounts. One for the app's Connect account, and another, which is what the merchant connects to the app and BC store (in the payments area) themselves.
 
-To accomplish this:
+### Create Stripe accounts
 
-1. Create a Stripe account you’ll use to accept payments and manage subscriptions on BigCommerce: https://stripe.com/
-2. After you have created that account, log into the Stripe Dashboard: https://dashboard.stripe.com/
-3. Create a separate Stripe account that the application uses to authenticate the merchant.
+To get started, do the following steps:
+
+1. To create your app's top-level Stripe account, [sign up with Stripe](https://dashboard.stripe.com/register). This account accepts subscriber payments and manages subscriptions.
+2. Sign in to the [Stripe Dashboard](https://dashboard.stripe.com/).
+3. From inside the [Stripe Dashboard](https://dashboard.stripe.com/), create the merchant Stripe account that the application uses to authenticate the merchant.
 
    a. This can be done by selecting ‘+ New Account’ after clicking the name of the current account on the top left of your Stripe Dashboard.
    
