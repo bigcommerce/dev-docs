@@ -6,17 +6,17 @@ This is the first article in a comprehensive developer's guide to using BigComme
 
 ## Ways to implement headless commerce
 
-If you are looking to build a headless storefront powered by a BigCommerce backend without starting from scratch, BigCommerce offers multiple starter apps and pre-built solutions to choose from. For headless storefront solutions and tools, see [Headless Integrations](https://developer.bigcommerce.com/tools-resources#headless-integrations).
+If you are looking to build a headless storefront powered by a BigCommerce backend without starting from scratch, BigCommerce offers multiple starter apps and pre-built solutions to choose from. For headless storefront solutions and tools, see [Headless Integrations](/tools-resources#headless-integrations).
 
-If you need to build a custom solution, BigCommerce has APIs and [SDKs](https://developer.bigcommerce.com/tools-resources#sdks) available to support your headless architecture. For specific use cases, see the following sections of the guide:
+If you need to build a custom solution, BigCommerce has APIs and [SDKs](/tools-resources#sdks) available to support your headless architecture. For specific use cases, see the following sections of the guide:
 
-* [Create a channel and a channel site](https://developer.bigcommerce.com/api-docs/storefronts/guide/channels)
-* [Fetch and manage product data](https://developer.bigcommerce.com/api-docs/storefronts/guide/products)
-* [Create a cart](https://developer.bigcommerce.com/api-docs/storefronts/guide/carts)
-* [Move a cart to checkout](https://developer.bigcommerce.com/api-docs/storefronts/guide/checkout)
-* [Log in a customer](https://developer.bigcommerce.com/api-docs/storefronts/guide/customers)
-* [Create an order](https://developer.bigcommerce.com/api-docs/storefronts/guide/orders)
-* [Learn about PCI compliance](https://developer.bigcommerce.com/api-docs/storefronts/guide/pci-compliance)
+* [Create a channel and a channel site](/api-docs/storefronts/guide/channels)
+* [Fetch and manage product data](/api-docs/storefronts/guide/products)
+* [Create a cart](/api-docs/storefronts/guide/carts)
+* [Move a cart to checkout](/api-docs/storefronts/guide/checkout)
+* [Log in a customer](/api-docs/storefronts/guide/customers)
+* [Create an order](/api-docs/storefronts/guide/orders)
+* [Learn about PCI compliance](/api-docs/storefronts/guide/pci-compliance)
 
 ## Sample integration
 
@@ -30,9 +30,9 @@ In the diagram below, the storefront is where the shopper interacts with product
 |**Application**|Solution built by a developer to control the requests and responses from the BigCommerce APIs. In addition to handling essential ecommerce tasks like requesting product information or sending the request to process a payment, the application layer can also handle the logic for custom functionality, like presenting discount codes based on a shopper's history or pre-filling details on the checkout page. |
 |**BigCommerce**|BigCommerce will respond to the application with the requested data to power the backend ecommerce functionality. It can handle processing payments, storing customer data, retrieving the catalog and order information.|
 
-## Next steps
+## Next step
 
-- [Learn how to create a channel and a channel site](https://developer.bigcommerce.com/api-docs/storefronts/guide/channels)
+- [Learn how to create a channel and a channel site](/api-docs/storefronts/guide/channels)
 
 ## Resources
 

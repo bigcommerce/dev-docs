@@ -1,15 +1,15 @@
 # BigCommerce Apps Quick Start
 
-In this quick start tutorial, you will create a [single-click app](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/types-of-apps) using [Node.js](https://nodejs.org/en/), [React](https://www.reactjs.org/), [Next.js](https://nextjs.org/), and [BigDesign](https://developer.bigcommerce.com/big-design/). 
+In this quick start tutorial, you will create a [single-click app](/api-docs/getting-started/building-apps-bigcommerce/types-of-apps) using [Node.js](https://nodejs.org/en/), [React](https://www.reactjs.org/), [Next.js](https://nextjs.org/), and [BigDesign](https://developer.bigcommerce.com/big-design). 
 
 ## Prerequisites
 
 To successfully complete this tutorial, you will need the following:
 
-* [BigCommerce sandbox store](https://developer.bigcommerce.com/api-docs/partner/getting-started/create-a-sandbox-store) (required to develop and test apps)
+* [BigCommerce sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store) (required to develop and test apps)
 * [Developer Portal Account](https://devtools.bigcommerce.com/) (required to register apps)
 * Experience using [npm](https://www.npmjs.com/)
-* Node.js version 10.13+
+* Node.js 14.x
 
 ## Get started
 
@@ -47,7 +47,7 @@ Next, register the draft app in the [Developer Portal](https://devtools.bigcomme
 5. Enter Auth Callback URL as `https://{ngrok_id}.ngrok.io/api/auth`. For example, `https://12345.ngrok.io/api/auth`. You can get the `ngrok_id` from the terminal that is running `ngrok http 3000`.
 6. Enter Load Callback URL as `https://{ngrok_id}.ngrok.io/api/load`.
 7. Enter Uninstall Callback URL as `https://{ngrok_id}.ngrok.io/api/uninstall`.
-8. Because you will be modifying the Products API resource, set the Products OAuth scope to **MODIFY**. To learn more about the available OAuth scopes, see [OAuth scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+8. Because you will be modifying the Products API resource, set the Products OAuth scope to **MODIFY**. To learn more about the available OAuth scopes, see [OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 9. Click **Update & Close**.
 10. Click **View Client ID** -- this is the app's client ID and client secret.
 
@@ -57,16 +57,11 @@ Keep this tab open for the next step.
 
 After registering the draft app, add its credentials and auth callback URL to your project's environment variables file.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > If deploying on Heroku, skip the `.env` setup. Instead, enter `env` variables in the Heroku App Dashboard under **Settings** > **Config Vars**.
 
-</div>
-</div>
-</div>
+
 
 1. Create an `.env` file in the root directory of your project.
 
@@ -107,16 +102,11 @@ MYSQL_PORT={mysql port *optional*}
 
 5. Enter a JSON Web Token (**JWT**) secret. To learn more about JWT, see the [Internet Engineering Task Force documentation](https://datatracker.ietf.org/doc/html/rfc7519).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > JWT key should be at least 32 random characters (256 bits) for HS256.
 
-</div>
-</div>
-</div>
+
 
 6. Specify `DB_TYPE`:
 * If using Firebase, enter your project's Firebase config keys. For information on how to set up Cloud Firestore, see [Firebase quick start](https://firebase.google.com/docs/firestore/quickstart). 
@@ -130,16 +120,11 @@ In a separate terminal from `ngrok`, start the app's dev environment.
 ```shell
 npm run dev
 ```
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > Although you can use the `ngrok` npm package without creating an account, any unauthenticated tunnels you create will expire after two hours. For the best development experience, [create a free ngrok account](https://dashboard.ngrok.com/signup), [find your ngrok authtoken](https://dashboard.ngrok.com/get-started/your-authtoken), and [add the authtoken](https://ngrok.com/docs#getting-started-authtoken) to your global `ngrok` configuration.
 
-</div>
-</div>
-</div>
+
 
 ## Install the app
 
@@ -153,24 +138,19 @@ Finally, install the draft app on any store registered to the same email as your
 
 Congrats! You've created and installed a BigCommerce draft app.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
+<!-- theme: info -->
+> Interested in sharing or selling your app? Learn more about [becoming a BigCommerce partner](https://www.bigcommerce.com/partners/become-a-partner) and [getting your app approved](/api-docs/partner/app-store-approval-requirements).
 
-> Interested in sharing or selling your app? Learn more about [becoming a BigCommerce partner](https://www.bigcommerce.com/partners/become-a-partner) and [getting your app approved](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements).
 
-</div>
-</div>
-</div>
 
 ## Next steps
-* [Learn more about building apps](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)
+* [Learn more about building apps](/api-docs/getting-started/building-apps-bigcommerce/building-apps)
 * [Apply to become a BigCommerce partner](https://www.bigcommerce.com/partners/become-a-partner)
-* [Check out the BC App Marketplace approval requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
+* [Check out the BC App Marketplace approval requirements](/api-docs/partner/app-store-approval-requirements)
 
 ## Resources
 * [BC App Marketplace](https://www.bigcommerce.com/apps/)
-* [Authenticating BigCommerce's REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication)
-* [Testing locally with ngrok](https://developer.bigcommerce.com/api-docs/apps/guide/development#testing-locally-with-ngrok)
-* [Types of apps](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/types-of-apps)
-* [Becoming a partner](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner)
+* [Authenticating BigCommerce's REST APIs](/api-docs/getting-started/authentication/rest-api-authentication)
+* [Testing locally with ngrok](/api-docs/apps/guide/development#testing-locally-with-ngrok)
+* [Types of apps](/api-docs/getting-started/building-apps-bigcommerce/types-of-apps)
+* [Becoming a partner](/api-docs/partner/becoming-a-partner)

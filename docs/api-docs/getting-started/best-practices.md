@@ -47,7 +47,7 @@ The [BigCommerce Ruby API](https://github.com/bigcommerce/bigcommerce-api-ruby) 
 
 Merchants often have more than one person who can access a store's control panel. BigCommerce allows additional users to access an app when the store owner has granted them appropriate permissions. The requirements for supporting multi-user app access are:
 * Tokens must be stored against the `store_hash` and not against user info.
-* Within the [Developer Portal](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-app-api-credentials) workspace, you must enable your app’s **Technical** > **Multiple Users** option.
+* Within the [Developer Portal](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-app-api-credentials) workspace, you must enable your app’s **Technical** > **Multiple Users** option.
 
 In the payload returned when a user launches an app, users are distinguished by `owner_email` versus `user_email`. If these two emails match, the user is the store owner.
 
@@ -62,20 +62,12 @@ Apps that authenticate with OAuth are rate-limited based on a quota that is refr
 | -- | -- | 
 | Enterprise plans and Enterprise sandboxes (Enterprise-Test) | Unlimited\*| 
 | Pro plans| 60k per hour (450 / 30sec) | 
-| All other sandboxes (Dev/Partner/Employee) | 20k per hour (150 / 30sec)| 
+| All other sandboxes (Dev/Partner/Employee) | Unlimited\*| 
 | Plus & Standard plans| 20k per hour (150 / 30sec) | 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-### Note
-The **Unlimited** rate limit on BigCommerce Enterprise plans means that stores on this plan will not be artificially rate-limited on the basis of API-requests-per-unit-of-time. However, there are physical limits to the infrastructure which may limit the maximum throughput of requests on any given API endpoint. BigCommerce also reserves the right to limit unreasonable or abusive API activity in the interest of platform stability, per our [Terms of Service](https://www.bigcommerce.com/terms/api-terms/).
-
-</div>
-</div>
-</div>
-
+<!-- theme: info -->
+> #### Note
+>The **Unlimited** rate limit on BigCommerce Enterprise plans means that stores on this plan will not be artificially rate-limited on the basis of API-requests-per-unit-of-time. However, there are physical limits to the infrastructure which may limit the maximum throughput of requests on any given API endpoint. BigCommerce also reserves the right to limit unreasonable or abusive API activity in the interest of platform stability, per our [Terms of Service](https://www.bigcommerce.com/terms/api-terms/).
 
 Each request to the API consumes one available request from the quota. When an app hits the quota limit, subsequent requests are rejected until the quota is refreshed.
 
@@ -94,11 +86,11 @@ Certain BigCommerce API resources rate-limit concurrent requests. This is to ens
 
 Every API response’s HTTP headers give you full visibility into your position in the rate-limiting algorithm:
 
-```http
-X-Rate-Limit-Requests-Left →6
-X-Rate-Limit-Requests-Quota →25
-X-Rate-Limit-Time-Reset-Ms →3000
-X-Rate-Limit-Time-Window-Ms →5000
+```http title="Example: Rate limit headers"
+X-Rate-Limit-Requests-Left: 6
+X-Rate-Limit-Requests-Quota: 25
+X-Rate-Limit-Time-Reset-Ms: 3000
+X-Rate-Limit-Time-Window-Ms: 5000
 ```
 
 | Name | Description |
@@ -141,23 +133,15 @@ You might wish to increase the amount of work your application can do in a given
 * Slowing your rate of API requests when `X-Rate-Limit-Requests-Left` is nearing zero.
 * Determining an acceptable average rate of requests, by dividing `X-Rate-Limit-Requests-Quota` by `X-Rate-Limit-Time-Window-Seconds`, and then self-throttling to that rate.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Note
-> Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to [`/pricelists/{price_list_id}/records`](/api-reference/store-management/price-lists/price-lists-records/setpricelistrecordcollection) will result in a `429` error response -- these limitations are documented at the operation level in the API reference.
-
-</div>
-</div>
-</div>
+> #### Note
+> Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to [`/pricelists/{price_list_id}/records`](/api-reference/store-management/price-lists/price-lists-records/setpricelistrecordcollection) will result in a `429` error response. These limitations are documented at the operation level in the API reference.
 
 ### Making requests with the Storefront Cart API 
-Client-side applications should avoid polling the [Storefront Cart API](https://developer.bigcommerce.com/api-reference/cart-checkout/storefront-cart-api) on interval. Hundreds of thousands of browsers could potentially poll the Storefront Cart API at any given time, causing a significant load increase to BigCommerce's servers. We may take action against a store using this practice to prevent interruptions in service to other stores.
+Client-side applications should avoid polling the [Storefront Cart API](/api-reference/cart-checkout/storefront-cart-api) on interval. Hundreds of thousands of browsers could potentially poll the Storefront Cart API at any given time, causing a significant load increase to BigCommerce's servers. We may take action against a store using this practice to prevent interruptions in service to other stores.
 
-Consider subscribing to the [Cart Webhook](https://developer.bigcommerce.com/api-docs/getting-started/webhooks/webhook-events#cart) via a server-side application as an alternative to polling the Storefront Cart API at an interval, and only query the Storefront Cart API as a response to user input. Storing cart information in the browser cache is also an alternative method for keeping cart information up to date across browser tabs.
+Consider subscribing to the [Cart Webhook](/api-docs/store-management/webhooks/webhook-events#carts) via a server-side application as an alternative to polling the Storefront Cart API at an interval, and only query the Storefront Cart API as a response to user input. Storing cart information in the browser cache is also an alternative method for keeping cart information up to date across browser tabs.
+
 
 ## Platform limits
 
@@ -165,6 +149,6 @@ BigCommerce does have limits on the number of products, categories, brands, etc.
 
 ## Resources
 ### Related articles
-* [API Status Codes](https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes)
-* [Filtering](https://developer.bigcommerce.com/api-docs/getting-started/filtering)
+* [API Status Codes](/api-docs/getting-started/api-status-codes)
+* [Filtering](/api-docs/getting-started/filtering)
 * [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits)

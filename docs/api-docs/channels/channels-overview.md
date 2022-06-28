@@ -2,11 +2,11 @@
 
 <!-- Dev Center URL: https://developer.bigcommerce.com/api-docs/channels/guide/overview -->
 
-BigCommerce's Channel Manager is the central place for merchants to discover, connect to, and manage their sales channels, including external channels like eBay, Amazon, Facebook, and Instagram. These external sales channels can extend the merchant's control panel experience in a number of ways, such as pushing orders from these external channels into the control panel alongside their BigCommerce storefront orders, allowing them to be fulfilled in the same way, and managing products on these channel from within the control panel in many of the same ways as they do for their BigCommerce storefronts.
+BigCommerce's Channel Manager is the central place for merchants to discover, connect to, and manage their sales channels, including external channels like eBay, Amazon, Facebook by Meta, and Instagram by Meta. These external sales channels can extend the merchant's control panel experience in a number of ways, such as pushing orders from these external channels into the control panel alongside their BigCommerce storefront orders, allowing them to be fulfilled in the same way, and managing products on these channel from within the control panel in many of the same ways as they do for their BigCommerce storefronts.
 
-Using BigCommerce's [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference), any BigCommerce [partner](https://www.bigcommerce.com/partners/) can create and list a sales channel app on BigCommerce's [App Marketplace](https://www.bigcommerce.com/apps/) for any merchant to install. Additionally, approved apps developed by [select partners](https://www.bigcommerce.com/partners/) are marketed and discoverable from within the Channel Manager in every BigCommerce store's control panel.
+Using BigCommerce's [Channels Toolkit](/api-docs/channels/channels-toolkit-reference), any BigCommerce [partner](https://www.bigcommerce.com/partners/) can create and list a sales channel app on BigCommerce's [App Marketplace](https://www.bigcommerce.com/apps/) for any merchant to install. Additionally, approved apps developed by [select partners](https://www.bigcommerce.com/partners/) are marketed and discoverable from within the Channel Manager in every BigCommerce store's control panel.
 
-This article provides a high-level overview of channels and channel apps on BigCommerce and introduces BigCommerce's Channels Toolkit. For an in-depth technical guide to developing BigCommerce sales channel apps, see [Building Channel Apps](https://developer.bigcommerce.com/api-docs/channels/building-channel-apps).
+This article provides a high-level overview of channels and channel apps on BigCommerce and introduces BigCommerce's Channels Toolkit. For an in-depth technical guide to developing BigCommerce sales channel apps, see [Building Channel Apps](/api-docs/channels/guide/building-channel-apps).
 
 ## Channels Toolkit
 
@@ -27,11 +27,11 @@ While external channel integrations were possible to build by third parties prev
 
 - **Channel specific catalog management in the control panel** - Via new API endpoints, BigCommerce now supports the ability for merchants to list and manage products from within the BigCommerce control panel. Not only does this provide workflow improvements for merchants, but it enables partners to build more robust and complex integrations for external channels, as they are able to retrieve any channel and listing data that is relevant to a store.
 
-For a comprehensive list of channel app development tools, see the [Channels Toolkit Reference](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference).
+For a comprehensive list of channel app development tools, see the [Channels Toolkit Reference](/api-docs/channels/channels-toolkit-reference).
 
 ## Channel apps
 
-BigCommerce channel apps allow merchants to list products on external sales channels like point-of-sale devices, online marketplaces, marketing platforms, and social networking sites. Using BigCommerce's [Channels Toolkit](https://developer.bigcommerce.com/api-docs/channels/channels-toolkit-reference), developers can create channel apps that integrate with virtually any platform. Once published and approved, these apps are discoverable on [BigCommerce's App Marketplace](https://www.bigcommerce.com/apps/) for merchants to install. Additionally, approved apps developed by [select partners](https://www.bigcommerce.com/partners/) are marketed within the Channel Manager in every BigCommerce store's control panel.
+BigCommerce channel apps allow merchants to list products on external sales channels like point-of-sale devices, online marketplaces, marketing platforms, and social networking sites. Using BigCommerce's [Channels Toolkit](/api-docs/channels/channels-toolkit-reference), developers can create channel apps that integrate with virtually any platform. Once published and approved, these apps are discoverable on [BigCommerce's App Marketplace](https://www.bigcommerce.com/apps/) for merchants to install. Additionally, approved apps developed by [select partners](https://www.bigcommerce.com/partners/) are marketed within the Channel Manager in every BigCommerce store's control panel.
 
 ### Discovery
 
@@ -54,20 +54,12 @@ We enable this through our Channels API endpoints:
 
 ![Channels in Channel Manager](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-channel-overview.png "Channels in Channel Manager")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
 <!-- theme: info -->
-
-> **Note**
->
+> #### Note
 > - BigCommerce has control of which platforms and types are available to create. It is currently a manual process to add new platforms. A channel instance can be only 1 type; however, a channel app can register multiple different channels.
->
-> - For channel apps that are strategically approved ([select partners](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner)), the app appears as an option when adding a new channel. This starts the app install process.
+> - For channel apps that are strategically approved ([select partners](/api-docs/partner/becoming-a-partner)), the app appears as an option when adding a new channel. This starts the app install process.
 
-</div>
-</div>
-</div>
+
 
 ### Management
 
@@ -75,19 +67,13 @@ Once installed, merchants manage channel apps via Channel Manager in the control
 
 ![Edit Channel Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-edit-settings.png "Edit Channel Settings")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
- 
-> **Note**
->
+<!-- theme: info -->
+> #### Note
 > Apps provided by partners who don't use the Channel API will only appear in the App Marketplace and **My Apps**.
 
 On the **View Products** page, merchants can list products on any installed channel that supports per-product listing capabilities.
 
-</div>
-</div>
-</div>
+
 
 ![List Product](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-view-products.png "List Product")
 
@@ -95,17 +81,10 @@ Merchants can also list products from the product edit page.
 
 ![Manage Channel Assignment](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-all-assignments.png "Manage Channel Assignment")
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
- 
-> **Note**
->
+<!-- theme: info -->
+> #### Note
 > Not all channel apps can or should support per product listing capabilities; determining if this functionality is appropriate and useful is up to the app developer.
 
-</div>
-</div>
-</div>
 
 ## Types of channels
 
@@ -154,7 +133,7 @@ Examples:
 - Google Shopping
 - WordPress Blog
 - Pinterest
-- Instagram
+- Instagram by Meta
 
 ## Building a channel app
 
@@ -175,20 +154,20 @@ Select partners
 
 If you're not already a partner and familiar with the BigCommerce APIs and tools you need to get started, you'll need to:
 
-1. [Become a partner](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner)
-2. [Get acquainted with our APIs](https://developer.bigcommerce.com/api-docs/getting-started/about-our-api)
+1. [Become a partner](/api-docs/partner/becoming-a-partner)
+2. [Get acquainted with our APIs](/api-docs/getting-started/about-our-api)
 3. Sign up for developer account
 4. Start a free trial
 
 ### Building the app
 
-Once you're ready to get started developing the channel app, see [Building Channel Apps](https://developer.bigcommerce.com/api-docs/channels/building-channel-apps) for a comprehensive guide.
+Once you're ready to get started developing the channel app, see [Building Channel Apps](/api-docs/channels/guide/building-channel-apps) for a comprehensive guide.
 
 ## Related resources
 
 ### Articles
 
-- [Building Channels Quick Start](https://developer.bigcommerce.com/api-docs/channels/quick-start)
+- [Building Channels Quick Start](/api-docs/channels/quick-start)
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbNzMwOTk4MTE2XX0=

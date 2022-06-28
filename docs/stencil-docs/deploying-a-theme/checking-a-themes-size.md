@@ -2,7 +2,7 @@
 
  
 
-Ideally, your theme should bundle into an archive of only a few megabytes (MB). BigCommerce imposes a hard limit of 50 MB, but most themes do not approach this limit unless they include many large static assets. If your theme does not exceed 50 MB, follow the steps outlined in [Bundling and Pushing a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing) to process and package your theme for upload to BigCommerce.
+Ideally, your theme should bundle into an archive of only a few megabytes (MB). BigCommerce imposes a hard limit of 50 MB, but most themes do not approach this limit unless they include many large static assets. If your theme does not exceed 50 MB, follow the steps outlined in [Bundling and Pushing a Theme](/stencil-docs/deploying-a-theme/bundling-and-pushing) to process and package your theme for upload to BigCommerce.
 
 
 If your theme exceeds the 50 MB limit, you have two options:
@@ -39,21 +39,11 @@ will build the following URL:
 
 On your local machine, move the large static assets to a location where the `stencil bundle` command will ignore them. This can be a location outside your theme's directory, or it can be the `assets/cdn/` subdirectory, which `stencil bundle` excludes from bundling. Separating these assets is necessary to exclude them from the next step.
 
-Run the `stencil bundle` command from inside your streamlined `theme‑name` directory. Once your resulting ZIP file is 50 MB or smaller, you are ready to upload it to BigCommerce. For more information, see [Bundling and Pushing a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing).
-
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
+Run the `stencil bundle` command from inside your streamlined `theme‑name` directory. Once your resulting ZIP file is 50 MB or smaller, you are ready to upload it to BigCommerce. For more information, see [Bundling and Pushing a Theme](/stencil-docs/deploying-a-theme/bundling-and-pushing).
 
 <!-- theme: warning -->
-
-### URL references to assets
-
+> #### URL references to assets
 > Both in production and locally, subdirectories of your theme's `assets` directory, such as `img`,`js`, and `fonts`, are parallel to its `scss` subdirectory. Within your CSS, path references to such assets should reflect this parallel relationship, for example: `../img/test.jpg`.
-
-</div>
-</div>
-</div>
 
 ### WebDAV folders and Stencil themes
 
@@ -86,24 +76,16 @@ As you develop your theme, reference each of these assets using Stencil's `{{cdn
 <img src="{{cdn "webdav:img/image.jpg"}}">
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--">
-<div class="HubBlock-content">
-
-<!-- theme:  -->
-
+<!-- theme: info -->
 > The presumed WebDAV root directory is `content`. In this example, the `image.jpg` file had been uploaded to the WebDAV `content` directory. The presumed local directory for other CDNs is `assets`, so you can omit that path when referencing its contained files or subdirectories.
 
-</div>
-</div>
-</div>
 
-When you are ready to upload your theme to BigCommerce, follow the process outlined in [Bundling and Pushing a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing).
+When you are ready to upload your theme to BigCommerce, follow the process outlined in [Bundling and Pushing a Theme](/stencil-docs/deploying-a-theme/bundling-and-pushing).
 
 ## Resources
 
 ### Related articles
-* [Bundling and Pushing a Theme](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/bundling-and-pushing)
-* [Naming Your Theme and Theme Variations](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/naming-your-theme)
-* [Preparing Thumbnail Images](https://developer.bigcommerce.com/stencil-docs/deploying-a-theme/preparing-thumbnail-images)
+* [Bundling and Pushing a Theme](/stencil-docs/deploying-a-theme/bundling-and-pushing)
+* [Naming Your Theme and Theme Variations](/stencil-docs/deploying-a-theme/naming-your-theme)
+* [Preparing Thumbnail Images](/stencil-docs/deploying-a-theme/preparing-thumbnail-images)
 * [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV#manual) (BigCommerce Knowledge Base)

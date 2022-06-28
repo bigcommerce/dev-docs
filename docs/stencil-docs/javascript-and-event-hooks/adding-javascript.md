@@ -1,4 +1,4 @@
-# Adding Javascript to Your Stencil Theme
+# Adding JavaScript to Your Stencil Theme
 
 
 
@@ -34,9 +34,9 @@ Many third-party JavaScript components are distributed with npm. When you use th
 
 The npm package manager facilitates the management of third-party JavaScript components by placing each JavaScript component in the correct directories. However, as a developer, you will still need to edit your theme files to wire up the JavaScript component to expose it on your storefront. You will find several examples of this on the following pages.
 
-## Page types and Javascript API
+## Page types and JavaScript API
 
-Stencil themes include an API for running JavaScript on a per-page basis. To properly write JavaScript for your theme, you will have the following page types available to you:
+To help you encapsulate your theme's logic, Stencil themes include an API for running JavaScript on a per-page basis. The following page types are available:
 
 * `pages/account/addresses`
 * `pages/account/add-address`
@@ -85,16 +85,9 @@ export default class Blog extends PageManager {
     }
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
-> * Page types correspond to the HTML pages in [templates/pages/](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages).
-
-</div>
-</div>
-</div>
+<!-- theme: info -->
+> #### Note
+> Page types correspond to the HTML pages in [templates/pages/](https://github.com/bigcommerce/cornerstone/tree/master/templates/pages).
 
 ## JavaScript template context injection
 

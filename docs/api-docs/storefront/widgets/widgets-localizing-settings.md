@@ -8,7 +8,7 @@ This article explains how to localize your widget template settings and provides
 
 ## Mapping settings to translations
 
-The [widget template](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/getwidgettemplates) schema uses the `i18n.{SettingName}` internationalization format within labels to map settings to translation files. i18n's interpolation functionality makes it possible to integrate dynamic values into translations.
+The [widget template](/api-reference/store-management/widgets/widget-template/getwidgettemplates) schema uses the `i18n.{SettingName}` internationalization format within labels to map settings to translation files. i18n's interpolation functionality makes it possible to integrate dynamic values into translations.
 
 You can localize your widget template settings by defining translations in the `schema_translations` property of the widget template schema. 
 
@@ -64,7 +64,7 @@ The following example demonstrates how to add translations for the widget templa
 "{\n \"i18n.LineColor\": {\n   \"default\": \"Line color\",\n   \"fr-FR\": \"Couleur de la ligne\",\n   \"en\": \"Line color\",\n   \"zh-CN\": \"线条颜色\"\n },\n \"i18n.LineStyle\": {\n   \"default\": \"Line style\",\n   \"fr-FR\": \"Style de ligne\",\n   \"en\": \"Line style\",\n   \"zh-CN\": \"线型\"\n },\n \"i18n.LineWidth\": {\n   \"default\": \"Line width\",\n   \"fr-FR\": \"Largeur de ligne\",\n   \"en\": \"Line width\",\n   \"zh-CN\": \"行宽\"\n },\n \"i18n.LineThickness\": {\n   \"default\": \"Line Thickness\",\n   \"fr-FR\": \"Épaisseur de ligne\",\n   \"en\": \"Line Thickness\",\n   \"zh-CN\": \"线的粗细\"\n },\n \"i18n.Alignment\": {\n   \"default\": \"Alignment\",\n   \"fr-FR\": \"Alignement\",\n   \"en\": \"Alignment\",\n   \"zh-CN\": \"结盟\"\n }\n}"
 ```
 
-4. Create a widget template by sending a `POST` request to the [Create a Widget Template](https://developer.bigcommerce.com/api-reference/store-management/widgets/widget-template/createwidgettemplate) endpoint. The following example creates a simple text widget:
+4. Create a widget template by sending a `POST` request to the [Create a Widget Template](/api-reference/store-management/widgets/widget-template/createwidgettemplate) endpoint. The following example creates a simple text widget:
 
 ```http
 POST /stores/{{store_hash}}/v3/content/widget-templates
@@ -160,8 +160,8 @@ Accept: application/json
 }
 ```
 
-5. From the control panel, open [Page Builder](https://developer.bigcommerce.com/stencil-docs/page-builder/page-builder-overview) and locate your newly created widget template.
-6. Drag and drop the widget in a [region](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview#regions) on a page to test it out.
+5. From the control panel, open [Page Builder](/stencil-docs/page-builder/page-builder-overview) and locate your newly created widget template.
+6. Drag and drop the widget in a [region](/api-docs/store-management/widgets/overview#regions) on a page to test it out.
 
 ![Default language code](https://storage.googleapis.com/bigcommerce-production-dev-center/images/01-Localizing%20Widget%20Template%20Settings.png "Default language code")
 
@@ -175,22 +175,17 @@ Accept: application/json
 
 Widget templates support both [ISO 639‑1](https://en.wikipedia.org/wiki/ISO_639-1) and [IETF language tag](https://en.wikipedia.org/wiki/IETF_language_tag) code schemes. The language code must follow a set format of two lowercase letters for a two-letter code system or two lowercase letters, a dash, and at least two alphanumeric characters for a multiple-character code system.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > * Translations must start with the `i18n.` prefix.
 > * Language code must contain a default value.
 > * You can reuse translations within the widget template schema, but translations within the `schema_translations.json` file must be unique.
 
-</div>
-</div>
-</div>
+
 
 ## Resources
 
 - [Internationalization](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Internationalization)
 - [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder?language=en_US)
 - [User Profile](https://support.bigcommerce.com/s/article/User-Profile?language=en_US)
-- [Widgets API Overview](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview)
+- [Widgets API Overview](/api-docs/store-management/widgets/overview)

@@ -1,5 +1,7 @@
 # Theme Styles and Properties
- 
+Use the following data types in the `schema.json` file to create configurable options in the [Theme Styles](https://support.bigcommerce.com/s/article/Page-Builder?language=en_US#styles) area of [Page Builder](https://support.bigcommerce.com/s/article/Page-Builder?language=en_US). Each widget template schema uses the `i18n.{SettingName}` internationalization format within labels to map settings to files. i18n's interpolation functionality makes it possible to integrate dynamic values into a theme. 
+
+You can use your widget template settings to define a data type in the schema_translations property of the widget template schema.
 
 ## Checkbox
 
@@ -200,3 +202,6 @@ Used to set string value for theme settings
 Required fields: `type`, `label`, and `id`.
 
 Optional field: `force_reload`
+
+## Related resources
+* [schemaTranslations.json](/stencil-docs/storefront-customization/directory-structure#schematranslationsjson)

@@ -11,17 +11,9 @@ This article contains the detailed instructions needed to install and configure 
 To install Stencil CLI and its dependencies on Mac, open a terminal and run the following commands. Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
 > These instructions have been tested on **Mac OS X Yosemite**.
 
-</div>
-</div>
-</div>
 
 ```shell
 # For ARM based macs
@@ -31,10 +23,10 @@ arch -x86_64 /bin/zsh
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 
 # Install Stencil CLI supported version of Node.js
-nvm install 12
+nvm install 14
 
 # Switch to Stencil CLI supported version of Node.js:
-nvm use 12
+nvm use 14
 
 # Install Stencil CLI
 npm install -g @bigcommerce/stencil-cli
@@ -45,18 +37,9 @@ npm install -g @bigcommerce/stencil-cli
 Installing Stencil CLI and its dependencies on Macs that use Apple silicon, such as the M1 chip, requires Rosetta. Rosetta allows a Mac with Apple silicon to use apps built for a Mac with an Intel processor. The following steps will guide you through opening a Rosetta terminal and installing Stencil CLI and its dependencies.
 
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
 > These instructions have been tested on a **MacBook Air** with an M1 chip.
 
-
-</div>
-</div>
-</div>
 
 To open the Rosetta terminal:
 
@@ -71,10 +54,10 @@ Run the following commands:
 
 ```shell
 # Install Stencil CLI supported version of Node.js
-nvm install 12
+nvm install 14
 
 # Switch to Stencil CLI supported version of Node.js
-nvm use 12
+nvm use 14
 
 # Install Stencil CLI
 npm install -g @bigcommerce/stencil-cli
@@ -94,7 +77,7 @@ iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/in
 choco install git
 
 # Install nvm-windows and stencil compatible node.js
-choco install nvm; nvm install 12; nvm use 12
+choco install nvm; nvm install 14; nvm use 14
 
 #####################################################################################
 # Close PowerShell and re-open as admin
@@ -110,21 +93,14 @@ npm config set python python2.7
 npm install -g @bigcommerce/stencil-cli
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-
 <!-- theme: warning -->
-
-### Execution policy errors
+> #### Execution policy errors
 > If you receive an execution policy error while attempting to install chocolatey, refer to [Microsoft's Documentation](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6) and/or consult with your organization's system administrator to determine the appropriate course of action.
->
-### Chocolatey installation alternatives
-> For additional information on installing Chocolatey and alternative installation options, see [the installation page on chocolatey.org](https://chocolatey.org/install).
 
-</div>
-</div>
-</div>
+
+<!-- theme: info -->
+> #### Chocolatey installation alternatives
+> For additional information on installing Chocolatey and alternative installation options, see [the installation page on chocolatey.org](https://chocolatey.org/install).
 
 ### Method 2: Install dependencies manually
 
@@ -133,7 +109,7 @@ If you're a pro at installing and configuring Python and Node.js environments on
 **Required Dependencies:**
 * [Git](https://git-scm.com/downloads) - required to run npm install
 * [Python 2.7.x](https://www.python.org/downloads/) - required to build some dependencies
-* [Node.js 12 and npm](https://nodejs.org/en/download/releases/) - later versions not currently supported on Windows
+* [Node.js 14 and npm](https://nodejs.org/en/download/releases/) - later versions not currently supported on Windows
 * [Visual C++ Build Tools 2015](https://www.npmjs.com/package/windows-build-tools) - required to compile some dependencies
 
 Once they're installed and configured, use `npm` to install Stencil CLI:
@@ -142,20 +118,9 @@ Once they're installed and configured, use `npm` to install Stencil CLI:
 npm install -g @bigcommerce/stencil-cli
 ```
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
 > These instructions have been tested successfully on **Windows 10**.
-
 > Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
-
-
-</div>
-</div>
-</div>
 
 ## Installing on Linux
 
@@ -169,9 +134,9 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 source ~/.bashrc
 
 # Explicitly install and use supported node version
-nvm install 12
+nvm install 14
 
-nvm use 12
+nvm use 14
 
 # Install stencil
 npm install -g @bigcommerce/stencil-cli
@@ -182,24 +147,16 @@ npm install -g @bigcommerce/stencil-cli
 * [libsass](https://sass-lang.com/libsass)
 * git
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
-### Note
+> #### Note
 > * These instructions have been tested on **Ubuntu 18.04**.
 > * Refer to [Stencil CLI README.MD](https://github.com/bigcommerce/stencil-cli) for latest `node` version supported.
 > * Refer to [nvm](https://github.com/nvm-sh/nvm) for latest `nvm` install instructions.
 
-</div>
-</div>
-</div>
 
 ## Live previewing a theme
 
-Once you've installed Stencil CLI, the next step on the road to theme development is downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. For detailed instructions on doing so, see [Live Previewing a Theme](https://developer.bigcommerce.com/stencil-docs/installing-stencil-cli/live-previewing-a-theme). Here's the gist:
+Once you've installed Stencil CLI, the next step on the road to theme development is downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. For detailed instructions on doing so, see [Live Previewing a Theme](/stencil-docs/installing-stencil-cli/live-previewing-a-theme). Here's the gist:
 
 
 ```shell

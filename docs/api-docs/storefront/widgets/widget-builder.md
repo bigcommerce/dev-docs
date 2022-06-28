@@ -10,22 +10,15 @@ This article is a guide to help you learn how to use Widget Builder.
 
 * Node.js 14
 * [npm](https://www.npmjs.com/) 6.14
-* A BigCommerce [store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial) or [sandbox store](https://developer.bigcommerce.com/api-docs/partner/getting-started/create-a-sandbox-store).
-* Store API OAuth credentials for `content` resources with scope `modify`. For information on how to generate store API credentials, see [Obtaining store API credentials](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
+* A BigCommerce [store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial) or [sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store).
+* Store API OAuth credentials for `content` resources with scope `modify`. For information on how to generate store API credentials, see [Obtaining store API credentials](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
+<!-- theme: warning -->
+> Because the OAuth scope of these API credentials permits you to modify store content, we strongly recommend that you develop widgets using a [sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store).
 
 
-<!-- theme: warn -->
 
-> Because the OAuth scope of these API credentials permits you to modify store content, we strongly recommend that you develop widgets using a [sandbox store](https://developer.bigcommerce.com/api-docs/partner/getting-started/create-a-sandbox-store).
-
-</div>
-</div>
-</div>
-
-For more information on OAuth Scopes and authentication, see [Authentication](https://developer.bigcommerce.com/api-docs/getting-started/authentication).
+For more information on OAuth Scopes and authentication, see [Authentication](/api-docs/getting-started/authentication).
 
 ## Install Widget Builder
 
@@ -33,17 +26,10 @@ To install Widget Builder and its dependencies, follow these instructions:
 
 1. Open a terminal, and verify that you are using supported versions of Node.js and `npm`.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
 > Refer to the [Widget Builder README.md](https://github.com/bigcommerce/widget-builder) for the latest supported Node.js and `npm` versions.
 
-</div>
-</div>
-</div>
+
 
 2. Clone the [widget-builder](https://github.com/bigcommerce/widget-builder) GitHub repository.
 
@@ -126,17 +112,10 @@ If you need to reset the configuration, you can run the `widget-builder init` co
 Initializing Widget Builder at multiple levels of a single file hierarchy can have unpredictable results and is not recommended.
  
  
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
 <!-- theme: info -->
-
 > To use Widget Builder as a development tool, you must run `widget-builder` commands from the same directory where you ran `widget-builder init`.
 
-</div>
-</div>
-</div>
+
   
 ## Generate a scaffold with `create`
 
@@ -187,12 +166,12 @@ Publishing a widget from the same path will update or overwrite your existing wi
 
 To add published widgets to your store, open your store's control panel and navigate to **Storefront** **>** **My Themes**. Click the **Customize** button on your active theme, and locate your published widget in the **Custom** section of the left-side menu.
 
-If you're interested in making your widgets available for download or sale on other stores, check out the [BigCommerce App Marketplace](https://www.bigcommerce.com/apps/toolswidgets/) and learn about [becoming a partner developer](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner).
+If you're interested in making your widgets available for download or sale on other stores, check out the [BigCommerce App Marketplace](https://www.bigcommerce.com/apps/toolswidgets/) and learn about [becoming a partner developer](/api-docs/partner/becoming-a-partner).
 
 ## Resources
 
-* [Authenticating BigCommerce's REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication)
-* [Widgets API Overview](https://developer.bigcommerce.com/api-docs/store-management/widgets/overview)
+* [Authenticating BigCommerce's REST APIs](/api-docs/getting-started/authentication/rest-api-authentication)
+* [Widgets API Overview](/api-docs/store-management/widgets/overview)
 * [Widget Builder GitHub repository](https://github.com/bigcommerce/widget-builder)
 * [Widgets on the App Marketplace](https://www.bigcommerce.com/apps/toolswidgets/)
-* [Becoming a Partner Developer](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner)
+* [Becoming a Partner Developer](/api-docs/partner/becoming-a-partner)

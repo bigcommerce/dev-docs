@@ -42,9 +42,7 @@ To provide merchants with a positive integration experience, we expect point of 
 - **Catalog Import/Export:** 100 Complex Products per Second.
 
 <!-- theme: info -->
-
-> **Note**
->
+> #### Note
 > This volume of requests per second may hit the rate limits of lower tier BigCommerce plans - logic should be implemented around the response headers to ensure your application does not exceed the allowable number of requests for a given storefront.
 
 For increased performance, consider using batch operations and parallel requests when possible.
@@ -74,14 +72,15 @@ These logs would provide more granular details on the event that took place and 
 
 ### Articles
 
-- [Channels Overview](https://developer.bigcommerce.com/api-docs/channels/channels-overview)
-- [Channels Toolkit Reference](https://developer.bigcommerce.com/api-docs/channels-toolkit-reference)
-- [Channel App Best Practices](https://developer.bigcommerce.com/api-docs/getting-started/best-practices)
-- [Becoming a Partner](https://developer.bigcommerce.com/api-docs/partner/becoming-a-partner)
-- [Authenticating BigCommerce's REST APIs](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication)
-- [Types of Apps](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/types-of-apps)
-- [Building an App](https://developer.bigcommerce.com/api-docs/getting-started/building-apps-bigcommerce/building-apps)
-- [App Store Approval Requirements](https://developer.bigcommerce.com/api-docs/partner/app-store-approval-requirements)
+- [Channels Overview](/api-docs/channels/channels-overview)
+- [Channels Toolkit Reference](/api-docs/channels/guide/channels-toolkit-reference)
+
+- [Channel App Best Practices](/api-docs/getting-started/best-practices)
+- [Becoming a Partner](/api-docs/partner/becoming-a-partner)
+- [Authenticating BigCommerce's REST APIs](/api-docs/getting-started/authentication/rest-api-authentication)
+- [Types of Apps](/api-docs/getting-started/building-apps-bigcommerce/types-of-apps)
+- [Building an App](/api-docs/getting-started/building-apps-bigcommerce/building-apps)
+- [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements)
 - [BigDesign Component Library](https://developer.bigcommerce.com/big-design/?path=/story/badge--overview)
 - [Sell Everywhere with Channel Manager](https://support.bigcommerce.com/s/article/Selling-Everywhere-with-Channel-Manager)
 

@@ -1,8 +1,6 @@
 # Theme Development Best Practices Tutorial
 
-
-
-In this tutorial, you will learn the correct way to import theme images and inject theme variables. Also, you will learn how to improve theme designs using [Lighthouse](https://developers.google.com/web/tools/lighthouse) and [accessibility best practices](https://developer.bigcommerce.com/stencil-docs/theme-accessibility).
+In this tutorial, you will learn the correct way to import theme images and inject theme variables. Also, you will learn how to improve theme designs using [Lighthouse](https://developers.google.com/web/tools/lighthouse) and [accessibility best practices](/stencil-docs/theme-accessibility).
 
 ## Importing images
 There are two ways to import images. The steps below describe the quickest and easiest way to import images.
@@ -10,7 +8,7 @@ There are two ways to import images. The steps below describe the quickest and e
 2. Add images to the `/content` directory.
 3. Upload the images using a WebDAV client. You can access the images within the theme using the `cdn` Handlebars helper as follows:
 
-```json
+```handlebars title="cdn helper"
 {{cdn "webdav:/img/image.jpg"}}
 ```
 The WebDAV import option allows you to upload images in bulk. However, we recommend that you only select the specific files needed. Importing the entire markup folder or unessential files can affect page load time.
@@ -29,19 +27,19 @@ When importing images, ensure your images are high quality, the appropriate dime
 
 Injecting JavaScript context variables allow you to access store data through your theme. You can inject JavaScript context variables using the `{{inject}}` Handlebars helper. Be sure to assign a custom variable name to the injected variable.
 
-You can then use the `{{jsContext}}` Handlebars helper to access a stringified JSON object containing all injected data with your assigned custom variable names as keys in the key-value pairs. For more information, see [injection helpers](https://developer.bigcommerce.com/stencil-docs/reference-docs/handlebars-helpers-reference#inject). 
+You can then use the `{{jsContext}}` Handlebars helper to access a stringified JSON object containing all injected data with your assigned custom variable names as keys in the key-value pairs. For more information, see [injection helpers](/stencil-docs/reference-docs/handlebars-helpers-reference#inject). 
 
 The code example below uses `{{inject}}` and `{{jsContext}}` to log the product name to your browser's console when added to Cornerstone's `product.html` file: 
 
-```javascript
+```handlebars title="product.html" lineNumbers
 {{inject "myProductName" product.title}}
 
 <script>
-// Note the lack of quotes around the jsContext handlebars helper, it becomes a string automatically.
-var jsContext = JSON.parse({{jsContext}});
-/* jsContext would output "{\"myProductName\": \"Sample Product\"}" which can feed directly into
-your JavaScript. */
-console.log(jsContext.myProductName); // Will output: Sample Product
+    console.log({{jsContext}}); //type: string
+    // {{jsContext}} outputs the string {"myProductName": "Sample Product"}
+    console.log(jsContext); //type: object
+    console.log(jsContext.myProductName)
+    // Will output: Sample Product
 </script>
 ```
 
@@ -59,16 +57,9 @@ We recommend that you use Lighthouse to focus on the following metrics for optim
 ### Largest Contentful Paint
 Largest Contentful Paint (LCP) is the metric that reports the time it takes to display the largest image on the screen. This metric is important because page speed ensures visitors receive the best performance and presentation of the site.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-**Good score:**
-The optimal LCP score is 2.5 seconds or faster. 
-
-</div>
-</div>
-</div>
+<!-- theme: info -->
+> #### Good score
+> The optimal LCP score is 2.5 seconds or faster. 
 
 To improve LCP:
 * Make images smaller or remove anything preventing a quick download.
@@ -79,16 +70,9 @@ To improve LCP:
 ### First Input Delay
 First Input Delay (FID) is the metric that measures the delay users experience when interacting with a page. It is the time it takes for the site to respond when a user clicks a link, selects a button, taps on the screen, etc.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-**Good score:**
-The optimal FID score is 100 milliseconds or less. 
-
-</div>
-</div>
-</div>
+<!-- theme: info -->
+> #### Good score
+> The optimal FID score is 100 milliseconds or less. 
 
 To improve FID:
 * Reduce the effect of third-party code.
@@ -103,16 +87,9 @@ A good TBT score is 300 milliseconds or less.
 
 Cumulative Layout Shift (CLS) is the metric that measures visual stability. This metric measures how often users experience unexpected layout shifts. A layout shift is when a visible element changes its position from one rendered frame to the next. For example, a layout shift can occur when a user views a page and a video moves on top of the home carousel. These unexpected movements can result in an unpleasant experience for the user.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-**Good score:**
-The optimal CLS score is 0.1 seconds or less. 
-
-</div>
-</div>
-</div>
+<!-- theme: info -->
+> #### Good score
+> The optimal CLS score is 0.1 seconds or less. 
 
 To improve CLS:
 * Add size attributes to elements.
@@ -132,17 +109,15 @@ To improve performance, let's start by measuring usused JavaScript. In Chrome De
 
 In addition to removing unused code, you can minify, compress, and refactor CSS and JavaScript files by removing line breaks, whitespace, and comments.
 
-**Minification example**
-
-```css
+```css title="Example, Part 1: Not minified" lineNumbers
 .element-class {
 padding: 1px 5px 1px 5px;
 font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, 
     Bitstream Vera Sans Mono, Courier New, monospace, serif;
 background-color: #eeeeee;}
 ```
-
-```css
+&nbsp;
+```css title="Example, Part 2: Minified" lineNumbers
 .element-class{padding: 1px 5px 1px 5px;font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;background-color: #eee;}
 ```
 
@@ -156,10 +131,10 @@ Using Lighthouse is an important step in optimizing your site and improving the 
 
 ## Designing for accessibility
 
-Accessible sites have benefits, including faster load speed, better SEO, and useful for marketing your product. See [Developing Themes for Accessibility](https://developer.bigcommerce.com/stencil-docs/theme-accessibility) for more information.
+Accessible sites have benefits, including faster load speed, better SEO, and useful for marketing your product. See [Developing Themes for Accessibility](/stencil-docs/theme-accessibility) for more information.
 
 ## Related resources
-- [File Access (WebDAV)](https://support.bigcommerce.com/articles/Public/File-Access-WebDAV/)(Knowledge Base)
+- [File Access (WebDAV)](https://support.bigcommerce.com/s/article/File-Access-WebDAV)(Knowledge Base)
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
-- [Designing for Accessibility](https://developer.bigcommerce.com/stencil-docs/theme-accessibility)
+- [Designing for Accessibility](/stencil-docs/theme-accessibility)
 - [Folder Structure](https://support.bigcommerce.com/s/article/File-Access-WebDAV#folder)

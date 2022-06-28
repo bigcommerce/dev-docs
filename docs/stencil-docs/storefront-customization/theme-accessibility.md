@@ -16,16 +16,11 @@ Alternative (alt) text is an image description read aloud by a screen reader. Ad
 **Alt image text using HTML**
 
 In Cornerstone, go to `templates/components/common/store-logo.html`. In the `<img>` tag, provide descriptive alt text for your store logo.
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
- 
-### Note 
 
-You can update the `title` attribute with the same text as the `alt` attribute to create a tooltip, or remove it if you do not need it.
-</div>
-</div>
-</div>
+<!-- theme: info -->
+> #### Note 
+> You can update the `title` attribute with the same text as the `alt` attribute to create a tooltip, or remove it if you do not need it.
+
 
 ```html
 <img src="store_logo.jpeg" alt="BigCommerce store logo"> 
@@ -79,16 +74,10 @@ Text accessibility involves making content readable and understandable. You can 
 ### Color contrast
 Color contrast is an essential factor in visual accessibility.
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--info">
-<div class="HubBlock-content">
-
-> ### Note
+<!-- theme: info -->
+> #### Note
 > According to [WCAG 2.1](https://www.w3.org/TR/WCAG21/), your ecommerce website must have minimum color contrast ratios of 4.5.1 for standard text and 3:1 for large text. To ensure you meet WCAG 2.1 guidelines, we recommend presetting these guidelines, using [Lighthouse](https://developers.google.com/web/tools/lighthouse) or Chrome's [Accessibility Developer Tools](https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb/reviews?hl=en).
 
-</div>
-</div>
-</div>
 
 It is essential to avoid using dark colors for both the background and text color. Instead, use contrasting colors to achieve better visibility.   For example, avoid green and black, green and gray, and green and red background and text colors. Alternatively, it is good practice to use light text on dark backgrounds or dark text on light backgrounds. The example below shows poor color contrasting because the black text is on a green background. The color contrast ratio is 3.8.1. It would have been better to use white text on a dark green background.
 
@@ -112,7 +101,7 @@ Your main heading should be H1 and indicate the main content. The incorrect exam
 
 The correct structure displayed above on the right shows heading levels from largest to smallest communicating more specific information about the previous section.
 
-For an example video on how to create text headings, see [How Headings Help Screen Reader Users](https://www.youtube.com/watch?v=zRTqCGJ_HwQ).
+For an example video on how to create text headings, see [How Headings Help Screen Reader Users](//youtube.com/watch?v=zRTqCGJ_HwQ).
 
 ### Font size and text alignment
 The use of white space around blocks of text makes it easier to read. We recommend the following text formatting:
@@ -171,7 +160,7 @@ To see `tabindex` in action, open the following example in a new tab: [native-ke
 
 Press the `Tab` key and navigate from the top of the page to the bottom, highlighting active elements. You can also use the arrow keys to scroll through the drop-down menu.
 
-For an example video on keyboard accessibility, see [Accessible Components: Keyboard access -- Polycasts#49](https://www.youtube.com/watch?v=REVxMvdBYMw).
+For an example video on keyboard accessibility, see [Accessible Components: Keyboard access -- Polycasts#49](//youtube.com/watch?v=REVxMvdBYMw).
 
 ## Customization
 You can add scripts or code to improve the accessibility of your theme. As stated above, you can use the `tabindex` global attribute to add an element for keyboard navigation. Also, we suggest doing the following:
@@ -203,6 +192,6 @@ For apps that can check and improve your site's accessibility, see our Site Tool
 - [AccessiBe](https://accessibe.com/)
 
 ### Videos
-- [How Headings Help Screen Reader Users](https://www.youtube.com/watch?v=zRTqCGJ_HwQ)
+- [How Headings Help Screen Reader Users](//youtube.com/watch?v=zRTqCGJ_HwQ)
 - [WebAIM article on Typefaces and Fonts](https://webaim.org/techniques/textlayout/)
-- [Accessible Components: Keyboard access -- Polycasts#49](https://www.youtube.com/watch?v=REVxMvdBYMwaccessioa)
+- [Accessible Components: Keyboard access -- Polycasts#49](//youtube.com/watch?v=REVxMvdBYMwaccessioa)

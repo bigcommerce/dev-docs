@@ -1,4 +1,4 @@
-<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for Wordpress</h3>
+<div><h3 class="sub-docs-type" id="bigcommerce-for-wordpress">BigCommerce for WordPress</h3></div>
 
 # AMP for the BigCommerce WordPress plugin
 #### Prepared by XWP for BigCommerce
@@ -59,17 +59,10 @@ For more technical details on how the 3 modes are differentiated, please check o
 
 ### Classic mode (v0.1+) - Legacy
 
-<div class="HubBlock--callout">
-<div class="CalloutBlock--warning">
-<div class="HubBlock-content">
-    
 <!-- theme: warning -->
-
 > Classic is now considered legacy -- Paired and Native are the recommended AMP Plugin modes.
 
-</div>
-</div>
-</div>
+
 
 This is the original mode for rendering AMP pages and it renders an AMP theme that is separate and different from your WordPress theme. Think of it as a whole new WordPress theme that is only displayed when the site is being viewed as AMP. The AMP theme is customizable and can be branded to align with your brand.
 
@@ -124,7 +117,7 @@ The BigCommerce for WordPress plugin ships with beautifully customized AMP templ
 ### Classic Mode
 The classic AMP theme can be customized in the WordPress Customizer. Click on `Appearance` on the WordPress Admin menu and then click `Customize`. The WordPress Customizer will then open and you’ll see a panel for AMP. Click `AMP` and then `Design` and from this panel you can change the look and feel.
 
-You may want to go a step further an customize the actual HTML markup and output. This is customized in the same way as the non-AMP BigCommerce templates.
+You may want to go a step further and customize the actual HTML markup and output. This is customized in the same way as the non-AMP BigCommerce templates.
 
 Firstly, create a folder in your theme called `bigcommerce`. In this folder add an additional folder called `amp`. You can now copy and paste any template you would like to override from `bigcommerce/templates/public/amp` in to this folder and modify them. The BigCommerce plugin will look in your theme first for an AMP template before it looks at the template from the plugin.
 
