@@ -119,6 +119,9 @@ mutation Login($email: String!, $pass: String!) {
 
 As a best practice, you should inject the password using GraphQL query variables. This prevents the password from being exposed in the query itself. In the [GraphQL Playground](/graphql-playground), you can set the variables for the request. [Learn more about GraphQL Storefront API Authentication](/api-docs/storefront/graphql/graphql-storefront-api-overview#authentication).
 
+## Error messages
+
+For a list of GraphQL error messages, see [API Status Codes](/api-docs/getting-started/api-status-codes#graphql-api-http-status-codes).
 
 ## Resources
 

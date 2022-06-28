@@ -3908,15 +3908,17 @@ components:
     orderShipment_Post:
       type: object
       title: orderShipment_Post
+      x-internal: false
       properties:
         order_address_id:
           description: ID of the desired `shipping_address` associated with the shipment.
           example: 20
           type: integer
         tracking_number:
+          type: string
           description: Tracking number of the shipment.
           example: w4se4b6ASFEW4T
-          type: string
+          maxLength: 50
         shipping_method:
           description: |
             Additional information to describe the method of shipment (ex. Standard, Ship by Weight, Custom Shipment). Can be used for live quotes from certain shipping providers.
@@ -3958,7 +3960,6 @@ components:
               quantity:
                 type: number
                 example: 2
-      x-internal: false
     orderShipment_Put:
       type: object
       title: orderShipment_Put
