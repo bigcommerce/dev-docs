@@ -1,16 +1,25 @@
 # Subscription Foundation
 
-Subscription Foundation is an open-source BigCommerce "subscribe and save" application framework. It provides a template to scaffold custom subscription billing and invoicing solutions for your business or client. Default integration with Stripe Billing fast-tracks development, saving hundreds of hours. Additionally, it utilizes the [Channels toolkit](/api-docs/channels/guide/overview#channels-toolkit) so that the custom subscription channel appears in a store control panel's **Channel Manager** view, alongside other sales channels. 
+Subscription Foundation is an open-source BigCommerce "subscribe and save" application framework. It provides a template to scaffold custom subscription billing and invoicing solutions for your business or client. Default integration with Stripe Billing fast-tracks development, saving hundreds of hours. 
 
-## Prerequisites
-You will need the following:
+Additionally, it utilizes the [Channels toolkit](/api-docs/channels/guide/overview#channels-toolkit) so that the custom subscription channel appears in a store control panel's **Channel Manager** view, alongside other sales channels. 
 
-* A [BigCommerce sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store?source=subscription-foundation), to develop and test apps
-* A [Developer Portal account](https://devtools.bigcommerce.com/?source=subscription-foundation), to register apps and create app API accounts
-* Experience using [npm](https://www.npmjs.com/)
-* Node.js 14.x
+## Software requirements 
+* [Node.js](https://nodejs.org/en/) 14.x
+* The [npm](https://www.npmjs.com/) package manager
+* A [supported SQL database engine](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/), either SQLite or another of your choice
 
-## Getting started
+## Configure accounts
+
+<!-- theme: info -->
+> #### Store email address constraint
+> Because we have a [store email address constraint](/api-docs/apps/guide/developer-portal#store-email-address-constraint?source=subscription-foundation) on draft and private apps, make sure that both your sandbox store and your Dev Portal account use the same email address. 
+
+1. To develop and test apps, you need a BigCommerce sandbox store. If you don't have one, [Create a Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=subscription-foundation).
+2. To register apps and create app API accounts, you need a BigCommerce Developer Portal account. If you don't have one, create a [Dev Portal account](https://devtools.bigcommerce.com/?source=subscription-foundation).
+
+## Fork and install the source repository 
+
 1. Fork the [subscription-foundation repository (GitHub)](https://github.com/bigcommerce/subscription-foundation) to your GitHub account.
 2. Clone your fork to your local development environment.
 3. Navigate to your clone's root directory and install the application's default packages with npm.
@@ -20,21 +29,29 @@ npm install
 ```
 ## Create an HTTPS tunnel
 
-You need a publicly accessible URL to connect a draft app to your sandbox store. We recommend using [ngrok](https://ngrok.com/docs), a free tool that uses HTTP tunneling to securely expose `localhost` ports to the public internet. For BigCommerce-specific directions, consult [Create an HTTPS Tunnel](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#create-an-https-tunnel).
+You need to serve your app over fully-qualified publicly accessible URL to connect the app to your sandbox store. We recommend using [ngrok](https://ngrok.com/docs), a free tool that uses HTTP tunneling to securely expose `localhost` ports to the public internet. 
+
+Consult [our App Tutorial](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#create-an-https-tunnel) to get started.
 
 Once you start ngrok, note your ngrok ID. You'll use it later on in this tutorial.
 
-## BigCommerce setup
-Create a draft app to get app API account credentials. 
+## Create an app profile
 
-To develop and test the app, you'll install it on your [sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store?source=subscription-foundation). Because we have a [store email address constraint](/api-docs/apps/guide/developer-portal#store-email-address-constraint?source=subscription-foundation) on draft and private apps, make sure that both your sandbox store and your Dev Portal account use the same email address. 
+Create a draft app to generate app API account credentials. 
 
-1. Sign in to the Dev Portal. Then follow our directions to [create an app](/api-docs/apps/guide/developer-portal#create-an-app?source=subscription-foundation), entering the following values on the **Technical** tab:
-* In the **Callback URLs** section, supply the following URLs, replacing `{ngrok_id}` with your ngrok ID from the preceding section.
-  - Auth Callback URL: https://{ngrok_id}.ngrok.io/api/auth
-  - Load Callback URL: https://{ngrok_id}.ngrok.io/api/load
-  - Uninstall Callback URL: https://{ngrok_id}.ngrok.io/api/uninstall
-* In the **OAuth scopes** section, add the following scopes:
+To develop and test the app, you'll install it on your [sandbox store](#configure-accounts). 
+
+1. Sign in to the Dev Portal. Then follow our directions to [create an app](/api-docs/apps/guide/developer-portal#create-an-app?source=subscription-foundation). Enter the following values on the **Technical** tab.
+
+2. In the **Callback URLs** section, supply the following URLs, replacing `{ngrok_id}` with your ngrok ID from the preceding section.
+
+| Callback | URL value |
+|:---------|:----|
+| Auth Callback | `https://{ngrok_id}.ngrok.io/api/auth` |
+| Load Callback | `https://{ngrok_id}.ngrok.io/api/load` |
+| Uninstall Callback | `https://{ngrok_id}.ngrok.io/api/uninstall` |
+
+3. In the **OAuth scopes** section, add the following scopes:
 
 | UI Name | Permission | Parameter |
 |:--------|:-----------|:----------|
@@ -50,9 +67,9 @@ To develop and test the app, you'll install it on your [sandbox store](/api-docs
 | Sites & Routes | read-only | `store_sites_read_only` |
 | Storefront API Tokens | generate tokens | `store_storefront_api` |
 
-* Complete the [create an app](/api-docs/apps/guide/developer-portal#create-an-app?source=subscription-foundation) directions.
+4. Complete the [create an app](/api-docs/apps/guide/developer-portal#create-an-app?source=subscription-foundation) directions.
 
-Following steps in this guide require access to the Dev Portal, so keep it handy.
+Further steps in this guide require access to the Dev Portal, so keep it handy.
 
 ## Stripe setup
 
@@ -109,13 +126,13 @@ To accomplish this:
       
       - When checking out on the BigCommerce store, you can save the card by logging in as a customer (or creating a new account during checkout) and selecting ‘save this card for later’ in the payments step.
 
-## Create environment file
+## Declare environment variables
 
 1. Create a `.env` file in the root directory of your project.
 
 2. Copy the content of `.env-sample` to `.env`.
 
-```shell title="Copy sample .env contents"
+```shell title="Copy .env-sample contents"
 cp .env-sample .env
 ```
 Update the following environment variables for the app to run successfully.
@@ -130,46 +147,59 @@ Update the following environment variables for the app to run successfully.
 | `STRIPE_SECRET_KEY` | The Stripe API account's client secret | see [Stripe setup](#stripe-setup) |
 
 
-## Install app dependencies
+## Run migration and start the server
 
-1. Run the Prisma migration to create the DB tables and initial client. If you miss this step, you’ll see errors about Prisma missing.
+1. If you're using SQLite, which is Subscription Foundation's default data store, skip to the next step. Otherwise, create a target database in your SQL data store of choice. >>> ? is this needed? >>>
 
-```shell
+2. Run the pre-configured Prisma migration to create the database tables and initial client as defined in `/prisma/migrations/*`. Troubleshoot as needed.
+
+```shell title="Run Prisma migration"
 npx prisma migrate dev
 ```
+
 ![npx_prisma_migrate](https://storage.googleapis.com/bigcommerce-production-dev-center/images/npx_prisma_migrate.png)
 
 <!-- theme: info -->
 > #### Database note
 > This example uses SQLite as a data store. In production, we recommend using a database that has more robust concurrency support, such as PostgresSQL. For information on switching databases, see the [Replacing SQLite](#replacing-sqlite) section.
 
-2. Start the app server, then start ngrok.
+3. Start the app server.
 
-```shell
+```shell title="Start the app server"
 npm run dev
 ```
-<!-- NGROK PIECE -->
 
-While the app server is running, you can install the draft app on your BigCommerce store. For more about installing and troubleshooting apps in development, see [](). <!-- apps guide link -->
+4. Start ngrok using the follow command. If your app does not run on port 3000, replace `3000` with your app server's port.
+
+```shell title="Start ngrok"
+ngrok http 3000
+```
+
+While the app server and ngrok are running, you can install the draft app on your sandbox store. For more about installing and troubleshooting apps in development, see [>>>](). <!-- apps guide link -->
 
 ## Replacing SQLite
-To replace the SQLite database, do the following:
 
-1. Update the `/prisma/schema.prisma` file with a `provider` other than `SQLite` (i.e. `PostgreSQL`. info on options are here: https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/)
-2. Update the `DATABASE_URL` var in `/prisma/.env` to match your new DB connection string.
-3. Run `npx prisma migrate dev` (this creates tables and inserts related data as defined in `/prisma/migrations/*` into the DB).
-4. Run `npx prisma generate` (this generates a new client for the app using the new DB provider setting).
+To use an alternate SQL database, do the following:
 
-After all this, if you run `npx prisma studio` you'll be able to access this database locally via a visual editor and verify the table has been created.
+1. Update the `/prisma/schema.prisma` file with a `provider` other than `SQLite`. Consult [Prisma's reference docs](https://prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/) for a list of options.
+
+2. In `/prisma/.env`, update the value of the `DATABASE_URL` variable to match your new database connection string.
+
+3. Run `npx prisma migrate dev` per the preceding section.
+
+4. Run `npx prisma generate` to generate a fresh app client that uses the new database provider.
+
+5. To access this database locally, run `npx prisma studio` and use a visual editor to verify that the tables have been created.
 
 
 ## Managing subscription products
 
+>>> verify control panel menu locations, and bold UI elements
 Subscription-specific product configuration, like available intervals and the discount associated with them, is done within the app, inside Channel Manager. Only products that are listed on the subscription channel show up here. You can list products to the channel from within the Products section of the BigCommerce control panel.
 
 ## Troubleshooting
 
-### Seeing {"Environment variable not found} when creating the DB tables and initial client
+### Seeing {"Environment variable not found} when creating the database tables and initial client
 
 If you do not enter the correct provider in the `/prisma/schema.prisma` file or the .env file contains an incorrect `DATABASE_URL`.
 
