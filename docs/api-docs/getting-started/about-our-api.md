@@ -23,13 +23,13 @@ The [REST Storefront API](/api-reference/cart-checkout/storefront-cart-api) allo
 
 
 ### GraphQL Storefront API
-BigCommerce's [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) allows you to query product, customer, and store settings headlessly or from a store's front end. Example use cases include:
+BigCommerce's [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview) allows you to query product, customer, and store settings headlessly or from a store's front end. Example use cases include the following:
 * Pull a product's data with JavaScript into a Stencil theme
-* Access customer data via the front end of a site
+* Access customer data on the frontend of a site
 * Fetch category and brand details from a store's front end
 
 ### Customer Login API
-The [Customer Login API](/api-docs/storefront/customer-login-api) lets you programmatically sign customers in to a BigCommerce storefront. Some use cases for this API are:
+The [Customer Login API](/api-docs/storefront/customer-login-api) lets you programmatically sign customers in to a BigCommerce storefront. Example use cases include the following:
 * Sign customers in to a BigCommerce store from a third-party account or a headless storefront
 * Enable login using credentials other than email and password, such as a phone number
 * Integrate a BigCommerce store with an SSO provider
@@ -101,6 +101,10 @@ Store Management and Payments API requests require the `Accept`, `X-Auth-Token`,
 | `X-Auth-Token` | String | Access token authorizing the app to access resources on behalf of a user. |
 
 ### Response headers
+
+<!-- theme: info -->
+> #### Lowercase response headers
+> As of January 2022, some HTTP response headers return with lowercase names. Previously, they had a mixture of uppercase and lowercase characters.
 
 | Header | Possible Values | Description | Example |
 |:-------|:----------------|:------------|:--------|
