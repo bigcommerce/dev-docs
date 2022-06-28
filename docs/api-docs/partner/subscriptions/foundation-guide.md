@@ -1,74 +1,58 @@
-<!-- start by dumping in README.md -->
 # Subscription Foundation
-Subscription Foundation is an open-source "subscribe and save" solution that makes it easy to create custom subscription billing and invoices for your business. The integration into Stripe Billing fast tracks custom subscription experiences on the BigCommerce platform, saving hundreds of hours. The utilization of the Channels toolkit provides a natively integrated subscription channel that fits nicely in the BigCommerce control panel.
+
+Subscription Foundation is an open-source BigCommerce "subscribe and save" application framework. It provides a template to scaffold custom subscription billing and invoicing solutions for your business or client. Default integration with Stripe Billing fast-tracks development, saving hundreds of hours. Additionally, it utilizes the [Channels toolkit](/api-docs/channels/guide/overview#channels-toolkit) so that the custom subscription channel appears in a store control panel's **Channel Manager** view, alongside other sales channels. 
 
 ## Prerequisites
 You will need the following:
 
-* [BigCommerce sandbox store](https://developer.bigcommerce.com/docs/ZG9jOjM4MzMyNTE-create-a-sandbox-store?source=subscription-foundation) (required to develop and test apps)
-* [Developer Portal Account](https://devtools.bigcommerce.com/?source=subscription-foundation) (required to register apps)
+* A [BigCommerce sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store?source=subscription-foundation), to develop and test apps
+* A [Developer Portal account](https://devtools.bigcommerce.com/?source=subscription-foundation), to register apps and create app API accounts
 * Experience using [npm](https://www.npmjs.com/)
 * Node.js 14.x
 
 ## Getting started
-1. Start by forking the subscription-foundation repository.
-2. Navigate to the root directory of your project and install npm packages.
+1. Fork the [subscription-foundation repository (GitHub)](https://github.com/bigcommerce/subscription-foundation) to your GitHub account.
+2. Clone your fork to your local development environment.
+3. Navigate to your clone's root directory and install the application's default packages with npm.
 
-```shell
+```shell title="Install packages"
 npm install
 ```
-### Using ngrok
-You will need a publicly accessible URL to connect the draft app to BigCommerce. To add network access while in the development phase, you can use [ngrok](https://ngrok.com/docs), a free tool that lets you expose local servers like `localhost:3000` to the public internet over secure tunnels.
+## Create an HTTPS tunnel
 
-1. In a new terminal window, install [ngrok](https://www.npmjs.com/package/ngrok#usage).
+You need a publicly accessible URL to connect a draft app to your sandbox store. We recommend using [ngrok](https://ngrok.com/docs), a free tool that uses HTTP tunneling to securely expose `localhost` ports to the public internet. For BigCommerce-specific directions, consult [Create an HTTPS Tunnel](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#create-an-https-tunnel).
 
-```shell
-npm install ngrok -g
-```
-
-2. Expose the web server on port 3000 to the internet.
-
-```shell
-ngrok http 3000
-```
-In a later step, you will use the public-facing URL to update the environment variable `NEXT_PUBLIC_APP_URL` in the .env file.
-
-For more information on ngrok, see [Start dev environment](https://developer.bigcommerce.com/docs/3ef776e175eda-big-commerce-apps-quick-start#start-dev-environment).
+Once you start ngrok, note your ngrok ID. You'll use it later on in this tutorial.
 
 ## BigCommerce setup
-This app gets access to the BigCommerce API by being installed on the store. You'll need two things to test out this flow:
+Create a draft app to get app API account credentials. 
 
-1. [Create a BigCommerce store](https://developer.bigcommerce.com/docs/ZG9jOjM4MzMyNTE-create-a-sandbox-store?source=subscription-foundation): go to [https://www.bigcommerce.com/essentials/](https://www.bigcommerce.com/essentials/?source=subscription-foundation) and signup for a free trial if you don't have one.
+To develop and test the app, you'll install it on your [sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store?source=subscription-foundation). Because we have a [store email address constraint](/api-docs/apps/guide/developer-portal#store-email-address-constraint?source=subscription-foundation) on draft and private apps, make sure that both your sandbox store and your Dev Portal account use the same email address. 
 
-2. [Create a BigCommerce app](https://developer.bigcommerce.com/docs/ZG9jOjM4MzMzNzM-managing-apps-in-the-developer-portal#creating-apps?source=subscription-foundation): go to [https://devtools.bigcommerce.com](https://devtools.bigcommerce.com?source=subscription-foundation)
+1. Sign in to the Dev Portal. Then follow our directions to [create an app](/api-docs/apps/guide/developer-portal#create-an-app?source=subscription-foundation), entering the following values on the **Technical** tab:
+* In the **Callback URLs** section, supply the following URLs, replacing `{ngrok_id}` with your ngrok ID from the preceding section.
+  - Auth Callback URL: https://{ngrok_id}.ngrok.io/api/auth
+  - Load Callback URL: https://{ngrok_id}.ngrok.io/api/load
+  - Uninstall Callback URL: https://{ngrok_id}.ngrok.io/api/uninstall
+* In the **OAuth scopes** section, add the following scopes:
 
-      a. Create a draft app with the following callbacks (in the 2nd, 'Technical' step of app creation):
+| UI Name | Permission | Parameter |
+|:--------|:-----------|:----------|
+| Orders | modify | `store_v2_orders` |
+| Order Transactions | modify | `store_v2_transactions` |
+| Products | modify | `store_v2_products` |
+| Customers | modify | `store_v2_customers` |
+| Content | modify | `store_v2_content` |
+| Carts | modify | `store_cart` |
+| Channel Listings | modify | `store_channel_listings` |
+| Channel Settings | modify | `store_channel_settings` |
+| Information & Settings | modify | `store_v2_information` |
+| Sites & Routes | read-only | `store_sites_read_only` |
+| Storefront API Tokens | generate tokens | `store_storefront_api` |
 
-          - Auth Callback URL: https://{ngrok_id}.ngrok.io/api/auth
-          - Load Callback URL: https://{ngrok_id}.ngrok.io/api/load
-          - Uninstall Callback URL: https://{ngrok_id}.ngrok.io/api/uninstall
+* Complete the [create an app](/api-docs/apps/guide/developer-portal#create-an-app?source=subscription-foundation) directions.
 
-      b. Set the following OAuth Scopes for the app:
-      
-      **OAuth Scopes**
- 
-      |UI Name |Permission |Parameter |
-      |--|--|--|
-      |Orders |modify | `store_v2_orders`|
-      |Order Transactions |modify|`store_v2_transactions`|
-      |Products |modify|`store_v2_products`|
-      |Customers |modify|`store_v2_customers`|
-      |Content |modify|`store_v2_content`|
-      |Carts |modify|`store_cart`|
-      |Channel Listings |modify|`store_channel_listings`|
-      |Channel Settings |modify|`store_channel_settings`|
-      |Information & Settings|modify|`store_v2_information`|
-      |Sites & Routes |read-only|`store_sites_read_only`|
-      |Storefront API Tokens |generate tokens|`store_storefront_api`|
-        
-        
-    c. Click **Update & Close**.
-3. After creating the app, click on `View Client ID` within the Dev Tools app list to get your client ID and client secret. In a later step, you will use these variables to update `BC_APP_CLIENT_ID` and `BC_APP_SECRET` in the .env file.
+Following steps in this guide require access to the Dev Portal, so keep it handy.
 
 ## Stripe setup
 
@@ -130,35 +114,43 @@ To accomplish this:
 1. Create a `.env` file in the root directory of your project.
 
 2. Copy the content of `.env-sample` to `.env`.
-```shell
-cp .env.sample .env
-```
-At a minimum, you need to update the following .env variables for the app to run successfully inside the BigCommerce control panel and storefront.
 
-- `NEXT_PUBLIC_APP_URL`
-  - This should be a publicly accessible URL so the BigCommerce Stripe webhooks can be received. See the section on [ngrok](#using-ngrok).
-- `NEXT_PUBLIC_APP_ID`, `BC_APP_CLIENT_ID`, and `BC_APP_SECRET`
-  - Follow the [BigCommerce setup](#bigcommerce-setup) instructions to get these.
-- `STRIPE_SECRET_KEY` and `NEXT_PUBLIC_STRIPE_CLIENT_ID`
-  - Follow the [Stripe setup](#stripe-setup) instructions to get these.
+```shell title="Copy sample .env contents"
+cp .env-sample .env
+```
+Update the following environment variables for the app to run successfully.
+
+| Environment variable | Description | Reference location |
+|:---------------------|:------------|:-------------------|
+| `NEXT_PUBLIC_APP_URL` | A public-facing URL that can receive webhooks. | On this page, see [Create an HTTPS tunnel](#create-an-https-tunnel); see also [the HTTPS tunnel section of the Sample App Tutorial](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#create-an-https-tunnel?source=subscription-foundation)  |
+| `NEXT_PUBLIC_APP_ID` | The app's ID | [Find an App's ID](/api-docs/apps/tutorials/id#find-in-developer-portal?source=subscription-foundation) |
+| `BC_APP_CLIENT_ID` | The app API account's client ID | [View App Credentials](/api-docs/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
+| `BC_APP_SECRET` | The app API account's client secret | [View App Credentials](/api-docs/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
+| `NEXT_PUBLIC_STRIPE_CLIENT_ID` | The Stripe API account's client ID | see [Stripe setup](#stripe-setup) |
+| `STRIPE_SECRET_KEY` | The Stripe API account's client secret | see [Stripe setup](#stripe-setup) |
+
 
 ## Install app dependencies
 
-1. Create the DB tables and initial client. If you miss this step, you’ll see errors about Prisma missing.
+1. Run the Prisma migration to create the DB tables and initial client. If you miss this step, you’ll see errors about Prisma missing.
+
 ```shell
 npx prisma migrate dev
 ```
 ![npx_prisma_migrate](https://storage.googleapis.com/bigcommerce-production-dev-center/images/npx_prisma_migrate.png)
 
-NOTE:  This example uses SQLite as a data store. In production, we recommend using a database that has more robust concurrency support, such as PostgresSQL. For information on switching databases, see the [Replacing SQLite](#replacing-sqlite) section.
+<!-- theme: info -->
+> #### Database note
+> This example uses SQLite as a data store. In production, we recommend using a database that has more robust concurrency support, such as PostgresSQL. For information on switching databases, see the [Replacing SQLite](#replacing-sqlite) section.
 
-2. Run the app.
+2. Start the app server, then start ngrok.
 
 ```shell
 npm run dev
 ```
-The app should now be installable as a draft app on your BigCommerce store.
+<!-- NGROK PIECE -->
 
+While the app server is running, you can install the draft app on your BigCommerce store. For more about installing and troubleshooting apps in development, see [](). <!-- apps guide link -->
 
 ## Replacing SQLite
 To replace the SQLite database, do the following:
