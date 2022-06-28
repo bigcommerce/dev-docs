@@ -32,10 +32,7 @@ We encourage you to write robust, resilient code that will not break or leak mem
 
 To keep data in your application up-to-date, [webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to periodic API polling. Use an [OAuth API account](/api-docs/getting-started/authentication/rest-api-authentication) to register and subscribe to webhook-enabled events that are relevant to your application.
 
-When an event your app is listening for
-
-BigCommerce will send a partial payload when a subscribed event is triggered, with a few identifying details such as the order ID when an order is created. Your application can use the order ID returned with the payload to make a subsequent API request for the full order details.
-
+When an event your app is listening for occurs, BigCommerce sends a payload with a few identifying details relevant the event. See a list of [webhook events and their payloads](/api-docs/store-management/webhooks/webhook-events). Use the payload data points to make subsequent API requests for more details.
 
 ## Thread API requests
 
@@ -59,7 +56,7 @@ For more information, see [Multi-User Support](/api-docs/apps/guide/intro#multi-
 Apps that authenticate with OAuth are rate-limited based on a quota that is refreshed every few seconds. The maximum quota for a store will vary depending on the [store’s plan](https://support.bigcommerce.com/s/article/Platform-Limits#storelimits).
 
 | Plans & sandboxes | Maximum quota |
-| -- | -- | 
+|:------------------|:--------------|
 | Enterprise plans and Enterprise sandboxes (Enterprise-Test) | Unlimited\*| 
 | Pro plans| 60k per hour (450 / 30sec) | 
 | All other sandboxes (Dev/Partner/Employee) | Unlimited\*| 
@@ -78,8 +75,8 @@ The store’s overall quota is distributed across all apps that are accessing th
 Certain BigCommerce API resources rate-limit concurrent requests. This is to ensure the performance and reliability of the platform for all of our users. API calls are metered on a per-store, per-endpoint basis. These limitations are subject to change.
 
 | Limit | Endpoint | Method |
-| -- | -- | -- |
-| 10| `/stores/:hash/v3/customers` | `POST` |
+|:------|:---------|:-------|
+| 10 | `/stores/:hash/v3/customers` | `POST` |
 
 
 ### Playing nicely with the platform
@@ -94,13 +91,13 @@ X-Rate-Limit-Time-Window-Ms: 5000
 ```
 
 | Name | Description |
-| -- | -- |
+|:-----|:------------|
 | `X-Rate-Limit-Time-Window-Ms`| Shows the size of your current rate limiting window. In this case, it’s 5000 milliseconds.|
 | `X-Rate-Limit-Time-Reset-Ms` | Shows how many milliseconds are remaining in the window. In this case, 3000 milliseconds. 3000 milliseconds after this request, the API quota will be refreshed. |
 | `X-Rate-Limit-Requests-Quota` | Shows how many API requests are allowed in the current window for your client. In this case, the number is 25 requests. |
 | `X-Rate-Limit-Requests-Left` | Details how many remaining requests your client can make in the current window before being rate limited. In this case, you would expect to be able to make 6 more requests in the next 3000 milliseconds; on the 7th request within 3000 milliseconds, you would be rate limited and would receive an HTTP 429 response.|
 
-You will know you've been limited if your request to the API triggers a [429 Too Many Requests](/api-docs/getting-started/basics/api-status-codes#api-status-codes_4-client-error) response.
+You will know you've been limited if your request to the API triggers a [429: Too Many Requests](/api-docs/getting-started/api-status-codes#4xx-client-error) response.
 
 The rate limited response will contain the `X-Rate-Limit-Time-Reset-Ms` header, specifying a time (in milliseconds) that your client must wait before its quota has refreshed. Retry the request after this time has elapsed, and your API service will resume as normal.
 
@@ -108,20 +105,17 @@ The rate limited response will contain the `X-Rate-Limit-Time-Reset-Ms` header, 
 
 When you see a response with an HTTP `429` status code, your client shouldn’t make any further requests until your quota has refreshed:
 
-**429 response**
-
-```http
+```http title="Example: 429 response"
 HTTP/1.1 429 Too Many Requests
-    	Date: Mon, 03 Feb 2017 20:36:00 GMT
-    	Content-Type: application/json
-    	X-Rate-Limit-Time-Reset-Ms: 15000
+Date: Mon, 03 Feb 2022 20:36:00 GMT
+Content-Type: application/json
+X-Rate-Limit-Time-Reset-Ms: 15000
 ```
 
 Parse the `X-Rate-Limit-Time-Reset-Ms` header to determine how long you have to wait. In this case, it would be 15000 milliseconds.
 Your client can sleep on the specified interval:
 
-**PHP example for delaying response**
-```php
+```php title="PHP example for delaying response"
    $milliseconds = $response->getHeader("X-Rate-Limit-Time-Reset-Ms");
     usleep($milliseconds * 1000);
 ```
@@ -138,10 +132,9 @@ You might wish to increase the amount of work your application can do in a given
 > Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to [`/pricelists/{price_list_id}/records`](/api-reference/store-management/price-lists/price-lists-records/setpricelistrecordcollection) will result in a `429` error response. These limitations are documented at the operation level in the API reference.
 
 ### Making requests with the Storefront Cart API 
-Client-side applications should avoid polling the [Storefront Cart API](/api-reference/cart-checkout/storefront-cart-api) on interval. Hundreds of thousands of browsers could potentially poll the Storefront Cart API at any given time, causing a significant load increase to BigCommerce's servers. We may take action against a store using this practice to prevent interruptions in service to other stores.
+Client-side applications should avoid polling the [Storefront Cart API](/api-reference/cart-checkout/storefront-cart-api) on interval. Hundreds of thousands of browsers could potentially poll the Storefront Cart API at any given time, causing a significant load increase to BigCommerce's servers. We may take action against a store using this practice to prevent service interruptions to other stores.
 
-Consider subscribing to the [Cart Webhook](/api-docs/store-management/webhooks/webhook-events#carts) via a server-side application as an alternative to polling the Storefront Cart API at an interval, and only query the Storefront Cart API as a response to user input. Storing cart information in the browser cache is also an alternative method for keeping cart information up to date across browser tabs.
-
+Consider writing a server-side application to subscribe to the [Cart Webhook](/api-docs/store-management/webhooks/webhook-events#carts) as an alternative to polling the Storefront Cart API, and only query the Storefront Cart API as a response to user input. Storing cart information in the browser cache is an alternative method for keeping cart information up to date across browser tabs.
 
 ## Platform limits
 
