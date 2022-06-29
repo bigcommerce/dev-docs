@@ -73,60 +73,65 @@ Further steps in this guide require access to the Dev Portal, so keep it handy.
 
 ## Configure Stripe
 
-We've designed this integration to use Stripe Connect so that your app can create and manage separate Stripe accounts for each of your merchants' stores. Because of this, you’ll need two Stripe accounts. One for the app's Connect account, and another, which is what the merchant connects to the app and BC store (in the payments area) themselves.
+We've designed this integration to use Stripe Connect so that your app can take payments with separate Stripe accounts for each of your merchants' stores. Because of this, you'll need two Stripe accounts. One for the app's Connect account, and another, which is what the merchant connects to the app and BC store (in the payments area) themselves.
 
 ### Create Stripe accounts
 
 To get started, do the following steps:
 
-1. To create your app's top-level Stripe account, [sign up with Stripe](https://dashboard.stripe.com/register). This account accepts subscriber payments and manages subscriptions.
+1. To create the Stripe account that simulates your merchant's pre-existing Stripe account, [sign up with Stripe](https://dashboard.stripe.com/register). Your app uses this account's client ID to process subscriber payments and manage subscriptions; give it a merchant-specific name.
+
 2. Sign in to the [Stripe Dashboard](https://dashboard.stripe.com/).
-3. From inside the [Stripe Dashboard](https://dashboard.stripe.com/), create the merchant Stripe account that the application uses to authenticate the merchant.
 
-   a. This can be done by selecting ‘+ New Account’ after clicking the name of the current account on the top left of your Stripe Dashboard.
-   
-   b. Pick a name for this account, like ‘BigCommerce App’ that helps you differentiate it from the Stripe payment account.
-   
-   ![BigCommerce App](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BigCommerce-app-image.png)
-   
-4. Get your Stripe secret key here: https://dashboard.stripe.com/test/apikeys
+3. From inside the [Stripe Dashboard](https://dashboard.stripe.com/), create and configure a second app-specific Stripe account. The app uses this account's client secret to process subscription payments.
 
-   a. Reveal the secret key under ’Standard Keys’.
+   a. On the left side of your Stripe Dashboard's top menu bar, click the name of your merchant-specific account. In the dropdown menu that appears, select **+ New Account**.
+
+   b. Give the new account a name that clearly marks it as app-specific; the idea is to differentiate it from the merchant-specific payment and subscription management account. This guide uses **BigCommerce App**.
    
-   b. In a later step, you will use the secret key to update the environment variable `STRIPE_SECRET_KEY` in the .env file.
+   ![BigCommerce App](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BigCommerce-app-image.png "The Stripe dashboard's new account dropdown menu")
    
-5. Enable Stripe Connect for Platforms here: https://dashboard.stripe.com/test/connect/accounts/overview
+4. Make sure that the left side of your Stripe Dashboard's top menu bar indicates that you're in the app-specific account. 
+
+   a. Click **Developer** on the dashboard landing page's upper right, then click **API keys** in the left menu bar. Make sure that the **Viewing test data** option is toggled on at the page's upper right. Alternatively, use the direct link to [view test keys](https://dashboard.stripe.com/test/apikeys). When you put the app into production, toggle off **View test data** or use the direct link to [view live keys](https://dashboard.stripe.com/apikeys).
+
+   b. In the **Standard Keys** section of the page, click **Reveal test key** to view and copy the app-specific account's secret key.
    
-   a. Select ‘Platform or Marketplace’ and continue.
+   c. The app-specific secret key will be an environment variable; take note of it for use later in this guide.
    
-   b. While not required for testing, as part of going live later, you’ll need to fill out the platform profile. We suggest using these answers at that point:
-      - Select ‘Other’ for industry.
-      - Select ‘From your seller/service provider’s website or app’ for where customers purchase products or services.
-      - Select ‘The name of the seller/service provider using your platform’ for whose name is on the customer’s credit card statement.
-      - Select ‘The seller/service provider using your platform’ for who should be contacted if customers have a dispute or complaint.
+5. Making sure that the left side of your Stripe Dashboard's top menu bar still indicates that you're in the app-specific account, [enable Stripe Connect for Platforms](https://dashboard.stripe.com/test/connect/accounts/overview). (>>> this is a test link; should it be a test in production? do we have to sign up for connect again in production?)
+   
+   a. Select **Platform or Marketplace** and continue.
+   
+   b. Complete the platform profile at some point before you submit the app for approval or put a private version into production. We suggest using these answers:
+      - For **Industry**, select **Other**.
+  >>> Sarah stopped
+      - Select **From your seller/service provider's website or app** for where customers purchase products or services.
+      - Select **The name of the seller/service provider using your platform** for whose name is on the customer's credit card statement.
+      - Select **The seller/service provider using your platform** for who should be contacted if customers have a dispute or complaint.
 6. Configure your Connect settings here: https://dashboard.stripe.com/test/settings/connect
    
-   a. Copy 'Test mode client ID'. In a later step, you will use the client ID to update the environment variable `NEXT_PUBLIC_STRIPE_CLIENT_ID` in the .env file.
+   a. Copy **Test mode client ID**. In a later step, you will use the client ID to update the environment variable `NEXT_PUBLIC_STRIPE_CLIENT_ID` in the .env file.
    
-   b. Under ‘OAuth settings’ enable ‘OAuth for Standard accounts’.
+   b. Under **OAuth settings** enable **OAuth for Standard accounts**.
    
-   c. Under ‘Redirects’ add the following URI: https://{xxxx-xxx-xxx-xx-x.ngrok.io}/stripe/callback
+   c. Under **Redirects** add the following URI: https://{ngrok_id}.ngrok.io/stripe/callback
       
-7. Your app should now be set up to handle Stripe OAuth, API requests, and webhooks.
+7.  Your app should now be set up to handle Stripe OAuth, API requests, and webhooks.
    
-   a. Remember the merchant must OAuth the same Stripe payments account (what you created first) to this app that their BigCommerce store uses. Otherwise, the initial payment created when the shopper pays for the original order won’t be readable when creating subscriptions.
+   a. Remember the merchant must OAuth the same Stripe payments account (what you created first) to this app that their BigCommerce store uses. Otherwise, the initial payment created when the shopper pays for the original order won't be readable when creating subscriptions.
    
-   b. When testing:
-      - Make sure 'Test Mode' is set to ‘Yes’ in the merchant’s Stripe settings within BigCommerce: https://login.bigcommerce.com/deep-links/settings/payment/stripev3
+   b. In development, keep the following in mind:
+      - Make sure **Test Mode** is set to **Yes** in the merchant's Stripe settings within BigCommerce: https://login.bigcommerce.com/deep-links/settings/payment/stripev3
       
       
       ![stripe-settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/stripe-settings.png)
       
-      - A vaulted card must be used when checking out. Turn on that functionality by going to ‘Stored Credit Cards’ in the Stripe payments section in BigCommerce and toggling on ‘Enable stored credit cards with Stripe’. 
+      - A vaulted card must be used when checking out. Turn on that functionality by going to **Stored Credit Cards** in the Stripe payments section in BigCommerce and toggling on **Enable stored credit cards with Stripe**. 
       
       ![stored-credit-cards](https://storage.googleapis.com/bigcommerce-production-dev-center/images/stored-credit-cards.png)
       
-      - When checking out on the BigCommerce store, you can save the card by logging in as a customer (or creating a new account during checkout) and selecting ‘save this card for later’ in the payments step.
+      - When checking out on the BigCommerce store, you can save the card by logging in as a customer (or creating a new account during checkout) and selecting **save this card for later** in the payments step.
 
 ## Declare environment variables
 
@@ -137,7 +142,7 @@ To get started, do the following steps:
 ```shell title="Copy .env-sample contents"
 cp .env-sample .env
 ```
-Update the following environment variables for the app to run successfully.
+Update the following environment variables:
 
 | Environment variable | Description | Reference location |
 |:---------------------|:------------|:-------------------|
@@ -145,8 +150,8 @@ Update the following environment variables for the app to run successfully.
 | `NEXT_PUBLIC_APP_ID` | The app's ID | [Find an App's ID](/api-docs/apps/tutorials/id#find-in-developer-portal?source=subscription-foundation) |
 | `BC_APP_CLIENT_ID` | The app API account's client ID | [View App Credentials](/api-docs/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
 | `BC_APP_SECRET` | The app API account's client secret | [View App Credentials](/api-docs/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
-| `NEXT_PUBLIC_STRIPE_CLIENT_ID` | The Stripe API account's client ID | see [Stripe setup](#stripe-setup) |
-| `STRIPE_SECRET_KEY` | The Stripe API account's client secret | see [Stripe setup](#stripe-setup) |
+| `NEXT_PUBLIC_STRIPE_CLIENT_ID` | The merchant-specific Stripe API account client ID | see [Stripe setup](#stripe-setup) |
+| `STRIPE_SECRET_KEY` | The app-specific Stripe API account client secret | see [Stripe setup](#stripe-setup) |
 
 
 ## Run migration and start the server
