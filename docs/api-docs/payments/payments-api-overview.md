@@ -61,6 +61,7 @@ The following table lists the payment gateways that are compatible with our publ
 | SecureNet        |                             | &check; |
 | Stripe           | &check;                     | &check; |
 | StripeV3         | &check;                     | &check; |
+| StripeV4         | &check;                     | &check; |
 | USA ePay         |                             | &check; |
 | Vantiv           |                             | &check; |
 | Vantiv Core      |                             | &check; |
