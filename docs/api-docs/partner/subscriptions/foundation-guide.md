@@ -119,6 +119,7 @@ To get started, do the following steps:
 In development, keep the following in mind:
 
    - Make sure **Test Mode** is set to **Yes** in the merchant's Stripe settings within BigCommerce: https://login.bigcommerce.com/deep-links/settings/payment/stripev3
+  
    
    ![stripe-settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/stripe-settings.png)
    
