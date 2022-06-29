@@ -49,7 +49,7 @@ title: Response
 -->
 
 ```json title="Example POST response" lineNumbers
-No content
+204 HTTP Status Code. No content
 ```
 
 <!-- type: tab-end -->
@@ -79,7 +79,7 @@ title: Response
 -->
 
 ```json title="Example POST response" lineNumbers
-No content
+204 HTTP Status Code. No content
 ```
 
 <!-- type: tab-end -->
@@ -114,7 +114,7 @@ title: Response
 -->
 
 ```json title="Example PUT response" lineNumbers
-No content
+204 HTTP Status Code. No content
 ```
 
 <!-- type: tab-end -->
@@ -145,7 +145,7 @@ title: Response
 -->
 
 ```json title="Example DELETE response" lineNumbers
-No content
+204 HTTP Status Code. No content
 ```
 
 <!-- type: tab-end -->
@@ -364,7 +364,7 @@ title: Response
 -->
 
 ```json title="Example DELETE response" lineNumbers
-No content
+204 HTTP Status Code. No content
 ```
 
 <!-- type: tab-end -->
