@@ -34,7 +34,8 @@ BigCommerce offers native integrations with many real-time shipping carriers, su
 
 
 ### Third-party shipping provider apps 
-BigCommerce offers third-party shipping provider apps that merchants must install on their store. If you would like to offer a shipping solution, see [Become a Shipping Provider](/api-docs/providers/shipping).
+The BigCommerce [Apps Marketplace](https://bigcommerce.com/apps) offers provider apps that let merchants connect third-party shipping services to their stores. If you would like to offer a shipping solution, see [Become a Shipping Provider](/api-docs/providers/shipping).
+
 
 ## Related resources
 
