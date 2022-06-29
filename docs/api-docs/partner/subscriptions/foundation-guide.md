@@ -148,8 +148,8 @@ Update the following environment variables:
 | `NEXT_PUBLIC_APP_ID` | The app's ID | [Find an App's ID](/api-docs/apps/tutorials/id#find-in-developer-portal?source=subscription-foundation) |
 | `BC_APP_CLIENT_ID` | The app API account's client ID | [View App Credentials](/api-docs/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
 | `BC_APP_SECRET` | The app API account's client secret | [View App Credentials](/api-docs/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
-| `NEXT_PUBLIC_STRIPE_CLIENT_ID` | The merchant-specific Stripe API account client ID | see [Stripe setup](#stripe-setup) |
-| `STRIPE_SECRET_KEY` | The app-specific Stripe API account client secret | see [Stripe setup](#stripe-setup) |
+| `NEXT_PUBLIC_STRIPE_CLIENT_ID` | The app-specific Stripe Connect API account client ID | see [Stripe setup](#stripe-setup) |
+| `STRIPE_SECRET_KEY` | The app-specific Stripe Connect API account client secret | see [Stripe setup](#stripe-setup) |
 
 
 ## Run migration and start the server
