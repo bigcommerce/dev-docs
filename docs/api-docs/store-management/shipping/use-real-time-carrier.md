@@ -10,7 +10,7 @@ This article is a guide for API users on how to manage carrier connections and r
 - You or the merchant have created shipping zones. You can create zones with the [Create a shipping zone](/api-reference/store-management/shipping-api/shipping-zones/createashippingzones) endpoint.
 
 <!-- theme:info -->
-> #### Note
+> #### Native integrations
 > USPS, FedEx, and UPS carriers are native-integrations. For a full list of native integrations, see the [Real-Time Shipping Providers](https://support.bigcommerce.com/s/article/Setting-Up-a-Real-Time-Shipping-Quote-Shipping-Method#providers) article.
 
 ## Manage connections to shipping carriers 
