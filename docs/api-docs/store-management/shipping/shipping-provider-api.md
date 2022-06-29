@@ -9,7 +9,7 @@ The Shipping Provider API provides many benefits, including the following:
 - Merchants can retrieve rates from custom shipping tables or in-house shipping rate calculation services 
 - Shoppers can create a combination of in-store pickup and shipping options
 
-This article guides developers on how to create and register a BigCommerce shipping provider app that will make your shipping rates available to merchants and shoppers on demand.
+This article guides developers on how to create and register a BigCommerce shipping provider app that will make their shipping rates available to merchants and shoppers on demand.
 
 ## Prerequisites
 
