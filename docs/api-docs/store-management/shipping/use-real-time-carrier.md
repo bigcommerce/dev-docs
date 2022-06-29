@@ -228,8 +228,7 @@ title: Response
 
 For more carrier options, see the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) reference. Contact the carrier to get a full list of available carrier options.
 
-<!-- theme:info -->
-> After you enable a connected carrier, you can obtain its real-time shipping quotes by using the [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) endpoint. 
+After you enable a connected carrier, you can obtain its real-time shipping quotes by using the [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) endpoint. 
 
 ### Update a shipping method
 
