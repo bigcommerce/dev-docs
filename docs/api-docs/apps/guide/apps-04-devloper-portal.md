@@ -81,7 +81,7 @@ To learn more about using an app API account to generate store-specific access t
 
 4. After saving, edits are effective immediately for all app users.
 
-### Enable multi-storefront functionality
+### Indicate multi-storefront support
 
 If your app supports stores that sell through multiple storefronts or sales channels, add that information to the app's profile.
 
@@ -89,11 +89,11 @@ If your app supports stores that sell through multiple storefronts or sales chan
 
 ![MSF Toggle](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-msf.png "Toggle MSF on the App Supported Features tab")
 
-2. Select either **Single Storefront** or **Multi Storefront**. 
+2. Select either **Single Storefront** or **Multi Storefront**. This doesn't grant or deny your app access to any APIs; it helps us test and label your app appropriately. 
 
 3. To save your change, click the **Update & Close** button on the edit dialog's lower right corner. 
 
-To learn more about modifying your app to support multi-storefront, see [Multi-Storefront App Compatibility and Optimization](/api-docs/apps/multi-storefront)
+To read about designing or modifying your app to support multi-storefront, see [Multi-Storefront App Compatibility and Optimization](/api-docs/apps/multi-storefront)
 
 ## Submit an app for approval
 
