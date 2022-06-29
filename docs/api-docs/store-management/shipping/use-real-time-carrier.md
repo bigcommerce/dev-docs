@@ -86,7 +86,7 @@ title: Response
 
 ### Update a connection
 
-When you update a connection, use the same fields for a carrier as [Create a connection](#create-a-connection). 
+When you update a connection, use the same connection fields as [Create a connection](#create-a-connection). 
 
 <!--
 type: tab
