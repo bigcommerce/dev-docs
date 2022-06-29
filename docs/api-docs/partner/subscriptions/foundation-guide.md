@@ -73,7 +73,7 @@ Further steps in this guide require access to the Dev Portal, so keep it handy.
 
 ## Configure Stripe
 
-We've designed this integration to use Stripe Connect so that your app can take payments with separate Stripe accounts for each of your merchants' stores. Because of this, you'll need two Stripe accounts. One for the app's Connect account, and another, which is what the merchant connects to the app and BC store (in the payments area) themselves.
+We've designed this integration to use Stripe Connect so that your app can take payments with separate Stripe accounts for each of your merchants' stores. Because of this, you'll need two Stripe accounts. One for the app's Connect account, and another, which is what the merchant connects to the app and BC store (in the payments area) themselves. Following this configuration, your app will be able to handle multi-tenant Stripe API requests and webhooks, and you'll have a test merchant account to test payments and subscriptions.
 
 ### Create Stripe accounts
 
@@ -91,37 +91,34 @@ To get started, do the following steps:
    
    ![BigCommerce App](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BigCommerce-app-image.png "The Stripe dashboard's new account dropdown menu")
    
-4. For the remainder of this instruction sequence, make sure that the left side of your Stripe Dashboard's top menu bar indicates that you're in the app-specific account. 
+4. **For the remainder of this instruction sequence, make sure that the left side of your Stripe Dashboard's top menu bar indicates that you're in the app-specific account.**
 
-5. Enable [Stripe Connect for Platforms](https://dashboard.stripe.com/test/connect/accounts/overview). (>>> this is a test link; should it be a test in production? do we have to sign up for connect again in production?). Select **Platform or Marketplace**, then click the **Continue** button at the lower right.
+5. Enable [Stripe Connect for Platforms](https://dashboard.stripe.com/test/connect/accounts/overview). (>>> this is a test link; do we have to sign up for connect again in production? if no, we should mention the toggle). Select **Platform or Marketplace**, then click the **Continue** button at the lower right.
 
-7. Finally, configure app-specific account's [Stripe Connect settings](https://dashboard.stripe.com/test/settings/connect).
-
-6. Use the following steps to locate your app's Stripe client secret:
-
-   a. Click **Developer** on the dashboard landing page's upper right, then click **API keys** in the left menu bar. Make sure that the **Viewing test data** option is toggled on at the page's upper right. Alternatively, use the direct link to [view test keys](https://dashboard.stripe.com/test/apikeys). When you put the app into production, toggle off **View test data** or use the direct link to [view live keys](https://dashboard.stripe.com/apikeys).
-
-   b. In the **Standard Keys** section of the page, click **Reveal test key** to view and copy the app-specific account's secret key.
+6. Finally, to configure the app-specific account's Stripe Connect settings, click **>>>Connect??** near the top center of the dashboard landing page.
    
-   c. Later in this guide, you'll add the app-specific client ID and secret key to your app's [environment variables]; take note of it for use later in this guide.
-   
+   a. Under **OAuth settings**, enable **OAuth for Standard accounts**. (>>> style guide, describe UI elements)
 
+   b. Under **Redirects**, add your app's callback URL: (>>> style guide, describe UI elements, is this different in production?)
+   
+   ```http title="Your app's Stripe callback URL"
+   https://{ngrok_id}.ngrok.io/stripe/callback
+   ```
+
+[Stripe Connect settings](https://dashboard.stripe.com/test/settings/connect)(>>> this is a test link; do we have to configure connect again in production?)
+
+7. Later in this guide, you'll add the app-specific account's Stripe Connect API credentials to your app's environment variables. Use the following steps to locate the keys, then capture them for later use: 
+
+   a. Click **>>>Connect?? or Developer** on the dashboard landing page's upper right, then select **>>>API keys** in the left menu bar. Make sure that the **Viewing test data** option is toggled on at the page's upper right, then locate the **Standard Keys** section of the page.
+   
+   b. Click **Test mode client ID** to copy it; click **Reveal test key** to view and copy the secret key.  When you put the app into production, toggle off **View test data** or use the direct link to [view live keys](https://dashboard.stripe.com/apikeys).
   
+<!-- theme: info -->
+> Remember the merchant must OAuth the same Stripe payments account (what you created first) to this app that their BigCommerce store uses. Otherwise, the initial payment created when the shopper pays for the original order won't be readable when creating subscriptions.
 
-   
-   a. Copy **Test mode client ID**. In a later step, you will use the client ID to update the environment variable `NEXT_PUBLIC_STRIPE_CLIENT_ID` in the .env file.
-   
-   b. Under **OAuth settings** enable **OAuth for Standard accounts**.
-   
-   c. Under **Redirects** add the following URI: https://{ngrok_id}.ngrok.io/stripe/callback
-      
-8.  Your app should now be set up to handle Stripe OAuth, API requests, and webhooks.
+In development, keep the following in mind:
 
-a. Remember the merchant must OAuth the same Stripe payments account (what you created first) to this app that their BigCommerce store uses. Otherwise, the initial payment created when the shopper pays for the original order won't be readable when creating subscriptions.
-
-b. In development, keep the following in mind:
    - Make sure **Test Mode** is set to **Yes** in the merchant's Stripe settings within BigCommerce: https://login.bigcommerce.com/deep-links/settings/payment/stripev3
-   
    
    ![stripe-settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/stripe-settings.png)
    
