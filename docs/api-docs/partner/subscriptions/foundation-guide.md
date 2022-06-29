@@ -91,25 +91,23 @@ To get started, do the following steps:
    
    ![BigCommerce App](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BigCommerce-app-image.png "The Stripe dashboard's new account dropdown menu")
    
-4. Make sure that the left side of your Stripe Dashboard's top menu bar indicates that you're in the app-specific account. 
+4. For the remainder of this instruction sequence, make sure that the left side of your Stripe Dashboard's top menu bar indicates that you're in the app-specific account. 
+
+5. Enable [Stripe Connect for Platforms](https://dashboard.stripe.com/test/connect/accounts/overview). (>>> this is a test link; should it be a test in production? do we have to sign up for connect again in production?). Select **Platform or Marketplace**, then click the **Continue** button at the lower right.
+
+7. Finally, configure app-specific account's [Stripe Connect settings](https://dashboard.stripe.com/test/settings/connect).
+
+6. Use the following steps to locate your app's Stripe client secret:
 
    a. Click **Developer** on the dashboard landing page's upper right, then click **API keys** in the left menu bar. Make sure that the **Viewing test data** option is toggled on at the page's upper right. Alternatively, use the direct link to [view test keys](https://dashboard.stripe.com/test/apikeys). When you put the app into production, toggle off **View test data** or use the direct link to [view live keys](https://dashboard.stripe.com/apikeys).
 
    b. In the **Standard Keys** section of the page, click **Reveal test key** to view and copy the app-specific account's secret key.
    
-   c. The app-specific secret key will be an environment variable; take note of it for use later in this guide.
+   c. Later in this guide, you'll add the app-specific client ID and secret key to your app's [environment variables]; take note of it for use later in this guide.
    
-5. Making sure that the left side of your Stripe Dashboard's top menu bar still indicates that you're in the app-specific account, [enable Stripe Connect for Platforms](https://dashboard.stripe.com/test/connect/accounts/overview). (>>> this is a test link; should it be a test in production? do we have to sign up for connect again in production?)
-   
-   a. Select **Platform or Marketplace** and continue.
-   
-   b. Complete the platform profile at some point before you submit the app for approval or put a private version into production. We suggest using these answers:
-      - For **Industry**, select **Other**.
-  >>> Sarah stopped
-      - Select **From your seller/service provider's website or app** for where customers purchase products or services.
-      - Select **The name of the seller/service provider using your platform** for whose name is on the customer's credit card statement.
-      - Select **The seller/service provider using your platform** for who should be contacted if customers have a dispute or complaint.
-6. Configure your Connect settings here: https://dashboard.stripe.com/test/settings/connect
+
+  
+
    
    a. Copy **Test mode client ID**. In a later step, you will use the client ID to update the environment variable `NEXT_PUBLIC_STRIPE_CLIENT_ID` in the .env file.
    
@@ -117,21 +115,21 @@ To get started, do the following steps:
    
    c. Under **Redirects** add the following URI: https://{ngrok_id}.ngrok.io/stripe/callback
       
-7.  Your app should now be set up to handle Stripe OAuth, API requests, and webhooks.
+8.  Your app should now be set up to handle Stripe OAuth, API requests, and webhooks.
+
+a. Remember the merchant must OAuth the same Stripe payments account (what you created first) to this app that their BigCommerce store uses. Otherwise, the initial payment created when the shopper pays for the original order won't be readable when creating subscriptions.
+
+b. In development, keep the following in mind:
+   - Make sure **Test Mode** is set to **Yes** in the merchant's Stripe settings within BigCommerce: https://login.bigcommerce.com/deep-links/settings/payment/stripev3
    
-   a. Remember the merchant must OAuth the same Stripe payments account (what you created first) to this app that their BigCommerce store uses. Otherwise, the initial payment created when the shopper pays for the original order won't be readable when creating subscriptions.
    
-   b. In development, keep the following in mind:
-      - Make sure **Test Mode** is set to **Yes** in the merchant's Stripe settings within BigCommerce: https://login.bigcommerce.com/deep-links/settings/payment/stripev3
-      
-      
-      ![stripe-settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/stripe-settings.png)
-      
-      - A vaulted card must be used when checking out. Turn on that functionality by going to **Stored Credit Cards** in the Stripe payments section in BigCommerce and toggling on **Enable stored credit cards with Stripe**. 
-      
-      ![stored-credit-cards](https://storage.googleapis.com/bigcommerce-production-dev-center/images/stored-credit-cards.png)
-      
-      - When checking out on the BigCommerce store, you can save the card by logging in as a customer (or creating a new account during checkout) and selecting **save this card for later** in the payments step.
+   ![stripe-settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/stripe-settings.png)
+   
+   - A vaulted card must be used when checking out. Turn on that functionality by going to **Stored Credit Cards** in the Stripe payments section in BigCommerce and toggling on **Enable stored credit cards with Stripe**. 
+   
+   ![stored-credit-cards](https://storage.googleapis.com/bigcommerce-production-dev-center/images/stored-credit-cards.png)
+   
+   - When checking out on the BigCommerce store, you can save the card by logging in as a customer (or creating a new account during checkout) and selecting **save this card for later** in the payments step.
 
 ## Declare environment variables
 
