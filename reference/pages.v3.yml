@@ -7,7 +7,7 @@ info:
 tags:
   - name: Pages
 security:
-- X-Auth-Token: []
+  - X-Auth-Token: []
 paths:
   '/stores/{store_hash}/v3/content/pages':
     get:
