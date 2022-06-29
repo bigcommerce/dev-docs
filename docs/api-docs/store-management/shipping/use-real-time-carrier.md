@@ -21,7 +21,7 @@ When a merchant installs a shipping provider app, the carrier appears in the mer
 
 ### Create a connection
 
-To set up a carrier using the API, connect it using the [Create a Carrier Connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. Make a request containing the ID of the carrier and any configuration fields that the carrier requires. All configuration fields are unique to each carrier. 
+To use the API to connect with a carrier, use the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. Make a request containing the ID of the carrier and any configuration fields that the carrier requires. Configuration fields are unique to each carrier. 
 
 <!--
 type: tab
