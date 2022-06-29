@@ -11,7 +11,7 @@ This article is a guide for API users on how to manage carrier connections and r
 
 <!-- theme:info -->
 > #### Native integrations
-> USPS, FedEx, and UPS carriers are native-integrations. For a full list of native integrations, see the [Real-Time Shipping Providers](https://support.bigcommerce.com/s/article/Setting-Up-a-Real-Time-Shipping-Quote-Shipping-Method#providers) article.
+> BigCommerce offers native integrations with several shipping services, including FedEx, UPS, and select national postal services. For a full list of native integrations, consult our Help Center article on [Setting up Real Time Shipping Quotes](https://support.bigcommerce.com/s/article/Setting-Up-a-Real-Time-Shipping-Quote-Shipping-Method#providers).
 
 ## Manage connections to shipping carriers 
 
