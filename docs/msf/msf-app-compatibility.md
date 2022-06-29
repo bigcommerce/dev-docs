@@ -22,7 +22,7 @@ Ensure that your app's settings acknowledge multiple storefronts and convey that
 
 In testing, make sure that users can install and load the app in a store with multiple BigCommerce storefront channels. Use the [Channels API](/api-reference/store-management/channels) to work with basic data about the store's channels. Use the [Sites API](/api-reference/store-management/sites) to work with the channels' sites.
 
-Edit the app's profile in your [Developer Portal](https://devtools.bigcommerce.com/my/apps) to indicate that it supports multi-storefront functionality. See [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#enable-multi-storefront-functionality).
+Edit the app's profile in your [Developer Portal](https://devtools.bigcommerce.com/my/apps) to indicate that it supports multi-storefront functionality. See [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#indicate-multi-storefront-support).
 
 
 ## Reading from and writing to multiple channels
