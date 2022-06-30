@@ -2301,17 +2301,20 @@ components:
       type: object
       title: RefundQuote_Post
       description: Request body for refund quotes.
+      x-internal: false
+      x-examples: {}
       properties:
         order_id:
           type: integer
           description: Order ID against which this refund will be created. This is optional for creating a single refund request. The order ID is included in the request path.
           example: 1
         items:
-          $ref: '#/components/schemas/ItemsRefund'
+          type: array
+          items:  
+            $ref: '#/components/schemas/ItemsRefund'
       required:
-        - order_id
-        - items
-      x-internal: false
+         - order_id
+         - items
     RefundQuote_Full:
       type: object
       title: RefundQuote_Full
