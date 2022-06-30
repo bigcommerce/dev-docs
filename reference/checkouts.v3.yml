@@ -1758,6 +1758,8 @@ definitions:
         type: boolean
       custom_order_confirmation_script_url:
         type: string
+      custom_checkout_supports_uco_settings:
+        type: boolean
   CheckoutsSettingsRequest:
     title: Checkouts settings request
     type: object
@@ -1771,6 +1773,9 @@ definitions:
       custom_order_confirmation_script_url:
         type: string
         description: 'Custom order confirmation script url to replace our default order confirmation. To reset a store to optimized one-page checkout, pass an empty string for `custom_checkout_script_url` and `custom_order_confirmation_script_url`.'
+      custom_checkout_supports_uco_settings:
+        type: boolean
+        description: This checkout supports Optimized One-Page Checkout settings.
     description: ''
 parameters:
   checkoutId:
@@ -2589,6 +2594,7 @@ responses:
           custom_checkout_script_url: 'https://example.com/custom-checkout-script.js'
           order_confirmation_use_custom_checkout_script: false
           custom_order_confirmation_script_url: 'https://example.com/custom-order-confirmation-script.js'
+          custom_checkout_supports_uco_settings: false
         meta: {}
       WebDAV protocol:
         data:
