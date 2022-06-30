@@ -33,7 +33,7 @@ You need to serve your app over fully-qualified publicly accessible URL to conne
 
 Consult [our App Tutorial](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#create-an-https-tunnel) to get started.
 
-Once you start ngrok, note your ngrok ID. You'll use it later on in this tutorial.
+Once you start ngrok, note your ngrok ID. You'll use it later on in this guide.
 
 ## Create an app profile
 
@@ -73,12 +73,20 @@ Further steps in this guide require access to the Dev Portal, so keep it handy.
 
 ## Configure Stripe
 
-We've designed this integration to use Stripe Connect so that your app can take payments with separate Stripe accounts for each of your merchants' stores. Because of this, you'll need two Stripe accounts. One for the app's Connect account, and another, which is what the merchant connects to the app and BC store (in the payments area) themselves. Following this configuration, your app will be able to handle multi-tenant Stripe API requests and webhooks, and you'll have a test merchant account to test payments and subscriptions.
+We've designed this integration to use Stripe Connect so that your app can use one connection to submit payments to multiple merchants' previously configured Stripe accounts. 
+
+In fact, this is an obligate multi-tenant app, even if you build it for a single merchant's use. The architecture of the Stripe and BigCommerce APIs on which this functionality relies requires the app to make charges using the **merchant-specific Stripe account's public key** and the **app-specific Stripe account's secret key**. 
+
+This arrangement provides the following benefits:
+* The merchant can change the Stripe account they use without breaking the integration.
+* The merchant's own Stripe account stores all shopper payment history, subscription and one-time purchase alike. 
+* It limits the app's PCI compliance burden. 
+
+In development and testing, you'll work with two Stripe accounts; one that simulates a merchant's pre-existing account, and another that you configure as the app's dedicated Stripe Connect-enabled account.
 
 <!-- theme: info -->
-> #### Why two accounts? (>>> sarah to make this its own non-callout section, move some to overview)
-> This is an obligate multi-tenant app, even if you build it for a single merchant's use. That is, under the covers the app must make charges using the **merchant-specific Stripe account's public key** and the **app-specific Stripe account's secret key**. 
-> During installation, the app UI prompts the merchant to enter their Stripe account's keys so that it can initiate an OAuth grant code authorization flow that links the merchant's Stripe account to the app's Stripe Connect-enabled account. This arrangement allows the merchant to change the Stripe account they use without breaking the app. It also ensures that the merchant's self-managed Stripe account stores all charge and payment data, including both subscriptions and the shopper's one-time purchases. This architectural pattern dramatically reduces the app's PCI compliance burden. 
+> #### Multi-tenant mechanics
+> During installation, the app UI prompts the merchant to enter their Stripe account's keys so that the app can initiate an OAuth grant code authorization flow that links the merchant's Stripe account to the app's Stripe Connect-enabled account. 
 
 ### Create Stripe accounts
 
@@ -118,7 +126,7 @@ To get started, do the following steps:
 > #### Note on naming convention
 > In some places, this guide and app template code refer to a Stripe API account's public key as a client ID, and its secret key as a client secret.
 
-7. Later in this guide, you'll add the app-specific account's Stripe Connect API credentials to your app's environment variables. Use the following steps to locate the keys, then capture them for later use: 
+4. Later in this guide, you'll add the app-specific account's Stripe Connect API credentials to your app's environment variables. Use the following steps to locate the keys, then capture them for later use: 
 
    a. Click **>>>Connect?? or Developer** on the dashboard landing page's upper right, then select **>>>API keys** in the left menu bar. Make sure that the **Viewing test data** option is toggled on at the page's upper right, then locate the **Standard Keys** section of the page.
    
@@ -172,7 +180,7 @@ npx prisma migrate dev
 
 <!-- theme: info -->
 > #### Database note
-> This example uses SQLite as a data store. In production, we recommend using a database that has more robust concurrency support, such as PostgresSQL. For information on switching databases, see the [Replacing SQLite](#replacing-sqlite) section.
+> This example uses SQLite as a data store. In production, we recommend using a database that has more robust concurrency support, such as PostgreSQL. For information on switching databases, see the [Replacing SQLite](#replacing-sqlite) section.
 
 3. Start the app server.
 
@@ -205,18 +213,18 @@ To use an alternate SQL database, do the following:
 
 ## Managing subscription products
 
->>> verify control panel menu locations, and bold UI elements
-Subscription-specific product configuration, like available intervals and the discount associated with them, is done within the app, inside Channel Manager. Only products that are listed on the subscription channel show up here. You can list products to the channel from within the Products section of the BigCommerce control panel.
+>>> verify control panel menu locations
+The merchant uses the app UI to configure subscription-specific product attributes, such available subscription intervals and the discounts associated with them. The app is accessible from the **Channel Manager** menu in the store control panel. The app will programmatically create a sales channel for itself upon installation, and only products that are assigned to the app's dedicated sales channel show up in the app's UI.  The merchant or authorized user can assign products to the app's channel in the **Products** section of the store control panel. Learn more about [product channel assignments](/api-docs/multi-storefront/api-guide#products) and [configuring stores to support subscription sales channels](>>>linkToNewOverview).
 
 ## Troubleshooting
 
-### Seeing {"Environment variable not found} when creating the database tables and initial client
+### Environment variable not found when creating the database tables and initial client
 
 If you do not enter the correct provider in the `/prisma/schema.prisma` file or the .env file contains an incorrect `DATABASE_URL`.
 
-### Seeing {"error": "Not found"} when installing the app
+### A Not found error during app installation
 
-If you don't request the proper scopes, the /api/auth request might fail. Check your scopes in the BigCommerce Dev Tools area. Look at the scopes listed above in the [BigCommerce setup](#bigcommerce-setup) section.
+If you don't enable proper scopes, the `/api/auth` request might fail. Go to the [Dev Portal](https://devtools.bigcommerce.com) to check out the OAuth scopes enabled in the app's profile; consult our article on [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#edit-technical-details) to learn more. Make sure your scopes equal or exceed those listed in the preceding section on [Creating an app profile](#create-an-app-profile).
 
 ## Resources
 ### Related articles
