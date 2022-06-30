@@ -2607,7 +2607,7 @@ paths:
         Creates a *Product Video*.
 
         **Required Fields**
-        * video_id - Example: https://www.youtube.com/watch?v=`R12345677`
+        * video_id
 
         **Read-Only Fields**
         * id
@@ -2649,21 +2649,24 @@ paths:
                 The model for a POST to create a video on a product.
               allOf:
                 - title: Product Video Base
-                  type: object
+                  description: Common Product Video properties.
                   properties:
                     title:
                       maxLength: 255
                       minLength: 0
                       type: string
+                      example: Writing Great Documentation
                       description: |
                         The title for the video. If left blank, this will be filled in according to data on a host site.
                     description:
                       type: string
+                      example: A video about documenation
                       description: |
                         The description for the video. If left blank, this will be filled in according to data on a host site.
                     sort_order:
                       maximum: 2147483647
                       minimum: -2147483648
+                      example: 1
                       type: integer
                       description: |
                         The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the video's new `sort_order` value will have their `sort_order`s reordered.
@@ -2673,17 +2676,17 @@ paths:
                         The video type (a short name of a host site).
                       enum:
                         - youtube
-                  description: Common ProductVideo properties.
-                - type: object
-                  properties:
+                - properties:
                     video_id:
+                      type: string
                       maxLength: 25
                       minLength: 0
-                      type: string
                       description: |
                         The ID of the video on a host site.
                       x-required:
                         - post
+                      example: z3fRu9pkuXE
+              type: object
         required: true
       responses:
         '200':
@@ -2725,7 +2728,7 @@ paths:
                               The video type (a short name of a host site).
                             enum:
                               - youtube
-                        description: Common ProductVideo properties.
+                        description: Common Product Video properties.
                       - type: object
                         properties:
                           id:
@@ -2952,7 +2955,7 @@ paths:
                         The video type (a short name of a host site).
                       enum:
                         - youtube
-                  description: Common ProductVideo properties.
+                  description: Common Product Video properties.
                 - type: object
                   properties:
                     id:
@@ -3002,7 +3005,7 @@ paths:
                               The video type (a short name of a host site).
                             enum:
                               - youtube
-                        description: Common ProductVideo properties.
+                        description: Common Product Video properties.
                       - type: object
                         properties:
                           id:
@@ -21645,23 +21648,29 @@ components:
     productVideo_Base:
       title: productVideo_Base
       type: object
+      description: |
+        The model for a POST to create a video on a product.
+      x-internal: false
       properties:
         title:
+          type: string
           maxLength: 255
           minLength: 0
-          type: string
           description: |
             The title for the video. If left blank, this will be filled in according to data on a host site.
+          example: Writing Great Documentation
         description:
           type: string
           description: |
             The description for the video. If left blank, this will be filled in according to data on a host site.
+          example: A video about documenation
         sort_order:
+          type: integer
           maximum: 2147483647
           minimum: -2147483648
-          type: integer
           description: |
             The order in which the video will be displayed on the product page. Higher integers give the video a lower priority. When updating, if the video is given a lower priority, all videos with a `sort_order` the same as or greater than the video's new `sort_order` value will have their `sort_order`s reordered.
+          example: 1
         type:
           type: string
           description: |
@@ -21671,9 +21680,7 @@ components:
         video_id:
           type: string
           description: The ID of the video on a host site.
-      description: |
-        The model for a POST to create a video on a product.
-      x-internal: false
+          example: z3fRu9pkuXE
     productVideo_Full:
       title: productVideo_Full
       description: |
@@ -28442,7 +28449,7 @@ components:
                             The video type (a short name of a host site).
                           enum:
                             - youtube
-                      description: Common ProductVideo properties.
+                      description: Common Product Video properties.
                     - type: object
                       properties:
                         id:
@@ -28554,7 +28561,7 @@ components:
                           The video type (a short name of a host site).
                         enum:
                           - youtube
-                    description: Common ProductVideo properties.
+                    description: Common Product Video properties.
                   - type: object
                     properties:
                       id:
