@@ -74,7 +74,6 @@ info:
     > #### Note
     > * A Channel with `deleted` status can be restored within 90 days after deleting by contacting BigCommerce support team. Once the 90 days grace period is over, the Channel `status` will become `terminated`.
     > * The `terminated` status is read-only. `terminated` channels cannot be restored.
-    > * As of April 2020, `status`  should be used in place of `is_enabled` -- `is_enabled` is deprecated.
 
     ## Channel listings
 
@@ -197,7 +196,6 @@ paths:
         * `status`
         * `is_listable_from_ui`
         * `is_visible`
-        * `is_enabled`
         * `config_meta`
 
 
@@ -1390,7 +1388,6 @@ components:
             external_id: ''
             type: storefront
             platform: bigcommerce
-            is_enabled: true
             date_modified: '2021-05-07T14:54:51Z'
             name: Test Store
             status: prelaunch
@@ -1402,7 +1399,6 @@ components:
             external_id: ''
             type: marketplace
             platform: amazon
-            is_enabled: false
             date_modified: '2021-05-13T14:25:54Z'
             name: Amazon
             status: connected
@@ -1422,7 +1418,6 @@ components:
                     query_path: settings
             type: marketplace
             platform: facebook by meta
-            is_enabled: true
             date_modified: '2021-05-13T15:41:39Z'
             name: Facebook by Meta
             status: connected
@@ -1456,7 +1451,6 @@ components:
                   query_path: settings
           type: marketplace
           platform: facebook by meta
-          is_enabled: true
           date_modified: '2021-05-13T15:41:39Z'
           name: Facebook by Meta
           status: connected
@@ -1480,7 +1474,6 @@ components:
                   query_path: settings
           type: marketplace
           platform: facebook by meta
-          is_enabled: true
           date_modified: '2021-05-13T15:41:39Z'
           name: Facebook by Meta
           status: connected
@@ -1894,11 +1887,6 @@ components:
       type: boolean
       description: 'Indicates if a channel is visible within the BigCommerce merchant admin UI (control panel). If `false`, the channel will not show in Channel Manager nor in any channels dropdown throughout the UI. Default value for this field is `true` if not specified on create.'
       x-internal: false
-    IsEnabled:
-      deprecated: true
-      type: boolean
-      description: 'This field was originally used to turn on/off a channel but is deprecated. `status` should be used in place of `is_enabled`. Channel with `status` of `prelaunch`, `active`, or `connected` will have `is_enabled` set to `true`. Channel with `status` of `inactive`, `disconnected`, `archived`, `deleted`, or `terminated` will have `is_enabled` set to `false`.'
-      x-internal: false
     ChannelStatus:
       type: string
       description: 'The status of the channel; channel `type`, `platform`, and `status` must be a [valid combination](/api-reference/store-management/channels#status). `terminated` is not valid for `PUT` or `POST` requests. `deleted` is not valid for `POST` requests.'
@@ -2100,8 +2088,6 @@ components:
           $ref: '#/components/schemas/IsListableFromUI'
         is_visible:
           $ref: '#/components/schemas/IsVisible'
-        is_enabled:
-          $ref: '#/components/schemas/IsEnabled'
         status:
           $ref: '#/components/schemas/ChannelStatus'
         name:
@@ -2126,8 +2112,6 @@ components:
           $ref: '#/components/schemas/IsListableFromUI'
         is_visible:
           $ref: '#/components/schemas/IsVisible'
-        is_enabled:
-          $ref: '#/components/schemas/IsEnabled'
         name:
           $ref: '#/components/schemas/ChannelName'
         status:
@@ -2255,8 +2239,6 @@ components:
           $ref: '#/components/schemas/IsListableFromUI'
         is_visible:
           $ref: '#/components/schemas/IsVisible'
-        is_enabled:
-          $ref: '#/components/schemas/IsEnabled'
         status:
           $ref: '#/components/schemas/ChannelStatus'
         name:
@@ -2285,8 +2267,6 @@ components:
           $ref: '#/components/schemas/IsListableFromUI'
         is_visible:
           $ref: '#/components/schemas/IsVisible'
-        is_enabled:
-          $ref: '#/components/schemas/IsEnabled'
         status:
           $ref: '#/components/schemas/ChannelStatus'
         name:

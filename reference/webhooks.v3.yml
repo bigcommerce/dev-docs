@@ -1314,7 +1314,7 @@ components:
       description: |-
         This webhook fires when a channel is updated via control panel or API. 
 
-        Changes to the following fields trigger this event:<ul><li>name</li><li>external_id</li><li>status</li><li>is_listable_from_ui</li><li>is_visible</li><li>is_enabled (to be deprecated)</li><li>config_meta</li></ul>
+        Changes to the following fields trigger this event:<ul><li>name</li><li>external_id</li><li>status</li><li>is_listable_from_ui</li><li>is_visible</li><li>config_meta</li></ul>
 
 
         ```json title="Example callback object" lineNumbers
