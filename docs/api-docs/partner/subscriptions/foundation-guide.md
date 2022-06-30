@@ -75,6 +75,11 @@ Further steps in this guide require access to the Dev Portal, so keep it handy.
 
 We've designed this integration to use Stripe Connect so that your app can take payments with separate Stripe accounts for each of your merchants' stores. Because of this, you'll need two Stripe accounts. One for the app's Connect account, and another, which is what the merchant connects to the app and BC store (in the payments area) themselves. Following this configuration, your app will be able to handle multi-tenant Stripe API requests and webhooks, and you'll have a test merchant account to test payments and subscriptions.
 
+<!-- theme: info -->
+> #### Why two accounts? (>>> sarah to make this its own non-callout section, move some to overview)
+> This is an obligate multi-tenant app, even if you build it for a single merchant's use. That is, under the covers the app must make charges using the **merchant-specific Stripe account's public key** and the **app-specific Stripe account's secret key**. 
+> During installation, the app UI prompts the merchant to enter their Stripe account's keys so that it can initiate an OAuth grant code authorization flow that links the merchant's Stripe account to the app's Stripe Connect-enabled account. This arrangement allows the merchant to change the Stripe account they use without breaking the app. It also ensures that the merchant's self-managed Stripe account stores all charge and payment data, including both subscriptions and the shopper's one-time purchases. This architectural pattern dramatically reduces the app's PCI compliance burden. 
+
 ### Create Stripe accounts
 
 To get started, do the following steps:
@@ -90,12 +95,14 @@ To get started, do the following steps:
    b. Give the new account a name that clearly marks it as app-specific; the idea is to differentiate it from the merchant-specific payment and subscription management account. This guide uses **BigCommerce App**.
    
    ![BigCommerce App](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BigCommerce-app-image.png "The Stripe dashboard's new account dropdown menu")
-   
-4. **For the remainder of this instruction sequence, make sure that the left side of your Stripe Dashboard's top menu bar indicates that you're in the app-specific account.**
 
-5. Enable [Stripe Connect for Platforms](https://dashboard.stripe.com/test/connect/accounts/overview). (>>> this is a test link; do we have to sign up for connect again in production? if no, we should mention the toggle). Select **Platform or Marketplace**, then click the **Continue** button at the lower right.
+### Enable Stripe Connect for Platforms
 
-6. Finally, to configure the app-specific account's Stripe Connect settings, click **>>>Connect??** near the top center of the dashboard landing page.
+1. **During this instruction sequence, make sure that the left side of your Stripe Dashboard's top menu bar indicates that you're in the app-specific account.**
+
+2. Enable [Stripe Connect for Platforms](https://dashboard.stripe.com/test/connect/accounts/overview). (>>> this is a test link; do we have to sign up for connect again in production? if no, we should mention the toggle). Select **Platform or Marketplace**, then click the **Continue** button at the lower right.
+
+3. Finally, to configure the app-specific account's Stripe Connect settings, click **>>>Connect??** near the top center of the dashboard landing page.
    
    a. Under **OAuth settings**, enable **OAuth for Standard accounts**. (>>> style guide, describe UI elements)
 
@@ -107,14 +114,15 @@ To get started, do the following steps:
 
 [Stripe Connect settings](https://dashboard.stripe.com/test/settings/connect)(>>> this is a test link; do we have to configure connect again in production?)
 
+<!-- theme: info -->
+> #### Note on naming convention
+> In some places, this guide and app template code refer to a Stripe API account's public key as a client ID, and its secret key as a client secret.
+
 7. Later in this guide, you'll add the app-specific account's Stripe Connect API credentials to your app's environment variables. Use the following steps to locate the keys, then capture them for later use: 
 
    a. Click **>>>Connect?? or Developer** on the dashboard landing page's upper right, then select **>>>API keys** in the left menu bar. Make sure that the **Viewing test data** option is toggled on at the page's upper right, then locate the **Standard Keys** section of the page.
    
    b. Click **Test mode client ID** to copy it; click **Reveal test key** to view and copy the secret key.  When you put the app into production, toggle off **View test data** or use the direct link to [view live keys](https://dashboard.stripe.com/apikeys).
-  
-<!-- theme: info -->
-> Remember the merchant must OAuth the same Stripe payments account (what you created first) to this app that their BigCommerce store uses. Otherwise, the initial payment created when the shopper pays for the original order won't be readable when creating subscriptions.
 
 In development, keep the following in mind:
 
