@@ -157,7 +157,7 @@ title: Response
 
 ## Manage shipping methods
 
-After you connect a carrier, you must define and enable a shipping method for the carrier in one or more shipping zones. You can define and enable a different shipping method in each shipping zone for the same carrier.    
+After you connect a carrier, set up a shipping method that uses the carrier in one or more shipping zones. You can define and enable a different shipping method for each zone the carrier services.    
 
 ![Enabled vs Connected Carrier](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Enabled%20vs%20Connected%20Carrier.png 'Enabled versus Connected Carrier. USPS is enabled, while FedEx is only connected.')  
 
