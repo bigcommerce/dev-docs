@@ -1,6 +1,10 @@
 # Use a Real-Time Carrier
 
-Real-time carriers allow merchants and shoppers to obtain **real-time** shipping quotes. There are two types of real-time carriers: native integrations and shipping provider apps. Shipping provider apps require merchants to install the app on their store. Once a merchant installs a shipping provider app on their store, API users and merchants can connect the carrier to the store. API users and merchants can then define and enable a shipping method for a carrier in one or more shipping zones. They can define and enable a different shipping method in each shipping zone for the same carrier. Enabling a zone's real-time shipping method makes the method available to shoppers in that zone during checkout. 
+Real-time carriers allow merchants and shoppers to obtain **real-time** shipping quotes. There are two types of real-time carriers: native integrations and shipping provider apps. 
+
+The following figure shows how to make real-time carrier quotes available during checkout. Installing an app can only be done through the UI (i.e. by a merchant). All other steps can be performed through the UI or API. Note that you can enable a different shipping method in each shipping zone for the same carrier.     
+
+![Real-Time Carrier Workflow](https://storage.googleapis.com/bigcommerce-production-dev-center/images/real-time-carrier.png 'Workflow for setting up a real-time carrier')
 
 This article is a guide on how to manage carrier connections and real-time shipping methods from carriers using the [Shipping V2 API](/api-reference/store-management/shipping-api).
 
