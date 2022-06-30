@@ -23,9 +23,7 @@ info:
 
     **Related API Resources**
     - [Shipping Provider](/api-reference/store-management/shipping-provider-api)
-    - [Shipping Zones](/api-reference/store-management/shipping-api/shipping-zones)
-    - [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method)
-    - [Shipping Carriers](/api-reference/store-management/shipping-api/shipping-carrier)
+    - [Shipping V2 API](/api-reference/shipping/shipping-api)
   termsOfService: ''
 host: your_app.example.com
 schemes:
