@@ -2,7 +2,7 @@
 
 Real-time carriers allow merchants and shoppers to obtain **real-time** shipping quotes. There are two types of real-time carriers: native integrations and shipping provider apps. 
 
-The following figure shows how to make real-time carrier quotes available during checkout. Installing an app can only be done through the UI (i.e. by a merchant). All other steps can be performed through the UI or API. Note that you can enable a different shipping method in each shipping zone for the same carrier.     
+The following figure shows how to make real-time carrier quotes available during checkout. Installing an app can only be done through the UI (i.e. by a merchant). All other steps can be performed through the UI or API. Note that you can set up a different shipping method for each shipping zone a carrier services.     
 
 ![Real-Time Carrier Workflow](https://storage.googleapis.com/bigcommerce-production-dev-center/images/real-time-carrier-workflow.png 'Workflow for setting up a real-time carrier')
 
