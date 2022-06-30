@@ -33,7 +33,7 @@ You need to serve your app over fully-qualified publicly accessible URL to conne
 
 Consult [our App Tutorial](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#create-an-https-tunnel) to get started.
 
-Once you start ngrok, note your ngrok ID. You'll use it later on in this tutorial.
+Once you start ngrok, note your ngrok ID. You'll use it later on in this guide.
 
 ## Create an app profile
 
@@ -67,7 +67,8 @@ To develop and test the app, you'll install it on your [sandbox store](#configur
 | Sites & Routes | read-only | `store_sites_read_only` |
 | Storefront API Tokens | generate tokens | `store_storefront_api` |
 
-4. Complete the [create an app](/api-docs/apps/guide/developer-portal#create-an-app?source=subscription-foundation) directions.
+4. Click **Update & Close**. 
+5. Click **Confirm Update**.
 
 Further steps in this guide require access to the Dev Portal, so keep it handy.
 
@@ -96,48 +97,56 @@ To get started, do the following steps:
    
    ![BigCommerce App](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BigCommerce-app-image.png "The Stripe dashboard's new account dropdown menu")
 
-### Enable Stripe Connect for Platforms
+### Enable Stripe Connect for platforms
 
-1. **During this instruction sequence, make sure that the left side of your Stripe Dashboard's top menu bar indicates that you're in the app-specific account.**
+**During this instruction sequence, make sure that the left side of your Stripe Dashboard's top menu bar indicates that you're in the app-specific account.**
 
-2. Enable [Stripe Connect for Platforms](https://dashboard.stripe.com/test/connect/accounts/overview). (>>> this is a test link; do we have to sign up for connect again in production? if no, we should mention the toggle). Select **Platform or Marketplace**, then click the **Continue** button at the lower right.
+<!-- theme: info -->
+> #### Test mode
+> You can simulate transactions in test mode to confirm your integration works correctly or enable for production using the toggle button on the upper right. The steps below have been configured for test mode.
 
-3. Finally, to configure the app-specific account's Stripe Connect settings, click **>>>Connect??** near the top center of the dashboard landing page.
+1. Click the **Connect** button to enable [Stripe Connect for platforms](https://dashboard.stripe.com/test/connect/accounts/overview). 
+
+2. Click **Get started**.
+
+3. Select **Platform or Marketplace**, then click the **Continue** button at the lower right.
+
+4. Go to [**Settings > Connect settings**](https://dashboard.stripe.com/test/settings/connect), to configure the app-specific account's Stripe Connect settings.
    
-   a. Under **OAuth settings**, enable **OAuth for Standard accounts**. (>>> style guide, describe UI elements)
+   a. Under **Test mode client ID**, copy the Test mode client ID. In a later step, you will use the client ID to update `NEXT_PUBLIC_STRIPE_CLIENT_ID` in the .env file.
 
-   b. Under **Redirects**, add your app's callback URL: (>>> style guide, describe UI elements, is this different in production?)
+   b. Under **OAuth settings**, enable **OAuth for Standard accounts**. 
+
+   c. Under **Redirects**, add your app's callback URL.
    
    ```http title="Your app's Stripe callback URL"
    https://{ngrok_id}.ngrok.io/stripe/callback
    ```
 
-[Stripe Connect settings](https://dashboard.stripe.com/test/settings/connect)(>>> this is a test link; do we have to configure connect again in production?)
+   <!-- theme: info -->
+> #### App setup 
+> The merchant must OAuth the same Stripe payments account (what you created first) to this app that their BigCommerce store uses. Otherwise, the initial payment created when the shopper pays for the original order won’t be readable when creating subscriptions.
 
-<!-- theme: info -->
-> #### Note on naming convention
-> In some places, this guide and app template code refer to a Stripe API account's public key as a client ID, and its secret key as a client secret.
 
-7. Later in this guide, you'll add the app-specific account's Stripe Connect API credentials to your app's environment variables. Use the following steps to locate the keys, then capture them for later use: 
-
-   a. Click **>>>Connect?? or Developer** on the dashboard landing page's upper right, then select **>>>API keys** in the left menu bar. Make sure that the **Viewing test data** option is toggled on at the page's upper right, then locate the **Standard Keys** section of the page.
-   
-   b. Click **Test mode client ID** to copy it; click **Reveal test key** to view and copy the secret key.  When you put the app into production, toggle off **View test data** or use the direct link to [view live keys](https://dashboard.stripe.com/apikeys).
-
-In development, keep the following in mind:
+5. In development, keep the following in mind:
 
    - Make sure **Test Mode** is set to **Yes** in the merchant's Stripe settings within BigCommerce: https://login.bigcommerce.com/deep-links/settings/payment/stripev3
   
    
    ![stripe-settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/stripe-settings.png)
    
-   - A vaulted card must be used when checking out. Turn on that functionality by going to **Stored Credit Cards** in the Stripe payments section in BigCommerce and toggling on **Enable stored credit cards with Stripe**. 
+   - A stored card must be used when checking out. Turn on that functionality by going to **Stored Credit Cards** in the Stripe payments section in BigCommerce and toggling on **Enable stored credit cards with Stripe**. 
    
    ![stored-credit-cards](https://storage.googleapis.com/bigcommerce-production-dev-center/images/stored-credit-cards.png)
    
    - When checking out on the BigCommerce store, you can save the card by logging in as a customer (or creating a new account during checkout) and selecting **save this card for later** in the payments step.
 
+
 ## Declare environment variables
+
+<!-- theme: info -->
+> #### Note on naming convention
+> In some places, this guide and app template code refer to a Stripe API account's public key as a client ID, and its secret key as a client secret.
 
 1. Create a `.env` file in the root directory of your project.
 
@@ -154,15 +163,13 @@ Update the following environment variables:
 | `NEXT_PUBLIC_APP_ID` | The app's ID | [Find an App's ID](/api-docs/apps/tutorials/id#find-in-developer-portal?source=subscription-foundation) |
 | `BC_APP_CLIENT_ID` | The app API account's client ID | [View App Credentials](/api-docs/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
 | `BC_APP_SECRET` | The app API account's client secret | [View App Credentials](/api-docs/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
-| `NEXT_PUBLIC_STRIPE_CLIENT_ID` | The app-specific Stripe Connect API account client ID | see [Stripe setup](#stripe-setup) |
-| `STRIPE_SECRET_KEY` | The app-specific Stripe Connect API account client secret | see [Stripe setup](#stripe-setup) |
+| `NEXT_PUBLIC_STRIPE_CLIENT_ID` | The app-specific Stripe Connect API account client ID | see [Create Stripe accounts](#create-stripe-accounts) |
+| `STRIPE_SECRET_KEY` | The app-specific Stripe Connect API account client secret | see [Create Stripe accounts](#create-stripe-accounts) |
 
 
 ## Run migration and start the server
 
-1. If you're using SQLite, which is Subscription Foundation's default data store, skip to the next step. Otherwise, create a target database in your SQL data store of choice. >>> ? is this needed? >>>
-
-2. Run the pre-configured Prisma migration to create the database tables and initial client as defined in `/prisma/migrations/*`. Troubleshoot as needed.
+1. Run the pre-configured Prisma migration to create the database tables and initial client as defined in `/prisma/migrations/*`. Troubleshoot as needed.
 
 ```shell title="Run Prisma migration"
 npx prisma migrate dev
@@ -174,19 +181,19 @@ npx prisma migrate dev
 > #### Database note
 > This example uses SQLite as a data store. In production, we recommend using a database that has more robust concurrency support, such as PostgresSQL. For information on switching databases, see the [Replacing SQLite](#replacing-sqlite) section.
 
-3. Start the app server.
+2. Start the app server.
 
 ```shell title="Start the app server"
 npm run dev
 ```
 
-4. Start ngrok using the follow command. If your app does not run on port 3000, replace `3000` with your app server's port.
+3. Start ngrok using the follow command. If your app does not run on port 3000, replace `3000` with your app server's port.
 
 ```shell title="Start ngrok"
 ngrok http 3000
 ```
 
-While the app server and ngrok are running, you can install the draft app on your sandbox store. For more about installing and troubleshooting apps in development, see [>>>](). <!-- apps guide link -->
+While the app server and ngrok are running, you can install the draft app on your sandbox store. For more about installing and troubleshooting apps in development, see [Install and launch the app](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect).
 
 ## Replacing SQLite
 
@@ -204,9 +211,9 @@ To use an alternate SQL database, do the following:
 
 
 ## Managing subscription products
+Subscription-specific product configuration, like available intervals and the discount associated with them, is done within the app, inside Channel Manager. Only products that are listed on the subscription channel show up here. You can list products to the channel from within the Products section of the BigCommerce control panel. 
 
->>> verify control panel menu locations, and bold UI elements
-Subscription-specific product configuration, like available intervals and the discount associated with them, is done within the app, inside Channel Manager. Only products that are listed on the subscription channel show up here. You can list products to the channel from within the Products section of the BigCommerce control panel.
+In Channel Manager, go to the Stripe Subscriptions channel and click on one of your products to add new subscription rules and edit existing ones. For more information, see [Stripe Billing](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway?language=en_US#billing).
 
 ## Troubleshooting
 
