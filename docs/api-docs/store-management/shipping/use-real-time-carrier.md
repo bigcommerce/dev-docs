@@ -72,7 +72,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "carrier_id": "example_carrier",
+  "carrier_id": "carrier_name",
   "connection": {}
 }
 ```
@@ -139,7 +139,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "carrier_id": "example_carrier"
+  "carrier_id": "carrier_name"
 }
 ```
 
