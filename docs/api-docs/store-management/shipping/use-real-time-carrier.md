@@ -10,7 +10,7 @@ This article is a guide on how to manage carrier connections and real-time shipp
 
 ## Prerequisites
 - For shipping provider apps only: Merchant has installed the shipping provider app. 
-- You have obtained the required [OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes): `Information & Settings`.
+- You have obtained an `access_token` from the merchant store's API account that has the [OAuth Scope](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes): `Information & Settings`.
 - You or the merchant have created shipping zones. You can create zones with the [Create a shipping zone](/api-reference/store-management/shipping-api/shipping-zones/createashippingzones) endpoint.
 
 <!-- theme:info -->
