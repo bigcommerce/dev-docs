@@ -9,7 +9,7 @@ The Shipping Provider API provides many benefits, including the following:
 - Merchants can retrieve rates from custom shipping tables or in-house shipping rate calculation services 
 - Shoppers can create a combination of in-store pickup and shipping options
 
-This article guides developers on how to create and register a BigCommerce shipping provider app that will make their shipping rates available to merchants and shoppers on demand.
+This article guides developers on how to create and register a BigCommerce shipping provider app that will make their shipping rates available to merchants and shoppers on demand.+
 
 ## Prerequisites
 
@@ -104,7 +104,6 @@ title: Validate Connection Options
 
 ### Configuration fields
 
-#### What are configuration fields?
 Configuration fields are optional connection options or shipping settings options that you would like merchants or API users to use with your carrier. For example, connection options include keys/passwords and are set for the entire store. Settings options can be set for each shipping zone and include which rates to offer, packaging type, packing method, and more. The following figures show how your setting options and connection options will appear in the merchant control panel when a merchant [connects your app to their store](#how-your-app-will-be-connected-to-a-store):
 
 ![FedEx Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/FedEx%20Settings.png 'Setting options')
@@ -112,12 +111,12 @@ Configuration fields are optional connection options or shipping settings option
 ![FedEx Connection Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/FedEx%20Connection%20Settings.png 'Connection options')
 
 
-#### How will configuration fields be used?
+#### How configuration fields are used
  
 - **API users** and **merchants** use connection options when they [connect your app to a store](#how-your-app-will-be-connected-to-a-store). They will use the settings options when defining shipping methods that use your carrier. 
 - **BigCommerce** will include values for connection options when we when we need you to [vaiidate connection options](#validate-connection-options) and [provide shipping rates](#provide-shipping-rates-to-bigcommerce). BigCommerce also sends settings options when we need you to provide shipping rates. 
 
-#### What are the types of configuration options?
+#### Types of configuration options
 These are the types of configuration (connection or settings) options that we currently allow:
 - Text
 - Checkbox 
@@ -127,7 +126,7 @@ These are the types of configuration (connection or settings) options that we cu
 
 If you would like configuration options to be set up for your carrier, specify the following for each configuration option when you [sign up](#sign-up):
 - **Label**: This is the text that will be displayed on the merchant's UI when they connect
-- **Code**: This is an identifying code for the configuration option. Use snake case for codes. For a list of where these codes will be sent, see [How configuration fields are used](#how-will-configuration-fields-be-used)
+- **Code**: This is an identifying code for the configuration option. Use snake case for codes. For a list of where these codes will be sent, see [How configuration fields are used](#how-configuration-fields-are-used)
 - **Required**: Whether or not the configuration option is required 
 - **Type**: Type of configuration option
 
@@ -199,7 +198,7 @@ title: Password
 ## Sign up
 After you finish developing the app, you can sign up to be a shipping provider. Submit your app to BigCommerce and BigCommerce will register your app as a shipping provider. 
 
-### What should you provide BigCommerce?
+### What you should provide BigCommerce
 Send an email to [ShippingProviderAPI@bigcommerce.com](mailto:shippingproviderapi@bigcommerce.com) that includes the following information:
 
 
@@ -211,31 +210,30 @@ Send an email to [ShippingProviderAPI@bigcommerce.com](mailto:shippingproviderap
 - Logo: A 70x70 pixel logo that represents the shipping carrier app
 - [Your service URLs](#your-service-urls) 
 - [Whether you prefer single-carrier or multi-carrier status](#single-carrier-versus-multi-carrier-shipping-providers)
-- [Configuration fields](#configuration-fields) (optional): For a list of items you need to provide, see [types of configuration options](#what-are-the-types-of-configuration-options).
+- [Configuration fields](#configuration-fields) (optional): For a list of items you need to provide, see [types of configuration options](#types-of-configuration-options).
 - Countries Available (optional): A list of countries where merchants can use your carrier. Merchants who have a store origin address outside this list will not be able to use your carrier. 
   
   In most cases, this list should be as broad as possible. For example, if your carrier operates worldwide, make it available worldwide. You can limit the countries further than what your shipping carrier offers. If you don't provide the countries available, your carrier is available worldwide (i.e. for every shipping origin). 
 
 After submitting your app, you will receive the a carrier ID. Both single-carrier and multi-carrier shipping providers receive one `carrier_id`.
 
-### What should you document for API users?
+### What you should document for API users
  
 We recommend that you document your carrier ID and configuration option codes for API users who wish to use your carrier. For example, API users will specify the `carrier_id` and `code` for connections options when they [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store). API users specify the `code` for settings options when they define your carrier's shipping method for their shipping zones.  
 
-## What's next?
 
-### How your app will be connected to a store
+## How your app will be connected to a store
 
 Once a merchant installs your app on their store, merchants and API users can connect your carrier to their store by using the connection options that you provided when you submitted your app.    
 
-#### How merchants will use your app
+### How merchants will use your app
 A merchant can navigate to the Shipping Manager UI to input carrier connection options. The UI displays the connection option's `label` that you provided when you submitted your app. The following figure is an example of how connection options are shown to merchants in the control panel:
 
 ![Connect Carrier via UI](https://storage.googleapis.com/bigcommerce-production-dev-center/images/connection%20options%20example.png 'Connection options in Shipping Manager') 
 
 After connecting your carrier, a merchant can define and enable a real-time shipping method for your carrier app in one or more shipping zones. 
 
-#### How API users will use your app
+### How API users will use your app
 API users can connect your carrier to the store by using the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. In the request, API users will send the carrier ID that you received when you signed up, as well as values for your app's connection options. Specifically, API users will specify the `code` for each connection option as a property under the `connection` object when they connect to your carrier, for example:    
 
 ```json title="Example POST request with X-Auth-Token header" lineNumbers
@@ -263,6 +261,8 @@ API users can then define and enable a shipping method for your carrier in one o
 <!-- theme:info  -->
 > #### Note 
 > If a merchant uninstalls your app from the store, the merchant removes all shipping methods and connection info for your carrier(s) from the store. BigCommerce will no longer be able to make quote requests and receive shipping quotes from your carrier.
+
+## API requests to your app
 
 ### Validate connection options
 
