@@ -76,9 +76,9 @@ Further steps in this guide require access to the Dev Portal, so keep it handy.
 
 ## Configure Stripe
 
-We've designed this integration to use Stripe Connect so that your app can use one connection to submit payments to multiple merchants' previously configured Stripe accounts. 
+We've designed this integration to use Stripe Connect so that your app can use one connection to submit payments to multiple merchants' previously configured Stripe accounts. See [Stripe Billing](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway?language=en_US#billing) for merchant configuration instructions.
 
-In fact, this is an obligate multi-tenant app, even if you build it for a single merchant's use. The respective architectures of the Stripe and BigCommerce APIs on which this app relies require the app to make charges using the **merchant-specific Stripe account's public key** and the **app-specific Stripe account's secret key**. 
+The respective architectures of the Stripe and BigCommerce APIs on which this app relies require the app to make charges using the **merchant-specific Stripe account's public key** and the **app-specific Stripe account's secret key**. 
 
 This arrangement provides the following benefits:
 * The merchant can change the Stripe account they use without breaking the integration.
@@ -121,15 +121,15 @@ To get started, do the following steps:
 
 3. Select **Platform or Marketplace**, then click the **Continue** button at the lower right.
 
-4. To configure the app-specific account's Stripe Connect settings, go to [**Settings > Connect settings**](https://dashboard.stripe.com/test/settings/connect).
+4. To configure the app-specific account's Stripe Connect settings, go to [**Settings > Connect settings**](https://dashboard.stripe.com/test/settings/connect). Under **Integration** perform the following steps:
    
-   a. Under **Test mode client ID**, copy the Test mode client ID. In a later step, you will use the client ID to update `NEXT_PUBLIC_STRIPE_CLIENT_ID` in the .env file.
+   a. Copy the **Test mode client ID**. In a later step, you will use the client ID to update `NEXT_PUBLIC_STRIPE_CLIENT_ID` in the .env file.
 
-   b. Under **OAuth settings**, enable **OAuth for Standard accounts**. 
+   b. Set **OAuth settings** to **OAuth for Standard accounts**. 
 
-   c. Under **Redirects**, add your app's callback URL.
+   c. Add **Redirects**. Click the **+ Add URI** button and add your app's callback URI.
    
-   ```http title="Your app's Stripe callback URL"
+   ```http title="Your app's Stripe callback URI"
    https://{ngrok_id}.ngrok.io/stripe/callback
    ```
 
