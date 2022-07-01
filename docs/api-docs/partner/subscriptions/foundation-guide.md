@@ -106,6 +106,8 @@ To get started, do the following steps:
    b. Give the new account a name that clearly marks it as app-specific; the idea is to differentiate it from the merchant-specific payment and subscription management account. This guide uses **BigCommerce App**.
    
    ![BigCommerce App](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BigCommerce-app-image.png "The Stripe dashboard's new account dropdown menu")
+   
+   c. Under **Get started with Stripe**, copy the **Secret key** to update the environment variable `STRIPE_SECRET_KEY` in the .env file.
 
 ### Enable Stripe Connect for Platforms
 
@@ -169,7 +171,7 @@ Update the following environment variables:
 | `BC_APP_CLIENT_ID` | The app API account's client ID | [View App Credentials](/api-docs/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
 | `BC_APP_SECRET` | The app API account's client secret | [View App Credentials](/api-docs/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
 | `NEXT_PUBLIC_STRIPE_CLIENT_ID` | The app-specific Stripe Connect API account client ID | see [Enable Stripe Connect for Platforms](#enable-stripe-connect-for-platforms) |
-| `STRIPE_SECRET_KEY` | The app-specific Stripe Connect API account client secret | see [Enable Stripe Connect for Platforms](#enable-stripe-connect-for-platforms) |
+| `STRIPE_SECRET_KEY` | The app-specific Stripe Connect API account client secret | see [Create Stripe Accounts](#create-stripe-accounts) |
 
 
 ## Run migration and start the server
