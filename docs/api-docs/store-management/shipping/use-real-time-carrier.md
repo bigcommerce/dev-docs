@@ -19,7 +19,7 @@ This article is a guide on how to manage carrier connections and real-time shipp
 
 ## Manage connections to shipping carriers 
 
-When a merchant installs a shipping provider app, the carrier appears in the merchant's control panel under real-time shipping methods, but is not connected to the store by default. You must first connect the carrier to the store.
+When a merchant installs a shipping provider app, the carrier appears in the **Settings > Shipping** section of the store control panel, in the **Real-time Shipping Quotes** view. However, you or the merchant must first connect the carrier before merchants or shoppers can request real-time quotes. The following section shows how you can use the API to connect the carrier to the store. 
 
 ![Connected vs Installed Carrier](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Installed%20vs%20Connected%20Carrier.png 'Connected versus Installed Carrier. USPS is connected, while FedEx is only installed.')  
 
