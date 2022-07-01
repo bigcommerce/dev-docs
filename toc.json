@@ -279,7 +279,7 @@
         {
           "type": "item",
           "title": "Use a Real-Time Carrier",
-          "href": "/api-docs/store-management/shipping/use-real-time-carrier",
+          "href": "/api-docs/store-management/shipping/real-time-carriers",
           "uri": "docs/api-docs/store-management/shipping/use-real-time-carrier.md"
         },
         {
