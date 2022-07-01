@@ -1,14 +1,10 @@
 # Become a Shipping Provider
 
-Shipping service providers who wish to offer shipping services and rates to BigCommerce merchants and shoppers can implement endpoints through BigCommerce. The Shipping Provider API provides many benefits, including the following:
+Shipping service providers who wish to offer shipping services and rates to BigCommerce merchants and shoppers can implement endpoints through BigCommerce. Benefits of using a shipping provider include the following:
 
 - Drop-shippers can require their own rates
 - Merchants can retrieve rates from custom shipping tables or in-house shipping rate calculation services 
 - Shoppers can create a combination of in-store pickup and shipping options
-
-Once shipping providers implement their endpoints and BigCommerce registers their shipping provider app, a merchant designated as store owner can install their app on the store. Merchants and API users can then connect the service on their store via the Shipping Manager UI and the [Shipping V2 API](/api-reference/store-management/shipping-api), respectively. Merchants and API users can define and enable a real-time shipping method for your carrier app in one or more shipping zones. They may set up a different shipping method for each shipping zone your carrier services. BigCommerce will then automatically retrieve the service options and rates using the provider's endpoints, displaying them to merchants in the store's control panel and to shoppers on the storefront. The following figure illustrates the workflow:
-
-![Shipping Provider Overview](https://storage.googleapis.com/bigcommerce-production-dev-center/images/shipping-provider-figure.png)
 
 This article guides developers on how to create and register a BigCommerce shipping provider app that will make their shipping rates available to merchants and shoppers on demand.+
 
@@ -16,9 +12,11 @@ This article guides developers on how to create and register a BigCommerce shipp
 
 * Get familiar with the [Introduction to Building Apps](/api-docs/getting-started/building-apps-bigcommerce/building-apps) article for building [single-click apps](/api-docs/apps/guide/types#single-click).
 
-
 ## Shipping app overview
 
+Once shipping providers implement their endpoints and BigCommerce registers their shipping provider app, a merchant designated as store owner can install their app on the store. Merchants and API users can then connect the service on their store via the Shipping Manager UI and the [Shipping V2 API](/api-reference/store-management/shipping-api), respectively. Merchants and API users can define and enable a real-time shipping method for your carrier app in one or more shipping zones. They may set up a different shipping method for each shipping zone your carrier services. BigCommerce will then automatically retrieve the service options and rates using the provider's endpoints, displaying them to merchants in the store's control panel and to shoppers on the storefront. The following figure illustrates the workflow:
+
+![Shipping Provider Overview](https://storage.googleapis.com/bigcommerce-production-dev-center/images/shipping-provider-figure.png)
 ![Shipping App Overview](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Shipping%20App%20Overview.png 'Shipping Provider API')
 
 ### Single-carrier versus multi-carrier shipping providers
