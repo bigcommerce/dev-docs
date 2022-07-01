@@ -25,14 +25,14 @@ When a merchant installs a shipping provider app, the carrier appears in the mer
 
 ### Create a connection
 
-To use the API to connect with a carrier, use the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. Make a request containing the ID of the carrier and any configuration fields that the carrier requires. Configuration fields are unique to each carrier. 
+To use the API to connect with a carrier, use the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. Make a request containing the ID of the carrier and any connection fields that the carrier requires. Connection fields are unique to each carrier. 
 
 <!--
 type: tab
 title: Request
 -->
 
-```json title="Example POST request with X-Auth-Token header" lineNumbers
+```json title="Example request: Create a connection" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/carrier/connection
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -52,7 +52,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example POST response" lineNumbers
+```json title="Example response: Create a connection" lineNumbers
 204 HTTP Status Code. No content
 ```
 
@@ -65,7 +65,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example POST request with X-Auth-Token header" lineNumbers
+```json title="Example request: Create a connection without connection fields" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/carrier/connection
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -82,7 +82,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example POST response" lineNumbers
+```json title="Example response: Create a connection without connection fields" lineNumbers
 204 HTTP Status Code. No content
 ```
 
@@ -97,7 +97,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example PUT request with X-Auth-Token header" lineNumbers
+```json title="Example request: Update a connection" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/carrier/connection
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -117,7 +117,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example PUT response" lineNumbers
+```json title="Example response: Update a connection" lineNumbers
 204 HTTP Status Code. No content
 ```
 
@@ -132,7 +132,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example DELETE request with X-Auth-Token header" lineNumbers
+```json title="Example request: Delete a connection" lineNumbers
 DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/carrier/connection
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -148,7 +148,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example DELETE response" lineNumbers
+```json title="Example response: Delete a connection" lineNumbers
 204 HTTP Status Code. No content
 ```
 
@@ -171,7 +171,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example POST request with X-Auth-Token header" lineNumbers
+```json title="Example request: Create a real-time shipping method" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/zones/{zone_id}/methods
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -203,7 +203,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example POST response" lineNumbers
+```json title="Example response: Create a real-time shipping method" lineNumbers
 {
    "id": "29",
    "name": "USPS",
@@ -241,7 +241,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example PUT request with X-Auth-Token header" lineNumbers
+```json title="Example request: Update a real-time shipping method" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/zones/{zone_id}/methods/{method_id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -271,7 +271,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example PUT response" lineNumbers
+```json title="Example response: Create a real-time shipping method" lineNumbers
 {
    "id": "29",
    "name": "USPS",
@@ -304,7 +304,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example GET request with X-Auth-Token header" lineNumbers
+```json title="Example request: Get a real-time shipping method" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/zones/{zone_id}/methods/{method_id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -316,7 +316,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example GET response" lineNumbers
+```json title="Example response: Get a real-time shipping method" lineNumbers
 {
   "id": "29",
   "name": "USPS",
@@ -354,7 +354,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example DELETE request with X-Auth-Token header" lineNumbers
+```json title="Example request: Delete a real-time shipping method" lineNumbers
 DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/zones/{zone_id}/methods/{method_id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -366,7 +366,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example DELETE response" lineNumbers
+```json title="Example response: Delete a real-time shipping method" lineNumbers
 204 HTTP Status Code. No content
 ```
 
