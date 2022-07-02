@@ -55,7 +55,9 @@ On Stencil storefronts, you can check whether any customer is signed in before r
 
 ## Resources
 
-### Articles
+### Reference
+
+* [Get current customer](/api-reference/storefront/current-customers/current-customers/getcurrentcustomer) endpoint
 * [API Accounts and OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication)
 * [Authentication and Example Requests](/api-docs/getting-started/authentication)
 * [#if Handlebars Helpers](/stencil-docs/reference-docs/handlebars-helpers-reference#if)
