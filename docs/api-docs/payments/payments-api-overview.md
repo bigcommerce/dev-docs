@@ -31,41 +31,43 @@ The following table lists the payment gateways that are compatible with our publ
 
 | Payment Gateway   | Stored instruments | Raw card data   |
 |:------------------|:------------------:|:---------------:|
-| Adyen             |       | &times; |
-| AdyenV2           | &times; |       |
-| Authorize.net     | &times; | &times; |
-| Barclaycard Fuse  | &times; | &times; |
-| Bolt              | &times; | &times; |
-| CardConnect       |       | &times; |
-| Chase Integrated Payments |         | &times; |
-| Chase Merchant Services   | &times; |  &times;|
-| Checkout.com      | &times; | &times; |
-| Commonwealth Bank | &times; | &times; |
-| Cybersource       | &times; | &times; |
-| Eway Rapid        |       | &times; |
-| First Data Payeezy Gateway |       | &times; |
-| Heartland Payment Systems  |       | &times; | 
-| MIGS              |       | &times; |
-| Mollie            | &times; |       |
-| Moneris           | &times; | &times; |
-| MyVirtualMerchant | &times; | &times; |
-| NMI               |       | &times; |
-| Paymetric         | &times; | &times; |
-| PayPal (Commerce Platform)  |       | &times; |
-| PayPal Powered by Braintree | &times; | &times; |
-| PayPal Payments Pro (Payflow Edition) UK |       | &times; |
-| PayPal Payments Pro (Payflow Edition) US |       | &times; |
-| QuickBooks Payments         |       | &times; |
-| Sage Pay/Protx VSP Direct   |       | &times; |
-| SecureNet        |       | &times; |
-| Stripe           | &times; | &times; |
-| StripeV3         | &times; | &times; |
-| USA ePay         |       | &times; |
-| Vantiv           |       | &times; |
-| Vantiv Core      |       | &times; |
-| Windcave         |       | &times; |
-| Worldpay         |       | &times; |
-| Worldpay Core    |       | &times; |
+| Adyen             |                    | &check;         |
+| AdyenV2           | &check;            |                 |
+| Authorize.net     | &check;            | &check;         |
+| Barclaycard Fuse  | &check;            | &check;         |
+| Bolt              | &check;            | &check;         |
+| CardConnect       |                    | &check;         |
+| Chase Integrated Payments |            | &check;         |
+| Chase Merchant Services   | &check;    | &check;         | 
+| Checkout.com      | &check;            | &check;         |
+| Commonwealth Bank | &check;            | &check;         |
+| Cybersource       | &check;            | &check;         |
+| Cybersource V2    | &check;            | &check;         |
+| Eway Rapid        |                    | &check;         |
+| First Data Payeezy Gateway |           | &check;         |
+| Heartland Payment Systems  |           | &check;         | 
+| MIGS              |                    | &check;         |
+| Mollie            | &check;            |                 |
+| Moneris           | &check;            | &check;         |
+| MyVirtualMerchant | &check;            | &check;         |
+| NMI               |                    | &check;         |
+| Opayo by Elavon   | &check;            | &check;         |
+| Paymetric         | &check;            | &check;         |
+| PayPal (Commerce Platform)  |          | &check;         |
+| PayPal Powered by Braintree | &check;  | &check;         |
+| PayPal Payments Pro (Payflow Edition) UK |     | &check; |
+| PayPal Payments Pro (Payflow Edition) US |     | &check; |
+| QuickBooks Payments                      |     | &check; |
+| Sage Pay/Protx VSP Direct                |     | &check; |
+| SecureNet        |                             | &check; |
+| Stripe           | &check;                     | &check; |
+| StripeV3         | &check;                     | &check; |
+| USA ePay         |                             | &check; |
+| Vantiv           |                             | &check; |
+| Vantiv Core      |                             | &check; |
+| Windcave         |                             | &check; |
+| Worldpay         |                             | &check; |
+| Worldpay Core    |                             | &check; |
 
 To learn more about the BigCommerce-compatible features of these gateways, see [All Available Payment Gateways](https://support.bigcommerce.com/s/article/Available-Payment-Gateways#all-available). 
 
@@ -109,6 +111,22 @@ Accept: application/json
 ```json title="Example response: Get payment methods" lineNumbers
 {
   "data": [
+    {
+      "id": "bigcommerce.gift_certificate",
+      "name": "Gift Certificate",
+      "test_mode": false,
+      "type": "gift_certificate",
+      "supported_instruments": [],
+      "stored_instruments": []
+    },
+    {
+      "id": "bigcommerce.store_credit",
+      "name": "Store Credit",
+      "test_mode": false,
+      "type": "store_credit",
+      "supported_instruments": [],
+      "stored_instruments": []
+    },
     {
       "id": "stripe.card",
       "name": "Stripe",
@@ -263,7 +281,11 @@ Content-Type: application/json
 }
 ```
 
-If the purchase was successful, the response returns a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error codes](#error-codes) for troubleshooting.
+If the purchase was successful, the response returns a status of success. The order is then automatically moved to an **Awaiting Fulfillment** status. If you get a different response, see [Error codes](#error-codes) for troubleshooting.
+
+In the case of store credit and gift certificates:
+* If store credit and/or gift certificate covers the entire order amount, the order will be moved to an **Awaiting Fulfillment** status.
+* The order will stay in **Pending** status until it is fully paid. You can make the remaining order payment using other payment methods (credit card, stored card, or stored PayPal account) in the next payment request.
 
 
 ## Credit cards
@@ -346,7 +368,7 @@ Content-Type: application/json
 }
 ```
 
-If the purchase was successful, the response returns a status of success. The order is then automatically moved to an Awaiting Fulfillment status. If you get a different response, see [Error codes](#error-codes) for troubleshooting.
+If the purchase was successful, the response returns a status of success. The order is then automatically moved to an **Awaiting Fulfillment** status. If you get a different response, see [Error codes](#error-codes) for troubleshooting.
 
 ### Storing credit cards
 
@@ -487,7 +509,7 @@ You can create orders using the [Server to Server API Endpoints](/api-reference/
 | `30050` | Payment instrument could not be saved. | Credit card information is incorrect. | Check that the card information is correct.<br> * `expiry_month` is two digits<br>* `expiry_year` is four digits |
 | `30051` | That stored payment instrument could not be found. Please try a different payment option. |  The card requested for payment is not associated to the shopper.| Use [Get Payment Methods](/api-reference/store-management/payment-processing/accepted-methods/paymentsmethodsget) to see available vaulted cards |
 | `30100` | Payment access token could not be created. | N/A|N/A|
-| `30101` | Order is invalid. | The order is in the wrong status. | Orders must be in Incomplete Status with a `status_id:0`. <br>  The order must be created by the Checkout SDK, Checkout API, or V2 Orders API. Orders created in the control panel and set to an incomplete status will return this error. |
+| `30101` | Order is invalid. | The order is in the wrong status. | Orders must be in **Incomplete** Status with a `status_id:0`. <br>  The order must be created by the Checkout SDK, Checkout API, or V2 Orders API. Orders created in the control panel and set to an **Incomplete** status will return this error. |
 | `30102` | Your card details could not be verified. Please double check them and try again. | The card information provided was incorrect.<br>The token provided was incorrect. | Check that the shopper information provided is correct.<br>Make sure the token in the authorization header field is correct. |
 | `30103` | Your card has expired. Please try again with a valid card. |N/A | N/A|
 | `30104` | There was a problem processing your card. Please contact your card issuer. |N/A |N/A|
@@ -518,11 +540,15 @@ Yes, checkouts and orders with more than one consignment can use the Payments AP
 
 **Is store credit supported?**
 
-Store credit is not a supported payment method with the Payments API. Store credit can still be used by the shopper on the storefront, part of the control panel, or with the Checkout API.
+Yes, the Payments API supports the store credit payment method under the following conditions: 
+- The shopper is transacting in the store's default currency. 
+- The shopper has a positive store credit balance. 
+
+Store credit is _not_ available for orders created by guest shoppers.
 
 **Are gift certificates supported?**
 
-The Payment Processing API is for processing payments through a store's payment gateway. Since BigCommerce store gift cards are not processed through a payment gateway, they can not be processed through the Payment Processing API.
+Yes, the Payments API supports the gift certificate payment method. However, it is only available when a store has the gift certificate feature enabled for the order’s transactional currency.
 
 **Are offline payment methods supported?**
 The Payments API processes credit card payments through supported payment gateways; it does not expose methods for processing [offline payment methods](https://support.bigcommerce.com/s/article/Offline-Payment-Methods) such as cash on delivery.
