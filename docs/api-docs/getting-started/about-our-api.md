@@ -124,9 +124,9 @@ The body of a JSON request is an object containing a set of key-value pairs. A s
 
 ### Responses
 
-<!-- theme: info -->
-> #### Lowercase response headers
-> As of January 2022, some HTTP response headers return with lowercase names. Previously, they had a mixture of uppercase and lowercase characters. Read more about [best practices](/api-docs/getting-started/best-practices) for handling case-insensitive headers.
+#### Response headers
+
+HTTP response header names are case-insensitive; see the [HTTP specification on field names](https://www.rfc-editor.org/rfc/rfc9110.html#name-field-names) for more information. For example, your application may receive `x-rate-limit-requests-left` rather than `X-Rate-Limit-Requests-Left`, so plan your implementation accordingly. Most open source HTTP clients treat headers with the appropriate case insensitivity. 
 
 
 | Header | Possible Values | Description | Example |

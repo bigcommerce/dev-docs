@@ -28,10 +28,6 @@ Examples of non-breaking changes include:
 
 We encourage you to write robust, resilient code that will not break or leak memory if an endpoint begins to return additional fields.
 
-## >>>VERB Response headers
-
-HTTP response header names are case-insensitive. For example, your application may receive `x-rate-limit-requests-left` rather than `X-Rate-Limit-Requests-Left`. Per the [HTTP specification](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2), it's a best practice for all customer-facing software to treat HTTP header names as case-insensitive. Most HTTP clients already treat headers with the appropriate case insensitivity. >>> closing connective sentence
-
 ## Use webhooks to listen for changes
 
 To keep data in your application up-to-date, [webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to periodic API polling. Use an [OAuth API account](/api-docs/getting-started/authentication/rest-api-authentication) to register and subscribe to webhook-enabled events that are relevant to your application.
@@ -95,6 +91,10 @@ Certain BigCommerce API resources rate-limit concurrent requests. This is to ens
 
 
 ### Playing nicely with the platform
+
+<!-- theme: info -->
+> #### Case-insensitive response headers
+> As of January 2022, BigCommerce header field names became functionally case-insensitive. Learn more about BigCommerce [response header conventions](/api-docs/getting-started/about-our-api#response-headers).
 
 Every API response’s HTTP headers give you full visibility into your position in the rate-limiting algorithm:
 
