@@ -125,7 +125,7 @@ Parse the `X-Rate-Limit-Time-Reset-Ms` header to determine how long you have to 
 Your client can sleep on the specified interval:
 
 ```php title="PHP example for delaying response"
-   $milliseconds = $response->getHeader("X-Rate-Limit-Time-Reset-Ms");
+    $milliseconds = $response->getHeader("X-Rate-Limit-Time-Reset-Ms");
     usleep($milliseconds * 1000);
 ```
 

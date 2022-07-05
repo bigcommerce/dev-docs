@@ -113,8 +113,8 @@ Store Management and Payments API requests require the `Accept`, `X-Auth-Token`,
 | `Content-Type` | `application/json` | The MIME type of the response, dependent on the extension of the endpoint that was requested. | `application/json` |
 | `Content-Location` | A URI | Sent if the request was redirected. | `/api/v2/orders/5.json` |
 | `Location` | A URI | The URI of a newly created resource. Sent with a `201 Created` response. | `/api/v2/products/7` |
-| `X-Retry-After` | integer | Rate limited response, indicating the number of seconds before the quota refreshes. See [Rate Limits](/api-docs/getting-started/basics/best-practices#best-practices_rate-limits) for more information. | `15` |
-| `X-BC-ApiLimit-Remaining` | integer | The number of API requests remaining for the current period (rolling one hour). See [Rate Limits](/api-docs/getting-started/basics/best-practices#best-practices_rate-limits) for more information. | `987` |
+| `X-Retry-After` | integer | Rate limited response, indicating the number of seconds before the quota refreshes. See [Rate Limits](/api-docs/getting-started/best-practices#api-rate-limits) for more information. | `15` |
+| `X-BC-ApiLimit-Remaining` | integer | The number of API requests remaining for the current period (rolling one hour). See [Rate Limits](/api-docs/getting-started/best-practices#api-rate-limits) for more information. | `987` |
 | `X-BC-Store-Version` | A version number | The version of BigCommerce on which the store is running. This header is available on versions 7.3.6+. | ` 7.3.6` |
 | `Content-Encoding` | `gzip` | Allows API clients to request content to be compressed before being sent back in the response to an API request. | `gzip` |
 | `Transfer-Encoding` | `chunked` | Specifies the form of encoding used to transfer the resource. | `chunked`
