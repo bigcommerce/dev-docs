@@ -28,6 +28,10 @@ Examples of non-breaking changes include:
 
 We encourage you to write robust, resilient code that will not break or leak memory if an endpoint begins to return additional fields.
 
+## >>>VERB Response headers
+
+HTTP response header names are case-insensitive. For example, your application may receive `x-rate-limit-requests-left` rather than `X-Rate-Limit-Requests-Left`. Per the [HTTP specification](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2), it's a best practice for all customer-facing software to treat HTTP header names as case-insensitive. Most HTTP clients already treat headers with the appropriate case insensitivity. >>> closing connective sentence
+
 ## Use webhooks to listen for changes
 
 To keep data in your application up-to-date, [webhooks](/api-docs/getting-started/webhooks/about-webhooks) provide a great alternative to periodic API polling. Use an [OAuth API account](/api-docs/getting-started/authentication/rest-api-authentication) to register and subscribe to webhook-enabled events that are relevant to your application.
@@ -63,7 +67,7 @@ Apps that authenticate with OAuth are rate-limited based on a quota that is refr
 | Plus & Standard plans| 20k per hour (150 / 30sec) | 
 
 <!-- theme: info -->
-> #### Note
+> #### Unlimited rate limit plans
 >The **Unlimited** rate limit on BigCommerce Enterprise plans means that stores on this plan will not be artificially rate-limited on the basis of API-requests-per-unit-of-time. However, there are physical limits to the infrastructure which may limit the maximum throughput of requests on any given API endpoint. BigCommerce also reserves the right to limit unreasonable or abusive API activity in the interest of platform stability, per our [Terms of Service](https://www.bigcommerce.com/terms/api-terms/).
 
 Each request to the API consumes one available request from the quota. When an app hits the quota limit, subsequent requests are rejected until the quota is refreshed.

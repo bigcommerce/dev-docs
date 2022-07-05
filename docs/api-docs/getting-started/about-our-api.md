@@ -104,7 +104,7 @@ Store Management and Payments API requests require the `Accept`, `X-Auth-Token`,
 
 <!-- theme: info -->
 > #### Lowercase response headers
-> As of January 2022, some HTTP response headers return with lowercase names. Previously, they had a mixture of uppercase and lowercase characters.
+> As of January 2022, some HTTP response headers return with lowercase names. Previously, they had a mixture of uppercase and lowercase characters. Read more about [best practices](/api-docs/getting-started/best-practices) for handling case-insensitive headers.
 
 | Header | Possible Values | Description | Example |
 |:-------|:----------------|:------------|:--------|
