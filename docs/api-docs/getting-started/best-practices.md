@@ -51,13 +51,19 @@ The [BigCommerce Ruby API](https://github.com/bigcommerce/bigcommerce-api-ruby) 
 
 ## Marketplace apps
 
+<!-- ### Consider multi-storefront support
+brief pitch, link to the [MSF App Compatibility and Optimization](/api-docs/apps/multi-storefront) article.
+ -->
+
+### Offer multi-user access
+
 Merchants often have more than one person who can access a store's control panel. BigCommerce allows additional users to access an app when the store owner has granted them appropriate permissions. The requirements for supporting multi-user app access are:
-* Tokens must be stored against the `store_hash` and not against user info.
-* Within the [Developer Portal](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-app-api-credentials) workspace, you must enable your app’s **Technical** > **Multiple Users** option.
+* The app must save the API account access token for each store with its `store_hash`, rather than a user's info.
+* In the app's [Developer Portal profile](https://devtools.bigcommerce.com), you must [enable multiple users](/api-docs/apps/guide/developer-portal#edit-technical-details).
 
 In the payload returned when a user launches an app, users are distinguished by `owner_email` versus `user_email`. If these two emails match, the user is the store owner.
 
-If you wish to enable user removal, you can do so by filling in your app’s **Technical** > **Remove User Callback URL** field in the Developer Portal. Enabling user removal is optional. For more advanced implementations, you can enable the store owner to grant specific permissions to different non-admin users. For example, `person1@email.com` could be restricted to only editing product inventory but not viewing orders. If you decide to include user permission in your app, it’s a great feature to advertise.
+Enabling user removal is optional. If you want merchants to be able to remove users, you can do so by writing a `remove_user` callback and [adding its URL](/api-docs/apps/guide/developer-portal#edit-technical-details) to your app's [Developer Portal profile](https://devtools.bigcommerce.com).  For more advanced implementations, you can enable the store owner to grant specific permissions to different non-admin users. For example, `person1@example.com` could have permission to edit product inventory but not to view orders. If you decide to implement user permissions in your app, it’s a great feature to advertise.
 
 For more information, see [Multi-User Support](/api-docs/apps/guide/intro#multi-user-support).
 
