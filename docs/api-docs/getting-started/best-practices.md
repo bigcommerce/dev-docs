@@ -38,6 +38,11 @@ To keep data in your application up-to-date, [webhooks](/api-docs/getting-starte
 
 When an event your app is listening for occurs, BigCommerce sends a payload with a few identifying details relevant the event. See a list of [webhook events and their payloads](/api-docs/store-management/webhooks/webhook-events). Use the payload data points to make subsequent API requests for more details.
 
+### Avoid polling the Storefront Cart API 
+Client-side applications should avoid polling the [Storefront Cart API](/api-reference/cart-checkout/storefront-cart-api) on interval. Hundreds of thousands of browsers could potentially poll the Storefront Cart API at any given time, causing a significant load increase to BigCommerce's servers. We may take action against a store using this practice to prevent service interruptions to other stores.
+
+Consider writing a server-side application to subscribe to the [Cart Webhook](/api-docs/store-management/webhooks/webhook-events#carts) as an alternative to polling the Storefront Cart API, and only query the Storefront Cart API as a response to user input. Storing cart information in the browser cache is an alternative method for keeping cart information up to date across browser tabs.
+
 ## Thread API requests
 
 You can use threaded requests in order to quickly update information in an API. Threaded requests allow you to send multiple requests at one time. They can come from a different open connection or multiple requests to the same resource.
@@ -134,11 +139,6 @@ You might wish to increase the amount of work your application can do in a given
 <!-- theme: warning -->
 > #### Note
 > Endpoints that accept bulk requests may have specific limitations on the number of accepted parallel requests. For example, making multiple parallel `upsert` requests to [`/pricelists/{price_list_id}/records`](/api-reference/store-management/price-lists/price-lists-records/setpricelistrecordcollection) will result in a `429` error response. These limitations are documented at the operation level in the API reference.
-
-### Making requests with the Storefront Cart API 
-Client-side applications should avoid polling the [Storefront Cart API](/api-reference/cart-checkout/storefront-cart-api) on interval. Hundreds of thousands of browsers could potentially poll the Storefront Cart API at any given time, causing a significant load increase to BigCommerce's servers. We may take action against a store using this practice to prevent service interruptions to other stores.
-
-Consider writing a server-side application to subscribe to the [Cart Webhook](/api-docs/store-management/webhooks/webhook-events#carts) as an alternative to polling the Storefront Cart API, and only query the Storefront Cart API as a response to user input. Storing cart information in the browser cache is an alternative method for keeping cart information up to date across browser tabs.
 
 ## Platform limits
 
