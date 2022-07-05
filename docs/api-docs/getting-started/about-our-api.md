@@ -7,8 +7,8 @@ If you're new to building BigCommerce apps, we recommend that you start by explo
 ## Available APIs
 BigCommerce has several APIs that let you manage store data, authenticate customers, make client-side queries for product information, and more.
 
-### REST APIs (V2 & V3)
-BigCommerce's REST APIs (for example, the [Catalog API](/api-reference/catalog/catalog-api)) allow you to manage store data and take actions that mimic store administrator activity. Some example uses of the REST APIs are:
+### REST Store Management APIs
+BigCommerce's Store Management and Payment APIs (for example, the [Catalog API](/api-reference/catalog/catalog-api)) allow you to manage transactions, store data, and store administrator activity. Example use cases include the following:
 * Add and update products in a store
 * Update a customer's order and change the order status
 * Create a coupon
@@ -43,7 +43,7 @@ BigCommerce's [Current Customer API](/api-docs/customers/current-customer-api) a
 
 ## API authentication and context
 
-Make BigCommerce API requests in the context of the storefront, BigCommerce API server, or app server. Each of the following APIs listings links to its section of our [Authentication and Example Requests](/api-docs/getting-started/authentication) article, which contains the base URL of the API in question.
+Make BigCommerce API requests in the context of the **storefront**, BigCommerce **API server**, or **app server**. Each of the following APIs listings links to its section of our [Authentication and Example Requests](/api-docs/getting-started/authentication) article, which contains the base URL of the API in question.
 
 | Authentication and Example Requests | Context |
 |:------------------------------------|:--------|
@@ -87,11 +87,19 @@ Make BigCommerce API requests in the context of the storefront, BigCommerce API 
 | [Widgets](/api-reference/storefront/widgets-api) | Programmatically inject content into a BigCommerce theme. |
 | [Wishlist](/api-reference/customer-subscribers/wishlist-api) | Wishlist API allows a developer to create and manage customer wishlists. |
 
-## REST APIs (V2 & V3)
-### Request Headers
+## Anatomy of REST Store Management APIs
+
+The following sections describe the configuration of well-formed requests and responses to and from BigCommerce-hosted REST APIs.
+
+### Media types
+
+A media type is the format of the request or response body. BigCommerce APIs accept requests and send responses in JSON. Encode requests using the UTF-8 character set; other character sets can have unpredictable results.
+
+### Requests
+
+#### Request headers
 
 Store Management and Payments API requests require the `Accept`, `X-Auth-Token`, and `Content-Type` headers.
-
 
 | Header | Allowed Values | Description | Example |
 |:-------|:---------------|:------------|:--------|
@@ -100,11 +108,26 @@ Store Management and Payments API requests require the `Accept`, `X-Auth-Token`,
 | `User-Agent` | String | While it is not required, we ask that you specify a user agent which identifies your integration/client with your requests. |
 | `X-Auth-Token` | String | Access token authorizing the app to access resources on behalf of a user. |
 
-### Response headers
+#### Request content type
+When performing a request that contains a body, specify the type of content you are sending with the `Content-Type` header. This typically applies to `PUT` and `POST` requests.
+
+#### Request Structure
+The body of a JSON request is an object containing a set of key-value pairs. A simple representation of a product object is:
+
+```json title="Example request body: Product object" lineNumbers
+{
+ "id": 5,
+ "name": "iPod",
+ "description": "A portable MP3 music player."
+}
+```
+
+### Responses
 
 <!-- theme: info -->
 > #### Lowercase response headers
 > As of January 2022, some HTTP response headers return with lowercase names. Previously, they had a mixture of uppercase and lowercase characters. Read more about [best practices](/api-docs/getting-started/best-practices) for handling case-insensitive headers.
+
 
 | Header | Possible Values | Description | Example |
 |:-------|:----------------|:------------|:--------|
@@ -123,36 +146,14 @@ Store Management and Payments API requests require the `Accept`, `X-Auth-Token`,
 | `X-Rate-Limit-Time-Reset-Ms` | number | Shows how many milliseconds are remaining in the window. In this case, 3000 milliseconds – so, 3000 milliseconds after this request, the API quota will be refreshed. |`30000 `|
 | `X-Rate-Limit-Time-Window-Ms` | number | Shows the size of your current rate-limiting window. | `9762` |
 
-### Media types
-
-A media type is the format of the request or response body. BigCommerce APIs accept requests and send responses in JSON. Encode requests using the UTF-8 character set; other character sets can have unpredictable results.
-
-
-### Content types
-
-### Request content type
-When performing a request that contains a body, specify the type of content you are sending with the `Content-Type` header. This typically applies to `PUT` and `POST` requests.
-
-### Response content type
+#### Response content type
 When requesting a resource that returns a body, specify the type of content you want to receive with the `Accept` header. Alternatively, you can supply an extension to the resource you're requesting.
-
 
 The priority in which you can process these methods are:
 * Accept header high-priority types (eg. `Accept: application/json`) extensions on the resource (e.g. `customers.json`).
 * Accept header low priority types (priorities less than 1, e.g. `Accept: application/json;q=0.9`)
 
-### Request Structure
-The body of a JSON request is an object containing a set of key-value pairs. A simple representation of a product object is:
-
-```json title="Example request body: Product object" lineNumbers
-{
- "id": 5,
- "name": "iPod",
- "description": "A portable MP3 music player."
-}
-```
-
-### Response structure
+#### Response structure
 Responses are structured similarly to requests. If a request returns a single object, then the response will contain a single object containing the fields for that resource.
 
 ```json title="Example response: Get a category" lineNumbers
