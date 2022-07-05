@@ -57,7 +57,7 @@ Include the URL of the storefront you will be making the request from as the `al
 
 **`POST`** `https://api.bigcommerce.com/stores/{store_hash}/v3/storefront/api-token`
 
-```javascript
+```javascript title="" lineNumbers
 {
   "channel_id": 1,            // int (only ID 1 currently accepted)
   "expires_at": 1602288000,   // double utc unix timestamp (required)
@@ -70,7 +70,7 @@ Include the URL of the storefront you will be making the request from as the `al
 ### Create sample request in the browser
 While viewing your storefront in a browser, navigate to the integrated JavaScript console; for example, [Google Chrome's Console](https://developers.google.com/web/tools/chrome-devtools/console). Use it to run the following code after entering your API token in the authorization header, and adding a valid [Product ID](/api-reference/catalog/catalog-api/products/getproductbyid) for the `entityId`:
 
-```javacsript
+```javascript title="" lineNumbers
    fetch('/graphql', {
         method: 'POST',
         mode: 'cors',
@@ -106,6 +106,5 @@ While viewing your storefront in a browser, navigate to the integrated JavaScrip
 ```
 
 ## Customer Login API
-The Customer Login API is a Server-to-Server API, which means to make requests against it, you will need a backend service. To view a sample request, see sample code within our [PHP client](
-https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421).
+The Customer Login API is a Server-to-Server API, which means to make requests against it, you will need a backend service. To view a sample request, see sample code within our [PHP client](https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421).
 
