@@ -169,7 +169,7 @@ After you have successfully created a test configuration, you need to configure 
 ## Declare environment variables
 
 <!-- theme: info -->
-> #### Note on naming conventionw
+> #### Note on naming conventions
 > In some places, this guide and app template code refer to a Stripe API account's public key as a *client ID*, and its secret key as a *client secret*.
 
 1. Create a `.env` file in the root directory of your project.
