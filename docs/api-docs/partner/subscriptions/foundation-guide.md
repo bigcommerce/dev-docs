@@ -139,7 +139,7 @@ To get started, complete the following steps:
 
 5. Under **Integration** do the following:
    
-   a. Copy the **Test mode client ID** and make sure to store it at a safe place. You will use the client ID in a later step to update `NEXT_PUBLIC_STRIPE_CLIENT_ID` in the .env file.
+   a. Copy the **Test mode client ID** and make sure to store it at a safe place. In a later step, you'll set the client ID as the value of the `NEXT_PUBLIC_STRIPE_CLIENT_ID` variable in the `.env` file.
 
    b. Set **OAuth settings** to **OAuth for Standard accounts**. 
 
