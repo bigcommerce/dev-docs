@@ -102,7 +102,7 @@ For development you will use two Stripe accounts:
 
 <!-- theme: info -->
 > #### Multi-tenant functionality
-> During installation, the app UI prompts the merchant to enter the keys for their Stripe account so that the app can initiate an authorization flow for the OAuth grant code to link the merchant's Stripe account to the app's Stripe Connect-enabled account. 
+> During installation, the app UI prompts the merchant to enter the keys for their store's Stripe account so that the app can initiate an OAuth authorization code grant flow to link the merchant's Stripe account to the app's Stripe Connect-enabled account. 
 
 ### Create Stripe accounts
 
