@@ -33,7 +33,9 @@ npm install
 ```
 ## Create an HTTPS tunnel
 
-After you have successfully installed the packages for your app, need to serve your app over a fully-qualified publicly accessible URL to connect the app to your sandbox store. We recommend using [ngrok](https://ngrok.com/docs), a free tool that uses HTTP tunneling to securely expose `localhost` ports to the public internet. 
+After you successfully install the packages, prepare to expose the app to the internet so you can install it on your sandbox store. 
+
+Because you must serve apps over fully-qualified publicly accessible URLs, this guide uses a tool called [ngrok](https://ngrok.com/docs) to open HTTP tunnels that securely expose `localhost` ports to the internet. 
 
 To get started with ngrok, read the [Create an HTTPS Tunnel](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#create-an-https-tunnel) tutorial.
 
