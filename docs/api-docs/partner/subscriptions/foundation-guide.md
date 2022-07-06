@@ -79,7 +79,7 @@ To develop and test the app, you need to install it on your [sandbox store](#con
 
 5. Click **Update & Close**, then click **Confirm Update** to acknowledge the OAuth scopes you configured.
 
-Make sure to remain signed into the Dev Portal
+Make sure to remain signed in to the Dev Portal.
 
 ## Configure Stripe
 
