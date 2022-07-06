@@ -120,7 +120,7 @@ To get started, complete the following steps:
    
    ![BigCommerce App](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BigCommerce-app-image.png "The Stripe dashboard's new account dropdown menu")
    
-   c. Under **Get started with Stripe**, copy the **Secret key** and make sure to store it in a safe place. In a later step, you will use the secret key to update the `STRIPE_SECRET_KEY` environment variable in the .env file.
+   c. Under **Get started with Stripe**, copy the **Secret key** and make sure to store it in a safe place. In a later step, you will use the secret key to update the `STRIPE_SECRET_KEY` environment variable in the `.env` file.
 
 ### Enable Stripe Connect for Platforms
 
