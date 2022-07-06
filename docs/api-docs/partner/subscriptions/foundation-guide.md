@@ -39,7 +39,7 @@ Because you must serve apps over fully-qualified publicly accessible URLs, this 
 
 To get started with ngrok, read the [Create an HTTPS Tunnel](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#create-an-https-tunnel) tutorial.
 
-After you have successfully started ngrok, make sure to note your ngrok ID. You will use it later.
+After you successfully start ngrok, make sure to note your ngrok ID. You will use it later.
 
 ## Create an app profile
 
