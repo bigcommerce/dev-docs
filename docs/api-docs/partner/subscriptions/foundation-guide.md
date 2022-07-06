@@ -51,7 +51,7 @@ To develop and test the app, you need to install it on your [sandbox store](#con
 
 1. Sign in to the Dev Portal. Then follow the directions to [create an app](/api-docs/apps/guide/developer-portal#create-an-app?source=subscription-foundation). Enter the following values on the **Technical** tab.
 
-2. In the **Callback URLs** section, supply the following URLs, replacing `{ngrok_id}` with your ngrok ID which you noted in an earlier step.
+2. In the **Callback URLs** section, supply the following URLs. Replace `{ngrok_id}` with the ngrok ID you noted in an earlier step.
 
 | Callback | URL value |
 |:---------|:----|
