@@ -43,7 +43,7 @@ After you successfully start ngrok, make sure to note your ngrok ID. You will us
 
 ## Create an app profile
 
-As a next step, you need to create a draft app to generate app API account credentials. 
+As a next step, you need to create an app profile to generate app API account credentials. 
 
 To develop and test the app, you need to install it on your [sandbox store](#configure-accounts). 
 
