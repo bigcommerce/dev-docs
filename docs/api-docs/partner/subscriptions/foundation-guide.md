@@ -231,7 +231,7 @@ To use an alternate SQL database, do the following:
 
 2. In `/prisma/.env`, update the value of the `DATABASE_URL` variable to match your new database connection string.
 
-3. Run the prisma migration script by issuing the following command:
+3. Run the prisma migration script with the following command:
 
 ```shell title="Run Prisma migration"
 `npx prisma migrate dev`
