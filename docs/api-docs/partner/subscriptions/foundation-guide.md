@@ -236,7 +236,7 @@ To use an alternate SQL database, do the following:
 ```shell title="Run Prisma migration"
 `npx prisma migrate dev`
 ```
-4. To generate a fresh app client that uses the new database provider issue the following following command:
+4. To generate a fresh app client that uses the new database provider, run the following script:
 
 ```shell title="Run Prisma generate"
 `npx prisma generate`
