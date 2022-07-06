@@ -82,7 +82,7 @@ Make sure to remain signed in to the Dev Portal.
 
 ## Configure Stripe
 
-Subscription Foundation uses Stripe Connect so that your app can use one signle connection to submit payments to multiple previously configured Stripe merchant accounts. See [Stripe Billing](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway?language=en_US#billing) for merchant configuration instructions.
+Subscription Foundation uses Stripe Connect so that your app can use one single connection to submit payments to the previously configured Stripe accounts of multiple BigCommerce merchants. See [Stripe Billing](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway?language=en_US#billing) for merchant configuration instructions.
 
 The integration with Stripe and BigCommerce requires that the app use two keys to issue charges: the **merchant-specific Stripe account's public key** and the **app-specific Stripe account's secret key**.
 This provides the followiing benefits
