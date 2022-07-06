@@ -20,13 +20,13 @@ To configure your accounts you need to make sure the following requirements are 
 
 ## Fork and install the source repository 
 
-As a first step you need to fork the source repository, clone it to your development, and install the default packages for your app
+As a first step you need to fork the source repository, clone it to your development, and install the dpackages for your app
 
 **To fork and install the source repository**
 
 1. Fork the [subscription-foundation repository (GitHub)](https://github.com/bigcommerce/subscription-foundation) to your GitHub account.
 2. Clone your fork to your local development environment.
-3. Navigate to your root directory of your cloned repository and install the efault packages for your app by issuing the following command:
+3. Navigate to your root directory of your cloned repository and install the default packages for your app by issuing the following command:
 
 ```shell title="Install packages"
 npm install
