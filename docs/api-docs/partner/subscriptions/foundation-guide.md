@@ -280,7 +280,7 @@ This error can occur when the `/prisma/schema.prisma` file contains the incorrec
 
 ### Issue: A "Not found" error during app installation
 
-If you don't enable the proper OAuth scopes, the `/api/auth` request might fail. Go to the [Dev Portal](https://devtools.bigcommerce.com) to check out the OAuth scopes that are enabled in the profile of your app. To learn more, read [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#edit-technical-details). Make sure your scopes are equal to or exceed those listed in the [Creating an app profile](#create-an-app-profile) section.
+If you don't enable the proper OAuth scopes, the `/api/auth` request might fail. Go to the [Dev Portal](https://devtools.bigcommerce.com) to check out the OAuth scopes that are enabled in your app's profile. To learn more, read [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#edit-technical-details). Make sure your scopes equal or exceed those listed in the [Creating an app profile](#create-an-app-profile) section.
 
 ## Resources
 ### Related articles
