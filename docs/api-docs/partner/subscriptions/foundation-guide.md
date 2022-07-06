@@ -143,7 +143,7 @@ To get started, complete the following steps:
 
    b. Set **OAuth settings** to **OAuth for Standard accounts**. 
 
-   c. Click **Redirects**, and then click **+ Add URI**. Add the callback URI for your app:
+   c. Click **Redirects**, then click **+ Add URI**. Add the following callback URI for your app:
    
    ```http title="Your app's Stripe callback URI"
    https://{ngrok_id}.ngrok.io/stripe/callback
