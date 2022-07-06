@@ -1,8 +1,7 @@
 # Subscription Foundation
 
-Subscription Foundation is an open-source BigCommerce "subscribe and save" application framework. It provides a template to scaffold custom subscription billing and invoicing solutions for your business or client. Subscription Foundation provides a default integration with Stripe Billing, which significantly accelerates your development time. 
-
-Subscription Foundation utilizes the [Channels toolkit](/api-docs/channels/guide/overview#channels-toolkit), which lets the custom subscription channel appear in the **Channel Manager** view of a store's control panel, alongside other sales channels.
+Subscription Foundation is an open-source BigCommerce "subscribe and save" application framework. It provides a template to scaffold custom subscription billing and invoicing solutions for your business or client. Default integration with Stripe Billing, can help accelerate your development time.
+Subscription Foundation utilizes the [Channels toolkit](/api-docs/channels/guide/overview#channels-toolkit) and your custom subscription channel will appear in the **Channel Manager** view of a store's control panel, alongside your other sales channels.
 
 ## Software requirements 
 * [Node.js](https://nodejs.org/en/) 14.x
@@ -20,13 +19,13 @@ To configure your accounts you need to make sure the following requirements are 
 
 ## Fork and install the source repository 
 
-As a first step you need to fork the source repository, clone it to your development, and install the dpackages for your app
+As a first step you need to fork the source repository, clone it to your development, and install the packages for your app.
 
 **To fork and install the source repository**
 
 1. Fork the [subscription-foundation repository (GitHub)](https://github.com/bigcommerce/subscription-foundation) to your GitHub account.
 2. Clone your fork to your local development environment.
-3. Navigate to your root directory of your cloned repository and install the default packages for your app by issuing the following command:
+3. Navigate to the root directory of your cloned repository and install the default packages for your app by issuing the following command:
 
 ```shell title="Install packages"
 npm install
@@ -37,7 +36,7 @@ After you successfully install the packages, prepare to expose the app to the in
 
 Because you must serve apps over fully-qualified publicly accessible URLs, this guide uses a tool called [ngrok](https://ngrok.com/docs) to open HTTP tunnels that securely expose `localhost` ports to the internet. 
 
-To get started with ngrok, read the [Create an HTTPS Tunnel](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#create-an-https-tunnel) tutorial.
+To get started with ngrok, read the [Create an HTTPS Tunnel](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#create-an-https-tunnel) section in the sample app tutorial.
 
 After you successfully start ngrok, make sure to note your ngrok ID. You will use it later.
 
@@ -85,19 +84,17 @@ Make sure to remain signed in to the Dev Portal.
 
 Subscription Foundation uses Stripe Connect so that your app can use one signle connection to submit payments to multiple previously configured Stripe merchant accounts. See [Stripe Billing](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway?language=en_US#billing) for merchant configuration instructions.
 
-The integration between Stripe and BigCommerce requires that the app uses two keys to issue charges: the **merchant-specific Stripe account's public key** and the **app-specific Stripe account's secret key**.
-
-Using two separate keys provides the following benefits:
+The integration with Stripe and BigCommerce requires that the app use two keys to issue charges: the **merchant-specific Stripe account's public key** and the **app-specific Stripe account's secret key**.
+This provides the followiing benefits
 * The merchant can change between Stripe accounts they use without breaking the integration.
 * The merchant's own Stripe account stores the entire shopper payment history, including subscription and one-time purchases. 
-* The usage of public and secret keys ensures that your configuration is PCI compliant.
 
 For development you will use two Stripe accounts:
 
 | Account | Description |
 |:---------|:----|
-| Account One | This account simulates a merchant's pre-existing account |
-| Account Two | This account is configured as the app's dedicated Stripe Connect-enabled account. |
+| Merchant Account | This account simulates a merchant's pre-existing account |
+| App Account | This account is configured as the app's dedicated Stripe Connect-enabled account. |
 
 
 <!-- theme: info -->
@@ -124,7 +121,7 @@ To get started, complete the following steps:
 
 ### Enable Stripe Connect for Platforms
 
-**During this following steps, make sure that you are logged into your the app-specific account by ehcking the top left corner of your Stripe Dashboard.**
+**During the following steps, make sure that you are logged into your the app-specific account by checking the top left corner of your Stripe Dashboard.**
 
 <!-- theme: info -->
 > #### Test mode
@@ -234,17 +231,17 @@ To use an alternate SQL database, do the following:
 3. Run the prisma migration script with the following command:
 
 ```shell title="Run Prisma migration"
-`npx prisma migrate dev`
+npx prisma migrate dev
 ```
 4. To generate a fresh app client that uses the new database provider, run the following script:
 
 ```shell title="Run Prisma generate"
-`npx prisma generate`
+npx prisma generate
 ```
 5. To access this database locally, and use a visual editor to verify that the tables have been created issue the following command:
 
 ```shell title="Run Prisma studio"
-`npx prisma studio`
+npx prisma studio
 ```
 
 6. Start the app server by issuing the following command:
@@ -268,7 +265,7 @@ ngrok http 3000
 
 <!-- theme: info -->
 > #### Subscription sales channel
-> The app will create its own dedicated sales channel upon installation.
+> The app creates its own dedicated sales channel during installation.
 
 If you plan to use the API to add products to the subscription sales channel, learn more about [product channel assignments](/api-docs/multi-storefront/api-guide#products).
 
