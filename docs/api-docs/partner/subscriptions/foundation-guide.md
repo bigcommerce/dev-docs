@@ -154,7 +154,7 @@ To get started, complete the following steps:
 
 ## Configure the BigCommerce store
 
-After you have successfully created a test configuration, you need to configure your BigCommerce store in the BigCommerce store control panel.
+After you successfully create a test configuration, configure your BigCommerce sandbox store in the store control panel.
 
 **To configure the store to make subscription charges**
 
