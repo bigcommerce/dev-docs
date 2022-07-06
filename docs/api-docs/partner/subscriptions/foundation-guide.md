@@ -204,7 +204,7 @@ Update the following environment variables:
 ```shell title="Run Prisma migration"
 npx prisma migrate dev
 ```
-
+The following screenshot shows a successful migration.
 ![npx_prisma_migrate](https://storage.googleapis.com/bigcommerce-production-dev-center/images/npx_prisma_migrate.png)
 
 3. Start the app server by issuing the following command:
