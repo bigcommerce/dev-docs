@@ -87,16 +87,18 @@ Make sure to remain signed in to the Dev Portal.
 
 Subscription Foundation uses Stripe Connect so that your app can use one single connection to submit payments to the previously configured Stripe accounts of multiple BigCommerce merchants. See [Stripe Billing](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway?language=en_US#billing) for merchant configuration instructions.
 
-During development, you'll work with two Stripe accounts.
+When the app initiates subscription charges, it will use the **merchant's dedicated public key** with the **app's dedicated secret key**. This ensures that a subscriber's entire purchase history is available in the merchant's Stripe Dashboard and store control panel.
 
-| Account | Description |
-|:---------|:----|
-| Account One | This account simulates a merchant's pre-existing account |
-| Account Two | This account is configured as the app's dedicated Stripe Connect-enabled account. |
+During development, you'll work with two Stripe accounts. You'll create them both in the next section. The following table lists them in the order of creation:
+
+| Order of creation | Description |
+|:------------------|:------------|
+| First account | This account simulates a merchant's pre-existing account |
+| Second account | You'll configure this account as the app's dedicated Stripe Connect-enabled account |
 
 <!-- theme: info -->
-> #### Multi-tenant functionality
-> During installation, the app UI prompts the merchant to enter the keys for their store's Stripe account so that the app can initiate an OAuth authorization code grant flow to link the merchant's Stripe account to the app's Stripe Connect-enabled account.
+> #### Multi-tenant setup
+> Prior to installing the app, add the **first account** to the sandbox store as a payment method. When the app is installed, the UI prompts the store owner to give the app permission to connect the Stripe accounts together. Consenting initiates an OAuth authorization code grant flow to link the store's Stripe account to the app's Stripe Connect-enabled account.
 
 ### Create Stripe accounts
 
