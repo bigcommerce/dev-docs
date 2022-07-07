@@ -40,7 +40,7 @@ Because you must serve apps over fully-qualified publicly accessible URLs, this 
 
 To get started with ngrok, follow the [Create an HTTPS Tunnel](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#create-an-https-tunnel) section of the sample app tutorial. If your app does not run on port 3000, replace `3000` with the port of your app server.
 
-<!-- theme: important -->
+<!-- theme: success -->
 > #### Make note of your ngrok ID
 > After you successfully start ngrok, make sure to note your ngrok ID. You will use it later.
 
@@ -116,9 +116,9 @@ To create a Stripe account, complete the following steps:
    
    c. Under **Get started with Stripe**, copy the **Secret key**.
    
-   <!-- theme: important -->
-> #### Make note of the **Secret Key**
-> Make note of the **Secret Key** and keep it in a safe location. In a later step, you will use the secret key to update the `STRIPE_SECRET_KEY` environment variable in the `.env` file.
+<!-- theme: success -->
+> #### Make note of the secret key
+> Make note of the **secret key** and keep it in a safe location. In a later step, you will use the secret key to update the `STRIPE_SECRET_KEY` environment variable in the `.env` file.
 
 
 ### Enable Stripe Connect for Platforms
@@ -143,10 +143,9 @@ To configure test mode, complete the following steps:
    
    a. Copy the **Test mode client ID**.
    
-   <!-- theme: important -->
-> #### Make note of the **Test mode client ID**. 
-> Make sure to store it in a safe place. In a later step, you 
-> will set the client ID as the value of the `NEXT_PUBLIC_STRIPE_CLIENT_ID` variable in the `.env` file.
+<!-- theme: success -->
+> #### Make note of the Test mode client ID 
+> Make sure to store it in a safe place. In a later step, you will set the client ID as the value of the `NEXT_PUBLIC_STRIPE_CLIENT_ID` variable in the `.env` file.
 
    b. Set **OAuth settings** to **OAuth for Standard accounts**. 
 
