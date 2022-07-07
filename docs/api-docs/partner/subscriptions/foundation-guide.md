@@ -108,7 +108,7 @@ To create a Stripe account, complete the following steps:
 
 3. On the [Stripe Dashboard](https://dashboard.stripe.com/), create and configure a second app-specific Stripe account. The app uses this account's client secret to process subscription payments.
 
-   a. On the top left corner of your Stripe Dashboard, click the name of your merchant-specific account. Select **+ New Account** from the drop-down list.
+   a. In the top left corner of your Stripe Dashboard, click the name of your merchant-specific account. Select **+ New Account** from the drop-down list.
 
    b. Give the new account a name that clearly identifies it as app-specific to differentiate it from the merchant-specific payment and subscription management account. This guide uses **BigCommerce App** as an example.
    
