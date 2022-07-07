@@ -51,7 +51,7 @@ To view the data during development, you can use the JWT decoding tool at [jwt.i
 
 When a shopper is browsing as a guest, the endpoint returns a `404 Not Found` HTTP status code and an error message. 
 
-On Stencil storefronts, you can check whether any customer is signed in before running the request by wrapping your request in an `{{#if customer}}` Handlebar Helper. For more information, see [Handlebars Helpers](/stencil-docs/reference-docs/handlebars-helpers-reference#if). 
+On Stencil storefronts, you can check whether any customer is signed in before running the request by wrapping your request in an `{{#if customer}}` [Handlebars Helper](/stencil-docs/reference-docs/handlebars-helpers-reference#if). 
 
 ## Resources
 
