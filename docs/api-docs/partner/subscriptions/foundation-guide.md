@@ -14,7 +14,7 @@ Subscription Foundation uses the [Channels toolkit](/api-docs/channels/guide/ove
 <!-- theme: info -->
 > #### Account configuration requirements
 > * Because there is a [store email address constraint](/api-docs/apps/guide/developer-portal#store-email-address-constraint?source=subscription-foundation) on draft and private apps, you need to make sure that both your sandbox store and your Dev Portal account use the same email address. 
-> * We recommend that you use a sandbox store that has the same multi-storefront status as the production store you're developing for. For example, if you're developing for a multi-storefront enabled merchant store, use a multi-storefront sandbox. For information on configuring multi-storefront, see [Multi-Storefront](https://support.bigcommerce.com/s/article/Multi-Storefront?language=en_US).
+> * We recommend that you use a sandbox store that has the same multi-storefront status as the production store. For example, if you're developing for a multi-storefront enabled merchant store, use a multi-storefront sandbox. For information on configuring multi-storefront, see [Multi-Storefront](https://support.bigcommerce.com/s/article/Multi-Storefront?language=en_US).
 
 To configure your accounts, complete the following steps:
 1. To develop and test apps, you need a BigCommerce sandbox store. If you don't have one, [Create a Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=subscription-foundation).
@@ -42,7 +42,7 @@ To get started with ngrok, follow the [Create an HTTPS Tunnel](/api-docs/apps/tu
 
 <!-- theme: success -->
 > #### Make note of your ngrok ID
-> After you successfully start ngrok, make sure to note your ngrok ID. You will use it later.
+> After you successfully start ngrok, make sure to note your ngrok ID. You will use it to create an app profile. By default, ngrok generates a new ID every time you start it up. Make sure to update the callback URLs in your [app profile](#create-an-app-profile) each time the ngrok id changes.
 
 
 ## Create an app profile
@@ -53,7 +53,7 @@ To install your app on your sandbox store, complete the following steps:
 
 1. Sign in to the [Dev Portal](https://devtools.bigcommerce.com/?source=subscription-foundation). Then follow our directions to [create an app](/api-docs/apps/guide/developer-portal#create-an-app?source=subscription-foundation). Enter the following values on the **Technical** tab.
 
-2. In the **Callback URLs** section, supply the following URLs. Replace `{ngrok_id}` with the ngrok ID you noted in [Create an HTTPS tunnel](#create-an-https-tunnel).
+2. In the **Callback URLs** section, supply the following URLs. Replace `{ngrok_id}` with the ngrok ID you noted in [Create an HTTPS tunnel](#create-an-https-tunnel). Edit the app profile with new callback URLs each time the ngrok id changes. To learn more about developing with ngrok, see [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf).
 
 | Callback | URL value |
 |:---------|:----|
@@ -145,12 +145,12 @@ To configure test mode, complete the following steps:
    
    a. Copy the **Test mode client ID**.
    
-<!-- theme: success -->
-> #### Make note of the Test mode client ID 
-> Make sure to store it in a safe place. In a later step, you will set the client ID as the value of the `NEXT_PUBLIC_STRIPE_CLIENT_ID` variable in the `.env` file.
+   <!-- theme: success -->
+   > #### 
+   > Make sure to store it in a safe place. In a later step, you will set the client ID as the value of the `NEXT_PUBLIC_STRIPE_CLIENT_ID` variable in   the `.env` file.
 
    b. Set **OAuth settings** to **OAuth for Standard accounts**. 
-
+   
    c. Click **Redirects**, then click **+ Add URI**. Add the following callback URI for your app:
    
    ```http title="Your app's Stripe callback URI"
