@@ -339,9 +339,9 @@ Widgets are rendered on the storefront as a data tag in the HTML.
 
 | Name | Definition |
 |--|--|
-| Widgets | Widgets are the units of content to be placed on specific pages in a Stencil theme. Each widget is composed of a widget configuration and a widget template. *There is a limit of `10,000` widgets per store.* |
+| Widgets | Widgets are the units of content to be placed on specific pages in a Stencil theme. Each widget is composed of a widget configuration and a widget template. *There is a limit of `100,000` widgets per store.* |
 | Widget templates | Widget templates are Handlebars-enabled HTML templates that define the widget’s structure on a page. These templates can include conditional logic as well as looping. *There is a limit of `1,000` total custom widget templates per store. This does not include templates pre-provided by BigCommerce.* |
-| Placements | Placements determine the region where you place widgets and in what order. *There is a limit of `75` placements per template file and `10,000` total placements per store.* |
+| Placements | Placements determine the region where you place widgets and in what order. *There is a limit of `150` placements per template file and `100,000` total placements per store.* |
 | Regions | Regions are specific spots in a Stencil template file where you can place widgets. Regions are defined at the theme file level using the following syntax: `{{{region name="..."}}}`. Many widgets can reside within a given region, and these widgets can have an assigned sort order. |
 | Widget configuration | This is a JSON payload that contains data used when rendering the widget. Each widget has a configuration, and there is a 64kb limit on the JSON size. The widget configuration must be valid JSON, but we don’t enforce any additional configuration structure requirements. |
 
