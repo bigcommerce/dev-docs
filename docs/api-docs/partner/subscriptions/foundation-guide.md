@@ -12,9 +12,9 @@ Subscription Foundation uses the [Channels toolkit](/api-docs/channels/guide/ove
 ## Configure accounts
 
 <!-- theme: info -->
-> #### To configure your accounts you need to make sure the following requirements are met:
+> #### Account configuration requirements
 > * Because there is a [store email address constraint](/api-docs/apps/guide/developer-portal#store-email-address-constraint?source=subscription-foundation) on draft and private apps, you need to make sure that both your sandbox store and your Dev Portal account use the same email address. 
-> * The sandbox store must support multi-storefront sales. For information on configuring multi-storefront, see [Multi-Storefront](https://support.bigcommerce.com/s/article/Multi-Storefront?language=en_US).
+> * We recommend that you use a sandbox store that has the same multi-storefront status as the production store you're developing for. For example, if you're developing for a multi-storefront enabled merchant store, use a multi-storefront sandbox. For information on configuring multi-storefront, see [Multi-Storefront](https://support.bigcommerce.com/s/article/Multi-Storefront?language=en_US).
 
 To configure your accounts, complete the following steps:
 1. To develop and test apps, you need a BigCommerce sandbox store. If you don't have one, [Create a Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=subscription-foundation).
