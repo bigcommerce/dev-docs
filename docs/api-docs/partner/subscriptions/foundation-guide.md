@@ -161,15 +161,15 @@ After you successfully configure for test mode, configure your BigCommerce sandb
 
 To configure the store to make subscription charges, complete the following steps:
 
-   1. In the BigCommerce store control panel, navigate to the [Stripe settings section](https://login.bigcommerce.com/deep-links/settings/payment/stripev3) and make sure that **Test Mode** is set to **Yes**.
-   
-   ![stripe-settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/stripe-settings.png)
-   
-   2. To start a subscription, shoppers must check out using a stored payment instrument. To enable this functionality, go to [Stripe settings](https://login.bigcommerce.com/deep-links/settings/payment/stripev3), locate the **Stored Credit Cards** section, and toggle on **Enable stored credit cards with Stripe**. 
-   
-   ![stored-credit-cards](https://storage.googleapis.com/bigcommerce-production-dev-center/images/stored-credit-cards.png)
-   
-   3. If you don't have a stored card to charge, go to your BigCommerce storefront and add some products to your cart. Begin the checkout sequence and either sign in as a shopper or create a new account. During the payments step, select **Save this card for later**.
+1. In the BigCommerce store control panel, navigate to the [Stripe settings section](https://login.bigcommerce.com/deep-links/settings/payment/stripev3) and make sure that **Test Mode** is set to **Yes**.
+
+![stripe-settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/stripe-settings.png)
+
+2. To start a subscription, shoppers must check out using a stored payment instrument. To enable this functionality, go to [Stripe settings](https://login.bigcommerce.com/deep-links/settings/payment/stripev3), locate the **Stored Credit Cards** section, and toggle on **Enable stored credit cards with Stripe**. 
+
+![stored-credit-cards](https://storage.googleapis.com/bigcommerce-production-dev-center/images/stored-credit-cards.png)
+
+3. If you don't have a stored card to charge, go to your BigCommerce storefront and add some products to your cart. Begin the checkout sequence and either sign in as a shopper or create a new account. During the payments step, select **Save this card for later**.
 
 ## Declare environment variables
 
