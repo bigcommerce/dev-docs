@@ -16,14 +16,14 @@ Subscription Foundation uses the [Channels toolkit](/api-docs/channels/guide/ove
 > * Because there is a [store email address constraint](/api-docs/apps/guide/developer-portal#store-email-address-constraint?source=subscription-foundation) on draft and private apps, you need to make sure that both your sandbox store and your Dev Portal account use the same email address. 
 > * The sandbox store must support multi-storefront sales. For information on configuring multi-storefront, see [Multi-Storefront](https://support.bigcommerce.com/s/article/Multi-Storefront?language=en_US).
 
-To configure your accounts complete the following steps:
+To configure your accounts, complete the following steps:
 1. To develop and test apps, you need a BigCommerce sandbox store. If you don't have one, [Create a Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=subscription-foundation).
 2. To register apps and create app API accounts, you need a BigCommerce Dev Portal account. If you don't have one, create a [Dev Portal account](https://devtools.bigcommerce.com/?source=subscription-foundation).
 
 
 
 ## Fork and install the source repository
-To fork the repository complete the following steps:
+To fork the repository, complete the following steps:
 
 1. Fork the [subscription-foundation repository (GitHub)](https://github.com/bigcommerce/subscription-foundation) to your GitHub account.
 2. Clone your fork to your local development environment.
@@ -49,7 +49,7 @@ To get started with ngrok, follow the [Create an HTTPS Tunnel](/api-docs/apps/tu
 
 As a next step, you need to create a draft app profile to generate app API account credentials.  To develop and test the app, you need to install it on your [sandbox store](#configure-accounts). 
 
-To install your app on your sandbox store complete the following steps:
+To install your app on your sandbox store, complete the following steps:
 
 1. Sign in to the [Dev Portal](https://devtools.bigcommerce.com/?source=subscription-foundation). Then follow our directions to [create an app](/api-docs/apps/guide/developer-portal#create-an-app?source=subscription-foundation). Enter the following values on the **Technical** tab.
 
@@ -129,7 +129,7 @@ To create a Stripe account, complete the following steps:
 > #### Test mode
 > You can simulate transactions in test mode to confirm your integration works correctly.
 
-To configure test mode:
+To configure test mode, complete the following steps:
 
 1. On your [Stripe Dashboard](https://dashboard.stripe.com/), click **Connect** to enable [Stripe Connect for Platforms](https://dashboard.stripe.com/test/connect/accounts/overview). 
 
@@ -178,7 +178,7 @@ To configure the store to make subscription charges, complete the following step
 > #### Note on naming conventions
 > In some places, this guide and app template code refer to a Stripe API account's public key as a **client ID**, and its secret key as a **client secret**.
 
-Run the following commands in your terminal to declare environment variables:
+To declare environment variables, run the following commands in your terminal:
 
 1. Create a `.env` file in the root directory of your project.
 
@@ -227,7 +227,7 @@ After the app server and ngrok are running, you can install the draft app on you
 
 ## Replacing SQLite
 
-To use an alternate SQL database, do the following:
+To use an alternate SQL database, complete the following steps:
 
 1. Update the `/prisma/schema.prisma` file with a `provider` other than `SQLite`. For a list of options, read [Prisma's reference docs](https://prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/).
 
