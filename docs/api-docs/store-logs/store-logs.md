@@ -31,7 +31,7 @@ type: tab
 title: Request
 -->
 
-```http title="Example GET request with X-Auth-Token header" lineNumbers
+```http title="Example request: Filter by log ID" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?id:in=5,7
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -43,7 +43,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example GET response" lineNumbers
+```json title="Example response: Filter by log ID" lineNumbers
 {
   "data": [
     {
@@ -92,7 +92,7 @@ type: tab
 title: Request
 -->
 
-```http title="Example GET request with X-Auth-Token header" lineNumbers
+```http title="Example request: Filter by type" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?type=design
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -104,7 +104,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example GET response" lineNumbers
+```json title="Example response: Filter by type" lineNumbers
 {
   "data": [
     {
@@ -154,7 +154,7 @@ type: tab
 title: Request
 -->
 
-```http title="Example GET request with X-Auth-Token header" lineNumbers
+```http title="Example request: Filter by module" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?module=order+status
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -166,7 +166,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example GET response" lineNumbers
+```json title="Example response: Filter by module" lineNumbers
 {
   "data": [
     {
@@ -206,7 +206,7 @@ type: tab
 title: Request
 -->
 
-```http title="Example GET request with X-Auth-Token header" lineNumbers
+```http title="Example request: Filter by severity" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?severity=2
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -218,7 +218,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example GET response" lineNumbers
+```json title="Example response: Filter by severity" lineNumbers
 {
   "data": [
     {
@@ -266,7 +266,7 @@ type: tab
 title: Request
 -->
 
-```http title="Example GET request with X-Auth-Token header" lineNumbers
+```http title="Example request: Filter by paginated results" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?page=2&limit=3
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -278,7 +278,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example GET response" lineNumbers
+```json title="Example response: Filter by paginated results" lineNumbers
 {
   "data": [
     {
