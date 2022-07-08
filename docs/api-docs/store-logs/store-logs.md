@@ -4,24 +4,27 @@ stoplight-id: 8093a34240fc9
 
 # Store Logs API
 
-The [store log](https://support.bigcommerce.com/s/article/Using-Store-Logs) tracks events that take place in your store. The store log is comprised of the **system log** and the **staff action log**. 
+The [store logs](https://support.bigcommerce.com/s/article/Using-Store-Logs) track events that take place in a store. Store logs have two components: **system logs** and **staff action logs**. 
 
-The Store Logs V3 API lets you retrieve your store's **system log**. The **system log** tracks events that take place on your storefront, including shipping quote requests, newsletter sign-ups, and more. Each of those events creates an entry in the system log that includes the event type, summary, reporter (module), severity, and creation date and time. You can retrieve only entries that have occurred within the past 365 days. 
+The **Store Logs API** lets you retrieve a store's **system log**. The system log tracks events that take place on your storefront, including shipping quote requests, newsletter sign-ups, and more. Each of these events creates an entry in the system log that includes the event type, summary, reporter (module), severity, and a timestamp. You can retrieve entries for 365 days after their timestamp. 
+>>> IMPROVE THIS PARAGRAPH
+>>> MSF??
 
-This article guides API users on how to get entries for a store's **system logs**. This article shows users how to filter the response for various aspects of the entry, including event type, severity, and more. 
+This article guides API users on how to get system log entries and filter by attributes such as event type, severity, and more. 
 
 
 ## Get system logs
 
-Send a GET request to the [Store Logs API endpoint](/api-reference/store-management/store-logs). 
+Send a request to the [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs) endpoint. 
 
 ### Get unfiltered entries
 
 When you use no query parameters in your request, the API returns 20 entries with the earliest created datetime (given that the entries were created within the last 365 days). The entries are ordered from the earliest to latest created datetime.
+>>> IMPROVE THIS PARAGRAPH
 
 ### Filter by log ID
 
-You can filter the entries by log ID by using the `id` query parameter. 
+To filter the entries by log ID, pass a comma-separated list of log IDs to the `id:in` query parameter. 
 
 <!--
 type: tab
@@ -82,7 +85,7 @@ title: Response
 
 ### Filter by type 
 
-You can filter the entries by type by using the `type` query parameter. Examples of log type include `general` (general messages), `payment` (payment gateways), `shipping` (shipping quotes), and more. The following example filters entries by the type `design`. 
+To filter the entries by type, use the `type` query parameter. Examples of log type include `general`, `payment`, and `shipping`. For a complete list of log types, consult the [API endpoint reference](/api-reference/store-management/store-logs/system-logs/get-system-logs).  The following example requests `design`-type entries: 
 
 <!--
 type: tab
@@ -143,7 +146,8 @@ title: Response
 
 ### Filter by module 
 
-You can filter the entries by `module`by using the `module` query parameter. Modules can further categorize the type of log. For example, the log type `shipping` has many modules including `Zone based free shipping (freeshipping)` and `FedEx Ground Home Delivery (5-7 Business Days) (flatrate)`. Examples of modules for other log types include `export only`, `email message`, `theme download`, and more. The following example filters entries by the module `order status`.
+To filter the entries by `module`, use the `module` query parameter. Modules further categorize the type of log. For example, the log type `shipping` has many modules including `Zone based free shipping (freeshipping)` and `FedEx Ground Home Delivery (5-7 Business Days) (flatrate)`. Examples of modules for other log types include `export only`, `email message`, `theme download`, and more. The following example requests entries from the `order status` module: 
+>>> DESCRIBE MORE ABOUT WHAT A MODULE IS. LINK TO SPEC FOR FURTHER LIST? IS THERE AN ENUM LIST IN THE SPEC?
 
 <!--
 type: tab
@@ -151,7 +155,7 @@ title: Request
 -->
 
 ```http title="Example GET request with X-Auth-Token header" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?module=order status
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?module=order+status
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -195,14 +199,7 @@ title: Response
 
 ### Filter by severity 
 
-Each log entry has an associated outcome, or severity. You can filter the results by log severity by using the `severity` query parameter and specifying the severity's corresponding integer in the query. 
-
-| Severity | Query Integer |
-| --- | --- |
-| Success | 1 |
-| Notice | 2 |
-| Warning | 3 |
-| Error | 4 | 
+Each log entry describes an event that has an associated outcome, which this API refers to as its `severity`. To filter the results by severity, use the `severity` query parameter and specify the severity's corresponding integer in the query. >>>LINK TO SPEC FOR TABLE. IS THERE AN ENUM THERE?
 
 <!--
 type: tab
@@ -262,7 +259,7 @@ title: Response
 
 ### Filter by paginated results   
 
-You can specify the page and number of entries returned per page using the query parameters `page` and `limit`, respectively. The following example shows a response that starts at entry 4, as you request page 2 with 3 entries per page.  
+To specify the page and number of entries returned per page, use the query parameters `page` and `limit`, respectively. The following example shows a response that starts at entry 4, as you request page 2 with 3 entries per page.  
 
 <!--
 type: tab
@@ -333,3 +330,4 @@ title: Response
 
 ## Resources
 - [Store Logs API reference](/api-reference/store-management/store-logs)
+- >>>KB ARTICLE
