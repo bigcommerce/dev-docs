@@ -4,7 +4,8 @@
 
 Suppose your application interacts dynamically with a Stencil storefront and conveys specific information to a particular signed-in customer. You must confirm that customer's identity within the insecure environment of the user's browser before revealing any sensitive information.
 
-To address this need, BigCommerce provides a Current Customer endpoint that your app can access on the storefront using JavaScript. This endpoint allows a remote application, such as a third-party subscription billing app, to return a JSON web token, or _JWT_, with identifying customer details. The information is signed with your [app API account's client secret](/api-docs/getting-started/authentication/rest-api-authentication#api-accounts).
+To address this need, BigCommerce provides a Current Customer endpoint that your app can access on the storefront using JavaScript. This endpoint allows a remote application, such as a third-party subscription billing app, to request a JSON web token, or _JWT_, with identifying customer details. The response is encrypted with your [app API account's client secret](/api-docs/getting-started/authentication/rest-api-authentication#api-accounts).
+
 
 <!-- theme: info -->
 > #### API account notes
