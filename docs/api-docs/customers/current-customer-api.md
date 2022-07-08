@@ -14,7 +14,10 @@ To address this need, BigCommerce provides a Current Customer endpoint that your
 
 ## Request
 
-To test this endpoint, save this [Current Customer API example request](/api-docs/getting-started/authentication#current-customer-api-example-request) JavaScript snippet in the **Script Manager** of one of your sandbox store's Stencil storefronts. Include your app API account's client ID as the value of the `app_client_id` query parameter.
+To test this endpoint, save this [Current Customer API example request](/api-docs/getting-started/authentication#current-customer-api-example-request) JavaScript snippet in the storefront's **Script Manager**, located in the store control panel. Include your app API account's client ID as the value of the `app_client_id` query parameter.
+
+For more about adding scripts with the UI, see our support article on [Using Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
+
 
 ## Response
 
