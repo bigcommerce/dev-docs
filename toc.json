@@ -946,6 +946,18 @@
     },
     {
       "type": "group",
+      "title": "Subscription Solutions",
+      "items": [
+        {
+          "type": "item",
+          "title": "Foundation App Guide",
+          "href": "/api-docs/partner/subscription-solutions/foundation-guide",
+          "uri": "docs/api-docs/partner/subscriptions/foundation-guide.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
       "title": "ERP Solutions",
       "items": [
         {
