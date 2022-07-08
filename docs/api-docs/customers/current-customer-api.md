@@ -8,7 +8,7 @@ To address this need, BigCommerce provides a Current Customer endpoint that your
 
 <!-- theme: info -->
 > #### API account notes
-> - This endpoint requires **app API account** credentials. For more information about generating accounts, consult our [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts).
+> - This endpoint requires **app API account** credentials. For more information about generating accounts, consult the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts).
 > - The app you create doesn't need to be installed or published on a store, and you don't need to generate access tokens. All you need are the client ID and client secret. See the section on [client ID-based authentication](/api-docs/getting-started/authentication#client-id) in the Authentication tutorial.
 
 
