@@ -17,7 +17,7 @@ Send a request to the [Get system logs](/api-reference/store-management/store-lo
 
 ### Get unfiltered entries
 
-You can get entries that were created within the past 365 days. When you use no query parameters in your request, the API returns 20 entries with the earliest date created. The entries are ordered from the earliest to latest date created.
+You can get entries that were created within the past 365 days. When you use no query parameters in your request, the API returns 20 entries with the earliest timestamp. The entries are ordered from the earliest to latest timestamp.
 
 ### Filter by log ID
 
