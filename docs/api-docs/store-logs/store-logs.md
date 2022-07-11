@@ -6,7 +6,7 @@ stoplight-id: 8093a34240fc9
 
 The [store log](https://support.bigcommerce.com/s/article/Using-Store-Logs) tracks events that take place in your store. The store log is comprised of the **system log** and the **staff action log**. 
 
-The Store Logs V3 API lets you retrieve your store's **system log**. The **system log** tracks events that take place on your storefront, including shipping quote requests, newsletter sign-ups, and more. Each of those events creates an entry in the system log that includes the event type, summary, reporter (module), severity, and creation date and time. You can retrieve only entries that have occurred within the past 365 days. 
+The Store Logs V3 API lets you retrieve your store's **system log**. The **system log** tracks events that take place on your storefront, including shipping quote requests, newsletter sign-ups, and more. Each of those events creates an entry in the system log that includes the event type, summary, reporter (module), severity, and date created. You can retrieve only entries that have occurred within the past 365 days. 
 
 This article guides API users on how to get entries for a store's **system logs**. This article shows users how to filter the response for various aspects of the entry, including event type, severity, and more. 
 
@@ -17,7 +17,7 @@ Send a GET request to the [Store Logs API endpoint](/api-reference/store-managem
 
 ### Get unfiltered entries
 
-You can get entries that were created within the past 365 days. When you use no query parameters in your request, the API returns 20 entries with the earliest created datetime. The entries are ordered from the earliest to latest created datetime.
+You can get entries that were created within the past 365 days. When you use no query parameters in your request, the API returns 20 entries with the earliest date created. The entries are ordered from the earliest to latest date created.
 
 ### Filter by log ID
 
