@@ -196,7 +196,7 @@ title: Response
 
 ### Filter by severity 
 
-Each log entry describes an event that has an associated outcome, which this API refers to as its `severity`. To filter the results by severity, use the `severity` query parameter and specify the severity's corresponding integer in the query. >>>LINK TO SPEC FOR TABLE. IS THERE AN ENUM THERE?
+Each log entry describes an event that has an associated outcome, which this API refers to as its `severity`. To filter the results by severity, use the `severity` query parameter and specify the severity's corresponding integer in the query. For a list of severity values, see the [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs) endpoint.
 
 <!--
 type: tab
@@ -327,4 +327,4 @@ title: Response
 
 ## Resources
 - [Store Logs API reference](/api-reference/store-management/store-logs)
-- >>>KB ARTICLE
+- [Store Logs support article](https://support.bigcommerce.com/s/article/Using-Store-Logs)
