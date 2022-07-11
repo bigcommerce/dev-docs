@@ -52,13 +52,13 @@ The following example shows how to use the `{{lang}}` statement in the header of
 ## Browsing hidden translation keys
 BigCommerce exposes only part of the checkout page's structure through the local checkout template. For security purposes, and to offer all stores new checkout features simultaneously, most checkout content is hidden.
 
-This hidden content includes additional key-value pairs that support translation. You can see all the available keys with their default English-language values in the [Optimized Checkout](https://github.com/bigcommerce/checkout-js/blob/master/src/app/locale/translations/en.json) JSON file.
+This hidden content includes additional key-value pairs that support translation. You can see all the available keys with their default English-language values in the [Optimized Checkout](https://github.com/bigcommerce/checkout-js/blob/42ee27d679f81eaabc8b43771b08575525962d4a/packages/core/src/app/locale/translations/en.json) JSON file.
 
 ## Adding your own translation values
 
 You can provide values for all of the checkout's supported translation keys even without direct access to the hidden parts of the checkout template. Here is how:
 
-1. Download checkout's [en.json](https://github.com/bigcommerce/checkout-js/blob/master/src/app/locale/translations/en.json) file (GitHub).
+1. Download checkout's [en.json](https://github.com/bigcommerce/checkout-js/blob/42ee27d679f81eaabc8b43771b08575525962d4a/packages/core/src/app/locale/translations/en.json) file (GitHub).
 2. Copy and paste the file's contents into your theme's `en.json` file.
 3. Copy and paste the file's contents into each of the corresponding `json` files for the other languages you support. For naming requirements, see [Translation Keys](/stencil-docs/localization/translation-keys#the-schema).
 
