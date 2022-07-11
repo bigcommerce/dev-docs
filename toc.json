@@ -280,16 +280,10 @@
       ]
     },
     {
-      "type": "group",
+      "type": "item",
       "title": "Store Logs",
-      "items": [
-        {
-          "type": "item",
-          "title": "System Logs",
-          "href": "/api-docs/store-management/store-logs/system-logs",
-          "uri": "docs/api-docs/store-logs/store-logs.md"
-        }
-      ]
+      "href": "/api-docs/store-management/store-logs",
+      "uri": "docs/api-docs/store-logs/store-logs.md"
     },
     {
       "type": "group",
