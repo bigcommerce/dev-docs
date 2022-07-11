@@ -82,7 +82,7 @@ title: Response
 
 ### Filter by type 
 
-To filter the entries by type, use the `type` query parameter. Examples of log type include `general`, `payment`, and `shipping`. For a complete list of log types, consult the [API endpoint reference](/api-reference/store-management/store-logs/system-logs/get-system-logs).  The following example requests `design`-type entries: 
+To filter the entries by type, use the `type` query parameter. Examples of log type include `general`, `payment`, and `shipping`. For a list of log types, consult the [API endpoint reference](/api-reference/store-management/store-logs/system-logs/get-system-logs).  The following example requests `design`-type entries: 
 
 <!--
 type: tab
@@ -143,7 +143,7 @@ title: Response
 
 ### Filter by module 
 
-To filter the entries by `module`, use the `module` query parameter. Modules further categorize the type of log. For example, the log type `shipping` has many modules including `Zone based free shipping (freeshipping)` and `FedEx Ground Home Delivery (5-7 Business Days) (flatrate)`. For a complete list of log modules, consult the [API endpoint reference](/api-reference/store-management/store-logs/system-logs/get-system-logs). The following example requests entries from the `order status` module: 
+To filter the entries by `module`, use the `module` query parameter. Modules further categorize the type of log. For example, the log type `shipping` has many modules including `Zone based free shipping (freeshipping)` and `FedEx Ground Home Delivery (5-7 Business Days) (flatrate)`. For a list of log modules, consult the [API endpoint reference](/api-reference/store-management/store-logs/system-logs/get-system-logs). The following example requests entries from the `order status` module: 
 
 <!--
 type: tab
