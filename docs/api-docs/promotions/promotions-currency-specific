@@ -1,0 +1,34 @@
+# Currency-Specific Promotions
+
+When creating a promotion, you can configure the promotion to target a single currency. The promotion will only run when the shopper selects the same transactional currency within the cart and checkout.
+
+Here is an example promotion that offers 20 USD off garden material. This promotion will only run if the shopper is using USD as a transactional currency.
+
+```http title="Example request: Create a currency-specific promotion" lineNumbers
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/promotions
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "20 USD dollar off all Garden material",
+  "currency_code": "USD",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "action": {
+        "cart_items": {
+          "discount": {
+            "fixed_amount": "20"
+          },
+          "items": {
+            "categories": [
+              19
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
+```
