@@ -143,8 +143,7 @@ title: Response
 
 ### Filter by module 
 
-To filter the entries by `module`, use the `module` query parameter. Modules further categorize the type of log. For example, the log type `shipping` has many modules including `Zone based free shipping (freeshipping)` and `FedEx Ground Home Delivery (5-7 Business Days) (flatrate)`. Examples of modules for other log types include `export only`, `email message`, `theme download`, and more. The following example requests entries from the `order status` module: 
->>> DESCRIBE MORE ABOUT WHAT A MODULE IS. LINK TO SPEC FOR FURTHER LIST? IS THERE AN ENUM LIST IN THE SPEC?
+To filter the entries by `module`, use the `module` query parameter. Modules further categorize the type of log. For example, the log type `shipping` has many modules including `Zone based free shipping (freeshipping)` and `FedEx Ground Home Delivery (5-7 Business Days) (flatrate)`. For a complete list of log modules, consult the [API endpoint reference](/api-reference/store-management/store-logs/system-logs/get-system-logs). The following example requests entries from the `order status` module: 
 
 <!--
 type: tab
