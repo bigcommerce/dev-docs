@@ -304,8 +304,7 @@ paths:
             type: integer
         - name: keyword
           in: query
-          description: |
-            Filter items by keywords found in the `name`, `description`, or `sku` fields, or in the brand name.
+          description: 'Filter items by keywords found in the `name` or `sku` fields'
           schema:
             type: string
         - name: keyword_context
