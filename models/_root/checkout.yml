@@ -20,7 +20,7 @@ properties:
     properties:
       id:
         type: number
-        description: the `id` of the order. The `id` of the order. The `id` is not available on the order confirmation page.
+        description: The `id` of the order. The `id` is not available on the order confirmation page.
         example: 1836
   header_image:
     type: string
