@@ -126,13 +126,6 @@
           "href": "",
           "uri": "docs/api-docs/storefront/graphql/graphql-store-settings.md"
         },
-        {
-          "type": "item",
-          "title": "Code Samples",
-          "href": "/api-docs/storefront/graphql/graphql-storefront-api-samples",
-          "flag": "code samples",
-          "uri": "docs/api-docs/storefront/graphql/graphql-api-examples.md"
-        },
         // {
         //  "type": "item",
         //  "title": "Storefront GraphQL Explorer",
