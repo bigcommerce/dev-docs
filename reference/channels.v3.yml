@@ -97,6 +97,7 @@ tags:
   - name: Channel Site
   - name: Channel Site Checkout Url
   - name: Channel Menus
+  - name: Channel Metafields
 paths:
   '/stores/{store_hash}/v3/channels':
     get:
@@ -769,6 +770,104 @@ paths:
           in: path
           required: true
     parameters: []
+  '/stores/{store_hash}/v3/channels/{channel_id}/metafields':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: channel_id
+        in: path
+        required: true
+    get:
+      summary: Get Channel Metafields
+      tags:
+        - Channel Metafields
+      responses:
+        '200':
+          $ref: '#/components/responses/metafield_200'
+      operationId: get-channels-channel_id-metafields
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: ./catalog.v3.yml#/components/parameters/LimitParam
+        - $ref: ./catalog.v3.yml#/components/parameters/MetafieldKeyParam
+        - $ref: '#/components/parameters/MetafieldNamespaceParam'
+        - $ref: ./catalog.v3.yml#/components/parameters/DirectionParam
+      description: Returns a list of metafields on a channel. Optional filter parameters can be passed in.
+    post:
+      summary: Create a Channel Metafield
+      operationId: post-channels-channel_id-metafields
+      responses:
+        '200':
+          $ref: '#/components/responses/metafield_200'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/metafield_Post'
+            examples: {}
+      tags:
+        - Channel Metafields
+      description: |-
+        Creates a channel metafield.
+
+        **Note:** The maxiumum number of metafields allowed on each order, product, category, variant, channel, or brand is 250 per client ID. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.
+  '/stores/{store_hash}/v3/channels/{channel_id}/metafields/{metafield_id}':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: channel_id
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: metafield_id
+        in: path
+        required: true
+    get:
+      summary: Get a Channel Metafield
+      tags:
+        - Channel Metafields
+      responses:
+        '200':
+          $ref: '#/components/responses/metafield_200'
+      operationId: get-channels-channel_id-metafields-metafield_id
+      description: Returns a single channel metafield.
+    put:
+      summary: Update a Channel Metafield
+      operationId: put-channels-channel_id-metafields-metafield_id
+      responses:
+        '200':
+          $ref: '#/components/responses/metafield_200'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/metafield_Put'
+      tags:
+        - Channel Metafields
+      description: |-
+        Updates a single channel metafield.
+
+        **Usage Notes**
+        * Attempting to modify `namespace`, `key`, and `permission_set` fields using a client ID different from the one used to create those metafields will result in a `403` error message. 
+    delete:
+      summary: Delete a Channel Metafield
+      operationId: delete-channels-channel_id-metafields-metafield_id
+      responses:
+        '204':
+          description: No Content
+      tags:
+        - Channel Metafields
+      description: Deletes a single channel metafield.
 security:
   - X-Auth-Token: []
 x-stoplight:
@@ -782,6 +881,55 @@ servers:
         default: store_hash
 components:
   parameters:
+    PageParam:
+      name: page
+      description: |
+        Specifies the page number in a limited (paginated) list of products.
+      required: false
+      in: query
+      schema:
+        type: integer
+    MetafieldIdParam:
+      name: metafield_id
+      in: path
+      description: |
+        The ID of the `Metafield`.
+      required: true
+      schema:
+        type: integer
+    MetafieldKeyParam:
+      name: key
+      in: query
+      description: |
+        Filter based on a metafield's key.
+      required: false
+      schema:
+        type: string
+    MetafieldNamespaceParam:
+      name: namespace
+      in: query
+      description: Filter based on a metafield's namespace.
+      required: false
+      schema:
+        type: string
+    LimitParam:
+      name: limit
+      description: |
+        Controls the number of items per page in a limited (paginated) list of products.
+      required: false
+      in: query
+      schema:
+        type: integer
+    DirectionParam:
+      name: direction
+      description: Sort direction.
+      required: false
+      in: query
+      schema:
+        type: string
+        enum:
+          - asc
+          - desc
     include:
       name: include
       description: Channels subresources that can be included in the response.
@@ -1248,6 +1396,151 @@ components:
               $ref: '#/components/examples/error_422_invalid_filters_resp_example'
             Invalid Filter Value:
               $ref: '#/components/examples/error_422_invalid_filter_value_resp_example'
+    metafield_200:
+      description: OK
+      content:
+        application/json:
+          schema:
+            description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is fifty. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
+            x-internal: false
+            type: object
+            properties:
+              id:
+                type: integer
+                description: Unique ID of the *Metafield*.
+                example: 6
+              permission_set:
+                type: string
+                description: |-
+                  Determines the visibility and writeability of the field by other API consumers.
+
+                  |Value|Description
+                  |-|-|
+                  |`app_only`|Private to the app that owns the field|
+                  |`read`|Visible to other API consumers|
+                  |`write`|Open for reading and writing by other API consumers|
+                  |`read_and_sf_access`|Visible to other API consumers, including on storefront|
+                  |`write_and_sf_access`|Open for reading and writing by other API consumers, including on storefront|
+                enum:
+                  - app_only
+                  - read
+                  - write
+                  - read_and_sf_access
+                  - write_and_sf_access
+              namespace:
+                maxLength: 64
+                minLength: 1
+                type: string
+                description: 'Namespace for the metafield, for organizational purposes.'
+                example: Warehouse Locations
+                x-required:
+                  - post
+              key:
+                maxLength: 64
+                minLength: 1
+                type: string
+                description: |
+                  The name of the field, for example: `location_id`, `color`. 
+                example: Location
+                x-required:
+                  - post
+              value:
+                maxLength: 65535
+                minLength: 1
+                type: string
+                description: |
+                  The value of the field.
+                example: 4HG
+                x-required:
+                  - post
+              description:
+                maxLength: 255
+                minLength: 0
+                type: string
+                description: |
+                  Description for the metafields.
+                example: Location in the warehouse
+              resource_type:
+                type: string
+                description: |
+                  The type of resource with which the metafield is associated.
+                example: product
+                enum:
+                  - category
+                  - brand
+                  - product
+                  - variant
+                x-required:
+                  - post
+              resource_id:
+                maximum: 10000000000
+                minimum: 0
+                type: integer
+                description: |
+                  The ID for the resource with which the metafield is associated.
+                example: 111
+                x-required:
+                  - post
+              date_created:
+                type: string
+                description: |
+                  Date and time of the metafield's creation. Read-Only.
+                format: date-time
+                example: '2018-05-07T20:14:17.000Z'
+              date_modified:
+                type: string
+                description: |
+                  Date and time when the metafield was last updated. Read-Only.
+                format: date-time
+                example: '2018-05-07T20:14:17.000Z'
+    metafields_200:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            x-examples:
+              example-1:
+                data:
+                  - id: 19
+                    key: Location
+                    value: 4HG
+                    namespace: Warehouse Locations
+                    permission_set: app_only
+                    resource_type: channel
+                    resource_id: 1
+                    description: Location in the warehouse
+                    date_created: '2022-06-28T18:00:15+00:00'
+                    date_modified: '2022-06-28T18:00:15+00:00'
+                  - id: 21
+                    key: sssPlease provide a key.
+                    value: sssPlease provide a value.
+                    namespace: ssssssPlease provide a namespace.
+                    permission_set: app_only
+                    resource_type: channel
+                    resource_id: 1
+                    description: thiss
+                    date_created: '2022-06-28T18:15:04+00:00'
+                    date_modified: '2022-06-28T18:16:02+00:00'
+                meta:
+                  pagination:
+                    total: 2
+                    count: 2
+                    per_page: 50
+                    current_page: 1
+                    total_pages: 1
+                    links:
+                      current: '?page=1&limit=50'
+            allOf:
+              - properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/metafield_Base'
+              - properties:
+                  meta:
+                    $ref: '#/components/schemas/MetaWithFullPagination'
+            type: object
+          examples: {}
   examples:
     create_channel_req_example:
       value:
@@ -1845,6 +2138,98 @@ components:
       format: int64
       description: The ID of the channel.
       x-internal: false
+    metafield_Base:
+      title: metafield_Base
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique ID of the *Metafield*.
+          example: 6
+        permission_set:
+          type: string
+          description: |-
+            Determines the visibility and writeability of the field by other API consumers.
+
+            |Value|Description
+            |-|-|
+            |`app_only`|Private to the app that owns the field|
+            |`read`|Visible to other API consumers|
+            |`write`|Open for reading and writing by other API consumers|
+            |`read_and_sf_access`|Visible to other API consumers, including on storefront|
+            |`write_and_sf_access`|Open for reading and writing by other API consumers, including on storefront|
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+        namespace:
+          maxLength: 64
+          minLength: 1
+          type: string
+          description: 'Namespace for the metafield, for organizational purposes.'
+          example: Warehouse Locations
+          x-required:
+            - post
+        key:
+          maxLength: 64
+          minLength: 1
+          type: string
+          description: |
+            The name of the field, for example: `location_id`, `color`. 
+          example: Location
+          x-required:
+            - post
+        value:
+          maxLength: 65535
+          minLength: 1
+          type: string
+          description: |
+            The value of the field.
+          example: 4HG
+          x-required:
+            - post
+        description:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: |
+            Description for the metafields.
+          example: Location in the warehouse
+        resource_type:
+          type: string
+          description: |
+            The type of resource with which the metafield is associated.
+          example: product
+          enum:
+            - category
+            - brand
+            - product
+            - variant
+          x-required:
+            - post
+        resource_id:
+          maximum: 10000000000
+          minimum: 0
+          type: integer
+          description: |
+            The ID for the resource with which the metafield is associated.
+          example: 111
+          x-required:
+            - post
+        date_created:
+          type: string
+          description: |
+            Date and time of the metafield's creation. Read-Only.
+          format: date-time
+          example: '2018-05-07T20:14:17.000Z'
+        date_modified:
+          type: string
+          description: |
+            Date and time when the metafield was last updated. Read-Only.
+          format: date-time
+          example: '2018-05-07T20:14:17.000Z'
     PutCheckoutUrl:
       type: object
       properties:
@@ -2615,3 +3000,126 @@ components:
                 example: /my-amazing-product
       title: site_Full
       x-internal: false
+    metafield_Post:
+      title: metafield_Post
+      x-stoplight:
+        id: gvfymy3yuc101
+      type: object
+      description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is fifty. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
+      x-internal: false
+      properties:
+        namespace:
+          maxLength: 64
+          minLength: 1
+          type: string
+          description: 'Namespace for the metafield, for organizational purposes. This is set by the developer.'
+          example: Warehouse Locations
+          x-required:
+            - post
+        key:
+          maxLength: 64
+          minLength: 1
+          type: string
+          description: |
+            The name of the field.
+          example: Location
+          x-required:
+            - post
+        value:
+          maxLength: 65535
+          minLength: 1
+          type: string
+          description: |
+            The value of the field.
+          example: 4HG
+          x-required:
+            - post
+        permission_set:
+          type: string
+          description: |-
+            Determines the visibility and writeability of the field by other API consumers.
+
+            |Value|Description
+            |-|-|
+            |`app_only`|Private to the app that owns the field|
+            |`read`|Visible to other API consumers|
+            |`write`|Open for reading and writing by other API consumers|
+            |`read_and_sf_access`|Visible to other API consumers, including on storefront|
+            |`write_and_sf_access`|Open for reading and writing by other API consumers, including on storefront|
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+        description:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: |
+            Description for the metafield.
+          example: Location in the warehouse
+      required:
+        - namespace
+        - key
+        - value
+        - permission_set
+    metafield_Put:
+      title: metafield_Put
+      x-stoplight:
+        id: 5gl48f06wgr1v
+      type: object
+      description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is fifty. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
+      x-internal: false
+      properties:
+        namespace:
+          maxLength: 64
+          minLength: 1
+          type: string
+          description: 'Namespace for the metafield, for organizational purposes.'
+          example: Warehouse Locations
+          x-required:
+            - post
+        key:
+          maxLength: 64
+          minLength: 1
+          type: string
+          description: |
+            The name of the field.
+          example: Location
+          x-required:
+            - post
+        value:
+          maxLength: 65535
+          minLength: 1
+          type: string
+          description: |
+            The value of the field.
+          example: 4HG
+          x-required:
+            - post
+        permission_set:
+          type: string
+          description: |-
+            Determines the visibility and writeability of the field by other API consumers.
+
+            |Value|Description
+            |-|-|
+            |`app_only`|Private to the app that owns the field|
+            |`read`|Visible to other API consumers|
+            |`write`|Open for reading and writing by other API consumers|
+            |`read_and_sf_access`|Visible to other API consumers, including on storefront|
+            |`write_and_sf_access`|Open for reading and writing by other API consumers, including on storefront|
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+        description:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: |
+            Description for the metafield.
+          example: Location in the warehouse
