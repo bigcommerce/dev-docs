@@ -1182,6 +1182,34 @@
           "uri": "docs/api-docs/storefront/widgets/widgets-overview.md"
         }
       ]
+    },
+    {
+      "type": "divider",
+      "title": "Tutorials"
+    },
+    {
+      "type": "item",
+      "title": "Products",
+      "href": "",
+      "uri": "docs/stencil-docs/tutorials/stencil-products.md"
+    },
+    {
+      "type": "item",
+      "title": "Categories",
+      "href": "",
+      "uri": "docs/stencil-docs/tutorials/stencil-categories.md"
+    },
+    {
+      "type": "item",
+      "title": "Faceted Search",
+      "href": "",
+      "uri": "docs/stencil-docs/tutorials/stencil-faceted-search.md"
+    },
+    {
+      "type": "item",
+      "title": "Customers",
+      "href": "",
+      "uri": "docs/stencil-docs/tutorials/stencil-customers.md"
     }
   ]
 }
