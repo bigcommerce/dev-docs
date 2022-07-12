@@ -74,9 +74,57 @@
         },
         {
           "type": "item",
+          "title": "Products",
+          "href": "",
+          "uri": "docs/api-docs/storefront/graphql/graphql-products.md"
+        },
+        {
+          "type": "item",
+          "title": "Categories",
+          "href": "",
+          "uri": "docs/api-docs/storefront/graphql/graphql-categories.md"
+        },
+        {
+          "type": "item",
           "title": "Faceted and Textual Search",
           "href": "/api-docs/storefront/graphql/search",
           "uri": "docs/api-docs/storefront/graphql/graphql-faceted-textual-search.md"
+        },
+        {
+          "type": "item",
+          "title": "Customers",
+          "href": "",
+          "uri": "docs/api-docs/storefront/graphql/graphql-customers.md"
+        },
+        {
+          "type": "item",
+          "title": "Wishlists",
+          "href": "",
+          "uri": "docs/api-docs/storefront/graphql/graphql-wishlists.md"
+        },
+        {
+          "type": "item",
+          "title": "Channels",
+          "href": "",
+          "uri": "docs/api-docs/storefront/graphql/graphql-channels.md"
+        },
+        {
+          "type": "item",
+          "title": "Widgets",
+          "href": "",
+          "uri": "docs/api-docs/storefront/graphql/graphql-widgets.md"
+        },
+        {
+          "type": "item",
+          "title": "Currencies",
+          "href": "",
+          "uri": "docs/api-docs/storefront/graphql/graphql-currencies.md"
+        },
+        {
+          "type": "item",
+          "title": "Store Settings",
+          "href": "",
+          "uri": "docs/api-docs/storefront/graphql/graphql-store-settings.md"
         },
         {
           "type": "item",
