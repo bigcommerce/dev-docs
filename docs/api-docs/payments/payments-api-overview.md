@@ -46,6 +46,7 @@ The following table lists the payment gateways that are compatible with our publ
 | Eway Rapid        |                    | &check;         |
 | First Data Payeezy Gateway |           | &check;         |
 | Heartland Payment Systems  |           | &check;         | 
+| Mercado Pago      |                    | &check;         |
 | MIGS              |                    | &check;         |
 | Mollie            | &check;            |                 |
 | Moneris           | &check;            | &check;         |
