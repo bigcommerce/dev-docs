@@ -1188,28 +1188,58 @@
       "title": "Tutorials"
     },
     {
-      "type": "item",
-      "title": "Products",
-      "href": "",
-      "uri": "docs/stencil-docs/tutorials/stencil-products.md"
+      "type": "group",
+      "title": "Storefront Customization",
+      "items": [
+          {
+          "type": "item",
+          "title": "Products",
+          "href": "",
+          "uri": "docs/stencil-docs/tutorials/stencil-products.md"
+          },
+          {
+          "type": "item",
+          "title": "Categories",
+          "href": "",
+          "uri": "docs/stencil-docs/tutorials/stencil-categories.md"
+          },
+          {
+          "type": "item",
+          "title": "Faceted Search",
+          "href": "",
+          "uri": "docs/stencil-docs/tutorials/stencil-faceted-search.md"
+          },
+          {
+          "type": "item",
+          "title": "Customers",
+          "href": "",
+          "uri": "docs/stencil-docs/tutorials/stencil-customers.md"
+          }
+      ]
     },
     {
-      "type": "item",
-      "title": "Categories",
-      "href": "",
-      "uri": "docs/stencil-docs/tutorials/stencil-categories.md"
+      "type": "group",
+      "title": "Page Builder",
+      "items": [
+          {
+          "type": "item",
+          "title": "...",
+          "href": "",
+          "uri": "docs/stencil-docs/tutorials/stencil-faceted-search.md"
+          }
+      ]
     },
     {
-      "type": "item",
-      "title": "Faceted Search",
-      "href": "",
-      "uri": "docs/stencil-docs/tutorials/stencil-faceted-search.md"
-    },
-    {
-      "type": "item",
-      "title": "Customers",
-      "href": "",
-      "uri": "docs/stencil-docs/tutorials/stencil-customers.md"
+      "type": "group",
+      "title": "Javascript and Event Hooks",
+      "items": [
+          {
+          "type": "item",
+          "title": "...",
+          "href": "",
+          "uri": "docs/stencil-docs/tutorials/stencil-faceted-search.md"
+          }
+      ]
     }
-  ]
+]
 }
