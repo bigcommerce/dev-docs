@@ -1185,6 +1185,49 @@
     },
     {
       "type": "divider",
+      "title": "Getting Started"
+    },
+    {
+      "type": "item",
+      "title": "About Stencil",
+      "uri": "docs/stencil-docs/getting-started/about-stencil.md"
+    },
+    {
+      "type": "item",
+      "title": "Stencil Technology Stack",
+      "uri": "docs/stencil-docs/getting-started/stencil-technology-stack.md"
+    },
+    {
+      "type": "item",
+      "title": "Transitioning to Stencil",
+      "uri": "docs/stencil-docs/getting-started/transitioning-to-stencil.md"
+    },
+    {
+      "type": "divider",
+      "title": "Stencil CLI"
+    },
+    {
+      "type": "item",
+      "title": "Installing Stencil CLI",
+      "uri": "docs/stencil-docs/installing-stencil-cli/installing-stencil.md"
+    },
+    {
+      "type": "item",
+      "title": "Live Previewing a Theme",
+      "uri": "docs/stencil-docs/installing-stencil-cli/live-previewing-a-theme.md"
+    },
+    {
+      "type": "item",
+      "title": "Stencil CLI Options and Commands",
+      "uri": "docs/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands.md"
+    },
+    {
+      "type": "item",
+      "title": "Troubleshooting Stencil CLI",
+      "uri": "docs/stencil-docs/installing-stencil-cli/troubleshooting-your-setup.md"
+    },
+    {
+      "type": "divider",
       "title": "Tutorials"
     },
     {
