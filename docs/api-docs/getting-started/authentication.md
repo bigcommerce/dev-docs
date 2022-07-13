@@ -319,7 +319,7 @@ BigCommerce-encrypted payload JWTs let control panel apps listen to and reason a
 * The app validates the JWT, then decrypts its payload
 * The payload's data informs what the app does next
 
-To learn more, see our [Apps Guide](api-docs/apps/guide/intro), especially the articles on [authorization, installation](/api-docs/apps/guide/auth), and other [app callback events](/api-docs/apps/guide/callbacks). 
+To learn more, see our [Apps Guide](/api-docs/apps/guide/intro), especially the articles on [authorization, installation](/api-docs/apps/guide/auth), and other [app callback events](/api-docs/apps/guide/callbacks). 
 
 ## Same-origin CORS authentication
 
