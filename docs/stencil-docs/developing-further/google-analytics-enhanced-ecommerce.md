@@ -78,7 +78,7 @@ Data attributes must be manually added to a product in order to track shopper ev
 
 So, if you would like to track the clicks on a specific product, in order to ensure you get a fully comprehensive look at shoppers’ interactions with a product, you will want to include a data attribute on each of these fields. If a specific product possesses multiple data attributes, the data attribute that is closest to the product is the one that will track clicks, product impressions, or product views.
 
-Use simple HTML to implement data attributes in your store. In order to begin tracking, you will add data attributes to the already existing HTML tags present in your theme.
+Use plain HTML to implement data attributes in your store. To begin tracking, add data attributes to the HTML tags that are already present in your theme.
 
 See [Pull Request #1377](https://github.com/bigcommerce/cornerstone/pull/1377/commits/55fc73eeb1edc6e140005ca811f090f06ab35435) to see how data attributes were implemented in Cornerstone 2.6.0.
 
