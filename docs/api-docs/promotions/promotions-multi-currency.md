@@ -1,10 +1,10 @@
 # Multi-Currency Percentage Promotions
 
-When creating a promotion, you can configure the promotion to target all enabled transactional currencies. The promotion will run regardless of what currency the shopper selects as transactional currency within the cart and checkout.
+You can configure the promotion to target all enabled transactional currencies when creating a promotion. The promotion will run regardless of what currency the shopper selects as transactional currency within the cart and checkout.
 
 Multi-currency promotions intentionally only support percentage-based discounts (not amount-based discounts). You will not be able to create an amount-based promotion in multiple currencies. This choice prevents discounting based on fluctuating currency rates as some currencies have broader foreign exchange rates than others (for example, a 10 USD discount is substantially different from 10 JPY).
 
-The following is an example of a coupon promotion offered to all international customers worldwide in their local transactional currency. The WELCOME10 coupon applies a 10% discount off the order, and can be digitally distributed through social media channels (e.g., Instagram, Facebook, TikTok) or email marketing. Use the [Create a promotion](/docs/api-beta-promotions/7d0f6a12f28e0-create-promotion) endpoint followed by the [Create a coupon code](/docs/api-beta-promotions/b3A6NDQzMTY0MDM-create-a-coupon-code) endpoint.
+The following is an example of a coupon promotion offered to all international customers worldwide in their local transactional currency. The WELCOME10 coupon applies a 10% discount off the order, and you can digitally distribute the coupon through social media channels (e.g., Instagram, Facebook, TikTok) or email marketing. Use the [Create a promotion](/docs/api-beta-promotions/7d0f6a12f28e0-create-promotion) endpoint followed by the [Create a coupon code](/docs/api-beta-promotions/b3A6NDQzMTY0MDM-create-a-coupon-code) endpoint.
 
 ```http title="Example request: Create a multi-currency promotion" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/promotions
