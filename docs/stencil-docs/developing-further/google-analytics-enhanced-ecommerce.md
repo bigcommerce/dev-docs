@@ -110,7 +110,7 @@ Currently, BigCommerce supports 11 different data attributes. Below is a table w
 > * If tracking data for a product, either `data-entity-id` or `data-name` are required.
 > * If tracking data for a product list, `data-product-list` or `data-entity-id` are required.
 
-The “tracked product” refers to the product on which you insert the data attribute.
+The term **tracked product** refers to the product on which you insert the data attribute.
 
 | Data Attribute | Description | Value Type | Example |
 |-----|-----|-----|-----|
