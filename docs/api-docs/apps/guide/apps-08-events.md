@@ -1,7 +1,5 @@
 # Listening for Events
 
-
-
 Your app may need to be notified when specific events occur on a BigCommerce store (for example, when an order is created). Your app can programmatically subscribe to such events via [webhooks](/api-reference/webhooks/webhooks/createwebhooks). We'll briefly introduce webhooks in this article (for visibility); to take a deeper dive, see [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks).
 
 
@@ -9,15 +7,10 @@ Your app may need to be notified when specific events occur on a BigCommerce sto
 
 The following resources have webhooks events available to apps:
 * [Carts](/api-docs/store-management/webhooks/webhook-events#carts)
-
 * [Cart Line Items](/api-docs/store-management/webhooks/webhook-events#cart-line-items)
-
 * [Categories](/api-docs/store-management/webhooks/webhook-events#categories)
-
 * [Customers](/api-docs/store-management/webhooks/webhook-events#customers)
-
 * [Orders](/api-docs/store-management/webhooks/webhook-events#orders)
-
 * [Products](/api-docs/getting-started/webhooks/webhook-events#products)
 * [Shipments](/api-docs/getting-started/webhooks/webhook-events#shipments)
 * [SKUs](/api-docs/getting-started/webhooks/webhook-events#skus)
@@ -48,7 +41,7 @@ Accept: application/json
 
 [Learn more about creating webhooks](/api-docs/getting-started/webhooks/setting-up-webhooks).
 
-## Next steps
+## Next step
 * [Design your app's user interface](/api-docs/apps/guide/ui).
 
 ## Resources
@@ -59,7 +52,7 @@ Accept: application/json
 * [Webhooks Events](/api-docs/getting-started/webhooks/webhook-events)
 
 ### Sample apps
-* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](/api-docs/apps/quick-start)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)

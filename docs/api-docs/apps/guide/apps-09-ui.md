@@ -70,14 +70,14 @@ To load inside the control panel iFrame, your app must do the following:
 
 ## Next steps
 * [Create external installation buttons](/api-docs/apps/guide/buttons).
-* [Follow best practices](/api-docs/apps/guid/best-practices).
+* [Follow best practices](/api-docs/apps/guide/best-practices).
 * [Check requirements](/api-docs/apps/guide/requirements).
 * [Publish your app](/api-docs/apps/guide/publish).
 
 ## Resources
 
 ### Sample apps
-* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](https://developer.bigcommerce.com/api-docs/apps/quick-start)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
