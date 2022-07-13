@@ -11,7 +11,7 @@ Multiple sites can share the same API credentials, or you can choose to create a
 | Subdirectories           | No               |
 | Subdomains               | Yes              |
 | Separate Domains         | Yes*             |
-  
+
 Note that embedded checkout is only supported on a single domain at a time. See the [BigCommerce for WordPress](https://support.bigcommerce.com/s/article/BigCommerce-for-WordPress-Checkout?language=en_US#subdomain-setup) documentation.*
 
 ## Getting your API credentials
@@ -28,7 +28,6 @@ Note that embedded checkout is only supported on a single domain at a time. See 
 <!-- theme: info -->
 > #### API account name field
 > We suggest 'WordPress' for the name, although you can name it anything you'd like as long as it's unique within your API accounts and is more than three characters.
-
 
 3. For the OAuth Scopes, select the following default settings:
 
@@ -61,7 +60,6 @@ Note that embedded checkout is only supported on a single domain at a time. See 
 <!-- theme: info -->
 > #### .txt file download
 > You'll also see a `.txt` file download in your browser that contains the same information in an easy-to-read format, once again including your API Path in case you didn't copy it before.
-
 ![.txt file download](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044589538 ".txt file download")
 
 ## Setting up a WordPress site using API account credentials
@@ -82,7 +80,6 @@ _Congratulations, you're done setting up your additional site!_
 <!-- theme: info -->
 > #### WordPress currency processing
 > The WordPress sites you connect to your BigCommerce store will process in the same currency as the BigCommerce store.
-
 ## Additional resources
 
 * [Multisite Ecommerce with WordPress and BigCommerce](https://medium.com/bigcommerce-developer-blog/multi-site-ecommerce-with-wordpress-and-bigcommerce-40dee194f8a) (Developer Blog)
