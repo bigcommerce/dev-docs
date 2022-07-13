@@ -3,7 +3,7 @@
 
 <!-- theme: warning -->
 > #### Beta supported features
-> This API is in beta. We may introduce breaking changes without notice. If you choose to use this API in production, we recommend implementing robust error handling.
+> This API is in beta. We may introduce breaking changes without notice. We recommend implementing robust error handling if you choose to use this API in production.
 > During this API's beta phase, we support the following condition and actions:
 > * Cart **condition** evaluates against what’s in the shopping cart.
 > * Free shipping **action** gives free shipping.
@@ -99,7 +99,7 @@ In this example, we will create a buy one, get one discount. We’ll use Cart It
 
 #### Discount
 
-[Discount](/docs/api-beta-promotions/c2NoOjIxNTcxMDI5-discount) type can be a percentage amount or a fixed amount. You will use a fixed amount when the promotion offers X dollars off an item or items. Percentage discounts offer a percentage off an item or items. When the promotion is buy one get one, you will use the percentage discount because one item will be free or 100% off. Using the percent discount avoids having to calculate the item price every time.
+[Discount](/docs/api-beta-promotions/c2NoOjIxNTcxMDI5-discount) type can be a percentage amount or a fixed amount. You will use a fixed amount when the promotion offers X dollars off an item or items. Percentage discounts offer a percentage off an item or items. When the promotion is to buy one get one free, you will use the percentage discount because one item will be free or 100% off. Using the percent discount avoids having to calculate the item price every time.
 
 In this example, we will use the `percentage_amount` set to 100.
 
@@ -119,7 +119,7 @@ In this example, we set `as_total` to false.
 
 The items object includes a product array. You should apply action against this list of products. Quantity is the number of products that can use the discount. The shopper will continue to get the discount as long as the condition is satisfied.
 
-In this example, the products array only has one item available for a discount. Quantity is set to one since the promotion is to buy one get one.
+In this example, the product array only has one item available for a discount. Quantity is set to one since the promotion is to buy one get one.
 
 So far, the promotion should look like the following:
 
@@ -188,10 +188,10 @@ After the Action object, you will need to set two configurations within the rule
 
 **Apply once**
 
-You can set `apply_once` can be set to `true` or `false`. If set to `true`, the Action will only happen once. If set to `false`, it will happen more than once. Set this carefully. In the promotion we are building, setting it to `false` means the shopper can add two products to the cart and get two of the same items for free.
+You can set `apply_once` to `true` or `false`. If set to `true`, the action will only happen once. If set to `false`, it will happen more than once. Set this carefully. In the promotion we are building, setting it to `false` means the shopper can add two products to the cart and get two of the same items for free.
 
 <!-- theme: warning -->
-> #### Use care with apply_once
+> #### Use care with `apply_once`
 > Set `apply_once` carefully to avoid giving a more generous discount than intended.
 
 **Stop**
@@ -209,7 +209,7 @@ The `currency_code` must be an uppercase three-letter string that corresponds wi
 * GBP
 * AUD
 
-BigCommerce supports both display and transactional currencies. Transactional currencies are the actual currency customers use to perform the transaction. Display currencies allow shopper to see prices in a chosen currency; however, BigCommerce will convert to the default transactional currency for payment.
+BigCommerce supports both display and transactional currencies. Transactional currencies are the actual currency customers use to perform the transaction. Display currencies allow shoppers to see prices in a chosen currency; however, BigCommerce will convert to the default transactional currency for payment.
 
 Thus, promotions in the default currency will apply to all display currencies in addition to the default currency.
 
@@ -259,10 +259,10 @@ We can base the condition on one of the following condition types:
 * [Or Condition](/docs/api-beta-promotions/c2NoOjIxNTcxMDEy-or-condition) Logical or operator
 * [Not Condition](/docs/api-beta-promotions/c2NoOjIxNTcxMDEz-not-condition) Logical not operator
 
-Cart condition allows you to set the items (products), `minimum_quantity` and, `minimum_spend`. Setting the `minimum_quantity` determines how many items the shopper needs in the cart for the promotion to trigger. The promotion can buy one, buy two, etc. The `minimum_spend` is how much the shopper needs to spend for the discount to trigger. If left blank or not included, then it assumes the shopper does not have a `minimum_spend`. In our buy one get one example, the number of products, not the amount purchased, triggers the discount, so you do not need to include it.
+Cart condition allows you to set the items (products), `minimum_quantity` and, `minimum_spend`. Setting the `minimum_quantity` determines how many items the shopper needs in the cart for the promotion to trigger. The promotion can buy one, buy two, etc. The `minimum_spend` is how much the shopper needs to spend for the discount to trigger. If left blank or not included, it assumes the shopper does not have a `minimum_spend`. In our buy one get one example, the number of products, not the amount purchased, triggers the discount, so you do not need to include it.
 
 
-In this example we will use cart condition. Then apply a discount against items added to our product array. The product should match the one set in the preceding action product array. If they do not match, the discount will be buy X product get Y product free. Set the `minimum_quantity` to one.
+In this example, we will use cart condition. Then apply a discount against items added to our product array. The product should match the one set in the preceding action product array. If they do not match, the discount will be buy X product get Y product free. Set the `minimum_quantity` to one.
 
 So far, the promotion should look like the following:
 
@@ -298,20 +298,20 @@ So far, the promotion should look like the following:
 
 ### Create the notifications
 
-A notification represents a message that you can display to a shopper depending on the state an evaluated rule is in (for example, a “Congratulations! You’ve received free shipping!” message when the shopper receives free shipping). Due to the nature of cart-level discounts, they will not be apparent to the customer until they have added products to their cart. For this reason, we recommend advertising your discounts with a notification.
+A notification represents a message you can display to a shopper depending on the state of an evaluated rule (for example, a “Congratulations! You’ve received free shipping!” message when the shopper receives free shipping). Due to the nature of cart-level discounts, they will not be apparent to the customer until they have added products to their cart. For this reason, we recommend advertising your discounts with a notification.
 
 There are four types of notifications:
 
-* **Promotion**: `PROMOTION` notifications are visible during the entire time a promotion is active. (i.e., “Spend $50 and get free shipping!”).
+* **Promotion**: `PROMOTION` notifications are visible the entire time a promotion is active. (i.e., “Spend $50 and get free shipping!”).
 
-* **Upsell:** `UPSELL` notifications show when the user has made partial progress towards unlocking a discount. You can use this type of notification to increase the Average Order Value (AOV) or increase the quantity of items in average order (example: “You’ve spent $40, add another $10 to your cart to receive free shipping!”, “You have 1 of Rebel Shoes, buy 1 more get 20% off your order total”).
+* **Upsell:** `UPSELL` notifications show when the user has made partial progress towards unlocking a discount. You can use this type of notification to increase the Average Order Value (AOV) or increase the quantity of items in the average order (example: “You’ve spent $40, add another $10 to your cart to receive free shipping!”, “You have 1 of Rebel Shoes, buy one more get 20% off your order total”).
 
 
 * **Eligible:** `ELIGIBLE` notifications show when the user has met the conditions for a rule but hasn’t yet taken advantage of the discount it provides (i.e., “You’ve spent over $60 on bathroom accessories and are eligible to choose a free item from the ‘Towels’ category!”).
 
 <!-- theme: info -->
 > #### Banners
-> Eligible banners display if the actions attached to the rule can’t be automatically applied such as the shopper selecting a free product from a category.
+> Eligible banners display if the actions attached to the rule can’t be automatically applied, such as the shopper selecting a free product from a category.
 
 * **Applied:** `APPLIED` notifications show once the shopper has received the discount in their cart (i.e., “Congratulations! You’ve received a free bath towel!”).
 
@@ -319,9 +319,9 @@ Each of these notifications can be attached to one or multiple locations. A loca
 
 There are four locations:
 
-* **Home Page:** `HOME_PAGE` is the homepage of the store. A good example of notification on this location could be an upsell banner or a promotional banner.
+* **Home Page:** `HOME_PAGE` is the store's homepage. A good example of notification on this location could be an upsell or a promotional banner.
 
-* **Product Page:** `PRODUCT_PAGE` is a Product Detail Page(PDP) for a specific product. A notification will appear on a PDP when condition and notification criteria are met. Example: “Buy 2 of Rebel Shoes, get 10% off you order total” will appear on Rebel Shoes PDP only.
+* **Product Page:** `PRODUCT_PAGE` is a Product Detail Page(PDP) for a specific product. When you meet condition and notification criteria, a notification will appear on a PDP. Example: “Buy 2 of Rebel Shoes, get 10% off your order total” will appear on Rebel Shoes PDP only.
 
 * **Cart Page:** `CART_PAGE` is the cart page.
 
@@ -398,7 +398,7 @@ Stop determines if you want to calculate any other promotions after this one. Se
 
 <!-- theme: warning -->
 > #### Consider a stop
-> If there is more than one promotion active at a time, setting the stop should be considered.
+> Considered setting the stop if there is more than one promotion active at a time.
 
 <!-- theme: info -->
 > #### Two stops
@@ -407,7 +407,7 @@ Stop determines if you want to calculate any other promotions after this one. Se
 
 **Max Uses**
 
-The number of times you can use a promotion before the status changes to **DISABLED**. `max_uses` is optional, and if not set, the promotion will be active until manually disabled.
+The number of times you can use a promotion before the status changes to **DISABLED**. `max_uses` is optional; if not set, the promotion will be active until manually disabled.
 
 **Start Date**
 
@@ -501,7 +501,7 @@ Accept: application/json
 
 <!-- theme: warning -->
 > #### Redemption type
-> Once the redemption_type is set, it can not be changed through a `PUT`.
+> Once you set the redemption_type, you can not change it through a `PUT`.
 
 ```json title="Example response: Spend $100, get $30 off" lineNumbers
 {
@@ -721,7 +721,7 @@ The following promotion will only apply to the customers in the VIP group (group
 
 ## Free shipping
 
-At the moment, we offer a free shipping action that provides an additional shipping method called “free shipping” on the storefront checkout flow. This shipping method is not the same as 100% off shipping since the shopper has a choice of shipping options with one of them being free shipping.
+At the moment, we offer a free shipping action that provides an additional shipping method called “free shipping” on the storefront checkout flow. This shipping method is not the same as 100% off shipping since the shopper has a choice of shipping options, including free shipping.
 
 
 ## Using logical operators
@@ -875,7 +875,7 @@ The following promotion uses [Cart Items Action > Item Matcher > Not Item Matche
 ## Definitions
 
 ### Active and Inactive Promotions
-If a promotion has reached its `max_uses`, the status will change to inactive and the promotion will no longer be available to shoppers. The start and end date can also change the status of the promotion.
+If a promotion has reached its `max_uses`, the status will change to inactive, and the promotion will no longer be available to shoppers. The start and end date can also change the status of the promotion.
 
 ### Multiple Promotions
 If there are multiple promotions active on a store, set the priority attribute to control the order in which the promotions apply. A higher priority means the promotion will apply first. (e.g., priority 1 promotion runs before priority 2)
@@ -885,7 +885,7 @@ The stop attribute controls whether to skip all the promotions with lower priori
 
 <!-- theme: warning -->
 > #### Consider a stop
-> If there is more than one promotion active at a time, setting the stop should be considered.
+> If there is more than one promotion active at a time, consider setting the stop.
 
 
 ### Apply once
@@ -895,11 +895,11 @@ Apply once controls whether a promotion can run multiple times or just once. If 
 ### As total
 If set to `true`, the promotion is distributed among the items in the cart. For example, if the discount is $10 and two eligible items are in the cart, the discount is spread among the items. In this case, each item will get a $5 discount.
 
-If set to `false`, then the promotion will apply to each item. For example, if the discount is $10, each item will be discount by $10, making the total discount $20. This is part of the [Cart Items Action](/docs/api-beta-promotions/c2NoOjIxNTcxMDI3-cart-items-action).
+If set to `false`, then the promotion will apply to each item. For example, if the discount is $10, each item will be discounted by $10, making the total discount $20. This is part of the [Cart Items Action](/docs/api-beta-promotions/c2NoOjIxNTcxMDI3-cart-items-action).
 
 ### Include items considered by condition
 
-If set to `false`, items that used to satisfy the condition will no longer include the discount. For example, buy one get one 20% oOff. If the cart only contains one item, you can not use it for the discount.
+If set to `false`, items that used to satisfy the condition will no longer include the discount. For example, buy one get one 20% off. If the cart only contains one item, you can not use it for the discount.
 
 If set to `true`, the item used to satisfy the condition are included in the discount. For example, buy X get a discount. If there is only one item in the cart, you can use it to satisfy the discount.
 
@@ -907,6 +907,6 @@ If set to `true`, the item used to satisfy the condition are included in the dis
 
 When the cart only has one item, it will not discount the item in the cart. When the second item from the same category is added, the second item will be free. It is using the original item in the cart to satisfy the condition.
 
-*Buy 2 from category X, receive $10, buy 3 from category X, receive $15*:
+*Buy two from category X, receive $10, buy three from category X, receive $15*:
 
 When the cart contains two items from category X, both items will get the $10 discount. This is part of the [Cart Items Action](/docs/api-beta-promotions/c2NoOjIxNTcxMDI3-cart-items-action).
