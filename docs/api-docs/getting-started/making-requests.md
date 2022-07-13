@@ -1,7 +1,5 @@
 # BigCommerce APIs Quick Start
 
-
-
 This quick start guide will take you through making your first requests with BigCommerce's APIs.
 
 ## REST API
@@ -46,12 +44,26 @@ To view sample JSON request bodies for each REST API resource, see the [API Refe
 
 To make your first requests in a browser with the Storefront APIs, see the step-by-step tutorial [Working with Storefront Cart and Checkout APIs](/api-docs/cart-and-checkout/working-sf-apis).
 
-## GraphQL API
+## GraphQL Storefront API
 
-### Obtain storefront token
-We'll use **Request Runner** for making an initial request to obtain a Storefront API token. It is a REST API request, so you will need to copy and paste your [API credentials](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
+For more about authenticating the GraphQL Storefront API, see 
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/cart-checkout/storefront-api-token/api-token/createtoken#requestrunner) -->
+
+
+### Obtain a Storefront token
+The request to obtain a GraphQL Storefront token uses a REST endpoint.
+
+You can use any of the preceding REST API clients to obtain the token.  
+
+Use a store API account [access token](/api-docs/getting-started/authentication/rest-api-authentication#api-accounts). 
+
+For example request headers, see [X-Auth-Token header example requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests). 
+
+For example request bodies, see [Create a token](/api-reference/storefront/graphql-api-tokens/api-token/createtoken).
+
+For a description... >>>
+
+
 
 Include the URL of the storefront you will be making the request from as the `allowed_cors_origin`.
 
