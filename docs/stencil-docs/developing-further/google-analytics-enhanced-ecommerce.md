@@ -16,7 +16,7 @@ Cornerstone versions 2.6.0+ will have data attributes already included in the th
 Data attributes will work on any theme. For this tutorial, we will be adding data attributes to the Cornerstone theme. If you do not already have a local copy of Cornerstone on your machine, see [Downloading a theme](/stencil-docs/installing-stencil-cli/live-previewing-a-theme#downloading-a-theme).
 
 
-If you would like to implement data attributes on your custom theme and do not already have a copy of your custom theme downloaded, see [The BigCommerce Theme Marketplace](https://support.bigcommerce.com/s/article/The-Bigcommerce-Themes-Marketplace?language=en_US).
+If you would like to implement data attributes on your custom theme and do not already have a copy of your custom theme downloaded, see our support article on [The BigCommerce Theme Marketplace](https://support.bigcommerce.com/s/article/The-Bigcommerce-Themes-Marketplace?language=en_US).
 
 <!-- theme: info -->
 > #### Note 
