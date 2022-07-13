@@ -5,7 +5,7 @@
 
 ## Multi-language setup
 
-Cornerstone's [Optimized Checkout](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss) SCSS file and [Order Confirmation](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/order-confirmation.html) HTML file both contain Handlebars `{{lang}}` statements. These `{{lang}}` statements facilitate translation by enabling automatic rendering of their parameters into the default storefront language defined in the control panel. Checkout has been pre-translated into English, French, German, Italian, Portugese, Spanish, Swedish, and Dutch. See [Resources](/stencil-docs/localization/localizing-stores#resources) to download the supported language files. You can override the pre-translations by providing the xx.json file for the language you want to override.
+Cornerstone's [Optimized Checkout](https://github.com/bigcommerce/cornerstone/blob/master/assets/scss/optimized-checkout.scss) SCSS file and [Order Confirmation](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/order-confirmation.html) HTML file both contain Handlebars `{{lang}}` statements. These `{{lang}}` statements facilitate translation by enabling automatic rendering of their parameters into the default storefront language defined in the control panel. Checkout has been pre-translated into English, French, German, Italian, Norwegian, Portugese, Spanish, Swedish, Danish, and Dutch. See [Resources](/stencil-docs/localization/localizing-stores#resources) to download the supported language files. You can override the pre-translations by providing the xx.json file for the language you want to override.
 
 The following example shows how to use the `{{lang}}` statement in the header of the [default checkout page](https://github.com/bigcommerce/cornerstone/blob/master/templates/pages/checkout.html): 
 
@@ -64,14 +64,22 @@ You can provide values for all of the checkout's supported translation keys even
 
 | Supported Language | Required Translation File Name |
 |-|-|
-| German | `de.json` |
-| Spanish (Mexico) | `es-MX.json` |
-| Spanish | `es.json` |
+| Danish | `da.json`   |
+| Dutch  | `nl.json`   |
+| English | `en.json`  |
 | French | `fr.json` |
+| German | `de.json` |
 | Italian | `it.json` |
-| Dutch | `nl.json` |
+| Norwegian| `no.json`|
+| Portuguese| `pt.json`|
 | Portuguese (Brazil)| `pt-BR.json`|
-| Portuguese (Portugal) | `pt.json`|
+| Spanish (Argentina) | `es-AR.json` |
+| Spanish (Chile) | `es-CL.json` |
+| Spanish (Columbia) | `es-CO.json` |
+| Spanish (Latin America & Caribbean) | `es-419.json` |
+| Spanish (Mexico)| `es-MX.json` |
+| Spanish (Peru)| `es-PE.json` |
+| Spanish (Spain)| `es.json` |
 | Swedish | `sv.json`|
 
 4. Replace the values with appropriate phrases in each file's target language.
