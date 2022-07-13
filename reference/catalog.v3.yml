@@ -304,8 +304,7 @@ paths:
             type: integer
         - name: keyword
           in: query
-          description: |
-            Filter items by keywords found in the `name`, `description`, or `sku` fields, or in the brand name.
+          description: 'Filter items by keywords found in the `name` or `sku` fields'
           schema:
             type: string
         - name: keyword_context
@@ -469,6 +468,109 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/product_Put_Collection'
+            examples:
+              example-1:
+                value:
+                  - id: 0
+                    name: Smith Journal 13
+                    type: physical
+                    sku: SM-13
+                    description: '<p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel metus ac est egestas porta sed quis erat. Integer id nulla massa. Proin vitae enim nisi. Praesent non dignissim nulla. Nulla mattis id massa ac pharetra. Mauris et nisi in dolor aliquam sodales. Aliquam dui nisl, dictum quis leo sit amet, rutrum volutpat metus. Curabitur libero nunc, interdum ac libero non, tristique porttitor metus. Ut non dignissim lorem, in vestibulum leo. Vivamus sodales quis turpis eget.</span></p>'
+                    weight: 0
+                    width: 0
+                    depth: 0
+                    height: 0
+                    price: 0
+                    cost_price: 0
+                    retail_price: 0
+                    sale_price: 0
+                    map_price: 0
+                    tax_class_id: 0
+                    product_tax_code: string
+                    categories:
+                      - 0
+                    brand_id: 0
+                    inventory_level: 0
+                    inventory_warning_level: 0
+                    inventory_tracking: none
+                    fixed_cost_shipping_price: 0
+                    is_free_shipping: true
+                    is_visible: true
+                    is_featured: true
+                    related_products:
+                      - 0
+                    warranty: string
+                    bin_picking_number: string
+                    layout_file: string
+                    upc: string
+                    search_keywords: string
+                    availability: available
+                    availability_description: string
+                    gift_wrapping_options_type: any
+                    gift_wrapping_options_list:
+                      - 0
+                    sort_order: -2147483648
+                    condition: New
+                    is_condition_shown: true
+                    order_quantity_minimum: 0
+                    order_quantity_maximum: 0
+                    page_title: string
+                    meta_keywords:
+                      - string
+                    meta_description: string
+                    view_count: 0
+                    preorder_release_date: '2019-08-24T14:15:22Z'
+                    preorder_message: string
+                    is_preorder_only: true
+                    is_price_hidden: true
+                    price_hidden_label: string
+                    custom_url:
+                      url: string
+                      is_customized: true
+                    open_graph_type: product
+                    open_graph_title: string
+                    open_graph_description: string
+                    open_graph_use_meta_description: true
+                    open_graph_use_product_name: true
+                    open_graph_use_image: true
+                    brand_name or brand_id: Common Good
+                    gtin: string
+                    mpn: string
+                    reviews_rating_sum: 3.2
+                    reviews_count: 4
+                    total_sold: 80
+                    custom_fields:
+                      - id: 6
+                        name: ISBN
+                        value: '1234567890123'
+                    bulk_pricing_rules:
+                      - id: 0
+                        quantity_min: 10
+                        quantity_max: 50
+                        type: price
+                        amount: 10
+                    images:
+                      - image_file: string
+                        is_thumbnail: true
+                        sort_order: -2147483648
+                        description: string
+                        image_url: string
+                        id: 0
+                        product_id: 0
+                        url_zoom: string
+                        url_standard: string
+                        url_thumbnail: string
+                        url_tiny: string
+                        date_modified: '2019-08-24T14:15:22Z'
+                    videos:
+                      - title: Writing Great Documentation
+                        description: A video about documenation
+                        sort_order: 1
+                        type: youtube
+                        video_id: z3fRu9pkuXE
+                        id: 0
+                        product_id: 0
+                        length: string
         required: false
       responses:
         '200':
@@ -484,6 +586,249 @@ paths:
                       $ref: '#/components/schemas/product_Full'
                   meta:
                     $ref: '#/components/schemas/metaCollection_Full'
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - name: Smith Journal 13
+                        type: physical
+                        sku: SM-13
+                        description: '<p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel metus ac est egestas porta sed quis erat. Integer id nulla massa. Proin vitae enim nisi. Praesent non dignissim nulla. Nulla mattis id massa ac pharetra. Mauris et nisi in dolor aliquam sodales. Aliquam dui nisl, dictum quis leo sit amet, rutrum volutpat metus. Curabitur libero nunc, interdum ac libero non, tristique porttitor metus. Ut non dignissim lorem, in vestibulum leo. Vivamus sodales quis turpis eget.</span></p>'
+                        weight: 0
+                        width: 0
+                        depth: 0
+                        height: 0
+                        price: 0
+                        cost_price: 0
+                        retail_price: 0
+                        sale_price: 0
+                        map_price: 0
+                        tax_class_id: 0
+                        product_tax_code: string
+                        categories:
+                          - 0
+                        brand_id: 0
+                        inventory_level: 0
+                        inventory_warning_level: 0
+                        inventory_tracking: none
+                        fixed_cost_shipping_price: 0
+                        is_free_shipping: true
+                        is_visible: true
+                        is_featured: true
+                        related_products:
+                          - 0
+                        warranty: string
+                        bin_picking_number: string
+                        layout_file: string
+                        upc: string
+                        search_keywords: string
+                        availability: available
+                        availability_description: string
+                        gift_wrapping_options_type: any
+                        gift_wrapping_options_list:
+                          - 0
+                        sort_order: -2147483648
+                        condition: New
+                        is_condition_shown: true
+                        order_quantity_minimum: 0
+                        order_quantity_maximum: 0
+                        page_title: string
+                        meta_keywords:
+                          - string
+                        meta_description: string
+                        view_count: 0
+                        preorder_release_date: '2019-08-24T14:15:22Z'
+                        preorder_message: string
+                        is_preorder_only: true
+                        is_price_hidden: true
+                        price_hidden_label: string
+                        custom_url:
+                          url: string
+                          is_customized: true
+                        open_graph_type: product
+                        open_graph_title: string
+                        open_graph_description: string
+                        open_graph_use_meta_description: true
+                        open_graph_use_product_name: true
+                        open_graph_use_image: true
+                        brand_name or brand_id: Common Good
+                        gtin: string
+                        mpn: string
+                        reviews_rating_sum: 3.2
+                        reviews_count: 4
+                        total_sold: 80
+                        custom_fields:
+                          - id: 6
+                            name: ISBN
+                            value: '1234567890123'
+                        bulk_pricing_rules:
+                          - id: 0
+                            quantity_min: 10
+                            quantity_max: 50
+                            type: price
+                            amount: 10
+                        images:
+                          - image_file: string
+                            is_thumbnail: true
+                            sort_order: -2147483648
+                            description: string
+                            image_url: string
+                            id: 0
+                            product_id: 0
+                            url_zoom: string
+                            url_standard: string
+                            url_thumbnail: string
+                            url_tiny: string
+                            date_modified: '2019-08-24T14:15:22Z'
+                        videos:
+                          - title: Writing Great Documentation
+                            description: A video about documenation
+                            sort_order: 1
+                            type: youtube
+                            video_id: z3fRu9pkuXE
+                            id: 0
+                            product_id: 0
+                            length: string
+                        date_created: '2018-08-15T14:49:05.000Z'
+                        date_modified: '2018-08-24T14:41:00.000Z'
+                        id: 1
+                        base_variant_id: 0
+                        calculated_price: 0
+                        options:
+                          - id: 55
+                            product_id: 4
+                            display_name: Add-a-$5-Donation1535042499-187
+                            type: radio_buttons
+                            config:
+                              default_value: string
+                              checked_by_default: true
+                              checkbox_label: string
+                              date_limited: true
+                              date_limit_mode: range
+                              date_earliest_value: '2019-08-24'
+                              date_latest_value: '2019-08-24'
+                              file_types_mode: specific
+                              file_types_supported:
+                                - 'images, documents, other'
+                              file_types_other:
+                                - pdf
+                              file_max_size: 5
+                              text_characters_limited: true
+                              text_min_length: 1
+                              text_max_length: 55
+                              text_lines_limited: true
+                              text_max_lines: 4
+                              number_limited: true
+                              number_limit_mode: lowest
+                              number_lowest_value: 100
+                              number_highest_value: 0
+                              number_integers_only: false
+                              product_list_adjusts_inventory: true
+                              product_list_adjusts_pricing: true
+                              product_list_shipping_calc: weight
+                            sort_order: 1
+                            option_values:
+                              is_default: false
+                              label: Green
+                              sort_order: 0
+                              value_data: {}
+                              id: 0
+                        modifiers:
+                          - type: date
+                            required: true
+                            sort_order: 0
+                            config:
+                              default_value: string
+                              checked_by_default: true
+                              checkbox_label: string
+                              date_limited: true
+                              date_limit_mode: range
+                              date_earliest_value: '2019-08-24'
+                              date_latest_value: '2019-08-24'
+                              file_types_mode: specific
+                              file_types_supported:
+                                - 'images, documents, other'
+                              file_types_other:
+                                - pdf
+                              file_max_size: 5
+                              text_characters_limited: true
+                              text_min_length: 1
+                              text_max_length: 55
+                              text_lines_limited: true
+                              text_max_lines: 4
+                              number_limited: true
+                              number_limit_mode: lowest
+                              number_lowest_value: 100
+                              number_highest_value: 0
+                              number_integers_only: false
+                              product_list_adjusts_inventory: true
+                              product_list_adjusts_pricing: true
+                              product_list_shipping_calc: weight
+                            display_name: string
+                            id: 12
+                            product_id: 77
+                            name: Add-a-$5-Donation1535039590-191
+                            option_values:
+                              - is_default: false
+                                label: Green
+                                sort_order: 0
+                                value_data: {}
+                                adjusters:
+                                  price:
+                                    adjuster: relative
+                                    adjuster_value: 5
+                                  weight:
+                                    adjuster: relative
+                                    adjuster_value: 5
+                                  image_url: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
+                                  purchasing_disabled:
+                                    status: true
+                                    message: string
+                                id: 0
+                                option_id: 0
+                        option_set_id: 0
+                        option_set_display: string
+                        variants:
+                          - cost_price: 0
+                            price: 0
+                            sale_price: 0
+                            retail_price: 0
+                            weight: 0
+                            width: 0
+                            height: 0
+                            depth: 0
+                            is_free_shipping: true
+                            fixed_cost_shipping_price: 0
+                            purchasing_disabled: true
+                            purchasing_disabled_message: string
+                            upc: string
+                            inventory_level: 0
+                            inventory_warning_level: 0
+                            bin_picking_number: string
+                            mpn: string
+                            gtin: '012345678905'
+                            id: 0
+                            product_id: 0
+                            sku: string
+                            sku_id: 0
+                            option_values:
+                              - option_display_name: Color
+                                label: Beige
+                                id: 146
+                                option_id: 151
+                            calculated_price: 0
+                            calculated_weight: 0
+                    meta:
+                      pagination:
+                        total: 36
+                        count: 36
+                        per_page: 50
+                        current_page: 1
+                        total_pages: 1
+                        links:
+                          previous: string
+                          current: '?page=1&limit=50'
+                          next: string
         '207':
           description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
           content:
@@ -22827,13 +23172,110 @@ components:
       description: The model for batch updating products.
       x-internal: false
       allOf:
-        - type: object
-          properties:
-            id:
-              type: integer
-          required:
-            - id
-        - $ref: '#/components/schemas/product_Base'
+        - items:
+            $ref: '#/components/schemas/product_Base'
+      x-examples:
+        example-1:
+          - name: Smith Journal 13
+            type: physical
+            sku: SM-13
+            description: '<p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel metus ac est egestas porta sed quis erat. Integer id nulla massa. Proin vitae enim nisi. Praesent non dignissim nulla. Nulla mattis id massa ac pharetra. Mauris et nisi in dolor aliquam sodales. Aliquam dui nisl, dictum quis leo sit amet, rutrum volutpat metus. Curabitur libero nunc, interdum ac libero non, tristique porttitor metus. Ut non dignissim lorem, in vestibulum leo. Vivamus sodales quis turpis eget.</span></p>'
+            weight: 0
+            width: 0
+            depth: 0
+            height: 0
+            price: 0
+            cost_price: 0
+            retail_price: 0
+            sale_price: 0
+            map_price: 0
+            tax_class_id: 0
+            product_tax_code: string
+            categories:
+              - 0
+            brand_id: 0
+            inventory_level: 0
+            inventory_warning_level: 0
+            inventory_tracking: none
+            fixed_cost_shipping_price: 0
+            is_free_shipping: true
+            is_visible: true
+            is_featured: true
+            related_products:
+              - 0
+            warranty: string
+            bin_picking_number: string
+            layout_file: string
+            upc: string
+            search_keywords: string
+            availability: available
+            availability_description: string
+            gift_wrapping_options_type: list
+            gift_wrapping_options_list:
+              - 0
+            sort_order: -2147483648
+            condition: New
+            is_condition_shown: true
+            order_quantity_minimum: 0
+            order_quantity_maximum: 0
+            page_title: string
+            meta_keywords:
+              - string
+            meta_description: string
+            view_count: 0
+            preorder_release_date: '2019-08-24T14:15:22Z'
+            preorder_message: string
+            is_preorder_only: true
+            is_price_hidden: true
+            price_hidden_label: string
+            custom_url:
+              url: string
+              is_customized: true
+            open_graph_type: product
+            open_graph_title: string
+            open_graph_description: string
+            open_graph_use_meta_description: true
+            open_graph_use_product_name: true
+            open_graph_use_image: true
+            brand_name or brand_id: Common Good
+            gtin: string
+            mpn: string
+            reviews_rating_sum: 3.2
+            reviews_count: 4
+            total_sold: 80
+            custom_fields:
+              - id: 6
+                name: ISBN
+                value: '1234567890123'
+            bulk_pricing_rules:
+              - id: 0
+                quantity_min: 10
+                quantity_max: 50
+                type: price
+                amount: 10
+            images:
+              - image_file: string
+                is_thumbnail: true
+                sort_order: -2147483648
+                description: string
+                image_url: string
+                id: 0
+                product_id: 0
+                url_zoom: string
+                url_standard: string
+                url_thumbnail: string
+                url_tiny: string
+                date_modified: '2019-08-24T14:15:22Z'
+            videos:
+              - title: Writing Great Documentation
+                description: A video about documenation
+                sort_order: 1
+                type: youtube
+                video_id: z3fRu9pkuXE
+                id: 0
+                product_id: 0
+                length: string
+      type: array
     config_Full:
       title: config_Full
       type: object
@@ -23097,13 +23539,118 @@ components:
       x-internal: false
     product_Base:
       title: product_Base
-      required:
-        - name
-        - price
-        - type
-        - weight
       type: object
+      description: |-
+        Shared `Product` properties used in:
+        * `POST`
+        * `PUT`
+        * `GET`
+      x-internal: false
+      x-examples:
+        example-1:
+          id: 0
+          name: Smith Journal 13
+          type: physical
+          sku: SM-13
+          description: '<p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel metus ac est egestas porta sed quis erat. Integer id nulla massa. Proin vitae enim nisi. Praesent non dignissim nulla. Nulla mattis id massa ac pharetra. Mauris et nisi in dolor aliquam sodales. Aliquam dui nisl, dictum quis leo sit amet, rutrum volutpat metus. Curabitur libero nunc, interdum ac libero non, tristique porttitor metus. Ut non dignissim lorem, in vestibulum leo. Vivamus sodales quis turpis eget.</span></p>'
+          weight: 0
+          width: 0
+          depth: 0
+          height: 0
+          price: 0
+          cost_price: 0
+          retail_price: 0
+          sale_price: 0
+          map_price: 0
+          tax_class_id: 0
+          product_tax_code: string
+          categories:
+            - 0
+          brand_id: 0
+          inventory_level: 0
+          inventory_warning_level: 0
+          inventory_tracking: none
+          fixed_cost_shipping_price: 0
+          is_free_shipping: true
+          is_visible: true
+          is_featured: true
+          related_products:
+            - 0
+          warranty: string
+          bin_picking_number: string
+          layout_file: string
+          upc: string
+          search_keywords: string
+          availability_description: string
+          availability: available
+          gift_wrapping_options_type: any
+          gift_wrapping_options_list:
+            - 0
+          sort_order: -2147483648
+          condition: New
+          is_condition_shown: true
+          order_quantity_minimum: 0
+          order_quantity_maximum: 0
+          page_title: string
+          meta_keywords:
+            - string
+          meta_description: string
+          view_count: 0
+          preorder_release_date: '2019-08-24T14:15:22Z'
+          preorder_message: string
+          is_preorder_only: true
+          is_price_hidden: true
+          price_hidden_label: string
+          custom_url:
+            url: string
+            is_customized: true
+          open_graph_type: product
+          open_graph_title: string
+          open_graph_description: string
+          open_graph_use_meta_description: true
+          open_graph_use_product_name: true
+          open_graph_use_image: true
+          brand_name or brand_id: Common Good
+          gtin: string
+          mpn: string
+          reviews_rating_sum: 3.2
+          reviews_count: 4
+          total_sold: 80
+          custom_fields:
+            - id: 6
+              name: ISBN
+              value: '1234567890123'
+          bulk_pricing_rules:
+            - id: 0
+              quantity_min: 10
+              quantity_max: 50
+              type: price
+              amount: 10
+          images:
+            - image_file: string
+              is_thumbnail: true
+              sort_order: -2147483648
+              description: string
+              image_url: string
+              id: 0
+              product_id: 0
+              url_zoom: string
+              url_standard: string
+              url_thumbnail: string
+              url_tiny: string
+              date_modified: '2019-08-24T14:15:22Z'
+          videos:
+            - title: Writing Great Documentation
+              description: A video about documenation
+              sort_order: 1
+              type: youtube
+              video_id: z3fRu9pkuXE
+              id: 0
+              product_id: 0
+              length: string
       properties:
+        id:
+          type: integer
         name:
           maxLength: 250
           minLength: 1
@@ -23206,10 +23753,10 @@ components:
           type: array
           description: |
             An array of IDs for the categories to which this product belongs. When updating a product, if an array of categories is supplied, all product categories will be overwritten. Does not accept more than 1,000 ID values.
-          items:
-            type: integer
           x-required:
             - post
+          items:
+            type: integer
         brand_id:
           maximum: 1000000000
           minimum: 0
@@ -23290,6 +23837,12 @@ components:
           type: string
           description: |
             A comma-separated list of keywords that can be used to locate the product when searching the store.
+        availability_description:
+          maxLength: 255
+          minLength: 0
+          type: string
+          description: |
+            Availability text displayed on the checkout page, under the product title. Tells the customer how long it will normally take to ship this product, such as: 'Usually ships in 24 hours.'
         availability:
           type: string
           description: |
@@ -23298,12 +23851,6 @@ components:
             - available
             - disabled
             - preorder
-        availability_description:
-          maxLength: 255
-          minLength: 0
-          type: string
-          description: |
-            Availability text displayed on the checkout page, under the product title. Tells the customer how long it will normally take to ship this product, such as: 'Usually ships in 24 hours.'
         gift_wrapping_options_type:
           type: string
           description: |
@@ -23477,13 +24024,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/productVideo_Full'
-      description: |-
-        Shared `Product` properties used in:
-        * `POST`
-        * `PUT`
-        * `GET`
-      x-internal: false
-      x-examples: {}
+      required:
+        - name
+        - type
+        - weight
+        - price
     metafield_Put:
       title: metafield_Put
       description: Properties for updating metafields.
