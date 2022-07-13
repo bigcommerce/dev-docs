@@ -1,25 +1,16 @@
-# Get Started Making API Requests
+# BigCommerce APIs Quick Start
 
-This quick start guide covers making your first requests to BigCommerce APIs, and offers guidance on setting up your own development environment.
 
-authentication, headers, scripts, clients/devtools, references to other articles.
 
-## Authentication
+This quick start guide will take you through making your first requests with BigCommerce's APIs.
 
->>> article teaser
+## REST API
 
 ### Obtain API credentials
 
-The fastest way to get started making authenticated REST requests is using a [store API account](/api-docs/getting-started/authentication/rest-api-authentication#store-api-accounts); see our resources on [creating store API accounts](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
+See [Authenticating BigCommerce's Rest APIs](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials) for instructions on obtaining store API credentials.
 
-If the endpoints you want to use require [app API accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts), see [creating app API accounts](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-app-api-credentials).
-
-## REST API request tools
-
-
-
-
-### Built-in Request Runner
+### Use Request Runner
 
 The easiest way to experiment with BigCommerce REST APIs is via the built-in **Request Runner**:
 
@@ -51,36 +42,22 @@ You can import many of our API Specification Files into [Postman](https://www.ge
 
 To view sample JSON request bodies for each REST API resource, see the [API Reference](/api-reference) for that resource.
 
-## REST Storefront API quick start
+## Storefront API quick start
 
 To make your first requests in a browser with the Storefront APIs, see the step-by-step tutorial [Working with Storefront Cart and Checkout APIs](/api-docs/cart-and-checkout/working-sf-apis).
 
-## GraphQL Storefront API
+## GraphQL API
 
-For more about authenticating the GraphQL Storefront API, see 
+### Obtain storefront token
+We'll use **Request Runner** for making an initial request to obtain a Storefront API token. It is a REST API request, so you will need to copy and paste your [API credentials](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
 
-
-
-### Obtain a Storefront token
-The request to obtain a GraphQL Storefront token uses a REST endpoint.
-
-You can use any of the preceding REST API clients to obtain the token.  
-
-Use a store API account [access token](/api-docs/getting-started/authentication/rest-api-authentication#api-accounts). 
-
-For example request headers, see [X-Auth-Token header example requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests). 
-
-For example request bodies, see [Create a token](/api-reference/storefront/graphql-api-tokens/api-token/createtoken).
-
-For a description... >>>
-
-
+<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/cart-checkout/storefront-api-token/api-token/createtoken#requestrunner) -->
 
 Include the URL of the storefront you will be making the request from as the `allowed_cors_origin`.
 
 **`POST`** `https://api.bigcommerce.com/stores/{store_hash}/v3/storefront/api-token`
 
-```javascript title="" lineNumbers
+```javascript
 {
   "channel_id": 1,            // int (only ID 1 currently accepted)
   "expires_at": 1602288000,   // double utc unix timestamp (required)
@@ -93,52 +70,42 @@ Include the URL of the storefront you will be making the request from as the `al
 ### Create sample request in the browser
 While viewing your storefront in a browser, navigate to the integrated JavaScript console; for example, [Google Chrome's Console](https://developers.google.com/web/tools/chrome-devtools/console). Use it to run the following code after entering your API token in the authorization header, and adding a valid [Product ID](/api-reference/catalog/catalog-api/products/getproductbyid) for the `entityId`:
 
-```javascript title="Sample GraphQL request" lineNumbers
-  fetch('/graphql', {
-    method: 'POST',
-    mode: 'cors',
-    headers: { 
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer token`
-    },
-    body: JSON.stringify({
-      query: `query SingleProduct {
-        site {
-          products (entityIds: product ID) {
-            edges {
-              node {
-                id
-                entityId
-                name
-                prices {
-                  price {
-                    value
-                    currencyCode
+```javacsript
+   fetch('/graphql', {
+        method: 'POST',
+        mode: 'cors',
+        headers: { 'Content-Type': 'application/json',
+                 'Authorization': `Bearer token`},
+        body: JSON.stringify({
+            query: `
+            query SingleProduct {
+                site {
+                  products (entityIds: product ID) {
+                    edges {
+                      node {
+                        id
+                        entityId
+                        name
+                        prices {
+                          price {
+                            value
+                            currencyCode
+                          }
+                        }
+                      }
+                    }
                   }
                 }
-              }
-            }
-          }
-        }
-      }`
-    })
-  })
-  .then(res => res.json())
-  .then(res => console.log(res.data))
-  .catch(err => console.log(error));
+              }`
+
+            }),
+      })
+      .then(res => res.json())
+      .then(res => res.data);
 
 ```
 
 ## Customer Login API
-You need an [app API account](>>>) to make requests to the [Customer Login API](/api-docs/storefront/customer-login-api). Successful requests to this API send JSON web tokens, or JWTs. To view a sample request, see our article on [Authentication](>>>#user-generated-jwts).
-
-
-## Resources
-
-### Further reading
-* [Authentication and Example Requests]()
-* [API Accounts and OAuth Scopes]()
-* []()
-* []()
-* []()
+The Customer Login API is a Server-to-Server API, which means to make requests against it, you will need a backend service. To view a sample request, see sample code within our [PHP client](
+https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421).
 
