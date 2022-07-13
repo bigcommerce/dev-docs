@@ -10,7 +10,7 @@ title: Brand
 ### Spend $X in brand X, get free shipping to X shipping zones
 ```json title="Example request" lineNumbers
 {
-  "name": "Order $100 of this Common Good Brand, Get Free Shipping",
+  "name": "Order $100 of this common good brand, get free shipping",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -141,7 +141,7 @@ title: Brand
 ### Spend X amount in brand Y, get X% off in brand Y
 ```json title="Example request" lineNumbers
 {
-  "name": "Spend X Amount in Brand Y, Get X% Off in Brand Y",
+  "name": "Spend X amount in brand Y, Get X% off in brand Y",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -364,7 +364,7 @@ title: Category
 
 ```json title="Example request" lineNumbers
 {
-  "name": "20 dollar off all Garden material",
+  "name": "20 dollars off all garden material",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -422,7 +422,7 @@ title: Category
 
 ```json title="Example request" lineNumbers
 {
-  "name": "20 dollar off all Garden material, exclude items on sale",
+  "name": "20 dollars off all garden material, exclude items on sale",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -455,7 +455,7 @@ title: Category
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy X units in (Category A), get Y additional units in the same category free (must be of equal or l",
+  "name": "Buy X units in (Category A), get Y additional units in the same category free (must be of equal or lesser value)",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -564,7 +564,7 @@ title: Category
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy Product X or items from Category Y Get $10 off items from Category Z",
+  "name": "Buy product X or items from category Y get $10 off items from category Z",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -606,11 +606,11 @@ title: Category
 ```
 <br>
 
-### Buy 3 from category X, get 1 from category Y for free
+### Buy three from category X, get one from category Y for free
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy 3 from Category X Get 1 from Category Y for free",
+  "name": "Buy three from category X get one from category Y for free",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -648,7 +648,7 @@ title: Category
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy $X from Category X Get Product Y for free",
+  "name": "Buy $X from category X get product Y for free",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -691,7 +691,7 @@ title: Customer
 
 ```json title="Example request" lineNumbers
 {
-  "name": "10% Off for VIP Customers",
+  "name": "10% off for VIP customers",
   "redemption_type": "AUTOMATIC",
   "customer": {
     "group_ids": [
@@ -714,7 +714,7 @@ title: Customer
 <br>
 
 ### 5% off for non-VIP customers 
-(including guest customers, and registered customers who not assigned to any groups, and registered customers who are assigned to a non-VIP group)
+(including guest customers and registered customers not assigned to any groups, and registered customers assigned to a non-VIP group)
 
 ```json title="Example request" lineNumbers
 {
@@ -926,12 +926,12 @@ type: tab
 title: Logical Operator
 -->
 
-### Buy 2 of product X or buy 2 of product Y (OR operator)
-The following promotion uses logical “OR” at the conditional level and it requires the shopper to have either 2 of product X or 2 of product Y in the cart to satisfy this condition.
+### Buy two of product X or buy two of product Y (OR operator)
+The following promotion uses logical “OR” at the conditional level and it requires the shopper to have either two of product X or two of product Y in the cart to satisfy this condition.
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy 2 product X OR Buy 2 product Y",
+  "name": "Buy two product X or buy two product Y",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -992,16 +992,16 @@ The following promotion uses logical “OR” at the conditional level and it re
 
 <br>
 
-### Buy 2 (product X or product Y) (OR operator)
+### Buy two (product X or product Y) (OR operator)
 
-The following promotion uses logical “OR” at item matcher level, and the any of these combinations satisfy the condition:
+The following promotion uses logical “OR” at item matcher level, and any of these combinations satisfies the condition:
 * 1 product X + 1 product Y
 * 2 product X
 * 2 product Y
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy 2 (product X or product Y)",
+  "name": "Buy two (product X or product Y)",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -1094,7 +1094,7 @@ The following promotion uses logical “OR” at item matcher level, and the any
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Get 20% off all Coffee Makers and all but new arrivals Coffee Filters",
+  "name": "Get 20% off all coffee makers and all but new arrivals coffee filters",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -1201,7 +1201,7 @@ title: Multiple Rules
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Tiered $ off Order Based on Order Value",
+  "name": "Tiered $ off order based on order value",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -1458,7 +1458,7 @@ title: Multiple Rules
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy two of Product X get free shipping to all zones and 10% off order",
+  "name": "Buy two of product X get free shipping to all zones and 10% off order",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -1507,11 +1507,11 @@ type: tab
 title: Order
 -->
 
-### X$ off when you purchase 2 of X product or 1 of X product OR operator
+### X$ off when you purchase two of X product or one of X product OR operator
 
 ```json title="Example request" lineNumbers
 {
-  "name": "50$ Off when you buy 2 Tiered Wire Baskets or a Small Purple Towel",
+  "name": "50$ off when you buy two tiered wire baskets or a small purple towel",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -1557,7 +1557,7 @@ title: Order
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Spend X$ Get X$ Off Order",
+  "name": "Spend X$ get X$ off order",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -1612,7 +1612,7 @@ title: Order
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Order at Least $X Get X Item Free",
+  "name": "Order at least $X get X item free",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -1725,7 +1725,7 @@ title: Product
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy One Get One Free",
+  "name": "Buy one get one free",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -1787,7 +1787,7 @@ title: Product
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy 2 X get 10% off Y",
+  "name": "Buy two X get 10% off Y",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -1855,7 +1855,7 @@ title: Product
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Spend 100 dollar and get 10% off small orbit",
+  "name": "Spend 100 dollars and get 10% off small orbit",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -1918,7 +1918,7 @@ title: Product
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Apply 20% off Most Expensive Cart Item",
+  "name": "Apply 20% off the most expensive cart item",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -1973,7 +1973,7 @@ title: Product
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy X Product Variant and Get X Product Variant Free",
+  "name": "Buy X product variant and get X product variant free",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -2112,7 +2112,7 @@ title: Product
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy 3 for the price of 2",
+  "name": "Buy three for the price of two",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -2362,7 +2362,7 @@ title: Shipping
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Order At Least 2X of Product Get Free Shipping",
+  "name": "Order at least 2X of product get free shipping",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
