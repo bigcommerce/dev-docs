@@ -13,10 +13,10 @@ Cornerstone versions 2.6.0+ will have data attributes already included in the th
 
 
 ### Downloading a theme
-Data attributes will work on any theme. For this tutorial, we will be adding data attributes to the Cornerstone theme. If you do not already have a local copy of Cornerstone on your machine, see [Downloading Cornerstone](/stencil-docs/installing-stencil-cli/installing-stencil#authorizing_download).
+Data attributes will work on any theme. For this tutorial, we will be adding data attributes to the Cornerstone theme. If you do not already have a local copy of Cornerstone on your machine, see [Downloading a theme](/stencil-docs/installing-stencil-cli/live-previewing-a-theme#downloading-a-theme).
 
 
-If you would like to implement data attributes on your custom theme and do not already have a copy of your custom theme downloaded, see [Downloading a Marketplace Theme](/stencil-docs/installing-stencil-cli/installing-stencil#authorizing_download).
+If you would like to implement data attributes on your custom theme and do not already have a copy of your custom theme downloaded, see [The BigCommerce Theme Marketplace](https://support.bigcommerce.com/s/article/The-Bigcommerce-Themes-Marketplace?language=en_US).
 
 <!-- theme: info -->
 > #### Note 
@@ -70,15 +70,15 @@ You are now ready to begin adding data attributes into the HTML files across you
 
 ### Adding data attributes into Cornerstone’s HTML files
 
-Data attributes must be manually added to a product in order to track shopper events and interactions with a product. Because data attributes collect product data at a very granular level, there will be multiple locations you will have to add attributes on a singular product in order to get a comprehensive look at the product’s data. For example, if you want to, it is imperative to note that a product can be viewed by clicking any of the following:
+Data attributes must be manually added to a product in order to track shopper events and interactions with a product. Because data attributes collect product data at a very granular level, there will be multiple locations you will have to add attributes on a singular product in order to get a comprehensive look at the product’s data. For example, if you want to, it is imperative to note that you can view a product by clicking any of the following:
 
 * The name of the product
-* The “Quick View” button
+* The **Quick View** button
 * The product image
 
-So, if you would like to track the clicks on a specific product, in order to ensure you get a fully comprehensive look at shoppers’ interactions with a product, you will want to include a data attribute on each of these fields. If a specific product possesses multiple data attributes, the data attribute that is closest to the product is the one which will track clicks, product impressions, or product views.
+So, if you would like to track the clicks on a specific product, in order to ensure you get a fully comprehensive look at shoppers’ interactions with a product, you will want to include a data attribute on each of these fields. If a specific product possesses multiple data attributes, the data attribute that is closest to the product is the one that will track clicks, product impressions, or product views.
 
-Data attributes will be implemented in your store by using simple HTML. In order to begin tracking, you will add data attributes to the already existing HTML tags present in your theme.
+Use simple HTML to implement data attributes in your store. In order to begin tracking, you will add data attributes to the already existing HTML tags present in your theme.
 
 See [Pull Request #1377](https://github.com/bigcommerce/cornerstone/pull/1377/commits/55fc73eeb1edc6e140005ca811f090f06ab35435) to see how data attributes were implemented in Cornerstone 2.6.0.
 
@@ -110,15 +110,15 @@ Currently, BigCommerce supports 11 different data attributes. Below is a table w
 > * If tracking data for a product, either `data-entity-id` or `data-name` are required.
 > * If tracking data for a product list, `data-product-list` or `data-entity-id` are required.
 
-The “tracked product” refers to the product on which you are inserting the data attribute.
+The “tracked product” refers to the product on which you insert the data attribute.
 
 | Data Attribute | Description | Value Type | Example |
 |-----|-----|-----|-----|
 | `data-list-name` | The `data-list-name` attribute denotes the name of the list that will be reflected on Google Analytics. | string or handlebars helper |  **String Example**:`data-list-name="Kitchen Appliances"` <br><br> **Handlebars Value Example**: The `data-list-name` attribute can also get its value using Handlebars. For example, if you are adding a data attribute to your carousel products in products/carousel.html, you could create the attribute `data-list-name="{{list}}"` and define the list value in products/new.html to be: `list="New products"`|
 | `data-entity-id` | The `data-entity-id` is equal to the tracked item’s id. | integer | `data-entity-id=12` |
 | `data-position` | The `data-position` attribute is equal to the tracked product’s position or the tracked promotion’s position. | Value is a string if creating the data attribute for a promotion. The string should denote the location of the promotion. <br><br>Value is an integer if creating the data attribute for a product. The integer should represent the product’s placement. An example use case for this data attribute is to answer a question like, “does the product in position 1 sell more than the product in position 4?” | **String Value Example:** `data-position="center"` <br><br>**Integer Value Example:** `data-position=2` |
-| `data-banner-id` | The `data-banner-id` attribute is the id of the banner being tracked. The banner id is not to be mistaken with the promotion id. | integer | `data-banner-id=5` |
-| `data-event-type` | The `data-event-type` attribute is equal to the shopper event that will be tracked. There are a 4 shopper/product interactions you can measure and set the data-event-type equal to. Custom events are not yet implemented. | **String that can be one of:** <br>`"promotion"`<br>`"promotion click"`<br>`"product"`<br>`"list"` | `data-event-type="promotion"` |
+| `data-banner-id` | The `data-banner-id` attribute is the id of the banner being tracked. Do not mistake the banner id with the promotion id. | integer | `data-banner-id=5` |
+| `data-event-type` | The `data-event-type` attribute is equal to the shopper event that will be tracked. There are 4 shopper/product interactions you can measure and set the data-event-type equal to. Custom events are not yet implemented. | **String that can be one of:** <br>`"promotion"`<br>`"promotion click"`<br>`"product"`<br>`"list"` | `data-event-type="promotion"` |
 | `data-name` | The `data-name` attribute is equal to the tracked product’s or banner’s name. | string or handlebars helper | **String Value Example:** <br>`data-name="Ruffle Off-the-Shoulder Top"` <br><br> **Handlebars Value Example:** <br>The `data-name` attribute can also get its value using Handlebars. <br><br>For example, if you are adding a data attribute to your footer in products/footer.html, you could create the attribute: `data-name="{{this.banner-name}}"` <br><br>Or, if you are adding a data attribute to a product list item in products/list-item.html, you could create the attribute below `data-name="{{name}}"` as long as these values are defined. |
 | `data-product-category` | The `data-product-category` attribute is equal to the tracked product’s category. | string | `data-product-category="Women’s Apparel"` |
 | `data-product-brand` | The `data-product-brand` attribute is equal to the tracked product’s brand. | string | `data-product-brand="Ralph Lauren Corporation"` |
@@ -129,7 +129,7 @@ The “tracked product” refers to the product on which you are inserting the d
 
 ## Custom Dimensions and Metrics
 
-Custom dimensions and metrics are also supported. To add them in the `config.json` `settings` array, add the name of the dimension/metric followed by the generic custom metric/dimension alias:
+Custom dimensions and metrics are also supported. To add them to the `config.json` `settings` array, add the name of the dimension/metric followed by the generic custom metric/dimension alias:
 
 ```json title="config.json: Settings array" lineNumbers
 {
