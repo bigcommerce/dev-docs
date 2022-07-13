@@ -1,14 +1,14 @@
 # Google Analytics Enhanced ECommerce
 
-Google Analytics is a free analytics tool that helps you track visitors and conversions on your store. BigCommerce has updated the Google Analytics integration to support Enhanced Ecommerce.  As a part of the Enhanced ECommerce feature, Stencil themes now support data attributes.
+Google Analytics is a free analytics tool that helps you track visitors and conversions on your store. BigCommerce has updated the Google Analytics integration to support Enhanced Ecommerce.  As apart of the Enhanced ECommerce feature, Stencil themes now support data attributes.
 
-Data attributes provide detailed data on the way shoppers interact with your store’s products, but the use cases for data attributes are not limited to product data collection. For example, data attributes can also track whether promotions were viewed or clicked. BigCommerce’s data attributes are powered by [Segment](https://segment.com/docs/destinations/google-analytics/) and [Platform.js](https://github.com/segment-integrations/analytics.js-integration-google-analytics/blob/master/lib/index.js), and send your store’s product data to Google Analytics.
+Data attributes provide detailed data on the way shoppers interact with your store’s products. However, data attributes are not only limited to only product data collection. Data attributes can also track your store’s header and footer for promotions and can collect data on whether those promotions were viewed and/or clicked. BigCommerce’s data attributes are powered by [Segment](https://segment.com/docs/destinations/google-analytics/) and [Platform.js](https://github.com/segment-integrations/analytics.js-integration-google-analytics/blob/master/lib/index.js), and will send your store’s product data through to Google Analytics.
 
 Cornerstone versions 2.6.0+ will have data attributes already included in the theme.
 
 <!-- theme: danger -->
 > #### GAEE for Blueprint Themes
-> While you can implement data attributes with Blueprint themes, we do not currently have specific documentation on how to do this. The data attribute HTML structure will be the same as it is in a Stencil theme.
+> While you can implement data attributes with Blueprint themes, we do not currently have specific documentation on how to do this. The data attribute HTML structure, however, will be the same as it is in a Stencil theme.
 
 
 
@@ -20,7 +20,7 @@ If you would like to implement data attributes on your custom theme and do not a
 
 <!-- theme: info -->
 > #### Note 
-> The remainder of this tutorial will be working with the theme’s base folder, `cornerstone`.
+> The remainder of this tutorial will be working off the theme’s base folder `cornerstone`.
 
 
 ## Adding data attributes
@@ -32,7 +32,7 @@ If you would like to implement data attributes on your custom theme and do not a
 
 ### Include the Enhanced ECommerce property
 
-1. Open your local copy of your theme and navigate to the theme’s `cornerstone/config.json` file.
+1. Open your local copy of your theme and navigate to the theme’s <span class="fn">cornerstone/config.json</span> file.
 
 2. In the `config.json` file, navigate to the features array. There should be a property in this array called `enhanced ecommerce`. If the `enhanced ecommerce` property is not present in the features array, add it. The features object should then look similar to the image below.
 
@@ -98,7 +98,7 @@ You can see a data attribute implemented in the HTML form tag in the code sample
 {{> components/common/paginator pagination.brand}}
 ```
 
-In the preceding snippet, the data attribute is embedded in a `<form>` HTML tag in lines 1 and 2. The data attribute is  `data-list-name` and its value is `"Brand: {{brand.name}}"`.
+In the above snippet, the data attribute is embedded in a `<form>` HTML tag in lines 1 and 2. The data attribute is  `data-list-name` and its value is `"Brand: {{brand.name}}"`.
 
 ## Data attribute reference
 
