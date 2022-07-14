@@ -32,14 +32,14 @@ properties:
   availability:
     type: string
   brand:
-    description: The company, product line, or trademark associated with the product.
+    description: 'The company, product line, or trademark associated with the product.'
     type: array
     items:
       type: object
       properties:
         name:
           type: string
-          description: The name of the company, product line, or trademark.
+          description: 'The name of the company, product line, or trademark.'
         url:
           type: string
           description: The store's internal page with all the products from that brand.
@@ -79,7 +79,7 @@ properties:
     description: Whether or not gift wrapping is enabled
     type: boolean
   gtin:
-    description: Global Trade Item Number. An identifier for trade items that is incorporated into several product identification standards, such as ISBN, UPC, and EAN.
+    description: 'Global Trade Item Number. An identifier for trade items that is incorporated into several product identification standards, such as ISBN, UPC, and EAN.'
     type: string
   height:
     description: The product's physical height measurement.
@@ -124,6 +124,13 @@ properties:
     type: integer
   options:
     $ref: ../product/options.yml
+  out_of_stock:
+    type: boolean
+    description: Boolean that indicates whether the product is out of stock.
+  out_of_stock_message:
+    type: string
+    example: Out of stock
+    description: Out of stock messages for display on the product page
   page_title:
     type: string
   price:
