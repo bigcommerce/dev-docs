@@ -13513,7 +13513,9 @@ paths:
                 type: object
                 properties:
                   data:
-                    $ref: '#/components/schemas/Category'
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Category'
                   meta:
                     $ref: '#/components/schemas/metaCollection_Full'
               example:
@@ -13635,6 +13637,7 @@ paths:
                     total_pages: 1
                     links:
                       current: '?page=1&limit=50'
+              examples: {}
     post:
       tags:
         - Category
@@ -18583,6 +18586,39 @@ paths:
                       $ref: '#/components/schemas/Category'
                   meta:
                     $ref: '#/components/schemas/MetaPagination'
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - id: 0
+                        parent_id: 2
+                        name: Bath
+                        description: <p>We offer a wide variety of products perfect for relaxing</p>
+                        views: 1050
+                        sort_order: 3
+                        page_title: Bath
+                        meta_keywords:
+                          - string
+                        meta_description: string
+                        layout_file: category.html
+                        image_url: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
+                        is_visible: true
+                        search_keywords: string
+                        default_product_sort: use_store_settings
+                        url:
+                          path: string
+                          is_customized: true
+                    meta:
+                      pagination:
+                        total: 246
+                        count: 5
+                        per_page: 5
+                        current_page: 1
+                        total_pages: 50
+                        links:
+                          previous: '?limit=5&page=1'
+                          current: '?limit=5&page=2'
+                          next: '?limit=5&page=3'
         '400':
           description: Bad Request
           content:
@@ -18657,6 +18693,8 @@ paths:
             schema:
               $ref: '#/components/schemas/UpdateCategories'
       responses:
+        '200':
+          description: OK
         '204':
           description: No Content
           content:
@@ -24055,11 +24093,10 @@ components:
     CreateCategories:
       type: array
       items:
-        oneOf:
-          - allOf:
-              - $ref: '#/components/schemas/TreeIdCreateData'
-              - $ref: '#/components/schemas/ParentIdCreateData'
-              - $ref: '#/components/schemas/CategoryData'
+        allOf:
+          - $ref: '#/components/schemas/TreeIdCreateData'
+          - $ref: '#/components/schemas/ParentIdCreateData'
+          - $ref: '#/components/schemas/CategoryData'
       x-tags:
         - Models
       title: Create Categories
@@ -24143,11 +24180,13 @@ components:
         - Models
     TreeIdUpdateData:
       type: object
+      x-tags:
+        - Models
       properties:
         tree_id:
           type: integer
-      x-tags:
-        - Models
+      required:
+        - tree_id
     CategoryData:
       x-tags:
         - Models
