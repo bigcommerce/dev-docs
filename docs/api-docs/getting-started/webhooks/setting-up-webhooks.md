@@ -2,12 +2,12 @@
 
 
 
-In this tutorial, we'll create a Node.js Express app that handless webhook callbacks and uses [ngrok](https://ngrok.com/) (ngrok.com) to expose the app to the Internet. Then, we'll create a webhook and observe the callback using the ngrok web interface when the event is triggered.
+In this tutorial, we'll create a Node.js Express app that handles webhook callbacks and uses [ngrok](https://ngrok.com/) (ngrok.com) to expose the app to the Internet. Then, we'll create a webhook and observe the callback using the ngrok web interface when the event is triggered.
 
 
 ### Prerequisites
 
-- [API Access Token](/api-docs/getting-started/authentication/rest-api-authentication) with [scope](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) set to **Information & Settings** read-only and **Products** read-only.
+- A store or app [API account](/api-docs/getting-started/authentication#api-accounts) with [scope](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) set to **Information & Settings** read-only and **Products** read-only.
 - [Webhooks Overview](/api-docs/store-management/webhooks/overview)
 - Familiarity with working in the terminal
 - Familiarity working with `node` and `npm`
@@ -92,11 +92,12 @@ Now, we'll create a webhook that subscribes to the `store/product/updated` [webh
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
 X-Auth-Token: {{ACCESS_TOKEN}}
+Accept: application/json
+Content-Type: application/json
 
 {
  "scope": "store/product/updated",
  "destination": "https://6a35e97b.ngrok.io/webhooks", # Replace 6a35e97b.ngrok.io with your HTTPS tunnel URL
-
  "is_active": true
 }
 ```
@@ -106,7 +107,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 <!-- theme: info -->
 > #### Note
 > * Be sure to replace `6a35e97b.ngrok.io` with your ngrok HTTPS tunnel URL.
-> * Currently, BigCommerce does not support desination URLs served over custom HTTPS ports. Use the default HTTPS port 443.
+> * Currently, BigCommerce does not support destination URLs served over custom HTTPS ports. Use the default HTTPS port 443.
 
 
 
@@ -134,12 +135,14 @@ The summary shows the webhook fired and our Express app returned a `200` respons
 You can add custom headers to your create webhook request for added security. The `headers` property accepts any key-value pair as a string. BigCommerce will include the headers in callback requests made to your application.
 
 
-```http
+```http title="Example request: Add custom headers" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/hooks
 X-Auth-Token: {{ACCESS_TOKEN}}
+Accept: application/json
+Content-Type: application/json
 
 {
-"scope": "store/cart/lineItem/*",
+  "scope": "store/cart/lineItem/*",
   "destination": "https://myapp.herokuapp.com/",
   "is_active": true,
   "headers": {
@@ -175,7 +178,7 @@ Use the command `./ngrok http 3000` to run ngrok as a sudo user.
 
 If you are having trouble getting ngrok started, try setting the PATH.
 
-    - [What are PATH and other environment variables, and how can I set or use them?](https://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them)
+- [What are PATH and other environment variables, and how can I set or use them?](https://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them)
 
 ## Resources
 * [Webhooks Overview](/api-docs/getting-started/webhooks/about-webhooks)
