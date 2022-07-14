@@ -18,12 +18,12 @@ POS Foundation is an open-source BigCommerce point-of-sale application framework
 
 1. To develop and test apps, you need a BigCommerce sandbox store. If you don't have one, [Create a Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=subscription-foundation).
 
-2. In your sandbox store, configure a shipping zone with a [Pickup in Store](https://support.bigcommerce.com/s/article/Free-Shipping#in-store) shipping method
+2. In your sandbox store, configure a shipping zone with a [Pickup in Store](https://support.bigcommerce.com/s/article/Free-Shipping#in-store) shipping method.
 
 <!-- 3. To register apps and create app API accounts, you need a BigCommerce Developer Portal account. If you don't have one, create a [Dev Portal account](https://devtools.bigcommerce.com/?source=subscription-foundation).  -->
 
 ## Enabling Stripe
-POS Foundation is integrate with Stripe out of the box. Before enabling Stripe, the store must be using [Optimized One-Page Checkout](>>> link this to the docs).
+POS Foundation is pre-integrated with Stripe out of the box. Before enabling Stripe, the store must be using [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout?language=en_US#oopc-settings).
 
 ## Fork and install the source repository 
 
@@ -56,11 +56,11 @@ npm install
 | Channel Settings| modify| `store_channel_settings` |
 | Storefront API Tokens | manage| `store_storefront_api` |
 
-4. Copy the `ACCESS_TOKEN`, `CLIENT ID`, and `CLIENT SECRET` credentials. In a later step, you will need these credentials to update `BC_APP_CLIENT_ID`, `BC_APP_SECRET`, and `BC_AUTH_TOKEN` environment variables in the `.env` file.
+4. Copy the `ACCESS_TOKEN`, `CLIENT ID`, and `CLIENT SECRET` credentials. In a later step, you will need these credentials to update `BC_AUTH_TOKEN`, `BC_APP_CLIENT_ID`, and `BC_APP_SECRET` environment variables in the `.env` file.
 
 ## Stripe setup
 
-1. Go to your Stripe dashboard: https://dashboard.stripe.com/test/developers
+1. [Sign in](https://stripe.com/terminal) and click **Dashboard**. You will should be in **Test mode** ([https://dashboard.stripe.com/test/developers](https://dashboard.stripe.com/test/developers)). Do not select the dashboard for **Developers**.
 2. Copy the Stripe secret key. In a later step, you will use the secret key to update the environment variable `STRIPE_SECRET_KEY` in the `.env` file.
 3. Go to **More > Terminal** in the dashboard. Press **Get Started** when asked to activate the Terminal section.
 4. Add a location, then click on the location row to manage details.
@@ -82,25 +82,25 @@ We highly recommend using MongoDB, but if you would like to use another type of 
 
 2. On the left-hand sidebar, click **Database Access** > **ADD NEW DATABASE USER**.
   
-  a. Fill in your username and password, and leave all remaining fields as is.
+   a. Fill in your username and password, and leave all remaining fields as is.
 
-  b. Click **Add User**.
+   b. Click **Add User**.
 
 3. On the left-hand sidebar, click **Network Access** > **ADD IP ADDRESS**.
   
-  a. Enter an IP address in the **Access List Entry** field. We recommend using 0.0.0.0/0 so you can connect from anywhere.
+   a. Enter an IP address in the **Access List Entry** field. We recommend using 0.0.0.0/0 so you can connect from anywhere.
 
     ![pos-ip-address](https://storage.googleapis.com/bigcommerce-production-dev-center/images/POS-IP-address.png)
 
-  b. Click **Confirm**.
+   b. Click **Confirm**.
 
 4. In the left sidebar, click **Database**.
   
-  a. Click the **Connect** button in your running cluster.
+   a. Click the **Connect** button in your running cluster.
 
-  b. Click **Connect your application** in the dialog that opens.
+   b. Click **Connect your application** in the dialog that opens.
 
-  c. Copy the connection string and replace `<password>` with the password and `<username>` with the username created in step 2a. Add **myFirstDatabase** to the connection string as shown below.
+   c. Copy the connection string and replace `<password>` with the password and `<username>` with the username created in step 2a. Add **myFirstDatabase** to the connection string as shown below.
 
 ```shell title="Mongo Cloud connection string"
 mongodb+srv://<username>:<password>@cluster0.jfohhb8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
@@ -124,15 +124,15 @@ At a minimum, the following `.env` variables need to be updated for the app to s
 
 | Environment variable | Description | Reference location |
 |:---------------------|:------------|:-------------------|
-| `DATABASE_URL` | >>> | [Database setup](#database-setup) |
-| `BC_STORE_HASH` | >>> | [BigCommerce setup](#bigcommerce-setup) |
-| `BC_AUTH_TOKEN` |  >>> | [BigCommerce setup](#bigcommerce-setup) |
-| `BC_CHANNEL_ID` |  >>> | [BigCommerce setup](#bigcommerce-setup) |
-| `BC_GQL_URL` |  >>> | [BigCommerce setup](#bigcommerce-setup) |
-| `BC_APP_CLIENT_ID` |  >>> | [BigCommerce setup](#bigcommerce-setup) |
-| `BC_APP_SECRET` | >>> | [BigCommerce setup](#bigcommerce-setup) |
-| `STRIPE_SECRET_KEY` | >>> | [Stripe setup](#stripe-setup) |
->>> do we not need the Stripe public key?
+| `DATABASE_URL` | The URL of the database | [Database setup](#database-setup) |
+| `BC_STORE_HASH` | A unique string or series of numbers used to identify your store | [BigCommerce setup](#bigcommerce-setup) |
+| `BC_AUTH_TOKEN` | A header value used to authenticate to BigCommerce servers | [BigCommerce setup](#bigcommerce-setup) |
+| `BC_CHANNEL_ID` |  The channel for the storefront | [BigCommerce setup](#bigcommerce-setup) |
+| `BC_GQL_URL`    |  The URL of the GraphQL endpoint | See notes in `.env` file          |
+| `BC_APP_CLIENT_ID` |  The app API account's client ID | [BigCommerce setup](#bigcommerce-setup) |
+| `BC_APP_SECRET` | The app API account's client secret | [BigCommerce setup](#bigcommerce-setup) |
+| `STRIPE_SECRET_KEY` | The app-specific Stripe Connect API account client secret | [Stripe setup](#stripe-setup) |
+<!-- >>> do we not need the Stripe public key? no -->
 ## Create and seed database
   
  1. After you set up your Mongo Cloud account, create the database and seed it with data by doing the following:
@@ -151,17 +151,13 @@ The preceding commands create the database collections and seed it with initial 
   $ npx prisma generate
 ```
 
-3. Access this database using a visual editor to verify you have created the collections and documents correctly.
+3. Access this database using a visual editor to verify you have created the collections and documents correctly using the command below or you can use [Mongo Compass](https://www.mongodb.com/products/compass) as your database GUI.
 
 ```shell title="Verify migration and seed"
   $ npx prisma studio
-```
+``` 
 
-<!-- theme: info -->
-> #### MongoDB GUI
-> You can use [Mongo Compass](https://www.mongodb.com/products/compass) as your database GUI.
-
-1. Run app (>>> this isn't an app in the BigCommerce sense, so it needs a different API account setup or we need to call it something else)
+4. Run the Stripe POS terminal. <!-- (>>> this isn't an app in the BigCommerce sense, so it needs a different API account setup or we need to call it something else)-->
 
 ```bash title="Start the server"
 npm run dev
@@ -171,7 +167,7 @@ Now, the app will be running locally!
 
 Sign in as an admin at `http://localhost:3000/signin`. The default admin PIN in the seed data is `1234`.
 
-Once signed in, navigate to the **Settings** screen to save your store address, which the app uses for checkout tax calculations. You will receive the following error if you do not supply the store address.
+After you access Prisma Studio, navigate to the **Settings** screen to save your store address, which the app uses for checkout tax calculations. You will receive the following error if you do not supply the store address.
   
 ![pos-missing-store-address](https://storage.googleapis.com/bigcommerce-production-dev-center/images/POS-missing-store-address.jpeg)
 
@@ -190,10 +186,10 @@ If you do not enter the correct provider in the `/prisma/schema.prisma` file or 
 
 ### Seeing {"Server selection timeout: No available servers"} when creating and seeding the database
 
-Update your Mongo Cloud IP address to 0.0.0.0/0. This IP address 
+Update your Mongo Cloud IP address to 0.0.0.0/0.
 
 
 ## Resources
 ### Related articles
-* [README.md]([https://github.com/bigcommerce/subscription-foundation/blob/main/README.md](https://github.com/bigcommerce/point-of-sale-foundation/blob/main/README.md))
+* [BigCommerce Point of Sale Foundation README.md](https://github.com/bigcommerce/point-of-sale-foundation/blob/main/README.md)
 * [Connecting with Stripe](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway#foundations)
