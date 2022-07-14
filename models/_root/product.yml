@@ -126,7 +126,7 @@ properties:
     $ref: ../product/options.yml
   out_of_stock:
     type: boolean
-    description: Boolean that indicates whether the product is out of stock.
+    description: 'Boolean that indicates whether the product is out of stock. Out of stock only applies to the default selection on page load. For example, if Product A is out of the "Small" size, but "Small" is selected by default, `out_of_stock` will return true, even if the product is not out of stock as a whole.'
   out_of_stock_message:
     type: string
     example: Out of stock
