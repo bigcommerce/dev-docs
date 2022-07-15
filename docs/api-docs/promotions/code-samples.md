@@ -1,16 +1,25 @@
-# Code Samples
+# Promotion Code Samples
 
-The following tabs contain code samples for each type of promotion.
+## Brand
+
+<details>
+  <summary>Spend $X in brand X, get free shipping to X shipping zones</summary> <br>
 
 <!--
 type: tab
-title: Brand
+title: Try It
 -->
 
-### Spend $X in brand X, get free shipping to X shipping zones
-```json title="Example request" lineNumbers
+```json title="Request runner" lineNumbers
 {
-  "name": "Order $100 of this common good brand, get free shipping",
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
+  "name": "Order $100 of this Common Good Brand, Get Free Shipping",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -65,10 +74,171 @@ title: Brand
   "status": "ENABLED"
 }
 ```
+
 <br>
 
-### Apply a $ or % discount to each item in one or more brands AND, NOT operators
+<!--
+type: tab
+title: Request
+-->
+
 ```json title="Example request" lineNumbers
+{
+  "name": "Order $100 of this Common Good Brand, Get Free Shipping",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "action": {
+        "shipping": {
+          "free_shipping": true,
+          "zone_ids": [
+            1,
+            3
+          ]
+        }
+      },
+      "apply_once": true,
+      "stop": false,
+      "condition": {
+        "cart": {
+          "items": {
+            "brands": [
+              37
+            ]
+          },
+          "minimum_quantity": 1,
+          "minimum_spend": 100
+        }
+      }
+    }
+  ],
+  "notifications": [
+    {
+      "type": "UPSELL",
+      "content": "Get Free Shipping for Common Good Upsell",
+      "locations": [
+        "CART_PAGE"
+      ]
+    },
+    {
+      "type": "ELIGIBLE",
+      "content": "On the Cart Page, Eligible",
+      "locations": [
+        "CART_PAGE"
+      ]
+    },
+    {
+      "type": "APPLIED",
+      "content": "Applied Cart Page",
+      "locations": [
+        "CART_PAGE"
+      ]
+    }
+  ],
+  "stop": false,
+  "status": "ENABLED"
+}
+```
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+    "data": {
+        "id": 3,
+        "name": "Order $100 of this Common Good Brand, Get Free Shipping",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "shipping": {
+                        "free_shipping": true,
+                        "zone_ids": [
+                            1,
+                            3
+                        ]
+                    }
+                },
+                "apply_once": true,
+                "stop": false,
+                "condition": {
+                    "cart": {
+                        "items": {
+                            "brands": [
+                                37
+                            ]
+                        },
+                        "minimum_spend": "100",
+                        "minimum_quantity": 1
+                    }
+                }
+            }
+        ],
+        "notifications": [
+            {
+                "type": "UPSELL",
+                "content": "Get Free Shipping for Common Good Upsell",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            },
+            {
+                "type": "ELIGIBLE",
+                "content": "On the Cart Page, Eligible",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            },
+            {
+                "type": "APPLIED",
+                "content": "Applied Cart Page",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            }
+        ],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-15T19:59:00+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
+```
+
+<!-- 
+type: tab-end
+-->
+</details>
+
+
+<br>
+
+
+<details>
+  <summary>Apply a $ or % discount to each item in one or more brands AND, NOT operators</summary> <br>
+
+<!--
+type: tab
+title: Try It
+-->
+
+```json title="Request runner" lineNumbers
 {
   "name": "Apply a $ or % discount to each item in one or more brands",
   "redemption_type": "AUTOMATIC",
@@ -138,9 +308,201 @@ title: Brand
 ```
 <br>
 
-### Spend X amount in brand Y, get X% off in brand Y
+<!--
+type: tab
+title: Request
+-->
+
 ```json title="Example request" lineNumbers
 {
+  "name": "Apply a $ or % discount to each item in one or more brands",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "action": {
+        "cart_items": {
+          "discount": {
+            "percentage_amount": "15"
+          },
+          "strategy": "LEAST_EXPENSIVE",
+          "as_total": false,
+          "include_items_considered_by_condition": false,
+          "items": {
+            "and": [
+              {
+                "brands": [
+                  41,
+                  44,
+                  37,
+                  45
+                ]
+              },
+              {
+                "not": {
+                  "categories": [
+                    19
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "apply_once": true,
+      "stop": false
+    }
+  ],
+  "notifications": [
+    {
+      "type": "UPSELL",
+      "content": "Get 15% off in Common Good, Chemex, Barr-Co and Kinfolk.\r\n<div>&nbsp;</div>",
+      "locations": [
+        "HOME_PAGE",
+        "PRODUCT_PAGE",
+        "CART_PAGE"
+      ]
+    },
+    {
+      "type": "ELIGIBLE",
+      "content": "You are eligible for 15% off!\r\n<div>&nbsp;</div>",
+      "locations": [
+        "CART_PAGE"
+      ]
+    },
+    {
+      "type": "APPLIED",
+      "content": "Congratulations you have earned 15% off.",
+      "locations": [
+        "CART_PAGE"
+      ]
+    }
+  ],
+  "stop": false,
+  "status": "ENABLED"
+}
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+    "data": {
+        "id": 4,
+        "name": "Apply a $ or % discount to each item in one or more brands",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_items": {
+                        "discount": {
+                            "percentage_amount": "15"
+                        },
+                        "strategy": "LEAST_EXPENSIVE",
+                        "add_free_item": true,
+                        "as_total": false,
+                        "include_items_considered_by_condition": false,
+                        "exclude_items_on_sale": false,
+                        "items": {
+                            "and": [
+                                {
+                                    "brands": [
+                                        38,
+                                        37,
+                                        36,
+                                        35
+                                    ]
+                                },
+                                {
+                                    "not": {
+                                        "categories": [
+                                            36
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "apply_once": true,
+                "stop": false
+            }
+        ],
+        "notifications": [
+            {
+                "type": "UPSELL",
+                "content": "Get 15% off in Common Good, Chemex, Barr-Co and Kinfolk.\r\n<div>&nbsp;</div>",
+                "locations": [
+                    "HOME_PAGE",
+                    "PRODUCT_PAGE",
+                    "CART_PAGE"
+                ]
+            },
+            {
+                "type": "ELIGIBLE",
+                "content": "You are eligible for 15% off!\r\n<div>&nbsp;</div>",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            },
+            {
+                "type": "APPLIED",
+                "content": "Congratulations you have earned 15% off.",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            }
+        ],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-15T20:16:53+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
+```
+
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+<details>  
+  <summary>Spend X amount in brand Y, get X% off in brand Y
+  </summary>
+
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+```json title="Request runner" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
   "name": "Spend X amount in brand Y, Get X% off in brand Y",
   "redemption_type": "AUTOMATIC",
   "rules": [
@@ -204,7 +566,233 @@ title: Brand
 ```
 <br>
 
-### Buy two items in a brand and get the cheapest one free
+<!--
+type: tab
+title: Request
+-->
+
+```json title="Example request" lineNumbers
+{
+  "name": "Spend X Amount in Brand Y, Get X% Off in Brand Y",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "action": {
+        "cart_items": {
+          "discount": {
+            "percentage_amount": "10"
+          },
+          "strategy": "LEAST_EXPENSIVE",
+          "as_total": true,
+          "include_items_considered_by_condition": true,
+          "items": {
+            "brands": [
+              36
+            ]
+          }
+        }
+      },
+      "apply_once": true,
+      "stop": false,
+      "condition": {
+        "cart": {
+          "items": {
+            "brands": [
+              36
+            ]
+          },
+          "minimum_spend": "200",
+          "minimum_quantity": 1
+        }
+      }
+    }
+  ],
+  "notifications": [
+    {
+      "type": "UPSELL",
+      "content": "<div>&nbsp;</div>",
+      "locations": [
+        "CART_PAGE"
+      ]
+    },
+    {
+      "type": "ELIGIBLE",
+      "content": "<div>&nbsp;</div>",
+      "locations": [
+        "CART_PAGE"
+      ]
+    },
+    {
+      "type": "APPLIED",
+      "content": "<div>&nbsp;</div>",
+      "locations": [
+        "CART_PAGE"
+      ]
+    }
+  ],
+  "stop": false,
+  "status": "ENABLED"
+}
+```
+
+<br>
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+    "data": {
+        "id": 5,
+        "name": "Spend X Amount in Brand Y, Get X% Off in Brand Y",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_items": {
+                        "discount": {
+                            "percentage_amount": "10"
+                        },
+                        "strategy": "LEAST_EXPENSIVE",
+                        "add_free_item": true,
+                        "as_total": true,
+                        "include_items_considered_by_condition": true,
+                        "exclude_items_on_sale": false,
+                        "items": {
+                            "brands": [
+                                36
+                            ]
+                        }
+                    }
+                },
+                "apply_once": true,
+                "stop": false,
+                "condition": {
+                    "cart": {
+                        "items": {
+                            "brands": [
+                                36
+                            ]
+                        },
+                        "minimum_spend": "200",
+                        "minimum_quantity": 1
+                    }
+                }
+            }
+        ],
+        "notifications": [
+            {
+                "type": "UPSELL",
+                "content": "<div>&nbsp;</div>",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            },
+            {
+                "type": "ELIGIBLE",
+                "content": "<div>&nbsp;</div>",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            },
+            {
+                "type": "APPLIED",
+                "content": "<div>&nbsp;</div>",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            }
+        ],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-15T20:26:29+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
+```
+
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+<details>  
+  <summary>Buy two items in a brand and get the cheapest one free</summary>
+
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+```json title="Request runner" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
+  "name": "Buy two items in brand and get the cheapest one free",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "apply_once": false,
+      "condition": {
+        "cart": {
+          "items": {
+            "brands": [
+              36
+            ]
+          },
+          "minimum_quantity": 2
+        }
+      },
+      "action": {
+        "cart_items": {
+          "strategy": "LEAST_EXPENSIVE",
+          "include_items_considered_by_condition": true,
+          "discount": {
+            "percentage_amount": "100"
+          },
+          "items": {
+            "brands": [
+              36
+            ]
+          },
+          "quantity": 1
+        }
+      }
+    }
+  ]
+}
+```
+
+<br>
+
+<!--
+type: tab
+title: Request
+-->
 
 ```json title="Example request" lineNumbers
 {
@@ -245,8 +833,90 @@ title: Brand
 
 <br>
 
-### Buy two items in a brand and get the most expensive one at 50% off
-```json title="Example request" lineNumbers
+ <!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+    "data": {
+        "id": 6,
+        "name": "Buy two items in brand and get the cheapest one free",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_items": {
+                        "discount": {
+                            "percentage_amount": "100"
+                        },
+                        "strategy": "LEAST_EXPENSIVE",
+                        "add_free_item": true,
+                        "as_total": false,
+                        "include_items_considered_by_condition": true,
+                        "exclude_items_on_sale": false,
+                        "items": {
+                            "brands": [
+                                36
+                            ]
+                        },
+                        "quantity": 1
+                    }
+                },
+                "apply_once": false,
+                "stop": false,
+                "condition": {
+                    "cart": {
+                        "items": {
+                            "brands": [
+                                36
+                            ]
+                        },
+                        "minimum_quantity": 2
+                    }
+                }
+            }
+        ],
+        "notifications": [],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-15T20:37:29+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
+```
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+<details>  
+    <summary>Buy two items in a brand and get the most expensive one at 50% off</summary>
+
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+```json title="Request runner" lineNumbers
 {
   "name": "Buy two items in brand and get the most expensive one at 50% off",
   "redemption_type": "AUTOMATIC",
@@ -285,7 +955,183 @@ title: Brand
 
 <br>
 
-### Buy two items in a brand and get the most expensive one at $50 off
+<!--
+type: tab
+title: Request
+-->
+
+```json title="Example request" lineNumbers
+{
+  "name": "Buy two items in brand and get the most expensive one at 50% off",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "apply_once": false,
+      "condition": {
+        "cart": {
+          "items": {
+            "brands": [
+              36
+            ]
+          },
+          "minimum_quantity": 2
+        }
+      },
+      "action": {
+        "cart_items": {
+          "strategy": "MOST_EXPENSIVE",
+          "include_items_considered_by_condition": true,
+          "discount": {
+            "percentage_amount": "50"
+          },
+          "items": {
+            "brands": [
+              36
+            ]
+          },
+          "quantity": 1
+        }
+      }
+    }
+  ]
+}
+```
+<br>
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+    "data": {
+        "id": 7,
+        "name": "Buy two items in brand and get the most expensive one at 50% off",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_items": {
+                        "discount": {
+                            "percentage_amount": "50"
+                        },
+                        "strategy": "MOST_EXPENSIVE",
+                        "add_free_item": true,
+                        "as_total": false,
+                        "include_items_considered_by_condition": true,
+                        "exclude_items_on_sale": false,
+                        "items": {
+                            "brands": [
+                                36
+                            ]
+                        },
+                        "quantity": 1
+                    }
+                },
+                "apply_once": false,
+                "stop": false,
+                "condition": {
+                    "cart": {
+                        "items": {
+                            "brands": [
+                                36
+                            ]
+                        },
+                        "minimum_quantity": 2
+                    }
+                }
+            }
+        ],
+        "notifications": [],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-15T20:43:34+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
+```
+
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+<details>  
+    <summary>Buy two items in a brand and get the most expensive one at $50 off</summary>
+
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+```json title="Request runner" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
+"name": "Buy two items in brand and get the most expensive one at $50 off",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "apply_once": false,
+      "condition": {
+        "cart": {
+          "items": {
+            "brands": [
+              36
+            ]
+          },
+          "minimum_quantity": 2
+        }
+      },
+      "action": {
+        "cart_items": {
+          "strategy": "MOST_EXPENSIVE",
+          "include_items_considered_by_condition": true,
+          "discount": {
+            "fixed_amount": "50"
+          },
+          "items": {
+            "brands": [
+              36
+            ]
+          },
+          "quantity": 1
+        }
+      }
+    }
+  ]
+}
+```
+
+<br>
+
+<!--
+type: tab
+title: Request
+-->
 
 ```json title="Example request" lineNumbers
 {
@@ -325,7 +1171,128 @@ title: Brand
 ```
 <br>
 
-### Spend $X on brand Y, get product Z for free
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+    "data": {
+        "id": 8,
+        "name": "Buy two items in brand and get the most expensive one at $50 off",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_items": {
+                        "discount": {
+                            "fixed_amount": "50"
+                        },
+                        "strategy": "MOST_EXPENSIVE",
+                        "add_free_item": true,
+                        "as_total": false,
+                        "include_items_considered_by_condition": true,
+                        "exclude_items_on_sale": false,
+                        "items": {
+                            "brands": [
+                                36
+                            ]
+                        },
+                        "quantity": 1
+                    }
+                },
+                "apply_once": false,
+                "stop": false,
+                "condition": {
+                    "cart": {
+                        "items": {
+                            "brands": [
+                                36
+                            ]
+                        },
+                        "minimum_quantity": 2
+                    }
+                }
+            }
+        ],
+        "notifications": [],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-15T21:01:36+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
+```
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+<br>
+
+<details>  
+    <summary>Spend $X on brand Y, get product Z for free</summary>
+
+<!--
+type: tab
+title: Try It
+-->
+
+```json title="Request runner" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""},
+  "body": {
+  "name": "Spend $X on brand Y, get product Z for free",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "apply_once": false,
+      "condition": {
+        "cart": {
+          "items": {
+            "brands": [
+              36
+            ]
+          },
+          "minimum_spend": 200
+        }
+      },
+      "action": {
+        "gift_item": {
+          "product_id": 107,
+          "quantity": 1
+        }
+      }
+    }
+  ]
+}
+```
+<br>
+
+<!--
+type: tab
+title: Request
+-->
 
 ```json title="Example request" lineNumbers
 {
@@ -354,6 +1321,71 @@ title: Brand
   ]
 }
 ```
+
+<br>
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+    "data": {
+        "id": 9,
+        "name": "Spend $X on brand Y, get product Z for free",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "gift_item": {
+                        "quantity": 1,
+                        "product_id": 130
+                    }
+                },
+                "apply_once": false,
+                "stop": false,
+                "condition": {
+                    "cart": {
+                        "items": {
+                            "brands": [
+                                38
+                            ]
+                        },
+                        "minimum_spend": "10"
+                    }
+                }
+            }
+        ],
+        "notifications": [],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-15T21:15:28+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
+```
+
+<!-- 
+type: tab-end
+-->
+
+</details>
+
 
 <!--
 type: tab
