@@ -28,7 +28,7 @@ POS Foundation is pre-integrated with Stripe out of the box. Before enabling Str
 ## Fork and install the source repository 
 
 1. Fork the [point-of-sale-foundation repository (GitHub)](https://github.com/bigcommerce/point-of-sale-foundation) to your GitHub account.
-2. Clone your fork to your local development environment.
+2. Clone the fork to your local development environment.
 3. Navigate to your clone's root directory and install the application's default packages with npm.
 
 ```shell title="Install packages"
@@ -36,7 +36,9 @@ npm install
 ```
 
 ## BigCommerce setup
-1. [Create BigCommerce store](https://developer.bigcommerce.com/docs/ZG9jOjM4MzMyNTE-create-a-sandbox-store?source=subscription-foundation): go to [https://www.bigcommerce.com/essentials/](https://www.bigcommerce.com/essentials/?source=pos-foundation) and signup for a free trial if you don't have one.
+1. [Create BigCommerce store](/api-docs/partner/getting-started/create-a-sandbox-store?source=subscription-foundation): go to [https://www.bigcommerce.com/essentials/](https://www.bigcommerce.com/essentials/?source=pos-foundation) and sign up for a free trial if you don't have one.
+
+
 2. The BigCommerce store you are connected to must have "Pickup in Store" as a shipping option for orders to be created on the POS. Go to **Settings -> Shipping** in your admin to turn it on.
 
 3. Create BigCommerce v2/v3 API credentials. Go to **Advanced Settings > API Accounts** and create and API Account with these scopes:
