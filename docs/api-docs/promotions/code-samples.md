@@ -8,66 +8,12 @@ title: Brand
 -->
 
 ### Spend $X in brand X, get free shipping to X shipping zones
-```json title="Example request" lineNumbers
-{
-  "name": "Order $100 of this common good brand, get free shipping",
-  "redemption_type": "AUTOMATIC",
-  "rules": [
-    {
-      "action": {
-        "shipping": {
-          "free_shipping": true,
-          "zone_ids": [
-            1,
-            3
-          ]
-        }
-      },
-      "apply_once": true,
-      "stop": false,
-      "condition": {
-        "cart": {
-          "items": {
-            "brands": [
-              37
-            ]
-          },
-          "minimum_quantity": 1,
-          "minimum_spend": 100
-        }
-      }
-    }
-  ],
-  "notifications": [
-    {
-      "type": "UPSELL",
-      "content": "Get Free Shipping for Common Good Upsell",
-      "locations": [
-        "CART_PAGE"
-      ]
-    },
-    {
-      "type": "ELIGIBLE",
-      "content": "On the Cart Page, Eligible",
-      "locations": [
-        "CART_PAGE"
-      ]
-    },
-    {
-      "type": "APPLIED",
-      "content": "Applied Cart Page",
-      "locations": [
-        "CART_PAGE"
-      ]
-    }
-  ],
-  "stop": false,
-  "status": "ENABLED"
-}
-```
+
+<details>  
+  <summary>Expand code sample</summary>
+
 <br>
 
-### Apply a $ or % discount to each item in one or more brands AND, NOT operators
 ```json title="Example request" lineNumbers
 {
   "name": "Apply a $ or % discount to each item in one or more brands",
@@ -136,12 +82,168 @@ title: Brand
   "status": "ENABLED"
 }
 ```
+
+</details>
+
+
+### Spend $X in brand X, get free shipping to X shipping zones
+
+<details>  
+  <summary>Expand code sample</summary>
+
 <br>
 
-### Spend X amount in brand Y, get X% off in brand Y
 ```json title="Example request" lineNumbers
 {
-  "name": "Spend X amount in brand Y, Get X% off in brand Y",
+  "name": "Order $100 of this Common Good Brand, Get Free Shipping",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "action": {
+        "shipping": {
+          "free_shipping": true,
+          "zone_ids": [
+            1,
+            3
+          ]
+        }
+      },
+      "apply_once": true,
+      "stop": false,
+      "condition": {
+        "cart": {
+          "items": {
+            "brands": [
+              37
+            ]
+          },
+          "minimum_quantity": 1,
+          "minimum_spend": 100
+        }
+      }
+    }
+  ],
+  "notifications": [
+    {
+      "type": "UPSELL",
+      "content": "Get Free Shipping for Common Good Upsell",
+      "locations": [
+        "CART_PAGE"
+      ]
+    },
+    {
+      "type": "ELIGIBLE",
+      "content": "On the Cart Page, Eligible",
+      "locations": [
+        "CART_PAGE"
+      ]
+    },
+    {
+      "type": "APPLIED",
+      "content": "Applied Cart Page",
+      "locations": [
+        "CART_PAGE"
+      ]
+    }
+  ],
+  "stop": false,
+  "status": "ENABLED"
+}
+```
+
+</details>
+
+
+
+### Apply a $ or % discount to each item in one or more brands AND, NOT operators
+
+<details>  
+  <summary>Expand code sample</summary>
+
+<br>
+
+```json title="Example request" lineNumbers
+{
+  "name": "Apply a $ or % discount to each item in one or more brands",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "action": {
+        "cart_items": {
+          "discount": {
+            "percentage_amount": "15"
+          },
+          "strategy": "LEAST_EXPENSIVE",
+          "as_total": false,
+          "include_items_considered_by_condition": false,
+          "items": {
+            "and": [
+              {
+                "brands": [
+                  41,
+                  44,
+                  37,
+                  45
+                ]
+              },
+              {
+                "not": {
+                  "categories": [
+                    19
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "apply_once": true,
+      "stop": false
+    }
+  ],
+  "notifications": [
+    {
+      "type": "UPSELL",
+      "content": "Get 15% off in Common Good, Chemex, Barr-Co and Kinfolk.\r\n<div>&nbsp;</div>",
+      "locations": [
+        "HOME_PAGE",
+        "PRODUCT_PAGE",
+        "CART_PAGE"
+      ]
+    },
+    {
+      "type": "ELIGIBLE",
+      "content": "You are eligible for 15% off!\r\n<div>&nbsp;</div>",
+      "locations": [
+        "CART_PAGE"
+      ]
+    },
+    {
+      "type": "APPLIED",
+      "content": "Congratulations you have earned 15% off.",
+      "locations": [
+        "CART_PAGE"
+      ]
+    }
+  ],
+  "stop": false,
+  "status": "ENABLED"
+}
+```
+
+</details>
+
+
+
+### Spend X amount in brand Y, get X% off in brand Y
+
+<details>  
+  <summary>Expand code sample</summary>
+<br>
+
+```json title="Example request" lineNumbers
+{
+  "name": "Spend X Amount in Brand Y, Get X% Off in Brand Y",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -202,9 +304,16 @@ title: Brand
   "status": "ENABLED"
 }
 ```
-<br>
+
+</details>
 
 ### Buy two items in a brand and get the cheapest one free
+
+
+<details>  
+  <summary>Expand code sample</summary>
+
+<br>
 
 ```json title="Example request" lineNumbers
 {
@@ -243,9 +352,15 @@ title: Brand
 }
 ```
 
-<br>
+</details>
 
 ### Buy two items in a brand and get the most expensive one at 50% off
+
+<details>  
+  <summary>Expand code sample</summary>
+
+<br>
+
 ```json title="Example request" lineNumbers
 {
   "name": "Buy two items in brand and get the most expensive one at 50% off",
@@ -283,9 +398,14 @@ title: Brand
 }
 ```
 
-<br>
+</details>
 
 ### Buy two items in a brand and get the most expensive one at $50 off
+
+<details>  
+  <summary>Expand code sample</summary>
+
+<br>
 
 ```json title="Example request" lineNumbers
 {
@@ -323,9 +443,15 @@ title: Brand
   ]
 }
 ```
-<br>
+
+</details>
 
 ### Spend $X on brand Y, get product Z for free
+
+<details>  
+  <summary>Expand code sample</summary>
+
+<br>
 
 ```json title="Example request" lineNumbers
 {
@@ -354,6 +480,8 @@ title: Brand
   ]
 }
 ```
+
+</details>
 
 <!--
 type: tab

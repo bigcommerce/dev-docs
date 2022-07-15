@@ -11,6 +11,17 @@
       "uri": "docs/api-docs/promotions/code-samples.md"
     },
     {
+      "type": "group",
+      "title": "Samples",
+      "items": [
+    {
+      "type": "item",
+      "title": "Brands",
+      "href": "/api-docs/promotions/samples",
+      "uri": "docs/api-docs/promotions/samples.md"
+    }
+    ]},
+    {
       "type": "item",
       "title": "Overview",
       "href": "/api-docs/promotions/promotions-overview",
