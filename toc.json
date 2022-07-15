@@ -2,6 +2,22 @@
   "items": [
     {
       "type": "divider",
+      "title": "Promotions"
+    },
+    {
+      "type": "item",
+      "title": "Code Samples",
+      "href": "/api-docs/promotions/code-samples",
+      "uri": "docs/api-docs/promotions/code-samples.md"
+    },
+    {
+      "type": "item",
+      "title": "Overview",
+      "href": "/api-docs/promotions/promotions-overview",
+      "uri": "docs/api-docs/promotions/promotions-overview.md"
+    },
+    {
+      "type": "divider",
       "title": "Getting Started"
     },
     {
