@@ -5,7 +5,7 @@ POS Foundation is a proof-of-concept [open-source framework](https://github.com/
 ## Software and hardware requirements
 * [Node.js](https://nodejs.org/en/) 14.x
 * The [npm](https://www.npmjs.com/) package manager
-* A data store; for this app, we recommend MongoDB
+* A MongoDB database instance; this guide uses MongoDB Cloud
 * A [Stripe POS terminal and card reader](https://stripe.com/terminal)
 
 ## Configure accounts
@@ -75,9 +75,9 @@ This app works with MongoDB. The `provider` setting in the `/prisma/schema.prism
 
 We highly recommend using MongoDB, but if you would like to use another type of database, you will need to update the configuration to work with the database of your choice. View the available database options here: https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/
 
-[Mongo Cloud](https://cloud.mongodb.com) generates the `DATABASE_URL` as shown in the setup instructions below. In a later step, you will need the `DATABASE_URL` to update the environment variable in `.env` file. 
+[MongoDB Cloud](https://cloud.mongodb.com) generates the `DATABASE_URL` as shown in the setup instructions below. In a later step, you will need the `DATABASE_URL` to update the environment variable in `.env` file. 
 
-### Configure Mongo Cloud
+### Configure MongoDB Cloud
 
 1. Click [here](https://account.mongodb.com/) and sign in.  If you don't have an account, you can click [SignUp](https://account.mongodb.com/account/register).
 
@@ -103,7 +103,7 @@ We highly recommend using MongoDB, but if you would like to use another type of 
 
    c. Copy the connection string and replace `<password>` with the password and `<username>` with the username created in step 2a. Add **myFirstDatabase** to the connection string as shown below.
 
-```shell title="Mongo Cloud connection string"
+```shell title="MongoDB Cloud connection string"
 mongodb+srv://<username>:<password>@cluster0.jfohhb8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 ```
 
@@ -136,7 +136,7 @@ At a minimum, the following `.env` variables need to be updated for the app to s
 <!-- >>> do we not need the Stripe public key? no -->
 ## Create and seed database
   
- 1. After you set up your Mongo Cloud account, create the database and seed it with data by doing the following:
+ 1. After you set up your MongoDB Cloud account, create the database and seed it with data by doing the following:
 
 ```shell title="Create and seed the database"
   $ npx prisma db push
@@ -146,13 +146,13 @@ At a minimum, the following `.env` variables need to be updated for the app to s
 
 The preceding commands create the database collections and seed it with initial documents. If you miss this step, you won't have data to work with. 
 
-2. Generate a new Prisma client using the database provider settings you configured in the preceding section on [Configuring Mongo Cloud](#configure-mongo-cloud). The following command creates the initial client. If you miss this step, you'll see errors about Prisma missing. 
+2. Generate a new Prisma client using the database provider settings you configured in the preceding section on [Configuring MongoDB Cloud](#configure-mongodb-cloud). The following command creates the initial client. If you miss this step, you'll see errors about Prisma missing. 
 
 ```shell title="Generate the Prisma client"
   $ npx prisma generate
 ```
 
-3. Access this database using a visual editor to verify you have created the collections and documents correctly using the command below or you can use [Mongo Compass](https://www.mongodb.com/products/compass) as your database GUI.
+3. Access this database to verify you have created the collections and documents correctly. You can use the following command, or connect with a GUI, such as [Compass](https://www.mongodb.com/products/compass).
 
 ```shell title="Verify migration and seed"
   $ npx prisma studio
@@ -188,7 +188,7 @@ This error can occur when the `/prisma/schema.prisma` file contains the incorrec
 
 ### Issue: A "no available servers" server selection timeout when running the database migration
 
-Update your Mongo Cloud IP address to 0.0.0.0/0.
+Update your MongoDB Cloud IP address to 0.0.0.0/0.
 
 
 ## Resources
