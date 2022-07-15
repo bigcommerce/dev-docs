@@ -2,11 +2,14 @@
 
 POS Foundation is a proof-of-concept [open-source framework](https://github.com/bigcommerce/point-of-sale-foundation) that helps developers deliver custom point-of-sale checkout interfaces to BigCommerce merchants with brick-and-mortar locations. It provides a template to scaffold custom POS solutions that use secure, pre-certified EMV card readers. POS Foundation includes a default integration with Stripe Terminal, which can significantly accelerate development time. 
 
-## Software and hardware requirements
-* [Node.js](https://nodejs.org/en/) 14.x
+## Software requirements
+* [Node.js](https://nodejs.org/en/) 14.0.0+
 * The [npm](https://www.npmjs.com/) package manager
 * A MongoDB database instance; this guide uses MongoDB Cloud
-* A [Stripe POS terminal and card reader](https://stripe.com/terminal)
+
+## Hardware requirements
+* A [Stripe Terminal-enabled card reader](https://stripe.com/terminal)
+* The card reader-compatible computer or other device on which you intend to run the POS system
 
 ## Configure accounts
 
