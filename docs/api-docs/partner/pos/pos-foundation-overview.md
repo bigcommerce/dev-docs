@@ -182,6 +182,7 @@ Press **Connect** for the active terminal you'd like to use to take payment at c
  
 
 ## Troubleshooting
+
 ### Issue: Environment variable not found when running the database migration
 
 This error can occur when the `/prisma/schema.prisma` file contains the incorrect provider, or the `.env` file contains an incorrect `DATABASE_URL`. Verify that the information in both files is correct.
@@ -193,5 +194,5 @@ Update your Mongo Cloud IP address to 0.0.0.0/0.
 
 ## Resources
 ### Related articles
-* [BigCommerce Point of Sale Foundation README.md](https://github.com/bigcommerce/point-of-sale-foundation/blob/main/README.md)
+* [Point of Sale Foundation README](https://github.com/bigcommerce/point-of-sale-foundation/blob/main/README.md)
 * [Connecting with Stripe](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway#foundations)
