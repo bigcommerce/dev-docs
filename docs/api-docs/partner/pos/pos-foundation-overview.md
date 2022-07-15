@@ -182,11 +182,11 @@ Press **Connect** for the active terminal you'd like to use to take payment at c
  
 
 ## Troubleshooting
-### Seeing {"Environment variable not found"} when creating the DB tables and initial client
+### Issue: Environment variable not found when running the database migration
 
-If you do not enter the correct provider in the `/prisma/schema.prisma` file or the `.env` file contains an incorrect `DATABASE_URL`.
+This error can occur when the `/prisma/schema.prisma` file contains the incorrect provider, or the `.env` file contains an incorrect `DATABASE_URL`. Verify that the information in both files is correct.
 
-### Seeing {"Server selection timeout: No available servers"} when creating and seeding the database
+### Issue: A "no available servers" server selection timeout when running the database migration
 
 Update your Mongo Cloud IP address to 0.0.0.0/0.
 
