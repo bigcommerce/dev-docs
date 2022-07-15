@@ -1,7 +1,6 @@
 # POS Foundation
 
-POS Foundation is an open-source BigCommerce point-of-sale application framework. It provides a template to scaffold custom POS solutions that use secure, pre-certified EMV card readers. Default integration with Stripe Terminal fast-tracks development of brick-and-mortar POS implementations for BigCommerce stores, saving hundreds of hours.
-
+POS Foundation is a proof-of-concept [open-source framework](https://github.com/bigcommerce/point-of-sale-foundation) that helps developers deliver custom point-of-sale checkout interfaces to BigCommerce merchants with brick-and-mortar locations. It provides a template to scaffold custom POS solutions that use secure, pre-certified EMV card readers. POS Foundation includes a default integration with Stripe Terminal, which can significantly accelerate development time. 
 
 ## Software and hardware requirements
 * [Node.js](https://nodejs.org/en/) 14.x
