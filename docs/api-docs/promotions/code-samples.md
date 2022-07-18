@@ -256,10 +256,10 @@ title: Try It
             "and": [
               {
                 "brands": [
-                  41,
-                  44,
+                  38,
                   37,
-                  45
+                  36,
+                  35
                 ]
               },
               {
@@ -331,10 +331,10 @@ title: Request
             "and": [
               {
                 "brands": [
-                  41,
-                  44,
+                  38,
                   37,
-                  45
+                  36,
+                  35
                 ]
               },
               {
@@ -1271,7 +1271,7 @@ title: Try It
         "cart": {
           "items": {
             "brands": [
-              36
+              38
             ]
           },
           "minimum_spend": 200
@@ -1305,7 +1305,7 @@ title: Request
         "cart": {
           "items": {
             "brands": [
-              36
+              38
             ]
           },
           "minimum_spend": 200
@@ -1313,7 +1313,7 @@ title: Request
       },
       "action": {
         "gift_item": {
-          "product_id": 107,
+          "product_id": 130,
           "quantity": 1
         }
       }
@@ -1386,16 +1386,26 @@ type: tab-end
 
 </details>
 
+## Category
+
+<details>
+  <summary>Apply a $ or % discount to each item in one or more categories</summary>
+
+<br>
 
 <!--
 type: tab
-title: Category 
+title: Try It
 -->
 
-### Apply a $ or % discount to each item in one or more categories
-
-```json title="Example request" lineNumbers
+```json title="Request runner" lineNumbers
 {
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""},
+  "body": {
   "name": "20 dollars off all garden material",
   "redemption_type": "AUTOMATIC",
   "rules": [
@@ -1410,7 +1420,7 @@ title: Category
           "include_items_considered_by_condition": false,
           "items": {
             "categories": [
-              19
+              24
             ]
           }
         }
@@ -1449,11 +1459,170 @@ title: Category
 ```
 
 <br>
-
-### Apply a $ or % discount to each item in one or more categories, exclude items on sale
+<!--
+type: tab
+title: Request
+-->
 
 ```json title="Example request" lineNumbers
 {
+  "name": "20 dollars off all garden material",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "action": {
+        "cart_items": {
+          "discount": {
+            "fixed_amount": "20"
+          },
+          "strategy": "LEAST_EXPENSIVE",
+          "as_total": false,
+          "include_items_considered_by_condition": false,
+          "items": {
+            "categories": [
+              24
+            ]
+          }
+        }
+      },
+      "apply_once": true,
+      "stop": false
+    }
+  ],
+  "notifications": [
+    {
+      "type": "UPSELL",
+      "content": "",
+      "locations": [
+        "CART_PAGE"
+      ]
+    },
+    {
+      "type": "ELIGIBLE",
+      "content": "",
+      "locations": [
+        "CART_PAGE"
+      ]
+    },
+    {
+      "type": "APPLIED",
+      "content": "",
+      "locations": [
+        "CART_PAGE"
+      ]
+    }
+  ],
+  "stop": false,
+  "start_date": "2019-01-29T00:00:00+00:00",
+  "status": "ENABLED"
+}
+```
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+    "data": {
+        "id": 10,
+        "name": "20 dollar off all Garden material",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_items": {
+                        "discount": {
+                            "fixed_amount": "20"
+                        },
+                        "strategy": "LEAST_EXPENSIVE",
+                        "add_free_item": true,
+                        "as_total": false,
+                        "include_items_considered_by_condition": false,
+                        "exclude_items_on_sale": false,
+                        "items": {
+                            "categories": [
+                                24
+                            ]
+                        }
+                    }
+                },
+                "apply_once": true,
+                "stop": false
+            }
+        ],
+        "notifications": [
+            {
+                "type": "UPSELL",
+                "content": "",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            },
+            {
+                "type": "ELIGIBLE",
+                "content": "",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            },
+            {
+                "type": "APPLIED",
+                "content": "",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            }
+        ],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2019-01-29T00:00:00+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
+```
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+
+
+<details>
+  <summary>Apply a $ or % discount to each item in one or more categories, exclude items on sale</summary>
+
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+
+```json title="Example request" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
   "name": "20 dollars off all garden material, exclude items on sale",
   "redemption_type": "AUTOMATIC",
   "rules": [
@@ -1483,7 +1652,191 @@ title: Category
 
 <br>
 
-### Buy X units in (category A), get Y additional units in the same category free (must be of equal or lesser value)
+<br>
+
+ <!--
+type: tab
+title: Request
+-->
+
+```json title="Example request" lineNumbers
+{
+ "name": "20 dollars off all garden material, exclude items on sale",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "action": {
+        "cart_items": {
+          "discount": {
+            "fixed_amount": "20"
+          },
+          "strategy": "LEAST_EXPENSIVE",
+          "as_total": false,
+          "include_items_considered_by_condition": false,
+          "exclude_items_on_sale": true,
+          "items": {
+            "categories": [
+              19
+            ]
+          }
+        }
+      },
+      "apply_once": true,
+      "stop": false
+    }
+  ]
+}
+```
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+    "data": {
+        "id": 11,
+        "name": "20 dollars off all garden material, exclude items on sale",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_items": {
+                        "discount": {
+                            "fixed_amount": "5"
+                        },
+                        "strategy": "LEAST_EXPENSIVE",
+                        "add_free_item": true,
+                        "as_total": false,
+                        "include_items_considered_by_condition": false,
+                        "exclude_items_on_sale": true,
+                        "items": {
+                            "categories": [
+                                36
+                            ]
+                        }
+                    }
+                },
+                "apply_once": true,
+                "stop": false
+            }
+        ],
+        "notifications": [],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-18T18:43:58+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
+```
+
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+<details>  
+  <summary>Buy X units in (category A), get Y additional units in the same category free (must be of equal or lesser value)</summary>
+
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+```json title="Try It" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
+  "name": "Buy X units in (Category A), get Y additional units in the same category free (must be of equal or lesser value)",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "action": {
+        "cart_items": {
+          "discount": {
+            "percentage_amount": "100"
+          },
+          "strategy": "LEAST_EXPENSIVE",
+          "as_total": false,
+          "include_items_considered_by_condition": false,
+          "items": {
+            "categories": [
+              23
+            ]
+          },
+          "quantity": 1
+        }
+      },
+      "apply_once": true,
+      "stop": false,
+      "condition": {
+        "cart": {
+          "items": {
+            "categories": [
+              23
+            ]
+          },
+          "minimum_quantity": 1
+        }
+      }
+    }
+  ],
+  "notifications": [
+    {
+      "type": "UPSELL",
+      "content": "<div>&nbsp;</div>\r\n<div>&nbsp;</div>",
+      "locations": [
+        "CART_PAGE"
+      ]
+    },
+    {
+      "type": "ELIGIBLE",
+      "content": "<div>&nbsp;</div>\r\n<div>&nbsp;</div>",
+      "locations": [
+        "CART_PAGE"
+      ]
+    },
+    {
+      "type": "APPLIED",
+      "content": "<div>&nbsp;</div>\r\n<div>&nbsp;</div>",
+      "locations": [
+        "CART_PAGE"
+      ]
+    }
+  ],
+  "stop": false,
+  "start_date": "2019-02-01T05:00:00+00:00",
+  "status": "ENABLED"
+}
+```
+<br>
+
+ <!--
+type: tab
+title: Request
+-->
 
 ```json title="Example request" lineNumbers
 {
@@ -1551,10 +1904,113 @@ title: Category
 ```
 <br>
 
-### Buy three items in a category for the price of 2 (lowest priced item discounted)
+<!--
+type: tab
+title: Response
+-->
 
+```json title="Example response" lineNumbers
+{
+    "data": {
+        "id": 12,
+        "name": "Buy X units in (Category A), get Y additional units in the same category free (must be of equal or l",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_items": {
+                        "discount": {
+                            "percentage_amount": "100"
+                        },
+                        "strategy": "LEAST_EXPENSIVE",
+                        "add_free_item": true,
+                        "as_total": false,
+                        "include_items_considered_by_condition": false,
+                        "exclude_items_on_sale": false,
+                        "items": {
+                            "categories": [
+                                36
+                            ]
+                        },
+                        "quantity": 1
+                    }
+                },
+                "apply_once": true,
+                "stop": false,
+                "condition": {
+                    "cart": {
+                        "items": {
+                            "categories": [
+                                36
+                            ]
+                        },
+                        "minimum_quantity": 1
+                    }
+                }
+            }
+        ],
+        "notifications": [
+            {
+                "type": "UPSELL",
+                "content": "<div>&nbsp;</div>\r\n<div>&nbsp;</div>",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            },
+            {
+                "type": "ELIGIBLE",
+                "content": "<div>&nbsp;</div>\r\n<div>&nbsp;</div>",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            },
+            {
+                "type": "APPLIED",
+                "content": "<div>&nbsp;</div>\r\n<div>&nbsp;</div>",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            }
+        ],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2019-02-01T05:00:00+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
+```
 
-```json title="Example request" lineNumbers
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+<details>  
+  <summary>Buy three items in a category for the price of 2 (lowest priced item discounted)</summary>
+
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+```json title="Try It" lineNumbers
 {
   "name": "Buy three items in a category for the price of 2 (lowest priced item discounted)",
   "redemption_type": "AUTOMATIC",
@@ -1592,10 +2048,140 @@ title: Category
 
 <br>
 
-### Buy product X or items from category Y, get $10 off items from category Z
+<!--
+type: tab
+title: Request
+-->
 
 ```json title="Example request" lineNumbers
 {
+  "name": "Buy three items in a category for the price of 2 (lowest priced item discounted)",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "apply_once": false,
+      "condition": {
+        "cart": {
+          "items": {
+            "categories": [
+              21
+            ]
+          },
+          "minimum_quantity": 2
+        }
+      },
+      "action": {
+        "cart_items": {
+          "discount": {
+            "percentage_amount": "100"
+          },
+          "strategy": "LEAST_EXPENSIVE",
+          "items": {
+            "categories": [
+              21
+            ]
+          },
+          "quantity": 1
+        }
+      }
+    }
+  ]
+}
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+    "data": {
+        "id": 13,
+        "name": "Buy three items in a category for the price of 2 (lowest priced item discounted)",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_items": {
+                        "discount": {
+                            "percentage_amount": "100"
+                        },
+                        "strategy": "LEAST_EXPENSIVE",
+                        "add_free_item": true,
+                        "as_total": false,
+                        "include_items_considered_by_condition": false,
+                        "exclude_items_on_sale": false,
+                        "items": {
+                            "categories": [
+                                36
+                            ]
+                        },
+                        "quantity": 1
+                    }
+                },
+                "apply_once": false,
+                "stop": false,
+                "condition": {
+                    "cart": {
+                        "items": {
+                            "categories": [
+                                36
+                            ]
+                        },
+                        "minimum_quantity": 2
+                    }
+                }
+            }
+        ],
+        "notifications": [],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-18T19:02:16+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
+```
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+
+<details>  
+  <summary>Buy product X or items from category Y, get $10 off items from category Z</summary>
+
+<br>
+
+<!--
+type: tab
+title: Try It
+-->
+
+```json title="Try It" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
   "name": "Buy product X or items from category Y get $10 off items from category Z",
   "redemption_type": "AUTOMATIC",
   "rules": [
@@ -1638,10 +2224,153 @@ title: Category
 ```
 <br>
 
-### Buy three from category X, get one from category Y for free
+<!--
+type: tab
+title: Request
+-->
 
 ```json title="Example request" lineNumbers
+ "name": "Buy product X or items from category Y get $10 off items from category Z",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "apply_once": true,
+      "condition": {
+        "cart": {
+          "items": {
+            "or": [
+              {
+                "categories": [
+                  1
+                ]
+              },
+              {
+                "products": [
+                  1
+                ]
+              }
+            ]
+          },
+          "minimum_quantity": 1
+        }
+      },
+      "action": {
+        "cart_items": {
+          "discount": {
+            "fixed_amount": 10
+          },
+          "items": {
+            "categories": [
+              31
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
 {
+    "data": {
+        "id": 14,
+        "name": "Buy product X or items from category Y get $10 off items from category Z",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_items": {
+                        "discount": {
+                            "fixed_amount": "10"
+                        },
+                        "strategy": "LEAST_EXPENSIVE",
+                        "add_free_item": true,
+                        "as_total": false,
+                        "include_items_considered_by_condition": false,
+                        "exclude_items_on_sale": false,
+                        "items": {
+                            "categories": [
+                                36
+                            ]
+                        }
+                    }
+                },
+                "apply_once": true,
+                "stop": false,
+                "condition": {
+                    "cart": {
+                        "items": {
+                            "or": [
+                                {
+                                    "categories": [
+                                        36
+                                    ]
+                                },
+                                {
+                                    "products": [
+                                        123
+                                    ]
+                                }
+                            ]
+                        },
+                        "minimum_quantity": 1
+                    }
+                }
+            }
+        ],
+        "notifications": [],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-18T19:16:26+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
+```
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+<details>  
+  <summary>Buy three from category X, get one from category Y for free</summary>
+
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+```json title="Try It" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
   "name": "Buy three from category X get one from category Y for free",
   "redemption_type": "AUTOMATIC",
   "rules": [
@@ -1651,7 +2380,7 @@ title: Category
         "cart": {
           "items": {
             "categories": [
-              18
+              24
             ]
           },
           "minimum_quantity": 3
@@ -1664,7 +2393,163 @@ title: Category
           },
           "items": {
             "categories": [
-              19
+              24
+            ]
+          },
+          "quantity": 1
+        }
+      }
+    }
+  ]
+}
+```
+<!--
+type: tab
+title: Request
+-->
+
+```json title="Example request" lineNumbers
+{
+  "name": "Buy three from category X get one from category Y for free",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "apply_once": false,
+      "condition": {
+        "cart": {
+          "items": {
+            "categories": [
+              24
+            ]
+          },
+          "minimum_quantity": 3
+        }
+      },
+      "action": {
+        "cart_items": {
+          "discount": {
+            "percentage_amount": 100
+          },
+          "items": {
+            "categories": [
+              24
+            ]
+          },
+          "quantity": 1
+        }
+      }
+    }
+  ]
+}
+```
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+    "data": {
+        "id": 15,
+        "name": "Buy three from category X get one from category Y for free",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_items": {
+                        "discount": {
+                            "percentage_amount": "100"
+                        },
+                        "strategy": "LEAST_EXPENSIVE",
+                        "add_free_item": true,
+                        "as_total": false,
+                        "include_items_considered_by_condition": false,
+                        "exclude_items_on_sale": false,
+                        "items": {
+                            "categories": [
+                                24
+                            ]
+                        },
+                        "quantity": 1
+                    }
+                },
+                "apply_once": false,
+                "stop": false,
+                "condition": {
+                    "cart": {
+                        "items": {
+                            "categories": [
+                                24
+                            ]
+                        },
+                        "minimum_quantity": 3
+                    }
+                }
+            }
+        ],
+        "notifications": [],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-18T19:57:54+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
+```
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+<details>  
+  <summary>Spend $X from category X, get product Y for free</summary>
+
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+```json title="Example request" lineNumbers
+{
+  "name": "Buy $X from category X get product Y for free",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "apply_once": false,
+      "condition": {
+        "cart": {
+          "items": {
+            "categories": [
+              24
+            ]
+          },
+          "minimum_spend": 300
+        }
+      },
+      "action": {
+        "cart_items": {
+          "discount": {
+            "percentage_amount": 100
+          },
+          "items": {
+            "products": [
+              123
             ]
           },
           "quantity": 1
@@ -1676,7 +2561,73 @@ title: Category
 ```
 <br>
 
-### Spend $X from category X, get product Y for free
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+    "data": {
+        "id": 16,
+        "name": "Buy $X from Category X Get Product Y for free",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_items": {
+                        "discount": {
+                            "percentage_amount": "100"
+                        },
+                        "strategy": "LEAST_EXPENSIVE",
+                        "add_free_item": true,
+                        "as_total": false,
+                        "include_items_considered_by_condition": false,
+                        "exclude_items_on_sale": false,
+                        "items": {
+                            "products": [
+                                123
+                            ]
+                        },
+                        "quantity": 1
+                    }
+                },
+                "apply_once": false,
+                "stop": false,
+                "condition": {
+                    "cart": {
+                        "items": {
+                            "categories": [
+                                24
+                            ]
+                        },
+                        "minimum_spend": "300"
+                    }
+                }
+            }
+        ],
+        "notifications": [],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-18T20:07:24+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
+```
 
 ```json title="Example request" lineNumbers
 {
@@ -1712,6 +2663,13 @@ title: Category
   ]
 }
 ```
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+
 
 
 <!--
