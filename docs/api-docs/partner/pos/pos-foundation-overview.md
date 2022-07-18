@@ -2,6 +2,19 @@
 
 POS Foundation is a proof-of-concept [open-source framework](https://github.com/bigcommerce/point-of-sale-foundation) that helps developers deliver custom point-of-sale checkout interfaces to BigCommerce merchants with brick-and-mortar locations. It provides a template to scaffold custom POS solutions that use secure, pre-certified EMV card readers. POS Foundation includes a default integration with Stripe Terminal, which can significantly accelerate development time. 
 
+
+>>> general list of caveats that's too long to be a callout and should be a paragraph -- write them up with a collaborative tone that conveys this a cool proof-of-concept tutorial and starting place.
+> * This is not a single-click installation app; it's a manual connector app and thus doesn't appear in the store control panel
+>   * ^^ that's why it uses a store api account
+>   * no app profile
+>   * no multi-store install
+>   * no ngrok tunnel
+> * it doesn't use stripe platform
+> * local network operations only
+> * this app doesn't make its own channel -- we have a channels toolkit and subscriptionfound has some code that might be useful if you're developing it
+> * this app isn't MSF or channel-aware
+> * we love your pull requests. if you build this out into an app, please let us know
+
 ## Software requirements
 * [Node.js](https://nodejs.org/en/) 14.0.0+
 * The [npm](https://www.npmjs.com/) package manager
@@ -13,39 +26,15 @@ POS Foundation is a proof-of-concept [open-source framework](https://github.com/
 
 ## Configure accounts
 
-<!-- theme: info
-> #### Store configuration
-> * Because we have a [store email address constraint](/api-docs/apps/guide/developer-portal#store-email-address-constraint?source=subscription-foundation) on draft and private apps, make sure that both your sandbox store and your Dev Portal account use the same email address. 
-> * The sandbox store must support multi-storefront sales. -->
+<!-- theme: info -->
+> #### Account configuration requirements
+> We recommend that you use a sandbox store that has the same multi-storefront status as the production store. For example, if you're developing for a multi-storefront enabled merchant store, use a multi-storefront sandbox. For information on configuring multi-storefront, see [Multi-Storefront](https://support.bigcommerce.com/s/article/Multi-Storefront?language=en_US).
+
+To configure your accounts, complete the following steps:
 
 1. To develop and test apps, you need a BigCommerce sandbox store. If you don't have one, [Create a Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=subscription-foundation).
 
-2. In your sandbox store, configure a shipping zone with a [Pickup in Store](https://support.bigcommerce.com/s/article/Free-Shipping#in-store) shipping method.
-
-<!-- 3. To register apps and create app API accounts, you need a BigCommerce Developer Portal account. If you don't have one, create a [Dev Portal account](https://devtools.bigcommerce.com/?source=subscription-foundation).  -->
-
-## Enabling Stripe
-POS Foundation is pre-integrated with Stripe out of the box. Before enabling Stripe, the store must be using [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout?language=en_US#oopc-settings).
-
-## Fork and install the source repository 
-
-1. Fork the [point-of-sale-foundation repository (GitHub)](https://github.com/bigcommerce/point-of-sale-foundation) to your GitHub account.
-2. Clone the fork to your local development environment.
-3. Navigate to your clone's root directory and install the application's default packages with npm.
-
-```shell title="Install packages"
-npm install
-```
-
-## BigCommerce setup
-1. [Create BigCommerce store](/api-docs/partner/getting-started/create-a-sandbox-store?source=subscription-foundation): go to [https://www.bigcommerce.com/essentials/](https://www.bigcommerce.com/essentials/?source=pos-foundation) and sign up for a free trial if you don't have one.
-
-
-2. The BigCommerce store you are connected to must have "Pickup in Store" as a shipping option for orders to be created on the POS. Go to **Settings -> Shipping** in your admin to turn it on.
-
-3. Create BigCommerce v2/v3 API credentials. Go to **Advanced Settings > API Accounts** and create and API Account with these scopes:
-
- **OAuth Scopes**
+2. In the control panel of your sandbox store, [create a store API account](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials) with the following scopes:
  
 | UI Name | Permission | Parameter |
 |:--------|:-----------|:----------|
@@ -60,27 +49,87 @@ npm install
 | Channel Settings| modify| `store_channel_settings` |
 | Storefront API Tokens | manage| `store_storefront_api` |
 
-4. Copy the `ACCESS_TOKEN`, `CLIENT ID`, and `CLIENT SECRET` credentials. In a later step, you will need these credentials to update `BC_AUTH_TOKEN`, `BC_APP_CLIENT_ID`, and `BC_APP_SECRET` environment variables in the `.env` file.
+<!-- theme: success -->
+> #### Make note of the API account credentials
+> Make note of the `ACCESS_TOKEN`, `CLIENT ID`, and `CLIENT SECRET`. In a later step, you will use these credentials to update the`BC_AUTH_TOKEN`, `BC_APP_CLIENT_ID`, and `BC_APP_SECRET` environment variables in the `.env` file.
 
-## Stripe setup
+## Fork and install the source repository 
+To fork the repository, complete the following steps:
 
-1. [Sign in](https://stripe.com/terminal) and click **Dashboard**. You will should be in **Test mode** ([https://dashboard.stripe.com/test/developers](https://dashboard.stripe.com/test/developers)). Do not select the dashboard for **Developers**.
-2. Copy the Stripe secret key. In a later step, you will use the secret key to update the environment variable `STRIPE_SECRET_KEY` in the `.env` file.
-3. Go to **More > Terminal** in the dashboard. Press **Get Started** when asked to activate the Terminal section.
-4. Add a location, then click on the location row to manage details.
-5. Add a new reader to the location.
+1. Fork the [point-of-sale-foundation repository (GitHub)](https://github.com/bigcommerce/point-of-sale-foundation) to your GitHub account.
+2. Clone the fork to your local development environment.
+3. Navigate to the root directory of your cloned repository and use npm to install the default packages for this framework.
 
-## Database setup
+```shell title="Install packages"
+npm install
+```
 
-This app works with MongoDB. The `provider` setting in the `/prisma/schema.prisma` should be set to `mongodb`. 
+## Configure Stripe
+
+* Store's single Stripe account only >>>
+* this assumes the account is already created & configured for the store
+* this assumes Stripe Terminal is already selected in some way?
+
+To configure the Stripe account to connect to your implementation, complete the following steps:
+
+1. Sign in to [Stripe Terminal](https://stripe.com/terminal).
+
+2. In the >>> location, click **Dashboard** and make sure that you're interacting with Stripe in **Test mode**. Do not select the **Developers** dashboard. 
+>>> is this right? there was a link to the developers dashboard -- see following comment
+
+<!-- theme: info -->
+> #### Test mode
+> You can simulate transactions in test mode to confirm your integration works correctly.
+
+<!-- You will should be in **Test mode** ([https://dashboard.stripe.com/test/developers](https://dashboard.stripe.com/test/developers)) -->
+>>> add screenshot, preferably showing both test mode and the no-no developers section.
+
+
+3. Locate the Stripe secret key. >>>
+>>> can this instruction go at the end, UI-wise, to match how we've done "note the key" in subscriptionfound and in this draft?
+
+<!-- theme: success -->
+> #### Make note of the secret key
+> Make note of the **secret key** and keep it in a safe location. In a later step, you will use the secret key to update the `STRIPE_SECRET_KEY` environment variable in the `.env` file.
+
+
+
+
+(>>>is the next dashboard the general stripe one or a special terminal one?)
+4. In the top menu (>>>??? location) of your Stripe Dashboard, click **More > Terminal**. When prompted to activate the Terminal section of the dashboard, click **Get Started**.
+5. Add a location, then click on the location row to manage details. >>> context? UI page section, dialog box?
+6. Add a new reader to the location. >>> is this the specific new reader? is there information that you're required to add?
+
+## Configure the BigCommerce store
+
+After you successfully configure test mode, configure your BigCommerce sandbox store in the store control panel.
+
+To configure the store to make purchases through a POS, complete the following steps:
+
+1. In the BigCommerce store control panel, configure a shipping zone with a [Pickup in Store](https://support.bigcommerce.com/s/article/Free-Shipping#in-store) shipping method.
+
+2. To allow POS operations, enable [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout?language=en_US#oopc-settings).
+
+## Create and configure database
+
+To connect with `prisma`, >>>chatty chat chat
+
+We designed this app to use MongoDB. If you want to use a different database engine, update the configuration, migration, and seed files to use the database of your choice. For a list of supported databases options, see Prisma's [data source documentation](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/).
+
+To configure your POS application to use MongoDB, complete the following steps: 
+
+1. Open your fork of the project repository, then locate the `/prisma` directory. 
+
+2. In the `/prisma/schema.prisma` settings file, set `provider` to `mongodb`. 
+
 
 ![POS-provider-mongodb](https://storage.googleapis.com/bigcommerce-production-dev-center/images/POS-provider-mongodb.png)
 
-We highly recommend using MongoDB, but if you would like to use another type of database, you will need to update the configuration to work with the database of your choice. View the available database options here: https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/
-
-[MongoDB Cloud](https://cloud.mongodb.com) generates the `DATABASE_URL` as shown in the setup instructions below. In a later step, you will need the `DATABASE_URL` to update the environment variable in `.env` file. 
-
 ### Configure MongoDB Cloud
+
+
+
+[MongoDB Cloud](https://cloud.mongodb.com) generates a `DATABASE_URL` as shown in following steps.
 
 1. Click [here](https://account.mongodb.com/) and sign in.  If you don't have an account, you can click [SignUp](https://account.mongodb.com/account/register).
 
@@ -116,13 +165,13 @@ mongodb+srv://<username>:<password>@cluster0.jfohhb8.mongodb.net/myFirstDatabase
 
 ![pos-connection-string](https://storage.googleapis.com/bigcommerce-production-dev-center/images/POS-connection-string.png)
 
-## Create local environment file
+## Declare environment variables
 
 1. Create a `.env` file in the root directory of your project.
-2. Copy the content of `.env-sample` to `.env`.
+2. Copy the content of `.env.sample` to `.env`.
 
-```bash
-cp .env-sample .env
+```shell title="Copy .env.sample contents"
+cp .env.sample .env
 ```
 At a minimum, the following `.env` variables need to be updated for the app to sucessfully run.
 
