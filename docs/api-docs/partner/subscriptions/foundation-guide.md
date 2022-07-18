@@ -1,6 +1,6 @@
 # Subscription Foundation
 
-Subscription Foundation delivers an [open source framework](https://github.com/bigcommerce/subscription-foundation) for BigCommerce customers to subscribe to one or more channels. It provides a template for custom subscription billing and invoicing solutions for your business or client. Subscription Foundation includes a default integration with Stripe Billing, which can significantly accelerate your development time. 
+Subscription Foundation delivers an [open-source framework](https://github.com/bigcommerce/subscription-foundation) for BigCommerce customers to subscribe to one or more channels. It provides a template for custom subscription billing and invoicing solutions for your business or client. Subscription Foundation includes a default integration with Stripe Billing, which can significantly accelerate your development time. 
 
 Subscription Foundation uses the [Channels toolkit](/api-docs/channels/guide/overview#channels-toolkit) to display the custom subscription channel in the **Channel Manager** of a store's control panel alongside other sales channels. 
 
@@ -27,7 +27,7 @@ To fork the repository, complete the following steps:
 
 1. Fork the [subscription-foundation repository (GitHub)](https://github.com/bigcommerce/subscription-foundation) to your GitHub account.
 2. Clone your fork to your local development environment.
-3. Navigate to your root directory of your cloned repository and install the default packages for your app by running the following command:
+3. Navigate to the root directory of your cloned repository and install the default packages for your app by running the following command:
 
 ```shell title="Install packages"
 npm install
@@ -159,7 +159,7 @@ To configure test mode, complete the following steps:
 
 ## Configure the BigCommerce store
 
-After you successfully configure for test mode, configure your BigCommerce sandbox store in the store control panel.
+After you successfully configure test mode, configure your BigCommerce sandbox store in the store control panel.
 
 To configure the store to make subscription charges, complete the following steps:
 
@@ -274,7 +274,7 @@ If you plan to use the API to add products to the subscription sales channel, se
 
 ## Troubleshooting
 
-### Issue: Environment variable not found when running 
+### Issue: Environment variable not found when running the database migration
 
 This error can occur when the `/prisma/schema.prisma` file contains the incorrect provider, or the `.env` file contains an incorrect `DATABASE_URL`. Verify that the information in both files is correct.
 
