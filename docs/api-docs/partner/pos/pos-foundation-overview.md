@@ -231,6 +231,7 @@ npm run dev
 Now, the app will be running locally! 
 
 Sign in as an admin at `http://localhost:3000/signin`. The default admin PIN in the seed data is `1234`.
+>>> sign in to what? using what machine? with what credentials? screenshot? is the username `admin`? etc etc
 
 After you access Prisma Studio, navigate to the **Settings** screen to save your store address, which the app uses for checkout tax calculations. You will receive the following error if you do not supply the store address.
   
