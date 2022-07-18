@@ -166,6 +166,10 @@ mongodb+srv://<username>:<password>@cluster0.sdfdfg65.mongodb.net/myFirstDatabas
 
 ## Declare environment variables
 
+After you create and configure the database, you have all the information you need to add environment variables to your project.
+
+To declare environment variables, complete the following steps:
+
 1. Create a `.env` file in the root directory of your project.
 2. Copy the contents of `.env.sample` to `.env` with the following command:
 
@@ -186,33 +190,41 @@ Open the `.env` file you just created and update the following environment varia
 | `STRIPE_SECRET_KEY` | The Stripe account's client secret | [Configure Stripe](#configure-stripe) |
 >>> do we not need the Stripe public key?
 
-## Create and seed database
+## Run migration and start the server
+
+After you add environment variables to your project, run the migration that creates the initial collections and documents your MongoDB instance needs to run the POS system.
+
+To run the migration and seed the database, complete the following steps:
   
- 1. After you set up your MongoDB Cloud account, create the database and seed it with data by doing the following:
+1. Run the pre-configured Prisma migration script that as defined in `/prisma/migrations/*` with the following command: 
 
-```shell title="Create and seed the database"
-  $ npx prisma db push
-
-  $ npm run seed
+```shell title="Create the database"
+npx prisma db push
 ```
 
-The preceding commands create the database collections and seed it with initial documents. If you miss this step, you won't have data to work with. 
+2. Seed your database with pre-configured collections and documents using the following command:
+ 
+```shell title="Seed the database"
+npm run seed
+```
 
-2. Generate a new Prisma client using the database provider settings you configured in the preceding section on [Configuring MongoDB Cloud](#configure-mongodb-cloud). The following command creates the initial client. If you miss this step, you'll see errors about Prisma missing. 
+If you miss the preceding steps, you won't have data to work with. 
+
+3. Next, generate a new Prisma client. This operation relies on the provider settings you configured in the preceding section on [creating and configuring the database](#create-and-configure-the-database). To create the initial client, use the following command:
 
 ```shell title="Generate the Prisma client"
-  $ npx prisma generate
+npx prisma generate
 ```
 
-3. Access this database to verify you have created the collections and documents correctly. You can use the following command, or connect with a GUI, such as [Compass](https://www.mongodb.com/products/compass).
+4. Access the database to verify you have created the collections and documents correctly. You can use the following command, or connect with a GUI, such as [Compass](https://www.mongodb.com/products/compass).
 
 ```shell title="Verify migration and seed"
-  $ npx prisma studio
+npx prisma studio
 ``` 
 
-4. Run the Stripe POS terminal. <!-- (>>> this isn't an app in the BigCommerce sense, so it needs a different API account setup or we need to call it something else)-->
+5. To start the server that runs the POS system, run the following command:
 
-```bash title="Start the server"
+```shell title="Start the server"
 npm run dev
 ```
 
