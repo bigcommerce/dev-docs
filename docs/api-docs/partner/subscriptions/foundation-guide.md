@@ -175,11 +175,13 @@ To configure the store to make subscription charges, complete the following step
 
 ## Declare environment variables
 
+After you configure the store, you have all the information you need to add environment variables to your project.
+
 <!-- theme: info -->
 > #### Note on naming conventions
 > In some places, this guide and app template code refer to a Stripe API account's public key as a **client ID**, and its secret key as a **client secret**.
 
-To declare environment variables, run the following commands in your terminal:
+To declare environment variables, complete the following steps:
 
 1. Create a `.env` file in the root directory of your project.
 
