@@ -13866,7 +13866,7 @@ paths:
                   data:
                     type: array
                     items:
-                      type: object
+                      $ref: '#/components/schemas/Category'
                   meta:
                     $ref: '#/components/schemas/metaCollection_Full'
               example:
@@ -13988,6 +13988,7 @@ paths:
                     total_pages: 1
                     links:
                       current: '?page=1&limit=50'
+              examples: {}
     post:
       tags:
         - Category
@@ -18936,6 +18937,39 @@ paths:
                       $ref: '#/components/schemas/Category'
                   meta:
                     $ref: '#/components/schemas/MetaPagination'
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - id: 0
+                        parent_id: 2
+                        name: Bath
+                        description: <p>We offer a wide variety of products perfect for relaxing</p>
+                        views: 1050
+                        sort_order: 3
+                        page_title: Bath
+                        meta_keywords:
+                          - string
+                        meta_description: string
+                        layout_file: category.html
+                        image_url: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
+                        is_visible: true
+                        search_keywords: string
+                        default_product_sort: use_store_settings
+                        url:
+                          path: string
+                          is_customized: true
+                    meta:
+                      pagination:
+                        total: 246
+                        count: 5
+                        per_page: 5
+                        current_page: 1
+                        total_pages: 50
+                        links:
+                          previous: '?limit=5&page=1'
+                          current: '?limit=5&page=2'
+                          next: '?limit=5&page=3'
         '400':
           description: Bad Request
           content:
@@ -19010,6 +19044,8 @@ paths:
             schema:
               $ref: '#/components/schemas/UpdateCategories'
       responses:
+        '200':
+          description: OK
         '204':
           description: No Content
           content:
@@ -24612,81 +24648,57 @@ components:
     CreateCategories:
       type: array
       items:
-        oneOf:
-          - allOf:
-              - $ref: '#/components/schemas/CategoryUuidData'
-              - $ref: '#/components/schemas/ParentIdCreateData'
-              - $ref: '#/components/schemas/CategoryData'
-          - allOf:
-              - $ref: '#/components/schemas/TreeIdCreateData'
-              - $ref: '#/components/schemas/CategoryData'
+        allOf:
+          - $ref: '#/components/schemas/TreeIdCreateData'
+          - $ref: '#/components/schemas/ParentIdCreateData'
+          - $ref: '#/components/schemas/CategoryData'
       x-tags:
         - Models
+      title: Create Categories
     UpdateCategories:
+      x-tags:
+        - Models
       type: array
       items:
-        oneOf:
-          - allOf:
-              - $ref: '#/components/schemas/CategoryIdUpdateData'
-              - $ref: '#/components/schemas/CategoryUuidData'
-              - $ref: '#/components/schemas/ParentIdUpdateData'
-              - $ref: '#/components/schemas/CategoryData'
-          - allOf:
-              - $ref: '#/components/schemas/CategoryIdUpdateData'
-              - $ref: '#/components/schemas/TreeIdUpdateData'
-              - $ref: '#/components/schemas/CategoryData'
-      x-tags:
-        - Models
+        allOf:
+          - $ref: '#/components/schemas/TreeIdUpdateData'
+          - $ref: '#/components/schemas/CategoryIdUpdateData'
+          - $ref: '#/components/schemas/CategoryUuidData'
+          - $ref: '#/components/schemas/ParentIdUpdateData'
+          - $ref: '#/components/schemas/CategoryData'
     Category:
-      type: object
-      properties:
-        category_uuid:
-          type: string
-          format: uuid
-        category_id:
-          type: integer
-        parent_id:
-          type: integer
-        tree_id:
-          type: integer
-        name:
-          type: string
-        description:
-          type: string
-        views:
-          type: integer
-        sort_order:
-          type: integer
-        page_title:
-          type: string
-        search_keywords:
-          type: string
-        meta_keywords:
-          type: array
-          items:
-            type: string
-        meta_description:
-          type: string
-        layout_file:
-          type: string
-        is_visible:
-          type: boolean
-        default_product_sort:
-          type: string
-        image_url:
-          type: string
-        url:
-          $ref: '#/components/schemas/Url'
       x-tags:
         - Models
+      title: Category
+      allOf:
+        - $ref: '#/components/schemas/id'
+        - $ref: '#/components/schemas/parent_id'
+        - $ref: '#/components/schemas/name'
+        - $ref: '#/components/schemas/description'
+        - $ref: '#/components/schemas/views'
+        - $ref: '#/components/schemas/sort_order'
+        - $ref: '#/components/schemas/page_title'
+        - $ref: '#/components/schemas/meta_keywords'
+        - $ref: '#/components/schemas/meta_description'
+        - $ref: '#/components/schemas/layout_file'
+        - $ref: '#/components/schemas/image_url'
+        - $ref: '#/components/schemas/is_visible'
+        - $ref: '#/components/schemas/search_keywords'
+        - $ref: '#/components/schemas/default_product_sort'
+        - type: object
+          properties:
+            url:
+              $ref: '#/components/schemas/Url'
+      x-examples: {}
     CategoryUuidData:
       type: object
+      x-tags:
+        - Models
       properties:
         category_uuid:
           type: string
           format: uuid
-      x-tags:
-        - Models
+      title: category_uuid
     CategoryIdUpdateData:
       type: object
       properties:
@@ -24723,44 +24735,46 @@ components:
         - Models
     TreeIdUpdateData:
       type: object
+      x-tags:
+        - Models
       properties:
         tree_id:
           type: integer
-      x-tags:
-        - Models
+      required:
+        - tree_id
     CategoryData:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        views:
-          type: integer
-        sort_order:
-          type: integer
-        page_title:
-          type: string
-        search_keywords:
-          type: string
-        meta_keywords:
-          type: array
-          items:
-            type: string
-        meta_description:
-          type: string
-        layout_file:
-          type: string
-        is_visible:
-          type: boolean
-        default_product_sort:
-          type: string
-        image_url:
-          type: string
-        url:
-          $ref: '#/components/schemas/Url'
       x-tags:
         - Models
+      allOf:
+        - type: object
+          properties:
+            name:
+              type: string
+            description:
+              type: string
+            views:
+              type: integer
+            sort_order:
+              type: integer
+            page_title:
+              type: string
+            search_keywords:
+              type: string
+            meta_keywords:
+              type: array
+              items:
+                type: string
+            meta_description:
+              type: string
+            layout_file:
+              type: string
+            is_visible:
+              type: boolean
+            image_url:
+              type: string
+            url:
+              $ref: '#/components/schemas/Url'
+        - $ref: '#/components/schemas/default_product_sort'
     Urls:
       type: array
       items:
@@ -25185,6 +25199,176 @@ components:
               $ref: '#/components/schemas/beta5DetailedErrors'
       x-tags:
         - Models
+    default_product_sort:
+      title: default_product_sort
+      x-stoplight:
+        id: d4p6v45ywcfi3
+      type: object
+      properties:
+        default_product_sort:
+          type: string
+          description: |
+            Determines how the products are sorted on category page load.
+          enum:
+            - use_store_settings
+            - featured
+            - newest
+            - best_selling
+            - alpha_asc
+            - alpha_desc
+            - avg_customer_review
+            - price_asc
+            - price_desc
+    name:
+      title: name
+      x-stoplight:
+        id: pvlld3ivlue8r
+      type: object
+      properties:
+        name:
+          maxLength: 50
+          minLength: 1
+          type: string
+          description: |-
+            The name displayed for the category. Name is unique with respect to the category's siblings.
+            Required in a POST.
+          example: Bath
+    description:
+      title: description
+      x-stoplight:
+        id: nqse2ss1vdn0t
+      type: object
+      properties:
+        description:
+          type: string
+          description: |
+            The product description, which can include HTML formatting.
+          example: <p>We offer a wide variety of products perfect for relaxing</p>
+    views:
+      title: views
+      x-stoplight:
+        id: 3k376vbqyg3n9
+      type: object
+      properties:
+        views:
+          type: integer
+          description: |
+            Number of views the category has on the storefront.
+          example: 1050
+    sort_order:
+      title: sort_order
+      x-stoplight:
+        id: j0qwto4du42sa
+      type: object
+      properties:
+        sort_order:
+          type: integer
+          description: |
+            Priority this category will be given when included in the menu and category pages. The lower the number, the closer to the top of the results the category will be.
+          example: 3
+    page_title:
+      title: page_title
+      x-stoplight:
+        id: 1uez56zt56fjc
+      type: object
+      properties:
+        page_title:
+          type: string
+          description: |
+            Custom title for the category page. If not defined, the category name will be used as the meta title.
+          example: Bath
+    search_keywords:
+      title: search_keywords
+      x-stoplight:
+        id: fw43b5e97xvkk
+      type: object
+      properties:
+        search_keywords:
+          type: string
+          description: |
+            A comma-separated list of keywords that can be used to locate the category when searching the store.
+    meta_keywords:
+      title: meta_keywords
+      x-stoplight:
+        id: 9ivxctwjh0f7c
+      type: object
+      properties:
+        meta_keywords:
+          type: array
+          description: |
+            Custom meta keywords for the category page. If not defined, the store's default keywords will be used. Must post as an array like: ["awesome","sauce"].
+          items:
+            type: string
+    layout_file:
+      title: layout_file
+      x-stoplight:
+        id: 8ro4opxprrm98
+      type: object
+      properties:
+        layout_file:
+          maxLength: 500
+          minLength: 0
+          type: string
+          description: |
+            A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied.
+          example: category.html
+    is_visible:
+      title: is_visible
+      x-stoplight:
+        id: li0w0wuuw8r0l
+      type: object
+      properties:
+        is_visible:
+          type: boolean
+          description: |
+            Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view.
+    image_url:
+      title: image_url
+      x-stoplight:
+        id: 9e3k4ybx92jno
+      type: object
+      properties:
+        image_url:
+          type: string
+          description: |
+            Image URL used for this category on the storefront. Images can be uploaded via form file post to `/categories/{categoryId}/image`, or by providing a publicly accessible URL in this field.
+          example: 'https://cdn8.bigcommerce.com/s-123456/product_images/d/fakeimage.png'
+          x-url: true
+    meta_description:
+      title: meta_description
+      x-stoplight:
+        id: ku7ekwocukygf
+      type: object
+      properties:
+        meta_description:
+          maxLength: 65535
+          minLength: 0
+          type: string
+          description: |
+            Custom meta description for the category page. If not defined, the store's default meta description will be used.
+    id:
+      title: id
+      x-stoplight:
+        id: 9tc6lltxbddww
+      type: object
+      properties:
+        id:
+          type: integer
+          description: |-
+            Unique ID of the *Category*. Increments sequentially.
+            Read-Only.
+    parent_id:
+      title: parent_id
+      x-stoplight:
+        id: nl8sldnssgu68
+      type: object
+      properties:
+        parent_id:
+          type: integer
+          description: |-
+            The unique numeric ID of the category's parent. This field controls where the category sits in the tree of categories that organize the catalog.
+            Required in a POST if creating a child category.
+          example: 2
   responses:
     BrandCollectionResponse:
       description: ''
