@@ -51,7 +51,8 @@ To configure your accounts, complete the following steps:
 
 <!-- theme: success -->
 > #### Make note of the API account credentials
-> Make note of the `ACCESS_TOKEN`, `CLIENT ID`, and `CLIENT SECRET`. In a later step, you will use these credentials to update the`BC_AUTH_TOKEN`, `BC_APP_CLIENT_ID`, and `BC_APP_SECRET` environment variables in the `.env` file.
+> * Make note of the `ACCESS_TOKEN`, `CLIENT ID`, and `CLIENT SECRET`. In a later step, you will use these credentials to update the `BC_AUTH_TOKEN`, `BC_APP_CLIENT_ID`, and `BC_APP_SECRET` environment variables in the `.env` file.
+> * In addition, make note of your store's **store hash**. It is the path parameter that immediately precedes `v3` in the `API PATH` included with your store API account. In a later step, you will use the store hash to update the `BC_STORE_HASH` environment variable in the `.env` file.
 
 ## Fork and install the source repository 
 To fork the repository, complete the following steps:
@@ -112,9 +113,7 @@ To configure the store to make purchases through a POS, complete the following s
 
 ## Create and configure database
 
-To connect with `prisma`, >>>chatty chat chat
-
-We designed this app to use MongoDB. If you want to use a different database engine, update the configuration, migration, and seed files to use the database of your choice. For a list of supported databases options, see Prisma's [data source documentation](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/).
+This app uses MongoDB. If you want to use a different database engine, update the configuration, migration, and seed files to use the data store of your choice. For a list of supported database options, see Prisma's [data source documentation](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/).
 
 To configure your POS application to use MongoDB, complete the following steps: 
 
@@ -127,21 +126,21 @@ To configure your POS application to use MongoDB, complete the following steps:
 
 ### Configure MongoDB Cloud
 
+After you configure your application to use MongoDB, connect to a MongoDB instance. You can use MongoDB Cloud to get your implementation up and running quickly. In addition, MongoDB Cloud makes your data collections accessible from anywhere. 
 
+To configure MongoDB Cloud and generate a connection URL, complete the following steps:
 
-[MongoDB Cloud](https://cloud.mongodb.com) generates a `DATABASE_URL` as shown in following steps.
-
-1. Click [here](https://account.mongodb.com/) and sign in.  If you don't have an account, you can click [SignUp](https://account.mongodb.com/account/register).
+1. Visit [MongoDB Cloud](https://account.mongodb.com/) and [sign in](https://account.mongodb.com/account/login) or [sign up](https://account.mongodb.com/account/register) for an account.
 
 2. On the left-hand sidebar, click **Database Access** > **ADD NEW DATABASE USER**.
   
-   a. Fill in your username and password, and leave all remaining fields as is.
+   a. Create a username and password for the app to use, and leave all remaining fields as is. 
 
    b. Click **Add User**.
 
 3. On the left-hand sidebar, click **Network Access** > **ADD IP ADDRESS**.
   
-   a. Enter an IP address in the **Access List Entry** field. We recommend using 0.0.0.0/0 so you can connect from anywhere.
+   a. Enter an IP address in the **Access List Entry** field. Using `0.0.0.0/0` will allow you to connect from anywhere, but is not secure in production.
 
     ![pos-ip-address](https://storage.googleapis.com/bigcommerce-production-dev-center/images/POS-IP-address.png)
 
@@ -151,41 +150,42 @@ To configure your POS application to use MongoDB, complete the following steps:
   
    a. Click the **Connect** button in your running cluster.
 
-   b. Click **Connect your application** in the dialog that opens.
+   b. In the dialog that opens, click **Connect your application**.
 
-   c. Copy the connection string and replace `<password>` with the password and `<username>` with the username created in step 2a. Add **myFirstDatabase** to the connection string as shown below.
+   c. Copy the connection string and replace `<username>` and `<password>` with the values you specified in step 2a. Add **myFirstDatabase** to the connection string so that it resembles the following example:
 
 ```shell title="MongoDB Cloud connection string"
-mongodb+srv://<username>:<password>@cluster0.jfohhb8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+mongodb+srv://<username>:<password>@cluster0.sdfdfg65.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 ```
 
-<!-- theme: info -->
-> #### Note 
-> Update the `DATABASE_URL` variable in the `.env` file with this MongoDB connection string.
-
 ![pos-connection-string](https://storage.googleapis.com/bigcommerce-production-dev-center/images/POS-connection-string.png)
+
+<!-- theme: success -->
+> #### Make note of the connection string
+> Make note of the MongoDB Cloud connection string and keep it in a safe location. In a later step, you will use the connection string to update the `DATABASE_URL` environment variable in the `.env` file.
 
 ## Declare environment variables
 
 1. Create a `.env` file in the root directory of your project.
-2. Copy the content of `.env.sample` to `.env`.
+2. Copy the contents of `.env.sample` to `.env` with the following command:
 
 ```shell title="Copy .env.sample contents"
 cp .env.sample .env
 ```
-At a minimum, the following `.env` variables need to be updated for the app to sucessfully run.
+Open the `.env` file you just created and update the following environment variables:
 
 | Environment variable | Description | Reference location |
 |:---------------------|:------------|:-------------------|
-| `DATABASE_URL` | The URL of the database | [Database setup](#database-setup) |
-| `BC_STORE_HASH` | A unique string or series of numbers used to identify your store | [BigCommerce setup](#bigcommerce-setup) |
-| `BC_AUTH_TOKEN` | A header value used to authenticate to BigCommerce servers | [BigCommerce setup](#bigcommerce-setup) |
-| `BC_CHANNEL_ID` |  The channel for the storefront | [BigCommerce setup](#bigcommerce-setup) |
-| `BC_GQL_URL`    |  The URL of the GraphQL endpoint | See notes in `.env` file          |
-| `BC_APP_CLIENT_ID` |  The app API account's client ID | [BigCommerce setup](#bigcommerce-setup) |
-| `BC_APP_SECRET` | The app API account's client secret | [BigCommerce setup](#bigcommerce-setup) |
-| `STRIPE_SECRET_KEY` | The app-specific Stripe Connect API account client secret | [Stripe setup](#stripe-setup) |
-<!-- >>> do we not need the Stripe public key? no -->
+| `DATABASE_URL` | The database connection string | [Create and configure database](#create-and-configure-database) |
+| `BC_STORE_HASH` | The unique string that identifies your store | [Configure accounts](#configure-accounts) |
+| `BC_AUTH_TOKEN` | The store API account's access token | [Configure accounts](#configure-accounts) |
+| `BC_CHANNEL_ID` |  Modify this value if you create a dedicated channel for the POS system | [Create a channel (API Reference)](/api-reference/store-management/channels/channels/createchannel) |
+| `BC_GQL_URL`    |  The URL of the store's GraphQL Storefront API endpoint | See notes in the [.env.sample file (GitHub)](https://github.com/bigcommerce/point-of-sale-foundation/blob/main/.env.sample) |
+| `BC_APP_CLIENT_ID` |  The store API account's client ID | [Configure accounts](#configure-accounts) |
+| `BC_APP_SECRET` | The store API account's client secret | [Configure accounts](#configure-accounts) |
+| `STRIPE_SECRET_KEY` | The Stripe account's client secret | [Configure Stripe](#configure-stripe) |
+>>> do we not need the Stripe public key?
+
 ## Create and seed database
   
  1. After you set up your MongoDB Cloud account, create the database and seed it with data by doing the following:
