@@ -146,8 +146,8 @@ To configure test mode, complete the following steps:
    a. Copy the **Test mode client ID**.
    
    <!-- theme: success -->
-   > #### 
-   > Make sure to store it in a safe place. In a later step, you will set the client ID as the value of the `NEXT_PUBLIC_STRIPE_CLIENT_ID` variable in   the `.env` file.
+   > #### Make note of the client ID
+   > Make note of the **test mode client ID** and keep it in a safe location. In a later step, you will use the client ID to update the `NEXT_PUBLIC_STRIPE_CLIENT_ID` environment variable in the `.env` file.
 
    b. Set **OAuth settings** to **OAuth for Standard accounts**. 
    
