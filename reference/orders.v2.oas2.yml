@@ -3085,7 +3085,7 @@ components:
               external_order_id:
                 type: string
                 example: 'external-order-id'
-                description: The external id of the order
+                description: The external id of the order.
   requestBodies: null
   securitySchemes:
     X-Auth-Token:
@@ -4227,7 +4227,7 @@ components:
         external_order_id:
           type: string
           example: 'external-order-id'
-          description: The external id of the order
+          description: The external id of the order.
         total_ex_tax:
           description: 'Override value for the total, excluding tax. If specified, the field `total_inc_tax` is also required. (Float, Float-As-String, Integer)'
           example: '225.0000'
