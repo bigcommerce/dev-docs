@@ -2563,6 +2563,46 @@ title: Try It
 
 <!--
 type: tab
+title: Request
+-->
+
+```json title="Example request" lineNumbers
+{
+  "name": "Buy $X from category X get product Y for free",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "apply_once": false,
+      "condition": {
+        "cart": {
+          "items": {
+            "categories": [
+              19
+            ]
+          },
+          "minimum_spend": 300
+        }
+      },
+      "action": {
+        "cart_items": {
+          "discount": {
+            "percentage_amount": 100
+          },
+          "items": {
+            "products": [
+              81
+            ]
+          },
+          "quantity": 1
+        }
+      }
+    }
+  ]
+}
+```
+
+<!--
+type: tab
 title: Response
 -->
 
@@ -2629,55 +2669,59 @@ title: Response
 }
 ```
 
-```json title="Example request" lineNumbers
-{
-  "name": "Buy $X from category X get product Y for free",
-  "redemption_type": "AUTOMATIC",
-  "rules": [
-    {
-      "apply_once": false,
-      "condition": {
-        "cart": {
-          "items": {
-            "categories": [
-              19
-            ]
-          },
-          "minimum_spend": 300
-        }
-      },
-      "action": {
-        "cart_items": {
-          "discount": {
-            "percentage_amount": 100
-          },
-          "items": {
-            "products": [
-              81
-            ]
-          },
-          "quantity": 1
-        }
-      }
-    }
-  ]
-}
-```
+
 <!-- 
 type: tab-end
 -->
 
 </details>
 
+## Customer
 
+<details>
+<summary>10% off for VIP customers</summary>
 
-
+<br>
 <!--
 type: tab
-title: Customer 
+title: Try It 
 -->
 
-### 10% off for VIP customers
+```json title="Try It" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
+  "name": "10% off for VIP customers",
+  "redemption_type": "AUTOMATIC",
+  "customer": {
+    "group_ids": [
+      1
+    ]
+  },
+  "rules": [
+    {
+      "action": {
+        "cart_value": {
+          "discount": {
+            "percentage_amount": "10"
+          }
+        }
+      }
+    }
+  ]
+}
+```
+<br>
+
+ <!--
+type: tab
+title: Request
+-->
 
 ```json title="Example request" lineNumbers
 {
@@ -2703,12 +2747,112 @@ title: Customer
 ```
 <br>
 
-### 5% off for non-VIP customers 
-(including guest customers and registered customers not assigned to any groups, and registered customers assigned to a non-VIP group)
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+    "data": {
+        "id": 17,
+        "name": "10% off for VIP customers",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [
+                1
+            ],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_value": {
+                        "discount": {
+                            "percentage_amount": "10"
+                        }
+                    }
+                },
+                "apply_once": true,
+                "stop": false
+            }
+        ],
+        "notifications": [],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-19T13:46:55+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
+```
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+<details>  
+    <summary>5% off for non-VIP customers
+(including guest customers, and registered customers who not assigned to any groups, and registered customers who are assigned to a non-VIP group)</summary>
+
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+
+```json http
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
+  "name": "5% off for non-VIP customers",
+  "redemption_type": "AUTOMATIC",
+  "customer": {
+    "excluded_group_ids": [
+      1
+    ]
+  },
+  "rules": [
+    {
+      "action": {
+        "cart_value": {
+          "discount": {
+            "percentage_amount": "5"
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
+<br>
+
+ <!--
+type: tab
+title: Request
+-->
 
 ```json title="Example request" lineNumbers
 {
-  "name": "5% off for non-VIP customers",
+ "name": "5% off for non-VIP customers",
   "redemption_type": "AUTOMATIC",
   "customer": {
     "excluded_group_ids": [
@@ -2730,7 +2874,107 @@ title: Customer
 ```
 <br>
 
-### 3% off for guest customers or customers not assigned to any group
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+    "data": {
+        "id": 18,
+        "name": "5% off for non-VIP customers",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [
+                1
+            ],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_value": {
+                        "discount": {
+                            "percentage_amount": "5"
+                        }
+                    }
+                },
+                "apply_once": true,
+                "stop": false
+            }
+        ],
+        "notifications": [],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-19T13:55:11+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
+```
+
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+<details>  
+    <summary>3% off for guest customers or customers not assigned to any group</summary>
+
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+
+```json title="Try It" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
+  "name": "3% off for guest customers or customers not assigned to any group",
+  "redemption_type": "AUTOMATIC",
+  "customer": {
+    "group_ids": [
+      0
+    ]
+  },
+  "rules": [
+    {
+      "action": {
+        "cart_value": {
+          "discount": {
+            "percentage_amount": "3"
+          }
+        }
+      }
+    }
+  ]
+}
+```
+<br>
+<!--
+type: tab
+title: Request
+-->
+
 ```json title="Example request" lineNumbers
 {
   "name": "3% off for guest customers or customers not assigned to any group",
@@ -2755,10 +2999,80 @@ title: Customer
 ```
 <br>
 
-### 10% off for customers with total order count of 10 or more
+<!--
+type: tab
+title: Response
+-->
 
-```json title="Example request" lineNumbers
+```json title="Example response" lineNumbers
 {
+    "data": {
+        "id": 19,
+        "name": "3% off for guest customers or customers not assigned to any group",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [
+                0
+            ],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_value": {
+                        "discount": {
+                            "percentage_amount": "3"
+                        }
+                    }
+                },
+                "apply_once": true,
+                "stop": false
+            }
+        ],
+        "notifications": [],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-19T14:02:33+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
+```
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+<details>  
+    <summary>10% off for customers with total order count of 10 or more</summary>
+
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+
+```json title="Try It" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
   "name": "10% off for customers with total order count of 10 or more",
   "redemption_type": "AUTOMATIC",
   "customer": {
@@ -2780,7 +3094,135 @@ title: Customer
 
 <br>
 
-### 10% off for customers who belong to segment 1 or segment 2
+ <!--
+type: tab
+title: Request
+-->
+
+```json title="Example request" lineNumbers
+{
+"name": "10% off for customers with total order count of 10 or more",
+  "redemption_type": "AUTOMATIC",
+  "customer": {
+    "minimum_order_count": 10
+  },
+  "rules": [
+    {
+      "action": {
+        "cart_value": {
+          "discount": {
+            "percentage_amount": "10"
+          }
+        }
+      }
+    }
+  ]
+}
+```
+<br>
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+{
+    "data": {
+        "id": 20,
+        "name": "10% off for customers with total order count of 10 or more",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 10,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_value": {
+                        "discount": {
+                            "percentage_amount": "10"
+                        }
+                    }
+                },
+                "apply_once": true,
+                "stop": false
+            }
+        ],
+        "notifications": [],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-19T14:14:12+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
+```
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+<details>  
+  <summary>10% off for customers who belong to segment 1 or segment 2</summary>
+
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+```json title="Try It" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
+  "name": "10% off for customers who belong to segment 1 or segment 2",
+  "redemption_type": "AUTOMATIC",
+  "customer": {
+    "segments": {
+      "id": [
+        "1",
+        "2"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "action": {
+        "cart_value": {
+          "discount": {
+            "percentage_amount": "10"
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
+<br>
+
+ <!--
+type: tab
+title: Request
+-->
 
 ```json title="Example request" lineNumbers
 {
@@ -2807,13 +3249,81 @@ title: Customer
   ]
 }
 ```
+
 <br>
 
-### 10% off for customers who do NOT belong to segment 1, including those who do not belong to any segments
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example responses" lineNumbers
+{
+}
+```
+
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+
+<details>  
+  <summary>10% off for customers who do NOT belong to segment 1, including those who do not belong to any segments</summary>
+
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+
+```json title="Try It" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
+  "name": "10% off for customers who do not belong to segment 1",
+  "redemption_type": "AUTOMATIC",
+  "customer": {
+    "segments": {
+      "not": {
+        "id": [
+          "1"
+        ]
+      }
+    }
+  },
+  "rules": [
+    {
+      "action": {
+        "cart_value": {
+          "discount": {
+            "percentage_amount": "10"
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
+<br>
+
+<!--
+type: tab
+title: Request
+-->
 
 ```json title="Example request" lineNumbers
 {
-  "name": "10% off for customers who do not belong to segment 1",
+"name": "10% off for customers who do not belong to segment 1",
   "redemption_type": "AUTOMATIC",
   "customer": {
     "segments": {
@@ -2839,9 +3349,82 @@ title: Customer
 ```
 <br>
 
-### 10% off for customers who belong to segment 1 and also belong to segment 2
+ <!--
+type: tab
+title: Response
+-->
+
+```json title="Example res" lineNumbers
+{
+}
+```
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+### 10% off for customers with total order count of 10 or more
+
 ```json title="Example request" lineNumbers
 {
+  "name": "10% off for customers with total order count of 10 or more",
+  "redemption_type": "AUTOMATIC",
+  "customer": {
+    "minimum_order_count": 10
+  },
+  "rules": [
+    {
+      "action": {
+        "cart_value": {
+          "discount": {
+            "percentage_amount": "10"
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
+<br>
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+}
+```
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+
+<details>  
+  <summary>10% off for customers who belong to segment 1 and also belong to segment 2</summary>
+
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+
+```json title="Try It" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
   "name": "10% off for customers who belong to segment 1 and also belong to segment 2",
   "redemption_type": "AUTOMATIC",
   "customer": {
@@ -2869,10 +3452,123 @@ title: Customer
   ]
 }
 ```
+<br>
 
 <br>
 
-### 10% off for customers who belong to segment 3 or customers who belong to segment 1 and also belong to segment 2
+ <!--
+type: tab
+title: Request
+-->
+
+```json title="Example request" lineNumbers
+{
+"name": "10% off for customers who belong to segment 1 and also belong to segment 2",
+  "redemption_type": "AUTOMATIC",
+  "customer": {
+    "segments": {
+      "and": [
+        {
+          "id": ["1"]
+        },
+        {
+          "id": ["2"]
+        }
+      ]
+    }
+  },
+  "rules": [
+    {
+      "action": {
+        "cart_value": {
+          "discount": {
+            "percentage_amount": "10"
+          }
+        }
+      }
+    }
+  ]
+}
+```
+<br>
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+}
+```
+
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+<details>  
+  <summary>10% off for customers who belong to segment 3 or customers who belong to segment 1 and also belong to segment 2</summary>
+
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+
+```json title="Try It" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
+  "name": "10% off for customers who belong to segment 3 or customers who belong to segment 1 and also belong to segment 2",
+  "redemption_type": "AUTOMATIC",
+  "customer": {
+    "segments": {
+      "or": [
+        {
+          "id": ["3"]
+        },
+        {
+          "and": [
+            {
+              "id": ["1"]
+            },
+            {
+              "id": ["2"]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "rules": [
+    {
+      "action": {
+        "cart_value": {
+          "discount": {
+            "percentage_amount": "10"
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
+<br>
+
+ <!--
+type: tab
+title: Request
+-->
 
 ```json title="Example request" lineNumbers
 {
@@ -2910,18 +3606,113 @@ title: Customer
   ]
 }
 ```
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+}
+```
+
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+## Logical operators
+
+<details>  
+  <summary>Buy two of product X or buy two of product Y (OR operator)
+The following promotion uses logical “OR” at the conditional level and it requires the shopper to have either two of product X or two of product Y in the cart to satisfy this condition.</summary>
+
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+
+```json title="Try It" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
+  "name": "Buy 2 product X OR Buy 2 product Y",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "condition": {
+        "or": [
+          {
+            "cart": {
+              "items": {
+                "products": [
+                  97
+                ]
+              },
+              "minimum_quantity": 2
+            }
+          },
+          {
+            "cart": {
+              "items": {
+                "variants": [
+                  12
+                ]
+              },
+              "minimum_quantity": 2
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "notifications": [
+    {
+      "type": "UPSELL",
+      "content": "<div>&nbsp;</div>",
+      "locations": [
+        "CART_PAGE"
+      ]
+    },
+    {
+      "type": "ELIGIBLE",
+      "content": "<div>&nbsp;</div>",
+      "locations": [
+        "CART_PAGE"
+      ]
+    },
+    {
+      "type": "APPLIED",
+      "content": "<div>&nbsp;</div>",
+      "locations": [
+        "CART_PAGE"
+      ]
+    }
+  ],
+  "stop": false,
+  "start_date": "2019-02-01T05:00:00+00:00",
+  "status": "ENABLED"
+}
+```
+<br>
 
 <!--
 type: tab
-title: Logical Operator
+title: Request
 -->
-
-### Buy two of product X or buy two of product Y (OR operator)
-The following promotion uses logical “OR” at the conditional level and it requires the shopper to have either two of product X or two of product Y in the cart to satisfy this condition.
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy two product X or buy two product Y",
+ "name": "Buy 2 product X OR Buy 2 product Y",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -2980,18 +3771,48 @@ The following promotion uses logical “OR” at the conditional level and it re
 }
 ```
 
-<br>
+<!--
+type: tab
+title: Response
+-->
 
-### Buy two (product X or product Y) (OR operator)
+```json title="Example response" lineNumbers
+{
+}
+```
 
-The following promotion uses logical “OR” at item matcher level, and any of these combinations satisfies the condition:
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+<details>  
+  <summary>Buy two of product X or buy two of product Y (OR operator) 
+  <br>The following promotion uses logical “OR” at item matcher level, and any of these combinations satisfies the condition:
 * 1 product X + 1 product Y
 * 2 product X
-* 2 product Y
+* 2 product Y</br>
+</summary>
 
-```json title="Example request" lineNumbers
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+
+```json title="Try It" lineNumbers
 {
-  "name": "Buy two (product X or product Y)",
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
+  "name": "Buy 2 (product X or product Y)",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -3041,9 +3862,137 @@ The following promotion uses logical “OR” at item matcher level, and any of 
 }
 ```
 
+<!--
+type: tab
+title: Request
+-->
+
+
+```json title="Example request" lineNumbers
+{
+  "name": "Buy 2 (product X or product Y)",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "condition": {
+        "or": [
+          {
+            "products": [
+              97
+            ]
+          },
+          {
+            "variants": [
+              12
+            ]
+          }
+        ],
+        "minimum_quantity": 2
+      }
+    }
+  ],
+  "notifications": [
+    {
+      "type": "UPSELL",
+      "content": "<div>&nbsp;</div>",
+      "locations": [
+        "CART_PAGE"
+      ]
+    },
+    {
+      "type": "ELIGIBLE",
+      "content": "<div>&nbsp;</div>",
+      "locations": [
+        "CART_PAGE"
+      ]
+    },
+    {
+      "type": "APPLIED",
+      "content": "<div>&nbsp;</div>",
+      "locations": [
+        "CART_PAGE"
+      ]
+    }
+  ],
+  "stop": false,
+  "start_date": "2019-02-01T05:00:00+00:00",
+  "status": "ENABLED"
+}
+```
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+}
+```
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+<details>  
+  <summary>Get percentage off X category, excluding an item (AND, NOT operators)</summary>
+
 <br>
 
-### Get percentage off X category, excluding an item (AND, NOT operators)
+ <!--
+type: tab
+title: Try It
+-->
+
+
+```json title="Try It" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
+  "name": "Get 20% off all kitchen items, excluding Able Brewing System",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "action": {
+        "cart_items": {
+          "items": {
+            "and": [
+              {
+                "categories": [
+                  21
+                ]
+              },
+              {
+                "not": {
+                  "products": [
+                    86
+                  ]
+                }
+              }
+            ]
+          },
+          "discount": {
+            "percentage_amount": "20"
+          }
+        }
+      },
+      "apply_once": false
+    }
+  ]
+}
+```
+
+<br>
+<!--
+type: tab
+title: Request
+-->
+
 ```json title="Example request" lineNumbers
 {
   "name": "Get 20% off all kitchen items, excluding Able Brewing System",
@@ -3079,8 +4028,104 @@ The following promotion uses logical “OR” at item matcher level, and any of 
 }
 ```
 <br>
+<!--
+type: tab
+title: Response
+-->
 
-### Get X% off all brand X and all except X products in brand Y (OR, AND, NOT operators) 
+```json title="Example response" lineNumbers
+{}
+```
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+
+<details>  
+  <summary>Get X% off all brand X and all except X products in brand Y (OR, AND, NOT operators)</summary>
+
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+
+```json title="Request runner" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
+  "name": "Get 20% off all coffee makers and all but new arrivals coffee filters",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "action": {
+        "cart_items": {
+          "items": {
+            "or": [
+              {
+                "and": [
+                  {
+                    "brands": [
+                      1
+                    ]
+                  },
+                  {
+                    "categories": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  {
+                    "brands": [
+                      2
+                    ]
+                  },
+                  {
+                    "categories": [
+                      2
+                    ]
+                  },
+                  {
+                    "not": {
+                      "categories": [
+                        3
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "discount": {
+            "percentage_amount": "20"
+          }
+        }
+      },
+      "apply_once": false,
+      "currency_code": "AUD",
+    }
+  ]
+}
+```
+
+<br>
+
+<!--
+type: tab
+title: Request
+-->
 
 ```json title="Example request" lineNumbers
 {
@@ -3141,9 +4186,81 @@ The following promotion uses logical “OR” at item matcher level, and any of 
 }
 ```
 
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response" lineNumbers
+{
+}
+```
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+<details>  
+  <summary>X% off storewide except product Y or product Z or any items in category C</summary>
+
 <br>
 
-### X% off storewide except product Y or product Z or any items in category C 
+ <!--
+type: tab
+title: Try It
+-->
+
+
+```json title="Try It" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
+  "name": "10% off storewide except 'Able Brewing System' or 'Chemex Coffeemaker' or any garden products",
+  "redemption_type": "AUTOMATIC",
+  "rules": [
+    {
+      "action": {
+        "cart_items": {
+          "discount": {
+            "percentage_amount": 10
+          },
+          "items": {
+            "and": [
+              {
+                "not": {
+                  "products": [
+                    86,
+                    88
+                  ]
+                }
+              },
+              {
+                "not": {
+                  "categories": [
+                    19
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "apply_once": true
+    }
+  ]
+}
+```
+<br>
+<!--
+type: tab
+title: Request
+-->
 
 ```json title="Example request" lineNumbers
 {
@@ -3182,15 +4299,44 @@ The following promotion uses logical “OR” at item matcher level, and any of 
   ]
 }
 ```
-<!--
+<br>
+ <!--
 type: tab
-title: Multiple Rules
+title: Response
 -->
 
-### Tiered $ off order based on order value
-
-```json title="Example request" lineNumbers
+```json title="Example response" lineNumbers
 {
+}
+```
+<!-- 
+type: tab-end
+-->
+
+</details>
+
+## Multiple rules
+
+<details>  
+    <summary>Tiered $ off order based on order value</summary>
+
+<br>
+
+ <!--
+type: tab
+title: Try It
+-->
+
+
+```json title="Try It" lineNumbers
+{
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
   "name": "Tiered $ off order based on order value",
   "redemption_type": "AUTOMATIC",
   "rules": [
@@ -3274,6 +4420,16 @@ title: Multiple Rules
 ```
 
 <br>
+
+<br>
+
+<!--
+type: tab
+title: Request
+-->
+
+```json title="Example request" lineNumbers
+{
 
 ### Apply a tiered discount to X products based on the quantity of items ordered within X
 
