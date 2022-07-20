@@ -3,14 +3,15 @@
 ## Brand
 
 <details>
-  <summary>Spend $X in brand X, get free shipping to X shipping zones</summary> <br>
+  <summary>Spend $X in brand X, get free shipping to X shipping zones</summary> 
+
 
 <!--
 type: tab
 title: Try It
 -->
 
-```json title="Request runner" lineNumbers
+```json http
 {
   "method": "POST",
   "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
@@ -19,7 +20,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-  "name": "Order $100 of this Common Good Brand, Get Free Shipping",
+  "name": "Order $100 of this common good brand, get free shipping",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -73,9 +74,8 @@ title: Try It
   "stop": false,
   "status": "ENABLED"
 }
+}
 ```
-
-<br>
 
 <!--
 type: tab
@@ -84,7 +84,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Order $100 of this Common Good Brand, Get Free Shipping",
+  "name": "Order $100 of this common good brand, get free shipping",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -148,7 +148,7 @@ title: Response
 {
     "data": {
         "id": 3,
-        "name": "Order $100 of this Common Good Brand, Get Free Shipping",
+        "name": "Order $100 of this common good brand, get free shipping",
         "created_from": "api",
         "customer": {
             "group_ids": [],
@@ -220,14 +220,10 @@ title: Response
     "meta": {}
 }
 ```
-
 <!-- 
 type: tab-end
 -->
 </details>
-
-
-<br>
 
 
 <details>
@@ -238,8 +234,15 @@ type: tab
 title: Try It
 -->
 
-```json title="Request runner" lineNumbers
+```json http
 {
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
   "name": "Apply a $ or % discount to each item in one or more brands",
   "redemption_type": "AUTOMATIC",
   "rules": [
@@ -305,8 +308,8 @@ title: Try It
   "stop": false,
   "status": "ENABLED"
 }
+}
 ```
-<br>
 
 <!--
 type: tab
@@ -487,14 +490,13 @@ type: tab-end
   <summary>Spend X amount in brand Y, get X% off in brand Y
   </summary>
 
-<br>
 
  <!--
 type: tab
 title: Try It
 -->
 
-```json title="Request runner" lineNumbers
+```json http
 {
   "method": "POST",
   "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
@@ -563,8 +565,9 @@ title: Try It
   "stop": false,
   "status": "ENABLED"
 }
+}
 ```
-<br>
+
 
 <!--
 type: tab
@@ -573,7 +576,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Spend X Amount in Brand Y, Get X% Off in Brand Y",
+  "name": "Spend X amount in brand Y, get X% off in brand Y",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -646,7 +649,7 @@ title: Response
 {
     "data": {
         "id": 5,
-        "name": "Spend X Amount in Brand Y, Get X% Off in Brand Y",
+        "name": "Spend X amount in brand Y, get X% off in brand Y",
         "created_from": "api",
         "customer": {
             "group_ids": [],
@@ -736,14 +739,12 @@ type: tab-end
 <details>  
   <summary>Buy two items in a brand and get the cheapest one free</summary>
 
-<br>
-
  <!--
 type: tab
 title: Try It
 -->
 
-```json title="Request runner" lineNumbers
+```json http
 {
   "method": "POST",
   "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
@@ -785,9 +786,8 @@ title: Try It
     }
   ]
 }
+}
 ```
-
-<br>
 
 <!--
 type: tab
@@ -831,9 +831,7 @@ title: Request
 }
 ```
 
-<br>
-
- <!--
+<!--
 type: tab
 title: Response
 -->
@@ -907,17 +905,23 @@ type: tab-end
 </details>
 
 <details>  
-    <summary>Buy two items in a brand and get the most expensive one at 50% off</summary>
+  <summary>Buy two items in a brand and get the most expensive one at 50% off</summary>
 
-<br>
 
  <!--
 type: tab
 title: Try It
 -->
 
-```json title="Request runner" lineNumbers
+```json http
 {
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
   "name": "Buy two items in brand and get the most expensive one at 50% off",
   "redemption_type": "AUTOMATIC",
   "rules": [
@@ -951,9 +955,8 @@ title: Try It
     }
   ]
 }
+}
 ```
-
-<br>
 
 <!--
 type: tab
@@ -1073,16 +1076,14 @@ type: tab-end
 </details>
 
 <details>  
-    <summary>Buy two items in a brand and get the most expensive one at $50 off</summary>
+  <summary>Buy two items in a brand and get the most expensive one at $50 off</summary>
 
-<br>
-
- <!--
+<!--
 type: tab
 title: Try It
 -->
 
-```json title="Request runner" lineNumbers
+```json http
 {
   "method": "POST",
   "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
@@ -1124,9 +1125,8 @@ title: Try It
     }
   ]
 }
+}
 ```
-
-<br>
 
 <!--
 type: tab
@@ -1169,7 +1169,6 @@ title: Request
   ]
 }
 ```
-<br>
 
 <!--
 type: tab
@@ -1244,17 +1243,16 @@ type: tab-end
 
 </details>
 
-<br>
 
 <details>  
-    <summary>Spend $X on brand Y, get product Z for free</summary>
+  <summary>Spend $X on brand Y, get product Z for free</summary>
 
 <!--
 type: tab
 title: Try It
 -->
 
-```json title="Request runner" lineNumbers
+```json http
 {
   "method": "POST",
   "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
@@ -1286,9 +1284,8 @@ title: Try It
     }
   ]
 }
+}
 ```
-<br>
-
 <!--
 type: tab
 title: Request
@@ -1321,8 +1318,6 @@ title: Request
   ]
 }
 ```
-
-<br>
 
 <!--
 type: tab
@@ -1398,7 +1393,7 @@ type: tab
 title: Try It
 -->
 
-```json title="Request runner" lineNumbers
+```json http
 {
   "method": "POST",
   "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
@@ -1456,9 +1451,9 @@ title: Try It
   "start_date": "2019-01-29T00:00:00+00:00",
   "status": "ENABLED"
 }
+}
 ```
 
-<br>
 <!--
 type: tab
 title: Request
@@ -1606,15 +1601,13 @@ type: tab-end
 <details>
   <summary>Apply a $ or % discount to each item in one or more categories, exclude items on sale</summary>
 
-<br>
-
- <!--
+<!--
 type: tab
 title: Try It
 -->
 
 
-```json title="Example request" lineNumbers
+```json http
 {
   "method": "POST",
   "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
@@ -1648,13 +1641,10 @@ title: Try It
     }
   ]
 }
+}
 ```
 
-<br>
-
-<br>
-
- <!--
+<!--
 type: tab
 title: Request
 -->
@@ -1753,14 +1743,13 @@ type: tab-end
 <details>  
   <summary>Buy X units in (category A), get Y additional units in the same category free (must be of equal or lesser value)</summary>
 
-<br>
 
  <!--
 type: tab
 title: Try It
 -->
 
-```json title="Try It" lineNumbers
+```json http
 {
   "method": "POST",
   "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
@@ -1830,10 +1819,10 @@ title: Try It
   "start_date": "2019-02-01T05:00:00+00:00",
   "status": "ENABLED"
 }
+}
 ```
-<br>
 
- <!--
+<!--
 type: tab
 title: Request
 -->
@@ -1902,7 +1891,6 @@ title: Request
   "status": "ENABLED"
 }
 ```
-<br>
 
 <!--
 type: tab
@@ -2003,15 +1991,21 @@ type: tab-end
 <details>  
   <summary>Buy three items in a category for the price of 2 (lowest priced item discounted)</summary>
 
-<br>
 
- <!--
+<!--
 type: tab
 title: Try It
 -->
 
-```json title="Try It" lineNumbers
+```json http
 {
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
   "name": "Buy three items in a category for the price of 2 (lowest priced item discounted)",
   "redemption_type": "AUTOMATIC",
   "rules": [
@@ -2044,9 +2038,9 @@ title: Try It
     }
   ]
 }
+}
 ```
 
-<br>
 
 <!--
 type: tab
@@ -2166,14 +2160,12 @@ type: tab-end
 <details>  
   <summary>Buy product X or items from category Y, get $10 off items from category Z</summary>
 
-<br>
-
 <!--
 type: tab
 title: Try It
 -->
 
-```json title="Try It" lineNumbers
+```json http
 {
   "method": "POST",
   "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
@@ -2221,8 +2213,8 @@ title: Try It
     }
   ]
 }
+}
 ```
-<br>
 
 <!--
 type: tab
@@ -2268,7 +2260,6 @@ title: Request
       }
     }
   ]
-}
 ```
 
 <!--
@@ -2355,14 +2346,12 @@ type: tab-end
 <details>  
   <summary>Buy three from category X, get one from category Y for free</summary>
 
-<br>
-
  <!--
 type: tab
 title: Try It
 -->
 
-```json title="Try It" lineNumbers
+```json http
 {
   "method": "POST",
   "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
@@ -2401,6 +2390,7 @@ title: Try It
       }
     }
   ]
+}
 }
 ```
 <!--
@@ -2518,15 +2508,20 @@ type: tab-end
 <details>  
   <summary>Spend $X from category X, get product Y for free</summary>
 
-<br>
-
- <!--
+<!--
 type: tab
 title: Try It
 -->
 
-```json title="Example request" lineNumbers
+```json http
 {
+  "method": "POST",
+  "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
+  "headers": {
+    "Content-Type": "application/json",
+    "X-Auth-Token": ""
+  },
+  "body": {
   "name": "Buy $X from category X get product Y for free",
   "redemption_type": "AUTOMATIC",
   "rules": [
@@ -2558,8 +2553,8 @@ title: Try It
     }
   ]
 }
+}
 ```
-<br>
 
 <!--
 type: tab
@@ -2669,7 +2664,6 @@ title: Response
 }
 ```
 
-
 <!-- 
 type: tab-end
 -->
@@ -2681,13 +2675,12 @@ type: tab-end
 <details>
 <summary>10% off for VIP customers</summary>
 
-<br>
 <!--
 type: tab
 title: Try It 
 -->
 
-```json title="Try It" lineNumbers
+```json http
 {
   "method": "POST",
   "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
@@ -2715,10 +2708,10 @@ title: Try It
     }
   ]
 }
+}
 ```
-<br>
 
- <!--
+<!--
 type: tab
 title: Request
 -->
@@ -2745,7 +2738,6 @@ title: Request
   ]
 }
 ```
-<br>
 
 <!--
 type: tab
@@ -2802,12 +2794,9 @@ type: tab-end
 </details>
 
 <details>  
-    <summary>5% off for non-VIP customers
-(including guest customers, and registered customers who not assigned to any groups, and registered customers who are assigned to a non-VIP group)</summary>
+  <summary>5% off for non-VIP customers (including guest customers, and registered customers who not assigned to any groups, and registered customers who are assigned to a non-VIP group)</summary>
 
-<br>
-
- <!--
+<!--
 type: tab
 title: Try It
 -->
@@ -2841,11 +2830,11 @@ title: Try It
     }
   ]
 }
+}
 ```
 
-<br>
 
- <!--
+<!--
 type: tab
 title: Request
 -->
@@ -2872,7 +2861,6 @@ title: Request
   ]
 }
 ```
-<br>
 
 <!--
 type: tab
@@ -2930,17 +2918,15 @@ type: tab-end
 </details>
 
 <details>  
-    <summary>3% off for guest customers or customers not assigned to any group</summary>
+  <summary>3% off for guest customers or customers not assigned to any group</summary>
 
-<br>
-
- <!--
+<!--
 type: tab
 title: Try It
 -->
 
 
-```json title="Try It" lineNumbers
+```json http
 {
   "method": "POST",
   "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
@@ -2968,8 +2954,9 @@ title: Try It
     }
   ]
 }
+}
 ```
-<br>
+
 <!--
 type: tab
 title: Request
@@ -2997,7 +2984,6 @@ title: Request
   ]
 }
 ```
-<br>
 
 <!--
 type: tab
@@ -3054,17 +3040,14 @@ type: tab-end
 </details>
 
 <details>  
-    <summary>10% off for customers with total order count of 10 or more</summary>
+  <summary>10% off for customers with total order count of 10 or more</summary>
 
-<br>
-
- <!--
+<!--
 type: tab
 title: Try It
 -->
 
-
-```json title="Try It" lineNumbers
+```json http
 {
   "method": "POST",
   "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
@@ -3090,9 +3073,9 @@ title: Try It
     }
   ]
 }
+}
 ```
 
-<br>
 
  <!--
 type: tab
@@ -3119,7 +3102,6 @@ title: Request
   ]
 }
 ```
-<br>
 
 <!--
 type: tab
@@ -3127,7 +3109,6 @@ title: Response
 -->
 
 ```json title="Example response" lineNumbers
-{
 {
     "data": {
         "id": 20,
@@ -3175,16 +3156,14 @@ type: tab-end
 </details>
 
 <details>  
-  <summary>10% off for customers who belong to segment 1 or segment 2</summary>
-
-<br>
+  <summary>10% off for customers who belong to segment 1 or segment 2 (Closed Beta)</summary>
 
  <!--
 type: tab
 title: Try It
 -->
 
-```json title="Try It" lineNumbers
+```json http
 {
   "method": "POST",
   "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
@@ -3215,9 +3194,8 @@ title: Try It
     }
   ]
 }
+}
 ```
-
-<br>
 
  <!--
 type: tab
@@ -3250,16 +3228,13 @@ title: Request
 }
 ```
 
-<br>
-
 <!--
 type: tab
 title: Response
 -->
 
 ```json title="Example responses" lineNumbers
-{
-}
+{<!-- closed Beta -->}
 ```
 
 <!-- 
@@ -3270,17 +3245,15 @@ type: tab-end
 
 
 <details>  
-  <summary>10% off for customers who do NOT belong to segment 1, including those who do not belong to any segments</summary>
+  <summary>10% off for customers who do NOT belong to segment 1, including those who do not belong to any segments(Closed Beta)</summary>
 
-<br>
-
- <!--
+<!--
 type: tab
 title: Try It
 -->
 
 
-```json title="Try It" lineNumbers
+```json http
 {
   "method": "POST",
   "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
@@ -3312,9 +3285,8 @@ title: Try It
     }
   ]
 }
+}
 ```
-
-<br>
 
 <!--
 type: tab
@@ -3347,47 +3319,6 @@ title: Request
   ]
 }
 ```
-<br>
-
- <!--
-type: tab
-title: Response
--->
-
-```json title="Example res" lineNumbers
-{
-}
-```
-<!-- 
-type: tab-end
--->
-
-</details>
-
-### 10% off for customers with total order count of 10 or more
-
-```json title="Example request" lineNumbers
-{
-  "name": "10% off for customers with total order count of 10 or more",
-  "redemption_type": "AUTOMATIC",
-  "customer": {
-    "minimum_order_count": 10
-  },
-  "rules": [
-    {
-      "action": {
-        "cart_value": {
-          "discount": {
-            "percentage_amount": "10"
-          }
-        }
-      }
-    }
-  ]
-}
-```
-
-<br>
 
 <!--
 type: tab
@@ -3395,8 +3326,7 @@ title: Response
 -->
 
 ```json title="Example response" lineNumbers
-{
-}
+{<!-- closed Beta -->}
 ```
 <!-- 
 type: tab-end
@@ -3404,19 +3334,15 @@ type: tab-end
 
 </details>
 
-
-<details>  
+<details>
   <summary>10% off for customers who belong to segment 1 and also belong to segment 2</summary>
 
-<br>
-
- <!--
+<!--
 type: tab
 title: Try It
 -->
 
-
-```json title="Try It" lineNumbers
+```json http
 {
   "method": "POST",
   "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
@@ -3451,10 +3377,8 @@ title: Try It
     }
   ]
 }
+}
 ```
-<br>
-
-<br>
 
  <!--
 type: tab
@@ -3463,7 +3387,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-"name": "10% off for customers who belong to segment 1 and also belong to segment 2",
+  "name": "10% off for customers who belong to segment 1 and also belong to segment 2",
   "redemption_type": "AUTOMATIC",
   "customer": {
     "segments": {
@@ -3490,7 +3414,6 @@ title: Request
   ]
 }
 ```
-<br>
 
 <!--
 type: tab
@@ -3498,28 +3421,27 @@ title: Response
 -->
 
 ```json title="Example response" lineNumbers
-{
-}
+{<!-- closed Beta -->}
 ```
-
 <!-- 
 type: tab-end
 -->
 
 </details>
 
+
+
 <details>  
   <summary>10% off for customers who belong to segment 3 or customers who belong to segment 1 and also belong to segment 2</summary>
 
-<br>
 
- <!--
+<!--
 type: tab
 title: Try It
 -->
 
 
-```json title="Try It" lineNumbers
+```json http
 {
   "method": "POST",
   "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
@@ -3561,11 +3483,10 @@ title: Try It
     }
   ]
 }
+}
 ```
 
-<br>
-
- <!--
+<!--
 type: tab
 title: Request
 -->
@@ -3612,8 +3533,7 @@ title: Response
 -->
 
 ```json title="Example response" lineNumbers
-{
-}
+{<!-- closed Beta -->}
 ```
 
 <!-- 
@@ -3628,15 +3548,13 @@ type: tab-end
   <summary>Buy two of product X or buy two of product Y (OR operator)
 The following promotion uses logical “OR” at the conditional level and it requires the shopper to have either two of product X or two of product Y in the cart to satisfy this condition.</summary>
 
-<br>
-
- <!--
+<!--
 type: tab
 title: Try It
 -->
 
 
-```json title="Try It" lineNumbers
+```json http
 {
   "method": "POST",
   "url": "https://api.bigcommerce.com/stores/{store_hash}/v3/promotions",
@@ -3702,8 +3620,8 @@ title: Try It
   "start_date": "2019-02-01T05:00:00+00:00",
   "status": "ENABLED"
 }
+}
 ```
-<br>
 
 <!--
 type: tab
