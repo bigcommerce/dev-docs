@@ -260,7 +260,7 @@ Use [moment](https://momentjs.com/) to format dates.
 If you encounter an issue with the last day of the month, use one of the following fixes:
 
 ```handlebars
-{{moment [date] [format] datejs=false}}
+{{moment date format datejs=false}}
 <!-- To disable date.js -->
 ```
 
