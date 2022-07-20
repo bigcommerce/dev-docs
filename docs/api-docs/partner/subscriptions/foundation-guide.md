@@ -1,6 +1,6 @@
 # Subscription Foundation
 
-Subscription Foundation delivers an [open source framework](https://github.com/bigcommerce/subscription-foundation) for BigCommerce customers to subscribe to one or more channels. It provides a template for custom subscription billing and invoicing solutions for your business or client. Subscription Foundation includes a default integration with Stripe Billing, which can significantly accelerate your development time. 
+Subscription Foundation delivers an [open source framework](https://github.com/bigcommerce/subscription-foundation) for BigCommerce customers to subscribe to products and services. It provides a template for custom subscription billing and invoicing solutions for your business or client. Subscription Foundation includes a default integration with Stripe Billing, which can significantly accelerate your development time. 
 
 Subscription Foundation uses the [Channels toolkit](/api-docs/channels/guide/overview#channels-toolkit) to display the custom subscription channel in the **Channel Manager** of a store's control panel alongside other sales channels. 
 
