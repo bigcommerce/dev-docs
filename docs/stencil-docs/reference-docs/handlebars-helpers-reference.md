@@ -39,8 +39,8 @@ The following table contains BigCommerce's open source [Handlebars helpers](http
 | [or](#or) | logic | Renders block if one or more parameters evaluate to true. |
 | [unless](#unless) | logic | Renders block if a statement evaluates to false. |
 | [option](#option) | misc | Returns the given value of `prop` from `this.options`. |
-| [get](#get) | object | Use property paths (`a.b.c`) to get a value or nested value from the context. Works as a regular helper or block helper. You can use return values from the `concat` helper as property paths.|
-| [getObject](#getObject) |object| Use property paths (`a.b.c`) to get an object from the context. It differs from the get helper in that this helper will return the actual object including the given property key. This helper does not work as a block helper. |
+| [get](#get) | object| Use property paths (`a.b.c`) to get a value or nested value from the context. |
+| [getObject](#getobject) | object| Use property paths (`a.b.c`) to get an object from the context.  |
 | [concat](#concat) | string | Concatenates two strings. |
 | [join](#join) | string | Joins an array of string elements into one string. |
 | [json](#json) | string | Converts a JavaScript object into a JSON string. |
@@ -250,11 +250,24 @@ As highlighted above, the helper is configured to rewrite *local* URLs to an `as
 ### {{moment}}
 
 ```handlebars
-* {{year}}
-* <!-- 2017 -->
+{{moment date format}}
 ```
 
 Use [moment](https://momentjs.com/) to format dates.
+
+#### Examples
+
+If you encounter an issue with the last day of the month, use one of the following fixes:
+
+```handlebars
+{{moment [date] [format] datejs=false}}
+<!-- To disable date.js -->
+```
+
+```handlebars
+{{moment "January 1, 2022" format="YYYY-MM-DD"}}
+<!-- To call moment.js functions -->
+```
 
 ### {{money}}
 
@@ -936,27 +949,6 @@ Renders block if one or more parameters evaluates to true.
 
 Renders a block if a statement is false; does not support operators for comparison expressions.
 
-### {{option}}
-
-```handlebars
-{{option "a.b.c"}}
-```
-Returns the given value of prop from `this.options`.
-
-### {{get}}
-```handlebars
-{{get (concat “a.b” “.c.d”) someObject}}
-```
-Use property paths (a.b.c) to get a value or nested value from the context. Works as a regular helper or block helper. You can use return values from the `concat` helper as property paths.
-
-### {{getObject}}
-
-```handlebars
-{{#with (getObject "a.b.c" someObject)}}...{{/with}}
-```
-
-Use property paths (a.b.c) to get an object from the context. Differs from the get helper in that this helper will return the actual object including the given property key. This helper does not work as a block helper.
-
 #### Parameters
 
 - `arg` {String|Number|Array|Object}
@@ -976,6 +968,27 @@ Use property paths (a.b.c) to get an object from the context. Differs from the g
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/unless.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=unless)
+
+
+### {{option}}
+
+```handlebars
+{{option "a.b.c"}}
+```
+Returns the given value of prop from `this.options`.
+
+### {{get}}
+```handlebars
+{{get (concat “a.b” “.c.d”) someObject}}
+```
+Use property paths (`a.b.c`) to get a value or nested value from the context. Works as a regular helper or block helper. You can use return values from the `concat` helper as property paths.
+
+### {{getObject}}
+
+```handlebars
+{{#with (getObject "a.b.c" someObject)}}...{{/with}}
+```
+Use property paths (`a.b.c`) to get an object from the context. Differs from the `get` helper in that this helper will return the actual object including the given property key. This helper does not work as a block helper.
 
 ### {{concat}}
 
