@@ -1,6 +1,6 @@
 # Subscription Foundation
 
-Subscription Foundation delivers an [open source framework](https://github.com/bigcommerce/subscription-foundation) for BigCommerce customers to subscribe to one or more channels. It provides a template for custom subscription billing and invoicing solutions for your business or client. Subscription Foundation includes a default integration with Stripe Billing, which can significantly accelerate your development time. 
+Subscription Foundation delivers an [open source framework](https://github.com/bigcommerce/subscription-foundation) for building BigCommerce apps that empower shoppers to subscribe to products and services. It provides a template for custom subscription billing and invoicing solutions for your business or client. Subscription Foundation includes a default integration with Stripe Billing, which can significantly accelerate your development time. 
 
 Subscription Foundation uses the [Channels toolkit](/api-docs/channels/guide/overview#channels-toolkit) to display the custom subscription channel in the **Channel Manager** of a store's control panel alongside other sales channels. 
 
@@ -27,7 +27,7 @@ To fork the repository, complete the following steps:
 
 1. Fork the [subscription-foundation repository (GitHub)](https://github.com/bigcommerce/subscription-foundation) to your GitHub account.
 2. Clone your fork to your local development environment.
-3. Navigate to your root directory of your cloned repository and install the default packages for your app by running the following command:
+3. Navigate to the root directory of your cloned repository and install the default packages for your app by running the following command:
 
 ```shell title="Install packages"
 npm install
@@ -146,8 +146,8 @@ To configure test mode, complete the following steps:
    a. Copy the **Test mode client ID**.
    
    <!-- theme: success -->
-   > #### 
-   > Make sure to store it in a safe place. In a later step, you will set the client ID as the value of the `NEXT_PUBLIC_STRIPE_CLIENT_ID` variable in   the `.env` file.
+   > #### Make note of the client ID
+   > Make note of the **test mode client ID** and keep it in a safe location. In a later step, you will use the client ID to update the `NEXT_PUBLIC_STRIPE_CLIENT_ID` environment variable in the `.env` file.
 
    b. Set **OAuth settings** to **OAuth for Standard accounts**. 
    
@@ -159,7 +159,7 @@ To configure test mode, complete the following steps:
 
 ## Configure the BigCommerce store
 
-After you successfully configure for test mode, configure your BigCommerce sandbox store in the store control panel.
+After you successfully configure test mode, configure your BigCommerce sandbox store in the store control panel.
 
 To configure the store to make subscription charges, complete the following steps:
 
@@ -175,11 +175,13 @@ To configure the store to make subscription charges, complete the following step
 
 ## Declare environment variables
 
+After you configure the store, you have all the information you need to add environment variables to your project.
+
 <!-- theme: info -->
 > #### Note on naming conventions
 > In some places, this guide and app template code refer to a Stripe API account's public key as a **client ID**, and its secret key as a **client secret**.
 
-To declare environment variables, run the following commands in your terminal:
+To declare environment variables, complete the following steps:
 
 1. Create a `.env` file in the root directory of your project.
 
@@ -274,7 +276,7 @@ If you plan to use the API to add products to the subscription sales channel, se
 
 ## Troubleshooting
 
-### Issue: Environment variable not found when running 
+### Issue: Environment variable not found when running the database migration
 
 This error can occur when the `/prisma/schema.prisma` file contains the incorrect provider, or the `.env` file contains an incorrect `DATABASE_URL`. Verify that the information in both files is correct.
 
