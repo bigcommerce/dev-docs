@@ -6,7 +6,7 @@ The Tax Property V3 API will allow you to perform the following functions:
 - Add tax property fields that are specific to a tax provider (have **variable** inputs for tax calculations)      
 - Associate tax properties to **products**. Unlike tax codes, you can add **multiple** tax properties to a single product
 
-<!-- theme:info -->
+<!-- theme: info -->
 > #### Note
 > Currently, you can associate tax properties to base products.
 
@@ -283,7 +283,7 @@ title: Response
 <!-- type: tab-end -->
 
 
-<!-- theme:info -->
+<!-- theme: info -->
 > #### Note
 > Product tax properties are sent when BigCommerce makes a request to a provider for taxes estimations, tax quote commits, and tax quote adjustments. For more info, see the [Tax Provider API](/api-reference/providers/tax-provider-api).
 
