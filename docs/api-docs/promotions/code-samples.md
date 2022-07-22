@@ -3177,8 +3177,8 @@ title: Try It
   "customer": {
     "segments": {
       "id": [
-        "1",
-        "2"
+        "61fd72bc-7400-4a7b-ac64-96c0d315c464",
+        "d52fb39d-6715-430e-a0bf-21a192d790f0"
       ]
     }
   },
@@ -3209,8 +3209,8 @@ title: Request
   "customer": {
     "segments": {
       "id": [
-        "1",
-        "2"
+        "61fd72bc-7400-4a7b-ac64-96c0d315c464",
+        "d52fb39d-6715-430e-a0bf-21a192d790f0"
       ]
     }
   },
@@ -3234,7 +3234,51 @@ title: Response
 -->
 
 ```json title="Example responses" lineNumbers
-{<!-- closed Beta -->}
+<!-- closed Beta -->
+{
+    "data": {
+        "id": 48,
+        "name": "10% off for customers who belong to segment 1 or segment 2",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": {
+                "id": [
+                    "61fd72bc-7400-4a7b-ac64-96c0d315c464",
+                    "d52fb39d-6715-430e-a0bf-21a192d790f0"
+                ]
+            }
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_value": {
+                        "discount": {
+                            "percentage_amount": "10"
+                        }
+                    }
+                },
+                "apply_once": true,
+                "stop": false
+            }
+        ],
+        "notifications": [],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-22T17:33:02+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
 ```
 
 <!-- 
@@ -3268,7 +3312,7 @@ title: Try It
     "segments": {
       "not": {
         "id": [
-          "1"
+          "61fd72bc-7400-4a7b-ac64-96c0d315c464"
         ]
       }
     }
@@ -3301,7 +3345,7 @@ title: Request
     "segments": {
       "not": {
         "id": [
-          "1"
+          "61fd72bc-7400-4a7b-ac64-96c0d315c464"
         ]
       }
     }
@@ -3326,7 +3370,52 @@ title: Response
 -->
 
 ```json title="Example response" lineNumbers
-{<!-- closed Beta -->}
+<!-- closed Beta -->
+{
+    "data": {
+        "id": 49,
+        "name": "10% off for customers who do not belong to segment 1",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": {
+                "not": {
+                    "id": [
+                        "61fd72bc-7400-4a7b-ac64-96c0d315c464"
+                    ]
+                }
+            }
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_value": {
+                        "discount": {
+                            "percentage_amount": "10"
+                        }
+                    }
+                },
+                "apply_once": true,
+                "stop": false
+            }
+        ],
+        "notifications": [],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-22T17:41:30+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
 ```
 <!-- 
 type: tab-end
@@ -3357,10 +3446,10 @@ title: Try It
     "segments": {
       "and": [
         {
-          "id": ["1"]
+          "id": ["61fd72bc-7400-4a7b-ac64-96c0d315c464"]
         },
         {
-          "id": ["2"]
+          "id": ["d52fb39d-6715-430e-a0bf-21a192d790f0"]
         }
       ]
     }
@@ -3393,10 +3482,10 @@ title: Request
     "segments": {
       "and": [
         {
-          "id": ["1"]
+          "id": ["61fd72bc-7400-4a7b-ac64-96c0d315c464"]
         },
         {
-          "id": ["2"]
+          "id": ["d52fb39d-6715-430e-a0bf-21a192d790f0"]
         }
       ]
     }
@@ -3421,7 +3510,59 @@ title: Response
 -->
 
 ```json title="Example response" lineNumbers
-{<!-- closed Beta -->}
+<!-- closed Beta -->
+{
+    "data": {
+        "id": 50,
+        "name": "10% off for customers who belong to segment 1 and also belong to segment 2",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": {
+                "and": [
+                    {
+                        "id": [
+                            "61fd72bc-7400-4a7b-ac64-96c0d315c464"
+                        ]
+                    },
+                    {
+                        "id": [
+                            "d52fb39d-6715-430e-a0bf-21a192d790f0"
+                        ]
+                    }
+                ]
+            }
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_value": {
+                        "discount": {
+                            "percentage_amount": "10"
+                        }
+                    }
+                },
+                "apply_once": true,
+                "stop": false
+            }
+        ],
+        "notifications": [],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-22T17:44:16+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
 ```
 <!-- 
 type: tab-end
@@ -3450,21 +3591,21 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-  "name": "10% off for customers who belong to segment 3 or customers who belong to segment 1 and also belong to segment 2",
+  "name": "10% off for customers who belong to segment 3 or customers who belong to segment 1 and segment 2",
   "redemption_type": "AUTOMATIC",
   "customer": {
     "segments": {
       "or": [
         {
-          "id": ["3"]
+          "id": ["4d843892-d90c-4f01-a36e-ce810172c094"]
         },
         {
           "and": [
             {
-              "id": ["1"]
+              "id": ["61fd72bc-7400-4a7b-ac64-96c0d315c464"]
             },
             {
-              "id": ["2"]
+              "id": ["d52fb39d-6715-430e-a0bf-21a192d790f0"]
             }
           ]
         }
@@ -3493,21 +3634,21 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "10% off for customers who belong to segment 3 or customers who belong to segment 1 and also belong to segment 2",
+  "name": "10% off for customers who belong to segment 3 or customers who belong to segment 1 and segment 2",
   "redemption_type": "AUTOMATIC",
   "customer": {
     "segments": {
       "or": [
         {
-          "id": ["3"]
+          "id": ["4d843892-d90c-4f01-a36e-ce810172c094"]
         },
         {
           "and": [
             {
-              "id": ["1"]
+              "id": ["61fd72bc-7400-4a7b-ac64-96c0d315c464"]
             },
             {
-              "id": ["2"]
+              "id": ["d52fb39d-6715-430e-a0bf-21a192d790f0"]
             }
           ]
         }
@@ -3533,7 +3674,68 @@ title: Response
 -->
 
 ```json title="Example response" lineNumbers
-{<!-- closed Beta -->}
+<!-- closed Beta -->
+{
+    "data": {
+        "id": 51,
+        "name": "10% off for customers who belong to segment 3 or customers who belong to segment 1 and segment 2",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": {
+                "or": [
+                    {
+                        "id": [
+                            "4d843892-d90c-4f01-a36e-ce810172c094"
+                        ]
+                    },
+                    {
+                        "and": [
+                            {
+                                "id": [
+                                    "61fd72bc-7400-4a7b-ac64-96c0d315c464"
+                                ]
+                            },
+                            {
+                                "id": [
+                                    "d52fb39d-6715-430e-a0bf-21a192d790f0"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_value": {
+                        "discount": {
+                            "percentage_amount": "10"
+                        }
+                    }
+                },
+                "apply_once": true,
+                "stop": false
+            }
+        ],
+        "notifications": [],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-22T17:48:59+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
 ```
 
 <!-- 
@@ -3563,6 +3765,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
+  {
   "name": "Buy 2 product X OR Buy 2 product Y",
   "redemption_type": "AUTOMATIC",
   "rules": [
@@ -3573,7 +3776,7 @@ title: Try It
             "cart": {
               "items": {
                 "products": [
-                  97
+                  118
                 ]
               },
               "minimum_quantity": 2
@@ -3583,13 +3786,19 @@ title: Try It
             "cart": {
               "items": {
                 "variants": [
-                  12
+                  134
                 ]
               },
               "minimum_quantity": 2
             }
           }
         ]
+      },
+      "action": {
+        "gift_item": {
+          "product_id": 130,
+          "quantity": 1
+        }
       }
     }
   ],
@@ -3630,7 +3839,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
- "name": "Buy 2 product X OR Buy 2 product Y",
+  "name": "Buy 2 product X OR Buy 2 product Y",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -3640,7 +3849,7 @@ title: Request
             "cart": {
               "items": {
                 "products": [
-                  97
+                  118
                 ]
               },
               "minimum_quantity": 2
@@ -3650,13 +3859,19 @@ title: Request
             "cart": {
               "items": {
                 "variants": [
-                  12
+                  134
                 ]
               },
               "minimum_quantity": 2
             }
           }
         ]
+      },
+      "action": {
+        "gift_item": {
+          "product_id": 130,
+          "quantity": 1
+        }
       }
     }
   ],
@@ -3696,6 +3911,88 @@ title: Response
 
 ```json title="Example response" lineNumbers
 {
+    "data": {
+        "id": 47,
+        "name": "Buy two product X OR Buy two product Y",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "gift_item": {
+                        "quantity": 1,
+                        "product_id": 130
+                    }
+                },
+                "apply_once": true,
+                "stop": false,
+                "condition": {
+                    "or": [
+                        {
+                            "cart": {
+                                "items": {
+                                    "products": [
+                                        118
+                                    ]
+                                },
+                                "minimum_quantity": 2
+                            }
+                        },
+                        {
+                            "cart": {
+                                "items": {
+                                    "variants": [
+                                        134
+                                    ]
+                                },
+                                "minimum_quantity": 2
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "notifications": [
+            {
+                "type": "UPSELL",
+                "content": "<div>&nbsp;</div>",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            },
+            {
+                "type": "ELIGIBLE",
+                "content": "<div>&nbsp;</div>",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            },
+            {
+                "type": "APPLIED",
+                "content": "<div>&nbsp;</div>",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            }
+        ],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2019-02-01T05:00:00+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
 }
 ```
 
@@ -3793,12 +4090,12 @@ title: Request
         "or": [
           {
             "products": [
-              97
+              118
             ]
           },
           {
             "variants": [
-              12
+              134
             ]
           }
         ],
@@ -3841,6 +4138,88 @@ title: Response
 
 ```json title="Example response" lineNumbers
 {
+    "data": {
+        "id": 52,
+        "name": "Buy 2 product X OR Buy 2 product Y",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "gift_item": {
+                        "quantity": 1,
+                        "product_id": 130
+                    }
+                },
+                "apply_once": true,
+                "stop": false,
+                "condition": {
+                    "or": [
+                        {
+                            "cart": {
+                                "items": {
+                                    "products": [
+                                        118
+                                    ]
+                                },
+                                "minimum_quantity": 2
+                            }
+                        },
+                        {
+                            "cart": {
+                                "items": {
+                                    "variants": [
+                                        134
+                                    ]
+                                },
+                                "minimum_quantity": 2
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "notifications": [
+            {
+                "type": "UPSELL",
+                "content": "<div>&nbsp;</div>",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            },
+            {
+                "type": "ELIGIBLE",
+                "content": "<div>&nbsp;</div>",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            },
+            {
+                "type": "APPLIED",
+                "content": "<div>&nbsp;</div>",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            }
+        ],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2019-02-01T05:00:00+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
 }
 ```
 <!-- 
@@ -5594,7 +5973,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-  "name": "50$ off when you buy 2 tiered wire baskets or a small purple towel",
+  "name": "50$ off when you buy two tiered wire baskets or a small purple towel",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -5604,7 +5983,7 @@ title: Try It
             "cart": {
               "items": {
                 "products": [
-                  130
+                  118
                 ]
               },
               "minimum_quantity": 2
@@ -5614,7 +5993,7 @@ title: Try It
             "cart": {
               "items": {
                 "variants": [
-                  12
+                  134
                 ]
               },
               "minimum_quantity": 1
@@ -5642,7 +6021,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-"name": "50$ off when you buy 2 tiered wire baskets or a small purple towel",
+"name": "50$ off when you buy two tiered wire baskets or a small purple towel",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -5652,7 +6031,7 @@ title: Request
             "cart": {
               "items": {
                 "products": [
-                  97
+                  118
                 ]
               },
               "minimum_quantity": 2
@@ -5662,7 +6041,7 @@ title: Request
             "cart": {
               "items": {
                 "variants": [
-                  12
+                  134
                 ]
               },
               "minimum_quantity": 1
@@ -5689,7 +6068,69 @@ title: Response
 -->
 
 ```json title="Example response" lineNumbers
-{}
+{
+    "data": {
+        "id": 53,
+        "name": "50$ off when you buy two tiered wire baskets or a small purple towel",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "cart_value": {
+                        "discount": {
+                            "fixed_amount": "50"
+                        }
+                    }
+                },
+                "apply_once": true,
+                "stop": false,
+                "condition": {
+                    "or": [
+                        {
+                            "cart": {
+                                "items": {
+                                    "products": [
+                                        118
+                                    ]
+                                },
+                                "minimum_quantity": 2
+                            }
+                        },
+                        {
+                            "cart": {
+                                "items": {
+                                    "variants": [
+                                        134
+                                    ]
+                                },
+                                "minimum_quantity": 1
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "notifications": [],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-22T18:12:50+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
 ```
 
 <!-- 
@@ -6338,7 +6779,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-  "name": "Buy One Get One Free",
+  "name": "Buy one get one free",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -6557,7 +6998,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-  "name": "Buy 2 X get 10% off Y",
+  "name": "Buy two X get 10% off Y",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -6628,7 +7069,7 @@ title: Request
 ```json title="Example request" lineNumbers
 {
   {
-  "name": "Buy 2 X get 10% off Y",
+  "name": "Buy two X get 10% off Y",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -7241,13 +7682,13 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-  "name": "Buy X Product Variant and Get X Product Variant Free",
+  "name": "Buy X product variant and get X product variant free",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
       "action": {
         "gift_item": {
-          "variant_id": 140,
+          "variant_id": 134,
           "quantity": 1
         }
       },
@@ -7258,7 +7699,7 @@ title: Try It
         "cart": {
           "items": {
             "variants": [
-              421
+              134
             ]
           },
           "minimum_quantity": 2
@@ -7307,7 +7748,7 @@ title: Request
     {
       "action": {
         "gift_item": {
-          "variant_id": 140,
+          "variant_id": 130,
           "quantity": 1
         }
       },
@@ -7318,7 +7759,7 @@ title: Request
         "cart": {
           "items": {
             "variants": [
-              421
+              124
             ]
           },
           "minimum_quantity": 2
@@ -7361,6 +7802,12 @@ title: Response
 ```json title="Example response" lineNumbers
 {}
 ```
+
+<!-- 
+type: tab-end
+-->
+
+</details>
 
 <details>  
   <summary>Amount off</summary>
@@ -7690,6 +8137,12 @@ title: Response
     "meta": {}
 }
 ```
+<!-- 
+type: tab-end
+-->
+
+</details>
+
 
 <details>  
   <summary>Buy three for the price of two</summary>
@@ -8218,7 +8671,6 @@ type: tab
 title: Try It
 -->
 
-
 ```json http
 {
   "method": "POST",
@@ -8247,7 +8699,7 @@ title: Try It
             "cart": {
               "items": {
                 "products": [
-                  129
+                  118
                 ]
               },
               "minimum_quantity": 2
@@ -8257,7 +8709,7 @@ title: Try It
             "cart": {
               "items": {
                 "variants": [
-                  12
+                  134
                 ]
               },
               "minimum_quantity": 2
@@ -8302,7 +8754,7 @@ title: Request
             "cart": {
               "items": {
                 "products": [
-                  129
+                  118
                 ]
               },
               "minimum_quantity": 2
@@ -8312,7 +8764,7 @@ title: Request
             "cart": {
               "items": {
                 "variants": [
-                  12
+                  134
                 ]
               },
               "minimum_quantity": 2
@@ -8336,7 +8788,68 @@ title: Response
 -->
 
 ```json title="Example response" lineNumbers
-{ }
+{
+    "data": {
+        "id": 54,
+        "name": "Buy two of X and Buy two of Y get free shipping to all zones",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "shipping": {
+                        "free_shipping": true,
+                        "zone_ids": "*"
+                    }
+                },
+                "apply_once": true,
+                "stop": false,
+                "condition": {
+                    "and": [
+                        {
+                            "cart": {
+                                "items": {
+                                    "products": [
+                                        118
+                                    ]
+                                },
+                                "minimum_quantity": 2
+                            }
+                        },
+                        {
+                            "cart": {
+                                "items": {
+                                    "variants": [
+                                        134
+                                    ]
+                                },
+                                "minimum_quantity": 2
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "notifications": [],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2019-02-06T05:00:00+00:00",
+        "end_date": "2019-02-09T04:59:59+00:00",
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
 ```
 
 <!-- 
