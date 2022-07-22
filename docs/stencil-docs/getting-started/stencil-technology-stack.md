@@ -2,7 +2,7 @@
 
 
 
-Stencil's use of Handlebars.js, Javascript, and YAML Front Matter on the front end allows developers to create dynamic, templated customizations across a BigCommerce storefront.
+Stencil's use of Handlebars.js, JavaScript, and YAML Front Matter on the front end allows developers to create dynamic, templated customizations across a BigCommerce storefront.
 
 ## Handlebars overview
 

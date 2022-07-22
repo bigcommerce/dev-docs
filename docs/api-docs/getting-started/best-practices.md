@@ -59,7 +59,7 @@ Apps that authenticate with OAuth are rate-limited based on a quota that is refr
 | -- | -- | 
 | Enterprise plans and Enterprise sandboxes (Enterprise-Test) | Unlimited\*| 
 | Pro plans| 60k per hour (450 / 30sec) | 
-| All other sandboxes (Dev/Partner/Employee) | 20k per hour (150 / 30sec)| 
+| All other sandboxes (Dev/Partner/Employee) | Unlimited\*| 
 | Plus & Standard plans| 20k per hour (150 / 30sec) | 
 
 <!-- theme: info -->
