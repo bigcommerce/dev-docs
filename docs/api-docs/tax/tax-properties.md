@@ -2,7 +2,7 @@
 
 Tax properties are inputs that merchants can provide into a tax provider's tax calculation to receive more accurate tax calculations from third-party tax providers. These properties are specific to a tax provider and allow merchants and shoppers to have tax-related fields factored into their tax rates. 
 
-The Tax Property V3 API will allow you to perform the following functions:
+The Tax Properties API will allow you to perform the following functions:
 - Add tax property fields that are specific to a tax provider (have **variable** inputs for tax calculations)      
 - Associate tax properties to **products**. Unlike tax codes, you can add **multiple** tax properties to a single product
 
@@ -10,7 +10,7 @@ The Tax Property V3 API will allow you to perform the following functions:
 > #### Note
 > Currently, you can associate tax properties to base products.
 
-For more info, see the [Tax Property V3 API](/api-reference/store-management/tax-properties) reference.
+For more info, see the [Tax Properties API Reference](/api-reference/store-management/tax-properties).
 
 ## Tax properties
 
@@ -372,4 +372,4 @@ HTTP 204 No content
 
 ## Resources 
 
-- [Tax Properties V3 API Reference](/api-reference/store-management/tax-properties)
+- [Tax Properties API Reference](/api-reference/store-management/tax-properties)
