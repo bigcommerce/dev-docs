@@ -23,7 +23,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example request: Create tax properties" lineNumbers
+```http title="Example request: Create tax properties" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/properties
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -85,7 +85,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example request: Update tax properties" lineNumbers 
+```http title="Example request: Update tax properties" lineNumbers 
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/properties
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -220,7 +220,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example request: Update product with tax properties" lineNumbers 
+```http title="Example request: Update product with tax properties" lineNumbers 
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/products/properties
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -364,7 +364,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example response: Delete product tax properties" lineNumbers 
+```http title="Example response: Delete product tax properties" lineNumbers 
 HTTP 204 No content
 ```
 
