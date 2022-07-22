@@ -30,17 +30,17 @@ Content-Type: application/json
 Accept: application/json
 
 [
-    {
-      "code": "A-123456789",
-      "display_name": "Example Tax Property 1",
-      "description": "Food Industry"
-    },
-    {
-      "code": "B-123456789",
-      "display_name": "Example Tax Property 2",
-      "description": "Clothing Industry"
-    }  
-  ]
+  {
+    "code": "A-123456789",
+    "display_name": "Example Tax Property 1",
+    "description": "Food Industry"
+  },
+  {
+    "code": "B-123456789",
+    "display_name": "Example Tax Property 2",
+    "description": "Clothing Industry"
+  }  
+]
 ```
 
 <!--
@@ -50,25 +50,25 @@ title: Response
 
 ```json title="Example response: Create tax properties" lineNumbers 
 {
-    "data": [
-        {
-            "id": 1,
-            "code": "A-123456789",
-            "display_name": "Example Tax Property 1",
-            "description": "Food Industry",
-            "created_at": "2022-05-17T14:25:21+00:00",
-            "updated_at": "2022-05-17T14:25:21+00:00"
-        },
-        {
-            "id": 2,
-            "code": "B-123456789",
-            "display_name": "Example Tax Property 2",
-            "description": "Clothing Industry",
-            "created_at": "2022-05-17T14:25:21+00:00",
-            "updated_at": "2022-05-17T14:25:21+00:00"
-        }
-    ],
-    "meta": {}
+  "data": [
+    {
+      "id": 1,
+      "code": "A-123456789",
+      "display_name": "Example Tax Property 1",
+      "description": "Food Industry",
+      "created_at": "2022-05-17T14:25:21+00:00",
+      "updated_at": "2022-05-17T14:25:21+00:00"
+    },
+    {
+      "id": 2,
+      "code": "B-123456789",
+      "display_name": "Example Tax Property 2",
+      "description": "Clothing Industry",
+      "created_at": "2022-05-17T14:25:21+00:00",
+      "updated_at": "2022-05-17T14:25:21+00:00"
+    }
+  ],
+  "meta": {}
 }
 ```
 
@@ -92,10 +92,10 @@ Content-Type: application/json
 Accept: application/json
 
 [
-    {
-      "id": 1,
-      "description": "Automobile Industry"
-    }  
+  {
+    "id": 1,
+    "description": "Automobile Industry"
+  }  
 ]
 ```
 
@@ -106,17 +106,17 @@ title: Response
 
 ```json title="Example response: Update tax properties" lineNumbers 
 {
-    "data": [
-        {
-            "id": 1,
-            "code": "A-123456789",
-            "display_name": "Example Tax Property 1",
-            "description": "Automobile Industry",
-            "created_at": "2022-05-17T14:25:21+00:00",
-            "updated_at": "2022-05-21T14:25:21+00:00"
-        }
-    ],
-    "meta": {}
+  "data": [
+    {
+      "id": 1,
+      "code": "A-123456789",
+      "display_name": "Example Tax Property 1",
+      "description": "Automobile Industry",
+      "created_at": "2022-05-17T14:25:21+00:00",
+      "updated_at": "2022-05-21T14:25:21+00:00"
+    }
+  ],
+  "meta": {}
 }
 ```
 
@@ -145,36 +145,36 @@ title: Response
 
 ```json title="Example response: Get tax properties" lineNumbers 
 {
-    "data": [
-        {
-            "id": 1,
-            "code": "A-123456789",
-            "display_name": "Example Tax Property 1",
-            "description": "Automobile Industry",
-            "created_at": "2022-05-17T14:25:21+00:00",
-            "updated_at": "2022-05-21T14:25:21+00:00"
-        },
-        {
-            "id": 2,
-            "code": "B-123456789",
-            "display_name": "Example Tax Property 2",
-            "description": "Clothing Industry",
-            "created_at": "2022-05-17T14:25:21+00:00",
-            "updated_at": "2022-05-17T14:25:21+00:00"
-        }
-    ],
-    "meta": {
-        "pagination": {
-            "total": 2,
-            "count": 2,
-            "per_page": 50,
-            "current_page": 1,
-            "total_pages": 1,
-            "links": {
-                "current": "?page=1&limit=50"
-            }
-        }
+  "data": [
+    {
+      "id": 1,
+      "code": "A-123456789",
+      "display_name": "Example Tax Property 1",
+      "description": "Automobile Industry",
+      "created_at": "2022-05-17T14:25:21+00:00",
+      "updated_at": "2022-05-21T14:25:21+00:00"
+    },
+    {
+      "id": 2,
+      "code": "B-123456789",
+      "display_name": "Example Tax Property 2",
+      "description": "Clothing Industry",
+      "created_at": "2022-05-17T14:25:21+00:00",
+      "updated_at": "2022-05-17T14:25:21+00:00"
     }
+  ],
+  "meta": {
+    "pagination": {
+      "total": 2,
+      "count": 2,
+      "per_page": 50,
+      "current_page": 1,
+      "total_pages": 1,
+      "links": {
+        "current": "?page=1&limit=50"
+      }
+    }
+  }
 }
 ```
 
@@ -250,33 +250,33 @@ title: Response
 
 ```json title="Example response: Update product with tax properties" lineNumbers 
 {
-    "data": [
-        {
-            "product_id": 113,
-            "tax_properties": {
-                "A-123456789": "405",
-                "B-123456789": "111"
-            }
-        },
-        {
-            "product_id": 117,
-            "tax_properties": {
-                "B-123456789": "800"
-            }
-        }
-    ],
-    "meta": {
-        "pagination": {
-            "total": 2,
-            "count": 2,
-            "per_page": 50,
-            "current_page": 1,
-            "total_pages": 1,
-            "links": {
-                "current": "?page=1&limit=50"
-            }
-        }
+  "data": [
+    {
+      "product_id": 113,
+      "tax_properties": {
+        "A-123456789": "405",
+        "B-123456789": "111"
+      }
+    },
+    {
+      "product_id": 117,
+      "tax_properties": {
+        "B-123456789": "800"
+      }
     }
+  ],
+  "meta": {
+    "pagination": {
+      "total": 2,
+      "count": 2,
+      "per_page": 50,
+      "current_page": 1,
+      "total_pages": 1,
+      "links": {
+        "current": "?page=1&limit=50"
+      }
+    }
+  }
 }
 ```
 
@@ -311,33 +311,33 @@ title: Response
 
 ```json title="Example response: Get product tax properties" lineNumbers 
 {
-    "data": [
-        {
-            "product_id": 113,
-            "tax_properties": {
-                "A-123456789": "405",
-                "B-123456789": "111"
-            }
-        },
-        {
-            "product_id": 117,
-            "tax_properties": {
-                "B-123456789": "800"
-            }
-        }
-    ],
-    "meta": {
-        "pagination": {
-            "total": 2,
-            "count": 2,
-            "per_page": 50,
-            "current_page": 1,
-            "total_pages": 1,
-            "links": {
-                "current": "?product_id%3Ain=113%2C117&page=1&limit=50"
-            }
-        }
+  "data": [
+    {
+      "product_id": 113,
+      "tax_properties": {
+        "A-123456789": "405",
+        "B-123456789": "111"
+      }
+    },
+    {
+      "product_id": 117,
+      "tax_properties": {
+        "B-123456789": "800"
+      }
     }
+  ],
+  "meta": {
+    "pagination": {
+      "total": 2,
+      "count": 2,
+      "per_page": 50,
+      "current_page": 1,
+      "total_pages": 1,
+      "links": {
+        "current": "?product_id%3Ain=113%2C117&page=1&limit=50"
+      }
+    }
+  }
 }
 ```
 
