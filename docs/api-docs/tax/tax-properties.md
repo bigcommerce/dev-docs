@@ -131,7 +131,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example request: Get tax properties" lineNumbers 
+```http title="Example request: Get tax properties" lineNumbers 
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/properties
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -189,7 +189,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example request: Delete tax properties" lineNumbers 
+```http title="Example request: Delete tax properties" lineNumbers 
 DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/properties?id:in=1,2
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -201,8 +201,8 @@ type: tab
 title: Response
 -->
 
-```json title="Example response: Delete tax properties" lineNumbers 
-No content
+```http title="Example response: Delete tax properties" lineNumbers 
+HTTP 204 No content
 ```
 
 <!-- type: tab-end -->
@@ -297,7 +297,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example request: Get product tax properties" lineNumbers 
+```http title="Example request: Get product tax properties" lineNumbers 
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/products/properties?product_id:in=113,117
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -352,7 +352,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example request: Delete product tax properties" lineNumbers 
+```http title="Example request: Delete product tax properties" lineNumbers 
 DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/products/properties?product_id:in=113,117
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -365,7 +365,7 @@ title: Response
 -->
 
 ```json title="Example response: Delete product tax properties" lineNumbers 
-No content
+HTTP 204 No content
 ```
 
 <!-- type: tab-end -->
