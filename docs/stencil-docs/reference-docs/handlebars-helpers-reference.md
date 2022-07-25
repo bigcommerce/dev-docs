@@ -254,7 +254,8 @@ As highlighted above, the helper is configured to rewrite *local* URLs to an `as
 {{moment date format}}
 ```
 
-Use [moment](https://momentjs.com/) to format dates.
+Use [momentjs](https://momentjs.com/) to format and calculate dates.
+
 
 #### Examples
 
