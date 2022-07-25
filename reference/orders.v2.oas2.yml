@@ -1538,7 +1538,7 @@ components:
                   store_default_to_transactional_exchange_rate: '1.0000000000'
                   custom_status: Awaiting Fulfillment
                   customer_locale: en
-                  external_order_id: ''
+                  external_order_id: 'external-order-id'
     ordersCount_Resp:
       description: Order Countr response collection.
       content:
@@ -1755,7 +1755,7 @@ components:
                 store_default_to_transactional_exchange_rate: '1.0000000000'
                 custom_status: Awaiting Payment
                 customer_locale: en
-                external_order_id: ''
+                external_order_id: 'external-order-id'
               Multiple Items:
                 id: 247
                 customer_id: 11
@@ -1847,7 +1847,7 @@ components:
                 store_default_to_transactional_exchange_rate: 1
                 custom_status: Awaiting Fulfillment
                 customer_locale: en
-                external_order_id: ''
+                external_order_id: 'external-order-id'
     orderCouponsCollection_Resp:
       description: ''
       content:
@@ -2735,7 +2735,7 @@ components:
               external_id: null
               external_merchant_id: null
               custom_status: Awaiting Payment
-              external_order_id: ''
+              external_order_id: 'external-order-id'
             type: object
             properties:
               id:
