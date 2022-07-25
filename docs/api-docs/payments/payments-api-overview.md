@@ -40,6 +40,7 @@ The following table lists the payment gateways that are compatible with our publ
 | Chase Integrated Payments |            | &check;         |
 | Chase Merchant Services   | &check;    | &check;         | 
 | Checkout.com      | &check;            | &check;         |
+| Commonwealth Bank | &check;            | &check;         |
 | Cybersource       | &check;            | &check;         |
 | Cybersource V2    | &check;            | &check;         |
 | Eway Rapid        |                    | &check;         |
@@ -50,6 +51,7 @@ The following table lists the payment gateways that are compatible with our publ
 | Moneris           | &check;            | &check;         |
 | MyVirtualMerchant | &check;            | &check;         |
 | NMI               |                    | &check;         |
+| Opayo by Elavon   | &check;            | &check;         |
 | Paymetric         | &check;            | &check;         |
 | PayPal (Commerce Platform)  |          | &check;         |
 | PayPal Powered by Braintree | &check;  | &check;         |
@@ -60,6 +62,7 @@ The following table lists the payment gateways that are compatible with our publ
 | SecureNet        |                             | &check; |
 | Stripe           | &check;                     | &check; |
 | StripeV3         | &check;                     | &check; |
+| StripeV4         | &check;                     | &check; |
 | USA ePay         |                             | &check; |
 | Vantiv           |                             | &check; |
 | Vantiv Core      |                             | &check; |
