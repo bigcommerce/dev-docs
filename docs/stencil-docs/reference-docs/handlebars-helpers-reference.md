@@ -14,7 +14,8 @@ The following table contains BigCommerce's open source [Handlebars helpers](http
 | [pluck](#pluck) | array | Uses search key to get values from collections. |
 | [cdn](#cdn) | assets | A URL transformer for content delivery networks. |
 | [money](#money) | currency | Formats number length, thousands delimiter, and decimal delimiter. |
-| [moment](#moment) | date | Use [moment](https://momentjs.com/) as a helper. |
+| [moment](#moment) | date | Use [momentjs](https://momentjs.com/) to format and calculate dates. |
+
 | [getFontLoaderConfig](#getfontloaderconfig) | fonts | Returns font-loader config as a JSON string. |
 | [getFontsCollection](#getfontscollection) | fonts | Returns `<link>` elements for configured fonts. |
 | [encodeHtmlEntities](#encodehtmlentities) | html | Encodes HTML entities. |
