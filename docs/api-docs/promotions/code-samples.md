@@ -505,7 +505,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-  "name": "Spend X amount in brand Y, Get X% off in brand Y",
+  "name": "Spend X amount in brand Y, get X% off in brand Y",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -1521,7 +1521,7 @@ title: Response
 {
     "data": {
         "id": 10,
-        "name": "20 dollar off all Garden material",
+        "name": "20 dollar off all garden material",
         "created_from": "api",
         "customer": {
             "group_ids": [],
@@ -1989,7 +1989,7 @@ type: tab-end
 </details>
 
 <details>  
-  <summary>Buy three items in a category for the price of 2 (lowest priced item discounted)</summary>
+  <summary>Buy three items in a category for the price of two (lowest priced item discounted)</summary>
 
 
 <!--
@@ -2006,7 +2006,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-  "name": "Buy three items in a category for the price of 2 (lowest priced item discounted)",
+  "name": "Buy three items in a category for the price of two (lowest priced item discounted)",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -2049,7 +2049,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy three items in a category for the price of 2 (lowest priced item discounted)",
+  "name": "Buy three items in a category for the price of two (lowest priced item discounted)",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -2605,7 +2605,7 @@ title: Response
 {
     "data": {
         "id": 16,
-        "name": "Buy $X from Category X Get Product Y for free",
+        "name": "Buy $X from category X get product Y for free",
         "created_from": "api",
         "customer": {
             "group_ids": [],
@@ -2794,7 +2794,7 @@ type: tab-end
 </details>
 
 <details>  
-  <summary>5% off for non-VIP customers (including guest customers, and registered customers who not assigned to any groups, and registered customers who are assigned to a non-VIP group)</summary>
+  <summary>5% off for non-VIP customers (including guest customers, and registered customers who are not assigned to any groups, and registered customers who are assigned to a non-VIP group)</summary>
 
 <!--
 type: tab
@@ -3424,7 +3424,7 @@ type: tab-end
 </details>
 
 <details>
-  <summary>10% off for customers who belong to segment 1 and also belong to segment 2</summary>
+  <summary>10% off for customers who belong to segment 1 and also belong to segment 2 (Closed Beta)</summary>
 
 <!--
 type: tab
@@ -3573,7 +3573,7 @@ type: tab-end
 
 
 <details>  
-  <summary>10% off for customers who belong to segment 3 or customers who belong to segment 1 and also belong to segment 2</summary>
+  <summary>10% off for customers who belong to segment 3 or customers who belong to segment 1 and also belong to segment 2 (Closed Beta)</summary>
 
 
 <!--
@@ -3755,7 +3755,6 @@ type: tab
 title: Try It
 -->
 
-
 ```json http
 {
   "method": "POST",
@@ -3765,8 +3764,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-  {
-  "name": "Buy 2 product X OR Buy 2 product Y",
+  "name": "Buy two product X or buy two product Y",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -3839,7 +3837,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy 2 product X OR Buy 2 product Y",
+  "name": "Buy two product X or buy two product Y",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -4014,7 +4012,6 @@ type: tab
 title: Try It
 -->
 
-
 ```json http
 {
   "method": "POST",
@@ -4024,7 +4021,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-  "name": "Buy 2 (product X or product Y)",
+  "name": "Buy two (product X or product Y)",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -4071,6 +4068,7 @@ title: Try It
   "stop": false,
   "start_date": "2019-02-01T05:00:00+00:00",
   "status": "ENABLED"
+}
 }
 ```
 
@@ -5121,7 +5119,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-  "name": "Apply a tiered discount to applicable products based on the quantity of items ordered within one or ",
+  "name": "Apply a tiered discount to applicable products based on the quantity of items ordered within X ",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -5248,7 +5246,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
- "name": "Apply a tiered discount to applicable products based on the quantity of items ordered within one or ",
+ "name": "Apply a tiered discount to applicable products based on the quantity of items ordered within X ",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -5376,7 +5374,7 @@ title: Response
 {
     "data": {
         "id": 25,
-        "name": "Apply a tiered discount to applicable products based on the quantity of items ordered within one or ",
+        "name": "Apply a tiered discount to applicable products based on the quantity of items ordered within X ",
         "created_from": "api",
         "customer": {
             "group_ids": [],
@@ -5524,7 +5522,7 @@ type: tab-end
 </details>
 
 <details>
-  <summary>Up to 50% off store-wide (50% off category X items and 40% off everything else)</summary>
+  <summary>Up to 50% off storewide (50% off category X items and 40% off everything else)</summary>
 
 <!--
 type: tab
@@ -5540,7 +5538,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-  "name": "Up to 50% off store-wide (50% off category X items and 40% off everything else)",
+  "name": "Up to 50% off storewide (50% off category X items and 40% off everything else)",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -5587,7 +5585,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-"name": "Up to 50% off store-wide (50% off category X items and 40% off everything else)",
+"name": "Up to 50% off storewide (50% off category X items and 40% off everything else)",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -5636,7 +5634,7 @@ title: Response
   {
     "data": {
         "id": 26,
-        "name": "Up to 50% off store-wide (50% off category X items and 40% off everything else)",
+        "name": "Up to 50% off storewide (50% off category X items and 40% off everything else)",
         "created_from": "api",
         "customer": {
             "group_ids": [],
@@ -5782,7 +5780,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy two of Product X get free shipping to all zones and 10% off order",
+  "name": "Buy two of product X get free shipping to all zones and 10% off order",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -5834,7 +5832,7 @@ title: Response
 {
     "data": {
         "id": 27,
-        "name": "Buy two of Product X get free shipping to all zones and 10% off order",
+        "name": "Buy two of product X get free shipping to all zones and 10% off order",
         "created_from": "api",
         "customer": {
             "group_ids": [],
@@ -6157,7 +6155,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-  "name": "Spend X$ Get X$ Off Order",
+  "name": "Spend X$ get X$ off order",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -6214,7 +6212,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Spend X$ Get X$ Off Order",
+  "name": "Spend X$ get X$ off order",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -6271,7 +6269,7 @@ title: Response
 {
     "data": {
         "id": 28,
-        "name": "Spend X$ Get X$ Off Order",
+        "name": "Spend X$ get X$ off order",
         "created_from": "api",
         "customer": {
             "group_ids": [],
@@ -6359,7 +6357,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-  "name": "Order at Least $X Get X Item Free",
+  "name": "Order at least $X get X item free",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -6472,7 +6470,7 @@ title: Response
 {
     "data": {
         "id": 29,
-        "name": "Order at Least $X Get X Item Free",
+        "name": "Order at least $X get X item free",
         "created_from": "api",
         "customer": {
             "group_ids": [],
@@ -6842,7 +6840,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy One Get One Free",
+  "name": "Buy one get one free",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -6905,7 +6903,7 @@ title: Response
 {
     "data": {
         "id": 31,
-        "name": "Buy One Get One Free",
+        "name": "Buy one get one free",
         "created_from": "api",
         "customer": {
             "group_ids": [],
@@ -7140,7 +7138,7 @@ title: Response
 {
     "data": {
         "id": 32,
-        "name": "Buy 2 X get 10% off Y",
+        "name": "Buy two X get 10% off Y",
         "created_from": "api",
         "customer": {
             "group_ids": [],
@@ -7477,7 +7475,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-  "name": "Apply 20% off Most Expensive Cart Item",
+  "name": "Apply 20% off most expensive cart item",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -7535,7 +7533,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-"name": "Apply 20% off Most Expensive Cart Item",
+"name": "Apply 20% off most expensive cart item",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -7593,7 +7591,7 @@ title: Response
 {
     "data": {
         "id": 34,
-        "name": "Apply 20% off Most Expensive Cart Item",
+        "name": "Apply 20% off most expensive cart item",
         "created_from": "api",
         "customer": {
             "group_ids": [],
@@ -7688,7 +7686,7 @@ title: Try It
     {
       "action": {
         "gift_item": {
-          "variant_id": 134,
+          "variant_id": 151,
           "quantity": 1
         }
       },
@@ -7699,7 +7697,7 @@ title: Try It
         "cart": {
           "items": {
             "variants": [
-              134
+              139
             ]
           },
           "minimum_quantity": 2
@@ -7748,7 +7746,7 @@ title: Request
     {
       "action": {
         "gift_item": {
-          "variant_id": 130,
+          "variant_id": 151,
           "quantity": 1
         }
       },
@@ -7759,7 +7757,7 @@ title: Request
         "cart": {
           "items": {
             "variants": [
-              124
+              139
             ]
           },
           "minimum_quantity": 2
@@ -7800,7 +7798,76 @@ title: Response
 -->
 
 ```json title="Example response" lineNumbers
-{}
+{
+    "data": {
+        "id": 56,
+        "name": "Buy X product variant and get X product variant free",
+        "created_from": "api",
+        "customer": {
+            "group_ids": [],
+            "minimum_order_count": 0,
+            "excluded_group_ids": [],
+            "segments": null
+        },
+        "rules": [
+            {
+                "action": {
+                    "gift_item": {
+                        "quantity": 1,
+                        "variant_id": 151
+                    }
+                },
+                "apply_once": false,
+                "stop": false,
+                "condition": {
+                    "cart": {
+                        "items": {
+                            "variants": [
+                                139
+                            ]
+                        },
+                        "minimum_quantity": 2
+                    }
+                }
+            }
+        ],
+        "notifications": [
+            {
+                "type": "UPSELL",
+                "content": "<div>&nbsp;</div>\r\n<div>&nbsp;</div>",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            },
+            {
+                "type": "ELIGIBLE",
+                "content": "<div>&nbsp;</div>\r\n<div>&nbsp;</div>",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            },
+            {
+                "type": "APPLIED",
+                "content": "<div>&nbsp;</div>\r\n<div>&nbsp;</div>",
+                "locations": [
+                    "CART_PAGE"
+                ]
+            }
+        ],
+        "stop": false,
+        "currency_code": "USD",
+        "redemption_type": "AUTOMATIC",
+        "shipping_address": null,
+        "current_uses": 0,
+        "max_uses": null,
+        "start_date": "2022-07-25T19:11:27+00:00",
+        "end_date": null,
+        "status": "ENABLED",
+        "schedule": null,
+        "can_be_used_with_other_promotions": true
+    },
+    "meta": {}
+}
 ```
 
 <!-- 
@@ -8356,6 +8423,7 @@ title: Try It
     }
   ]
 }
+}
 ```
 
 <!--
@@ -8466,7 +8534,7 @@ type: tab-end
 </details>
 
 <details>  
-<summary>Buy extra-small blue or medium blue item and receive free shipping (PRoduct Options Item Matcher</summary>
+<summary>Buy extra-small blue or medium blue item and receive free shipping (Product Options Item Matcher)</summary>
 
 <!--
 type: tab
@@ -8680,7 +8748,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-  "name": "Buy two of X and Buy two of Y get free shipping to all zones",
+  "name": "Buy two of X and buy two of Y get free shipping to all zones",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -8735,7 +8803,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-   "name": "Buy two of X and Buy two of Y get free shipping to all zones",
+   "name": "Buy two of X and buy two of Y get free shipping to all zones",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -8791,7 +8859,7 @@ title: Response
 {
     "data": {
         "id": 54,
-        "name": "Buy two of X and Buy two of Y get free shipping to all zones",
+        "name": "Buy two of X and buy two of Y get free shipping to all zones",
         "created_from": "api",
         "customer": {
             "group_ids": [],
