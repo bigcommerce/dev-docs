@@ -1,14 +1,32 @@
 # Tax Properties for Products
 
-Tax properties are inputs that merchants can provide into a tax provider's tax calculation to receive more accurate tax calculations from third-party tax providers. These properties are specific to a tax provider and allow merchants and shoppers to have tax-related fields factored into their tax rates. 
+The Tax Properties API allows merchants to attach multiple tax codes to products. These tax codes allow merchants to use more than one tax provider for a given product; for example, a merchant might use one tax provider on a US-based storefront and a different provider for its Australian sales ecosystem. They can also assist merchants who are transitioning between tax providers. 
+
+With the right configuration, tax properties can help merchants send tax providers more detailed product information, and help providers send back more accurate tax calculations. 
+
+Third-party tax provider apps can use the Tax Properties API to help merchants pair the store's products with the provider's tax codes. 
+
+
+* (give third-party tax providers parity with avalara)
+* ~~(allow you to use more than one tax provider)~~
+* ~~(can assist transition to another tax provider)~~
+* specific to a tax provider
+* ~~inputs that merchants can provide into a tax provider's tax calculation~~
+* ~~Receive more accurate tax calculations from third-party tax providers~~
+* tax-related fields factored into their tax rates. 
 
 The Tax Properties API will allow you to perform the following functions:
-- Add tax property fields that are specific to a tax provider (have **variable** inputs for tax calculations)      
+- Add tax property fields that are specific to a tax provider (have **variable** inputs for tax calculations)
+  - >>> what does **variable inputs** mean / look like in practice 
+    - multiple reasons / ways a product (or order?) could incur a tax due
 - Associate tax properties to **products**. Unlike tax codes, you can add **multiple** tax properties to a single product
+  - >>> careful here
+    - in this sentence, "tax codes" is intended to mean the avatax code, or other provider-specific code, that is attached to a product (or order?)
+    - one property of a "tax property" object is the "tax code" -- so reflect this distinction in what you do and don't choose to say
 
 <!-- theme: info -->
-> #### Note
-> Currently, you can associate tax properties to base products.
+> #### Note >>> use a more specific heading. since this heading is an anchor link, you can reference the callout from anywhere
+> Currently, you can associate tax properties to base products. However, >>> tax properties are not stored on or retrievable with the product object.
 
 For more info, see the [Tax Properties API Reference](/api-reference/store-management/tax-properties).
 
@@ -284,7 +302,7 @@ title: Response
 
 
 <!-- theme: info -->
-> #### Note
+> #### Note >>> use a more specific heading. since this heading is an anchor link, you can reference the callout from anywhere
 > Product tax properties are sent when BigCommerce makes a request to a provider for taxes estimations, tax quote commits, and tax quote adjustments. For more info, see the [Tax Provider API](/api-reference/providers/tax-provider-api).
 
 
