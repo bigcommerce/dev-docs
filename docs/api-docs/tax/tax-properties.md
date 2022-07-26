@@ -4,17 +4,15 @@ The Tax Properties API allows merchants to attach multiple tax codes to products
 
 With the right configuration, tax properties can help merchants send tax providers more detailed product information and help providers send back more accurate tax calculations. Specifically, tax properties are variable: merchants assign a distinct value to a tax property depending on product specifics. This is useful for products, such as alcohol and fuel, whose tax rates vary by product composition. Merchants can then send tax properties to tax providers through the Tax Provider API so that tax providers have the necessary product detail for tax calculations. The examples in this guide expand on this use case.
 
-Because tax properties are specific to a tax provider, merchants must liaise with tax providers to explore supported tax properties. In the example above, a provider must support tax properties for alcohol and fuel products for merchants to specify product compositions for tax calculations.
+This guide demonstrates how you can manage and send tax properties to tax providers for their tax calculations. Because tax properties are specific to a tax provider, merchants must liaise with tax providers to explore supported tax properties. For more info, see the [Tax Properties API Reference](/api-reference/store-management/tax-properties) and [Tax Provider API Reference](/api-reference/providers/tax-provider-api). 
 
-Here is a summary of the benefits for using the Tax Properties API: 
+Here is a summary of the use cases for using the Tax Properties API: 
 * Use more than one tax provider for a store
 * Assist a transition to another tax provider
 * Vary inputs into a tax provider's tax calculation
 * Receive more accurate tax calculations from third-party tax providers
 * Factor in multiple tax-related fields in tax rates 
 * Give third-party tax providers parity with Avalara
-
-This guide demonstrates how you can manage and send tax properties to tax providers for their tax calculations. For more info, see the [Tax Properties API Reference](/api-reference/store-management/tax-properties) and [Tax Provider API Reference](/api-reference/providers/tax-provider-api). 
 
 ## Tax properties
 
@@ -374,6 +372,11 @@ HTTP 204 No content
 
 <!-- type: tab-end -->
 
+## Tax Provider API
+
+In the examples below, a provider must support tax properties for alcohol and fuel products for merchants to specify product compositions for tax calculations. 
+
 ## Resources 
 
 - [Tax Properties API Reference](/api-reference/store-management/tax-properties)
+- [Tax Provider API Reference](/api-reference/providers/tax-provider-api)
