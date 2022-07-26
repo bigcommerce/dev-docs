@@ -368,7 +368,7 @@ HTTP 204 No content
 BigCommerce sends product tax properties when we request [tax estimates](/api-reference/providers/tax-provider-api/tax-provider/estimate) from a provider. Tax properties are sent for each item in a consignment. In the example below, the provider must support the tax property code `alcohol-percentage` for BigCommerce to specify the alcohol compositions for the tax calculation. 
 
 ```json title="Example request: Tax estimates with product tax properties" lineNumbers
-\\ items object for a consignment contains tax properties for each item
+\\ Tax properties for an item in a consignment
 
 "items": [
   {
