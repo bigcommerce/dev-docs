@@ -80,7 +80,8 @@ You must manually add data attributes to a product in order to track shopper eve
 * The **Quick View** button
 * The product image
 
-So, if you would like to track the clicks on a specific product, in order to ensure you get a fully comprehensive look at shoppers’ interactions with a product, you will want to include a data attribute on each of these fields. If a specific product possesses multiple data attributes, the data attribute that is closest to the product is the one that will track clicks, product impressions, or product views.
+So, if you would like to track the clicks on a specific product to ensure you get a fully comprehensive look at shoppers’ interactions with a product, you should include a data attribute on each of these fields. If a specific product possesses multiple data attributes, the data attribute that is closest to the product is the one that will track clicks, product impressions, or product views.
+
 
 Use plain HTML to implement data attributes in your store. To begin tracking, add data attributes to the HTML tags that are already present in your theme.
 
