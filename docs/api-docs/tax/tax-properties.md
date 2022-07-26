@@ -282,12 +282,6 @@ title: Response
 
 <!-- type: tab-end -->
 
-
-<!-- theme: info -->
-> #### Note >>> use a more specific heading. since this heading is an anchor link, you can reference the callout from anywhere
-> Product tax properties are sent when BigCommerce makes a request to a provider for taxes estimations, tax quote commits, and tax quote adjustments. For more info, see the [Tax Provider API](/api-reference/providers/tax-provider-api).
-
-
 ### Get product tax properties 
 
 To get the tax properties associated with a product, you must specify the `product_id` for the products in the query. 
@@ -369,9 +363,11 @@ HTTP 204 No content
 
 <!-- type: tab-end -->
 
-## Tax Provider API
+## Taxes Quotes
 
-In the examples below, a provider must support tax properties for alcohol and fuel products for merchants to specify product compositions for tax calculations. 
+BigCommerce sends product tax properties when we request tax calculations from a provider. In the example below, the provider must support the tax property code `alcohol-percentage` for BigCommerce to specify the alcohol compositions for the tax calculation. 
+
+BigCommerce also sends product tax properties when we request tax quotes commits and tax quote adjustments from a provider.
 
 ## Resources 
 
