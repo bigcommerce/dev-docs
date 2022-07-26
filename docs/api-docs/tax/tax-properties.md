@@ -6,7 +6,7 @@ With the right configuration, tax properties can help merchants send tax provide
 
 This guide demonstrates how you can manage and send tax properties to tax providers for their tax calculations. Because tax properties are specific to a tax provider, merchants must liaise with tax providers to explore supported tax properties. For more info, see the [Tax Properties API Reference](/api-reference/store-management/tax-properties) and [Tax Provider API Reference](/api-reference/providers/tax-provider-api). 
 
-Here is a summary of the use cases for using the Tax Properties API: 
+Here is a summary of use cases for using the Tax Properties API: 
 * Use more than one tax provider for a store
 * Assist a transition to another tax provider
 * Vary inputs into a tax provider's tax calculation
@@ -232,13 +232,13 @@ Accept: application/json
   {
     "product_id": 113,
     "tax_properties": {
-      "alcohol-percentage": "405"
+      "alcohol-percentage": "4.9"
     }
   },
   {
     "product_id": 117,
     "tax_properties": {
-      "alcohol-percentage": "405"
+      "alcohol-percentage": "10"
     }
   }
 ]
@@ -255,13 +255,13 @@ title: Response
     {
       "product_id": 113,
       "tax_properties": {
-        "alcohol-percentage": "405"
+        "alcohol-percentage": "4.9"
       }
     },
     {
       "product_id": 117,
       "tax_properties": {
-        "alcohol-percentage": "800"
+        "alcohol-percentage": "10"
       }
     }
   ],
@@ -315,13 +315,13 @@ title: Response
     {
       "product_id": 113,
       "tax_properties": {
-        "alcohol-percentage": "405"
+        "alcohol-percentage": "4.9"
       }
     },
     {
       "product_id": 117,
       "tax_properties": {
-        "alcohol-percentage": "405"
+        "alcohol-percentage": "10"
       }
     }
   ],
@@ -352,7 +352,7 @@ title: Request
 -->
 
 ```http title="Example request: Delete product tax properties" lineNumbers 
-DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/products/properties?product_id:in=113,117
+DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/products/properties?product_id:in=117
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
