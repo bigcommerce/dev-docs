@@ -14,10 +14,6 @@ Here is a summary of the benefits for using the Tax Properties API:
 * Factor in multiple tax-related fields in tax rates 
 * Give third-party tax providers parity with Avalara
 
-<!-- theme: info -->
-> #### Note >>> use a more specific heading. since this heading is an anchor link, you can reference the callout from anywhere
-> Currently, you can associate tax properties to base products. However, >>> tax properties are not stored on or retrievable with the product object.
-
 This guide demonstrates how you can manage and send tax properties to tax providers for their tax calculations. For more info, see the [Tax Properties API Reference](/api-reference/store-management/tax-properties) and [Tax Provider API Reference](/api-reference/providers/tax-provider-api). 
 
 ## Tax properties
@@ -219,7 +215,7 @@ HTTP 204 No content
 
 ## Product tax properties 
 
-Tax properties can be associated with products, creating a product tax property. To do so, specify the product using its product ID. The `product_id` field has the same value as the `id` field from the [Get all products](/api-reference/store-management/catalog/products/getproducts) endpoint. Note that you can add multiple tax properties for a single product.
+Tax properties can be associated with base products, creating a product tax property. To do so, specify the product using its product ID. The `product_id` field has the same value as the `id` field from the [Get all products](/api-reference/store-management/catalog/products/getproducts) endpoint. Note that you can add multiple tax properties for a single product. Tax properties are not stored on or retrievable with the product object.
 
 ### Update product with tax properties
 
