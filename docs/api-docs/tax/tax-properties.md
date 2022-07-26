@@ -2,15 +2,17 @@
 
 The Tax Properties API allows merchants to attach multiple tax codes to products. These tax codes allow merchants to use more than one tax provider for a given product; for example, a merchant might use one tax provider on a US-based storefront and a different provider for its Australian sales ecosystem. They can also assist merchants who are transitioning between tax providers. 
 
-With the right configuration, tax properties can help merchants send tax providers more detailed product information and help providers send back more accurate tax calculations. Specifically, tax properties are variable: merchants assign a unique value to a tax property depending on product specifics. Merchants can then send tax properties to tax providers through the Tax Provider API so that tax providers have detailed product info for tax calculations.  
+With the right configuration, tax properties can help merchants send tax providers more detailed product information and help providers send back more accurate tax calculations. Specifically, tax properties are variable: merchants assign a unique value to a tax property depending on product specifics. Merchants can then send tax properties to tax providers through the Tax Provider API so that tax providers have the necessary product info for tax calculations. 
 
-* (give third-party tax providers parity with avalara)
-* ~~(allow you to use more than one tax provider)~~
-* ~~(can assist transition to another tax provider)~~
-* specific to a tax provider
-* ~~inputs that merchants can provide into a tax provider's tax calculation~~
-* ~~Receive more accurate tax calculations from third-party tax providers~~
-* tax-related fields factored into their tax rates. 
+Note that merchants must liaise with the tax provider to explore supported tax property values and functions. 
+
+Here is a summary of the benefits for using the Tax Properties API: 
+* Use more than one tax provider for a store
+* Assist a transition to another tax provider
+* Vary inputs into a tax provider's tax calculation
+* Receive more accurate tax calculations from third-party tax providers
+* Factor in multiple tax-related fields in tax rates 
+* Give third-party tax providers parity with Avalara
 
 <!-- theme: info -->
 > #### Note >>> use a more specific heading. since this heading is an anchor link, you can reference the callout from anywhere
