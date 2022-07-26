@@ -73,7 +73,8 @@ You are now ready to begin adding data attributes into the HTML files across you
 
 ### Adding data attributes into Cornerstone’s HTML files
 
-Data attributes must be manually added to a product in order to track shopper events and interactions with a product. Because data attributes collect product data at a very granular level, there will be multiple locations you will have to add attributes on a singular product in order to get a comprehensive look at the product’s data. For example, if you want to, it is imperative to note that you can view a product by clicking any of the following:
+You must manually add data attributes to a product in order to track shopper events and interactions with a product. Because data attributes collect product data at a very granular level, there will be multiple locations you will have to add attributes on a singular product to get a comprehensive look at the product’s data. For example, if you want to, it is imperative to note that you can view a product by clicking any of the following:
+
 
 * The name of the product
 * The **Quick View** button
