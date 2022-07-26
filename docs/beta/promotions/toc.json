@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "type": "divider",
+      "title": "Promotions Beta"
+    },
+    {
+      "type": "item",
+      "title": "Promotions Overview",
+      "uri": "docs/promotions/promotions-overview.md"
+    },
+    {
+      "type": "item",
+      "title": "Currency-specific Promotions",
+      "uri": "docs/promotions/promotions-currency-specific.md"
+    },
+    {
+      "type": "item",
+      "title": "Multi-currency Percentage Promotions",
+      "uri": "docs/promotions/promotions-multi-currency.md"
+    },
+    {
+      "type": "item",
+      "title": "Promotions Code Samples",
+      "uri": "docs/promotions/code-samples.md"
+    },
+    {
+      "type": "item",
+      "title": "Promotions API Reference",
+      "uri": "reference/promotions/promotions-api-reference.yml",
+      "tag": "beta"
+    }
+  ]
+}
