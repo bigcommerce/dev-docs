@@ -363,7 +363,7 @@ HTTP 204 No content
 
 <!-- type: tab-end -->
 
-## Taxes Quotes
+## Tax Quotes
 
 BigCommerce sends product tax properties when we request [tax estimates](/api-reference/providers/tax-provider-api/tax-provider/estimate) from a provider. In the example below, the provider must support the tax property code `alcohol-percentage` for BigCommerce to specify the alcohol compositions for the tax calculation. 
 
