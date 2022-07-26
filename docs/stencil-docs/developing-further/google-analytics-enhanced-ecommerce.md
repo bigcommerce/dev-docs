@@ -22,7 +22,8 @@ If you would like to implement data attributes on your custom theme and do not a
 
 <!-- theme: info -->
 > #### Note 
-> The remainder of this tutorial will be working with the theme’s base folder, `cornerstone`.
+> The remainder of this tutorial uses the theme’s base folder, `cornerstone`.
+
 
 
 ## Adding data attributes
