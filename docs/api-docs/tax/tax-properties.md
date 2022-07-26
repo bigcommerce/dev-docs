@@ -365,9 +365,9 @@ HTTP 204 No content
 
 ## Taxes Quotes
 
-BigCommerce sends product tax properties when we request tax calculations from a provider. In the example below, the provider must support the tax property code `alcohol-percentage` for BigCommerce to specify the alcohol compositions for the tax calculation. 
+BigCommerce sends product tax properties when we request [tax estimates](/api-reference/providers/tax-provider-api/tax-provider/estimate) from a provider. In the example below, the provider must support the tax property code `alcohol-percentage` for BigCommerce to specify the alcohol compositions for the tax calculation. 
 
-BigCommerce also sends product tax properties when we request tax quotes commits and tax quote adjustments from a provider.
+BigCommerce also sends product tax properties when we request [tax quotes commits](/api-reference/providers/tax-provider-api/tax-provider/commit) and [tax quote adjustments](/api-reference/providers/tax-provider-api/tax-provider/adjust) from a provider.
 
 ## Resources 
 
