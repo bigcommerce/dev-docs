@@ -4,7 +4,8 @@ Google Analytics is a free analytics tool that helps you track visitors and conv
 
 Data attributes provide detailed data on the way shoppers interact with your store’s products, but the use cases for data attributes are not limited to product data collection. For example, data attributes can also track whether promotions were viewed or clicked. BigCommerce’s data attributes are powered by [Segment](https://segment.com/docs/destinations/google-analytics/) and [Platform.js](https://github.com/segment-integrations/analytics.js-integration-google-analytics/blob/master/lib/index.js), and send your store’s product data to Google Analytics.
 
-Cornerstone versions 2.6.0+ will have data attributes already included in the theme.
+Cornerstone versions 2.6.0+ have data attributes already included in the theme.
+
 
 <!-- theme: danger -->
 > #### GAEE for Blueprint Themes
