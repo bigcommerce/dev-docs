@@ -2,9 +2,9 @@
 
 The Tax Properties API allows merchants to attach multiple tax codes to products. These tax codes allow merchants to use more than one tax provider for a given product; for example, a merchant might use one tax provider on a US-based storefront and a different provider for its Australian sales ecosystem. They can also assist merchants who are transitioning between tax providers. 
 
-With the right configuration, tax properties can help merchants send tax providers more detailed product information and help providers send back more accurate tax calculations. Specifically, tax properties are variable: merchants assign a distinct value to a tax property depending on product specifics. Merchants can then send tax properties to tax providers through the Tax Provider API so that tax providers have the necessary product info for tax calculations. 
+With the right configuration, tax properties can help merchants send tax providers more detailed product information and help providers send back more accurate tax calculations. Specifically, tax properties are variable: merchants assign a distinct value to a tax property depending on product specifics. This is useful for products, such as alcohol and fuel, whose tax rates vary by product composition. Merchants can then send tax properties to tax providers through the Tax Provider API so that tax providers have the necessary product detail for tax calculations. The examples in this guide expand on this use case.
 
-Note that merchants must liaise with the tax provider to explore supported tax property values and functions. 
+Because tax properties are specific to a tax provider, merchants must liaise with tax providers to explore supported tax properties. In the example above, a provider must support tax properties for alcohol and fuel products for merchants to specify product compositions for tax calculations.
 
 Here is a summary of the benefits for using the Tax Properties API: 
 * Use more than one tax provider for a store
@@ -18,13 +18,13 @@ Here is a summary of the benefits for using the Tax Properties API:
 > #### Note >>> use a more specific heading. since this heading is an anchor link, you can reference the callout from anywhere
 > Currently, you can associate tax properties to base products. However, >>> tax properties are not stored on or retrievable with the product object.
 
-This guide demonstrates how you can manage and send tax properties to tax providers for their tax calculations. For more info, see the [Tax Properties API Reference](/api-reference/store-management/tax-properties) and [Tax Provider API Reference](/api-reference/providers/tax-provider-api).
+This guide demonstrates how you can manage and send tax properties to tax providers for their tax calculations. For more info, see the [Tax Properties API Reference](/api-reference/store-management/tax-properties) and [Tax Provider API Reference](/api-reference/providers/tax-provider-api). 
 
 ## Tax properties
 
-You must first add tax properties, as specified by your tax provider, to the store. The tax provider must provide the `code` for a tax property. Both `code` and `display_name` are required.   
-
 ### Create tax properties
+
+You must first add tax properties, as specified by your tax provider, to the store. The tax provider must provide the `code` for a tax property. Both `code` and `display_name` are required.  
 
 <!--
 type: tab
@@ -198,7 +198,7 @@ title: Request
 -->
 
 ```http title="Example request: Delete tax properties" lineNumbers 
-DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/properties?id:in=1,2
+DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/properties?id:in=2
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
