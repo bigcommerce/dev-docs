@@ -1,6 +1,6 @@
 # Tax Properties for Products
 
-The Tax Properties API allows merchants to attach multiple tax codes to products. These tax codes allow merchants to use more than one tax provider for a given product; for example, a merchant might use one tax provider on a US-based storefront and a different provider for its Australian sales ecosystem. They can also assist merchants who are transitioning between tax providers. 
+The Tax Properties API allows merchants to attach many tax codes to products. These tax codes allow merchants to use more than one tax provider for a given product. For example, a merchant might use a different tax provider for US-based storefronts. They can also assist merchants who are transitioning between tax providers.
 
 With the right configuration, tax properties can help merchants send tax providers more detailed product information and help providers send back more accurate tax calculations. Specifically, tax properties are variable: merchants assign a distinct value to a tax property depending on product specifics. This is useful for products, such as alcohol and fuel, whose tax rates vary by product composition. Merchants can then send tax properties to tax providers through the Tax Provider API so that tax providers have the necessary product detail for tax calculations. The examples in this guide expand on this use case.
 
