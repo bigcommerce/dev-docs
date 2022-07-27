@@ -213,7 +213,9 @@ HTTP 204 No content
 
 ## Product tax properties 
 
-Tax properties can be associated with base products, creating a product tax property. To do so, specify the product using its product ID. The `product_id` field has the same value as the `id` field from the [Get all products](/api-reference/store-management/catalog/products/getproducts) endpoint. Note that you can add multiple tax properties for a single product. Tax properties are not stored on or retrievable with the product object.
+Tax properties can be associated with base products, creating a product tax property. To do so, specify the product using its product ID. The `product_id` field has the same value as the `id` field from the [Get all products](/api-reference/store-management/catalog/products/getproducts) endpoint. Tax properties are not stored on or retrievable with the product object.
+
+You can add multiple tax properties to a single product. To do so, you must have first created each tax property with the [Create Tax Property](/api-reference/store-management/tax-properties/tax-properties/create-tax-properties) endpoint. The following example shows multiple tax properties attached to alcohol products, whose tax rates vary by both alcohol percentage and net volume.  
 
 ### Update product with tax properties
 
@@ -284,7 +286,7 @@ title: Response
 }
 ```
 
-<!-- type: tab-end -->
+<!-- type: tab-end --> 
 
 ### Get product tax properties 
 
