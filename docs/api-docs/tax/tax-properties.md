@@ -232,13 +232,15 @@ Accept: application/json
   {
     "product_id": 113,
     "tax_properties": {
-      "alcohol-percentage": "4.9"
+      "alcohol-percentage": "4.9",
+      "netvolume-mililitres": "400"
     }
   },
   {
     "product_id": 117,
     "tax_properties": {
-      "alcohol-percentage": "10"
+      "alcohol-percentage": "10",
+      "netvolume-mililitres": "200"
     }
   }
 ]
@@ -255,13 +257,15 @@ title: Response
     {
       "product_id": 113,
       "tax_properties": {
-        "alcohol-percentage": "4.9"
+        "alcohol-percentage": "4.9",
+        "netvolume-mililitres": "400"
       }
     },
     {
       "product_id": 117,
       "tax_properties": {
-        "alcohol-percentage": "10"
+        "alcohol-percentage": "10",
+        "netvolume-mililitres": "200"
       }
     }
   ],
@@ -309,13 +313,15 @@ title: Response
     {
       "product_id": 113,
       "tax_properties": {
-        "alcohol-percentage": "4.9"
+        "alcohol-percentage": "4.9",
+        "netvolume-mililitres": "400"
       }
     },
     {
       "product_id": 117,
       "tax_properties": {
-        "alcohol-percentage": "10"
+        "alcohol-percentage": "10",
+        "netvolume-mililitres": "200"
       }
     }
   ],
@@ -387,6 +393,10 @@ BigCommerce sends product tax properties when we request [tax estimates](/api-re
       {
         "code": "alcohol-percentage",
         "value": "4.9"
+      },
+      {
+        "code": "netvolume-mililitres",
+        "value": "400"
       }
     ],
     "type": "item",
