@@ -14,6 +14,7 @@ The following table contains BigCommerce's open source [Handlebars helpers](http
 | [pluck](#pluck) | array | Uses search key to get values from collections. |
 | [cdn](#cdn) | assets | A URL transformer for content delivery networks. |
 | [money](#money) | currency | Formats number length, thousands delimiter, and decimal delimiter. |
+| [moment](#moment) | date | Use [momentjs](https://momentjs.com/) to format and calculate dates. |
 | [getFontLoaderConfig](#getfontloaderconfig) | fonts | Returns font-loader config as a JSON string. |
 | [getFontsCollection](#getfontscollection) | fonts | Returns `<link>` elements for configured fonts. |
 | [encodeHtmlEntities](#encodehtmlentities) | html | Encodes HTML entities. |
@@ -37,6 +38,9 @@ The following table contains BigCommerce's open source [Handlebars helpers](http
 | [if](#if) | logic | Renders block if statement is true. |
 | [or](#or) | logic | Renders block if one or more parameters evaluate to true. |
 | [unless](#unless) | logic | Renders block if a statement evaluates to false. |
+| [option](#option) | misc | Returns the given value of `prop` from `this.options`. |
+| [get](#get) | object| Use property paths (`a.b.c`) to get a value or nested value from the context. |
+| [getObject](#getobject) | object| Use property paths (`a.b.c`) to get an object from the context.  |
 | [concat](#concat) | string | Concatenates two strings. |
 | [join](#join) | string | Joins an array of string elements into one string. |
 | [json](#json) | string | Converts a JavaScript object into a JSON string. |
@@ -241,6 +245,36 @@ As highlighted above, the helper is configured to rewrite *local* URLs to an `as
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/cdn.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=cdn)
+
+
+### {{moment}}
+
+```handlebars
+{{moment date format}}
+```
+
+Use [momentjs](https://momentjs.com/) to format and calculate dates.
+
+
+#### Examples
+
+
+```handlebars
+{{moment "5 hours ago" "MM/DD/YYYY HH:mm"}}
+<!-- example calculation -->
+```
+
+If you encounter an issue with the last day of the month, use one of the following fixes:
+
+```handlebars
+{{moment date format datejs=false}}
+<!-- To disable date.js -->
+```
+
+```handlebars
+{{moment "January 1, 2022" format="YYYY-MM-DD"}}
+<!-- To call moment.js functions -->
+```
 
 ### {{money}}
 
@@ -942,6 +976,52 @@ Renders a block if a statement is false; does not support operators for comparis
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/unless.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=unless)
 
+
+### {{option}}
+
+```handlebars
+<!-- context = {options: {a: {b: {c: 'ddd'}}}} -->
+ * {{option "a.b.c"}}
+ * <!-- results => `ddd` -->
+```
+Returns the given value of prop from `this.options`.
+
+#### Example
+
+```handlebars
+context = {
+   "options":{
+      "a":{
+         "b":{
+            "c":"ddd"
+         }
+      }
+   }
+}
+```
+
+{{option "a.b.c"}} returns "ddd"
+
+
+### {{get}}
+```handlebars
+{{get (concat “a.b.c.d”) someObject}}
+```
+Use property paths (`a.b.c`) to get a value or nested value from the context. Works as a regular helper or block helper. You can use return values from the `concat` helper as property paths.
+
+#### Example
+
+```handlebars
+{{#get "posts" blog}}{{/get}}
+```
+
+### {{getObject}}
+
+```handlebars
+{{#with (getObject "a.b.c" someObject)}}...{{/with}}
+```
+Use property paths (`a.b.c`) to get an object from the context. Differs from the `get` helper in that this helper will return the actual object including the given property key. This helper does not work as a block helper.
+
 ### {{concat}}
 
 ```handlebars
@@ -1400,18 +1480,13 @@ Parse data with JSONparse.
 
 ## Standard helpers
 
-<!-- theme: info -->
-> #### Note
-> The information presented in this section was borrowed from [helpers/handlebars-helpers](https://github.com/helpers/handlebars-helpers).
-
-
 
 The following table contains whitelisted standard Handlebars helpers available to all Stencil themes. Each helper is linked to its GitHub documentation including parameters and examples.
 
 | **Helper** | **Category** | **Description** |
 | --- | --- | --- |
 | [after](https://github.com/helpers/handlebars-helpers#after) | array | Returns all of the items in an array after the specified index. |
-| [arrayify](https://github.com/helpers/handlebars-helpers#arrayify) | array | Casts the given value to an array. |
+| [arrayify](https://github.com/helpers/handlebars-helpers#arrayify)| array | Casts the given value to an array. |
 | [before](https://github.com/helpers/handlebars-helpers#before) | array | Returns all of the items in the collection before the specified count. |
 | [eachIndex](https://github.com/helpers/handlebars-helpers#eachIndex) | array |  |
 | [filter](https://github.com/helpers/handlebars-helpers#filter) | array | Block helper that filters the given array and renders the block for values that evaluate to `true`, otherwise the inverse block is returned. |
@@ -1421,7 +1496,7 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [isArray](https://github.com/helpers/handlebars-helpers#isArray) | array | Returns `true` if value is an es5 array. |
 | [last](https://github.com/helpers/handlebars-helpers#last) | array | Returns the last item, or last `n` items of an array or string. |
 | [length](https://github.com/helpers/handlebars-helpers#length) | array | Returns the length of the given string or array. |
-| [lengthEqual](https://github.com/helpers/handlebars-helpers#lengthEqual) | array | Returns true if the length of the given value is equal to the given `length`. |
+| [lengthEqual](https://github.com/helpers/handlebars-helpers#lengthEqual)| array | Returns true if the length of the given value is equal to the given `length`. |
 | [map](https://github.com/helpers/handlebars-helpers#map) | array | Returns a new array created by calling `function` on each element of the given array. |
 | [some](https://github.com/helpers/handlebars-helpers#some) | array | Block helper that returns the block if the callback returns `true` for some value in the given array. |
 | [sort](https://github.com/helpers/handlebars-helpers#sort) | array | Sorts the given array. If an array of objects is passed, you may optionally pass a `key` to sort on as the second argument.  |
@@ -1431,30 +1506,29 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [withFirst](https://github.com/helpers/handlebars-helpers#withFirst) | array | Uses the first item in a collection inside a handlebars block expression. |
 | [withLast](https://github.com/helpers/handlebars-helpers#withLast) | array | Uses the last item or `n` items in an array as context inside a block. |
 | [withSort](https://github.com/helpers/handlebars-helpers#withSort) | array | Block helper that sorts a collection and exposes the sorted collection as context inside the block. |
-| [isEmpty](https://github.com/helpers/handlebars-helpers#isEmpty) | collection | Inline, subexpression, or block helper that returns `true` (or the block) if the given collection is empty, or `false` (or the inverse block, if supplied) if the collection is not empty. |
+| [isEmpty](https://github.com/helpers/handlebars-helpers#isEmpty)| collection | Inline, subexpression, or block helper that returns `true` (or the block) if the given collection is empty, or `false` (or the inverse block, if supplied) if the collection is not empty. |
 | [iterate](https://github.com/helpers/handlebars-helpers#iterate) | collection | Block helper that iterates over an array or object. If an array is given, `.forEach` is called, or if an object is given, `.forOwn` is called, otherwise the inverse block is returned. |
 | [and](https://github.com/helpers/handlebars-helpers#and) | comparison | Helper that renders the block if both of the given values are truthy. If an inverse block is specified it will be rendered when falsy. |
 | [default](https://github.com/helpers/handlebars-helpers#default) | comparison | Returns the first value that is not undefined, otherwise the default value is returned. |
 | [eq](https://github.com/helpers/handlebars-helpers#eq) | comparison | Block helper that renders a block if `a` is equal to `b`. If an inverse block is specified it will be rendered when falsy. |
-| [gt](https://github.com/helpers/handlebars-helpers#gt) | comparison | Block helper that renders a block if `a` is greater than `b`. If an inverse block is specified, it will be rendered when falsy. |
+| [gt](https://github.com/helpers/handlebars-helpers#gt) | comparison | Block helper that renders a block if `a` is greater than `b`. If an inverse block is specified, it will be rendered when false. |
 | [gte](https://github.com/helpers/handlebars-helpers#gte) | comparison | Block helper that renders a block if `a` is greater than or equal to `b`. If an inverse block is specified it will be rendered when falsy. |
 | [has](https://github.com/helpers/handlebars-helpers#has) | comparison | Block helper that renders a block if value has pattern. If an inverse block is specified it will be rendered when falsy. |
 | [ifEven](https://github.com/helpers/handlebars-helpers#ifEven) | comparison | Returns `true` if the given value is an even number. |
 | [ifNth](https://github.com/helpers/handlebars-helpers#ifNth) | comparison | Conditionally renders a block if the remainder is zero when `a` operand is divided by `b`. If an inverse block is specified it will be rendered when the remainder is not zero. |
 | [ifOdd](https://github.com/helpers/handlebars-helpers#ifOdd) | comparison | Block helper that renders a block if value is an odd number. If an inverse block is specified it will be rendered when falsy. |
-| [is](https://github.com/helpers/handlebars-helpers#is) | comparison | Block helper that renders a block if `a` is equal to `b`. If an inverse block is specified it will be rendered when falsy. Similar to [eq](https://github.com/helpers/handlebars-helpers#eq) but does not do strict equality.|
-| [isnt](https://github.com/helpers/handlebars-helpers#isnt)| comparison | Block helper that renders a block if `a` is not equal to `b`. If an inverse block is specified it will be rendered when falsy. Similar to [unlessEq](https://github.com/helpers/handlebars-helpers#unlessEq) but does not use strict equality for comparisons. |
+| [is](https://github.com/helpers/handlebars-helpers#is) | comparison | Block helper that renders a block if `a` is equal to `b`. If an inverse block is specified it will be rendered when falsy. Similar to eq but does not do strict equality.|
+| [isnt](https://github.com/helpers/handlebars-helpers#isnt) | comparison | Block helper that renders a block if `a` is not equal to `b`. If an inverse block is specified it will be rendered when falsy. Similar to unlessEq but does not use strict equality for comparisons. |
 | [lt](https://github.com/helpers/handlebars-helpers#lt) | comparison | Block helper that renders a block if `a` is less than `b`. If an inverse block is specified it will be rendered when falsy. |
 | [lte](https://github.com/helpers/handlebars-helpers#lte) | comparison | Block helper that renders a block if `a` is less than or equal to `b`. If an inverse block is specified it will be rendered when falsy.|
-| [neither](https://github.com/helpers/handlebars-helpers#neither)| comparison | Block helper that renders a block if neither of the given values are truthy. If an inverse block is specified it will be rendered when falsy. |
+| [neither](https://github.com/helpers/handlebars-helpers#neither) | comparison | Block helper that renders a block if neither of the given values are truthy. If an inverse block is specified it will be rendered when falsy. |
 | [unlessEq](https://github.com/helpers/handlebars-helpers#unlessEq) | comparison | Block helper that always renders the inverse block unless `a` is equal to `b`.|
 | [unlessGt](https://github.com/helpers/handlebars-helpers#unlessGt) | comparison | Block helper that always renders the inverse block unless `a` is greater than `b`.|
-| [unlessLt](https://github.com/helpers/handlebars-helpers#unlessLt)| comparison | Block helper that always renders the inverse block unless `a` is less than `b`. |
+| [unlessLt](https://github.com/helpers/handlebars-helpers#unlessLt) | comparison | Block helper that always renders the inverse block unless `a` is less than `b`. |
 | [unlessGteq](https://github.com/helpers/handlebars-helpers#unlessGteq) | comparison | Block helper that always renders the inverse block unless `a` is greater than or equal to `b`. |
 | [unlessLteq](https://github.com/helpers/handlebars-helpers#unlessLteq) | comparison | Block helper that always renders the inverse block unless `a` is less than or equal to `b`.|
-| [moment](https://github.com/helpers/handlebars-helpers#moment)| date | Use [moment](https://momentjs.com/) as a helper. |
 | [sanitize](https://github.com/helpers/handlebars-helpers#sanitize) | html | Strips HTML tags from a string, so that only the text nodes are preserved.|
-| [ul](https://github.com/helpers/handlebars-helpers#ul)| html | Block helper for creating unordered lists (`<ul></ul>`). |
+| [ul](https://github.com/helpers/handlebars-helpers#ul) | html | Block helper for creating unordered lists (`<ul></ul>`). |
 | [ol](https://github.com/helpers/handlebars-helpers#ol) | html | Block helper for creating ordered lists (`<ol></ol>`). |
 | [thumbnailImage](https://github.com/helpers/handlebars-helpers#thumbnailImage) | html | Returns a `<figure>` with a thumbnail linked to a full picture. |
 | [inflect](https://github.com/helpers/handlebars-helpers#inflect) | inflection | Returns either the singular or plural inflection of a word based on the given count. |
@@ -1462,22 +1536,21 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [markdown](https://github.com/helpers/handlebars-helpers#markdown) | markdown | Block helper that converts a string of inline markdown to HTML. |
 | [add](https://github.com/helpers/handlebars-helpers#add) | math | Returns the sum of `a` plus `b`. |
 | [avg](https://github.com/helpers/handlebars-helpers#avg) | math| Returns the average of all numbers in the given array. |
-| [ceil](https://github.com/helpers/handlebars-helpers#ceil) | math| Returns the `Math.ceil()` of the given value. |
-| [divide](https://github.com/helpers/handlebars-helpers#divide) | math| Divides `a` by `b`. |
+| [ceil](https://github.com/helpers/handlebars-helpers#ceil)  | math| Returns the `Math.ceil()` of the given value. |
+| [divide](https://github.com/helpers/handlebars-helpers#divide)| math| Divides `a` by `b`. |
 | [floor](https://github.com/helpers/handlebars-helpers#floor) | math | Returns the `Math.floor()` of the given value. |
 | [multiply](https://github.com/helpers/handlebars-helpers#multiply) | math | Returns the product of `a` times `b`. |
 | [random](https://github.com/helpers/handlebars-helpers#random) | math | Generates a random number between two values. |
 | [round](https://github.com/helpers/handlebars-helpers#round) | math | Rounds the given number. |
 | [subtract](https://github.com/helpers/handlebars-helpers#subtract) | math | Returns the product of `a` minus `b`. |
 | [sum](https://github.com/helpers/handlebars-helpers#sum) | math | Returns the sum of all numbers in the given array. |
-| [option](https://github.com/helpers/handlebars-helpers#option) | misc | Returns the given value of `prop` from `this.options`. |
 | [noop](https://github.com/helpers/handlebars-helpers#noop) | misc | Block helper that renders the block without taking any arguments. |
 | [withHash](https://github.com/helpers/handlebars-helpers#withHash) | misc| Block helper that builds the context for the block from the options hash. |
 | [addCommas](https://github.com/helpers/handlebars-helpers#addCommas) | number | Adds commas to numbers. |
 | [phoneNumber](https://github.com/helpers/handlebars-helpers#phoneNumber) | number | Converts a string or number to a formatted phone number. |
 | [toAbbr](https://github.com/helpers/handlebars-helpers#toAbbr) | number | Abbreviates numbers to the given number of precision. This is for general numbers, not size in bytes. |
 | [toExponential](https://github.com/helpers/handlebars-helpers#toExponential) | number | Returns a string representing the given number in exponential notation. |
-| [toFixed](https://github.com/helpers/handlebars-helpers#toFixed) |number| Formats the given number using fixed-point notation. |
+| [toFixed](https://github.com/helpers/handlebars-helpers#toFixed)|number| Formats the given number using fixed-point notation. |
 | [toFloat](https://github.com/helpers/handlebars-helpers#toFloat) | number | |
 | [toInt](https://github.com/helpers/handlebars-helpers#toInt) | number | |
 | [toPrecision](https://github.com/helpers/handlebars-helpers#toPrecision) |number| Returns a string representing the `Number` object to the specified precision. |
@@ -1485,19 +1558,17 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [forIn](https://github.com/helpers/handlebars-helpers#forIn) | object | Block helper that iterates over the properties of an object exposing each key and value on the context. |
 | [forOwn](https://github.com/helpers/handlebars-helpers#forOwn) |object| Block helper that iterates over the own properties of an object, exposing each key and value on the context. |
 | [toPath](https://github.com/helpers/handlebars-helpers#toPath) | object | Takes arguments and, if they are string or number, converts them to a dot-delineated object property path. |
-| [get](https://github.com/helpers/handlebars-helpers#get) | object | Use property paths (`a.b.c`) to get a value or nested value from the context. Works as a regular helper or block helper. |
-| [getObject](https://github.com/helpers/handlebars-helpers#getObject) |object| Use property paths (`a.b.c`) to get an object from the context. Differs from the [get](https://github.com/helpers/handlebars-helpers#get) helper in that this helper will return the actual object including the given property key. This helper does not work as a block helper. |
 | [hasOwn](https://github.com/helpers/handlebars-helpers#hasOwn) | object | Returns `true` if `key` is an own, enumerable property of the given context object. |
 | [isObject](https://github.com/helpers/handlebars-helpers#isObject) | object | Returns `true` if value is an object. |
 | [JSONparse](#jsonparse) | object | Parses the given string using `JSON.parse`. |
-| [JSONstringify](https://github.com/helpers/handlebars-helpers#JSONstringify) | object | Stringifies an object using `JSON.stringify`. |
+| [JSONstringify](https://github.com/helpers/handlebars-helpers#JSONstringify)  | object | Stringifies an object using `JSON.stringify`. |
 | [merge](https://github.com/helpers/handlebars-helpers#merge) |object| Deeply merges the properties of the given objects with the context object. |
 | [pick](https://github.com/helpers/handlebars-helpers#pick) | object | Picks properties from the context object. |
 | [camelcase](https://github.com/helpers/handlebars-helpers#camelcase) |string| camelCase the characters in the given string. |
 | [capitalize](https://github.com/helpers/handlebars-helpers#capitalize) | string | Capitalizes the first word in a sentence. |
 | [capitalizeAll](https://github.com/helpers/handlebars-helpers#capitalizeAll) | string | Capitalizes all words in a string. |
 | [center](https://github.com/helpers/handlebars-helpers#center) |string| Centers a string using non-breaking spaces. |
-| [chop](https://github.com/helpers/handlebars-helpers#chop) | string | Like [trim](https://github.com/helpers/handlebars-helpers#trim), but removes both extraneous whitespace and non-word characters from the beginning and end of a string. |
+| [chop](https://github.com/helpers/handlebars-helpers#chop) | string | Like trim, but removes both extraneous whitespace and non-word characters from the beginning and end of a string. |
 | [dashcase](https://github.com/helpers/handlebars-helpers#dashcase) | string | Replaces non-word characters and periods with hyphens. |
 | [dotcase](https://github.com/helpers/handlebars-helpers#dotcase) | string | `dot.case` the characters in a string. |
 | [ellipsis](https://github.com/helpers/handlebars-helpers#ellipsis) | string | Truncates a string to the specified length, and appends it with an elipsis, `…`. |
@@ -1524,7 +1595,7 @@ The following table contains whitelisted standard Handlebars helpers available t
 
 ## Contributing to helpers
 
-BigCommerce's [custom Handlebars helpers](https://github.com/bigcommerce/paper-handlebars/tree/master/helpers) are open source. To contribute, make a pull request to [bigcommerce/paper-handlebars](https://github.com/bigcommerce/paper-handlebars).
+BigCommerce's custom Handlebars helpers are open source. To contribute, make a pull request to [bigcommerce/paper-handlebars](https://github.com/bigcommerce/paper-handlebars).
 
 ## Resources
 
