@@ -387,9 +387,9 @@ BigCommerce sends product tax properties to request [tax estimates](/api-referen
     },
     "quantity": 1,
     "tax_class": {
-      "code": "example code",
+      "code": "custom-tax",
       "class_id": "1",
-      "name": "example tax class"
+      "name": "Custom Tax"
     },
     "tax_properties": [
       {
