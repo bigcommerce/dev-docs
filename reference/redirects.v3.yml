@@ -127,10 +127,11 @@ paths:
             properties:
               data:
                 type: array
-                items:
-                  $ref: '#/definitions/301RedirectRead'
+                description: Empty array
+                items: {}
               meta:
-                $ref: '#/definitions/MetaPaginationObject'
+                type: object
+                description: Empty object
           examples:
             example-1:
               data: []

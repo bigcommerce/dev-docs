@@ -49,6 +49,7 @@ info:
     | `etsy`            | `marketplace`             |
     | `wish`            | `marketplace`             |
     | `walmart`         | `marketplace`             |
+    | `bigcommerce`     | `storefront`              |
     | `gatsby`          | `storefront`              |
     | `wordpress`       | `storefront`              |
     | `drupal`          | `storefront`              |
