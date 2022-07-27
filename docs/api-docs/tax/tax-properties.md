@@ -4,21 +4,21 @@ The Tax Properties API allows merchants to attach many tax codes to products. Th
 
 When configured, tax properties help merchants send tax providers more detailed product information.  Tax properties are variable: merchants assign a distinct value depending on product specifics. This is useful for products, such as alcohol and fuel, whose tax rates vary by product composition. Providers can then provide more accurate tax calculations. The examples in this guide expand on this use case.
 
-This guide demonstrates how you can manage tax properties. Tax properties are specific to a tax provider. Thus, merchants must liaise with tax providers to explore supported tax properties. For more info, see the [Tax Properties API Reference](/api-reference/store-management/tax-properties) and [Tax Provider API Reference](/api-reference/providers/tax-provider-api). 
+This guide demonstrates how you can manage tax properties. Tax properties are specific to a tax provider. Thus, merchants must liaise with tax providers to explore supported tax properties. For more info, see the [Tax Properties API Reference](/api-reference/store-management/tax-properties) and the [Tax Provider API Reference](/api-reference/providers/tax-provider-api). 
 
 Here is a summary of use cases for using the Tax Properties API: 
 * Use more than one tax provider for a store
 * Assist a transition to another tax provider
 * Vary inputs into a tax provider's tax calculation
 * Receive more accurate tax calculations from third-party tax providers
-* Factor in multiple tax-related fields in tax rates 
+* Factor in many tax-related fields in tax rates 
 * Give third-party tax providers parity with Avalara
 
 ## Tax properties
 
 ### Create tax properties
 
-You must first add tax properties, as specified by your tax provider, to the store. The tax provider must provide the `code` for a tax property. Both `code` and `display_name` are required.  
+You must first add tax properties to the store. This requires the property's `code` and `display_name`. The tax provider must provide the `code` for a tax property.  
 
 <!--
 type: tab
@@ -76,11 +76,11 @@ title: Response
 
 <!-- type: tab-end -->
 
-The response provides an `id` for each tax property which you can use to get, update, or delete a specific tax property.
+The response provides an `id` for each tax property. Use the `id` to get, update, or delete a specific tax property.
 
 ### Update tax properties
 
-You may update a tax property's `code`, `display_name`, and `description`. Only fields that you specify will be updated.   
+You may update a tax property's `code`, `display_name`, and `description`. This updates only fields that you specify.   
 
 <!--
 type: tab
@@ -213,9 +213,9 @@ HTTP 204 No content
 
 ## Product tax properties 
 
-Tax properties can be associated with base products, creating a product tax property. To do so, specify the product using its product ID. The `product_id` field has the same value as the `id` field from the [Get all products](/api-reference/store-management/catalog/products/getproducts) endpoint. Tax properties are not stored on or retrievable with the product object.
+You can attach tax properties to base products to create a product tax property. To do so, specify the product using its `product_id`. The `product_id` is the `id` from the [Get all products](/api-reference/store-management/catalog/products/getproducts) endpoint. Tax properties are not stored on or retrievable with the product object.
 
-You can add multiple tax properties to a single product. To do so, you must have first created each tax property with the [Create Tax Property](/api-reference/store-management/tax-properties/tax-properties/create-tax-properties) endpoint. The following example shows multiple tax properties attached to alcohol products, whose tax rates vary by both alcohol percentage and net volume.  
+You can add many tax properties to a single product. To do so, you first create each tax property with the [Create Tax Property](/api-reference/store-management/tax-properties/tax-properties/create-tax-properties) endpoint. The following example shows many tax properties attached to alcohol products. The tax rate of alcohol products vary by both alcohol percentage and net volume.    
 
 ### Update product with tax properties
 
@@ -290,7 +290,7 @@ title: Response
 
 ### Get product tax properties 
 
-To get the tax properties associated with a product, you must specify the `product_id` for the products in the query. 
+You can get the tax properties attached to products. To do so, specify the `product_id` for the products in the query. 
 
 <!--
 type: tab
@@ -346,7 +346,7 @@ title: Response
 
 ### Delete product tax properties
 
-You can disassociate tax properties from a product. To do so, you must specify the `product_id` for the products in the query. This disassociates all the tax properties from a product. 
+You can disassociate tax properties from a product. To do so, specify the `product_id` for the products in the query. This disassociates all the tax properties from a product. 
 
 <!--
 type: tab
@@ -373,7 +373,7 @@ HTTP 204 No content
 
 ## Tax Quotes
 
-BigCommerce sends product tax properties when we request [tax estimates](/api-reference/providers/tax-provider-api/tax-provider/estimate) from a provider. Tax properties are sent for each item in a consignment. In the example below, the provider must support the tax property code `alcohol-percentage` for BigCommerce to specify the alcohol compositions for the tax calculation. 
+BigCommerce sends product tax properties to request [tax estimates](/api-reference/providers/tax-provider-api/tax-provider/estimate) from a provider. The requests include tax properties for each item in a consignment. 
 
 ```json title="Example request: Tax estimates with product tax properties" lineNumbers
 \\ Tax properties for an item in a consignment
@@ -406,8 +406,7 @@ BigCommerce sends product tax properties when we request [tax estimates](/api-re
   }
 ]
 ```
-
-BigCommerce also sends product tax properties when we request [tax quotes commits](/api-reference/providers/tax-provider-api/tax-provider/commit) and [tax quote adjustments](/api-reference/providers/tax-provider-api/tax-provider/adjust) from a provider.
+BigCommerce also sends product tax properties to [commit](/api-reference/providers/tax-provider-api/tax-provider/commit) and [adjust tax quotes](/api-reference/providers/tax-provider-api/tax-provider/adjust). 
 
 ## Resources 
 
