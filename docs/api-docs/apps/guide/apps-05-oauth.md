@@ -1,19 +1,17 @@
 # Single-Click App OAuth Flow
-If you're developing a single-click app, you'll need to handle the OAuth flow that begins when a merchant clicks **Install**. This article contains the technical details necessary to do so. If you don't want to start from scratch, see [Helpful tools](#helpful-tools) for a list of API clients that expose OAuth-related helper methods. This documentation assumes you're an experienced developer familiar with web app authentication. If this is your first time working with OAuth, see [Additional resources](#additional-resources) for links to introductory articles on the [OAuth framework](https://tools.ietf.org/html/rfc6749).
 
-## Helpful tools
 
-The following BigCommerce API clients expose helper methods for fetching an OAuth `access_token`:
-* [bigcommerce/bigcommerce-api-python](https://github.com/bigcommerce/bigcommerce-api-python)
-  * Fetches `access_token`
-  * Verifies `signed_payload_jwt`
-* [bigcommerce/node-bigcommerce](https://github.com/bigcommerce/node-bigcommerce/)
-  * Fetches `access_token`
-  * Verifies `signed_payload_jwt`
-* [bigcommerce/bigcommerce-api-php](https://github.com/bigcommerce/bigcommerce-api-php)
-  * Fetches `access_token`
-* [bigcommerce/omniauth-bigcommerce](https://github.com/bigcommerce/omniauth-bigcommerce)
-  * Fetches `access_token`
+
+* each store needs its own access token
+* your app's API must expose a callback endpoint at GET /auth that BigCommerce can hit to generate and regenerate a store's access token
+* currently can't regenerate arbitrarily; only in response to the following events:
+  * app API account's OAuth scopes change
+  * store owner's email address changes
+* BigCommerce hits this callback endpoint on **Install** (and reinstall?)
+* uses a ((slightly?) modified?) code grant authorization flow
+
+
+When you develop a single-click app, you'll need to handle the OAuth flow that begins when a merchant clicks **Install**. This article contains the technical details necessary to do so. If you don't want to start from scratch, see [Helpful tools](#helpful-tools) for a list of API clients that expose OAuth-related helper methods. This documentation assumes you're an experienced developer familiar with web app authentication. If this is your first time working with OAuth, see [Additional resources](#additional-resources) for links to introductory articles on the [OAuth framework](https://tools.ietf.org/html/rfc6749).
 
 ## OAuth summary
 
@@ -74,6 +72,8 @@ Upon receiving the `GET` request at the auth callback URL, your app should retur
 POST https://login.bigcommerce.com/oauth2/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 186
+
+>>> booker verified that this supports JSON post
 
 client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&code=qr6h3thvbvag2ffq&scope=store_v2_orders&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/{STORE_HASH}
 ```
@@ -168,6 +168,21 @@ $token = $response->access_token;
 * Implement CSRF protection on redirect URI.
 
 For additional details, see [Security Considerations in RC 6749](https://tools.ietf.org/html/rfc6749#section-10). For a list of the top web application security risks and best practices for avoiding them, see [OWASP Top Ten](https://owasp.org/www-project-top-ten/).
+
+
+## Helpful tools
+
+The following BigCommerce API clients expose helper methods for fetching an OAuth `access_token`:
+* [bigcommerce/bigcommerce-api-python](https://github.com/bigcommerce/bigcommerce-api-python)
+  * Fetches `access_token`
+  * Verifies `signed_payload_jwt`
+* [bigcommerce/node-bigcommerce](https://github.com/bigcommerce/node-bigcommerce/)
+  * Fetches `access_token`
+  * Verifies `signed_payload_jwt`
+* [bigcommerce/bigcommerce-api-php](https://github.com/bigcommerce/bigcommerce-api-php)
+  * Fetches `access_token`
+* [bigcommerce/omniauth-bigcommerce](https://github.com/bigcommerce/omniauth-bigcommerce)
+  * Fetches `access_token`
 
 ## Next step
 * [Handle load, uninstall, and remove user callbacks](/api-docs/apps/guide/callbacks)
