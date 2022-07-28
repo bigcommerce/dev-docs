@@ -4,7 +4,7 @@ stoplight-id: 8093a34240fc9
 
 # Store Logs API
 
-The Store Logs API allows merchants track events in their store.  Each event creates an entry in the log. Merchants can send these entries into external systems to process events over time. For example, merchants can see how often they request shipping quotes from a carrier. They can also catch errors that occur on their store.
+The Store Logs API allows merchants to track events in their store.  Each event creates an entry in the log. Merchants can send these entries into external systems to process events over time. For example, merchants can see how often they request shipping quotes from a carrier. They can also catch errors that occur on their store.
 
 The store log tracks events from all storefront channels. Examples of events include sign-ups for newsletters and changes to an order status. Merchants can retrieve entries for 365 days after their timestamp. 
 
@@ -77,7 +77,7 @@ title: Response
 
 ### Filter by type 
 
-To filter the entries by type, use the `type` query parameter. Examples of log type include `general`, `payment`, and `shipping`. For a list of log types, consult the [API endpoint reference](/api-reference/store-management/store-logs/system-logs/get-system-logs).  The following example requests `design`-type entries: 
+The store log categorizes entries into various types. For example, requesting shipping quotes at checkout creates a `shipping` entry. You can filter entries by type. To do so, use the type query parameter. Below is an example of how to retrieve shipping entries:
 
 <!--
 type: tab
@@ -135,6 +135,7 @@ title: Response
 
 <!-- type: tab-end -->
 
+For a list of log types, consult the [API endpoint reference](/api-reference/store-management/store-logs/system-logs/get-system-logs). 
 
 ### Filter by module 
 
