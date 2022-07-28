@@ -15,6 +15,7 @@ The following table lists the app management events and corresponding endpoints 
 
 | Endpoint           | Required? | Event Description                                         |
 |:-------------------|:---------:|:----------------------------------------------------------|
+| `GET /auth`        | yes       | See [Implement the OAuth flow](/api-docs/apps/guide/auth) |
 | `GET /load`        | yes       | The store owner or authorized user clicks to load the app |
 | `GET /uninstall`   | no        | The store owner clicks to uninstall the app               |
 | `GET /remove_user` | no        | The store owner revokes a user's access to the app        |
@@ -26,42 +27,50 @@ Decoding the supplied JWT lets your app do the following:
 
 <!-- theme: info -->
 > #### Note
-> We strongly recommend that each callback handler decode `signed_payload_jwt` to [verify the payload](#decode-and-verify-the-jwt) before taking any action.
+> We strongly recommend that each callback handler decode `signed_payload_jwt` to [verify the payload](#decode-and-verify-signed_payload_jwt) before taking any action.
 
 
 ## Open the app with /load
 
-Once the store owner installs your app, it appears on the **Apps** sub-menu list in their store's control panel, as well as their authorized users' control panels. When a user clicks your app's listing, BigCommerce dispatches a `GET` request to the `/load` route you've written. The following is an example request:
+Once the store owner installs your app, it appears on the **Apps** sub-menu list in their store control panel, as well as their authorized users' control panels. When a user clicks your app's listing, BigCommerce dispatches a `GET` request to the `/load` route you've written. The following is an example request:
 
 ```http title="Load GET request from BigCommerce to your app"
-GET /load?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
+GET /load?signed_payload_jwt=header_b64.payload_claims_b64.signature_b64 HTTP/1.1
 Host: your_app.example.com
 ```
 
-After you [verify the payload](#decode-and-verify-the-jwt), [identify the requesting user](#work-with-payload-claims), and handle any internal business, your app should respond with the markup and assets for the view that you want BigCommerce to render in the control panel.
+```http title="Example request: GET /load"
+GET https://your_app.example.com/stores/{{STORE_HASH}}/v... # endpoint
+X-Auth-Token: {{access_token}}
+Accept: application/json
+```
+
+
+After you [verify the payload](#decode-and-verify-signed_payload_jwt), [identify the requesting user](#work-with-payload-claims), and handle any internal business, your app should respond with the markup and assets for the view that you want BigCommerce to render in the control panel.
 
 ## Remove the app with /uninstall
 
-When the store owner clicks the **Uninstall** button on your app's card in their store's control panel, BigCommerce dispatches a `GET` request to the `/uninstall` route you've written. The following is an example request:
+When the store owner clicks the **Uninstall** button on your app's card in their store control panel, BigCommerce dispatches a `GET` request to the `/uninstall` route you've written. The following is an example request:
 
 ```http title="Uninstall GET request from BigCommerce to your app"
-GET /uninstall?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
+GET /uninstall?signed_payload_jwt=header_b64.payload_claims_b64.signature_b64 HTTP/1.1
 Host: your_app.example.com
 ```
 
-After you [verify the payload](#decode-and-verify-the-jwt) and [identify the requesting user](#work-with-payload-claims), handle any business internal to your app, such as marking the user inactive in your app's database or decrementing the number of active installations. You do not need to send a response. If you do not write a handler for the `GET /uninstall` endpoint, BigCommerce will still uninstall your app from the owner's store, but your app will not know that.
+After you [verify the payload](#decode-and-verify-signed_payload_jwt) and [identify the requesting user](#work-with-payload-claims), handle any business internal to your app, such as marking the user inactive in your app's database or decrementing the number of active installations. You do not need to send a response. If you do not write a handler for the `GET /uninstall` endpoint, BigCommerce will still uninstall your app from the owner's store, but your app will not know that.
+
 ## Revoke user access with /remove_user
 
 When the store owner revokes a user's authorization to access your app at **Account Settings** **>** **Users** in the store control panel, BigCommerce dispatches a `GET` request to the `/remove_user` route you've written.
 
 ```http title="Remove user GET request from BigCommerce to your app"
-GET /remove_user?signed_payload_jwt=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
+GET /remove_user?signed_payload_jwt=header_b64.payload_claims_b64.signature_b64 HTTP/1.1
 Host: your_app.example.com
 ```
 
-After you [verify the payload](#decode-and-verify-the-jwt) and [identify the requesting user](#work-with-payload-claims), handle any business internal to your app, such as removing the user's data from your app's database. You do not need to send a response. If you do not write a handler for the `GET /remove_user` endpoint, BigCommerce will still revoke the user's access to your app in the store control panel, but your app will not know that.
 
 
+After you [verify the payload](#decode-and-verify-signed_payload_jwt) and [identify the requesting user](#work-with-payload-claims), handle any business internal to your app, such as removing the user's data from your app's database. You do not need to send a response. If you do not write a handler for the `GET /remove_user` endpoint, BigCommerce will still revoke the user's access to your app in the store control panel, but your app will not know that.
 
 ## Decode and verify signed_payload_jwt
 
@@ -117,6 +126,7 @@ Use the payload claims' data to identify the store and user. What your app shoul
 | `GET /remove_user` | Compare user to users stored in app database; remove matching user from database. | N/A |
 
 ## Helpful tools
+>>> do all the API clients expose helper methods for verifying `signed_payload_jwt`s?
 The following BigCommerce API clients expose helper methods for verifying the `signed_payload_jwt`:
 * [bigcommerce/bigcommerce-api-python](https://github.com/bigcommerce/bigcommerce-api-python)
   * Fetches `access_token`
