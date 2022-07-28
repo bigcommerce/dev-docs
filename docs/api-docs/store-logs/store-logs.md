@@ -85,7 +85,7 @@ title: Request
 -->
 
 ```http title="Example request: Filter by type" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?type=design
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?type=shipping
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -100,22 +100,22 @@ title: Response
 {
   "data": [
     {
-      "id": 1,
-      "type": "design",
-      "module": "Theme Download",
+      "id": 7,
+      "type": "shipping",
+      "module": "FedEx Ground Home Delivery (5-7 Business Days) (flatrate)",
       "severity": "success",
-      "summary": "user@example.com Downloaded Cornerstone-6.2.0.zip, 2zs05d70-3fb3-113m-43t0-179242c3acd9",
-      "message": "user@example.com Downloaded Cornerstone-6.2.0.zip, 2zs05d70-3fb3-113m-43t0-179242c3acd9",
-      "date_created": "2021-12-16T19:10:26+00:00"
+      "summary": "Successfully retrieved shipping quote",
+      "message": "{\"quoteId\":\"2470214433\",\"cacheInfo\":\"cached for 3600s\",\"customerGroup\":{\"id\":4,\"name\":\"Wholesale Customers\"},\"customerEmail\":\"customer@example.com\",\"customerId\":4,\"destination\":{\"streetAddress1\":\"123 Example Street\",\"streetAddress2\":\"\",\"city\":\"Austin\",\"postcode\":\"12345\",\"stateName\":\"Texas\",\"stateIso2\":\"TX\",\"countryIso2\":\"US\",\"addressType\":\"residential\"},\"items\":[{\"name\":\"example product (ABC-1234)\",\"id\":\"23\",\"quantity\":2,\"weight\":32,\"width\":4,\"height\":4,\"length\":4,\"attributes\":[],\"omittedReason\":\"\"}],\"groupedResults\":{\"flatrate\":{\"rates\":[{\"handling\":0,\"price\":3,\"description\":\"FedEx Ground Home Delivery (5-7 Business Days)\",\"additionalDescription\":\"\"}],\"carrierType\":\"flatrate\"}},\"settings\":[]}",
+      "date_created": "2021-12-22T23:44:15+00:00"
     },
     {
-      "id": 6,
-      "type": "design",
-      "module": "Theme Download",
-      "severity": "success",
-      "summary": "user@example.com Downloaded LifeStyle-1.4.1.zip, 8e2a49c1-f85d-3149-ghce-5e2ba6d55p34",
-      "message": "user@example.com Downloaded LifeStyle-1.4.1.zip, 8e2a49c1-f85d-3149-ghce-5e2ba6d55p34",
-      "date_created": "2021-12-22T15:27:09+00:00"
+      "id": 92,
+      "type": "shipping",
+      "module": "USPS (endicia)",
+      "severity": "errors",
+      "summary": "Some shipping quotes were not able to be retrieved",
+      "message": "{\"errorDetail\":\"[\\\"Account ID example_id is invalid. Error encountered (Log ID: 62407)\\\"]\",\"quoteId\":\"1659036199\",\"cacheInfo\":\"cached for 3600s\",\"customerGroup\":{\"id\":3,\"name\":\"Retail Customers\"},\"customerEmail\":\"customer2@example.com\",\"customerId\":1,\"destination\":{\"streetAddress1\":\"123 Example St\",\"streetAddress2\":\"\",\"city\":\"Austin\",\"postcode\":\"12345\",\"stateName\":\"Texas\",\"stateIso2\":\"TX\",\"countryIso2\":\"US\",\"addressType\":\"residential\"},\"items\":[{\"name\":\"example product (ABC-1234)\",\"id\":\"23\",\"quantity\":3,\"weight\":32,\"width\":4,\"height\":4,\"length\":4,\"attributes\":[],\"omittedReason\":\"\"},{\"name\":\"example product 2 (ABC-1111)\",\"id\":\"113\",\"quantity\":2,\"weight\":2000,\"width\":2,\"height\":2,\"length\":2,\"attributes\":[],\"omittedReason\":\"\"}],\"settings\":{\"deliveryServices\":[\"PriorityExpress\",\"ParcelSelect\",\"MediaMail\"]}}",
+      "date_created": "2022-07-28T19:23:19+00:00"
     }
   ],
   "meta": {
