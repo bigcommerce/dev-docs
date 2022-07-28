@@ -4,20 +4,15 @@ stoplight-id: 8093a34240fc9
 
 # Store Logs API
 
-The Store Logs API allows merchants track events in their store.  Each event creates an entry in the system log. Merchants can send these events into external systems to process events over time. For example, merchants can see how often they request shipping quotes from a carrier. They can also catch errors that occur on their store.
+The Store Logs API allows merchants track events in their store.  Each event creates an entry in the log. Merchants can send these events into external systems to process events over time. For example, merchants can see how often they request shipping quotes from a carrier. They can also catch errors that occur on their store.
 
 The store log tracks events from all storefront channels. Examples of events include sign-ups for newsletters and changes to an order status. Merchants can retrieve entries for 365 days after their timestamp. 
 
 This guide shows you how to retrieve store logs with various filters. For more info, see the [Store Logs API reference](/api-reference/store-management/store-logs). 
 
+## Get store logs
 
-## Get system logs
-
-Send a request to the [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs) endpoint. 
-
-### Get unfiltered entries
-
-You can get entries that were created within the past 365 days. When you use no query parameters in your request, the API returns 20 entries with the earliest timestamp. The entries are ordered from the earliest to latest timestamp.
+Send a request to the [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs) endpoint. The API returns 20 entries with the earliest timestamp. The entries are ordered from the earliest to latest timestamp.
 
 ### Filter by log ID
 
