@@ -1,22 +1,32 @@
 # Price List API
 
 
-## What is a price list?
+Price lists allow merchants to sell the same product at different prices depending on the shopper or the storefront they're using. They use 
 
 
-A price list allows you to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level. If an active price list doesn't contain prices for a variant, then the catalog pricing will be used. 
+The prices are specified exclusively at the variant level. If an active price list doesn't contain prices for a variant, then the catalog pricing will be used. 
 
-You can assign a price list to a specific sales channel, customer group, or customer group on a specific sales channel, using price list assignments in the [Price List Assignment API](/api-reference/store-management/price-lists/price-lists-assignments/createpricelistassignments). You can also associate a price list to a customer group in the Control Panel or the [Customer Groups API](/api-reference/store-management/customers-v2). Price list assignments combined with a customer group assignment allows you to better target the signed-in customers shopping on that channel.
+You can assign a price list to the following groups of shoppers:
+* a specific sales channel, 
+* customer group, or 
+* customer group on a specific sales channel, using price list assignments in the [Price List Assignment API](/api-reference/store-management/price-lists/price-lists-assignments/createpricelistassignments). You can also associate a price list to a customer group in the Control Panel or the [Customer Groups API](/api-reference/store-management/customers-v2). Price list assignments combined with a customer group assignment allows you to better target the signed-in customers shopping on that channel.
 
 Price lists will provide overridden price values to the Stencil storefront. You can further customize the final price displayed within the Stencil template. For more information, see [Theme Objects](/stencil-docs/reference-docs/global-objects-and-properties).
 
+<!-- theme: success -->
+> #### Required OAuth scopes
+> Consult the [Price Lists API Reference](/api-reference/store-management/price-lists/) to determine which OAuth permission scopes your application's [API account](/api-docs/getting-started/authentication/rest-api-authentication) needs.
+> Learn more about BigCommerce API [OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
-### OAuth scopes
-The following OAuth Scopes are required:
-* [Products](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
 
 ## Price list definitions
-* A **price list** is a collection of price records. Price records make up a price list.
+
+The Price Lists API uses three different objects 
+
+* A **price list** is a set of **price list records** that can be assigned 
+* 
+* is a collection of price records. Price records make up a price list.
+* A **price list assignment** >>>
 * A **price record** is a price override for a particular variant. At a minimum, it contains a variant ID, a price, and a currency.
 
 
