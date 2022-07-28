@@ -84,36 +84,41 @@ Use the steps in our [Guide to Working with JWTs](/api-docs/getting-started/auth
 
 ## Work with payload claims
 
-The following is an example of the payload claims in a BigCommerce app callback JWT:
+The following is an example of the payload claims encoded in the `signed_payload_jwt` that BigCommerce sends to your app callback endpoints:
 
 ```json title="Example: app callback payload" lineNumbers
 {
   "aud": "U8RphZeDjQc4kLVSzNjePo0CMjq7yOg", // your app's CLIENT_ID
   "iss": "bc",
-  "iat": 1640037763,
-  "nbf": 1640037758,
-  "exp": 1640124163,
+  "iat": 1659031626,
+  "nbf": 1659031621,
+  "exp": 1659118026,
   "jti": "c5f0bcf5-a504-4ae6-8dcc-0e40eaa5a070", // JWT unique identifier
   "sub": "stores/z4zn3wo", // STORE_HASH
   "user": {
-    "id": 9128,
-    "email": "user@mybigcommerce.com"
+    "id": 9876543,
+    "email": "authorized_user@example.com",
+    "locale": "en-US"
   },
   "owner": {
-    "id": 9128,
-    "email": "user@mybigcommerce.com"
+    "id": 7654321,
+    "email": "owner@example.com"
   },
-  "url": "/" // deep link, if any
+  "url": "/", // deep link, if any
+  "channel_id": null, // >>> does this apply to channel manager apps only? will it just be 1 unless it's a channel manager app? what if it's not a channel manager app, but the app is somehow associated with a specific channel?
 }
 ```
 
+
+
 | Name          | Data Type | Value Description                                 |
 |:--------------|:----------|:--------------------------------------------------|
-| `user.id`     | integer   | ID of user initiating callback                    |
-| `user.email`  | string    | email of the user initiating callback             |
+| `user.id`     | integer   | ID of user initiating the callback >>> requesting |
+| `user.email`  | string    | email address of the requesting user              |
+| `user.locale` | string    | the requesting user's language configuration      |
 | `owner.id`    | integer   | ID of store owner                                 |
 | `owner.email` | string    | email address of store owner                      |
-| `context`     | string    | `stores/` + `store_hash`; ex: `stores/store_hash` |
+| `sub`         | string    | `stores/` + `store_hash`; ex: `stores/store_hash` |
 | `store_hash`  | string    | unique identified for store used in API requests  |
 | `timestamp`   | float     | Unix time when callback generated                 |
 
