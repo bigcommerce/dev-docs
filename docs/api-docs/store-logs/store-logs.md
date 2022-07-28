@@ -4,9 +4,9 @@ stoplight-id: 8093a34240fc9
 
 # Store Logs API
 
-The [store logs](https://support.bigcommerce.com/s/article/Using-Store-Logs) track events that take place in a store. Store logs have two components: **system logs** and **staff action logs**. 
+The Store Logs API allows merchants to track events in their store.  Each event creates an entry in the system log. Merchants can send these events into external systems to process events over time. For example, merchants can see how often they request shipping quotes from a carrier. They can also catch errors that occur on their store.
 
-The **Store Logs API** lets you retrieve a store's **system log**. The system log tracks events that take place on your storefronts, including shipping quote requests, newsletter sign-ups, and more. Each of these events creates an entry in the system log that includes the event type, summary, reporter (module), severity, and a timestamp. The system log tracks events from all storefront channels. You can retrieve entries for 365 days after their timestamp. 
+The store log tracks events from all storefront channels. Merchants can retrieve entries for 365 days after their timestamp. 
 
 This article guides API users on how to get system log entries and filter by attributes such as event type, severity, and more. 
 
