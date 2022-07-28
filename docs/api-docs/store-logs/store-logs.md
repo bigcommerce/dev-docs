@@ -77,7 +77,7 @@ title: Response
 
 ### Filter by type 
 
-The store log categorizes entries into various types. For example, requesting shipping quotes at checkout creates a `shipping` entry. You can filter entries by type. To do so, use the type query parameter. Below is an example of how to retrieve shipping entries:
+The store log categorizes entries into various types. For example, requesting shipping quotes at checkout creates a `shipping` entry. You can filter entries by type. To do so, use the `type` query parameter. Below is an example of how to retrieve shipping entries:
 
 <!--
 type: tab
@@ -126,7 +126,7 @@ title: Response
       "current_page": 1,
       "total_pages": 1,
       "links": {
-        "current": "?type=design&page=1&limit=50"
+        "current": "?type=shipping&page=1&limit=50"
       }
     }
   }
@@ -137,9 +137,7 @@ title: Response
 
 For a list of log types, consult the [API endpoint reference](/api-reference/store-management/store-logs/system-logs/get-system-logs). 
 
-### Filter by module 
-
-To filter the entries by `module`, use the `module` query parameter. Modules further categorize the type of log. For example, the log type `shipping` has many modules including `Zone based free shipping (freeshipping)` and `FedEx Ground Home Delivery (5-7 Business Days) (flatrate)`. For a list of log modules, consult the [API endpoint reference](/api-reference/store-management/store-logs/system-logs/get-system-logs). The following example requests entries from the `order status` module: 
+You can see how often merchants request shipping quotes from a specific carrier. To do so, specify the carrier with the `module` query parameter. Below is an example of how to retrieve entries for quotes requests to Endicia:
 
 <!--
 type: tab
@@ -147,7 +145,7 @@ title: Request
 -->
 
 ```http title="Example request: Filter by module" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?module=order+status
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?module=USPS+(endicia)
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -162,13 +160,13 @@ title: Response
 {
   "data": [
     {
-      "id": 2,
-      "type": "ordersettings",
-      "module": "Order Status",
-      "severity": "success",
-      "summary": "Successfully customized order status",
-      "message": "{\"id\":11,\"customLabelBefore\":\"Awaiting Shipment\",\"customLabelAfter\":\"Package ready to be picked up by Fed Ex\",\"userId\":4,\"userUid\":3172923,\"userEmail\":\"user@example.com\",\"userRole\":\"admin\"}",
-      "date_created": "2021-12-18T04:46:40+00:00"
+      "id": 92,
+      "type": "shipping",
+      "module": "USPS (endicia)",
+      "severity": "errors",
+      "summary": "Some shipping quotes were not able to be retrieved",
+      "message": "{\"errorDetail\":\"[\\\"Account ID example_id is invalid. Error encountered (Log ID: 62407)\\\"]\",\"quoteId\":\"1659036199\",\"cacheInfo\":\"cached for 3600s\",\"customerGroup\":{\"id\":3,\"name\":\"Retail Customers\"},\"customerEmail\":\"customer2@example.com\",\"customerId\":1,\"destination\":{\"streetAddress1\":\"123 Example St\",\"streetAddress2\":\"\",\"city\":\"Austin\",\"postcode\":\"12345\",\"stateName\":\"Texas\",\"stateIso2\":\"TX\",\"countryIso2\":\"US\",\"addressType\":\"residential\"},\"items\":[{\"name\":\"example product (ABC-1234)\",\"id\":\"23\",\"quantity\":3,\"weight\":32,\"width\":4,\"height\":4,\"length\":4,\"attributes\":[],\"omittedReason\":\"\"},{\"name\":\"example product 2 (ABC-1111)\",\"id\":\"113\",\"quantity\":2,\"weight\":2000,\"width\":2,\"height\":2,\"length\":2,\"attributes\":[],\"omittedReason\":\"\"}],\"settings\":{\"deliveryServices\":[\"PriorityExpress\",\"ParcelSelect\",\"MediaMail\"]}}",
+      "date_created": "2022-07-28T19:23:19+00:00"
     }
   ],
   "meta": {
@@ -179,7 +177,7 @@ title: Response
       "current_page": 1,
       "total_pages": 1,
       "links": {
-        "current": "?module=order+status&page=1&limit=50"
+        "current": "?module=USPS+%28endicia%29&page=1&limit=50"
       }
     }
   }
