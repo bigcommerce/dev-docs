@@ -213,9 +213,9 @@ HTTP 204 No content
 
 ## Product tax properties 
 
-You can attach tax properties to base products to create a product tax property. To do so, specify the product using its `product_id`. The `product_id` is the `id` from the [Get all products](/api-reference/store-management/catalog/products/getproducts) endpoint. Tax properties are not stored on or retrievable with the product object.
+After [creating a tax property](#create-tax-properties), you can attach it to a base product to create a product tax property. To do so, specify the product using its `product_id`. The `product_id` is the `id` from the [Get all products](/api-reference/store-management/catalog/products/getproducts) endpoint. Tax properties are not stored on or retrievable with the product object.
 
-You can add many tax properties to a single product. To do so, you first create each tax property with the [Create Tax Property](/api-reference/store-management/tax-properties/tax-properties/create-tax-properties) endpoint. The following example shows many tax properties attached to alcohol products. The tax rate of alcohol products vary by both alcohol percentage and net volume.    
+You can add many tax properties to a single product. The following example shows many tax properties attached to alcohol products. The tax rate of alcohol products vary by both alcohol percentage and net volume.    
 
 ### Update product with tax properties
 
