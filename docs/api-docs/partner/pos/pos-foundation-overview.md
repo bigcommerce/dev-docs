@@ -71,7 +71,7 @@ To configure the Stripe account to connect to your implementation, complete the 
 > You can simulate transactions in test mode to confirm your integration works correctly.
 
 
-3. Locate the Stripe secret key. 
+3. Click the **View docs** link located further down on the page to obtain the Stripe secret key. 
 
 <!-- theme: success -->
 > Make note of the **secret key** and keep it in a safe location. In a later step, you will use the secret key to update the `STRIPE_SECRET_KEY` environment variable in the `.env` file.
