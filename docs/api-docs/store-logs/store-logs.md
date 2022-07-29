@@ -189,14 +189,7 @@ title: Response
 
 ### Filter by severity 
 
-Each event has an associated outcome, also known as `severity`. To filter the results by severity, use the `severity` query parameter. Specify the severity's corresponding integer in the query. 
-
-| Severity | Integer |
-| --- | --- |
-| success | 1 |
-| notice | 2 | 
-| warning | 3 |
-| error | 4 |
+Each event has an associated outcome, also known as `severity`. To filter the results by severity, use the `severity` query parameter. Specify the severity's corresponding integer in the query. For a list of severity values, see the [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs) endpoint.
 
 Below is an example of how to use a GET request to retrieve entries that are notices:
 
