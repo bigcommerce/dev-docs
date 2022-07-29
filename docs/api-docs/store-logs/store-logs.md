@@ -12,7 +12,7 @@ This guide shows you how to retrieve store logs with various filters. For more i
 
 ## Get store logs
 
-Send a request to the [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs) endpoint. The API returns 20 entries with the earliest timestamp. The entries are ordered from the earliest to latest timestamp.
+Send a request to the [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs) endpoint. The API returns 20 entries with the earliest timestamp. The response orders the entries from the earliest to latest timestamp.
 
 ### Filter by log ID
 
@@ -189,7 +189,14 @@ title: Response
 
 ### Filter by severity 
 
-Each log entry describes an event that has an associated outcome, which this API refers to as its `severity`. To filter the results by severity, use the `severity` query parameter and specify the severity's corresponding integer in the query. For a list of severity values, see the [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs) endpoint.
+Each event has an associated outcome, also known as `severity`. To filter the results by severity, use the `severity` query parameter. Specify the severity's corresponding integer in the query. 
+
+| Severity | Integer |
+| --- | --- |
+| success | 1 |
+| notice | 2 | 
+| warning | 3 |
+| error | 4 |
 
 <!--
 type: tab
