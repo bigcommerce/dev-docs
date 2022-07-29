@@ -249,7 +249,7 @@ title: Response
 
 ### Filter by paginated results   
 
-To specify the page and number of entries returned per page, use the query parameters `page` and `limit`, respectively. The following example shows a response that starts at entry 4, as you request page 2 with 3 entries per page.  
+To retrieve paginated entries, use the query parameters `page` and `limit`. The following example requests page 2 with 2 entries per page.  
 
 <!--
 type: tab
