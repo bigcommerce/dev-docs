@@ -49,12 +49,12 @@ title: Response
     },
     {
       "id": 7,
-      "type": "shipping",
-      "module": "FedEx Ground Home Delivery (5-7 Business Days) (flatrate)",
+      "type": "design",
+      "module": "Theme Download",
       "severity": "success",
-      "summary": "Successfully retrieved shipping quote",
-      "message": "{\"quoteId\":\"2470214433\",\"cacheInfo\":\"cached for 3600s\",\"customerGroup\":{\"id\":4,\"name\":\"Wholesale Customers\"},\"customerEmail\":\"customer@example.com\",\"customerId\":4,\"destination\":{\"streetAddress1\":\"123 Example Street\",\"streetAddress2\":\"\",\"city\":\"Austin\",\"postcode\":\"12345\",\"stateName\":\"Texas\",\"stateIso2\":\"TX\",\"countryIso2\":\"US\",\"addressType\":\"residential\"},\"items\":[{\"name\":\"example product (ABC-1234)\",\"id\":\"23\",\"quantity\":2,\"weight\":32,\"width\":4,\"height\":4,\"length\":4,\"attributes\":[],\"omittedReason\":\"\"}],\"groupedResults\":{\"flatrate\":{\"rates\":[{\"handling\":0,\"price\":3,\"description\":\"FedEx Ground Home Delivery (5-7 Business Days)\",\"additionalDescription\":\"\"}],\"carrierType\":\"flatrate\"}},\"settings\":[]}",
-      "date_created": "2021-12-22T23:44:15+00:00"
+      "summary": "user@example.com Downloaded LifeStyle-1.4.1.zip, 8e2a49c1-f85d-3149-ghce-5e2ba6d55p34",
+      "message": "user@example.com Downloaded LifeStyle-1.4.1.zip, 8e2a49c1-f85d-3149-ghce-5e2ba6d55p34",
+      "date_created": "2021-12-22T15:27:09+00:00"
     }
   ],
   "meta": {
@@ -100,7 +100,7 @@ title: Response
 {
   "data": [
     {
-      "id": 7,
+      "id": 6,
       "type": "shipping",
       "module": "FedEx Ground Home Delivery (5-7 Business Days) (flatrate)",
       "severity": "success",
@@ -257,7 +257,7 @@ title: Request
 -->
 
 ```http title="Example request: Filter by paginated results" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?page=2&limit=3
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?page=2&limit=2
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -272,6 +272,15 @@ title: Response
 {
   "data": [
     {
+      "id": 3,
+      "type": "general",
+      "module": "",
+      "severity": "notices",
+      "summary": "Marking order 1234000002 as deleted.",
+      "message": "Marking order 1234000002 as deleted.",
+      "date_created": "2021-12-19T19:12:31+00:00"
+    },
+    {
       "id": 4,
       "type": "general",
       "module": "",
@@ -279,36 +288,18 @@ title: Response
       "summary": "Restoring order 1234000002",
       "message": "Restoring order 1234000002",
       "date_created": "2021-12-19T19:15:56+00:00"
-    },
-    {
-      "id": 5,
-      "type": "emailintegration",
-      "module": "Export Only",
-      "severity": "success",
-      "summary": "Subscriber subscriber@example.com stored for export.",
-      "message": null,
-      "date_created": "2021-12-20T23:15:24+00:00"
-    },
-    {
-      "id": 6,
-      "type": "design",
-      "module": "Theme Download",
-      "severity": "success",
-      "summary": "user@example.com Downloaded LifeStyle-1.4.1.zip, 8e2a49c1-f85d-3149-ghce-5e2ba6d55p34",
-      "message": "user@example.com Downloaded LifeStyle-1.4.1.zip, 8e2a49c1-f85d-3149-ghce-5e2ba6d55p34",
-      "date_created": "2021-12-22T15:27:09+00:00"
     }
   ],
   "meta": {
     "pagination": {
-      "total": 3,
-      "count": 3,
-      "per_page": 3,
+      "total": 2,
+      "count": 2,
+      "per_page": 2,
       "current_page": 2,
       "total_pages": 1,
       "links": {
-        "previous": "?page=1&limit=3",
-        "current": "?page=2&limit=3"
+        "previous": "?page=1&limit=2",
+        "current": "?page=2&limit=2"
       }
     }
   }
