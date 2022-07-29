@@ -1,19 +1,9 @@
 # POS Foundation
 
-POS Foundation is a proof-of-concept [open-source framework](https://github.com/bigcommerce/point-of-sale-foundation) that helps developers deliver custom point-of-sale checkout interfaces to BigCommerce merchants with brick-and-mortar locations. It provides a template to scaffold custom POS solutions that use secure, pre-certified EMV card readers. POS Foundation includes a default integration with Stripe Terminal, which can significantly accelerate development time. 
+POS Foundation is a proof-of-concept [open-source framework](https://github.com/bigcommerce/point-of-sale-foundation) that helps developers deliver custom point-of-sale checkout interfaces to BigCommerce merchants with brick-and-mortar locations. It provides a template to scaffold custom POS solutions that use secure, pre-certified EMV card readers. POS Foundation's default integration with Stripe Terminal can significantly accelerate development time. 
 
+This app is a manual connector app that uses a store API account. The app will not appear in the store control panel. With POS Foundation, you will not need to create an app profile or use ngrok. This proof-of-concept tutorial only applies to local network operations and will not make its own channel. 
 
->>> general list of caveats that's too long to be a callout and should be a paragraph -- write them up with a collaborative tone that conveys this a cool proof-of-concept tutorial and starting place.
-> * This is not a single-click installation app; it's a manual connector app and thus doesn't appear in the store control panel
->   * ^^ that's why it uses a store api account
->   * no app profile
->   * no multi-store install
->   * no ngrok tunnel
-> * it doesn't use stripe platform
-> * local network operations only
-> * this app doesn't make its own channel -- we have a channels toolkit and subscriptionfound has some code that might be useful if you're developing it
-> * this app isn't MSF or channel-aware
-> * we love your pull requests. if you build this out into an app, please let us know
 
 ## Software requirements
 * [Node.js](https://nodejs.org/en/) 14.0.0+
@@ -67,39 +57,28 @@ npm install
 
 ## Configure Stripe
 
-* Store's single Stripe account only >>>
-* this assumes the account is already created & configured for the store
-* this assumes Stripe Terminal is already selected in some way?
+You will need to create and configure a single Stripe account.
 
 To configure the Stripe account to connect to your implementation, complete the following steps:
 
-1. Sign in to [Stripe Terminal](https://stripe.com/terminal).
+1. Create a Stripe account and sign in to [Stripe Terminal](https://stripe.com/terminal).
 
-2. In the >>> location, click **Dashboard** and make sure that you're interacting with Stripe in **Test mode**. Do not select the **Developers** dashboard. 
->>> is this right? there was a link to the developers dashboard -- see following comment
+2. In the top right of your Stripe Dashboard, click **Test Mode** and make sure that you're interacting with Stripe in [**Test mode**](https://dashboard.stripe.com/test/developers). Do not select the **Developers** dashboard. 
+![pos-stripe-test-mode](https://storage.googleapis.com/bigcommerce-production-dev-center/images/pos-stripe-test-mode.png)
 
 <!-- theme: info -->
 > #### Test mode
 > You can simulate transactions in test mode to confirm your integration works correctly.
 
-<!-- You will should be in **Test mode** ([https://dashboard.stripe.com/test/developers](https://dashboard.stripe.com/test/developers)) -->
->>> add screenshot, preferably showing both test mode and the no-no developers section.
 
-
-3. Locate the Stripe secret key. >>>
->>> can this instruction go at the end, UI-wise, to match how we've done "note the key" in subscriptionfound and in this draft?
+3. Locate the Stripe secret key. 
 
 <!-- theme: success -->
-> #### Make note of the secret key
 > Make note of the **secret key** and keep it in a safe location. In a later step, you will use the secret key to update the `STRIPE_SECRET_KEY` environment variable in the `.env` file.
 
-
-
-
-(>>>is the next dashboard the general stripe one or a special terminal one?)
-4. In the top menu (>>>??? location) of your Stripe Dashboard, click **More > Terminal**. When prompted to activate the Terminal section of the dashboard, click **Get Started**.
-5. Add a location, then click on the location row to manage details. >>> context? UI page section, dialog box?
-6. Add a new reader to the location. >>> is this the specific new reader? is there information that you're required to add?
+4. In the top menu of your Stripe Terminal Dashboard, click **More > Terminal**. When prompted to activate the Terminal section of the dashboard, click **Get Started**.
+5. Add a location by clicking the **+ New** button across from **Locations**. Enter the **Name** and **Address**, and click **Save**.
+6. Add a new reader to the newly created location by clicking on the row. In the **Register reader** dialog, enter the **Registration code** and optionally enter the **Reader label**. Click **Save**.
 
 ## Configure the BigCommerce store
 
@@ -188,7 +167,6 @@ Open the `.env` file you just created and update the following environment varia
 | `BC_APP_CLIENT_ID` |  The store API account's client ID | [Configure accounts](#configure-accounts) |
 | `BC_APP_SECRET` | The store API account's client secret | [Configure accounts](#configure-accounts) |
 | `STRIPE_SECRET_KEY` | The Stripe account's client secret | [Configure Stripe](#configure-stripe) |
->>> do we not need the Stripe public key?
 
 ## Run migration and start the server
 
@@ -231,7 +209,7 @@ npm run dev
 Now, the app will be running locally! 
 
 Sign in as an admin at `http://localhost:3000/signin`. The default admin PIN in the seed data is `1234`.
->>> sign in to what? using what machine? with what credentials? screenshot? is the username `admin`? etc etc
+![pos-sign-in](https://storage.googleapis.com/bigcommerce-production-dev-center/images/pos-sign-in.png)
 
 After you access Prisma Studio, navigate to the **Settings** screen to save your store address, which the app uses for checkout tax calculations. You will receive the following error if you do not supply the store address.
   
@@ -255,6 +233,8 @@ This error can occur when the `/prisma/schema.prisma` file contains the incorrec
 
 Update your MongoDB Cloud IP address to 0.0.0.0/0.
 
+## Contributing
+Want to help expand this foundation? We'd love to hear from you.
 
 ## Resources
 ### Related articles
