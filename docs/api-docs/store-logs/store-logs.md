@@ -16,7 +16,7 @@ Send a request to the [Get system logs](/api-reference/store-management/store-lo
 
 ### Filter by log ID
 
-To filter the entries by log ID, pass a comma-separated list of log IDs to the `id:in` query parameter. 
+To filter the entries by log ID, pass a comma-separated list of log IDs to the `id:in` query parameter. Below is an example of how to use a GET request to retrieve entries by log ID: 
 
 <!--
 type: tab
@@ -77,7 +77,7 @@ title: Response
 
 ### Filter by type 
 
-The store log categorizes entries into various types. For example, requesting shipping quotes at checkout creates a `shipping` entry. You can filter entries by type. To do so, use the `type` query parameter. Below is an example of how to retrieve shipping entries:
+The store log categorizes entries into various types. For example, requesting shipping quotes at checkout creates a `shipping` entry. You can filter entries by type. To do so, use the `type` query parameter. Below is an example of how to use a GET request to retrieve shipping entries:
 
 <!--
 type: tab
@@ -137,7 +137,7 @@ title: Response
 
 For a list of log types, consult the [API endpoint reference](/api-reference/store-management/store-logs/system-logs/get-system-logs). 
 
-You can see how often merchants request shipping quotes from a specific carrier. To do so, specify the carrier with the `module` query parameter. Below is an example of how to retrieve entries for quotes requests to Endicia:
+You can see how often merchants request shipping quotes from a specific carrier. To do so, specify the carrier with the `module` query parameter. Below is an example of how to use a GET request to retrieve entries for quotes requests to Endicia:
 
 <!--
 type: tab
@@ -198,6 +198,8 @@ Each event has an associated outcome, also known as `severity`. To filter the re
 | warning | 3 |
 | error | 4 |
 
+Below is an example of how to use a GET request to retrieve entries that are notices:
+
 <!--
 type: tab
 title: Request
@@ -256,7 +258,7 @@ title: Response
 
 ### Filter by paginated results   
 
-To retrieve paginated entries, use the query parameters `page` and `limit`. The following example requests page 2 with 2 entries per page.  
+To retrieve paginated entries, use the query parameters `page` and `limit`. The following example requests page two with two entries per page:  
 
 <!--
 type: tab
