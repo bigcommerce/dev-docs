@@ -8,9 +8,13 @@ This guide demonstrates how to use the Tax Properties API. For more, see the [Ta
 
 ## Tax properties
 
+Tax properties rely on tax codes, which are specific to third-party tax providers. Consult a tax provider's documentation to identify supported codes.
+
 ### Create tax properties
 
-You must first add tax properties to the store. This requires the property's `code` and `display_name`. The tax provider must provide the `code` for a tax property.  
+First, add tax properties to the store. This requires the tax provider's `code` and a `display_name` that shoppers may see, depending on your theme, settings, and jurisdiction.  Optionally, you can add a description.
+
+The response provides an `id` for each tax property. Use the `id` to get, update, or delete a specific tax property.
 
 <!--
 type: tab
@@ -68,11 +72,9 @@ title: Response
 
 <!-- type: tab-end -->
 
-The response provides an `id` for each tax property. Use the `id` to get, update, or delete a specific tax property.
-
 ### Update tax properties
 
-You may update a tax property's `code`, `display_name`, and `description`. This updates only fields that you specify.   
+You can update a tax property's `code`, `display_name`, and `description`. The request updates only fields that you specify.   
 
 <!--
 type: tab
@@ -118,7 +120,7 @@ title: Response
 
 ### Get tax properties
 
-You can get all the tax properties in your store or only specific tax properties. To get specific tax properties, specify the `id` for the tax properties in the query.
+This endpoint supports batch operations. You can get all the tax properties in your store, or only specific tax properties. To get specific tax properties, use the `id:in` query parameter. 
 
 <!--
 type: tab
@@ -176,7 +178,7 @@ title: Response
 
 ### Delete tax properties
 
-To delete tax properties, you must specify the `id` in the query for the tax properties you wish to delete.
+To delete tax properties, use the `id:in` query parameter for the tax properties you want to delete.
 
 <!--
 type: tab
@@ -201,11 +203,11 @@ HTTP 204 No content
 
 <!-- type: tab-end -->
 
-
-
 ## Product tax properties 
 
-After [creating a tax property](#create-tax-properties), you can attach it to a base product to create a product tax property. To do so, specify the product using its `product_id`. The `product_id` is the `id` from the [Get all products](/api-reference/store-management/catalog/products/getproducts) endpoint. Tax properties are not stored on or retrievable with the product object.
+After [creating a tax property](#create-tax-properties), you can attach it to a base product to create a product tax property. To do so, specify the product using its `product_id`. The `product_id` is the `id` from the [Get all products](/api-reference/store-management/catalog/products/getproducts) endpoint. 
+
+You can add multiple tax properties to a single product. The following example shows tax properties attached to alcohol products. In this example, the tax rate of alcohol products varies by both alcohol percentage and net volume.  
 
 <!-- theme: info -->
 > #### Tax properties aren't product properties
@@ -284,7 +286,7 @@ title: Response
 
 ### Get product tax properties 
 
-You can get the tax properties attached to products. To do so, specify the `product_id` for the products in the query. 
+To get the tax properties attached to a product, use the `product_id:in` query parameter. 
 
 <!--
 type: tab
