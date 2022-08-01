@@ -1,18 +1,10 @@
 # Tax Properties for Products
 
-The Tax Properties API allows merchants to attach many tax codes to products. These tax codes allow merchants to use more than one tax provider for a given product. For example, a merchant might use a different tax provider for US-based storefronts. They can also assist merchants who are transitioning between tax providers.
+The Tax Properties API allows merchants to attach multiple tax codes to a given product. These tax codes allow merchants to use more than one tax provider; for example, a merchant might use different tax providers in different countries. They can also assist merchants who are transitioning between tax providers. 
 
-When configured, tax properties help merchants send tax providers more detailed product information.  Tax properties are variable: merchants assign a distinct value depending on product specifics. This is useful for products, such as alcohol and fuel, whose tax rates vary by product composition. Providers can then provide more accurate tax calculations. The examples in this guide expand on this use case.
+In addition, the tax rates for some products vary by product composition. For example, in some jurisdictions, correct taxation of alcohol and fuel requires more than one tax code. To provide accurate calculations, tax providers need to know about both the percentage of alcohol by volume **and** the volume of alcohol sold. With tax properties, merchants can send tax providers more than one code per product. Providers can return more accurate tax calculations. The examples in this guide expand on this use case.
 
-This guide demonstrates how you can manage tax properties. Tax properties are specific to a tax provider. Thus, merchants must liaise with tax providers to explore supported tax properties. For more info, see the [Tax Properties API Reference](/api-reference/store-management/tax-properties) and the [Tax Provider API Reference](/api-reference/providers/tax-provider-api). 
-
-Here is a summary of use cases for using the Tax Properties API: 
-* Use more than one tax provider for a store
-* Assist a transition to another tax provider
-* Vary inputs into a tax provider's tax calculation
-* Receive more accurate tax calculations from third-party tax providers
-* Factor in many tax-related fields in tax rates 
-* Give third-party tax providers parity with Avalara
+This guide demonstrates how to use the Tax Properties API. For more, see the [Tax Properties API Reference](/api-reference/store-management/tax-properties) and the [Tax Provider API Reference](/api-reference/providers/tax-provider-api). 
 
 ## Tax properties
 
