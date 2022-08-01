@@ -421,5 +421,14 @@ BigCommerce also sends product tax properties to [commit](/api-reference/provide
 ## Resources 
 
 - [Tax Properties API Reference](/api-reference/store-management/tax-properties)
+- [POST Tax Properties Reference](/api-reference/store-management/tax-properties/tax-properties/create-tax-properties)
+- [PUT Tax Properties Reference](/api-reference/store-management/tax-properties/tax-properties/update-tax-properties)
+- [GET Tax Properties Reference](/api-reference/store-management/tax-properties/tax-properties/get-tax-properties)
+- [DELETE Tax Properties Reference](/api-reference/store-management/tax-properties/tax-properties/delete-tax-properties)
+- [UPDATE Product Tax Properties Reference](/api-reference/store-management/tax-properties/product-tax-properties/update-product-tax-properties)
+- [GET Product Tax Properties Reference](/api-reference/store-management/tax-properties/product-tax-properties/get-product-tax-properties)
+- [DELETE Product Tax Properties Reference](/api-reference/store-management/tax-properties/product-tax-properties/delete-product-tax-properties)
 - [Tax Provider API Reference](/api-reference/providers/tax-provider-api)
-- >>> list every link in the preceding article.
+- [POST Tax Estimate](/api-reference/providers/tax-provider-api/tax-provider/estimate)
+- [POST Tax Commit](/api-reference/providers/tax-provider-api/tax-provider/commit)
+- [POST Tax Adjustment](/api-reference/providers/tax-provider-api/tax-provider/adjust)
