@@ -20,7 +20,8 @@ paths:
       tags:
       - Current Customers
       summary: Get Current Customer
-      description: |2-
+      description: |-
+        Identify logged-in customers securely via JavaScript.
 
         <!-- theme: info -->
         > #### Note
@@ -30,6 +31,7 @@ paths:
       - name: app_client_id
         in: query
         required: true
+        description: This is your application's client ID, which is obtained during application registration in the Developer Portal.
         schema:
           type: string
       responses:
@@ -88,12 +90,11 @@ paths:
                     example: '"6sv16tfx3j5gsopm42ss5dd67g2srvq"'
                   application_id:
                     type: string
-                    description: The client ID created when the token was generated.
                     example: '"6sv16tasdgr2b5hs5dd67g2srvq"'
+                    description: The client ID created when the token was generated.
                   store_hash:
                     type: string
-                    description: Store hash identifying the store you are logging
-                      into.
+                    description: Store hash identifying the store you are logging into.
                   operation:
                     type: string
                     description: Must contain the string “current_customer”.

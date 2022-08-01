@@ -93,6 +93,8 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
+      security:
+        - X-Auth-Token: []
     put:
       description: |-
         Change customer message to an existing *Checkout*.
@@ -139,6 +141,8 @@ paths:
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
       summary: Update Customer Messages
+      security:
+        - X-Auth-Token: []
     parameters:
       - type: string
         name: store_hash
@@ -213,6 +217,8 @@ paths:
           name: Content-Type
           required: true
           default: application/json
+      security:
+        - X-Auth-Token: []
   '/stores/{store_hash}/v3/checkouts/{checkoutId}/billing-address':
     post:
       description: |-
@@ -271,6 +277,8 @@ paths:
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
       summary: Add Checkout Billing Address
+      security:
+        - X-Auth-Token: []
     parameters:
       - type: string
         name: store_hash
@@ -328,6 +336,8 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
+      security:
+        - X-Auth-Token: []
     parameters:
       - type: string
         name: store_hash
@@ -446,6 +456,8 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
+      security:
+        - X-Auth-Token: []
     parameters:
       - type: string
         name: store_hash
@@ -531,6 +543,8 @@ paths:
       responses:
         '200':
           $ref: '#/responses/CheckoutResponse'
+      security:
+        - X-Auth-Token: []
     delete:
       description: |-
         Removes an existing consignment from a checkout.
@@ -565,6 +579,8 @@ paths:
       responses:
         '200':
           $ref: '#/responses/CheckoutResponse'
+      security:
+        - X-Auth-Token: []
     parameters:
       - type: string
         name: store_hash
@@ -628,6 +644,8 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
+      security:
+        - X-Auth-Token: []
     parameters:
       - type: string
         name: store_hash
@@ -676,6 +694,8 @@ paths:
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
+      security:
+        - X-Auth-Token: []
     parameters:
       - type: string
         name: store_hash
@@ -723,6 +743,8 @@ paths:
       tags:
         - Checkout Orders
       operationId: createAnOrder
+      security:
+        - X-Auth-Token: []
     parameters:
       - name: checkoutId
         in: path
@@ -742,6 +764,8 @@ paths:
           $ref: '#/responses/checkout_settings_resp'
       description: Get checkout settings
       summary: Get Checkout Settings
+      security:
+        - X-Auth-Token: []
     put:
       tags:
         - Checkout Settings
@@ -757,6 +781,8 @@ paths:
             $ref: '#/definitions/CheckoutsSettingsRequest'
       summary: Update Checkout Settings
       description: Update checkout settings
+      security:
+        - X-Auth-Token: []
     parameters:
       - type: string
         name: store_hash
