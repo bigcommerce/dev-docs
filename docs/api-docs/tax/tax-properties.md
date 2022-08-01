@@ -235,14 +235,14 @@ Accept: application/json
     "product_id": 113,
     "tax_properties": {
       "alcohol-percentage": "4.9",
-      "netvolume-mililitres": "400"
+      "netvolume-milliliters": "400"
     }
   },
   {
     "product_id": 117,
     "tax_properties": {
       "alcohol-percentage": "10",
-      "netvolume-mililitres": "200"
+      "netvolume-milliliters": "200"
     }
   }
 ]
@@ -260,14 +260,14 @@ title: Response
       "product_id": 113,
       "tax_properties": {
         "alcohol-percentage": "4.9",
-        "netvolume-mililitres": "400"
+        "netvolume-milliliters": "400"
       }
     },
     {
       "product_id": 117,
       "tax_properties": {
         "alcohol-percentage": "10",
-        "netvolume-mililitres": "200"
+        "netvolume-milliliters": "200"
       }
     }
   ],
@@ -316,14 +316,14 @@ title: Response
       "product_id": 113,
       "tax_properties": {
         "alcohol-percentage": "4.9",
-        "netvolume-mililitres": "400"
+        "netvolume-milliliters": "400"
       }
     },
     {
       "product_id": 117,
       "tax_properties": {
         "alcohol-percentage": "10",
-        "netvolume-mililitres": "200"
+        "netvolume-milliliters": "200"
       }
     }
   ],
@@ -375,36 +375,45 @@ HTTP 204 No content
 
 BigCommerce sends product tax properties to request [tax estimates](/api-reference/providers/tax-provider-api/tax-provider/estimate) from a provider. The requests include tax properties for each item in a consignment. 
 
-```json title="Example request: Tax estimates with product tax properties" lineNumbers
-\\ Tax properties for an item in a consignment
+The following request uses the Tax Provider API:
 
-"items": [
-  {
-    "id": "1",
-    "price": {
-      "amount": 10.0,
-      "tax_inclusive": false
-    },
-    "quantity": 1,
-    "tax_class": {
-      "code": "custom-tax",
-      "class_id": "1",
-      "name": "Custom Tax"
-    },
-    "tax_properties": [
-      {
-        "code": "alcohol-percentage",
-        "value": "4.9"
+```http title="Example request: Get a tax estimate" lineNumbers
+POST https://store.example.com/estimate
+Authorization: Basic ZGVtbzpwQDU1dzByZA==
+Content-Type: application/json
+Accept: application/json
+
+{
+  ...
+  "items": [
+    {
+      "id": "1",
+      "price": {
+        "amount": 10.0,
+        "tax_inclusive": false
       },
-      {
-        "code": "netvolume-mililitres",
-        "value": "400"
-      }
-    ],
-    "type": "item",
-    "wrapping": null
-  }
-]
+      "quantity": 1,
+      "tax_class": {
+        "code": "custom-tax",
+        "class_id": "1",
+        "name": "Custom Tax"
+      },
+      "tax_properties": [
+        {
+          "code": "alcohol-percentage",
+          "value": "4.9"
+        },
+        {
+          "code": "netvolume-milliliters",
+          "value": "400"
+        }
+      ],
+      "type": "item",
+      "wrapping": null
+    }
+  ]
+  ...
+}
 ```
 BigCommerce also sends product tax properties to [commit](/api-reference/providers/tax-provider-api/tax-provider/commit) and [adjust tax quotes](/api-reference/providers/tax-provider-api/tax-provider/adjust). 
 
