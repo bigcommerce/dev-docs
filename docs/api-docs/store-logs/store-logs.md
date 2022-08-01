@@ -4,11 +4,11 @@ stoplight-id: 8093a34240fc9
 
 # Store Logs API
 
-The Store Logs API allows merchants to track events in their store.  Each event creates an entry in the log. You can send these entries into external systems to process events over time. For example, you can see how often merchants request shipping quotes from a carrier. You can also catch errors that occur on a store.
+The Store Logs API allows merchants to track events in their store.  Each event creates an entry in the log. You can retrieve and send these entries into external systems to process events over time. For example, you can see how often merchants request shipping quotes from a carrier. You can also catch errors that occur on a store.
 
 The store logs track events from all storefront channels. Examples of events include sign-ups for newsletters and changes to an order status. You can retrieve entries for 365 days after their timestamp. 
 
-This guide shows you how to retrieve store logs with various filters. For more info, see the [Store Logs API reference](/api-reference/store-management/store-logs). 
+This guide demonstrates how to use the Store Logs API. For more info, see the [Store Logs API reference](/api-reference/store-management/store-logs). 
 
 ## Get store logs
 
@@ -77,7 +77,7 @@ title: Response
 
 ### Filter by type 
 
-The store logs categorize entries into various types. For example, requesting shipping quotes at checkout creates a `shipping` entry. You can filter entries by type. To do so, use the `type` query parameter. Below is an example of how to use a GET request to retrieve shipping entries:
+The store logs categorize entries into various types. For example, requesting shipping quotes at checkout creates a `shipping` entry. To filter entries by type, use the `type` query parameter. Below is an example of how to use a GET request to retrieve shipping entries:
 
 <!--
 type: tab
@@ -312,5 +312,6 @@ title: Response
 
 
 ## Resources
-- [Store Logs API reference](/api-reference/store-management/store-logs)
-- [Store Logs support article](https://support.bigcommerce.com/s/article/Using-Store-Logs)
+- [Store Logs API Reference](/api-reference/store-management/store-logs)
+- [GET System Logs Reference](/api-reference/store-management/store-logs/system-logs/get-system-logs)
+- [Store Logs Support Article](https://support.bigcommerce.com/s/article/Using-Store-Logs)
