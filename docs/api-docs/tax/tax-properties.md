@@ -121,6 +121,7 @@ title: Response
 ### Get tax properties
 
 This endpoint supports batch operations. You can get all the tax properties in your store, or only specific tax properties. To get specific tax properties, use the `id:in` query parameter. 
+>>> fact check on this query parameter name and whether it works like this
 
 <!--
 type: tab
@@ -421,3 +422,4 @@ BigCommerce also sends product tax properties to [commit](/api-reference/provide
 
 - [Tax Properties API Reference](/api-reference/store-management/tax-properties)
 - [Tax Provider API Reference](/api-reference/providers/tax-provider-api)
+- >>> list every link in the preceding article.
