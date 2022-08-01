@@ -215,7 +215,9 @@ HTTP 204 No content
 
 After [creating a tax property](#create-tax-properties), you can attach it to a base product to create a product tax property. To do so, specify the product using its `product_id`. The `product_id` is the `id` from the [Get all products](/api-reference/store-management/catalog/products/getproducts) endpoint. Tax properties are not stored on or retrievable with the product object.
 
-You can add many tax properties to a single product. The following example shows many tax properties attached to alcohol products. The tax rate of alcohol products vary by both alcohol percentage and net volume.    
+<!-- theme: info -->
+> #### Tax properties aren't product properties
+> Tax properties are not stored on or retrievable with the product object.
 
 ### Update product with tax properties
 
@@ -346,7 +348,11 @@ title: Response
 
 ### Delete product tax properties
 
-You can disassociate tax properties from a product. To do so, specify the `product_id` for the products in the query. This disassociates all the tax properties from a product. 
+<!-- theme: warning -->
+> #### Batch deletion
+> This endpoint removes **all** tax properties from a given product.
+
+To remove tax properties from a product, use the `product_id:in` query parameter. This disassociates all the tax properties from a product. 
 
 <!--
 type: tab
