@@ -128,7 +128,7 @@ title: Request
 -->
 
 ```http title="Example request: Get tax properties" lineNumbers 
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/properties
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/properties?id:in=1,2
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
