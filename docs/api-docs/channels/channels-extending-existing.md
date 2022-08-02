@@ -135,7 +135,7 @@ Accept: application/json
 | `square `         | `pos`                     |
 | `vend`            | `pos`                     |
 | `clover`          | `pos`                     |
-| `facebook`        | `marketplace`,`marketing` |
+| `facebook`        | `marketing`               |
 | `amazon`          | `marketplace`             |
 | `ebay`            | `marketplace`             |
 | `wordpress`       | `storefront`              |
