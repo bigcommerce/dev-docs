@@ -119,7 +119,6 @@ Examples:
 
 - Amazon
 - eBay
-- Facebook Marketplace
 - Jet
 - Walmart
 
