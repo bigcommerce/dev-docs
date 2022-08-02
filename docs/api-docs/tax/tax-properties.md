@@ -121,7 +121,6 @@ title: Response
 ### Get tax properties
 
 This endpoint supports batch operations. You can get all the tax properties in your store, or only specific tax properties. To get specific tax properties, use the `id:in` query parameter. 
->>> fact check on this query parameter name and whether it works like this
 
 <!--
 type: tab
