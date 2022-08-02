@@ -122,7 +122,6 @@ title: Response
 
 This endpoint supports batch operations. You can get all the tax properties in your store, or only specific tax properties. To get tax properties, send a request to the [Get tax properties](/api-reference/store-management/tax-properties/tax-properties/get-tax-properties) endpoint. To get only select tax properties, use the `id:in` query parameter.
 
-
 <!--
 type: tab
 title: Request
