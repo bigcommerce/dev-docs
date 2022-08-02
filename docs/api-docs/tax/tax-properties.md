@@ -419,16 +419,24 @@ Accept: application/json
 BigCommerce also sends product tax properties to [commit](/api-reference/providers/tax-provider-api/tax-provider/commit) and [adjust tax quotes](/api-reference/providers/tax-provider-api/tax-provider/adjust). 
 
 ## Resources 
-
 - [Tax Properties API Reference](/api-reference/store-management/tax-properties)
-- [POST Tax Properties Reference](/api-reference/store-management/tax-properties/tax-properties/create-tax-properties)
-- [PUT Tax Properties Reference](/api-reference/store-management/tax-properties/tax-properties/update-tax-properties)
-- [GET Tax Properties Reference](/api-reference/store-management/tax-properties/tax-properties/get-tax-properties)
-- [DELETE Tax Properties Reference](/api-reference/store-management/tax-properties/tax-properties/delete-tax-properties)
-- [UPDATE Product Tax Properties Reference](/api-reference/store-management/tax-properties/product-tax-properties/update-product-tax-properties)
-- [GET Product Tax Properties Reference](/api-reference/store-management/tax-properties/product-tax-properties/get-product-tax-properties)
-- [DELETE Product Tax Properties Reference](/api-reference/store-management/tax-properties/product-tax-properties/delete-product-tax-properties)
 - [Tax Provider API Reference](/api-reference/providers/tax-provider-api)
-- [POST Tax Estimate](/api-reference/providers/tax-provider-api/tax-provider/estimate)
-- [POST Tax Commit](/api-reference/providers/tax-provider-api/tax-provider/commit)
-- [POST Tax Adjustment](/api-reference/providers/tax-provider-api/tax-provider/adjust)
+
+### Tax Properties reference
+- [Create tax properties](/api-reference/store-management/tax-properties/tax-properties/create-tax-properties)
+- [Get tax properties](/api-reference/store-management/tax-properties/tax-properties/get-tax-properties)
+- [Update tax properties](/api-reference/store-management/tax-properties/tax-properties/update-tax-properties)
+- [Delete tax properties](/api-reference/store-management/tax-properties/tax-properties/delete-tax-properties)
+
+### Product Tax Properties reference
+- [Create and update product tax properties](/api-reference/store-management/tax-properties/product-tax-properties/update-product-tax-properties)
+- [Get product tax properties](/api-reference/store-management/tax-properties/product-tax-properties/get-product-tax-properties)
+- [Delete product tax properties](/api-reference/store-management/tax-properties/product-tax-properties/delete-product-tax-properties)
+
+### Tax Provider reference
+- [Create a tax estimate](/api-reference/providers/tax-provider-api/tax-provider/estimate)
+- [Create a tax commit](/api-reference/providers/tax-provider-api/tax-provider/commit)
+- [Create a tax adjustment](/api-reference/providers/tax-provider-api/tax-provider/adjust)
+
+### Catalog reference
+- [Get all products](/api-reference/store-management/catalog/products/getproducts)
