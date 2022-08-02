@@ -12,7 +12,7 @@ Tax properties rely on tax codes, which are specific to third-party tax provider
 
 ### Create tax properties
 
-First, add tax properties to the store. This requires the tax provider's `code` and a `display_name` that shoppers may see, depending on your theme, settings, and jurisdiction.  Optionally, you can add a description.
+First, use the [Create tax properties](/api-reference/store-management/tax-properties/tax-properties/create-tax-properties) endpoint to add tax properties to the store. This requires the tax provider's `code` and a `display_name` that shoppers may see, depending on your theme, settings, and jurisdiction.  Optionally, you can add a description.
 
 The response provides an `id` for each tax property. Use the `id` to get, update, or delete a specific tax property.
 
@@ -74,7 +74,7 @@ title: Response
 
 ### Update tax properties
 
-You can update a tax property's `code`, `display_name`, and `description`. The request updates only fields that you specify.   
+Send a request to the [Update tax properties](/api-reference/store-management/tax-properties/tax-properties/update-tax-properties) endpoint to modify a tax property's `code`, `display_name`, or `description`. The request updates only fields that you specify.   
 
 <!--
 type: tab
@@ -120,8 +120,7 @@ title: Response
 
 ### Get tax properties
 
-This endpoint supports batch operations. You can get all the tax properties in your store, or only specific tax properties. To get specific tax properties, use the `id:in` query parameter. 
->>> fact check on this query parameter name and whether it works like this
+This endpoint supports batch operations. You can get all the tax properties in your store, or only specific tax properties. To get tax properties, send a request to the [Get tax properties](/api-reference/store-management/tax-properties/tax-properties/get-tax-properties) endpoint. To get only select tax properties, use the `id:in` query parameter.
 
 <!--
 type: tab
@@ -179,7 +178,7 @@ title: Response
 
 ### Delete tax properties
 
-To delete tax properties, use the `id:in` query parameter for the tax properties you want to delete.
+To delete tax properties, send a request to the [Delete tax properties](/api-reference/store-management/tax-properties/tax-properties/delete-tax-properties) endpoint and use the `id:in` query parameter to specify the tax properties you want to delete.
 
 <!--
 type: tab
@@ -215,6 +214,8 @@ You can add multiple tax properties to a single product. The following example s
 > Tax properties are not stored on or retrievable with the product object.
 
 ### Update product with tax properties
+
+To attach tax properties to a product, send a request to the [Update product tax properties](/api-reference/store-management/tax-properties/product-tax-properties/update-product-tax-properties) endpoint. Use the same endpoint to modify a product's existing tax properties.
 
 <!--
 type: tab
@@ -287,7 +288,7 @@ title: Response
 
 ### Get product tax properties 
 
-To get the tax properties attached to a product, use the `product_id:in` query parameter. 
+To get the tax properties attached to a product, send a request to the [Get product tax properties](/api-reference/store-management/tax-properties/product-tax-properties/get-product-tax-properties) endpoint and use the `product_id:in` query parameter. 
 
 <!--
 type: tab
@@ -347,7 +348,8 @@ title: Response
 > #### Batch deletion
 > This endpoint removes **all** tax properties from a given product.
 
-To remove tax properties from a product, use the `product_id:in` query parameter. This disassociates all the tax properties from a product. 
+To remove tax properties from a product, send a request to the [Delete product tax properties](/api-reference/store-management/tax-properties/product-tax-properties/delete-product-tax-properties) endpoint and use the `product_id:in` query parameter. This disassociates all the tax properties from a product. 
+
 
 <!--
 type: tab
