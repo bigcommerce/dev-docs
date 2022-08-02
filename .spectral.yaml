@@ -181,7 +181,8 @@ except:
     - openapi-tags
   'form_fields.sf.yml':
     - operation-operationId
-    - oas2-schema
+    - oas2-schema    
+    - oas2-valid-schema-example
   'geography.v2.yml':
     - operation-operationId
     - oas2-valid-media-example
@@ -274,3 +275,6 @@ except:
   'customers_v2.yml':
     - oas2-valid-media-example
     - oas2-valid-schema-example
+  'pages.v3.yml':
+    - oas3-valid-media-example
+    - oas3-valid-schema-example
