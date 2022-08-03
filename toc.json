@@ -293,6 +293,18 @@
     },
     {
       "type": "group",
+      "title": "Tax",
+      "items": [
+        {
+          "type": "item",
+          "title": "Tax Properties",
+          "href": "/api-docs/store-management/tax/tax-properties",
+          "uri": "docs/api-docs/tax/tax-properties.md"
+        }
+      ]
+    },    
+    {
+      "type": "group",
       "title": "Widgets",
       "items": [
         {
