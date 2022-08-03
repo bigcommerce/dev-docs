@@ -1,0 +1,397 @@
+openapi: 3.0.0
+x-stoplight:
+  id: af9eb7ad6774f
+info:
+  title: Tax Properties
+  description: Include tax properties and product tax properties in tax calculations.
+  version: ""
+paths:
+  "/stores/{store_hash}/v3/tax/properties":
+    get:
+      tags:
+        - Tax Properties
+      summary: Get Tax Properties
+      description: Retrieve all tax properties defined in this store.
+      operationId: get-tax-properties
+      parameters:
+        - name: store_hash
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: "#/components/parameters/idin"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Property"
+                  meta:
+                    type: object
+        "400":
+          description: Request parameters invalid
+    put:
+      tags:
+        - Tax Properties
+      summary: Update Tax Properties
+      description: Update one or more tax properties. Only fields specified will be
+        adjusted.
+      operationId: update-tax-properties
+      parameters:
+        - name: store_hash
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/PropertyPUT"
+        required: true
+        x-examples: {}
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Property"
+                  meta:
+                    type: object
+        "422":
+          description: The request body does not meet specifications.
+    post:
+      tags:
+        - Tax Properties
+      summary: Create Tax Properties
+      description: Create one or more tax properties. A **code** and a **display name**
+        must be included when creating tax properties.
+      operationId: create-tax-properties
+      parameters:
+        - name: store_hash
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/PropertyPOST"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Property"
+                  meta:
+                    type: object
+        "422":
+          description: The request body does not meet specifications.
+    delete:
+      tags:
+        - Tax Properties
+      summary: Delete Tax Properties
+      description: Delete one or multiple tax properties. A tax property must have zero
+        usages within product tax properties before you can delete it.
+      operationId: delete-tax-properties
+      parameters:
+        - name: store_hash
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: "#/components/parameters/idin_required"
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: Request parameters invalid
+        "409":
+          description: Tax Property is in use and cannot be deleted.
+  "/stores/{store_hash}/v3/tax/products/properties":
+    get:
+      tags:
+        - Product Tax Properties
+      summary: Get Product Tax Properties
+      description: Retrieve the tax properties that are associated with one or more
+        products.
+      operationId: get-product-tax-properties
+      parameters:
+        - name: store_hash
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: "#/components/parameters/product_idin"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ProductTaxProperty"
+                  meta:
+                    type: object
+        "400":
+          description: Request parameters invalid
+    put:
+      tags:
+        - Product Tax Properties
+      summary: Update Product Tax Properties
+      description: Update the tax properties associated with one or more products. This
+        operation will be additive to any tax property values already associated
+        with the product, overwriting any existing tax property values.
+      operationId: update-product-tax-properties
+      parameters:
+        - name: store_hash
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/ProductTaxProperty"
+        required: true
+        x-examples:
+          Example:
+            - product_id: 157
+              tax_properties:
+                A-123456789: "26"
+                B-6731789: "200"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ProductTaxProperty"
+                  meta:
+                    type: object
+        "422":
+          description: The request body does not meet specifications.
+    delete:
+      tags:
+        - Product Tax Properties
+      summary: Delete Product Tax Properties
+      description: Delete tax properties that are associated with one or more products.
+      operationId: delete-product-tax-properties
+      parameters:
+        - name: store_hash
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: "#/components/parameters/product_idin"
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: Request parameters invalid
+security:
+  - API_Key: []
+tags:
+  - name: Tax Properties
+  - name: Product Tax Properties
+servers:
+  - url: https://api.bigcommerce.com
+components:
+  parameters:
+    product_idin:
+      name: product_id:in
+      in: query
+      required: true
+      description: ID of product. To target multiple products, provide a comma-separated
+        list of IDs such as `12,34,56`
+      schema:
+        type: string
+    idin:
+      name: id:in
+      in: query
+      required: false
+      description: ID of tax property. To target multiple tax properties, provide a
+        comma-separated list of IDs such as `12,34,56`
+      schema:
+        type: string
+    idin_required:
+      name: id:in
+      in: query
+      required: true
+      description: ID of tax property. To target multiple tax properties, provide a
+        comma-separated list of IDs such as `12,34,56`
+      schema:
+        type: string
+  securitySchemes:
+    API_Key:
+      type: apiKey
+      name: X-Auth-Token
+      in: header
+      description: >-
+        ### OAuth Scopes
+
+        |  **UI Name** | **Permission** | **Parameter** |
+
+        | --- | --- | --- |
+
+        |  Information & Settings | modify | `store_v2_information` |
+
+        |  Information & Settings | read-only | `store_v2_information_read_only` |
+
+
+        ### Headers
+
+
+        |Header|Parameter|Description|
+
+        |-|-|-|
+
+        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
+
+
+        * For more information on Authenticating BigCommerce APIs, see [Authentication](/api-docs/getting-started/authentication).
+  schemas:
+    Property:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: An internal identifier used by other operations.
+          example: 1
+          readOnly: true
+        code:
+          type: string
+          description: The unique string programmatically references this unique tax
+            property by the tax provider. Merchants should liaise with their tax
+            provider to explore supported values and functions.
+          example: A-123456789
+        display_name:
+          type: string
+          description: The human-readable name for this property. This string will be
+            displayed on the Products screen as a field label.
+          example: Example Tax Property 1
+        description:
+          type: string
+          description: Optional. Additional detail about this tax property may help guide
+            merchants. This string will be displayed on the Products screen as a
+            tooltip associated with the relevant field.
+          example: Food Industry
+        created_at:
+          type: string
+          description: Datetime.
+          format: date-time
+          example: 2022-07-21T19:33:57+00:00
+          readOnly: true
+        updated_at:
+          type: string
+          description: Datetime.
+          format: date-time
+          example: 2022-07-21T19:33:57+00:00
+          readOnly: true
+    PropertyPOST:
+      type: object
+      properties:
+        code:
+          type: string
+          description: The unique string programmatically references this unique tax
+            property by the tax provider. Merchants should liaise with their tax
+            provider to explore supported values and functions.
+          example: A-123456789
+        display_name:
+          type: string
+          description: The human-readable name for this property. This string will be
+            displayed on the Products screen as a field label.
+          example: Example Tax Property 1
+        description:
+          type: string
+          description: Additional detail about this tax property may help guide merchants.
+            This string will be displayed on the Products screen as a tooltip
+            associated with the relevant field.
+          example: Food Industry
+      required:
+        - code
+        - display_name
+    PropertyPUT:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: An internal identifier used by other operations.
+          example: 1
+        code:
+          type: string
+          description: The unique string programmatically references this unique tax
+            property by the tax provider. Merchants should liaise with their tax
+            provider to explore supported values and functions.
+          example: A-123456789
+        display_name:
+          type: string
+          description: The human-readable name for this property. This string will be
+            displayed on the Products screen as a field label.
+          example: Example Tax Property 1
+        description:
+          type: string
+          description: Optional. Additional detail about this tax property may help guide
+            merchants. This string will be displayed on the Products screen as a
+            tooltip associated with the relevant field.
+          example: Food Industry
+      required:
+        - id
+    ProductTaxProperty:
+      type: object
+      description: A collection of tax property values associated with a product.
+      x-examples: {}
+      properties:
+        product_id:
+          type: integer
+          description: A reference to the product that the product tax properties are
+            associated with.
+          example: 157
+        tax_properties:
+          type: object
+          description: A simple key-value pairing. The tax property must be defined to
+            associate a value. These values will be sent to the active tax
+            provider during Tax Provider API operations whenever the associated
+            product is included in the operation.
+          example:
+            A-123456789: "26"
+            B-6731789: "200"
+      required:
+        - product_id
+        - tax_properties
