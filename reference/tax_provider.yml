@@ -939,6 +939,11 @@ components:
           type: boolean
           description: 'Flag whether or not this item is always tax-exempt. For example, gift certificate purchases and order-level refunds are tax-exempt. Tax-exempt items are included in the request for auditing purposes.'
           default: false
+        tax_properties:
+          type: array
+          description: Merchants may opt to include additional properties that a tax provider can choose to support, factoring these values into tax calculation.
+          items:
+            $ref: '#/components/schemas/request-item-tax-property'
         type:
           type: string
           description: |-
@@ -960,6 +965,23 @@ components:
         - price
         - quantity
         - type
+      x-internal: false
+    request-item-tax-property:
+      type: object
+      description: A simple key value pairing allowing merchants to provide an additional input into a tax provider's tax calculation.
+      title: TaxProperty
+      properties:
+        code:
+          type: string
+          description: Used by tax providers to programmatically identify a specific calculation input.
+          example: alcohol-percentage
+        value:
+          type: string
+          description: The value that will be factored into the tax provider's tax calculation rules, where supported.
+          example: '4.9'
+      required:
+        - code
+        - value
       x-internal: false
     request-document:
       type: object
