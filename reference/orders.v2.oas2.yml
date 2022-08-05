@@ -687,7 +687,7 @@ paths:
         *   order_address_id
         *   items
 
-        **Usage Notes**
+        **Usage notes**
 
         Presuming that a valid carrier code is used, a tracking link is generated if either `shipping_provider` or `tracking_carrier` is supplied alongside a tracking number. Providing only the tracking number will result in an unclickable text in the customer facing email.
 
@@ -3053,7 +3053,7 @@ components:
               coupons:
                 $ref: '#/components/schemas/coupons_Resource'
               external_id:
-                description: 'ID of the order in another system. For example, the Amazon Order ID if this is an Amazon order.This field can be updated in a /POST, but using a /PUT to update the order will return a 400 error. The field ''external_id'' cannot be written to. Please remove it from your request before trying again. It can not be overwritten once set.'
+                description: 'ID of the order in another system. For example, the Amazon Order ID if this is an Amazon order.This field can be updated in a /POST, but using a /PUT to update the order will return a 400 error. The field ''external_id'' cannot be written to. Please remove it from your request before trying again. It cannot be overwritten once set.'
                 example: 'null'
                 type: string
                 nullable: true
@@ -3394,7 +3394,7 @@ components:
           items:
             $ref: '#/components/schemas/orderProductOptions'
         external_id:
-          description: 'ID of the order in another system. For example, the Amazon Order ID if this is an Amazon order.This field can be updated in a /POST, but using a /PUT to update the order will return a 400 error. The field ''external_id'' cannot be written to. Please remove it from your request before trying again. It can not be overwritten once set.'
+          description: 'ID of the order in another system. For example, the Amazon Order ID if this is an Amazon order.This field can be updated in a /POST, but using a /PUT to update the order will return a 400 error. The field ''external_id'' cannot be written to. Please remove it from your request before trying again. It cannot be overwritten once set.'
           type: string
           nullable: true
         upc:
@@ -4055,6 +4055,7 @@ components:
       title: order_Shared
       description: Order properties used in `PUT` and `POST` requests and responses.
       type: object
+      x-internal: false
       properties:
         base_handling_cost:
           description: 'The value of the base handling cost. (Float, Float-As-String, Integer)'
@@ -4065,11 +4066,9 @@ components:
           example: '0.0000'
           type: string
         base_wrapping_cost:
-          description: 'The value of the base wrapping cost. (Float, Float-As-String, Integer)'
+          description: 'The value of the base wrapping cost expressed as a floating point number to four decimal places in string format.'
           example: '0.0000'
-          oneOf:
-            - type: string
-            - type: number
+          type: string
         billing_address:
           $ref: '#/components/schemas/billingAddress_Full'
         channel_id:
@@ -4097,13 +4096,13 @@ components:
           example: '0'
           type: string
         external_id:
-          description: 'The order ID in another system, such as the Amazon Order ID if this is an Amazon order. After setting it, you can not write to or update the `external_id`. You can update this field using a /POST request, but a /PUT request to update the order will return a 400 error.  Please remove it from your request before trying again.'
+          description: 'The order ID in another system, such as the Amazon Order ID if this is an Amazon order. After setting it, you cannot write to or update the `external_id`. You can update this field using a /POST request, but a /PUT request to update the order will return a 400 error.  Please remove it from your request before trying again.'
           example: null
           oneOf:
             - type: string
             - type: null
         external_merchant_id:
-          description: 'The merchant ID represents an upstream order from an external system. It is the source of truth for orders. After setting it, you can not write to or update the `external_merchant_id`. For example, you can update the Facebook by Meta page ID in a /POST request, but a /PUT request to update the order will return a 400 error. Please remove it from your request before trying again.'
+          description: 'The merchant ID represents an upstream order from an external system. It is the source of truth for orders. After setting it, you cannot write to or update the `external_merchant_id`. For example, you can update the Facebook by Meta page ID in a /POST request, but a /PUT request to update the order will return a 400 error. Please remove it from your request before trying again.'
           example: null
           oneOf:
             - type: string
@@ -4244,7 +4243,6 @@ components:
           description: 'The value of the wrapping cost, including tax. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
-      x-internal: false
     billingAddress_Base:
       type: object
       title: billingAddress_Base
@@ -4467,16 +4465,19 @@ components:
       type: object
       title: orderCustomProduct_Put
       description: |
-        To `add` a custom product to an existing order, don't include `id` in the payload. At least one of these fields `name`, `name_customer`, or `name_merchant` must be provided with non-empty value.
-             To `update` an order product line, `id` is required. The payload should only contain the fields that needs to be updated. Those fields that are omitted will not be changed.
-             Note:
-             - Empty strings `''` and `null` are invalid for `xxx`, `xxx_customer`, and `xxx_merchant`.
-             - `name` and `name_customer` always hold the same value, updating either `name` or `name_customer` will change the value for both of those fields.
-             - If both fields `name` and `name_customer` are present, they must have same value.
-             - When updating an existing order product, if both fields `name` and `name_customer` are omitted from the request, they will not be updated.
-             - When updating an existing order product, if `name_merchant` is omitted from the request, it will not be updated.
-             - When adding product, if `name_merchant` is omitted, it will be set to the value of `name` (or `name_customer`).
-             - When adding a new product to an existing order, if both fields `name` and `name_customer` are omitted, they will be set to the value of `name_merchant`.
+       **Usage notes:**
+
+       To `add` a custom product to an existing order, don't include `id` in the payload. You must provide a nonempty value for at least one of these fields: `name`, `name_customer`, or `name_merchant`.
+       To `update` an order product line, `id` is required. The payload should only contain the fields that need to be updated. You cannot change omitted fields.
+
+       Note the following constraints and default field values:
+        - Empty strings `''` and `null` are invalid for `xxx`, `xxx_customer`, and `xxx_merchant`.
+        - `name` and `name_customer` always hold the same value; updating either `name` or `name_customer` will change the value for both of those fields.
+        - If both fields `name` and `name_customer` are present, they must have the same value.
+        - When updating an existing order product, if you omit both fields `name` and `name_customer` from the request, they will not be updated.
+        - When updating an existing order product, if you omit `name_merchant` from the request, it will not be updated.
+        - When adding a product, if you omit `name_merchant`, it will be set to the value of `name` (or `name_customer`).
+        - When adding a new product to an existing order, if you omit both fields `name` and `name_customer`, they will be set to the value of `name_merchant`.
       properties:
         name:
           type: string
@@ -4513,16 +4514,18 @@ components:
     orderCatalogProduct_Put:
       title: orderCatalogProduct_Put
       description: |
-        To `add` product to an existing order, don't include `id` in the payload. And note that the `product_options` are required if adding a product with variants.
-        To `update` an order product line, `id` is required. The payload should only contain the fields that needs to be updated. Those fields that are omitted will not be changed.
-        Note:
-        - `xxx` and `xxx_customer` always hold the same value, updating either `xxx` or `xxx_customer` will change value for both of those fields.
+       **Usage notes**
+
+        To `add` a product to an existing order, don't include `id` in the payload. When adding a product with variants, `product_options` are required.
+        To `update` an order product line, `id` is required. The payload should only contain the fields that need to be updated. The fields that you omit will not be changed.
+       
+        Note the following constraints and default field values:
+        - `xxx` and `xxx_customer` always hold the same value. Updating either `xxx` or `xxx_customer` will change the value of both fields.
         - If both fields `xxx` and `xxx_customer` are present, they must have same value.
         - Empty strings `''` and `null` are invalid for `xxx`, `xxx_customer`, and `xxx_merchant`.
-        - When updating and existing order product without changing the variant, product or product options, if `xxx_merchant` is not part of the request it will not be updated.
-        - When updating an existing order product, if both fields `xxx` and `xxx_customer` not part of the request they will not be updated.
-        - When adding a product to and existing order or changing the variant, product, or product options.
-        - Empty strings `''` and `null` are invalid for `xxx`, `xxx_customer, and `xxx_merchant` if `xxx_merchant` is omitted, it will default to have the catalog value.
+        - When updating an existing order product without changing the variant, product, or product options, requests that do not contain `xxx_merchant` will fail.
+        - When updating an existing order product, requests that do not contain both fields `xxx` and `xxx_customer` will fail.
+        - Empty strings `''` and `null` are invalid for `xxx`, `xxx_customer, and `xxx_merchant`. If `xxx_merchant` is omitted, it will default to have the catalog value.
         - If both fields `xxx` and `xxx_customer` are omitted from the request, they will default to the catalog value.
       allOf:
         - type: object
@@ -4633,12 +4636,18 @@ components:
       title: orderCustomProduct_Post
       type: object
       description: |-
-        At least one of these fields `name`, `name_customer`, or `name_merchant` must be provided with non-empty value.
-        Note: `name` and `name_customer` always hold the same value, updating either `name` or `name_customer` will change value for both of those fields.
-        If both fields `name` and `name_customer` are present, they must have the same value.
-        Empty strings `''` and `null` are invalid for `xxx`, `xxx_customer`, and `xxx_merchant`.
-        If both fields `name` and `name_customer` are omitted, they will be populated by the `name_merchant` value.
-        If field `name_merchant` is omitted it will be populated by the value of `name` (or `name_customer`).
+        **Usage notes**
+
+        Provide one of these fields with a nonempty value:
+          - `name`
+          - `name_customer`
+          - `name_merchant`
+
+        Note the following constraints and default field values:
+          - Null and `''` empty strings are invalid for `name`, `name_customer`, and `name_merchant`.
+          - `name` and `name_customer` always share the same value; updating one updates the other.
+          - When you omit both `name` and `name_customer`, they default to the value of `name_merchant`. 
+          - When you omit `name_merchant`, it defaults to the value that `name` and `name_customer` share.
       properties:
         name:
           type: string
