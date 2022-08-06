@@ -1063,7 +1063,7 @@ paths:
     put:
       summary: Update Channel Order Settings
       description: |-
-        Updates order settings for a specific channel. 
+        Updates order settings for a specific channel.
 
          **Note:** You must override both notifications `email_addresses` or neither, i.e. either both notification `email_addresses` are an array of valid email addresses, or both `email_addresses` must be null. You may not have one set to an array of addesses and the other set to `null`.
       operationId: UpdateChannelOrderSettings
@@ -2577,7 +2577,7 @@ components:
     ItemsRefund:
       title: ItemsRefund
       x-internal: false
-      anyOf:
+      oneOf:
         - $ref: '#/components/schemas/AmountBoundItem'
         - $ref: '#/components/schemas/QuantityBoundItem'
         - $ref: '#/components/schemas/TaxExemptItem'
