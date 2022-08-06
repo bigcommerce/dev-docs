@@ -17,9 +17,8 @@ To test an app before release, apply for a [sandbox](https://www.bigcommerce.com
 
 ## Request Headers
 
-API requests are authenticated by the following HTTP headers:
+API requests are authenticated by the following HTTP header:
 
-* `X-Auth-Client` -- The Client ID of the requesting app.
 * `X-Auth-Token` -- Access token authorizing an app to access store data on behalf of a user.
 
 In addition, while not all resources require the Accept and Content-Type headers, many do. To ensure that your calls succeed, always include these headers. For more details on request headers and their accepted values, see [Request Headers](/api-docs/getting-started/about-our-api#request-headers).

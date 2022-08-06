@@ -31,15 +31,23 @@ Currently, you cannot edit strings such as "This promotion cannot be applied wit
 
 
 BigCommerce supports these uneditable strings in the following languages:
-* [Dutch](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-nl-NL.po)
-* English
-* [French](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-fr-FR.po)
-* [German](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-de-DE.po)
-* [Italian](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-it-IT.po)
-* [Portuguese (Brazil)](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-pt-BR.po)
-* [Spanish (Mexico)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-es-MX.po)
-* [Spanish (Spain)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-es-ES.po)
-* [Swedish](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-sv-SE.po)
+* [Danish](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/da.json)
+* [Dutch](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/nl.json)
+* [English](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/en.json)
+* [French](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/fr.json)
+* [German](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/de.json)
+* [Italian](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/it.json)
+* [Norwegian](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/no.json)
+* [Portuguese](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/pt.json)
+* [Portuguese (Brazil)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/pt-BR.json)
+* [Spanish (Argentina)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-AR.json)
+* [Spanish (Chile)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-CL.json)
+* [Spanish (Columbia)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-CO.json)
+* [Spanish (Latin America & Caribbean)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-419.json)
+* [Spanish (Mexico)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-MX.json)
+* [Spanish (Peru)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-PE.json)
+* [Spanish (Spain)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es.json)
+* [Swedish](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/sv.json)
 
 
 You can review these strings by downloading the language files we have made available in the portable object format. We recommend viewing these in a simple text editor or a text editor designed to handle PO files.
@@ -126,11 +134,20 @@ To customize payment and checkout messages, define these variables in the theme 
 
 ### Language files
 
-* [Dutch](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-nl-NL.po)
-* [French](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-fr-FR.po)
-* [German](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-de-DE.po)
-* [Italian](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-it-IT.po)
-* [Portuguese (Brazil)](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-pt-BR.po)
+* [Danish](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/da.json)
+* [Dutch](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-nl-NL.po)
+* [English](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/en.json)
+* [French](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-fr-FR.po)
+* [German](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-de-DE.po)
+* [Italian](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-it-IT.po)
+* [Norwegian](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/no.json)
+* [Portuguese](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/pt.json)
+* [Portuguese (Brazil)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-pt-BR.po)
+* [Spanish (Argentina)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-AR.json)
+* [Spanish (Chile)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-CL.json)
+* [Spanish (Columbia)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-CO.json)
+* [Spanish (Latin America & Caribbean)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-419.json)
 * [Spanish (Mexico)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-es-MX.po)
+* [Spanish (Peru)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/json/es-PE.json)
 * [Spanish (Spain)](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-es-ES.po)
-* [Swedish](https://raw.githubusercontent.com/bigcommerce/dev-docs/development/assets/PO/storefront-sv-SE.po)
+* [Swedish](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/PO/storefront-sv-SE.po)
