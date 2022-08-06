@@ -849,6 +849,7 @@ components:
       type: object
       description: An **ItemRequest** represents required information relating to completing tax calculations for a specific line item.
       title: ItemRequest
+      x-internal: false
       properties:
         id:
           type: string
@@ -870,6 +871,7 @@ components:
               type: number
               description: 'Note: This amount will be **negative** for order-level refunds and may be **zero** for line-item refunds.'
               format: double
+              example: 1.5
             tax_inclusive:
               type: boolean
               description: 'Note: **Tax Inclusive** and **Tax Exclusive** prices cannot be added together.'
@@ -900,7 +902,6 @@ components:
         - price
         - quantity
         - type
-      x-internal: false
     request-item-wrapping:
       type: object
       description: 'An **ItemRequestWrapping** represents required information relating to completing tax calculations for a specific line item, including the information used to calculate wrapping tax.'
