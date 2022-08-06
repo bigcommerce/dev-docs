@@ -4,7 +4,7 @@ stoplight-id: 8093a34240fc9
 
 # Store Logs API
 
-The Store Logs API allows merchants to track events in their store.  Each event creates an entry in the log. You can retrieve and send these entries into external systems to process events over time. For example, you can see how often merchants request shipping quotes from a carrier. You can also catch errors that occur on a store.
+The Store Logs API allows merchants to track events in their store. Each event creates an entry in the log. To process events over time, you can configure external systems to retrieve store log entries. For example, you can see how often merchants request shipping quotes from a carrier. You can also learn more about errors that occur on a store.
 
 The store logs track events from all storefront channels. Examples of events include sign-ups for newsletters and changes to an order status. You can retrieve entries for 365 days after their timestamp. 
 
@@ -12,11 +12,13 @@ This guide demonstrates how to use the Store Logs API. For more info, see the [S
 
 ## Get store logs
 
-Send a request to the [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs) endpoint. The API returns 20 entries with the earliest timestamp. The response orders the entries from the earliest to latest timestamp.
+Send a request to the [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs) endpoint. The API responds with the earliest 20 entries. The response orders the entries chronologically, from earliest to latest.
 
 ### Filter by log ID
 
-To filter the entries by log ID, pass a comma-separated list of log IDs to the `id:in` query parameter. Below is an example of how to use a GET request to retrieve entries by log ID: 
+To filter the entries by log ID, pass a comma-separated list of log IDs to the `id:in` query parameter. 
+
+The following example retrieves entries by log ID: 
 
 <!--
 type: tab
@@ -77,7 +79,9 @@ title: Response
 
 ### Filter by type 
 
-The store logs categorize entries into various types. For example, requesting shipping quotes at checkout creates a `shipping` entry. To filter entries by type, use the `type` query parameter. Below is an example of how to use a GET request to retrieve shipping entries:
+The store logs categorize entries into various types. For example, requesting shipping quotes at checkout creates a `shipping` entry. To filter entries by type, use the `type` query parameter. For a list of log types, see the [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs) endpoint reference. 
+
+The following example retrieves shipping entries:
 
 <!--
 type: tab
@@ -135,9 +139,11 @@ title: Response
 
 <!-- type: tab-end -->
 
-For a list of log types, consult the [API endpoint reference](/api-reference/store-management/store-logs/system-logs/get-system-logs). 
+### Filter by module
 
-You can see how often merchants request shipping quotes from a specific carrier. To do so, specify the carrier with the `module` query parameter. Below is an example of how to use a GET request to retrieve entries for quotes requests to Endicia:
+To see how often merchants request shipping quotes from a specific carrier, URL-encode the carrier name and pass it to the `module` query parameter. 
+
+The following example retrieves shipping entries by module:
 
 <!--
 type: tab
@@ -186,12 +192,11 @@ title: Response
 
 <!-- type: tab-end -->
 
-
 ### Filter by severity 
 
-Each event has an associated outcome, also known as `severity`. To filter the results by severity, use the `severity` query parameter. Specify the severity's corresponding integer in the query. For a list of severity values, see the [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs) endpoint.
+Each event has an associated outcome, also known as `severity`. To filter the results by severity, use the `severity` query parameter. Specify the severity's corresponding integer in the query. For a list of severity values, see the [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs) endpoint reference.
 
-Below is an example of how to use a GET request to retrieve entries that are notices:
+The following example retrieves notices, which have a `severity` of `2`:
 
 <!--
 type: tab
@@ -249,16 +254,18 @@ title: Response
 
 <!-- type: tab-end -->
 
-### Filter by paginated results   
+### Filter with pagination
 
-To retrieve paginated entries, use the query parameters `page` and `limit`. The following example requests page two with two entries per page:  
+As stated at the beginning of the section, the [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs) endpoint returns the **earliest** 20 entries by default. To retrieve newer or differently grouped subsets of entries, use a combination of the `page` and `limit` query parameters. 
+
+The following example requests page two with two entries per page, which returns the third and fourth oldest entries:  
 
 <!--
 type: tab
 title: Request
 -->
 
-```http title="Example request: Filter by paginated results" lineNumbers
+```http title="Example request: Filter with pagination" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/store/systemlogs?page=2&limit=2
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -270,7 +277,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example response: Filter by paginated results" lineNumbers
+```json title="Example response: Filter with pagination" lineNumbers
 {
   "data": [
     {
@@ -313,5 +320,7 @@ title: Response
 
 ## Resources
 - [Store Logs API Reference](/api-reference/store-management/store-logs)
-- [GET System Logs Reference](/api-reference/store-management/store-logs/system-logs/get-system-logs)
 - [Store Logs Support Article](https://support.bigcommerce.com/s/article/Using-Store-Logs)
+
+### Endpoint reference
+- [Get system logs](/api-reference/store-management/store-logs/system-logs/get-system-logs)
