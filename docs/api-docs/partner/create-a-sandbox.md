@@ -8,27 +8,21 @@ This article walks you through the steps of creating a sandbox store and explain
 
 **To create a sandbox store**
 
-1. Go to the [BigCommerce Partner Portal](https://partners.bigcommerce.com/English/) and sign in using your credentials.
-2. After signing in, click **Create New**, and select an option:
-    * **Deal Registration w/store**: select this option to create a sandbox with a deal registration.
-    * **Partner Use Sandbox**: select this option to create a sandbox for your own internal use.
-    * **Deal Registration**: select this option to create a deal registraion. Note that you cannot request sandboxes using this option.
-3. If you select **Deal Registration w/ Store**, complete all fields in the **Create a Store/Register a Deal** page to create a sandbox.
+1. Navigate to the [BigCommerce Partner Portal](https://partners.bigcommerce.com/English/) and sign in using your credentials.
+2. After signing in, click **Create New**, and select one of the 2 options:
+    * **Deal Registration w/store**: Create a sandbox with a deal registration.
+    * **Partner Use Sandbox**: Create a sandbox for your own internal use.
+3. If you select **Deal Registration w/ Store**, fill in all the fields on the **Create a Store/Register a Deal** page.
     * In the **Create a Store** field, select **Partner Sandbox**.
-    * After completing all fields, click **Submit**.
+    * Click **Submit**.
+ 4. If you select **Partner Use Sandbox**, fill in the **Sandbox Name** field, and then click **Submit**.
 
-After submitting the registration for **Deal Registration w/Store**, you can track your deal's progress in the **Review Deal Registrations** page. Allow up to 15 minutes for the new store to appear in these lists.
+For both options, allow up to 15 minutes for the new store to appear in the list of stores.
 
-You will receive two emails: a Deal Registration Confirmation email, and your new sandbox Store Login Credentials email, containing the login credentials to your sandbox.
+If you seclect the **Deal Registration w/Store** option, you will receive two emails: a Deal Registration Confirmation email, and your new sandbox Store Login Credentials email, containing the credentials to your sandbox. If you select the **Partner Sandbox** option, you will receive an email with the sandbox credentials only. 
+Note that the email containing the sandbox credentials is sent only once. You can view all your related stores by signing into your account with these credentials.
 
-After creating the first sandbox, you will receive an email with the login credentials - this email is sent only once. You can view all your related stores by signing into your account with these credentials.
-
-After your sandbox is created, you can view it and access your sandbox by navigating to **Reporting > Review Sandboxes & Trials** on the Partner Portal.
-
-
-4. If you select **Create New** > **Partner Use Sandbox**, complete the **Sandbox Name** field in the **Create a Partner Sandbox** and click **Submit**.
-
-After you submit the sandbox request, you will receive an email containing the login credentials for your new sandbox. You can view and access your sandbox by navigating to **Reporting > Review Sandboxes & Trials** on the Partner Portal. Allow up to 15 minutes for the new store to appear in these lists. 
+You can view your newly created sandbox by navigating to **Reporting > Review Sandboxes & Trials** on the Partner Portal.
 
 ## Creating a support case
 
