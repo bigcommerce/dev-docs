@@ -100,6 +100,7 @@ paths:
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
+                      originalPrice: 7.95
                       listPrice: 7.95
                       salePrice: 7.95
                       extendedListPrice: 7.95
@@ -273,6 +274,7 @@ paths:
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
+                      originalPrice: 7.95
                       listPrice: 7.95
                       salePrice: 7.95
                       extendedListPrice: 7.95
@@ -437,6 +439,7 @@ paths:
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
+                      originalPrice: 7.95
                       listPrice: 7.95
                       salePrice: 7.95
                       extendedListPrice: 7.95
@@ -598,6 +601,7 @@ paths:
                           discountedAmount: 2
                       discountAmount: 2
                       couponAmount: 0
+                      originalPrice: 17.99
                       listPrice: 15.99
                       salePrice: 13.99
                       extendedListPrice: 15.99
@@ -620,6 +624,7 @@ paths:
                           discountedAmount: 1.06
                       discountAmount: 0
                       couponAmount: 0
+                      originalPrice: 25
                       listPrice: 25
                       salePrice: 25
                       extendedListPrice: 25
@@ -642,6 +647,7 @@ paths:
                           discountedAmount: 2.12
                       discountAmount: 0
                       couponAmount: 0
+                      originalPrice: 49.99
                       listPrice: 49.99
                       salePrice: 49.99
                       extendedListPrice: 49.99
@@ -664,6 +670,7 @@ paths:
                           discountedAmount: 0.8
                       discountAmount: 0
                       couponAmount: 0
+                      originalPrice: 18.95
                       listPrice: 18.95
                       salePrice: 18.95
                       extendedListPrice: 18.95
@@ -840,6 +847,7 @@ paths:
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
+                      originalPrice: 7.95
                       listPrice: 7.95
                       salePrice: 7.95
                       extendedListPrice: 7.95
@@ -1021,6 +1029,7 @@ paths:
                           discountedAmount: 2
                       discountAmount: 2
                       couponAmount: 0
+                      originalPrice: 17.99
                       listPrice: 15.99
                       salePrice: 13.99
                       extendedListPrice: 15.99
@@ -1043,6 +1052,7 @@ paths:
                           discountedAmount: 1.06
                       discountAmount: 0
                       couponAmount: 0
+                      originalPrice: 25
                       listPrice: 25
                       salePrice: 25
                       extendedListPrice: 25
@@ -1065,6 +1075,7 @@ paths:
                           discountedAmount: 2.12
                       discountAmount: 0
                       couponAmount: 0
+                      originalPrice: 49.99
                       listPrice: 49.99
                       salePrice: 49.99
                       extendedListPrice: 49.99
@@ -1087,6 +1098,7 @@ paths:
                           discountedAmount: 0.8
                       discountAmount: 0
                       couponAmount: 0
+                      originalPrice: 18.95
                       listPrice: 18.95
                       salePrice: 18.95
                       extendedListPrice: 18.95
@@ -1309,6 +1321,7 @@ paths:
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
+                      originalPrice: 7.95
                       listPrice: 7.95
                       salePrice: 7.95
                       extendedListPrice: 7.95
@@ -1491,6 +1504,7 @@ paths:
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
+                      originalPrice: 7.95
                       listPrice: 7.95
                       salePrice: 7.95
                       extendedListPrice: 7.95
@@ -1631,6 +1645,7 @@ paths:
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
+                      originalPrice: 7.95
                       listPrice: 7.95
                       salePrice: 7.95
                       extendedListPrice: 7.95
@@ -1778,6 +1793,7 @@ paths:
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
+                      originalPrice: 7.95
                       listPrice: 7.95
                       salePrice: 7.95
                       extendedListPrice: 7.95
@@ -1966,6 +1982,7 @@ paths:
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
+                      originalPrice: 7.95
                       listPrice: 7.95
                       salePrice: 7.95
                       extendedListPrice: 7.95
@@ -2114,6 +2131,7 @@ paths:
                           discountedAmount: 2
                       discountAmount: 2
                       couponAmount: 0
+                      originalPrice: 17.99
                       listPrice: 15.99
                       salePrice: 13.99
                       extendedListPrice: 15.99
@@ -2134,6 +2152,7 @@ paths:
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
+                      originalPrice: 25
                       listPrice: 25
                       salePrice: 25
                       extendedListPrice: 25
@@ -2154,6 +2173,7 @@ paths:
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
+                      originalPrice: 49.99
                       listPrice: 49.99
                       salePrice: 49.99
                       extendedListPrice: 49.99
@@ -2174,6 +2194,7 @@ paths:
                       discounts: []
                       discountAmount: 0
                       couponAmount: 0
+                      originalPrice: 18.95
                       listPrice: 18.95
                       salePrice: 18.95
                       extendedListPrice: 18.95
@@ -2866,8 +2887,11 @@ definitions:
                             description: The total value of all coupons applied to this item.
                             type: number
                             format: double
+                          originalPrice:
+                            type: number
+                            description: 'An item’s original price is the same as the product default price in the admin panel.'
                           listPrice:
-                            description: 'Item’s list price, as quoted by the manufacturer/distributor.'
+                            description: 'The net item price before discounts and coupons. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
                             type: number
                             format: double
                           salePrice:
@@ -2975,8 +2999,11 @@ definitions:
                             description: The total value of all coupons applied to this item.
                             type: number
                             format: double
+                          originalPrice:
+                            type: number
+                            description: 'An item’s original price is the same as the product default price in the admin panel.'
                           listPrice:
-                            description: 'Item’s list price, as quoted by the manufacturer/distributor.'
+                            description: 'The net item price before discounts and coupons. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
                             type: number
                             format: double
                           salePrice:
@@ -3804,8 +3831,11 @@ definitions:
                     description: The total value of all coupons applied to this item.
                     type: number
                     format: double
+                  originalPrice:
+                    type: number
+                    description: 'An item’s original price is the same as the product default price in the admin panel.'
                   listPrice:
-                    description: 'Item’s list price, as quoted by the manufacturer/distributor.'
+                    description: 'The net item price before discounts and coupons. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
                     type: number
                     format: double
                   salePrice:
@@ -3916,8 +3946,11 @@ definitions:
                     description: The total value of all coupons applied to this item.
                     type: number
                     format: double
+                  originalPrice:
+                    type: number
+                    description: 'An item’s original price is the same as the product default price in the admin panel.'
                   listPrice:
-                    description: 'Item’s list price, as quoted by the manufacturer/distributor.'
+                    description: 'The net item price before discounts and coupons. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
                     type: number
                     format: double
                   salePrice:
@@ -4141,6 +4174,7 @@ responses:
                 discounts: []
                 discountAmount: 0
                 couponAmount: 0
+                originalPrice: 7.95
                 listPrice: 7.95
                 salePrice: 7.95
                 extendedListPrice: 7.95

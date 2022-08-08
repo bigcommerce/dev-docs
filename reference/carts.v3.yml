@@ -577,6 +577,7 @@ paths:
                             coupons: []
                             discount_amount: 0
                             coupon_amount: 0
+                            original_price: 27.95
                             list_price: 27.95
                             sale_price: 27.95
                             extended_list_price: 139.75
@@ -1517,9 +1518,12 @@ components:
                   coupon_amount:
                     type: number
                     description: The total value of all coupons applied to this item.
+                  original_price:
+                    type: number
+                    description: 'An item’s original price is the same as the product default price in the admin panel.'
                   list_price:
                     type: number
-                    description: 'Item’s list price, as quoted by the manufacturer/distributor. Optional price override.'
+                    description: 'The net item price before discounts and coupons. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
                   sale_price:
                     type: number
                     description: Item's price after all discounts are applied. (The final price before tax calculation.)
@@ -1691,9 +1695,12 @@ components:
                   coupon_amount:
                     type: number
                     description: The total value of all coupons applied to this item.
+                  original_price:
+                    type: number
+                    description: 'An item’s original price is the same as the product default price in the admin panel.'
                   list_price:
                     type: number
-                    description: 'Item’s list price, as quoted by the manufacturer/distributor. Optional price override.'
+                    description: 'The net item price before discounts and coupons. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
                   sale_price:
                     type: number
                     description: Item's price after all discounts are applied. (The final price before tax calculation.)
@@ -1987,9 +1994,12 @@ components:
             coupon_amount:
               type: number
               description: The total value of all coupons applied to this item.
+            original_price:
+              type: number
+              description: 'An item’s original price is the same as the product default price in the admin panel.'
             list_price:
               type: number
-              description: 'Item’s list price, as quoted by the manufacturer/distributor. Optional price override.'
+              description: 'The net item price before discounts and coupons. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
             sale_price:
               type: number
               description: Item's price after all discounts are applied. (The final price before tax calculation.)
@@ -2161,9 +2171,12 @@ components:
             coupon_amount:
               type: number
               description: The total value of all coupons applied to this item.
+            original_price:
+              type: number
+              description: 'An item’s original price is the same as the product default price in the admin panel.'
             list_price:
               type: number
-              description: 'Item’s list price, as quoted by the manufacturer/distributor. Optional price override.'
+              description: 'The net item price before discounts and coupons. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
             sale_price:
               type: number
               description: Item's price after all discounts are applied. (The final price before tax calculation.)
@@ -2333,9 +2346,12 @@ components:
         coupon_amount:
           type: number
           description: The total value of all coupons applied to this item.
+        original_price:
+          type: number
+          description: 'An item’s original price is the same as the product default price in the admin panel.'
         list_price:
           type: number
-          description: 'Item’s list price, as quoted by the manufacturer/distributor.'
+          description: 'The net item price before discounts and coupons. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
         sale_price:
           type: number
           description: Item's price after all discounts are applied. (The final price before tax calculation.)
