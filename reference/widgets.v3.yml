@@ -2,6 +2,7 @@ openapi: 3.0.1
 info:
   title: Widgets
   version: ''
+  contact: {}
   description: |-
     Create and manage widget templates, widgets, regions, and placements.
 
@@ -172,7 +173,7 @@ paths:
             type: string
             default: application/json
         - in: query
-          name: channel_id
+          name: 'channel_id:in'
           description: Filter items by channel_id.
           schema:
             type: integer
@@ -479,7 +480,7 @@ paths:
             type: array
             items: {}
         - in: query
-          name: channel_id
+          name: 'channel_id:in'
           description: Filter items by channel_id.
           schema:
             type: integer

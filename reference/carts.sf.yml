@@ -654,7 +654,10 @@ components:
           description: Whether the item is taxable.
         listPrice:
           type: number
-          description: 'Item’s list price, as quoted by the manufacturer/distributor.'
+          description: 'The net item price before discounts and coupons. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
+        originalPrice:
+          type: number
+          description: 'An item’s original price is the same as the product default price in the admin panel.'
         name:
           type: string
           description: The item's product name.
@@ -816,7 +819,10 @@ components:
           description: Whether the item is taxable.
         listPrice:
           type: number
-          description: The net item price before discounts and coupons. It is based on the product default price or sale price (if set) configured in BigCommerce Admin.
+          description: The net item price before discounts and coupons. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.
+        originalPrice:
+          type: number
+          description: 'An item’s original price is the same as the product default price in the admin panel.'
         name:
           type: string
           description: The item's product name.
@@ -1026,6 +1032,7 @@ components:
                       imageUrl: 'http://example.com'
                       isTaxable: true
                       listPrice: 0
+                      originalPrice: 0
                       name: string
                       parentId: '6'
                       productId: 0
@@ -1065,6 +1072,7 @@ components:
                       imageUrl: 'http://example.com'
                       isTaxable: true
                       listPrice: 0
+                      originalPrice: 0
                       name: string
                       parentId: 6
                       productId: 0
@@ -1133,6 +1141,7 @@ components:
                       imageUrl: 'http://example.com'
                       isTaxable: true
                       listPrice: 0
+                      originalPrice: 0
                       name: string
                       parentId: '6'
                       productId: 0
@@ -1172,6 +1181,7 @@ components:
                       imageUrl: 'http://example.com'
                       isTaxable: true
                       listPrice: 0
+                      originalPrice: 0
                       name: string
                       parentId: 6
                       productId: 0
@@ -1239,6 +1249,7 @@ components:
                       id: '4'
                       imageUrl: 'http://example.com'
                       isTaxable: true
+                      originalPrice: 0
                       listPrice: 0
                       name: string
                       parentId: '6'
@@ -1278,6 +1289,7 @@ components:
                       id: '4'
                       imageUrl: 'http://example.com'
                       isTaxable: true
+                      originalPrice: 0
                       listPrice: 0
                       name: string
                       parentId: 6
@@ -1340,6 +1352,7 @@ components:
                             discountedAmount: 24.6
                         discountAmount: 24.6
                         couponAmount: 0
+                        originalPrice: 130
                         listPrice: 123
                         salePrice: 110.7
                         extendedListPrice: 246
@@ -1405,6 +1418,7 @@ components:
                       id: '4'
                       imageUrl: 'http://example.com'
                       isTaxable: true
+                      originalPrice: 0
                       listPrice: 0
                       name: string
                       parentId: '6'
@@ -1444,6 +1458,7 @@ components:
                       id: '4'
                       imageUrl: 'http://example.com'
                       isTaxable: true
+                      originalPrice: 0
                       listPrice: 0
                       name: string
                       parentId: 6
@@ -1509,6 +1524,7 @@ components:
                       id: '4'
                       imageUrl: 'http://example.com'
                       isTaxable: true
+                      originalPrice: 0
                       listPrice: 0
                       name: string
                       parentId: '6'
@@ -1548,6 +1564,7 @@ components:
                       id: '4'
                       imageUrl: 'http://example.com'
                       isTaxable: true
+                      originalPrice: 0
                       listPrice: 0
                       name: string
                       parentId: 6
