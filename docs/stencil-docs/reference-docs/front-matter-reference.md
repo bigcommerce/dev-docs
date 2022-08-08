@@ -256,7 +256,8 @@ gql: "query productById($productId: Int!) {
 }"
 ```
   
-We suggest testing GraphQL queries using the [storefront API playground](https://developer.bigcommerce.com/graphql-playground) to refine them before adding them to your template. If your query contains a double quote `"`, replace it with single quotes `'` or escape the double-quotes `\"`. You can launch the playground from your store by going to **Settings** >  **API** > **Storefront API Playground** in your store's control panel.
+We suggest testing GraphQL queries using the [storefront API playground](https://developer.bigcommerce.com/graphql-playground) to refine them before adding them to your template. If your query contains double quotes `"`, replace them with single quotes `'` or escape the double-quotes `\"`. You can launch the playground from your store by going to **Settings** >  **API** > **Storefront API Playground** in your store control panel.
+
   
 Once you have added a query to your template's front matter block, execution happens automatically when the page loads. The data returned by the query will be returned in the page's context and made available to the handlebars under the `gql` key. For example, you can retrieve the variant data from the above query in `product.html` like this:
 
