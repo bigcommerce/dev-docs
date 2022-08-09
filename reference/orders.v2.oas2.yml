@@ -2005,6 +2005,7 @@ components:
                       name: PickList
                       display_style: Pick list
                   configurable_fields: []
+                  gift_certificate_id: null
                 - id: 66
                   order_id: 149
                   product_id: 86
@@ -2051,6 +2052,7 @@ components:
                   applied_discounts: []
                   product_options: []
                   configurable_fields: []
+                  gift_certificate_id: null
     orderProductLineItem_Resp:
       description: ''
       content:
@@ -2123,6 +2125,7 @@ components:
                     name: ProductPickList
                     display_style: Pick list
                 configurable_fields: []
+                gift_certificate_id: null
               Custom Product:
                 - id: 238
                   order_id: 247
@@ -2177,6 +2180,7 @@ components:
                   applied_discounts: []
                   product_options: []
                   configurable_fields: []
+                  gift_certificate_id: null
               Product with Variants:
                 - id: 240
                   order_id: 247
@@ -3412,6 +3416,11 @@ components:
           type: string
           example: Towel Type 1
           description: The product name that is shown to merchant in Control Panel.
+        gift_certificate_id:
+          type: integer
+          example: 52
+          description:  ID of the associated gift certificate.
+          nullable: true
     orderCount:
       title: orderCount
       example:
