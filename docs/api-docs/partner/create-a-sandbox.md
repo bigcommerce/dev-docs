@@ -19,7 +19,7 @@ This article walks you through the steps of creating a sandbox store and explain
 
 For both options, allow up to 15 minutes for the new store to appear in the list of stores.
 
-If you seclect the **Deal Registration w/Store** option, you will receive two emails: a Deal Registration Confirmation email, and your new sandbox Store Login Credentials email, containing the credentials to your sandbox. If you select the **Partner Sandbox** option, you will receive an email with the sandbox credentials only. 
+If you select the **Deal Registration w/Store** option, you will receive two emails: a Deal Registration Confirmation email, and your new sandbox Store Login Credentials email, containing the credentials to your sandbox. If you select the **Partner Sandbox** option, you will receive an email with the sandbox credentials only. 
 Note that the email containing the sandbox credentials is sent only once. You can view all your related stores by signing into your account with these credentials.
 
 You can view your newly created sandbox by navigating to **Reporting > Review Sandboxes & Trials** on the Partner Portal.
