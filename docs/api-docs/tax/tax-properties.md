@@ -13,7 +13,7 @@ This guide demonstrates how to use the Tax Properties API. For more, see the [Ta
 
 ## Tax properties
 
-Tax properties rely on `code`s, which are specific to third-party tax providers. Consult a tax provider's documentation to identify supported `code`s. The `code`s used in tax properties are not tax codes. See [Tax properties versus tax codes](#tax-properties-versus-tax-codes).    
+Tax properties rely on `code`s specific to third-party tax providers. Consult a tax provider's documentation to identify supported `code`s. The `code`s used in tax properties are not tax codes. See [Tax properties versus tax codes](#tax-properties-versus-tax-codes).    
 
 ### Create tax properties
 
