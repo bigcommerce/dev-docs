@@ -1,6 +1,6 @@
 # Tax Properties for Products
 
-The Tax Properties API allows merchants to vary the tax info that they send to tax providers. In some jurisdictions, tax rates for some products vary by product composition. For example, correct taxation of alcohol requires info about alcohol percentage. Using tax properties, providers can return more accurate tax calculations. The examples in this guide expand on this use case. 
+The Tax Properties API allows merchants to vary the tax info they send to tax providers. In some jurisdictions, tax rates for products vary by product composition. For example, correct taxation of alcohol requires info about alcohol percentage. Using tax properties, providers can return more accurate tax calculations. The examples in this guide expand on this use case. 
 
 In some instances, tax providers may need multiple inputs that vary between products. For example, both the alcohol percentage and the volume sold affect alcohol taxes. As shown in this guide, merchants can provide both pieces of info to tax providers.    
 
