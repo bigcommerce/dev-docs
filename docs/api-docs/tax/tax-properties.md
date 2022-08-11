@@ -1,14 +1,19 @@
 # Tax Properties for Products
 
-The Tax Properties API allows merchants to attach multiple tax codes to a given product. These tax codes allow merchants to use more than one tax provider; for example, a merchant might use different tax providers in different countries. They can also assist merchants who are transitioning between tax providers. 
+The Tax Properties API allows merchants to vary the tax information they send to tax providers for tax calculation. In some jurisdictions, tax rates for products vary by product composition. For example, accurate taxation of alcohol may require information about alcohol percentage. Using tax properties, providers can return more accurate tax quotes. The examples in this guide expand on this use case. 
 
-In addition, the tax rates for some products vary by product composition. For example, in some jurisdictions, correct taxation of alcohol and fuel requires more than one tax code. To provide accurate calculations, tax providers need to know about both the percentage of alcohol by volume **and** the volume of alcohol sold. With tax properties, merchants can send tax providers more than one code per product. Providers can return more accurate tax calculations. The examples in this guide expand on this use case.
+Tax providers may sometimes need multiple inputs that can vary between different types of product. For example, for products with alcohol, the alcohol percentage and the volume sold affect alcohol taxes. As shown in this guide, merchants can provide both pieces of information to tax providers.
+
+<!-- theme: info -->
+> #### Tax properties versus tax codes
+> A tax code is a single code that tax providers use to invoke specific rules when calculating tax on a product. 
+> In contrast, tax properties are fields that contain information about product specifics. Tax providers use these fields to factor product specifics into their calculations. 
 
 This guide demonstrates how to use the Tax Properties API. For more, see the [Tax Properties API Reference](/api-reference/store-management/tax-properties) and the [Tax Provider API Reference](/api-reference/providers/tax-provider-api). 
 
 ## Tax properties
 
-Tax properties rely on tax codes, which are specific to third-party tax providers. Consult a tax provider's documentation to identify supported codes.
+Tax properties rely on `code`s specific to third-party tax providers. Consult a tax provider's documentation to identify supported `code`s. The `code`s used in tax properties are not tax codes. See [Tax properties versus tax codes](#tax-properties-versus-tax-codes).    
 
 ### Create tax properties
 
@@ -207,7 +212,7 @@ HTTP 204 No content
 
 After [creating a tax property](#create-tax-properties), you can attach it to a base product to create a product tax property. To do so, specify the product using its `product_id`. The `product_id` is the `id` from the [Get all products](/api-reference/store-management/catalog/products/getproducts) endpoint. 
 
-You can add multiple tax properties to a single product. The following example shows tax properties attached to alcohol products. In this example, the tax rate of alcohol products varies by both alcohol percentage and net volume.  
+You can add multiple tax properties to a single product. The following example shows tax properties attached to alcohol products. In this example, the tax rate of alcohol products varies by both alcohol percentage and net volume. 
 
 <!-- theme: info -->
 > #### Tax properties aren't product properties
