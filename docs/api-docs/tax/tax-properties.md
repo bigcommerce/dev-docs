@@ -7,7 +7,7 @@ Tax providers may sometimes need multiple inputs that can vary between different
 <!-- theme: info -->
 > #### Tax properties versus tax codes
 > A tax code is a single code that tax providers use to invoke specific rules when calculating tax on a product. 
-> In contrast, tax properties are fields that contain info about product specifics. Tax providers use these fields to factor product specifics into their calculations. 
+> In contrast, tax properties are fields that contain information about product specifics. Tax providers use these fields to factor product specifics into their calculations. 
 
 This guide demonstrates how to use the Tax Properties API. For more, see the [Tax Properties API Reference](/api-reference/store-management/tax-properties) and the [Tax Provider API Reference](/api-reference/providers/tax-provider-api). 
 
