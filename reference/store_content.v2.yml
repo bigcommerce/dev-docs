@@ -1564,6 +1564,7 @@ definitions:
   page_Base:
     title: page_Base
     type: object
+    x-internal: false
     properties:
       parent_id:
         description: ID of any parent Web page.
@@ -1621,7 +1622,7 @@ definitions:
         description: 'Text specified for this page’s `<title>` element. (If empty, the value of the name property is used.)'
         type: string
       layout_file:
-        description: Layout template for this page. This field is writable only for stores with a Blueprint theme applied.
+        description: 'Layout template for this page. This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](https://developer.bigcommerce.com/api-reference/store-management/custom-template-associations).'
         example: page.html
         type: string
       sort_order:
@@ -1653,7 +1654,6 @@ definitions:
       - body
       - feed
       - link
-    x-internal: false
 tags:
   - name: Blog Posts
   - name: Blog Tags

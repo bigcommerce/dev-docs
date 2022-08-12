@@ -14018,10 +14018,8 @@ paths:
           application/json:
             schema:
               title: Category
-              required:
-                - name
-                - parent_id
               type: object
+              description: Common Category object properties.
               properties:
                 id:
                   type: integer
@@ -14093,7 +14091,7 @@ paths:
                   minLength: 0
                   type: string
                   description: |
-                    A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied.
+                    A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](https://developer.bigcommerce.com/api-reference/store-management/custom-template-associations).
                   example: category.html
                 is_visible:
                   type: boolean
@@ -14122,6 +14120,7 @@ paths:
                 custom_url:
                   title: Custom Url Category
                   type: object
+                  description: The custom URL for the category on the storefront.
                   properties:
                     url:
                       maxLength: 255
@@ -14141,8 +14140,9 @@ paths:
                       x-required:
                         - post
                         - put
-                  description: The custom URL for the category on the storefront.
-              description: Common Category object properties.
+              required:
+                - parent_id
+                - name
         required: true
       responses:
         '200':
@@ -14503,10 +14503,8 @@ paths:
           application/json:
             schema:
               title: Category
-              required:
-                - name
-                - parent_id
               type: object
+              description: Common Category object properties.
               properties:
                 id:
                   type: integer
@@ -14578,7 +14576,7 @@ paths:
                   minLength: 0
                   type: string
                   description: |
-                    A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied.
+                    A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](https://developer.bigcommerce.com/api-reference/store-management/custom-template-associations).
                   example: category.html
                 is_visible:
                   type: boolean
@@ -14607,6 +14605,7 @@ paths:
                 custom_url:
                   title: Custom Url Category
                   type: object
+                  description: The custom URL for the category on the storefront.
                   properties:
                     url:
                       maxLength: 255
@@ -14626,8 +14625,9 @@ paths:
                       x-required:
                         - post
                         - put
-                  description: The custom URL for the category on the storefront.
-              description: Common Category object properties.
+              required:
+                - parent_id
+                - name
         required: true
       responses:
         '200':
@@ -14640,10 +14640,8 @@ paths:
                 properties:
                   data:
                     title: Category
-                    required:
-                      - name
-                      - parent_id
                     type: object
+                    description: Common Category object properties.
                     properties:
                       id:
                         type: integer
@@ -14715,7 +14713,7 @@ paths:
                         minLength: 0
                         type: string
                         description: |
-                          A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied.
+                          A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](https://developer.bigcommerce.com/api-reference/store-management/custom-template-associations).
                         example: category.html
                       is_visible:
                         type: boolean
@@ -14744,6 +14742,7 @@ paths:
                       custom_url:
                         title: Custom Url Category
                         type: object
+                        description: The custom URL for the category on the storefront.
                         properties:
                           url:
                             maxLength: 255
@@ -14763,12 +14762,12 @@ paths:
                             x-required:
                               - post
                               - put
-                        description: The custom URL for the category on the storefront.
-                    description: Common Category object properties.
+                    required:
+                      - parent_id
+                      - name
                   meta:
                     title: Meta
                     type: object
-                    properties: {}
                     description: Empty meta object; may be used later.
         '207':
           description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
@@ -21000,10 +20999,9 @@ components:
       x-internal: false
     category_Full:
       title: category_Full
-      required:
-        - name
-        - parent_id
       type: object
+      description: Common Category object properties.
+      x-internal: false
       properties:
         id:
           type: integer
@@ -21075,7 +21073,7 @@ components:
           minLength: 0
           type: string
           description: |
-            A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied.
+            A valid layout file. (Please refer to [this article](https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/) on creating category files.) This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](https://developer.bigcommerce.com/api-reference/store-management/custom-template-associations).
           example: category.html
         is_visible:
           type: boolean
@@ -21103,8 +21101,9 @@ components:
           x-url: true
         custom_url:
           $ref: '#/components/schemas/customUrl_Full'
-      description: Common Category object properties.
-      x-internal: false
+      required:
+        - parent_id
+        - name
     brand_Full:
       title: brand_Full
       required:
@@ -23860,7 +23859,7 @@ components:
           minLength: 0
           type: string
           description: |
-            The layout template file used to render this product category. This field is writable only for stores with a Blueprint theme applied.
+            The layout template file used to render this product category. This field is writable only for stores with a Blueprint theme applied. For stores with a Stencil theme applied, see [Custom Template Associations](https://developer.bigcommerce.com/api-reference/store-management/custom-template-associations).
         upc:
           type: string
           maxLength: 32
