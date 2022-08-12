@@ -304,7 +304,7 @@ paths:
             type: integer
         - name: keyword
           in: query
-          description: 'Filter items by keywords found in the `name` or `sku` fields'
+          description: Filter items by keywords found in the `name` or `sku` fields
           schema:
             type: string
         - name: keyword_context
@@ -23862,9 +23862,9 @@ components:
           description: |
             The layout template file used to render this product category. This field is writable only for stores with a Blueprint theme applied.
         upc:
-          maxLength: 255
-          minLength: 0
           type: string
+          maxLength: 32
+          minLength: 0
           description: |
             The product UPC code, which is used in feeds for shopping comparison sites and external channel integrations.
         search_keywords:
