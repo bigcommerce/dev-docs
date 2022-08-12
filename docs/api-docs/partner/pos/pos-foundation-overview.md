@@ -2,7 +2,7 @@
 
 POS Foundation is a proof-of-concept [open-source framework](https://github.com/bigcommerce/point-of-sale-foundation) that helps developers deliver custom point-of-sale checkout interfaces to BigCommerce merchants with brick-and-mortar locations. It provides a template to scaffold custom POS solutions that use secure, pre-certified EMV card readers. POS Foundation's default integration with Stripe Terminal can significantly accelerate development time. 
 
-This app is a manual connector app that uses a store API account. The app will not appear in the store control panel. With POS Foundation, you will not need to create an app profile or use ngrok. This proof-of-concept tutorial only applies to local network operations and will not make its own channel. 
+This app is a manual connector app that uses a store API account. The app will not appear in the store control panel. With POS Foundation, you do not need to create an app profile or use ngrok. This proof-of-concept tutorial only applies to local network operations and currently will not make its own channel. We are looking to expand this foundation and would like to collaborate with interested agencies.
 
 
 ## Software requirements
