@@ -35,7 +35,7 @@ The following code sample displays a price record.
 
 -  You can use a `PriceRecordBatch` to update several price records in a price list at once. Using this bulk upsert endpoint, you can upsert up to 1000 price records in a single API call.
 
-- **Note**: A price list can contain records for multiple currencies. If you use a [transactional currency](/api-docs/multi-currency/guide/introduction#display-vs-transactional), the customer group or channel uses price records in that currency. If a multi-currency price list is unavailable, BigCommerce automaticlly converts the catalog price to the appropriate currency. The customer group or channel uses price records in the default currency and performs a currency conversion for [display-only currencies](/api-docs/multi-currency/guide/introduction#display-vs-transactional).
+- **Note**: A price list can contain records for multiple currencies. If you use a [transactional currency](/api-docs/multi-currency/guide/introduction#display-vs-transactional), the customer group or channel uses price records in that currency. If a multi-currency price list is unavailable, BigCommerce automatically converts the catalog price to the appropriate currency. The customer group or channel uses price records in the default currency and performs a currency conversion for [display-only currencies](/api-docs/multi-currency/guide/introduction#display-vs-transactional).
 
 The following example shows how to retrieve all price lists for a store.
 
