@@ -2,7 +2,7 @@
 
 POS Foundation provides a proof-of-concept [open-source framework](https://github.com/bigcommerce/point-of-sale-foundation) that helps developers deliver custom point-of-sale (POS) checkout interfaces to BigCommerce merchants with brick-and-mortar locations. It provides a template to scaffold custom POS solutions that use secure, pre-certified EMV card readers. POS Foundation's default integration with Stripe Terminal helps significantly accelerate development time. 
 
-POS Foundation consists of a manual connector app that uses a store API account. The app is not displayed in the store control panel. to configure POS Foundation, you need to create an app profile or use ngrok. This proof-of-concept tutorial only applies to local network operations and does not create its own channel. 
+POS Foundation consists of a manual connector app that uses a store API account. The app is not displayed in the store control panel. To configure POS Foundation, you need to create an app profile or use ngrok. This proof-of-concept tutorial only applies to local network operations and does not create its own channel. 
 
 
 ## Software requirements
@@ -22,7 +22,7 @@ POS Foundation consists of a manual connector app that uses a store API account.
 
 To configure your accounts, complete the following steps:
 
-1.[Create a BigCommerce Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=subscription-foundation) to develop and test your apps..
+1. [Create a BigCommerce Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=subscription-foundation) to develop and test your apps.
 
 2. In the control panel of your sandbox store, [create a store API account](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials) with the following scopes:
  
@@ -40,9 +40,9 @@ To configure your accounts, complete the following steps:
 | Storefront API Tokens | manage| `store_storefront_api` |
 
 <!-- theme: success -->
-> #### Record the API account credentials
-> *Record the `ACCESS_TOKEN`, `CLIENT ID`, and `CLIENT SECRET`at a safe place. In a later step, you will use these credentials to update the `BC_AUTH_TOKEN`, `BC_APP_CLIENT_ID`, and `BC_APP_SECRET` environment variables in the `.env` file.
-> * In addition, make note of your store's **store hash**. It is the path parameter that immediately precedes `v3` in the `API PATH` included with your store API account. In a later step, you will use the store hash to update the `BC_STORE_HASH` environment variable in the `.env` file.
+#### Record the API account credentials
+* Record the `ACCESS_TOKEN`, `CLIENT ID`, and `CLIENT SECRET`at a safe place. In a later step, you will use these credentials to update the `BC_AUTH_TOKEN`, `BC_APP_CLIENT_ID`, and `BC_APP_SECRET` environment variables in the `.env` file.
+* In addition, make note of your store's **store hash**. It is the path parameter that immediately precedes `v3` in the `API PATH` included with your store API account. In a later step, you will use the store hash to update the `BC_STORE_HASH` environment variable in the `.env` file.
 
 ## Fork and install the source repository 
 To fork the repository, complete the following steps:
@@ -150,8 +150,8 @@ mongodb+srv://<username>:<password>@cluster0.sdfdfg65.mongodb.net/myFirstDatabas
 ![pos-connection-string](https://storage.googleapis.com/bigcommerce-production-dev-center/images/POS-connection-string.png)
 
 <!-- theme: success -->
-> #### Record the connection string
-> Record the MongoDB Cloud connection string and keep it in a safe location. In a later step, you will use the connection string to update the `DATABASE_URL` environment variable in the `.env` file.
+#### Record the connection string
+Record the MongoDB Cloud connection string and keep it in a safe location. In a later step, you will use the connection string to update the `DATABASE_URL` environment variable in the `.env` file.
 
 ## Declare environment variables
 
