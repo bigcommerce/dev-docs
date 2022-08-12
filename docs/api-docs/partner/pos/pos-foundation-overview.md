@@ -22,7 +22,7 @@ POS Foundation consists of a manual connector app that uses a store API account.
 
 To configure your accounts, complete the following steps:
 
-1.[Create a BigCommerce Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=subscription-foundation) to develop and test your apps..
+1. [Create a BigCommerce Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=subscription-foundation) to develop and test your apps.
 
 2. In the control panel of your sandbox store, [create a store API account](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials) with the following scopes:
  
@@ -218,7 +218,7 @@ npm run dev
 ```
 Upon successfull execution of this command, the app is running locally.
 
-6. Sign in to the app as an admin at `http://localhost:3000/signin`. The default admin PIN in the seed data is `1234`.
+6. On your browser, navigate to `http://localhost:3000/signin` and sign in to the app as an admin. The default admin PIN in the seed data is `1234`.
 ![pos-sign-in](https://storage.googleapis.com/bigcommerce-production-dev-center/images/pos-sign-in.png)
 
 7. After you access Prisma Studio, navigate to the **Settings** screen to save your store address, which the app uses for checkout tax calculations. If you fail to supply the store address, you will receive the following error:
