@@ -8,7 +8,7 @@ POS Foundation is a manual connector app that uses a store API account. The app 
 ## Software requirements
 * [Node.js](https://nodejs.org/en/) 14.0.0+
 * The [npm](https://www.npmjs.com/) package manager
-* A MongoDB database instance; this guide uses MongoDB Cloud
+* A MongoDB database instance; this guide uses [MongoDB Cloud](https://www.mongodb.com/cloud)
 
 ## Hardware requirements
 * A [Stripe Terminal-enabled card reader](https://stripe.com/terminal)
@@ -222,9 +222,7 @@ Upon successfull execution of this command, the app is running locally.
 
 ![pos-sign-in](https://storage.googleapis.com/bigcommerce-production-dev-center/images/pos-sign-in.png)
 
-7. After you access Prisma Studio, navigate to the **Settings** screen to save your store address, which the app uses for checkout tax calculations. If you fail to supply the store address, you will receive the following error:
-  
-![pos-missing-store-address](https://storage.googleapis.com/bigcommerce-production-dev-center/images/POS-missing-store-address.jpeg)
+7. After you access Prisma Studio, navigate to the **Settings** screen to save your store address, which the app uses for checkout tax calculations. If you fail to supply the store address, you will receive an unhandled runtime error.
 
 
 ## Connecting to a reader in the POS
