@@ -4,20 +4,23 @@
 ## What is a price list?
 
 
-A price list allows you to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level. If an active price list doesn't contain prices for a variant, then the catalog pricing will be used. 
+You can use price lists to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level. If an active price list doesn't contain prices for a variant, the catalog pricing will be used. 
 
-You can assign a price list to a specific sales channel, customer group, or customer group on a specific sales channel, using price list assignments in the [Price List Assignment API](/api-reference/store-management/price-lists/price-lists-assignments/createpricelistassignments). You can also associate a price list to a customer group in the Control Panel or the [Customer Groups API](/api-reference/store-management/customers-v2). Price list assignments combined with a customer group assignment allows you to better target the signed-in customers shopping on that channel.
+You can use price list assignments in the [Price List Assignment API](/api-reference/store-management/price-lists/price-lists-assignments/createpricelistassignments) to assign a price list to a specific sales channel, customer group, or customer group on a specific sales channel.  You can also use the Control Panel or the [Customer Groups API](/api-reference/store-management/customers-v2) to associate a price list with a customer group. 
+Assigning pice list to specific customer groups allows you to specifically target the signed-in customers shopping on a specific channel.
 
-Price lists will provide overridden price values to the Stencil storefront. You can further customize the final price displayed within the Stencil template. For more information, see [Theme Objects](/stencil-docs/reference-docs/global-objects-and-properties).
+Price lists allow for target price values that have been overriden by the price lists to be displayed on the Stencil storefront. You can further customize the final price displayed within the Stencil template. For more information, see [Theme Objects](/stencil-docs/reference-docs/global-objects-and-properties).
 
 
 ### OAuth scopes
-The following OAuth Scopes are required:
+The following OAuth Scopes are required for authentication:
 * [Products](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
 
 ## Price list definitions
-* A **price list** is a collection of price records. Price records make up a price list.
+* A **price list** consists of a collection of price records. 
 * A **price record** is a price override for a particular variant. At a minimum, it contains a variant ID, a price, and a currency.
+
+The following code sample displays a price record.
 
 
 ```json title="Price Record" lineNumbers
@@ -32,9 +35,11 @@ The following OAuth Scopes are required:
 ```
 
 
-- `PriceRecordBatch`: a way to update several price records in a price list at once. Using this bulk upsert endpoint, you can upsert up to 1000 price records in a single API call.
+-  You can use a `PriceRecordBatch` to update several price records in a price list at once. Using this bulk upsert endpoint, you can upsert up to 1000 price records in a single API call.
 
-- **Currency:** a price list can contain records for multiple currencies. If you use a [transactional currency](/api-docs/multi-currency/guide/introduction#display-vs-transactional), the customer group or channel will use price records in that currency. If a multi-currency price list is unavailable, BigCommerce auto converts the catalog price. The customer group or channel uses price records in the default currency and performs a currency conversion for [display-only currencies](/api-docs/multi-currency/guide/introduction#display-vs-transactional).
+- **Note**: A price list can contain records for multiple currencies. If you use a [transactional currency](/api-docs/multi-currency/guide/introduction#display-vs-transactional), the customer group or channel uses price records in that currency. If a multi-currency price list is unavailable, BigCommerce automaticlly converts the catalog price to the appropriate currency. The customer group or channel uses price records in the default currency and performs a currency conversion for [display-only currencies](/api-docs/multi-currency/guide/introduction#display-vs-transactional).
+
+The following example shows how to retrieve all price lists for a store.
 
 
 ```http title="Example request: Get all price lists" lineNumbers
@@ -86,9 +91,11 @@ Content-Type: application/json
 
 ## Price list assignments
 
-The price list assignment assigns a price list to a specific sales channel. This association lets you define custom pricing for shoppers on storefront channels, but doesn't affect pricing in different omnichannel environments (Facebook, Amazon, Instagram, eBay, etc). 
+The price list assignment API assigns a price list to a specific sales channel. This association lets you define custom pricing for shoppers on storefront channels, but doesn't affect pricing in different omnichannel environments, such as Facebook, Amazon, Instagram, and eBay. 
 
-See [Channels, Sites, and Routes](/api-reference/store-management/channels) for further documentation.
+For additional information, see [Channels, Sites, and Routes](/api-reference/store-management/channels).
+
+The following example shows how to create a price list assignment for a store.
 
 ```http title="Example request: Create a price list assignment" lineNumbers
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/pricelists/assignments
@@ -106,6 +113,8 @@ Content-Type: application/json
 ```
 
 ## Price lists assigned to customer groups 
+
+The following example shows how to assign a price list fo a customer group.
 
 ```http title="Example request: Assign a price list to a customer group" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{store_hash}}/v2/customer_groups/{{customer_group_id}}
@@ -133,13 +142,13 @@ Content-Type: application/json
 
 Under `discount_rules` the `type` is set to `price_list`. The `price_list_id` is 1, which is the id of the price list assigned to the group.
 
-## Price list notes
+## Addiditional information about price lists
 
 - Bulk pricing tiers may additionally be associated with a Price Record to indicate different pricing as the quantity in cart increases.
 
-- If a variant has a `Price Record`, any existing product-level bulk pricing will not apply in the cart. For variants without `Price Records`, any existing product bulk pricing will apply.
+- If a variant has a `Price Record` specified, any existing product-level bulk pricing will not apply to any merchandise in the cart. For variants without `Price Records`, any existing product bulk pricing will apply.
 
-- `Price Lists Records` accepts bulk upsert. You can only do one [Bulk upsert](/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection) at a time. Running more than one in parallel on the **same store** will cause a 429 error, and the request will fail.
+- `Price Lists Records` accepts bulk upsert. You can only perform one [Bulk upsert](/api-reference/catalog/pricelists-api/price-lists-records/setpricelistrecordcollection) at a time. Performing more than one bulk upsert action at the same time on the same store will cause a 429 error, and the request will fail.
 
 ## Related resources
 
@@ -147,7 +156,7 @@ Under `discount_rules` the `type` is set to `price_list`. The `price_list_id` is
 * [Get Price List Collection](/api-reference/catalog/pricelists-api/price-lists/getpricelistcollection)
 
 ### Webhooks
-There are no direct webhooks available for Price Lists. Since Price Lists directly relate to products, webhooks related to products will fire for corresponding changes such as pricing.
+There are no direct webhooks available for price lists. Because price lists directly relate to products, any webhooks that are related to products will also be triggered for corresponding changes such as pricing.
 
 * [Products](/api-docs/getting-started/webhooks/webhook-events#webhook-events_products)
 * [SKU](/api-docs/getting-started/webhooks/webhook-events#webhook-events_sku)
