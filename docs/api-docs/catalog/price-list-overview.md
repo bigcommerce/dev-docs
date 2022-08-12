@@ -6,10 +6,10 @@
 
 You can use price lists to populate different versions of catalog pricing and assign them to different [Customer Groups](/api-reference/customer-subscribers/customers-api). The prices are specified exclusively at the variant level. If an active price list doesn't contain prices for a variant, the catalog pricing will be used. 
 
-You can use price list assignments in the [Price List Assignment API](/api-reference/store-management/price-lists/price-lists-assignments/createpricelistassignments) to assign a price list to a specific sales channel, customer group, or customer group on a specific sales channel.  You can also use the Control Panel or the [Customer Groups API](/api-reference/store-management/customers-v2) to associate a price list with a customer group. 
-Assigning pice list to specific customer groups allows you to specifically target the signed-in customers shopping on a specific channel.
+You can use price list assignments in the [Price List Assignment API](/api-reference/store-management/price-lists/price-lists-assignments/createpricelistassignments) to assign a price list to a specific sales channel, customer group, or customer group subscribed to a specific sales channel. You can also use the Control Panel or the [Customer Groups API](/api-reference/store-management/customers-v2) to associate a price list with a customer group. 
+Assigning a price list to specific customer groups allows you to specifically target the signed-in customers who are shopping on a specific channel.
 
-Price lists allow for target price values that have been overriden by the price lists to be displayed on the Stencil storefront. You can further customize the final price displayed within the Stencil template. For more information, see [Theme Objects](/stencil-docs/reference-docs/global-objects-and-properties).
+Price lists allow for target price values that have been overriden by the price lists to be displayed on the Stencil storefront. You can further customize the final price that is displayed within the Stencil template. For more information, see [Theme Objects](/stencil-docs/reference-docs/global-objects-and-properties).
 
 
 ### OAuth scopes
