@@ -632,8 +632,7 @@ paths:
         * The cart ID and checkout ID are the same.
 
         **Required Fields**
-        * order_id
-        * checkout_id
+        * `order_id` or `checkout_id`
       summary: Get Accepted Payment Methods
       tags:
         - Accepted Methods
@@ -644,7 +643,6 @@ paths:
       parameters:
         - name: order_id
           in: query
-          required: false
           description: Identifier for the order
           schema:
             type: integer
@@ -653,7 +651,6 @@ paths:
             exclusiveMaximum: false
         - name: checkout_id
           in: query
-          required: false
           description: Identifier for the checkout (same as the cart ID)
           schema:
             type: string
@@ -837,28 +834,6 @@ paths:
                   - status
                   - title
                   - type
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                order_id:
-                  type: integer
-                checkout_id:
-                  type: string
-            examples:
-              order_id:
-                value:
-                  order_id: 155
-              checkout_id:
-                value:
-                  checkout_id: 69331902-b0f7-46b7-baec-852b318161f6
-          application/xml:
-            schema:
-              type: object
-              properties: {}
-        description: ''
     parameters:
       - schema:
           type: string
