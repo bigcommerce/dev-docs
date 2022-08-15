@@ -23,9 +23,11 @@ Once BigCommerce registers your app, a store owner can install the app on a stor
 
 ### Single-carrier versus multi-carrier shipping providers
 
-A single-carrier shipping provider offers one service, for example, USPS. A multi-carrier shipping provider offers more than one service, for example, USPS, DHL, and Canada Post. In both cases, BigCommerce registers only one shipping carrier for a provider during [sign up](#sign-up). If you are a multi-carrier shipping provider, the registered carrier provides quotes from multiple downstream carriers. 
+Specify your carrier status when you sign up.  
 
-BigCommerce makes a distinction between single-carrier and multi-carrier shipping providers when you sign up. Your carrier status affects how your quotes display in the customer's cart at checkout. Specifically, if you sign up as a single carrier, the name of the carrier providing the quote appears beside the name of the shipping quote in the customer's list of shipping rate options. The carrier name does not appear in quotes if you sign up as a multi-carrier shipping provider. The following images illustrate the difference:
+Single-carriers offer one service, for example, USPS.  Multi-carriers offer more than one service, for example, USPS, DHL, and Canada Post. In both cases, BigCommerce registers only one carrier for a provider. If you are a multi-carrier, the registered carrier provides quotes from downstream carriers. 
+
+Your carrier status affects how your quotes display to shoppers at checkout. The name of a single carrier appears by the name of the quote in the shopper's list of shipping options. The name of a multi-carrier does not appear by the quote. The following images illustrate the difference:
 
 ![Single-carrier quote example](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Single%20Carrier%20Example.png 'Single-carrier quote')
 
@@ -210,7 +212,7 @@ Send an email to [ShippingProviderAPI@bigcommerce.com](mailto:shippingproviderap
 - A description of the app. The description is displayed to merchants in the store control panel.
 - Logo: A 70x70 pixel logo that represents the shipping carrier app
 - [Your service URLs](#your-service-urls) 
-- [Whether you prefer single-carrier or multi-carrier status](#single-carrier-versus-multi-carrier-shipping-providers)
+- [Your carrier status: single versus multi-carrier](#single-carrier-versus-multi-carrier-shipping-providers)
 - [Configuration fields](#configuration-fields) (optional): For a list of items you need to provide, see [types of configuration options](#types-of-configuration-options).
 - Countries Available (optional): A list of countries where merchants can use your carrier. Merchants who have a store origin address outside this list will not be able to use your carrier. 
   
