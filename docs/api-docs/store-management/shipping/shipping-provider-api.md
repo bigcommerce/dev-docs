@@ -47,10 +47,10 @@ BigCommerce assigns your app an ID when you create an app. You will need the app
 
 ### Your service URLs
 
-BigCommerce sends requests to your server to validate merchant credentials and obtain shipping quotes. To handle these requests smoothly, you need to provide BigCommerce with the following when you [sign up](#sign-up):
+BigCommerce sends requests to your server. Provide BigCommerce with the following when you [sign up](#sign-up):
 
 - **Quote URL**: a URL that accepts quote requests from BigCommerce. You will provide shipping quotes from this URL.
-- **Check Connection Options URL** (optional): a URL to check and validate connection options during app registration. BigCommerce will send requests to this URL to ensure that a merchant’s connection settings are valid. You can perform any necessary checks, such as looking up a merchant's app credentials in your database or calling a downstream service to verify them. 
+- **Check Connection Options URL** (optional): a URL to check connection options. BigCommerce will send requests with a merchant’s connection settings. You can then look up a merchant's credentials in your database or call a downstream service. 
 
 These urls can be any valid HTTPS URLs that use port `443`, for example `https://example.com/rate`. Replace `example.com` and `rate` with your own host and path. 
 
