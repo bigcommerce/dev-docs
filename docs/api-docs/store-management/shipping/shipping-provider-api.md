@@ -197,31 +197,28 @@ title: Password
 
 
 ## Sign up
-After you finish developing the app, you can sign up to be a shipping provider. Submit your app to BigCommerce and BigCommerce will register your app as a shipping provider. 
+After you develop the app, sign up to be a shipping provider. Submit your app to BigCommerce and BigCommerce will register your app as a shipping provider. 
 
 ### What you should provide BigCommerce
 Send an email to [ShippingProviderAPI@bigcommerce.com](mailto:shippingproviderapi@bigcommerce.com) that includes the following information:
 
-
-
 - Name of app
 - [Your app ID](#your-app-id)
 - Your email
-- A description of the app. The description is displayed to merchants in the store control panel.
+- A description of the app. The description is displayed to merchants in the control panel.
 - Logo: A 70x70 pixel logo that represents the shipping carrier app
 - [Your service URLs](#your-service-urls) 
 - [Your carrier status: single versus multi-carrier](#single-carrier-versus-multi-carrier-shipping-providers)
 - [Configuration fields](#configuration-fields) (optional): For a list of items you need to provide, see [types of configuration options](#types-of-configuration-options).
 - Countries Available (optional): A list of countries where merchants can use your carrier. Merchants who have a store origin address outside this list will not be able to use your carrier. 
   
-  In most cases, this list should be as broad as possible. For example, if your carrier operates worldwide, make it available worldwide. You can limit the countries further than what your shipping carrier offers. If you don't provide the countries available, your carrier is available worldwide (i.e. for every shipping origin). 
+  In most cases, this list should be as broad as possible. For example, if your carrier operates worldwide, make it available worldwide. You can limit the countries further than what your shipping carrier offers. If you don't provide the countries available, your carrier will be available worldwide (i.e. for every shipping origin). 
 
-After submitting your app, you will receive the a carrier ID. Both single-carrier and multi-carrier shipping providers receive one `carrier_id`.
+After submitting your app, you will receive a carrier ID. Both single-carrier and multi-carrier shipping providers receive one `carrier_id`.
 
 ### What you should document for API users
  
-We recommend that you document your carrier ID and configuration option codes for API users who wish to use your carrier. For example, API users will specify the `carrier_id` and `code` for connections options when they [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store). API users specify the `code` for settings options when they define your carrier's shipping method for their shipping zones.  
-
+We recommend that you document your `carrier_id` and configuration option `code`s. API users will need your carrier ID and connection options to [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store). API users will need your settings options to define a shipping method for your carrier. 
 
 ## How your app will be connected to a store
 
