@@ -114,8 +114,8 @@ Configuration fields are optional connection options or shipping settings option
 
 #### How configuration fields are used
  
-- **API users** and **merchants** use connection options when they [connect your app to a store](#how-your-app-will-be-connected-to-a-store). They will use the settings options when defining shipping methods that use your carrier. 
-- **BigCommerce** will include values for connection options when we when we need you to [vaiidate connection options](#validate-connection-options) and [provide shipping rates](#provide-shipping-rates-to-bigcommerce). BigCommerce also sends settings options when we need you to provide shipping rates. 
+- API users and merchants use connection options when they [connect your app to a store](#how-your-app-will-be-connected-to-a-store). They use settings options when defining shipping methods for your carrier. 
+- BigCommerce will send connection options when we need you to [validate connection options](#validate-connection-options) and [provide shipping rates](#provide-shipping-rates-to-bigcommerce). BigCommerce also sends settings options when we need you to provide shipping rates. 
 
 #### Types of configuration options
 These are the types of configuration (connection or settings) options that we currently allow:
