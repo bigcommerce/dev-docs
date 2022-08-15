@@ -56,11 +56,11 @@ These urls can be any valid HTTPS URLs that use port `443`, for example `https:/
 
 ### Request and response bodies
 
-BigCommerce will send and receive data from your service URLs using JSON.  
+BigCommerce will send and receive data from your service URLs using JSON. To see how BigCommerce will format requests for rates and how you will need to format responses, see the following endpoint references:
 
-- To see how BigCommerce will format requests for rates and how you will need to format responses, see the [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) endpoint. 
+- [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) reference 
 
-- To see how BigCommerce will format requests for validating merchant connection options and how you will need to format responses, see the [Validate connection options](/api-reference/providers/shipping-provider-api/shipping-provider/validateconnectionoptions) endpoint.
+- [Validate connection options](/api-reference/providers/shipping-provider-api/shipping-provider/validateconnectionoptions) reference
 
 ### Error handling
 
