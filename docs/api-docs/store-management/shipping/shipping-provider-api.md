@@ -1,12 +1,14 @@
 # Become a Shipping Provider
 
-Shipping service providers who wish to offer shipping services and rates to BigCommerce merchants and shoppers can implement endpoints through BigCommerce. Benefits of using a shipping provider include the following:
+Shipping providers can offer shipping services and rates to BigCommerce merchants and shoppers. They must implement endpoints through BigCommerce. 
 
-- Drop-shippers can require their own rates
-- Merchants can retrieve rates from custom shipping tables or in-house shipping rate calculation services 
+Benefits of using a shipping provider include the following: 
+- Drop-shippers can set their own rates
+- Merchants can retrieve rates from custom shipping tables
+- Merchants can retrieve rates from in-house calculation services
 - Shoppers can create a combination of in-store pickup and shipping options
 
-This article guides developers on how to create and register a BigCommerce shipping provider app that will make their shipping rates available to merchants and shoppers on demand.
+This article guides you on how to create and register a shipping provider app at BigCommerce. 
 
 ## Prerequisites
 
