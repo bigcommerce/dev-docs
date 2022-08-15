@@ -118,22 +118,22 @@ Configuration fields are optional connection options or shipping settings option
 - BigCommerce will send connection options when we need you to [validate connection options](#validate-connection-options) and [provide shipping rates](#provide-shipping-rates-to-bigcommerce). BigCommerce also sends settings options when we need you to provide shipping rates. 
 
 #### Types of configuration options
-These are the types of configuration (connection or settings) options that we currently allow:
+These are the types of configuration options that we allow:
 - Text
 - Checkbox 
 - Select
 - Multi-select
 - Password
 
-If you would like configuration options to be set up for your carrier, specify the following for each configuration option when you [sign up](#sign-up):
-- **Label**: This is the text that will be displayed on the merchant's UI when they connect
-- **Code**: This is an identifying code for the configuration option. Use snake case for codes. For a list of where these codes will be sent, see [How configuration fields are used](#how-configuration-fields-are-used)
-- **Required**: Whether or not the configuration option is required 
-- **Type**: Type of configuration option
+Specify the following for each configuration option when you [sign up] (#sign-up): 
+- **Label**: Text that merchants see when they connect in the control panel
+- **Code**: Unique code for the option. Use snake case.
+- **Required**: Whether the option is required 
+- **Type**: Type of option
 
-For the select and multi-select configuration options, you need to specify the values that are available for merchants and API users.
+For select and multi-select types, specify values that you want available.
 
-Here are examples of what you would specify for the various types of configuration option:
+Below are examples of what you can specify for various configuration types:
 
 <!-- 
 type: tab
