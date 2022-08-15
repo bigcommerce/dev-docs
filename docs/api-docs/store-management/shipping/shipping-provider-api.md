@@ -35,11 +35,9 @@ Your carrier status affects how your quotes display to shoppers at checkout. The
 
 ## Develop the app
 
-To use the Shipping Provider API to provide shipping quotes, you must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click). For more info on how to get started, see the [BigCommerce Apps Quick Start](/api-docs/partner/getting-started/app-development/tutorials/quick-start) article.
+You must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click). This allows you to create [app API credentials](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis#app-api-credentials) and promote your solution in the BigCommerce app marketplace. This also allows merchants to choose shipping settings in the store control panel. 
 
-Building a BigCommerce app allows you to create [app API credentials](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis#app-api-credentials) and promote your solution in the BigCommerce app marketplace. Having a BigCommerce app allows merchants to configure shipping provider settings and/or order fulfillment via an iFrame in the BigCommerce control panel.
-
-For more information, see our [Introduction to Building Apps](/api-docs/apps/guide/intro) article.
+For more info, see the [BigCommerce Apps Quick Start](/api-docs/partner/getting-started/app-development/tutorials/quick-start) article and the [Introduction to Building Apps](/api-docs/apps/guide/intro) article.
 
 ### Your app ID
 
