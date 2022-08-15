@@ -64,7 +64,7 @@ BigCommerce will send and receive data from your service URLs using JSON. To see
 
 ### Error handling
 
-To handle errors, include human-readable error messages in the responses that you send. Here are example responses that include error messages for the [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) endpoint and the [Validate Connection Options](/api-reference/providers/shipping-provider-api/shipping-provider/validateconnectionoptions) endpoint. The error message appears under the `messages` key.
+To handle errors, include human-readable error messages in your responses.  The error message appears under the `messages` key. Below are example responses for the [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) endpoint and the [Validate Connection Options](/api-reference/providers/shipping-provider-api/shipping-provider/validateconnectionoptions) endpoint. 
 
 <!--
 type: tab
