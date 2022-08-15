@@ -23,10 +23,10 @@ arch -x86_64 /bin/zsh
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 
 # Install Stencil CLI supported version of Node.js
-nvm install 14
+nvm install 14.20.0
 
 # Switch to Stencil CLI supported version of Node.js:
-nvm use 14
+nvm use 14.20.0
 
 # Install Stencil CLI
 npm install -g @bigcommerce/stencil-cli
@@ -54,10 +54,10 @@ Run the following commands:
 
 ```shell
 # Install Stencil CLI supported version of Node.js
-nvm install 14
+nvm install 14.20.0
 
 # Switch to Stencil CLI supported version of Node.js
-nvm use 14
+nvm use 14.20.0
 
 # Install Stencil CLI
 npm install -g @bigcommerce/stencil-cli
@@ -77,7 +77,7 @@ iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/in
 choco install git
 
 # Install nvm-windows and stencil compatible node.js
-choco install nvm; nvm install 14; nvm use 14
+choco install nvm; nvm install 14.20.0; nvm use 14.20.0
 
 #####################################################################################
 # Close PowerShell and re-open as admin
@@ -134,9 +134,9 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 source ~/.bashrc
 
 # Explicitly install and use supported node version
-nvm install 14
+nvm install 14.20.0
 
-nvm use 14
+nvm use 14.20.0
 
 # Install stencil
 npm install -g @bigcommerce/stencil-cli
