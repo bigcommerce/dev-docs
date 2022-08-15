@@ -23,7 +23,7 @@ Once BigCommerce registers your app, a store owner can install the app on a stor
 
 ### Single-carrier versus multi-carrier shipping providers
 
-Specify your carrier status when you sign up.  
+Specify your carrier status when you [sign up](#sign-up).  
 
 Single-carriers offer one service, for example, USPS.  Multi-carriers offer more than one service, for example, USPS, DHL, and Canada Post. In both cases, BigCommerce registers only one carrier for a provider. If you are a multi-carrier, the registered carrier provides quotes from downstream carriers. 
 
