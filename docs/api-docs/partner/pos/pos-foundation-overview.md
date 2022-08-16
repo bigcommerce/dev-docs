@@ -230,6 +230,8 @@ Upon successfull execution of this command, the app is running locally.
 On the main register screen, press the **Wifi** icon, which will read all of your terminals from Stripe and check if they are active on your network.
 
 Press **Connect** for the active terminal you'd like to use to take payment at checkout.
+
+For more information on registering the terminal, see [Connect to a reader](https://stripe.com/docs/terminal/payments/connect-reader?reader-type=internet) in the Stripe documentation.
  
 
 ## Troubleshooting
