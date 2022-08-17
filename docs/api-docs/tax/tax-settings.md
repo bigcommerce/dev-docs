@@ -6,6 +6,8 @@ This guide shows you how to use the Tax Settings API. For more info, see the [Ta
 
 ## Get tax settings
 
+To get tax settings, send a request to the [Get tax settings](/...) endpoint
+
 <!--
 type: tab
 title: Request
@@ -41,6 +43,7 @@ title: Response
 
 ## Update tax settings
 
+To update tax settings, send a request to the [Update tax settings](/...) endpoint. The request updates only fields that you specify.
 
 <!--
 type: tab
