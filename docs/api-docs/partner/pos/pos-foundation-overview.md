@@ -1,8 +1,8 @@
 # POS Foundation
 
-POS Foundation provides a proof-of-concept [open-source framework](https://github.com/bigcommerce/point-of-sale-foundation) that helps developers deliver custom point-of-sale (POS) checkout interfaces to BigCommerce merchants with brick-and-mortar locations. It provides a template to scaffold custom POS solutions that use secure, pre-certified EMV card readers. POS Foundation's default integration with Stripe Terminal helps significantly accelerate development time. 
+POS Foundation provides a proof-of-concept [open source framework](https://github.com/bigcommerce/point-of-sale-foundation) for building point-of-sale (POS) checkout interfaces that serve BigCommerce merchants with physical locations. It provides a template for custom POS solutions that use secure, pre-certified EMV card readers. POS Foundation's default integration with Stripe Terminal can significantly accelerate development time. 
 
-POS Foundation is a manual connector app that uses a store API account. The app will not be displayed in the store control panel. POS Foundation does not require that you create an app profile or use ngrok. This proof-of-concept tutorial only applies to local network operations and in its current state does not create its own channel. We are looking to expand this foundation and would like to collaborate with interested agencies.
+POS Foundation scaffolds manual connector apps that use [store API accounts](/api-docs/getting-started/authentication/rest-api-authentication#store-api-accounts). You do not need to create an app profile or use ngrok. The app will not appear in the store control panel and is only accessible to computers running on the same local network as the app's server. In contrast to [Subscription Foundation](/api-docs/partner/subscription-solutions/foundation-guide)-derived apps, POS Foundation apps do not create their own dedicated sales channels. If you're interested in contributing to this package, >>> what did we want them to do? submit a PR? contact partner rep?
 
 
 ## Software requirements
@@ -22,9 +22,9 @@ POS Foundation is a manual connector app that uses a store API account. The app 
 
 To configure your accounts, complete the following steps:
 
-1. [Create a BigCommerce Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=subscription-foundation) to develop and test your apps.
+1. To develop and test safely, you need a BigCommerce sandbox store. If you don't have one, [Create a Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=pos-foundation).
 
-2. In the control panel of your sandbox store, [create a store API account](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials) with the following scopes:
+2. In the control panel of your sandbox store, [create a store API account](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials) and add the following OAuth scopes:
  
 | UI Name | Permission | Parameter |
 |:--------|:-----------|:----------|
@@ -40,16 +40,16 @@ To configure your accounts, complete the following steps:
 | Storefront API Tokens | manage| `store_storefront_api` |
 
 <!-- theme: success -->
-#### Record the API account credentials
-* Record the `ACCESS_TOKEN`, `CLIENT ID`, and `CLIENT SECRET`at a safe place. In a later step, you will use these credentials to update the `BC_AUTH_TOKEN`, `BC_APP_CLIENT_ID`, and `BC_APP_SECRET` environment variables in the `.env` file.
-* In addition, make note of your store's **store hash**. It is the path parameter that immediately precedes `v3` in the `API PATH` included with your store API account. In a later step, you will use the store hash to update the `BC_STORE_HASH` environment variable in the `.env` file.
+> #### Record the API account credentials
+> * Record the **access token**, **client ID**, and **client secret** in a safe place. In a later step, you will use these credentials to update the `BC_AUTH_TOKEN`, `BC_APP_CLIENT_ID`, and `BC_APP_SECRET` environment variables in the `.env` file.
+> * In addition, make note of the **store hash**. It is the path parameter that immediately precedes `v3` in the `API PATH` included with your store API account. In a later step, you will use the store hash to update the `BC_STORE_HASH` environment variable in the `.env` file.
 
 ## Fork and install the source repository 
 To fork the repository, complete the following steps:
 
 1. Fork the [point-of-sale-foundation repository (GitHub)](https://github.com/bigcommerce/point-of-sale-foundation) to your GitHub account.
 2. Clone the fork to your local development environment.
-3. Navigate to the root directory of your cloned repository and issue the following command to install the default packages for this framework.
+3. Navigate to the root directory of your cloned repository and install the default packages by running the following command:
 
 ```shell title="Install packages"
 npm install
@@ -57,52 +57,63 @@ npm install
 
 ## Configure Stripe
 
-To run the POS framework, you need to create and configure a Stripe account.
+To develop the POS interface, you need to create and configure a Stripe account.
 
-To configure the Stripe account to connect to your implementation, complete the following steps:
+To configure the Stripe account to connect with your implementation, complete the following steps:
 
-1. Create a Stripe account and sign in to the [Stripe Terminal](https://stripe.com/terminal).
+1. To create the Stripe account, [sign up with Stripe](https://dashboard.stripe.com/register).
 
-2. In the top right corner of your Stripe dashboard click **Test Mode** and verify that [**Test mode**](https://dashboard.stripe.com/test/developers) is selected. Do not select the **Developers** dashboard. 
+2. Sign in to the [Stripe Dashboard](https://dashboard.stripe.com/).
+
+3. In the top right corner of your Stripe Dashboard, click **Test Mode** and verify that [**Test mode**](https://dashboard.stripe.com/test/developers) is selected. 
+ 
 ![pos-stripe-test-mode](https://storage.googleapis.com/bigcommerce-production-dev-center/images/pos-stripe-test-mode.png)
 
 <!-- theme: info -->
 > #### Test mode
-> You can simulate transactions in test mode to confirm your integration works correctly.
+> Simulate transactions using test mode to confirm your integration works correctly.
 
-
-3. Scroll down the page to the **Get Started with Stripe** section and click the icon to the right of **Secret key** and then click to copy the secret key. 
+4. Select **API keys** in the left menu, then locate the **Standard keys** section of the page. In the **Secret key** table row, click **Reveal test key** and copy the string that appears. 
 
 <!-- theme: success -->
-Record the **secret key** and keep it in a safe location. In a later step, you will use the secret key to update the `STRIPE_SECRET_KEY` environment variable in the `.env` file.
+> #### Make note of the secret key
+> Record the **secret key** and keep it in a safe location. In a later step, you will use the secret key to update the `STRIPE_SECRET_KEY` environment variable in the `.env` file.
 
-4. Navigate to the top menu bar on your Stripe Terminal Dashboard and click **More > Terminal**. 
+5. On your [Stripe Dashboard](https://dashboard.stripe.com/), click **More > Terminal** to enable [Stripe Terminal](https://stripe.com/terminal). 
 
-5. When prompted to activate the Terminal section of the dashboard, click **Get Started**.
+6. When prompted to configure Stripe Terminal, click **Get Started**.
 
-6. Click **Locations** on the left nav bar, and then click **New** on the **Locatons** page.
+7. Click **Locations** in the left menu, then click **New**.  >>> spatial context??
 
-7. In the **Create location** dialog box, enter a **Name** and **Address**, and click **Save**.
+8. In the **Create location** dialog, enter **Name** and **Address**, then click **Save**.
 
-8. Add a new reader to the newly created location by clicking on the row that lists your location. In the **Register reader** dialog box, enter the **Registration code** and optionally enter the **Reader label**. Click **Save**.
+9. To add a reader to the new location, click on the row that lists the location. 
+
+10. In the **Register reader** dialog, enter the **Registration code** and a **Reader label**, then click **Save**.
 
 ## Configure the BigCommerce store
 
-After you successfully configure test mode, configure your BigCommerce sandbox store in the store control panel.
+After you successfully configure Stripe, configure your BigCommerce sandbox store in the store control panel.
 
-To configure the store to make purchases through a POS, complete the following steps:
+To configure the store to make purchases using the POS interface, complete the following steps in the BigCommerce store control panel:
 
-1. Sign into your BigCommerce store control panel and configure a shipping zone with a [Pickup in Store](https://support.bigcommerce.com/s/article/Free-Shipping#in-store) shipping method.
+1. >>> on ____ page, configure a shipping zone with a [Pickup in Store](https://support.bigcommerce.com/s/article/Free-Shipping#in-store) shipping method.
 
-2. To allow POS operations, in your BigCommerce store control panel, go to the **Settings** page, scroll down to **Advanced**, and click the **Checkout** row.
+2. To allow POS operations, go to the **Settings** page, scroll down to **Advanced**, and click the **Checkout** row. >>> double check for MSF
 
-3. Under **Checkout Type** select the **Optimized One-Page Checkout** radio button, and then click **Save** For more information, see [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout?language=en_US#oopc-settings).
+3. For **Checkout Type**, select **Optimized One-Page Checkout**, then click **Save**. For more information, see [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout?language=en_US#oopc-settings).
+   
+4. To connect the sandbox store with the Stripe account you configured in the previous section, >>> add directions
+
+5. Navigate to the [Stripe settings section](https://login.bigcommerce.com/deep-links/settings/payment/stripev3) and make sure that **Test Mode** is set to **Yes**.
+
+![stripe-settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/stripe-settings.png)
 
 ## Create and configure the database
 
 This app uses MongoDB as a database engine. If you want to use a different database engine, update the configuration, migration, and seed files to use the data store of your choice. For a list of supported database options, see Prisma's [data source documentation](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/).
 
-To configure your POS application to use MongoDB, complete the following steps: 
+To configure your POS implementation to use MongoDB, complete the following steps: 
 
 1. On your computer, navigate to the fork of the project repository, and locate the `/prisma` directory. 
 
@@ -132,6 +143,7 @@ To configure MongoDB Cloud and generate a connection URL, complete the following
    a. In the **Access List Entry** field enter an IP address. Using `0.0.0.0/0` allows you to connect from anywhere, but is not secure in production.
 
     ![pos-ip-address](https://storage.googleapis.com/bigcommerce-production-dev-center/images/POS-IP-address.png)
+    >>> make all filenames lowercase-only and change links to reflect (always do this; web addresses are case-insensitive, and operating systems can get confused)
 
    b. Click **Confirm**.
 
