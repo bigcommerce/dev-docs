@@ -9,7 +9,7 @@ Images associated with a product.
 <!-- theme: warning -->
 > #### Deprecated
 > Avoid using this API operation if possible. It will be removed in a future version.
-> For the most up-to-date version of this API, see [Product Images](/api-reference/store-management/catalog/product-images).
+> For the most up-to-date version of this API, see [Product Images](/api-reference/store-management/catalog/product-images/getproductimages).
 ### Product Image Object – Properties 
 
 | Name | Type | Description |
