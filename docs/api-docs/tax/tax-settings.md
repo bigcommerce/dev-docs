@@ -28,7 +28,7 @@ type: tab
 title: Request
 -->
 
-```http title="Example request: Get tax settings" lineNumbers
+```http title="Example request: Update tax settings" lineNumbers
 ```
 
 <!--
@@ -36,7 +36,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example response: Get tax settings" lineNumbers 
+```json title="Example response: Update tax settings" lineNumbers 
 ```
 
 <!-- type: tab-end -->
