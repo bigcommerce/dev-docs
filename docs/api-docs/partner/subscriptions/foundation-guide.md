@@ -129,7 +129,7 @@ To create a Stripe account, complete the following steps:
 
 <!-- theme: info -->
 > #### Test mode
-> You can simulate transactions in test mode to confirm your integration works correctly.
+> Simulate transactions using test mode to confirm your integration works correctly.
 
 To configure test mode, complete the following steps:
 
@@ -237,7 +237,7 @@ To use an alternate SQL database, complete the following steps:
 
 2. In `/prisma/.env`, update the value of the `DATABASE_URL` variable to match your new database connection string.
 
-3. Run the prisma migration script with the following command:
+3. Run the Prisma migration script with the following command:
 
 ```shell title="Run Prisma migration"
 npx prisma migrate dev
