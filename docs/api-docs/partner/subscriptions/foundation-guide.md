@@ -41,8 +41,8 @@ Because you must serve apps over fully-qualified publicly accessible URLs, this 
 To get started with ngrok, follow the [Create an HTTPS Tunnel](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#create-an-https-tunnel) section of the sample app tutorial. If your app does not run on port 3000, replace `3000` with the port of your app server.
 
 <!-- theme: success -->
-> #### Make note of your ngrok ID
-> After you successfully start ngrok, make sure to note your ngrok ID. You will use it to create an app profile. By default, ngrok generates a new ID every time you start it up. Make sure to update the callback URLs in your [app profile](#create-an-app-profile) each time the ngrok id changes.
+> #### Record your ngrok ID
+> After you successfully start ngrok, record your ngrok ID. You will use it to create an app profile. By default, ngrok generates a new ID every time you start it up. Make sure to update the callback URLs in your [app profile](#create-an-app-profile) each time the ngrok ID changes.
 
 
 ## Create an app profile
@@ -53,7 +53,7 @@ To install your app on your sandbox store, complete the following steps:
 
 1. Sign in to the [Dev Portal](https://devtools.bigcommerce.com/?source=subscription-foundation). Then follow our directions to [create an app](/api-docs/apps/guide/developer-portal#create-an-app?source=subscription-foundation). Enter the following values on the **Technical** tab.
 
-2. In the **Callback URLs** section, supply the following URLs. Replace `{ngrok_id}` with the ngrok ID you noted in [Create an HTTPS tunnel](#create-an-https-tunnel). Edit the app profile with new callback URLs each time the ngrok id changes. To learn more about developing with ngrok, see [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf).
+2. In the **Callback URLs** section, supply the following URLs. Replace `{ngrok_id}` with the ngrok ID you noted in [Create an HTTPS tunnel](#create-an-https-tunnel). Edit the app profile with new callback URLs each time the ngrok ID changes. To learn more about developing with ngrok, see [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf).
 
 | Callback | URL value |
 |:---------|:----|
@@ -119,8 +119,8 @@ To create a Stripe account, complete the following steps:
    c. Under **Get started with Stripe**, copy the **Secret key**.
    
 <!-- theme: success -->
-> #### Make note of the secret key
-> Make note of the **secret key** and keep it in a safe location. In a later step, you will use the secret key to update the `STRIPE_SECRET_KEY` environment variable in the `.env` file.
+> #### Record the app's Stripe secret key
+> Record the **secret key** and keep it in a safe location. In a later step, you will [update the .env file](#declare-environment-variables) and specify the secret key as value of the `STRIPE_SECRET_KEY` environment variable. 
 
 
 ### Enable Stripe Connect for Platforms
@@ -145,9 +145,9 @@ To configure test mode, complete the following steps:
    
    a. Copy the **Test mode client ID**.
    
-   <!-- theme: success -->
-   > #### Make note of the client ID
-   > Make note of the **test mode client ID** and keep it in a safe location. In a later step, you will use the client ID to update the `NEXT_PUBLIC_STRIPE_CLIENT_ID` environment variable in the `.env` file.
+<!-- theme: success -->
+> #### Record the Stripe client ID
+> Record the **test mode client ID** and keep it in a safe location. In a later step, you will [update the .env file](#declare-environment-variables) and specify the client ID as the value of the `NEXT_PUBLIC_STRIPE_CLIENT_ID` environment variable.
 
    b. Set **OAuth settings** to **OAuth for Standard accounts**. 
    
@@ -190,7 +190,8 @@ To declare environment variables, complete the following steps:
 ```shell title="Copy .env.sample contents"
 cp .env.sample .env
 ```
-Open the `.env` file you just created and update the following environment variables:
+
+3. Open the `.env` file you just created and update the following environment variables:
 
 | Environment variable | Description | Reference location |
 |:---------------------|:------------|:-------------------|
@@ -198,8 +199,8 @@ Open the `.env` file you just created and update the following environment varia
 | `NEXT_PUBLIC_APP_ID` | The app's ID | [Find an App's ID](/api-docs/apps/tutorials/id#find-in-developer-portal?source=subscription-foundation) |
 | `BC_APP_CLIENT_ID` | The app API account's client ID | [View App Credentials](/api-docs/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
 | `BC_APP_SECRET` | The app API account's client secret | [View App Credentials](/api-docs/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
-| `NEXT_PUBLIC_STRIPE_CLIENT_ID` | The app-specific Stripe Connect API account client ID | see [Enable Stripe Connect for Platforms](#enable-stripe-connect-for-platforms) |
-| `STRIPE_SECRET_KEY` | The app-specific Stripe Connect API account client secret | see [Create Stripe Accounts](#create-stripe-accounts) |
+| `NEXT_PUBLIC_STRIPE_CLIENT_ID` | The app-specific Stripe Connect API account client ID | see [Enable Stripe Connect for Platforms](#record-the-stripe-client-id) |
+| `STRIPE_SECRET_KEY` | The app-specific Stripe Connect API account client secret | see [Create Stripe Accounts](#record-the-apps-stripe-secret-key) |
 
 
 ## Run migration and start the server
