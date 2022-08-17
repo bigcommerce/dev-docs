@@ -536,7 +536,7 @@ paths:
                     brand_name or brand_id: Common Good
                     gtin: string
                     mpn: string
-                    reviews_rating_sum: 3.2
+                    reviews_rating_sum: 3
                     reviews_count: 4
                     total_sold: 80
                     custom_fields:
@@ -654,7 +654,7 @@ paths:
                         brand_name or brand_id: Common Good
                         gtin: string
                         mpn: string
-                        reviews_rating_sum: 3.2
+                        reviews_rating_sum: 3
                         reviews_count: 4
                         total_sold: 80
                         custom_fields:
@@ -24029,10 +24029,10 @@ components:
           type: string
           description: Manufacturer Part Number
         reviews_rating_sum:
-          type: number
+          type: integer
           description: |
-            The total rating for the product.
-          example: 3.2
+            The total (cumulative) rating for the product.
+          example: 3
         reviews_count:
           type: integer
           description: |
