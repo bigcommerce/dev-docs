@@ -1,5 +1,9 @@
 # Tax Settings
 
+Tax settings allow you to choose how a store handles tax calculations and price display. For example, you can set how a store handles taxes if an enabled tax service is unavailable. You can also choose whether prices include taxes when displayed on storefront orders. For more info, see [Tax Settings](https://support.bigcommerce.com/s/article/Tax-Overview?language=en_US#tax-settings).
+
+This guide shows you how to use the Tax Settings API. For more info, see the [Tax Settings API Reference](/...). 
+
 ## Get tax settings
 
 <!--
