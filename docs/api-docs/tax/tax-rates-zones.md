@@ -1,6 +1,8 @@
 # Tax Rates and Tax Zones
 
+For more info, see the [Tax Zones](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US#tax-zone) and [Tax Rates](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US#tax-rate) articles. 
 
+This guide shows you how to use the Tax Rates and Tax Zones API. For more info, see the [Tax Rates and Tax Zones API Reference](/...).
 
 ## Tax zones
 
