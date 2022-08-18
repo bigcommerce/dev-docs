@@ -119,7 +119,7 @@ Accept: application/json
 
 [
   {
-    "id": 0,
+    "id": 2,
     "name": "string",
     "enabled": true,
     "price_display_settings": {
@@ -155,6 +155,39 @@ title: Response
 -->
 
 ```json title="Example response: Create tax zones" lineNumbers
+{
+  "data":[
+    {
+      "id": 2,
+      "name": "string",
+      "enabled": true,
+      "price_display_settings": {
+        "show_inclusive": true,
+        "show_both_on_detail_view": true,
+        "show_both_on_list_view": true
+      },
+      "shopper_target_settings": {
+        "customer_groups": [
+          0
+        ],
+        "locations": [
+          {
+            "country_code": "AU",
+            "subdivision_codes": [
+              "NSW",
+              "QLD"
+            ],
+            "postal_codes": [
+              "2234",
+              "2170"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "meta": {}
+}
 ```
 
 <!-- type: tab-end -->
@@ -174,7 +207,7 @@ Accept: application/json
 
 [
   {
-    "id": 0,
+    "id": 2,
     "name": "string",
     "enabled": true,
     "price_display_settings": {
@@ -210,6 +243,39 @@ title: Response
 -->
 
 ```json title="Example response: Update tax zones" lineNumbers
+{
+  "data":[
+    {
+      "id": 2,
+      "name": "string",
+      "enabled": true,
+      "price_display_settings": {
+        "show_inclusive": true,
+        "show_both_on_detail_view": true,
+        "show_both_on_list_view": true
+      },
+      "shopper_target_settings": {
+        "customer_groups": [
+          0
+        ],
+        "locations": [
+          {
+            "country_code": "AU",
+            "subdivision_codes": [
+              "NSW",
+              "QLD"
+            ],
+            "postal_codes": [
+              "2234",
+              "2170"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "meta": {}
+}
 ```
 
 <!-- type: tab-end -->
@@ -222,7 +288,7 @@ title: Request
 -->
 
 ```http title="Example request: Get tax zones" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/zones?id:in=2,5
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/zones?id:in=2
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -234,6 +300,39 @@ title: Response
 -->
 
 ```json title="Example response: Get tax zones" lineNumbers
+{
+  "data":[
+    {
+      "id": 2,
+      "name": "string",
+      "enabled": true,
+      "price_display_settings": {
+        "show_inclusive": true,
+        "show_both_on_detail_view": true,
+        "show_both_on_list_view": true
+      },
+      "shopper_target_settings": {
+        "customer_groups": [
+          0
+        ],
+        "locations": [
+          {
+            "country_code": "AU",
+            "subdivision_codes": [
+              "NSW",
+              "QLD"
+            ],
+            "postal_codes": [
+              "2234",
+              "2170"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "meta": {}
+}
 ```
 
 <!-- type: tab-end -->
