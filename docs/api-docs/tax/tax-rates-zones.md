@@ -117,6 +117,36 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 
+[
+  {
+    "id": 0,
+    "name": "string",
+    "enabled": true,
+    "price_display_settings": {
+      "show_inclusive": true,
+      "show_both_on_detail_view": true,
+      "show_both_on_list_view": true
+    },
+    "shopper_target_settings": {
+      "customer_groups": [
+        0
+      ],
+      "locations": [
+        {
+          "country_code": "AU",
+          "subdivision_codes": [
+            "NSW",
+            "QLD"
+          ],
+          "postal_codes": [
+            "2234",
+            "2170"
+          ]
+        }
+      ]
+    }
+  }
+]
 ```
 
 <!--
@@ -142,6 +172,36 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 
+[
+  {
+    "id": 0,
+    "name": "string",
+    "enabled": true,
+    "price_display_settings": {
+      "show_inclusive": true,
+      "show_both_on_detail_view": true,
+      "show_both_on_list_view": true
+    },
+    "shopper_target_settings": {
+      "customer_groups": [
+        0
+      ],
+      "locations": [
+        {
+          "country_code": "AU",
+          "subdivision_codes": [
+            "NSW",
+            "QLD"
+          ],
+          "postal_codes": [
+            "2234",
+            "2170"
+          ]
+        }
+      ]
+    }
+  }
+]
 ```
 
 <!--
@@ -162,7 +222,7 @@ title: Request
 -->
 
 ```http title="Example request: Get tax zones" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/zones
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/zones?id:in=2,5
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -186,7 +246,7 @@ title: Request
 -->
 
 ```http title="Example request: Delete tax zones" lineNumbers
-DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/zones
+DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/zones?id:in=3,7
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -198,6 +258,7 @@ title: Response
 -->
 
 ```http title="Example response: Delete tax zones" lineNumbers
+204 No Content
 ```
 
 <!-- type: tab-end -->
