@@ -127,6 +127,7 @@ title: Response
 -->
 
 ```http title="Example response: Delete tax rates" lineNumbers
+HTTP 204 No content
 ```
 
 <!-- type: tab-end -->
@@ -386,7 +387,7 @@ title: Response
 -->
 
 ```http title="Example response: Delete tax zones" lineNumbers
-204 No Content
+HTTP 204 No content
 ```
 
 <!-- type: tab-end -->
