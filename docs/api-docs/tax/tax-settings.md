@@ -2,11 +2,11 @@
 
 Tax settings allow you to choose how a store handles tax calculations and price display. For example, you can set how a store handles taxes if an enabled tax service is unavailable. You can also choose whether prices include taxes when displayed on storefront orders. For more info, see [Tax Settings](https://support.bigcommerce.com/s/article/Tax-Overview?language=en_US#tax-settings).
 
-This guide shows you how to use the Tax Settings API. For more info, see the [Tax Settings API Reference](/...). 
+This guide shows you how to use the Tax Settings API. For more info, see the [Tax Settings API Reference](/api-reference/store-management/tax-settings). 
 
 ## Get tax settings
 
-To get tax settings, send a request to the [Get tax settings](/...) endpoint
+To get tax settings, send a request to the [Get tax settings](/api-reference/store-management/tax-settings/tax-settings/get-tax-settings) endpoint
 
 <!--
 type: tab
@@ -43,7 +43,7 @@ title: Response
 
 ## Update tax settings
 
-To update tax settings, send a request to the [Update tax settings](/...) endpoint. The request updates only fields that you specify.
+To update tax settings, send a request to the [Update tax settings](/api-reference/store-management/tax-settings/tax-settings/update-tax-settings) endpoint. The request updates only fields that you specify.
 
 <!--
 type: tab
@@ -87,9 +87,9 @@ title: Response
 
 ## Resources
 
-- [Tax Settings API Reference](/...)
+- [Tax Settings API Reference](/api-reference/store-management/tax-settings)
 
 ### Tax Settings reference
 
-- [Get Tax Settings](/...)
-- [Update Tax Settings](/...)
+- [Get Tax Settings](/api-reference/store-management/tax-settings/tax-settings/get-tax-settings)
+- [Update Tax Settings](/api-reference/store-management/tax-settings/tax-settings/update-tax-settings)
