@@ -43,7 +43,7 @@ title: Response
 
 ## Update tax settings
 
-To update tax settings, send a request to the [Update tax settings](/api-reference/store-management/tax-settings/tax-settings/update-tax-settings) endpoint. The request updates only fields that you specify.
+To update tax settings, send a request to the [Update tax settings](/api-reference/store-management/tax-settings/tax-settings/update-tax-settings) endpoint. The request updates only the fields that you specify.
 
 <!--
 type: tab
