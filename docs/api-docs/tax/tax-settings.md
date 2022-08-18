@@ -6,7 +6,7 @@ This guide shows you how to use the Tax Settings API. For more info, see the [Ta
 
 ## Get tax settings
 
-To get tax settings, send a request to the [Get tax settings](/api-reference/store-management/tax-settings/tax-settings/get-tax-settings) endpoint
+To get tax settings, send a request to the [Get tax settings](/api-reference/store-management/tax-settings/tax-settings/get-tax-settings) endpoint.
 
 <!--
 type: tab
