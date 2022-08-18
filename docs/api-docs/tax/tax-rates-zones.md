@@ -2,9 +2,9 @@
 
 
 
-## Tax Zones
+## Tax zones
 
-### Create Tax Zones
+### Create tax zones
 
 <!--
 type: tab
@@ -92,7 +92,7 @@ title: Response
 
 <!-- type: tab-end -->
 
-### Update Tax Zones
+### Update tax zones
 
 <!--
 type: tab
@@ -180,7 +180,7 @@ title: Response
 
 <!-- type: tab-end -->
 
-### Get Tax Zones
+### Get tax zones
 
 <!--
 type: tab
@@ -237,7 +237,7 @@ title: Response
 
 <!-- type: tab-end -->
 
-### Delete Tax Zones
+### Delete tax zones
 
 <!--
 type: tab
@@ -262,9 +262,9 @@ HTTP 204 No content
 
 <!-- type: tab-end -->
 
-## Tax Rates
+## Tax rates
 
-### Create Tax Rates
+### Create tax rates
 
 <!--
 type: tab
@@ -321,7 +321,7 @@ title: Response
 
 <!-- type: tab-end -->
 
-### Update Tax Rates
+### Update tax rates
 
 <!--
 type: tab
@@ -378,7 +378,7 @@ title: Response
 
 <!-- type: tab-end -->
 
-### Get Tax Rates
+### Get tax rates
 
 <!--
 type: tab
@@ -420,7 +420,7 @@ title: Response
 
 <!-- type: tab-end -->
 
-### Delete Tax Rates
+### Delete tax rates
 
 <!--
 type: tab
