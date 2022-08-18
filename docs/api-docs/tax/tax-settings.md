@@ -88,8 +88,5 @@ title: Response
 ## Resources
 
 - [Tax Settings API Reference](/api-reference/store-management/tax-settings)
-
-### Tax Settings reference
-
 - [Get Tax Settings](/api-reference/store-management/tax-settings/tax-settings/get-tax-settings)
 - [Update Tax Settings](/api-reference/store-management/tax-settings/tax-settings/update-tax-settings)
