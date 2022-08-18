@@ -18,7 +18,7 @@ Accept: application/json
 [
   {
     "id": 0,
-    "tax_zone_id": 0,
+    "tax_zone_id": 2,
     "name": "string",
     "enabled": true,
     "priority": 1,
@@ -38,6 +38,23 @@ title: Response
 -->
 
 ```json title="Example response: Create tax rates" lineNumbers
+{
+  "data": [
+    {
+      "id": 0,
+      "tax_zone_id": 2,
+      "name": "string",
+      "enabled": true,
+      "priority": 1,
+      "class_rates": [
+        {
+          "rate": 0,
+          "tax_class_id": 0
+        }
+      ]
+    }
+  ]
+}
 ```
 
 <!-- type: tab-end -->
@@ -58,7 +75,7 @@ Accept: application/json
 [
   {
     "id": 0,
-    "tax_zone_id": 0,
+    "tax_zone_id": 2,
     "name": "string",
     "enabled": true,
     "priority": 1,
@@ -78,6 +95,23 @@ title: Response
 -->
 
 ```json title="Example response: Update tax rates" lineNumbers
+{
+  "data": [
+    {
+      "id": 0,
+      "tax_zone_id": 2,
+      "name": "string",
+      "enabled": true,
+      "priority": 1,
+      "class_rates": [
+        {
+          "rate": 0,
+          "tax_class_id": 0
+        }
+      ]
+    }
+  ]
+}
 ```
 
 <!-- type: tab-end -->
@@ -90,7 +124,7 @@ title: Request
 -->
 
 ```http title="Example request: Get tax rates" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/rates?tax_zone_id:in=4
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/rates?tax_zone_id:in=2
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -103,6 +137,23 @@ title: Response
 -->
 
 ```json title="Example response: Get tax rates" lineNumbers
+{
+  "data": [
+    {
+      "id": 0,
+      "tax_zone_id": 2,
+      "name": "string",
+      "enabled": true,
+      "priority": 1,
+      "class_rates": [
+        {
+          "rate": 0,
+          "tax_class_id": 0
+        }
+      ]
+    }
+  ]
+}
 ```
 
 <!-- type: tab-end -->
@@ -115,7 +166,7 @@ title: Request
 -->
 
 ```http title="Example request: Delete tax rates" lineNumbers
-DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/rates?id:in=2,5
+DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/rates?id:in=3,5
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
