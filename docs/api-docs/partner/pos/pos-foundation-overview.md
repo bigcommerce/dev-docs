@@ -79,17 +79,19 @@ To configure the Stripe account to connect with your implementation, complete th
 > #### Record the Stripe secret key
 > Record the **secret key** and keep it in a safe location. In a later step, you will [update the .env file](#declare-environment-variables) and specify the secret key as the value of the `STRIPE_SECRET_KEY` environment variable.
 
-1. On your [Stripe Dashboard](https://dashboard.stripe.com/), click **More > Terminal** to enable [Stripe Terminal](https://stripe.com/terminal). 
+5. On your [Stripe Dashboard](https://dashboard.stripe.com/), click **More > Terminal** to enable [Stripe Terminal](https://stripe.com/terminal). 
 
-2. When prompted to configure Stripe Terminal, click **Get Started**.
+6. When prompted to configure Stripe Terminal, click **Get Started**.
 
-3. Click **Locations** in the left menu, then click **New**.  >>> spatial context??
+7. Click **Locations** in the left menu, then in the top right, click **New**.
 
-4. In the **Create location** dialog, enter **Name** and **Address**, then click **Save**.
+8. In the **Create location** dialog, enter **Name** and **Address**, then click **Save**.
 
-5. To add a reader to the new location, click on the row that lists the location. 
+9. To add a reader to the new location, click on the row that lists the location.
 
-6.  In the **Register reader** dialog, enter the **Registration code** and a **Reader label**, then click **Save**.
+10. Click **+ New** in the **Readers** section.
+
+11. In the **Register reader** dialog, enter the **Registration code** and a **Reader label**, then click **Save**.
 
 ## Configure the BigCommerce store
 
@@ -97,13 +99,13 @@ After you successfully configure Stripe, configure your BigCommerce sandbox stor
 
 To configure the store to make purchases using the POS interface, complete the following steps in the BigCommerce store control panel:
 
-1. >>> on ____ page, configure a shipping zone with a [Pickup in Store](https://support.bigcommerce.com/s/article/Free-Shipping#in-store) shipping method.
+1. Go to **Settings** > **Shipping** > **Default shipping rules** and configure a shipping zone with a [Pickup in Store](https://support.bigcommerce.com/s/article/Free-Shipping#in-store) shipping method.
 
-2. To allow POS operations, go to the **Settings** page, scroll down to **Advanced**, and click the **Checkout** row. >>> double check for MSF
+2. To allow POS operations, go to the **Settings** page, scroll down to **Advanced**, and click the **Checkout** row.
 
 3. For **Checkout Type**, select **Optimized One-Page Checkout**, then click **Save**. For more information, see [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout?language=en_US#oopc-settings).
    
-4. To connect the sandbox store with the Stripe account you configured in the previous section, >>> add directions
+4. Connect the sandbox store with the Stripe account you configured in the previous section, see [Setting up Stripe](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway?language=en_US#setup) for instructions.
 
 5. Navigate to the [Stripe settings section](https://login.bigcommerce.com/deep-links/settings/payment/stripev3) and make sure that **Test Mode** is set to **Yes**.
 
@@ -111,7 +113,7 @@ To configure the store to make purchases using the POS interface, complete the f
 
 ## Create and configure the database
 
-POS Foundation uses MongoDB as a database engine. If you want to use a different database engine, update the configuration, migration, and seed files to use the data store of your choice. For a list of supported database options, see Prisma's [data source documentation](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/).
+POS Foundation uses MongoDB as a database engine. If you want to use a different database engine, update the configuration, migration, and seed files to use the data store of your choice; see Prisma's [data source documentation](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/) for a list of supported database options.
 
 To configure your POS implementation to use MongoDB, complete the following steps: 
 
@@ -120,7 +122,7 @@ To configure your POS implementation to use MongoDB, complete the following step
 2. In the `/prisma/schema.prisma` settings file, set `provider` to `mongodb`. 
 
 
-![POS-provider-mongodb](https://storage.googleapis.com/bigcommerce-production-dev-center/images/POS-provider-mongodb.png)
+![pos-provider-mongodb](https://storage.googleapis.com/bigcommerce-production-dev-center/images/POS-provider-mongodb.png)
 
 ### Configure MongoDB Cloud
 
@@ -143,7 +145,6 @@ To configure MongoDB Cloud and generate a connection URL, complete the following
    a. For **Access List Entry**, enter an IP address. Using `0.0.0.0/0` allows you to connect from anywhere, but is not secure in production. To learn more, consult [MongoDB's IP access documentation](https://www.mongodb.com/docs/atlas/security/ip-access-list/).
 
     ![pos-ip-address](https://storage.googleapis.com/bigcommerce-production-dev-center/images/POS-IP-address.png)
-    >>> make all filenames lowercase-only and change links to reflect (always do this; web addresses are case-insensitive, and operating systems can get confused)
 
    b. To save, click **Confirm**.
 
@@ -270,7 +271,7 @@ This error can occur when the `/prisma/schema.prisma` file contains the incorrec
 Change your MongoDB Cloud IP address to `0.0.0.0/0`, or consult [MongoDB's IP access documentation](https://www.mongodb.com/docs/atlas/security/ip-access-list/) for alternatives.
 
 ## Contributing
-Want to help expand this foundation? We'd love to hear from you. >>> submit a PR, join Dev Slack
+Want to help expand this foundation? We'd love to hear from you. Submit your idea in a pull request and we will review it.
 
 ## Resources
 ### Related articles
