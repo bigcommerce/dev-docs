@@ -55,6 +55,7 @@ To get your app set up and request a carrier ID, send an email to
 Please include the following information:
 
 - Your name
+- The carrier name
 - Your partner ID
 - Your app's ID
 - Your email
