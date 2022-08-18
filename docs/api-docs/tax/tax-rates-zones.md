@@ -15,7 +15,21 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 
-
+[
+  {
+    "id": 0,
+    "tax_zone_id": 0,
+    "name": "string",
+    "enabled": true,
+    "priority": 1,
+    "class_rates": [
+      {
+        "rate": 0,
+        "tax_class_id": 0
+      }
+    ]
+  }
+]
 ```
 
 <!--
@@ -41,6 +55,21 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 
+[
+  {
+    "id": 0,
+    "tax_zone_id": 0,
+    "name": "string",
+    "enabled": true,
+    "priority": 1,
+    "class_rates": [
+      {
+        "rate": 0,
+        "tax_class_id": 0
+      }
+    ]
+  }
+]
 ```
 
 <!--
@@ -61,7 +90,7 @@ title: Request
 -->
 
 ```http title="Example request: Get tax rates" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/rates
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/rates?tax_zone_id:in=4
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -86,7 +115,7 @@ title: Request
 -->
 
 ```http title="Example request: Delete tax rates" lineNumbers
-DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/rates
+DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/tax/rates?id:in=2,5
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
