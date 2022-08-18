@@ -156,7 +156,7 @@ title: Response
 
 ```json title="Example response: Create tax zones" lineNumbers
 {
-  "data":[
+  "data": [
     {
       "id": 2,
       "name": "string",
@@ -244,7 +244,7 @@ title: Response
 
 ```json title="Example response: Update tax zones" lineNumbers
 {
-  "data":[
+  "data": [
     {
       "id": 2,
       "name": "string",
@@ -301,7 +301,7 @@ title: Response
 
 ```json title="Example response: Get tax zones" lineNumbers
 {
-  "data":[
+  "data": [
     {
       "id": 2,
       "name": "string",
