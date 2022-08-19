@@ -219,6 +219,11 @@
     },
     {
       "type": "item",
+      "title": "Store Logs",
+      "uri": "reference/store_logs.v3.yml"
+    },
+    {
+      "type": "item",
       "title": "Subscribers",
       "uri": "reference/subscribers.v3.yml"
     },
