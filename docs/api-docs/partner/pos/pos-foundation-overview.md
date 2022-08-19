@@ -270,6 +270,29 @@ Change your MongoDB Cloud IP address to `0.0.0.0/0`, or consult [MongoDB's IP ac
 Want to help expand this foundation? We'd love to hear from you. Submit a pull request, and consider joining the BigCommerce [Developer Community Slack workspace](https://forms.gle/rtRjbGo2L95U9Fjy9) to connect with us.
 
 ## Resources
-### Related articles
+
 * [Point of Sale Foundation README](https://github.com/bigcommerce/point-of-sale-foundation/blob/main/README.md)
+* [Create a Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=pos-foundation)
+* [Create a Store API Account](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials)
 * [Connecting with Stripe](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway#foundations)
+* [Setting up an "In-Store Pickup" Shipping Method](https://support.bigcommerce.com/s/article/Free-Shipping#in-store)
+* [Switching to Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout#enabling) 
+
+### External resources
+* [Stripe Terminal](https://stripe.com/terminal)
+* [Set up Stripe Terminal reader](https://stripe.com/docs/terminal/payments/setup-reader)
+* [MongoDB Cloud](https://account.mongodb.com/)
+* [MongoDB Cloud IP access list](https://www.mongodb.com/docs/atlas/security/ip-access-list/)
+* [Compass MongoDB GUI](https://www.mongodb.com/products/compass)
+* [Prisma database connectors](https://www.prisma.io/docs/concepts/database-connectors)
+
+### BigCommerce developer resources
+* [Application to join BC Developer Community Slack workspace](https://forms.gle/rtRjbGo2L95U9Fjy9)
+
+### Expansion resources
+* [Multi-Storefront Overview](https://support.bigcommerce.com/s/article/Multi-Storefront)
+* [Subscription Foundation README](https://github.com/bigcommerce/point-of-sale-foundation/blob/main/README.md)
+* [Subscription Foundation Overview](/api-docs/partner/subscription-solutions/foundation-guide)
+* [Channels API Reference](/api-reference/store-management/channels/channels/createchannel)
+* [App API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts)
+* [Guide to Building Apps](/api-docs/apps/guide/intro)
