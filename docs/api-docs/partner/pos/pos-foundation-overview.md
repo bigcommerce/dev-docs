@@ -83,15 +83,13 @@ To configure the Stripe account to connect with your implementation, complete th
 
 6. When prompted to configure Stripe Terminal, click **Get Started**.
 
-7. Click **Locations** in the left menu, then in the top right, click **New**.
+7. Click **Locations** in the left menu, then click the **+ New** button at the top right of the **Locations** section.
 
-8. In the **Create location** dialog, enter **Name** and **Address**, then click **Save**.
+8. In the **Create location** dialog, enter a **Name** and an **Address**, then click **Save**.
 
-9. To add a reader to the new location, click on the row that lists the location.
+9. To add a reader to the new location, click on the row that lists the location, then click the **+ New** button at the top right of the **Readers** section.
 
-10. Click **+ New** in the **Readers** section.
-
-11. In the **Register reader** dialog, enter the **Registration code** and a **Reader label**, then click **Save**.
+10. In the **Register reader** dialog, enter the **Registration code** and a **Reader label**, then click **Save**.
 
 ## Configure the BigCommerce store
 
