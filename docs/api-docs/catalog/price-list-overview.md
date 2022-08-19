@@ -112,7 +112,7 @@ Content-Type: application/json
 
 ## Price lists assigned to customer groups 
 
-The following example shows how to assign a price list fo a customer group.
+The following example shows how to assign a price list to a customer group.
 
 ```http title="Example request: Assign a price list to a customer group" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{store_hash}}/v2/customer_groups/{{customer_group_id}}
@@ -138,9 +138,9 @@ Content-Type: application/json
 ]
 ```
 
-Under `discount_rules` the `type` is set to `price_list`. The `price_list_id` is 1, which is the id of the price list assigned to the group.
+Under `discount_rules` the `type` is set to `price_list`. The `price_list_id` is 1, which is the ID of the price list assigned to the group.
 
-## Addiditional information about price lists
+## Additional information about price lists
 
 - Bulk pricing tiers may additionally be associated with a Price Record to indicate different pricing as the quantity in cart increases.
 
