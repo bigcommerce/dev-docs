@@ -18,7 +18,7 @@ POS Foundation scaffolds manual connector apps that use [store API accounts](/ap
 
 <!-- theme: info -->
 > #### Account configuration requirements
-> We recommend that you use a sandbox store that has the same multi-storefront status as the production store. For example, if you're developing for a multi-storefront-enabled merchant store, use a multi-storefront sandbox. For information on configuring multi-storefront, see [Multi-Storefront](https://support.bigcommerce.com/s/article/Multi-Storefront?language=en_US).
+> We recommend that you use a sandbox store that has the same multi-storefront status as the production store. For example, if you're developing for a multi-storefront-enabled merchant store, use a multi-storefront sandbox. For information on configuring multi-storefront, see [Multi-Storefront](https://support.bigcommerce.com/s/article/Multi-Storefront).
 
 To configure your accounts, complete the following steps:
 
@@ -99,9 +99,9 @@ To configure the store to make purchases using the POS interface, complete the f
 
 1. Configure a shipping zone with a **Pickup in Store** shipping method; for directions, see our support article on [Setting up an "In-Store Pickup" Shipping Method](https://support.bigcommerce.com/s/article/Free-Shipping#in-store).
 
-2. Ensure that your store is using **Optimized One-Page Checkout**; for directions, see our support article on [Switching to Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout?language=en_US#enabling). Learn more about [Optimized One-Page Checkout Settings](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout?language=en_US#oopc-settings).
+2. Ensure that your store is using **Optimized One-Page Checkout**; for directions, see our support article on [Switching to Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout#enabling). Learn more about [Optimized One-Page Checkout Settings](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout#oopc-settings).
 
-3. Connect the sandbox store with the Stripe account you configured in the previous section; for directions, see our support article on [Setting up Stripe](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway?language=en_US#setup).
+3. Connect the sandbox store with the Stripe account you configured in the previous section; for directions, see our support article on [Setting up Stripe](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway#setup).
 
 4. In the [Stripe settings section](https://login.bigcommerce.com/deep-links/settings/payment), locate the **Test Mode** dropdown and select **Yes**.
 
