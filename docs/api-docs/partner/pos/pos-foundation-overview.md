@@ -109,7 +109,7 @@ To configure the store to make purchases using the POS interface, complete the f
 
 ## Create and configure the database
 
-POS Foundation uses MongoDB as a database engine. If you want to use a different database engine, update the configuration, migration, and seed files to use the data store of your choice; see Prisma's [data source documentation](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/) for a list of supported database options.
+POS Foundation uses MongoDB as a database engine. If you want to use a different data store, you'll need to modify the Prisma configuration, migration, and seed files. To learn more, see [Prisma's list of database connectors](https://www.prisma.io/docs/concepts/database-connectors), 
 
 To configure your POS implementation to use MongoDB, complete the following steps: 
 
