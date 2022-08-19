@@ -51,8 +51,6 @@ tags:
     description: BigCommerce Widgets API Definition.
   - name: Placement
     description: BigCommerce Placements API Definition.
-  - name: Layout
-    description: BigCommerce Layouts API Definition.
 paths:
   '/stores/{store_hash}/v3/content/widget-templates':
     post:
@@ -1589,14 +1587,6 @@ components:
                 type: string
                 instance: string
                 errors: {}
-    new:
-      description: Example response
-      content:
-        application/json:
-          schema:
-            properties:
-              id:
-                type: string
   securitySchemes:
     X-Auth-Token:
       type: apiKey
@@ -1645,6 +1635,7 @@ components:
               format: html
       x-tags:
         - Models
+      title: ''
     widgetTemplate_Put:
       allOf:
         - $ref: '#/components/schemas/widgetTemplate_Base'
@@ -1682,6 +1673,14 @@ components:
       required:
         - name
         - template
+      x-examples:
+        example-1:
+          name: string
+          schema:
+            - tab
+          template: string
+          storefront_api_query: string
+          channel_id: 0
     widgetTemplate_Full:
       allOf:
         - $ref: '#/components/schemas/widgetTemplate_Base'
@@ -2012,6 +2011,7 @@ components:
           format: json
           description: The JSON data that populates the template.
       x-internal: false
+      x-examples: {}
     new-model:
       type: array
       items:
@@ -2034,8 +2034,6 @@ components:
       type: object
       title: widgetSchemaTab
       description: '**Tab.** Use the **tab** settings type to create settings visible in Page Builder.'
-      enum:
-        - tab
       properties:
         type:
           type: string
@@ -2135,6 +2133,7 @@ components:
                           description: A single-object array containing a value from the `typeMeta`'s `selectOptions`.
                           items: {}
       x-internal: false
+      x-examples: {}
     widgetSchemaTabSections:
       type: object
       title: widgetSchemaTabSections
@@ -2252,11 +2251,13 @@ components:
       type: object
       title: widgetSchemaHidden
       description: '**Hidden.** Use the **hidden** settings type to create controls that have no user interface drawn in Page Builder. Hidden settings are not grouped into any other tabs or arrays.'
-      enum:
-        - hidden
+      x-internal: false
       properties:
         type:
           type: string
+          enum:
+            - hidden
+          example: hidden
         settings:
           type: array
           items:
@@ -2333,7 +2334,6 @@ components:
                     type: array
                     description: A single-object array containing a value from the `typeMeta`'s `selectOptions`.
                     items: {}
-      x-internal: false
     widgetSchemaTabSectionsSettings:
       type: object
       properties: {}

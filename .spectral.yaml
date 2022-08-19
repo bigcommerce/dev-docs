@@ -20,19 +20,6 @@ except:
     - operation-operationId
     - oas3-schema
     - oas3-valid-media-example
-  'reference/checkouts.sf.yml':
-    - oas2-valid-media-example
-  'reference/checkouts.v3.yml':
-    - no-$ref-siblings
-    - oas2-schema
-    - oas2-operation-security-defined
-    - oas2-valid-schema-example
-    - oas2-valid-media-example
-    - operation-parameters
-  'reference/currencies.v2.yml':
-    - oas2-valid-schema-example
-    - operation-operationId
-    - no-$ref-siblings
   'reference/current_customer.yml':
     - operation-success-response
   'reference/custom-template-associations.v3.yml':
@@ -41,26 +28,13 @@ except:
   'reference/customer_login.yml':
     - operation-operationId
     - operation-success-response
-    - oas2-schema
-  'reference/customers.v2.yml':
-    - oas2-valid-media-example
-    - oas2-valid-schema-example
   'reference/email_templates.v3.yml':
     - oas3-schema
     - operation-tag-defined
     - openapi-tags
-  'reference/form_fields.sf.yml':
-    - operation-operationId
   'reference/geography.v2.yml':
     - operation-operationId
     - oas2-valid-media-example
-  'reference/marketing.v2.yml':
-    - oas2-valid-media-example
-    - oas2-valid-schema-example
-    - operation-operationId
-  'reference/orders.sf.yml':
-    - operation-tag-defined
-    - oas3-valid-schema-example
   'reference/orders.v2.oas2.yml':
     - oas3-valid-schema-example
     - oas3-valid-media-example
@@ -69,74 +43,21 @@ except:
     - oas2-valid-schema-example
     - oas2-valid-media-example
     - oas2-anyOf
-  'reference/payment_methods.v2.yml':
-    - operation-operationId
-  'reference/price_lists.v3.yml':
-    - oas2-schema
-    - oas2-valid-media-example
-  'reference/pricing.sf.yml':
-    - oas2-valid-media-example
-    - oas2-schema
-    - no-$ref-siblings
-  'reference/redirects.v3.yml':
-    - oas2-valid-media-example
-    - oas2-schema
-    - no-$ref-siblings
   'reference/settings.v3.yml':
     - oas3-valid-media-example
     - operation-operationId
-  'reference/shipping.v2.yml':
-    - oas2-valid-media-example
-    - oas2-valid-schema-example
-    - typed-enum
-    - operation-operationId
-  'reference/shipping.v3.yml':
-    - oas2-valid-schema-example
-    - operation-operationId
-    - typed-enum
   'reference/sites.v3.yml':
     - oas2-valid-media-example
     - operation-operationId
-  'reference/store_content.v2.yml':
-    - oas2-valid-media-example
-    - oas2-valid-schema-example
   'reference/store_information.v2.yml':
     - oas2-valid-media-example
     - operation-operationId
-    - oas2-valid-schema-example
-  'reference/storefront_tokens.v3.yml':
-    - oas2-valid-schema-example
-  'reference/subscriptions.sf.yml':
-    - operation-operationId
-  'reference/tax_classes.v2.yml':
-    - oas2-valid-media-example
     - oas2-valid-schema-example
   'reference/themes.v3.yml':
     - oas3-schema
     - operation-operationId
   'reference/webhooks.v3.yml':
     - oas3-valid-media-example
-  'reference/widgets.v3.yml':
-    - typed-enum
-    - oas2-anyOf
-    - oas2-valid-media-example
-  'reference/wishlists.v3.yml':
-    - oas2-valid-media-example
-    - oas2-valid-schema-example
-  'reference/checkouts.sf.yml#/host':
-    - oas2-schema
-  'reference/form_fields.sf.yml#/host':
-    - oas2-schema
-  'reference/orders.sf.yml#/host':
-    - oas2-schema
-  'reference/subscriptions.sf.yml#/host':
-    - oas2-schema
-  'reference/current_customer.yml#/host':
-    - oas2-schema
-  'reference/customer_login.yml#/host':
-    - oas2-schema
-  'reference/shipping_provider.yml#/host':
-    - oas2-schema
   'carts.v3.yml':
     - oas2-oneOf
     - oas2-valid-schema-example
@@ -151,48 +72,20 @@ except:
     - operation-operationId
     - oas3-schema
     - oas3-valid-media-example
-  'checkouts.sf.yml':
-    - oas2-valid-media-example
-  'checkouts.v3.yml':
-    - no-$ref-siblings
-    - oas2-schema
-    - oas2-operation-security-defined
-    - oas2-valid-schema-example
-    - oas2-valid-media-example
-    - operation-parameters
-  'currencies.v2.yml':
-    - oas2-valid-schema-example
-    - operation-operationId
-    - no-$ref-siblings
   'current_customer.yml':
     - operation-success-response
   'custom-template-associations.v3.yml':
     - openapi-tags
     - operation-tag-defined
   'customer_login.yml':
-    - operation-operationId
     - operation-success-response
-  'customers.v2.yml':
-    - oas2-valid-media-example
-    - oas2-valid-schema-example
   'email_templates.v3.yml':
     - oas3-schema
     - operation-tag-defined
     - openapi-tags
-  'form_fields.sf.yml':
-    - operation-operationId
-    - oas2-schema    
-    - oas2-valid-schema-example
   'geography.v2.yml':
     - operation-operationId
     - oas2-valid-media-example
-  'marketing.v2.yml':
-    - oas2-valid-media-example
-    - oas2-valid-schema-example
-    - operation-operationId
-  'orders.sf.yml':
-    - operation-tag-defined
-    - oas3-valid-schema-example
   'orders.v2.oas2.yml':
     - oas3-valid-schema-example
     - oas3-valid-media-example
@@ -201,80 +94,21 @@ except:
     - oas2-valid-schema-example
     - oas2-valid-media-example
     - oas2-anyOf
-  'payment_methods.v2.yml':
-    - operation-operationId
-  'price_lists.v3.yml':
-    - oas2-schema
-    - oas2-valid-media-example
-  'pricing.sf.yml':
-    - oas2-valid-media-example
-    - oas2-schema
-    - no-$ref-siblings
-  'redirects.v3.yml':
-    - oas2-valid-media-example
-    - oas2-schema
-    - no-$ref-siblings
   'settings.v3.yml':
     - oas3-valid-media-example
     - operation-operationId
-  'shipping.v2.yml':
-    - oas2-valid-media-example
-    - oas2-valid-schema-example
-    - typed-enum
-    - operation-operationId
-  'shipping.v3.yml':
-    - oas2-valid-schema-example
-    - operation-operationId
-    - typed-enum
   'sites.v3.yml':
     - oas2-valid-media-example
     - operation-operationId
-  'store_content.v2.yml':
-    - oas2-valid-media-example
-    - oas2-valid-schema-example
   'store_information.v2.yml':
     - oas2-valid-media-example
     - operation-operationId
-    - oas2-valid-schema-example
-  'storefront_tokens.v3.yml':
-    - oas2-valid-schema-example
-  'subscriptions.sf.yml':
-    - operation-operationId
-  'tax_classes.v2.yml':
-    - oas2-valid-media-example
     - oas2-valid-schema-example
   'themes.v3.yml':
     - oas3-schema
     - operation-operationId
   'webhooks.v3.yml':
     - oas3-valid-media-example
-  'widgets.v3.yml':
-    - typed-enum
-    - oas2-anyOf
-    - oas2-valid-media-example
-  'wishlists.v3.yml':
-    - oas2-valid-media-example
-    - oas2-valid-schema-example
-  'checkouts.sf.yml#/host':
-    - oas2-schema
-  'form_fields.sf.yml#/host':
-    - oas2-schema
-  'orders.sf.yml#/host':
-    - oas2-schema
-  'subscriptions.sf.yml#/host':
-    - oas2-schema
-  'current_customer.yml#/host':
-    - oas2-schema
-  'customer_login.yml#/host':
-    - oas2-schema
-  'shipping_provider.yml#/host':
-    - oas2-schema
-  'reference/customers_v2.yml':
-    - oas2-valid-media-example
-    - oas2-valid-schema-example
-  'customers_v2.yml':
-    - oas2-valid-media-example
-    - oas2-valid-schema-example
   'pages.v3.yml':
     - oas3-valid-media-example
     - oas3-valid-schema-example

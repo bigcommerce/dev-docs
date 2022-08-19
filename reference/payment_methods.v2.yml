@@ -1,6 +1,5 @@
-swagger: '2.0'
+openapi: 3.0.1
 info:
-  version: ''
   title: Payment Methods
   description: |-
     Get a list of a store's enabled payment methods. For processing payments, see [Payment Processing API](/api-docs/payments/payments-api-overview).
@@ -19,132 +18,131 @@ info:
     |  **UI Name** | **Permission** | **Parameter** |
     | --- | --- | --- |
     |  Information & Settings | read-only | `store_payments_methods_read` |
-  termsOfService: ''
+  termsOfService: ""
   license:
-    name: ''
-host: api.bigcommerce.com
-basePath: /
-schemes:
-  - https
-consumes:
-  - application/json
-produces:
-  - application/json
+    name: ""
+  version: ""
+servers:
+- url: https://api.bigcommerce.com
+security:
+- X-Auth-Token: []
+tags:
+- name: Payment Methods
 paths:
-  '/stores/{store_hash}/v2/payments/methods':
+  /stores/{store_hash}/v2/payments/methods:
     get:
-      description: |-
+      tags:
+      - Payment Methods
+      summary: Get All Payment Methods
+      description: |         
         Gets the list of enabled payment methods. Default sorting is by payment method, alphabetically from A to Z.
-
         <!-- theme: info -->
         > #### Note:
         > Avoid using this API operation if possible. It is not supported; therefore, all enabled providers may not appear.
-         
-      summary: Get All Payment Methods
       parameters:
-        - name: Accept
-          in: header
-          required: true
+      - name: store_hash
+        in: path
+        required: true
+        schema:
           type: string
-          description: ''
-          default: application/json
-        - name: Content-Type
-          in: header
-          required: true
+      - name: Accept
+        in: header
+        required: true
+        schema:
           type: string
-          description: ''
           default: application/json
-        - name: page
-          in: query
-          required: false
-          type: number
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: page
+        in: query
+        description: Optional filter param `/api/v2/payments/methods?page={number}`
+        schema:
           exclusiveMaximum: false
           exclusiveMinimum: false
-          description: 'Optional filter param `/api/v2/payments/methods?page={number}`'
-        - name: limit
-          in: query
-          required: false
           type: number
+      - name: limit
+        in: query
+        description: Optional filter param `/api/v2/payments/methods?limit={count}`
+        schema:
           exclusiveMaximum: false
           exclusiveMinimum: false
-          description: 'Optional filter param `/api/v2/payments/methods?limit={count}`'
+          type: number
       responses:
         '200':
-          $ref: '#/responses/paymentCollection_Resp'
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/payment_Base'
       x-unitTests: []
       x-operation-settings:
         CollectParameters: false
         AllowDynamicQueryParameters: false
         AllowDynamicFormParameters: false
         IsMultiContentStreaming: false
-      tags:
-        - Payment Methods
-    parameters:
-      - type: string
-        name: store_hash
-        in: path
-        required: true
-definitions:
-  payment_Base:
-    title: payment_Base
-    example:
-      code: squarev2
-      name: Square
-      test_mode: false
-    type: object
-    properties:
-      code:
-        description: Unique platform-wide code identifying the payment method.
-        example: squarev2
-        type: string
-      name:
-        description: Descriptive name of the payment method.
-        example: Square
-        type: string
-      test_mode:
-        description: Determines whether the payment gateway is in test mode. Always false for offline payment methods.
-        example: false
-        type: boolean
-    x-internal: false
-tags:
-  - name: Payment Methods
-securityDefinitions:
-  X-Auth-Token:
-    type: apiKey
-    name: X-Auth-Token
-    in: header
-    description: |-
-      ### OAuth Scopes
-      |  **UI Name** | **Permission** | **Parameter** |
-      | --- | --- | --- |
-      |  Information & Settings | read-only | `store_payments_methods_read` |
+components:
+  schemas:
+    payment_Base:
+      title: payment_Base
+      type: object
+      properties:
+        code:
+          type: string
+          description: Unique platform-wide code identifying the payment method.
+          example: squarev2
+        name:
+          type: string
+          description: Descriptive name of the payment method.
+          example: Square
+        test_mode:
+          type: boolean
+          description: Determines whether the payment gateway is in test mode. Always
+            false for offline payment methods.
+          example: false
+      example:
+        code: squarev2
+        name: Square
+        test_mode: false
+      x-internal: false
+  responses:
+    paymentCollection_Resp:
+      description: ""
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/payment_Base'
+  securitySchemes:
+    X-Auth-Token:
+      type: apiKey
+      description: |
+        ### OAuth Scopes
+        |  **UI Name** | **Permission** | **Parameter** |
+        | --- | --- | --- |
+        |  Information & Settings | read-only | `store_payments_methods_read` |
 
-      ### Headers
+        ### Headers
 
-      |Header|Parameter|Description|
-      |-|-|-|
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
+        |Header|Parameter|Description|
+        |-|-|-|
+        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
-      ### Example
+        ### Example
 
-      ```http
-      GET /stores/{store_hash}/v3/catalog/summary
-      host: api.bigcommerce.com
-      Content-Type: application/json
-      X-Auth-Token: {access_token}
-      ```
+        ```http
+        GET /stores/{store_hash}/v3/catalog/summary
+        host: api.bigcommerce.com
+        Content-Type: application/json
+        X-Auth-Token: {access_token}
+        ```
 
-      * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication). 
-security:
-  - X-Auth-Token: []
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showModels: false
-responses:
-  paymentCollection_Resp:
-    description: ''
-    schema:
-      type: array
-      items:
-        $ref: '#/definitions/payment_Base'
+        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication). 
+      name: X-Auth-Token
+      in: header

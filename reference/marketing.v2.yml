@@ -1,6 +1,5 @@
-swagger: '2.0'
+openapi: 3.0.1
 info:
-  version: ''
   title: Marketing
   description: |-
     Manage coupons, banners, and gift certificates.
@@ -31,17 +30,21 @@ info:
 
     ### Gift Certificates
     Gift certificates available to offer to a store’s customers.
-host: api.bigcommerce.com
-basePath: /
-schemes:
-  - https
-consumes:
-  - application/json
-produces:
-  - application/json
+  version: ""
+servers:
+- url: https://api.bigcommerce.com
+security:
+- X-Auth-Token: []
+tags:
+- name: Banners
+- name: Coupons
+- name: Gift Certificates
 paths:
-  '/stores/{store_hash}/v2/coupons':
+  /stores/{store_hash}/v2/coupons:
     get:
+      tags:
+      - Coupons
+      summary: Get All Coupons
       description: |-
         Returns a list of *Coupons*. Default sorting is by coupon/discount id, from lowest to highest. Optional filter parameters can be passed in.
 
@@ -69,95 +72,146 @@ paths:
         shipping_methods : null
         ...
         ```
-      summary: Get All Coupons
+      operationId: getAllCoupons
       parameters:
-        - name: Accept
-          in: header
-          required: true
+      - name: store_hash
+        in: path
+        required: true
+        schema:
           type: string
-          description: ''
+      - name: Accept
+        in: header
+        required: true
+        schema:
+          type: string
           default: application/json
-        - name: Content-Type
-          in: header
-          required: true
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
           type: string
-          description: ''
           default: application/json
-        - name: id
-          in: query
-          required: false
+      - name: id
+        in: query
+        description: Optional filter param. `/api/v2/coupons?id={value}`
+        schema:
           type: string
-          description: 'Optional filter param. `/api/v2/coupons?id={value}`'
-        - name: code
-          in: query
-          required: false
+      - name: code
+        in: query
+        description: Optional filter param `/api/v2/coupons?code={value}`
+        schema:
           type: string
-          description: 'Optional filter param `/api/v2/coupons?code={value}`'
-        - name: name
-          in: query
-          required: false
+      - name: name
+        in: query
+        description: Optional filter param `/api/v2/coupons?name={value}`
+        schema:
           type: string
-          description: 'Optional filter param `/api/v2/coupons?name={value}`'
-        - name: type
-          in: query
-          required: false
+      - name: type
+        in: query
+        description: |-
+          |Type|
+          |-|
+          |`per_item_discount`|
+          |`percentage_discount`|
+          |`per_total_discount`|
+          |`shipping_discount`|
+          |`free_shipping`|
+          |`promotion`|
+        schema:
           type: string
-          description: |-
-            |Type|
-            |-|
-            |`per_item_discount`|
-            |`percentage_discount`|
-            |`per_total_discount`|
-            |`shipping_discount`|
-            |`free_shipping`|
-            |`promotion`|
-        - name: min_id
-          in: query
-          required: false
+      - name: min_id
+        in: query
+        description: Optional filter param `/api/v2/coupons?min_id={value}`
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
           type: integer
+      - name: max_id
+        in: query
+        description: Optional filter param`/api/v2/coupons?max_id={value}`
+        schema:
           exclusiveMaximum: false
           exclusiveMinimum: false
-          description: 'Optional filter param `/api/v2/coupons?min_id={value}`'
-        - name: max_id
-          in: query
-          required: false
           type: integer
+      - name: page
+        in: query
+        description: Number of pages `/api/v2/coupons?page={number}`
+        schema:
           exclusiveMaximum: false
           exclusiveMinimum: false
-          description: 'Optional filter param`/api/v2/coupons?max_id={value}`'
-        - name: page
-          in: query
-          required: false
           type: number
+      - name: limit
+        in: query
+        description: Count per page `/api/v2/coupons?limit={count}`
+        schema:
           exclusiveMaximum: false
           exclusiveMinimum: false
-          description: 'Number of pages `/api/v2/coupons?page={number}`'
-        - name: limit
-          in: query
-          required: false
           type: number
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          description: 'Count per page `/api/v2/coupons?limit={count}`'
-        - in: query
-          name: exclude_type
+      - name: exclude_type
+        in: query
+        description: |-
+          |Type|
+          |-|
+          |`per_item_discount`|
+          |`percentage_discount`|
+          |`per_total_discount`|
+          |`shipping_discount`|
+          |`free_shipping`|
+          |`promotion`|
+        schema:
           type: string
-          description: |-
-            |Type|
-            |-|
-            |`per_item_discount`|
-            |`percentage_discount`|
-            |`per_total_discount`|
-            |`shipping_discount`|
-            |`free_shipping`|
-            |`promotion`|
       responses:
         '200':
-          $ref: '#/responses/coupon_Resp_Collection'
-      tags:
-        - Coupons
-      operationId: getAllCoupons
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/coupon_Full'
+              example:
+              - id: 1
+                name: $5 off
+                type: per_total_discount
+                amount: "5.0000"
+                min_purchase: "0.0000"
+                expires: ""
+                enabled: true
+                code: S2549JM0Y
+                applies_to:
+                  entity: categories
+                  ids:
+                  - 0
+                num_uses: 2
+                max_uses: 0
+                max_uses_per_customer: 0
+                restricted_to: {}
+                shipping_methods: []
+                date_created: Tue, 13 Mar 2018 16:18:59 +0000
+              - id: 2
+                name: Limit by Location
+                type: per_total_discount
+                amount: "5.0000"
+                min_purchase: "25.0000"
+                expires: ""
+                enabled: true
+                code: E3JC79S0I
+                applies_to:
+                  entity: categories
+                  ids:
+                  - 0
+                num_uses: 0
+                max_uses: 25
+                max_uses_per_customer: 0
+                restricted_to:
+                  countries: 'AU'
+                shipping_methods:
+                - shipping_endicia
+                date_created: Tue, 12 Jun 2018 20:22:19 +0000
     post:
+      tags:
+      - Coupons
+      summary: Create a New Coupon
       description: |-
         Creates a *Coupon*.
 
@@ -183,107 +237,136 @@ paths:
         *   `percentage_discount`
 
         Legacy coupon codes only work with the store's default currency. Applying a coupon with any other currency other than the store's default will result in the error: "Coupons only apply to default currency."
-
-      summary: Create a New Coupon
       parameters:
-        - name: Accept
-          in: header
-          required: true
+      - name: store_hash
+        in: path
+        required: true
+        schema:
           type: string
-          description: ''
-          default: application/json
-        - name: Content-Type
-          in: header
-          required: true
+      - name: Accept
+        in: header
+        required: true
+        schema:
           type: string
-          description: ''
           default: application/json
-        - name: body
-          in: body
-          required: true
-          description: ''
-          schema:
-            $ref: '#/definitions/coupon_Base'
-          x-examples:
-            application/json:
-              name: 5% off order total
-              type: per_item_discount
-              code: 4F75AF0C3802D39
-              enabled: true
-              amount: '5'
-              applies_to:
-                entity: categories
-                ids:
-                  - 0
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/coupon_Base'
+        required: true
       responses:
         '201':
-          $ref: '#/responses/coupon_Resp'
-      tags:
-        - Coupons
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/coupon_Full'
+              example:
+                id: 1
+                name: $5 off
+                type: per_total_discount
+                amount: "5.0000"
+                min_purchase: "0.0000"
+                expires: ""
+                enabled: true
+                code: S2549JM0Y
+                applies_to:
+                  entity: categories
+                  ids:
+                  - 0
+                num_uses: 2
+                max_uses: 0
+                max_uses_per_customer: 0
+                restricted_to: {}
+                shipping_methods: []
+                date_created: Tue, 13 Mar 2018 16:18:59 +0000
+      x-codegen-request-body-name: body
     delete:
+      tags:
+      - Coupons
+      summary: Delete All Coupons
       description: |
         ## Usage Notes
         * Deleting a coupon via this endpoint will delete the coupon but not the promotion it is attached to
-      summary: Delete All Coupons
-      parameters:
-        - name: Accept
-          in: header
-          required: true
-          type: string
-          description: ''
-          default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          type: string
-          description: ''
-          default: application/json
-        - name: id:in
-          in: query
-          required: false
-          type: string
-          description: 'Optional param to identify a comma separated list of ids for coupons to delete in a batch. `/api/v2/coupons?id:in=1,2,3`'
-      responses:
-        '204':
-          description: ''
-      tags:
-        - Coupons
       operationId: deleteAllCoupons
-    parameters:
-      - type: string
-        name: store_hash
+      parameters:
+      - name: store_hash
         in: path
         required: true
-  '/stores/{store_hash}/v2/coupons/count':
-    get:
-      description: Returns a count of all *Coupons* in the store.
-      summary: Get a Count of Coupons
-      parameters:
-        - name: Accept
-          in: header
-          required: true
+        schema:
           type: string
-          description: ''
+      - name: Accept
+        in: header
+        required: true
+        schema:
+          type: string
           default: application/json
-        - name: Content-Type
-          in: header
-          required: true
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
           type: string
-          description: ''
+          default: application/json
+      - name: id:in
+        in: query
+        description: Optional param to identify a comma separated list of ids for
+          coupons to delete in a batch. `/api/v2/coupons?id:in=1,2,3`
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ""
+          content: {}
+  /stores/{store_hash}/v2/coupons/count:
+    get:
+      tags:
+      - Coupons
+      summary: Get a Count of Coupons
+      description: Returns a count of all *Coupons* in the store.
+      operationId: getACountOfCoupons
+      parameters:
+      - name: store_hash
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
           default: application/json
       responses:
         '200':
-          $ref: '#/responses/count_Resp'
-      tags:
-        - Coupons
-      operationId: getACountOfCoupons
-    parameters:
-      - type: string
-        name: store_hash
-        in: path
-        required: true
-  '/stores/{store_hash}/v2/coupons/{id}':
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    minimum: 0
+                    type: integer
+              example:
+                count: 27
+  /stores/{store_hash}/v2/coupons/{id}:
     put:
+      tags:
+      - Coupons
+      summary: Update a Coupon
       description: |-
         Updates a *Coupon*.
 
@@ -297,146 +380,189 @@ paths:
         **Notes**
 
         If the `applies_to` value is cleared, you can restore it to the coupon by reapplying the `applies_to` value in a new `PUT` request.
-      summary: Update a Coupon
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: number
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          description: Id of the coupon.
-        - name: Accept
-          in: header
-          required: true
-          type: string
-          description: ''
-          default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          type: string
-          description: ''
-          default: application/json
-        - name: body
-          in: body
-          required: true
-          description: ''
-          schema:
-            $ref: '#/definitions/coupon_Base'
-          x-examples:
-            application/json:
-              amount: '25.0000'
-              applies_to:
-                entity: categories
-                ids:
-                  - 0
-              code: 4F75AF0C3802K55
-              enabled: false
-              expires: '01 Jun 2022 14:31:46 -0700'
-              max_uses: 0
-              max_uses_per_customer: 1
-              min_purchase: '150.0000'
-              name: $25 off!
-              restricted_to:
-                countries:
-                  - AU
-              shipping_methods: null
-              type: per_total_discount
-      responses:
-        '200':
-          $ref: '#/responses/coupon_Resp'
-      tags:
-        - Coupons
       operationId: updateACoupon
-    delete:
-      description: Deletes a *Coupon*.
-      summary: Delete a Coupon
       parameters:
-        - name: Accept
-          in: header
-          required: true
+      - name: store_hash
+        in: path
+        required: true
+        schema:
           type: string
-          description: ''
-          default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          type: string
-          description: ''
-          default: application/json
-        - name: id
-          in: path
-          required: true
-          type: integer
-          description: ''
-      responses:
-        '204':
-          description: ''
-      tags:
-        - Coupons
-      operationId: deleteACoupon
-    parameters:
       - name: id
         in: path
-        type: string
+        description: Id of the coupon.
         required: true
-      - type: string
-        name: store_hash
-        in: path
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          type: number
+      - name: Accept
+        in: header
         required: true
-  '/stores/{store_hash}/v2/banners':
-    get:
-      description: 'Returns a list of *Banners*. Default sorting is by banner id, from lowest to highest.'
-      summary: Get All Banners
-      parameters:
-        - name: Accept
-          in: header
-          required: true
+        schema:
           type: string
-          description: ''
           default: application/json
-        - name: Content-Type
-          in: header
-          required: true
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
           type: string
-          description: ''
           default: application/json
-        - name: min_id
-          in: query
-          required: false
-          type: integer
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          description: 'Optional filter param `/api/v2/banners?min_id={value}`'
-        - name: max_id
-          in: query
-          required: false
-          type: integer
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          description: 'Optional filter param `/api/v2/banners?max_id={value}`'
-        - name: page
-          in: query
-          required: false
-          type: number
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          description: 'Optional filter param `/api/v2/banners?page={number}`'
-        - name: limit
-          in: query
-          required: false
-          type: number
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          description: 'Optional filter param `/api/v2/banners?limit={count}`'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/coupon_Base'
+        required: true
       responses:
         '200':
-          $ref: '#/responses/bannerCollection_Resp'
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/coupon_Full'
+              example:
+                id: 1
+                name: $5 off
+                type: per_total_discount
+                amount: "5.0000"
+                min_purchase: "0.0000"
+                expires: ""
+                enabled: true
+                code: S2549JM0Y
+                applies_to:
+                  entity: categories
+                  ids:
+                  - 0
+                num_uses: 2
+                max_uses: 0
+                max_uses_per_customer: 0
+                restricted_to: {}
+                shipping_methods: []
+                date_created: Tue, 13 Mar 2018 16:18:59 +0000
+      x-codegen-request-body-name: body
+    delete:
       tags:
-        - Banners
+      - Coupons
+      summary: Delete a Coupon
+      description: Deletes a *Coupon*.
+      operationId: deleteACoupon
+      parameters:
+      - name: store_hash
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: ""
+          content: {}
+  /stores/{store_hash}/v2/banners:
+    get:
+      tags:
+      - Banners
+      summary: Get All Banners
+      description: Returns a list of *Banners*. Default sorting is by banner id, from
+        lowest to highest.
       operationId: getAllBanners
+      parameters:
+      - name: store_hash
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: min_id
+        in: query
+        description: Optional filter param `/api/v2/banners?min_id={value}`
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          type: integer
+      - name: max_id
+        in: query
+        description: Optional filter param `/api/v2/banners?max_id={value}`
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          type: integer
+      - name: page
+        in: query
+        description: Optional filter param `/api/v2/banners?page={number}`
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          type: number
+      - name: limit
+        in: query
+        description: Optional filter param `/api/v2/banners?limit={count}`
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          type: number
+      responses:
+        '200':
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/banner_Full'
+              example:
+              - id: 1
+                name: This is a banner
+                content: <p>This is a banner</p>
+                page: home_page
+                item_id: "0"
+                location: top
+                date_created: "1522169082"
+                date_type: always
+                date_from: "0"
+                date_to: "0"
+                visible: "1"
+              - id: 2
+                name: 'Banner #2'
+                content: '<p>Banner # 2</p>'
+                page: category_page
+                item_id: "23"
+                location: top
+                date_created: "1522169169"
+                date_type: always
+                date_from: "0"
+                date_to: "0"
+                visible: "1"
     post:
+      tags:
+      - Banners
+      summary: Create a Banner
       description: |-
         Creates a *Banner*.
 
@@ -450,311 +576,425 @@ paths:
         **Read Only Fields**
         * date_created
         * id
-      summary: Create a Banner
-      produces:
-        - application/json
+      operationId: createABanner
       parameters:
-        - name: Accept
-          in: header
-          required: true
+      - name: store_hash
+        in: path
+        required: true
+        schema:
           type: string
-          description: ''
-          default: application/json
-        - name: Content-Type
-          in: header
-          required: true
+      - name: Accept
+        in: header
+        required: true
+        schema:
           type: string
-          description: ''
           default: application/json
-        - name: body
-          in: body
-          required: true
-          description: ''
-          schema:
-            $ref: '#/definitions/banner_Base'
-          x-examples:
-            application/json:
-              name: Sale Banner
-              content: <p> Sale! Tuesday at 9am! </p>
-              page: home_page
-              location: top
-              date_type: always
-              visible: 1
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/banner_Base'
+        required: true
       responses:
         '200':
-          $ref: '#/responses/banner_Resp'
-      tags:
-        - Banners
-      operationId: createABanner
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/banner_Full'
+              example:
+                id: 1
+                name: Sale Banner
+                content: <p> Sale! Tuesday at 9am! </p>
+                page: home_page
+                item_id: "0"
+                location: top
+                date_created: "1522169082"
+                date_type: always
+                date_from: "0"
+                date_to: "0"
+                visible: "1"
+      x-codegen-request-body-name: body
     delete:
-      description: 'By default, it deletes all *Banners*.'
+      tags:
+      - Banners
       summary: Delete All Banners
+      description: By default, it deletes all *Banners*.
+      operationId: deleteAllBanners
       parameters:
-        - name: Accept
-          in: header
-          required: true
+      - name: store_hash
+        in: path
+        required: true
+        schema:
           type: string
-          description: ''
+      - name: Accept
+        in: header
+        required: true
+        schema:
+          type: string
           default: application/json
-        - name: Content-Type
-          in: header
-          required: true
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
           type: string
-          description: ''
           default: application/json
       responses:
         '204':
-          description: ''
+          description: ""
+          content: {}
+  /stores/{store_hash}/v2/banners/{id}:
+    get:
       tags:
-        - Banners
-      operationId: deleteAllBanners
-    parameters:
-      - type: string
-        name: store_hash
+      - Banners
+      summary: Get a Banner
+      description: Returns a single *Banner*
+      operationId: getABanner
+      parameters:
+      - name: store_hash
         in: path
         required: true
-  '/stores/{store_hash}/v2/banners/{id}':
-    get:
-      description: Returns a single *Banner*
-      summary: Get a Banner
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: integer
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: Id of the banner.
+        required: true
+        schema:
           exclusiveMaximum: false
           exclusiveMinimum: false
-          description: Id of the banner.
-        - name: Accept
-          in: header
-          required: true
+          type: integer
+      - name: Accept
+        in: header
+        required: true
+        schema:
           type: string
-          description: ''
           default: application/json
-        - name: Content-Type
-          in: header
-          required: true
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
           type: string
-          description: ''
           default: application/json
       responses:
         '200':
-          $ref: '#/responses/banner_Resp'
-      tags:
-        - Banners
-      operationId: getABanner
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/banner_Full'
+              example:
+                id: 1
+                name: Sale Banner
+                content: <p> Sale! Tuesday at 9am! </p>
+                page: home_page
+                item_id: "0"
+                location: top
+                date_created: "1522169082"
+                date_type: always
+                date_from: "0"
+                date_to: "0"
+                visible: "1"
     put:
+      tags:
+      - Banners
+      summary: Update a Banner
       description: |-
         Updates a *Banner*.
 
         **Read Only Fields**
         * date_created
         * id
-      summary: Update a Banner
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: integer
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          description: Id of the banner.
-        - name: Accept
-          in: header
-          required: true
-          type: string
-          description: ''
-          default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          type: string
-          description: ''
-          default: application/json
-        - name: body
-          in: body
-          required: true
-          description: ''
-          schema:
-            $ref: '#/definitions/banner_Put'
-          x-examples:
-            application/json:
-              name: Home Page Banner
-      responses:
-        '200':
-          $ref: '#/responses/banner_Resp'
-      tags:
-        - Banners
       operationId: updateABanner
-    delete:
-      description: Deletes a *Banner*.
-      summary: Delete a Banner
       parameters:
-        - name: Accept
-          in: header
-          required: true
+      - name: store_hash
+        in: path
+        required: true
+        schema:
           type: string
-          description: ''
-          default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          type: string
-          description: ''
-          default: application/json
-        - name: id
-          in: path
-          required: true
-          type: integer
-          description: ''
-      responses:
-        '204':
-          description: ''
-      tags:
-        - Banners
-      operationId: deleteABanner
-    parameters:
       - name: id
         in: path
-        type: string
+        description: Id of the banner.
         required: true
-      - type: string
-        name: store_hash
-        in: path
-        required: true
-  '/stores/{store_hash}/v2/banners/count':
-    get:
-      description: Returns a count of *Banners*.
-      summary: Get a Count of Store Banners
-      parameters:
-        - name: Accept
-          in: header
-          required: true
-          type: string
-          description: ''
-          default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          type: string
-          description: ''
-          default: application/json
-      responses:
-        '200':
-          $ref: '#/responses/count_Resp'
-      tags:
-        - Banners
-      operationId: getACountOfBanners
-    parameters:
-      - type: string
-        name: store_hash
-        in: path
-        required: true
-  '/stores/{store_hash}/v2/gift_certificates/{id}':
-    get:
-      description: Returns a single *Gift Certificate*.
-      summary: Get a Gift Certificate
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: integer
+        schema:
           exclusiveMaximum: false
           exclusiveMinimum: false
-          description: Id of the gift certificate.
-        - name: Accept
-          in: header
-          required: true
-          type: string
-          description: ''
-          default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          type: string
-          description: ''
-          default: application/json
-      responses:
-        '200':
-          $ref: '#/responses/giftCertificate_Resp'
-      tags:
-        - Gift Certificates
-      operationId: getAGiftCertificate
-    delete:
-      description: Deletes a *Gift Certificate*.
-      summary: Delete a Gift Certificate
-      parameters:
-        - name: id
-          in: path
-          required: true
           type: integer
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          description: Id of the gift certificate.
-        - name: Accept
-          in: header
-          required: true
-          type: string
-          description: ''
-          default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          type: string
-          description: ''
-          default: application/json
-      responses:
-        '204':
-          description: ''
-      tags:
-        - Gift Certificates
-      operationId: deleteAGiftCertificate
-    parameters:
-      - name: id
-        in: path
-        type: string
+      - name: Accept
+        in: header
         required: true
-      - type: string
-        name: store_hash
-        in: path
+        schema:
+          type: string
+          default: application/json
+      - name: Content-Type
+        in: header
         required: true
-    put:
+        schema:
+          type: string
+          default: application/json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/banner_Put'
+        required: true
       responses:
         '200':
-          $ref: '#/responses/giftCertificate_Resp'
-      summary: Update a Gift Certificate
-      parameters:
-        - in: header
-          name: Accept
-          type: string
-          default: application/json
-          required: true
-        - in: header
-          name: Content-Type
-          type: string
-          default: application/json
-          required: true
-        - in: body
-          name: body
-          schema:
-            $ref: '#/definitions/giftCertificate_Put'
-          x-examples:
+          description: ""
+          content:
             application/json:
-              to_name: New testing
+              schema:
+                $ref: '#/components/schemas/banner_Full'
+              example:
+                id: 1
+                name: Sale Banner
+                content: <p> Sale! Tuesday at 9am! </p>
+                page: home_page
+                item_id: "0"
+                location: top
+                date_created: Tue, 13 Mar 2018 16:18:59 +0000
+                date_type: always
+                date_from: "0"
+                date_to: "0"
+                visible: "1"
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+      - Banners
+      summary: Delete a Banner
+      description: Deletes a *Banner*.
+      operationId: deleteABanner
+      parameters:
+      - name: store_hash
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: ""
+          content: {}
+  /stores/{store_hash}/v2/banners/count:
+    get:
+      tags:
+      - Banners
+      summary: Get a Count of Store Banners
+      description: Returns a count of *Banners*.
+      operationId: getACountOfBanners
+      parameters:
+      - name: store_hash
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      responses:
+        '200':
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    minimum: 0
+                    type: integer
+              example:
+                count: 27
+  /stores/{store_hash}/v2/gift_certificates/{id}:
+    get:
+      tags:
+      - Gift Certificates
+      summary: Get a Gift Certificate
+      description: Returns a single *Gift Certificate*.
+      operationId: getAGiftCertificate
+      parameters:
+      - name: store_hash
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: Id of the gift certificate.
+        required: true
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          type: integer
+      - name: Accept
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      responses:
+        '200':
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/giftCertificate_Full'
+              example:
+                id: 1
+                customer_id: 5
+                order_id: 116
+                code: FFZ-5N4-C7M-S78
+                to_name: John Doe
+                to_email: johndoe@example.com
+                from_name: Jane Doe
+                from_email: janedoe@example.com
+                amount: "10"
+                balance: "0"
+                status: active
+                template: "Birthday"
+                message: Happy Birthday!
+                purchase_date: "1520957992"
+                expiry_date: "0"
+    put:
+      tags:
+      - Gift Certificates
+      summary: Update a Gift Certificate
       description: |-
         Updates a *Gift Certificate*.
 
         **Read Only Fields**
         * id
         * order_id
-      tags:
-        - Gift Certificates
       operationId: updateAGiftCertificate
-  '/stores/{store_hash}/v2/gift_certificates':
-    get:
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: store_hash
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/giftCertificate_Put'
+        required: false
       responses:
         '200':
-          $ref: '#/responses/giftCertificateCollection_Resp'
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/giftCertificate_Full'
+              example:
+                id: 1
+                customer_id: 5
+                order_id: 116
+                code: FFZ-5N4-C7M-S78
+                to_name: John Doe
+                to_email: johndoe@example.com
+                from_name: Jane Doe
+                from_email: janedoe@example.com
+                amount: "10"
+                balance: "0"
+                status: active
+                template: "Birthday"
+                message: Happy Birthday!
+                purchase_date: "1520957992"
+                expiry_date: "0"
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+      - Gift Certificates
+      summary: Delete a Gift Certificate
+      description: Deletes a *Gift Certificate*.
+      operationId: deleteAGiftCertificate
+      parameters:
+      - name: store_hash
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: Id of the gift certificate.
+        required: true
+        schema:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          type: integer
+      - name: Accept
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      responses:
+        '204':
+          description: ""
+          content: {}
+  /stores/{store_hash}/v2/gift_certificates:
+    get:
+      tags:
+      - Gift Certificates
       summary: Get All Gift Certificates
       description: |-
         Returns a list of *Gift Certificates*. Optional filter parameters can be passed in.
@@ -762,81 +1002,121 @@ paths:
         Default sorting is by gift-certificate id, from lowest to highest.
 
         The maximum limit is 250. If a limit isn’t provided, up to 50 gift_certificates are returned by default.
-      parameters:
-        - in: query
-          name: min_id
-          type: integer
-        - in: query
-          name: max_id
-          type: integer
-        - in: query
-          name: code
-          type: string
-        - in: query
-          name: order_id
-          type: integer
-        - in: query
-          name: to_name
-          type: string
-        - in: query
-          name: to_email
-          type: string
-        - in: query
-          name: from_name
-          type: string
-        - in: query
-          name: from_email
-          type: string
-        - in: query
-          name: page
-          type: number
-        - in: query
-          name: limit
-          type: number
-        - in: header
-          name: Accept
-          type: string
-          default: application/json
-          required: true
-        - in: header
-          name: Content-Type
-          type: string
-          required: true
-          default: application/json
-      tags:
-        - Gift Certificates
       operationId: getAllGiftCertificates
-    post:
+      parameters:
+      - name: store_hash
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: min_id
+        in: query
+        schema:
+          type: integer
+      - name: max_id
+        in: query
+        schema:
+          type: integer
+      - name: code
+        in: query
+        schema:
+          type: string
+      - name: order_id
+        in: query
+        schema:
+          type: integer
+      - name: to_name
+        in: query
+        schema:
+          type: string
+      - name: to_email
+        in: query
+        schema:
+          type: string
+      - name: from_name
+        in: query
+        schema:
+          type: string
+      - name: from_email
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          type: number
+      - name: limit
+        in: query
+        schema:
+          type: number
+      - name: Accept
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
       responses:
         '200':
-          $ref: '#/responses/giftCertificate_Resp'
-      summary: Create a Gift Certificate
-      parameters:
-        - in: header
-          name: Accept
-          type: string
-          required: true
-          default: application/json
-        - in: header
-          name: Content-Type
-          type: string
-          required: true
-          default: application/json
-        - in: body
-          name: body
-          schema:
-            $ref: '#/definitions/giftCertificate_Post'
-          x-examples:
+          description: ""
+          content:
             application/json:
-              template: Birthday
-              message: Congratulations!
-              amount: '700.0000'
-              to_name: Jane
-              to_email: test@test.com
-              from_name: Tarzan
-              from_email: test1@test.com
-              code: XQ2-1R7-7C1-Q0C
-              status: active
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/giftCertificate_Full'
+              example:
+              - id: 24
+                code: 10R-5E2-BO4-RWT
+                amount: "1000.0000"
+                status: active
+                balance: "500.0000"
+                to_name: Alyss
+                order_id: 1281
+                template: "Celebration"
+                to_email: test@test.com
+                from_name: Noland
+                from_email: test1@test.com
+                customer_id: 0
+                expiry_date: "0"
+                purchase_date: "1454432829"
+              - id: 25
+                code: 10R-6E3-AO4-RST
+                amount: "700.0000"
+                status: active
+                balance: "700.0000"
+                to_name: Alyss
+                order_id: 0
+                template: "General"
+                to_email: test@test.com
+                from_name: Noland
+                from_email: test1@test.com
+                customer_id: 0
+                expiry_date: "0"
+                purchase_date: "1454433240"
+              - id: 27
+                code: 15R-6E3-AO4-RST
+                amount: "50.0000"
+                status: active
+                balance: "50.0000"
+                to_name: Lyss
+                order_id: 0
+                template: "Celebration"
+                to_email: test5@test.com
+                from_name: Somethingelse
+                from_email: test15@test.com
+                customer_id: 0
+                expiry_date: "0"
+                purchase_date: "1454433621"
+    post:
+      tags:
+      - Gift Certificates
+      summary: Create a Gift Certificate
       description: |-
         Creates a *Gift Certificate*.
 
@@ -855,222 +1135,292 @@ paths:
         **Notes**
 
         When a gift certificate is created through the API, no email notification is triggered to the specified recipient.
-      tags:
-        - Gift Certificates
       operationId: createAGiftCertificate
-    delete:
-      responses:
-        '204':
-          description: ''
-          schema:
-            type: object
-            properties: {}
-      summary: Delete All Gift Certificates
       parameters:
-        - in: header
-          name: Accept
-          type: string
-          default: application/json
-        - in: header
-          name: Content-Type
-          type: string
-          default: application/json
-      tags:
-        - Gift Certificates
-      description: 'By default, it deletes all *Gift Certificates*.'
-      operationId: deleteAllGiftCertificates
-    parameters:
-      - type: string
-        name: store_hash
+      - name: store_hash
         in: path
         required: true
-definitions:
-  CouponsResource:
-    title: Coupon Resource
-    type: object
-    properties:
-      url:
-        description: URL of the coupons for api requests
-        example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/coupons'
-        type: string
-      resource:
-        description: resource of the coupons
-        example: /orders/129/coupons
-        type: string
-    x-internal: false
-  coupon_Full:
-    title: coupon_Full
-    allOf:
-      - type: object
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+          default: application/json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/giftCertificate_Post'
+        required: false
+      responses:
+        '200':
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/giftCertificate_Full'
+              example:
+                id: 1
+                customer_id: 5
+                order_id: 116
+                code: FFZ-5N4-C7M-S78
+                to_name: John Doe
+                to_email: johndoe@example.com
+                from_name: Jane Doe
+                from_email: janedoe@example.com
+                amount: "10"
+                balance: "0"
+                status: active
+                template: "Birthday"
+                message: Happy Birthday!
+                purchase_date: "1520957992"
+                expiry_date: "0"
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+      - Gift Certificates
+      summary: Delete All Gift Certificates
+      description: By default, it deletes all *Gift Certificates*.
+      operationId: deleteAllGiftCertificates
+      parameters:
+      - name: store_hash
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Accept
+        in: header
+        schema:
+          type: string
+          default: application/json
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+          default: application/json
+      responses:
+        '204':
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    CouponsResource:
+      title: Coupon Resource
+      type: object
+      properties:
+        url:
+          type: string
+          description: URL of the coupons for api requests
+          example: https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/coupons
+        resource:
+          type: string
+          description: resource of the coupons
+          example: /orders/129/coupons
+      x-internal: false
+    coupon_Full:
+      title: coupon_Full
+      allOf:
+      - required:
+        - id
+        type: object
         properties:
           id:
             type: integer
-            description: The coupon's ID. This is a read-only field; do not set or modify its value in a POST or PUT request.
+            description: The coupon's ID. This is a read-only field; do not set or
+              modify its value in a POST or PUT request.
             example: 2
           date_created:
-            description: Date Created
-            example: 'Tue, 13 Mar 2018 16:18:59 +0000'
             type: string
+            description: Date Created
+            example: Tue, 13 Mar 2018 16:18:59 +0000
           num_uses:
             type: integer
-            description: Number of times this coupon has been used. This is a read-only field; do not set or modify its value in a POST or PUT request.
+            description: Number of times this coupon has been used. This is a read-only
+              field; do not set or modify its value in a POST or PUT request.
             example: 0
-        required:
-          - id
-      - $ref: '#/definitions/coupon_Base'
-    x-internal: false
-  coupon_Base:
-    title: coupon_Base
-    example:
-      id: 2
-      name: Australia Customers Discount
-      type: per_item_discount
-      amount: 5
-      min_purchase: 25
-      expires: ''
-      enabled: true
-      code: S2549JM0Y
-      applies_to:
-        entity: categories
-        ids:
-          - '0,3'
-      num_uses: 0
-      max_uses: 25
-      max_uses_per_customer: 0
-      restricted_to:
-        countries:
-          - AU
-      shipping_methods:
-        - shipping_endicia
-      date_created: 'Tue, 13 Mar 2018 16:18:59 +0000'
-    type: object
-    properties:
-      name:
-        type: string
-        description: The name of the coupon.
-        example: Australia Customers Discount
-      type:
-        type: string
-        enum:
+      - $ref: '#/components/schemas/coupon_Base'
+      x-internal: false
+    coupon_Base:
+      title: coupon_Base
+      required:
+      - amount
+      - applies_to
+      - code
+      - name
+      - type
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the coupon.
+          example: Australia Customers Discount
+        type:
+          type: string
+          enum:
           - per_item_discount
           - per_total_discount
           - shipping_discount
           - free_shipping
           - percentage_discount
           - promotion
-      amount:
-        type: string
-        description: 'The discount to apply to an order, as either an amount or a percentage. This field’s usage is determined by the coupon `type`. For example, a `type` of + `percentage_discount` would determine a percentage here.'
-        example: 5
-      min_purchase:
-        description: Specifies a minimum value that an order must have before the coupon can be applied to it.
-        example: 25
-        type: string
-      expires:
-        description: 'Specifies when a coupon expires. Coupons need not have an expiry date – you can also control expiry via + `max_uses` or `max_uses_per_customer`. If you do use this date field, the value must be in <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a> format.'
-        type: string
-      enabled:
-        description: 'If the coupon is enabled, this field’s value is `true`; otherwise, `false`.'
-        example: true
-        type: boolean
-      code:
-        type: string
-        description: 'The coupon code that customers will use to receive their discounts. Value must be unique. Only letters, numbers, white space, underscores, and hyphens are allowed.'
-        example: S2549JM0Y
-        pattern: '[a-zA-Z0-9_\ -]'
-      applies_to:
-        type: object
-        description: 'If it is not included in the PUT request, its existing value on the coupon will be cleared. Also required to be set on the POST request'
-        properties:
-          ids:
-            type: array
-            description: ID of either the products or categories
-            items:
-              type: integer
-          entity:
-            description: What the discount applies to. Can be products or categories.
-            type: string
-      max_uses:
-        description: Maximum number of times this coupon can be used.
-        example: 25
-        type: integer
-      max_uses_per_customer:
-        description: Maximum number of times each customer can use this coupon.
-        example: 0
-        type: integer
-      restricted_to:
-        type: object
-        properties:
-          countries:
-            type: string
-          '':
-            type: string
-      shipping_methods:
-        description: 'This is a list of shipping-method names. A shipping method must be enabled on the store to use it with a coupon. To check which shipping methods are enabled, please use the [List Shipping Methods](/api/v2#list-shipping-methods) endpoint.'
-        type: array
-        items:
+        amount:
           type: string
-    required:
+          description: The discount to apply to an order, as either an amount or a
+            percentage. This field’s usage is determined by the coupon `type`. For
+            example, a `type` of + `percentage_discount` would determine a percentage
+            here.
+          example: "5"
+        min_purchase:
+          type: string
+          description: Specifies a minimum value that an order must have before the
+            coupon can be applied to it.
+          example: "25"
+        expires:
+          type: string
+          description: Specifies when a coupon expires. Coupons need not have an expiry
+            date – you can also control expiry via + `max_uses` or `max_uses_per_customer`.
+            If you do use this date field, the value must be in <a href="http://tools.ietf.org/html/rfc2822#section-3.3"
+            target="_blank">RFC 2822</a> format.
+        enabled:
+          type: boolean
+          description: If the coupon is enabled, this field’s value is `true`; otherwise,
+            `false`.
+          example: true
+        code:
+          pattern: '[a-zA-Z0-9_\ -]'
+          type: string
+          description: The coupon code that customers will use to receive their discounts.
+            Value must be unique. Only letters, numbers, white space, underscores,
+            and hyphens are allowed.
+          example: S2549JM0Y
+        applies_to:
+          type: object
+          properties:
+            ids:
+              type: array
+              description: ID of either the products or categories
+              items:
+                type: integer
+            entity:
+              type: string
+              description: What the discount applies to. Can be products or categories.
+          description: If it is not included in the PUT request, its existing value
+            on the coupon will be cleared. Also required to be set on the POST request
+        max_uses:
+          type: integer
+          description: Maximum number of times this coupon can be used.
+          example: 25
+        max_uses_per_customer:
+          type: integer
+          description: Maximum number of times each customer can use this coupon.
+          example: 0
+        restricted_to:
+          type: object
+          properties:
+            countries:
+              type: string
+            ?
+            : type: string
+        shipping_methods:
+          type: array
+          description: This is a list of shipping-method names. A shipping method
+            must be enabled on the store to use it with a coupon. To check which shipping
+            methods are enabled, please use the [List Shipping Methods](/api/v2#list-shipping-methods)
+            endpoint.
+          items:
+            type: string
+      example:
+        id: 2
+        name: Australia Customers Discount
+        type: per_item_discount
+        amount: "5"
+        min_purchase: "25"
+        expires: ""
+        enabled: true
+        code: S2549JM0Y
+        applies_to:
+          entity: categories
+          ids: [0,3]
+        num_uses: 0
+        max_uses: 25
+        max_uses_per_customer: 0
+        restricted_to:
+          countries: "AU"
+        shipping_methods:
+        - shipping_endicia
+        date_created: Tue, 13 Mar 2018 16:18:59 +0000
+      x-internal: false
+    banner_Base:
+      title: banner_Base
+      required:
+      - content
+      - date_type
+      - location
       - name
-      - type
-      - amount
-      - code
-      - applies_to
-    x-internal: false
-  banner_Base:
-    type: object
-    title: banner_Base
-    properties:
-      name:
-        type: string
-        example: Sale Banner
-        description: Name of the banner.
-      content:
-        type: string
-        example: <p> Sale! Tuesday at 9am! </p>
-        description: Contains the banner content. Returned as a string and includes HTML formatting.
-      page:
-        type: string
-        description: Page the Banner is located on.
-        enum:
+      - page
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the banner.
+          example: Sale Banner
+        content:
+          type: string
+          description: Contains the banner content. Returned as a string and includes
+            HTML formatting.
+          example: <p> Sale! Tuesday at 9am! </p>
+        page:
+          type: string
+          description: Page the Banner is located on.
+          enum:
           - home_page
           - category_page
           - brand_page
           - search_page
-      location:
-        type: string
-        enum:
+        location:
+          type: string
+          description: Location on the page.
+          example: top
+          enum:
           - top
           - bottom
-        example: top
-        description: Location on the page.
-      date_type:
-        type: string
-        enum:
+        date_type:
+          type: string
+          description: This specifies whether the banner should be visible during
+            a specific date range.
+          enum:
           - always
           - custom
-        description: This specifies whether the banner should be visible during a specific date range.
-      date_from:
-        type: string
-        description: 'If the datetype is set as ''custom’, this field specifies the date when the banner should become visible on the storefront.'
-        example: '0'
-      date_to:
-        type: string
-        description: 'If the datetype is set as ''custom’, this field specifies the date when the banner should stop being visible on the storefront.'
-        example: '0'
-      visible:
-        type: string
-        description: 'Integer value denoting whether or not the banner is visible on the storefront: 1 = visible; 0 = not visible'
-        example: '1'
-    required:
-      - name
-      - content
-      - page
-      - location
-      - date_type
-    x-internal: false
-  banner_Full:
-    allOf:
+        date_from:
+          type: string
+          description: If the datetype is set as 'custom’, this field specifies the
+            date when the banner should become visible on the storefront.
+          example: "0"
+        date_to:
+          type: string
+          description: If the datetype is set as 'custom’, this field specifies the
+            date when the banner should stop being visible on the storefront.
+          example: "0"
+        visible:
+          type: string
+          description: 'Integer value denoting whether or not the banner is visible
+            on the storefront: 1 = visible; 0 = not visible'
+          example: "1"
+      x-internal: false
+    banner_Full:
+      title: banner_Full
+      allOf:
       - type: object
         properties:
           id:
@@ -1081,66 +1431,68 @@ definitions:
             example: 1
           date_created:
             type: string
-            format: date-time
             description: Date the banner is created.
-            example: '1522169082'
           item_id:
             type: string
-            description: If the banner is on a specific category or brand page then the `item_id` will correspond the category or brand id.
-            example: '0'
-      - $ref: '#/definitions/banner_Base'
-    title: banner_Full
-    x-internal: false
-  banner_Put:
-    allOf:
+            description: If the banner is on a specific category or brand page then
+              the `item_id` will correspond the category or brand id.
+            example: "0"
+      - $ref: '#/components/schemas/banner_Base'
+      x-internal: false
+    banner_Put:
+      title: banner_Put
+      allOf:
       - type: object
         properties:
           item_id:
             type: string
-            description: If the banner is on a specific category or brand page then the `item_id` will correspond the category or brand id.
-            example: '0'
-      - $ref: '#/definitions/banner_Base'
-    title: banner_Put
-    x-internal: false
-  giftCertificate_Base:
-    type: object
-    title: giftCertificate_Base
-    properties:
-      to_name:
-        type: string
-        description: Name of the recipient.
-        example: John Doe
-      to_email:
-        type: string
-        description: Email of the recipient.
-        example: johndoe@example.com
-      from_name:
-        type: string
-        description: Name of the customer who purchased the gift certificate.
-        example: Jane Doe
-      from_email:
-        type: string
-        description: Email of the customer who purchased the gift certificate.
-        example: janedoe@example.com
-      amount:
-        type: string
-        description: Value of the gift certificate.
-        example: '10'
-    required:
-      - to_name
-      - to_email
-      - from_name
-      - from_email
+            description: If the banner is on a specific category or brand page then
+              the `item_id` will correspond the category or brand id.
+            example: "0"
+      - $ref: '#/components/schemas/banner_Base'
+      x-internal: false
+    giftCertificate_Base:
+      title: giftCertificate_Base
+      required:
       - amount
-    x-internal: false
-  giftCertificate_Full:
-    allOf:
-      - $ref: '#/definitions/giftCertificate_Base'
+      - from_email
+      - from_name
+      - to_email
+      - to_name
+      type: object
+      properties:
+        to_name:
+          type: string
+          description: Name of the recipient.
+          example: John Doe
+        to_email:
+          type: string
+          description: Email of the recipient.
+          example: johndoe@example.com
+        from_name:
+          type: string
+          description: Name of the customer who purchased the gift certificate.
+          example: Jane Doe
+        from_email:
+          type: string
+          description: Email of the customer who purchased the gift certificate.
+          example: janedoe@example.com
+        amount:
+          type: string
+          description: Value of the gift certificate.
+          example: "10"
+      x-internal: false
+    giftCertificate_Full:
+      title: giftCertificate_Full
+      description: ""
+      allOf:
+      - $ref: '#/components/schemas/giftCertificate_Base'
       - type: object
         properties:
           id:
             type: integer
-            description: The ID of the gift certificate.This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.
+            description: The ID of the gift certificate.This is a READ-ONLY field;
+              do not set or modify its value in a POST or PUT request.
             example: 1
           customer_id:
             type: integer
@@ -1152,135 +1504,68 @@ definitions:
             example: 116
           balance:
             type: string
-            description: 'Remaining value of the gift certificate. If not set, will default to the amount.'
-            example: '0'
+            description: Remaining value of the gift certificate. If not set, will
+              default to the amount.
+            example: "0"
           purchase_date:
             type: string
-            description: 'Date the gift certificate was purchased. If not assigned, this will be set to today’s date. Date displays in Unix timestamp format.'
-            example: '1454432829'
+            description: Date the gift certificate was purchased. If not assigned,
+              this will be set to today’s date. Date displays in Unix timestamp format.
+            example: "1454432829"
           expiry_date:
             type: string
             description: Date on which the gift certificate is set to expire.
           template:
             type: string
-            enum:
-              - Birthday
-              - Girl
-              - Boy
-              - Celebration
-              - Christmas
-              - General
             description: The email theme to use in the message sent to the recipient.
             example: Celebration
+            enum:
+            - Birthday
+            - Girl
+            - Boy
+            - Celebration
+            - Christmas
+            - General
           message:
             type: string
-            description: 'Text that will be sent to the recipient, such as “Congratulations.”'
+            description: Text that will be sent to the recipient, such as “Congratulations.”
             example: Congratulations!
           code:
+            maxLength: 255
             type: string
             description: |-
               A unique string that a customer can input to redeem a gift certificate. Values greater than 20 characters will be trimmed down to the first 20 characters and returned in the response.
               If this field is not set, a value will be autogenerated.
             example: FFZ-5N4-C7M-S78
-            maxLength: 255
           status:
             type: string
-            enum:
-              - active
-              - pending
-              - disabled
-              - expired
             example: active
-    title: giftCertificate_Full
-    description: ''
-    x-examples:
-      example-1:
-        to_name: John Doe
-        to_email: johndoe@example.com
-        from_name: Jane Doe
-        from_email: janedoe@example.com
-        amount: '10'
-        id: 1
-        customer_id: 5
-        order_id: 116
-        balance: '0'
-        purchase_date: '1454432829'
-        expiry_date: string
-        template: Celebration
-        message: Congratulations!
-        code: FFZ-5N4-C7M-S78
-        status: active
-    x-internal: false
-  giftCertificate_Put:
-    allOf:
-      - $ref: '#/definitions/giftCertificate_Base'
+            enum:
+            - active
+            - pending
+            - disabled
+            - expired
+      x-internal: false
+    giftCertificate_Put:
+      title: giftCertificate_Put
+      allOf:
+      - $ref: '#/components/schemas/giftCertificate_Base'
       - type: object
         properties:
           balance:
             type: string
-            description: 'Remaining value of the gift certificate. If not set, will default to the amount.'
-            example: '0'
+            description: Remaining value of the gift certificate. If not set, will
+              default to the amount.
+            example: "0"
           purchase_date:
             type: string
-            description: 'Date the gift certificate was purchased. If not assigned, this will be set to today’s date. Enter date in RFC-2822 format.'
-            example: 'Mon, 19 Jan 1970 07:21:46 CST'
+            description: Date the gift certificate was purchased. If not assigned,
+              this will be set to today’s date. Enter date in RFC-2822 format.
+            example: Mon, 19 Jan 1970 07:21:46 CST
           expiry_date:
             type: string
             description: Date on which the gift certificate is set to expire.
-            example: '1622583106'
-          customer_id:
-            type: integer
-            description: The ID of the customer placing the order.
-            example: 5
-          template:
-            type: string
-            enum:
-              - Birthday
-              - Boy
-              - Girl
-              - Celebration
-              - Christmas
-              - General
-            description: The email theme to use in the message sent to the recipient.
-            example: Celebration
-          message:
-            type: string
-            description: 'Text that will be sent to the recipient, such as “Congratulations.”'
-            example: Congratulations!
-          code:
-            type: string
-            description: |-
-              A unique string that a customer can input to redeem a gift certificate. Values greater than 20 characters will be trimmed down to the first 20 characters and returned in the response.
-              If this field is not set, a value will be autogenerated.
-            example: FFZ-5N4-C7M-S78
-            maxLength: 255
-          status:
-            type: string
-            enum:
-              - active
-              - pending
-              - expired
-              - disabled
-            example: active
-    title: giftCertificate_Put
-    x-internal: false
-  giftCertificate_Post:
-    allOf:
-      - $ref: '#/definitions/giftCertificate_Base'
-      - type: object
-        properties:
-          balance:
-            type: string
-            description: 'Remaining value of the gift certificate. If not set, will default to the amount.'
-            example: '0'
-          purchase_date:
-            type: string
-            description: 'Date the gift certificate was purchased. If not assigned, this will be set to today’s date. Enter date in RFC-2822 format.'
-            example: 'Mon, 19 Jan 1970 07:21:46 CST'
-          expiry_date:
-            type: string
-            description: Date on which the gift certificate is set to expire.
-            example: '1622583106'
+            example: "1622583106"
           customer_id:
             type: integer
             description: The ID of the customer placing the order.
@@ -1288,34 +1573,90 @@ definitions:
           template:
             type: string
             description: The email theme to use in the message sent to the recipient.
-            enum:
-              - Birthday
-              - Boy
-              - Girl
-              - Celebration
-              - Christmas
-              - General
             example: Celebration
+            enum:
+            - Birthday
+            - Boy
+            - Girl
+            - Celebration
+            - Christmas
+            - General
           message:
             type: string
-            description: 'Text that will be sent to the recipient, such as “Congratulations.”'
+            description: Text that will be sent to the recipient, such as “Congratulations.”
             example: Congratulations!
+          code:
+            maxLength: 255
+            type: string
+            description: |-
+              A unique string that a customer can input to redeem a gift certificate. Values greater than 20 characters will be trimmed down to the first 20 characters and returned in the response.
+              If this field is not set, a value will be autogenerated.
+            example: FFZ-5N4-C7M-S78
+          status:
+            type: string
+            example: active
+            enum:
+            - active
+            - pending
+            - expired
+            - disabled
+      x-internal: false
+    giftCertificate_Post:
+      title: giftCertificate_Post
+      description: ""
+      allOf:
+      - $ref: '#/components/schemas/giftCertificate_Base'
+      - type: object
+        properties:
+          balance:
+            type: string
+            description: Remaining value of the gift certificate. If not set, will
+              default to the amount.
+            example: "0"
+          purchase_date:
+            type: string
+            description: Date the gift certificate was purchased. If not assigned,
+              this will be set to today’s date. Enter date in RFC-2822 format.
+            example: Mon, 19 Jan 1970 07:21:46 CST
+          expiry_date:
+            type: string
+            description: Date on which the gift certificate is set to expire.
+            example: "1622583106"
+          customer_id:
+            type: integer
+            description: The ID of the customer placing the order.
+            example: 5
+          template:
+            type: string
+            description: The email theme to use in the message sent to the recipient.
+            example: Celebration
+            enum:
+            - Birthday
+            - Boy
+            - Girl
+            - Celebration
+            - Christmas
+            - General
+          message:
             maxLength: 250
+            type: string
+            description: Text that will be sent to the recipient, such as “Congratulations.”
+            example: Congratulations!
           code:
+            maxLength: 255
             type: string
             description: |-
               A unique string that a customer can input to redeem a gift certificate. Values greater than 20 characters will be trimmed down to the first 20 characters and returned in the response.
               If this field is not set, a value will be autogenerated.
             example: FFZ-5N4-C7M-S78
-            maxLength: 255
           status:
             type: string
-            enum:
-              - active
-              - pending
-              - expired
-              - disabled
             example: active
+            enum:
+            - active
+            - pending
+            - expired
+            - disabled
           currency_code:
             type: string
             description: |-
@@ -1323,245 +1664,243 @@ definitions:
 
               Gift Certificates can only be used if the transactional currency of the cart is the same to the one defined in the gift certificate. If this value is not provided, the gift certificate is created using the store's default transactional currency
             example: USD
-    title: giftCertificate_Post
-    description: ''
-    x-internal: false
-tags:
-  - name: Banners
-  - name: Coupons
-  - name: Gift Certificates
-securityDefinitions:
-  X-Auth-Token:
-    type: apiKey
-    name: X-Auth-Token
-    in: header
-    description: |-
-      ### OAuth Scopes
-      |  **UI Name** | **Permission** | **Parameter** |
-      | --- | --- | --- |
-      |  Marketing | modify | `store_v2_marketing` |
-      |  Marketing | read-only | `store_v2_marketing_read_only` |
+      x-internal: false
+  responses:
+    bannerCollection_Resp:
+      description: ""
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/banner_Full'
+          example:
+          - id: 1
+            name: This is a banner
+            content: <p>This is a banner</p>
+            page: home_page
+            item_id: "0"
+            location: top
+            date_created: "1522169082"
+            date_type: always
+            date_from: "0"
+            date_to: "0"
+            visible: "1"
+          - id: 2
+            name: 'Banner #2'
+            content: '<p>Banner # 2</p>'
+            page: category_page
+            item_id: "23"
+            location: top
+            date_created: "1522169169"
+            date_type: always
+            date_from: "0"
+            date_to: "0"
+            visible: "1"
+    banner_Resp:
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/banner_Full'
+          example:
+            id: 1
+            name: Sale Banner
+            content: <p> Sale! Tuesday at 9am! </p>
+            page: home_page
+            item_id: "0"
+            location: top
+            date_created: '1522169082'
+            date_type: always
+            date_from: "0"
+            date_to: "0"
+            visible: "1"
+    count_Resp:
+      description: ""
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                minimum: 0
+                type: integer
+          example:
+            count: 27
+    coupon_Resp:
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/coupon_Full'
+          example:
+            id: 1
+            name: $5 off
+            type: per_total_discount
+            amount: "5.0000"
+            min_purchase: "0.0000"
+            expires: ""
+            enabled: true
+            code: S2549JM0Y
+            applies_to:
+              entity: categories
+              ids:
+              - 0
+            num_uses: 2
+            max_uses: 0
+            max_uses_per_customer: 0
+            restricted_to: {}
+            shipping_methods: []
+            date_created: Tue, 13 Mar 2018 16:18:59 +0000
+    coupon_Resp_Collection:
+      description: ""
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/coupon_Full'
+          example:
+          - id: 1
+            name: $5 off
+            type: per_total_discount
+            amount: "5.0000"
+            min_purchase: "0.0000"
+            expires: ""
+            enabled: true
+            code: S2549JM0Y
+            applies_to:
+              entity: categories
+              ids:
+              - 0
+            num_uses: 2
+            max_uses: 0
+            max_uses_per_customer: 0
+            restricted_to: {}
+            shipping_methods: []
+            date_created: Tue, 13 Mar 2018 16:18:59 +0000
+          - id: 2
+            name: Limit by Location
+            type: per_total_discount
+            amount: "5.0000"
+            min_purchase: "25.0000"
+            expires: ""
+            enabled: true
+            code: E3JC79S0I
+            applies_to:
+              entity: categories
+              ids:
+              - 0
+            num_uses: 0
+            max_uses: 25
+            max_uses_per_customer: 0
+            restricted_to:
+              countries: AU
+            shipping_methods:
+            - shipping_endicia
+            date_created: Tue, 12 Jun 2018 20:22:19 +0000
+    giftCertificateCollection_Resp:
+      description: ""
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/giftCertificate_Full'
+          example:
+          - id: 24
+            code: 10R-5E2-BO4-RWT
+            amount: "1000.0000"
+            status: active
+            balance: "500.0000"
+            to_name: Alyss
+            order_id:  1281
+            template: "Girl"
+            to_email: test@test.com
+            from_name: Noland
+            from_email: test1@test.com
+            customer_id: 5
+            expiry_date: "0"
+            purchase_date: "1454432829"
+          - id: 25
+            code: 10R-6E3-AO4-RST
+            amount: "700.0000"
+            status: active
+            balance: "700.0000"
+            to_name: Alyss
+            order_id: 0
+            template: "Boy"
+            to_email: test@test.com
+            from_name: Noland
+            from_email: test1@test.com
+            customer_id: 0
+            expiry_date: "0"
+            purchase_date: "1454433240"
+          - id: 27
+            code: 15R-6E3-AO4-RST
+            amount: "50.0000"
+            status: active
+            balance: "50.0000"
+            to_name: Lyss
+            order_id: 0
+            template: "Christmas"
+            to_email: test5@test.com
+            from_name: Somethingelse
+            from_email: test15@test.com
+            customer_id: 0
+            expiry_date: "0"
+            purchase_date: "1454433621"
+    giftCertificate_Resp:
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/giftCertificate_Full'
+          example:
+            id: 1
+            customer_id: 5
+            order_id: 116
+            code: FFZ-5N4-C7M-S78
+            to_name: John Doe
+            to_email: johndoe@example.com
+            from_name: Jane Doe
+            from_email: janedoe@example.com
+            amount: "10"
+            balance: "0"
+            status: active
+            template: "Birthday"
+            message: Happy Birthday!
+            purchase_date: "1520957992"
+            expiry_date: "0"
+  securitySchemes:
+    X-Auth-Token:
+      type: apiKey
+      description: |-
+        ### OAuth Scopes
+        |  **UI Name** | **Permission** | **Parameter** |
+        | --- | --- | --- |
+        |  Marketing | modify | `store_v2_marketing` |
+        |  Marketing | read-only | `store_v2_marketing_read_only` |
 
-      ### Headers
+        ### Headers
 
-      |Header|Parameter|Description|
-      |-|-|-|
-      |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
+        |Header|Parameter|Description|
+        |-|-|-|
+        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
 
-      ### Example
+        ### Example
 
-      ```http
-      GET /stores/{store_hash}/v3/catalog/summary
-      host: api.bigcommerce.com
-      Content-Type: application/json
-      X-Auth-Token: {access_token}
-      ```
+        ```http
+        GET /stores/{store_hash}/v3/catalog/summary
+        host: api.bigcommerce.com
+        Content-Type: application/json
+        X-Auth-Token: {access_token}
+        ```
 
-      * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
-security:
-  - X-Auth-Token: []
+        * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
+      name: X-Auth-Token
+      in: header
 x-stoplight:
   docs:
     includeDownloadLink: true
     showModels: false
-responses:
-  coupon_Resp:
-    description: ''
-    schema:
-      $ref: '#/definitions/coupon_Full'
-    examples:
-      application/json:
-        id: 1
-        name: $5 off
-        type: per_total_discount
-        amount: '5.0000'
-        min_purchase: '0.0000'
-        expires: ''
-        enabled: true
-        code: S2549JM0Y
-        applies_to:
-          entity: categories
-          ids:
-            - 0
-        num_uses: 2
-        max_uses: 0
-        max_uses_per_customer: 0
-        restricted_to: []
-        shipping_methods: {}
-        date_created: 'Tue, 13 Mar 2018 16:18:59 +0000'
-  coupon_Resp_Collection:
-    description: ''
-    schema:
-      type: array
-      items:
-        $ref: '#/definitions/coupon_Full'
-    examples:
-      application/json:
-        - id: 1
-          name: $5 off
-          type: per_total_discount
-          amount: '5.0000'
-          min_purchase: '0.0000'
-          expires: ''
-          enabled: true
-          code: S2549JM0Y
-          applies_to:
-            entity: categories
-            ids:
-              - 0
-          num_uses: 2
-          max_uses: 0
-          max_uses_per_customer: 0
-          restricted_to: []
-          shipping_methods: {}
-          date_created: 'Tue, 13 Mar 2018 16:18:59 +0000'
-        - id: 2
-          name: Limit by Location
-          type: per_total_discount
-          amount: '5.0000'
-          min_purchase: '25.0000'
-          expires: ''
-          enabled: true
-          code: E3JC79S0I
-          applies_to:
-            entity: categories
-            ids:
-              - 0
-          num_uses: 0
-          max_uses: 25
-          max_uses_per_customer: 0
-          restricted_to:
-            countries:
-              - AU
-          shipping_methods:
-            - shipping_endicia
-          date_created: 'Tue, 12 Jun 2018 20:22:19 +0000'
-  bannerCollection_Resp:
-    description: ''
-    schema:
-      type: array
-      items:
-        $ref: '#/definitions/banner_Full'
-    examples:
-      application/json:
-        - id: 1
-          name: This is a banner
-          content: <p>This is a banner</p>
-          page: home_page
-          item_id: '0'
-          location: top
-          date_created: '1522169082'
-          date_type: always
-          date_from: '0'
-          date_to: '0'
-          visible: '1'
-        - id: 2
-          name: 'Banner #2'
-          content: '<p>Banner # 2</p>'
-          page: category_page
-          item_id: '23'
-          location: top
-          date_created: '1522169169'
-          date_type: always
-          date_from: '0'
-          date_to: '0'
-          visible: '1'
-  banner_Resp:
-    description: ''
-    schema:
-      $ref: '#/definitions/banner_Full'
-    examples:
-      application/json:
-        id: 1
-        name: Sale Banner
-        content: <p> Sale! Tuesday at 9am! </p>
-        page: home_page
-        item_id: 0
-        location: top
-        date_created: 1522169082
-        date_type: always
-        date_from: 0
-        date_to: 0
-        visible: 1
-  count_Resp:
-    description: ''
-    schema:
-      type: object
-      properties:
-        count:
-          type: integer
-          minimum: 0
-    examples:
-      application/json:
-        count: 27
-  giftCertificate_Resp:
-    description: ''
-    schema:
-      $ref: '#/definitions/giftCertificate_Full'
-    examples:
-      application/json:
-        id: 1
-        customer_id: 5
-        order_id: 116
-        code: FFZ-5N4-C7M-S78
-        to_name: John Doe
-        to_email: johndoe@example.com
-        from_name: Jane Doe
-        from_email: janedoe@example.com
-        amount: 10
-        balance: 0
-        status: active
-        template: false
-        message: Happy Birthday!
-        purchase_date: 1520957992
-        expiry_date: 0
-  giftCertificateCollection_Resp:
-    description: ''
-    schema:
-      type: array
-      items:
-        $ref: '#/definitions/giftCertificate_Full'
-    examples:
-      application/json:
-        - id: '24'
-          code: 10R-5E2-BO4-RWT
-          amount: '1000.0000'
-          status: active
-          balance: '500.0000'
-          to_name: Alyss
-          order_id: '1281'
-          template: 'false'
-          to_email: test@test.com
-          from_name: Noland
-          from_email: test1@test.com
-          customer_id: '0'
-          expiry_date: '0'
-          purchase_date: '1454432829'
-        - id: '25'
-          code: 10R-6E3-AO4-RST
-          amount: '700.0000'
-          status: active
-          balance: '700.0000'
-          to_name: Alyss
-          order_id: '0'
-          template: 'false'
-          to_email: test@test.com
-          from_name: Noland
-          from_email: test1@test.com
-          customer_id: '0'
-          expiry_date: '0'
-          purchase_date: '1454433240'
-        - id: '27'
-          code: 15R-6E3-AO4-RST
-          amount: '50.0000'
-          status: active
-          balance: '50.0000'
-          to_name: Lyss
-          order_id: '0'
-          template: 'false'
-          to_email: test5@test.com
-          from_name: Somethingelse
-          from_email: test15@test.com
-          customer_id: '0'
-          expiry_date: '0'
-          purchase_date: '1454433621'
