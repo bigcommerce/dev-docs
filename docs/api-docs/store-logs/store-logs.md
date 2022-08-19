@@ -6,7 +6,7 @@ stoplight-id: 8093a34240fc9
 
 The Store Logs API allows merchants to track events in their store. Each event creates an entry in the log. To process events over time, you can configure external systems to retrieve store log entries. For example, you can see how often merchants request shipping quotes from a carrier. You can also learn more about errors that occur on a store.
 
-The store logs track events from all storefront channels. Examples of events include sign-ups for newsletters and changes to an order status. You can retrieve entries for 365 days after their timestamp. 
+The store logs track events from all storefront channels. Examples of events include sign-ups for newsletters and changes to order statuses. You can retrieve an entry for 365 days after its timestamp. 
 
 This guide demonstrates how to use the Store Logs API. For more info, see the [Store Logs API reference](/api-reference/store-management/store-logs). 
 
