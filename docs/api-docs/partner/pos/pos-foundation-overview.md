@@ -120,7 +120,7 @@ To configure your POS implementation to use MongoDB, complete the following step
 2. In the `/prisma/schema.prisma` settings file, set `provider` to `mongodb`. 
 
 
-![pos-provider-mongodb](https://storage.googleapis.com/bigcommerce-production-dev-center/images/POS-provider-mongodb.png)
+![pos-provider-mongodb](https://storage.googleapis.com/bigcommerce-production-dev-center/images/pos-provider-mongodb.png)
 
 ### Configure MongoDB Cloud
 
@@ -142,7 +142,7 @@ To configure MongoDB Cloud and generate a connection URL, complete the following
   
    a. For **Access List Entry**, enter an IP address. Using `0.0.0.0/0` allows you to connect from anywhere, but is not secure in production. To learn more, consult [MongoDB's IP access documentation](https://www.mongodb.com/docs/atlas/security/ip-access-list/).
 
-    ![pos-ip-address](https://storage.googleapis.com/bigcommerce-production-dev-center/images/POS-IP-address.png)
+    ![pos-ip-address](https://storage.googleapis.com/bigcommerce-production-dev-center/images/pos-ip-address.png)
 
    b. To save, click **Confirm**.
 
@@ -158,7 +158,7 @@ To configure MongoDB Cloud and generate a connection URL, complete the following
 mongodb+srv://<username>:<password>@cluster0.sdfdfg65.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 ```
 
-![pos-connection-string](https://storage.googleapis.com/bigcommerce-production-dev-center/images/POS-connection-string.png)
+![pos-connection-string](https://storage.googleapis.com/bigcommerce-production-dev-center/images/pos-connection-string.png)
 
 <!-- theme: success -->
 > #### Record the connection string
