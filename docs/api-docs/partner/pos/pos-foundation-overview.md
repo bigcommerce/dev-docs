@@ -99,15 +99,13 @@ After you successfully configure Stripe, configure your BigCommerce sandbox stor
 
 To configure the store to make purchases using the POS interface, complete the following steps in the BigCommerce store control panel:
 
-1. Go to **Settings** > **Shipping** > **Default shipping rules** and configure a shipping zone with a [Pickup in Store](https://support.bigcommerce.com/s/article/Free-Shipping#in-store) shipping method.
+1. Configure a shipping zone with a **Pickup in Store** shipping method; for directions, see our support article on [Setting up an "In-Store Pickup" Shipping Method](https://support.bigcommerce.com/s/article/Free-Shipping#in-store).
 
-2. To allow POS operations, go to the **Settings** page, scroll down to **Advanced**, and click the **Checkout** row.
+2. Ensure that your store is using **Optimized One-Page Checkout**; for directions, see our support article on [Switching to Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout?language=en_US#enabling). Learn more about [Optimized One-Page Checkout Settings](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout?language=en_US#oopc-settings).
 
-3. For **Checkout Type**, select **Optimized One-Page Checkout**, then click **Save**. For more information, see [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout?language=en_US#oopc-settings).
-   
-4. Connect the sandbox store with the Stripe account you configured in the previous section, see [Setting up Stripe](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway?language=en_US#setup) for instructions.
+3. Connect the sandbox store with the Stripe account you configured in the previous section; for directions, see our support article on [Setting up Stripe](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway?language=en_US#setup).
 
-5. Navigate to the [Stripe settings section](https://login.bigcommerce.com/deep-links/settings/payment/stripev3) and make sure that **Test Mode** is set to **Yes**.
+4. In the [Stripe settings section](https://login.bigcommerce.com/deep-links/settings/payment), locate the **Test Mode** dropdown and select **Yes**.
 
 ![stripe-settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/stripe-settings.png)
 
