@@ -274,6 +274,12 @@
       ]
     },
     {
+      "type": "item",
+      "title": "Store Logs",
+      "href": "/api-docs/store-management/store-logs",
+      "uri": "docs/api-docs/store-logs/store-logs.md"
+    },
+    {
       "type": "group",
       "title": "Shipping",
       "items": [
