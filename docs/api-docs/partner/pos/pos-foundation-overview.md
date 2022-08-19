@@ -109,7 +109,7 @@ To configure the store to make purchases using the POS interface, complete the f
 
 ## Create and configure the database
 
-POS Foundation uses MongoDB as a database engine. If you want to use a different data store, you'll need to modify the Prisma configuration, migration, and seed files. To learn more, see [Prisma's list of database connectors](https://www.prisma.io/docs/concepts/database-connectors), 
+POS Foundation uses MongoDB as a database engine. If you want to use a different data store, you'll need to modify the Prisma configuration, migration, and seed files. To learn more, see [Prisma's list of database connectors](https://www.prisma.io/docs/concepts/database-connectors). 
 
 To configure your POS implementation to use MongoDB, complete the following steps: 
 
@@ -267,7 +267,7 @@ This error can occur when the `/prisma/schema.prisma` file contains the incorrec
 Change your MongoDB Cloud IP address to `0.0.0.0/0`, or consult [MongoDB's IP access documentation](https://www.mongodb.com/docs/atlas/security/ip-access-list/) for alternatives.
 
 ## Contributing
-Want to help expand this foundation? We'd love to hear from you. Submit your idea in a pull request and we will review it.
+Want to help expand this foundation? We'd love to hear from you. Submit a pull request, and consider joining the BigCommerce [Developer Community Slack workspace](https://forms.gle/rtRjbGo2L95U9Fjy9) to connect with us.
 
 ## Resources
 ### Related articles
