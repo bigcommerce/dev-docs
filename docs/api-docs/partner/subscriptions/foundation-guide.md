@@ -290,3 +290,5 @@ If you don't enable the proper OAuth scopes, the `/api/auth` request might fail.
 * [Subscription Foundation README](https://github.com/bigcommerce/subscription-foundation/blob/main/README.md)
 * [Connecting with Stripe](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway#foundations)
 * [Introducing the Subscription Foundation](https://medium.com/bigcommerce-developer-blog/introducing-the-subscription-foundation-afd6dfd22757?source=friends_link&sk=7ce53b66fee0dc660c603ab8f2bca22a)
+
+>>> link to POS foundations
