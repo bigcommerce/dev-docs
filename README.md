@@ -1,6 +1,12 @@
 # BigCommerce API Specifications
 
-OpenAPI Specifications, Swagger, and JSON schema used to generate the human-readable [BigCommerce API Reference](https://developer.bigcommerce.com/api-reference).
+OpenAPI Specifications (OAS) and JSON schema used to generate the human-readable [BigCommerce API Reference](https://developer.bigcommerce.com/api-reference).
+
+<!-- theme: info -->
+> #### OAS updates
+> As of August 22, 2022, all API specification files are in OAS 3+ format. Please update your forks to ensure you're working with the newest source files. 
+> 
+> **Caveat:** The file that contains webhook events callback schemas, `webhooks_events.yml`, is still in Swagger 2.0 format.
 
 ## Directory structure
 
