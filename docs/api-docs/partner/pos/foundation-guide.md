@@ -271,7 +271,8 @@ Want to help expand this foundation? We'd love to hear from you. Submit a pull r
 
 ## Resources
 
-* [Point of Sale Foundation README](https://github.com/bigcommerce/point-of-sale-foundation/blob/main/README.md)
+* [Point of Sale Foundation README (GitHub)](https://github.com/bigcommerce/point-of-sale-foundation/blob/main/README.md)
+* [Introducing the Point of Sale Foundation (Dev Blog)](https://medium.com/@stephen.hilliard/introducing-the-point-of-sale-foundation-70834efca76d)
 * [Create a Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=pos-foundation)
 * [Create a Store API Account](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials)
 * [Connecting with Stripe](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway#foundations)

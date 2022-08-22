@@ -937,6 +937,12 @@
       "items": [
         {
           "type": "item",
+          "title": "Foundation PoC Guide",
+          "href": "/api-docs/partner/pos-solutions/foundation-guide",
+          "uri": "docs/api-docs/partner/pos/foundation-guide.md"
+        },
+        {
+          "type": "item",
           "title": "Catalog",
           "href": "/api-docs/partner/pos-solutions/catalog",
           "uri": "docs/api-docs/catalog/products-overview.md"
