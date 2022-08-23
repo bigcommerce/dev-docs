@@ -2,7 +2,7 @@
 
 For more info, see the [Tax Zones](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US#tax-zone) and [Tax Rates](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US#tax-rate) articles. 
 
-This guide shows you how to use the Tax Rates and Tax Zones API. For more info, see the [Tax Rates and Tax Zones API Reference](/...).
+This guide shows you how to use the Tax Rates and Tax Zones API. For more info, see the [Tax Rates and Tax Zones API Reference](/api-reference/store-management/tax-rates-and-zones).
 
 ## Tax zones
 
@@ -449,16 +449,16 @@ HTTP 204 No content
 
 ## Resources
 
-- [Tax Rates and Zones API Reference](/...)
-
-### Tax Rates reference
-- [Create tax rates](/...)
-- [Get tax rates](/...)
-- [Update tax rates](/...)
-- [Delete tax rates](/...)
+- [Tax Rates and Zones API Reference](/api-reference/store-management/tax-rates-and-zones)
 
 ### Tax Zones reference
-- [Create tax zones](/...)
-- [Get tax zones](/...)
-- [Update tax zones](/...)
-- [Delete tax zones](/...)
+- [Create tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/create-tax-zones)
+- [Update tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/update-tax-zones)
+- [Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones)
+- [Delete tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/delete-tax-zones)
+
+### Tax Rates reference
+- [Create tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/create-tax-rates)
+- [Update tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/update-tax-rates)
+- [Get tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/get-tax-rates)
+- [Delete tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/delete-tax-rates)
