@@ -1,10 +1,12 @@
 # Tax Rates and Tax Zones
 
-For more info, see the [Tax Zones](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US#tax-zone) and [Tax Rates](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US#tax-rate) articles. 
+[Tax rates](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US#tax-rate) are percentages for which you tax products or services. Tax zones are geographic locations that you define in your store. [Tax zones](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US#tax-zone) allow you to vary tax rates for different shopper groups and locations. You can account for multiple tax jurisdictions by adding multiple tax rates to a zone. Tax rates and zones apply for all storefronts on a store.
 
-This guide shows you how to use the Tax Rates and Tax Zones API. For more info, see the [Tax Rates and Tax Zones API Reference](/api-reference/store-management/tax-rates-and-zones).
+This guide shows you how to use the Tax Rates and Tax Zones API. The Tax Rates and Zones API allows you to configure [manual taxes](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US) in a store. For more info, see the [Tax Rates and Tax Zones API Reference](/api-reference/store-management/tax-rates-and-zones).
 
 ## Tax zones
+
+A zone can occupy multiple countries, each containing multiple subdivisions and postal codes. You can specify the customer groups that fall under a zone. You can also set how a store displays prices in each zone.  
 
 ### Create tax zones
 
@@ -276,6 +278,8 @@ HTTP 204 No content
 
 ## Tax rates
 
+After creating a zone, you can add rates to the zone. You can add multiple rates to a zone to account for multiple tax jurisdictions. When adding a rate, you can add a rate for each tax class in your store. 
+
 ### Create tax rates
 
 To create tax rates, send a request to the [Create tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/create-tax-rates) endpoint. Specify the name, class rates, and tax zone in which the rates will be created. The `tax_zone_id` is the `id` from the [Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones) endpoint.
@@ -440,7 +444,7 @@ title: Response
 
 ### Delete tax rates
 
-To delete tax rates, send a request to the [Delete tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/delete-tax-rates) endpoint and use the `id:in` query parameter to specify the tax rates you want to delete.
+To delete tax rates, send a request to the [Delete tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/delete-tax-rates) endpoint. Use the `id:in` query parameter to specify the tax rates you want to delete.
 
 <!--
 type: tab
