@@ -50,6 +50,7 @@ The following table lists the payment gateways that are compatible with our publ
 | Mollie            | &check;            |                 |
 | Moneris           | &check;            | &check;         |
 | MyVirtualMerchant | &check;            | &check;         |
+| Nexi              |                    | &check;         |
 | NMI               |                    | &check;         |
 | Opayo by Elavon   | &check;            | &check;         |
 | Paymetric         | &check;            | &check;         |
