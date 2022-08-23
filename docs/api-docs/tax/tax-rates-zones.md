@@ -8,6 +8,10 @@ This guide shows you how to use the Tax Rates and Tax Zones API. For more info, 
 
 ### Create tax zones
 
+First, use the [Create tax zones endpoint](/api-reference/store-management/tax-rates-and-zones/tax-zones/create-tax-zones) to add tax zones to the store. 
+
+The response provides an `id` for each tax zone. Use the id to get or delete a specific tax zone.
+
 <!--
 type: tab
 title: Request
@@ -95,6 +99,8 @@ title: Response
 <!-- type: tab-end -->
 
 ### Update tax zones
+
+Send a request to the [Update tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/update-tax-zones) endpoint to modify a tax zone. The request updates only fields that you specify.
 
 <!--
 type: tab
@@ -184,6 +190,8 @@ title: Response
 
 ### Get tax zones
 
+This endpoint supports batch operations. You can get all the tax zones in your store, or only specific tax zones. To get tax zones, send a request to the [Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones) endpoint. To get only select tax zones, use the `id:in` query parameter.
+
 <!--
 type: tab
 title: Request
@@ -241,6 +249,8 @@ title: Response
 
 ### Delete tax zones
 
+To delete tax zones, send a request to the [Delete tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/delete-tax-zones) endpoint and use the `id:in` query parameter to specify the tax zones you want to delete.
+
 <!--
 type: tab
 title: Request
@@ -267,6 +277,8 @@ HTTP 204 No content
 ## Tax rates
 
 ### Create tax rates
+
+To create tax rates, send a request to the [Create tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/create-tax-rates) endpoint. Specify the name, class rates, and tax zone in which the rates will be created. The `tax_zone_id` is the `id` from the [Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones) endpoint.
 
 <!--
 type: tab
@@ -325,6 +337,8 @@ title: Response
 
 ### Update tax rates
 
+To update tax rates, send a request to the [Update tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/update-tax-rates) endpoint. Specify the `id` of the rate you want to update. The `tax_zone_id` is the `id` from the [Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones) endpoint.
+
 <!--
 type: tab
 title: Request
@@ -382,6 +396,8 @@ title: Response
 
 ### Get tax rates
 
+To get tax rates, send a request to the [Get tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/get-tax-rates) endpoint. Specify the tax zones in the `tax_zone_id:in` query parameter to get the tax rates for specific zones.   
+
 <!--
 type: tab
 title: Request
@@ -423,6 +439,8 @@ title: Response
 <!-- type: tab-end -->
 
 ### Delete tax rates
+
+To delete tax rates, send a request to the [Delete tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/delete-tax-rates) endpoint and use the `id:in` query parameter to specify the tax rates you want to delete.
 
 <!--
 type: tab
