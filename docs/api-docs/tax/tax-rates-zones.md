@@ -117,7 +117,6 @@ Accept: application/json
 [
   {
     "id": 2,
-    "name": "Australia",
     "enabled": false,
     "price_display_settings": {
       "show_inclusive": false,
