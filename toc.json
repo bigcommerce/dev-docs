@@ -303,6 +303,12 @@
       "items": [
         {
           "type": "item",
+          "title": "Tax Settings",
+          "href": "/api-docs/store-management/tax/tax-settings",
+          "uri": "docs/api-docs/tax/tax-settings.md"
+        },
+        {
+          "type": "item",
           "title": "Tax Properties",
           "href": "/api-docs/store-management/tax/tax-properties",
           "uri": "docs/api-docs/tax/tax-properties.md"
