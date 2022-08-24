@@ -1,0 +1,147 @@
+openapi: 3.0.0
+x-stoplight:
+  id: 68ccfa5c69bbb
+info:
+  title: Tax Settings
+  version: ''
+  description: Manage tax settings
+servers:
+  - url: 'https://api.bigcommerce.com'
+paths:
+  '/stores/{store_hash}/v3/tax/settings':
+    get:
+      tags:
+        - Tax Settings
+      summary: Get Tax Settings
+      description: Retrieves global-level tax settings.
+      operationId: get-tax-settings
+      parameters:
+        - $ref: '#/components/parameters/storehash'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json: 
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Tax_Settings'
+                  meta:
+                    type: object
+    put:
+      tags:
+        - Tax Settings
+      summary: Update Tax Settings
+      description: Updates global-level tax settings.
+      operationId: set-tax-settings
+      parameters:
+        - $ref: '#/components/parameters/storehash'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tax_Settings_Req'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Tax_Settings'
+                  meta:
+                    type: object
+        '422':
+          description: The request body does not meet the specification.
+components:
+  parameters:
+    storehash:
+      name: store_hash
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    API_Key:
+      type: apiKey
+      name: X-Auth-Token
+      in: header
+      description: |-
+        ### OAuth Scopes
+        |  **UI Name** | **Permission** | **Parameter** |
+        | --- | --- | --- |
+        |  Information & Settings | modify | `store_v2_information` |
+        |  Information & Settings | read-only | `store_v2_information_read_only` |
+
+        ### Headers
+
+        |Header|Parameter|Description|
+        |-|-|-|
+        |`X-Auth-Token`|`access_token`| Obtained by creating an API account or installing an app in a BigCommerce control panel.|
+
+        For more information on Authenticating BigCommerce APIs, see [Authentication](/api-docs/getting-started/authentication).
+  schemas:
+    Tax_Settings:
+      type: object
+      properties:
+        tax_entered_with_prices:
+          type: boolean
+          description: Whether prices entered on this store include a tax component or not.
+        price_display_settings:
+          type: object
+          description: Settings that describe how prices display at the global level.
+          properties:
+            show_inclusive_in_control_panel:
+              type: boolean
+              description: Whether to show prices as tax inclusive or tax exclusive in the BigCommerce control panel.
+            invoice_price_display_strategy:
+              type: string
+              description: 'Whether to show prices as tax inclusive or tax exclusive across all invoices, or use the shopper''s tax zone for price display on invoices.'
+              default: ZONE
+              enum:
+                - ZONE
+                - INCLUSIVE
+                - EXCLUSIVE
+        fallback_strategy:
+          type: string
+          description: 'Describes the fallback behavior that applies when a tax provider produces an error. A merchant may decide to use a flat 10% fallback tax rate, their basic tax settings, or to block the transaction until they achieve a successful result.'
+          default: FIXED
+          enum:
+            - FIXED
+            - BASIC
+            - DISABLE
+    Tax_Settings_Req:
+      type: object
+      properties:
+        tax_entered_with_prices:
+          type: boolean
+          description: Whether prices entered on this store include a tax component or not.
+        price_display_settings:
+          type: object
+          description: Settings that describe how prices display at the global level.
+          properties:
+            show_inclusive_in_control_panel:
+              type: boolean
+              description: Whether to show prices as tax inclusive or tax exclusive in the BigCommerce control panel.
+            invoice_price_display_strategy:
+              type: string
+              description: 'Whether to show prices as tax inclusive or tax exclusive across all invoices, or use the shopper''s tax zone for price display on invoices.'
+              enum:
+                - ZONE
+                - INCLUSIVE
+                - EXCLUSIVE
+        fallback_strategy:
+          type: string
+          description: 'Decribes the fallback behaviour that applies when a tax provider produces an error. A merchant may decide to use a flat 10% fallback tax rate, their basic tax settings, or to block the transaction until a successful result can be achieved.'
+          enum:
+            - FIXED
+            - BASIC
+            - DISABLE
+security:
+  - API_Key: []
+tags:
+  - name: Tax Settings

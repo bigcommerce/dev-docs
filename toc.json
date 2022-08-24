@@ -245,6 +245,12 @@
     },
     {
       "type": "item",
+      "title": "Tax Settings",
+      "href": "/api-reference/store-management/tax-settings",
+      "uri": "reference/tax_settings.v3.yml"
+    },
+    {
+      "type": "item",
       "title": "Themes",
       "uri": "reference/themes.v3.yml"
     },
