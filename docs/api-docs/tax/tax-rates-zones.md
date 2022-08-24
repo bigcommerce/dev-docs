@@ -27,8 +27,7 @@ Accept: application/json
 
 [
   {
-    "id": 2,
-    "name": "string",
+    "name": "Australia",
     "enabled": true,
     "price_display_settings": {
       "show_inclusive": true,
@@ -67,7 +66,7 @@ title: Response
   "data": [
     {
       "id": 2,
-      "name": "string",
+      "name": "Australia",
       "enabled": true,
       "price_display_settings": {
         "show_inclusive": true,
@@ -118,30 +117,12 @@ Accept: application/json
 [
   {
     "id": 2,
-    "name": "string",
-    "enabled": true,
+    "name": "Australia",
+    "enabled": false,
     "price_display_settings": {
-      "show_inclusive": true,
-      "show_both_on_detail_view": true,
-      "show_both_on_list_view": true
-    },
-    "shopper_target_settings": {
-      "customer_groups": [
-        0
-      ],
-      "locations": [
-        {
-          "country_code": "AU",
-          "subdivision_codes": [
-            "NSW",
-            "QLD"
-          ],
-          "postal_codes": [
-            "2234",
-            "2170"
-          ]
-        }
-      ]
+      "show_inclusive": false,
+      "show_both_on_detail_view": false,
+      "show_both_on_list_view": false
     }
   }
 ]
@@ -157,12 +138,12 @@ title: Response
   "data": [
     {
       "id": 2,
-      "name": "string",
-      "enabled": true,
+      "name": "Australia",
+      "enabled": false,
       "price_display_settings": {
-        "show_inclusive": true,
-        "show_both_on_detail_view": true,
-        "show_both_on_list_view": true
+        "show_inclusive": false,
+        "show_both_on_detail_view": false,
+        "show_both_on_list_view": false
       },
       "shopper_target_settings": {
         "customer_groups": [
@@ -216,12 +197,12 @@ title: Response
   "data": [
     {
       "id": 2,
-      "name": "string",
-      "enabled": true,
+      "name": "Australia",
+      "enabled": false,
       "price_display_settings": {
-        "show_inclusive": true,
-        "show_both_on_detail_view": true,
-        "show_both_on_list_view": true
+        "show_inclusive": false,
+        "show_both_on_detail_view": false,
+        "show_both_on_list_view": false
       },
       "shopper_target_settings": {
         "customer_groups": [
@@ -297,15 +278,14 @@ Accept: application/json
 
 [
   {
-    "id": 0,
     "tax_zone_id": 2,
-    "name": "string",
+    "name": "Sales Tax",
     "enabled": true,
     "priority": 1,
     "class_rates": [
       {
-        "rate": 0,
-        "tax_class_id": 0
+        "rate": 5,
+        "tax_class_id": 1
       }
     ]
   }
@@ -321,15 +301,15 @@ title: Response
 {
   "data": [
     {
-      "id": 0,
+      "id": 3,
       "tax_zone_id": 2,
-      "name": "string",
+      "name": "Sales Tax",
       "enabled": true,
       "priority": 1,
       "class_rates": [
         {
-          "rate": 0,
-          "tax_class_id": 0
+          "rate": 5,
+          "tax_class_id": 1
         }
       ]
     }
@@ -356,17 +336,9 @@ Accept: application/json
 
 [
   {
-    "id": 0,
-    "tax_zone_id": 2,
-    "name": "string",
-    "enabled": true,
-    "priority": 1,
-    "class_rates": [
-      {
-        "rate": 0,
-        "tax_class_id": 0
-      }
-    ]
+    "id": 3,
+    "enabled": false,
+    "priority": 2
   }
 ]
 ```
@@ -380,15 +352,15 @@ title: Response
 {
   "data": [
     {
-      "id": 0,
+      "id": 3,
       "tax_zone_id": 2,
-      "name": "string",
-      "enabled": true,
-      "priority": 1,
+      "name": "Sales Tax",
+      "enabled": false,
+      "priority": 2,
       "class_rates": [
         {
-          "rate": 0,
-          "tax_class_id": 0
+          "rate": 5,
+          "tax_class_id": 1
         }
       ]
     }
@@ -424,15 +396,15 @@ title: Response
 {
   "data": [
     {
-      "id": 0,
+      "id": 3,
       "tax_zone_id": 2,
-      "name": "string",
-      "enabled": true,
-      "priority": 1,
+      "name": "Sales Tax",
+      "enabled": false,
+      "priority": 2,
       "class_rates": [
         {
-          "rate": 0,
-          "tax_class_id": 0
+          "rate": 5,
+          "tax_class_id": 1
         }
       ]
     }
