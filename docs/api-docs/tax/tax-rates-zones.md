@@ -6,7 +6,11 @@ This guide shows you how to use the Tax Rates and Tax Zones API. The Tax Rates a
 
 ## Tax zones
 
-A zone can occupy multiple countries, each containing multiple subdivisions and postal codes. You can specify the customer groups that fall under a zone. You can also set how a store displays prices to shoppers in customers groups that fall in a zone.  
+A zone can occupy multiple countries, each containing multiple subdivisions and postal codes. You can specify the customer groups that fall under a zone. You can also set how a store displays prices to shoppers in customers groups that fall under a zone.  
+
+<!-- theme:info -->
+> #### Default tax zone
+> A default tax zone covers locations that aren't covered by other zones. Shoppers in customer groups that don't match with a tax zone are placed in the default tax zone. A default tax zone does not have `shopper_target_settings` in its requests or responses. You cannot specify the customer groups or locations for a default tax zone.  
 
 ### Create tax zones
 
