@@ -39,10 +39,10 @@ Content-Type: application/json
 Accept: application/json
 
 {	
-  "carrier_id" : "endicia",
+  "carrier_id": "endicia",
   "connection": {
-      "account_id" : "example_id",
-      "pass_phrase" : "example_passphrase"
+    "account_id": "example_id",
+    "pass_phrase": "example_passphrase"
   }
 }
 ```
@@ -53,7 +53,7 @@ title: Response
 -->
 
 ```json title="Example response: Create a connection" lineNumbers
-204 HTTP Status Code. No content
+HTTP 204 No content
 ```
 
 <!-- type: tab-end -->
@@ -83,7 +83,7 @@ title: Response
 -->
 
 ```json title="Example response: Create a connection without connection fields" lineNumbers
-204 HTTP Status Code. No content
+HTTP 204 No content
 ```
 
 <!-- type: tab-end -->
@@ -104,10 +104,10 @@ Content-Type: application/json
 Accept: application/json
 
 {	
-  "carrier_id" : "endicia",
+  "carrier_id": "endicia",
   "connection": {
-      "account_id" : "example_id_2",
-      "pass_phrase" : "example_passphrase"
+    "account_id": "example_id_2",
+    "pass_phrase": "example_passphrase"
   }
 }
 ```
@@ -118,7 +118,7 @@ title: Response
 -->
 
 ```json title="Example response: Update a connection" lineNumbers
-204 HTTP Status Code. No content
+HTTP 204 No content
 ```
 
 <!-- type: tab-end -->
@@ -149,7 +149,7 @@ title: Response
 -->
 
 ```json title="Example response: Delete a connection" lineNumbers
-204 HTTP Status Code. No content
+HTTP 204 No content
 ```
 
 <!-- type: tab-end -->
@@ -181,19 +181,19 @@ Accept: application/json
   "name": "USPS",
   "type": "endicia",
   "settings": {
-      "carrier_options": {
-          "show_transit_time": "1",
-          "packaging_type": "FlatRateLegalEnvelope",
-          "delivery_services": [
-              "PriorityExpress",
-              "ParcelSelect",
-              "MediaMail"
-          ]
-      }
+    "carrier_options": {
+      "show_transit_time": "1",
+      "packaging_type": "FlatRateLegalEnvelope",
+      "delivery_services": [
+        "PriorityExpress",
+        "ParcelSelect",
+        "MediaMail"
+      ]
+    }
   },
   "enabled": true,
   "handling_fees": {
-      "fixed_surcharge": "0"
+    "fixed_surcharge": "0"
   }
 }
 ```
@@ -205,26 +205,26 @@ title: Response
 
 ```json title="Example response: Create a real-time shipping method" lineNumbers
 {
-   "id": "29",
-   "name": "USPS",
-   "type": "endicia",
-   "settings": {
-      "carrier_options": {
-         "show_transit_time": "1",
-         "packaging": "FlatRateLegalEnvelope",
-         "packaging_type": "FlatRateLegalEnvelope",
-         "delivery_services": [
-            "PriorityExpress",
-            "ParcelSelect",
-            "MediaMail"
-         ]
-      }
-   },
-   "enabled": "true",
-   "handling_fees": {
-      "fixed_surcharge": "0"
-   },
-   "is_fallback": "false"
+  "id": "29",
+  "name": "USPS",
+  "type": "endicia",
+  "settings": {
+    "carrier_options": {
+      "show_transit_time": "1",
+      "packaging": "FlatRateLegalEnvelope",
+      "packaging_type": "FlatRateLegalEnvelope",
+      "delivery_services": [
+        "PriorityExpress",
+        "ParcelSelect",
+        "MediaMail"
+      ]
+    }
+  },
+  "enabled": "true",
+  "handling_fees": {
+    "fixed_surcharge": "0"
+  },
+  "is_fallback": "false"
 }
 ```
 
@@ -253,17 +253,17 @@ Accept: application/json
   "name": "USPS",
   "type": "endicia",
   "settings": {
-      "carrier_options": {
-        "show_transit_time": "1",
-        "packaging_type": "FlatRateLegalEnvelope",
-        "delivery_services": [
-            "MediaMail"
-        ]
-      }
+    "carrier_options": {
+      "show_transit_time": "1",
+      "packaging_type": "FlatRateLegalEnvelope",
+      "delivery_services": [
+        "MediaMail"
+      ]
+    }
   },
   "enabled": true,
   "handling_fees": {
-      "fixed_surcharge": "0"
+    "fixed_surcharge": "0"
   }
 }
 ```
@@ -275,24 +275,24 @@ title: Response
 
 ```json title="Example response: Create a real-time shipping method" lineNumbers
 {
-   "id": "29",
-   "name": "USPS",
-   "type": "endicia",
-   "settings": {
-      "carrier_options": {
-          "show_transit_time": "1",
-          "packaging": "FlatRateLegalEnvelope",
-          "packaging_type": "FlatRateLegalEnvelope",
-          "delivery_services": {
-              "value": "MediaMail"
-          }
+  "id": "29",
+  "name": "USPS",
+  "type": "endicia",
+  "settings": {
+    "carrier_options": {
+      "show_transit_time": "1",
+      "packaging": "FlatRateLegalEnvelope",
+      "packaging_type": "FlatRateLegalEnvelope",
+      "delivery_services": {
+        "value": "MediaMail"
       }
-   },
-   "enabled": "true",
-   "handling_fees": {
-      "fixed_surcharge": "0"
-   },
-   "is_fallback": "false"
+    }
+  },
+  "enabled": "true",
+  "handling_fees": {
+    "fixed_surcharge": "0"
+  },
+  "is_fallback": "false"
 }
 ```
 
@@ -326,20 +326,20 @@ title: Response
   "name": "USPS",
   "type": "endicia",
   "settings": {
-      "carrier_options": {
-          "show_transit_time": "1",
-          "packaging": "FlatRateLegalEnvelope",
-          "packaging_type": "FlatRateLegalEnvelope",
-          "delivery_services": [
-              "MediaMail"
-          ]
-      }
-   },
-   "enabled": "true",
-   "handling_fees": {
-      "fixed_surcharge": "0"
-   },
-   "is_fallback": "false"
+    "carrier_options": {
+      "show_transit_time": "1",
+      "packaging": "FlatRateLegalEnvelope",
+      "packaging_type": "FlatRateLegalEnvelope",
+      "delivery_services": [
+        "MediaMail"
+      ]
+    }
+  },
+  "enabled": "true",
+  "handling_fees": {
+    "fixed_surcharge": "0"
+  },
+  "is_fallback": "false"
 }
 ```
 
@@ -372,7 +372,7 @@ title: Response
 -->
 
 ```json title="Example response: Delete a real-time shipping method" lineNumbers
-204 HTTP Status Code. No content
+HTTP 204 No content
 ```
 
 <!-- type: tab-end -->
