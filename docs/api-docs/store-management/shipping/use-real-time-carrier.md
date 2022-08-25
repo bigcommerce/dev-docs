@@ -9,13 +9,13 @@ The following figure shows how to make real-time carrier quotes available during
 This guide shows you how to use the [Shipping V2 API](/api-reference/store-management/shipping-api) to manage carrier connections and real-time shipping methods.
 
 ## Prerequisites
-- For shipping provider apps only: Merchant has installed the shipping provider app. 
-- You have obtained an `access_token` from the merchant [store's API account](/api-docs/getting-started/authentication/rest-api-authentication) that has the [OAuth Scope](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes): `Information & Settings`.
-- You or the merchant have created shipping zones. You can create zones with the [Create a shipping zone](/api-reference/store-management/shipping-api/shipping-zones/createashippingzones) endpoint.
+- For shipping provider apps only: Store owner installs the shipping provider app. 
+- You have an `access_token` from the merchant [store's API account](/api-docs/getting-started/authentication/rest-api-authentication) that has the [OAuth Scope](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes): `Information & Settings`.
+- The store has shipping zones. You can create zones with the [Create a shipping zone](/api-reference/store-management/shipping-api/shipping-zones/createashippingzones) endpoint.
 
 <!-- theme:info -->
 > #### Native integrations
-> BigCommerce offers native integrations with several shipping services, including FedEx, UPS, and select national postal services. For a full list of native integrations, consult our Help Center article on [Setting up Real Time Shipping Quotes](https://support.bigcommerce.com/s/article/Setting-Up-a-Real-Time-Shipping-Quote-Shipping-Method#providers).
+> BigCommerce offers native integrations with shipping services, including FedEx and national postal services. For a list of integrations, see the [Setting up Real Time Shipping Quotes](https://support.bigcommerce.com/s/article/Setting-Up-a-Real-Time-Shipping-Quote-Shipping-Method#providers) support article.
 
 ## Manage connections to shipping carriers 
 
