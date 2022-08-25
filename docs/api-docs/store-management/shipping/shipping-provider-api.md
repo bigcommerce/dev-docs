@@ -258,9 +258,9 @@ API users can then define and enable a shipping method for your carrier in one o
 
 ## API requests to your app
 
-### Validate connection options
+### Validate connection options  
 
-When a merchant tries to [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store), BigCommerce will send a request to validate the connection options that the merchant provides if you configured a Check Connection Options URL for your carrier during app setup. Your response should indicate if the credentials are valid and explain what is wrong. For more info, see the [Validate connection options](/api-reference/providers/shipping-provider-api/shipping-provider/validateconnectionoptions) endpoint.  
+When a merchant tries to [connect your carrier](#how-your-app-will-be-connected-to-a-store), BigCommerce sends you a request to check their connection options. Your response should state if the credentials are valid and explain what is wrong. For more info, see the [Validate connection options](/api-reference/providers/shipping-provider-api/shipping-provider/validateconnectionoptions) endpoint.
 
 <!--
 type: tab
@@ -300,9 +300,9 @@ title: Response
 
 <!-- theme: info -->
 > #### Credential validation
-> It is best practice to authenticate the user and store against your database or the downstream provider service. However, if you did not provide a Check Connection Options URL, a merchant's credentials are assumed to be valid as long as they pass type checks. 
+> It is best practice to authenticate merchants. However, if you did not provide a Check Connection Options URL, BigCommerce assumes a merchant's credentials are valid as long as they pass type checks. 
 
-Note that you can also authenticate merchant credentials when BigCommerce requests rates from your shipping provider in real time, as the connection options are also included in those requests.
+You can also authenticate merchants when BigCommerce requests rates.
 
 ### Provide shipping rates to BigCommerce
 
