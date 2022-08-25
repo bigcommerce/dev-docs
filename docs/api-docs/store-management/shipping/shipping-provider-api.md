@@ -217,22 +217,23 @@ Send an email to [ShippingProviderAPI@bigcommerce.com](mailto:shippingproviderap
 After submitting your app, you will receive a carrier ID. Both single-carrier and multi-carrier shipping providers receive one `carrier_id`.
 
 ### What you should document for API users
- 
+
 We recommend that you document your `carrier_id` and configuration option `code`s. API users will need your carrier ID and connection options to [connect your carrier to their store](#how-your-app-will-be-connected-to-a-store). API users will need your settings options to define a shipping method for your carrier. 
 
 ## How your app will be connected to a store
 
-Once a merchant installs your app on their store, merchants and API users can connect your carrier to their store by using the connection options that you provided when you submitted your app.    
+Once a store owner installs your app, merchants and API users can connect your carrier to a store.     
 
 ### How merchants will use your app
-A merchant can navigate to the Shipping Manager UI to input carrier connection options. The UI displays the connection option's `label` that you provided when you submitted your app. The following figure is an example of how connection options are shown to merchants in the control panel:
+A merchant can select connection options for your carrier in the store control panel. The UI displays the `label` for your connection options, as shown in the following figure. 
 
 ![Connect Carrier via UI](https://storage.googleapis.com/bigcommerce-production-dev-center/images/connection%20options%20example.png 'Connection options in Shipping Manager') 
 
-After connecting your carrier, a merchant can define and enable a real-time shipping method for your carrier app in one or more shipping zones. 
+A merchant can then define and enable a shipping method for your carrier in one or more shipping zones. 
 
-### How API users will use your app
-API users can connect your carrier to the store by using the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. In the request, API users will send the carrier ID that you received when you signed up, as well as values for your app's connection options. Specifically, API users will specify the `code` for each connection option as a property under the `connection` object when they connect to your carrier, for example:    
+### How API users will use your app 
+
+Developers can connect your carrier by using the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. They will send your `carrier_id` that you received after sign-up. As shown, they will specify the `code` for each connection option in the `connection` object:
 
 ```json title="Example POST request with X-Auth-Token header" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/carrier/connection
@@ -249,15 +250,10 @@ Accept: application/json
 }
 ```
 
-<!-- theme:info -->
-> #### Document connection options
-
-> We recommend that you document your connection option codes for API users who wish to connect your carrier.
-
 API users can then define and enable a shipping method for your carrier in one or more shipping zones by using the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) endpoint. In the request, API users will send values for your app's settings options which help determine the rates that your app sends to BigCommerce when BigCommerce requests a quote. For more info on how API users will use your carrier, see the [Use a Real-Time Carrier](/api-docs/store-management/shipping/use-real-time-carrier) article.
 
 <!-- theme:info  -->
-> #### Note 
+> #### Removing service  
 > If a merchant uninstalls your app from the store, the merchant removes all shipping methods and connection info for your carrier(s) from the store. BigCommerce will no longer be able to make quote requests and receive shipping quotes from your carrier.
 
 ## API requests to your app
