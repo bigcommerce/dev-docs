@@ -306,7 +306,8 @@ You can also authenticate merchants when BigCommerce requests rates.
 
 ### Provide shipping rates to BigCommerce
 
-When BigCommerce needs shipping rates, BigCommerce checks its internal cache for valid entries. If valid entries are present, BigCommerce uses these entries and does not make a request to your carrier. If a valid cache entry does not exist, BigCommerce makes a request to the [Quote URL](#your-service-urls) that you provided. The request will include details of the items to be shipped, the shipping origin, the shipping destination, and [connection or zone settings options](#configuration-fields) for your carrier. Note that the `code` for each connection and settings option is included in the request under the `connection_options` and `zone_options` objects, respectively. Your carrier must then respond with shipping quote(s). For more info, see the [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) endpoint.
+When BigCommerce needs shipping rates, BigCommerce checks its internal cache for valid entries. If a valid cache entry does not exist, BigCommerce makes a request to the [Quote URL](#your-service-urls) that you provided. The request includes the `code` for any [connection and zone settings options](#configuration-fields). Your carrier must then respond with shipping quote(s). For more info, see the [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) endpoint.
+
 
 <!--
 type: tab
@@ -490,7 +491,7 @@ title: Response
 
 <!-- type: tab-end  -->
 
-If no shipping quotes are available, the your carrier will send a response with the following format for the shipping quote:
+If no shipping quotes are available, your carrier will send a response with the following format:
 
 ```json title="Example POST response" lineNumbers
 {
@@ -501,7 +502,7 @@ If no shipping quotes are available, the your carrier will send a response with 
 ```
 
 <!-- theme: info -->
-> #### Note
+> #### Shipping quote sort order
 > BigCommerce will display the shipping quotes that you return from lowest to highest price.
 
 #### Product metadata in rate requests
