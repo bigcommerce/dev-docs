@@ -19,13 +19,13 @@ This guide shows you how to use the [Shipping V2 API](/api-reference/store-manag
 
 ## Manage connections to shipping carriers 
 
-When a merchant installs a shipping provider app, the carrier appears in the **Settings > Shipping** section of the store control panel, in the **Real-time Shipping Quotes** view. However, you or the merchant must first connect the carrier before merchants or shoppers can request real-time quotes. The following section shows how you can use the API to connect the carrier to the store. 
+When a store owner installs a shipping provider app, the carrier appears in the **Settings > Shipping** section of the store control panel, in the **Real-time Shipping Quotes** view. However, you must first connect the carrier to a store. 
 
 ![Connected vs Installed Carrier](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Installed%20vs%20Connected%20Carrier.png 'Connected versus Installed Carrier. USPS is connected, while FedEx is only installed.')  
 
 ### Create a connection
 
-To use the API to connect with a carrier, use the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. Make a request containing the ID of the carrier and any connection fields that the carrier requires. Connection fields are unique to each carrier. 
+To connect a carrier, send a request to the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. Include the carrier ID and any connection fields that the carrier requires. Connection fields are unique to each carrier. 
 
 <!--
 type: tab
@@ -58,7 +58,7 @@ title: Response
 
 <!-- type: tab-end -->
 
-If a carrier doesn’t require any connection settings, send an empty object for the `connection` property.
+If a carrier doesn’t require connection settings, send an empty object for the `connection` property.
 
 <!--
 type: tab
@@ -90,7 +90,7 @@ title: Response
 
 ### Update a connection
 
-When you update a connection, use the same connection fields as [Create a connection](#create-a-connection). 
+To update a connection, send a request to the [Update a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/updateacarrierconnection) endpoint. Use the same connection fields as [Create a connection](#create-a-connection). 
 
 <!--
 type: tab
@@ -125,7 +125,7 @@ title: Response
 
 ### Delete a connection
 
-To delete a connection, send the `carrier_id` in the request body.
+To delete a connection, send a request to the [Delete a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/deletecarrierconnection) endpoint. Specify the `carrier_id` in the request body.
 
 <!--
 type: tab
@@ -157,14 +157,14 @@ title: Response
 
 ## Manage shipping methods
 
-After you connect a carrier, set up a shipping method that uses the carrier in one or more shipping zones. You can define and enable a different shipping method for each zone the carrier services.    
+After you connect a carrier, set up a shipping method for the carrier in one or more shipping zones. You can define and enable a different shipping method for each zone the carrier services.
 
 ![Enabled vs Connected Carrier](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Enabled%20vs%20Connected%20Carrier.png 'Enabled versus Connected Carrier. USPS is enabled, while FedEx is only connected.')  
 
 
 ### Create a shipping method
 
-You can define and enable a method for the connected carrier in any shipping zone by using the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) endpoint. Specify the shipping zone in the path using the zone ID (`id`) from the [Get all shipping zones](/api-reference/store-management/shipping-api/shipping-zones/getallshippingzones) endpoint. The shipping carrier’s ID is required. 
+To create a shipping method for a carrier, send a request to the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) endpoint. Specify the shipping zone in the path using the zone ID (`id`) from the [Get all shipping zones](/api-reference/store-management/shipping-api/shipping-zones/getallshippingzones) endpoint. The shipping carrier’s ID is required. 
 
 <!--
 type: tab
@@ -236,6 +236,8 @@ After you enable a connected carrier, you can obtain its real-time shipping quot
 
 ### Update a shipping method
 
+To update a shipping method for a carrier, send a request to the [Update a shipping method](/api-reference/store-management/shipping-api/shipping-method/updateashippingmethod) endpoint.
+
 <!--
 type: tab
 title: Request
@@ -299,6 +301,8 @@ title: Response
 
 ### Get a shipping method
 
+To get a shipping method for a carrier, send a request to the [Get a shipping method](/api-reference/store-management/shipping-api/shipping-method/getashippingmethod) endpoint.
+
 <!--
 type: tab
 title: Request
@@ -348,6 +352,7 @@ You can also [Get all shipping methods](/api-reference/store-management/shipping
 
 ### Delete a shipping method
 
+To delete a shipping method for a carrier, send a request to the [Delete a shipping method](/api-reference/store-management/shipping-api/shipping-method/deleteashippingmethod) endpoint.
 
 <!--
 type: tab
