@@ -507,7 +507,7 @@ If no shipping quotes are available, your carrier will send a response with the 
 
 #### Product metadata in rate requests
 
-When requesting rates, BigCommerce passes product metadata specifc to your carrier via product and variant metafields. This product metadata can be useful if your service depends on specific fields that are not existent on BigCommerce products or variants by default.
+When requesting rates, BigCommerce passes product metadata via product and variant metafields. This is useful if your service depends on fields that aren't included with products or variants by default. 
 
 The metafields you receive from BigCommerce requests have the following characteristics:   
 
