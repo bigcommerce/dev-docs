@@ -38,6 +38,6 @@ Content-Type: application/json
 Accept: application/json
 
 {
-	"code": "WELCOME10"
+  "code": "WELCOME10"
 }
 ```
