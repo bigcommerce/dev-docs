@@ -19,7 +19,6 @@ To access the category structure used by a particular storefront, you must first
 ```http title="Example request: Get category tree for channel 3"
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/catalog/trees?channel_id:in=3
 X-Auth-Token: {{ACCESS_TOKEN}}
-X-Auth-Client: {{CLIENT_ID}}
 Accept: application/json
 ``` 
 

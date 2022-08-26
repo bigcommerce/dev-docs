@@ -1,13 +1,11 @@
 # Publishing an App
 
-
-
 After completing development, verifying best practices, and checking approval requirements, you may submit your app for Marketplace approval in the [Developer Portal](https://devtools.bigcommerce.com/). This article takes you step-by-step through the submission form and provides descriptions for each field.
 
 ## Before you begin
 
 Your listing on the [Apps Marketplace](https://www.bigcommerce.com/apps/) plays a major role in your app's success. A good listing accomplishes three goals:
-*  Shows users how your platform or solution differs from competitive offerings
+* Shows users how your platform or solution differs from competitive offerings
 * Includes keywords so prospective users can find your listing in searches
 * Sets up clear and accurate user expectations as to your solution's features and functionality
 
@@ -25,10 +23,10 @@ We also recommend giving special attention to the following search indexed field
 
 To begin the app certification process, we'll need some basic information about you.
 
-![DevTools 01](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-01.png  "DevTools 01")
+![App Summary](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-summary.png  "App Summary")
 
 | Field           | Description                                                                                            |
-| --------------- | ------------------------------------------------------------------------------------------------------ |
+|:----------------|:-------------------------------------------------------------------------------------------------------|
 | Contact Name    | Email address created when applying for your Partner ID                                                |
 | Partner Name    | Name of your company​; attributed on the detail page                                                    |
 | Partner Website | URL to your homepage                                                                                   |
@@ -46,12 +44,12 @@ To begin the app certification process, we'll need some basic information about 
 
 Specify app type, multiple users support, callback URLs, and OAuth scopes; and, provide detailed testing instructions.
 
-![DevTools 02](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-02.png  "DevTools 02")
+![Technical](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-technical.png  "Technical")
 
 | Field                  | Description                                                                |
-| ---------------------- | -------------------------------------------------------------------------- |
+|:-----------------------|:---------------------------------------------------------------------------|
 | Multiple Users         | Optionally allow your app to be accessible to store users other than owner |
-| App Type               | Type of app; single-Click recommended                                      |
+| App Type               | Type of app; single-click recommended                                      |
 | Auth Callback URL      | Requested when `install` clicked                                           |
 | Load Callback URL      | Requested when user launches app                                           |
 | Uninstall Callback URL | Requested when store owner clicks uninstall                                |
@@ -62,33 +60,39 @@ Specify app type, multiple users support, callback URLs, and OAuth scopes; and, 
 
 Provide a helpful description with screenshots and a video to promote your app. We recommend bullet points followed by short paragraphs with headers. Aim for 200 words in total.
 
-![DevTools 03](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-03.png  "DevTools 03")
+![Details](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-details.png  "Details")
 
-| Field                      | Description                                                                                                                               |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| App Details                | Value proposition; avoid fluff or buzzwords; not be indexed for search; 200 words max                                                     |
-| Videos                     | Videos highlighting purpose and value of your app                                                                                         |
-| Case Studies               | case studies demonstrating how merchants have benefited from using your app. 4 max                                                        |
-| Features                   | App's major features; include title and description for each; title is search indexed; rich text accepted; 5 max                          |
-| Legal Termals & Privacy    | App privacy policy and ToS links; legally required                                                                                        |
-| International Optimization | Countries app optimized for and countries app does not support                                                                            |
-| Help Guides                | Links to app's user and installation guides; highly recommended                                                                           |
-| App Screenshot             | Screenshots of app UI inside BigCommerce                                                                                                  |
-| Alternate Logo             | Used if app featured in Marketplace carousel; should be 259 x 158px (or larger at ratio); dark background and light branding; no taglines |
+| Field | Description |
+|:------|:------------|
+| App Details | Value proposition; avoid fluff or buzzwords; not be indexed for search; 200 words max |
+| Videos | Videos highlighting purpose and value of your app |
+| Case Studies | Case studies demonstrating how merchants have benefited from using your app. 4 max |
+| Features | App's major features; include title and description for each; title is search indexed; rich text accepted; 5 max |
+| Legal Terms & Privacy | App privacy policy and ToS links; legally required |
+| International Optimization | Countries app optimized for and countries app does not support |
+| Help Guides | Links to app's user and installation guides; highly recommended |
+| App Screenshot | Screenshots of app UI in a BigCommerce store's control panel |
+| Alternate Logo | Used if app featured in Marketplace carousel; should be 259 x 158px (or larger at ratio); dark background and light branding; no taglines |
+
+## Add supported features
+
+Indicate whether your app supports multi-storefront functionality.
+
+![App Supported Features](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-msf.png "App Supported Features")
 
 ## Review submission
 
 Review the information added before submitting the app.
 
-![DevTools 04](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-04.png  "DevTools 04")
+![Review](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-review.png "Review")
 
 ## Submit your app for approval
 
-Ensure all information is complete; test the app before submitting for review.
+Ensure all information is complete, then click **Submit for Review** to pay the review and listing fee and submit the app. Test the app before submitting it to avoid paying additional review fees.
 
-![DevTools 05](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/devtools-tutorial-05.png "DevTools 05")
+![Payment & Submission](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtools-submit.png "Payment & Submission")
 
-If you have any questions about your submission, email [appstore@bigcommerce.com](mailto:appstore@bigcommerce.com).
+If you have any questions about your submission, email [AppStore@bigcommerce.com](mailto:appstore@bigcommerce.com).
 
 ## FAQ
 
@@ -116,7 +120,7 @@ The changes will be effective immediately in your control panel app card, but th
 can take up to 24 hours to appear on the Apps Marketplace. Feel free to use this as a grace period to make edits as needed.
 
 ## Next steps
-[Review the Apps Marketplace listing guide (PDF)](https://grow.bigcommerce.com/rs/695-JJT-333/images/Updated_List_of_App_Fields_for_Tech_Partners.pdf).
+[Review the Apps Marketplace listing guide (PDF)](https://grow.bigcommerce.com/rs/695-JJT-333/images/Updated_List_of_App_Fields_for_Tech_Partners.pdf)
 
 ## Resources
 
