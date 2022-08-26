@@ -494,8 +494,8 @@ Content-Type: application/json
 Accept: application/json
 
 {
-	"code": "30off100",
-	"max_uses": 100
+  "code": "30off100",
+  "max_uses": 100
 }
 ```
 
@@ -738,41 +738,42 @@ The following two examples demonstrate the flexibility of using logical operator
   ...
   and: [
     {
-			cart: {
-				minimum_quantity: 2
-				items: {
-					brands: [x]
-				}
-			}
-		},
-		{
-			cart: {
-				minimum_quantity: 2
-				items: {
-					categories: [y]
-				}
-			}
-		}
-	]
+      cart: {
+	minimum_quantity: 2
+	items: {
+	brands: [x]
+	}
+      }
+    },
+    {
+      cart: {
+        minimum_quantity: 2
+	  items: {
+	    categories: [y]
+	  }
+        } 
+      }
+    }
+  ]
 }
 ```
 &nbsp;
 ```json json_schema title="JSON Schema: And condition" lineNumbers
 {
-	Rule: {
-		Condition: {
-			AndCondition: [{
-				CartCondition: {
-					ItemMatcher: {},
-					minimum_quantity
-				},
-				CartCondition: {
-					ItemMatcher: {},
-					minimum_quantity
-				}
-			}]
-		}
-	}
+  Rule: {
+    Condition: {
+      AndCondition: [{
+        CartCondition: {
+          ItemMatcher: {},
+          minimum_quantity
+        },
+        CartCondition: {
+          ItemMatcher: {},
+          minimum_quantity
+        }
+      }]
+    }
+  }
 }
 ```
 
@@ -783,37 +784,37 @@ Two items that belong to both brand X and category Y:
 ```javascript title="Example request: Cart condition" lineNumbers
 {
   ...
-	cart: {
-		minimum_quantity: 2
-		items: {
-			and: [
+  cart: {
+    minimum_quantity: 2
+    items: {
+      and: [
         {
-					brands: [x]
-				},
-				{
-					categories: [y]
-				}
-			]
-		}
-	}
+          brands: [x]
+        },
+        {
+          categories: [y]
+        }
+      ]
+    }
+  }
 }
 ```
 &nbsp;
 ```json json_schema title="JSON Schema: And Item Matcher" lineNumbers
 {
-	Rule: {
-		Condition: {
-			CartCondition: {
-			  minimum_quantity: 2,
-			  ItemMatcher: {
-			  	AndItemMatcher: [{
+  Rule: {
+    Condition: {
+      CartCondition: {
+        minimum_quantity: 2,
+	ItemMatcher: {
+	  AndItemMatcher: [{
             BrandItemMatcher(SimpleItemMatcher): [],
             CategoriesItemMatcher(SimpleItemMatcher): []
           }]
-			  }
-			}
-		}
 	}
+      }
+    }
+  }
 }
 ```
 
