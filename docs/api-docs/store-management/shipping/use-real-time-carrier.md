@@ -1,6 +1,6 @@
 # Use a Real-Time Carrier
 
-Carriers provide real-time shipping quotes to merchants and shoppers. There are two types of real-time carriers: native integrations and shipping provider apps. 
+Shipping carriers provide real-time shipping quotes to merchants and shoppers. You can use native integrations or a shipping provider apps to obtain real-time quotes from carriers. For more info, see the [Real Time Shipping Quotes](https://support.bigcommerce.com/s/article/Setting-Up-a-Real-Time-Shipping-Quote-Shipping-Method?language=en_US) support article.  
 
 The following figure shows how to make real-time carrier quotes available during checkout. A store owner must install an app in the control panel. You can do all other steps through the control panel or API. Note that you can set up a different shipping method for each shipping zone a carrier services. 
 
