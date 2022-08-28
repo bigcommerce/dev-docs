@@ -191,8 +191,10 @@ paths:
              * `storecredit` - store credit
              * `attributes` - customer attributes and address attributes
              * `formfields` - customer and address form fields
+             * `shopper_profile_id` - the ID of the shopper profile associated with the customer (Beta)
+             * `segment_ids`- segments the customer belongs to (Beta)
 
-             `include=addresses,storecredit,attributes,formfields`
+             `include=addresses,storecredit,attributes,formfields,shopper_profile_id,segment_ids`
           schema:
             type: string
             enum:
@@ -1768,6 +1770,8 @@ components:
                     accepts_product_review_abandoned_cart_emails: true
                     channel_ids:
                       - 1
+                    shopper_profile_id: "82511e54-4040-40fe-b742-2b25655f205b"
+                    segment_ids: ["5bb733a9-5491-47b3-9451-9ae8d6a6bc6b"]
                 meta:
                   pagination:
                     total: 0
