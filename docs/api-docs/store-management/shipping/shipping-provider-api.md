@@ -16,7 +16,7 @@ This article guides you on how to create and register a shipping provider app at
 
 ## Shipping app overview
 
-Once BigCommerce registers your app, a store owner can install the app on a store. Merchants and developers can then connect the service on their store. They can enable your carrier in one or more shipping zones. They can set up different shipping options for each zone your carrier services.  BigCommerce will retrieve service options and rates. The following figure illustrates the workflow:
+Once BigCommerce registers your app, a store owner can install the app on a store. Merchants and API users can then connect the service on their store. They can enable your carrier in one or more shipping zones. They can set up different shipping options for each zone your carrier services.  BigCommerce will retrieve service options and rates. The following figure illustrates the workflow:
 
 ![Shipping Provider Overview](https://storage.googleapis.com/bigcommerce-production-dev-center/images/shipping-provider-figure.png)
 ![Shipping App Overview](https://storage.googleapis.com/bigcommerce-production-dev-center/images/ship%20prov%20api.png 'Shipping Provider API')
@@ -233,7 +233,7 @@ A merchant can then define and enable a shipping method for your carrier in one 
 
 ### How API users will use your app 
 
-Developers can connect your carrier by using the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. They will send your `carrier_id` that you received after sign-up. As shown, they will specify the `code` for each connection option in the `connection` object:
+API users can connect your carrier by using the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. They will send your `carrier_id` that you received after sign-up. As shown, they will specify the `code` for each connection option in the `connection` object:
 
 ```json title="Example POST request with X-Auth-Token header" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/carrier/connection
