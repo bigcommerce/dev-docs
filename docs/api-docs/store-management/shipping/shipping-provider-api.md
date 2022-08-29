@@ -547,15 +547,16 @@ No, you can only publish one app at a time. The others can be for use as testing
 ## Resources
 
 ### Articles
+- [Introduction to Building Apps](/api-docs/getting-started/building-apps-bigcommerce/building-apps)
+- [Single-click apps](/api-docs/apps/guide/types#single-click)
 - [App Store Approval Requirements](/api-docs/apps/guide/requirements)
 
-
-### Endpoints
+### References
 
 - [Shipping Providers](/api-reference/providers/shipping-provider-api)
 - [Shipping Zones](/api-reference/store-management/shipping-api/shipping-zones)
-- [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method)
 - [Shipping Carriers](/api-reference/store-management/shipping-api/shipping-carrier)
+- [Shipping Methods](/api-reference/store-management/shipping-api/shipping-method)
 
 ### Webhooks
 
