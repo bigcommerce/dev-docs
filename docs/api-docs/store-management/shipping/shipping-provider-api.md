@@ -268,7 +268,7 @@ title: Request
 -->
 
 ```json title="Example POST request with with X-Auth-Token header" lineNumbers
-POST https://example.com/check_connection_options
+POST https://your_app.example.com/check_connection_options
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -315,7 +315,7 @@ title: Request
 --> 
 
 ```json title="Example POST request with X-Auth-Token header" lineNumbers
-POST https://example.com/rate
+POST https://your_app.example.com/rate
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
