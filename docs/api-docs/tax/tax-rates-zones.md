@@ -266,7 +266,7 @@ After creating a zone, you can add rates to the zone. You can add multiple rates
 
 ### Create tax rates
 
-To create tax rates, send a request to the [Create tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/create-tax-rates) endpoint. Specify the rate name, rates of each tax class, and tax zone in which the rates will be created. The `tax_zone_id` is the `id` from the [Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones) endpoint.
+To create tax rates, send a request to the [Create tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/create-tax-rates) endpoint. Specify the rate name, rates of each tax class, and the associated tax zone. The `tax_zone_id` is the `id` from the [Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones) endpoint.
 
 The response provides an `id` for each tax rate. Use the `id` to update or delete a specific tax rate.
 
