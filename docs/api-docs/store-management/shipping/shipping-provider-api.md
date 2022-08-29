@@ -52,7 +52,7 @@ BigCommerce sends requests to your server. Provide BigCommerce with the followin
 - **Quote URL**: a URL that accepts quote requests from BigCommerce. You will provide shipping quotes from this URL.
 - **Check Connection Options URL** (optional): a URL to check connection options. BigCommerce will send requests with a merchant’s connection settings. You can then look up a merchant's credentials in your database or call a downstream service. 
 
-These urls can be any valid HTTPS URLs that use port `443`, for example `https://example.com/rate`. Replace `example.com` and `rate` with your own host and path. 
+These urls can be any valid HTTPS URLs that use port `443`, for example `https://your_app.example.com/rate`. Replace `your_app.example.com.com` and `rate` with your own host and path. 
 
 ### Request and response bodies
 
