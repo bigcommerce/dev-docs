@@ -10,7 +10,7 @@ A zone can occupy multiple countries, each containing multiple subdivisions and 
 
 <!-- theme:info -->
 > #### Default tax zone
-> A default tax zone covers locations that aren't covered by other zones. Shoppers in customer groups that don't match with a tax zone are placed in the default tax zone. A default tax zone does not have `shopper_target_settings` in its requests or responses. You cannot specify the customer groups or locations for a default tax zone.  
+> A default tax zone covers locations that other zones don't cover. Shoppers in customer groups that don't match a tax zone fall under the default tax zone. A default tax zone does not have `shopper_target_settings` in its requests or responses. You can't specify the customer groups or locations for a default tax zone.  
 
 ### Create tax zones
 
