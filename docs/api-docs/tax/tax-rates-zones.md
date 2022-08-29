@@ -6,7 +6,7 @@ This guide shows you how to use the Tax Rates and Tax Zones API. The Tax Rates a
 
 ## Tax zones
 
-A zone can occupy multiple countries, each containing multiple subdivisions and postal codes. You can specify the customer groups that fall under a zone. You can also set how a store displays prices to shoppers in customers groups that fall under a zone.  
+A zone can occupy multiple countries, each containing multiple subdivisions and postal codes. You can specify the customer groups that fall under a zone. You can also set how a store displays prices to shoppers in customer groups that fall under a zone.  
 
 <!-- theme:info -->
 > #### Default tax zone
