@@ -380,4 +380,19 @@ HTTP 204 No content
 
 ## Resources
 
-- [Shipping V2 API](/api-reference/store-management/shipping-api) 
+- [Shipping V2 API Reference](/api-reference/store-management/shipping-api) 
+
+## Shipping carrier
+
+- [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection)
+- [Update a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/updateacarrierconnection)
+- [Delete a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/deletecarrierconnection)
+
+## Shipping method
+
+- [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod)
+- [Update a shipping method](/api-reference/store-management/shipping-api/shipping-method/updateashippingmethod)
+- [Get a shipping method](/api-reference/store-management/shipping-api/shipping-method/getashippingmethod)
+- [Get all shipping methods](/api-reference/store-management/shipping-api/shipping-method/getshippingmethodszone)
+- [Delete a shipping method](/api-reference/store-management/shipping-api/shipping-method/deleteashippingmethod)
+
