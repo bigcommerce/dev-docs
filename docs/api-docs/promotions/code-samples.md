@@ -3,7 +3,7 @@
 ## Brand
 
 <details>
-  <summary>Spend $X in brand X, get free shipping to X shipping zones</summary> 
+  <summary>Spend $X in brand X and get free shipping to X shipping zones</summary> 
 
 
 <!--
@@ -20,7 +20,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "Order $100 of this common good brand, get free shipping",
+    "name": "Order $100 of this common good brand and get free shipping",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
@@ -84,7 +84,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Order $100 of this common good brand, get free shipping",
+  "name": "Order $100 of this common good brand and get free shipping",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -148,7 +148,7 @@ title: Response
 {
   "data": {
     "id": 3,
-    "name": "Order $100 of this common good brand, get free shipping",
+    "name": "Order $100 of this common good brand and get free shipping",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -227,7 +227,7 @@ type: tab-end
 
 
 <details>
-  <summary>Apply a $ or % discount to each item in one or more brands AND, NOT operators</summary> <br>
+  <summary>Apply a $ or % discount to each item in one or more brands (AND, NOT operators)</summary> <br>
 
 <!--
 type: tab
@@ -576,7 +576,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Spend X amount in brand Y, get X% off in brand Y",
+  "name": "Spend X amount in brand Y and get X% off in brand Y",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -649,7 +649,7 @@ title: Response
 {
   "data": {
     "id": 5,
-    "name": "Spend X amount in brand Y, get X% off in brand Y",
+    "name": "Spend X amount in brand Y and get X% off in brand Y",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -840,7 +840,7 @@ title: Response
 {
   "data": {
     "id": 6,
-    "name": "Buy two items in brand and get the cheapest one free",
+    "name": "Buy two brand items and get the cheapest one free",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -905,7 +905,7 @@ type: tab-end
 </details>
 
 <details>  
-  <summary>Buy two items in a brand and get the most expensive one at 50% off</summary>
+  <summary>Buy two brand items and get the most expensive one at 50% off</summary>
 
 
  <!--
@@ -922,7 +922,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "Buy two items in brand and get the most expensive one at 50% off",
+    "name": "Buy two brand items and get the most expensive one at 50% off",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
@@ -965,7 +965,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy two items in brand and get the most expensive one at 50% off",
+  "name": "Buy two brand items and get the most expensive one at 50% off",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -1010,7 +1010,7 @@ title: Response
 {
   "data": {
     "id": 7,
-    "name": "Buy two items in brand and get the most expensive one at 50% off",
+    "name": "Buy two brand items and get the most expensive one at 50% off",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -1076,7 +1076,7 @@ type: tab-end
 </details>
 
 <details>  
-  <summary>Buy two items in a brand and get the most expensive one at $50 off</summary>
+  <summary>Buy two brand items and get the most expensive one at $50 off</summary>
 
 <!--
 type: tab
@@ -1092,7 +1092,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "Buy two items in brand and get the most expensive one at $50 off",
+    "name": "Buy two brand items and get the most expensive one at $50 off",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
@@ -1135,7 +1135,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy two items in brand and get the most expensive one at $50 off",
+  "name": "Buy two brand items and get the most expensive one at $50 off",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -1179,7 +1179,7 @@ title: Response
 {
   "data": {
     "id": 8,
-    "name": "Buy two items in brand and get the most expensive one at $50 off",
+    "name": "Buy two brand items and get the most expensive one at $50 off",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -1245,7 +1245,7 @@ type: tab-end
 
 
 <details>  
-  <summary>Spend $X on brand Y, get product Z for free</summary>
+  <summary>Spend $X on brand Y and get product Z for free</summary>
 
 <!--
 type: tab
@@ -1260,7 +1260,7 @@ title: Try It
     "Content-Type": "application/json",
     "X-Auth-Token": ""},
   "body": {
-    "name": "Spend $X on brand Y, get product Z for free",
+    "name": "Spend $X on brand Y and get product Z for free",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
@@ -1293,7 +1293,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Spend $X on brand Y, get product Z for free",
+  "name": "Spend $X on brand Y and get product Z for free",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -1328,7 +1328,7 @@ title: Response
 {
   "data": {
     "id": 9,
-    "name": "Spend $X on brand Y, get product Z for free",
+    "name": "Spend $X on brand Y and get product Z for free",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -1521,7 +1521,7 @@ title: Response
 {
   "data": {
     "id": 10,
-    "name": "20 dollar off all garden material",
+    "name": "20 dollars off all garden material",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -1741,7 +1741,7 @@ type: tab-end
 </details>
 
 <details>  
-  <summary>Buy X units in (category A), get Y additional units in the same category free (must be of equal or lesser value)</summary>
+  <summary>Buy X units in (category A) and get Y additional units in the same category free (must be of equal or lesser value)</summary>
 
 
  <!--
@@ -1758,7 +1758,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "Buy X units in (Category A), get Y additional units in the same category free (must be of equal or lesser value)",
+    "name": "Buy X units in (Category A) and get Y additional units in the same category free (must be of equal or lesser value)",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
@@ -1829,7 +1829,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy X units in (Category A), get Y additional units in the same category free (must be of equal or lesser value)",
+  "name": "Buy X units in (Category A) and get Y additional units in the same category free (must be of equal or lesser value)",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -1901,7 +1901,7 @@ title: Response
 {
   "data": {
     "id": 12,
-    "name": "Buy X units in (Category A), get Y additional units in the same category free (must be of equal or l",
+    "name": "Buy X units in (Category A) and get Y additional units in the same category free (must be of equal or lesser value)",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -2092,7 +2092,7 @@ title: Response
 {
   "data": {
     "id": 13,
-    "name": "Buy three items in a category for the price of 2 (lowest priced item discounted)",
+    "name": "Buy three items in a category for the price of two (lowest priced item discounted)",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -2158,7 +2158,7 @@ type: tab-end
 
 
 <details>  
-  <summary>Buy product X or items from category Y, get $10 off items from category Z</summary>
+  <summary>Buy product X or items from category Y and get $10 off items from category Z</summary>
 
 <!--
 type: tab
@@ -2174,7 +2174,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "Buy product X or items from category Y get $10 off items from category Z",
+    "name": "Buy product X or items from category Y and get $10 off items from category Z",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
@@ -2223,7 +2223,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy product X or items from category Y get $10 off items from category Z",
+  "name": "Buy product X or items from category Y and get $10 off items from category Z",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -2273,7 +2273,7 @@ title: Response
 {
   "data": {
     "id": 14,
-    "name": "Buy product X or items from category Y get $10 off items from category Z",
+    "name": "Buy product X or items from category Y and get $10 off items from category Z",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -2346,7 +2346,7 @@ type: tab-end
 </details>
 
 <details>  
-  <summary>Buy three from category X, get one from category Y for free</summary>
+  <summary>Buy three from category X, and get one from category Y free</summary>
 
  <!--
 type: tab
@@ -2362,7 +2362,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "Buy three from category X get one from category Y for free",
+    "name": "Buy three from category X and get one from category Y free",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
@@ -2402,7 +2402,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy three from category X get one from category Y for free",
+  "name": "Buy three from category X and get one from category Y free",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -2443,7 +2443,7 @@ title: Response
 {
   "data": {
     "id": 15,
-    "name": "Buy three from category X get one from category Y for free",
+    "name": "Buy three from category X and get one from category Y free",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -2508,7 +2508,7 @@ type: tab-end
 </details>
 
 <details>  
-  <summary>Spend $X from category X, get product Y for free</summary>
+  <summary>Spend $X from category X and get product Y free</summary>
 
 <!--
 type: tab
@@ -2524,7 +2524,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "Buy $X from category X get product Y for free",
+    "name": "Buy $X from category X and get product Y free",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
@@ -2565,7 +2565,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy $X from category X get product Y for free",
+  "name": "Buy $X from category X and get product Y free",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -2607,7 +2607,7 @@ title: Response
 {
   "data": {
     "id": 16,
-    "name": "Buy $X from category X get product Y for free",
+    "name": "Buy $X from category X and get product Y free",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -3426,7 +3426,7 @@ type: tab-end
 </details>
 
 <details>
-  <summary>10% off for customers who belong to segment 1 and also belong to segment 2 (Closed Beta)</summary>
+  <summary>10% off for customers who belong to segment 1 and segment 2 (Closed Beta)</summary>
 
 <!--
 type: tab
@@ -3442,7 +3442,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "10% off for customers who belong to segment 1 and also belong to segment 2",
+    "name": "10% off for customers who belong to segment 1 and segment 2",
     "redemption_type": "AUTOMATIC",
     "customer": {
       "segments": {
@@ -3478,7 +3478,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "10% off for customers who belong to segment 1 and also belong to segment 2",
+  "name": "10% off for customers who belong to segment 1 and segment 2",
   "redemption_type": "AUTOMATIC",
   "customer": {
     "segments": {
@@ -3516,7 +3516,7 @@ title: Response
 {
   "data": {
     "id": 50,
-    "name": "10% off for customers who belong to segment 1 and also belong to segment 2",
+    "name": "10% off for customers who belong to segment 1 and segment 2",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -3575,7 +3575,7 @@ type: tab-end
 
 
 <details>  
-  <summary>10% off for customers who belong to segment 3 or customers who belong to segment 1 and also belong to segment 2 (Closed Beta)</summary>
+  <summary>10% off for customers who belong to segment 3 or customers who belong to segment 1 and segment 2 (Closed Beta)</summary>
 
 
 <!--
@@ -3766,7 +3766,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "Buy two product X or buy two product Y",
+    "name": "Buy two of product X or buy two of product Y",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
@@ -3839,7 +3839,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy two product X or buy two product Y",
+  "name": "Buy two of product X or buy two of product Y",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -3913,7 +3913,7 @@ title: Response
 {
   "data": {
     "id": 47,
-    "name": "Buy two product X OR Buy two product Y",
+    "name": "Buy two of product X or buy two of product Y",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -4140,7 +4140,7 @@ title: Response
 {
   "data": {
     "id": 52,
-    "name": "Buy 2 product X OR Buy 2 product Y",
+    "name": "Buy 2 of product X or buy 2 of product Y",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -4394,7 +4394,7 @@ type: tab-end
 
 
 <details>  
-  <summary>Get X% off all brand X and all except X products in brand Y (OR, AND, NOT operators)</summary>
+  <summary>Get X% off all brand X, except X products in brand Y (OR, AND, NOT operators)</summary>
 
 <!--
 type: tab
@@ -4411,7 +4411,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "Get 20% off all coffee makers and all but new arrivals coffee filters",
+    "name": "Get 20% off all coffee makers except for those using new arrivals coffee filters",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
@@ -4476,7 +4476,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Get 20% off all coffee makers and all but new arrivals coffee filters",
+  "name": "Get 20% off all coffee makers except for those using new arrivals coffee filters",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -4542,7 +4542,7 @@ title: Response
 {
   "data": {
     "id": 22,
-    "name": "Get 20% off all Coffee Makers and all but new arrivals Coffee Filters",
+    "name": "Get 20% off all coffee makers except for those using new arrivals coffee filters",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -5715,7 +5715,7 @@ type: tab-end
 
 
 <details>  
-  <summary>Buy X products get free shipping and 10% off order</summary>
+  <summary>Buy X products, get free shipping, and 10% off order</summary>
 
 <!--
 type: tab
@@ -5732,7 +5732,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "Buy two of product X get free shipping to all zones and 10% off order",
+    "name": "Buy two of product X, get free shipping to all zones, and 10% off order",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
@@ -5783,7 +5783,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy two of product X get free shipping to all zones and 10% off order",
+  "name": "Buy two of product X, get free shipping to all zones, and 10% off order",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -5835,7 +5835,7 @@ title: Response
 {
   "data": {
     "id": 27,
-    "name": "Buy two of product X get free shipping to all zones and 10% off order",
+    "name": "Buy two of product X, get free shipping to all zones, and 10% off order",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -5905,7 +5905,7 @@ title: Response
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy two of product X get free shipping to all zones and 10% off order",
+  "name": "Buy two of product X, get free shipping to all zones, and 10% off order",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -5958,7 +5958,7 @@ type: tab-end
 ## Order
 
 <details>  
-  <summary>X$ off when you purchase two of X product or one of X product OR operator</summary>
+  <summary>X$ off when you purchase two of X product or one of X product (OR operator)</summary>
 
 <!--
 type: tab
@@ -6141,7 +6141,7 @@ type: tab-end
 </details>
 
 <details>  
-  <summary>Spend X$ get X$ off order</summary>
+  <summary>Spend X$ and get X$ off order</summary>
 
 <!--
 type: tab
@@ -6158,7 +6158,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "Spend X$ get X$ off order",
+    "name": "Spend X$ and get X$ off order",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
@@ -6215,7 +6215,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Spend X$ get X$ off order",
+  "name": "Spend X$ and get X$ off order",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -6272,7 +6272,7 @@ title: Response
 {
   "data": {
     "id": 28,
-    "name": "Spend X$ get X$ off order",
+    "name": "Spend X$ and get X$ off order",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -6344,7 +6344,7 @@ type: tab-end
 </details>
 
 <details>  
-  <summary>Order at least $X get X item free</summary>
+  <summary>Order at least $X and get X item free</summary>
 
 <!--
 type: tab
@@ -6360,7 +6360,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "Order at least $X get X item free",
+    "name": "Order at least $X and get X item free",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
@@ -6416,7 +6416,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Order at least $X get X item free",
+  "name": "Order at least $X and get X item free",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -6473,7 +6473,7 @@ title: Response
 {
   "data": {
     "id": 29,
-    "name": "Order at least $X get X item free",
+    "name": "Order at least $X and get X item free",
     "created_from": "api",
     "customer": {
         "group_ids": [],
@@ -6545,7 +6545,7 @@ type: tab-end
  
 
 <details>  
-  <summary>Take X% off items storewide except for X category NOT operator</summary>
+  <summary>Take X% off items storewide except for X category (NOT operator)</summary>
 
 <!--
 type: tab
@@ -6762,7 +6762,7 @@ type: tab-end
 ## Product
 
 <details>  
-  <summary>Buy one get one free</summary>
+  <summary>Buy one and get one free</summary>
 
 
 <!--
@@ -6780,7 +6780,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-  "name": "Buy one get one free",
+  "name": "Buy one and get one free",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -6843,7 +6843,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy one get one free",
+  "name": "Buy one and get one free",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -6906,7 +6906,7 @@ title: Response
 {
   "data": {
     "id": 31,
-    "name": "Buy one get one free",
+    "name": "Buy one and get one free",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -6982,7 +6982,7 @@ type: tab-end
 </details>
 
 <details>  
-  <summary>Buy (X units) of product A, get (Y units) of product B for $ or % off per unit</summary>
+  <summary>Buy (X units) of product A and get (Y units) of product B for $ or % off per unit</summary>
 
 <!--
 type: tab
@@ -6999,7 +6999,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "Buy two X get 10% off Y",
+    "name": "Buy two X and get 10% off Y",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
@@ -7069,7 +7069,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy two X get 10% off Y",
+  "name": "Buy two X and get 10% off Y",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -7140,7 +7140,7 @@ title: Response
 {
   "data": {
     "id": 32,
-    "name": "Buy two X get 10% off Y",
+    "name": "Buy two X and get 10% off Y",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -7247,7 +7247,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "Spend 100 dollar and get 10% off small orbit",
+    "name": "Spend 100 dollars and get 10% off small orbit",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
@@ -7311,7 +7311,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Spend 100 dollar and get 10% off small orbit",
+  "name": "Spend 100 dollars and get 10% off small orbit",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -7376,7 +7376,7 @@ title: Response
 {
   "data": {
     "id": 33,
-    "name": "Spend 100 dollar and get 10% off small orbit",
+    "name": "Spend 100 dollars and get 10% off small orbit",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -8733,7 +8733,7 @@ type: tab-end
 ## Shipping
 
 <details>  
-  <summary>Buy two of X and buy two of Y get free shipping to all zones start/end times AND operator</summary>
+  <summary>Buy two of X and buy two of Y and get free shipping to all zones start/end times (AND operator)</summary>
 
 <!--
 type: tab
@@ -8749,7 +8749,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "Buy two of X and buy two of Y get free shipping to all zones",
+    "name": "Buy two of X and buy two of Y and get free shipping to all zones",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
@@ -8804,7 +8804,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Buy two of X and buy two of Y get free shipping to all zones",
+  "name": "Buy two of X, buy two of Y and get free shipping to all zones",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -8860,7 +8860,7 @@ title: Response
 {
   "data": {
     "id": 54,
-    "name": "Buy two of X and buy two of Y get free shipping to all zones",
+    "name": "Buy two of X, buy two of Y and get free shipping to all zones",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -8928,7 +8928,7 @@ type: tab-end
 </details>
 
 <details>  
-  <summary>Order at least X units of product Y, get free shipping to specific shipping zones</summary>
+  <summary>Order at least X units of product Y and get free shipping to specific shipping zones</summary>
 
 <!--
 type: tab
@@ -8945,7 +8945,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "Order at least X units of product Y, get free shipping to specific shipping zones",
+    "name": "Order at least X units of product Y and get free shipping to specific shipping zones",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
@@ -9013,7 +9013,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Order at least X units of product Y, get free shipping to specific shipping zones",
+  "name": "Order at least X units of product Y and get free shipping to specific shipping zones",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -9082,7 +9082,7 @@ title: Response
 {
   "data": {
     "id": 44,
-    "name": "Order at least X units of product Y, get free shipping to specific shipping zones",
+    "name": "Order at least X units of product Y and get free shipping to specific shipping zones",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -9163,7 +9163,7 @@ type: tab-end
 </details>
 
 <details>  
-  <summary>Order at least 2X of product get free shipping</summary>
+  <summary>Order at least 2X of product and get free shipping</summary>
 
 <!--
 type: tab
@@ -9180,7 +9180,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "Order at least 2X of product get free shipping",
+    "name": "Order at least 2X of product and get free shipping",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
@@ -9242,7 +9242,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "Order at least 2X of product get free shipping",
+  "name": "Order at least 2X of product and get free shipping",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -9304,7 +9304,7 @@ title: Response
 {
   "data": {
     "id": 45,
-    "name": "Order at least 2X of product get free shipping",
+    "name": "Order at least 2X of product and get free shipping",
     "created_from": "api",
     "customer": {
       "group_ids": [],
@@ -9400,7 +9400,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "10% off storewide except (NOT) 'Huggies', 'Munchkin' and 'Pampers' brand products",
+    "name": "10% off storewide except 'Huggies', 'Munchkin' and 'Pampers' brand products (NOT operator)",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
