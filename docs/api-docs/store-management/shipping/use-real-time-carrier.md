@@ -174,7 +174,7 @@ title: Request
 -->
 
 ```json title="Example request: Create a real-time shipping method" lineNumbers
-POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/zones/{zone_id}/methods
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/zones/{{ZONE_ID}}/methods
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -246,7 +246,7 @@ title: Request
 -->
 
 ```json title="Example request: Update a real-time shipping method" lineNumbers
-PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/zones/{zone_id}/methods/{method_id}
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/zones/{{ZONE_ID}}/methods/{{METHOD_ID}}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -311,7 +311,7 @@ title: Request
 -->
 
 ```json title="Example request: Get a real-time shipping method" lineNumbers
-GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/zones/{zone_id}/methods/{method_id}
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/zones/{{ZONE_ID}}/methods/{{METHOD_ID}}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
@@ -362,7 +362,7 @@ title: Request
 -->
 
 ```json title="Example request: Delete a real-time shipping method" lineNumbers
-DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/zones/{zone_id}/methods/{method_id}
+DELETE https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/zones/{{ZONE_ID}}/methods/{{METHOD_ID}}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
