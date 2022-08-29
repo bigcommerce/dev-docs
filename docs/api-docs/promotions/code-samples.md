@@ -9384,7 +9384,7 @@ type: tab-end
 
 
 <details>  
-  <summary>10% off storewide except (NOT) 'Huggies', 'Munchkin' and 'Pampers' brand products</summary>
+  <summary>10% off storewide except 'Huggies', 'Munchkin', and 'Pampers' brand products (NOT operator)</summary>
 
 <!--
 type: tab
@@ -9400,7 +9400,7 @@ title: Try It
     "X-Auth-Token": ""
   },
   "body": {
-    "name": "10% off storewide except 'Huggies', 'Munchkin' and 'Pampers' brand products (NOT operator)",
+    "name": "10% off storewide except 'Huggies', 'Munchkin', and 'Pampers' brand products",
     "redemption_type": "AUTOMATIC",
     "rules": [
       {
@@ -9434,7 +9434,7 @@ title: Request
 
 ```json title="Example request" lineNumbers
 {
-  "name": "10% off storewide except (NOT) 'Huggies', 'Munchkin' and 'Pampers' brand products",
+  "name": "10% off storewide except 'Huggies', 'Munchkin', and 'Pampers' brand products",
   "redemption_type": "AUTOMATIC",
   "rules": [
     {
@@ -9469,7 +9469,7 @@ title: Response
 {
   "data": {
     "id": 46,
-    "name": "10% off storewide except (NOT) 'Huggies', 'Munchkin' and 'Pampers' brand products",
+    "name": "10% off storewide except 'Huggies', 'Munchkin', and 'Pampers' brand products",
     "created_from": "api",
     "customer": {
       "group_ids": [],
