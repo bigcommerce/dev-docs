@@ -1,6 +1,6 @@
 # Become a Shipping Provider
 
-Shipping providers can offer shipping services and rates to BigCommerce merchants and shoppers. They must implement endpoints through BigCommerce. 
+Shipping providers can offer shipping services and rates to BigCommerce merchants and shoppers. They must build a BigCommerce app and implement endpoints through BigCommerce.  BigCommerce will retrieve and display service options and rates. Merchants can see these rates in the control panel and shoppers can see them on the storefront. 
 
 Benefits of using a shipping provider include the following: 
 - Drop-shippers can set their own rates
@@ -16,7 +16,7 @@ This article guides you on how to create and register a shipping provider app at
 
 ## Shipping app overview
 
-Once BigCommerce registers your app, a store owner can install the app on a store. Merchants and developers can then connect the service on their store. They can enable your carrier in one or more shipping zones. They can set up different shipping options for each zone your carrier services. BigCommerce will then retrieve service options and rates. Merchants can see your rates in the store's control panel and shoppers can see them on the storefront. The following figure illustrates the workflow:
+Once BigCommerce registers your app, a store owner can install the app on a store. Merchants and developers can then connect the service on their store. They can enable your carrier in one or more shipping zones. They can set up different shipping options for each zone your carrier services.  BigCommerce will retrieve service options and rates. The following figure illustrates the workflow:
 
 ![Shipping Provider Overview](https://storage.googleapis.com/bigcommerce-production-dev-center/images/shipping-provider-figure.png)
 ![Shipping App Overview](https://storage.googleapis.com/bigcommerce-production-dev-center/images/ship%20prov%20api.png 'Shipping Provider API')
