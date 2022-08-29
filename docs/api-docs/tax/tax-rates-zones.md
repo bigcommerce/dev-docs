@@ -176,7 +176,7 @@ title: Response
 
 ### Get tax zones
 
-This endpoint supports batch operations. You can get all the tax zones in your store, or only specific tax zones. To get tax zones, send a request to the [Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones) endpoint. To get only select tax zones, use the `id:in` query parameter.
+[Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones) returns all tax zones by default. To return certain tax zones, include the `id:in` query parameter.
 
 <!--
 type: tab
