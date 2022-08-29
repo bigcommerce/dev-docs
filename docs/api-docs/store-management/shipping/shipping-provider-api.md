@@ -244,8 +244,8 @@ Accept: application/json
 {	
   "carrier_id" : "endicia",
   "connection": {
-      "account_id" : "example_id",
-      "pass_phrase" : "example_passphrase"
+    "account_id" : "example_id",
+    "pass_phrase" : "example_passphrase"
   }
 }
 ```
