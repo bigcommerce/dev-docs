@@ -384,13 +384,13 @@ HTTP 204 No content
 
 - [Shipping V2 API Reference](/api-reference/store-management/shipping-api) 
 
-## Shipping carrier
+### Shipping carrier
 
 - [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection)
 - [Update a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/updateacarrierconnection)
 - [Delete a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/deletecarrierconnection)
 
-## Shipping method
+### Shipping method
 
 - [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod)
 - [Update a shipping method](/api-reference/store-management/shipping-api/shipping-method/updateashippingmethod)
