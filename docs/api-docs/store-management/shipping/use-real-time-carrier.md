@@ -125,7 +125,7 @@ HTTP 204 No content
 
 ### Delete a connection
 
-To delete a connection, send a request to the [Delete a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/deletecarrierconnection) endpoint. Specify the `carrier_id` in the request body.
+To delete a connection, send a request to the [Delete a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/deletecarrierconnection) endpoint and specify the `carrier_id` in the request body.
 
 <!--
 type: tab
@@ -164,7 +164,9 @@ After you connect a carrier, set up a shipping method for the carrier in one or 
 
 ### Create a shipping method
 
-To create a shipping method for a carrier, send a request to the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) endpoint. Specify the shipping zone in the path using the zone ID (`id`) from the [Get all shipping zones](/api-reference/store-management/shipping-api/shipping-zones/getallshippingzones) endpoint. The shipping carrier’s ID is required. 
+To create a shipping method for a carrier, send a request to the [Create a shipping method](/api-reference/store-management/shipping-api/shipping-method/createashippingmethod) endpoint. Specify the shipping zone in the path using the zone ID (`id`) from the [Get all shipping zones](/api-reference/store-management/shipping-api/shipping-zones/getallshippingzones) endpoint.
+
+The response provides an `id` for the shipping method. Use the `id` to get, update, or delete a shipping method.
 
 <!--
 type: tab
@@ -236,7 +238,7 @@ After you enable a connected carrier, you can obtain its real-time shipping quot
 
 ### Update a shipping method
 
-To update a shipping method for a carrier, send a request to the [Update a shipping method](/api-reference/store-management/shipping-api/shipping-method/updateashippingmethod) endpoint.
+To update a shipping method for a carrier, send a request to the [Update a shipping method](/api-reference/store-management/shipping-api/shipping-method/updateashippingmethod) endpoint and specify the shipping method and zone in the path. Use the zone ID (`id`) from the [Get all shipping zones](/api-reference/store-management/shipping-api/shipping-zones/getallshippingzones) endpoint to specify the zone.
 
 <!--
 type: tab
@@ -301,7 +303,7 @@ title: Response
 
 ### Get a shipping method
 
-To get a shipping method for a carrier, send a request to the [Get a shipping method](/api-reference/store-management/shipping-api/shipping-method/getashippingmethod) endpoint.
+To get a shipping method for a carrier, send a request to the [Get a shipping method](/api-reference/store-management/shipping-api/shipping-method/getashippingmethod) endpoint and specify the shipping method and zone in the path. Use the zone ID (`id`) from the [Get all shipping zones](/api-reference/store-management/shipping-api/shipping-zones/getallshippingzones) endpoint to specify the zone.
 
 <!--
 type: tab
@@ -352,7 +354,7 @@ You can also [Get all shipping methods](/api-reference/store-management/shipping
 
 ### Delete a shipping method
 
-To delete a shipping method for a carrier, send a request to the [Delete a shipping method](/api-reference/store-management/shipping-api/shipping-method/deleteashippingmethod) endpoint.
+To delete a shipping method for a carrier, send a request to the [Delete a shipping method](/api-reference/store-management/shipping-api/shipping-method/deleteashippingmethod) endpoint and specify the shipping method and zone in the path. Use the zone ID (`id`) from the [Get all shipping zones](/api-reference/store-management/shipping-api/shipping-zones/getallshippingzones) endpoint to specify the zone.
 
 <!--
 type: tab
