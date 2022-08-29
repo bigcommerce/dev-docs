@@ -105,7 +105,7 @@ title: Response
 
 ### Update tax zones
 
-Send a request to the [Update tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/update-tax-zones) endpoint to modify a tax zone. Specify the `id` of the zone you want to update in the request body. The request updates only fields that you specify.
+Send a request to the [Update tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/update-tax-zones) endpoint to modify a tax zone. Specify the `id` of the zone you want to update in the request body. The request updates only the fields that you specify.
 
 <!--
 type: tab
