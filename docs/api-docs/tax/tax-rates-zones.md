@@ -14,7 +14,7 @@ A zone can occupy multiple countries, each containing multiple subdivisions and 
 
 ### Create tax zones
 
-First, use the [Create tax zones endpoint](/api-reference/store-management/tax-rates-and-zones/tax-zones/create-tax-zones) to add tax zones to the store. 
+Use the [Create tax zones endpoint](/api-reference/store-management/tax-rates-and-zones/tax-zones/create-tax-zones) to add tax zones to the store. 
 
 The response provides an `id` for each tax zone. Use the `id` to get, update, or delete a specific tax zone.
 
