@@ -1,4 +1,4 @@
-# Customizing Javascript
+# Customizing JavaScript
 
 
 
@@ -12,7 +12,7 @@ By default, all derived `PageManager` classes contain an `onReady` method functi
 
 To demonstrate, this article describes how to add some very simple JavaScript to `product.js`.
 
-## Modifying a page's Javascript
+## Modifying a page's JavaScript
 
 In this example, we will add some "Hello World!" text to the product page's `onReady` event. We'll first add a call to the function. Then, we will implement the function itself.
 
@@ -124,7 +124,7 @@ export default class Product extends PageManager {
 }
 ```
 
-Note that the `console.log(this.context.themeImageSizes);` statement will report the configured image size, following the "Hello World!" message previously defined in [Modifying a Page's Javascript](#modifying-a-pages-javascript) above.
+Note that the `console.log(this.context.themeImageSizes);` statement will report the configured image size, following the "Hello World!" message previously defined in [Modifying a Page's JavaScript](#modifying-a-pages-javascript) above.
 
 
 

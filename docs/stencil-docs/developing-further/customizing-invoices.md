@@ -8,7 +8,7 @@ There are four editable invoices in BigCommerce:
 1. Email invoice
 2. Merchant printable invoice
 3. Customer printable invoice
-4. Detailed customer printable invoice (UK orders only)
+4. Detailed merchant printable invoice (Supported by UK, France, and Poland)
 
 Merchants commonly request developers modify the default content of invoices in order to satisfy specific business requirements and industry demands. In order to assist developers in making these changes, this articles contains instructions on how to edit each invoice.
 
@@ -63,7 +63,7 @@ This invoice becomes available in a shopper's orders after completing an order. 
 
 As a developer, you can customize this invoice by editing your theme's `invoice.html` file that is present in your theme's files. This file is located in `templates/pages/account/orders/invoice.html`.
 
-## Customizing the detailed customer printable invoice
+## Customizing the detailed merchant printable invoice
 
 Use this invoice when a store receives an order from a shipping address in a country which supports PrintableDetailedInvoice. This invoice can be customized by performing the following steps:
 

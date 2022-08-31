@@ -98,7 +98,7 @@ If the tax provider supports all eligible stores, then they may choose to provid
 
 If the tax provider is a private instance, then they may choose to provide the basic authentication credentials themselves.
 
-In either case, the [Update Connection](/api-reference/store-management/tax/tax-provider-connection/provider-connection-put) endpoint should be called after the tax provider's app has been successfully installed. Tax providers will need to include `store_hash`, `provider_id`, `X-Auth-Client` (`client_id`) and `X-Auth-Token`(`access_token`) values.
+In either case, the [Update Connection](/api-reference/store-management/tax/tax-provider-connection/provider-connection-put) endpoint should be called after the tax provider's app has been successfully installed. Tax providers will need to include `store_hash`, `provider_id`, and `X-Auth-Token`(`access_token`) values.
 
 We recommend calling the [Update Connection](/api-reference/store-management/tax/tax-provider-connection/provider-connection-put) endpoint immediately after the app has been successfully installed, otherwise your tax provider will not be displayed when merchants navigate to the **Store Setup > Tax** page in the BigCommerce control panel.
 
