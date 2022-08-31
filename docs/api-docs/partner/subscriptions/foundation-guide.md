@@ -7,7 +7,7 @@ Subscription Foundation uses the [Channels toolkit](/api-docs/channels/guide/ove
 ## Software requirements 
 * [Node.js](https://nodejs.org/en/) 14.17.0
 * The [npm](https://www.npmjs.com/) package manager
-* A [supported SQL database engine](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/), either SQLite or another of your choice
+* A [supported SQL database engine](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/), either Postgres or another of your choice
 
 ## Configure accounts
 
@@ -163,7 +163,7 @@ After you successfully configure test mode, configure your BigCommerce sandbox s
 
 To configure the store to make subscription charges, complete the following steps:
 
-1. In the BigCommerce store control panel, navigate to the [Stripe settings section](https://login.bigcommerce.com/deep-links/settings/payment/stripev3) and make sure that **Test Mode** is set to **Yes**.
+1. In the BigCommerce store control panel, navigate to **Store Setup** > **Payments > [Stripe settings](https://login.bigcommerce.com/deep-links/settings/payment/stripev3) and make sure that **Test Mode** is set to **Yes**.
 
 ![stripe-settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/stripe-settings.png)
 
@@ -195,6 +195,7 @@ Open the `.env` file you just created and update the following environment varia
 | Environment variable | Description | Reference location |
 |:---------------------|:------------|:-------------------|
 | `NEXT_PUBLIC_APP_URL` | A public-facing URL that can receive webhooks. | On this page, see [Create an HTTPS tunnel](#create-an-https-tunnel); see also [the HTTPS tunnel section of the Sample App Tutorial](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#create-an-https-tunnel?source=subscription-foundation)  |
+| `DATABASE_URL` | A URL that connects to a database | On this page, see [Run migration and start the server](#run-migration-and-start-the-server) |
 | `NEXT_PUBLIC_APP_ID` | The app's ID | [Find an App's ID](/api-docs/apps/tutorials/id#find-in-developer-portal?source=subscription-foundation) |
 | `BC_APP_CLIENT_ID` | The app API account's client ID | [View App Credentials](/api-docs/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
 | `BC_APP_SECRET` | The app API account's client secret | [View App Credentials](/api-docs/apps/guide/developer-portal#view-credentials?source=subscription-foundation) |
@@ -206,19 +207,25 @@ Open the `.env` file you just created and update the following environment varia
 
 <!-- theme: info -->
 > #### Database note
-> This example uses SQLite as a data store. In production, we recommend using a database that has more robust concurrency support, such as PostgreSQL. For information on switching databases, see the [Replacing SQLite](#replacing-sqlite) section.
+> This example uses Postgres as a data store. We recommend using [Supabase](https://supabase.com/) for a free database. For information on switching databases, see the [Replacing Postgres](#replacing-postgres) section.
 
 To run the migration and start the server, complete the following steps:
 
-1. If you're using SQLite, which is the default data store for Subscription Foundation, skip to the next step. Otherwise, follow the instructions in [Replacing SQLite](#replacing-sqlite).
+1. If you're using Postgres, which is the default data store for Subscription Foundation, skip to the next step. Otherwise, follow the instructions in [Replacing Postgres](#replacing-postgres).
 
-2. Run the pre-configured Prisma migration script to create the database tables and initial client as defined in `/prisma/migrations/*` with the following command: 
+2. Obtain the database URL in [Supabase](https://supabase.com/) by going to **Settings** > **Database** > **Connection string** and clicking **URI**.  Use this string to update the `DATABASE_URL` environment variable in the `.env` file. The string resembles the following example:
+
+```shell title="Example Postgres Cloud connection string"
+postgresql://postgres:[YOUR-PASSWORD]@db.uqchmyniufaqkijttavq.supabase.co:5432/postgres
+```
+
+3. Run the pre-configured Prisma migration script to create the database tables and initial client as defined in `/prisma/migrations/*` with the following command: 
 
 ```shell title="Run Prisma migration"
 npx prisma migrate dev
 ```
+![npx_prisma_migrate_dev_postgres](https://storage.googleapis.com/bigcommerce-production-dev-center/images/npx_prisma_migrate_dev_postgres.png)
 
-![npx_prisma_migrate](https://storage.googleapis.com/bigcommerce-production-dev-center/images/npx_prisma_migrate.png)
 
 3. Start the app server with the following npm script:
 
@@ -228,19 +235,27 @@ npm run dev
 
 After the app server and ngrok are running, you can install the draft app on your sandbox store. For more information about installing and troubleshooting apps in development, read our App Tutorial section on [Installing and launching an app](/api-docs/apps/tutorials/sample-app-nextjs/step-2-connect#install-and-launch-the-app).
 
-## Replacing SQLite
+## Replacing Postgres
 
-To use an alternate SQL database, complete the following steps:
+To use an alternate SQL database (e.g., SQLite), complete the following steps:
 
-1. Update the `/prisma/schema.prisma` file with a `provider` other than `SQLite`. For a list of options, read [Prisma's reference docs](https://prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/).
+1. Update the `/prisma/schema.prisma` file with a `provider` other than `Postgresql`. For a list of options, read [Prisma's reference docs](https://prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/).
 
-2. In `/prisma/.env`, update the value of the `DATABASE_URL` variable to match your new database connection string.
+```
+databse db {
+   provider = "sqlite"
+   url      = env("DATABASE_URL")
+```
+
+2. In `/prisma/.env`, update the value of the `DATABASE_URL` variable to match your new database connection string. Use this string to update the `DATABASE_URL` environment variable in the `.env` file.
 
 3. Run the prisma migration script with the following command:
 
 ```shell title="Run Prisma migration"
 npx prisma migrate dev
 ```
+<!-- theme: warning -->
+> If you miss the preceding step, you will not successfully switch the database provider. For a list of Prisma migrate limitations, see [Prisma Migrate limitations and known issues](https://www.prisma.io/docs/concepts/components/prisma-migrate/prisma-migrate-limitations-issues#you-cannot-automatically-switch-database-providers).
 
 4. To generate a fresh app client that uses the new database provider, run the following script:
 
@@ -284,8 +299,16 @@ This error can occur when the `/prisma/schema.prisma` file contains the incorrec
 
 If you don't enable the proper OAuth scopes, the `/api/auth` request might fail. Go to the [Dev Portal](https://devtools.bigcommerce.com) to verify the proper OAuth scopes are enabled in your app's profile. To learn more, read [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#edit-technical-details). Make sure your scopes equal or exceed those listed in the [Creating an app profile](#create-an-app-profile) section.
 
+### Issue: Unable to migrate your data to another provider. 
+
+In order to manually switch the database provider, you must do the following:
+* Change the `provider` and `url` parameters in the datasource block of the `/prisma/schema.prisma` file
+* Archive or remove the `./prisma/migrations` folder
+* Run `prisma migrate dev` to start a new migration history
+
 ## Resources
 ### Related articles
 * [Subscription Foundation README](https://github.com/bigcommerce/subscription-foundation/blob/main/README.md)
 * [Connecting with Stripe](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway#foundations)
 * [Introducing the Subscription Foundation](https://medium.com/bigcommerce-developer-blog/introducing-the-subscription-foundation-afd6dfd22757?source=friends_link&sk=7ce53b66fee0dc660c603ab8f2bca22a)
+* [Prisma Migrate limitations and known issues](https://www.prisma.io/docs/concepts/components/prisma-migrate/prisma-migrate-limitations-issues#you-cannot-automatically-switch-database-providers)
