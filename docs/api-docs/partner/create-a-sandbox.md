@@ -14,6 +14,7 @@ This article walks you through the steps of creating a sandbox store and explain
     * **Partner Use Sandbox**: Create a sandbox for your own internal use.
 3. If you select **Deal Registration w/ Store**, fill in all the fields on the **Create a Store/Register a Deal** page.
     * In the **Create a Store** field, select **Partner Sandbox**.
+    * In the **Store Region** field, select a global region. NOTE: You cannot update the store region after partner sandbox creation.
     * Click **Submit**.
  4. If you select **Partner Use Sandbox**, fill in the **Sandbox Name** field, and then click **Submit**.
 
@@ -22,7 +23,7 @@ For both options, allow up to 15 minutes for the new store to appear in the list
 If you select the **Deal Registration w/Store** option, you will receive two emails: a Deal Registration Confirmation email, and your new sandbox Store Login Credentials email, containing the credentials to your sandbox. If you select the **Partner Sandbox** option, you will receive an email with the sandbox credentials only. 
 Note that the email containing the sandbox credentials is sent only once. You can view all your related stores by signing into your account with these credentials.
 
-You can view your newly created sandbox by navigating to **Reporting > Review Sandboxes & Trials** on the Partner Portal.
+You can view your newly created sandbox by navigating to **Reporting > Review Sandboxes & Trials** on the Partner Portal. 
 
 ## Creating a support case
 
