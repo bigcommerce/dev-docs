@@ -163,7 +163,7 @@ After you successfully configure test mode, configure your BigCommerce sandbox s
 
 To configure the store to make subscription charges, complete the following steps:
 
-1. In the BigCommerce store control panel, navigate to **Store Setup** > **Payments > [Stripe settings](https://login.bigcommerce.com/deep-links/settings/payment/stripev3) and make sure that **Test Mode** is set to **Yes**.
+1. In the BigCommerce store control panel, navigate to **Store Setup** > **Payments** > [Stripe settings](https://login.bigcommerce.com/deep-links/settings/payment/stripev3) and make sure that **Test Mode** is set to **Yes**.
 
 ![stripe-settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/stripe-settings.png)
 
