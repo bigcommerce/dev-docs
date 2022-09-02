@@ -66,7 +66,7 @@ When a webhook is triggered, BigCommerce will `POST` a light payload containing 
  }
 ```
 
-You can then make a request to [/orders/{id}](/api-reference/store-management/orders/orders/getanorder) to obtain full order details.
+You can then make a request to the [Get an order](/api-reference/store-management/orders/orders/getanorder) endpoint to obtain full order details.
 
 For more information on specific webhook events and their payloads, see [Webhook Events](/api-docs/store-management/webhooks/webhook-events).
 
@@ -151,7 +151,7 @@ Accept: application/json
 }
 ```
 
-BigCommerce will send the specified headers when making callback requests to the destination server - this allows webhook destination URIs to be secured via basic authentication.
+BigCommerce will send the specified headers when making callback requests to the destination server - this allows webhook destination URIs to be secured with basic authentication.
 
 ## Troubleshooting
 
@@ -168,7 +168,7 @@ If you receive an email, or discover `is_active` is `false`, try the following:
   * Hostname on certificate doesn't match the hostname in DNS settings
   * Key and trust stores are not configured with the required intermediate certificates
 
-Once the issue is resolved, set `is_active` to `true` using the [Update a webhook](/api-reference/store-management/webhooks/webhooks/updateawebhook) endpoint so that BigCommerce starts sending event callback requests again.
+Once the issue is resolved, set `is_active` to `true` using the [Update a webhook](/api-reference/store-management/webhooks/webhooks/updateawebhook) endpoint, so that BigCommerce starts sending event callback requests again.
 
 **No 200 response from the [Create a webhook](/api-reference/webhooks/webhooks/createwebhooks) endpoint**
 * Check TLS/SSL configuration on the computer sending the request.
