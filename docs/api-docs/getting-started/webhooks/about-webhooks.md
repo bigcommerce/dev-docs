@@ -83,14 +83,14 @@ The webhooks service will do its best to deliver events to the destination callb
 The webhook service may send many payloads to a single URI in quick succession. Because of this, we use a sliding scale across a ** two-minute window** to calculate a callback response success rate for each remote destination. When the webhook service receives a `2xx` response, the destination's success count is increased. If there's no response or the remote server times out, the destination's failure count is increased. Based on these two numbers, a success ratio is calculated.
 
 
-The following process will determine whether the destination URI gets blacklisted:
+The following process will determine whether the destination URI gets blocklisted:
 
-1. Once a webhook is triggered, the service checks if your callback URI is on the blacklist.
+1. Once a webhook is triggered, the service checks if your callback URI is on the blocklist.
 2. If it's not, we calculate a success ratio for the remote server based on its success/failure count in a **two minute window**.
-3. If at any point in the two minute window the success/failure ratio dips below **90%**, the destination URI's domain will be blacklisted for **three minutes**.
-4. Webhook events triggered during this time are sent to our retry queues to be executed later when the domain is no longer blacklisted and once the retry queue time has elapsed.
+3. If at any point in the two minute window the success/failure ratio dips below **90%**, the destination URI's domain will be blocklisted for **three minutes**.
+4. Webhook events triggered during this time are sent to our retry queues to be executed later when the domain is no longer blocklisted and once the retry queue time has elapsed.
 
-Once a domain is no longer blacklisted, all new webhook requests will be sent as they occur. Event requests sent to the retry queue during a blacklisting period will be delivered according to the retry queue schedule.
+Once a domain is no longer blocklisted, all new webhook requests will be sent as they occur. Event requests sent to the retry queue during a blocklisting period will be delivered according to the retry queue schedule.
 
 The webhook dispatcher will then attempt several retries (at increasing intervals) until the maximum retry limit is reached.
 
@@ -112,7 +112,7 @@ After the final retry attempt (cumulatively **48 hours** after the first deliver
 
 <!-- theme: info -->
 > #### Note
-> * A domain's success rate for a given sliding window is not calculated until `100` webhook requests are sent - this means the domain will not be blacklisted for the first `100` webhooks sent within the time window (regardless of response), as all webhooks are sent until the minimum threshold has been reached for the current time window.
+> * A domain's success rate for a given sliding window is not calculated until `100` webhook requests are sent - this means the domain will not be blocklisted for the first `100` webhooks sent within the time window (regardless of response), as all webhooks are sent until the minimum threshold has been reached for the current time window.
 > * The webhook dispatcher determines whether retries are needed based on responses from the subscribed domain as a whole, not by specific hooks. For example, `domain.com/webhook-1` and `domain.com/webhook-2` will affect each other for failures and retries, as both URLs belong to the same domain.
 
 
