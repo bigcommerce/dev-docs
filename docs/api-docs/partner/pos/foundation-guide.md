@@ -290,10 +290,3 @@ Want to help expand this foundation? We'd love to hear from you. Submit a pull r
 ### BigCommerce developer resources
 * [Application to join BC Developer Community Slack workspace](https://forms.gle/rtRjbGo2L95U9Fjy9)
 
-### Expansion resources
-* [Multi-Storefront Overview](https://support.bigcommerce.com/s/article/Multi-Storefront)
-* [Subscription Foundation README](https://github.com/bigcommerce/point-of-sale-foundation/blob/main/README.md)
-* [Subscription Foundation Overview](/api-docs/partner/subscription-solutions/foundation-guide)
-* [Channels API Reference](/api-reference/store-management/channels/channels/createchannel)
-* [App API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts)
-* [Guide to Building Apps](/api-docs/apps/guide/intro)
