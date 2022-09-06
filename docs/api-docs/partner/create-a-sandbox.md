@@ -9,7 +9,7 @@ This article walks you through the steps of creating a sandbox store and explain
 To create a sandbox store, complete the following steps:
 
 1. Navigate to the [BigCommerce Partner Portal](https://partners.bigcommerce.com/) and sign in using your credentials.
-2. After signing in, hover over **Create New** in the top nav, then select one of the following two options:
+2. After signing in, hover over **Create New** in the top navigation, then select one of the following two options:
    * To register a new deal and create an associated sandbox, select **Deal Registration** and consult the following instructions to [create a Deal Registration sandbox](#deal-registration-sandbox).
    * To create a sandbox for your own general use, select **Partner Use Sandbox** and consult the following instructions to [create a Partner Sandbox](#partner-use-sandbox).
   
@@ -21,7 +21,7 @@ To create a sandbox store, complete the following steps:
 
 ### Deal Registration sandbox
 
-After you click **Create New > Deal Registration** in the top nav, complete the following steps:
+After you click **Create New > Deal Registration** in the top navigation, complete the following steps:
 
 1. On the **Create a Store/Register a Deal** page, complete all the required fields.
 
@@ -47,7 +47,7 @@ For more about viewing and working with partner sandboxes, consult the following
   
 ### Partner Use sandbox
 
-After you click **Create New > Partner Use Sandbox** in the top nav, complete the following steps: 
+After you click **Create New > Partner Use Sandbox** in the top navigation, complete the following steps: 
 
 1. On the **Create a Partner Sandbox** page, give the sandbox a name.
    
@@ -71,7 +71,7 @@ Allow up to 15 minutes for the new store to appear in any list of stores.
 
 The email that contains the sandbox credentials is sent only once. However, you can access the sandbox by signing in to the [BigCommerce account](https://login.bigcommerce.com/accounts/list) that uses the same email address as your Partner Portal account.
 
-To review and manage your sandbox and trial stores in the Partner Portal, hover over **Reporting** in the top nav, then click **Review Sandboxes & Trials**.
+To review and manage your sandbox and trial stores in the Partner Portal, hover over **Reporting** in the top navigation, then click **Review Sandboxes & Trials**.
 
 ![Reporting menu](https://storage.googleapis.com/bigcommerce-production-dev-center/images/partner-portal/partner-portal-menu-reporting-review-sandboxes.png)
 
@@ -82,7 +82,7 @@ If you encounter trouble creating or managing partner sandboxes, you can create 
 To create a partner-specific support case, complete the following steps:
 
 1. Sign in to the [Partner Portal](https://partners.bigcommerce.com). 
-2. In the top nav, hover over **Support**, then click **Contact Support**.
+2. In the top navigation, hover over **Support**, then click **Contact Support**.
 
 ![Contact Support menu](https://storage.googleapis.com/bigcommerce-production-dev-center/images/partner-portal/partner-portal-menu-support-contact.png)
 
