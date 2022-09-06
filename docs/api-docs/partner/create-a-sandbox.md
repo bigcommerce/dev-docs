@@ -77,15 +77,34 @@ To review and manage your sandbox and trial stores in the Partner Portal, hover 
 
 ## Creating a support case
 
-**To create a support case**
+If you encounter trouble creating or managing partner sandboxes, you can create a partner-specific support case.
 
-1. Sign into your Partner account to access the [Partner Portal](https://partners.bigcommerce.com). 
-2. Navigate to **Support > Contact Support** and click **Create a Support Case**.
-3. Select the type of issue you have (Product Support or Billing Support).
-4. Select **Yes** to the question "Is this related to a specific store?"
-5. Enter your new sandbox store’s canonical URL (for example: http://your-store-name.mybigcommerce.com). 
-6. Sign into your new store using the same email associated with your partner login.
-7. Click **Help** in the Admin panel and scroll down to select your desired **Services & Support**. 
+To create a partner-specific support case, complete the following steps:
+
+1. Sign in to the [Partner Portal](https://partners.bigcommerce.com). 
+2. In the top nav, hover over **Support**, then click **Contact Support**.
+
+![Contact Support menu](https://storage.googleapis.com/bigcommerce-production-dev-center/images/partner-portal/partner-portal-menu-support-contact.png)
+
+3. On the **Contact Support** page, click the **Create a Support Case** card.
+
+![Create support case card](https://storage.googleapis.com/bigcommerce-production-dev-center/images/partner-portal/partner-portal-menu-contact-support-create-case-1.png)
+
+4. Indicate whether you need **Product Support** or **Billing Support**.
+
+![Select support type](https://storage.googleapis.com/bigcommerce-production-dev-center/images/partner-portal/partner-portal-menu-contact-support-case-type-2.png)
+
+5. When asked **Is this related to a specific store?**; answer **Yes**.
+
+![Specific store](https://storage.googleapis.com/bigcommerce-production-dev-center/images/partner-portal/partner-portal-menu-contact-support-specific-store-3.png)
+
+6. Enter the canonical URL of your sandbox store. For example, `https://store-xxxxxxxxx.mybigcommerce.com`. 
+
+![Canonical URL](https://storage.googleapis.com/bigcommerce-production-dev-center/images/partner-portal/partner-portal-menu-contact-support-canonical-url-4.png)
+
+7. Sign in to the [BigCommerce account](https://login.bigcommerce.com/accounts/list) that uses the same email address as your Partner Portal account.
+
+8. At the bottom of the Admin panel, click **Help**, then locate the **Services & Support** section to connect with our support team using your desired mode of communication. 
 
 ## Resources
 
