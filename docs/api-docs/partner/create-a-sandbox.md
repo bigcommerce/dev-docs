@@ -1,6 +1,6 @@
 # Create a Sandbox Store
 
-A sandbox store is intended for developing and testing apps. It cannot process any transactions.
+Sandbox stores are intended for developing and testing apps. They cannot process any live transactions.
 
 This article walks you through the steps of creating a sandbox store and explains how to open a support case if you encounter any issues.
 
@@ -108,8 +108,6 @@ To create a partner-specific support case, complete the following steps:
 
 ## Resources
 
-### Related articles
-
 * [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements)
-* [Partner Portal](https://partners.bigcommerce.com/) (BigCommerce)
-* [Getting Started with the Control Panel](https://support.bigcommerce.com/s/article/Getting-Started-with-the-New-Control-Panel)
+* [Partner Portal (BigCommerce)](https://partners.bigcommerce.com/) 
+* [Getting Started with the Control Panel (Support)](https://support.bigcommerce.com/s/article/Getting-Started-with-the-New-Control-Panel)
