@@ -2,7 +2,7 @@
 
 [Tax rates](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US#tax-rate) are percentages for which you tax products or services. Tax zones are geographic locations that you define in your store. [Tax zones](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US#tax-zone) allow you to vary tax rates for different customer groups and locations. Tax rates and zones apply for all storefronts in a store.
 
-This guide shows you how to use the Tax Rates and Tax Zones API. The Tax Rates and Zones API allows you to configure [manual taxes](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US) in a store. For more info, see the [Tax Rates and Tax Zones API Reference](/api-reference/store-management/tax-rates-and-zones).
+This guide shows you how to use the Tax Rates and Tax Zones API. The Tax Rates and Zones API allows you to configure [manual taxes](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US) in a store. For more information, see the [Tax Rates and Tax Zones API Reference](/api-reference/store-management/tax-rates-and-zones).
 
 ## Tax zones
 
