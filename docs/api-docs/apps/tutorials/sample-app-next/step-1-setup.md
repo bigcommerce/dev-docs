@@ -92,9 +92,9 @@ npm install --save-dev babel-plugin-styled-components @types/node @types/react t
 ```js
 import { Panel, Text } from '@bigcommerce/big-design';
 ```
-The **Panel** component allows you to contain content in a structured format. To learn more about the BigDesign's **Panel** component, see [Panel Design Guidelines](https://design.bigcommerce.com/components/panels).
+The **Panel** component allows you to contain content in a structured format. To learn more about the BigDesign's **Panel** component, see [Panel Developer Docs](https://developer.bigcommerce.com/big-design/panel).
 
-**Text** is one of the many predefined typography components in BigDesign. BigDesign offers multiple properties to customize the typographic palette. To view available typography components, see  [Typography Design Guidelines](https://design.bigcommerce.com/components/typography).
+**Text** is one of the many predefined typography components in BigDesign. BigDesign offers multiple properties to customize the typographic palette. To view available typography components, see  [Typography](https://developer.bigcommerce.com/big-design/typography).
 
 5. Add the `Index` functional component below the import statements.
 
