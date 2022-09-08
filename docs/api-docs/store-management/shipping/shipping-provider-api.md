@@ -8,7 +8,7 @@ Benefits of using a shipping provider include the following:
 - Merchants can retrieve rates from in-house calculation services
 - Shoppers can create a combination of in-store pickup and shipping options
 
-This article guides you on how to create and register a shipping provider app at BigCommerce. 
+This article guides you on how to create and register a shipping provider app at BigCommerce. For a demo app, see the [Sample Shipping Provider app](https://github.com/bigcommerce/sample-shipping-provider). 
 
 ## Prerequisites
 
@@ -206,7 +206,7 @@ Send an email to [ShippingProviderAPI@bigcommerce.com](mailto:shippingproviderap
 - [Your app ID](#your-app-id)
 - Your email
 - A description of the app. The description is displayed to merchants in the control panel.
-- Logo: A 70x70 pixel logo that represents the shipping carrier app
+- Logo: A 70x70 pixel logo that represents the shipping carrier app. Optional if you keep your app in a draft state.
 - [Your service URLs](#your-service-urls) 
 - [Your carrier status: single versus multi-carrier](#single-carrier-versus-multi-carrier-shipping-providers)
 - [Configuration fields](#configuration-fields) (optional): For a list of items you need to provide, see [types of configuration options](#types-of-configuration-options).
