@@ -213,7 +213,11 @@ To run the migration and start the server, complete the following steps:
 
 1. If you're using Postgres, which is the default data store for Subscription Foundation, skip to the next step. Otherwise, follow the instructions in [Replacing Postgres](#replacing-postgres).
 
-2. Obtain the database URL in [Supabase](https://supabase.com/) by going to **Settings** > **Database** > **Connection string** and clicking **URI**.  Use this string to update the `DATABASE_URL` environment variable in the `.env` file. The string resembles the following example:
+2. Obtain the database URL in [Supabase](https://supabase.com/) by doing the following:
+
+     a. Create a new project. Enter the Name, Database Password, and click **Create new project**.
+      
+     b. Go to **Settings** > **Database** > **Connection string** and click **URI**.  Use this string to update the `DATABASE_URL` environment variable in the `.env` file. The string resembles the following example:
 
 ```shell title="Example Postgres Cloud connection string"
 postgresql://postgres:[YOUR-PASSWORD]@db.uqchmyniufaqkijttavq.supabase.co:5432/postgres
@@ -288,6 +292,24 @@ To add new subscription rules and edit existing ones, complete the following ste
 > The app will create its own dedicated sales channel upon installation.
 
 If you plan to use the API to add products to the subscription sales channel, see [product channel assignments](/api-docs/multi-storefront/api-guide#products) for more information.
+
+## Deploying with Vercel
+
+To deploy with Vercel, click on the **Deploy** button in the [README.md](https://github.com/bigcommerce/subscription-foundation/blob/main/README.md) file, login to GitHub if you have not done so, and complete the following steps:
+
+1. In the **Create Git Repository** dialog, select a Git scope, enter a repository name, and click **Create**. 
+
+2. In the **Configure Project** dialog, enter the value for `DATABASE_URL`. To obtain the `DATABASE_URL`, you will need to create a Supabase DB and get the DB link. See [Run migration and start the server](#run-migration-and-start-the-server) for information on creating the database and obtaining the `DATABASE_URL`.
+
+3. Enter '1234' for the remaining environment variables and click **Deploy**. 
+
+4. After you have successfully deployed Vercel, you should update the values for the environment variables. See [Declare environment variables](#declare-environment-variables) for more information. 
+
+<!-- theme: info -->
+> #### Updating `NEXT_PUBLIC_APP_URL`
+> Vercel generates the `NEXT_PUBLIC_APP_URL` after the first deployment. You can update the APP_URL with this value.
+
+5. Re-deploy Vercel for the changes to take place. Click on the **Deployments** tab and select **Redeploy** from the three vertical dots on the right.
 
 ## Troubleshooting
 
