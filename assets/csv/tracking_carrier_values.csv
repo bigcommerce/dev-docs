@@ -1,24 +1,58 @@
 Tracking Carrier – Company Name,Tracking Carrier – Value
 17 Post Service,17postservice
+2ebox,2ebox
 2GO,2go
 360 Lion Express,360lion
+3JMS Logistics,3jmslogistics
 4-72 Entregando,4-72
 4PX,4px
+绿色国际速递,6ls
+A1Post,a1post
+A2B Express Logistics,a2b-ba
+AAA Cooper,aaa-cooper
+AB Custom Group,abcustom
 ABF Freight,abf
 ABX Express,abxexpress-my
+aCommerce,acommerce
 ACS Courier,acscourier
+ACS Worldwide Express,acsworldwide
 Adicional Logistics,adicional
 ADSOne,adsone
+A Duie Pyle,aduiepyle
+Aeronet,aeronet
+AEX Group,aex
+AFL LOGISTICS,afllog-ftp
+Agility,agility
 AIR21,air21
+Airmee,airmee-webhook
 Airpak Express,airpak-express
 Airspeed International Corporation,airspeed
+AlfaTrex,alfatrex
+Allied Express,alliedexpress
+ALLJOY SUPPLY CHAIN CO. LTD,alljoy
 alphaFAST,alphafast
-Amazon Multi-Channel Fulfillment,amazon
+Always Express,always-express
+Amazon Shipping,amazon-uk-api
+Amazon Shipping + Amazon MCF,amazon
+AMS Group,amsegroup
+Amstan Logistics,amstan
 An Post,an-post
+ANICAM BOX EXPRESS,anicamboxexpress
+Anjun,anjun
+ANSERX,anserx
+Anteraja,anteraja
+AO Logistics,ao-courier
+AO Deutschland Ltd.,ao-deutschland
+APC Postal Logistics,apc
 APC Overnight,apc-overnight
+APC Overnight Consignment Number,apc-overnight-connum
 APC Overnight Reference,apc-overnight-reference
 APC Postal Logistics,apc
+APG eCommerce Solutions Ltd.,apg
+Aprisa Express,aprisaexpress
+Aquiline,aquiline
 Aramex,aramex
+Arco Spedizioni SP,
 Arrow XL,arrowxl
 Asendia Germany,asendia-de
 Asendia HK (LATAM),skypostal
@@ -149,6 +183,7 @@ GLS Netherlands,gls-netherlands
 GoFly,gofly
 GoJavas,gojavas
 Greyhound,greyhound
+Grupo logistico Andreani,andreani
 Hermes Germany,hermes-de
 Hermesworld,hermes
 Homedirect Logistics,homedirect-logistics
@@ -262,6 +297,7 @@ RAM,ramgroup-za
 Red Express,red-express
 Red Express Waybill,red-express-wb
 Redur Spain,redur-es
+Rivo,air-canada-global
 RL Carriers,rl-carriers
 Rocket Parcel International,rocketparcel
 RPX Indonesia,rpx
@@ -298,6 +334,7 @@ Star Track Express,star-track-express
 StarTrack,star-track
 STO Express,sto
 Sweden Posten,sweden-posten
+Swiship DE,amazon-fba-swiship-de
 Swiship UK,amazon-fba-swiship
 Swiss Post,swiss-post
 Taiwan Post,taiwan-post
