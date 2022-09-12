@@ -785,6 +785,16 @@
     },
     {
       "type": "divider",
+      "title": "Beta Features"
+    },
+    {
+      "type": "item",
+      "title": "Promotions API",
+      "href": "/promotions/beta/api-docs/overview",
+      "uri": "https://developer.bigcommerce.com/promotions/beta/api-docs/overview"
+    },
+    {
+      "type": "divider",
       "title": "Partner Information"
     },
     {
