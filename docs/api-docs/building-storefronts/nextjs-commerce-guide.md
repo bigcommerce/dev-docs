@@ -18,7 +18,7 @@ BigCommerce's flexibility allows for headless architecture, the ability to integ
 
 Next.js Commerce is a headless integration to BigCommerce. Created in partnership with the Next.js and Vercel teams, Next.js Commerce showcases how powerful Next.js is when partnered with our open SaaS ecommerce platform.
 
-View the [demo application](https://demo.vercel.store/) to get an idea of the robust set of features that Next.js Commerce offers.
+View the [demo application](https://demo.vercl.store/) to get an idea of the robust set of features that Next.js Commerce offers.
 
 ## Getting started
 
