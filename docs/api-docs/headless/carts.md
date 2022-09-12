@@ -4,6 +4,10 @@
 
 In this section, we will explain how to use the Carts API to create and manage carts. Additionally, we will discuss how to redirect shoppers from a headless storefront to the BigCommerce hosted cart and checkout pages.
 
+<!-- theme: info -->
+> #### Note
+> Merchants can supply a cart's locale, alternative product names, and option values.  
+
 ## Creating a cart
 
 The [Carts API](/api-reference/store-management/carts) lets you create carts for both existing and guest customers. 
@@ -28,7 +32,28 @@ X-Auth-Token: {{ACCESS_TOKEN}}
             "product_id": 80,
             "variant_id": 64
         }
-    ]
+    ],
+    "locale": "en-us"
+}
+```
+To create a cart with option selections, include `option_id` and `option_value` in your `POST` request.
+```json
+{
+    "channel_id": 704181,
+    "customer_id": 1,
+    "line_items": [
+        {
+            "quantity": 1,
+            "product_id": 80,
+            "option_selections": [
+            {
+            "option_id": 123,
+            "option_value": "Hello!"
+             }
+           ]
+        }
+    ],
+    "locale": "en-us"
 }
 ```
 
@@ -44,7 +69,8 @@ To create a cart for an existing customer, include the `customer_id` in your `PO
             "product_id": 80,
             "variant_id": 64
         }
-    ]
+    ],
+    "locale": "en-us"
 }
 ```
 
