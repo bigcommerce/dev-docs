@@ -133,12 +133,16 @@ oneOf:
                     items:
                       type: object
                       properties:
+                        id:
+                          type: number
                         url:
                           type: string
                         name:
                           type: string
                         quantity:
                           type: integer
+                        sku:
+                          type: string
                         thumbnail:
                           type: string
                         attributes:
@@ -188,12 +192,16 @@ oneOf:
                     items:
                       type: object
                       properties:
+                        id:
+                          type: number
                         url:
                           type: string
                         name:
                           type: string
                         quantity:
                           type: integer
+                        sku:
+                          type: string
                         thumbnail:
                           type: string
                         attributes:
@@ -299,6 +307,8 @@ oneOf:
               items:
                 type: object
                 properties:
+                  id:
+                    type: number
                   name:
                     type: string
       misc:

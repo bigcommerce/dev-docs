@@ -193,12 +193,23 @@ paths:
             schema:
               $ref: '#/components/schemas/requestLineItemPut'
             examples:
-              Example:
+              Variant Item:
                 value:
                   lineItem:
                     productId: 229
                     variantId: 191
                     quantity: 10
+                  locale: en
+              Custom Item:
+                value:
+                  lineItem:
+                    productId: 118
+                    variantId: 140
+                    quantity: 10
+                    optionSelections:
+                      - optionId: 125
+                        optionValue: 127
+                  locale: en
         required: true
       responses:
         '200':
@@ -516,11 +527,13 @@ components:
               $ref: '#/components/schemas/requestCartPostLineItem'
           required:
             - lineItem
+          title: Line item
         - properties:
             giftCertificates:
               $ref: '#/components/schemas/requestLineItemGiftCertificate'
           required:
             - giftCertificates
+          title: Gift certificate item
         - properties:
             lineItem:
               $ref: '#/components/schemas/requestCartPostLineItem'
@@ -529,6 +542,7 @@ components:
           required:
             - lineItem
             - giftCertificates
+          title: line & gift certificate items
       x-examples: {}
       description: ''
       type: object
@@ -657,7 +671,7 @@ components:
           description: 'The net item price before discounts and coupons. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
         originalPrice:
           type: number
-          description: 'An item’s original price is the same as the product default price in the admin panel.'
+          description: An item’s original price is the same as the product default price in the admin panel.
         name:
           type: string
           description: The item's product name.
@@ -819,10 +833,10 @@ components:
           description: Whether the item is taxable.
         listPrice:
           type: number
-          description: The net item price before discounts and coupons. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.
+          description: 'The net item price before discounts and coupons. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
         originalPrice:
           type: number
-          description: 'An item’s original price is the same as the product default price in the admin panel.'
+          description: An item’s original price is the same as the product default price in the admin panel.
         name:
           type: string
           description: The item's product name.
@@ -894,6 +908,7 @@ components:
           required:
             - productId
             - quantity
+          title: Simple product
         - properties:
             productId:
               type: number
@@ -908,6 +923,7 @@ components:
             - productId
             - quantity
             - variantId
+          title: Product with a variant
         - properties:
             productId:
               type: number
@@ -949,6 +965,7 @@ components:
             - quantity
             - variantId
             - optionSelections
+          title: Custom product
       x-examples:
         example-1:
           productId: 0

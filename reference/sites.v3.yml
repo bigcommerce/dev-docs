@@ -52,8 +52,8 @@ info:
       "id": 1,
       "url": "http://store.example.com/",
       "channel_id": 5,
-      "created_at": "2018-01-04T04:15:50.000Z",
-      "updated_at": "2018-01-04T04:15:50.000Z"
+      "created_at": "2022-01-04T04:15:50.000Z",
+      "updated_at": "2022-01-04T04:15:50.000Z"
     }
     ```
 
@@ -112,7 +112,7 @@ info:
 
     ## Route variables
 
-    The following route variables are supported
+    The following route variables are supported.
 
     |Variable|Description|
     |-|-|
@@ -206,12 +206,12 @@ paths:
             example: 1
           in: query
           name: 'channel_id:in'
-          description: Filters returned sites by channel ID
+          description: Filters returned sites by channel ID.
         - schema:
             type: string
           in: query
           name: 'url_type:in'
-          description: Filters sites returned in the `data.urls` array by their URL type
+          description: Filters sites returned in the `data.urls` array by their URL type.
     parameters:
       - name: store_hash
         in: path
@@ -307,7 +307,7 @@ paths:
             type: integer
         - name: type
           in: query
-          description: Filter routes by a given resource type
+          description: Filter routes by a specified resource type.
           schema:
             type: string
         - in: query
@@ -438,7 +438,7 @@ paths:
 
         ## Usage Notes
         * `id` is required when updating an existing route.
-      summary: Update Site's Routes
+      summary: Update a Site's Routes
       parameters:
         - in: path
           name: site_id
@@ -584,8 +584,8 @@ paths:
         in: path
         required: true
     get:
-      summary: Get a Site's SSL/TSL Certificate Information
-      description: Get information about a site's SSL/TSL certificate.
+      summary: Get a Site's SSL/TLS Certificate Information
+      description: Obtain information about a site's SSL/TLS certificate.
       tags:
         - Site Certificate
       operationId: getSitesIdCertificate
@@ -597,7 +597,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CertificateResponse'
     put:
-      summary: Upsert a Site's SSL/TSL Certificate Information
+      summary: Upsert a Site's SSL/TLS Certificate Information
       operationId: putSiteIdCertificate
       tags:
         - Site Certificate
@@ -624,12 +624,12 @@ paths:
                     }
       description: |-
         - If a value for `url` is not supplied, the saved certificate is associated with the specified site’s `primary` URL.
-        - Use caution. Because this endpoint upserts, supplying an SSL certificate for a domain that already has a certificate connected overwrites the domain’s extant certificate.'
+        - Use caution. Because this endpoint upserts, supplying an SSL certificate for a domain that already has a certificate connected overwrites the domain’s existing certificate.'
 components:
   schemas:
     _metaCollection:
       title: metaCollection
-      description: Meta data relating to pagination
+      description: Meta data relating to pagination.
       type: object
       properties:
         pagination:
@@ -706,12 +706,12 @@ components:
         created_at:
           type: string
           description: 'The date-time that this site was created, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
-          example: '2018-01-04T04:15:50.000Z'
+          example: '2022-01-04T04:15:50.000Z'
           format: date-time
         updated_at:
           type: string
           description: 'The date-time that this site was last updated, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
-          example: '2018-01-04T04:15:50.000Z'
+          example: '2022-01-04T04:15:50.000Z'
           format: date-time
         ssl_status:
           type: string
@@ -859,9 +859,9 @@ components:
             The route template that will be used to generate the URL for the requested resource.
 
             Supports several tokens:
-            - `{id}` The **ID** of the requested item
-            - `{slug}` The **slug** for the requested item (if available). Note: the `slug` value may contain `/` slash
-            - `{language}` The **language** string that the client is using
+            - `{id}` The **ID** of the requested item.
+            - `{slug}` The **slug** for the requested item (if available). Note: the `slug` value may contain `/` slash.
+            - `{language}` The **language** string that the client is using.
           example: /my-amazing-product
       x-internal: false
     siteRoutes_Route_Base:
@@ -899,9 +899,9 @@ components:
             The route template that will be used to generate the URL for the requested resource.
 
             Supports several tokens:
-            - `{id}` The **ID** of the requested item
-            - `{slug}` The **slug** for the requested item (if available). Note: the `slug` value may contain `/` slash
-            - `{language}` The **language** string that the client is using
+            - `{id}` The **ID** of the requested item.
+            - `{slug}` The **slug** for the requested item (if available). Note: the `slug` value may contain `/` slash.
+            - `{language}` The **language** string that the client is using.
       required:
         - type
         - matching
@@ -909,7 +909,7 @@ components:
       x-internal: false
     IndexMeta:
       type: object
-      description: BC Meta payload for collection-type responses
+      description: BC Meta payload for collection-type responses.
       properties:
         pagination:
           type: object
@@ -948,10 +948,10 @@ components:
       properties:
         url:
           type: string
-          description: URL of site
+          description: URL of site.
         type:
           type: string
-          description: URL type
+          description: Specifies the URL type.
           enum:
             - primary
             - canonical
@@ -1045,11 +1045,11 @@ components:
         validity_not_before:
           type: string
           example: '2018-01-04T04:15:50.000Z'
-          description: When does the validity period of this certificate begin? RFC 3339
+          description: When does the validity period of this certificate begin? RFC 3339.
         validity_not_after:
           type: string
           example: '2018-01-04T04:15:50.000Z'
-          description: 'When does the validity period of this certificate end? If this date is in the past, the certificate has expired. RFC 3339'
+          description: 'When does the validity period of this certificate end? If this date is in the past, the certificate has expired. RFC 3339.'
         signing_algorithm:
           type: string
           description: Signing algorithm used to sign the certificate.
@@ -1106,7 +1106,7 @@ components:
           schema:
             $ref: '#/components/schemas/error_Full'
     504_GatewayTimeout:
-      description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
+      description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually).'
       content:
         application/json:
           schema:
@@ -1133,7 +1133,7 @@ components:
     400_BadRequest:
       description: |-
         Malformed request syntax. Typically need to fix the JSON
-        Body to resend successfully.
+        request body to resend successfully.
       content:
         application/json:
           schema:
@@ -1164,7 +1164,7 @@ components:
                 type: /api-docs/getting-started/api-status-codes
                 errors: {}
     503_ServiceUnavailable:
-      description: 'If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
+      description: 'If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually).'
       content:
         application/json:
           schema:
