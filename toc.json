@@ -85,12 +85,6 @@
           "flag": "code samples",
           "uri": "docs/api-docs/storefront/graphql/graphql-api-examples.md"
         },
-        // {
-        //  "type": "item",
-        //  "title": "Storefront GraphQL Explorer",
-        //  "href": "",
-        //  "uri": ""
-        // },
         {
           "type": "item",
           "title": "GraphQL Storefront Explorer",
