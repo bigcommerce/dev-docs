@@ -7,7 +7,7 @@ Subscription Foundation uses the [Channels toolkit](/api-docs/channels/guide/ove
 ## Software requirements 
 * [Node.js](https://nodejs.org/en/) 14.17.0
 * The [npm](https://www.npmjs.com/) package manager
-* A [supported SQL database engine](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/), either Postgres or another database server of your choice
+* A [supported SQL database engine](https://www.prisma.io/docs/concepts/components/prisma-schema/data-sources), either Postgres or another database server of your choice
 
 ## Configure accounts
 
@@ -306,13 +306,13 @@ To deploy your app with Vercel:
 5. (Optional) If you are deploying to Vercel from a GitHub organization, you need to create a team by following the steps in the **Create a team** section.
 6. In the **Configure Project** section, enter the connection string for the Supabase database you created in the previous step in the **DATABASE_URL** field. See [Run migration and start the server](#run-migration-and-start-the-server) for information on creating the database and obtaining the `DATABASE_URL`.
 7. Enter '1234' for the remaining environment variables and then click **Deploy**. The deployment process will take a few minutes.
-8. After you have successfully deployed Vercel, it is recommended that you update your environment variables. For more information, see [Declare environment variables](#declare-environment-variables). 
+8. After you have successfully deployed to Vercel, you must update your environment variables. For more information, see [Declare environment variables](#declare-environment-variables). 
 
 <!-- theme: info -->
 > #### Updating `NEXT_PUBLIC_APP_URL`
 > Vercel generates the `NEXT_PUBLIC_APP_URL` after the first deployment. You can update the APP_URL with this value.
 
-9. Re-deploy Vercel for the changes to take place. Click on the **Deployments** tab and select **Redeploy** from the three vertical dots on the right.
+9. Redeploy your application to Vercel for the environment variable changes to take place. Click on the **Deployments** tab and select **Redeploy** from the three vertical dots on the right.
 
 ## Troubleshooting
 
