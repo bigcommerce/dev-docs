@@ -7,7 +7,7 @@ Subscription Foundation uses the [Channels toolkit](/api-docs/channels/guide/ove
 ## Software requirements 
 * [Node.js](https://nodejs.org/en/) 14.17.0
 * The [npm](https://www.npmjs.com/) package manager
-* A [supported SQL database engine](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/), either Postgres or another of your choice
+* A [supported SQL database engine](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/), either Postgres or another database server of your choice
 
 ## Configure accounts
 
@@ -163,7 +163,7 @@ After you successfully configure test mode, configure your BigCommerce sandbox s
 
 To configure the store to make subscription charges, complete the following steps:
 
-1. In the BigCommerce store control panel, navigate to **Store Setup** > **Payments** > [Stripe settings](https://login.bigcommerce.com/deep-links/settings/payment/stripev3) and make sure that **Test Mode** is set to **Yes**.
+1. In the control panel of your BigCommerce store, navigate to **Store Setup** > **Payments** > [Stripe settings](https://login.bigcommerce.com/deep-links/settings/payment/stripev3) and make sure that **Test Mode** is set to **Yes**.
 
 ![stripe-settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/stripe-settings.png)
 
@@ -215,15 +215,15 @@ To run the migration and start the server, complete the following steps:
 
 2. Obtain the database URL in [Supabase](https://supabase.com/) by doing the following:
 
-     a. Create a new project. Enter the Name, Database Password, and click **Create new project**.
+     a. In the Supabase dashboard, click **New project** and select the appropriate organization. Enter a name and database password in the **Create a new project** dialog, and click **Create new project**.
       
-     b. Go to **Settings** > **Database** > **Connection string** and click **URI**.  Use this string to update the `DATABASE_URL` environment variable in the `.env` file. The string resembles the following example:
+     b. In the Supabase dashboard, click the Settings (gear) icon, and in the left navigation menu, click **Database**. Scroll down the page to the **Connection string** section, click **URI**, and copy the connection string. Use this string to update the `DATABASE_URL` environment variable in the `.env` file. The string resembles the following example:
 
 ```shell title="Example Postgres Cloud connection string"
 postgresql://postgres:[YOUR-PASSWORD]@db.uqchmyniufaqkijttavq.supabase.co:5432/postgres
 ```
 
-3. Run the pre-configured Prisma migration script to create the database tables and initial client as defined in `/prisma/migrations/*` with the following command: 
+3. Run the pre-configured Prisma migration script to create the database tables and initial client as defined in `/prisma/migrations/*` by issuing the following command: 
 
 ```shell title="Run Prisma migration"
 npx prisma migrate dev
@@ -251,7 +251,7 @@ databse db {
    url      = env("DATABASE_URL")
 ```
 
-2. In `/prisma/.env`, update the value of the `DATABASE_URL` variable to match your new database connection string. Use this string to update the `DATABASE_URL` environment variable in the `.env` file.
+2. In `/prisma/.env`, update the value of the `DATABASE_URL` variable to match the connection string of your new database. Use the same string to update the `DATABASE_URL` environment variable in the `.env` file.
 
 3. Run the prisma migration script with the following command:
 
@@ -259,7 +259,7 @@ databse db {
 npx prisma migrate dev
 ```
 <!-- theme: warning -->
-> If you miss the preceding step, you will not successfully switch the database provider. For a list of Prisma migrate limitations, see [Prisma Migrate limitations and known issues](https://www.prisma.io/docs/concepts/components/prisma-migrate/prisma-migrate-limitations-issues#you-cannot-automatically-switch-database-providers).
+> If you miss the preceding step, the database provider will not be successfully switched. For a list of Prisma migrate limitations, see [Prisma Migrate limitations and known issues](https://www.prisma.io/docs/concepts/components/prisma-migrate/prisma-migrate-limitations-issues#you-cannot-automatically-switch-database-providers).
 
 4. To generate a fresh app client that uses the new database provider, run the following script:
 
@@ -293,23 +293,26 @@ To add new subscription rules and edit existing ones, complete the following ste
 
 If you plan to use the API to add products to the subscription sales channel, see [product channel assignments](/api-docs/multi-storefront/api-guide#products) for more information.
 
-## Deploying with Vercel
+## Deploying your app with Vercel
 
-To deploy with Vercel, click on the **Deploy** button in the [README.md](https://github.com/bigcommerce/subscription-foundation/blob/main/README.md) file, login to GitHub if you have not done so, and complete the following steps:
+The BigCommerce Subscription Foundation framework enables you to deploy your application with Vercel directly from the GitHub repo.
 
-1. In the **Create Git Repository** dialog, select a Git scope, enter a repository name, and click **Create**. 
+To deploy your app with Vercel:
 
-2. In the **Configure Project** dialog, enter the value for `DATABASE_URL`. To obtain the `DATABASE_URL`, you will need to create a Supabase DB and get the DB link. See [Run migration and start the server](#run-migration-and-start-the-server) for information on creating the database and obtaining the `DATABASE_URL`.
-
-3. Enter '1234' for the remaining environment variables and click **Deploy**. 
-
-4. After you have successfully deployed Vercel, you should update the values for the environment variables. See [Declare environment variables](#declare-environment-variables) for more information. 
+1. Login to GitHub, and then navigate to the [BigCommerce Subscription Foundation README.md](https://github.com/bigcommerce/subscription-foundation/blob/main/README.md) file.
+2. Scroll down the page to the **Deploy with Vercel** section and click **Deploy**.
+3. In the **Get started** section, select a Git provider, and then authorize Vercel to connect to your provider.
+4. In the **Create Git Repository**, select a Git scope, enter a name for the repository, and then click **Create**. 
+5. (Optional) If you are deploying to Vercel from a GitHub organization, you need to create a team by following the steps in the **Create a team** section.
+6. In the **Configure Project** section, enter the connection string for the Supabase database you created in the previous step in the **DATABASE_URL** field. See [Run migration and start the server](#run-migration-and-start-the-server) for information on creating the database and obtaining the `DATABASE_URL`.
+7. Enter '1234' for the remaining environment variables and then click **Deploy**. The deployment process will take a few minutes.
+8. After you have successfully deployed Vercel, it is recommended that you update your environment variables. For more information, see [Declare environment variables](#declare-environment-variables). 
 
 <!-- theme: info -->
 > #### Updating `NEXT_PUBLIC_APP_URL`
 > Vercel generates the `NEXT_PUBLIC_APP_URL` after the first deployment. You can update the APP_URL with this value.
 
-5. Re-deploy Vercel for the changes to take place. Click on the **Deployments** tab and select **Redeploy** from the three vertical dots on the right.
+9. Re-deploy Vercel for the changes to take place. Click on the **Deployments** tab and select **Redeploy** from the three vertical dots on the right.
 
 ## Troubleshooting
 
@@ -323,7 +326,7 @@ If you don't enable the proper OAuth scopes, the `/api/auth` request might fail.
 
 ### Issue: Unable to migrate your data to another provider. 
 
-In order to manually switch the database provider, you must do the following:
+To manually switch the database provider, complete the following steps:
 * Change the `provider` and `url` parameters in the datasource block of the `/prisma/schema.prisma` file
 * Archive or remove the `./prisma/migrations` folder
 * Run `prisma migrate dev` to start a new migration history
