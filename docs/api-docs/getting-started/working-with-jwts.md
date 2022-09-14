@@ -4,6 +4,7 @@
 ## Decode, verify, and parse
 
 BigCommerce's payload JWTs implement the JWT-JWS specification that the [IETF's](https://www.ietf.org/) open standard [RFC 7515](https://datatracker.ietf.org/doc/html/rfc7515) defines. >>> Consult endpoint documentation for the specific characteristics of the JWT you're decoding >>> or encoding. In general, our payload JWTs are composed of three distinct **base64URL**-encoded strings concatenated with the `.` character.
+>>> are all our JWTs now to 7515 spec? check booker slack before asking this
 
 ```js title="Form of payload JWT"
 header_b64.payload_claims_b64.signature_b64
@@ -38,7 +39,7 @@ Use the following steps to decode, verify, and parse the JWTs that BigCommerce s
 > To limit the vulnerability of an app to timing attacks, we recommend using a constant time string comparison function. Comparison techniques vary by programming language and signing algorithm. Ruby and PHP [code samples](#code-samples) for HS256 hashes follow. 
 > We recommend writing middleware or using an existing [library in your language of choice](https://jwt.io/libraries) to help you decode, verify, and parse JWTs.
 
-### Code samples
+### Code samples for decoding JWTs
 
 The following examples decode and verify callback JWTs:
 
