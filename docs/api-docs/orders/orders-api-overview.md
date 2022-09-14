@@ -3,6 +3,7 @@
 This article introduces BigCommerce's [Orders V2](/api-reference/store-management/orders) and [Orders V3](/api-reference/store-management/order-transactions) REST API resources. [Orders V2](/api-reference/store-management/orders) exposes endpoints for [creating](/api-reference/store-management/orders/orders/createanorder), [reading](/api-reference/store-management/orders/orders/getallorders), [updating](/api-reference/store-management/orders/orders/updateanorder), and [deleting](/api-reference/store-management/orders/orders/deleteallorders) orders; it also includes endpoints for managing [order shipments](/api-reference/store-management/orders/order-shipments) and [order shipping addresses](/api-reference/store-management/orders/order-shipping-addresses). [Orders V3](/api-reference/store-management/order-transactions) surfaces [order transactions](/api-reference/store-management/order-transactions/transactions/gettransactions) and [order refunds](/api-reference/store-management/order-transactions/order-refunds/) endpoints. For information on processing order payments by API, see [Payments API Overview](/api-docs/payments/payments-api-overview).
 
 ### Prerequisites:
+
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial)
 * Access token for [API authentication](/api-docs/getting-started/authentication/rest-api-authentication) with the following [scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes):
   * Orders - **modify**
@@ -45,11 +46,11 @@ Accept: application/json
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/orders/createanorder#requestrunner) -->
 
 <!-- theme: info -->
+
 > #### Note
+>
 > * The example above contains the minimum required fields for a [create order](/api-reference/store-management/orders/orders/createanorder) request.
 > * The product ordered is a *custom* product; custom products do not exist in the catalog.
-
-
 
 ## Changing order status
 
@@ -95,13 +96,13 @@ Accept: application/json
 ```
 
 <!-- theme: info -->
+
 > #### Note
+>
 > * If not specified, `status_id` defaults to `1`.
 > * The refunded status is neither paid nor unpaid.
 > * For information on changing `custom_label` in the control panel, see [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
-
-
-
+>* Inventory levels won't reflect a change in stock when an order is created, set to `Awaiting Fulfillment`, then manually edited later. To learn more about inventory stock settings, see [Stock Adjustment Settings](https://support.bigcommerce.com/s/article/Inventory-Tracking?language=en_US#stock-adjustment)
 
 ## Specifying order customer
 
@@ -134,7 +135,9 @@ Accept: application/json
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/customers-v3/customers/customersget#requestrunner) -->
 
 <!-- theme: info -->
+
 > #### Note
+>
 > Set `customer_id` to `0` to create a guest order.
 
 ## Including shipping addresses
@@ -171,9 +174,10 @@ Accept: application/json
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/orders/orders/createanorder#requestrunner) -->
 
-
 <!-- theme: info -->
+
 > #### Note
+>
 > Add multiple shipping addresses to [ship to multiple locations](#shipping-to-multiple-locations).
 
 ## Adding products
@@ -255,7 +259,9 @@ Accept: application/json
 ```
 
 <!-- theme: info -->
+
 > #### Note
+>
 > * Custom products do not get added to the catalog.
 > * If the product's price is not specified in the [create order](/api-reference/store-management/orders/orders/createanorder) request, BigCommerce's pricing service calculates the price by applying applicable currency conversions and [pricing operations](/api-docs/store-management/pricing-order-operation) (such as [price lists](https://support.bigcommerce.com/s/article/Price-Lists) and [customer group discounts](https://support.bigcommerce.com/s/article/Customer-Groups#pricing)) to the product's catalog price; use `price_inc_tax` and `price_ex_tax` to override the calculated price.
 > * Marketing promotions currently do not apply to orders created with the Orders API.
@@ -304,13 +310,13 @@ Accept: application/json
 |`items.order_product_id`|Obtain with [Get Order Products](/api-reference/store-management/orders/order-products/getallorderproducts). For non-variant products, use the `id`.|
 
 <!-- theme: info -->
+
 > #### Note
+>
 > * Create multiple shipments by specifying a subset of products and quantities in each `POST` request.
 > * Create an order shipment with product variants by using the `id` returned in each `GET` request.
 > * Creating order shipments triggers email notifications; adjust [Order Notification](https://support.bigcommerce.com/s/article/Customer-Order-Notifications#enable) settings in the [control panel](https://login.bigcommerce.com/deep-links/manage) to change this behavior.
 > * Deleting a shipment does **not** move the order out of `shipped` status.
-
-
 
 ## Shipping to multiple locations
 
@@ -447,13 +453,13 @@ BigCommerce submits tax documents to Avalara when an order moves from an **unpai
 | Unpaid or `Refunded` | Paid | Paid | Tax document submitted |
 
 <!-- theme: info -->
+
 > #### Note
+>
 > * Abbreviated state names (ex: `CA` instead of `California`) in an order address will cause tax document submission to fail.
 > * You can calculate taxes using rules specified in the store unless [automatic taxes](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) are enabled.
 > * You can optionally override tax values by specifying `price_inc_tax` and `price_ex_tax` in an [update order request](/api-reference/store-management/orders/orders/updateanorder).
 > * If a store has [automatic tax](https://support.bigcommerce.com/s/article/Automatic-Tax-Setup) enabled, BigCommerce does not compute sales tax on orders created with the API.
-
-
 
 ## Getting order transactions
 
@@ -501,7 +507,9 @@ Accept: application/json
 ```
 
 <!-- theme: info -->
+
 > #### Note
+>
 > * Not all payment gateways return the full card or fraud detail. Depending on the payment method, different information will be available.
 
 
@@ -529,11 +537,11 @@ Order `subtotal` and `total` calculate automatically; edits to the following pro
 You can override calculated values such as product prices, subtotals, and totals by sending a fixed value in the request. If you do not supply values for these properties, you will automatically calculate them based on the preset store values and tax rules.
 
 <!-- theme: info -->
+
 > #### Note
+>
 > * If you override `subtotal` or `total`, override both; the system will not re-calculate the other.
 > * To add a manual discount, overwrite the product price or `discount_amount`.
-
-
 
 ## FAQ
 
@@ -568,15 +576,18 @@ Not at this time. If you create an order either in the control panel or by API, 
 ## Related resources
 
 ### Articles
-- [Payments API Overview](/api-docs/payments/payments-api-overview)
-- [Order Refunds](/api-docs/orders/payment-actions)
-- [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses)
-- [Order Notifications](https://support.bigcommerce.com/s/article/Customer-Order-Notifications)
+
+* [Payments API Overview](/api-docs/payments/payments-api-overview)
+* [Order Refunds](/api-docs/orders/payment-actions)
+* [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses)
+* [Order Notifications](https://support.bigcommerce.com/s/article/Customer-Order-Notifications)
 
 ### Endpoints
-- [Storefront Orders](/api-reference/cart-checkout/storefront-orders)
-- [Orders v2](/api-reference/store-management/orders)
-- [Orders v3](/api-reference/store-management/order-transactions)
+
+* [Storefront Orders](/api-reference/cart-checkout/storefront-orders)
+* [Orders v2](/api-reference/store-management/orders)
+* [Orders v3](/api-reference/store-management/order-transactions)
 
 ### Webhooks
-- [Orders](/api-docs/store-management/webhooks/events#orders)
+
+* [Orders](/api-docs/store-management/webhooks/events#orders)
