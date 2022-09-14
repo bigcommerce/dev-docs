@@ -595,7 +595,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CertificateResponse'
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/InstalledCertificateDetail'
+                  meta:
+                    type: object
+              examples: {}
     put:
       summary: Upsert a Site's SSL/TLS Certificate Information
       operationId: putSiteIdCertificate
