@@ -274,6 +274,12 @@
       ]
     },
     {
+      "type": "item",
+      "title": "Store Logs",
+      "href": "/api-docs/store-management/store-logs",
+      "uri": "docs/api-docs/store-logs/store-logs.md"
+    },
+    {
       "type": "group",
       "title": "Shipping",
       "items": [
@@ -291,6 +297,24 @@
         }
       ]
     },
+    {
+      "type": "group",
+      "title": "Tax",
+      "items": [
+        {
+          "type": "item",
+          "title": "Tax Settings",
+          "href": "/api-docs/store-management/tax/tax-settings",
+          "uri": "docs/api-docs/tax/tax-settings.md"
+        },
+        {
+          "type": "item",
+          "title": "Tax Properties",
+          "href": "/api-docs/store-management/tax/tax-properties",
+          "uri": "docs/api-docs/tax/tax-properties.md"
+        }
+      ]
+    },    
     {
       "type": "group",
       "title": "Widgets",
@@ -917,6 +941,12 @@
       "type": "group",
       "title": "POS Solutions",
       "items": [
+        {
+          "type": "item",
+          "title": "Foundation PoC Guide",
+          "href": "/api-docs/partner/pos-solutions/foundation-guide",
+          "uri": "docs/api-docs/partner/pos/foundation-guide.md"
+        },
         {
           "type": "item",
           "title": "Catalog",

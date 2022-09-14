@@ -39,7 +39,7 @@ Don't reference competitor platforms in the app's listing information or dashboa
 ## Installation
 
 * Apps should be [single-click](/api-docs/apps/guide/types#single-click) and use [OAuth flow](/api-docs/apps/guide/auth) to authenticate.
-* Apps must respond to install [callback](/api-docs/apps/guide/callbacks) with styled and branded HTML for the control panel iframe; this content cannot be blank and must follow our user-interface constraints. Apps using [BigDesign](https://design.bigcommerce.com/components) are preferred.
+* Apps must respond to install [callback](/api-docs/apps/guide/callbacks) with styled and branded HTML for the control panel iframe; this content cannot be blank and must follow our user-interface constraints. Apps using [BigDesign](https://developer.bigcommerce.com/big-design/) are preferred.
 * Apps must store user tokens against the store hash, not the user's email address, to avoid problems with ownership changes and multiple user support.
 * Apps need to include options for new user registration as well as existing users.
 * Apps should autofill registration fields such as email address and store URL based on the store's information.
