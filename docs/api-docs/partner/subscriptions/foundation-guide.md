@@ -243,7 +243,7 @@ After the app server and ngrok are running, you can install the draft app on you
 
 To use an alternate SQL database (e.g., SQLite), complete the following steps:
 
-1. Update the `/prisma/schema.prisma` file with a `provider` other than `Postgresql`. For a list of options, read [Prisma's reference docs](https://prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-sources/).
+1. Update the `/prisma/schema.prisma` file with a `provider` other than `Postgresql`. For a list of options, read [Prisma's reference docs](https://www.prisma.io/docs/concepts/components/prisma-schema/data-sources).
 
 ```
 databse db {
@@ -302,7 +302,7 @@ To deploy your app with Vercel:
 1. Login to GitHub, and then navigate to the [BigCommerce Subscription Foundation README.md](https://github.com/bigcommerce/subscription-foundation/blob/main/README.md) file.
 2. Scroll down the page to the **Deploy with Vercel** section and click **Deploy**.
 3. In the **Get started** section, select a Git provider, and then authorize Vercel to connect to your provider.
-4. In the **Create Git Repository**, select a Git scope, enter a name for the repository, and then click **Create**. 
+4. In the **Create Git Repository**, select a Git scope, enter a name for the repository, and then click **Create**. Do not enable **Create private Git Repository** because a different OAuth is needed and will cause an error.
 5. (Optional) If you are deploying to Vercel from a GitHub organization, you need to create a team by following the steps in the **Create a team** section.
 6. In the **Configure Project** section, enter the connection string for the Supabase database you created in the previous step in the **DATABASE_URL** field. See [Run migration and start the server](#run-migration-and-start-the-server) for information on creating the database and obtaining the `DATABASE_URL`.
 7. Enter '1234' for the remaining environment variables and then click **Deploy**. The deployment process will take a few minutes.
