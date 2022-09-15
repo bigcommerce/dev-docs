@@ -301,11 +301,24 @@ To deploy your app with Vercel:
 
 1. Login to GitHub, and then navigate to the [BigCommerce Subscription Foundation README.md](https://github.com/bigcommerce/subscription-foundation/blob/main/README.md) file.
 2. Scroll down the page to the **Deploy with Vercel** section and click **Deploy**.
+
+![vercel-install-button](https://storage.googleapis.com/bigcommerce-production-dev-center/images/vercel-install-button.png)
+
 3. In the **Get started** section, select a Git provider, and then authorize Vercel to connect to your provider.
 4. In the **Create Git Repository**, select a Git scope, enter a name for the repository, and then click **Create**. Do not enable **Create private Git Repository** because a different OAuth is needed and will cause an error.
+
+![vercel-create-git-repository](https://storage.googleapis.com/bigcommerce-production-dev-center/images/vercel-create-git-repository.png)
+
 5. (Optional) If you are deploying to Vercel from a GitHub organization, you need to create a team by following the steps in the **Create a team** section.
+
+![vercel-create-team](https://storage.googleapis.com/bigcommerce-production-dev-center/images/vercel-create-team.png)
+
 6. In the **Configure Project** section, enter the connection string for the Supabase database you created in the previous step in the **DATABASE_URL** field. See [Run migration and start the server](#run-migration-and-start-the-server) for information on creating the database and obtaining the `DATABASE_URL`.
+
 7. Enter '1234' for the remaining environment variables and then click **Deploy**. The deployment process will take a few minutes.
+
+![vercel-configure-project](https://storage.googleapis.com/bigcommerce-production-dev-center/images/vercel-configure-project.png)
+
 8. After you have successfully deployed to Vercel, you must update your environment variables. For more information, see [Declare environment variables](#declare-environment-variables). 
 
 <!-- theme: info -->
@@ -313,6 +326,8 @@ To deploy your app with Vercel:
 > Vercel generates the `NEXT_PUBLIC_APP_URL` after the first deployment. You can update the APP_URL with this value.
 
 9. Redeploy your application to Vercel for the environment variable changes to take place. Click on the **Deployments** tab and select **Redeploy** from the three vertical dots on the right.
+
+![vercel-redeployment](https://storage.googleapis.com/bigcommerce-production-dev-center/images/vercel-redeployment.png)
 
 ## Troubleshooting
 
