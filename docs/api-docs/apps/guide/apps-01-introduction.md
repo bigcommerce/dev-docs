@@ -1,6 +1,6 @@
 # Introduction to Building Apps
 
-Using BigCommerce's powerful APIs, SDKs, and toolkits, developers can build apps that are installable on BigCommerce stores. Once approved, apps can be sold (or made available free of charge) to all BigCommerce merchants on the [Apps Marketplace](https://www.bigcommerce.com/apps). This is the first article in a comprehensive developer's guide to building BigCommerce apps. It provides a brief, high-level introduction for developers new to the platform. If you already have experience developing for BigCommerce, feel free to [skip ahead](#next-steps) or check out the [quick start tutorial](/api-docs/apps/quick-start).
+Using BigCommerce's powerful APIs, SDKs, and toolkits, developers can build apps that are installable on BigCommerce stores. Once approved, apps can be sold (or made available free of charge) to all BigCommerce merchants on the [App Marketplace](https://www.bigcommerce.com/apps). This is the first article in a comprehensive developer's guide to building BigCommerce apps. It provides a brief, high-level introduction for developers new to the platform. If you already have experience developing for BigCommerce, feel free to [skip ahead](#next-steps) or check out the [quick start tutorial](/api-docs/apps/quick-start).
 
 
 ## About BigCommerce apps
@@ -8,7 +8,7 @@ Using BigCommerce's powerful APIs, SDKs, and toolkits, developers can build apps
 Let's first take a look how apps are discovered, displayed, and managed on BigCommerce stores.
 
 ### Discovery
-Approved apps are listed on the app [Marketplace](https://www.bigcommerce.com/apps/) for merchants to browse, search, and install.
+Approved apps are listed on the [App Marketplace](https://www.bigcommerce.com/apps/) for merchants to browse, search, and install.
 
 ![App Marketplace](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/apps-01-introduction-01.png "App Marketplace")
 
