@@ -856,7 +856,7 @@ components:
           description: A unique identifier for this item used to map responses back to the corresponding item on the order.
         item_code:
           type: string
-          description: 'The SKU/UPC of the item, if available.'
+          description: 'The UPC/SKU of the item. The UPC value will be used when both UPC and SKU values are available on the item.'
         name:
           type: string
           description: A display name for this item.
@@ -885,6 +885,11 @@ components:
           type: boolean
           description: 'Flag whether or not this item is always tax-exempt. For example, gift certificate purchases and order-level refunds are tax-exempt. Tax-exempt items are included in the request for auditing purposes.'
           default: false
+        tax_properties:
+          type: array
+          description: Merchants may opt to include additional properties that a tax provider can choose to support, factoring these values into tax calculation.
+          items:
+            $ref: '#/components/schemas/request-item-tax-property'
         type:
           type: string
           description: |-
