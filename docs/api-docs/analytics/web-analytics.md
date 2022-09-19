@@ -50,7 +50,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example GET request with X-Auth-Token header" lineNumbers
+```http title="Example request: Get the Google Analytic" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -62,7 +62,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example GET response" lineNumbers
+```json title="Example response: Get the Google Analytic" lineNumbers
 {
     "data": {
         "id": 1,
@@ -86,7 +86,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example GET request with X-Auth-Token header" lineNumbers
+```http title="Example request: Get the Google Analytic" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -98,7 +98,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example GET response" lineNumbers
+```json title="Example response: Get the Google Analytic" lineNumbers
 {
     "data": {
         "id": 1,
@@ -122,7 +122,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example PUT request with X-Auth-Token header" lineNumbers
+```http title="Example request: Update the Google Analytic" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -144,7 +144,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example PUT response" lineNumbers
+```json title="Example response: Update the Google Analytic" lineNumbers
 {
     "data": {
         "id": 1,
@@ -181,7 +181,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example GET request with X-Auth-Token header" lineNumbers
+```http title="Example request: Get the Visual Website Optimizer Analytic" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -193,7 +193,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example GET response" lineNumbers
+```json title="Example response: Get the Visual Website Optimizer Analytic" lineNumbers
 {
     "data": {
         "id": 2,
@@ -214,7 +214,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example PUT request with X-Auth-Token header" lineNumbers
+```http title="Example request: Update the Visual Website Optimizer Analytic" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -234,7 +234,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example PUT response" lineNumbers
+```json title="Example response: Update the Visual Website Optimizer Analytic" lineNumbers
 {
     "data": {
         "id": 2,
@@ -270,7 +270,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example GET request with X-Auth-Token header" lineNumbers
+```http title="Example request: Get the Facebook Pixel Analytic" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -281,7 +281,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example GET response" lineNumbers
+```json title="Example response: Get the Facebook Pixel Analytic" lineNumbers
 {
     "data": {
         "id": 3,
@@ -302,7 +302,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example PUT request with X-Auth-Token header" lineNumbers
+```http title="Example request: Update the Facebook Pixel Analytic" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -322,7 +322,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example PUT response" lineNumbers
+```json title="Example response: Update the Facebook Pixel Analytic" lineNumbers
 {
     "data": {
         "id": 3,
@@ -358,7 +358,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example GET request with X-Auth-Token header" lineNumbers
+```http title="Example request: Get the Segment Analytic" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -370,7 +370,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example GET response" lineNumbers
+```json title="Example response: Get the Segment Analytic" lineNumbers
 {
     "data": {
         "id": 4,
@@ -392,7 +392,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example PUT request with X-Auth-Token header" lineNumbers
+```http title="Example request: Update the Segment Analytic" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -414,7 +414,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example PUT response" lineNumbers
+```json title="Example response: Update the Segment Analytic" lineNumbers
 {
     "data": {
         "id": 4,
@@ -450,7 +450,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example GET request with X-Auth-Token header" lineNumbers
+```http title="Example request: Get the Site Verification Tags Analytic" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -462,7 +462,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example GET response" lineNumbers
+```json title="Example response: Get the Site Verification Tags Analytic" lineNumbers
 {
     "data": {
         "id": 6,
@@ -484,7 +484,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example PUT request with X-Auth-Token header" lineNumbers
+```http title="Example request: Update the Site Verification Tags Analytic" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -505,7 +505,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example PUT response" lineNumbers
+```json title="Example response: Update the Site Verification Tags Analytic" lineNumbers
 {
     "data": {
         "id": 6,
@@ -540,7 +540,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example GET request with X-Auth-Token header" lineNumbers
+```http title="Example request: Get the Affiliate Conversion Tracking Analytic" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -552,7 +552,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example GET response" lineNumbers
+```json title="Example response: Get the Affiliate Conversion Tracking Analytic" lineNumbers
 {
     "data": {
         "id": 7,
@@ -574,7 +574,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example PUT request with X-Auth-Token header" lineNumbers
+```http title="Example request: Update the Affiliate Conversion Tracking Analytic" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -595,7 +595,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example PUT response" lineNumbers
+```json title="Example response: Update the Affiliate Conversion Tracking Analytic" lineNumbers
 {
     "data": {
         "id": 7,
@@ -621,7 +621,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example GET request with X-Auth-Token header" lineNumbers
+```http title="Example request: Get the Google Analytic 4 Analytic" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -633,7 +633,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example GET response" lineNumbers
+```json title="Example response: Get the Google Analytic 4 Analytic" lineNumbers
 {
   "data": {
       "id": 8,
@@ -656,7 +656,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example PUT request with X-Auth-Token header" lineNumbers
+```http title="Example request: Update the Google Analytic 4 Analytic" lineNumbers
 PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -678,7 +678,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example PUT response" lineNumbers
+```json title="Example response: Update the Google Analytic 4 Analytic" lineNumbers
 {
     "data": {
         "id": 8,
@@ -704,7 +704,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example GET request with X-Auth-Token header" lineNumbers
+```http title="Example request: Get all web analytics" lineNumbers
 GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -716,7 +716,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example GET response" lineNumbers
+```json title="Example response: Get all web analytics" lineNumbers
 {
     "data": [
         {
