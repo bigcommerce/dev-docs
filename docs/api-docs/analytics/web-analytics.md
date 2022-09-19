@@ -288,8 +288,7 @@ title: Response
         "channel_id": 0,
         "name": "Facebook Pixel",
         "enabled": true,
-        "pixel_id": "FP-1234567890",
-        "is_oauth_connected": true
+        "pixel_id": "FP-1234567890"
     },
     "meta": {}
 }
@@ -314,8 +313,7 @@ Accept: application/json
   "channel_id": 0,
   "name": "Facebook Pixel",
   "enabled": true,
-  "pixel_id": "FP-1234567890",
-  "is_oauth_connected": true
+  "pixel_id": "FP-1234567890"
 }
 
 ```
@@ -331,8 +329,7 @@ title: Response
         "channel_id": 0,
         "name": "Facebook Pixel",
         "enabled": true,
-        "pixel_id": "FP-1234567890",
-        "is_oauth_connected": true
+        "pixel_id": "FP-1234567890"
     },
     "meta": {}
 }
@@ -557,11 +554,14 @@ title: Response
 
 ```json title="Example GET response" lineNumbers
 {
-  "id": 7,
-  "channel_id": 0,
-  "name": "Affiliate Conversion Tracking",
-  "enabled": false,
-  "connection": "<script>js code here...</script>"
+    "data": {
+        "id": 7,
+        "channel_id": 0,
+        "name": "Affiliate Conversion Tracking",
+        "enabled": false,
+        "connection": "<script>js code here...</script>"
+    },
+    "meta": {}
 }
 ```
 
@@ -580,17 +580,14 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
 Accept: application/json
 
-{
-    "data": {
-        "id": 7,
-        "channel_id": 0,
-        "name": "Affiliate Conversion Tracking",
-        "enabled": false,
-        "connection": "<script>js code here...</script>"
-    },
-    "meta": {}
-}
 
+{
+  "id": 7,
+  "channel_id": 0,
+  "name": "Affiliate Conversion Tracking",
+  "enabled": false,
+  "connection": "<script>js code here...</script>"
+}
 ```
 
 <!--
@@ -743,8 +740,7 @@ title: Response
             "channel_id": 0,
             "name": "Facebook Pixel",
             "enabled": true,
-            "pixel_id": "FP-1234567890",
-            "is_oauth_connected": true
+            "pixel_id": "FP-1234567890"
         },
         {
             "id": 4,
