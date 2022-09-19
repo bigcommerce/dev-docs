@@ -53,16 +53,16 @@ title: Response
 
 ```json title="Example response: Get the Google Analytic" lineNumbers
 {
-    "data": {
-        "id": 1,
-        "channel_id": 0,
-        "name": "Google Analytics",
-        "enabled": true,
-        "version": 1,
-        "data_tag_enabled": true,
-        "tracking_code": "GA-1234567890"
-    },
-    "meta": {}
+  "data": {
+    "id": 1,
+    "channel_id": 0,
+    "name": "Google Analytics",
+    "enabled": true,
+    "version": 1,
+    "data_tag_enabled": true,
+    "tracking_code": "GA-1234567890"
+  },
+  "meta": {}
 }
 ```
 
@@ -89,16 +89,16 @@ title: Response
 
 ```json title="Example response: Get the Google Analytic" lineNumbers
 {
-    "data": {
-        "id": 1,
-        "channel_id": 0,
-        "name": "Google Analytics",
-        "enabled": true,
-        "version": 2,
-        "data_tag_enabled": true,
-        "property_id": "GA-1234567890"
-    },
-    "meta": {}
+  "data": {
+    "id": 1,
+    "channel_id": 0,
+    "name": "Google Analytics",
+    "enabled": true,
+    "version": 2,
+    "data_tag_enabled": true,
+    "property_id": "GA-1234567890"
+  },
+  "meta": {}
 }
 ```
 
@@ -118,13 +118,13 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "id": 1,
-    "channel_id": 0,
-    "name": "Google Analytics",
-    "enabled": true,
-    "version": 2,
-    "data_tag_enabled": true,
-    "property_id": "GA-1234567890"
+  "id": 1,
+  "channel_id": 0,
+  "name": "Google Analytics",
+  "enabled": true,
+  "version": 2,
+  "data_tag_enabled": true,
+  "property_id": "GA-1234567890"
 }
 ```
 
@@ -135,16 +135,16 @@ title: Response
 
 ```json title="Example response: Update the Google Analytic" lineNumbers
 {
-    "data": {
-        "id": 1,
-        "channel_id": 0,
-        "name": "Google Analytics",
-        "enabled": true,
-        "version": 2,
-        "data_tag_enabled": true,
-        "property_id": "GA-1234567890"
-    },
-    "meta": {}
+  "data": {
+    "id": 1,
+    "channel_id": 0,
+    "name": "Google Analytics",
+    "enabled": true,
+    "version": 2,
+    "data_tag_enabled": true,
+    "property_id": "GA-1234567890"
+  },
+  "meta": {}
 }
 ```
 <!-- type: tab-end -->
@@ -176,14 +176,14 @@ title: Response
 
 ```json title="Example response: Get the Visual Website Optimizer Analytic" lineNumbers
 {
-    "data": {
-        "id": 2,
-        "channel_id": 0,
-        "name": "Visual Website Optimizer",
-        "enabled": false,
-        "vwo_smartcode": "VWO-1234567890"
-    },
-    "meta": {}
+  "data": {
+    "id": 2,
+    "channel_id": 0,
+    "name": "Visual Website Optimizer",
+    "enabled": false,
+    "vwo_smartcode": "VWO-1234567890"
+  },
+  "meta": {}
 }
 ```
 <!-- type: tab-end -->
@@ -202,11 +202,11 @@ Content-Type: application/json
 Accept: application/json
 
 {
-"id": 2,
-"channel_id": 0,
-"name": "Visual Website Optimizer",
-"enabled": false,
-"vwo_smartcode": "VWO-1234567890"
+  "id": 2,
+  "channel_id": 0,
+  "name": "Visual Website Optimizer",
+  "enabled": false,
+  "vwo_smartcode": "VWO-1234567890"
 }
 ```
 
@@ -217,14 +217,14 @@ title: Response
 
 ```json title="Example response: Update the Visual Website Optimizer Analytic" lineNumbers
 {
-    "data": {
-        "id": 2,
-        "channel_id": 0,
-        "name": "Visual Website Optimizer",
-        "enabled": false,
-        "vwo_smartcode": "VWO-1234567890"
-    },
-    "meta": {}
+  "data": {
+    "id": 2,
+    "channel_id": 0,
+    "name": "Visual Website Optimizer",
+    "enabled": false,
+    "vwo_smartcode": "VWO-1234567890"
+  },
+  "meta": {}
 }
 ```
 <!-- type: tab-end -->
@@ -255,14 +255,14 @@ title: Response
 
 ```json title="Example response: Get the Facebook Pixel Analytic" lineNumbers
 {
-    "data": {
-        "id": 3,
-        "channel_id": 0,
-        "name": "Facebook Pixel",
-        "enabled": true,
-        "pixel_id": "FP-1234567890"
-    },
-    "meta": {}
+  "data": {
+    "id": 3,
+    "channel_id": 0,
+    "name": "Facebook Pixel",
+    "enabled": true,
+    "pixel_id": "FP-1234567890"
+  },
+  "meta": {}
 }
 ```
 <!-- type: tab-end -->
@@ -296,14 +296,14 @@ title: Response
 
 ```json title="Example response: Update the Facebook Pixel Analytic" lineNumbers
 {
-    "data": {
-        "id": 3,
-        "channel_id": 0,
-        "name": "Facebook Pixel",
-        "enabled": true,
-        "pixel_id": "FP-1234567890"
-    },
-    "meta": {}
+  "data": {
+    "id": 3,
+    "channel_id": 0,
+    "name": "Facebook Pixel",
+    "enabled": true,
+    "pixel_id": "FP-1234567890"
+  },
+  "meta": {}
 }
 ```
 <!-- type: tab-end -->
@@ -335,15 +335,15 @@ title: Response
 
 ```json title="Example response: Get the Segment Analytic" lineNumbers
 {
-    "data": {
-        "id": 4,
-        "channel_id": 0,
-        "name": "Segment.com",
-        "enabled": false,
-        "api_key": "SEG-1234567890",
-        "data_tag_enabled": true
-    },
-    "meta": {}
+  "data": {
+    "id": 4,
+    "channel_id": 0,
+    "name": "Segment.com",
+    "enabled": false,
+    "api_key": "SEG-1234567890",
+    "data_tag_enabled": true
+  },
+  "meta": {}
 }
 ```
 <!-- type: tab-end -->
@@ -379,15 +379,15 @@ title: Response
 
 ```json title="Example response: Update the Segment Analytic" lineNumbers
 {
-    "data": {
-        "id": 4,
-        "channel_id": 0,
-        "name": "Segment.com",
-        "enabled": false,
-        "api_key": "SEG-1234567890",
-        "data_tag_enabled": true
-    },
-    "meta": {}
+  "data": {
+    "id": 4,
+    "channel_id": 0,
+    "name": "Segment.com",
+    "enabled": false,
+    "api_key": "SEG-1234567890",
+    "data_tag_enabled": true
+  },
+  "meta": {}
 }
 ```
 <!-- type: tab-end -->
@@ -419,14 +419,14 @@ title: Response
 
 ```json title="Example response: Get the Site Verification Tags Analytic" lineNumbers
 {
-    "data": {
-        "id": 6,
-        "channel_id": 0,
-        "name": "Site Verification Tags",
-        "enabled": false,
-        "verification_tag": "<meta name=\"google-site-verification\" content=\"twLOPnFqwX5JK2-RksTZp_QEkfUPPgfGJ0_UHrEKLcY\" />"
-    },
-    "meta": {}
+  "data": {
+    "id": 6,
+    "channel_id": 0,
+    "name": "Site Verification Tags",
+    "enabled": false,
+    "verification_tag": "<meta name=\"google-site-verification\" content=\"twLOPnFqwX5JK2-RksTZp_QEkfUPPgfGJ0_UHrEKLcY\" />"
+  },
+  "meta": {}
 }
 ```
 
@@ -462,14 +462,14 @@ title: Response
 
 ```json title="Example response: Update the Site Verification Tags Analytic" lineNumbers
 {
-    "data": {
-        "id": 6,
-        "channel_id": 0,
-        "name": "Site Verification Tags",
-        "enabled": false,
-        "verification_tag": "<meta name=\"google-site-verification\" content=\"twLOPnFqwX5JK2-RksTZp_QEkfUPPgfGJ0_UHrEKLcY\" />"
-    },
-    "meta": {}
+  "data": {
+    "id": 6,
+    "channel_id": 0,
+    "name": "Site Verification Tags",
+    "enabled": false,
+    "verification_tag": "<meta name=\"google-site-verification\" content=\"twLOPnFqwX5JK2-RksTZp_QEkfUPPgfGJ0_UHrEKLcY\" />"
+},
+  "meta": {}
 }
 ```
 <!-- type: tab-end -->
@@ -501,14 +501,14 @@ title: Response
 
 ```json title="Example response: Get the Affiliate Conversion Tracking Analytic" lineNumbers
 {
-    "data": {
-        "id": 7,
-        "channel_id": 0,
-        "name": "Affiliate Conversion Tracking",
-        "enabled": false,
-        "connection": "<script>js code here...</script>"
-    },
-    "meta": {}
+  "data": {
+    "id": 7,
+    "channel_id": 0,
+    "name": "Affiliate Conversion Tracking",
+    "enabled": false,
+    "connection": "<script>js code here...</script>"
+  },
+  "meta": {}
 }
 ```
 
@@ -544,14 +544,14 @@ title: Response
 
 ```json title="Example response: Update the Affiliate Conversion Tracking Analytic" lineNumbers
 {
-    "data": {
-        "id": 7,
-        "channel_id": 0,
-        "name": "Affiliate Conversion Tracking",
-        "enabled": false,
-        "connection": "<script>js code here...</script>"
-    },
-    "meta": {}
+  "data": {
+    "id": 7,
+    "channel_id": 0,
+    "name": "Affiliate Conversion Tracking",
+    "enabled": false,
+    "connection": "<script>js code here...</script>"
+  },
+  "meta": {}
 }
 ```
 
@@ -583,12 +583,12 @@ title: Response
 ```json title="Example response: Get the Google Analytic 4 Analytic" lineNumbers
 {
   "data": {
-      "id": 8,
-      "channel_id": 0,
-      "name": "Google Analytics 4",
-      "enabled": false,
-      "measurement_id": "G-0123456789",
-      "data_tag_enabled": false
+    "id": 8,
+    "channel_id": 0,
+    "name": "Google Analytics 4",
+    "enabled": false,
+    "measurement_id": "G-0123456789",
+    "data_tag_enabled": false
   },
   "meta": {}
 }
@@ -627,15 +627,15 @@ title: Response
 
 ```json title="Example response: Update the Google Analytic 4 Analytic" lineNumbers
 {
-    "data": {
-        "id": 8,
-        "channel_id": 0,
-        "name": "Google Analytics 4",
-        "enabled": true,
-        "measurement_id": "G-9876543210",
-        "data_tag_enabled": true
-    },
-    "meta": {}
+  "data": {
+    "id": 8,
+    "channel_id": 0,
+    "name": "Google Analytics 4",
+    "enabled": true,
+    "measurement_id": "G-9876543210",
+    "data_tag_enabled": true
+  },
+  "meta": {}
 }
 ```
 
@@ -665,62 +665,62 @@ title: Response
 
 ```json title="Example response: Get all web analytics" lineNumbers
 {
-    "data": [
-        {
-            "id": 1,
-            "channel_id": 0,
-            "name": "Google Analytics",
-            "enabled": true,
-            "version": 2,
-            "data_tag_enabled": true,
-            "property_id": "GA-1234567890"
-        },
-        {
-            "id": 2,
-            "channel_id": 0,
-            "name": "Visual Website Optimizer",
-            "enabled": false,
-            "vwo_smartcode": "VWO-1234567890"
-        },
-        {
-            "id": 3,
-            "channel_id": 0,
-            "name": "Facebook Pixel",
-            "enabled": true,
-            "pixel_id": "FP-1234567890"
-        },
-        {
-            "id": 4,
-            "channel_id": 0,
-            "name": "Segment.com",
-            "enabled": false,
-            "api_key": "SEG-1234567890",
-            "data_tag_enabled": true
-        },
-        {
-            "id": 6,
-            "channel_id": 0,
-            "name": "Site Verification Tags",
-            "enabled": false,
-            "verification_tag": ""
-        },
-        {
-            "id": 7,
-            "channel_id": 0,
-            "name": "Affiliate Conversion Tracking",
-            "enabled": false,
-            "connection": "<script>js code here...</script>"
-        }
-        {
-            "id": 8,
-            "channel_id": 0,
-            "name": "Google Analytics 4",
-            "enabled": true,
-            "measurement_id": "G-9876543210",
-            "data_tag_enabled": true
-          }
-    ],
-    "meta": {}
+  "data": [
+    {
+      "id": 1,
+      "channel_id": 0,
+      "name": "Google Analytics",
+      "enabled": true,
+      "version": 2,
+      "data_tag_enabled": true,
+      "property_id": "GA-1234567890"
+    },
+    {
+      "id": 2,
+      "channel_id": 0,
+      "name": "Visual Website Optimizer",
+      "enabled": false,
+      "vwo_smartcode": "VWO-1234567890"
+    },
+    {
+      "id": 3,
+      "channel_id": 0,
+      "name": "Facebook Pixel",
+      "enabled": true,
+      "pixel_id": "FP-1234567890"
+    },
+    {
+      "id": 4,
+      "channel_id": 0,
+      "name": "Segment.com",
+      "enabled": false,
+      "api_key": "SEG-1234567890",
+      "data_tag_enabled": true
+    },
+    {
+      "id": 6,
+      "channel_id": 0,
+      "name": "Site Verification Tags",
+      "enabled": false,
+      "verification_tag": ""
+    },
+    {
+      "id": 7,
+      "channel_id": 0,
+      "name": "Affiliate Conversion Tracking",
+      "enabled": false,
+      "connection": "<script>js code here...</script>"
+    }
+    {
+      "id": 8,
+      "channel_id": 0,
+      "name": "Google Analytics 4",
+      "enabled": true,
+      "measurement_id": "G-9876543210",
+      "data_tag_enabled": true
+    }
+  ],
+  "meta": {}
 }
 ```
 <!-- type: tab-end -->
