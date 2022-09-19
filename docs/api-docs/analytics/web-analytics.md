@@ -1,16 +1,8 @@
 # Data Solutions API
 
-The Web Analytics API lets you configure **storefront** channel settings for a store's prebuilt data analytic solutions.  
+The Web Analytics API lets you set **storefront** channel settings for a store's prebuilt data analytic solutions. A store has global settings for each web analytic, from which any storefront channel can inherit. You can override these global settings with storefront-specific settings. 
 
-Note that a store has global settings for data solutions, from which any storefront channel can inherit. A merchant can override these global settings with storefront-specific settings for their data solutions. This API configures settings for **storefront** channels at the store's global level (`channel_id` is `0`) and at the specific storefront channel level (by specifying a `channel_id` in the query). If no channel ID is specified in the query, the default channel is the global channel `0`.    
-
-<!-- theme: info -->
-> #### Note
-> You can obtain storefront channel IDs using the [Get all channels](/api-reference/store-management/channels/channels/listchannels) endpoint. 
-
-This article shows you how to manage web analytics using the Web Analytics API.
-
-You can get **all** web analytics, get a **single** web analytic, or **update** a single analytic. To get or update a **single** web analytic, the `id` of the web analytic must be specified in the path.
+You can get all web analytics, get a single web analytic, or update a single analytic. To get or update a single web analytic, the `id` of the web analytic must be specified in the path.
 
 | Web analytic | ID |
 | ------------- | -------- |
@@ -20,9 +12,16 @@ You can get **all** web analytics, get a **single** web analytic, or **update** 
 | Segment | 4 |
 | Site Verification Tags | 6 |
 | Affiliate Conversion Tracking | 7 |
-| Google Analytic 4 | 8 |
+| Google Analytics 4 | 8 |
 
-**Note**: Web analytic ID 5 is no longer in use.
+<!-- theme: info -->
+> #### Note
+> - You can obtain storefront channel IDs using the [Get all channels](/api-reference/store-management/channels/channels/listchannels) endpoint. 
+> - To get or update settings for specific storefronts, specify the `channel_id` in the query. If no channel ID is specified in the query, the request defaults to the global settings for a store, whose `channel_id` is 0. 
+> - Web analytic ID 5 is no longer in use.
+
+This article shows you how to manage web analytics using the Web Analytics API.
+
 
 ## Google Analytics
 
