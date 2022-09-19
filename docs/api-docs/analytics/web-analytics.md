@@ -1,6 +1,6 @@
 # Data Solutions API
 
-The Data Solutions V3 API lets you configure **storefront** channel settings for a store's prebuilt data analytic solutions.  
+The Web Analytics API lets you configure **storefront** channel settings for a store's prebuilt data analytic solutions.  
 
 Note that a store has global settings for data solutions, from which any storefront channel can inherit. A merchant can override these global settings with storefront-specific settings for their data solutions. This API configures settings for **storefront** channels at the store's global level (`channel_id` is `0`) and at the specific storefront channel level (by specifying a `channel_id` in the query). If no channel ID is specified in the query, the default channel is the global channel `0`.    
 
@@ -8,7 +8,7 @@ Note that a store has global settings for data solutions, from which any storefr
 > #### Note
 > You can obtain storefront channel IDs using the [Get all channels](/api-reference/store-management/channels/channels/listchannels) endpoint. 
 
-This article introduces how to configure web analytics using the Data Solutions V3 API. Because each web analytic requires different fields in the request and/or response, this article is divided by web analytics.
+This article shows you how to manage web analytics using the Web Analytics API.
 
 You can get **all** web analytics, get a **single** web analytic, or **update** a single analytic. To get or update a **single** web analytic, the `id` of the web analytic must be specified in the path.
 
@@ -20,6 +20,7 @@ You can get **all** web analytics, get a **single** web analytic, or **update** 
 | Segment | 4 |
 | Site Verification Tags | 6 |
 | Affiliate Conversion Tracking | 7 |
+| Google Analytic 4 | 8 |
 
 **Note**: Web analytic ID 5 is no longer in use.
 
@@ -614,6 +615,89 @@ title: Response
 
 &nbsp;
 
+## Google Analytic 4 
+
+### Get the Google Analytic 4 Analytic
+
+<!--
+type: tab
+title: Request
+-->
+
+```json title="Example GET request with X-Auth-Token header" lineNumbers
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example GET response" lineNumbers
+{
+  "data": {
+      "id": 8,
+      "channel_id": 0,
+      "name": "Google Analytics 4",
+      "enabled": false,
+      "measurement_id": "G-0123456789",
+      "data_tag_enabled": false
+  },
+  "meta": {}
+}
+```
+
+<!-- type: tab-end -->
+
+### Update the Google Analytic 4 Analytic
+
+<!--
+type: tab
+title: Request
+-->
+
+```json title="Example PUT request with X-Auth-Token header" lineNumbers
+PUT https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/settings/data-solutions/web-analytics/{id}
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": 8,
+  "channel_id": 0,
+  "name": "Google Analytics 4",
+  "enabled": true,
+  "measurement_id": "G-9876543210",
+  "data_tag_enabled": true
+}
+
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example PUT response" lineNumbers
+{
+    "data": {
+        "id": 8,
+        "channel_id": 0,
+        "name": "Google Analytics 4",
+        "enabled": true,
+        "measurement_id": "G-9876543210",
+        "data_tag_enabled": true
+    },
+    "meta": {}
+}
+```
+
+<!-- type: tab-end -->
+
+
 ## Get all web analytics
 
 All six web analytics will be returned. As shown, fields for codes (such as `verification_tag`) in which a merchant has not entered a value will return as an empty string.     
@@ -684,6 +768,14 @@ title: Response
             "enabled": false,
             "connection": "<script>js code here...</script>"
         }
+        {
+            "id": 8,
+            "channel_id": 0,
+            "name": "Google Analytics 4",
+            "enabled": true,
+            "measurement_id": "G-9876543210",
+            "data_tag_enabled": true
+          }
     ],
     "meta": {}
 }
