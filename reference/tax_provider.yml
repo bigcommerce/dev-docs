@@ -917,7 +917,7 @@ components:
           description: A unique identifier for this item used to map responses back to the corresponding item on the order.
         item_code:
           type: string
-          description: 'The SKU/UPC of the item, if available.'
+          description: 'The UPC/SKU of the item. The UPC value will be used when both UPC and SKU values are available on the item.'
         name:
           type: string
           description: A display name for this item.
