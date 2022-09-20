@@ -1,6 +1,6 @@
-# Data Solutions API
+# Web Analytics API
 
-The Web Analytics API lets you set **storefront** channel settings for a store's prebuilt data analytic solutions. A store has global settings for each web analytic, from which any storefront channel can inherit. You can override these global settings with storefront-specific settings. 
+The Web Analytics API lets you set **storefront** channel settings for a store's prebuilt data solutions. These settings help merchants connect and enable data solutions for a store. A store has global settings for each web analytic, from which any storefront channel can inherit. You can override these global settings with storefront-specific settings. 
 
 You can get all web analytics, get a single web analytic, or update a single analytic. To get or update a single web analytic, the `id` of the web analytic must be specified in the path.
 
@@ -18,20 +18,23 @@ You can get all web analytics, get a single web analytic, or update a single ana
 > #### Note
 > - You can obtain storefront channel IDs using the [Get all channels](/api-reference/store-management/channels/channels/listchannels) endpoint. 
 > - To get or update settings for specific storefronts, specify the `channel_id` in the query. If no channel ID is specified in the query, the request defaults to the global settings for a store, whose `channel_id` is 0. 
+> - If you query a storefront channel, the response returns global (not storefront) settings if the channel inherits global settings. The `channel_id` in the response will be that of the default global channel (`0`).   
 > - Web analytic ID 5 is no longer in use.
 
-This article shows you how to manage web analytics using the Web Analytics API.
+This article shows you how to manage web analytics using the Web Analytics API. For more, see the [Web Analytics API Reference](/...).
 
 
 ## Google Analytics
 
-The version corresponds with the "Connect with Field" that a merchant uses to connect to Google Analytics. This connection field affects the fields that are requested and returned in [Get the Google Analytic](#get-the-google-analytic) and [Update the Google Analytic](#update-the-google-analytic).
+A merchant can use a tracking code or property ID to connect Google Analytics to a store. This affects the fields that are requested and returned in [Get the Google Analytic](#get-the-google-analytic) and [Update the Google Analytic](#update-the-google-analytic).
 ![Version on Google Analytics](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Version%20for%20Google%20Analytics.png).
 
 
 ### Get the Google Analytic
 
-When a merchant uses a tracking code for the connection field, your response will have a version of `1` and the `tracking_code` field. If a merchant has not entered a tracking code, `tracking_code` will return as an empty string.
+To get a Google Analytic, send a request to the [Get an analytic](/...) endpoint and specify the `id` of Google Analytics in the path.
+
+When a merchant uses a tracking code, your response will have a version of `1` and the `tracking_code` field. If a merchant has not entered a tracking code, `tracking_code` will return as an empty string.
 
 <!--
 type: tab
@@ -67,7 +70,7 @@ title: Response
 
 <!-- type: tab-end -->
 
-When a merchant uses property id for the connection field, your response will have a version of `2` and the `property_id` field. If a merchant has not entered a property ID, `property_id` will return as an empty string.
+When a merchant uses a property ID, your response will have a version of `2` and the `property_id` field. If a merchant has not entered a property ID, `property_id` will return as an empty string.
 
 <!--
 type: tab
@@ -104,6 +107,8 @@ title: Response
 <!-- type: tab-end -->
 
 ### Update the Google Analytic
+
+To update a Google Analytic, send a request to the [Update an analytic](/...) endpoint and specify the `id` of Google Analytics in the path.
 
 <!--
 type: tab
@@ -154,7 +159,7 @@ title: Response
 
 ### Get the Visual Website Optimizer Analytic
 
-If a merchant has not entered a VWO Smartcode, `vwo_smartcode` will return as an empty string.
+To get a Visual Website Optimizer Analytic, send a request to the [Get an analytic](/...) endpoint and specify the `id` of Visual Website Optimizer in the path. If a merchant has not entered a VWO Smartcode, `vwo_smartcode` will return as an empty string.
 
 <!--
 type: tab
@@ -188,6 +193,8 @@ title: Response
 <!-- type: tab-end -->
 
 ### Update the Visual Website Optimizer Analytic
+
+To update a Visual Website Optimizer Analytic, send a request to the [Update an analytic](/...) endpoint and specify the `id` of Visual Website Optimizer in the path.
 
 <!--
 type: tab
@@ -234,7 +241,7 @@ title: Response
 
 ### Get the Facebook Pixel Analytic
 
-If a merchant has not entered a Pixel ID, `pixel_id` will return as an empty string.
+To get a Facebook Pixel Analytic, send a request to the [Get an analytic](/...) endpoint and specify the `id` of Facebook Pixel in the path. If a merchant has not entered a Pixel ID, `pixel_id` will return as an empty string.
 
 <!--
 type: tab
@@ -267,6 +274,8 @@ title: Response
 <!-- type: tab-end -->
 
 ### Update the Facebook Pixel Analytic
+
+To update a Facebook Pixel Analytic, send a request to the [Update an analytic](/...) endpoint and specify the `id` of Facebook Pixel in the path. 
 
 <!--
 type: tab
@@ -313,7 +322,7 @@ title: Response
 
 ### Get the Segment Analytic
 
-If a merchant has not entered an API Key, `api_key` will return as an empty string.
+To get a Segment Analytic, send a request to the [Get an analytic](/...) endpoint and specify the `id` of Segment in the path. If a merchant has not entered an API Key, `api_key` will return as an empty string.
 
 <!--
 type: tab
@@ -348,6 +357,8 @@ title: Response
 <!-- type: tab-end -->
 
 ### Update the Segment Analytic
+
+To update a Segment Analytic, send a request to the [Update an analytic](/...) endpoint and specify the `id` of Segment in the path.
 
 <!--
 type: tab
@@ -397,7 +408,7 @@ title: Response
 
 ### Get the Site Verification Tags Analytic
 
-If a merchant has not entered a verification tag, `verification_tag` will return as an empty string.
+To get a Site Verification Tags Analytic, send a request to the [Get an analytic](/...) endpoint and specify the `id` of Site Verification Tags in the path. If a merchant has not entered a verification tag, `verification_tag` will return as an empty string.
 
 <!--
 type: tab
@@ -432,6 +443,8 @@ title: Response
 <!-- type: tab-end -->
 
 ### Update the Site Verification Tags Analytic
+
+To update a Site Verification Tags Analytic, send a request to the [Update an analytic](/...) endpoint and specify the `id` of Site Verification Tags in the path. 
 
 <!--
 type: tab
@@ -479,7 +492,7 @@ title: Response
 
 ### Get the Affiliate Conversion Tracking Analytic
 
-If a merchant has not entered an Affiliate Conversion Tracking Code, `connection` will return as an empty string.
+To get a Affiliate Conversion Tracking Analytic, send a request to the [Get an analytic](/...) endpoint and specify the `id` of Affiliate Conversion Tracking in the path. If a merchant has not entered an Affiliate Conversion Tracking Code, `connection` will return as an empty string.
 
 <!--
 type: tab
@@ -514,6 +527,8 @@ title: Response
 <!-- type: tab-end -->
 
 ### Update the Affiliate Conversion Tracking Analytic
+
+To update a Affiliate Conversion Tracking Analytic, send a request to the [Update an analytic](/...) endpoint and specify the `id` of Affiliate Conversion Tracking in the path. 
 
 <!--
 type: tab
@@ -562,6 +577,8 @@ title: Response
 
 ### Get the Google Analytic 4 Analytic
 
+To get a Google Analytic 4, send a request to the [Get an analytic](/...) endpoint and specify the `id` of Google Analytic 4 in the path. If a merchant has not entered a measurement ID, `measurement_id` will return as an empty string.
+
 <!--
 type: tab
 title: Request
@@ -596,6 +613,8 @@ title: Response
 <!-- type: tab-end -->
 
 ### Update the Google Analytic 4 Analytic
+
+To update a Google Analytic 4, send a request to the [Update an analytic](/...) endpoint and specify the `id` of Google Analytic 4 in the path. 
 
 <!--
 type: tab
@@ -643,7 +662,7 @@ title: Response
 
 ## Get all web analytics
 
-All six web analytics will be returned. As shown, fields for codes (such as `verification_tag`) in which a merchant has not entered a value will return as an empty string.     
+To get all analytics, send a request to the [Get all analytics](/...) endpoint.
 
 <!--
 type: tab
