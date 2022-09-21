@@ -32,7 +32,7 @@ A merchant can use a tracking code or property ID to connect Google Analytics to
 
 ### Get the Google Analytic
 
-To get a Google Analytic, send a request to the [Get an analytic](/...) endpoint and specify the `id` of Google Analytics in the path.
+To get a Google Analytic, send a request to the [Get a web analytic](/api-reference/store-management/settings/analytics/get-web-analytic) endpoint and specify the `id` of Google Analytics in the path.
 
 When a merchant uses a tracking code, your response will have a version of `1` and the `tracking_code` field. If a merchant has not entered a tracking code, `tracking_code` will return as an empty string.
 
@@ -108,7 +108,7 @@ title: Response
 
 ### Update the Google Analytic
 
-To update a Google Analytic, send a request to the [Update an analytic](/...) endpoint and specify the `id` of Google Analytics in the path.
+To update a Google Analytic, send a request to the [Update a web analytic](/api-reference/store-management/settings/analytics/update-web-analytic) endpoint and specify the `id` of Google Analytics in the path.
 
 <!--
 type: tab
@@ -159,7 +159,7 @@ title: Response
 
 ### Get the Visual Website Optimizer Analytic
 
-To get a Visual Website Optimizer Analytic, send a request to the [Get an analytic](/...) endpoint and specify the `id` of Visual Website Optimizer in the path. If a merchant has not entered a VWO Smartcode, `vwo_smartcode` will return as an empty string.
+To get a Visual Website Optimizer Analytic, send a request to the [Get a web analytic](/api-reference/store-management/settings/analytics/get-web-analytic) endpoint and specify the `id` of Visual Website Optimizer in the path. If a merchant has not entered a VWO Smartcode, `vwo_smartcode` will return as an empty string.
 
 <!--
 type: tab
@@ -194,7 +194,7 @@ title: Response
 
 ### Update the Visual Website Optimizer Analytic
 
-To update a Visual Website Optimizer Analytic, send a request to the [Update an analytic](/...) endpoint and specify the `id` of Visual Website Optimizer in the path.
+To update a Visual Website Optimizer Analytic, send a request to the [Update a web analytic](/api-reference/store-management/settings/analytics/update-web-analytic) endpoint and specify the `id` of Visual Website Optimizer in the path.
 
 <!--
 type: tab
@@ -241,7 +241,7 @@ title: Response
 
 ### Get the Facebook Pixel Analytic
 
-To get a Facebook Pixel Analytic, send a request to the [Get an analytic](/...) endpoint and specify the `id` of Facebook Pixel in the path. If a merchant has not entered a Pixel ID, `pixel_id` will return as an empty string.
+To get a Facebook Pixel Analytic, send a request to the [Get a web analytic](/api-reference/store-management/settings/analytics/get-web-analytic) endpoint and specify the `id` of Facebook Pixel in the path. If a merchant has not entered a Pixel ID, `pixel_id` will return as an empty string.
 
 <!--
 type: tab
@@ -275,7 +275,7 @@ title: Response
 
 ### Update the Facebook Pixel Analytic
 
-To update a Facebook Pixel Analytic, send a request to the [Update an analytic](/...) endpoint and specify the `id` of Facebook Pixel in the path. 
+To update a Facebook Pixel Analytic, send a request to the [Update a web analytic](/api-reference/store-management/settings/analytics/update-web-analytic) endpoint and specify the `id` of Facebook Pixel in the path. 
 
 <!--
 type: tab
@@ -322,7 +322,7 @@ title: Response
 
 ### Get the Segment Analytic
 
-To get a Segment Analytic, send a request to the [Get an analytic](/...) endpoint and specify the `id` of Segment in the path. If a merchant has not entered an API Key, `api_key` will return as an empty string.
+To get a Segment Analytic, send a request to the [Get a web analytic](/api-reference/store-management/settings/analytics/get-web-analytic) endpoint and specify the `id` of Segment in the path. If a merchant has not entered an API Key, `api_key` will return as an empty string.
 
 <!--
 type: tab
@@ -358,7 +358,7 @@ title: Response
 
 ### Update the Segment Analytic
 
-To update a Segment Analytic, send a request to the [Update an analytic](/...) endpoint and specify the `id` of Segment in the path.
+To update a Segment Analytic, send a request to the [Update a web analytic](/api-reference/store-management/settings/analytics/update-web-analytic) endpoint and specify the `id` of Segment in the path.
 
 <!--
 type: tab
@@ -408,7 +408,7 @@ title: Response
 
 ### Get the Site Verification Tags Analytic
 
-To get a Site Verification Tags Analytic, send a request to the [Get an analytic](/...) endpoint and specify the `id` of Site Verification Tags in the path. If a merchant has not entered a verification tag, `verification_tag` will return as an empty string.
+To get a Site Verification Tags Analytic, send a request to the [Get a web analytic](/api-reference/store-management/settings/analytics/get-web-analytic) endpoint and specify the `id` of Site Verification Tags in the path. If a merchant has not entered a verification tag, `verification_tag` will return as an empty string.
 
 <!--
 type: tab
@@ -444,7 +444,7 @@ title: Response
 
 ### Update the Site Verification Tags Analytic
 
-To update a Site Verification Tags Analytic, send a request to the [Update an analytic](/...) endpoint and specify the `id` of Site Verification Tags in the path. 
+To update a Site Verification Tags Analytic, send a request to the [Update a web analytic](/api-reference/store-management/settings/analytics/update-web-analytic) endpoint and specify the `id` of Site Verification Tags in the path. 
 
 <!--
 type: tab
@@ -492,7 +492,7 @@ title: Response
 
 ### Get the Affiliate Conversion Tracking Analytic
 
-To get a Affiliate Conversion Tracking Analytic, send a request to the [Get an analytic](/...) endpoint and specify the `id` of Affiliate Conversion Tracking in the path. If a merchant has not entered an Affiliate Conversion Tracking Code, `connection` will return as an empty string.
+To get a Affiliate Conversion Tracking Analytic, send a request to the [Get a web analytic](/api-reference/store-management/settings/analytics/get-web-analytic) endpoint and specify the `id` of Affiliate Conversion Tracking in the path. If a merchant has not entered an Affiliate Conversion Tracking Code, `connection` will return as an empty string.
 
 <!--
 type: tab
@@ -528,7 +528,7 @@ title: Response
 
 ### Update the Affiliate Conversion Tracking Analytic
 
-To update a Affiliate Conversion Tracking Analytic, send a request to the [Update an analytic](/...) endpoint and specify the `id` of Affiliate Conversion Tracking in the path. 
+To update a Affiliate Conversion Tracking Analytic, send a request to the [Update a web analytic](/api-reference/store-management/settings/analytics/update-web-analytic) endpoint and specify the `id` of Affiliate Conversion Tracking in the path. 
 
 <!--
 type: tab
@@ -577,7 +577,7 @@ title: Response
 
 ### Get the Google Analytic 4 Analytic
 
-To get a Google Analytic 4, send a request to the [Get an analytic](/...) endpoint and specify the `id` of Google Analytic 4 in the path. If a merchant has not entered a measurement ID, `measurement_id` will return as an empty string.
+To get a Google Analytic 4, send a request to the [Get a web analytic](/api-reference/store-management/settings/analytics/get-web-analytic) endpoint and specify the `id` of Google Analytic 4 in the path. If a merchant has not entered a measurement ID, `measurement_id` will return as an empty string.
 
 <!--
 type: tab
@@ -614,7 +614,7 @@ title: Response
 
 ### Update the Google Analytic 4 Analytic
 
-To update a Google Analytic 4, send a request to the [Update an analytic](/...) endpoint and specify the `id` of Google Analytic 4 in the path. 
+To update a Google Analytic 4, send a request to the [Update a web analytic](/api-reference/store-management/settings/analytics/update-web-analytic) endpoint and specify the `id` of Google Analytic 4 in the path. 
 
 <!--
 type: tab
@@ -662,7 +662,7 @@ title: Response
 
 ## Get all web analytics
 
-To get all analytics, send a request to the [Get all analytics](/...) endpoint.
+To get all analytics, send a request to the [Get all web analytics](/api-reference/store-management/settings/analytics/get-all-web-analytics) endpoint.
 
 <!--
 type: tab
@@ -747,9 +747,10 @@ title: Response
 
 ## Resources
 - [Web Analytics Overview](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics)
-- [Google Analytics](https://support.bigcommerce.com/s/article/Setting-Up-Google-Analytics?language=en_US)
-- [Facebook Pixel](https://support.bigcommerce.com/s/article/Facebook-Pixel?language=en_US)
-- [Segment](https://support.bigcommerce.com/s/article/Setting-up-Segment-com?language=en_US)
-- [Affiliate Conversion Tracking](https://support.bigcommerce.com/s/article/Passing-Order-Data-to-Affiliate-Programs?language=en_US)
+
+### Web Analytics reference
+- [Get all web analytics](/api-reference/store-management/settings/analytics/get-all-web-analytics)
+- [Get a web analytic](/api-reference/store-management/settings/analytics/get-web-analytic)
+- [Update a web analytic](/api-reference/store-management/settings/analytics/update-web-analytic)
 
 
