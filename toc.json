@@ -794,6 +794,12 @@
       "uri": "https://developer.bigcommerce.com/promotions/beta/api-docs/overview"
     },
     {
+      "type": "item",
+      "title": "Customer Segmentation API",
+      "href": "/customers/beta/api-docs/overview",
+      "uri": "https://developer.bigcommerce.com/customers/beta/api-docs/overview"
+    },
+    {
       "type": "divider",
       "title": "Partner Information"
     },
