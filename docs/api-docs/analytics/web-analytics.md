@@ -1,6 +1,6 @@
-# Web Analytics API
+# Data Solutions
 
-The Web Analytics API lets you set **storefront** channel settings for a store's prebuilt data solutions. These settings help merchants connect and enable data solutions for a store. A store has global settings for each web analytic, from which any storefront channel can inherit. You can override these global settings with storefront-specific settings. 
+The Settings API lets you set **storefront** channel settings for a store's prebuilt data solutions. These settings help merchants connect web analytics to a store. A store has global settings for each web analytic, from which any storefront channel can inherit. You can override these global settings with storefront-specific settings. 
 
 You can get all web analytics, get a single web analytic, or update a single analytic. To get or update a single web analytic, the `id` of the web analytic must be specified in the path.
 
@@ -21,7 +21,7 @@ You can get all web analytics, get a single web analytic, or update a single ana
 > - If you query a storefront channel, the response returns global (not storefront) settings if the channel inherits global settings. The `channel_id` in the response will be that of the default global channel (`0`).   
 > - Web analytic ID 5 is no longer in use.
 
-This article shows you how to manage web analytics using the Web Analytics API. For more, see the [Web Analytics API Reference](/...).
+This article shows you how to manage web analytics using the Settings API. For more, see the [Settings API Reference](/api-reference/store-management/settings).
 
 
 ## Google Analytics
@@ -746,6 +746,7 @@ title: Response
 &nbsp;
 
 ## Resources
+- [Settings API Reference](/api-reference/store-management/settings)
 - [Web Analytics Overview](https://support.bigcommerce.com/s/article/Data-Solutions?language=en_US#web-analytics)
 
 ### Web Analytics reference
