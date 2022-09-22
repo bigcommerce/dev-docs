@@ -285,6 +285,20 @@
     },
     {
       "type": "divider",
+      "title": "Beta APIs"
+    },
+    {
+      "type": "item",
+      "title": "Promotions API",
+      "uri": "https://developer.bigcommerce.com/promotions/beta/api-reference"
+    },
+    {
+      "type": "item",
+      "title": "Customer Segmentation API",
+      "uri": "https://developer.bigcommerce.com/customers/beta/api-reference"
+    },
+    {
+      "type": "divider",
       "title": "Template Objects"
     },
     {
