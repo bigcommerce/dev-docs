@@ -17,7 +17,7 @@ You can get all web analytics, get a single web analytic, or update a single ana
 <!-- theme: info -->
 > #### Note
 > - You can obtain storefront channel IDs using the [Get all channels](/api-reference/store-management/channels/channels/listchannels) endpoint. 
-> - To get or update settings for specific storefronts, specify the `channel_id` in the query. If no channel ID is specified in the query, the request defaults to the global settings for a store, whose `channel_id` is 0. 
+> - To get or update settings for specific storefronts, specify the `channel_id` in the query. If you do not specify a channel ID in the query, the request defaults to the global settings for a store whose `channel_id` is 0. 
 > - If you query a storefront channel, the response returns global (not storefront) settings if the channel inherits global settings. The `channel_id` in the response will be that of the default global channel (`0`).   
 > - Web analytic ID 5 is no longer in use.
 
