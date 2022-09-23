@@ -26,7 +26,7 @@ This article shows you how to manage web analytics using the Settings API. For m
 
 ## Google Analytics
 
-A merchant can use a tracking code or property ID to connect Google Analytics to a store. This affects the fields that are requested and returned in [Get the Google Analytic](#get-the-google-analytic) and [Update the Google Analytic](#update-the-google-analytic).
+A merchant can use a tracking code or property ID to connect Google Analytics to a store. This affects the fields that are requested and returned in [Get the Google Analytic](#get-the-google-analytic) and [Update the Google Analytic](#update-the-google-analytic) endpoints.
 ![Version on Google Analytics](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Version%20for%20Google%20Analytics.png).
 
 
