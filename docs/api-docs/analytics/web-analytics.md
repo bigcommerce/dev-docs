@@ -34,7 +34,7 @@ A merchant can use a tracking code or property ID to connect Google Analytics to
 
 To get a Google Analytic, send a request to the [Get a web analytic](/api-reference/store-management/settings/analytics/get-web-analytic) endpoint and specify the `id` of Google Analytics in the path.
 
-When a merchant uses a tracking code, your response will have a version of `1` and the `tracking_code` field. If a merchant has not entered a tracking code, `tracking_code` will return as an empty string.
+When a merchant uses a tracking code, your response will have a version of `1` in the `tracking_code` field. If a merchant has not entered a tracking code, `tracking_code` will return as an empty string.
 
 <!--
 type: tab
