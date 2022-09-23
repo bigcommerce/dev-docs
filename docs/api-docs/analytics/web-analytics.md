@@ -70,7 +70,7 @@ title: Response
 
 <!-- type: tab-end -->
 
-When a merchant uses a property ID, your response will have a version of `2` and the `property_id` field. If a merchant has not entered a property ID, `property_id` will return as an empty string.
+When a merchant uses a property ID, your response will have a version of `2` in the `property_id` field. If a merchant has not entered a property ID, `property_id` will return as an empty string.
 
 <!--
 type: tab
