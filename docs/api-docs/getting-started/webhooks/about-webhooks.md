@@ -184,6 +184,14 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 Webhooks created with one token are not visible when you retrieve webhooks using a different token. To view your webhook, use the same account token that created the webhook.
 
+**Webhooks timing out**
+
+To prevent your webhook from timing out, respond with a `200` response immediately after receiving the request.
+
+**Duplicate webhook events**
+
+Duplicate webhooks can happen. For this reason, apps should use idempotent operations. Idempotent operations allow multiple calls without any additional effect. 
+
 ## Tools
 
 Below is a collection of third-party tools that can be used to aid in the development, testing, and debugging of webhooks:
