@@ -7,10 +7,11 @@ Once you have a client ID and client secret, you're ready to write the code gran
 It may be more appropriate for your application to use an API client to handle this logic; see [the list of API clients](#helpful-tools >>> is there a list to link to?) that expose OAuth-related helper methods. 
 
 >>> assumes a skill level???
+## >>> publication checklist
 
-
-* each store needs its own access token
+* ~~each store needs its own access token~~
 * your app's API must expose a callback endpoint at GET /auth that BigCommerce can hit to generate and regenerate a store's access token
+* auth call comes from the browser context
 * full list of 
 * currently can't regenerate arbitrarily; only in response to the following events:
   * app API account's OAuth scopes change
@@ -25,19 +26,20 @@ It may be more appropriate for your application to use an API client to handle t
 Single click app authorization and authentication occurs via [OAuth2 authorization code grant](https://tools.ietf.org/html/rfc6749#section-4.1) (tools.ietf.org). The sequence is as follows:
 >>> DIAGRAM; mermaid vs lucidchart, for links
 
-1. [`GET`](#receiving-the-get-request) request from BigCommerce to your app (triggered by merchant clicking **Install**) containing:
+1. The merchant clicks **Install** or a direct installation link.
+2. (>>> Merchant accepts OAuth scope permissions?)
+3. The merchant's [browser sends a GET request to the app server](#receiving-the-get-request) with the requisite info to request a unique access token. It contains the following:
    - `code`
    - `client_id`
-   - `client_secret`
    - `scopes`
-2. [`RESPONSE`](#responding-to-the-get-request) from your app to BigCommerce containing:
-   * HTML for control panel `iFrame` in body.
-3. `POST` request from your app to BigCommerce containing:
-     - `code`
-     - `client_id`
-     - `client_secret`
-4. `RESPONSE` from BigCommerce to your app containing:
-   * `access_token` authorized against the store that installed your app.
+4. The [app sends POST request to BigCommerce](#making-the-post-request) to request a unique `access_token`. It contains the following:
+   - ???
+5. BigCommerce responds with either an error or an `access_token` unique to the merchant's store.
+6. The app saves the store's unique `access_token` and handles any internal logic.
+7. The app sends a [response to the browser's GET request](#responding-to-the-get-request) in step (>>> 3) that contains the following:
+  - markup to render in the iFrame (>>> describe to be compatible with App Extensions) the store control panel provides.
+
+When the OAuth scopes or the merchant's email address change, the grant code flow repeats in response to the  (>>> `/load` event; does this then dispatch the auth callback instead?)
 
 ![App Installation Sequence](https://s3.amazonaws.com/user-content.stoplight.io/6012/1536263813949 "App Installation Sequence")
 
