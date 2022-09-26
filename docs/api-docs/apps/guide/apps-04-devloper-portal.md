@@ -6,7 +6,7 @@ Create, edit, and submit apps for approval using the [Developer Portal](https://
 > #### Store email address constraint
 > Apps that aren't approved for distribution through the [Apps Marketplace](https://bigcommerce.com/apps) can only be installed on stores owned by the same email address as the developer portal account's email address.
 
-## Create an app
+## Create an app profile
 
 Creating an app also creates an app API account. To learn more about app API accounts, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts). To create an app, do the following:
 
@@ -50,7 +50,7 @@ You can view the client ID and client secret any time; see the following section
 
 To learn more about using an app API account to generate store-specific access tokens, see [Implementing the OAuth Flow](/api-docs/apps/guide/auth).
 
-## Edit an app
+## Edit an app profile
 
 1. To edit an app, navigate to the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps) and click the **Edit App** pencil icon to the right of the app you want to edit.
 
