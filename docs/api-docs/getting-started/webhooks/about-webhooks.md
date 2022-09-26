@@ -186,11 +186,11 @@ Webhooks created with one token are not visible when you retrieve webhooks using
 
 **Webhooks timing out**
 
-To prevent your webhook from timing out, respond with a `200` response immediately after receiving the request.
+To prevent your webhooks from timing out, send a `200` success status response immediately after receiving the request.
 
 **Duplicate webhook events**
 
-Duplicate webhooks can happen. For this reason, apps should use idempotent operations. Idempotent operations allow multiple calls without any additional effect. 
+Duplicate webhooks can happen. For this reason, apps should use idempotent operations to avoid significant unintended side effects. Idempotent operations allow multiple calls without changing the result. 
 
 ## Tools
 
