@@ -64,7 +64,7 @@ The `signed_payload_jwt` is composed of three distinct **base64URL**-encoded str
 header_b64.payload_claims_b64.signature_b64
 ```
 
-Use the steps in our [Guide to Working with JWTs](/api-docs/getting-started/authentication/jwts#decode-verify-and-parse) to decode, verify, and parse the `signed_payload_jwt`s that BigCommerce sends to your app's callback endpoints.
+Use a library package or [compatible BigCommerce API client](#helpful-tools) to decode, verify, and parse the `signed_payload_jwt`s that BigCommerce sends to your app's callback endpoints.
 
 ## Work with payload claims
 
