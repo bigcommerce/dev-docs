@@ -96,7 +96,7 @@ Content-Type: application/json
   "context": "stores/g5cd38",
   "scope": "store_v2_orders store_channel_listings_read_only",
   "grant_type": "authorization_code",
-  "redirect_uri": "https://your_app.example.com/oauth"
+  "redirect_uri": "https://your_app.example.com/auth"
 }
 
 ```
@@ -111,7 +111,7 @@ Content-Type: application/json
 | `scope` | The `scope` list from the auth callback; see the [list of auth callback query parameters](#query-parameters-in-auth-callback).|
 | `context` | The store `context` from the auth callback; see the [list of auth callback query parameters](#query-parameters-in-auth-callback). |
 | `grant_type` | The value is always `authorization_code`. |
-| `redirect_uri` | >>> is this preset? |
+| `redirect_uri` | Identical to the auth callback registered in the app profile. |
 
 
 
