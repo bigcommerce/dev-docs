@@ -72,10 +72,10 @@ title: URL-decoded query parameters
 
 | Parameter | Description |
 |:----------|:------------|
-| `account_uuid` | >>> |
 | `code` | The proverbial code in the code grant authorization flow; exchange for a semi-permanent `access_token`. |
 | `scope` | A space-separated list of the OAuth scopes associated with this app's [API account](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts). |
 | `context` | The path that identifies the store in API requests to `https://api.bigcommerce.com`; a string of the form `stores/{{STORE_HASH}}`. |
+| `account_uuid` | The ID of the Developer Portal account that registered the app profile. |
 
 Before proceeding with the grant code authorization flow, it's a best practice to validate the list of scopes to ensure that it matches the scopes currently configured in your app profile.
 
@@ -140,10 +140,10 @@ BigCommerce responds to the access_token request with JSON that contains a perma
 | `access_token` | string | The semi-permanent security token that your app can use to make requests on behalf of the store. Save this value securely for future requests. |
 | `scope` | string | A space-separated list of the OAuth scopes this `access_token` authorizes access to. |
 | `user.id` | integer | BigCommerce’s unique identifier for the merchant or authorized user. Save this value to identify the user in future requests. |
-| `user.username` | string | >>> |
+| `user.username` | string | The username that the initiating user has on file with BigCommerce. |
 | `user.email` | string | The email address that the owner or authorized user has on file with BigCommerce. Save this value for future requests. |
 | `context` | string | The path that identifies the store in API requests to `https://api.bigcommerce.com`; a string of the form `stores/{{STORE_HASH}}`. |
-| `account_uuid` | string, UUID | >>> |
+| `account_uuid` | string, UUID | The ID of the Developer Portal account that registered the app profile. |
 
 ## Responding to the auth callback
 
