@@ -8,8 +8,7 @@ info:
 
     ## Authentication
 
-    Authenticate requests by sending an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) `access_token` via `X-Auth-Token` HTTP header.
-
+    Authenticate requests by sending an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) `access_token` via `X-Auth-Token` HTTP heade
     ### Example
 
     ```http
@@ -595,12 +594,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    $ref: '#/components/schemas/InstalledCertificateDetail'
-                  meta:
-                    type: object
+                $ref: '#/components/schemas/CertificateResponse'
               examples: {}
     put:
       summary: Upsert a Site's SSL/TLS Certificate Information
@@ -630,7 +624,33 @@ paths:
                     }
       description: |-
         - If a value for `url` is not supplied, the saved certificate is associated with the specified site’s `primary` URL.
-        - Use caution. Because this endpoint upserts, supplying an SSL certificate for a domain that already has a certificate connected overwrites the domain’s existing certificate.'
+        - Use caution. Because this endpoint upserts, supplying an SSL certificate for a domain that already has a certificate connected overwrites the domain’s extant certificate.'
+  '/stores/{store_hash}/v3/sites/certificates':
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+    get:
+      summary: Get Site Certificates
+      tags:
+        - Site Certificate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCertificatesResponse'
+      operationId: get-sites-certificates
+      description: Return all SSL certificates connected to domains within a store.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: 'urls:in'
+          description: Query certificates by one or more URLs
 components:
   schemas:
     _metaCollection:
@@ -1104,6 +1124,18 @@ components:
         type: string
       x-tags:
         - Models
+    GetCertificatesResponse:
+      title: GetCertificatesResponse
+      x-stoplight:
+        id: wzfo263uqhopb
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/InstalledCertificateDetail'
+        meta:
+          type: object
   responses:
     502_GatewayError:
       description: 'If something happens during the request that causes it to fail, a 502 response will be returned. A new request should be made; however, it could fail.'
