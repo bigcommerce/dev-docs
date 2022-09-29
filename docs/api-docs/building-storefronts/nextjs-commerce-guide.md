@@ -1,7 +1,5 @@
 # Next.js Commerce Quick Start
 
-
-
 ## Overview
 
 BigCommerce offers cloud-based multi-channel ecommerce solutions. We also offer themes with powerful design tools and features that let you build and host your storefront on our servers.
@@ -73,6 +71,8 @@ To get started with Next.js Commerce, you'll need to deploy a live version direc
 7. Upon completion of deployment to Vercel, you will see your site deployed in a thumbnail image.
 
 ![Commerce deployment confirmation dialogue](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-14.png)
+
+
 
 ### Developing locally after Vercel deployment
 
@@ -157,6 +157,10 @@ Storefront Data Hooks has helper functions to handle common user actions such as
 SWR uses FETCH for data fetching: [vercel/fetch: Opinionated fetch (with retrying and DNS caching) optimized for use inside microservices](https://github.com/vercel/fetch).
 
 ## Application settings
+
+### SSL/TSL Certificate
+
+To use BigCommerce's [redirected checkout](https://developer.bigcommerce.com/api-docs/storefronts/guide/checkout#redirecting-to-the-bigcommerce-checkout), make sure your Next.js Commerce storefront has an SSL/TSL certificate installed and you are using URL beginning with `https://`.
 
 ### Next SEO
 

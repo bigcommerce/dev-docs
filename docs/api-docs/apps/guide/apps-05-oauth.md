@@ -1,190 +1,193 @@
 # Single-Click App OAuth Flow
 
 
+After you [install your draft app](/api-docs/apps/guide/development) and [create an app profile](/api-docs/apps/guide/developer-portal), you're ready to write the code grant authorization flow that generates a unique `access_token` for each store that installs your app. This article covers the sequence and contents of API requests and responses in the code grant authorization flow for a BigCommerce app. 
 
-
-If you're developing a single-click app, you'll need to handle the OAuth flow that begins when a merchant clicks **Install**. This article contains the technical details necessary to do so. If you don't want to start from scratch, see [Helpful tools](#helpful-tools) for a list of API clients that expose OAuth related helper methods. This documentation assumes you're an experienced developer familiar with web app authentication. If this is your first time approaching OAuth, see [Additional resources](#additional-resources) for links to introductory articles on the [OAuth framework](https://tools.ietf.org/html/rfc6749) (tools.ietf.org).
-
-## Helpful tools
-
-The following BigCommerce API clients expose helper methods for fetching an OAuth `access_token`:
-* [bigcommerce/bigcommerce-api-python](https://github.com/bigcommerce/bigcommerce-api-python)
-  * Fetches `access_token`
-  * Verifies `signed_payload`
-* [bigcommerce/node-bigcommerce](https://github.com/bigcommerce/node-bigcommerce/)
-  * Fetches `access_token`
-  * Verifies `signed_payload`
-* [bigcommerce/bigcommerce-api-php](https://github.com/bigcommerce/bigcommerce-api-php)
-  * Fetches `access_token`
-* [bigcommerce/omniauth-bigcommerce](https://github.com/bigcommerce/omniauth-bigcommerce)
-  * Fetches `access_token`
-
-## OAuth summary
-
-Single click app authorization and authentication occurs via [OAuth2 authorization code grant](https://tools.ietf.org/html/rfc6749#section-4.1) (tools.ietf.org). The sequence is as follows:
-
-1. [`GET`](#receiving-the-get-request) request from BigCommerce to your app (triggered by merchant clicking **Install**) containing:
-   - `code`
-   - `client_id`
-   - `client_secret`
-   - `scopes`
-2. [`RESPONSE`](#responding-to-the-get-request) from your app to BigCommerce containing:
-   * HTML for control panel `iFrame` in body.
-3. `POST` request from your app to BigCommerce containing:
-     - `code`
-     - `client_id`
-     - `client_secret`
-4. `RESPONSE` from BigCommerce to your app containing:
-   * `access_token` authorized against the store that installed your app.
-
-![App Installation Sequence](https://s3.amazonaws.com/user-content.stoplight.io/6012/1536263813949 "App Installation Sequence")
+It may be more appropriate for your application to use an API client to handle this logic; see [the list of BigCommerce API clients](#helpful-tools) that expose OAuth-related helper methods. 
 
 <!-- theme: info -->
-> #### Note
-> * API token creation is a permission reserved for the [store owner](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) user account.
-> * An app can request authentication *on behalf* of a store owner, allowing your app to make API requests against store data.
-> * All app callbacks must be served over `https` (you should also have access to your app's server logs which will allow you to see the information in the request).
+> #### Store owner access_token constraint
+> Typically, only [store owners](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) can create API accounts and `access_token`s for a store. However, when an app is approved to be publicly available for additional stores to install, it can generate `access_token`s *on behalf* of store owners. 
 
+## Overview
 
+Your app must expose a callback endpoint, `GET /auth`, that the merchant's store control panel can hit to initiate the code grant authorization flow. For a list of all the callback endpoints your app can expose, both required and optional, see [Single-Click App Callback Handlers](/api-docs/apps/guide/callbacks).
 
-## Receiving the GET request
+BigCommerce uses a modified version of the [OAuth2 authorization code grant (tools.ietf.org)](https://tools.ietf.org/html/rfc6749#section-4.1). The sequence is as follows:
 
-The `GET` request to your app's **auth** callback URL contains a temporary `code` that can be exchanged for a permanent `access_token`. It also includes a unique value that identifies the store installing or updating your app, as well as authorized scopes.
+1. The merchant initiates installing your app by signing in to their store control panel and doing one of the following: 
+  * clicking **Install** in the [Apps Marketplace](https://www.bigcommerce.com/apps/), or 
+  * following a direct installation link.
+2. The merchant accepts the app's OAuth scope permissions. The OAuth consent view presented to the merchant requires them to approve all the scopes to install the app; at this time, merchants cannot pick and choose scopes.
+3. The merchant's [browser sends a GET request to the app](#receiving-the-auth-callback) server's `GET /auth` endpoint that contains some of the information necessary to request a unique `access_token` for the store. 
+4. The [app sends POST request to BigCommerce](#requesting-the-access_token) to request a unique `access_token` for the store. 
+5. BigCommerce responds with either an error or an `access_token` unique to the merchant's store; see [receiving the access_token response](#receiving-the-access_token-response).
+6. The app saves the store's unique `access_token` and handles any internal logic.
+7. The app sends a [response to the browser's GET request](#responding-to-the-auth-callback) in step 3 that contains markup to render the app's landing view in the iFrame the store control panel provides.
 
-```http
-GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders&context=stores/g5cd38 HTTP/1.1
-```
+After your app has an `access_token` for the store, the following events can mark the `access_token` for invalidation the next time the merchant opens the app:
+* You change the app's OAuth scopes.
+* The merchant's email address changes.
 
-| Parameter | Description |
-|-|-|
-| `code` | Temporary code to exchange for a permanent `access_token`. |
-| `scope` | List of scopes authorized by the user. |
-| `context` | The `store_hash` in the form of `stores/{{STORE_HASH}}`; required in API requests.|
+The next time the merchant opens the app in the store control panel, the browser will prompt them to accept the changes. Once they accept, their previous `access_token` will be invalid, and your app will receive a fresh auth callback for their store.  
+
+## Receiving the auth callback
 
 <!-- theme: info -->
-> #### Note
-> * When your app receives a new token, any previously issued token is invalidated.
-> * As a best practice, your app should validate the list of scopes to ensure that it matches your app's needs and fails if it does not. At this time, the user cannot pick and choose scopes. The dialog presented to the user requires the user to approve all scopes or none. For more information about available scopes, see [OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
-> * The request comes from the client browser, rather than directly from BigCommerce. This request allows you to use a non-publicly available auth callback URL while testing your app.
+> #### Auth callback URL requirement
+> In production, all app callback URLs must be publicly available, fully qualified, and served over TLS/SSL.
 
-## Responding to the GET request
+The request to your app's `GET /auth` endpoint contains query parameters required to request an `access_token`.
 
-Upon receiving the `GET` request at the auth callback URL, your app should return some HTML to the merchant browser. BigCommerce renders this in an **iFrame** inside of the control panel. It could be a form that collects further information from the user, or you could redirect the user to your app's main page. If you do not respond with HTML or redirect, the user will be left looking at a blank screen.
+It's a best practice to request and receive an `access_token` **before** responding to the auth callback.
 
-## Making the POST request
- The `POST` requests primary purpose is to exchange the temporary access `code` for a permanent `access_token`. Pass the parameters and their values inside the request body, using query parameters and URL-encoding.
+<!--
+type: tab
+title: Example request
+-->
 
-```http
-POST https://login.bigcommerce.com/oauth2/token HTTP/1.1
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 186
-
-client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&code=qr6h3thvbvag2ffq&scope=store_v2_orders&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/{STORE_HASH}
+```http title="Example request: auth callback" lineNumbers
+GET https://your_app.example.com/auth?account_uuid=12345678-90ab-cdef-1234-567890abcdef&code=qr6h3thvbvag2ffq&context=stores%2Fg5cd38&scope=store_v2_orders+store_channel_listings_read_only
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Referer: https://login.bigcommerce.com/
 ```
 
-| Parameter | Description |
-|-|-|
-| `client_id` | The Client ID for your app obtained in the [Developer Portal](https://devtools.bigcommerce.com/my/apps). |
-| `client_secret` | The Client Secret for your app obtained in the [Developer Portal](https://devtools.bigcommerce.com/my/apps). |
-| `code` | Temporary access code received in the `GET` request.|
-| `scope` | List of OAuth scopes received in the `GET` request. For more information about available scopes, see [OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).|
-| `grant_type` | Always set to `authorization_code`. |
-| `redirect_uri` | Must be identical to your registered auth callback URI. |
-| `context` | Store hash received in the `GET` request.|
+<!-- 
+type: tab
+title: URL-decoded query parameters
+-->
 
-
-## Receiving the POST response
-
-BigCommerce will respond to the `POST` request with JSON containing a permanent `access_token`. Use this `access_token` to authenticate API requests against the store. A `user` object for identifying app users during `load` and `uninstall` is also included. Store these values securely.
-
-```json
+```json title="Example query parameters: auth callback" lineNumbers
 {
-  "access_token": "ACCESS_TOKEN",
-  "scope": "store_v2_orders",
-  "user": {
-    "id": 24654,
-    "email": "merchant@mybigcommerce.com"
-  },
-  "context": "stores/STORE_HASH"
+  "account_uuid": "12345678-90ab-cdef-1234-567890abcdef",
+  "code": "qr6h3thvbvag2ffq",
+  "context": "stores/g5cd38",
+  "scope": "store_v2_orders store_channel_listings_read_only"
 }
 ```
 
-Update requests refresh the `access_token` and `scope`:
+<!-- type: tab-end -->
 
-```json
+### Query parameters in auth callback
+
+| Parameter | Description |
+|:----------|:------------|
+| `code` | The proverbial code in the code grant authorization flow; exchange for a semi-permanent `access_token`. |
+| `scope` | A space-separated list of the OAuth scopes associated with this app's [API account](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts). |
+| `context` | The path that identifies the store in API requests to `https://api.bigcommerce.com`; a string of the form `stores/{{STORE_HASH}}`. |
+| `account_uuid` | The ID of the Developer Portal account that registered the app profile. |
+
+Before proceeding with the grant code authorization flow, it's a best practice to validate the list of scopes to ensure that it matches the scopes currently configured in your app profile.
+
+## Requesting the access_token
+
+
+To generate an access_token for the merchant's store, send a `POST` request to `https://login.bigcommerce.com/oauth2/token`. The request body contains a combination of query arguments from the auth callback and credentials from your app profile.
+
+```http title="Example request: Create an access_token" lineNumbers
+POST https://login.bigcommerce.com/oauth2/token
+Accept: application/json
+Content-Type: application/json
+
 {
-  "access_token": "NEW_ACCESS_TOKEN",
-  "scope": "store_v2_orders,store_v2_products",
+  "client_id": {{CLIENT_ID}},
+  "client_secret": {{CLIENT_SECRET}},
+  "code": "qr6h3thvbvag2ffq",
+  "context": "stores/g5cd38",
+  "scope": "store_v2_orders store_channel_listings_read_only",
+  "grant_type": "authorization_code",
+  "redirect_uri": "https://your_app.example.com/auth"
+}
+
+```
+
+### Request body properties in the access_token request
+
+| Property | Description |
+|:---------|:------------|
+| `client_id` | Your app's client ID. |
+| `client_secret` | Your app's client secret. |
+| `code` | The `code` from the auth callback; see the [list of auth callback query parameters](#query-parameters-in-auth-callback). |
+| `scope` | The `scope` list from the auth callback; see the [list of auth callback query parameters](#query-parameters-in-auth-callback).|
+| `context` | The store `context` from the auth callback; see the [list of auth callback query parameters](#query-parameters-in-auth-callback). |
+| `grant_type` | The value is always `authorization_code`. |
+| `redirect_uri` | Identical to the auth callback registered in the app profile. |
+
+
+
+## Receiving the access_token response
+
+BigCommerce responds to the access_token request with JSON that contains a permanent `access_token`, among other information. Use this `access_token` to authenticate API requests the app makes on behalf of the store; see [Authentication and Example Requests](/api-docs/getting-started/authentication). To provide the most responsive app architecture and re-authentication checks, save all the response values.
+
+```json title="Example response: Create an access_token" lineNumbers
+{
+  "access_token": "xxxxalphanumstringxxxx",
+  "scope": "store_v2_orders store_channel_listings_read_only",
   "user": {
     "id": 24654,
-    "email": "merchant@mybigcommerce.com"
+    "username": "merchant@example.com",
+    "email": "merchant@example.com"
   },
-  "context": "stores/{STORE_HASH}"
+  "context": "stores/g5cd38",
+  "account_uuid": "12345678-90ab-cdef-1234-567890abcdef"
 }
 ```
 
-| Name | Data Type | Value Description |
-|-|-|-|
-| `access_token` | string | The permanent OAuth token that your app can use to make requests to the Stores API on behalf of the user. Store this value securely. |
-| `scope` | string | List of authorization scopes. |
-| `user.id` | integer | Unique identifier for the user. Store this value to identify the user at load and uninstall. |
-| `user.email` | string | The user’s email address. Store this value to identify the user at load and uninstall. |
-| `context` | string | The store hash, as well as a base path: `stores/{_store_hash_}` |
+### Response body properties for the access_token request
 
-<!-- theme: info -->
-> #### Note
-> * Store the `access_token` securely for future use.
-> * Store `user` and `store_hash` values to identify the user and store at `load` and `uninstall`.
+| Property | Type | Description |
+|:---------|:-----|:------------|
+| `access_token` | string | The semi-permanent security token that your app can use to make requests on behalf of the store. Save this value securely for future requests. |
+| `scope` | string | A space-separated list of the OAuth scopes this `access_token` authorizes access to. |
+| `user.id` | integer | BigCommerce’s unique identifier for the merchant or authorized user. Save this value to identify the user in future requests. |
+| `user.username` | string | The username that the initiating user has on file with BigCommerce. |
+| `user.email` | string | The email address that the owner or authorized user has on file with BigCommerce. Save this value for future requests. |
+| `context` | string | The path that identifies the store in API requests to `https://api.bigcommerce.com`; a string of the form `stores/{{STORE_HASH}}`. |
+| `account_uuid` | string, UUID | The ID of the Developer Portal account that registered the app profile. |
 
+## Responding to the auth callback
 
+After you save the `access_token` response body information, respond to the `GET /auth` callback with markup and assets to render in the store control panel. BigCommerce renders the response view inside an **iFrame**, so ensure that any JavaScript you send is scoped to avoid conflicts with the store control panel's JavaScript.
 
-## Code samples
+If you do not respond, the merchant will be left looking at a blank screen and will not be able to interact with your app.
 
-Making the `POST` request in PHP:
-
-```php
-use Bigcommerce\Api\Connection;
-$tokenUrl = "https://login.bigcommerce.com/oauth2/token";
-$connection = new Connection();
-$connection->useUrlencoded();
-$response = $connection->post($tokenUrl, array(
-    "client_id" => "CLIENT_ID",
-    "client_secret" => "CLIENT_SECRET",
-    "redirect_uri" => "https://app.example.com/oauth",
-    "grant_type" => "authorization_code",
-    "code" => $request->get("code"),
-    "scope" => $request->get("scope"),
-    "context" => $request->get("context"),
-));
-$token = $response->access_token;
-```
 
 ## Security considerations
 
-[RFC 6749](https://tools.ietf.org/html/rfc6749#section-10) discusses security considerations, recommendations, and requirements. The following are some requirements and recommendations applicable to apps:
+[RFC 6749 (tools.ietf.org)](https://tools.ietf.org/html/rfc6749) discusses security considerations, recommendations, and requirements. The following are some requirements and recommendations applicable to apps:
 * Request access tokens with the minimal scope necessary.
-* Serve all redirect URIs over TLS.
-* Keep `access_tokens` confidential in transit and storage.
-* Do not transmit access tokens, refresh tokens, or client credentials in the clear.
-* Do not transmit authorization codes in the clear.
+* Keep access tokens and client secrets confidential in transit and storage.
 * Educate end-users about the risks phishing attacks pose.
-* Provide mechanisms that make it easy for end-users to confirm the authenticity of your app.
-* Implement CSRF protection on redirect URI.
+* Implement CSRF protection on redirect URIs.
 
-For additional details, see [Security Considerations in RC6749](https://tools.ietf.org/html/rfc6749#section-10). For a list of the top web application security risks and best practices for avoiding them, see [OWASP Top Ten](https://owasp.org/www-project-top-ten/).
+For additional details, see [Security Considerations in RFC 6749 (tools.ietf.org)](https://tools.ietf.org/html/rfc6749#section-10). For a list of the top web application security risks and best practices for avoiding them, see [OWASP Top Ten (owasp.org)](https://owasp.org/www-project-top-ten/).
 
-## Next steps
-* [Handle load, uninstall, and remove user callbacks](/api-docs/apps/guide/callbacks)
+
+## Helpful tools
+
+The following BigCommerce API clients expose helper methods for BigCommerce's code grant authorization flow:
+* [Python API Client](https://github.com/bigcommerce/bigcommerce-api-python)
+  * Fetches `access_token`
+  * Verifies `signed_payload_jwt`
+* [Node API Client](https://github.com/bigcommerce/node-bigcommerce/)
+  * Fetches `access_token`
+  * Verifies `signed_payload_jwt`
+* [PHP API Client](https://github.com/bigcommerce/bigcommerce-api-php)
+  * Fetches `access_token`
+* [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
+  * Fetches `access_token`
+
+## Next step
+* [Handle load, uninstall, and remove_user callbacks](/api-docs/apps/guide/callbacks)
 
 ## Resources
 
 ### Related articles
 * [About Our APIs](/api-docs/getting-started/about-our-api)
 * [Authentication](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis)
-* [Types of Apps](/api-docs/apps/guide/types-of-apps)
 
 ### Sample apps
-* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs)
+* [Node / React / Next.js](https://github.com/bigcommerce/sample-app-nodejs) with [quick start tutorial](/api-docs/apps/quick-start)
 * [Python / Flask](https://github.com/bigcommerce/hello-world-app-python-flask)
 * [PHP / Silex](https://github.com/bigcommerce/hello-world-app-php-silex)
 * [Ruby / Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)
@@ -198,7 +201,7 @@ For additional details, see [Security Considerations in RC6749](https://tools.ie
 * [Ruby API Client](https://github.com/bigcommerce/bigcommerce-api-ruby)
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
 * [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
-* [Figma UI Kit](//figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
+* [Figma UI Kit](https://figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
 * [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
 
 ### Blog posts
@@ -207,9 +210,6 @@ For additional details, see [Security Considerations in RC6749](https://tools.ie
 * [BigDesign Tutorial](https://medium.com/bigcommerce-developer-blog/bigdesign-build-native-looking-uis-with-the-bigcommerce-design-system-fb06a01a24f2)
 
 ### Additional resources
-* [OAuth 2.0 Simplified](https://oauth.net/getting-started/) ([oauth.net](https://oauth.net/))
-* [What the Heck is OAuth](https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth) ([developer.okta.com](https://developer.okta.com/))
-* [An Introduction to OAuth 2](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2) ([DigitalOcean](https://www.digitalocean.com))
-
-* [RFC6749](https://tools.ietf.org/html/rfc6749) ([tools.ietf.org](https://tools.ietf.org/))
-* [OWASP Top Ten](https://owasp.org/www-project-top-ten/) ([owasp.org](https://owasp.org/))
+* [OAuth 2.0 Simplified (oauth.net)](https://oauth.net/getting-started/)
+* [RFC 6749 (tools.ietf.org)](https://tools.ietf.org/html/rfc6749) 
+* [OWASP Top Ten (owasp.org)](https://owasp.org/www-project-top-ten/) 
