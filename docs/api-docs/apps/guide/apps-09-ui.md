@@ -55,7 +55,7 @@ Do you design with Figma? If so, check out our design kit:
 
 ## Developing for the iFrame
 
-Single-click apps benefit from a high level of integration with the BigCommerce control panel. BigCommerce achieves this by rendering your app's UI in an iFrame. To meet [Apps Marketplace](https://www.bigcommerce.com/apps/) requirements, your app should perform all functions inside the iFrame. The iFrame approach requires special attention from app developers.
+Single-click apps benefit from a high level of integration with the BigCommerce control panel. BigCommerce achieves this by rendering your app's UI in an iFrame. To meet [App Marketplace](https://www.bigcommerce.com/apps/) requirements, your app should perform all functions inside the iFrame. The iFrame approach requires special attention from app developers.
 
 To load inside the control panel iFrame, your app must do the following:
 1. **Serve app resources over HTTPS:** BigCommerce's control panel is served over HTTPS. Your app must also be served over HTTPS, including any remote resources referenced (such as CSS, JS, and image files). If any resources are served over HTTP, the user's browser will display a mixed content error and refuse to render your app's UI in the control panel iFrame.
@@ -63,7 +63,7 @@ To load inside the control panel iFrame, your app must do the following:
 
 <!-- theme: info -->
 > #### Note
-> Apps that operate in the iFrame get strong preference during [Apps Marketplace](https://www.bigcommerce.com/apps/) consideration; however, we sometimes make exceptions for apps that need to interact with other services.
+> Apps that operate in the iFrame get strong preference during [App Marketplace](https://www.bigcommerce.com/apps/) consideration; however, we sometimes make exceptions for apps that need to interact with other services.
 
 
 

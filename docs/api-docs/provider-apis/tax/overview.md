@@ -64,7 +64,7 @@ Additionally, when providing the details for a sandbox tax provider configuratio
 
 ## Building the app
 
-Tax providers are required to build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click) in order to utilize the Tax Provider API to provide tax estimates and submit tax documents. A BigCommerce single-click app provides many benefits, for example, it enables tax providers to promote their solution in the BigCommerce apps marketplace, ask for merchant authorization of API scopes during app install, as well as enable configuration of tax provider settings via an iFrame in the BigCommerce control panel.
+Tax providers are required to build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click) in order to utilise the Tax Provider API to provide tax estimates and submit tax documents. A BigCommerce single-click app provides many benefits, for example, it enables tax providers to promote their solution in the BigCommerce App Marketplace, ask for merchant authorisation of API scopes during app install, as well as enable configuration of tax provider settings via an iFrame in the BigCommerce control panel.
 
 Review our [introduction to building apps](/api-docs/apps/guide/intro) guide and use the sidebar to explore topics including: types of apps, managing apps in the dev portal, implementing OAuth, and designing the UI.
 

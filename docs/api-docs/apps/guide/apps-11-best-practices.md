@@ -2,7 +2,7 @@
 
 
 
-Review the following best practices before submitting your app to the [Apps Marketplace](https://www.bigcommerce.com/apps/).
+Review the following best practices before submitting your app to the [App Marketplace](https://www.bigcommerce.com/apps/).
 
 ## OAuth flow
 

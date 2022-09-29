@@ -35,7 +35,7 @@ BigCommerce channel apps allow merchants to list products on external sales chan
 
 ### Discovery
 
-Merchants discover channel apps either through the [Apps Marketplace](https://www.bigcommerce.com/apps/) or
+Merchants discover channel apps either through the [App Marketplace](https://www.bigcommerce.com/apps/) or
 
 ![App Marketplace](https://storage.googleapis.com/bigcommerce-production-dev-center/images/channels/channels-marketplace.png "App Marketplace")
 
