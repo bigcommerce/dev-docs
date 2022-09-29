@@ -16,7 +16,7 @@ Your app must expose a callback endpoint, `GET /auth`, that the merchant's store
 BigCommerce uses a modified version of the [OAuth2 authorization code grant (tools.ietf.org)](https://tools.ietf.org/html/rfc6749#section-4.1). The sequence is as follows:
 
 1. The merchant initiates installing your app by signing in to their store control panel and doing one of the following: 
-  * clicking **Install** in the [Apps Marketplace](https://www.bigcommerce.com/apps/), or 
+  * clicking **Install** in the [App Marketplace](https://www.bigcommerce.com/apps/), or 
   * following a direct installation link.
 2. The merchant accepts the app's OAuth scope permissions. The OAuth consent view presented to the merchant requires them to approve all the scopes to install the app; at this time, merchants cannot pick and choose scopes.
 3. The merchant's [browser sends a GET request to the app](#receiving-the-auth-callback) server's `GET /auth` endpoint that contains some of the information necessary to request a unique `access_token` for the store. 
