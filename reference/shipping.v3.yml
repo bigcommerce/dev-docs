@@ -125,7 +125,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/customsInformation'
+                $ref: '#/components/schemas/customsInformation_request'
             examples: {}
         x-examples:
           Example:
@@ -313,77 +313,46 @@ components:
 
         * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
   schemas:
-    shippingMethod_Full:
-      title: shippingMethod_Full
-      allOf:
-        - type: object
-          properties:
-            id:
-              description: Shipping-method ID. READ-ONLY
-              example: 1
-              type: integer
-        - $ref: '#/components/schemas/shippingMethod_Base'
-      x-internal: false
-    shippingMethod_Base:
-      title: shippingMethod_Base
+    customsInformation_request:
+      title: customsInformationRequest
+      description: Data about the customs information object.
       type: object
-      properties:
-        name:
-          description: Display name for shipping method.
-          example: Flat Rate
-          type: string
-        type:
-          title: Shipping Method Type
-          example: perorder
-          type: string
-          enum:
-            - perorder
-            - peritem
-            - weight
-            - total
-            - auspost
-            - canadapost
-            - endicia
-            - usps
-            - fedex
-            - royalmail
-            - upsready
-        settings:
-          description: 'Depends on the shipping-method type. See the [supported settings object](#supported-settings).'
-          type: object
-          properties:
-            rate:
-              type: number
-              description: 'Flat rate per order. '
-              example: 7
-        enabled:
-          description: Whether or not this shipping-zone method is enabled.
-          example: true
-          type: boolean
-        handling_fees:
-          type: object
-          oneOf:
-            - properties:
-                fixed_surcharge:
-                  type: number
-                  description: Flat-rate handling fee applied to shipping cost
-                  example: 0
-            - properties:
-                percentage_surcharge:
-                  type: number
-                  description: Percentage handling fee applied to shipping cost
-                  example: 0
-        is_fallback:
-          description: Whether or not this shipping zone is the fallback if all others are not valid for the order.
-          example: false
-          type: boolean
       x-internal: false
+      properties:
+        product_id:
+          description: The product ID to which the customs information data applies.
+          type: integer
+          format: int32
+          example: 77
+        country_of_origin:
+          type: string
+          description: 'The country of manufacture, production, or growth represented in ISO 3166-1 alpha-2 format.'
+          example: US
+        commodity_description:
+          description: Description that provides information for customs to identify and verify the shapes, physical characteristics, and packaging of each shipment.
+          type: string
+          minLength: 0
+          maxLength: 100
+          example: Baseball caps
+        international_shipping:
+          description: Flag to determine whether this product will be shipped internationally
+          type: boolean
+          enum:
+            - true
+            - false
+          example: true
+        hs_codes:
+          $ref: '#/components/schemas/harmonizedSystemCodes'
+      required:
+        - product_id
+        - country_of_origin
+        - commodity_description
+        - international_shipping
+        - hs_codes
     customsInformation:
       title: customsInformation
       description: Data about the customs information object.
       type: object
-      minProperties: 5
-      maxProperties: 5
       x-internal: false
       properties:
         product_id:
@@ -410,6 +379,18 @@ components:
           example: true
         hs_codes:
           $ref: '#/components/schemas/harmonizedSystemCodes'
+        createdAt:
+          type: string
+          description: Date and time when the customs information was created.
+          readOnly: true
+          format: date-time
+          example: 2022-09-21T14:15:00+00:00
+        updatedAt:
+          type: string
+          description: Date and time when the customs information was last updated.
+          readOnly: true
+          format: date-time
+          example: 2022-09-21T14:15:00+00:00
     harmonizedSystemCodes:
       title: harmonizedSystemCodes
       description: |-

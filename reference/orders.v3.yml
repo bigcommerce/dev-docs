@@ -384,6 +384,25 @@ paths:
                         status: 503
                         error: Tax service gone away
                     meta: {}
+        '422': 
+          description: |
+            Unable to process a guest refund with store credit. 
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: 
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ErrorResponse'
+              examples: 
+                response:
+                  value: 
+                    data:
+                      - status: 422
+                        title: "Unable to provide store credit for a guest customer."
+                        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
       tags:
         - Payment Actions
     get:
