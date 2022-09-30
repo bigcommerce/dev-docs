@@ -2,7 +2,7 @@
 
 
 
-The Apps Marketplace team reviews all app submissions and tests apps to verify they meet [Marketplace](https://www.bigcommerce.com/apps/) listing standards. Verify your app meets the requirements below before submitting it for approval.
+The Marketplace team reviews all app submissions and tests apps to verify they meet [App Marketplace](https://www.bigcommerce.com/apps/) listing standards. Verify your app meets the requirements below before submitting it for approval.
 
 ## General requirements
 
@@ -20,7 +20,7 @@ Don't reference competitor platforms in the app's listing information or dashboa
 
 ## Listing
 
-* Approval for the [Marketplace](https://www.bigcommerce.com/apps/) requires all fields listed in the Publishing Apps section (**Case Studies** and **Videos** are optional).
+* Approval for the [App Marketplace](https://www.bigcommerce.com/apps/) requires all fields listed in the Publishing Apps section (**Case Studies** and **Videos** are optional).
 * Listings should be well worded, cleanly formatted, and follow wording and image specifications.
 * App listing name should be restricted to only branding and not include taglines.
 
@@ -29,8 +29,8 @@ Don't reference competitor platforms in the app's listing information or dashboa
 * Apps must work as intended and cannot conflict with BigCommerce functionality.
 * Apps must use V3 endpoints in favor of V2 endpoints when feature parity exists.
 * Apps must serve all callback URLs over HTTPS.
-* Apps in the Marketplace must be[ multi-user enabled](/api-docs/apps/guide/users).
-* Apps that process transactions or handle credit card data must pass a PCI Compliance review by BigCommerce's security team. New payment gateway app submissions may not be accepted for Marketplace review.
+* Apps in the App Marketplace must be [multi-user enabled](/api-docs/apps/guide/users).
+* Apps that process transactions or handle credit card data must pass a PCI Compliance review by BigCommerce's security team. New payment gateway app submissions may not be accepted for App Marketplace review.
 * Apps that access the Checkout Content scope will also be subject to a security assessment by BigCommerce's security team.
 * Apps that modify the checkout experience must use the BigCommerce [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk).
 * Apps that add another marketplace or sales channel to a store should make use of the [Channels Toolkit](/api-docs/channels/guide/building-channel-apps) and follow [Channel App Requirements](/api-docs/channels/guide/channel-app-requirements).
@@ -53,7 +53,7 @@ Don't reference competitor platforms in the app's listing information or dashboa
 ## FAQ
 
 **Are all fields required?**
-For Marketplace approval, you'll need to fill out all fields on your listing with applicable content and links. These will be reviewed as part of the Marketplace approval process. **Case Studies** and **Videos** are optional.
+For App Marketplace approval, you'll need to fill out all fields on your listing with applicable content and links. These will be reviewed as part of the Marketplace approval process. **Case Studies** and **Videos** are optional.
 
 ## Next steps
 * [Publish your app](/api-docs/apps/guide/publishing).

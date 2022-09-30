@@ -105,7 +105,7 @@ In the case of errors, include human-readable error messages in the response pay
 
 To use the Shipping Provider API to provide shipping quotes, shipping providers must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click). 
 
-Using a BigCommerce app enables shipping providers to promote their solution in the BigCommerce apps marketplace, request merchant authorization of API scopes during app install, and enable configuration of shipping provider settings and/or order fulfillment via an iFrame in the BigCommerce control panel.
+Using a BigCommerce app enables shipping providers to promote their solution in the BigCommerce App Marketplace, request merchant authorization of API scopes during app install, and enable configuration of shipping provider settings and/or order fulfillment via an iFrame in the BigCommerce control panel.
 
 For more information, see our [Introduction to Building Apps](/api-docs/apps/guide/intro).
 
