@@ -118,7 +118,9 @@ Beyond the single URL mapped to each template in the above examples, you have th
 
 ## Specifying custom front matter
 
-You can't specify front matter on a custom template, but you can still access front matter-injected data. Custom templates inherit front matter from their corresponding default template. Specify the data you would like your custom template to access in the default template's front matter. See [Using Front Matter](/stencil-docs/storefront-customization/using-front-matter) for more information on using front matter. The following example shows data you can inject into `templates/pages/brand.html` to access data in `templates/pages/custom/brand/custom-brand.html`. After [mapping](/stencil-docs/storefront-customization/custom-templates#mapping-multiple-urls) the custom template to the default page, the cart object displays on the page.
+You can't specify front matter on a custom template, but you can still access front matter-injected data. Custom templates inherit front matter from their corresponding default template. Specify the data you would like your custom template to access in the default template's front matter. See [Using Front Matter](/stencil-docs/storefront-customization/using-front-matter) for more information on using front matter. 
+
+The following example shows data you can inject into `templates/pages/brand.html` to access data in `templates/pages/custom/brand/custom-brand.html`. After [mapping](/stencil-docs/storefront-customization/custom-templates#mapping-multiple-urls) the custom template to the default page, the cart object displays on the page.
 
 
 <!-- 
@@ -149,6 +151,9 @@ title: Custom template - custom-brand.html
 
 <!-- type: tab-end -->
 
+<!-- theme: warning -->
+> #### Stencil CLI versus storefront
+> When adding front matter directly to a custom template, Stencil CLI behaves as explained above. You must add front matter to the default template. However, when applying a theme to the storefront, it is possible to specify front matter directly to the custom template.
 
 
 ## Theme upload
