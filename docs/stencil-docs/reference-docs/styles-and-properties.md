@@ -203,5 +203,39 @@ Required fields: `type`, `label`, and `id`.
 
 Optional field: `force_reload`
 
+## Sort
+
+Used to display available payment providers.
+
+```
+{
+ "type": "sort",
+ "label": "i18n.ProviderSortingOrderLabel",
+ "id": "paymentbuttons-provider-sorting",
+ "enable": "payPalProvidersEnabled",
+ "force_reload": true,
+ "options": [
+  {
+    "value": "paypal",
+    "label": "i18n.PayPalProviderSortingLabel",
+    "enabledBy": "paypal"
+  },
+  {
+    "value": "paypal-credit",
+    "label": "i18n.PayPalCreditProviderSortingLabel",
+    "enabledBy": "paypal-credit"
+  }
+ ]
+},
+```
+Required fields: `type`, `label`, `options` and `id`.
+
+Optional field: `force_reload`, `enable`
+
+The `options` parameter allows users to register providers. If any provider is not displayed, then this means that it is either not enabled or not available in the options.
+
+Note: `enabledBy` must equal provider name.
+
+
 ## Related resources
 * [schemaTranslations.json](/stencil-docs/storefront-customization/directory-structure#schematranslationsjson)
