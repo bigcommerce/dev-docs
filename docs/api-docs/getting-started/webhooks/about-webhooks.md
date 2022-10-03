@@ -190,7 +190,7 @@ To prevent your webhooks from timing out, send a `200` success status response i
 
 **Duplicate webhook events**
 
-Duplicate webhooks can happen. For this reason, apps should use idempotent operations to avoid significant unintended side effects. Idempotent operations allow multiple calls without changing the result. 
+Duplicate webhooks can happen. For this reason, apps should use idempotent operations to avoid significant unintended side effects. Idempotent operations allow multiple calls without changing the result. A way to ensure webhook events are idempotent is to create a temporary "blacklist" array to store the hash of webhooks that have already been received or handled. When you receive a webhook, you can compare the hash of the received event to the list. If the hash has already been handled you can ignore the event.
 
 ## Tools
 
