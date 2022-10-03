@@ -85,12 +85,6 @@
           "flag": "code samples",
           "uri": "docs/api-docs/storefront/graphql/graphql-api-examples.md"
         },
-        // {
-        //  "type": "item",
-        //  "title": "Storefront GraphQL Explorer",
-        //  "href": "",
-        //  "uri": ""
-        // },
         {
           "type": "item",
           "title": "GraphQL Storefront Explorer",
@@ -794,6 +788,22 @@
           "uri": "docs/api-docs/catalog/currencies/how-currencies-work.md"
         }
       ]
+    },
+    {
+      "type": "divider",
+      "title": "Beta Features"
+    },
+    {
+      "type": "item",
+      "title": "Promotions API",
+      "href": "/promotions/beta/api-docs/overview",
+      "uri": "https://developer.bigcommerce.com/promotions/beta/api-docs/overview"
+    },
+    {
+      "type": "item",
+      "title": "Customer Segmentation API",
+      "href": "/customers/beta/api-docs/overview",
+      "uri": "https://developer.bigcommerce.com/customers/beta/api-docs/overview"
     },
     {
       "type": "divider",

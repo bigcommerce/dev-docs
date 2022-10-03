@@ -19,7 +19,7 @@ To use this method, you will need to obtain API credentials with OAuth content s
 
 ### App Marketplace
 
-The [Apps Marketplace](https://www.bigcommerce.com/apps/) is an area inside the control panel where merchants can browse for apps available for installation on their BigCommerce store.
+The [App Marketplace](https://www.bigcommerce.com/apps/) is an area inside the control panel where merchants can browse for apps available for installation on their BigCommerce store.
 
 To create a widget using the App Marketplace, you will need to create a marketplace application that injects new widgets into the storefront using the Widgets API.
 
