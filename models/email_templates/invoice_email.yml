@@ -80,6 +80,8 @@ properties:
               type: string
             thumbnail:
               type: string
+            brand:
+              type: string
             event:
               type: object
               properties:

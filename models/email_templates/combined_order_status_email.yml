@@ -69,6 +69,8 @@ properties:
               type: integer
             thumbnail:
               type: string
+            brand:
+              type: string
       tracking:
         type: array
         items:
