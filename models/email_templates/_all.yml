@@ -66,8 +66,8 @@ properties:
     allOf:
       - $ref: ./product_review_email.yml
     type: object
-  Return Approved Email Template Objects:
-    description: Return approved email triggers after a customer's return is approved.
+  Return Requested Email Template Objects:
+    description: Return requested email triggers after a customer's return is approved.
     allOf:
       - $ref: ./return_confirmation_email.yml
     type: object
