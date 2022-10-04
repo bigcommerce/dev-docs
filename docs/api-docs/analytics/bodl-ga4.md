@@ -1,0 +1,223 @@
+# Big Open Data Layer
+
+Big Open Data Layer (shortened as `BODL`, pronounced 'Bottle') is a global JavaScript object that allows BigCommerce to integrate with third-party analytics providers. This datalayer collects storefront data on shopper behavior and holds data needed for an analytic provider, such as GA4, to make analytic reports.  With BODL, providers can easily view and manage captured data from a standardized source. Providers can reformat the event data for their solutions.
+
+This guide demonstrates how you can integrate a BigCommerce store with Google Analytics (GA4). Using BODL, you can track when a shopper starts checkout and purchases an order. You can track events for both redirected and embedded checkout. BigCommerce will support other events in [future phases](#future-phases).
+
+## Prerequisites 
+- Merchants must enable GA4 for the storefront channel. This sets up a provider's analytic tracking script for a storefront. GA4 is enabled for new stores by default.  
+- The BigCommerce store uses a stencil theme. The native GA4 integration does not support Blueprint themes. 
+- Shopper must accept cookies from the browser. 
+ 
+
+## BigCommerce creates and emits events
+
+BigCommerce will emit a browser event for events that occur from shopper action without a new page load. 
+
+Below is the code that BigCommerce uses to create and emit an event for starting a checkout and purchasing an order. For more, see the [event emitter](https://github.com/bigcommerce/checkout-sdk-js/blob/master/packages/core/src/bodl/bodl-emitter-service.ts) from the [Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js).
+
+<!--
+type: tab
+title: Start checkout
+-->
+
+```js title="Create and emit browser event" lineNumbers
+this.bodlEvents.emit('create_checkout_begin', {
+  id,
+  currency: currency.code,
+  cart_value: cartAmount,
+  coupon: coupons.map(coupon => coupon.code.toUpperCase()).join(','),
+  line_items: this.getProducts(lineItems, currency.code)
+});
+```
+
+<!--
+type: tab
+title: Purchase order
+-->
+
+```js title="Create and emit browser event" lineNumbers
+this.bodlEvents.emit('create_order_purchased', {
+  id: cartId,
+  currency: currency.code,
+  transaction_id: orderId,
+  cart_value: orderAmount,
+  coupon: coupons.map(coupon => coupon.code.toUpperCase()).join(','),
+  shipping_cost: shippingCostTotal,
+  line_items: this.getProducts(lineItems, currency.code),
+});
+```
+
+<!-- type: tab-end -->
+
+For reference, consult the [Event Emitter docs](https://nodejs.org/api/events.html#class-eventemitter) on the Node.js website.
+
+## BODL fetches and stores event data
+
+BODL is a predefined JSON object that extracts data from events. When a merchant enables BODL, BODL object is added to each page of a merchant store. BODL is rendered as a part of the initial DOM load for all pages of all storefronts. 
+
+BODL holds data needed for you to make analytic reports. When a shopper triggers an event, BODL fetches and stores the event and its parameters. For supported events and parameters, see [Events](#events).
+
+Below are examples of BODL after a shopper triggers a start checkout event or a purchase order event:
+
+<!--
+type: tab
+title: Start checkout
+-->
+
+```json title="BODL object after start checkout event" lineNumbers
+{
+    "session": {
+        "first_touch_referral_url": "https://store-{store_hash}.mybigcommerce.com/",
+        "first_touch_request_url": "https://{store_domain}.mybigcommerce.com/",
+        "first_touch_timestamp": "2022-09-22T16:21:15",
+        "id": "123"
+    },
+    "shopper": {
+        "customer_id": null,
+        "email": null,
+        "first_name": null,
+        "last_name": null,
+        "visitor_id": "" 
+    },
+    "data_consent": {
+        "advertising": true,
+        "analytics": true,
+        "functional": true
+    },
+    "events": [
+        "create_checkout_begin"
+    ]
+}
+```
+
+<!--
+type: tab
+title: Purchase order
+-->
+
+```json title="BODL object after order purchase event" lineNumbers
+{
+    "session": {
+        "first_touch_referral_url": "https://store-{store_hash}.mybigcommerce.com/",
+        "first_touch_request_url": "https://{store_domain}.mybigcommerce.com/",
+        "first_touch_timestamp": "2022-09-22T16:21:15",
+        "id": "123"
+    },
+    "shopper": {
+        "customer_id": null,
+        "email": null,
+        "first_name": null,
+        "last_name": null,
+        "visitor_id": "" 
+    },
+    "data_consent": {
+        "advertising": true,
+        "analytics": true,
+        "functional": true
+    },
+    "events": [
+        "create_order_purchased"
+    ]
+}
+```
+
+<!-- type: tab-end -->
+
+<!-- theme: info -->
+> #### Customizing BODL
+> Stencil merchants can turn off the BODL and deploy their own custom version of the BODL. In this scenario, the merchant is choosing a custom route and is expected to ensure that analytics tracking scripts still work.
+
+## Analytic tracking scripts listen for events 
+
+You can pull storefront data from BODL to your solution using analytic storefront tracking scripts. Your analytic scripts will need to listen to the event and take in data that are stored in BODL.  
+
+Below is example code for your analytics script consuming the event. For more info, consult the MDN website doc [Add Event Listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
+
+```js title="Add event listener" lineNumbers
+document.addEventListener('checkout_begin', function (bodl_event) {
+	analyticsScript.track(
+    'Begin Checkout', { 
+    currency_code: bodl_event.currency,
+    coupon_code: bodl_event.coupon,
+    ...
+    }
+  )
+}, false);
+```
+
+
+### Injecting scripts 
+
+The [Scripts API](/api-docs/store-management/scripts) allows you to manage your storefront scripts. Use the [Create a Script](/api-reference/store-management/scripts/scripts/createscript) endpoint to deploy your script on a storefront. The Scripts API only works for stores with Stencil themes.  
+
+## Events
+
+Each event has web browser parameters that are populated when a shopper triggers the event. You can send these fields to your analytics solution to create analytic reports.
+
+For each field:  
+- The BIGC Data Map provides a reference for the data value that populates a field in BODL. This does not imply that our technical architecture literally makes the referenced API call to fill out the value for BODL.
+- The GA4 Data Map provides a reference for the GA4 data field whose value is supplied by BODL. 
+
+### Start checkout event
+
+When the shopper clicks on the button to initiate a checkout process, a browser event is emitted. BODL fetches and stores the following fields:
+
+| Web browser event fields | Type | Description | BigC data map | GA4 data map |
+| - | - | - | - | - |
+| `id` | string | ID for each event instance | (Internal) BigCommerce data event ID | -- |
+| `currency` | string | [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `currency.code` | [Begin checkout event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout) <br> `currency` |
+| `cart_value` | double | Sum of cart line-item amounts after cart-level discounts and coupons are applied. Excludes taxes. | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `cart_amount_ex_tax` | [Begin checkout event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout) <br> `value` |
+| `coupon` | string | Coupon code | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `coupons.code` | [Begin checkout event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout) <br> `coupon` |
+| `line_items[]` | array | Items in the checkout | See [Line items](#common-event-fields-line-items) | [Begin checkout event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout) <br> `items[]` |
+
+
+### Purchase event
+
+When the shopper clicks on ‘Purchase’, a browser event is emitted. BODL fetches and stores the following fields:
+
+| Web browser event fields | Type | Description | BigC data map | GA4 data map |
+| - | - | - | - | - |
+| `id` | string | ID for each event instance | (Internal) BigCommerce data event ID | -- |
+| `currency` | string | [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `currency.code` | [Begin checkout event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout) <br> `currency` |
+| `cart_value` | double | Sum of cart line-item amounts after cart-level discounts and coupons are applied. Includes taxes. | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `cart_amount_inc_tax` | [Begin checkout event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout) <br> `value` |
+| `coupon` | string | Coupon code | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `coupons.code` | [Begin checkout event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout) <br> `coupon` |
+| `shipping_cost` | double | Shipping cost including tax | [Get an order](/api-reference/store-management/orders/orders/getanorder) <br> `shipping_cost_inc_tax` | [Purchase event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#purchase) <br> `shipping` |
+| `transaction_id` | integer | ID of the order | [Get an order](/api-reference/store-management/orders/orders/getanorder) <br> `id` | -- |
+| `line_items[]` | array | Items in the checkout | See [Line items](#common-event-fields-line-items) | [Purchase event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#purchase) <br> `items[]` |
+
+### Common event fields: Line items
+
+BODL fetches common fields for many web browser events and stores them in the `line_items` sub-object. The `line_items` sub-object includes the fields listed below.   
+
+| Web browser event fields | Type | Description | BigC data map | GA4 data map |
+| - | - | - | - | - |
+| `line_items[]` | array | Items in the checkout | See below for individual fields | [Begin checkout items](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout_item) or [Purchase items](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#purchase_item) <br> `items[]` | 
+| `line_items.product_id` | integer | ID of the product | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `physical_items.product_id` or <br> `digital_items.product_id` | Option A: `items.item_id` | 
+| `line_items.product_sku` | string | User-defined product code, ie. Product Stock Keeping Unit | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `physical_items.sku` or <br> `digital_items.sku` | Option B: `items.item_id` |
+| `line_items.variant_id` | integer | ID of the variant | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `physical_items.variant_id` or <br> `digital_items.variant_id` | Option C: `items.item_id` or `items.item_variant` |
+| `line_items.product_name` | string | Name of the product | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `physical_items.name` or <br> `digital_items.name` | `items.item_name` |
+| `line_items.price` | float | Price of product. The price should include or exclude tax, based on the store settings. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `price` <br> <br> If using a gift Certificate, apply: <br> [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `gift_certificates.amount` | `items.price` |
+| `line_items.quantity` | double | Number of line items | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `physical_items.quantity` or <br> `digital_items.quantity` | `items.quantity` |
+| `line_items.currency` | string | [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br>  `currency.code`  | `items.currency` |
+| `line_items.discount` | double | Discounted amount | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `physical_items.discounts.discounted_amount` or <br> `digital_items.discounts.discounted_amount`| `items.discount` |
+| `line_items.brand_name` | string | Brand name | [Get a brand](/api-reference/store-management/catalog/brands/getbrandbyid) <br> `name` | `items.item_brand` |
+| * `line_items.category_name` | string | Category name | [Get a category](/api-reference/store-management/catalog/category/getcategorybyid) <br> `name` | Option A: <br> `items.item_category`, <br> `items.item_category2`, <br> `items.item_category3`, <br> `items.item_category4`, <br> `items.item_category5` |
+
+\* The GA4 data map fields are ordered from lowest to highest sort order. For example, `item_cateogry` should be the `category_name` with the lowest sort order value. `item_category2` should be the `category_name` with the second lowest sort order value.
+
+
+## Future phases
+
+In future phases, we will support additional events and events that occur on page load. Future events may include:
+- View product page
+- View product category
+- Add cart product
+- Remove product
+- View cart 
+- Refund order
+
+## Resources
+- [Checkout SDK JS](https://github.com/bigcommerce/checkout-sdk-js)
+- [Checkout JS](https://github.com/bigcommerce/checkout-js)
+- [Node.js documentation on event emitters](https://nodejs.org/api/events.html#class-eventemitter)
