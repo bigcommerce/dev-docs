@@ -118,7 +118,7 @@ Beyond the single URL mapped to each template in the above examples, you have th
 
 ## Specifying custom front matter
 
-When adding front matter directly to a custom template, you must add front matter to the default template when using Stencil CLI. However, when applying a theme to the storefront, it is possible to specify front matter directly to the custom template. See [Using Front Matter](/stencil-docs/storefront-customization/using-front-matter) for more information on using front matter. 
+You can add front matter directly to a custom template. See [Using Front Matter](/stencil-docs/storefront-customization/using-front-matter) for more information on using front matter. 
 
 The following example shows data you can inject into `templates/pages/brand.html` to access data in `templates/pages/custom/brand/custom-brand.html`. After [mapping](/stencil-docs/storefront-customization/custom-templates#mapping-multiple-urls) the custom template to the default page, the cart object displays on the page.
 
