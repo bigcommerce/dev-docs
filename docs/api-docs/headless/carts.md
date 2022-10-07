@@ -25,35 +25,35 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ```json lineNumbers
 {
-    "channel_id": 704181,
-    "line_items": [
-        {
-            "quantity": 1,
-            "product_id": 80,
-            "variant_id": 64
-        }
-    ],
-    "locale": "en-us"
+  "channel_id": 704181,
+  "line_items": [
+    {
+      "quantity": 1,
+      "product_id": 80,
+      "variant_id": 64
+    }
+  ],
+  "locale": "en-us"
 }
 ```
 To create a cart with option selections, include `option_id` and `option_value` in your `POST` request.
 ```json lineNumbers
 {
-    "channel_id": 704181,
-    "customer_id": 1,
-    "line_items": [
+  "channel_id": 704181,
+  "customer_id": 1,
+  "line_items": [
+    {
+      "quantity": 1,
+      "product_id": 80,
+      "option_selections": [
         {
-            "quantity": 1,
-            "product_id": 80,
-            "option_selections": [
-            {
-            "option_id": 123,
-            "option_value": "Hello!"
-             }
-           ]
+          "option_id": 123,
+          "option_value": "Hello!"
         }
-    ],
-    "locale": "en-us"
+      ]
+    }
+  ],
+  "locale": "en-us"
 }
 ```
 
@@ -61,16 +61,16 @@ To create a cart for an existing customer, include the `customer_id` in your `PO
 
 ```json lineNumbers
 {
-    "channel_id": 704181,
-    "customer_id": 1,
-    "line_items": [
-        {
-            "quantity": 1,
-            "product_id": 80,
-            "variant_id": 64
-        }
-    ],
-    "locale": "en-us"
+  "channel_id": 704181,
+  "customer_id": 1,
+  "line_items": [
+    {
+      "quantity": 1,
+      "product_id": 80,
+      "variant_id": 64
+    }
+  ],
+  "locale": "en-us"
 }
 ```
 
