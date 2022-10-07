@@ -8,23 +8,21 @@ info:
     name: BigCommerce
     url: 'https://www.bigcommerce.com'
     email: support@bigcommerce.com
-  schemes:
-    - https
-consumes:
-  - application/json
-produces:
-  - application/json
 servers:
   - url: 'https://api.bigcommerce.com'
     description: BigCommerce API Gateway
+tags:
+  - name: Abandoned Cart Emails
+  - name: Template settings
 paths:
-  '/stores/{store_hash}/v3/settings/marketing/abandoned-cart-emails':
+  '/stores/{store_hash}/v3/marketing/abandoned-cart-emails':
     get:
-      description: An array of abandoned cart emails on the store.
+      description: An array of abandoned cart emails pertaining to a store.
       parameters:
         - $ref: '#/components/parameters/ChannelIdOptional'
       responses:
         '200':
+          description: OK
           content:
             application/json:
               schema:
@@ -51,8 +49,6 @@ paths:
                               keys:
                                 hello_phrase: 'Welcome back,'
                     meta: {}
-          produces:
-            - application/json
       tags:
         - Abandoned Cart Emails
       summary: Get all email templates
@@ -60,8 +56,6 @@ paths:
     post:
       summary: Create email template
       operationId: createEmailTemplate
-      produces:
-        - application/json
       tags:
         - Abandoned Cart Emails
       responses:
@@ -82,7 +76,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SaveError'
-      description: Create Abandoned Cart Email template.
+      description: Create an Abandoned Cart Email template.
       requestBody:
         content:
           application/json:
@@ -125,8 +119,6 @@ paths:
                     $ref: '#/components/schemas/AbandondedCartEmail'
                   meta:
                     type: object
-      produces:
-        - application/json
       tags:
         - Abandoned Cart Emails
       operationId: getAbandonedCartEmailTemplateId
@@ -134,8 +126,6 @@ paths:
       summary: Update an email template
       description: Update an email template.
       operationId: updateAbandonedCartEmailsId
-      produces:
-        - application/json
       tags:
         - Abandoned Cart Emails
       responses:
@@ -162,7 +152,7 @@ paths:
             schema:
               $ref: '#/components/schemas/AbandondedCartEmailPayload'
             examples:
-              Update Abandoned Cart email template:
+              Update Abandoned Cart Email template:
                 value:
                   is_active: true
                   coupon_code: FF11-22X4
@@ -193,8 +183,6 @@ paths:
       responses:
         '204':
           description: No Content
-      produces:
-        - application/json
     parameters:
       - schema:
           type: integer
@@ -202,7 +190,7 @@ paths:
         name: id
         in: path
         required: true
-        description: Abandoned Cart email template ID
+        description: ID of the Abandoned Cart Email template.
       - schema:
           type: string
         name: store_hash
@@ -214,8 +202,6 @@ paths:
       description: Return default Abandoned Cart Email template.
       tags:
         - Abandoned Cart Emails
-      produces:
-        - application/json
       operationId: GetDefaultAbandonedCartEmailTemplate
       responses:
         '200':
@@ -283,8 +269,6 @@ paths:
                 $ref: '#/components/schemas/AbandonedCartSettings'
       operationId: GetAbandonedCartEmailTemplateSettings
       description: Read Abandoned Cart Email Template settings.
-      produces:
-        - application/json
       parameters:
         - $ref: '#/components/parameters/ChannelIdRequired'
     put:
@@ -305,8 +289,6 @@ paths:
             schema:
               $ref: '#/components/schemas/AbandonedCartSettings'
       description: Update Abandoned Cart Email template settings.
-      produces:
-        - application/json
       parameters:
         - $ref: '#/components/parameters/ChannelIdOptional'
     parameters:
@@ -359,7 +341,7 @@ components:
       properties:
         use_global:
           type: boolean
-          description: Indicates inheritance state
+          description: Boolean value that specifies the inheritance state.
       required:
         - use_global
       x-internal: false
@@ -406,7 +388,7 @@ components:
           description: 'Locale code for this language, such as ''en'', ''en-us'', ''fr-ca''.'
         keys:
           type: string
-          description: Language keys for the template. User-defined. Should match any lang keys used in the template.
+          description: Language keys for the template. User-defined. Should match any language keys used in the template.
         additionalProperties:
           type: string
       required:
