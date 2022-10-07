@@ -23,7 +23,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 **Create a Cart request example**
 
-```json
+```json lineNumbers
 {
     "channel_id": 704181,
     "line_items": [
@@ -37,7 +37,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 To create a cart with option selections, include `option_id` and `option_value` in your `POST` request.
-```json
+```json lineNumbers
 {
     "channel_id": 704181,
     "customer_id": 1,
@@ -59,7 +59,7 @@ To create a cart with option selections, include `option_id` and `option_value` 
 
 To create a cart for an existing customer, include the `customer_id` in your `POST` request.
 
-```json
+```json lineNumbers
 {
     "channel_id": 704181,
     "customer_id": 1,
@@ -103,7 +103,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 The response will contain `cart_url` and `checkout_url` parameters - use these URLs to redirect the customer to the BigCommerce hosted cart or checkout pages. You can use the `embedded_checkout_url` with the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk) to embed the BigCommerce hosted checkout into a headless site via an iFrame.
 
-```json
+```json lineNumbers
 {
   "cart_url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=load&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
   "checkout_url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
@@ -128,7 +128,7 @@ If you passed the `customer_id` in the [Create a Cart](/api-reference/store-mana
 
 **Customer login JWT payload example**
 
-```js
+```js lineNumbers
 {
   "iss": {{CLIENT_ID}},
   "iat": 1535393113,
