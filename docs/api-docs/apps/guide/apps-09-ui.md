@@ -2,7 +2,7 @@
 
 
 
-Your app's user interface is loaded inside an iFrame in a store's control panel after a user clicks the app's icon in the left nav and tirggers the [`load` callback](/api-docs/apps/guide/callbacks). To ensure a seamless user experience, you should design your app's UI to match the design of BigCommerce's control panel. We've built a collection of reusable React components, design guidelines, and UI patterns (known collectively as *BigDesign*) that you can use to rapidly develop an app front-end that's consistent with BigCommerce's UI.
+Your app's user interface is loaded inside an iFrame in a store's control panel after a user clicks the app's icon in the left nav and triggers the [`load` callback](/api-docs/apps/guide/callbacks). To ensure a seamless user experience, you should design your app's UI to match the design of BigCommerce's control panel. We've built a collection of reusable React components, design guidelines, and UI patterns (known collectively as *BigDesign*) that you can use to rapidly develop an app front-end that's consistent with BigCommerce's UI.
 
 ## Installing BigDesign React components
 
