@@ -1,33 +1,37 @@
 # Become a Shipping Provider
 
-Shipping providers can offer shipping services and rates to BigCommerce merchants and shoppers. They must build a BigCommerce app and implement endpoints through BigCommerce.  BigCommerce will retrieve and display service options and rates. Merchants can see these rates in the control panel and shoppers can see them on the storefront. 
+<!-- this paragraph is general, mostly for a shipping provider -->
+Shipping providers can offer shipping services and rates to BigCommerce merchants and shoppers. Each provider must build a BigCommerce app that quotes rates on demand using our API endpoints. BigCommerce retrieves and displays the provider's shipping options and rates. Merchants can see these rates in the control panel, and shoppers can see them at checkout. 
 
-Benefits of using a shipping provider include the following: 
+<!-- benefits to whom? this audience is unclear -->
+The benefits of using a shipping provider include the following: 
 - Drop-shippers can set their own rates
 - Merchants can retrieve rates from custom shipping tables
 - Merchants can retrieve rates from in-house calculation services
 - Shoppers can create a combination of in-store pickup and shipping options
-
-This article guides you on how to create and register a shipping provider app at BigCommerce. For a demo app, see the [Sample Shipping Provider app](https://github.com/bigcommerce/sample-shipping-provider). 
+- 
+<!-- the target audience for this article is a provider's developer -->
+This article is a guide to creating and registering a shipping provider app for BigCommerce stores. For a demo app, see the [Shipping Provider example app](https://github.com/bigcommerce/sample-shipping-provider). 
 
 ## Prerequisites
 
-* Get familiar with the [Introduction to Building Apps](/api-docs/getting-started/building-apps-bigcommerce/building-apps) article for building [single-click apps](/api-docs/apps/guide/types#single-click).
+* Get familiar with the [Introduction to Building Apps](/api-docs/apps/guide/intro) article for building [single-click apps](/api-docs/apps/guide/types#single-click).
 
 ## Shipping app overview
 
-Once BigCommerce registers your app, a store owner can install the app on a store. Merchants and API users can then connect the service on their store. They can enable your carrier in one or more shipping zones. They can set up different shipping options for each zone your carrier services.  BigCommerce will retrieve service options and rates. The following figure illustrates the workflow:
+Once BigCommerce approves and registers your app, merchants can install the app on their stores and connect to your shipping service. They can enable your carrier in one or more shipping zones, and set different options for each zone your carrier services. BigCommerce queries your app to retrieve service options and rates on demand. The following figures illustrate the workflow:
 
 ![Shipping Provider Overview](https://storage.googleapis.com/bigcommerce-production-dev-center/images/shipping-provider-figure.png)
+
 ![Shipping App Overview](https://storage.googleapis.com/bigcommerce-production-dev-center/images/ship%20prov%20api.png 'Shipping Provider API')
 
 ### Single-carrier versus multi-carrier shipping providers
 
-Specify your carrier status when you [sign up](#sign-up).  
+When you [sign up](#sign-up) your shipping provider, you can specify whether it's a single-carrier or multi-carrier provider. 
 
-Single-carriers offer one service, for example, USPS.  Multi-carriers offer more than one service, for example, USPS, DHL, and Canada Post. In both cases, BigCommerce registers only one carrier for a provider. If you are a multi-carrier, the registered carrier provides quotes from downstream carriers. 
+Single carriers offer services from one carrier; for example, USPS. Multi carriers offer service options from more than one carrier; for example, USPS, DHL, and Canada Post. In both cases, BigCommerce considers the provider itself to be the carrier. In multi-carrier apps, the registered provider/carrier supplies quotes from downstream carriers. 
 
-Your carrier status affects how your quotes display to shoppers at checkout. The name of a single carrier appears by the name of the quote in the shopper's list of shipping options. The name of a multi-carrier does not appear by the quote. The following images illustrate the difference:
+Which carrier option you select affects how your quotes display to shoppers at checkout. The name of a single carrier provider appears next to the quote description in the shopper's list of shipping options, whereas the name of a multi carrier provider does not. The following images illustrate the difference:
 
 ![Single-carrier quote example](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Single%20Carrier%20Example.png 'Single-carrier quote')
 
@@ -35,28 +39,30 @@ Your carrier status affects how your quotes display to shoppers at checkout. The
 
 ## Develop the app
 
-You must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click). This allows you to create [app API credentials](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis#app-api-credentials) and promote your solution in the BigCommerce app marketplace. This also allows merchants to choose shipping settings in the store control panel. 
+To offer shipping services, you must build a BigCommerce [single-click app](/api-docs/apps/guide/types#single-click). This allows you to create [app API credentials](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis#app-api-credentials) and promote your solution in the BigCommerce app marketplace. 
 
-For more info, see the [BigCommerce Apps Quick Start](/api-docs/partner/getting-started/app-development/tutorials/quick-start) article and the [Introduction to Building Apps](/api-docs/apps/guide/intro) article.
+For more info, see the [Apps Quick Start](/api-docs/apps/quick-start) article and the [Introduction to Building Apps](/api-docs/apps/guide/intro) article.
 
 ### Your app ID
 
-BigCommerce assigns your app an ID when you create an app. You will need the app ID when you [sign up](#sign-up) as a shipping provider. To get your app ID, [create a draft app](/api-docs/apps/guide/development#registering-a-draft-app) in [Developer Tools](https://devtools.bigcommerce.com/), and fill in the information requested on the [Technical tab](/api-docs/apps/guide/publishing#add-technical-information). After you save the app, the developer tools control panel will navigate to a URL that includes your app's unique ID. 
+When you create an app, BigCommerce assigns it an ID. You need the app ID when you [sign up](#sign-up) as a shipping provider. To get your app ID, [create a draft app](/api-docs/apps/guide/development#registering-a-draft-app) in the [Dev Portal](https://devtools.bigcommerce.com/), then complete the information requested on the [Technical tab](/api-docs/apps/guide/publishing#add-technical-information). After you save the app, the Dev Portal control panel navigates to a URL that includes your app's unique ID. 
 
 ![App ID](https://s3.amazonaws.com/user-content.stoplight.io/6012/1552664114224 "App ID")
 
 ### Your service URLs
 
-BigCommerce sends requests to your server. Provide BigCommerce with the following when you [sign up](#sign-up):
+Your app must expose public URLs to receive the requests BigCommerce sends. These URLs can be any valid HTTPS URLs that use port `443`; for example, `https://your_app.example.com/rate`. Replace `your_app.example.com` and `rate` with your own host and path. Provide BigCommerce with the following URLs when you [sign up](#sign-up):
 
-- **Quote URL**: a URL that accepts quote requests from BigCommerce. You will provide shipping quotes from this URL.
-- **Check Connection Options URL** (optional): a URL to check connection options. BigCommerce will send requests with a merchant’s connection settings. You can then look up a merchant's credentials in your database or call a downstream service. 
+| URL | Required | API Reference | Description |
+|:----|:---------|:--------------|:------------|
+| Quote URL | yes | [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) | A URL that accepts rate requests from BigCommerce and responds with shipping quotes. |
+| Check Connection Options URL | optional | [Validate connection options](/api-reference/providers/shipping-provider-api/shipping-provider/validateconnectionoptions) | A URL to check connection options. BigCommerce will send requests with a merchant’s connection settings. You can look up a merchant's credentials in your database, call a downstream service, etc. |
 
-These urls can be any valid HTTPS URLs that use port `443`, for example `https://your_app.example.com/rate`. Replace `your_app.example.com.com` and `rate` with your own host and path. 
+ 
 
 ### Request and response bodies
 
-BigCommerce will send and receive data from your service URLs using JSON. To see how BigCommerce will format requests for rates and how you will need to format responses, see the following endpoint references:
+BigCommerce sends data to your service URLs in JSON request bodies, and expects JSON responses. To see how BigCommerce formats requests and how you must format responses, see the following Shipping Provider API endpoint references:
 
 - [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) reference 
 
@@ -64,7 +70,7 @@ BigCommerce will send and receive data from your service URLs using JSON. To see
 
 ### Error handling
 
-To handle errors, include human-readable error messages in your responses.  The error message appears under the `messages` key. Below are example responses for the [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) endpoint and the [Validate connection options](/api-reference/providers/shipping-provider-api/shipping-provider/validateconnectionoptions) endpoint. 
+To handle errors, include human-readable error messages in your responses. Use the `messages` array to return one or more messages; flag error messages by specifying type `ERROR`. The following are example error responses for the [Request shipping rates](/api-reference/providers/shipping-provider-api/shipping-provider/requestshippingrates) and [Validate connection options](/api-reference/providers/shipping-provider-api/shipping-provider/validateconnectionoptions) endpoints: 
 
 <!--
 type: tab
@@ -105,7 +111,11 @@ title: Validate Connection Options
 
 ### Configuration fields
 
-Configuration fields are optional connection options or shipping settings options for your carrier. Connection options are set for the entire store and include sensitive info. Settings options can be set for each shipping zone and include packaging type and more. The following figures show how options appear in the merchant control panel:
+Configuration fields are optional connection options or shipping settings options for your carrier. 
+
+Connection options are set for the entire store and include sensitive authentication information.
+
+Shipping settings options can be set for each shipping zone and include packaging type and more. The following figures show how options appear in the merchant control panel:
 
 ![FedEx Settings](https://storage.googleapis.com/bigcommerce-production-dev-center/images/FedEx%20Settings.png 'Setting options')
 
@@ -125,7 +135,7 @@ These are the types of configuration options that we allow:
 - Multi-select
 - Password
 
-Specify the following for each configuration option when you [sign up] (#sign-up): 
+Specify the following for each configuration option when you [sign up](#sign-up): 
 - **Label**: Text that merchants see when they connect in the control panel
 - **Code**: Unique code for the option. Use snake case.
 - **Required**: Whether the option is required 
@@ -140,7 +150,7 @@ type: tab
 title: Text 
 -->
 
-```text title="Example connection option" lineNumbers 
+```text title="Example shipping settings option" lineNumbers 
 - Label: Display Name
 - Required: true
 - Type: text
@@ -222,7 +232,7 @@ We recommend that you document your `carrier_id` and configuration option `code`
 
 ## How your app will be connected to a store
 
-Once a store owner installs your app, merchants and API users can connect your carrier to a store.     
+Once a store owner installs your app, merchants and API users can connect your carrier to a store. 
 
 ### How merchants will use your app
 A merchant can select connection options for your carrier in the store control panel. The UI displays the `label` for your connection options, as shown in the following figure. 
@@ -235,7 +245,7 @@ A merchant can then define and enable a shipping method for your carrier in one 
 
 API users can connect your carrier by using the [Create a carrier connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection) endpoint. They will send your `carrier_id` that you received after sign-up. As shown, they will specify the `code` for each connection option in the `connection` object:
 
-```json title="Example POST request with X-Auth-Token header" lineNumbers
+```http title="Example POST request with X-Auth-Token header" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v2/shipping/carrier/connection
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -267,7 +277,7 @@ type: tab
 title: Request
 -->
 
-```json title="Example POST request with with X-Auth-Token header" lineNumbers
+```http title="Example POST request with with X-Auth-Token header" lineNumbers
 POST https://your_app.example.com/check_connection_options
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -314,7 +324,7 @@ type: tab
 title: Request
 --> 
 
-```json title="Example POST request with X-Auth-Token header" lineNumbers
+```http title="Example POST request with X-Auth-Token header" lineNumbers
 POST https://your_app.example.com/rate
 X-Auth-Token: {{ACCESS_TOKEN}}
 Content-Type: application/json
@@ -525,8 +535,8 @@ For more information on product and variant metafields, see the following Catalo
 
 ## Definitions
 
-| Name | Description |
-| ---- | ---- |
+| Name | Description or Reference |
+|:-----|:-------------------------|
 | Check Connection Options URL | An optional URL for a shipping carrier resource that accepts check requests containing the connection options provided by a user when connecting the carrier and indicates whether or not those settings are valid. You provide this URL when you [sign up](#sign-up).|
 | Configuration Fields | Connection and settings options. Merchants and API users use these fields to connect your carrier to their store and define shipping methods for your carrier in a zone. For more info, see [Configuration fields](#configuration-fields). |
 | Connection Options | Optional fields that merchants and API users can use to connect your carrier to a store, including keys and passwords. |
