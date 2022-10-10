@@ -49,13 +49,13 @@ We've built a channels app that serves as a reference implementation for BigDesi
 
 ### Design kits
 
-Do you design with Figma or Adobe Illustrator? If so, check out our design kits:
+Do you design with Figma? If so, check out our design kit:
 * [BigDesign Figma UI Kit](//figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
-* [BigDesign Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
+
 
 ## Developing for the iFrame
 
-Single-click apps benefit from a high level of integration with the BigCommerce control panel. BigCommerce achieves this by rendering your app's UI in an iFrame. To meet [Apps Marketplace](https://www.bigcommerce.com/apps/) requirements, your app should perform all functions inside the iFrame. The iFrame approach requires special attention from app developers.
+Single-click apps benefit from a high level of integration with the BigCommerce control panel. BigCommerce achieves this by rendering your app's UI in an iFrame. To meet [App Marketplace](https://www.bigcommerce.com/apps/) requirements, your app should perform all functions inside the iFrame. The iFrame approach requires special attention from app developers.
 
 To load inside the control panel iFrame, your app must do the following:
 1. **Serve app resources over HTTPS:** BigCommerce's control panel is served over HTTPS. Your app must also be served over HTTPS, including any remote resources referenced (such as CSS, JS, and image files). If any resources are served over HTTP, the user's browser will display a mixed content error and refuse to render your app's UI in the control panel iFrame.
@@ -63,7 +63,7 @@ To load inside the control panel iFrame, your app must do the following:
 
 <!-- theme: info -->
 > #### Note
-> Apps that operate in the iFrame get strong preference during [Apps Marketplace](https://www.bigcommerce.com/apps/) consideration; however, we sometimes make exceptions for apps that need to interact with other services.
+> Apps that operate in the iFrame get strong preference during [App Marketplace](https://www.bigcommerce.com/apps/) consideration; however, we sometimes make exceptions for apps that need to interact with other services.
 
 
 
@@ -92,7 +92,7 @@ To load inside the control panel iFrame, your app must do the following:
 * [Ruby OmniAuth Gem](https://github.com/bigcommerce/omniauth-bigcommerce)
 * [Big Design Developer Playground](https://developer.bigcommerce.com/big-design)
 * [Figma UI Kit](//figma.com/file/jTVuUkiZ1j3rux8WHG4IKK/BigDesign-UI-Kit?node-id=0%3A1/duplicate)
-* [Adobe Illustrator UI Kit](https://design.bigcommerce.com/bigdesign-ui-kit)
+
 
 ### Blog posts
 * [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf)

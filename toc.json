@@ -17,22 +17,22 @@
       "uri": "docs/api-docs/getting-started/about-our-api.md"
     },
     {
-      "type": "group",
-      "title": "Authentication",
-      "items": [
-        {
-          "type": "item",
-          "title": "Authenticating BigCommerce APIs",
-          "href": "/api-docs/getting-started/authentication/authenticating-bigcommerce-apis",
-          "uri": "docs/api-docs/getting-started/authentication.md"
-        },
-        {
-          "type": "item",
-          "title": "V2 and V3 REST API Authentication",
-          "href": "/api-docs/getting-started/authentication/rest-api-authentication",
-          "uri": "docs/api-docs/getting-started/rest-api-authentication.md"
-        }
-      ]
+      "type": "item",
+      "title": "Authentication & Example Requests",
+      "href": "/api-docs/getting-started/authentication/authenticating-bigcommerce-apis",
+      "uri": "docs/api-docs/getting-started/authentication.md"
+    },
+    {
+      "type": "item",
+      "title": "API Accounts & OAuth Scopes",
+      "href": "/api-docs/getting-started/authentication/rest-api-authentication",
+      "uri": "docs/api-docs/getting-started/rest-api-authentication.md"
+    },
+    {
+      "type": "item",
+      "title": "API Status Codes",
+      "href": "/api-docs/getting-started/api-status-codes",
+      "uri": "docs/api-docs/getting-started/api-status-codes.md"
     },
     {
       "type": "item",
@@ -45,12 +45,6 @@
       "title": "Best Practices",
       "href": "/api-docs/getting-started/best-practices",
       "uri": "docs/api-docs/getting-started/best-practices.md"
-    },
-    {
-      "type": "item",
-      "title": "API Status Codes",
-      "href": "/api-docs/getting-started/api-status-codes",
-      "uri": "docs/api-docs/getting-started/api-status-codes.md"
     },
     {
       "type": "item",
@@ -91,12 +85,6 @@
           "flag": "code samples",
           "uri": "docs/api-docs/storefront/graphql/graphql-api-examples.md"
         },
-        // {
-        //  "type": "item",
-        //  "title": "Storefront GraphQL Explorer",
-        //  "href": "",
-        //  "uri": ""
-        // },
         {
           "type": "item",
           "title": "GraphQL Storefront Explorer",
@@ -280,6 +268,12 @@
       ]
     },
     {
+      "type": "item",
+      "title": "Store Logs",
+      "href": "/api-docs/store-management/store-logs",
+      "uri": "docs/api-docs/store-logs/store-logs.md"
+    },
+    {
       "type": "group",
       "title": "Shipping",
       "items": [
@@ -297,6 +291,24 @@
         }
       ]
     },
+    {
+      "type": "group",
+      "title": "Tax",
+      "items": [
+        {
+          "type": "item",
+          "title": "Tax Settings",
+          "href": "/api-docs/store-management/tax/tax-settings",
+          "uri": "docs/api-docs/tax/tax-settings.md"
+        },
+        {
+          "type": "item",
+          "title": "Tax Properties",
+          "href": "/api-docs/store-management/tax/tax-properties",
+          "uri": "docs/api-docs/tax/tax-properties.md"
+        }
+      ]
+    },    
     {
       "type": "group",
       "title": "Widgets",
@@ -773,6 +785,22 @@
     },
     {
       "type": "divider",
+      "title": "Beta Features"
+    },
+    {
+      "type": "item",
+      "title": "Promotions API",
+      "href": "/promotions/beta/api-docs/overview",
+      "uri": "https://developer.bigcommerce.com/promotions/beta/api-docs/overview"
+    },
+    {
+      "type": "item",
+      "title": "Customer Segmentation API",
+      "href": "/customers/beta/api-docs/overview",
+      "uri": "https://developer.bigcommerce.com/customers/beta/api-docs/overview"
+    },
+    {
+      "type": "divider",
       "title": "Partner Information"
     },
     {
@@ -925,6 +953,12 @@
       "items": [
         {
           "type": "item",
+          "title": "Foundation PoC Guide",
+          "href": "/api-docs/partner/pos-solutions/foundation-guide",
+          "uri": "docs/api-docs/partner/pos/foundation-guide.md"
+        },
+        {
+          "type": "item",
           "title": "Catalog",
           "href": "/api-docs/partner/pos-solutions/catalog",
           "uri": "docs/api-docs/catalog/products-overview.md"
@@ -946,6 +980,18 @@
           "title": "Orders",
           "href": "/api-docs/partner/pos-solutions/orders",
           "uri": "docs/api-docs/orders/orders-api-overview.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "Subscription Solutions",
+      "items": [
+        {
+          "type": "item",
+          "title": "Foundation App Guide",
+          "href": "/api-docs/partner/subscription-solutions/foundation-guide",
+          "uri": "docs/api-docs/partner/subscriptions/foundation-guide.md"
         }
       ]
     },
