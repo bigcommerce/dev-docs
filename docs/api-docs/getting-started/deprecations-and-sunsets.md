@@ -9,7 +9,7 @@ This article provides a reference for deprecated APIs and exposes BigCommerce's 
 The following V2 APIs are deprecated. We discourage using these APIs as BigCommerce no longer supports them. Instead, consider using the provided V3 replacements.
 
 | Deprecated API | Replacement |
-|:---|:---|
+|:---------------|:------------|
 | `/v2/brands` | [V3 Catalog Brands](/api-reference/store-management/catalog/brands/getbrands) |
 | `/v2/categories` | [V3 Catalog Categories](/api-reference/store-management/catalog/category/getcategories) |
 | `/v2/customers` | [V3 Customers](/api-reference/store-management/customers-v3) |
@@ -24,21 +24,22 @@ The following V2 APIs are deprecated. We discourage using these APIs as BigComme
 > In V3, `modifiers` attach directly to products and `options` attach to variants. Use `options` and `modifiers` together to access the contents of the former V2 `options` response.
 
 
+We have removed the following endpoints.
+
+| Sunset endpoint / API | Replacement endpoint / API |
+|:----------------------|:---------------------------|
+| `DELETE Collection` [V2 Customers](/api-reference/store-management/customers-v2)  | `DELETE Customers` [V3 Customers](/api-reference/store-management/customers-v3/customers/customersdelete) |
+| `DELETE Collection` [V2 Option Sets](/legacy/v2-catalog-products/v2-option-sets) | None; can still be deleted individually by ID. |
+| `DELETE Collection` [V2 Products](/legacy/v2-catalog-products/v2-products) | `DELETE Products` [V3 Products](/api-reference/store-management/catalog/products/deleteproducts) or individually `DELETE Product` [V2 Products](/legacy/v2-catalog-products/v2-products#delete-a-product) |
+
+We have removed the following properties.
+
+| API | Sunset property | Replacement property |
+|:----|:----------------|:---------------------|
+[V3 Channels](/api-reference/store-management/channels/channels/listchannels) |`is_enabled` | `status` |
+
 ## Sunsets
 
-BigCommerce has scheduled the removal of the following operations.
-
-| Sunset operation | Endpoint | Sunset date | Replacement |
-|:---|:---|:---|:---|
-| `DELETE Collection` | `/v2/customers` | March 31, 2021 | [`DELETE /v3/customers`](/api-reference/store-management/customers-v3/customers/customersdelete) |
-| `DELETE Collection` | `/v2/option_sets` | May 10, 2020 | None; can still be deleted individually by ID. |
-| `DELETE Collection` | `/v2/products` | May 10, 2020 | [`DELETE /v3/catalog/products`](/api-reference/store-management/catalog/products/deleteproducts) |
-
-BigCommerce has scheduled the removal of the following properties.
-
-| Sunset property | Endpoint | Sunset date | Replacement |
-|:---|:---|:---|:---|
-|`is_enabled`| [Channels](/api-reference/store-management/channels/channels/listchannels) | May 10, 2020 | `status` |
 
 ## Related resources 
 
