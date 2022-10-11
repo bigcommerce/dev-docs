@@ -98,7 +98,7 @@ Accept: application/json
 > * If not specified, `status_id` defaults to `1`.
 > * The refunded status is neither paid nor unpaid.
 > * For information on changing `custom_label` in the control panel, see [Order Statuses](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
->* Inventory levels won't reflect a change in stock when an order is created, set to `Awaiting Fulfillment`, then manually edited later. To learn more about inventory stock settings, see [Stock Adjustment Settings](https://support.bigcommerce.com/s/article/Inventory-Tracking?language=en_US#stock-adjustment).
+> * Inventory levels won't reflect a change in stock when an order is created, set to `Awaiting Fulfillment`, then manually edited later. To learn more about inventory stock settings, see [Stock Adjustment Settings](https://support.bigcommerce.com/s/article/Inventory-Tracking?language=en_US#stock-adjustment).
 
 ## Specifying order customer
 
