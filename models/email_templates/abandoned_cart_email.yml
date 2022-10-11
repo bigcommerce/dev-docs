@@ -1,87 +1,4 @@
 oneOf:
-  - deprecated: true
-    properties:
-      abandoned_cart:
-        type: object
-        deprecated: true
-        properties:
-          body:
-            type: string
-          unsubscribe_link:
-            type: string
-      store:
-        type: object
-        deprecated: true
-        properties:
-          name:
-            type: string
-          domain_name:
-            type: string
-          logo:
-            type: object
-            deprecated: true
-            properties:
-              title:
-                type: string
-              name:
-                type: string
-              url:
-                type: string
-          ssl_path:
-            type: string
-          cdn_path:
-            type: string
-          image_directory:
-            type: string
-          img_path:
-            type: string
-          path_normal:
-            type: string
-            description: 'Path to the store (i.e., domain + protocol)'
-          path:
-            type: string
-          address:
-            type: string
-          language:
-            type: object
-            properties:
-              code:
-                type: string
-              direction:
-                type: string
-                description: 'Left to right or right to left, depending on the language'
-      customer:
-        type: object
-        deprecated: true
-        properties:
-          first_name:
-            type: string
-          full_name:
-            type: string
-          email:
-            type: string
-          group:
-            type: array
-            items:
-              type: object
-              properties:
-                name:
-                  type: string
-      misc:
-        type: object
-        deprecated: true
-        properties:
-          year:
-            type: integer
-      translations:
-        type: object
-        deprecated: true
-        properties:
-          en:
-            type: object
-            properties:
-              unsubscribe:
-                type: string
   - properties:
       notification:
         type: array
@@ -318,4 +235,170 @@ oneOf:
           properties:
             year:
               type: integer
+  - deprecated: true
+    properties:
+      abandoned_cart:
+        type: object
+        title: deprecated
+        deprecated: true
+        properties:
+          body:
+            type: string
+          unsubscribe_link:
+            type: string
+      store:
+        type: object
+        deprecated: true
+        properties:
+          name:
+            type: string
+          domain_name:
+            type: string
+          logo:
+            type: object
+            deprecated: true
+            properties:
+              title:
+                type: string
+              name:
+                type: string
+              url:
+                type: string
+          ssl_path:
+            type: string
+          cdn_path:
+            type: string
+          image_directory:
+            type: string
+          img_path:
+            type: string
+          path_normal:
+            type: string
+            description: 'Path to the store (i.e., domain + protocol)'
+          path:
+            type: string
+          address:
+            type: string
+          language:
+            type: object
+            properties:
+              code:
+                type: string
+              direction:
+                type: string
+                description: 'Left to right or right to left, depending on the language'
+      customer:
+        type: object
+        deprecated: true
+        properties:
+          first_name:
+            type: string
+          full_name:
+            type: string
+          email:
+            type: string
+          group:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+      misc:
+        type: object
+        deprecated: true
+        properties:
+          year:
+            type: integer
+      translations:
+        type: object
+        deprecated: true
+        properties:
+          en:
+            type: object
+            properties:
+              unsubscribe:
+                type: string
+examples:
+  - notification:
+      - unsubscribe_link: string
+        checkout_link: string
+    coupon:
+      - code: string
+        type:
+          - value: string
+            formatted: string
+        amount:
+          - value: 0
+            formatted: string
+    cart:
+      - products:
+          - '0':
+              - id: 0
+                url: string
+                name: string
+                quantity: 0
+                sku: string
+                thumbnail: string
+                attributes:
+                  - '0':
+                      - name: string
+                        value: string
+                    '1':
+                      - name: string
+                        value: string
+                price:
+                  - value: 0
+                    formatted: string
+                type:
+                  - value: 0
+                    formatted: string
+            '1':
+              - id: 0
+                url: string
+                name: string
+                quantity: 0
+                sku: string
+                thumbnail: string
+                attributes:
+                  - '0':
+                      - name: string
+                        value: string
+                    '1':
+                      - name: string
+                        value: string
+                price:
+                  - value: 0
+                    formatted: string
+                type:
+                  - value: 0
+                    formatted: string
+    store:
+      - name: string
+        domain_name: string
+        logo:
+          - title: string
+            name: string
+            url: string
+        ssl_path: string
+        cdn_path: string
+        image_directory: string
+        img_path: string
+        path_normal: string
+        path: string
+        address: string
+        phone_number: string
+        language:
+          - code: string
+            direction: string
+    customer:
+      - first_name: string
+        full_name: string
+        email: string
+        group:
+          - id: 0
+            name: string
+    misc:
+      - year: 0
+description: ''
 type: object
