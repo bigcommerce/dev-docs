@@ -15,7 +15,7 @@ The [Carts API](/api-reference/store-management/carts) lets you create carts for
 To create a cart, send a `POST` request to the [Create a Cart](/api-reference/store-management/carts/cart/createacart) endpoint.
 
 ```http
-POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -93,7 +93,7 @@ A cart redirect URL redirects a shopper to a BigCommerce hosted checkout page. Y
 To generate a cart redirect URL, send a `POST` request to the [Create Cart Redirect URL](/api-reference/store-management/carts/cart-redirect-urls/createcartredirecturl) endpoint. Use the `id` returned in the [Create a Cart](/api-reference/store-management/carts/cart/createacart) response for the `cartId` path parameter.
 
 ```http
-POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts/{cartId}/redirect_urls
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}/redirect_urls
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -116,7 +116,7 @@ The response will contain `cart_url` and `checkout_url` parameters - use these U
 It is possible to generate a redirect URL when creating a cart using the [Create a Cart](/api-reference/store-management/carts/cart/createacart) endpoint by appending the `include=redirect_urls` query parameter to the request URL.
 
 ```http
-POST https://api.bigcommerce.com/stores/{store_hash}/v3/carts?include=redirect_urls
+POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts?include=redirect_urls
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -157,7 +157,7 @@ If you are using [Embedded Checkout](/api-docs/storefronts/embedded-checkout/emb
 To delete a line item from a cart, send a `DELETE` request to the [Delete Cart Line Item](/api-reference/store-management/carts/cart-items/deletecartlineitem) endpoint passing in the associated `cartId` and `itemId`.
 
 ```http
-DELETE https://api.bigcommerce.com/stores/{store_hash}/v3/carts/{cartId}/items/{itemId}
+DELETE https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}/items/{{itemId}}
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
@@ -170,7 +170,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 Removing all cart items essentially deletes the cart. To clear the cart, call the [Delete a Cart](/api-reference/store-management/carts/cart/deleteacart) endpoint.
 
 ```http
-DELETE https://api.bigcommerce.com/stores/{store_hash}/v3/carts/{cartId}
+DELETE https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
