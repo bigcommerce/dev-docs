@@ -6,7 +6,7 @@ This article provides a reference for deprecated APIs and exposes BigCommerce's 
 
 ## Deprecations
 
-The following V2 APIs are deprecated. We discourage using these APIs as BigCommerce no longer supports them. Instead, consider using the provided V3 replacements.
+The following APIs are deprecated. We discourage using these APIs, as BigCommerce no longer supports them. Instead, consider using the suggested replacements.
 
 | Deprecated API | Replacement |
 |:---------------|:------------|
