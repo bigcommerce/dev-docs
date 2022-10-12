@@ -937,18 +937,6 @@
     },
     {
       "type": "group",
-      "title": "Analytics Solutions",
-      "items": [
-        {
-          "type": "item",
-          "title": "Big Open Data Layer (BODL)",
-          "href": "/api-docs/partner/analytics-solutions/bodl",
-          "uri": "docs/api-docs/analytics/bodl-overview.md"
-        }
-      ]
-    },
-    {
-      "type": "group",
       "title": "POS Solutions",
       "items": [
         {
