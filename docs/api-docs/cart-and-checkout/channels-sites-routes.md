@@ -75,7 +75,7 @@ These APIs are not always required, but highly recommended for app developers ba
 
 ### Preferred App Placement in the Control Panel
 
-Currently, certain channel apps, including native BigCommerce apps and specific partner apps, can be found in a merchant’s BigCommerce control panel in the “Channel Manager” section. Partners can work with the BigCommerce team to get strategic placement in this section, enabling merchants to see their specific channel first. Additionally, this discovery takes place in the control panel, which is deeply integrated into all merchants’ day to day workflow; whereas those found in the app marketplace must be found by searching within the app marketplace, which is not natively found in the control panel.
+Currently, certain channel apps, including native BigCommerce apps and specific partner apps, can be found in a merchant’s BigCommerce control panel in the “Channel Manager” section. Partners can work with the BigCommerce team to get strategic placement in this section, enabling merchants to see their specific channel first. Additionally, this discovery takes place in the control panel, which is deeply integrated into all merchants’ day to day workflow; whereas those found in the App Marketplace must be found by searching within the App Marketplace, which is not natively found in the control panel.
 
 ### BigDesign
 
@@ -87,4 +87,4 @@ An express installable app means that all scopes and permissions will be automat
 
 ### Must Meet App Requirements
 
-Any app, whether it is in the app marketplace or channel manager, must meet BigCommerce’s [app requirements](/api-docs/partner/app-store-approval-requirements).
+Any app, whether it is in the App Marketplace or channel manager, must meet BigCommerce’s [app requirements](/api-docs/partner/app-store-approval-requirements).

@@ -32,7 +32,7 @@ For a full list of examples, see the [GraphQL Storefront API Examples repo](http
 
 ## Accessing the GraphQL Playground
 
-To access the GraphQL Storefront API Playground and documentation, [sign in to your store](https://login.bigcommerce.com/deep-links/manage) and navigate to **Advanced Settings > Storefront API Playground**.
+To access the GraphQL Storefront API Playground and documentation, [sign in to your store](https://login.bigcommerce.com/deep-links/manage) and navigate to **Settings > API> Storefront API Playground**.
 
 
 The GraphQL Storefront API Playground will open.
@@ -595,6 +595,11 @@ Use normal GraphQL Storefront API tokens. According to the [Principle of least p
 ### I want to run requests from a server, and I need customer impersonation abilities
 
 Use a Customer Impersonation token and store it securely on your server like other secrets. When you need to run requests in the context of a particular customer (for example, if they've logged in to your application), send their BigCommerce Customer ID along with the request as the `X-Bc-Customer-Id` header.
+
+### I want a list of GraphQL error messages
+
+For a list of GraphQL error messages, see [API Status Codes](/api-docs/getting-started/api-status-codes#graphql-api-http-status-codes).
+
 
 ## Related resources
 

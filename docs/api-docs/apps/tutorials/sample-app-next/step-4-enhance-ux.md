@@ -211,7 +211,7 @@ The `ArrowBackIcon` component is part of the BigDesign's Icons package. You can 
 
 ## Update the Header component
 
-In this step, you incorporate the BigDesign's `Tabs` component into your app. You use the `Tabs` component to organize and navigate between content types. To learn more, see [Tabs Design Guidelines](https://design.bigcommerce.com/components/tabs). 
+In this step, you incorporate the BigDesign's `Tabs` component into your app. You use the `Tabs` component to organize and navigate between content types. To learn more, see [Tabs Developer Docs](https://developer.bigcommerce.com/big-design/tabs). 
 
 1. In the components folder, open the `header.tsx` file and update the imports.
 
@@ -348,7 +348,7 @@ export default ErrorMessage;
 
 ## Create the Loading component
 
-The `Loading` component makes use of the BigDesign's indeterminant ProgressCircle indicator. The indeterminant [ProgressCircle](https://developer.bigcommerce.com/big-design/progress-circle) represents an unknown amount of time for a task to complete. To learn more about BigDesign's progress indicators, see [Progress Indicator Design Guidelines](https://design.bigcommerce.com/components/progress-indicators).
+The `Loading` component makes use of the BigDesign's indeterminant ProgressCircle indicator. The indeterminant [ProgressCircle](https://developer.bigcommerce.com/big-design/progress-circle) represents an unknown amount of time for a task to complete. To learn more about BigDesign's progress indicators, see [Progress Circle Developer Docs](https://developer.bigcommerce.com/big-design/progress-circle).
 
 In the `components` folder, create a `loading.tsx` file.
 
@@ -417,7 +417,7 @@ export interface StringKeyValue {
 
 You use the BigDesign's `Form` component to display and edit individual product information.
 
-The BigDesign's `Form` component comes with built-in support for accessibility, validation, and handling errors. It supports various input types, including Input, Checkbox, Radio, Select, and Textarea. To learn more, see [Form Fields Design Guidelines](https://design.bigcommerce.com/components/forms).
+The BigDesign's `Form` component comes with built-in support for accessibility, validation, and handling errors. It supports various input types, including Input, Checkbox, Radio, Select, and Textarea. To learn more, see [Form Developer Docs](https://developer.bigcommerce.com/big-design/form).
 
 1. In the `components` folder, add the `form.tsx` file.
 
@@ -707,7 +707,7 @@ import { useSession } from '../context/session';
 import { useProducts } from '../lib/hooks';
 ```
 
-3. In the [Flex](https://developer.bigcommerce.com/big-design/flex) component, extend the styles of the [Box](https://developer.bigcommerce.com/big-design/box) component by specifying the `border`, `borderRadius`, `marginRight`, and `padding` attributes. Replace the `Text` component with `H4` and `H1` components. To learn more about BigDesign's typographic palette, see [Typography](https://design.bigcommerce.com/components/typography). 
+3. In the [Flex](https://developer.bigcommerce.com/big-design/flex) component, extend the styles of the [Box](https://developer.bigcommerce.com/big-design/box) component by specifying the `border`, `borderRadius`, `marginRight`, and `padding` attributes. Replace the `Text` component with `H4` and `H1` components. To learn more about BigDesign's typographic palette, see [Typography](https://developer.bigcommerce.com/big-design/typography). 
 
 ```js
 const Index = ({ context }: { context: string }) => {

@@ -23,10 +23,10 @@ arch -x86_64 /bin/zsh
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 
 # Install Stencil CLI supported version of Node.js
-nvm install 14
+nvm install 14.20.0
 
 # Switch to Stencil CLI supported version of Node.js:
-nvm use 14
+nvm use 14.20.0
 
 # Install Stencil CLI
 npm install -g @bigcommerce/stencil-cli
@@ -54,10 +54,10 @@ Run the following commands:
 
 ```shell
 # Install Stencil CLI supported version of Node.js
-nvm install 14
+nvm install 14.20.0
 
 # Switch to Stencil CLI supported version of Node.js
-nvm use 14
+nvm use 14.20.0
 
 # Install Stencil CLI
 npm install -g @bigcommerce/stencil-cli
@@ -76,12 +76,12 @@ iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/in
 # Install git if you don't have it
 choco install git
 
-# Install nvm-windows and stencil compatible node.js
-choco install nvm; nvm install 14; nvm use 14
-
 #####################################################################################
 # Close PowerShell and re-open as admin
 #####################################################################################
+
+# Install nvm-windows and stencil compatible node.js
+choco install nvm; nvm install 14.20.0; nvm use 14.20.0
 
 # Install Windows C++ Build Tools (also installs python2)
 npm install -g windows-build-tools --vs2015
@@ -134,9 +134,9 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 source ~/.bashrc
 
 # Explicitly install and use supported node version
-nvm install 14
+nvm install 14.20.0
 
-nvm use 14
+nvm use 14.20.0
 
 # Install stencil
 npm install -g @bigcommerce/stencil-cli
@@ -172,6 +172,30 @@ npm install
 # serve a live, Browsersync enabled preview of the theme
 stencil start
 ```
+## Troubleshooting
+
+### Chocolatey install error
+If you receive an error installing Chocolatey, run the following command to enable scripts on your system.
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+```
+
+### Visual Studio not found error
+If you receive the error "Could not find VS", run the following commands:
+
+```powershell
+choco install python visualcpp-build-tools -y
+npm config set msvs_version 2017 
+```
+
+### Python npm configuration error
+If you receive "Error: Could not find any Python installation to use", run the following command:
+
+```powershell
+choco install python --version=2.7.2
+```
+
 
 ## Resources
 

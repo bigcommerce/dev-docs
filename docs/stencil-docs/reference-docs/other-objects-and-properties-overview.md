@@ -470,13 +470,6 @@ For further details about catalog price properties, please see [Catalog Price Ob
 | message  | System-generated messages for the cart  |
 |type|Type of message: error, info, or success	|
 
-### Suggested Products
-
-**Description:** A list of suggested products, based on cart contents; displays only if enabled by the `cart.suggestions` front-matter attribute, and only immediately after a product is added to the cart
-
-**Handlebars Expression:** `{{cart.suggested_products}}`
-
-**Object Properties:** References standard product card model.
 
 ## Customer
 
