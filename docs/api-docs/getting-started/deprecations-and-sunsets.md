@@ -24,6 +24,8 @@ The following V2 APIs are deprecated. We discourage using these APIs as BigComme
 > In V3, `modifiers` attach directly to products and `options` attach to variants. Use `options` and `modifiers` together to access the contents of the former V2 `options` response.
 
 
+## Sunsets
+
 We have removed the following endpoints.
 
 | Sunset endpoint / API | Replacement endpoint / API |
@@ -37,9 +39,6 @@ We have removed the following properties.
 | API | Sunset property | Replacement property |
 |:----|:----------------|:---------------------|
 [V3 Channels](/api-reference/store-management/channels/channels/listchannels) |`is_enabled` | `status` |
-
-## Sunsets
-
 
 ## Related resources 
 
