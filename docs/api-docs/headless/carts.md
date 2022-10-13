@@ -14,16 +14,21 @@ The [Carts API](/api-reference/store-management/carts) lets you create carts for
 
 To create a cart, send a `POST` request to the [Create a Cart](/api-reference/store-management/carts/cart/createacart) endpoint.
 
-```http
+```http title="Create a cart"
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
+
+{
+  //example request bodies follow
+}
+
 ```
 
 **Create a Cart request example**
 
-```json lineNumbers
+```json title="Example request body: Create a cart" lineNumbers
 {
   "channel_id": 704181,
   "line_items": [
@@ -37,7 +42,8 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 }
 ```
 To create a cart with option selections, include `option_id` and `option_value` in your `POST` request.
-```json lineNumbers
+To create a cart with option selections, include an `option_id` and `option_value` for each selection. 
+```json title="Example request body: option selections" lineNumbers
 {
   "channel_id": 704181,
   "customer_id": 1,
@@ -59,7 +65,7 @@ To create a cart with option selections, include `option_id` and `option_value` 
 
 To create a cart for an existing customer, include the `customer_id` in your `POST` request.
 
-```json lineNumbers
+```json title="Example request body: existing customer" lineNumbers
 {
   "channel_id": 704181,
   "customer_id": 1,
@@ -90,7 +96,7 @@ A cart redirect URL redirects a shopper to a BigCommerce hosted checkout page. Y
 
 To generate a cart redirect URL, send a `POST` request to the [Create Cart Redirect URL](/api-reference/store-management/carts/cart-redirect-urls/createcartredirecturl) endpoint. Use the `id` returned in the [Create a Cart](/api-reference/store-management/carts/cart/createacart) response for the `cartId` path parameter.
 
-```http
+```http title="Create cart redirect URL"
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}/redirect_urls
 Accept: application/json
 Content-Type: application/json
@@ -100,7 +106,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 The response will contain `cart_url` and `checkout_url` parameters - use these URLs to redirect the customer to the BigCommerce hosted cart or checkout pages. You can use the `embedded_checkout_url` with the [Checkout SDK](/stencil-docs/customizing-checkout/checkout-sdk) to embed the BigCommerce hosted checkout into a headless site via an iFrame.
 
-```json lineNumbers
+```json title="Example response: Create cart redirect URL" lineNumbers
 {
   "cart_url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=load&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
   "checkout_url": "https://store-id30h7ohwf.mybigcommerce.com/cart.php?action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
@@ -112,11 +118,16 @@ The response will contain `cart_url` and `checkout_url` parameters - use these U
 
 It is possible to generate a redirect URL when creating a cart using the [Create a Cart](/api-reference/store-management/carts/cart/createacart) endpoint by appending the `include=redirect_urls` query parameter to the request URL.
 
-```http
+```http title="Create a cart"
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts?include=redirect_urls
 Accept: application/json
 Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
+
+{
+  // request body
+}
+
 ```
 
 ### Logging in and redirecting a customer
