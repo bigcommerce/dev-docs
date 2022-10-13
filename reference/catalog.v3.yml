@@ -23692,7 +23692,7 @@ components:
           minLength: 1
           type: string
           description: |
-            The product name.
+            A unique product name.
           example: Smith Journal 13
           x-required:
             - post
@@ -23711,7 +23711,7 @@ components:
           minLength: 0
           type: string
           description: |
-            User defined product code/stock keeping unit (SKU).
+            A unique user-defined product code/stock keeping unit (SKU).
           example: SM-13
         description:
           type: string
