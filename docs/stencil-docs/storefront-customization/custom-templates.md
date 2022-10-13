@@ -155,6 +155,10 @@ title: Custom template - custom-brand.html
 
 Finally, you must bundle and push the theme to BigCommerce. See [Bundling and Pushing a Theme](/stencil-docs/deploying-a-theme/bundling-and-pushing) for instructions on how to achieve this.
 
+## Applying custom template associations
+
+Using the Custom Template Associations API, you can update template layout files applied to your product for non-default channels. You can overwrite the template for existing records with the same channel ID, entity ID, and type. For more information, see the [Upsert Custom Template Associations](https://developer.bigcommerce.com/api-reference/69377d30c3d6e-upsert-custom-template-associations) API endpoint.
+
 ## Troubleshooting template authoring
 
 Here are solutions to some known problems in locally authoring and testing custom templates:
