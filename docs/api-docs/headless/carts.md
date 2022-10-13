@@ -162,9 +162,9 @@ If you are using [Embedded Checkout](/api-docs/storefronts/embedded-checkout/emb
 
 ## Deleting a line item
 
-To delete a line item from a cart, send a `DELETE` request to the [Delete Cart Line Item](/api-reference/store-management/carts/cart-items/deletecartlineitem) endpoint passing in the associated `cartId` and `itemId`.
+To delete a line item from a cart, send a request to the [Delete Cart Line Item](/api-reference/store-management/carts/cart-items/deletecartlineitem) endpoint, passing the associated `cartId` and `itemId` as path parameters.
 
-```http
+```http title="Delete a line item"
 DELETE https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}/items/{{itemId}}
 Accept: application/json
 Content-Type: application/json
@@ -173,9 +173,9 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Clearing the cart
 
-Removing all cart items essentially deletes the cart. To clear the cart, call the [Delete a Cart](/api-reference/store-management/carts/cart/deleteacart) endpoint.
+Removing all cart items essentially deletes the cart. To clear the cart, send a request to the [Delete a Cart](/api-reference/store-management/carts/cart/deleteacart) endpoint.
 
-```http
+```http title="Delete a cart"
 DELETE https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}
 Accept: application/json
 Content-Type: application/json
