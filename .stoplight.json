@@ -23,7 +23,8 @@
     "docs/legacy/stencil-themes/installing-legacy-theme-modules.md",
     "docs/stencil-docs/configure-store-design-ui/defining-ui-options.md",
     "docs/stencil-docs/configure-store-design-ui/store-design-overview.md",
-    "docs/stencil-docs/javascript-and-event-hooks/dynamic-content-rendering.md"
+    "docs/stencil-docs/javascript-and-event-hooks/dynamic-content-rendering.md",
+    "docs/api-docs/analytics/bodl-overview.md"
   ],
   "formats": {
     "openapi": {
