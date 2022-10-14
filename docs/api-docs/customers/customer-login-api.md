@@ -49,11 +49,14 @@ To enable SSO using the Customer Login API, you will need the following:
 * API client ID and client secret with the OAuth Scope set to Customers Login
 * [Node.js](https://nodejs.org/en/) installed on your machine if you plan to use JavaScript
 
-If you do not know your client ID and client secret, obtain the credentials by following the steps outlined in [Creating an API Account](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating). 
-
 Be sure to set the Customers Login scope to Login. 
 
 ![Example OAuth Scope](https://storage.googleapis.com/bigcommerce-production-dev-center/images/scopes.png "Example OAuth Scope")
+
+<!-- theme: info -->
+> #### API account notes
+> - This endpoint requires **app API account** credentials. For more information about generating accounts, consult the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts).
+> - The app you create doesn't need to be installed or published on a store, and you don't need to generate access tokens. All you need are the client ID and client secret. See the section on [client ID-based authentication](/api-docs/getting-started/authentication#client-id) in the Authentication tutorial.
 
 ## Enable single sign-on
 
