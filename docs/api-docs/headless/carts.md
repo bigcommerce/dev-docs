@@ -131,33 +131,31 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ### Signing in and redirecting a customer
 
-If you passed a `customer_id` in the [Create a Cart](/api-reference/store-management/carts/cart/createacart) request, redirect the customer to the sign in URL first, before redirecting them to the cart or checkout pages. You can create a customer login JWT using the same `customer_id` and set the `redirect_to` parameter to the relative path of the desired redirect URL. 
+Registered customers have personally-identifiable information, or _PII_, saved in their accounts. If you passed a `customer_id` in the [Create a Cart](/api-reference/store-management/carts/cart/createacart) request, send the customer to a sign-in page before redirecting them to cart or checkout pages. You can use the [Customer Login API](/api-docs/storefront/customer-login-api) to manage the redirection flow.
 
-**Customer login JWT payload example**
+<!-- theme: info -->
+> #### API account notes
+> The Customer Login API requires **app API credentials**. To learn more, see the articles on the [Customer Login API](/api-docs/storefront/customer-login-api#api-account-notes) and [Authentication](/api-docs/getting-started/authentication#user-generated-jwts).
 
-```js lineNumbers
-{
-  "iss": {{CLIENT_ID}},
-  "iat": 1535393113,
-  "jti": {{UUID}},
-  "operation": "customer_login",
-  "store_hash": {{STORE_HASH}},
-  "customer_id": {{CUSTOMER_ID}},
-  "channel_id": {{CHANNEL_ID}},
-  "redirect_to": "/cart.php?embedded=1&action=loadInCheckout&id=bc218c65-7a32-4ab7-8082-68730c074d02&token=aa958e2b7922035bf3339215d95d145ebd9193deb36ae847caa780aa2e003e4b",
-  "request_ip": "111.222.333.444"
-}
-```
+The Customer Login API requires your application to generate a JWT, then send it as a path parameter of the [Send login token](/api-reference/storefront/customer-login/login-token/get-login-token) endpoint.
 
-Use the payload to generate the customer login JWT. Then, create a customer login URL by appending the JWT to `https://{{YOUR_BIGCOMMERCE_DOMAIN}}.com/login/token/`. 
+The following table is a reference for the specifics of JWT claims in the context of this use case. For a complete listing of payload claims, both required and optional, see the [Customer Login API JWT payload reference](/api-docs/storefront/customer-login-api#customer-login-jwt-payload-reference).
 
-For example:
+| Field Name | Type | Description |
+|:-----------|:-----|:------------|
+| `iss` | string | The API account client ID.|
+| `store_hash` | string | The subject store hash.|
+| `channel_id` | integer | The `channel_id` of the subject storefront. Required for this use case; see [Channel ID is mandatory](#channel-id-is-mandatory). |
+| `customer_id` | integer | The ID of the shopper you associated with the cart.|
+| `redirect_to` | string | One of the redirect URLs you generated per the section on [Redirecting to checkout](#redirecting-to-checkout). |
 
-`https://store.example.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ7Y2xpZW50X2lkfSIsImlhdCI6MTUzNTM5MzExMywianRpIjoie3V1aWR9Iiwib3BlcmF0aW9uIjoiY3VzdG9tZXJfbG9naW4iLCJzdG9yZV9oYXNoIjoie3N0b3JlX2hhc2h9IiwiY3VzdG9tZXJfaWQiOjJ9.J-fAtbjRFGdLsT744DhoprFEDqIfVq72HbDzrbFy6Is`
+A successful call to the [Send login token](/api-reference/storefront/customer-login/login-token/get-login-token) endpoint will redirect the user to the supplied relative URL. If you're calling the Customer Login API server-side, pass the redirect along to the frontend.
 
-The customer login JWT must include a `channel_id` property. If you omit the `channel_id`, CORS checks will fail and the checkout will not load.
+<!-- theme: info -->
+> #### Channel ID is mandatory
+> The Customer Login JWT must include a `channel_id` property. If you omit the `channel_id`, CORS checks will fail and the checkout will not load.
 
-If you are using [Embedded Checkout](/api-docs/storefronts/embedded-checkout/embedded-checkout-overview), pass the customer login URL to the Checkout SDK to log in the customer, then redirect to checkout within the embedded checkout iFrame.
+If you are using [Embedded Checkout](/api-docs/storefronts/embedded-checkout/embedded-checkout-overview), create the Customer Login JWT, then pass the full URL for a call to the [Send login token](/api-reference/storefront/customer-login/login-token/get-login-token) endpoint to the Checkout SDK. The SDK will sign the customer in, then redirect them to the Embedded Checkout iFrame.
 
 ## Deleting a line item
 
