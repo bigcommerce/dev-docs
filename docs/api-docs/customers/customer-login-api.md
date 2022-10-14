@@ -11,17 +11,17 @@ In this tutorial, you will learn how to enable single sign-on for storefront cus
 
 ## Overview
 
-Single sign-on (SSO) is an authentication mechanism that enables users to log into multiple software applications using the same set of credentials that the user enters only once. It eliminates the need to maintain multiple passwords, which streamlines the process of accessing web applications. For more details, see [Single Sign-On](https://en.wikipedia.org/wiki/Single_sign-on). 
+Single sign-on (SSO) is an authentication mechanism that enables users to sign in to multiple software applications using the same set of credentials that the user enters only once. It eliminates the need to maintain multiple passwords, which streamlines the process of accessing web applications. For more details, see [Single Sign-On](https://en.wikipedia.org/wiki/Single_sign-on). 
 
-When a user logs into your web app, you can use the Customer Login API to authenticate the user to your BigCommerce store through SSO.
+When a user signs into your web app, you can use the Customer Login API to authenticate the user to your BigCommerce store through SSO.
 
 You can use the Customer Login API in the following use cases:
 
 * Integrate with an SSO provider or identity provider (IdP) 
 * Set up continuous login between a BigCommerce store and another application
-* Enable alternative login methods (ex. phone number and SMS password)
+* Enable alternative sign-in methods (ex. phone number and SMS password)
 
-Storefront customers are logged in using the access point URL `/login/token/{token}`. The `{token}` must be a JSON Web Token (JWT) containing parameters for the customer login request signed by your application’s OAuth client secret. For more information on the OAuth protocol, see [OAuth](https://oauth.net/2/). 
+Storefront customers are signed in using the access point URL `/login/token/{token}`. The `{token}` must be a JSON Web Token (JWT) containing parameters for the customer login request signed by your application’s OAuth client secret. For more information on the OAuth protocol, see [OAuth](https://oauth.net/2/). 
 
 JWT is an industry standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) for securely transmitting information between two parties. A JWT is a sequence of base64url-encoded strings separated by dots (` . `).  The sections include the header, payload, and signature. For more details, see [Introduction to JSON Web Tokens](https://jwt.io/introduction/). 
 
@@ -39,7 +39,7 @@ You are required to include the `channel_id` when using the login JWTs to embed 
 | `channel_id` | integer | Optional field containing the `channel_id` corresponding to the storefront the shopper is signing in to. |
 | `customer_id` | integer | The ID of the shopper who is signing in.|
 | `redirect_to` | string | Optional field containing a relative path for the shopper's destination after sign-in. Defaults to `/account.php`. |
-| `request_ip` | string | Optional field containing the expected IP address for the request. If provided, BigCommerce will check that it matches the browser trying to log in.|
+| `request_ip` | string | Optional field containing the expected IP address for the request. If provided, BigCommerce will check that it matches the browser trying to sign in.|
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ Be sure to set the Customers Login scope to Login.
 
 ## Enable single sign-on
 
-To log a customer into their storefront account using the Customer Login API, your app needs to redirect the customer’s browser to the following access point URL: `https://storedomain.com/login/token/{token}`.
+To sign a customer in to their storefront account using the Customer Login API, your app needs to redirect the customer’s browser to the following access point URL: `https://storedomain.com/login/token/{token}`.
 
 The `{token}` parameter is the JWT containing the payload data signed by your app’s OAuth client secret.
 
@@ -83,7 +83,7 @@ To create a JWT, you will need to obtain a `customer_id` using the [Customers v3
     "date_modified": "2020-02-07T19:58:03Z",
     "email": "customer@email.com",
     "first_name": "Jane",
-    "id": 1,    #customer_id
+    "id": 1,    // customer_id
     "last_name": "Doe",
     "notes": "",
     "phone": "",
@@ -106,7 +106,7 @@ To create a JWT, you will need to obtain a `customer_id` using the [Customers v3
 
 ![JWT Signature](https://storage.googleapis.com/bigcommerce-production-dev-center/images/verify-signature.png "Signature")
 
-6. Copy the login token from the encoded box and paste it into the access point URL replacing the `{token}` parameter. 
+6. Copy the login token from the encoded box and paste it into the access point URL, replacing the `{token}` parameter. 
 </br>
 Example:
 
@@ -116,11 +116,11 @@ https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3M
 
 7. Paste the URL into the address bar of your web browser. 
 
-If the request was successful, you will be logged in as a customer and directed to `/account.php`. If it was unsuccessful, a login attempt error message will be displayed and you will be directed to `/login.php`. 
+If the request was successful, you will be signed in as a customer and directed to `/account.php`. If it was unsuccessful, a sign in attempt error message will be displayed and you will be directed to `/login.php`. 
 
 ![Login Error](https://storage.googleapis.com/bigcommerce-production-dev-center/images/invalid-login.png "Login Error")
 
-For common causes of login failure, see [Troubleshooting](#troubleshooting).
+For common causes of sign-in failure, see [Troubleshooting](#troubleshooting).
 
 ### Create JWT using a JavaScript function
 
@@ -191,7 +191,7 @@ You should receive a complete access point URL as an output.
 
 8. Copy the URL and paste it into the address bar of your browser. 
 
-If the request was successful, you will be logged in as a customer and directed to `/account.php`. If it was unsuccessful, you will receive a login attempt error message and be directed to `/login.php`. For common causes of login failure, see [Troubleshooting](#troubleshooting).
+If the request was successful, you will be signed in as a customer and directed to `/account.php`. If it was unsuccessful, you will receive a sign in attempt error message and be directed to `/login.php`. For common causes of sign in failure, see [Troubleshooting](#troubleshooting).
 
 ### Sample code
 
@@ -203,9 +203,9 @@ Helper methods for generating login tokens are provided in our [API Client Libra
 
 For client libraries in other languages, see [Libraries for Token Signing/Verification](https://jwt.io/#libraries-io).
 
-### Logging out 
+### Signing out 
 
-To log out a customer, set the `redirect_to` field of the JWT’s payload to `/login.php?action=logout`. 
+To sign a customer out, set the `redirect_to` field of the JWT’s payload to `/login.php?action=logout`. 
 
 ## Troubleshooting
 
