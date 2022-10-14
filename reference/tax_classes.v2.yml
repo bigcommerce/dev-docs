@@ -69,26 +69,26 @@ paths:
               example:
               - id: '1'
                 name: Non-Taxable Products
-                created_at: 1973-01-20T21:34:57.903Z
-                updated_at: 1990-12-30T00:29:23.515Z
+                created_at: 1973-01-20T21:34:57.903+00:00
+                updated_at: 1990-12-30T00:29:23.515+00:00
               - id: '2'
                 name: Shipping
-                created_at: 1973-01-20T21:34:57.903Z
-                updated_at: 1990-12-30T00:29:23.515Z
+                created_at: 1973-01-20T21:34:57.903+00:00
+                updated_at: 1990-12-30T00:29:23.515+00:00
               - id: '3'
                 name: Gift Wrapping
-                created_at: 1973-01-20T21:34:57.903Z
-                updated_at: 1990-12-30T00:29:23.515Z
+                created_at: 1973-01-20T21:34:57.903+00:00
+                updated_at: 1990-12-30T00:29:23.515+00:00
             Response Schema:
               example:
               - id: proident irure consequat anim
                 name: sed non commodo et tempor
-                created_at: 1973-01-20T21:34:57.903Z
-                updated_at: 1990-12-30T00:29:23.515Z
+                created_at: 1973-01-20T21:34:57.903+00:00
+                updated_at: 1990-12-30T00:29:23.515+00:00
               - id: consequat voluptate
                 name: sunt ex
-                created_at: 1973-01-20T21:34:57.903Z
-                updated_at: 1990-12-30T00:29:23.515Z
+                created_at: 1973-01-20T21:34:57.903+00:00
+                updated_at: 1990-12-30T00:29:23.515+00:00
       x-unitTests: []
       x-operation-settings:
         CollectParameters: false
@@ -134,14 +134,14 @@ paths:
               example:
                 id: '1'
                 name: Shipping
-                created_at: 1973-01-20T21:34:57.903Z
-                updated_at: 1990-12-30T00:29:23.515Z
+                created_at: 1973-01-20T21:34:57.903+00:00
+                updated_at: 1990-12-30T00:29:23.515+00:00
             Response Schema:
               example:
                 id: ut pariatur eiusmod non
                 name: dolore nulla Duis Ut ea
-                created_at: 1973-01-20T21:34:57.903Z
-                updated_at: 1990-12-30T00:29:23.515Z
+                created_at: 1973-01-20T21:34:57.903+00:00
+                updated_at: 1990-12-30T00:29:23.515+00:00
       x-unitTests: []
       x-operation-settings:
         CollectParameters: false
@@ -167,17 +167,17 @@ components:
           type: string
           description: Date and time of the tax class' creation. Read-Only.
           format: date-time
-          example: 2018-05-07T20:14:17Z
+          example: 2018-05-07T20:14:17+00:00
         updated_at:
           type: string
           description: Date and time when the tax class was last updated. Read-Only.
           format: date-time
-          example: 2018-05-07T20:14:17Z
+          example: 2018-05-07T20:14:17+00:00
       example:
         id: '1'
         name: Shipping
-        created_at: 1973-01-20T21:34:57.903Z
-        updated_at: 1990-12-30T00:29:23.515Z
+        created_at: 1973-01-20T21:34:57.903+00:00
+        updated_at: 1990-12-30T00:29:23.515+00:00
       x-internal: false
   securitySchemes:
     X-Auth-Token:
