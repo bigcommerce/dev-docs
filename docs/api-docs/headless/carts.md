@@ -83,13 +83,12 @@ To create a cart for an existing customer, include the `customer_id` in your req
 
 <!-- theme: info -->
 > #### Note
-> The `id` returned in the response will correspond to the `cart_id` required to generate a cart redirect URL.
-
+> The `id` returned with the response corresponds to the `cart_id` required to generate a cart redirect URL.
 
 
 ### Guest cart
 
-A guest cart assumes the shopper is not a customer and is not logging in or creating an account during checkout. You can handle guest carts by displaying the cart data to the customer and then moving them to checkout using the [Checkouts API](/api-reference/store-management/checkouts).
+A guest cart assumes the shopper is not a customer and is not signing in or creating an account during checkout. You can handle guest carts by displaying the cart data to the customer and then moving them to checkout using the [Checkouts API](/api-reference/store-management/checkouts).
 
 ## Redirecting to checkout
 
