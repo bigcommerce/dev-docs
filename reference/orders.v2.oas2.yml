@@ -561,7 +561,7 @@ paths:
         | 9 | Awaiting Shipment | Order has been pulled and packaged, and is awaiting collection from a shipping provider. |
         | 10 | Completed | Client has paid for their digital product and their file(s) are available for download. |
         | 11 | Awaiting Fulfillment | Customer has completed the checkout process and payment has been confirmed. |
-        | 12 | Manual Verification Required | Order on hold while some aspect needs to be manually confirmed. |
+        | 12 | Manual Verification Required | Order is on hold while some aspect needs to be manually confirmed. |
         | 13 | Disputed | Customer has initiated a dispute resolution process for the PayPal transaction that paid for the order. |
         | 14 | Partially Refunded | Seller has partially refunded the order. |
       summary: Get All Order Statuses
@@ -600,7 +600,7 @@ paths:
         | 9 | Awaiting Shipment | Order has been pulled and packaged, and is awaiting collection from a shipping provider. |
         | 10 | Completed | Client has paid for their digital product and their file(s) are available for download. |
         | 11 | Awaiting Fulfillment | Customer has completed the checkout process and payment has been confirmed. |
-        | 12 | Manual Verification Required | Order on hold while some aspect needs to be manually confirmed. |
+        | 12 | Manual Verification Required | Order is on hold while some aspect needs to be manually confirmed. |
         | 13 | Disputed | Customer has initiated a dispute resolution process for the PayPal transaction that paid for the order. |
         | 14 | Partially Refunded | Seller has partially refunded the order. |
       summary: Get a Single Order Status by Id
@@ -1056,7 +1056,7 @@ paths:
       description: |-
         Update a shipping address associated with an order.
 
-        **Note**: Updating will NOT trigger the recalculation of shipping cost and tax
+        **Note**: Updating a shipping address will NOT trigger the recalculation of shipping cost and tax
       tags:
         - Order Shipping Addresses
   '/stores/{store_hash}/v2/orders/{order_id}/shipping_addresses/{shipping_address_id}/shipping_quotes':
@@ -1068,7 +1068,7 @@ paths:
       description: |-
         Gets all shipping quotes persisted on an order.
 
-        This is a read only endpoint and the output can vary based on the shipping quote. A shipping quote can only be generated using the storefront at this time. Orders that are created in the control panel or using the API return a 204 for this endpoint since a shipping quote is not generated during that process.
+        This is a read-only endpoint and the output can vary based on the shipping quote. A shipping quote can only be generated using the storefront at this time. Orders that are created in the control panel or using the API return a 204 for this endpoint since a shipping quote is not generated during that process.
       parameters:
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
@@ -1128,14 +1128,14 @@ components:
     min_total:
       name: min_total
       in: query
-      description: The minimum order total in float format. eg. 12.50
+      description: The minimum order total in floating point format. eg. 12.50
       schema:
         type: number
         format: float
     max_total:
       name: max_total
       in: query
-      description: The maximum order total in float format. eg. 12.50
+      description: The maximum order total in floating point format. eg. 12.50
       schema:
         type: number
     customer_id:
@@ -1409,7 +1409,7 @@ components:
                   name: Manual Verification Required
                   system_label: Manual Verification Required
                   custom_label: Manual Verification Required
-                  system_description: Order on hold while some aspect needs to be manually confirmed.
+                  system_description: Order is on hold while some aspect needs to be manually confirmed.
                   order: 13
                 - id: 13
                   name: Disputed
@@ -1538,7 +1538,7 @@ components:
                   store_default_to_transactional_exchange_rate: '1.0000000000'
                   custom_status: Awaiting Fulfillment
                   customer_locale: en
-                  external_order_id: 'external-order-id'
+                  external_order_id: external-order-id
     ordersCount_Resp:
       description: Order Countr response collection.
       content:
@@ -1644,7 +1644,7 @@ components:
                     name: Manual Verification Required
                     system_label: Manual Verification Required
                     custom_label: Manual Verification Required
-                    system_description: Order on hold while some aspect needs to be manually confirmed.
+                    system_description: Order is on hold while some aspect needs to be manually confirmed.
                     count: 0
                     sort_order: 13
                   - id: 14
@@ -1755,7 +1755,7 @@ components:
                 store_default_to_transactional_exchange_rate: '1.0000000000'
                 custom_status: Awaiting Payment
                 customer_locale: en
-                external_order_id: 'external-order-id'
+                external_order_id: external-order-id
               Multiple Items:
                 id: 247
                 customer_id: 11
@@ -1847,7 +1847,7 @@ components:
                 store_default_to_transactional_exchange_rate: 1
                 custom_status: Awaiting Fulfillment
                 customer_locale: en
-                external_order_id: 'external-order-id'
+                external_order_id: external-order-id
     orderCouponsCollection_Resp:
       description: ''
       content:
@@ -2739,11 +2739,11 @@ components:
               external_id: null
               external_merchant_id: null
               custom_status: Awaiting Payment
-              external_order_id: 'external-order-id'
+              external_order_id: external-order-id
             type: object
             properties:
               id:
-                description: 'The ID of the order, a read-only value. Do not pass in PUT or POST.'
+                description: 'The ID of the order, a read-only value. Do not pass in PUT or POST request.'
                 example: 118
                 type: integer
               customer_id:
@@ -2752,27 +2752,27 @@ components:
                 type: number
               date_created:
                 type: string
-                description: 'The date the order was created, formatted in the RFC-2822 standard. You set this attribute on Order creation (POST) to support the migration of historical orders. If you do not provide a value, then it will default to the current date/time. e.g., `Tue, 20 Nov 2012 00:00:00 +0000`'
+                description: 'The date the order was created, formatted in the RFC-2822 standard. You set this attribute on Order creation (POST request) to support the migration of historical orders. If you do not provide a value, then it will default to the current date/time. e.g., `Tue, 20 Nov 2012 00:00:00 +0000`'
               date_modified:
                 type: string
-                description: A read-only value representing the last modification of the order. Do not attempt to modify or set this value in a POST or PUT operation. RFC-2822
+                description: A read-only value representing the last modification of the order. Do not attempt to modify or set this value in a POST or PUT request. RFC-2822
               date_shipped:
                 type: string
-                description: A read-only value representing the date of shipment. Do not attempt to modify or set this value in a POST or PUT operation. RFC-2822
+                description: A read-only value representing the date of shipment. Do not attempt to modify or set this value in a POST or PUT request. RFC-2822
               status_id:
                 description: The status ID of the order.
                 example: 11
                 type: integer
               cart_id:
-                description: 'The cart ID from which this order originated, if applicable. Correlates with the Cart API. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.'
+                description: 'The cart ID from which this order originated, if applicable. Correlates with the Cart API. This is a read-only field; do not set or modify its value in a POST or PUT request.'
                 example: a8458391-ef68-4fe5-9ec1-442e6a767364
                 type: string
               status:
-                description: 'The status will include one of the (string, optional) - values defined under Order Statuses. This value is read-only. Do not attempt to modify or set this value in a POST or PUT operation.'
+                description: 'The status will include one of the (string, optional) - values defined under Order Statuses. This is a read-only value. Do not attempt to modify or set this value in a POST or PUT request.'
                 example: Awaiting Fulfillment
                 type: string
               custom_status:
-                description: 'Contains the same (string, optional) - value as the Order Statuses object’s `custom_label` property.'
+                description: 'Contains the same (string, optional) - value as the `custom_label` property of the Order Statuses object.'
                 example: Awaiting Fulfillment
                 type: string
               subtotal_ex_tax:
@@ -2784,7 +2784,7 @@ components:
                 example: '225.0000'
                 type: string
               subtotal_tax:
-                description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
+                description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT request. (Float, Float-As-String, Integer)'
                 example: '0.0000'
                 type: string
               base_shipping_cost:
@@ -2800,11 +2800,11 @@ components:
                 example: '0.0000'
                 type: string
               shipping_cost_tax:
-                description: 'A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
+                description: 'A read-only value. Do not attempt to modify or set this value in a POST or PUT request. (Float, Float-As-String, Integer)'
                 example: '0.0000'
                 type: string
               shipping_cost_tax_class_id:
-                description: 'Shipping-cost tax class. A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. (NOTE: Value ignored if automatic tax is enabled on the store.)'
+                description: 'Shipping-cost tax class. A read-only value. Do not attempt to modify or set this value in a POST or PUT request. (NOTE: Value ignored if automatic tax is enabled on the store.)'
                 example: 2
                 type: integer
               base_handling_cost:
@@ -2821,11 +2821,11 @@ components:
                   - number
                   - string
               handling_cost_tax:
-                description: 'A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
+                description: 'A read-only value. Do not attempt to modify or set this value in a POST or PUT request. (Float, Float-As-String, Integer)'
                 example: '0.0000'
                 type: string
               handling_cost_tax_class_id:
-                description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT operation. (NOTE: Value ignored if automatic tax is enabled on the store.)'
+                description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT request. (NOTE: Value ignored if automatic tax is enabled on the store.)'
                 example: 2
                 type: integer
               base_wrapping_cost:
@@ -2843,11 +2843,11 @@ components:
                 example: '0.0000'
                 type: string
               wrapping_cost_tax:
-                description: 'A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
+                description: 'A read-only value. Do not attempt to modify or set this value in a POST or PUT request. (Float, Float-As-String, Integer)'
                 example: '0.0000'
                 type: string
               wrapping_cost_tax_class_id:
-                description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT operation. (NOTE: Value ignored if automatic tax is enabled on the store.)'
+                description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT request. (NOTE: Value ignored if automatic tax is enabled on the store.)'
                 example: 3
                 type: integer
               total_ex_tax:
@@ -2859,7 +2859,7 @@ components:
                 example: '225.0000'
                 type: string
               total_tax:
-                description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
+                description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT request. (Float, Float-As-String, Integer)'
                 example: '0.0000'
                 type: string
               items_total:
@@ -2880,7 +2880,7 @@ components:
                 type: string
                 nullable: true
               payment_status:
-                description: A read-only value. Do not attempt to set or modify this value in a POST or PUT operation.
+                description: A read-only value. Do not attempt to set or modify this value in a POST or PUT request.
                 type: string
               refunded_amount:
                 description: 'The amount refunded from this transaction; always returns `0`. (Float, Float-As-String, Integer) '
@@ -2891,11 +2891,11 @@ components:
                 example: false
                 type: boolean
               store_credit_amount:
-                description: 'Represents the store credit that the shopper has redeemed on this individual order. This is a read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
+                description: 'Represents the store credit that the shopper has redeemed on this individual order. This is a read-only value. Do not pass in a POST or PUT request. (Float, Float-As-String, Integer)'
                 example: '0.0000'
                 type: string
               gift_certificate_amount:
-                description: 'A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
+                description: 'A read-only value. Do not pass in a POST or PUT request. (Float, Float-As-String, Integer)'
                 example: '0.0000'
                 type: string
               ip_address:
@@ -2911,23 +2911,23 @@ components:
                 example: US
                 type: string
               currency_id:
-                description: The display currency ID. May be different from transactional currency. A read-only value. Do not pass in a POST or PUT.
+                description: The display currency ID. May be different from transactional currency. A read-only value. Do not pass in a POST or PUT request.
                 example: 1
                 type: integer
               currency_code:
-                description: The currency code of the display currency used to present prices on the storefront. May be different from transactional currency. A read-only value. Do not pass in a POST or PUT.
+                description: The currency code of the display currency used to present prices on the storefront. May be different from transactional currency. A read-only value. Do not pass in a POST or PUT request.
                 example: USD
                 type: string
               currency_exchange_rate:
-                description: 'A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
+                description: 'A read-only value. Do not pass in a POST or PUT request. (Float, Float-As-String, Integer)'
                 example: '1.0000000000'
                 type: string
               default_currency_id:
-                description: The transactional currency ID. A read-only value. Do not pass in a POST or PUT.
+                description: The transactional currency ID. A read-only value. Do not pass in a POST or PUT request.
                 example: 1
                 type: integer
               default_currency_code:
-                description: The currency code of the transactional currency the shopper pays in. A read-only value. Do not pass in a POST or PUT.
+                description: The currency code of the transactional currency the shopper pays in. A read-only value. Do not pass in a POST or PUT request.
                 type: string
                 example: USD
               staff_notes:
@@ -2944,18 +2944,18 @@ components:
                 example: '0.0000'
                 type: string
               coupon_discount:
-                description: 'A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
+                description: 'A read-only value. Do not pass in a POST or PUT request. (Float, Float-As-String, Integer)'
                 example: '5.0000'
                 type: string
               shipping_address_count:
                 type: number
-                description: The number of shipping addresses associated with this transaction. A read-only value. Do not pass in a POST or PUT.
+                description: The number of shipping addresses associated with this transaction. A read-only value. Do not pass in a POST or PUT request.
               is_deleted:
-                description: 'Indicates whether the order was deleted (archived). Set to to true, to archive an order.'
+                description: Boolean value that indicates whether the order was deleted (archived). Set to to true, to archive an order.'
                 example: false
                 type: boolean
               is_email_opt_in:
-                description: Indicates whether the shopper has selected an opt-in check box (on the checkout page) to receive emails. A read-only value. Do not pass in a POST or PUT.
+                description: Boolean value that indicates whether the shopper has selected an opt-in check box (on the checkout page) to receive emails. A read-only value. Do not pass in a POST or PUT request.
                 example: false
                 type: boolean
               credit_card_type:
@@ -3037,7 +3037,7 @@ components:
                           readOnly: true
                       readOnly: true
               order_source:
-                description: Orders submitted from the store’s website will include a `www` value. Orders submitted with the API will be set to `external`. A read-only value. Do not pass in a POST or PUT.
+                description: Orders submitted from the store’s website will include a `www` value. Orders submitted with the API will be set to `external`. A read-only value. Do not pass in a POST or PUT request.
                 example: www
                 type: string
               external_source:
@@ -3057,7 +3057,7 @@ components:
               coupons:
                 $ref: '#/components/schemas/coupons_Resource'
               external_id:
-                description: 'ID of the order in another system. For example, the Amazon Order ID if this is an Amazon order.This field can be updated in a /POST, but using a /PUT to update the order will return a 400 error. The field ''external_id'' cannot be written to. Please remove it from your request before trying again. It cannot be overwritten once set.'
+                description: 'ID of the order in another system. For example, the Amazon Order ID if this is an Amazon order.This field can be updated in a POST request, but using a PUT request to update the order will return a 400 error. The field ''external_id'' cannot be written to. Please remove it from your request before trying again. It cannot be overwritten once set.'
                 example: 'null'
                 type: string
                 nullable: true
@@ -3088,7 +3088,7 @@ components:
                 description: The customer’s locale.
               external_order_id:
                 type: string
-                example: 'external-order-id'
+                example: external-order-id
                 description: The external id of the order.
   requestBodies: null
   securitySchemes:
@@ -3191,7 +3191,7 @@ components:
         discount:
           description: |-
             The amount off the order the discount is worth. For example, if an order subtotal is $90 and the discount is $3 then it will return as 3.000. If the discount is
-            3% then will return as 2.7000 or the amount of the order.  (Float, Float-As-String, Integer)
+            3% then will return as 2.7000 or the amount of the order. (Float, Float-As-String, Integer)
           example: 2.7
           type: number
       x-internal: false
@@ -3419,7 +3419,7 @@ components:
         gift_certificate_id:
           type: integer
           example: 52
-          description:  ID of the associated gift certificate.
+          description: ID of the associated gift certificate.
           nullable: true
     orderCount:
       title: orderCount
@@ -3549,7 +3549,7 @@ components:
           example: 0
           type: number
         priority_amount:
-          description: 'The amount of tax calculated on the order.   (Float, Float-As-String, Integer)'
+          description: 'The amount of tax calculated on the order. (Float, Float-As-String, Integer)'
           example: '1.5200'
           type: string
         line_amount:
@@ -3649,18 +3649,6 @@ components:
                 type: number
                 example: 2
       x-internal: false
-    billingAddress_Full:
-      allOf:
-        - $ref: '#/components/schemas/billingAddress_Base'
-        - type: object
-          properties:
-            form_fields:
-              type: array
-              items:
-                $ref: '#/components/schemas/formFields'
-      title: billingAddress_Full
-      description: Required to create an order.
-      x-internal: false
     products_Resource:
       title: products_Resource
       type: object
@@ -3683,7 +3671,7 @@ components:
       readOnly: true
       properties:
         url:
-          description: URL of the shipping address for api requests.
+          description: URL of the shipping address for API requests.
           readOnly: true
           example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/shippingaddresses'
           type: string
@@ -3699,7 +3687,7 @@ components:
       readOnly: true
       properties:
         url:
-          description: URL of the coupons for api requests.
+          description: URL of the coupons for API requests.
           readOnly: true
           example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/129/coupons'
           type: string
@@ -3819,15 +3807,15 @@ components:
       title: formFields
       type: object
       readOnly: true
-      description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order with the API.
+      description: Read-Only.
       properties:
         name:
-          description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order with the API.
+          description: Read-Only.
           readOnly: true
           type: string
-          example: License Id
+          example: License ID
         value:
-          description: Read-Only. If you have required address form fields they will need to be set as optional before creating an order with the API.
+          description: Read-Only.
           readOnly: true
           type: string
           example: 123BAF
@@ -3891,7 +3879,7 @@ components:
           example: '24'
         uuid:
           type: string
-          description: uuid of the shipping quote.
+          description: UUID of the shipping quote.
           example: a72acc8d-504b-4a40-8534-7c54d997ed59
         timestamp:
           type: string
@@ -4024,7 +4012,7 @@ components:
       type: object
       properties:
         id:
-          description: The id of the type of order status.
+          description: The ID of the type of order status.
           example: 0
           type: integer
         name:
@@ -4075,11 +4063,11 @@ components:
           example: '0.0000'
           type: string
         base_wrapping_cost:
-          description: 'The value of the base wrapping cost expressed as a floating point number to four decimal places in string format.'
+          description: The value of the base wrapping cost expressed as a floating point number to four decimal places in string format.
           example: '0.0000'
           type: string
         billing_address:
-          $ref: '#/components/schemas/billingAddress_Full'
+          $ref: '#/components/schemas/billingAddress_Base'
         channel_id:
           description: Shows where the order originated. The channel_id will default to 1.
           example: 1
@@ -4091,7 +4079,7 @@ components:
           example: Thank you
           type: string
         date_created:
-          description: 'The date the order was created, formatted in the RFC-2822 standard. You set this attribute on Order creation (POST) to support the migration of historical orders. If you do not provide a value, then it will default to the current date/time. e.g., `Tue, 20 Nov 2012 00:00:00 +0000`'
+          description: 'The date the order was created, formatted in the RFC-2822 standard. You set this attribute on Order creation (POST) to support the migration of historical orders. If you do not provide a value, then it will default to the current date/time. e.g., `Tue, 20 Nov 2012 00:00:00 +0000`.'
           type: string
         default_currency_code:
           description: The currency code of the transactional currency the shopper pays in; writeable when multi-currency is enabled.
@@ -4105,13 +4093,13 @@ components:
           example: '0'
           type: string
         external_id:
-          description: 'The order ID in another system, such as the Amazon Order ID if this is an Amazon order. After setting it, you cannot write to or update the `external_id`. You can update this field using a /POST request, but a /PUT request to update the order will return a 400 error.  Please remove it from your request before trying again.'
+          description: 'The order ID in another system, such as the Amazon Order ID if this is an Amazon order. After setting it, you cannot write to or update the `external_id`. You can update this field using a POST request, but a PUT request to update the order will return a 400 error.  Please remove it from your request before trying again.'
           example: null
           oneOf:
             - type: string
             - type: null
         external_merchant_id:
-          description: 'The merchant ID represents an upstream order from an external system. It is the source of truth for orders. After setting it, you cannot write to or update the `external_merchant_id`. For example, you can update the Facebook by Meta page ID in a /POST request, but a /PUT request to update the order will return a 400 error. Please remove it from your request before trying again.'
+          description: 'The merchant ID represents an upstream order from an external system. It is the source of truth for orders. After setting it, you cannot write to or update the `external_merchant_id`. For example, you can update the Facebook by Meta page ID in a POST request, but a PUT request to update the order will return a 400 error. Please remove it from your request before trying again.'
           example: null
           oneOf:
             - type: string
@@ -4234,7 +4222,7 @@ components:
           description: The customer’s locale.
         external_order_id:
           type: string
-          example: 'external-order-id'
+          example: external-order-id
           description: The external id of the order.
         total_ex_tax:
           description: 'Override value for the total, excluding tax. If specified, the field `total_inc_tax` is also required. (Float, Float-As-String, Integer)'
@@ -4278,7 +4266,7 @@ components:
         zip:
           type: string
           example: '12345'
-          description: The billing address must include the zip code. The zip code must be two or more characters.
+          description: The billing address must include the ZIP code. The ZIP code must be two or more characters.
         country:
           type: string
           example: United States
@@ -4353,12 +4341,12 @@ components:
           example: 118
         date_modified:
           type: string
-          description: A read-only value representing the last modification of the order. Do not attempt to modify or set this value in a POST or PUT operation. RFC-2822
+          description: A read-only value representing the last modification of the order. Do not attempt to modify or set this value in a POST or PUT request. RFC-2822
         date_shipped:
           type: string
-          description: A read-only value representing the date of shipment. Do not attempt to modify or set this value in a POST or PUT operation. RFC-2822
+          description: A read-only value representing the date of shipment. Do not attempt to modify or set this value in a POST or PUT request. RFC-2822
         cart_id:
-          description: 'The cart ID from which this order originated, if applicable. Correlates with the Cart API. This is a READ-ONLY field; do not set or modify its value in a POST or PUT request.'
+          description: 'The cart ID from which this order originated, if applicable. Correlates with the Cart API. This is a read-only field; do not set or modify its value in a POST or PUT request.'
           example: a8458391-ef68-4fe5-9ec1-442e6a767364
           type: string
         status:
@@ -4366,36 +4354,36 @@ components:
           description: 'The status will include one of the (string, options) - values defined under Order Statuses. This value is read-only. Do not attempt to modify or set this value in a POST or PUT operation.'
           example: Awaiting Fulfillment
         subtotal_tax:
-          description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
+          description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT request. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         shipping_cost_tax:
-          description: 'A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
+          description: 'A read-only value. Do not attempt to modify or set this value in a POST or PUT request. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         shipping_cost_tax_class_id:
-          description: 'Shipping-cost tax class. A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. (NOTE: Value ignored if automatic tax is enabled on the store.)'
+          description: 'Shipping-cost tax class. A read-only value. Do not attempt to modify or set this value in a POST or PUT request. (NOTE: Value ignored if automatic tax is enabled on the store.)'
           example: 2
           type: integer
         handling_cost_tax:
-          description: 'A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
+          description: 'A read-only value. Do not attempt to modify or set this value in a POST or PUT request. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         handling_cost_tax_class_id:
-          description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT operation. (NOTE: Value ignored if automatic tax is enabled on the store.)'
+          description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT request. (NOTE: Value ignored if automatic tax is enabled on the store.)'
           example: 2
           type: integer
         wrapping_cost_tax:
-          description: 'A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. (Float, Float-As-String, Integer)'
+          description: 'A read-only value. Do not attempt to modify or set this value in a POST or PUT request. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         wrapping_cost_tax_class_id:
-          description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT operation. (NOTE: Value ignored if automatic tax is enabled on the store.)'
+          description: 'A read-only value. Do not attempt to set or modify this value in a POST or PUT request. (NOTE: Value ignored if automatic tax is enabled on the store.)'
           example: 3
           type: integer
         payment_status:
           type: string
-          description: A read-only value. Do not attempt to set or modify this value in a POST or PUT operation.
+          description: A read-only value. Do not attempt to set or modify this value in a POST or PUT request.
           enum:
             - authorized
             - captured
@@ -4409,27 +4397,27 @@ components:
             - void
             - void pending
         store_credit_amount:
-          description: 'Represents the store credit that the shopper has redeemed on this individual order. This is a read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
+          description: 'Represents the store credit that the shopper has redeemed on this individual order. This is a read-only value. Do not pass in a POST or PUT request. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         gift_certificate_amount:
-          description: 'A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
+          description: 'A read-only value. Do not pass in a POST or PUT request. (Float, Float-As-String, Integer)'
           example: '0.0000'
           type: string
         currency_id:
-          description: 'The display currency ID. Depending on the currency selected, the value can be different from the transactional currency. A read-only value. Do not pass in a POST or PUT. In v2 display currency is set to the transactional currency, ''default_currency_id''.'
+          description: 'The display currency ID. Depending on the currency selected, the value can be different from the transactional currency. A read-only value. Do not pass in a POST or PUT request. In v2 display currency is set to the transactional currency, ''default_currency_id''.'
           example: 1
           type: integer
         currency_code:
-          description: 'The currency code of the display currency used to present prices to the shopper on the storefront. Depending on the currency selected, the value can be different from the transactional currency. A read-only value. Do not pass in a POST or PUT.'
+          description: 'The currency code of the display currency used to present prices to the shopper on the storefront. Depending on the currency selected, the value can be different from the transactional currency. A read-only value. Do not pass in a POST or PUT request.'
           example: USD
           type: string
         currency_exchange_rate:
-          description: 'The exchange rate between the store’s default currency and the display currency. A read-only value. Do not pass in a POST or PUT. For orders created using the V2 endpoints, this value is always 1 (only in the storefront this value can be different to 1). (Float, Float-As-String, Integer)'
+          description: 'The exchange rate between the store’s default currency and the display currency. A read-only value. Do not pass in a POST or PUT request. For orders created using the V2 endpoints, this value is always 1 (only in the storefront this value can be different to 1). (Float, Float-As-String, Integer)'
           example: '1.0000000000'
           type: string
         default_currency_id:
-          description: The transactional currency ID. A read-only value. Do not pass in a POST or PUT.
+          description: The transactional currency ID. A read-only value. Do not pass in a POST or PUT request.
           example: 1
           type: integer
         default_currency_code:
@@ -4445,7 +4433,7 @@ components:
           example: '100.0000000000'
           type: string
         coupon_discount:
-          description: 'A read-only value. Do not pass in a POST or PUT. (Float, Float-As-String, Integer)'
+          description: 'A read-only value. Do not pass in a POST or PUT request. (Float, Float-As-String, Integer)'
           example: '5.0000'
           type: string
         shipping_address_count:
@@ -4469,24 +4457,30 @@ components:
           type: integer
           example: 7
           description: The staus ID of the order.
-      x-internal: false
+        billing_address:
+          type: object
+          properties:
+            form_fields:
+              type: array
+              items:
+                $ref: '#/components/schemas/formFields'
     orderCustomProduct_Put:
       type: object
       title: orderCustomProduct_Put
       description: |
-       **Usage notes:**
+        **Usage notes:**
 
-       To `add` a custom product to an existing order, don't include `id` in the payload. You must provide a nonempty value for at least one of these fields: `name`, `name_customer`, or `name_merchant`.
-       To `update` an order product line, `id` is required. The payload should only contain the fields that need to be updated. You cannot change omitted fields.
+        To `add` a custom product to an existing order, don't include `id` in the payload. You must provide a non-empty value for at least one of these fields: `name`, `name_customer`, or `name_merchant`.
+        To `update` an order product line, `id` is required. The payload should only contain the fields that need to be updated. You cannot change omitted fields.
 
-       Note the following constraints and default field values:
-        - Empty strings `''` and `null` are invalid for `xxx`, `xxx_customer`, and `xxx_merchant`.
-        - `name` and `name_customer` always hold the same value; updating either `name` or `name_customer` will change the value for both of those fields.
-        - If both fields `name` and `name_customer` are present, they must have the same value.
-        - When updating an existing order product, if you omit both fields `name` and `name_customer` from the request, they will not be updated.
-        - When updating an existing order product, if you omit `name_merchant` from the request, it will not be updated.
-        - When adding a product, if you omit `name_merchant`, it will be set to the value of `name` (or `name_customer`).
-        - When adding a new product to an existing order, if you omit both fields `name` and `name_customer`, they will be set to the value of `name_merchant`.
+        Note the following constraints and default field values:
+         - Empty strings `''` and `null` are invalid for `xxx`, `xxx_customer`, and `xxx_merchant`.
+         - `name` and `name_customer` always hold the same value; updating either `name` or `name_customer` will change the value for both of those fields.
+         - If both fields `name` and `name_customer` are present, they must have the same value.
+         - When updating an existing order product, if you omit both fields `name` and `name_customer` from the request, they will not be updated.
+         - When updating an existing order product, if you omit `name_merchant` from the request, it will not be updated.
+         - When adding a product, if you omit `name_merchant`, it will be set to the value of `name` (or `name_customer`).
+         - When adding a new product to an existing order, if you omit both fields `name` and `name_customer`, they will be set to the value of `name_merchant`.
       properties:
         name:
           type: string
@@ -4523,19 +4517,19 @@ components:
     orderCatalogProduct_Put:
       title: orderCatalogProduct_Put
       description: |
-       **Usage notes**
+        **Usage notes**
 
-        To `add` a product to an existing order, don't include `id` in the payload. When adding a product with variants, `product_options` are required.
-        To `update` an order product line, `id` is required. The payload should only contain the fields that need to be updated. The fields that you omit will not be changed.
-       
-        Note the following constraints and default field values:
-        - `xxx` and `xxx_customer` always hold the same value. Updating either `xxx` or `xxx_customer` will change the value of both fields.
-        - If both fields `xxx` and `xxx_customer` are present, they must have same value.
-        - Empty strings `''` and `null` are invalid for `xxx`, `xxx_customer`, and `xxx_merchant`.
-        - When updating an existing order product without changing the variant, product, or product options, requests that do not contain `xxx_merchant` will fail.
-        - When updating an existing order product, requests that do not contain both fields `xxx` and `xxx_customer` will fail.
-        - Empty strings `''` and `null` are invalid for `xxx`, `xxx_customer, and `xxx_merchant`. If `xxx_merchant` is omitted, it will default to have the catalog value.
-        - If both fields `xxx` and `xxx_customer` are omitted from the request, they will default to the catalog value.
+         To `add` a product to an existing order, don't include `id` in the payload. When adding a product with variants, `product_options` are required.
+         To `update` an order product line, `id` is required. The payload should only contain the fields that need to be updated. The fields that you omit will not be changed.
+
+         Note the following constraints and default field values:
+         - `xxx` and `xxx_customer` always hold the same value. Updating either `xxx` or `xxx_customer` will change the value of both fields.
+         - If both fields `xxx` and `xxx_customer` are present, they must have same value.
+         - Empty strings `''` and `null` are invalid for `xxx`, `xxx_customer`, and `xxx_merchant`.
+         - When updating an existing order product without changing the variant, product, or product options, requests that do not contain `xxx_merchant` will fail.
+         - When updating an existing order product, requests that do not contain both fields `xxx` and `xxx_customer` will fail.
+         - Empty strings `''` and `null` are invalid for `xxx`, `xxx_customer, and `xxx_merchant`. If `xxx_merchant` is omitted, it will default to have the catalog value.
+         - If both fields `xxx` and `xxx_customer` are omitted from the request, they will default to the catalog value.
       allOf:
         - type: object
           properties:
@@ -4619,7 +4613,7 @@ components:
               display_value_customer:
                 type: string
                 example: bleu
-                description: 'The product option value that is shown to customer in storefront.`xxx` and `xxx_customer` always hold the same value, updating either `xxx` or `xxx_customer` will change value for both of those fields.'
+                description: 'The product option value that is shown to a customer in storefront.`xxx` and `xxx_customer` always hold the same value, updating either `xxx` or `xxx_customer` will change value for both of those fields.'
                 minLength: 1
         quantity:
           type: number
@@ -4653,7 +4647,7 @@ components:
       description: |-
         **Usage notes**
 
-        Provide one of these fields with a nonempty value:
+        Provide one of these fields with a non-empty value:
           - `name`
           - `name_customer`
           - `name_merchant`
