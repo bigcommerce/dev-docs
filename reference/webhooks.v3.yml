@@ -1,8 +1,13 @@
-openapi: 3.0.0
+openapi: '3.0.3'
 info:
   title: Webhooks v3
   version: ''
   description: 'Get notified when specific events occur on a BigCommerce store. For more information, see [Webhooks Overview](/api-docs/store-management/webhooks/overview).'
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    email: support@bigcommerce.com
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
 paths:
   '/stores/{store_hash}/v3/hooks':
     post:
@@ -95,17 +100,18 @@ paths:
         - $ref: '#/components/parameters/FilterByScope'
         - $ref: '#/components/parameters/FilterByDestination'
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-        description: Hash of your BigCommerce store
+      - $ref: '#/components/parameters/StoreHash'
   '/stores/{store_hash}/v3/hooks/{webhook_id}':
     get:
       responses:
         '200':
           $ref: '#/components/responses/webhook_Resp'
+        '400':
+          $ref: '#/components/responses/400_BadRequest'
+        '401':
+          $ref: '#/components/responses/401_Unauthorized'
+        '404':
+          $ref: '#/components/responses/404_NotFound'
       description: Return a webhook by ID.
       operationId: getWebhook
       summary: Get a Webhook
@@ -116,12 +122,7 @@ paths:
         - $ref: '#/components/parameters/Content-Type'
     parameters:
       - $ref: '#/components/parameters/WebhookId'
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-        description: Hash of your BigCommerce store
+      - $ref: '#/components/parameters/StoreHash'
     put:
       responses:
         '200':
@@ -165,18 +166,8 @@ paths:
       summary: Get Admin Info
       description: 'List all notification emails, webhooks, and denylisted domains associated with the API account.'
       parameters:
-        - name: is_active
-          in: query
-          description: Enables user to filter for webhooks that are active or not.
-          schema:
-            type: boolean
-            example: true
-        - schema:
-            type: string
-          name: store_hash
-          in: path
-          required: true
-          description: Hash of your BigCommerce store
+        - $ref: '#/components/parameters/IsActive'
+        - $ref: '#/components/parameters/StoreHash'
       responses:
         '200':
           description: Successful operation.
@@ -207,11 +198,11 @@ paths:
                             client_id:
                               type: string
                               minLength: 1
-                              description: 'Client ID, unique to the store'
+                              description: 'Client ID, unique to the store or app.'
                             store_hash:
                               minLength: 1
                               type: string
-                              description: Store permanent ID
+                              description: Permanent ID of the BigCommerce store.
                             scope:
                               type: string
                               minLength: 1
@@ -277,7 +268,6 @@ paths:
       summary: Upsert Email Notifications
       description: |
         Update email addresses that are sent notification emails when any domain associated with the API account is denylisted or when a webhook is deactivated. Supports `upsert` functionality in the case that no email address exists yet.
-
       requestBody:
         description: List of notification emails.
         content:
@@ -309,12 +299,7 @@ paths:
       tags:
         - Webhooks Admin
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-        description: Hash of your BigCommerce store
+      - $ref: '#/components/parameters/StoreHash'
   '/stores/{store_hash}/v3/hooks/events':
     get:
       tags:
@@ -350,12 +335,7 @@ paths:
       description: |
         Get a list of events that were sent but not successfully received. Events are stored for not less than one week.
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-        description: Hash of your BigCommerce store
+      - $ref: '#/components/parameters/StoreHash'
 tags:
   - name: Webhooks
   - name: Webhooks Admin
@@ -366,6 +346,14 @@ servers:
   - url: 'https://api.bigcommerce.com'
 components:
   parameters:
+    StoreHash:
+      name: store_hash
+      in: path
+      required: true
+      description: Permanent ID of the BigCommerce store.
+      schema:
+        type: string
+        example: lkjsdflo
     WebhookId:
       name: webhook_id
       in: path
@@ -382,6 +370,7 @@ components:
         Enables user to filter for webhooks that are active or not.
       schema:
         type: boolean
+        example: true
     FilterByScope:
       name: scope
       in: query
@@ -525,8 +514,7 @@ components:
                 errors: {}
     400_BadRequest:
       description: |-
-        Malformed request syntax. Typically need to fix the JSON
-        Body to resend successfully.
+        Malformed request syntax. Typically need to fix the JSON request body to resend successfully.
       content:
         application/json:
           schema:
@@ -562,7 +550,7 @@ components:
                 title: Unauthorized Access. You do not have permission to make this request.
                 type: /api-docs/getting-started/api-status-codes
     404_NotFound:
-      description: 'If the requested account resource is not found for the franchise, return a 404 Not Found.'
+      description: 'If the requested webhook is not found, return a 404 Not Found.'
       content:
         application/json:
           schema:
@@ -571,7 +559,7 @@ components:
             response:
               value:
                 status: 404
-                title: 'Account with {id} not found'
+                title: 'Webhook with id [{webhook_id}] not found'
                 type: /api-docs/getting-started/api-status-codes
     422_UnprocessableEntity:
       description: This occurs when missing or unacceptable data is passed for one or more fields. Please correct the values for the fields listed in the errors object.
@@ -689,15 +677,25 @@ components:
         * For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication).
   schemas:
     store_cart_wildcard:
-      description: "Subscribes to the following events:\n- `store/cart/created`\n- `store/cart/updated`\n- `store/cart/deleted`\n- `store/cart/couponApplied`\n- `store/cart/abandoned`\n- `store/cart/converted`\n- `store/cart/lineItem`\n\t\t\t\nSee individual events for more information.\n"
+      description: |-
+        Subscribes to the following events:
+        * `store/cart/created`
+        * `store/cart/updated`
+        * `store/cart/deleted`
+        * `store/cart/couponApplied`
+        * `store/cart/abandoned`
+        * `store/cart/converted`
+        * `store/cart/lineItem`
+        
+        See individual events for more information.
       title: store/cart/*
       x-examples: {}
       x-internal: false
     store_cart_created:
       description: |-
         This webhook fires on new cart creation when any of the following occur:
-        - a storefront shopper adding their first product to a cart during a new session
-        - a successful `POST` request to `/carts` using either the [storefront](/api-reference/storefront/carts/cart/createacart) or [server-to-server](/api-reference/store-management/carts/cart/createacart) API 
+        * a storefront shopper adds their first product to a cart during a new session
+        * thereʼs a successful `POST` request to `/carts` using either the [Storefront](/api-reference/storefront/carts/cart/createacart) API or the [Store Management](/api-reference/store-management/carts/cart/createacart) API 
 
         Cart creation also fires the `store/cart/updated` webhook.
 
@@ -743,15 +741,15 @@ components:
     store_cart_updated:
       title: store/cart/updated
       description: |-
-        This webhook fires when the following occur:
-        -  Modifying a cartʼs line items by adding a new item to a cart, updating an existing itemʼs quantity, or deleting an item.
-        -  Entering or changing their email address during guest checkout. This includes logging into a customer account after creating a guest cart, which associates the accountʼs email address with the cart.
+        This webhook fires when one of the following occurs:
+        * A cartʼs line items are modified by adding a new item to a cart, updating an existing itemʼs quantity, or deleting an item.
+        * A shopper enters or changes their email address during guest checkout. This includes signing in to a customer account after creating a guest cart, which associates the accountʼs email address with the cart.
 
         The `store/cart/created` webhook firing also triggers this webhook because adding a product to an empty cart is considered an update. 
 
-        Fields that trigger this webhook event:
-        - Quantity
-        - Item Price
+        Changes to the following fields trigger this event:
+        * Quantity
+        * Item Price
 
         ```json title="Example callback object" lineNumbers
         {
@@ -950,7 +948,7 @@ components:
               properties:
                 type:
                   type: string
-                  description: Will always be `cart`
+                  description: The type will always be `cart`.
                   default: cart
                 id:
                   type: string
@@ -958,7 +956,7 @@ components:
                   example: 09346904-4175-44fd-be53-f7e598531b6c
                 orderId:
                   type: integer
-                  description: ID of the order created
+                  description: ID of the order created.
                   example: 252
       x-tags:
         - created
@@ -994,13 +992,13 @@ components:
               properties:
                 type:
                   type: string
-                  description: can be `cart` or `cart_line_item`
+                  description: Can be `cart` or `cart_line_item`.
                 id:
                   type: string
-                  description: ID of the cart
+                  description: ID of the cart.
                 cartId:
                   type: string
-                  description: ID of the cart
+                  description: ID of the cart.
       x-tags:
         - created
       type: object
@@ -1055,9 +1053,9 @@ components:
       description: |-
         This webhook fires when an item’s quantity has changed or the product options change.
 
-        Fields that trigger event:
-        - Quantity
-        - Item Price
+        Changes to the following fields trigger this event:
+        * Quantity
+        * Item Price
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1130,15 +1128,15 @@ components:
               properties:
                 type:
                   type: string
-                  description: can be `cart` or `cart_line_item`
+                  description: Can be `cart` or `cart_line_item`.
                   example: cart
                 id:
                   type: string
-                  description: ID of the line item
+                  description: ID of the line item.
                   example: 09346904-4175-44fd-be53-f7e598531b6c
                 cartId:
                   type: string
-                  description: ID of the cart
+                  description: ID of the cart.
                   example: b0386708-fef3-45de-9d8b-fbe3031450a4
       type: object
       x-tags:
@@ -1183,7 +1181,24 @@ components:
     store_category_updated:
       title: store/category/updated
       description: |-
-        This webhook fires when a category is updated. <br><br>Changes to the following fields trigger this event:<ul><li>Url</li><li>Name</li><li>Redirect old URLs</li><li>Description</li><li>Parent Category</li><li>Template Layout File</li><li>Sort Order</li><li>Default Product Sort</li><li>Category Image</li><li>Page Title</li><li>Meta Keywords</li><li>Meta Description</li><li>Search Keywords</li><li>Google Product Category</li><li>Enable Google Shopping</li></ul>
+        This webhook fires when a category is updated. 
+        
+        Changes to the following fields trigger this event:
+        * URL
+        * Name
+        * Redirect Old URLs
+        * Description
+        * Parent Category
+        * Template Layout File
+        * Sort Order
+        * Default Product Sort
+        * Category Image
+        * Page Title
+        * Meta Keywords
+        * Meta Description
+        * Search Keywords
+        * Google Product Category
+        * Enable Google Shopping
 
 
         ```json title="Example callback object" lineNumbers
@@ -1210,7 +1225,7 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `category`
+                  description: The type will always be `category`.
                   default: category
                 id:
                   type: integer
@@ -1249,7 +1264,7 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `category`
+                  description: The type will always be `category`.
                   default: category
                   example: category
                 id:
@@ -1270,7 +1285,7 @@ components:
     store_channel_created:
       title: store/channel/created
       description: |-
-        This webhook fires when a channel is created via control panel or API.
+        This webhook fires when a channel is created in the control panel or by API.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1297,7 +1312,7 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `channel`
+                  description: The type will always be `channel`.
                   default: channel
                   example: channel
                   readOnly: true
@@ -1312,9 +1327,15 @@ components:
     store_channel_updated:
       title: store/channel/updated
       description: |-
-        This webhook fires when a channel is updated via control panel or API. 
+        This webhook is triggered when a channel is updated in the control panel or by API. 
 
-        Changes to the following fields trigger this event:<ul><li>name</li><li>external_id</li><li>status</li><li>is_listable_from_ui</li><li>is_visible</li><li>config_meta</li></ul>
+        Changes to the following fields trigger this event:
+        * name
+        * external_id
+        * status
+        * is_listable_from_ui
+        * is_visible
+        * config_meta
 
 
         ```json title="Example callback object" lineNumbers
@@ -1342,7 +1363,7 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `channel`
+                  description: The type will always be `channel`.
                   default: channel
                   example: channel
                   readOnly: true
@@ -1393,7 +1414,7 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `customer`
+                  description: The type will always be `customer`.
                   default: customer
                   example: customer
                   readOnly: true
@@ -1408,7 +1429,7 @@ components:
     store_customer_updated:
       title: store/customer/updated
       description: |-
-        This webhook fires when a customer is updated. In addition, this webhook fires when a shopper initially enters custom form field values within the account sign-up form. Please note that neither changing existing data in customer form fields nor changing a customerʼs address will trigger the webhook.
+        This webhook is triggered when a customer is updated. In addition, this webhook is triggered when a shopper initially enters custom form field values within the account sign-up form. Please note that neither changing existing data in customer form fields nor changing a customerʼs address will trigger the webhook.
 
 
         ```json title="Example callback object" lineNumbers
@@ -1436,7 +1457,7 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `customer`
+                  description: The type will always be `customer`.
                   default: customer
                   example: customer
                   readOnly: true
@@ -1451,7 +1472,7 @@ components:
     store_customer_deleted:
       title: store/customer/deleted
       description: |-
-        This webhook fires when a customer is deleted.
+        This webhook is triggered when a customer is deleted.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1477,13 +1498,13 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `customer`
+                  description: The type will always be `customer`.
                   default: customer
                   example: customer
                   readOnly: true
                 id:
                   type: integer
-                  description: ID of the customer
+                  description: ID of the customer.
                   example: 32
       x-tags:
         - created
@@ -1522,18 +1543,18 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `customer`
+                  description: The type will always be `customer`.
                   example: customer
                 id:
                   type: integer
-                  description: ID of the customer address
+                  description: ID of the customer address.
                   example: 60
                 address:
                   type: object
                   properties:
                     customer_id:
                       type: integer
-                      description: ID of the customer
+                      description: ID of the customer.
                       example: 32
       x-tags:
         - created
@@ -1572,18 +1593,18 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `customer`
+                  description: The type will always be `customer`.
                   example: customer
                 id:
                   type: integer
-                  description: ID of the customer address
+                  description: ID of the customer address.
                   example: 60
                 address:
                   type: object
                   properties:
                     customer_id:
                       type: integer
-                      description: ID of the customer
+                      description: ID of the customer.
                       example: 32
       x-tags:
         - created
@@ -1622,18 +1643,18 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `customer`
+                  description: The type will always be `customer`.
                   example: customer
                 id:
                   type: integer
-                  description: ID of the customer address
+                  description: ID of the customer address.
                   example: 60
                 address:
                   type: object
                   properties:
                     customer_id:
                       type: integer
-                      description: ID of the customer
+                      description: ID of the customer.
                       example: 32
       x-tags:
         - created
@@ -1674,7 +1695,7 @@ components:
                   readOnly: true
                 id:
                   type: integer
-                  description: ID of the customer
+                  description: ID of the customer.
                   example: 32
       x-tags:
         - created
@@ -1682,13 +1703,13 @@ components:
       x-internal: false
     store_order_wildcard:
       title: store/order/*
-      description: Subscribe to all store/order events
+      description: Subscribe to all store/order events.
       type: object
       x-internal: false
     store_order_created:
       title: store/order/created
       description: |-
-        This webhook fires if an order is created using the control panel, an app or via the API.
+        This webhook is triggered when an order is created in the control panel, using an app, or by API.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1715,12 +1736,12 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `order`
+                  description: The type will always be `order`.
                   default: order
                   example: order
                 id:
                   type: integer
-                  description: ID of the order
+                  description: ID of the order.
                   example: 250
       x-tags:
         - created
@@ -1729,9 +1750,27 @@ components:
     store_order_updated:
       title: store/order/updated
       description: |-
-        This webhook fires when an already created order is updated.  
+        This webhook fires when a previously-created order is updated.  
 
-        Fields that trigger event: <ul><li>Status</li><li>Coupon Code</li><li>Billing and Shipping Address</li><li>Product Type</li><li>Search Keywords</li><li>Related Products</li><li>Warranty Information</li><li>Page Title</li><li>Meta Description</li><li>Gift Wrapping options</li><li>Bin Picking Number (BPN)</li><li>Fixed Shipping Price</li><li>Free Shipping</li><li>Open Graph Sharing Type</li><li>Availability Text</li><li>Purchasability</li><li>Release Date</li><li>Remove pre-order status on this date</li></ul>
+        Changes to the following fields trigger this event: 
+        * Status
+        * Coupon Code
+        * Billing and Shipping Address
+        * Product Type
+        * Search Keywords
+        * Related Products
+        * Warranty Information
+        * Page Title
+        * Meta Description
+        * Gift Wrapping options
+        * Bin Picking Number (BPN)
+        * Fixed Shipping Price
+        * Free Shipping
+        * Open Graph Sharing Type
+        * Availability Text
+        * Purchasability
+        * Release Date
+        * Remove pre-order status on this date
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1758,12 +1797,12 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `order`
+                  description: The type will always be `order`.
                   default: order
                   example: order
                 id:
                   type: integer
-                  description: ID of the order
+                  description: ID of the order.
                   example: 250
       x-tags:
         - created
@@ -1798,12 +1837,12 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `order`
+                  description: The type will always be `order`.
                   default: order
                   example: order
                 id:
                   type: integer
-                  description: ID of the order
+                  description: ID of the order.
                   example: 250
       x-tags:
         - created
@@ -1812,7 +1851,7 @@ components:
     store_order_statusUpdated:
       title: store/order/statusUpdated
       description: |-
-        This webhook only fires if the order status has changed, such as `Pending` to `Awaiting Payment`
+        This webhook is triggered when an order status changes; for example, from `Pending` to `Awaiting Payment`.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1843,22 +1882,22 @@ components:
               properties:
                 type:
                   type: string
-                  description: Will always be `order`
+                  description: The type will always be `order`.
                   example: order
                 id:
                   type: integer
-                  description: ID of the order
+                  description: ID of the order.
                   example: 250
                 status:
                   type: object
                   properties:
                     previous_status_id:
                       type: integer
-                      description: Previous status ID
+                      description: ID of the previous status.
                       example: 1
                     new_status_id:
                       type: integer
-                      description: Updated status ID
+                      description: ID of the updated status.
                       example: 11
       x-tags:
         - created
@@ -1867,7 +1906,7 @@ components:
     store_order_message_created:
       title: store/order/message/created
       description: |-
-        This webhook fires when an order message is created by customer or in control panel.
+        This webhook is triggered when an order message is created by a customer or in the control panel.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1897,18 +1936,18 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `order`
+                  description: The type will always be `order`.
                   example: order
                 id:
                   type: integer
-                  description: ID of the order
+                  description: ID of the order.
                   example: 250
                 message:
                   type: object
                   properties:
                     order_message_id:
                       type: integer
-                      description: ID of the message on the order
+                      description: ID of the message on the order.
                       example: 3
       x-tags:
         - created
@@ -1917,7 +1956,7 @@ components:
     store_order_refund_created:
       title: store/order/refund/created
       description: |-
-        This webhook fires when a refund has been submitted against an order.
+        This webhook is triggered when a refund is submitted against an order.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1947,18 +1986,18 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `order`
+                  description: The type will always be `order`.
                   example: order
                 id:
                   type: integer
-                  description: ID of the order
+                  description: ID of the order.
                   example: 250
                 refund:
                   type: object
                   properties:
                     refund_id:
                       type: integer
-                      description: ID of the refund submitted against the order
+                      description: ID of the refund submitted against the order.
                       example: 3
       x-tags:
         - created
@@ -1966,13 +2005,13 @@ components:
       x-internal: false
     store_product_wildcard:
       title: store/product/*
-      description: Subscribe to all `store/product` events
+      description: Subscribe to all `store/product` events.
       type: object
       x-internal: false
     store_product_deleted:
       title: store/product/deleted
       description: |-
-        This webhook fires when a product is deleted.
+        This webhook is triggered when a product is deleted.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -1999,12 +2038,12 @@ components:
               properties:
                 type:
                   type: string
-                  description: Will always be `product`
+                  description: The type ill always be `product`.
                   default: product
                   example: product
                 id:
                   type: integer
-                  description: ID of the product
+                  description: ID of the product.
                   example: 205
       x-tags:
         - created
@@ -2040,12 +2079,12 @@ components:
               properties:
                 type:
                   type: string
-                  description: Will always be `product`
+                  description: The type will always be `product`.
                   default: product
                   example: product
                 id:
                   type: integer
-                  description: ID of the product
+                  description: ID of the product.
                   example: 205
       x-tags:
         - created
@@ -2056,9 +2095,57 @@ components:
       description: |-
         This webhook fires when product details are edited. 
 
-        Fields that trigger event<ul><li>Product Type</li><li>Search Keywords</li><li>Related Products</li><li>Warranty Information</li><li>Page Title</li><li>Meta Description</li><li>Gift Wrapping options</li><li>Bin Picking Number (BPN)</li><li>Fixed Shipping Price</li><li>Free Shipping</li><li>Open Graph Sharing Type</li><li>Availability Text</li><li>Purchasability</li><li>Release Date</li><li>Remove pre-order status on this date</li><li>Preorder Message</li><li>Inventory Stock</li><li>Inventory Low Stock</li><li>Track inventory</li><li>Product UPC/EAN</li><li>SKU</li><li>Cost</li><li>Tax Class</li><li>Weight</li><li>Width</li><li>Height</li><li>Depth</li><li>Condition</li><li>Show condition on storefront</li><li>Brand</li><li>Default Price</li><li>Sale Price</li><li>MSRP</li><li>Product Name</li><li>Description</li><li>Visible on Storefront</li><li>Sort Order</li><li>Categories</li><li>Product URL</li><li>Set as a Featured Product on my Storefront</li></ul>
+        Changes to the following fields trigger this event:
+        * Product Type
+        * Search Keywords
+        * Related Products
+        * Warranty Information
+        * Page Title
+        * Meta Description
+        * Gift Wrapping options
+        * Bin Picking Number (BPN)
+        * Fixed Shipping Price
+        * Free Shipping
+        * Open Graph Sharing Type
+        * Availability Text
+        * Purchasability
+        * Release Date
+        * Remove pre-order status on this date
+        * Preorder Message
+        * Inventory Stock
+        * Inventory Low Stock
+        * Track inventory
+        * Product UPC/EAN
+        * SKU
+        * Cost
+        * Tax Class
+        * Weight
+        * Width
+        * Height
+        * Depth
+        * Condition
+        * Show condition on storefront
+        * Brand
+        * Default Price
+        * Sale Price
+        * MSRP
+        * Product Name
+        * Description
+        * Visible on Storefront
+        * Sort Order
+        * Categories
+        * Product URL
+        * Set as a Featured Product on my Storefront
 
-        Fields that do not trigger event<ul><li>Manufacturer Part Number (MPN)</li><li>Global Trade Number (GTN)</li><li>Tax Provider Tax Code</li><li>Product Image</li><li>Product Image Description</li><li>Product Files</li><li>Customs Information</li></ul>
+        However, changes to the following fields don't trigger this event:
+
+        * Manufacturer Part Number (MPN)
+        * Global Trade Number (GTN)
+        * Tax Provider Tax Code
+        * Product Image
+        * Product Image Description
+        * Product Files
+        * Customs Information
 
         ```json title="Example callback object" lineNumbers
         {
@@ -2085,12 +2172,12 @@ components:
               properties:
                 type:
                   type: string
-                  description: Will always be `product`
+                  description: The type ill always be `product`.
                   default: product
                   example: product
                 id:
                   type: integer
-                  description: ID of the product
+                  description: ID of the product.
                   example: 205
       x-tags:
         - created
@@ -2099,7 +2186,14 @@ components:
     store_product_inventory_updated:
       title: store/product/inventory/updated
       description: |-
-        This webhook fires when product inventory is updated. <br><br>Changes to the following fields trigger this event: <ul><li>Inventory Stock</li></ul>Fields that do not trigger event: <ul><li>Track Inventory</li><li>Inventory Low Stock</li></ul>
+        This webhook is triggered when product inventory is updated. 
+        
+        Changes to the following fields trigger this event: 
+        * Inventory Stock
+
+        However, changes to the following fields don't trigger this event:
+        * Track Inventory
+        * Inventory Low Stock
 
 
         ```json title="Example callback object" lineNumbers
@@ -2132,25 +2226,25 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `product`
+                  description: The type will always be `product`.
                   example: product
                 id:
                   type: integer
-                  description: ID of the product
+                  description: ID of the product.
                   example: 167
                 inventory:
                   type: object
                   properties:
                     product_id:
                       type: integer
-                      description: ID of the product
+                      description: ID of the product.
                       example: 167
                     method:
                       type: string
                       description: |-
                         How the inventory was adjusted. Value will be one of the following:
-                        - `absolute` - inventory updated using the API or the control panel
-                        - `relative` - inventory updated by an order
+                        * `absolute` - inventory updated through the API or the control panel.
+                        * `relative` - inventory updated by an order.
                       enum:
                         - absolute
                         - relative
@@ -2165,7 +2259,10 @@ components:
     store_product_inventory_order_updated:
       title: store/product/inventory/order/updated
       description: |-
-        This webhook fires if a product’s inventory increases or decreases. <br><br>Fields that trigger event: <ul><li>Quantity</li></ul>
+        This webhook is triggered when a product’s inventory increases or decreases. 
+        
+        Changes to the following fields trigger this event: 
+        * Quantity
 
         ```json title="Example callback object" lineNumbers
         {
@@ -2197,25 +2294,25 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `product`
+                  description: Type will always be `product`.
                   example: product
                 id:
                   type: integer
-                  description: ID of the product
+                  description: ID of the product.
                   example: 167
                 inventory:
                   type: object
                   properties:
                     product_id:
                       type: integer
-                      description: ID of the product
+                      description: ID of the product.
                       example: 167
                     method:
                       type: string
                       description: |-
                         How the inventory was adjusted. Value will be one of the following:
-                        - `absolute` - inventory updated using the API or the control panel
-                        - `relative` - inventory updated by an order
+                        * `absolute` - inventory updated using the API or the control panel.
+                        * `relative` - inventory updated by an order.
                       enum:
                         - absolute
                         - relative
@@ -2263,15 +2360,15 @@ components:
               properties:
                 type:
                   type: string
-                  description: Will always be `shipment`
+                  description: The type will always be `shipment`.
                   example: shipment
                 id:
                   type: integer
-                  description: ID of the shipment
+                  description: ID of the shipment.
                   example: 12
                 orderId:
                   type: integer
-                  description: ID of the order
+                  description: ID of the order.
                   example: 251
       x-tags:
         - created
@@ -2282,7 +2379,8 @@ components:
       description: |-
         This webhook fires when a shipment is updated.
 
-        Fields that trigger event:<ul><li>Shipping Tracking Number</li></ul>
+        Changes to the following fields trigger this event:
+        * Shipping Tracking Number
 
         ```json title="Example callback object" lineNumbers
         {
@@ -2310,15 +2408,15 @@ components:
               properties:
                 type:
                   type: string
-                  description: Will always be `shipment`
+                  description: The type will always be `shipment`.
                   example: shipment
                 id:
                   type: integer
-                  description: ID of the shipment
+                  description: ID of the shipment.
                   example: 12
                 orderId:
                   type: integer
-                  description: ID of the order
+                  description: ID of the order.
                   example: 251
       x-tags:
         - created
@@ -2327,7 +2425,7 @@ components:
     store_shipment_deleted:
       title: store/shipment/deleted
       description: |-
-        This webhook fires when a shipment is deleted.
+        This webhook is triggered when a shipment is deleted.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -2355,15 +2453,15 @@ components:
               properties:
                 type:
                   type: string
-                  description: Will always be `shipment`
+                  description: The type will always be `shipment`.
                   example: shipment
                 id:
                   type: integer
-                  description: ID of the shipment
+                  description: ID of the shipment.
                   example: 12
                 orderId:
                   type: integer
-                  description: ID of the order
+                  description: ID of the order.
                   example: 251
       x-tags:
         - created
@@ -2371,13 +2469,13 @@ components:
       x-internal: false
     store_sku_wildcard:
       title: store/sku/*
-      description: Subscribe to all `store/sku` events
+      description: Subscribe to all `store/sku` events.
       type: object
       x-internal: false
     store_sku_created:
       title: store/sku/created
       description: |-
-        This webhook fires when a new SKU is created.
+        This webhook is triggered when a new SKU is created.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -2408,22 +2506,22 @@ components:
               properties:
                 type:
                   type: string
-                  description: Will always be `"sku"`
+                  description: The type will always be `"sku"`.
                   example: sku
                 id:
                   type: integer
-                  description: ID of the SKU
+                  description: ID of the SKU.
                   example: 461
                 sku:
                   type: object
                   properties:
                     product_id:
                       type: integer
-                      description: ID of the product
+                      description: ID of the product.
                       example: 206
                     variant_id:
                       type: integer
-                      description: ID of the variant
+                      description: ID of the variant.
                       example: 509
       x-tags:
         - created
@@ -2463,22 +2561,22 @@ components:
               properties:
                 type:
                   type: string
-                  description: Will always be `"sku"`
+                  description: The type will always be `"sku"`.
                   example: sku
                 id:
                   type: integer
-                  description: ID of the SKU
+                  description: ID of the SKU.
                   example: 461
                 sku:
                   type: object
                   properties:
                     product_id:
                       type: integer
-                      description: ID of the product
+                      description: ID of the product.
                       example: 206
                     variant_id:
                       type: integer
-                      description: ID of the variant
+                      description: ID of the variant.
                       example: 509
       x-tags:
         - created
@@ -2518,22 +2616,22 @@ components:
               properties:
                 type:
                   type: string
-                  description: Will always be `"sku"`
+                  description: The type will always be `"sku"`.
                   example: sku
                 id:
                   type: integer
-                  description: ID of the SKU
+                  description: ID of the SKU.
                   example: 461
                 sku:
                   type: object
                   properties:
                     product_id:
                       type: integer
-                      description: ID of the product
+                      description: ID of the product.
                       example: 206
                     variant_id:
                       type: integer
-                      description: ID of the variant
+                      description: ID of the variant.
                       example: 509
       x-tags:
         - created
@@ -2575,35 +2673,35 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `sku`
+                  description: The type will always be `sku`.
                   example: sku
                 id:
                   type: integer
-                  description: ID of the SKU
+                  description: ID of the SKU.
                   example: 461
                 inventory:
                   type: object
                   properties:
                     product_id:
                       type: integer
-                      description: ID of the product
+                      description: ID of the product.
                       example: 167
                     method:
                       type: string
                       description: |-
                         How the inventory was adjusted. Value will be one of the following:
-                        - `absolute` - inventory updated by an order
-                        - `relative` - inventory updated using the API or the control panel
+                        * `absolute` - inventory updated by an order.
+                        * `relative` - inventory updated using the API or the control panel.
                       enum:
                         - absolute
                         - relative
                     value:
                       type: integer
-                      description: 'the number of items that the inventory changed by. This can be negative if the inventory is decreased `-3` or positive if an item is returned to the inventory from an order, `2`'
+                      description: 'The number of items that the inventory changed by. This can be negative if the inventory is decreased `-3` or positive if an item is returned to the inventory from an order, `2`'
                       example: 2
                     variant_id:
                       type: integer
-                      description: ID of the variant
+                      description: ID of the variant.
                       example: 509
       x-tags:
         - created
@@ -2612,7 +2710,10 @@ components:
     store_sku_inventory_order_updated:
       title: store/sku/inventory/order/updated
       description: |-
-        This webhook fires when the inventory is updated.<br><br>Fields that trigger event:<ul><li>Quantity</li></ul>
+        This webhook fires when the inventory is updated.
+        
+        Changes to the following fields trigger this event:
+        * Quantity
 
         ```json title="Example callback object" lineNumbers
         {
@@ -2645,35 +2746,35 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `sku`
+                  description: The type will always be `sku`.
                   example: sku
                 id:
                   type: integer
-                  description: ID of the SKU
+                  description: ID of the SKU.
                   example: 461
                 inventory:
                   type: object
                   properties:
                     product_id:
                       type: integer
-                      description: ID of the product
+                      description: ID of the product.
                       example: 167
                     method:
                       type: string
                       description: |-
                         How the inventory was adjusted. Value will be one of the following:
-                        - `absolute` - inventory updated by an order
-                        - `relative` - inventory updated using the API or the control panel
+                        * `absolute` - inventory updated by an order.
+                        * `relative` - inventory updated using the API or the control panel.
                       enum:
                         - absolute
                         - relative
                     value:
                       type: integer
-                      description: 'the number of items that the inventory changed by. This can be negative if the inventory is decreased `-3` or positive if an item is returned to the inventory from an order, `2`'
+                      description: 'The number of items that the inventory changed by. This can be negative if the inventory is decreased `-3` or positive if an item is returned to the inventory from an order, `2`'
                       example: 2
                     variant_id:
                       type: integer
-                      description: ID of the variant
+                      description: ID of the variant.
                       example: 509
       x-tags:
         - created
@@ -2708,7 +2809,7 @@ components:
               properties:
                 type:
                   type: string
-                  description: will always be `store`
+                  description: The type will always be `store`.
                   example: store
       x-tags:
         - created
@@ -2720,8 +2821,12 @@ components:
         This webhook fires when changes are made to store settings. 
 
         Changes to the following fields trigger this event:
-
-        <ul><li>Store Name</li><li>Store Address</li><li>Store Country</li><li>Address Type</li><li>Email</li><li>Phone</li></ul>
+        * Store Name
+        * Store Address
+        * Store Country
+        * Address Type
+        * Email
+        * Phone
 
         ```json title="Example callback object" lineNumbers
         {
@@ -2828,11 +2933,11 @@ components:
               properties:
                 type:
                   type: string
-                  description: Will always be `subscriber`
+                  description: The type will always be `subscriber`.
                   example: subscriber
                 id:
                   type: integer
-                  description: ID of the subscriber
+                  description: ID of the subscriber.
                   example: 5
       x-tags:
         - created
@@ -2841,7 +2946,7 @@ components:
     store_subscriber_deleted:
       title: store/subscriber/deleted
       description: |-
-        This webhook fires when a subscriber is deleted.
+        This webhook is triggered when a subscriber is deleted.
 
         ```json title="Example callback object" lineNumbers
         {
@@ -2868,11 +2973,11 @@ components:
               properties:
                 type:
                   type: string
-                  description: Will always be `subscriber`
+                  description: The type will always be `subscriber`.
                   example: subscriber
                 id:
                   type: integer
-                  description: ID of the subscriber
+                  description: ID of the subscriber.
                   example: 5
       x-tags:
         - created
@@ -2891,7 +2996,7 @@ components:
             The error title describing the particular error.
           type: string
         type:
-          description: Typically a link to BigCommerce API Status codes
+          description: This value is typically a link to BigCommerce API Status codes.
           type: string
       x-internal: false
     errorDetailed_Full:
@@ -2920,7 +3025,7 @@ components:
         scope:
           type: string
           example: store/order/*
-          description: Event you subscribe to
+          description: Event you subscribe to.
         destination:
           type: string
           example: 'https://665b65a6.ngrok.io/webhooks'
@@ -2928,14 +3033,14 @@ components:
         is_active:
           type: boolean
           example: true
-          description: If webhook is active or not
+          description: Boolean value that indicates whether the webhook is active or not.
         events_history_enabled:
           type: boolean
           example: true
-          description: Identifies whether events are stored that could not be received.
+          description: Boolean value that identifies whether events are stored that could not be received.
         headers:
           type: object
-          description: 'You can pass in any number of custom headers to validate webhooks being returned. '
+          description: 'Headers used to validate that webhooks are active. You can pass in any number of custom headers to validate webhooks are being returned. '
           nullable: true
           properties:
             custom:
@@ -2946,31 +3051,29 @@ components:
         - headers
     webhook_Full:
       allOf:
-        - type: object
+        - $ref: '#/components/schemas/webhook_Base'
+        - title: webhook_Full
           properties:
             id:
               type: integer
-              description: Id of the webhook
+              description: ID of the webhook.
               example: 18048287
             client_id:
               type: string
-              description: 'Client ID, unique to the store'
+              description: 'Client ID, unique to the store or app.'
               example: m9r6keqmo7h7f23btnpwernbez1kglkl
             store_hash:
               type: string
-              description: 'Store permanent ID. '
+              description: Permanent ID of the BigCommerce store.
               example: sftg45fsd
             created_at:
               type: integer
               example: 1561488106
-              description: Created time
+              description: Time when the webhook was created.
             updated_at:
               type: integer
               example: 1561488106
-              description: Updated time
-        - $ref: '#/components/schemas/webhook_Base'
-      title: webhook_Full
-      x-internal: false
+              description: Time when the webhook was updated.
     HistoryEvent:
       type: object
       properties:
@@ -2985,11 +3088,11 @@ components:
           description: A lightweight description of the event that triggered the webhook. Will vary depending on the event registered.
         hash:
           type: string
-          description: The payload data json encoded then passed through SH1 encryption.
+          description: The payload data encoded in JSON format and then passed through SH1 encryption.
         created_at:
           type: integer
           format: int64
-          description: UTC timestamp in seconds that the events was created.
+          description: UTC timestamp, in seconds, that the events was created.
         producer:
           type: string
           description: Will always follow the pattern stores/store_hash. This is the store that created the webhook.
@@ -3041,7 +3144,7 @@ components:
             created_at:
               type: integer
               example: 1561482670
-              description: Hook creation date as a Unix timestamp.
+              description: Hook creation date, in Unix timestamp format.
               readOnly: true
             store_id:
               type: string
@@ -3062,7 +3165,7 @@ components:
               type: string
               minLength: 1
               example: 352e4afc6dd3fc85ea26bfdf3f91852604d57528
-              description: The payload data JSON encoded then passed through SH1 encryption.
+              description: The payload data encoded in JSON format and then passed through SH1 encryption.
       type: object
       x-internal: false
     callback_category_data:
@@ -3076,10 +3179,10 @@ components:
           properties:
             type:
               type: string
-              description: will always be `category`
+              description: This type will always be `category`.
               default: category
             id:
               type: integer
-              description: ID of the category
+              description: ID of the category.
               example: 42
       x-internal: false
