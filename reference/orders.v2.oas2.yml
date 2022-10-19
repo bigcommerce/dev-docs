@@ -1941,6 +1941,7 @@ components:
                   bin_picking_number: ''
                   external_id: null
                   fulfillment_source: ''
+                  brand: BigCommerce
                   applied_discounts:
                     - id: manual-discount
                       amount: '1.5900'
@@ -2049,6 +2050,7 @@ components:
                   bin_picking_number: BIN
                   external_id: null
                   fulfillment_source: ''
+                  brand: BigCommerce
                   applied_discounts: []
                   product_options: []
                   configurable_fields: []
@@ -2108,6 +2110,7 @@ components:
                 bin_picking_number: ''
                 external_id: null
                 fulfillment_source: ''
+                brand: BigCommerce
                 applied_discounts: []
                 product_options:
                   - id: 89
@@ -2177,6 +2180,7 @@ components:
                   bin_picking_number: ''
                   external_id: null
                   fulfillment_source: ''
+                  brand: BigCommerce
                   applied_discounts: []
                   product_options: []
                   configurable_fields: []
@@ -2232,6 +2236,7 @@ components:
                   bin_picking_number: ''
                   external_id: {}
                   fulfillment_source: ''
+                  brand: BigCommerce
                   applied_discounts: []
               product_options:
                 - id: 143
