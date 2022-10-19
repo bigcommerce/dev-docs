@@ -1511,11 +1511,9 @@ paths:
               type: array
               items:
                 title: PriceRecord Batch Item
-                type: object
                 description: Price Record object used in batch create or update.
                 allOf:
-                  - type: object
-                    properties:
+                  - properties:
                       variant_id:
                         type: integer
                         description: |
@@ -1533,7 +1531,7 @@ paths:
                         format: ISO-4217
                         example: usd
                   - title: PriceRecord Base
-                    type: object
+                    description: Common Price Record properties.
                     properties:
                       price:
                         type: number
@@ -1548,16 +1546,22 @@ paths:
                         description: |
                           The sale price for the variant mapped in a Price List. Overrides any existing or Catalog sale price for the variant/product. If empty, the sale price will be treated as not being set on this variant.
                         format: double
+                        minimum: 0
+                        example: 3.49
                       retail_price:
                         type: number
                         description: |
                           The retail price for the variant mapped in a Price List. Overrides any existing or Catalog retail price for the variant/product. If empty, the retail price will be treated as not being set on this variant.
                         format: double
+                        minimum: 0
+                        example: 4.99
                       map_price:
                         type: number
                         description: |
                           The MAP (Minimum Advertised Price) for the variant mapped in a Price List. Overrides any existing or Catalog MAP price for the variant/product. If empty, the MAP price will be treated as not being set on this variant.
                         format: double
+                        minimum: 0
+                        example: 2.50
                       bulk_pricing_tiers:
                         type: array
                         items:
@@ -1594,26 +1598,60 @@ paths:
                         description: |
                           The SKU code associated with this `Price Record` if requested and it exists.
                         example: SMB-123
-                    description: Common Price Record properties.
+                type: object
         required: true
+        description: ''
       responses:
         '200':
           description: Success response for batch PUT requests of Price Records.
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  data:
-                    type: object
-                    properties: {}
-                  meta:
-                    type: object
-                    properties: {}
+                type: array
+                items:
+                  type: object
+                  properties:
+                    variant_id:
+                      type: integer
+                    sku:
+                      type: string
+                    currency:
+                      type: string
+                    price:
+                      type: number
+                    sale_price:
+                      type: integer
+                    retail_price:
+                      type: integer
+                    map_price:
+                      type: integer
+                    bulk_pricing_tiers:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          quantity_min:
+                            type: integer
+                          quantity_max:
+                            type: integer
+                          type:
+                            type: string
+                          amount:
+                            type: integer
                 x-examples:
                   example-1:
-                    data: {}
-                    meta: {}
+                    - variant_id: 331
+                      sku: SMB-123
+                      currency: usd
+                      price: 3.99
+                      sale_price: 3.49
+                      retail_price: 4.99
+                      map_price: 2.50
+                      bulk_pricing_tiers:
+                        - quantity_min: 1
+                          quantity_max: 10
+                          type: fixed
+                          amount: 3
               examples: {}
         '422':
           description: Error response for batch PUT of `Price Records`. May include errors during partial update in non-strict mode.
@@ -2412,14 +2450,14 @@ paths:
                       currency: eur
                       product_id: 185
                       bulk_pricing_tiers:
-                      - quantity_min: 5
-                        quantity_max: 10
-                        type: percent
-                        amount: 1
-                      - quantity_min: 11
-                        quantity_max: 20
-                        type: percent
-                        amount: 2
+                        - quantity_min: 5
+                          quantity_max: 10
+                          type: percent
+                          amount: 1
+                        - quantity_min: 11
+                          quantity_max: 20
+                          type: percent
+                          amount: 2
                     meta: {}
         '404':
           description: |
@@ -2499,7 +2537,7 @@ paths:
       tags:
         - Price Lists Records
       summary: Delete a Price Record by Currency Code
-      description: 'Deletes a *Price List Record* using the currency code.'
+      description: Deletes a *Price List Record* using the currency code.
       operationId: deletePriceListRecord
       parameters:
         - name: price_list_id
@@ -4317,6 +4355,6 @@ components:
         name: X-Auth-Token
         in: header
 x-stoplight:
-    docs:
-      includeDownloadLink: true
-      showModels: false
+  docs:
+    includeDownloadLink: true
+    showModels: false
