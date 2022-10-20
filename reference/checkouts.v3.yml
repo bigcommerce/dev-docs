@@ -3955,28 +3955,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CreateConsignmentRequest'
-            example:
-              example-1:
-                value:
-                  - address:
-                      first_name: string
-                      last_name: string
-                      email: string
-                      company: string
-                      address1: string
-                      address2: string
-                      city: string
-                      state_or_province: string
-                      state_or_province_code: string
-                      country_code: string
-                      postal_code: string
-                      phone: string
-                      custom_fields:
-                        - field_id: string
-                          field_value: string
-                    line_items:
-                      - item_id: string
-                        quantity: 0
         required: true
       responses:
         '200':
@@ -8617,163 +8595,167 @@ components:
       x-internal: false
     CreateConsignmentRequest:
       title: Create Consignment Request
-      type: object
-      properties:
-        address:
-          title: Address Properties
-          required:
-            - country_code
-            - email
-          type: object
-          properties:
-            first_name:
-              type: string
-              description: ''
-            last_name:
-              type: string
-              description: ''
-            email:
-              type: string
-              description: ''
-            company:
-              type: string
-              description: ''
-            address1:
-              type: string
-              description: ''
-            address2:
-              type: string
-              description: ''
-            city:
-              type: string
-              description: ''
-            state_or_province:
-              type: string
-              description: Represents state or province.
-            state_or_province_code:
-              type: string
-              description: ''
-            country_code:
-              type: string
-              description: ''
-            postal_code:
-              type: string
-              description: ''
-            phone:
-              type: string
-              description: ''
-            custom_fields:
-              type: array
-              description: 'You can retrieve custom fields from the [Get Form Fields](/api-reference/storefront/form-fields/form-fields/getformfields) endpoint.'
-              items:
-                title: Custom Field
-                type: object
-                properties:
-                  field_id:
-                    type: string
-                    description: ''
-                  field_value:
-                    type: string
-                    description: 'This can also be an array for fields that need to support a list of values (e.g., a set of check boxes.)'
-        line_items:
-          type: array
-          description: ''
-          items:
-            title: Consignment Line Item
+      type: array
+      items:
+        type: object
+        properties:
+          address:
+            title: Address Properties
             required:
-              - item_id
-              - quantity
+              - country_code
+              - email
             type: object
             properties:
-              item_id:
+              first_name:
                 type: string
-                description: 'Corresponds to `line_items.physical_items[N].id` value from `GET`checkout response.'
-              quantity:
-                type: integer
                 description: ''
-                format: int32
+              last_name:
+                type: string
+                description: ''
+              email:
+                type: string
+                description: ''
+              company:
+                type: string
+                description: ''
+              address1:
+                type: string
+                description: ''
+              address2:
+                type: string
+                description: ''
+              city:
+                type: string
+                description: ''
+              state_or_province:
+                type: string
+                description: Represents state or province.
+              state_or_province_code:
+                type: string
+                description: ''
+              country_code:
+                type: string
+                description: ''
+              postal_code:
+                type: string
+                description: ''
+              phone:
+                type: string
+                description: ''
+              custom_fields:
+                type: array
+                description: 'You can retrieve custom fields from the [Get Form Fields](/api-reference/storefront/form-fields/form-fields/getformfields) endpoint.'
+                items:
+                  title: Custom Field
+                  type: object
+                  properties:
+                    field_id:
+                      type: string
+                      description: ''
+                    field_value:
+                      type: string
+                      description: 'This can also be an array for fields that need to support a list of values (e.g., a set of check boxes.)'
+          line_items:
+            type: array
+            description: ''
+            items:
+              title: Consignment Line Item
+              required:
+                - item_id
+                - quantity
+              type: object
+              properties:
+                item_id:
+                  type: string
+                  description: 'Corresponds to `line_items.physical_items[N].id` value from `GET`checkout response.'
+                quantity:
+                  type: integer
+                  description: ''
+                  format: int32
       x-internal: false
     UpdateConsignmentRequest:
       title: Update Consignment Request
-      type: object
-      properties:
-        address:
-          title: Address Properties
-          required:
-            - country_code
-            - email
-          type: object
-          properties:
-            first_name:
-              type: string
-              description: ''
-            last_name:
-              type: string
-              description: ''
-            email:
-              type: string
-              description: ''
-            company:
-              type: string
-              description: ''
-            address1:
-              type: string
-              description: ''
-            address2:
-              type: string
-              description: ''
-            city:
-              type: string
-              description: ''
-            state_or_province:
-              type: string
-              description: Represents state or province.
-            state_or_province_code:
-              type: string
-              description: ''
-            country_code:
-              type: string
-              description: ''
-            postal_code:
-              type: string
-              description: ''
-            phone:
-              pattern: '^\+?[1-9]\d{1,14}(x\d{1-5})?$'
-              type: string
-              description: ''
-            custom_fields:
-              type: array
-              description: ''
-              items:
-                title: Custom Field
-                type: object
-                properties:
-                  field_id:
-                    type: string
-                    description: ''
-                  field_value:
-                    type: string
-                    description: 'This can also be an array for fields that need to support a list of values (e.g., a set of check boxes.)'
-        line_items:
-          type: array
-          description: ''
-          items:
-            title: Consignment Line Item
+      type: array
+      items:
+        type: object
+        properties:
+          address:
+            title: Address Properties
             required:
-              - item_id
-              - quantity
+              - country_code
+              - email
             type: object
             properties:
-              item_id:
+              first_name:
                 type: string
-                description: 'Corresponds to `line_items.physical_items[N].id` value from `GET`checkout response.'
-              quantity:
-                type: integer
                 description: ''
-                format: int32
-        shipping_option_id:
-          type: string
-          description: ''
+              last_name:
+                type: string
+                description: ''
+              email:
+                type: string
+                description: ''
+              company:
+                type: string
+                description: ''
+              address1:
+                type: string
+                description: ''
+              address2:
+                type: string
+                description: ''
+              city:
+                type: string
+                description: ''
+              state_or_province:
+                type: string
+                description: Represents state or province.
+              state_or_province_code:
+                type: string
+                description: ''
+              country_code:
+                type: string
+                description: ''
+              postal_code:
+                type: string
+                description: ''
+              phone:
+                pattern: '^\+?[1-9]\d{1,14}(x\d{1-5})?$'
+                type: string
+                description: ''
+              custom_fields:
+                type: array
+                description: ''
+                items:
+                  title: Custom Field
+                  type: object
+                  properties:
+                    field_id:
+                      type: string
+                      description: ''
+                    field_value:
+                      type: string
+                      description: 'This can also be an array for fields that need to support a list of values (e.g., a set of check boxes.)'
+          line_items:
+            type: array
+            description: ''
+            items:
+              title: Consignment Line Item
+              required:
+                - item_id
+                - quantity
+              type: object
+              properties:
+                item_id:
+                  type: string
+                  description: 'Corresponds to `line_items.physical_items[N].id` value from `GET`checkout response.'
+                quantity:
+                  type: integer
+                  description: ''
+                  format: int32
+          shipping_option_id:
+            type: string
+            description: ''
       description: One or more of these three fields are mandatory. `address` and `line_items` can be updated in one request. `shipping_option_id` has to be updated in a separate request because changing the address or line items can invalidate the previously available shipping options.
       x-internal: false
     CouponCodeRequest:
