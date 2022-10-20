@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: '3.0.3'
 info:
   title: Checkouts
   description: |-
@@ -6,6 +6,11 @@ info:
 
     Create and manage checkouts from existing carts using BigCommerce checkout logic.
   version: '3.0'
+  termsOfService: 'http://www.bigcommerce.com/terms' 
+  contact: 
+    name: BigCommerce 
+    url: 'https://www.bigcommerce.com' 
+    email: support@bigcommerce.com 
 servers:
   - url: 'https://api.bigcommerce.com'
 tags:
@@ -16,8 +21,15 @@ tags:
   - name: Checkout Discounts
   - name: Checkout Orders
   - name: Checkout Settings
+  - name: Checkout Token
+security:
+  - X-Auth-Token: []
 paths:
   '/stores/{store_hash}/v3/checkouts/{checkoutId}':
+    parameters:
+      - $ref: '#/components/parameters/storeHash'
+      - $ref: '#/components/parameters/checkoutId'
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
         - Checkout
@@ -30,29 +42,6 @@ paths:
         The cart ID and checkout ID are the same.
       operationId: CheckoutsByCheckoutIdGet
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: checkoutId
-          in: path
-          description: Id of the Checkout
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
         - name: include
           in: query
           description: |-
@@ -809,7 +798,7 @@ paths:
                             - cartpage
                           text: Some text
         '404':
-          description: When a given checkout ID is not found.
+          description: Error code that is displayed when a given checkout ID is not found.
           content:
             application/json:
               schema:
@@ -836,44 +825,20 @@ paths:
                         detail:
                           type: string
                           description: ''
-      security:
-        - X-Auth-Token: []
     put:
       tags:
         - Checkout
       summary: Update Customer Messages
       description: |-
-        Change customer message to an existing *Checkout*.
+        Change customer message pertaining to an existing *Checkout*.
 
         **Limits:**
         * 2000 characters for customer message
       operationId: CheckoutsByCheckoutIdPut
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: checkoutId
-          in: path
-          description: ID of the Checkout
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/Content-Type'
       requestBody:
-        description: '`customer_message` is required (max length is 2000).'
+        description: '`customer_message` is required (maximum length is 2000).'
         content:
           application/json:
             schema:
@@ -1619,8 +1584,6 @@ paths:
                             - homepage
                             - cartpage
                           text: Some text
-      security:
-        - X-Auth-Token: []
       x-unitTests: []
       x-operation-settings:
         CollectParameters: false
@@ -1644,28 +1607,10 @@ paths:
         * discounted_amount
       operationId: post-store_hash-v3-checkouts-checkoutId-discounts
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: checkoutId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/storeHash'
+        - $ref: '#/components/parameters/checkoutId'
+        - $ref: '#/components/parameters/Accept'
+        - $ref: '#/components/parameters/Content-Type'
       requestBody:
         content:
           application/json:
@@ -2429,8 +2374,6 @@ paths:
                             - homepage
                             - cartpage
                           text: Some text
-      security:
-        - X-Auth-Token: []
       x-codegen-request-body-name: body
   '/stores/{store_hash}/v3/checkouts/{checkoutId}/billing-address':
     post:
@@ -2438,36 +2381,17 @@ paths:
         - Checkout Billing Address
       summary: Add Checkout Billing Address
       description: |-
-        Adds a billing address to an existing *Checkout*.
+        Adds a billing address to an existing checkout.
 
         **Required Fields**
         * email
         * country_code
       operationId: CheckoutsBillingAddressByCheckoutIdPost
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: checkoutId
-          in: path
-          description: Id of the Checkout
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/storeHash'
+        - $ref: '#/components/parameters/checkoutId'
+        - $ref: '#/components/parameters/Accept'
+        - $ref: '#/components/parameters/Content-Type'
       requestBody:
         content:
           application/json:
@@ -3214,8 +3138,6 @@ paths:
                             - homepage
                             - cartpage
                           text: Some text
-      security:
-        - X-Auth-Token: []
       x-unitTests: []
       x-operation-settings:
         CollectParameters: false
@@ -3228,32 +3150,13 @@ paths:
       tags:
         - Checkout Billing Address
       summary: Update Checkout Billing Address
-      description: Updates an existing billing address on *Checkout*.
+      description: Updates an existing billing address on a checkout.
       operationId: CheckoutsBillingAddressByCheckoutIdAndAddressIdPut
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: checkoutId
-          in: path
-          description: Id of the Checkout
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/storeHash'
+        - $ref: '#/components/parameters/checkoutId'
+        - $ref: '#/components/parameters/Accept'
+        - $ref: '#/components/parameters/Content-Type'
         - name: addressId
           in: path
           required: true
@@ -4005,8 +3908,6 @@ paths:
                             - homepage
                             - cartpage
                           text: Some text
-      security:
-        - X-Auth-Token: []
       x-unitTests: []
       x-operation-settings:
         CollectParameters: false
@@ -4033,35 +3934,16 @@ paths:
         * `email`
         * `country_code`
 
-        Depending on the country, the following `address` properties can also be required:
+        Depending on the country, the following `address` properties may also be required:
 
         * `postal_code`
         * `state_or_province`
       operationId: CheckoutsConsignmentsByCheckoutIdPost
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: checkoutId
-          in: path
-          description: Id of the Checkout
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/storeHash'
+        - $ref: '#/components/parameters/checkoutId'
+        - $ref: '#/components/parameters/Accept'
+        - $ref: '#/components/parameters/Content-Type'
         - name: include
           in: query
           schema:
@@ -4814,8 +4696,6 @@ paths:
                             - homepage
                             - cartpage
                           text: Some text
-      security:
-        - X-Auth-Token: []
       x-unitTests: []
       x-operation-settings:
         CollectParameters: false
@@ -4824,49 +4704,33 @@ paths:
         IsMultiContentStreaming: false
       x-codegen-request-body-name: body
   '/stores/{store_hash}/v3/checkouts/{checkoutId}/consignments/{consignmentId}':
+    parameters:
+      - $ref: '#/components/parameters/storeHash'
+      - $ref: '#/components/parameters/checkoutId'
+      - $ref: '#/components/parameters/Accept'
+      - name: consignmentId
+        in: path
+        required: true
+        schema:
+          type: string
     put:
       tags:
         - Checkout Consignments
       summary: Update Checkout Consignment
       description: |-
-        Updates an existing consignment. Address, line item IDs or the shipping option ID can be updated using this endpoint.
-
-        There are two steps to add a new address and shipping options with line items. 
-        1. Add a new [consignment](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) to a checkout.
-        2. Assign a shipping option to the new consignment by sending a `PUT` request to update the consignment's `shipping_option_id` with a returned value from `data.consignments[N].available_shipping_option[N].id` in step one.
+        Updates an existing consignment. The address, line item IDs, and the shipping option ID can be updated using this endpoint. 
+        
+        To add a new address and shipping options with line items, complete the following steps. 
+        
+        1. Add a new [consignment](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) to a checkout. 
+        
+        2. Assign a shipping option to the new consignment by sending a `PUT` request to update the consignment's `shipping_option_id` with a returned value from `data.consignments[N].available_shipping_option[N].id` obtained in Step One. 
       operationId: CheckoutsConsignmentsByCheckoutIdAndConsignmentIdPut
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: checkoutId
-          in: path
-          description: Id of the Checkout
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: consignmentId
-          in: path
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Content-Type'
         - name: include
           in: query
-          description: Include to get available shipping options
+          description: Include to get available shipping options.
           schema:
             type: string
             enum:
@@ -5623,8 +5487,6 @@ paths:
                             - homepage
                             - cartpage
                           text: Some text
-      security:
-        - X-Auth-Token: []
       x-codegen-request-body-name: body
     delete:
       tags:
@@ -5633,37 +5495,8 @@ paths:
       description: |-
         Removes an existing consignment from a checkout.
 
-        Removing the last consigment will remove the Cart from the customer it is assigned to. Create a new redirect url for the customer to access it again.
+        Removing the last consignment will remove the cart from the customer it is assigned to. Create a new redirect URL for the customer so they can access the cart again.
       operationId: CheckoutsConsignmentsByCheckoutIdAndConsignmentIdDelete
-      parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: checkoutId
-          in: path
-          description: Id of the Checkout
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: consignmentId
-          in: path
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: ''
@@ -6404,46 +6237,25 @@ paths:
                             - homepage
                             - cartpage
                           text: Some text
-      security:
-        - X-Auth-Token: []
   '/stores/{store_hash}/v3/checkouts/{checkoutId}/coupons':
     post:
       tags:
         - Checkout Coupons
       summary: Add Coupon to Checkout
       description: |-
-        Adds a *Coupon Code* to *Checkout*.
+        Adds a coupon code to a checkout.
 
         **Required Fields**
         * coupon_code
 
         **Limits**
-        * Coupon codes have a 50 character limit. 
+        * Coupon codes have a 50-character limit. 
       operationId: CheckoutsCouponsByCheckoutIdPost
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: checkoutId
-          in: path
-          description: Id of the Checkout
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/storeHash'
+        - $ref: '#/components/parameters/checkoutId'
+        - $ref: '#/components/parameters/Accept'
+        - $ref: '#/components/parameters/Content-Type'
       requestBody:
         content:
           application/json:
@@ -7190,8 +7002,6 @@ paths:
                             - homepage
                             - cartpage
                           text: Some text
-      security:
-        - X-Auth-Token: []
       x-unitTests: []
       x-operation-settings:
         CollectParameters: false
@@ -7204,35 +7014,15 @@ paths:
       tags:
         - Checkout Coupons
       summary: Delete Checkout Coupon
-      description: Deletes a *Coupon Code* from *Checkout*.
+      description: Deletes a coupon code from a checkout.
       operationId: CheckoutsCouponsByCheckoutIdAndCouponCodeDelete
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: checkoutId
-          in: path
-          description: Id of the Checkout
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/storeHash'
+        - $ref: '#/components/parameters/checkoutId'
+        - $ref: '#/components/parameters/Accept'
         - name: couponCode
           in: path
-          description: 'The actual couponCode, not the couponId.'
+          description: 'The actual coupon code value, not the coupon ID.'
           required: true
           schema:
             type: string
@@ -7784,8 +7574,6 @@ paths:
                             - cartpage
                           text: Some text
                 meta: {}
-      security:
-        - X-Auth-Token: []
   '/stores/{store_hash}/v3/checkouts/{checkoutId}/orders':
     post:
       tags:
@@ -7796,35 +7584,16 @@ paths:
 
         ## Usage notes
         * Orders created will be set to incomplete order status.
-        * You can create as many orders from the same order(cart) as you want.
-        * Order duplication creates the same order with a new order number with the incomplete status.
-        * Once the order is paid, then the cart is deleted.
+        * You can create as many orders from the same order (cart) as you want.
+        * Order duplication copies the existing order, assigns a new order number, and sets the new order status to `incomplete`.
+        * Once the order is paid, the cart is deleted.
         * Cart deletion occurs if you are using BigCommerce to accept payments on orders.
       operationId: createAnOrder
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: checkoutId
-          in: path
-          description: ID of the checkout (same as the cart ID).
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/storeHash'
+        - $ref: '#/components/parameters/checkoutId'
+        - $ref: '#/components/parameters/Accept'
+        - $ref: '#/components/parameters/Content-Type'
       responses:
         '200':
           description: ''
@@ -7842,21 +7611,16 @@ paths:
                 data:
                   id: 75
                 meta: {}
-      security:
-        - X-Auth-Token: []
   '/stores/{store_hash}/v3/checkouts/settings':
+    parameters:
+      - $ref: '#/components/parameters/storeHash'
+      - $ref: '#/components/parameters/Accept'
     get:
       tags:
         - Checkout Settings
       summary: Get Checkout Settings
       description: Get checkout settings
       operationId: GetCheckoutSettings
-      parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: ''
@@ -7884,8 +7648,6 @@ paths:
                   order_confirmation_use_custom_checkout_script: false
                   custom_order_confirmation_script_url: 'webdav:vtz-order-confirmation/dist/auto-loader.js'
                 meta: {}
-      security:
-        - X-Auth-Token: []
     put:
       tags:
         - Checkout Settings
@@ -7893,11 +7655,7 @@ paths:
       description: Update checkout settings
       operationId: UpdateCheckoutSettings
       parameters:
-        - name: store_hash
-          in: path
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/Content-Type'
       requestBody:
         content:
           application/json:
@@ -7931,8 +7689,103 @@ paths:
                   order_confirmation_use_custom_checkout_script: false
                   custom_order_confirmation_script_url: 'webdav:vtz-order-confirmation/dist/auto-loader.js'
                 meta: {}
-      security:
-        - X-Auth-Token: []
+  '/stores/{store_hash}/v3/checkouts/{checkoutId}/token':
+    parameters:
+      - $ref: '#/components/parameters/storeHash'
+      - $ref: '#/components/parameters/checkoutId'
+      - $ref: '#/components/parameters/Accept'
+    post:
+      tags:
+        - Checkout Token
+      summary: Create Checkout Token
+      operationId: checkout-token
+      parameters:
+        - $ref: '#/components/parameters/Content-Type'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  checkoutToken:
+                    type: string
+                    example: beb3590088be88f59ba980d54a68df655cd8a1052a3e9caf535f3f820146c226
+                  meta:
+                    type: object
+              examples:
+                example-1:
+                  value:
+                    data:
+                      checkoutToken: beb3590088be88f59ba980d54a68df655cd8a1052a3e9caf535f3f820146c226
+                      meta: {}
+        '401':
+          description: Unauthorized - the v3 Auth client ID or token in the request are not a valid combination for this store.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    format: int32
+                    description: The HTTP status code.
+                    example: 401
+                  title:
+                    type: string
+                    description: The error title describing the particular error.
+                    example: Unauthorized
+                  type:
+                    type: string
+                    description: |
+                      A link to a list of BigCommerce API status codes.
+                    example: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+                  errors:
+                    type: object
+        '422':
+          description: Invalid JSON request body - missing or invalid data.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: '422'
+                    description: The HTTP status code.
+                    format: int32
+                  title:
+                    type: string
+                    example: Invalid input
+                    description: The error title describing the particular error.
+                  type:
+                    type: string
+                    example: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
+                    description: A link to a list of BigCommerce API status codes.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                maxUses:
+                  type: number
+                  example: 1
+                ttl:
+                  type: number
+                  example: 86400
+                  description: Time-to-live (TTL) is the number of seconds the token is set to exist before being discarded.
+                  minimum: 1
+                  maximum: 2592000
+            examples:
+              example-1:
+                value:
+                  '0': null
+                  '592': null
+                  maxUses: 1
+                  ttl: 2
+      description: Use the checkout token to display a confirmation page for a guest shopper.
 components:
   schemas:
     Checkout:
@@ -7951,7 +7804,7 @@ components:
           properties:
             id:
               type: string
-              description: 'Cart ID, provided after creating a cart with a POST.'
+              description: 'Cart ID, provided after creating a cart with a POST request.'
               format: uuid
               example: 497f6eca-6276-4993-bfeb-53cbbbba6f08
             customer_id:
@@ -7960,7 +7813,7 @@ components:
               example: 1
             email:
               type: string
-              description: The cart's email. This is the same email that is used in the billing address.
+              description: The email address of the cart. This is the same email address that is used in the billing address.
               example: user@example.com
             currency:
               title: Currency
@@ -7972,7 +7825,7 @@ components:
                   example: USD
             base_amount:
               type: number
-              description: 'Sum of cart line-item amounts before cart-level discounts, coupons, or taxes.'
+              description: 'Sum of cart line-item amounts before cart-level discounts, coupons, or taxes are applied.'
               format: double
               example: 5
             channel_id:
@@ -7985,12 +7838,12 @@ components:
               example: 0.5
             cart_amount_inc_tax:
               type: number
-              description: Sum of cart line-item amounts minus cart-level discounts and coupons including tax
+              description: Sum of cart line-item amounts minus cart-level discounts and coupons including tax.
               format: double
               example: 4.14
             cart_amount_ex_tax:
               type: number
-              description: Sum of cart line-item amounts minus cart-level discounts and coupons excluding tax
+              description: Sum of cart line-item amounts minus cart-level discounts and coupons excluding tax.
               format: double
               example: 3.6
             coupons:
@@ -8002,7 +7855,7 @@ components:
                 properties:
                   code:
                     type: string
-                    description: the coupon code
+                    description: The coupon code.
                     example: SHOPNOW
                   id:
                     type: integer
@@ -8066,7 +7919,7 @@ components:
                         description: ''
                       name:
                         type: string
-                        description: The item's product name.
+                        description: The product name of the item.
                       url:
                         type: string
                         description: The product URL.
@@ -8100,22 +7953,22 @@ components:
                         format: double
                       original_price:
                         type: number
-                        description: An item’s original price is the same as the product default price in the admin panel.
+                        description: An item’s original price is the same as the default price of the product configured in the admin panel.
                       list_price:
                         type: number
-                        description: 'The net item price before discounts and coupons. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
+                        description: 'The net item price before discounts and coupons are applied. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
                         format: double
                       sale_price:
                         type: number
-                        description: Item's price after all discounts are applied. (The final price before tax calculation.)
+                        description: Price of the item after all discounts are applied. (The final price before tax calculation.)
                         format: double
                       extended_list_price:
                         type: number
-                        description: Item's list price multiplied by the quantity.
+                        description: List price of the item multiplied by the quantity.
                         format: double
                       extended_sale_price:
                         type: number
-                        description: Item's sale price multiplied by the quantity.
+                        description: Sale price of the item multiplied by the quantity.
                         format: double
                       is_require_shipping:
                         type: boolean
@@ -8179,7 +8032,7 @@ components:
                         description: ''
                       name:
                         type: string
-                        description: The item's product name.
+                        description: The product name of the item.
                       url:
                         type: string
                         description: The product URL.
@@ -8223,19 +8076,19 @@ components:
                         description: An item’s original price is the same as the product default price in the admin panel.
                       list_price:
                         type: number
-                        description: 'The net item price before discounts and coupons. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
+                        description: 'The net item price before discounts and coupons are applied. BigCommerce derives an item’s list price from the product default price or, if applicable, the sale price configured in the admin panel.'
                         format: double
                       sale_price:
                         type: number
-                        description: Item's price after all discounts are applied. (The final price before tax calculation.)
+                        description: Price of the item after all discounts are applied. (The final price before tax calculation.)
                         format: double
                       extended_list_price:
                         type: number
-                        description: Item's list price multiplied by the quantity.
+                        description: List price of the item multiplied by the quantity.
                         format: double
                       extended_sale_price:
                         type: number
-                        description: Item's sale price multiplied by the quantity.
+                        description: Sale price of the item multiplied by the quantity.
                         format: double
                     required:
                       - quantity
@@ -8375,7 +8228,7 @@ components:
                         description: ''
                       field_value:
                         type: string
-                        description: 'This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)'
+                        description: 'This can also be an array for fields that need to support a list of values (e.g., a set of check boxes.)'
             - properties:
                 id:
                   type: string
@@ -8387,7 +8240,7 @@ components:
           items:
             title: Consignment
             type: object
-            description: 'This allows us to have multiple addresses. Where there is only one address, this array will contain only one value, with all the items.'
+            description: 'This allows the use of multiple addresses. When there is only one address, this array will contain only one value, with all the items.'
             properties:
               id:
                 type: string
@@ -8449,7 +8302,7 @@ components:
                               description: ''
                             field_value:
                               type: string
-                              description: 'This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)'
+                              description: 'This can also be an array for fields that need to support a list of values (e.g., a set of check boxes.)'
                     required:
                       - email
                       - country_code
@@ -8473,7 +8326,7 @@ components:
                       description: ''
                     type:
                       type: string
-                      description: 'Specified the type of shipping option. Flat rate, UPS, etc.,'
+                      description: Specifies the type of shipping option, such as flat rate, UPS, etc.
                     image_url:
                       type: string
                       description: ''
@@ -8486,7 +8339,8 @@ components:
                       description: An estimate of the arrival time.
                     additional_description:
                       type: string
-                      description: 'ReadOnly, Field used for Shipping Provider API.'
+                      readOnly: true
+                      description: 'Read-only field that is used for the Shipping Provider API.'
               selected_shipping_option:
                 title: Selected Shipping Option
                 type: object
@@ -8499,7 +8353,7 @@ components:
                     description: ''
                   type:
                     type: string
-                    description: 'Specified the type of shipping option. Flat rate, UPS, etc.,'
+                    description: Specifies the type of shipping option, such as flat rate, UPS, etc.
                   image_url:
                     type: string
                     description: ''
@@ -8511,31 +8365,32 @@ components:
                     description: An estimate of the arrival time.
                   additional_description:
                     type: string
-                    description: 'ReadOnly, Field used for Shipping Provider API.'
+                    readOnly: true
+                    description: 'Read-only field that is used for the Shipping Provider API.'
               coupon_discounts:
                 type: array
-                description: List of consignment discounts applied through coupons
+                description: List of consignment discounts applied through coupons.
                 items:
                   title: Consignment Coupon Discount
                   type: object
                   properties:
                     code:
                       type: string
-                      description: Coupon code that applied this discount
+                      description: Coupon code through which this discount was applied.
                     amount:
                       type: number
                       description: ''
                       format: double
               discounts:
                 type: array
-                description: List of consignment discounts applied through cart level discounts
+                description: List of consignment discounts applied through cart-level discounts.
                 items:
                   title: Consignment Discount
                   type: object
                   properties:
                     id:
                       type: integer
-                      description: Discount rule ID that applied this discount
+                      description: Discount rule ID that applied this discount.
               shipping_cost_inc_tax:
                 type: number
                 description: The shipping cost for this consignment including tax.
@@ -8602,15 +8457,15 @@ components:
           format: double
         subtotal_inc_tax:
           type: number
-          description: Subtotal of the checkout before applying item level discounts including tax.
+          description: Subtotal of the checkout before applying item-level discounts including tax.
           format: double
         subtotal_ex_tax:
           type: number
-          description: Subtotal of the checkout before applying item level discounts excluding tax.
+          description: Subtotal of the checkout before applying item-level discounts excluding tax.
           format: double
         grand_total:
           type: number
-          description: 'The total payable amount, before applying any store credit or gift certificate.'
+          description: 'The total payable amount, before applying any store credit or a gift certificate.'
           format: double
         created_time:
           type: string
@@ -8634,18 +8489,18 @@ components:
                   properties:
                     id:
                       type: string
-                      description: Id of the promotion.
+                      description: ID of the promotion.
                     type:
                       type: string
-                      description: Type of the banner
+                      description: Type of the banner.
                     page:
                       type: array
-                      description: An array of the locations where the banner will display
+                      description: An array of the locations where the banner will display.
                       items:
                         type: string
                     text:
                       type: string
-                      description: Text of the banner
+                      description: Text of the banner.
     Checkout_Put:
       title: Checkout_Put
       required:
@@ -8664,7 +8519,7 @@ components:
       properties:
         code:
           type: string
-          description: the coupon code
+          description: The coupon code.
           example: SHOPNOW
         id:
           type: integer
@@ -8726,7 +8581,7 @@ components:
           description: ''
         custom_fields:
           type: array
-          description: 'You can retreive custom fields from the [Get Form Fields](/api-reference/storefront/form-fields/form-fields/getformfields) endpoint.'
+          description: 'You can retrieve custom fields from the [Get Form Fields](/api-reference/storefront/form-fields/form-fields/getformfields) endpoint.'
           items:
             title: Custom Field
             type: object
@@ -8736,7 +8591,7 @@ components:
                 description: ''
               field_value:
                 type: string
-                description: 'This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)'
+                description: 'This can also be an array for fields that need to support a list of values (e.g., a set of check boxes.)'
       x-internal: false
     CreateConsignmentRequest:
       title: Create Consignment Request
@@ -8787,7 +8642,7 @@ components:
               description: ''
             custom_fields:
               type: array
-              description: 'You can retreive custom fields from the [Get Form Fields](/api-reference/storefront/form-fields/form-fields/getformfields) endpoint.'
+              description: 'You can retrieve custom fields from the [Get Form Fields](/api-reference/storefront/form-fields/form-fields/getformfields) endpoint.'
               items:
                 title: Custom Field
                 type: object
@@ -8797,7 +8652,7 @@ components:
                     description: ''
                   field_value:
                     type: string
-                    description: 'This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)'
+                    description: 'This can also be an array for fields that need to support a list of values (e.g., a set of check boxes.)'
         line_items:
           type: array
           description: ''
@@ -8876,7 +8731,7 @@ components:
                     description: ''
                   field_value:
                     type: string
-                    description: 'This can also be an array for fields that need to support list of values (e.g., a set of check boxes.)'
+                    description: 'This can also be an array for fields that need to support a list of values (e.g., a set of check boxes.)'
         line_items:
           type: array
           description: ''
@@ -8897,7 +8752,7 @@ components:
         shipping_option_id:
           type: string
           description: ''
-      description: One or more of these three fields are mandatory. `address` and `line_items` can be updated in one request. `shipping_option_id` has to be updated in a separate request since changing the address or line items can invalidate the previously available shipping options.
+      description: One or more of these three fields are mandatory. `address` and `line_items` can be updated in one request. `shipping_option_id` has to be updated in a separate request because changing the address or line items can invalidate the previously available shipping options.
       x-internal: false
     CouponCodeRequest:
       title: Coupon Code Request
@@ -8905,7 +8760,7 @@ components:
       properties:
         coupon_code:
           type: string
-          description: Coupon codes have a 50 character limit.
+          description: Coupon codes have a 50-character limit.
       x-internal: false
     Order:
       title: Order
@@ -8913,7 +8768,7 @@ components:
       properties:
         id:
           type: integer
-          description: The order Id.
+          description: The order ID.
           example: 75
       x-internal: false
     CheckoutsSettings:
@@ -8934,16 +8789,16 @@ components:
       properties:
         custom_checkout_script_url:
           type: string
-          description: 'Custom checkout script url to replace our default checkout. To reset a store to optimized one-page checkout, pass an empty string for `custom_checkout_script_url` and `custom_order_confirmation_script_url`.'
+          description: 'Custom checkout script URL to replace our default checkout. To reset a store to optimized one-page checkout, pass an empty string for `custom_checkout_script_url` and `custom_order_confirmation_script_url`.'
         order_confirmation_use_custom_checkout_script:
           type: boolean
-          description: When order_confirmation_use_custom_checkout_script=true we default custom_order_confirmation_script_url to empty string.
+          description: When order_confirmation_use_custom_checkout_script=true, the default custom_order_confirmation_script_url defaults to an empty string.
         custom_order_confirmation_script_url:
           type: string
-          description: 'Custom order confirmation script url to replace our default order confirmation. To reset a store to optimized one-page checkout, pass an empty string for `custom_checkout_script_url` and `custom_order_confirmation_script_url`.'
+          description: 'Custom order confirmation script URL to replace the default order confirmation. To reset a store to optimized one-page checkout, pass an empty string for `custom_checkout_script_url` and `custom_order_confirmation_script_url`.'
         custom_checkout_supports_uco_settings:
           type: boolean
-          description: This checkout supports Optimized One-Page Checkout settings.
+          description: Boolean value that specifies whether this checkout supports Optimized One-Page Checkout settings.
       description: ''
   responses:
     CheckoutResponse:
@@ -9728,10 +9583,17 @@ components:
               id: 75
             meta: {}
   parameters:
+    storeHash:
+      name: store_hash
+      in: path
+      required: true
+      description: Permanent ID of the BigCommerce store.
+      schema:
+        type: string
     checkoutId:
       name: checkoutId
       in: path
-      description: Id of the Checkout
+      description: ID of the checkout; the same as the cart ID.
       required: true
       schema:
         type: string
@@ -9750,7 +9612,7 @@ components:
     couponCode:
       name: couponCode
       in: path
-      description: 'The actual couponCode, not the couponId.'
+      description: 'The coupon code value, not the coupon ID.'
       required: true
       schema:
         type: string
@@ -9758,6 +9620,7 @@ components:
       name: Accept
       in: header
       required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
       schema:
         type: string
         default: application/json
@@ -9765,6 +9628,7 @@ components:
       name: Content-Type
       in: header
       required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
       schema:
         type: string
         default: application/json
