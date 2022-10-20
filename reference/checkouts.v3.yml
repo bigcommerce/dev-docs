@@ -3955,6 +3955,28 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CreateConsignmentRequest'
+            example:
+              example-1:
+                value:
+                  - address:
+                      first_name: string
+                      last_name: string
+                      email: string
+                      company: string
+                      address1: string
+                      address2: string
+                      city: string
+                      state_or_province: string
+                      state_or_province_code: string
+                      country_code: string
+                      postal_code: string
+                      phone: string
+                      custom_fields:
+                        - field_id: string
+                          field_value: string
+                    line_items:
+                      - item_id: string
+                        quantity: 0
         required: true
       responses:
         '200':
