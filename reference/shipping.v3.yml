@@ -161,7 +161,7 @@ components:
         format: int32
   responses:
     502_GatewayError:
-      description: 'If something happens during the request that causes it to fail, a 502 response will be returned. A new request should be made; however, it could fail.'
+      description: If something happens during the request that causes it to fail, a 502 response will be returned. A new request should be made; however, it could fail.
       content:
         application/json:
           schema:
@@ -174,7 +174,7 @@ components:
                 type: /api-docs/getting-started/api-status-codes
                 errors: {}
     504_GatewayTimeout:
-      description: 'If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)'
+      description: If this occurs, you should retry the request. Typically retrying the request several times will result in a successful request; However, if you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)
       content:
         application/json:
           schema:
@@ -226,7 +226,7 @@ components:
                 type: /api-docs/getting-started/api-status-codes
                 errors: {}
     422_UnprocessableEntity:
-      description: This occurs when missing or unacceptable data is passed for one or more fields. Please correct the values for the fields listed in the errors object.
+      description: This error occurs when missing or unacceptable data is passed for one or more fields. Please correct the values for the fields listed in the errors object.
       content:
         application/json:
           schema:
@@ -242,7 +242,7 @@ components:
       description: |-
         If this occurs, you should retry the request. If you are unable to successfully make a request, please check the BigCommerce system status [here](https://status.bigcommerce.com/). A service is likely down and the request will need to be made again when it is back up (in several hours usually)
 
-        Occurs hen the store is down for maintenance, being upgraded to a new version, or is suspended due to administrative action or a billing issue.
+        Occurs when the store is down for maintenance, being upgraded to a new version, or is suspended due to administrative action or a billing issue.
       content:
         application/json:
           schema:
@@ -267,19 +267,19 @@ components:
           schema:
             $ref: '#/components/schemas/error_Full'
     429_Too_Many_Requests:
-      description: 'When an OAuth client exceeds the [rate limit](/api-docs/getting-started/best-practices#api-rate-limits) for API requests to a store..'
+      description: 'When an OAuth client exceeds the [rate limit](/api-docs/getting-started/best-practices#api-rate-limits) for API requests to a store.'
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/error_Full'
     405_Method_Not_Allowed:
-      description: 'The resource was found, but doesn''t support the request method. Issued when either a specific method isn''t yet implemented on a resource, or the resource doesn''t support the method at all. For example, a `PUT` on `/orders` is invalid, but a PUT on `/orders/{order_id}` is valid.'
+      description: The resource was found, but doesn't support the request method. Issued when either a specific method isn't yet implemented on a resource, or the resource doesn't support the method at all. For example, a PUT request on `/orders` is invalid, but a PUT request on `/orders/{order_id}` is valid. 
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/error_Full'
     500_Internal_Server_Error:
-      description: 'Expensive API calls or an internal server error in BigCommerce; Re-attempt the request three to five times, with increasing delays of at least a minute between attempts.'
+      description: Expensive API calls or an internal server error in BigCommerce; Re-attempt the request three to five times, with increasing delays of at least a minute between attempts.
       content:
         application/json:
           schema:
@@ -335,7 +335,7 @@ components:
           maxLength: 100
           example: Baseball caps
         international_shipping:
-          description: Flag to determine whether this product will be shipped internationally
+          description: Flag to determine whether this product will be shipped internationally.
           type: boolean
           enum:
             - true
@@ -356,7 +356,7 @@ components:
       x-internal: false
       properties:
         product_id:
-          description: The id of the product which the customs information data will apply to.
+          description: The ID of the product which the customs information data will apply to.
           type: integer
           format: int32
           example: 77
@@ -371,7 +371,7 @@ components:
           maxLength: 100
           example: Baseball caps
         international_shipping:
-          description: Flag to determine whether this product will be shipped internationally
+          description: Flag to determine whether this product will be shipped internationally.
           type: boolean
           enum:
             - true
@@ -379,13 +379,13 @@ components:
           example: true
         hs_codes:
           $ref: '#/components/schemas/harmonizedSystemCodes'
-        createdAt:
+        created_at:
           type: string
           description: Date and time when the customs information was created.
           readOnly: true
           format: date-time
           example: 2022-09-21T14:15:00+00:00
-        updatedAt:
+        updated_at:
           type: string
           description: Date and time when the customs information was last updated.
           readOnly: true
@@ -394,9 +394,9 @@ components:
     harmonizedSystemCodes:
       title: harmonizedSystemCodes
       description: |-
-        Key value pair commonly used in the form of **countryISO2:'/^[0-9A-Za-z]{6,14}$/'**. This is to represent a country and the associated hs code that applies to that country. Eg {"US":"508313","AU":"850610"}.
+        Key value pair commonly used in the form of **countryISO2:'/^[0-9A-Za-z]{6,14}$/'**. This is to represent a country and the associated has code that applies to that country. Eg {"US":"508313","AU":"850610"}.
 
-        There is a special value of **'ALL'** which can be used in place of the countryISO2 to represent that the hs code applies to all countries. Eg {"ALL":"634000"}. This can be combined with other countries in the hs codes object. For Eg {"All":"640000", "US":"641000"}
+        There is a special value of **'ALL'**, which can be used in place of the countryISO2 to represent that the hs code applies to all countries. Eg {"ALL":"634000"}. This can be combined with other countries in the hs codes object, for example {"All":"640000", "US":"641000"}.
       type: object
       example:
         CA: '508313'
@@ -405,7 +405,7 @@ components:
       x-internal: false
     metaCollection:
       title: metaCollection
-      description: Meta data relating to pagination
+      description: Meta data relating to pagination.
       type: object
       properties:
         pagination:
