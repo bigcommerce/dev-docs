@@ -227,6 +227,7 @@ This above statement formats the _Featured Products_ display according to the `h
 | scripts | Scripts to be loaded in the &lt;head&gt; tag |
 | favicon | The store’s favicon (Favorite icon) |
 | rsslinks | RSS feeds to improve SEO |
+
 ## Is_Ajax
 
 **Description:** Boolean; returns `true` if the current executing request is an Ajax request
@@ -294,6 +295,7 @@ This above statement formats the _New Products_ display according to the `homepa
 | sub_pages | Array of child pages |
 | &nbsp;&nbsp;title | Title of this child page |
 | &nbsp;&nbsp;url | URL of this child page |
+
 ## Pages
 
 **Description:** A list of all web content pages for the BigCommerce storefront
@@ -309,6 +311,7 @@ This above statement formats the _New Products_ display according to the `homepa
 | children | List of child pages for this page |
 | &nbsp;&nbsp;name | Name of the child page |
 | &nbsp;&nbsp;url | URL of the child page |
+
 ## Page Type Property
 
 **Description:** A string representing the type of page currently displayed. <br>
@@ -360,6 +363,7 @@ All possible values for `{{page_type}}` are:
 | links | Array of pages that surround the current page; displayed as a set of links, dynamically sized based on the current page number |
 | &nbsp;&nbsp;url | URL to this page of results |
 | &nbsp;&nbsp;number | The page number of this link, based on an index starting at 1 |
+
 ## Search
 
 **Description:** Defines search parameters for the merchant’s site
@@ -407,6 +411,7 @@ All possible values for `{{page_type}}` are:
 | &nbsp;&nbsp;facets | All available search filters |
 | &nbsp;&nbsp;pagination | References pagination model |
 | &nbsp;&nbsp;selected | Currently selected filters |
+
 ## Settings
 
 **Description:** Common settings shared across every BigCommerce storefront
@@ -562,6 +567,7 @@ All possible values for `{{page_type}}` are:
 | &nbsp;&nbsp;children  | Nested list of children within pages or categories; will be null for brands |
 | &nbsp;&nbsp;&nbsp;url | URL to the child page or category |
 | &nbsp;&nbsp;&nbsp;label | Label for the child page or category |
+
 ## Social Links
 
 **Description:** Array of all social-media site links for the storefront<br>
