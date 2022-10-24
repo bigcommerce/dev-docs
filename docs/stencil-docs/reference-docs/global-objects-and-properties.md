@@ -119,7 +119,7 @@ The table below displays properties for the individual category objects within t
 | Property | Description |
 |----|----|
 | id | ID of the top-level category listed |
-| image |
+| image | Path to the image file used on this slide. |
 | &nbsp;&nbsp;alt | &nbsp;&nbsp;The image alt name. Defaults to category name |
 | &nbsp;&nbsp;data | &nbsp;&nbsp;Public category image url. |
 | name | Name of the top-level category |
@@ -133,7 +133,7 @@ The table below displays properties for the individual category objects within t
 | &nbsp;&nbsp;url | URL of the child category |
 | &nbsp;&nbsp;is_active | Boolean that indicates which category is your “breadcrumb” category on an item's product display page (PDP). For example, an emerald necklace may be in the _Jewelry_ and _Accessories_ categories. If you navigated to the product from the _Jewelry_ category, `is_active: true` will be present on the _Jewelry_ object. |
 | &nbsp;&nbsp;count | Number of products in this child category |
-| &nbsp;&nbsp;image |
+| &nbsp;&nbsp;image | Path to the image file used on this slide. |
 | &nbsp;&nbsp;&nbsp; alt | &nbsp;&nbsp;&nbsp; The image alt name. Defaults to cateogory name |
 | &nbsp;&nbsp;&nbsp; data | &nbsp;&nbsp;&nbsp; Public category image url. |
 
@@ -428,12 +428,12 @@ All possible values for `{{page_type}}` are:
 | show_newsletter_box | Site-wide boolean value that indicates whether to display a mailing-list invite to visitors |
 |  gift_certificates_enabled | Site-wide boolean value that indicates whether to enable the gift certificate system for this store |
 |  blog_enabled | Site-wide boolean value that indicates whether the blog is visible for this store |
-|  data_tag_enabled | Site-wide boolean that indicates whether GAEE is enabled in a theme. For {{settings.data_tag_enabled}} to be true, the enhanced_ecommerce key must be present in config.json and a GAEE experiment must be enabled along with GA property value set in Advanced Settings > Analytics > GA in the BigCommerce Control Panel |
+|  data_tag_enabled | Site-wide boolean that indicates whether GAEE is enabled in a theme. For {{settings.data_tag_enabled}} to be true, the enhanced_ecommerce key must be present in config.json and a GAEE experiment must be enabled along with GA property value set in **Analytics**  > GA in the BigCommerce control panel |
 | show_wishlist | Site-wide boolean value that indicates whether to allow customers to create wishlists |
 | base_url | The normal shop URL |
 | client_ip_address | IP address of the customer browsing the store |
 |country_code|The country code corresponding to the IP|
-|request|object that contaisn details about the HTTP request|
+|request|object that contains details about the HTTP request|
 | &#x21B3; referer|refer of the request|
 | &#x21B3; host|hostname of the request|
 | &#x21B3; origin|origin of the request|
@@ -445,7 +445,7 @@ All possible values for `{{page_type}}` are:
 | address | Store’s complete physical address, as entered by merchant in the [Store Profile](https://support.bigcommerce.com/s/article/Store-Profile-Settings)|
 | store_name | Name of the BigCommerce store |
 | store_logo | The store’s logo |
-| &#x21B3; title | Title for the logo – the text configured in the control panel under Storefront Design Design Options Logo |
+| &#x21B3; title | Title for the logo – the text configured in the control panel under **Storefront** > Logo |
 | &#x21B3; image | Optional image file, as a Stencil image object. To access the store_logo use: `{{settings.store_logo.image.data}}` and `{{settings.store_logo.image.alt}}` to access the alt tag. These are pulled from the Stencil image object. |
 | privacy_cookie | If enabled, a string containing merchant-customizable text for (European Union–required) cookie-setting notification; if disabled, a boolean with a value of false |
 | urls | Global URLs that the template can access – for example, the template could link to the cart page using {{urls.cart}} |
@@ -503,7 +503,7 @@ All possible values for `{{page_type}}` are:
 | &nbsp; &nbsp; &#x21B3; blog_atom | RSS feed of recent blog posts, in Atom format `/rss.php?action=newblogs&type=atom` |
 | &#x21B3; contact_us_submit | URL to submit the Contact Us form `/pages.php?action=sendContactForm`|
 | &#x21B3; search | URL to submit a search request `/search.php` |
-| &#x21B3; compare | A string String containing the URL to the products comparison page `/compare` |
+| &#x21B3; compare | A string containing the URL to the products comparison page `/compare` |
 | &#x21B3; sitemap | URL to the sitemap `/sitemap.php` |
 | &#x21B3; subscribe | Collection of subscription-related URLs |
 | &nbsp; &nbsp; &#x21B3; action | URL to which the newsletter subscription will be submitted `/subscribe.php` |
@@ -513,8 +513,8 @@ All possible values for `{{page_type}}` are:
 | &#x21B3; decimal_token | Symbol for decimal separator |
 | &#x21B3; decimal_places | Number of decimal places to display |
 | &#x21B3; thousands_token | Symbol for thousands separator |
-| returns_enabled | Boolean that indicates whether the control-panel setting for the returns system is enabled |
-| tax_label | Defines the Tax Label (VAT, Sales Tax, etc.) that a merchant can set in the control panel’s Settings > Tax page for display to customers |
+| returns_enabled | Boolean that indicates whether the control panel setting for the returns system is enabled |
+| tax_label | Defines the Tax Label (VAT, Sales Tax, etc.) that a merchant can set in the control panel’s **Settings** > **Setup** > **Tax** page for display to customers |
 | add_this | Object that defines links for the AddThis social sharing component |
 | &#x21B3; buttons | Array of buttons to display for AddThis social sharing `{{#each settings.add_this.buttons}}{{service}}{{/each}}` `{{#each settings.add_this.buttons}}{{annotations}}{{/each}}` |
 | service | String containing the name of this button's social-media service (facebook, email, print, twitter, linkedin, google, etc.) |
@@ -533,7 +533,7 @@ All possible values for `{{page_type}}` are:
 | measurements | Collection of units-of-measure definitions, to be used when displaying product details: |
 | &#x21B3; length | Units of measure for product length |
 | &#x21B3; weight | Units of measure for product weight |
-| Time and date settings | The four settings below are configured in the control panel under **Store Setup > Store Settings > Language and Date > Date Settings** . Date formats follow php conventions. |
+| Time and date settings | The four settings below are configured in the control panel under **Settings** > **General** > **Date & Timezone**. Date formats follow php conventions. |
 | store_time_zone | Store's time zone, as selected in the control panel's Your Timezone drop-down list |
 | store_dst_correction | Whether or not this time zone observes Daylight Saving Time (boolean), as set by the control panel's Enable DST Correction check box |
 | display_date_format | Brief display format/pattern for dates, as configured in the control panel's Display Date Format field |
@@ -542,8 +542,8 @@ All possible values for `{{page_type}}` are:
 | as payments_url| Exposes the BigCommerce payments URL. `https://payments.bigcommerce.com`|
 | secure_host | Returns the SSL url for a store. Example: `https://www.bigcommerce.com` |
 | store_hash | Returns the store hash as a string.  |
-|  is_eu_ip_address| A boolean value. Return true if the shoppers ip address is in the EU. |
-| show_newsletter_box | Returns `1` if customers to allowed to subscribe to the [store newsletter](https://support.bigcommerce.com/s/article/Collecting-Newsletter-Subscriptions#newsletter). Returns `0` if customers are not able to subscribe. |
+| is_eu_ip_address| A boolean value. Return true if the shoppers ip address is in the EU. |
+| show_newsletter_box | Returns `1` if customers are allowed to subscribe to the [store newsletter](https://support.bigcommerce.com/s/article/Collecting-Newsletter-Subscriptions#newsletter). Returns `0` if customers are not able to subscribe. |
 | show_newsletter_summary | Returns a `1` if the [newsletter summary](https://support.bigcommerce.com/s/article/Collecting-Newsletter-Subscriptions#newsletter) is shown. Returns `0` if it is now shown. If `show_newsletter_box` is `0` then `show_newsletter_summary` will also be `0`. |
 | newsletter_summary | Returns the [newsletter summary](https://support.bigcommerce.com/s/article/Collecting-Newsletter-Subscriptions#newsletter) |
 | amp_analytics_id | Returns Google AMP analytics ID |
