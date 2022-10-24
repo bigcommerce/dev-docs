@@ -313,7 +313,7 @@ To deploy your app with Vercel:
 
 ![vercel-create-team](https://storage.googleapis.com/bigcommerce-production-dev-center/images/vercel-create-team.png)
 
-6. In the **Configure Project** section, enter the connection string for the Supabase database you created in the previous step in the **DATABASE_URL** field. See [Run migration and start the server](#run-migration-and-start-the-server) for information on creating the database and obtaining the `DATABASE_URL`.
+6. In the **Configure Project** section, in the **DATABASE_URL** field enter the connection string for the Supabase database you created in the previous step. See [Run migration and start the server](#run-migration-and-start-the-server) for information on creating the database and obtaining the `DATABASE_URL`.
 
 7. Enter '1234' for the remaining environment variables and then click **Deploy**. The deployment process will take a few minutes.
 
