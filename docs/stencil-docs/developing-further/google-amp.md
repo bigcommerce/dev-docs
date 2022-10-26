@@ -1,5 +1,9 @@
 # Google AMP
 
+<!-- theme: warning -->
+> ### Warning
+> Google AMP is being deprecated in January 2023. We will continue to support existing merchants who use Google AMP, however new merchants won't have the ability to implement it. Stay up-to-date with the latest details around this effort in our [Developer Changelog](https://developer.bigcommerce.com/changelog#).
+
 Google AMP (Accelerated Mobile Pages) is an open-source project to improve page speed on mobile devices by using a specific framework for a page’s code. The improved performance on mobile devices provides a better browsing experience for shoppers and boosts ranking on Google search. To learn more about the Google AMP project, see [AMP Overview](https://www.ampproject.org/support/faqs/overview) on the Google AMP project site.
 
 ### Benefits of using Stencil with Google AMP
@@ -8,12 +12,11 @@ Google AMP (Accelerated Mobile Pages) is an open-source project to improve page 
 - Google AMP has a positive effect on your store’s Search Engine Optimization (SEO).
 - AMP websites are more accessible in search results.
 
-The article will walk you through enabling Google AMP pages in your theme. 
+The article will walk you through enabling Google AMP pages in your theme.
 
 <!-- theme: info -->
 > #### Cornerstone
 > This example uses Cornerstone.
-
 
 ## Implementing AMP
 
@@ -40,7 +43,6 @@ In the `/amp/category.html`, `layout/amp.html` and `amp/product.html` template f
 ```
 
 In [config.json](https://github.com/bigcommerce/cornerstone/blob/master/config.json) (referenced below) make sure `google_amp` is still in the features array. See below for code snippet.
-
 
 ```json title="Ensure google_amp appears in the 'features' array config.json" lineNumbers
   "features": [
