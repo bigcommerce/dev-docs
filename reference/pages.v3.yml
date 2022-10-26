@@ -1,11 +1,40 @@
-openapi: 3.0.0
+openapi: '3.0.3'
 info:
   title: Pages V3
-  version: '3.0'
-  description: 'Manage content pages, such as contact forms, rss feeds, and custom HTML pages. All endpoints without a `pageId` path parameter support bulk operations.'
+  version: ''
   termsOfService: 'http://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+  description: |-
+    ## Overview
+
+    A **page** appears on a **site** that is associated with a **channel**. 
+    
+    Some pages, such as blog pages, contact forms, and plain-text or HTML pages, are web pages in the traditional sense. They contain markup (a `body`) and load at a relative page location on the site itself (the `url`). Other pages, such as link and feed pages, make external or non-visual content available from the menu of a parent page or by direct link.
+
+    ### Bulk operations
+    All endpoints without a `pageId` path parameter support bulk operations.
+
+    ### Page types
+
+    The following table describes the types of pages that the Pages API can manage:
+
+    | Page Type | Description | Body |
+    |:----------|:------------|:-----|
+    | `page` | A user-defined plain-text page. | text |
+    | `contact_form` | A user-customizable page that contains a contact form. | HTML |
+    | `raw` | A user-defined page that contains HTML markup or other stringified code. | HTML, other code |
+    | `blog` | A page that contains blog posts. Use caution; `blog`-type pages can only be created in the store control panel, but you may be able to change the type of a blog page to something else with this API. Use the [Store Content API](/api-reference/store-management/store-content/blog-posts/createablogposts) to work with blog posts and tags. | empty string |
+    | `feed` | Makes RSS-syndicated content feeds available in the menu of other pages that contain markup. | &mdash; |
+    | `link` | A link to an external absolute URL. Displays in the menu of other pages that contain markup. | &mdash; |
+servers:
+  - url: 'https://api.bigcommerce.com'
+    description: OAuth API Gateway
 tags:
-  - name: Pages
+  - name: Pages (Bulk)
+  - name: Pages (Single)
 security:
   - X-Auth-Token: []
 paths:
@@ -13,7 +42,7 @@ paths:
     get:
       operationId: content-pages-get
       tags:
-        - Pages
+        - Pages (Bulk)
       description: Returns one or more content pages. This endpoint supports bulk operations.
       responses:
         '200':
@@ -22,123 +51,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PagesCollectionResponse'
-              examples:
-                example-1:
-                  value:
-                    data:
-                      - id: 1
-                        channel_id: 1
-                        name: Content page
-                        meta_title: Content page
-                        email: ''
-                        is_visible: false
-                        parent_id: 0
-                        sort_order: 0
-                        type: page
-                        meta_keywords: ''
-                        meta_description: string
-                        is_homepage: false
-                        is_customers_only: false
-                        search_keywords: string
-                        content_type: text/html
-                        url: /my-content-page
-                      - id: 2
-                        channel_id: 1
-                        name: Feed page
-                        meta_title: string
-                        email: ''
-                        is_visible: false
-                        parent_id: 0
-                        sort_order: 3
-                        feed: 'https://bigcommerce.com/feed/'
-                        type: feed
-                        meta_keywords: ''
-                        meta_description: string
-                        is_homepage: false
-                        is_customers_only: true
-                        search_keywords: string
-                        content_type: text/html
-                        url: /rss-feed-page
-                      - id: 3
-                        channel_id: 1
-                        name: Link page
-                        meta_title: ''
-                        email: ''
-                        is_visible: false
-                        parent_id: 0
-                        sort_order: 0
-                        link: '1'
-                        type: link
-                        meta_keywords: ''
-                        meta_description: ''
-                        is_homepage: false
-                        is_customers_only: false
-                        search_keywords: ''
-                        content_type: text/html
-                    meta:
-                      pagination:
-                        total: 3
-                        count: 3
-                        per_page: 50
-                        current_page: 1
-                        total_pages: 1
-                        links:
-                          current: '?page=1&limit=50'
         '400':
-          description: 'Bad Request; reasons for failure include passing query parameters that are not support on this endpoint, but are common on other BigCommerce endpoints.'
+          description: 'Bad Request; reasons for failure include passing query parameters that are not supported on this endpoint, but are common on other BigCommerce endpoints.'
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/DetailedErrorResponse'
-        '404':
-          description: Not Found
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/ResponseErrorDetailed'
         '422':
           description: Invalid input. Reasons for failure include passing supported parameters with values that have the incorrect datatype.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/ListedErrorResponse'
+                $ref: '#/components/schemas/ResponseErrorItemized'
       parameters:
-        - schema:
-            type: integer
-          in: query
-          name: channel_id
-          description: Return only pages associated with the specified channel.
-        - schema:
-            type: string
-          in: query
-          name: 'id:in'
-          description: 'A comma-separated string of page IDs to fetch. Supports bulk operations. If none of the page IDs passed exist, the query will return an empty `data` array.'
-        - schema:
-            type: string
-          in: query
-          name: name
-          description: Name of the page.
-        - schema:
-            type: string
-          in: query
-          name: 'name:like'
-          description: One word from the name of the page. Does not search substrings. Does not return pages with names that match exactly. Does not support fuzzy search.
-        - schema:
-            type: integer
-          in: query
-          name: limit
-          description: The number of results to return per request. See `meta.pagination.per_page` in the response body.
-        - schema:
-            type: integer
-          in: query
-          name: page
-          description: The ordered grouping of results to return. See `meta.pagination.current_page` in the response body.
+        - $ref: '#/components/parameters/channelIdQuery'
+        - $ref: '#/components/parameters/idInQueryGet'
+        - $ref: '#/components/parameters/nameQuery'
+        - $ref: '#/components/parameters/nameLikeQuery'
+        - $ref: '#/components/parameters/limitQuery'
+        - $ref: '#/components/parameters/pageQuery'
+        - $ref: '#/components/parameters/includeQuery'
       summary: Get Pages
     post:
       operationId: content-pages-post
-      description: Creates one or more content pages. This endpoint supports bulk operations.
       tags:
-        - Pages
+        - Pages (Bulk)
+      description: Creates one or more content pages. This endpoint supports bulk operations.
       requestBody:
         content:
           application/json:
@@ -164,33 +102,7 @@ paths:
         required: true
       responses:
         '201':
-          description: |-
-            Created.
-
-            Response.data will inherit the datatype of the request. A single entry passed as an object will return an object for the data property. Any number of entries passed in an array will return an array for the data property.
-
-            Properties associated with a page `type` that are not required to create an entry will be created with default values. 
-
-            When making bulk requests, an invalid input in any one entry will return 422. The entries that are valid will still be created.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    oneOf:
-                      - type: object
-                        properties:
-                          data:
-                            $ref: '#/components/schemas/Page'
-                      - type: array
-                        items:
-                          type: object
-                          properties:
-                            data:
-                              $ref: '#/components/schemas/PageBase'
-                  meta:
-                    $ref: '#/components/schemas/CollectionMeta'
+          $ref: '#/components/responses/HTTP201CreatePages'
         '207':
           $ref: '#/components/responses/HTTP207Response'
         '422':
@@ -201,13 +113,16 @@ paths:
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/DetailedErrorResponse'
+                $ref: '#/components/schemas/ResponseErrorDetailed'
+      parameters:
+        - $ref: '#/components/parameters/includeQuery'
+        - $ref: '#/components/parameters/ContentType'
       summary: Create Pages
     put:
       operationId: content-pages-put
-      description: Updates one or more content pages. This endpoint supports bulk operations.
       tags:
-        - Pages
+        - Pages (Bulk)
+      description: Updates one or more content pages. This endpoint supports bulk operations.
       requestBody:
         content:
           application/json:
@@ -226,7 +141,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PagesCollectionResponse'
               examples:
-                update meta descriptions for two  pages:
+                update meta descriptions for two pages:
                   value:
                     data:
                       - id: 20
@@ -258,14 +173,12 @@ paths:
                         is_customers_only: false
                         search_keywords: ''
                     meta: {}
-        '207':
-          $ref: '#/components/responses/HTTP207Response'
         '404':
           description: Not Found
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/ResponseErrorBrief'
               examples:
                 example-1:
                   value:
@@ -277,7 +190,7 @@ paths:
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/DetailedErrorResponse'
+                $ref: '#/components/schemas/ResponseErrorDetailed'
               examples:
                 missing required field for type raw:
                   value:
@@ -285,11 +198,14 @@ paths:
                     title: Input is invalid
                     type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
                     detail: 'missing the required field: body'
+      parameters:
+        - $ref: '#/components/parameters/includeQuery'
+        - $ref: '#/components/parameters/ContentType'
       summary: Update Pages
     delete:
       operationId: content-pages-delete
       tags:
-        - Pages
+        - Pages (Bulk)
       description: |-
         Deletes one or more content pages. This endpoint supports bulk operations.
 
@@ -298,25 +214,25 @@ paths:
         > If you attempt to delete multiple pages by passing more than one pageId to `id:in` and one or more of them does not exist, you will receive a 404 response. However, the pages corresponding to the pagesIds that do exist will still be deleted.
       responses:
         '204':
-          description: No content. A 204 response with no payload indicates successful deletion of all specified pages.
+          $ref: '#/components/responses/HTTP204'
         '404':
           description: Not Found. One of more of the pages specified for deletion did not exist. Specified pages that did exist were successfully deleted.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/ResponseErrorBrief'
               examples:
                 Page not found:
                   value:
                     status: 404
-                    title: A Page was not found with an id of 100
+                    title: A Page was not found with an ID of 100
                     type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         '422':
           description: Invalid input. See response for details.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/DetailedErrorResponse'
+                $ref: '#/components/schemas/ResponseErrorDetailed'
               examples:
                 Missing ID:
                   value:
@@ -325,25 +241,16 @@ paths:
                     type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
                     detail: 'missing the required field: id'
       parameters:
-        - schema:
-            type: string
-          in: query
-          name: 'id:in'
-          description: 'Request deletion of multiple pages by passing a comma-separated string of corresponding page IDs. Supports bulk operations. '
-          required: true
+        - $ref: '#/components/parameters/idInQueryDelete'
       summary: Delete Pages
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-        description: The merchant's store hash. Also called a store id.
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/storeHashPath'
   '/stores/{store_hash}/v3/content/pages/{pageId}':
     get:
       operationId: content-page-get
       tags:
-        - Pages
+        - Pages (Single)
       description: |-
         Returns one content page.
 
@@ -501,19 +408,19 @@ paths:
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/ResponseErrorBrief'
               examples:
                 pageId does not exist:
                   value:
                     status: 404
-                    title: A Page was not found with an id of 99
+                    title: A Page was not found with an ID of 99
                     type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         '422':
-          description: Invalid input. One or more path parameter(s) did not have the incorrect datatype.
+          description: Invalid input. One or more path parameter(s) did not have the correct datatype.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/ListedErrorResponse'
+                $ref: '#/components/schemas/ResponseErrorItemized'
               examples:
                 pageId is bar:
                   value:
@@ -522,13 +429,14 @@ paths:
                     type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
                     errors:
                       - bar
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/includeQuery'
       summary: Get a Page
     put:
       operationId: content-page-put
-      description: Updates one content page.
       tags:
-        - Pages
+        - Pages (Single)
+      description: Updates one content page.
       requestBody:
         content:
           application/json:
@@ -544,37 +452,38 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PageResponse'
-        '207':
-          $ref: '#/components/responses/HTTP207Response'
         '400':
           description: Bad Request; reasons for failure include invalid query parameters. See the response for more details.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/DetailedErrorResponse'
+                $ref: '#/components/schemas/ResponseErrorDetailed'
         '404':
           description: Not Found
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/ResponseErrorBrief'
               examples:
                 not found:
                   value:
                     status: 404
-                    title: A Page was not found with an id of 99
+                    title: A Page was not found with an ID of 99
                     type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         '422':
-          description: The input was not valid. This is the result of missing required fields or other invalid arguments. See the response for more details.
+          description: The input was not valid. This error is the result of missing required fields or other invalid arguments. See the response for more details.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/DetailedErrorResponse'
+                $ref: '#/components/schemas/ResponseErrorDetailed'
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+        - $ref: '#/components/parameters/includeQuery'
       summary: Update a Page
     delete:
       operationId: content-page-delete
       tags:
-        - Pages
+        - Pages (Single)
       description: |-
         Deletes one content page.
 
@@ -583,48 +492,173 @@ paths:
         > This endpoint does not recognize query parameters.
       responses:
         '204':
-          description: No content. A 204 response with no payload indicates successful deletion.
+          $ref: '#/components/responses/HTTP204'
         '404':
           description: The page specified for deletion did not exist.
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/ResponseErrorBrief'
               examples:
                 example-1:
                   value:
                     status: 404
-                    title: A Page was not found with an id of 99
+                    title: A Page was not found with an ID of 99
                     type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
       parameters: []
       summary: Delete a Page
     parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
-        description: The merchant's store hash. Also called a store id.
-      - schema:
-          type: string
-        name: pageId
-        in: path
-        required: true
-        description: The id of the page to be operated on.
-servers:
-  - url: 'https://api.bigcommerce.com'
-    description: Pages API Gateway
-    variables:
-      store_hash:
-        default: abc123
-        description: Store hash used to identify the store.
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/storeHashPath'
+      - $ref: '#/components/parameters/pageIdPath'
 x-stoplight:
   docs:
     includeDownloadLink: true
-    showModels: false
+    showSchemas: false
 components:
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      schema:
+        type: string
+        default: 'application/json'
+    storeHashPath: 
+      schema:
+        type: string
+      name: store_hash
+      in: path
+      required: true
+      description: The permanent ID of the BigCommerce store.
+    pageIdPath:
+      schema:
+        type: string
+      name: pageId
+      in: path
+      required: true
+      description: The ID of the page to be operated on.
+    includeQuery:
+      schema:
+        type: string
+        enum: 
+          - body
+      in: query
+      name: include
+      description: Include the requested property in the response. The `body` property returns the page’s markup, text, or raw content.
+    channelIdQuery:
+      schema:
+        type: integer
+      in: query
+      name: channel_id
+      description: Return only pages associated with the specified channel.
+    idInQueryGet:
+      schema:
+        type: string
+      in: query
+      name: 'id:in'
+      description: 'A comma-separated string of page IDs to fetch. Supports bulk operations. If none of the page IDs passed exist, the query will return an empty `data` array.'
+    idInQueryDelete:
+      schema:
+        type: string
+      in: query
+      name: 'id:in'
+      description: 'Request deletion of multiple pages by passing a comma-separated string of corresponding page IDs. Supports bulk operations. '
+      required: true
+    nameQuery:
+      schema:
+        type: string
+      in: query
+      name: name
+      description: Name of the page.
+    nameLikeQuery:
+      schema:
+        type: string
+      in: query
+      name: 'name:like'
+      description: Return only pages whose `name` or `body` contain the supplied string.
+    limitQuery:
+      schema:
+        type: integer
+      in: query
+      name: limit
+      description: The number of results to return per request. See `meta.pagination.per_page` in the response body.
+    pageQuery:
+      schema:
+        type: integer
+      in: query
+      name: page
+      description: The ordered grouping of results to return. See `meta.pagination.current_page` in the response body.
+  headers:
+    Content-Type: 
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
+    Accept: 
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    X-Auth-Token:
+      description: Your API account's access token.
+      schema:
+        type: string
+      # $ref: ''
+  securitySchemes:
+    X-Auth-Token:
+      description: |-
+        ## API account
+
+        You can use this API with a [store API account or an app API account](https://developer.bigcommerce.com/api-docs/getting-started/rest-api-authentication). 
+
+        ## OAuth scopes 
+ 
+        | UI Name | Permission | Parameter | 
+        |:--------|:-----------|:----------| 
+        | Content | modify     |`store_v2_content`| 
+        | Content | read-only  |`store_v2_content_read_only`| 
+
+        For a [full list of OAuth scopes](https://developer.bigcommerce.com/api-docs/getting-started/rest-api-authentication#oauth-scopes), see our narrative documentation.
+        
+        ## Security header        
+        
+        Include a header parameter called `X-Auth-Token` and pass it the `access_token` provided with your store API account or generated with your app's `/auth` callback.
+        
+        ```http title="Security header example"
+          X-Auth-Token: example_access_token
+        ```
+
+        ## Example requests
+
+        For detailed examples, consult our [X-Auth-Token example requests](https://developer.bigcommerce.com/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        ## Additional information
+        
+        [BigCommerce Terms of Service](http://www.bigcommerce.com/terms)
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: 'https://store-store_hash.mybigcommerce.com/manage/settings/api-accounts/create'
+          scopes: 
+            store_v2_content: Modify store content 
+            store_v2_content_read_only: Read store content
+        authorizationCode:
+          authorizationUrl: 'https://your_app.example.com/api/auth'
+          tokenUrl: 'https://devtools.bigcommerce.com'
+          refreshUrl: 'https://your_app.example.com/api/auth'
+          scopes: 
+            store_v2_content: Modify store content 
+            store_v2_content_read_only: Read store content
   schemas:
-    BaseError:
+    ResponseErrorBrief:
       type: object
       description: |
         Error payload for the BigCommerce API.
@@ -641,7 +675,7 @@ components:
           type: string
       required:
         - status
-    DetailedError:
+    ResponseErrorDetailed:
       type: object
       description: |
         Error payload for the BigCommerce API.
@@ -660,11 +694,11 @@ components:
           type: string
       required:
         - status
-    ListedError:
+    ResponseErrorItemized:
       type: object
       description: |
         Error payload for the BigCommerce API.
-      title: ListedError
+      title: ResponseErrorItemized
       properties:
         status:
           description: |
@@ -682,23 +716,53 @@ components:
             type: string
       required:
         - status
-    ErrorResponse:
-      allOf:
-        - $ref: '#/components/schemas/BaseError'
-      title: ListedErrorResponse
-    ListedErrorResponse:
-      allOf:
-        - $ref: '#/components/schemas/ListedError'
-    DetailedErrorResponse:
-      allOf:
-        - $ref: '#/components/schemas/DetailedError'
-    CollectionMeta:
+    ResponseMeta:
       type: object
       description: |
         Data about the response, including pagination and collection totals.
       properties:
         pagination:
-          $ref: '#/components/schemas/Pagination'
+          type: object
+          description: |
+            Data about the response, including pagination and collection totals.
+          properties:
+            total:
+              type: integer
+              description: |
+                Total number of items in the result set.
+            count:
+              type: integer
+              description: |
+                Total number of items in the collection response.
+            per_page:
+              type: integer
+              description: |
+                The amount of items returned in the collection per page, controlled by the limit parameter.
+            current_page:
+              type: integer
+              description: |
+                The page you are currently on within the collection.
+            total_pages:
+              type: integer
+              description: |
+                The total number of pages in the collection.
+            links:
+              type: object
+              description: |
+                Pagination links for the previous and next parts of the whole collection.
+              properties:
+                previous:
+                  type: string
+                  description: |
+                    Link to the previous page returned in the response.
+                current:
+                  type: string
+                  description: |
+                    Link to the current page returned in the response.
+                next:
+                  type: string
+                  description: |
+                    Link to the next page returned in the response.
     PagesCollectionResponse:
       description: |
         Response payload for the BigCommerce API.
@@ -708,9 +772,15 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/Page'
+            anyOf:
+              - $ref: '#/components/schemas/typePage'
+              - $ref: '#/components/schemas/typeBlog'
+              - $ref: '#/components/schemas/typeContactForm'
+              - $ref: '#/components/schemas/typeFeed'
+              - $ref: '#/components/schemas/typeRaw'
+              - $ref: '#/components/schemas/typeLink'
         meta:
-          $ref: '#/components/schemas/CollectionMeta'
+          $ref: '#/components/schemas/ResponseMeta'
     PageResponse:
       description: |
         Response payload for the BigCommerce API.
@@ -722,7 +792,7 @@ components:
               items:
                 $ref: '#/components/schemas/Page'
             meta:
-              $ref: '#/components/schemas/CollectionMeta'
+              $ref: '#/components/schemas/ResponseMeta'
       title: PageResponseObject
       type: object
     ContactFields:
@@ -730,7 +800,7 @@ components:
         - properties:
             fullname:
               type: string
-              description: Full name of the customer submitting the form.
+              description: Full name of the customer who is submitting the form.
             phone:
               type: string
               description: 'Customer’s phone number, as submitted on the form.'
@@ -746,7 +816,7 @@ components:
       type: object
     PagePutBulk:
       type: object
-      description: Page modification request body properties.
+      description: Properties of the page modification request body.
       properties:
         name:
           type: string
@@ -758,7 +828,10 @@ components:
         is_visible:
           type: boolean
           description: |
-            Determines the visibility of the page in the storefront’s navigation menu.
+            Boolean value that specifies the visibility of the page in the storefront’s navigation menu.
+                      
+                      
+            Indicates whether the page is available to users and visible in any menus.
         parent_id:
           type: integer
           description: |
@@ -768,13 +841,13 @@ components:
         sort_order:
           type: integer
           description: |
-            Determines the order in which the page is displayed on the storefront. (Lower integers specify earlier display.)
+            Specifies the order in which the page is displayed on the storefront. (Lower integers specify earlier display.)
           example: 0
           default: 0
         type:
           type: string
           description: |-
-            Determines the type of the page.
+            Specifies the type of the page. The following values are possible;
 
             |Value|Description|
             |-|-|
@@ -795,26 +868,27 @@ components:
         is_homepage:
           type: boolean
           description: |
-            Determines whether this page is the storefront’s home page.
+            Boolean value that specifies whether this page is the storefront’s home page.
         is_customers_only:
           type: boolean
           description: |
-            If `true`, this page will not be visible when logged in to the store control panel.
+            Boolean value. If this value is set to `true`, this page will not be visible when the user is logged in to the store control panel.
         id:
           type: integer
-          description: The id of the target page
+          description: The ID of the target page.
         email:
           type: string
-          description: 'Where the page’s type is a contact form: contact email address that receives messages sent via the form. Must be unique.'
+          description: 'Applicable when the page type is `contact_form`: contact email address that receives messages sent via the form. Must be unique.'
           maxLength: 255
         meta_title:
           type: string
+          nullable: true
         body:
           type: string
           description: |
-            HTML or variable that populates this page’s  element, in default/desktop view. Required in a `POST` request if the page type is `raw`.
+            HTML or variable that populates the element of this page, in default/desktop view. Required in a `POST` request if the page type is `raw`.
           example: <div>Hello World!</div>
-          writeOnly: true
+          nullable: true
         feed:
           type: string
           description: |
@@ -826,7 +900,7 @@ components:
         contact_fields:
           type: string
           description: |
-            Where the page’s type is `contact_form`: comma-separated list of keywords representing the fields enabled in the control panel for storefront display. Possible fields include:
+            Applicable when the page type is `contact_form`: comma-separated list of keywords representing the fields enabled in the control panel for storefront display. Possible fields include:
 
             |Field|Description|
             |-|-|
@@ -836,25 +910,23 @@ components:
             |`orderno`|Customer’s submitted order number|
             |`rma`|Customer’s submitted RMA (Return Merchandise Authorization) number|
           example: 'fullname,companyname,phone,orderno,rma'
-          enum:
-            - fullname
-            - phone
-            - companyname
-            - phone
-            - orderno
         meta_keywords:
-          type: string
           description: |
-            Comma-separated list of SEO-relevant keywords to include in the page’s  element.
+            Comma-separated list of SEO-relevant keywords to include in the element of this page.
+          default: ''
+          type: string
+          nullable: true
         meta_description:
           type: string
           description: |
-            Description contained within this page’s  element.
+            Description contained within the element of this page.
+          nullable: true
         search_keywords:
           type: string
           description: |
             Comma-separated list of keywords that shoppers can use to locate this page when searching the store.
           example: 'trousers,pockets,luxury'
+          nullable: true
         url:
           type: string
           description: |
@@ -863,14 +935,14 @@ components:
         channel_id:
           type: integer
           description: |
-            The Id of the channel where this page should be shown.
+            The ID of the channel where this page should be shown.
           example: 12
           default: 0
       required:
         - id
     PagePut:
       type: object
-      description: Page modification request body properties.
+      description: Properties of the page modification request body.
       properties:
         name:
           type: string
@@ -882,7 +954,7 @@ components:
         is_visible:
           type: boolean
           description: |
-            Determines the visibility of the page in the storefront’s navigation menu.
+            Boolean value that specifies the visibility of the page in the storefront’s navigation menu.
         parent_id:
           type: integer
           description: |
@@ -892,13 +964,13 @@ components:
         sort_order:
           type: integer
           description: |
-            Determines the order in which the page is displayed on the storefront. (Lower integers specify earlier display.)
+            Specifies the order in which the page is displayed on the storefront. (Lower integers specify earlier display.)
           example: 0
           default: 0
         type:
           type: string
           description: |-
-            Determines the type of the page.
+            Specifies the type of the page.
 
             |Value|Description|
             |-|-|
@@ -919,23 +991,24 @@ components:
         is_homepage:
           type: boolean
           description: |
-            Determines whether this page is the storefront’s home page.
+            Boolean value that specifies whether this page is the storefront’s home page.
         is_customers_only:
           type: boolean
           description: |
-            If `true`, this page will not be visible when logged in to the store control panel.
+            Boolean value. If this value is set to `true`, this page will not be visible when the user is logged in to the store control panel.
         email:
           type: string
-          description: 'Where the page’s type is a contact form: contact email address that receives messages sent via the form. Must be unique.'
+          description: 'Applicable when the page type is `contact_form`: contact email address that receives messages sent via the form. Must be unique.'
           maxLength: 255
         meta_title:
           type: string
+          nullable: true
         body:
           type: string
           description: |
-            HTML or variable that populates this page’s  element, in default/desktop view. Required in a `POST` request if the page type is `raw`.
+            HTML or variable that populates the elment of this page, in default/desktop view. Required in a `POST` request if the page type is `raw`.
           example: <div>Hello World!</div>
-          writeOnly: true
+          nullable: true
         feed:
           type: string
           description: |
@@ -947,7 +1020,7 @@ components:
         contact_fields:
           type: string
           description: |
-            Where the page’s type is `contact_form`: comma-separated list of keywords representing the fields enabled in the control panel for storefront display. Possible fields include:
+            Applicable when the page type is `contact_form`: comma-separated list of keywords representing the fields enabled in the control panel for storefront display. Possible fields include:
 
             |Field|Description|
             |-|-|
@@ -957,25 +1030,23 @@ components:
             |`orderno`|Customer’s submitted order number|
             |`rma`|Customer’s submitted RMA (Return Merchandise Authorization) number|
           example: 'fullname,companyname,phone,orderno,rma'
-          enum:
-            - fullname
-            - phone
-            - companyname
-            - phone
-            - orderno
         meta_keywords:
+          default: ''
           type: string
           description: |
-            Comma-separated list of SEO-relevant keywords to include in the page’s  element.
+            Comma-separated list of SEO-relevant keywords to include in the element of this page.
+          nullable: true
         meta_description:
           type: string
           description: |
-            Description contained within this page’s  element.
+            Description contained within the element of this page.
+          nullable: true
         search_keywords:
           type: string
           description: |
             Comma-separated list of keywords that shoppers can use to locate this page when searching the store.
           example: 'trousers,pockets,luxury'
+          nullable: true
         url:
           type: string
           description: |
@@ -984,7 +1055,7 @@ components:
         channel_id:
           type: integer
           description: |
-            The Id of the channel where this page should be shown.
+            The ID of the channel where this page should be shown.
           example: 12
           default: 0
       required:
@@ -995,18 +1066,18 @@ components:
           properties:
             email:
               type: string
-              description: 'Where the page’s type is a contact form: contact email address that receives messages sent via the form. Must be unique.'
+              description: 'Applicable when the page type is `contact_form`: contact email address that receives messages sent via the form. Must be unique.'
               maxLength: 255
               default: ''
             meta_title:
               type: string
-              default: ''
+              nullable: true
             body:
               type: string
               description: |
-                HTML or variable that populates this page’s  element, in default/desktop view. Required in a `POST` request if the page type is `raw`.
+                HTML or variable that populates this page’s element, in default/desktop view. Required in a `POST` request if the page type is `raw`.
               example: <div>Hello World!</div>
-              writeOnly: true
+              nullable: true
             feed:
               type: string
               description: |
@@ -1018,7 +1089,7 @@ components:
             contact_fields:
               type: string
               description: |
-                Where the page’s type is `contact_form`: comma-separated list of keywords representing the fields enabled in the control panel for storefront display. Possible fields include:
+                Applicable when the page type is `contact_form`: comma-separated list of keywords representing the fields enabled in the control panel for storefront display. Possible fields include:
 
                 |Field|Description|
                 |-|-|
@@ -1027,30 +1098,25 @@ components:
                 |`companyname`|Customer’s submitted company name|
                 |`orderno`|Customer’s submitted order number|
                 |`rma`|Customer’s submitted RMA (Return Merchandise Authorization) number|
-              example: 'fullname,companyname,phone,orderno,rma'
+              example: 'fullname,orderno,rma'
               default: ''
-              enum:
-                - fullname
-                - phone
-                - companyname
-                - phone
-                - orderno
             meta_keywords:
-              type: string
               description: |
-                Comma-separated list of SEO-relevant keywords to include in the page’s  element.
+                Comma-separated list of SEO-relevant keywords to include in the page’s element.
               default: ''
+              type: string
+              nullable: true
             meta_description:
               type: string
               description: |
-                Description contained within this page’s  element.
-              default: ''
+                Description contained within this page’s element.
+              nullable: true
             search_keywords:
               type: string
               description: |
                 Comma-separated list of keywords that shoppers can use to locate this page when searching the store.
               example: 'trousers,pockets,luxury'
-              default: ''
+              nullable: true
             url:
               type: string
               description: |
@@ -1080,6 +1146,10 @@ components:
           type: boolean
           description: |
             Determines the visibility of the page in the storefront’s navigation menu.
+
+            Boolean value that specifies the visibility of the page in the storefront’s navigation menu.
+                      
+            Indicates whether the page is available to users and visible in any menus.
         parent_id:
           type: integer
           description: |
@@ -1124,60 +1194,271 @@ components:
       required:
         - name
         - type
-    Pagination:
+    anyTypePage:
       type: object
       description: |
-        Data about the response, including pagination and collection totals.
+        Properties of all Pages V3 pages.
       properties:
-        total:
+        id:
           type: integer
-          description: |
-            Total number of items in the result set.
-        count:
+          nullable: false
+          readOnly: true
+        channel_id:
           type: integer
-          description: |
-            Total number of items in the collection response.
-        per_page:
+          readOnly: true
+        name:
+          type: string
+          description: The name of the page. Must be unique.
+          minLength: 1
+          maxLength: 100
+          uniqueItems: true
+          example: About Our Company
+          nullable: false
+          readOnly: false
+        is_visible:
+          type: boolean
+          example: true
+          default: true
+          description: |-
+            A boolean value that controls whether the page is available to users or visible in any navigation menus.
+        parent_id:
           type: integer
-          description: |
-            The amount of items returned in the collection per page, controlled by the limit parameter.
-        current_page:
+          description: ID of the parent page, if any. 
+          example: 0
+          default: 0
+        sort_order:
           type: integer
-          description: |
-            The page you are currently on within the collection.
-        total_pages:
-          type: integer
-          description: |
-            The total number of pages in the collection.
-        links:
-          type: object
-          description: |
-            Pagination links for the previous and next parts of the whole collection.
-          properties:
-            previous:
-              type: string
-              description: |
-                Link to the previous page returned in the response.
-            current:
-              type: string
-              description: |
-                Link to the current page returned in the response.
-            next:
-              type: string
-              description: |
-                Link to the next page returned in the response.
-    PageFull:
-      title: PageFull
+          description: Determines the order in which the page is displayed in the parent page’s menu. Pages with lower integers display earlier.
+          example: 0
+        type:
+          type: string
+          description: 'Determines the type of page. See [Pages v3 page types](/api-reference/store-management/pages#page-types) for more about the differences.'
+          nullable: false
+          example: page
+          enum:
+            - page
+            - raw
+            - contact_form
+            - feed
+            - link
+            - blog
+        is_homepage:
+          type: boolean
+          description: 'Determines whether this page loads at the siteʼs root route. For example, at `https://example.com/`.'
+          default: false
+        is_customers_only:
+          type: boolean
+          description: 'When `true`, this page is not visible to merchant users who are signed in to the store control panel.'
+          default: false
+      required:
+        - name
+        - type
+    typePage:
+      description: |
+        Schema for a Pages V3 page with `type: page`
       allOf:
-        - $ref: '#/components/schemas/Page'
-  securitySchemes:
-    X-Auth-Token:
-      name: X-Auth-Token
-      type: apiKey
-      in: header
+        - $ref: '#/components/schemas/anyTypePage'
+        - $ref: '#/components/schemas/pageMeta'
+        - $ref: '#/components/schemas/searchKeywords'
+    typeBlog:
+      description: ''
+      allOf:
+        - $ref: '#/components/schemas/anyTypePage'
+        - $ref: '#/components/schemas/pageMeta'
+        - $ref: '#/components/schemas/searchKeywords'
+        - properties:
+            url:
+              type: string
+              description: |
+                Relative URL on the storefront for this page.
+              example: '/blog/'
+    typeContactForm:
+      description: ''
+      allOf:
+        - $ref: '#/components/schemas/anyTypePage'
+        - $ref: '#/components/schemas/pageMeta'
+        - $ref: '#/components/schemas/searchKeywords'
+        - properties:
+            email:
+              type: string
+              description: 'Applicable when the page type is `contact_form`: contact email address that receives messages sent via the form. Must be unique.'
+              maxLength: 255
+            contact_fields:
+              type: string
+              description: |
+                A comma-separated list of the contact field forms that are enabled in the store control panel for display on the subject storefront. Possible fields include:
+
+                | Field | Description |
+                |:------|:------------|
+                | `fullname` | The full name of the customer submitting the form. |
+                | `phone` | The customer’s phone number. |
+                | `companyname` | The customer’s company name. |
+                | `orderno` | A field that lets customers specify a subject order number. |
+                | `rma` | A customer’s submitted RMA (Return Merchandise Authorization) number. |
+              example: 'fullname,companyname,phone,orderno,rma'
+    typeFeed:
+      description: ''
+      allOf:
+        - $ref: '#/components/schemas/anyTypePage'
+        - $ref: '#/components/schemas/pageMeta'
+        - $ref: '#/components/schemas/searchKeywords'
+        - properties:
+            feed:
+              type: string
+              description: |
+                The URL of the RSS feed. Required in a `POST` request if the page type is `rss_feed`.
+          required:
+            - feed
+    typeRaw:
+      description: ''
+      allOf:
+        - $ref: '#/components/schemas/anyTypePage'
+        - $ref: '#/components/schemas/searchKeywords'
+        - properties:
+            body:
+              type: string
+              description: |
+                HTML or variable that populates the element of this page, in default/desktop view. Required in a `POST` request if the page type is `raw`.
+              example: '<div>Hello World!</div>'
+              nullable: true
+            content_type:
+              type: string
+              description:
+                The MIME type of the page body.
+              example: 'text/html'
+          required:
+            - body
+    typeLink:
+      description: ''
+      allOf:
+        - $ref: '#/components/schemas/anyTypePage'
+        - properties:
+            link:
+              type: string
+              description: The link for the page type `link`.
+          required:
+            - link
+    pageMeta:
+      type: object
+      properties:
+        meta_title:
+          type: string
+          nullable: true
+        meta_keywords:
+          description: |
+            Comma-separated list of SEO-relevant keywords to include in the element of this page.
+          default: '""'
+          type: string
+          nullable: true
+        meta_description:
+          type: string
+          default: '""'
+          description: |
+            Description contained within the element of this page.
+          nullable: true
+    searchKeywords:
+      type: object
+      properties:
+        search_keywords:
+          type: string
+          description: |
+            Comma-separated list of keywords that shoppers can use to locate this page when searching the store.
+          example: 'trousers,pockets,luxury'
+          nullable: true
+          default: '""'
+          readOnly: false
+    ReadShared:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the page. Must be unique.
+          minLength: 1
+          maxLength: 100
+          uniqueItems: true
+          example: About Our Company
+        is_visible:
+          type: boolean
+          description: Indicates whether the page is available to users and visible in any menus.
+        parent_id:
+          type: integer
+          description: ID of the parent page, if any. 
+          example: 0
+          default: 0
+        sort_order:
+          type: integer
+          description: Determines the order in which the page is displayed in the parent page’s menu. Pages with lower integers display earlier.
+          example: 0
+          default: 0
+        type:
+          type: string
+          description: 'Determines the type of page. See [Pages v3 page types](/api-reference/store-management/pages#page-types) for more about the differences.'
+          example: page
+          enum:
+            - page
+            - contact_form
+            - raw
+            - blog
+            - feed
+            - link
+        is_homepage:
+          type: boolean
+          description: 'Determines whether this page loads at the siteʼs root route. For example, at `https://example.com/`.'
+          default: false
+        is_customers_only:
+          type: boolean
+          description: 'When `true`, this page is not visible to merchant users who are signed in to the store control panel.'
+          default: false
+      required:
+        - name
+        - type
   responses:
     HTTP207Response:
-      description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+      description: 'Multiple operations have occurred and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occurred, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
       content:
         application/json:
           schema: {}
+    HTTP201CreatePages:
+      description: |-
+        Created.
+
+        Response.data will inherit the datatype of the request. A single entry passed as an object will return an object for the data property. Any number of entries passed in an array will return an array for the data property.
+
+        Properties associated with a page `type` that are not required to create an entry will be created with default values. 
+
+        When you make bulk requests, an invalid input in any one entry will return 422. The entries that are valid will still be created.
+      content:
+        application/json:
+          schema: 
+            type: object
+            properties:
+              data:
+                anyOf:
+                - $ref: '#/components/schemas/typePage'
+                - $ref: '#/components/schemas/typeBlog'
+                - $ref: '#/components/schemas/typeContactForm'
+                - $ref: '#/components/schemas/typeFeed'
+                - $ref: '#/components/schemas/typeRaw'
+                - $ref: '#/components/schemas/typeLink'
+              meta:
+                $ref: '#/components/schemas/ResponseMeta'
+    HTTP204:
+      description: No content. A 204 response with no payload indicates successful deletion of all specified pages.
+    HTTP400:
+      description: ''
+      content:
+        application/problem+json:
+          schema: 
+            $ref: '#/components/schemas/ResponseErrorBrief'
+    HTTP404:
+      description: ''
+      content:
+        application/problem+json:
+          schema: 
+            $ref: '#/components/schemas/ResponseErrorDetailed'
+    HTTP422:
+      description: ''
+      content:
+        application/problem+json:
+          schema: 
+            $ref: '#/components/schemas/ResponseErrorDetailed'
