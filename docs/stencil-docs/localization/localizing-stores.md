@@ -87,22 +87,22 @@ For an overview of how to populate the store catalog, including options for bulk
 You can configure each store's default currency in the BigCommerce control panel. For details, see [Changing Your Default Currency](https://support.bigcommerce.com/s/article/Managing-Currencies#default).
 
 ### Localizing date format
-You can set the appropriate date format for your store's language/region in the BigCommerce control panel: **Store Setup** › **Store Settings** › [**Date & Timezone**](http://login.bigcommerce.com/deep-links/manage/settings/store). For details, see [Date & Timezone Settings](https://support.bigcommerce.com/s/article/Store-Settings#date-time).
+You can set the appropriate date format for your store's language/region in the BigCommerce control panel: **Settings** › **General** › [**Date & Timezone**](http://login.bigcommerce.com/deep-links/manage/settings/store). For details, see [Date & Timezone Settings](https://support.bigcommerce.com/s/article/Store-Settings#date-time).
 
 ### Localizing order statuses
 You can configure the `order-status` labels displayed on a BigCommerce storefront outside your theme. You can translate each of these strings in the BigCommerce control panel under **Orders** ›
  [**Order Statuses**](http://login.bigcommerce.com/deep-links/manage/orders/order-statuses). For instructions, see [Customizing an Order Status Label](https://support.bigcommerce.com/s/article/Order-Statuses#rename).
 
 ### Localizing the blog
-Blog entries are managed through the BigCommerce control panel under **Storefront Content** ›
+Blog entries are managed through the BigCommerce control panel under **Storefront** ›
  [**Blog**](https://login.mybigcommerce.com/manage/content/blog). You can add blog content in any language you choose. For details, see [Creating a Blog Post](https://support.bigcommerce.com/s/article/Using-the-Built-In-Blog#creating-post).
 
 ### Localizing static web pages
-If you create static pages as Stencil custom templates, you can localize their content just like other theme pages' content. However, if you create custom pages in the BigCommerce control panel under **Storefront Content** › [**Web Pages**](http://login.bigcommerce.com/deep-links/manage/content/pages), you must also enter their localized content in the control panel.
+If you create static pages as Stencil custom templates, you can localize their content just like other theme pages' content. However, if you create custom pages in the BigCommerce control panel under **Settings** › **General** › **Miscellaneous** › **URL Structure** › [**Web Page URL Settings**](http://login.bigcommerce.com/deep-links/manage/content/pages), you must also enter their localized content in the control panel.
 
 ### Managing transactional emails
 
-To fully localize a store into a language other than English, disable the sending of BigCommerce native emails. To disable native emails, go to **Storefront** › [**Email Templates**](http://login.bigcommerce.com/deep-links/manage/storefront-manager/email-templates). Uncheck each email type that you prefer to customize.
+To fully localize a store into a language other than English, disable the sending of BigCommerce native emails. To disable native emails, go to **Marketing** › [**Transactional Emails**](http://login.bigcommerce.com/deep-links/manage/transactional-emails). Uncheck each email type that you prefer to customize.
 
 You can localize transactional emails by using compatible third-party apps such as [CM Commerce](https://www.bigcommerce.com/apps/cm-commerce/).
 
