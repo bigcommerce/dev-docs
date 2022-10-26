@@ -423,7 +423,7 @@ All possible values for `{{page_type}}` are:
 | show_newsletter_box | Site-wide boolean value that indicates whether to display a mailing-list invite to visitors |
 |  gift_certificates_enabled | Site-wide boolean value that indicates whether to enable the gift certificate system for this store |
 |  blog_enabled | Site-wide boolean value that indicates whether the blog is visible for this store |
-|  data_tag_enabled | Site-wide boolean that indicates whether GAEE is enabled in a theme. For {{settings.data_tag_enabled}} to be true, the enhanced_ecommerce key must be present in config.json and a GAEE experiment must be enabled along with GA property value set in Advanced Settings > Analytics > GA in the BigCommerce Control Panel |
+|  data_tag_enabled | Site-wide boolean that indicates whether GAEE is enabled in a theme. For {{settings.data_tag_enabled}} to be true, the enhanced_ecommerce key must be present in config.json and a GAEE experiment must be enabled along with GA property value set in Analytics > GA in the BigCommerce control panel |
 | show_wishlist | Site-wide boolean value that indicates whether to allow customers to create wishlists |
 | base_url | The normal shop URL |
 | client_ip_address | IP address of the customer browsing the store |
@@ -528,7 +528,7 @@ All possible values for `{{page_type}}` are:
 | measurements | Collection of units-of-measure definitions, to be used when displaying product details: |
 | &#x21B3; length | Units of measure for product length |
 | &#x21B3; weight | Units of measure for product weight |
-| Time and date settings | The four settings below are configured in the control panel under **Store Setup > Store Settings > Language and Date > Date Settings** . Date formats follow php conventions. |
+| Time and date settings | The four settings below are configured in the control panel under **Settings >General > Date & Timezone**. Date formats follow php conventions. |
 | store_time_zone | Store's time zone, as selected in the control panel's Your Timezone drop-down list |
 | store_dst_correction | Whether or not this time zone observes Daylight Saving Time (boolean), as set by the control panel's Enable DST Correction check box |
 | display_date_format | Brief display format/pattern for dates, as configured in the control panel's Display Date Format field |
