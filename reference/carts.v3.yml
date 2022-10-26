@@ -37,7 +37,7 @@ paths:
         * If a product has modifiers, use the `option_selections` array to describe the **modifier** selection(s).
         * The format and data type of a cart’s `option_value` are defined by the `value_data` object of a product’s [variant option value](/api-reference/store-management/catalog/product-variant-option-values/getoptionvaluebyid), [modifier value](/api-reference/store-management/catalog/product-modifier-values/getmodifiervaluebyid), or a combination of both.
         * Redirect URLs can only be generated from carts that were created using the **Server-to-Server Carts API**. 
-        * To get cart `redirect_urls` in the response, append the following query parameter to the request URL: `include=redirect_urls`.
+        * To get cart `redirect_urls` in the response, append the following query parameter to the request URL: `include=redirect_urls`. Redirect URLs point to either a shared checkout domain or a channel-specific domain, depending on the storefront's configuration.
         * To restore a cart that was created by a shopper or through the Storefront Cart API, first recreate the cart using the Server to Server Cart API.
         * To get cart `promotions` in the response, append the following query parameter to the request URL: `include=promotions.banners`.
       parameters:
@@ -376,7 +376,8 @@ paths:
         **Usage Notes**
 
         * Redirect URLs can also be created via **Create a Cart** requests by appending `include=redirect_urls`.
-        * A **Carts** redirect URL may only be used once. 
+        * A **Carts** redirect URL may only be used once.
+        * Redirect URLs point to either a shared checkout domain or a channel-specific domain, depending on the storefront's configuration.
         * Once a redirect URL has been visited, it will be invalidated and cannot be used again. 
         * If your application requires URLs to be visited more than once, consider generating a fresh one each time you need to restore a cart, and redirecting to the URL from your own application.
         * Redirect URLs can be generated only from carts that were created using the Server to Server Cart API and the Storefront Cart API. 
