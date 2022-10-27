@@ -27,10 +27,10 @@ Once your tax provider configuration is ready, we'll let you know via email. The
 |Tax Provider Details              |Required / Optional            |Value(s)                     |Description                                                                                           |Example                                           |
 | ------------------------------------- | ------------------------------ | ---------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
 | App ID                                | Required                       | Integer                      | Tells us which tax provider configuration to use after the app is installed.                                     | `123456`                                          |
-| Tax provider name                     | Required                       | String                       | Displayed in the BigCommerce control panel (e.g. **Settings > Setup > Tax > Add tax service**).             | `Sample Tax`                                      |
+| Tax provider name                     | Required                       | String                       | Displayed in the MSF-enabled BigCommerce control panel (e.g. **Settings > Setup > Tax > Add tax service**).             | `Sample Tax`                                      |
 | Tax provider type                     | Required                       | Production, Sandbox             | Hierarchy of tax provider configurations, Production is primary and Sandboxes are secondary, see [sandbox tax provider configuration](#sandbox-tax-provider-configuration) for more information.               | `Production`                                      |
 | Partner support email                | Required                       | Email                        | Used by BigCommerce to contact tax provider, in the case we need to forward a merchant support request.                       | `support@sampletax.example.com`                   |
-| Links displayed in control panel                  | Optional                       | URL, Title, Description                          | Link(s) displayed to shoppers when they navigate to **Settings > Setup > Tax > {Tax Provider}**. One or multiple links supported.                        | `support.sampletax.com`, `Sample Tax Support`, `The Sample Tax Support website.`                    |
+| Links displayed in an MSF-enabled control panel                  | Optional                       | URL, Title, Description                          | Link(s) displayed to shoppers when they navigate to **Settings > Setup > Tax > {Tax Provider}**. One or multiple links supported.                        | `support.sampletax.com`, `Sample Tax Support`, `The Sample Tax Support website.`                    |
 | **Coverage**                          |                                |                              |                                                                                                       |                                                   |
 | Tax provider visibility               | Required                       | Show, Hide                   | Tells us if tax provider should be displayed to users in the BigCommerce control panel before the tax providers app is installed on the associated store.          | `Show`                                            |
 | Platform availability                    | Required                       | All stores, Private instance | Tells us if tax provider should work on all stores or only on the stores where a store hash has been provided.                                           | `All stores`                                      |
@@ -108,9 +108,9 @@ The [Get a Connection](/api-reference/store-management/tax/tax-provider-connecti
 
 Once the tax provider's app has been successfully installed and basic authentication credentials have been provided via the Update a Connection request, users will be able to enable the tax provider on all supplied merchant and/or partner test stores provided by the tax provider in [sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce).
 
-To enable the tax provider, users must navigate to **Settings > Setup > Tax** in the BigCommerce control panel and click **Enable** next to the associated tax provider.
+To enable the tax provider, users must navigate to **Settings > Setup > Tax** in the MSF-enabled BigCommerce control panel and click **Enable** next to the associated tax provider.
 
-If document submission is supported, navigate to **Settings > Setup > Tax > {Tax Provider}** and ensure the **Submit Order Data** checkbox is checked.
+If document submission is supported, navigate to **Settings > Setup > Tax > {Tax Provider}** in the MSF-enabled BigCommerce control panel and ensure the **Submit Order Data** checkbox is checked.
 
 ## Tax estimation
 
@@ -134,7 +134,7 @@ Estimate requests are not expected after the following events.
 Estimate calls will also be made in the control panel when using flows like the following.
 
 * Line-item refund flows
-* Test connection functionality when users navigate to **Settings > Setup > Tax > {Tax Provider}** in the BigCommerce control panel
+* Test connection functionality when users navigate to **Settings > Setup > Tax > {Tax Provider}** in the MSF-enabled BigCommerce control panel
 
 <!-- theme: info -->
 > #### Note
@@ -144,7 +144,7 @@ Estimate calls will also be made in the control panel when using flows like the 
 
 ### Responding to tax estimate requests
 
-When responding to tax estimate requests sent by BigCommerce, tax providers are required to include aggregates and breakdowns of sales tax amounts and rates for product item prices, shipping and handling prices. This is because when navigating to the **Settings > Setup > Tax > Tax Settings** page in the BigCommerce control panel, merchants have the ability to specify whether they would like to show taxes in cart, checkout, orders and invoice **As one summarized line item** or **Broken down by tax rate**.
+When responding to tax estimate requests sent by BigCommerce, tax providers are required to include aggregates and breakdowns of sales tax amounts and rates for product item prices, shipping and handling prices. This is because when navigating to the **Settings > Setup > Tax > Tax Settings** page in the MSF-enabled BigCommerce control panel, merchants have the ability to specify whether they would like to show taxes in cart, checkout, orders and invoice **As one summarized line item** or **Broken down by tax rate**.
 
 [View the Estimate Taxes API reference](/api-reference/providers/tax-provider-api/tax-provider/estimate).
 
@@ -154,13 +154,13 @@ Document submission enables tax providers to persist a tax quote request, replac
 
 Supporting document submission is optional. However, tax providers wishing to support this functionality must share document submission URLs with BigCommerce when [sharing provider details with BigCommerce](#sharing-provider-details-with-bigcommerce).
 
-If document submission is supported, navigate to **Settings > Setup > Tax > {Tax Provider}** and ensure the **Submit Order Data** checkbox is checked.
+If document submission is supported, navigate to **Settings > Setup > Tax > {Tax Provider}** in the MSF-enabled control panel and ensure the **Submit Order Data** checkbox is checked.
 
 [View the Commit Tax Quote API reference](/api-reference/providers/tax-provider-api/tax-provider/commit).
 
 ## Testing
 
-Prior to testing a tax provider, the merchant or partner test store should have the following configured in the BigCommerce control panel:
+Prior to testing a tax provider, the merchant or partner test store should have the following configured in the BigCommerce control panel. The following menu paths are based on having MSF-enabled:
 
 * The store default country, found by navigating to **Settings > Setup > Store profile**, is set to a country that is supported by the tax provider
 * The shipping origin address, found by navigating to **Settings > Setup > Shipping**, is configured. This value is included in tax estimate requests
