@@ -195,14 +195,52 @@ title: Response
 
 ## Product options 
 
-If your product has variants, use [Get variant product options](/...) to retrieve variant options.
+You can query for the [product options](https://support.bigcommerce.com/s/article/Product-Options-v3) associated with a product. If your product has variants, use [Get variant product options](/...) for more. 
+
+There are various [types of product options](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#types), including checkbox, multiple choice, and more, each with unique fields. However, each type of product option has a schema type that implements the `CatalogProductOption` interface, meaning you can query for the common fields that are included in `CatalogProductOption`. For more on interfaces, see the [GraphQL Schema and Types- Interfaces](https://graphql.org/learn/schema/#interfaces) documentation.
+
+```graphql title="CatalogProductOption interface" lineNumbers
+interface CatalogProductOption {
+  entityId: Int!
+  displayName: String!
+  isRequired: Boolean!
+  isVariantOption: Boolean!
+}
+```
+
+The example below shows how to query for product options with additional fields for the checkbox and datefield option types. In the response, all product options include common fields from the `CatalogProductOption` interface, and the checkbox and datefield option returned the additional fields included in the query.  
 
 <!--
 type: tab
 title: Query
 -->
 
-```graphql title="Example" lineNumbers
+```graphql title="Example query: Product options" lineNumbers
+query {
+  site {
+    product (entityId: 115) {
+      productOptions {
+        edges {
+          node {
+            entityId
+            displayName
+            isRequired
+            isVariantOption
+            ... on CheckboxOption {
+              checkedByDefault
+              label
+            }
+						... on DateFieldOption {
+            	earliest
+            	latest
+              limitDateBy
+          	}
+          }
+        }
+      }
+    }
+  }
+}
 ```
 
 <!--
@@ -210,7 +248,48 @@ type: tab
 title: Response
 -->
 
-```json title="Example" lineNumbers
+```json title="Example response: Product options" lineNumbers
+{
+  "data": {
+    "site": {
+      "product": {
+        "productOptions": {
+          "edges": [
+            {
+              "node": {
+                "entityId": 119,
+                "displayName": "Color",
+                "isRequired": true,
+                "isVariantOption": true
+              }
+            },
+            {
+              "node": {
+                "entityId": 137,
+                "displayName": "Special feed",
+                "isRequired": false,
+                "isVariantOption": false,
+                "checkedByDefault": false,
+                "label": "YES"
+              }
+            },
+            {
+              "node": {
+                "entityId": 138,
+                "displayName": "Custom date",
+                "isRequired": false,
+                "isVariantOption": false,
+                "earliest": "2022-10-27T06:00:00Z",
+                "latest": "2022-12-08T06:00:00Z",
+                "limitDateBy": "RANGE"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
 ```
 <!-- type: tab-end -->
 
