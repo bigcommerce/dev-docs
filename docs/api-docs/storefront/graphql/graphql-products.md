@@ -1,5 +1,13 @@
 # Products with the GraphQL Storefront API
 
+BigCommerce's GraphQL Storefront API lets merchants on headless storefronts retrieve products powered by results from our back-end search engine. These built-in capabilities also allow Stencil developers to customize...
+
+The GraphQL Storefront API lets you retrieve the following product features:
+- 
+-
+
+This page walks you through how to ... See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation.
+
 ## Retrieving products vs single product
 
 <!--
