@@ -428,7 +428,7 @@ All possible values for `{{page_type}}` are:
 | base_url | The normal shop URL |
 | client_ip_address | IP address of the customer browsing the store |
 |country_code|The country code corresponding to the IP|
-|request|object that contaisn details about the HTTP request|
+|request|object that contains details about the HTTP request|
 | &#x21B3; referer|refer of the request|
 | &#x21B3; host|hostname of the request|
 | &#x21B3; origin|origin of the request|
