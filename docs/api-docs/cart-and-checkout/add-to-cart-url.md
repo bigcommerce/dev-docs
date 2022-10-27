@@ -8,7 +8,6 @@ URLs constructed with these parameters allow you to:
 * Pre-select a specific SKU on a product detail page
 * Add a specific product or SKU to the cart
 * Add a specific SKU to the cart and go directly to checkout.
-* Attach a `source` for marketing and analytics purposes
 
 ## Parameters
 
@@ -19,7 +18,6 @@ URLs constructed with these parameters allow you to:
 | int     | `product_id=` | product id to add to the cart                       | `/cart.php?action=add&product_id=123`                       |
 | int     | `qty=`        | quantity to add to the cart                         | `/cart.php?action=add&product_id=123&qty=3`                 |
 | string  | `sku=`        | SKU to add to the cart (or select on product page)  | `/cart.php?action=add&sku=xlredtshirt`                      |
-| string  | `source=`     | source of the sale for analytics; can be any string | `/cart.php?action=buy&sku=xlredtshirt&source=emailcampaign` |
 
 ## Common usage
 
@@ -30,14 +28,13 @@ Below is a table of common scenarios and example URLs.
 | Select a specific SKU on Product Detail page                 |`https://{{domain}}/{{page}}?sku={{sku}}`                             |
 | Add specific SKU to cart                                     |`https://{{domain}}/cart.php?action=add&sku={{sku}}`                  |
 | Add specific SKU to cart, go directly to checkout            |`https://{{domain}}/cart.php?action=buy&sku={{sku}}`                  |
-| Add specific SKU to cart, go to checkout, and include source |`https://{{domain}}/cart.php?action=buy&sku={{sku}}&source={{src}}`   |
 | Add product to cart by product id and set quantity           |`https://{{domain}}/cart.php?action=add&product_id={{id}}&qty={{qty}}`|
 | Add product to cart and set coupon code                      |`https://{{domain}}/cart.php?action=add&product_id={{id}}&couponcode={{code}}`          |
 
 Once constructed, a URL can be inserted directly as text or as an HTML link:
 
 ```html
-<a href="https://example.com/cart.php?action=buy&product_id=123&source=blogpost">Purchase Our New Product Now!</a>
+<a href="https://example.com/cart.php?action=buy&product_id=123">Purchase Our New Product Now!</a>
 ```
 
 ## Adding multiple products
