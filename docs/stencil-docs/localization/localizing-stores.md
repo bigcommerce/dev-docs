@@ -87,7 +87,7 @@ For an overview of how to populate the store catalog, including options for bulk
 You can configure each store's default currency in the BigCommerce control panel. For details, see [Changing Your Default Currency](https://support.bigcommerce.com/s/article/Managing-Currencies#default).
 
 ### Localizing date format
-You can set the appropriate date format for your store's language/region in the BigCommerce control panel: **Settings** › **General** › [**Date & Timezone**](http://login.bigcommerce.com/deep-links/manage/settings/store). For details, see [Date & Timezone Settings](https://support.bigcommerce.com/s/article/Store-Settings#date-time).
+You can set the appropriate date format for your store's language/region in an active MSF-enabled BigCommerce control panel: **Settings** › **General** › [**Date & Timezone**](http://login.bigcommerce.com/deep-links/manage/settings/store). For details, see [Date & Timezone Settings](https://support.bigcommerce.com/s/article/Store-Settings#date-time).
 
 ### Localizing order statuses
 You can configure the `order-status` labels displayed on a BigCommerce storefront outside your theme. You can translate each of these strings in the BigCommerce control panel under **Orders** ›
@@ -98,7 +98,7 @@ Blog entries are managed through the BigCommerce control panel under **Storefron
  [**Blog**](https://login.mybigcommerce.com/manage/content/blog). You can add blog content in any language you choose. For details, see [Creating a Blog Post](https://support.bigcommerce.com/s/article/Using-the-Built-In-Blog#creating-post).
 
 ### Localizing static web pages
-If you create static pages as Stencil custom templates, you can localize their content just like other theme pages' content. However, if you create custom pages in the BigCommerce control panel under **Settings** › **General** › **Miscellaneous** › **URL Structure** › [**Web Page URL Settings**](http://login.bigcommerce.com/deep-links/manage/content/pages), you must also enter their localized content in the control panel.
+If you create static pages as Stencil custom templates, you can localize their content just like other theme pages' content. However, if you create custom pages using Stencil CLI, you must also enter their localized content in the control panel.
 
 ### Managing transactional emails
 
