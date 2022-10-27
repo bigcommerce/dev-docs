@@ -12,7 +12,7 @@ BigCommerce considers a cart _abandoned_ when a shopper leaves the cart without 
 
 ![Complete your purchase email](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Abandoned%20Carts/01-abandoned-carts.png "Complete your purchase email")
 
-To enable the Abandoned Cart Saver notifications on your store, go to **Store Setup > Store Settings > Miscellaneous** in the control panel. To access your Abandoned Cart Emails settings, visit **Marketing > Abandoned Cart Emails**.
+To enable the Abandoned Cart Saver notifications on your store, go to **Settings > General > Miscellaneous** in an active MSF-enabled control panel. To access your Abandoned Cart Emails settings, visit **Marketing > Abandoned Cart Emails**.
 
 ![Abandoned cart emails](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Abandoned%20Carts/02-abandoned-carts.png "Abandoned cart emails")
 
@@ -59,7 +59,7 @@ Accept: application/json
 
 You can locate your channel ID by:
 
-- going to **Channel Manager > Storefronts** in the control panel, clicking on **...** next to your headless storefront, and selecting **Advanced settings** from the dropdown
+- going to **Channel Manager > Storefronts** in the control panel, clicking on **...** next to your headless storefront, and selecting **Edit settings** from the dropdown
 
 **or**
 
