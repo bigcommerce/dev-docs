@@ -230,11 +230,11 @@ query {
               checkedByDefault
               label
             }
-						... on DateFieldOption {
-            	earliest
-            	latest
+            ... on DateFieldOption {
+              earliest
+              latest
               limitDateBy
-          	}
+            }
           }
         }
       }
