@@ -20,7 +20,7 @@ For Non-MSF stores, only products in categories that are available to "default G
 
 ### Basic info
 
-If your product has variants, use [Get variant basic info](/...) instead.
+If your product has variants, see [Get variant basic info](/...) to retrieve variant info.
 
 Don't need to check "Show condition on SF" to be able to see condition field 
 
@@ -88,7 +88,7 @@ title: Response
 ### Prices and dimensions
 
 You can get prices and dimensions for a product. 
-If your product has variants, use [Get variant prices and dimensions](/...) instead.
+If your product has variants, see [Get variant prices and dimensions](/...) instead.
 
 If Product values empty (except for required Weight): null
 
@@ -195,7 +195,7 @@ title: Response
 
 ## Product options 
 
-If your product has variants, use [Get variant product options](/...) instead.
+If your product has variants, use [Get variant product options](/...) to retrieve variant options.
 
 <!--
 type: tab
@@ -237,7 +237,7 @@ title: Response
 
 ## Metafields
 
-If your product has variants, use [Get variant metafields](/...) instead.
+If your product has variants, see [Get variant metafields](/...) to retrieve variant metafields.
 
 <!--
 type: tab
