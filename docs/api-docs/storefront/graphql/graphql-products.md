@@ -85,12 +85,56 @@ title: Response
 
 ### Prices and dimensions
 
+If Product values empty (except for required Weight): null
+
 <!--
 type: tab
 title: Query
 -->
 
 ```graphql title="Example" lineNumbers
+query {
+  site {
+    product (entityId: 111) {
+          prices(currencyCode: USD) {
+            price {
+                ...PriceFields
+            }
+            salePrice {
+                ...PriceFields
+            }
+            basePrice {
+                ...PriceFields
+            }
+            retailPrice {
+                ...PriceFields
+            }
+          }
+          weight {
+                ...DimensionFields
+          }
+          height {
+                ...DimensionFields
+          }
+          width {
+                ...DimensionFields
+          }
+          depth {
+                ...DimensionFields
+          }
+      }
+    }
+  }
+
+fragment PriceFields on Money {
+    currencyCode
+    value
+}
+
+fragment DimensionFields on Measurement {
+    value
+    unit
+}
 ```
 
 <!--
@@ -99,6 +143,48 @@ title: Response
 -->
 
 ```json title="Example" lineNumbers
+{
+  "data": {
+    "site": {
+      "product": {
+        "prices": {
+          "price": {
+            "currencyCode": "USD",
+            "value": 5
+          },
+          "salePrice": {
+            "currencyCode": "USD",
+            "value": 5
+          },
+          "basePrice": {
+            "currencyCode": "USD",
+            "value": 25
+          },
+          "retailPrice": {
+            "currencyCode": "USD",
+            "value": 200
+          }
+        },
+        "weight": {
+          "value": 4000,
+          "unit": "oz"
+        },
+        "height": {
+          "value": 4,
+          "unit": "in"
+        },
+        "width": {
+          "value": 4,
+          "unit": "in"
+        },
+        "depth": {
+          "value": 4,
+          "unit": "in"
+        }
+      }
+    }
+  }
+}
 ```
 <!-- type: tab-end -->
 
