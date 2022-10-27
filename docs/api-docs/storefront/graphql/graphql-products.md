@@ -6,7 +6,7 @@ The GraphQL Storefront API lets you retrieve the following product features:
 - 
 -
 
-This page walks you through how to ... See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation.
+This page walks you through how to ... for products without variants. For products with variants, see [Variants](/...)instead. See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation.
 
 
 ## Product Info
@@ -19,6 +19,8 @@ If category (that product is in) is not "visible", product still shows up.
 For Non-MSF stores, only products in categories that are available to "default GUEST customer groups" returned. => what if you login as a customer???
 
 ### Basic info
+
+If your product has variants, use [Get variant basic info](/...) instead.
 
 Don't need to check "Show condition on SF" to be able to see condition field 
 
@@ -84,6 +86,9 @@ title: Response
 <!-- type: tab-end -->
 
 ### Prices and dimensions
+
+You can get prices and dimensions for a product. 
+If your product has variants, use [Get variant prices and dimensions](/...) instead.
 
 If Product values empty (except for required Weight): null
 
@@ -190,6 +195,8 @@ title: Response
 
 ## Product options 
 
+If your product has variants, use [Get variant product options](/...) instead.
+
 <!--
 type: tab
 title: Query
@@ -209,6 +216,8 @@ title: Response
 
 ## Images
 
+If your product has variants, use [Get variant images](/...) instead.
+
 <!--
 type: tab
 title: Query
@@ -227,6 +236,8 @@ title: Response
 <!-- type: tab-end -->
 
 ## Metafields
+
+If your product has variants, use [Get variant metafields](/...) instead.
 
 <!--
 type: tab
