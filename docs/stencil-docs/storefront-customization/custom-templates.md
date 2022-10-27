@@ -159,6 +159,12 @@ Before you can apply your custom template to pages you need to bundle and push t
 
 After a new theme has been uploaded to BigCommerce, the merchant (or any authorized store user) can assign the custom templates to individual store pages in the BigCommerce Control Panel to make it live on the storefront.
 
+## Applying custom template associations
+
+Using the Custom Template Associations API, you can update template layout files applied to your product for non-default channels. You can overwrite the template for existing records with the same channel ID, entity ID, and type. For more information, see the [Upsert Custom Template Associations](https://developer.bigcommerce.com/api-reference/69377d30c3d6e-upsert-custom-template-associations) API endpoint.
+
+## Troubleshooting template authoring
+
 See [Applying a Custom Template](https://support.bigcommerce.com/s/article/Stencil-Themes#custom-template) (BigCommerce Knowledge base) for more information.
 
 ## Troubleshooting custom templates
