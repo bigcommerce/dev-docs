@@ -27,7 +27,7 @@ Once your tax provider configuration is ready, we'll let you know via email. The
 |Tax Provider Details              |Required / Optional            |Value(s)                     |Description                                                                                           |Example                                           |
 | ------------------------------------- | ------------------------------ | ---------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
 | App ID                                | Required                       | Integer                      | Tells us which tax provider configuration to use after the app is installed.                                     | `123456`                                          |
-| Tax provider name                     | Required                       | String                       | Displayed in the MSF-enabled BigCommerce control panel (e.g. **Settings > Setup > Tax > Add tax service**).             | `Sample Tax`                                      |
+| Tax provider name                     | Required                       | String                       | Displayed in the active MSF-enabled BigCommerce control panel (e.g. **Settings > Setup > Tax > Add tax service**).             | `Sample Tax`                                      |
 | Tax provider type                     | Required                       | Production, Sandbox             | Hierarchy of tax provider configurations, Production is primary and Sandboxes are secondary, see [sandbox tax provider configuration](#sandbox-tax-provider-configuration) for more information.               | `Production`                                      |
 | Partner support email                | Required                       | Email                        | Used by BigCommerce to contact tax provider, in the case we need to forward a merchant support request.                       | `support@sampletax.example.com`                   |
 | Links displayed in an active MSF-enabled control panel                  | Optional                       | URL, Title, Description                          | Link(s) displayed to shoppers when they navigate to **Settings > Setup > Tax > {Tax Provider}**. One or multiple links supported.                        | `support.sampletax.com`, `Sample Tax Support`, `The Sample Tax Support website.`                    |
@@ -110,7 +110,7 @@ Once the tax provider's app has been successfully installed and basic authentica
 
 To enable the tax provider, users must navigate to **Settings > Setup > Tax** in an active MSF-enabled BigCommerce control panel and click **Enable** next to the associated tax provider.
 
-If document submission is supported, navigate to **Settings > Setup > Tax > {Tax Provider}** in the active MSF-enabled BigCommerce control panel and ensure the **Submit Order Data** checkbox is checked.
+If document submission is supported, navigate to **Settings > Setup > Tax > {Tax Provider}** in an active MSF-enabled BigCommerce control panel and ensure the **Submit Order Data** checkbox is checked.
 
 ## Tax estimation
 
