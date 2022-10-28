@@ -750,23 +750,5 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-## Related Products
-
-<!--
-type: tab
-title: Query
--->
-
-```graphql title="Example" lineNumbers
-```
-
-<!--
-type: tab
-title: Response
--->
-
-```json title="Example" lineNumbers
-```
-<!-- type: tab-end -->
 
 ## Resources
