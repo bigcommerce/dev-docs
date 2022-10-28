@@ -210,43 +210,6 @@ fragment DimensionFields on Measurement {
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=variantDetails" target="_blank">**Try it in GraphQL Playground**</a>
 
-## Get product option details by product ID
-
-```graphql title="Example query: Get product option details by product ID" lineNumbers
-query SeveralProductsByID {
-  site {
-    products(entityIds: [1, 2, 3]) {
-      edges {
-        node {
-          name
-          productOptions {
-            edges {
-              node {
-                entityId
-                displayName
-                isRequired
-                ... on MultipleChoiceOption {
-                  values {
-                    edges {
-                      node {
-                        entityId
-                        label
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-<a href="https://developer.bigcommerce.com/graphql?playground_tab=productOptions" target="_blank">**Try it in GraphQL Playground**</a>
-
 ## Get refined product object for given options
 
 ```graphql title="Example query: Get refined product object for given options" lineNumbers
