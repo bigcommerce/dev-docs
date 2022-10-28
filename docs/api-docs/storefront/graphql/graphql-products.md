@@ -33,24 +33,24 @@ title: Query
 query {
   site {
     product (entityId: 111) {
-        id
-        entityId
-        sku
-        path
-        name
-        description
-        warranty
-        minPurchaseQuantity
-        maxPurchaseQuantity
-        addToCartUrl
-        type
-        upc
-        mpn
-        gtin
-        condition  
-      }
+      id
+      entityId
+      sku
+      path
+      name
+      description
+      warranty
+      minPurchaseQuantity
+      maxPurchaseQuantity
+      addToCartUrl
+      type
+      upc
+      mpn
+      gtin
+      condition  
     }
   }
+}
 ```
 
 <!--
@@ -101,44 +101,44 @@ title: Query
 query {
   site {
     product (entityId: 111) {
-          prices(currencyCode: USD) {
-            price {
-                ...PriceFields
-            }
-            salePrice {
-                ...PriceFields
-            }
-            basePrice {
-                ...PriceFields
-            }
-            retailPrice {
-                ...PriceFields
-            }
-          }
-          weight {
-                ...DimensionFields
-          }
-          height {
-                ...DimensionFields
-          }
-          width {
-                ...DimensionFields
-          }
-          depth {
-                ...DimensionFields
-          }
+      prices(currencyCode: USD) {
+        price {
+          ...PriceFields
+        }
+        salePrice {
+          ...PriceFields
+        }
+        basePrice {
+          ...PriceFields
+        }
+        retailPrice {
+          ...PriceFields
+        }
+      }
+      weight {
+        ...DimensionFields
+      }
+      height {
+        ...DimensionFields
+      }
+      width {
+        ...DimensionFields
+      }
+      depth {
+        ...DimensionFields
       }
     }
   }
+}
 
 fragment PriceFields on Money {
-    currencyCode
-    value
+  currencyCode
+  value
 }
 
 fragment DimensionFields on Measurement {
-    value
-    unit
+  value
+  unit
 }
 ```
 
@@ -321,7 +321,7 @@ query {
             displayName
             isRequired
             isVariantOption
-           	... on MultipleChoiceOption {
+            ... on MultipleChoiceOption {
               displayStyle
               values {
                 edges {
