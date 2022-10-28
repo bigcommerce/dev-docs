@@ -419,7 +419,7 @@ title: Response
 
 ## Images
 
-If your product has variants, use [Get variant images](/...) instead.
+If you would like images of product variants, see [Get variant images](/...). 
 
 <!--
 type: tab
@@ -478,14 +478,6 @@ title: Response
                 "altText": "",
                 "isDefault": true
               }
-            },
-            {
-              "node": {
-                "url": "https://cdn11.bigcommerce.com/s-{store_hash}/images/stencil/1w/products/113/380/IMAG0805_BURST004__27919.1640207947.jpg",
-                "urlOriginal": "https://cdn11.bigcommerce.com/s-{store_hash}/images/stencil/original/products/113/380/IMAG0805_BURST004__27919.1640207947.jpg",
-                "altText": "",
-                "isDefault": false
-              }
             }
           ]
         },
@@ -500,6 +492,62 @@ title: Response
   }
 }
 ```
+<!-- type: tab-end -->
+
+You can query product images at different resolutions. 
+
+<!--
+type: tab
+title: Query
+-->
+
+```graphql title="Example query: Get product images" lineNumbers
+query {
+  site {
+    product(entityId: 113) {
+      images {
+        edges {
+          node {
+            url320wide: url(width: 320)
+            url640wide: url(width: 640)
+            url960wide: url(width: 960)
+            url1280wide: url(width: 1280)
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response: Get product images" lineNumbers
+{
+  "data": {
+    "site": {
+      "product": {
+        "images": {
+          "edges": [
+            {
+              "node": {
+                "url320wide": "https://cdn11.bigcommerce.com/s-o8ertuc7vw/images/stencil/320w/products/113/379/IMAG0729__87810.1662649673.jpg",
+                "url640wide": "https://cdn11.bigcommerce.com/s-o8ertuc7vw/images/stencil/640w/products/113/379/IMAG0729__87810.1662649673.jpg",
+                "url960wide": "https://cdn11.bigcommerce.com/s-o8ertuc7vw/images/stencil/960w/products/113/379/IMAG0729__87810.1662649673.jpg",
+                "url1280wide": "https://cdn11.bigcommerce.com/s-o8ertuc7vw/images/stencil/1280w/products/113/379/IMAG0729__87810.1662649673.jpg"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
 <!-- type: tab-end -->
 
 ## Metafields
