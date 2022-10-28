@@ -691,6 +691,28 @@ title: Query
 -->
 
 ```graphql title="Example" lineNumbers
+query {
+  site {
+    product (entityId: 113) {
+      reviews {
+        edges {
+          node {
+            entityId
+            author {
+              name
+            }
+            title
+            text
+            rating
+            createdAt {
+              utc
+            }
+          }
+        }
+      } 
+    }
+  }
+}
 ```
 
 <!--
@@ -699,6 +721,32 @@ title: Response
 -->
 
 ```json title="Example" lineNumbers
+{
+  "data": {
+    "site": {
+      "product": {
+        "reviews": {
+          "edges": [
+            {
+              "node": {
+                "entityId": 3,
+                "author": {
+                  "name": "Android Dao"
+                },
+                "title": "Excellent Flowers",
+                "text": "The best flowers for Valentine's Day. Would recommend.",
+                "rating": 4,
+                "createdAt": {
+                  "utc": "2021-12-22T22:29:48Z"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
 ```
 <!-- type: tab-end -->
 
