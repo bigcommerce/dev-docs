@@ -566,6 +566,21 @@ title: Query
 -->
 
 ```graphql title="Example" lineNumbers
+query {
+  site {
+    product (entityId: 113) {
+      customFields {
+        edges {
+          node {
+            entityId
+            name
+            value
+          }
+        }
+      } 
+    }
+  }
+}
 ```
 
 <!--
@@ -574,6 +589,32 @@ title: Response
 -->
 
 ```json title="Example" lineNumbers
+{
+  "data": {
+    "site": {
+      "product": {
+        "customFields": {
+          "edges": [
+            {
+              "node": {
+                "entityId": 4,
+                "name": "ISBN",
+                "value": "9876543210"
+              }
+            },
+            {
+              "node": {
+                "entityId": 5,
+                "name": "Serial number",
+                "value": "1234567890"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
 ```
 <!-- type: tab-end -->
 
