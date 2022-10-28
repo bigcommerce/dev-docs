@@ -493,7 +493,9 @@ title: Response
 
 ## Metafields
 
-If your product has variants, see [Get variant metafields](/...) to retrieve variant metafields.
+This returns only product metafields. Use [Get variant metafields](/...) to retrieve variant metafields. 
+
+Only product metafields that have storefront permissions are returned. i.e. permissions set to `write_and_sf_access` or `read_and_sf_access`.
 
 <!--
 type: tab
@@ -501,6 +503,22 @@ title: Query
 -->
 
 ```graphql title="Example" lineNumbers
+query {
+  site {
+    product (entityId: 113) {
+      metafields (namespace: "Warehouse Locations") {
+        edges {
+          node {
+            id
+            entityId
+            key
+            value
+          }
+        }
+      } 
+    }
+  }
+}
 ```
 
 <!--
@@ -509,6 +527,34 @@ title: Response
 -->
 
 ```json title="Example" lineNumbers
+{
+  "data": {
+    "site": {
+      "product": {
+        "metafields": {
+          "edges": [
+            {
+              "node": {
+                "id": "TWV0YWZpZWxkczoxNQ==",
+                "entityId": 15,
+                "key": "Location",
+                "value": "4HG"
+              }
+            },
+            {
+              "node": {
+                "id": "TWV0YWZpZWxkczoxNg==",
+                "entityId": 16,
+                "key": "Site",
+                "value": "2SL"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
 ```
 <!-- type: tab-end -->
 
