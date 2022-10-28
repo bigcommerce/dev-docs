@@ -620,12 +620,30 @@ title: Response
 
 ## Gift wrapping options
 
+Gift wrapping options that are available for the product are returned. A gift wrapping option does not have to be marked as "visible" in the control panel.
+
 <!--
 type: tab
 title: Query
 -->
 
 ```graphql title="Example" lineNumbers
+query {
+  site {
+    product (entityId: 113) {
+      giftWrappingOptions {
+        edges {
+          node {
+            entityId
+            name
+            allowComments
+            previewImageUrl
+          }
+        }
+      } 
+    }
+  }
+}
 ```
 
 <!--
@@ -634,6 +652,34 @@ title: Response
 -->
 
 ```json title="Example" lineNumbers
+{
+  "data": {
+    "site": {
+      "product": {
+        "giftWrappingOptions": {
+          "edges": [
+            {
+              "node": {
+                "entityId": 1,
+                "name": "Christmas Wrapping",
+                "allowComments": false,
+                "previewImageUrl": "https://cdn11.bigcommerce.com/s-{store_hash}/product_images/wrap_images/christmas_1662668596__75551.jpg"
+              }
+            },
+            {
+              "node": {
+                "entityId": 2,
+                "name": "Valentine's Day Wrapping",
+                "allowComments": true,
+                "previewImageUrl": null
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
 ```
 <!-- type: tab-end -->
 
