@@ -25,7 +25,23 @@ query {
 }
 ```
 
-See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation if you would like to query for all products or featured products.
+You can also query a product by using the `products` field and specifying the product `entityID`:
+
+```graphql title="How to get a product" lineNumbers
+query {
+  site {
+    products (entityIds: [111]) {
+      edges {
+        node {
+          ...
+        }
+      }
+    }
+  }
+}
+```
+
+See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation if you would like to query for featured or best-selling products.
 
 ## Product Info
 
