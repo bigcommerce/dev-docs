@@ -159,55 +159,6 @@ query LookUpUrl {
 
 <a href="https://developer.bigcommerce.com/graphql?playground_tab=objectsByUrl" target="_blank">**Try it in GraphQL Playground**</a>
 
-## Get product images at different resolutions
-
-```graphql title="Example query: Get product images at different resolutions" lineNumbers
-query SrcsetImages {
-  site {
-    product(entityId: 123) {
-      images {
-        edges {
-          node {
-            url320wide: url(width: 320)
-            url640wide: url(width: 640)
-            url960wide: url(width: 960)
-            url1280wide: url(width: 1280)
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-<a href="https://developer.bigcommerce.com/graphql?playground_tab=productImages" target="_blank">**Try it in GraphQL Playground**</a>
-
-## Get a product
-
-```graphql title="Example query: Get a product" lineNumbers
-query SingleProduct {
-  site {
-    products (entityIds: [4917]) {
-      edges {
-        node {
-          id
-          entityId
-          name
-          prices {
-            price {
-              value
-              currencyCode
-            }
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-<a href="https://developer.bigcommerce.com/graphql?playground_tab=singleProduct" target="_blank">**Try it in GraphQL Playground**</a>
-
 ## Get variant details as a product object
 
 ```graphql title="Example query: Get variant details as a product object" lineNumbers
