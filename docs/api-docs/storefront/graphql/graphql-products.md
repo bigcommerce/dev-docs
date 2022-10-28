@@ -2,25 +2,35 @@
 
 BigCommerce's GraphQL Storefront API lets merchants on headless storefronts retrieve products powered by results from our back-end search engine. These built-in capabilities also allow Stencil developers to customize...
 
-The GraphQL Storefront API lets you retrieve the following product features:
+The GraphQL Storefront API lets you retrieve the following features for a product:
 - product options 
 - 
 
-This page walks you through how to ... for products without variants. For products with variants, see [Variants](/...) instead. See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation.
+You can access these features for a product if a merchant makes a product visible on storefronts. For Non-MSF stores, only products in categories that are available to "default GUEST customer groups" returned. => what if you login as a customer???
 
+This page walks you through how to retrieve info for a product. If your product has variants, see [Variants](/...) for what you can query for your product's variants. See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation.
+
+## Get a Product
+
+In the following cases, you can query a product by using the `product` field and specifying a product identifier, for example, the product `entityId`, `sku`, and more.
+
+```graphql title="How to get a product" lineNumbers
+query {
+  site {
+    product (entityId: 111) {
+      ...
+    }
+  }
+}
+```
+
+See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation if you would like to query for all products, feature products, best selling products, and newest products.
 
 ## Product Info
 
-Queries return all products in a store, regardless of storefront. Thus, even if you don't allow purchasing on the storefont, the product is still returned. 
-
-Prod visibility for product needs to be "visible on storefront" to be returned (else get `null`).
-However, product still returned even if purchasability is "not purchasable" on product page. 
-If category (that product is in) is not "visible", product still shows up.
-For Non-MSF stores, only products in categories that are available to "default GUEST customer groups" returned. => what if you login as a customer???
-
 ### Basic info
 
-If your product has variants, see [Get variant basic info](/...) to retrieve variant info.
+If your product has variants, see [Get variant basic info](/...) for what you can query for your product's variants. 
 
 Don't need to check "Show condition on SF" to be able to see condition field 
 
