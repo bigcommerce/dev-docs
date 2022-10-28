@@ -416,6 +416,28 @@ title: Query
 -->
 
 ```graphql title="Example" lineNumbers
+query {
+  site {
+    product (entityId: 113) {
+      images {
+        edges {
+          node {
+            url (width: 1)
+            urlOriginal
+            altText
+            isDefault
+          }
+        }
+      } 
+      defaultImage {
+        url (width: 1)
+        urlOriginal
+        altText
+        isDefault
+      }
+    }
+  }
+}
 ```
 
 <!--
@@ -424,6 +446,48 @@ title: Response
 -->
 
 ```json title="Example" lineNumbers
+{
+  "data": {
+    "site": {
+      "product": {
+        "images": {
+          "edges": [
+            {
+              "node": {
+                "url": "https://cdn11.bigcommerce.com/s-{store_hash}/images/stencil/1w/products/113/379/IMAG0729__87810.1662649673.jpg",
+                "urlOriginal": "https://cdn11.bigcommerce.com/s-{store_hash}/images/stencil/original/products/113/379/IMAG0729__87810.1662649673.jpg",
+                "altText": "",
+                "isDefault": false
+              }
+            },
+            {
+              "node": {
+                "url": "https://cdn11.bigcommerce.com/s-{store_hash}/images/stencil/1w/products/113/378/IMAG0724__62769.1662649673.jpg",
+                "urlOriginal": "https://cdn11.bigcommerce.com/s-{store_hash}/images/stencil/original/products/113/378/IMAG0724__62769.1662649673.jpg",
+                "altText": "",
+                "isDefault": true
+              }
+            },
+            {
+              "node": {
+                "url": "https://cdn11.bigcommerce.com/s-{store_hash}/images/stencil/1w/products/113/380/IMAG0805_BURST004__27919.1640207947.jpg",
+                "urlOriginal": "https://cdn11.bigcommerce.com/s-{store_hash}/images/stencil/original/products/113/380/IMAG0805_BURST004__27919.1640207947.jpg",
+                "altText": "",
+                "isDefault": false
+              }
+            }
+          ]
+        },
+        "defaultImage": {
+          "url": "https://cdn11.bigcommerce.com/s-{store_hash}/images/stencil/1w/products/113/378/IMAG0724__62769.1662649673.jpg",
+          "urlOriginal": "https://cdn11.bigcommerce.com/s-{store_hash}/images/stencil/original/products/113/378/IMAG0724__62769.1662649673.jpg",
+          "altText": "",
+          "isDefault": true
+        }
+      }
+    }
+  }
+}
 ```
 <!-- type: tab-end -->
 
