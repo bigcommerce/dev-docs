@@ -3,10 +3,10 @@
 BigCommerce's GraphQL Storefront API lets merchants on headless storefronts retrieve products powered by results from our back-end search engine. These built-in capabilities also allow Stencil developers to customize...
 
 The GraphQL Storefront API lets you retrieve the following product features:
+- product options 
 - 
--
 
-This page walks you through how to ... for products without variants. For products with variants, see [Variants](/...)instead. See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation.
+This page walks you through how to ... for products without variants. For products with variants, see [Variants](/...) instead. See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation.
 
 
 ## Product Info
@@ -291,6 +291,119 @@ title: Response
   }
 }
 ```
+<!-- type: tab-end -->
+
+Multiple choice product options also have various types, including swatch, radio buttons, and more. Each multiple choice option has a schema type that implements the `CatalogProductOptionValue` interface.   
+
+```graphql title="CatalogProductOptionValue interface" lineNumbers
+interface CatalogProductOptionValue {
+  entityId: Int!
+  label: String!
+  isDefault: Boolean!`
+}
+```
+
+The example below shows a query that returns all product options. In the response, all multiple choice product options include common fields from the `CatalogProductOptionValue` interface, and the swatch types return additional fields (`hexColors` and `imageUrl`).
+
+<!--
+type: tab
+title: Query
+-->
+
+```graphql title="Example query: Product options" lineNumbers
+query {
+  site {
+    product (entityId: 113) {
+      productOptions {
+        edges {
+          node {
+            entityId
+            displayName
+            isRequired
+            isVariantOption
+           	... on MultipleChoiceOption {
+              displayStyle
+              values {
+                edges {
+                  node {
+                    entityId
+                    label
+                    isDefault
+                    ... on SwatchOptionValue {
+                      hexColors
+                      imageUrl (width: 2)
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response: Product options" lineNumbers
+{
+  "data": {
+    "site": {
+      "product": {
+        "productOptions": {
+          "edges": [
+            {
+              "node": {
+                "displayStyle": "Swatch",
+                "entityId": 126,
+                "displayName": "Size",
+                "isRequired": true,
+                "isVariantOption": true,
+                "values": {
+                  "edges": [
+                    {
+                      "node": {
+                        "hexColors": [
+                          "#912727",
+                          "#D6A67C"
+                        ],
+                        "imageUrl": null,
+                        "entityId": 129,
+                        "label": "Small",
+                        "isDefault": false
+                      }
+                    },
+                    {
+                      "node": {
+                        "hexColors": [
+                          "#46A754",
+                          "#487790",
+                          "#5645AF"
+                        ],
+                        "imageUrl": null,
+                        "entityId": 130,
+                        "label": "Medium",
+                        "isDefault": true
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            ...
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
 <!-- type: tab-end -->
 
 ## Images
