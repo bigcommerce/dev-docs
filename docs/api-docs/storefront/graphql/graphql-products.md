@@ -2,9 +2,10 @@
 
 BigCommerce's GraphQL Storefront API lets merchants on headless storefronts retrieve products powered by results from our back-end search engine. These built-in capabilities also allow Stencil developers to customize...
 
-The GraphQL Storefront API lets you retrieve the following features for a product:
-- product options 
-- 
+The GraphQL Storefront API lets you retrieve the following product features, and more:
+- Price info in a store's transacting currency   
+- Product options associated with a product (variant and modifier options) 
+- Product metafields that have storefront access
 
 You can access these features for a product if a merchant makes a product visible on storefronts. For Non-MSF stores, only products in categories that are available to "default GUEST customer groups" returned. => what if you login as a customer???
 
@@ -24,7 +25,7 @@ query {
 }
 ```
 
-See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation if you would like to query for all products, feature products, best selling products, and newest products.
+See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation if you would like to query for all products or featured products.
 
 ## Product Info
 
