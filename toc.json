@@ -108,12 +108,6 @@
     },
     {
       "type": "item",
-      "title": "Customer Login API",
-      "href": "/api-docs/storefront/customer-login-api",
-      "uri": "docs/api-docs/customers/customer-login-api.md"
-    },
-    {
-      "type": "item",
       "title": "Current Customer API",
       "href": "/api-docs/storefront/current-customer-api",
       "uri": "docs/api-docs/customers/current-customer-api.md"
