@@ -423,12 +423,12 @@ All possible values for `{{page_type}}` are:
 | show_newsletter_box | Site-wide boolean value that indicates whether to display a mailing-list invite to visitors |
 |  gift_certificates_enabled | Site-wide boolean value that indicates whether to enable the gift certificate system for this store |
 |  blog_enabled | Site-wide boolean value that indicates whether the blog is visible for this store |
-|  data_tag_enabled | Site-wide boolean that indicates whether GAEE is enabled in a theme. For {{settings.data_tag_enabled}} to be true, the enhanced_ecommerce key must be present in config.json and a GAEE experiment must be enabled along with GA property value set in Advanced Settings > Analytics > GA in the BigCommerce Control Panel |
+|  data_tag_enabled | Site-wide boolean that indicates whether GAEE is enabled in a theme. For {{settings.data_tag_enabled}} to be true, the enhanced_ecommerce key must be present in config.json and a GAEE experiment must be enabled along with GA property value set in Analytics > GA in an active MSF-enabled BigCommerce control panel |
 | show_wishlist | Site-wide boolean value that indicates whether to allow customers to create wishlists |
 | base_url | The normal shop URL |
 | client_ip_address | IP address of the customer browsing the store |
 |country_code|The country code corresponding to the IP|
-|request|object that contaisn details about the HTTP request|
+|request|object that contains details about the HTTP request|
 | &#x21B3; referer|refer of the request|
 | &#x21B3; host|hostname of the request|
 | &#x21B3; origin|origin of the request|
@@ -509,7 +509,7 @@ All possible values for `{{page_type}}` are:
 | &#x21B3; decimal_places | Number of decimal places to display |
 | &#x21B3; thousands_token | Symbol for thousands separator |
 | returns_enabled | Boolean that indicates whether the control-panel setting for the returns system is enabled |
-| tax_label | Defines the Tax Label (VAT, Sales Tax, etc.) that a merchant can set in the control panel’s Settings > Tax page for display to customers |
+| tax_label | Defines the Tax Label (VAT, Sales Tax, etc.) that a merchant can set in an active MSF-enabled control panel’s Settings > Tax page for display to customers |
 | add_this | Object that defines links for the AddThis social sharing component |
 | &#x21B3; buttons | Array of buttons to display for AddThis social sharing `{{#each settings.add_this.buttons}}{{service}}{{/each}}` `{{#each settings.add_this.buttons}}{{annotations}}{{/each}}` |
 | service | String containing the name of this button's social-media service (facebook, email, print, twitter, linkedin, google, etc.) |
@@ -528,7 +528,7 @@ All possible values for `{{page_type}}` are:
 | measurements | Collection of units-of-measure definitions, to be used when displaying product details: |
 | &#x21B3; length | Units of measure for product length |
 | &#x21B3; weight | Units of measure for product weight |
-| Time and date settings | The four settings below are configured in the control panel under **Store Setup > Store Settings > Language and Date > Date Settings** . Date formats follow php conventions. |
+| Time and date settings | The four settings below are configured in an active MSF-enabled control panel under **Settings > General > Date & Timezone**. Date formats follow php conventions. |
 | store_time_zone | Store's time zone, as selected in the control panel's Your Timezone drop-down list |
 | store_dst_correction | Whether or not this time zone observes Daylight Saving Time (boolean), as set by the control panel's Enable DST Correction check box |
 | display_date_format | Brief display format/pattern for dates, as configured in the control panel's Display Date Format field |
