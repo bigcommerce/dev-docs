@@ -47,7 +47,7 @@ query {
 
 <!-- type: tab-end -->
 
-You can also query a variant by using the `products` field and specifying a variant identifier, for example, the variant's entity ID or the variant's option value IDs:
+You can also query a variant by using the `products` field and specifying a variant identifier. You can use the variant's entity ID, variant option value IDs, or variant SKU:
 
 <!--
 type: tab
@@ -67,7 +67,7 @@ query {
 
 <!--
 type: tab
-title: Option value ID
+title: Variant option value ID
 -->
 
 ```graphql title="How to get a variant" lineNumbers
@@ -85,6 +85,20 @@ query {
   }
 }
 
+```
+<!--
+type: tab
+title: Variant SKU
+-->
+
+```graphql title="How to get a variant" lineNumbers
+query {
+  site {
+    product(sku: "variant-sku") {
+      ...  
+    }
+  }
+}
 ```
 
 <!-- type: tab-end -->

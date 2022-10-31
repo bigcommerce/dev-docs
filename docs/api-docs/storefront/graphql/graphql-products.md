@@ -27,7 +27,7 @@ query {
 
 <!-- theme:info -->
 > #### Get product versus variant
-> If you use the identifier `variantEntityId` or `optionValueIds`, you will retrieve info for the variant overlaid on the Product object if the variant has a different values for the queried fields. 
+> The Product object can also be used to retrieve variant info. For example, if you use the identifier `variantEntityId` or `optionValueIds`, you will retrieve info for the variant overlaid on the Product object (if the variant has a different values than the product). 
 > See [Variants](/...) for more info.
 
 You can also query a product by using the `products` field and specifying a product identifier, for example, the product `entityID`:
