@@ -422,23 +422,23 @@ All possible values for `{{page_type}}` are:
 
 | Property | Description |
 |-|-|
-| account_creation_enabled | Site-wide boolean value that indicates whether to allow customers to create accounts. |
-| show_product_rating | Site-wide boolean value that indicates whether to display product ratings (in numeric or star format) to visitors. |
-| show_product_reviews | Site-wide boolean value that indicates whether to display full-text product reviews to visitors. |
-| show_newsletter_box | Site-wide boolean value that indicates whether to display a mailing-list invite to visitors. |
-|  gift_certificates_enabled | Site-wide boolean value that indicates whether to enable the gift certificate system for this store. |
-|  blog_enabled | Site-wide boolean value that indicates whether the blog is visible for this store. |
-|  data_tag_enabled | Site-wide boolean that indicates whether GAEE is enabled in a theme. For {{settings.data_tag_enabled}} to be true, the enhanced_ecommerce key must be present in config.json and a GAEE experiment must be enabled along with GA property value set in **Analytics**  > GA in the BigCommerce control panel. |
-| show_wishlist | Site-wide boolean value that indicates whether to allow customers to create wishlists. |
-| base_url | The normal shop URL. |
-| client_ip_address | IP address of the customer browsing the store. |
-|country_code|The country code corresponding to the IP.|
-|request|object that contains details about the HTTP request.|
-| &#x21B3; referer|referer of the request.|
-| &#x21B3; host|hostname of the request.|
-| &#x21B3; origin|origin of the request.|
-| &#x21B3; user_agent|user agent string of the request.|
-| &#x21B3; is_crawler|renders "true" if user angent is known crawler; "false" otherwise.
+| account_creation_enabled | Site-wide boolean value that indicates whether to allow customers to create accounts |
+| show_product_rating | Site-wide boolean value that indicates whether to display product ratings (in numeric or star format) to visitors |
+| show_product_reviews | Site-wide boolean value that indicates whether to display full-text product reviews to visitors |
+| show_newsletter_box | Site-wide boolean value that indicates whether to display a mailing-list invite to visitors |
+|  gift_certificates_enabled | Site-wide boolean value that indicates whether to enable the gift certificate system for this store |
+|  blog_enabled | Site-wide boolean value that indicates whether the blog is visible for this store |
+|  data_tag_enabled | Site-wide boolean that indicates whether GAEE is enabled in a theme. For {{settings.data_tag_enabled}} to be true, the enhanced_ecommerce key must be present in config.json and a GAEE experiment must be enabled along with GA property value set in Analytics > GA in an active MSF-enabled BigCommerce control panel |
+| show_wishlist | Site-wide boolean value that indicates whether to allow customers to create wishlists |
+| base_url | The normal shop URL |
+| client_ip_address | IP address of the customer browsing the store |
+|country_code|The country code corresponding to the IP|
+|request|object that contains details about the HTTP request|
+| &#x21B3; referer|refer of the request|
+| &#x21B3; host|hostname of the request|
+| &#x21B3; origin|origin of the request|
+| &#x21B3; user_agent|user agent string of the request|
+| &#x21B3; is_crawler|renders "true" if user angent is known crawler; "false" otherwise
 | &#x21B3; absolute_path|The absolute URL requested. **Never** use request.path in the actual body of the page<sup>1</sup>
 | &#x21B3; locale|The browser's locale. Allows for varying experience based on shopper locale.
 | secure_base_url | The SSL-enabled, secure, shop URL. |
@@ -507,15 +507,15 @@ All possible values for `{{page_type}}` are:
 | &#x21B3; sitemap | URL to the sitemap `/sitemap.php` |
 | &#x21B3; subscribe | Collection of subscription-related URLs. |
 | &nbsp; &nbsp; &#x21B3; action | URL to which the newsletter subscription will be submitted `/subscribe.php` |
-| money | List of child items that define the store’s default currency formatting. |
-| &#x21B3; currency_token | Symbol for the currency. |
-| &#x21B3; currency_location | Whether currency symbol appears at left or right of the quantity. |
-| &#x21B3; decimal_token | Symbol for decimal separator. |
-| &#x21B3; decimal_places | Number of decimal places to display. |
-| &#x21B3; thousands_token | Symbol for thousands separator. |
-| returns_enabled | Boolean that indicates whether the control panel setting for the returns system is enabled. |
-| tax_label | Defines the Tax Label (VAT, Sales Tax, etc.) that a merchant can set in the control panel’s **Settings** > **Setup** > **Tax** page for display to customers. |
-| add_this | Object that defines links for the AddThis social sharing component. |
+| money | List of child items that define the store’s default currency formatting |
+| &#x21B3; currency_token | Symbol for the currency |
+| &#x21B3; currency_location | Whether currency symbol appears at left or right of the quantity |
+| &#x21B3; decimal_token | Symbol for decimal separator |
+| &#x21B3; decimal_places | Number of decimal places to display |
+| &#x21B3; thousands_token | Symbol for thousands separator |
+| returns_enabled | Boolean that indicates whether the control-panel setting for the returns system is enabled |
+| tax_label | Defines the Tax Label (VAT, Sales Tax, etc.) that a merchant can set in an active MSF-enabled control panel’s Settings > Tax page for display to customers |
+| add_this | Object that defines links for the AddThis social sharing component |
 | &#x21B3; buttons | Array of buttons to display for AddThis social sharing `{{#each settings.add_this.buttons}}{{service}}{{/each}}` `{{#each settings.add_this.buttons}}{{annotations}}{{/each}}` |
 | service | String containing the name of this button's social-media service (facebook, email, print, twitter, linkedin, google, etc.). |
 | annotation | String containing HTML attributes associated with this button. |
@@ -531,13 +531,13 @@ All possible values for `{{page_type}}` are:
 | minlength | Integer representing minimum acceptable password length. |
 | error | String that passes a standard error message for noncompliant passwords. |
 | measurements | Collection of units-of-measure definitions, to be used when displaying product details: |
-| &#x21B3; length | Units of measure for product length. |
-| &#x21B3; weight | Units of measure for product weight. |
-| Time and date settings | The four settings below are configured in the control panel under **Settings** > **General** > **Date & Timezone**. Date formats follow PHP conventions. |
-| store_time_zone | Store's time zone, as selected in the control panel's Your Timezone drop-down list. |
-| store_dst_correction | Whether or not this time zone observes Daylight Saving Time (boolean), as set by the control panel's Enable DST Correction check box. |
-| display_date_format | Brief display format/pattern for dates, as configured in the control panel's Display Date Format field. |
-| extended_display_date_format | Extended display format/pattern for dates, as configured in the control panel's Extended Display Date Format field. |
+| &#x21B3; length | Units of measure for product length |
+| &#x21B3; weight | Units of measure for product weight |
+| Time and date settings | The four settings below are configured in an active MSF-enabled control panel under **Settings > General > Date & Timezone**. Date formats follow php conventions. |
+| store_time_zone | Store's time zone, as selected in the control panel's Your Timezone drop-down list |
+| store_dst_correction | Whether or not this time zone observes Daylight Saving Time (boolean), as set by the control panel's Enable DST Correction check box |
+| display_date_format | Brief display format/pattern for dates, as configured in the control panel's Display Date Format field |
+| extended_display_date_format | Extended display format/pattern for dates, as configured in the control panel's Extended Display Date Format field |
 | show_payment_methods | A boolean value. If true available payment methods on a store will be shown. If false they are hidden.  |
 | as payments_url| Exposes the BigCommerce payments URL. `https://payments.bigcommerce.com`.|
 | secure_host | Returns the SSL url for a store. Example: `https://www.bigcommerce.com`. |
