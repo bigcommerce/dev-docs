@@ -101,6 +101,24 @@ title: Query
 -->
 
 ```graphql title="Example" lineNumbers
+query {
+  site {
+    product (entityId: 113) {
+      variants (entityIds: [127]) {
+        edges {
+          node {
+            id
+            entityId
+            sku  
+            upc
+            mpn
+            isPurchasable
+          }
+        }
+      }   
+    }
+  }
+}
 ```
 
 <!--
@@ -109,6 +127,28 @@ title: Response
 -->
 
 ```json title="Example" lineNumbers
+{
+  "data": {
+    "site": {
+      "product": {
+        "variants": {
+          "edges": [
+            {
+              "node": {
+                "id": "VmFyaWFudDoxMjc=",
+                "entityId": 127,
+                "sku": "ABC-1111-PI-SM-CO-RE",
+                "upc": "123346",
+                "mpn": "9876543210",
+                "isPurchasable": true
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
 ```
 <!-- type: tab-end -->
 
@@ -133,6 +173,9 @@ query {
               salePrice {
                 ...PriceFields
               }
+              basePrice {
+                ...PriceFields
+              }
               retailPrice {
                 ...PriceFields
               }
@@ -144,6 +187,9 @@ query {
               ...DimensionFields
             }
             depth {
+              ...DimensionFields
+            }
+            weight {
               ...DimensionFields
             }
           }
@@ -169,6 +215,56 @@ title: Response
 -->
 
 ```json title="Example" lineNumbers
+{
+  "data": {
+    "site": {
+      "product": {
+        "variants": {
+          "edges": [
+            {
+              "node": {
+                "prices": {
+                  "price": {
+                    "value": 4.5,
+                    "currencyCode": "USD"
+                  },
+                  "salePrice": {
+                    "value": 5,
+                    "currencyCode": "USD"
+                  },
+                  "basePrice": {
+                    "value": 10,
+                    "currencyCode": "USD"
+                  },
+                  "retailPrice": {
+                    "value": 20,
+                    "currencyCode": "USD"
+                  }
+                },
+                "width": {
+                  "value": 2,
+                  "unit": "in"
+                },
+                "height": {
+                  "value": 2,
+                  "unit": "in"
+                },
+                "depth": {
+                  "value": 2,
+                  "unit": "in"
+                },
+                "weight": {
+                  "value": 37,
+                  "unit": "oz"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
 ```
 <!-- type: tab-end -->
 
@@ -180,6 +276,28 @@ title: Query
 -->
 
 ```graphql title="Example" lineNumbers
+query {
+  site {
+    product(entityId: 113) {
+      variants(entityIds: [127]) {
+        edges {
+          node {
+            productOptions {
+              edges {
+                node {
+                  entityId
+                  displayName
+                  isRequired
+                  isVariantOption
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 ```
 
 <!--
@@ -188,6 +306,143 @@ title: Response
 -->
 
 ```json title="Example" lineNumbers
+{
+  "data": {
+    "site": {
+      "product": {
+        "variants": {
+          "edges": [
+            {
+              "node": {
+                "productOptions": {
+                  "edges": [
+                    {
+                      "node": {
+                        "entityId": 116,
+                        "displayName": "Color",
+                        "isRequired": true,
+                        "isVariantOption": true
+                      }
+                    },
+                    {
+                      "node": {
+                        "entityId": 126,
+                        "displayName": "Size",
+                        "isRequired": true,
+                        "isVariantOption": true
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+<!-- type: tab-end -->
+
+<!--
+type: tab
+title: Query
+-->
+
+```graphql title="Example" lineNumbers
+query {
+  site {
+    product(entityId: 113) {
+      variants(entityIds: [127]) {
+        edges {
+          node {
+            options {
+              edges {
+                node {
+                  entityId
+                  displayName
+                  isRequired
+                  values {
+                    edges {
+                      node {
+                        entityId
+                        label
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example" lineNumbers
+{
+  "data": {
+    "site": {
+      "product": {
+        "variants": {
+          "edges": [
+            {
+              "node": {
+                "options": {
+                  "edges": [
+                    {
+                      "node": {
+                        "entityId": 116,
+                        "displayName": "Color",
+                        "isRequired": true,
+                        "values": {
+                          "edges": [
+                            {
+                              "node": {
+                                "entityId": 108,
+                                "label": "Pink"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "node": {
+                        "entityId": 126,
+                        "displayName": "Size",
+                        "isRequired": true,
+                        "values": {
+                          "edges": [
+                            {
+                              "node": {
+                                "entityId": 129,
+                                "label": "Small"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
 ```
 <!-- type: tab-end -->
 
@@ -199,6 +454,24 @@ title: Query
 -->
 
 ```graphql title="Example" lineNumbers
+query {
+  site {
+    product (entityId: 113) {
+      variants (entityIds: [127]) {
+        edges {
+          node {
+            defaultImage {
+              url (width: 1)
+              urlOriginal
+              altText
+              isDefault
+            } 
+          }
+        }
+      }  
+    }
+  }
+}
 ```
 
 <!--
@@ -207,6 +480,28 @@ title: Response
 -->
 
 ```json title="Example" lineNumbers
+{
+  "data": {
+    "site": {
+      "product": {
+        "variants": {
+          "edges": [
+            {
+              "node": {
+                "defaultImage": {
+                  "url": "https://cdn11.bigcommerce.com/s-o8ertuc7vw/images/stencil/1w/attribute_rule_images/32_source_1667245516.png",
+                  "urlOriginal": "https://cdn11.bigcommerce.com/s-o8ertuc7vw/images/stencil/original/attribute_rule_images/32_source_1667245516.png",
+                  "altText": "",
+                  "isDefault": true
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
 ```
 <!-- type: tab-end -->
 
@@ -218,6 +513,28 @@ title: Query
 -->
 
 ```graphql title="Example" lineNumbers
+query {
+  site {
+    product (entityId: 113) {
+      variants (entityIds: [127]) {
+        edges {
+          node {
+            metafields (namespace: "Warehouse Locations") {
+              edges {
+                node {
+                  id
+                  entityId
+                  key
+                  value
+                }
+              }
+            }  	 
+          }
+        }
+      }
+    }
+  }
+}
 ```
 
 <!--
@@ -226,6 +543,34 @@ title: Response
 -->
 
 ```json title="Example" lineNumbers
+{
+  "data": {
+    "site": {
+      "product": {
+        "variants": {
+          "edges": [
+            {
+              "node": {
+                "metafields": {
+                  "edges": [
+                    {
+                      "node": {
+                        "id": "TWV0YWZpZWxkczoxOA==",
+                        "entityId": 18,
+                        "key": "Site number",
+                        "value": "3TZ"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
 ```
 <!-- type: tab-end -->
 
