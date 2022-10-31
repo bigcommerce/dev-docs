@@ -25,6 +25,11 @@ query {
 }
 ```
 
+<!-- theme:info -->
+> #### Get product versus variant
+> If you use the identifier `variantEntityId`, you will retrieve info for the variant overlaid on the Product object if the variant has a different values for the queried fields. 
+> See [Variants](/...) for more info.
+
 You can also query a product by using the `products` field and specifying the product `entityID`:
 
 ```graphql title="How to get a product" lineNumbers
