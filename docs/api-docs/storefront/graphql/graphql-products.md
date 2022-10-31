@@ -13,7 +13,7 @@ This page walks you through how to retrieve info for a product. If your product 
 
 ## Get a Product
 
-In the following cases, you can query a product by using the `product` field and specifying a product identifier, for example, the product `entityId`, `sku`, and more.
+In the following cases, you can query a product by using the `product` field and specifying a product identifier, for example, the product `entityId`.
 
 ```graphql title="How to get a product" lineNumbers
 query {
@@ -27,10 +27,10 @@ query {
 
 <!-- theme:info -->
 > #### Get product versus variant
-> If you use the identifier `variantEntityId`, you will retrieve info for the variant overlaid on the Product object if the variant has a different values for the queried fields. 
+> If you use the identifier `variantEntityId` or `optionValueIds`, you will retrieve info for the variant overlaid on the Product object if the variant has a different values for the queried fields. 
 > See [Variants](/...) for more info.
 
-You can also query a product by using the `products` field and specifying the product `entityID`:
+You can also query a product by using the `products` field and specifying a product identifier, for example, the product `entityID`:
 
 ```graphql title="How to get a product" lineNumbers
 query {
