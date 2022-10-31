@@ -3,7 +3,7 @@
 
 ## Get a variant
 
-In the following cases, you can query a variant by using the `variants` field and specifying a product identifier, for example, the variant `entityId` or `optionValueId`.
+In the following cases, you can query a variant by using the `variants` field and specifying a product identifier, for example, the variant `entityId` or `optionValueId`:
 
 <!--
 type: tab
@@ -14,8 +14,8 @@ title: Variant entity ID
 ```graphql title="How to get a variant" lineNumbers
 query {
   site {
-    product (entityId: 113) {           #This is the product ID 
-      variants (entityIds: [98]) {      #This is the variant ID
+    product (entityId: 113) {           #This is the product entity ID 
+      variants (entityIds: [98]) {      #This is the variant entity ID
         ...
       }
     }
@@ -25,14 +25,15 @@ query {
 
 <!--
 type: tab
-title: Option value ID
+title: Variant option value entity ID
 -->
 
 ```graphql title="How to get a variant" lineNumbers
 query {
   site {
-    product (entityId: 113) {
+    product (entityId: 113) {       # This is the product's entity ID 
       variants (
+        # Specify the entity ID for the value of each variant option
         optionValueIds: [
           { optionEntityId: 116, valueEntityId: 108 }
           { optionEntityId: 126, valueEntityId: 129 }
@@ -47,7 +48,7 @@ query {
 
 <!-- type: tab-end -->
 
-You can also query a variant by using the `products` field and specifying a variant identifier. You can use the variant's entity ID, variant option value IDs, or variant SKU:
+You can also query a variant by using the `products` field and specifying a variant identifier. You can use the variant's entity ID, variant option value entity IDs, or variant SKU:
 
 <!--
 type: tab
@@ -67,14 +68,16 @@ query {
 
 <!--
 type: tab
-title: Variant option value ID
+title: Variant option value entity ID
 -->
 
 ```graphql title="How to get a variant" lineNumbers
 query {
   site {
     product(
-      entityId: 113 # This is the product ID
+      entityId: 113 # This is the product's entity ID
+      
+      # Specify the entity ID for the value of each variant option
       optionValueIds: [
         { optionEntityId: 116, valueEntityId: 108 }
         { optionEntityId: 126, valueEntityId: 129 }
