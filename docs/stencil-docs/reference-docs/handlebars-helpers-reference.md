@@ -879,7 +879,7 @@ Repeats block for a specified range from index `a` to index `b`. To protect agai
 #### Parameters
 
 - `a` {Number}: Starting number.
-- `b` {Number}: Ending number.
+- `b` {Number}: Ending number. (Inclusive)
 
 #### Example
 
