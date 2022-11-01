@@ -46,15 +46,11 @@ query {
 }
 ```
 
-See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation if you would like to query for featured or best-selling products.
+You can also query for featured products, related products, and more. See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation.
 
-## Product Info
+## Basic info
 
-### Basic info
-
-If your product has variants, see [Get variant basic info](/...) for what you can query for your product's variants. 
-
-Don't need to check "Show condition on SF" to be able to see condition field 
+You can query the identifying info for products. The example query shows how to query identifying info for the specified product:
 
 <!--
 type: tab
@@ -70,10 +66,7 @@ query {
       sku
       path
       name
-      description
-      warranty
-      minPurchaseQuantity
-      maxPurchaseQuantity
+      descriptio
       addToCartUrl
       type
       upc
@@ -117,12 +110,10 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-### Prices and dimensions
+## Prices and dimensions
 
-You can get prices and dimensions for a product. 
-If your product has variants, see [Get variant prices and dimensions](/...) instead.
+You can query prices and dimensions for a product. The example query shows how to query prices and dimensions for the specified product:
 
-If Product values empty (except for required Weight): null
 
 <!--
 type: tab
@@ -227,9 +218,9 @@ title: Response
 
 ## Product options 
 
-You can query for the [product options](https://support.bigcommerce.com/s/article/Product-Options-v3) associated with a product. If your product has variants, use [Get variant product options](/...) for more. 
+You can query the [product options](https://support.bigcommerce.com/s/article/Product-Options-v3) associated with a product. If your product has variants, use [Get variant product options](/...) for more. 
 
-There are various [types of product options](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#types), including checkbox, multiple choice, and more, each with unique fields. However, each type of product option has a schema type that implements the `CatalogProductOption` interface, meaning you can query for the common fields that are included in `CatalogProductOption`. For more on interfaces, see the [GraphQL Schema and Types- Interfaces](https://graphql.org/learn/schema/#interfaces) documentation.
+There are various [types of product options](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#types), including checkbox, multiple choice, and more, each with unique fields. However, each type of product option has a schema type that implements the `CatalogProductOption` interface, meaning you can query the common fields that are included in `CatalogProductOption`. For more on interfaces, see the [GraphQL Schema and Types- Interfaces](https://graphql.org/learn/schema/#interfaces) documentation.
 
 ```graphql title="CatalogProductOption interface" lineNumbers
 interface CatalogProductOption {
@@ -240,7 +231,7 @@ interface CatalogProductOption {
 }
 ```
 
-The example below shows how to query for product options with additional fields for the checkbox and datefield option types. In the response, all product options include common fields from the `CatalogProductOption` interface, and the checkbox and datefield option returned the additional fields included in the query.  
+The example below shows how to query product options with additional fields for the checkbox and datefield option types. In the response, all product options include common fields from the `CatalogProductOption` interface, and the checkbox and datefield option returned the additional fields included in the query.  
 
 <!--
 type: tab
@@ -440,7 +431,9 @@ title: Response
 
 ## Images
 
-If you would like images of product variants, see [Get variant images](/...). 
+You can query the images for products. The default image is a product's thumbnail image.
+
+The example query shows how to query the images for the specified product:
 
 <!--
 type: tab
@@ -515,7 +508,7 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-You can query product images at different resolutions. 
+You can query product images at different resolutions. The example query shows how to query images at various resolutions for the specified product: 
 
 <!--
 type: tab
@@ -573,9 +566,9 @@ title: Response
 
 ## Metafields
 
-This returns only product metafields. Use [Get variant metafields](/...) to retrieve variant metafields. 
+You can query the metafields for products. Only metafields that have storefront permissions are returned (i.e. permissions must be set to `write_and_sf_access` or `read_and_sf_access`).
 
-Only product metafields that have storefront permissions are returned. i.e. permissions set to `write_and_sf_access` or `read_and_sf_access`.
+The example query shows how to query product metafields for the specified product. The query returns only product metafields. See [Get variant metafields](/...) to retrieve variant metafields. 
 
 <!--
 type: tab
@@ -640,6 +633,8 @@ title: Response
 
 ## Custom fields
 
+You can query the custom fields for products. The example query shows how to query custom fields for the specified product:
+
 <!--
 type: tab
 title: Query
@@ -700,7 +695,7 @@ title: Response
 
 ## Gift wrapping options
 
-Gift wrapping options that are available for the product are returned. A gift wrapping option does not have to be marked as "visible" in the control panel.
+You can query gift wrapping options that are available for a product. The example query shows how to query gift wrapping options for the specified product:
 
 <!--
 type: tab
@@ -764,6 +759,8 @@ title: Response
 <!-- type: tab-end -->
 
 ## Reviews
+
+You can query reviews for products. The API returns only reviews that a store owner has approved. The example query shows how to query reviews for the specified product. 
 
 <!--
 type: tab

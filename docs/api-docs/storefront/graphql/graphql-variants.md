@@ -108,9 +108,9 @@ query {
 
 Using the `products` field with a variant identifier returns variant information overlaid on the Product object. For example, if the variant has a different image, dimensions, SKU, or price, than the product,the variant's info will be returned. This allows you to directly query a variant.
 
-## Variant Info
+## Basic info
 
-### Basic info
+You can query identifying info for variants. The example query shows how to query identifying info for the specified variant:
 
 <!--
 type: tab
@@ -129,7 +129,6 @@ query {
             sku  
             upc
             mpn
-            isPurchasable
           }
         }
       }   
@@ -169,7 +168,9 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-### Prices and dimensions
+## Prices and dimensions
+
+You can query the prices and dimensions for variants. The example query shows how to query prices and dimensions for the specified variant:
 
 <!--
 type: tab
@@ -287,6 +288,10 @@ title: Response
 
 ## Variant options
 
+You can query the variant options and the variant option values that are associated with a variant. 
+
+The following query returns the variant options that are associated with the specified variant. 
+
 <!--
 type: tab
 title: Query
@@ -361,6 +366,8 @@ title: Response
 }
 ```
 <!-- type: tab-end -->
+
+The following query returns the value for each variant option that is associated with the specified variant. 
 
 <!--
 type: tab
@@ -465,6 +472,8 @@ title: Response
 
 ## Images
 
+You can query the default images for variants. The example query shows how to query default image for the specified variant:
+
 <!--
 type: tab
 title: Query
@@ -524,9 +533,9 @@ title: Response
 
 ## Metafields
 
-This returns only variant metafields. Use [Get product metafields](/...) to retrieve product metafields. 
+You can query the metafields for variants. Only metafields that have storefront permissions are returned (i.e. permissions must be set to `write_and_sf_access` or `read_and_sf_access`).
 
-Only product metafields that have storefront permissions are returned. i.e. permissions set to `write_and_sf_access` or `read_and_sf_access`.
+The example query shows how to query variant metafields for the specified variant. The query returns only variant metafields. See [Get product metafields](/...) to retrieve product metafields. 
 
 <!--
 type: tab
