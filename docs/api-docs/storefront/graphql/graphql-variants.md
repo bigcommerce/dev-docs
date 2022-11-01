@@ -524,6 +524,10 @@ title: Response
 
 ## Metafields
 
+This returns only variant metafields. Use [Get product metafields](/...) to retrieve product metafields. 
+
+Only product metafields that have storefront permissions are returned. i.e. permissions set to `write_and_sf_access` or `read_and_sf_access`.
+
 <!--
 type: tab
 title: Query
