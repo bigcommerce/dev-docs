@@ -1,6 +1,6 @@
 # Products with the GraphQL Storefront API
 
-BigCommerce's GraphQL Storefront API lets merchants on headless storefronts retrieve products powered by results from our back-end search engine. These built-in capabilities also allow Stencil developers to customize...
+BigCommerce's GraphQL Storefront API lets merchants on headless storefronts retrieve [products](https://support.bigcommerce.com/s/article/Product-Identifiers) powered by results from our back-end search engine. These built-in capabilities also allow Stencil developers to customize...
 
 The GraphQL Storefront API lets you retrieve the following product features, and more:
 - Price info in a store's transacting currency   
@@ -50,7 +50,7 @@ You can also query for featured products, related products, and more. See the [G
 
 ## Basic info
 
-You can query the identifying info for products. The example query shows how to query identifying info for the specified product:
+You can query basic info for products. The example query shows how to query product identifiers and other basic info for the specified product:
 
 <!--
 type: tab
@@ -66,13 +66,11 @@ query {
       sku
       path
       name
-      descriptio
+      description
       addToCartUrl
-      type
       upc
       mpn
-      gtin
-      condition  
+      gtin  
     }
   }
 }
