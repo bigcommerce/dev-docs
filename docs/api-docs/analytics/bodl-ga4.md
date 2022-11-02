@@ -2,7 +2,7 @@
 
 Big Open Data Layer (shortened as `BODL`, pronounced 'Bottle') is a global JavaScript object that allows BigCommerce to integrate with third-party analytics providers. This datalayer collects storefront data on shopper behavior and holds data needed for an analytic provider, such as GA4, to make analytic reports.  With BODL, providers can easily view and manage captured data from a standardized source. Providers can reformat the event data for their solutions.
 
-This guide demonstrates how you can integrate a BigCommerce store with Google Analytics (GA4). Using BODL, you can track when a shopper starts checkout and purchases an order. You can track events for both redirected and embedded checkout. BigCommerce will support other events in [future phases](#future-phases).
+This guide demonstrates how you can integrate a BigCommerce store with Google Analytics (GA4). Using BODL, you can track when a shopper starts checkout and purchases an order. You can track events for both redirected and embedded checkout.
 
 ## Prerequisites 
 - Merchants must enable GA4 for the storefront channel. This sets up a provider's analytic tracking script for a storefront. GA4 is enabled for new stores by default.  
@@ -170,7 +170,7 @@ When the shopper clicks on the button to initiate a checkout process, a browser 
 | `currency` | string | [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) of the order.  BC tracks currency for a cart and not for each line item within the cart. | [Get a cart](/api-reference/store-management/carts/cart/getacart) <br> `currency.code` | [Begin checkout event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout) <br> `currency` |
 | `cart_value` | number | Final value of cart after taxes, discounts, and coupons are applied. | [Get a cart](/api-reference/store-management/carts/cart/getacart) <br> `cart_amount` | [Begin checkout event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout) <br> `value` |
 | `coupon_codes[]` | array of strings | Coupon codes applied to the cart. | [Get a cart](/api-reference/store-management/carts/cart/getacart) <br> `coupons.code` | [Begin checkout event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout) <br> `coupon` |
-| `line_items[]` | array of `line_item` objects | Items being checked out. | See [line_item](#common-event-fields-line-item-object) object for event fields | [Begin checkout event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout) <br> `items[]` |
+| `line_items[]` | array of `line_item` objects | Items being checked out. | See [line_item](#common-event-fields-line_item-object) object for event fields | [Begin checkout event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout) <br> `items[]` |
 
 
 ### Purchase event
@@ -187,7 +187,7 @@ When the shopper clicks on ‘Purchase’, a browser event is emitted. BODL fetc
 | `coupon_codes[]` | array of strings | Coupon codes applied to the purchase. | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `data.cart.coupons[].code` | [Purchase event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#purchase) <br> `coupon` |
 | `shipping_cost` | number | Total shipping cost including tax. | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `data.shipping_cost_total_inc_tax` | [Purchase event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#purchase) <br> `shipping` |
 | `tax` | number | Tax incurred. | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `data.tax_total` | [Purchase event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#purchase) <br> `tax` |
-| `line_items[]` | array of `line_item` objects | Items being purchased. | See [line_item](#common-event-fields-line-item-object) object for event fields | [Purchase event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#purchase) <br> `items[]` |
+| `line_items[]` | array of `line_item` objects | Items being purchased. | See [line_item](#common-event-fields-line_item-object) object for event fields | [Purchase event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#purchase) <br> `items[]` |
 
 ### Common event fields: `line_item` object
 
