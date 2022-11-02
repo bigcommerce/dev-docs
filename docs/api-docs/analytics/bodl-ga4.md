@@ -161,7 +161,7 @@ For each field:
 
 ### Start checkout event
 
-When the shopper clicks on the button to initiate a checkout process, a browser event is emitted. BODL fetches and stores the following fields from the `bodl_v1_begin_checkout` object:
+When the shopper clicks on the button to initiate a checkout process, a browser event is emitted. BODL fetches GA4's [Begin checkout event object](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout) and stores the following fields into the `bodl_v1_begin_checkout` object. The `bodl_v1_begin_checkout` object includes the fields listed below: 
 
 | Web browser event fields | Type | Description | BigC data map | GA4 data map |
 | - | - | - | - | - |
@@ -175,7 +175,7 @@ When the shopper clicks on the button to initiate a checkout process, a browser 
 
 ### Purchase event
 
-When the shopper clicks on ‘Purchase’, a browser event is emitted. BODL fetches and stores the following fields from the `bodl_v1_order_purchased` object:
+When the shopper clicks on ‘Purchase’, a browser event is emitted. BODL fetches GA4's [Purchase event object](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#purchase) and stores the following fields into the `bodl_v1_order_purchased` object. The `bodl_v1_order_purchased` object includes the fields listed below: 
 
 | Web browser event fields | Type | Description | BigC data map | GA4 data map |
 | - | - | - | - | - |
@@ -191,11 +191,10 @@ When the shopper clicks on ‘Purchase’, a browser event is emitted. BODL fetc
 
 ### Common event fields: `line_item`
 
-BODL fetches common fields for many web browser events and stores them in the `line_items` sub-object. The `line_items` sub-object includes the fields listed below.   
+For many web browser events, BODL fetches GA4's [Begin checkout item object](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout_item) and [Purchase item object](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#purchase_item) and stores them in the `line_item` object. The `line_item` object includes the fields listed below.   
 
 | Web browser event fields | Type | Description | BigC data map | GA4 data map |
 | - | - | - | - | - |
-| `line_item` | object | Items in the checkout. | See below for individual fields | [Begin checkout items](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout_item) or [Purchase items](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#purchase_item) <br> `items[]` | 
 | `line_items.product_id` | string | ID of the product. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.id` | `items.item_id` <br> <br> Populate this field using the following order of availability: <br> - Variant-level SKU <br> - Product-level SKU <br> - Variant-level ID <br> - Product-level ID |
 | `line_items.product_name` | string | Name of the product. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.name` | `items.item_name` | 
 | `line_items.sku` | string | User-defined SKU for the proeduct or variant (whichever is applied). | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.sku` or `data.variants.sku` | `items.item_id` |
