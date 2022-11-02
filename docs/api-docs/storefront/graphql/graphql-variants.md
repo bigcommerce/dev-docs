@@ -1,5 +1,15 @@
 # Variants with the GraphQL Storefront API
 
+BigCommerce's GraphQL Storefront API lets merchants on headless storefronts retrieve [variants](https://support.bigcommerce.com/s/article/Variants-and-Modifiers) powered by results from our back-end search engine. These built-in capabilities also allow Stencil developers to customize...
+
+The GraphQL Storefront API lets you retrieve the following variant features, and more:
+- Price info in a store's transacting currency   
+- Variant options associated with a variant, along with their values
+- Variant metafields that have storefront access
+
+You can access these features if a merchant makes the product visible on storefronts. For Non-MSF stores, only products in categories that are available to "default GUEST customer groups" returned. => what if you login as a customer???
+
+This page walks you through how to retrieve info for a variant. If you would like to retrieve info for the base product, see [Products](/...). See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation.
 
 ## Get a variant
 
