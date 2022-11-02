@@ -206,17 +206,6 @@ BODL fetches common fields for many web browser events and stores them in the `l
 
 \* The GA4 data map fields are ordered from lowest to highest sort order. For example, `item_cateogry` should be the `category_name` with the lowest sort order value. `item_category2` should be the `category_name` with the second lowest sort order value.
 
-
-## Future phases
-
-In future phases, we will support additional events and events that occur on page load. Future events may include:
-- View product page
-- View product category
-- Add cart product
-- Remove product
-- View cart 
-- Refund order
-
 ## Resources
 - [Checkout SDK JS](https://github.com/bigcommerce/checkout-sdk-js)
 - [Checkout JS](https://github.com/bigcommerce/checkout-js)
