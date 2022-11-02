@@ -13,9 +13,11 @@ This page walks you through how to retrieve info for a product. If your product 
 
 ## Get a Product
 
+### Get a product with the `product` field
+
 In the following cases, you can query a product by using the `product` field and specifying a product identifier, for example, the product `entityId`.
 
-```graphql title="How to get a product" lineNumbers
+```graphql title="Get a product with the product field" lineNumbers
 query {
   site {
     product (entityId: 111) {
@@ -30,9 +32,11 @@ query {
 > The Product object can also be used to retrieve variant info. For example, if you use the identifier `variantEntityId` or `optionValueIds`, you will retrieve info for the variant overlaid on the Product object (if the variant has a different values than the product). 
 > See [Variants](/...) for more info.
 
+### Get a product with the `products` field
+
 You can also query a product by using the `products` field and specifying a product identifier, for example, the product `entityID`:
 
-```graphql title="How to get a product" lineNumbers
+```graphql title="Get a product with the products field" lineNumbers
 query {
   site {
     products (entityIds: [111]) {
@@ -57,7 +61,7 @@ type: tab
 title: Query
 -->
 
-```graphql title="Example" lineNumbers
+```graphql title="Example query: Get basic info for a product" lineNumbers
 query {
   site {
     product (entityId: 111) {
@@ -81,7 +85,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example" lineNumbers
+```json title="Example response: Get basic info for a product" lineNumbers
 {
   "data": {
     "site": {
@@ -92,15 +96,10 @@ title: Response
         "path": "/smith-journal-13/",
         "name": "[Sample] Smith Journal 13",
         "description": "<p>143 Pages</p>",
-        "warranty": "example warranty information",
-        "minPurchaseQuantity": 1,
-        "maxPurchaseQuantity": 10,
         "addToCartUrl": "https://heavens-gate.mybigcommerce.com/cart.php?action=add&product_id=111",
-        "type": "Physical",
         "upc": "123456",
         "mpn": "example MPN",
-        "gtin": "99999999",
-        "condition": "REFURBISHED"
+        "gtin": "99999999"
       }
     }
   }
@@ -118,7 +117,7 @@ type: tab
 title: Query
 -->
 
-```graphql title="Example" lineNumbers
+```graphql title="Example query: Get prices and dimensions for a product" lineNumbers
 query {
   site {
     product (entityId: 111) {
@@ -168,7 +167,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example" lineNumbers
+```json title="Example response: Get prices and dimensions for a product" lineNumbers
 {
   "data": {
     "site": {
@@ -236,7 +235,7 @@ type: tab
 title: Query
 -->
 
-```graphql title="Example query: Product options" lineNumbers
+```graphql title="Example query: Get product options for a product" lineNumbers
 query {
   site {
     product (entityId: 115) {
@@ -269,7 +268,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example response: Product options" lineNumbers
+```json title="Example response: Get product options for a product" lineNumbers
 {
   "data": {
     "site": {
@@ -331,7 +330,7 @@ type: tab
 title: Query
 -->
 
-```graphql title="Example query: Product options" lineNumbers
+```graphql title="Example query: Get product options for a product" lineNumbers
 query {
   site {
     product (entityId: 113) {
@@ -371,7 +370,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example response: Product options" lineNumbers
+```json title="Example response: Get product options for a product" lineNumbers
 {
   "data": {
     "site": {
@@ -438,7 +437,7 @@ type: tab
 title: Query
 -->
 
-```graphql title="Example" lineNumbers
+```graphql title="Example query: Get product images for a product" lineNumbers
 query {
   site {
     product (entityId: 113) {
@@ -468,7 +467,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example" lineNumbers
+```json title="Example response: Get product images for a product" lineNumbers
 {
   "data": {
     "site": {
@@ -513,7 +512,7 @@ type: tab
 title: Query
 -->
 
-```graphql title="Example query: Get product images" lineNumbers
+```graphql title="Example query: Get product images at different resolutions" lineNumbers
 query {
   site {
     product(entityId: 113) {
@@ -537,7 +536,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example response: Get product images" lineNumbers
+```json title="Example response: Get product images at different resolutions" lineNumbers
 {
   "data": {
     "site": {
@@ -573,7 +572,7 @@ type: tab
 title: Query
 -->
 
-```graphql title="Example" lineNumbers
+```graphql title="Example query: Get product metafields for a product" lineNumbers
 query {
   site {
     product (entityId: 113) {
@@ -597,7 +596,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example" lineNumbers
+```json title="Example response: Get product metafields for a product" lineNumbers
 {
   "data": {
     "site": {
@@ -638,7 +637,7 @@ type: tab
 title: Query
 -->
 
-```graphql title="Example" lineNumbers
+```graphql title="Example query: Get custom fields for a product" lineNumbers
 query {
   site {
     product (entityId: 113) {
@@ -661,7 +660,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example" lineNumbers
+```json title="Example response: Get custom fields for a product" lineNumbers
 {
   "data": {
     "site": {
@@ -700,7 +699,7 @@ type: tab
 title: Query
 -->
 
-```graphql title="Example" lineNumbers
+```graphql title="Example query: Get gift wrapping options for a product" lineNumbers
 query {
   site {
     product (entityId: 113) {
@@ -724,7 +723,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example" lineNumbers
+```json title="Example response: Get gift wrapping options for a product" lineNumbers
 {
   "data": {
     "site": {
@@ -765,7 +764,7 @@ type: tab
 title: Query
 -->
 
-```graphql title="Example" lineNumbers
+```graphql title="Example query: Get reviews for a product" lineNumbers
 query {
   site {
     product (entityId: 113) {
@@ -795,7 +794,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example" lineNumbers
+```json title="Example response: Get reviews for a product" lineNumbers
 {
   "data": {
     "site": {

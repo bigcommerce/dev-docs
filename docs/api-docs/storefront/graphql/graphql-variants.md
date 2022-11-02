@@ -13,7 +13,9 @@ This page walks you through how to retrieve info for a variant. If you would lik
 
 ## Get a variant
 
-In the following cases, you can query a variant by using the `variants` field and specifying a product identifier, for example, the variant `entityId` or `optionValueId`:
+### Get a variant with the `variants` field
+
+You can query a variant by specifying a variant identifier, for example, the variant `entityId` or `optionValueId`, for the `variants` field:
 
 <!--
 type: tab
@@ -21,7 +23,7 @@ title: Variant entity ID
 -->
 
 
-```graphql title="How to get a variant" lineNumbers
+```graphql title="Get a variant using the variant entity ID" lineNumbers
 query {
   site {
     product (entityId: 113) {           #This is the product entity ID 
@@ -38,7 +40,7 @@ type: tab
 title: Variant option value entity ID
 -->
 
-```graphql title="How to get a variant" lineNumbers
+```graphql title="Get a variant using variant option values" lineNumbers
 query {
   site {
     product (entityId: 113) {       # This is the product's entity ID 
@@ -58,7 +60,9 @@ query {
 
 <!-- type: tab-end -->
 
-You can also query a variant by using the `products` field and specifying a variant identifier. You can use the variant's entity ID, variant option value entity IDs, or variant SKU:
+### Get a variant with the `product` field
+
+You can also query a variant by specifying a variant identifier for the `product` field. You can use the variant's entity ID, variant option value entity IDs, or variant SKU:
 
 <!--
 type: tab
@@ -66,7 +70,7 @@ title: Variant entity ID
 -->
 
 
-```graphql title="How to get a variant" lineNumbers
+```graphql title="Get a variant using the variant entity ID" lineNumbers
 query {
   site {
     product(variantEntityId: 27098) {
@@ -81,7 +85,7 @@ type: tab
 title: Variant option value entity ID
 -->
 
-```graphql title="How to get a variant" lineNumbers
+```graphql title="Get a variant using variant option values" lineNumbers
 query {
   site {
     product(
@@ -104,7 +108,7 @@ type: tab
 title: Variant SKU
 -->
 
-```graphql title="How to get a variant" lineNumbers
+```graphql title="Get a variant using the variant sku" lineNumbers
 query {
   site {
     product(sku: "variant-sku") {
@@ -116,7 +120,7 @@ query {
 
 <!-- type: tab-end -->
 
-Using the `products` field with a variant identifier returns variant information overlaid on the Product object. For example, if the variant has a different image, dimensions, SKU, or price, than the product,the variant's info will be returned. This allows you to directly query a variant.
+Specifying a variant identifier for the `product` field returns variant information overlaid on the Product object. For example, if the variant has a different image, dimensions, SKU, or price, than the product,the variant's info will be returned. This allows you to directly query a variant.
 
 ## Basic info
 
@@ -127,7 +131,7 @@ type: tab
 title: Query
 -->
 
-```graphql title="Example" lineNumbers
+```graphql title="Example query: Get basic info for a variant" lineNumbers
 query {
   site {
     product (entityId: 113) {
@@ -152,7 +156,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example" lineNumbers
+```json title="Example response: Get basic info for a variant" lineNumbers
 {
   "data": {
     "site": {
@@ -165,8 +169,7 @@ title: Response
                 "entityId": 127,
                 "sku": "ABC-1111-PI-SM-CO-RE",
                 "upc": "123346",
-                "mpn": "9876543210",
-                "isPurchasable": true
+                "mpn": "9876543210"
               }
             }
           ]
@@ -187,7 +190,7 @@ type: tab
 title: Query
 -->
 
-```graphql title="Example" lineNumbers
+```graphql title="Example query: Get prices and dimensions for a variant" lineNumbers
 query {
   site {
     product (entityId: 113) {
@@ -242,7 +245,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example" lineNumbers
+```json title="Example response: Get prices and dimensions for a variant" lineNumbers
 {
   "data": {
     "site": {
@@ -307,7 +310,7 @@ type: tab
 title: Query
 -->
 
-```graphql title="Example" lineNumbers
+```graphql title="Example query: Get variant options for a variant" lineNumbers
 query {
   site {
     product(entityId: 113) {
@@ -337,7 +340,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example" lineNumbers
+```json title="Example response: Get variant options for a variant" lineNumbers
 {
   "data": {
     "site": {
@@ -384,7 +387,7 @@ type: tab
 title: Query
 -->
 
-```graphql title="Example" lineNumbers
+```graphql title="Example query: Get variant option values for a variant" lineNumbers
 query {
   site {
     product(entityId: 113) {
@@ -422,7 +425,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example" lineNumbers
+```json title="Example response: Get variant option values for a variant" lineNumbers
 {
   "data": {
     "site": {
@@ -489,7 +492,7 @@ type: tab
 title: Query
 -->
 
-```graphql title="Example" lineNumbers
+```graphql title="Example query: Get images for a variant" lineNumbers
 query {
   site {
     product (entityId: 113) {
@@ -515,7 +518,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example" lineNumbers
+```json title="Example response: Get images for a variant" lineNumbers
 {
   "data": {
     "site": {
@@ -552,7 +555,7 @@ type: tab
 title: Query
 -->
 
-```graphql title="Example" lineNumbers
+```graphql title="Example query: Get variant metafields for a variant" lineNumbers
 query {
   site {
     product (entityId: 113) {
@@ -582,7 +585,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example" lineNumbers
+```json title="Example response: Get variant metafields for a variant" lineNumbers
 {
   "data": {
     "site": {
