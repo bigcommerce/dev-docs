@@ -130,6 +130,19 @@ For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](
 > #### Debugging your theme  
 > The Stencil framework provides built-in debugging tools to aid in your custom front-end development. To see what data is available on the page you are working on, add the debug query string to your store's localhost URL. For example, `http://localhost:3000/product/sample-product?debug=context`. This string will return a list of all the objects on the page in JSON syntax. If you want to view the available JSON objects and rendered page simultaneously, change the debug value to `bar`. For example, `http://localhost:3000/product/sample-product?debug=bar`.
 
+### Serving a theme over HTTPS 
+It is possible to serve a live preview over HTTPS using ngrok. Run your app on localhost and create a ngrok tunnel by performing the following steps:
+
+```shell
+# Install ngrok
+npm install -g ngrok
+
+# To start the tunnel, open another terminal and run. 
+# 3000 is the port of the localhost
+ngrok http 3000
+
+```
+
 
 ## Resources
 
