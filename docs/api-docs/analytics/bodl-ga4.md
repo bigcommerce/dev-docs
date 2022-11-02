@@ -170,7 +170,7 @@ When the shopper clicks on the button to initiate a checkout process, a browser 
 | `currency` | string | [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) of the order.  BC tracks currency for a cart and not for each line item within the cart. | [Get a cart](/api-reference/store-management/carts/cart/getacart) <br> `currency.code` | [Begin checkout event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout) <br> `begin_checkout.currency` |
 | `cart_value` | number | Final value of cart after taxes, discounts, and coupons are applied. | [Get a cart](/api-reference/store-management/carts/cart/getacart) <br> `cart_amount` | [Begin checkout event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout) <br> `begin_checkout.value` |
 | `coupon_codes[]` | array of strings | Coupon codes applied to the cart. | [Get a cart](/api-reference/store-management/carts/cart/getacart) <br> `coupons.code` | [Begin checkout event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout) <br> `begin_checkout.coupon` |
-| `line_items[]` | array | Items in the checkout | See [Line items](#common-event-fields-line-items) | [Begin checkout event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout) <br> `begin_checkout.items[]` |
+| `line_items[]` | array of `line_item` objects | Items being checked out. | See [line_item](#common-event-fields-line-item) object for event fields | [Begin checkout event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout) <br> `begin_checkout.items[]` |
 
 
 ### Purchase event
@@ -187,15 +187,15 @@ When the shopper clicks on ‘Purchase’, a browser event is emitted. BODL fetc
 | `coupon_codes[]` | array of strings | Coupon codes applied to the purchase. | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `data.cart.coupons[].code` | [Purchase event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#purchase) <br> `purchase.coupon` |
 | `shipping_cost` | number | Total shipping cost including tax. | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `data.shipping_cost_total_inc_tax` | [Purchase event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#purchase) <br> `purchase.shipping` |
 | `tax` | number | Tax incurred. | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `data.tax_total` | [Purchase event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#purchase) <br> `purchase.tax` |
-| `line_items[]` | array | Items being purchased. | See [Line items](#common-event-fields-line-items) | [Purchase event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#purchase) <br> `purchase.items[]` |
+| `line_items[]` | array of `line_item` objects | Items being purchased. | See [line_item](#common-event-fields-line-item) object for event fields | [Purchase event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#purchase) <br> `purchase.items[]` |
 
-### Common event fields: Line items
+### Common event fields: `line_item`
 
 BODL fetches common fields for many web browser events and stores them in the `line_items` sub-object. The `line_items` sub-object includes the fields listed below.   
 
 | Web browser event fields | Type | Description | BigC data map | GA4 data map |
 | - | - | - | - | - |
-| `line_items[]` | array | Items in the checkout. | See below for individual fields | [Begin checkout items](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout_item) or [Purchase items](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#purchase_item) <br> `items[]` | 
+| `line_item` | object | Items in the checkout. | See below for individual fields | [Begin checkout items](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#begin_checkout_item) or [Purchase items](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#purchase_item) <br> `items[]` | 
 | `line_items.product_id` | string | ID of the product. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.id` | `items.item_id` <br> <br> Populate this field using the following order of availability: <br> - Variant-level SKU <br> - Product-level SKU <br> - Variant-level ID <br> - Product-level ID |
 | `line_items.product_name` | string | Name of the product. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.name` | `items.item_name` | 
 | `line_items.sku` | string | User-defined SKU for the proeduct or variant (whichever is applied). | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.sku` or `data.variants.sku` | `items.item_id` |
