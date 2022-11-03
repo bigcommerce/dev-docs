@@ -34,7 +34,7 @@ The following table contains BigCommerce's open source [Handlebars helpers](http
 | [all](#all) | logic | Renders block if **all** params are true. |
 | [compare](#compare) | logic | Compares values with JavaScript operators, including `typeof`. |
 | [contains](#contains) | logic | Renders block if first param is in second param. |
-| [for](#for) | logic | Iterates for range `a` to `b`. |
+| [for](#for) | logic | Iterates for range `a` to `b`, inclusive of `b`. |
 | [if](#if) | logic | Renders block if statement is true. |
 | [or](#or) | logic | Renders block if one or more parameters evaluate to true. |
 | [unless](#unless) | logic | Renders block if a statement evaluates to false. |
