@@ -82,7 +82,7 @@ To install a custom checkout on a store, follow these steps:
   
   *It is important to include `<version>` number in the Script URL field. Because if you make changes to the same provided loader filename, you could serve a cached version to the user.
   
-  ![custom-checkout-01](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/custom-checkout-01.png "Custom Checkout")
+  ![custom-checkout-01](https://storage.googleapis.com/bigcommerce-production-dev-center/images/custom-checkout-01.png "Custom Checkout")
  
 4. Click the **Save** button at the bottom of the page.
 5. Navigate to your live storefront to view your new custom checkout.
