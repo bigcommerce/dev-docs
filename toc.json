@@ -75,13 +75,13 @@
         {
           "type": "item",
           "title": "Products",
-          "href": "",
+          "href": "/api-docs/storefront/graphql/products",
           "uri": "docs/api-docs/storefront/graphql/graphql-products.md"
         },
         {
           "type": "item",
           "title": "Variants",
-          "href": "",
+          "href": "/api-docs/storefront/graphql/variants",
           "uri": "docs/api-docs/storefront/graphql/graphql-variants.md"
         },
         {
