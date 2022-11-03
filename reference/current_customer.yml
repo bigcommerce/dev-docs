@@ -11,7 +11,7 @@ info:
     > The Send a Test Request feature is not currently supported for this endpoint.
   version: ""
 servers:
-- url: https://{$$.env.store_domain}/
+- url: https://{$$.env.store_domain}
 tags:
 - name: Current Customers
 paths:

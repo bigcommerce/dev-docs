@@ -18,6 +18,7 @@ paths:
       tags:
         - Form Fields
       summary: Get Form Fields
+      operationId: getFormFields
       description: |-
         Gets form fields.
 

@@ -20,6 +20,7 @@ paths:
       tags:
       - Subscription
       summary: Create a Subscription
+      operationId: createASubscription
       description: |-
         Creates or updates an email subscription.
 

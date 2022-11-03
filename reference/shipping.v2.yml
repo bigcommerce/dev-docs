@@ -1509,6 +1509,7 @@ paths:
         IsMultiContentStreaming: false
       tags:
         - Shipping Carrier
+      operationId: createACarrierConnection
     delete:
       description: |-
         Deletes a *Carrier Connection*.

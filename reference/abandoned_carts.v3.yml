@@ -216,7 +216,6 @@ paths:
           type: string
 security:
   - X-Auth-Token: []
-  - OAuthScopes: []
 tags:
   - name: Abandoned Carts
   - name: Abandoned Cart Settings
