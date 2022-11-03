@@ -130,20 +130,127 @@ title: Purchase order
 
 ## Analytic tracking scripts listen for events 
 
-You can pull storefront data from BODL to your solution using analytic storefront tracking scripts. Your analytic scripts will need to listen to the event and take in data that are stored in BODL.  
+You can pull storefront data from BODL to your solution using analytic storefront tracking scripts. Your analytic scripts will need to listen to the event, take in data that are stored in BODL, and send events to GA4.  
 
-Below is example code for your analytics script consuming the event. For more info, consult the MDN website doc [Add Event Listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
+Below is example code for your analytics script that subscribes to BODL events and sends events to GA4. For more info, consult the MDN website doc [Add Event Listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
 
 ```js title="Add event listener" lineNumbers
-document.addEventListener('checkout_begin', function (bodl_event) {
-	analyticsScript.track(
-    'Begin Checkout', { 
-    currency_code: bodl_event.currency,
-    coupon_code: bodl_event.coupon,
-    ...
-    }
-  )
-}, false);
+<script async src="https://www.googletagmanager.com/gtag/js?id=$trackingId"></script>
+<script>
+  function subscribeOnBodlEvents() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '$trackingId');
+
+      if (!window || typeof window.bodlEvents === 'undefined' || typeof window.bodlEvents.checkout === 'undefined') {
+          return ;
+      }
+
+      var GA_TO_BODL_CHECKOUT_EVENTS = {
+          begin_checkout: 'begin_checkout',
+          purchase: 'purchase',
+      };
+
+      // See docs with appropriate fields for each event here
+      // https://developers.google.com/analytics/devguides/collection/ga4/reference/events
+      function transformItem(item, index) {
+          var transformed =  {
+             item_id: item.sku || item.variant_id || item.product_id,
+             item_name: item.product_name,
+             currency: item.currency,
+             discount: item.discount,
+             index: typeof item.index !== 'undefined' ? item.index : index,
+             item_brand: item.brand_name,
+             item_variant: item.sku || item.product_id,
+             quantity: item.quantity,
+             price: item.purchase_price,
+          };
+
+          var MAX_CATEGORIES_COUNT = 5;
+
+          if (item.category_names && Array.isArray(item.category_names)) {
+              var categories = item.category_names.slice(0, MAX_CATEGORIES_COUNT);
+
+              categories.forEach(function (category, index) {
+                  var key = 'item_category' + (index ? index + 1 : '');
+
+                  transformed[key] = category;
+              });
+          }
+
+          if (item.coupon) {
+              transformed.coupon = item.coupon;
+          }
+
+          return transformed;
+      }
+
+      function transformPurchasePayload(payload) {
+          var coupon = Array.isArray(payload.coupon_codes) && payload.coupon_codes.length ? payload.coupon_codes[0] : '';
+
+          var transformed = {
+              transaction_id: payload.order_id || payload.transaction_id,
+              currency: payload.currency,
+              value: payload.cart_value,
+              shipping: payload.shipping_cost,
+              items: payload.line_items.map(function(item, index) {
+                  if (coupon) {
+                      item.coupon = coupon;
+                  }
+                  return transformItem(item, index);
+              }),
+          };
+
+          if (coupon) {
+              transformed.coupon = coupon;
+          }
+
+          if (payload.tax) {
+              transformed.tax = payload.tax;
+          }
+
+          return transformed;
+      }
+
+      function transformBeginCheckoutPayload(payload) {
+          var coupon = Array.isArray(payload.coupon_codes) && payload.coupon_codes.length ? payload.coupon_codes[0] : '';
+
+          var transformed = {
+              currency: payload.currency,
+              value: payload.cart_value,
+              items: payload.line_items.map(function(item, index) {
+                  if (coupon) {
+                      item.coupon = coupon;
+                  }
+                  return transformItem(item, index);
+              }),
+          }
+
+          if (coupon) {
+              transformed.coupon = coupon;
+          }
+
+          return transformed;
+      }
+
+      if (typeof window.bodlEvents.checkout.checkoutBegin === 'function') {
+          window.bodlEvents.checkout.checkoutBegin(function(payload) {
+              gtag('event', GA_TO_BODL_CHECKOUT_EVENTS.begin_checkout, transformBeginCheckoutPayload(payload));
+          });
+      }
+      if (typeof window.bodlEvents.checkout.orderPurchased === 'function') {
+          window.bodlEvents.checkout.orderPurchased(function(payload) {
+              gtag('event', GA_TO_BODL_CHECKOUT_EVENTS.purchase, transformPurchasePayload(payload));
+          });
+      }
+  }
+
+  if (window.addEventListener) {
+    window.addEventListener("load", subscribeOnBodlEvents, false)
+  }
+</script>
 ```
 
 
