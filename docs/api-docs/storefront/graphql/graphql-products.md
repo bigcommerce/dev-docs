@@ -15,15 +15,36 @@ This page walks you through how to retrieve info for a product. If your product 
 
 ### Get a product with the `product` field
 
-In the following cases, you can query a product by using the `product` field and specifying a product identifier, for example, the product `entityId`.
+You can query a product by using the `product` field and specifying a product identifier, for example, the product `entityId`.
 
 ```graphql title="Get a product with the product field" lineNumbers
 query {
   site {
     product (entityId: 111) {
-      ...
+      # fields for product
     }
   }
+}
+```
+
+&nbsp;
+
+```graphql title="Get a product with the product field" lineNumbers
+# This query uses aliases and fragments. For more, see https://graphql.org/learn/queries.
+
+query {
+  site {
+    product1: product(entityId: 113) {
+      ...ProductFields
+    }
+    product2: product(entityId: 115) {
+      ...ProductFields
+    }
+  }
+}
+
+fragment ProductFields on Product {
+  # fields for product 
 }
 ```
 
@@ -34,7 +55,7 @@ query {
 
 ### Get a product with the `products` field
 
-You can also query a product by using the `products` field and specifying a product identifier, for example, the product `entityID`:
+You can  query a product by using the `products` field and specifying a product identifier, for example, the product `entityID`:
 
 ```graphql title="Get a product with the products field" lineNumbers
 query {
@@ -42,7 +63,7 @@ query {
     products (entityIds: [111]) {
       edges {
         node {
-          ...
+          # fields for product
         }
       }
     }

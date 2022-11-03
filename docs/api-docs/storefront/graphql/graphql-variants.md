@@ -28,7 +28,7 @@ query {
   site {
     product (entityId: 113) {           #This is the product entity ID 
       variants (entityIds: [98]) {      #This is the variant entity ID
-        ...
+        # fields for variants
       }
     }
   }
@@ -41,20 +41,50 @@ title: Variant option value entity ID
 -->
 
 ```graphql title="Get a variant using variant option values" lineNumbers
+# This query retrieves one variant.
+# You must specify the entity ID for the value of each variant option.
+
 query {
   site {
     product (entityId: 113) {       # This is the product's entity ID 
-      variants (
-        # Specify the entity ID for the value of each variant option
-        optionValueIds: [
-          { optionEntityId: 116, valueEntityId: 108 }
-          { optionEntityId: 126, valueEntityId: 129 }
-        ]
-      ) {
-        ...
+      variants (optionValueIds: [{optionEntityId: 116, valueEntityId: 108} {optionEntityId: 126, valueEntityId: 129}]) {
+        # fields for variants
       }
     }
   }
+}
+```
+
+&nbsp;
+
+```graphql title="Get a variant using variant option values" lineNumbers
+# This query retrieves 2 variants.
+# For each variant, you must specify the entity ID for the value of each variant option.
+# This query uses aliases and fragments. For more, see https://graphql.org/learn/queries.
+
+query {
+  site {
+    product (entityId: 113) {       # This is the product's entity ID 
+      v1: variants (optionValueIds: [{optionEntityId: 116, valueEntityId: 108} {optionEntityId: 126, valueEntityId: 129}]) {
+        edges {
+          node {
+            ...VariantFields
+          }
+        }
+      }
+      v2: variants (optionValueIds: [{optionEntityId: 116, valueEntityId: 109} {optionEntityId: 126, valueEntityId: 129}]){
+        edges {
+          node {
+            ...VariantFields
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment VariantFields on Variant {
+  # fields for variants
 }
 ```
 
@@ -75,8 +105,8 @@ title: Variant entity ID
 ```graphql title="Get a variant using the variant entity ID" lineNumbers
 query {
   site {
-    product(variantEntityId: 27098) {
-      ...  
+    product (variantEntityId: 27098) {
+      # fields for product  
     }
   }
 }
@@ -88,18 +118,15 @@ title: Variant option value entity ID
 -->
 
 ```graphql title="Get a variant using variant option values" lineNumbers
+# Specify the entity ID for the value of each variant option
+
 query {
   site {
-    product(
+    product (
       entityId: 113 # This is the product's entity ID
-      
-      # Specify the entity ID for the value of each variant option
-      optionValueIds: [
-        { optionEntityId: 116, valueEntityId: 108 }
-        { optionEntityId: 126, valueEntityId: 129 }
-      ]
+      optionValueIds: [{optionEntityId: 116, valueEntityId: 108} {optionEntityId: 126, valueEntityId: 129}]
     ) {
-      ...
+      # fields for product
     }
   }
 }
@@ -113,8 +140,8 @@ title: Variant SKU
 ```graphql title="Get a variant using the variant sku" lineNumbers
 query {
   site {
-    product(sku: "variant-sku") {
-      ...  
+    product (sku: "variant-sku") {
+      # fields for product 
     }
   }
 }
