@@ -9,7 +9,7 @@ The GraphQL Storefront API lets you retrieve the following variant features, and
 
 You can access these features if a merchant makes the product visible on storefronts. For Non-MSF stores, only products in categories that are available to "default GUEST customer groups" returned. => what if you login as a customer???
 
-This page walks you through how to retrieve info for a variant. If you would like to retrieve info for the base product, see [Products](/...). See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation.
+This page walks you through how to retrieve info for a variant. If you would like to retrieve info for the base product, see [Products with the GraphQL Storefront API](/api-docs/storefront/graphql/products). See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation.
 
 ## Get a variant
 
@@ -151,7 +151,7 @@ query {
 
 Specifying a variant identifier for the `product` field returns variant information overlaid on the Product object. For example, if the variant has a different image, dimensions, SKU, or price, than the product,the variant's info will be returned. This allows you to directly query a variant.
 
-## Basic info
+## Get variant identifiers
 
 You can query identifying info for variants. The example query shows how to query identifying info for the specified variant:
 
@@ -210,7 +210,7 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-## Prices and dimensions
+## Get variant prices and dimensions
 
 You can query the prices and dimensions for variants. The example query shows how to query prices and dimensions for the specified variant:
 
@@ -328,7 +328,7 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-## Variant options
+## Get variant options
 
 You can query the variant options and the variant option values that are associated with a variant. 
 
@@ -512,7 +512,7 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-## Images
+## Get variant images
 
 You can query the default images for variants. The example query shows how to query default image for the specified variant:
 
@@ -573,11 +573,11 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-## Metafields
+## Get variant metafields
 
 You can query the metafields for variants. Only metafields that have storefront permissions are returned (i.e. permissions must be set to `write_and_sf_access` or `read_and_sf_access`).
 
-The example query shows how to query variant metafields for the specified variant. The query returns only variant metafields. See [Get product metafields](/...) to retrieve product metafields. 
+The example query shows how to query variant metafields for the specified variant. The query returns only variant metafields. See [Get product metafields](/api-docs/storefront/graphql/products#get-product-metafields) to retrieve product metafields. 
 
 <!--
 type: tab
@@ -647,3 +647,8 @@ title: Response
 <!-- type: tab-end -->
 
 ## Resources
+
+- [GraphQL Storefront API Overview](/api-docs/storefront/graphql/graphql-storefront-api-overview)
+- [Products with the GraphQL Storefront API](/api-docs/storefront/graphql/products)
+- [GraphQL Storefront API Explorer](https://developer.bigcommerce.com/api-docs/storefront/graphql/explorer)
+- [GraphQL Storefront API Playground](https://developer.bigcommerce.com/api-docs/storefront/graphql/playground)
