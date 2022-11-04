@@ -18,6 +18,8 @@ This page walks you through how to retrieve info for a product. If your product 
 You can query a product by using the `product` field and specifying a product identifier, for example, the product `entityId`.
 
 ```graphql title="Get a product with the product field" lineNumbers
+# This query retrieves 1 product.
+
 query {
   site {
     product (entityId: 111) {
@@ -59,6 +61,9 @@ fragment ProductFields on Product {
 You can  query a product by using the `products` field and specifying a product identifier, for example, the product `entityID`:
 
 ```graphql title="Get a product with the products field" lineNumbers
+# This example retrieves 1 product.
+# Specify multiple entityIds to retrieve multiple products.
+
 query {
   site {
     products (entityIds: [111]) {
@@ -177,12 +182,12 @@ query {
   }
 }
 
-fragment PriceFields on Money {
+fragment PriceFields on Money {               # fields on the Money object type
   currencyCode
   value
 }
 
-fragment DimensionFields on Measurement {
+fragment DimensionFields on Measurement {     # fields on the Measurement object type
   value
   unit
 }

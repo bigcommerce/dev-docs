@@ -24,10 +24,13 @@ title: Variant entity ID
 
 
 ```graphql title="Get a variant using the variant entity ID" lineNumbers
+# This example retrieves 1 variant. 
+# Specify multiple variant entityIds to retrieve multiple variants.
+
 query {
   site {
-    product (entityId: 113) {           #This is the product entity ID 
-      variants (entityIds: [98]) {      #This is the variant entity ID
+    product (entityId: 113) {           # product entity ID 
+      variants (entityIds: [98]) {      # variant entity ID(s)
         # fields for variants
       }
     }
@@ -41,12 +44,12 @@ title: Variant option value entity ID
 -->
 
 ```graphql title="Get a variant using variant option values" lineNumbers
-# This query retrieves one variant.
+# This query retrieves 1 variant.
 # You must specify the entity ID for the value of each variant option.
 
 query {
   site {
-    product (entityId: 113) {       # This is the product's entity ID 
+    product (entityId: 113) {       # product entity ID 
       variants (optionValueIds: [{optionEntityId: 116, valueEntityId: 108} {optionEntityId: 126, valueEntityId: 129}]) {
         # fields for variants
       }
@@ -64,7 +67,7 @@ query {
 
 query {
   site {
-    product (entityId: 113) {       # This is the product's entity ID 
+    product (entityId: 113) {       # product entity ID 
       v1: variants (optionValueIds: [{optionEntityId: 116, valueEntityId: 108} {optionEntityId: 126, valueEntityId: 129}]) {
         edges {
           node {
@@ -103,6 +106,8 @@ title: Variant entity ID
 
 
 ```graphql title="Get a variant using the variant entity ID" lineNumbers
+# This query retrieves 1 variant. 
+
 query {
   site {
     product (variantEntityId: 27098) {
@@ -118,12 +123,13 @@ title: Variant option value entity ID
 -->
 
 ```graphql title="Get a variant using variant option values" lineNumbers
-# Specify the entity ID for the value of each variant option
+# This query retrieves 1 variant.
+# You must specify the entity ID for the value of each variant option.
 
 query {
   site {
     product (
-      entityId: 113 # This is the product's entity ID
+      entityId: 113       # product entity ID
       optionValueIds: [{optionEntityId: 116, valueEntityId: 108} {optionEntityId: 126, valueEntityId: 129}]
     ) {
       # fields for product
@@ -138,6 +144,8 @@ title: Variant SKU
 -->
 
 ```graphql title="Get a variant using the variant sku" lineNumbers
+# This query retrieves 1 variant. 
+
 query {
   site {
     product (sku: "variant-sku") {
@@ -220,6 +228,8 @@ title: Query
 -->
 
 ```graphql title="Example query: Get prices and dimensions for a variant" lineNumbers
+# This query uses fragments. For more, see https://graphql.org/learn/queries/#fragments.
+
 query {
   site {
     product (entityId: 113) {
@@ -259,11 +269,11 @@ query {
   }
 }
       
-fragment PriceFields on Money {
+fragment PriceFields on Money {               # fields on the Money object type
   value
   currencyCode
 }
-fragment DimensionFields on Measurement {
+fragment DimensionFields on Measurement {     # fields on the Measurement object type
   value
   unit
 }
