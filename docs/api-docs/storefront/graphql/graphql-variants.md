@@ -350,7 +350,7 @@ title: Response
 
 You can query the variant options and the variant option values that are associated with a variant. 
 
-The following query returns the variant options that are associated with the specified variant. 
+The following query returns the variant options that are associated with the specified variant. Unlike [Get product options](/api-docs/storefront/graphql/products#get-product-options), the response includes only variant options, not modifer options.
 
 <!--
 type: tab

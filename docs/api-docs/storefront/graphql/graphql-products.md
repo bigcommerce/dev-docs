@@ -246,7 +246,7 @@ title: Response
 
 ## Get product options 
 
-You can query the [product options](https://support.bigcommerce.com/s/article/Product-Options-v3) associated with a product. If your product has variants, use [Get variant options](/api-docs/storefront/graphql/variants#get-variant-options) for more. 
+You can query the [product options](https://support.bigcommerce.com/s/article/Product-Options-v3) associated with a product. The response includes both variant options and modifer options. If your product has variants, use [Get variant options](/api-docs/storefront/graphql/variants#get-variant-options) for more. 
 
 There are various [types of product options](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#types), including checkbox, multiple choice, and more, each with unique fields. However, each type of product option has a schema type that implements the `CatalogProductOption` interface, meaning you can query the common fields that are included in `CatalogProductOption`. For more on interfaces, see the [GraphQL Schema and Types- Interfaces](https://graphql.org/learn/schema/#interfaces) documentation.
 
