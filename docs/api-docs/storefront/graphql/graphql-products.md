@@ -23,7 +23,7 @@ You can query a product by using the `product` field and specifying a product id
 query {
   site {
     product (entityId: 111) {
-      # fields for product
+      # fields on the Product object type
     }
   }
 }
@@ -47,7 +47,7 @@ query {
 }
 
 fragment ProductFields on Product {
-  # fields for product 
+  # fields on the Product object type 
 }
 ```
 
@@ -69,7 +69,7 @@ query {
     products (entityIds: [111]) {
       edges {
         node {
-          # fields for product
+          # fields on the Product object type
         }
       }
     }

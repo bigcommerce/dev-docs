@@ -31,7 +31,11 @@ query {
   site {
     product (entityId: 113) {           # product entity ID 
       variants (entityIds: [98]) {      # variant entity ID(s)
-        # fields for variants
+        edges {
+          node {
+            # fields on the Variant object type
+          }
+        }
       }
     }
   }
@@ -51,7 +55,11 @@ query {
   site {
     product (entityId: 113) {       # product entity ID 
       variants (optionValueIds: [{optionEntityId: 116, valueEntityId: 108} {optionEntityId: 126, valueEntityId: 129}]) {
-        # fields for variants
+        edges {
+          node {
+            # fields on the Variant object type
+          }
+        }
       }
     }
   }
@@ -87,7 +95,7 @@ query {
 }
 
 fragment VariantFields on Variant {
-  # fields for variants
+  # fields on the Variant object type
 }
 ```
 
@@ -111,7 +119,7 @@ title: Variant entity ID
 query {
   site {
     product (variantEntityId: 27098) {
-      # fields for product  
+      # fields on the Product object type  
     }
   }
 }
@@ -132,7 +140,7 @@ query {
       entityId: 113       # product entity ID
       optionValueIds: [{optionEntityId: 116, valueEntityId: 108} {optionEntityId: 126, valueEntityId: 129}]
     ) {
-      # fields for product
+      # fields on the Product object type
     }
   }
 }
@@ -149,7 +157,7 @@ title: Variant SKU
 query {
   site {
     product (sku: "variant-sku") {
-      # fields for product 
+      # fields on the Product object type 
     }
   }
 }
