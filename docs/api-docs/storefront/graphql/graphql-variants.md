@@ -9,7 +9,7 @@ The GraphQL Storefront API lets you retrieve the following variant features, and
 
 You can access these features if a merchant makes the product visible on storefronts. For Non-MSF stores, only products in categories that are available to "default GUEST customer groups" returned. => what if you login as a customer???
 
-This page walks you through how to retrieve info for a variant. If you would like to retrieve info for the base product, see [Products with the GraphQL Storefront API](/api-docs/storefront/graphql/products). See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation.
+This page walks you through how to retrieve info for a variant. If you would like to retrieve info for the base product, see [Products with the GraphQL Storefront API](/api-docs/storefront/graphql/products). See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/api-docs/storefront/graphql/playground) for full schema documentation.
 
 ## Get a variant
 
@@ -652,3 +652,4 @@ title: Response
 - [Products with the GraphQL Storefront API](/api-docs/storefront/graphql/products)
 - [GraphQL Storefront API Explorer](https://developer.bigcommerce.com/api-docs/storefront/graphql/explorer)
 - [GraphQL Storefront API Playground](https://developer.bigcommerce.com/api-docs/storefront/graphql/playground)
+- [GraphQL language](https://graphql.org/learn/queries) (learn GraphQL at graphql.org)

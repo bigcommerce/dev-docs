@@ -9,7 +9,7 @@ The GraphQL Storefront API lets you retrieve the following product features, and
 
 You can access these features for a product if a merchant makes a product visible on storefronts. For Non-MSF stores, only products in categories that are available to "default GUEST customer groups" returned. => what if you login as a customer???
 
-This page walks you through how to retrieve info for a product. If your product has variants, see [Variants with the GraphQL Storefront API](/api-docs/storefront/graphql/variants) for what you can query for your product's variants. See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation.
+This page walks you through how to retrieve info for a product. If your product has variants, see [Variants with the GraphQL Storefront API](/api-docs/storefront/graphql/variants) for what you can query for your product's variants. See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/api-docs/storefront/graphql/playground) for full schema documentation.
 
 ## Get a Product
 
@@ -30,6 +30,7 @@ query {
 &nbsp;
 
 ```graphql title="Get a product with the product field" lineNumbers
+# This query retrieves 2 products.
 # This query uses aliases and fragments. For more, see https://graphql.org/learn/queries.
 
 query {
@@ -141,6 +142,8 @@ title: Query
 -->
 
 ```graphql title="Example query: Get prices and dimensions for a product" lineNumbers
+# This query uses fragments. For more, see https://graphql.org/learn/queries/#fragments.
+
 query {
   site {
     product (entityId: 111) {
@@ -243,6 +246,8 @@ You can query the [product options](https://support.bigcommerce.com/s/article/Pr
 There are various [types of product options](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#types), including checkbox, multiple choice, and more, each with unique fields. However, each type of product option has a schema type that implements the `CatalogProductOption` interface, meaning you can query the common fields that are included in `CatalogProductOption`. For more on interfaces, see the [GraphQL Schema and Types- Interfaces](https://graphql.org/learn/schema/#interfaces) documentation.
 
 ```graphql title="CatalogProductOption interface" lineNumbers
+# Fields common among product options 
+
 interface CatalogProductOption {
   entityId: Int!
   displayName: String!
@@ -259,21 +264,24 @@ title: Query
 -->
 
 ```graphql title="Example query: Get product options for a product" lineNumbers
+# This query retrieves all product options.
+# This query uses interfaces. For more, see https://graphql.org/learn/schema/#interfaces.
+
 query {
   site {
     product (entityId: 115) {
       productOptions {
         edges {
           node {
-            entityId
+            entityId                  # fields that all product options include
             displayName
             isRequired
             isVariantOption
-            ... on CheckboxOption {
+            ... on CheckboxOption {   # extra fields checkbox options include
               checkedByDefault
               label
             }
-            ... on DateFieldOption {
+            ... on DateFieldOption {  # extra fields checkbox options include
               earliest
               latest
               limitDateBy
@@ -336,9 +344,11 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-Multiple choice product options also have various types, including swatch, radio buttons, and more. Each multiple choice option has a schema type that implements the `CatalogProductOptionValue` interface.   
+Product options that are [multiple choice](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc) also have various types, including swatch, radio buttons, and more. Each multiple choice product option has a schema type that implements the `CatalogProductOptionValue` interface.   
 
 ```graphql title="CatalogProductOptionValue interface" lineNumbers
+# Fields common among multiple choice product options 
+
 interface CatalogProductOptionValue {
   entityId: Int!
   label: String!
@@ -346,7 +356,7 @@ interface CatalogProductOptionValue {
 }
 ```
 
-The example below shows a query that returns all product options. In the response, all multiple choice product options include common fields from the `CatalogProductOptionValue` interface, and the swatch types return additional fields (`hexColors` and `imageUrl`).
+The example below shows a query that returns all product options. In the response, each multiple choice product option includes common fields from the `CatalogProductOptionValue` interface, and the swatch types return additional fields (`hexColors` and `imageUrl`).
 
 <!--
 type: tab
@@ -354,17 +364,20 @@ title: Query
 -->
 
 ```graphql title="Example query: Get product options for a product" lineNumbers
+# This query retrieves all product options.
+# This query uses interfaces. For more, see https://graphql.org/learn/schema/#interfaces.
+
 query {
   site {
     product (entityId: 113) {
       productOptions {
         edges {
           node {
-            entityId
+            entityId                                # fields that all product options include
             displayName
             isRequired
             isVariantOption
-            ... on MultipleChoiceOption {
+            ... on MultipleChoiceOption {           # extra fields multiple choice options include
               displayStyle
               values {
                 edges {
@@ -372,7 +385,7 @@ query {
                     entityId
                     label
                     isDefault
-                    ... on SwatchOptionValue {
+                    ... on SwatchOptionValue {      # extra fields swatch options include
                       hexColors
                       imageUrl (width: 2)
                     }
@@ -536,6 +549,9 @@ title: Query
 -->
 
 ```graphql title="Example query: Get product images at different resolutions" lineNumbers
+# This query retrieves 4 images.
+# This query uses aliases. For more, see https://graphql.org/learn/queries/#aliases.
+
 query {
   site {
     product(entityId: 113) {
@@ -854,3 +870,4 @@ title: Response
 - [Variants with the GraphQL Storefront API](/api-docs/storefront/graphql/variants)
 - [GraphQL Storefront API Explorer](https://developer.bigcommerce.com/api-docs/storefront/graphql/explorer)
 - [GraphQL Storefront API Playground](https://developer.bigcommerce.com/api-docs/storefront/graphql/playground)
+- [GraphQL language](https://graphql.org/learn/queries) (learn GraphQL at graphql.org)
