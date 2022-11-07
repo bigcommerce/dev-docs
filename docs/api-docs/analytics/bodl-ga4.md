@@ -60,7 +60,7 @@ For reference, consult the [Event Emitter docs](https://nodejs.org/api/events.ht
 
 BODL is a predefined JSON object that extracts data from events. When a merchant enables BODL, they add a BODL object to each page of a merchant store and render it as a part of the initial DOM load for all pages of all storefronts.
 
-BODL holds data needed for you to make analytic reports. When a shopper triggers an event, BODL fetches and stores the event and its parameters. For supported events and parameters, see [Events](#events).
+BODL holds the data needed for you to make analytic reports. When a shopper triggers an event, BODL fetches and stores the event and its parameters. For supported events and parameters, see [Events](#events).
 
 Below are examples of BODL after a shopper triggers a start checkout event or a purchase order event:
 
