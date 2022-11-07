@@ -121,7 +121,7 @@ title: Purchase order
         "functional": true
     },
     "events": [
-        "create_order_purchased"
+        "bodl_v1_order_purchased"
     ]
 }
 ```
