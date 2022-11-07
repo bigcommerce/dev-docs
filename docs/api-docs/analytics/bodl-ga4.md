@@ -130,7 +130,7 @@ title: Purchase order
 
 <!-- theme: info -->
 > #### Customizing BODL
-> Stencil merchants can turn off the BODL and deploy their own custom version of the BODL. In this scenario, the merchant is choosing a custom route and is expected to ensure that analytics tracking scripts still work.
+> Stencil merchants can turn off the BODL and deploy their own custom version of the BODL. In this scenario, the merchant chooses a custom route and should ensure that analytics tracking scripts still work.
 
 ## Analytic tracking scripts listen for events 
 
