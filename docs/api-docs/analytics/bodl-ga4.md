@@ -8,7 +8,7 @@ This guide demonstrates how you can integrate a BigCommerce store with [Google A
 - Merchants must enable GA4 for the storefront channel to set up a provider's analytic tracking script for a storefront. GA4 is enabled for new stores by default. 
 - The storefront uses a stencil theme. The native GA4 integration does not support Blueprint themes. 
 - Headless storefronts are not supported.
-- If the store is using Custom Checkout, then the checkout javascript code has to be manually upgraded to support BODL and GA4.
+- If the store uses Custom Checkout, then the checkout javascript code has to be manually upgraded to support BODL and GA4.
 - Legacy checkout is not supported.
 - Your store must have a custom domain. Your site must be verified.
 - Merchant must enable cookie consent tracking. Shopper must consent to browser cookies so that BigCommerce can track shopper actions.
