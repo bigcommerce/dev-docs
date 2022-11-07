@@ -358,19 +358,38 @@ title: Query
 -->
 
 ```graphql title="Example query: Get variant options for a variant" lineNumbers
+# This query retrieves all product options.
+# This query uses interfaces. For more, see https://graphql.org/learn/schema/#interfaces.
+
 query {
   site {
-    product(entityId: 113) {
-      variants(entityIds: [127]) {
+    product (entityId: 113) {
+      variants (entityIds: [127]) {
         edges {
           node {
             productOptions {
               edges {
                 node {
-                  entityId
-                  displayName
-                  isRequired
-                  isVariantOption
+                  ... on MultipleChoiceOption { 
+                    entityId                              
+                    displayName
+                    isRequired
+                    isVariantOption
+                    displayStyle
+                    values {
+                      edges {
+                        node {
+                          entityId
+                          label
+                          isDefault
+                          ... on SwatchOptionValue {      # extra fields swatch options include
+                            hexColors
+                            imageUrl (width: 2)
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -403,7 +422,19 @@ title: Response
                         "entityId": 116,
                         "displayName": "Color",
                         "isRequired": true,
-                        "isVariantOption": true
+                        "isVariantOption": true,
+                        "displayStyle": "RadioButtons",
+                        "values": {
+                          "edges": [
+                            {
+                              "node": {
+                                "entityId": 108,
+                                "label": "Pink",
+                                "isDefault": true
+                              }
+                            }
+                          ]
+                        }
                       }
                     },
                     {
@@ -411,7 +442,24 @@ title: Response
                         "entityId": 126,
                         "displayName": "Size",
                         "isRequired": true,
-                        "isVariantOption": true
+                        "isVariantOption": true,
+                        "displayStyle": "Swatch",
+                        "values": {
+                          "edges": [
+                            {
+                              "node": {
+                                "entityId": 129,
+                                "label": "Small",
+                                "isDefault": false,
+                                "hexColors": [
+                                  "#912727",
+                                  "#D6A67C"
+                                ],
+                                "imageUrl": null
+                              }
+                            }
+                          ]
+                        }
                       }
                     }
                   ]
