@@ -18,7 +18,7 @@ This guide demonstrates how you can integrate a BigCommerce store with [Google A
 
 BigCommerce will emit a browser event for events that occur from shopper action without a new page load. 
 
-Below is the code that BigCommerce uses to create and emit an event for starting a checkout and purchasing an order. For more, see the [event emitter](https://github.com/bigcommerce/checkout-sdk-js/blob/master/packages/core/src/bodl/bodl-emitter-service.ts) from the [Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js).
+Below is the code that BigCommerce uses to create and emit an event for starting a checkout and purchasing an order. For more information, see the [event emitter](https://github.com/bigcommerce/checkout-sdk-js/blob/master/packages/core/src/bodl/bodl-emitter-service.ts) from the [Checkout SDK](https://github.com/bigcommerce/checkout-sdk-js).
 
 <!--
 type: tab
