@@ -5,7 +5,7 @@ Big Open Data Layer (shortened as `BODL`, pronounced 'Bottle') is a global JavaS
 This guide demonstrates how you can integrate a BigCommerce store with [Google Analytics (GA4)](https://support.bigcommerce.com/s/article/GA4). Using BODL, you can track when a shopper starts checkout and purchases an order. You can track events for both redirected and [embedded checkout](/api-docs/storefronts/embedded-checkout/embedded-checkout-tutorial).
 
 ## Prerequisites 
-- Merchants must enable GA4 for the storefront channel. This sets up a provider's analytic tracking script for a storefront. GA4 is enabled for new stores by default. 
+- Merchants must enable GA4 for the storefront channel to set up a provider's analytic tracking script for a storefront. GA4 is enabled for new stores by default. 
 - The storefront uses a stencil theme. The native GA4 integration does not support Blueprint themes. 
 - Headless storefronts are not supported.
 - If the store is using Custom Checkout, then the checkout javascript code has to be manually upgraded to support BODL and GA4.
