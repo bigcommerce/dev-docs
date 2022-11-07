@@ -267,7 +267,7 @@ The [Scripts API](/api-docs/store-management/scripts) allows you to manage your 
 Each event has web browser parameters that are populated when a shopper triggers the event. You can send these fields to your analytics solution to create analytic reports.
 
 For each field:  
-- The BIGC Data Map provides a reference for the data value that populates a field in BODL. This does not imply that our technical architecture literally makes the referenced API call to fill out the value for BODL.
+- The BIGC Data Map provides a reference for the data value that populates a field in BODL. This does not imply that our technical architecture makes the referenced API call to fill out the value for BODL.
 - The GA4 Data Map provides a reference for the GA4 data field whose value is supplied by BODL. 
 
 ### Start checkout event
