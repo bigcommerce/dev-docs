@@ -41,7 +41,7 @@ title: Purchase order
 -->
 
 ```js title="Create and emit browser event" lineNumbers
-this.bodlEvents.emit('create_order_purchased', {
+this.bodlEvents.emit('bodl_v1_order_purchased', {
   id: cartId,
   currency: currency.code,
   transaction_id: orderId,
