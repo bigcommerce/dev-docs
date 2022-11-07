@@ -4,12 +4,12 @@ stoplight-id: agn3uhaasqd2r
 
 # Early Hints
 
-Early Hints lets developers indicate which site assets are required for full page render. When a client makes a request to a site using Early Hints, the server responds with a `103 Early Hints` response containing important assets. The client begins to load these assets while the `200 OK` response is compiled and returned to the client, reducing page load time and perceived latency. 
+Early Hints reduces page load time and perceived latency by letting developers indicate which site assets are required for full page render. When a client makes a request to a site using Early Hints, the server responds with a `103 Early Hints` response containing important assets. The client begins to load these assets while the `200 OK` response is compiled and returned to the client. 
 
 For more details on Early Hints, see [An HTTP Status Code for Indicating Hints](https://httpwg.org/specs/rfc8297.html#introduction). Because Stencil's implementation of Early Hints relies on usage of the Cloudflare CDN, also read 
 [Early Hints: How Cloudflare Can Improve Website Load Times by 30%](https://blog.cloudflare.com/early-hints/). 
 
-While many of Stencil's assets are optimized to use Early Hints automatically, some assets require theme updates. The following sections detail what assets are optimized automatically and which require theme updates. 
+While many of Stencil's assets are automatically optimized to use Early Hints, some assets require theme updates. The following sections detail what assets are automatically optimized and which require theme updates. 
 
 ## Automatic
 
@@ -34,6 +34,8 @@ Assets loaded through the `{{stylesheet}}` or `{{getFontsCollection}}` handlebar
 
 
 ## Manual
+
+Theme developers should not simply mark every resource for preloading; the focus should be on resources which are critically important for painting the page and loading the above-the-fold content. For example, the Cornerstone theme uses main JavaScript bundle(s) that are necessary for the theme to function. Resources that cannot be [deferred](https://web.dev/render-blocking-resources/) (which should always be the fist priority) should be preloaded.
 
 ### Theme Scripts & other resources
 
@@ -65,8 +67,6 @@ Here’s an example of the changes made to Cornerstone to get these improvements
 ```
 
 `as`
-
-Theme developers should not simply mark every resource for preloading; the focus should be on resources which are critically important for painting the page and loading the above-the-fold content. Using the Cornerstone example, this was the main JavaScript bundle(s) necessary for the theme to function. For any resources which cannot be [deferred](https://web.dev/render-blocking-resources/) (which should always be the fist priority), they should be preloaded.
 
 ## Moving to Cloudflare
 
