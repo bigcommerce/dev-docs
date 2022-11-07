@@ -134,7 +134,7 @@ title: Purchase order
 
 ## Analytic tracking scripts listen for events 
 
-You can pull storefront data from BODL to your solution using analytic storefront tracking scripts. Your analytic scripts will need to listen to the event, take in data that are stored in BODL, and send events to GA4.  
+You can pull storefront data from BODL to your solution using analytic storefront tracking scripts. Your analytic scripts will need to listen to the event, take in data stored in BODL, and send events to GA4.  
 
 Below is example code for your analytics script that subscribes to BODL events and sends events to GA4. For more info, consult the MDN website doc [Add Event Listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
 
