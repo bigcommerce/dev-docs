@@ -4,7 +4,7 @@ stoplight-id: agn3uhaasqd2r
 
 # Early Hints
 
-Early Hints reduces page load time and perceived latency by letting developers indicate which site assets are required for full page render. When a client makes a request to a site using Early Hints, the server responds with a `103 Early Hints` response containing important assets. The client begins to load these assets while the `200 OK` response is compiled and returned to the client. 
+Early Hints reduces page load time and perceived latency by allowing browsers to download critical assets earlier in the request lifecycle. When a server uses Early Hints, the server indicates which site assets (such as CSS/JS files, images, fonts) a browser needs to fully render a page. When a client makes a request to a site, the server responds with a `103 Early Hints` response that contains the important assets. The client begins to load these assets while the server compiles and returns the `200 OK` response to the client. 
 
 For more details on Early Hints, see [An HTTP Status Code for Indicating Hints](https://httpwg.org/specs/rfc8297.html#introduction). Because Stencil's implementation of Early Hints relies on usage of the Cloudflare CDN, also read 
 [Early Hints: How Cloudflare Can Improve Website Load Times by 30%](https://blog.cloudflare.com/early-hints/). 
