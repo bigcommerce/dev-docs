@@ -26,7 +26,7 @@ title: Start checkout
 -->
 
 ```js title="Create and emit browser event" lineNumbers
-this.bodlEvents.emit('create_checkout_begin', {
+this.bodlEvents.emit('bodl_v1_begin_checkout', {
   id,
   currency: currency.code,
   cart_value: cartAmount,
