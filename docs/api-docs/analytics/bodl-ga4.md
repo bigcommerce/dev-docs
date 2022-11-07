@@ -306,9 +306,9 @@ For many web browser events, BODL fetches GA4's [Begin checkout item object](htt
 
 | Web browser event fields | Type | Description | BigC data map | GA4 data map | Required for GA4? |
 | - | - | - | - | - | - |
-| `product_id` | string | ID of the product. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.id` | `item_id` <br> <br> Populate this field using the following order of availability: <br> - Variant SKU <br> - Product SKU <br> - Variant ID <br> - Product ID | Y |
+| `product_id` | string | ID of the product. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.id` | `item_id` <br> <br> Populate this field using the following order of availability: <br> - Product SKU <br> - Product ID | Y |
 | `product_name` | string | Name of the product. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.name` | `item_name` | Y |
-| `sku` | string | User-defined SKU for the proeduct or variant (whichever is applied). | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.sku` or `data.variants.sku` | `item_id` | Y |
+| `sku` | string | User-defined SKU for the proeduct or variant (whichever is applied). | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.sku` or `data.variants.sku` | `item_id`<br> <br> Populate this field using the following order of availability: <br> - Product SKU <br> - Product ID | Y |
 | `base_price` | number | Price of product. Default price in the control panel. The price should include or exclude tax, based on the store settings. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.price` | - | N |
 | `sale_price` | number | Price of product after sale. The price should include or exclude tax, based on the store settings. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.sale_price` | Not sent to Google Analytics. | - |
 | `retail_price` | number | Maximum suggested retail price (MSRP). The price should include or exclude tax, based on the store settings. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.retail_price` | Not sent to Google Analytics. | - | 
