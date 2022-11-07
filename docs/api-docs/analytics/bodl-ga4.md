@@ -251,9 +251,9 @@ Below is example code for your analytics script that subscribes to BODL events a
       }
   }
 
-  if (window.addEventListener) {
-    window.addEventListener("load", subscribeOnBodlEvents, false)
-  }
+
+window.addEventListener("load", subscribeOnBodlEvents, false)
+
 </script>
 ```
 
