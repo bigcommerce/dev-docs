@@ -361,7 +361,7 @@ interface CatalogProductOptionValue {
 }
 ```
 
-The example below shows a query that returns all product options. In the response, each multiple choice product option includes common fields from the `CatalogProductOptionValue` interface, and the swatch types return additional fields (`hexColors` and `imageUrl`).
+The example below shows a query that returns all product options. In the response, each multiple choice product option includes common fields from the `CatalogProductOptionValue` interface, and the swatch types return additional fields.
 
 <!--
 type: tab

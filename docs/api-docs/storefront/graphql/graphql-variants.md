@@ -346,11 +346,27 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-## Get variant options
+## Get variant options and variant option values
 
 You can query the variant options and the variant option values that are associated with a variant. 
 
-The following query returns the variant options that are associated with the specified variant. Unlike [Get product options](/api-docs/storefront/graphql/products#get-product-options), the response includes only variant options, not modifer options.
+The following queries returns the variant options that are associated with the specified variant. Unlike [Get product options](/api-docs/storefront/graphql/products#get-product-options), the queries return only variant options, not modifer options.
+
+## Get variant options
+
+All variant options are [multiple choice option types](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc), for example, swatch, radio buttons, and more. Each multiple choice option has a schema type that implements the `CatalogProductOptionValue` interface.   
+
+```graphql title="CatalogProductOptionValue interface" lineNumbers
+# Fields common among multiple choice product options 
+
+interface CatalogProductOptionValue {
+  entityId: Int!
+  label: String!
+  isDefault: Boolean!`
+}
+```
+
+The example below shows a query that returns all variant options. In the response, each multiple choice option includes common fields from the `CatalogProductOptionValue` interface, and the swatch types return additional fields.
 
 <!--
 type: tab
@@ -474,6 +490,8 @@ title: Response
 }
 ```
 <!-- type: tab-end -->
+
+## Get variant option values
 
 The following query returns the value for each variant option that is associated with the specified variant. 
 
