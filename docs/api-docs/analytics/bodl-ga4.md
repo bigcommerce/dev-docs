@@ -10,7 +10,7 @@ This guide demonstrates how you can integrate a BigCommerce store with [Google A
 - Headless storefronts are not supported.
 - If the store uses Custom Checkout, then the checkout javascript code has to be manually upgraded to support BODL and GA4.
 - Legacy checkout is not supported.
-- Your store must have a custom domain. You must verify your site.
+- The store must have a custom domain. The site is verified.
 - Merchants must enable cookie consent tracking. Shoppers must consent to browser cookies so that BigCommerce can track shopper actions.
  
 
