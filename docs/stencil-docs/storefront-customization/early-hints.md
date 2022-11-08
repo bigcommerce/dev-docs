@@ -17,20 +17,13 @@ While many of Stencil's assets are automatically optimized to use Early Hints, s
 
 Developers don't need to make any theme updates to take advantage of Early Hints on Script Manager scripts that are required to render a page. 
 
-  If the store is not using the Cookie Consent feature, BigCommerce marks all scripts for preloading. 
+If the store is not using the Cookie Consent feature, BigCommerce marks all scripts for preloading. 
 
-  If a store uses the Cookie Consent feature, BigCommerce only marks scripts marked as `Essential` for preloading. `Essential` scripts load on all pages for all shoppers.
-
-<!-- For more information, see [Using Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).  -->
-
-<!-- TODO: link to info on Cookie Consent feature -->
+If a store uses the Cookie Consent feature, BigCommerce only marks scripts marked as `Essential` for preloading. `Essential` scripts load on all pages for all shoppers.
 
 ### Stylesheets & Fonts
 
 Assets loaded through the `{{stylesheet}}` or `{{getFontsCollection}}` Handlebars helpers are automatically marked for preloading.
-
-<!-- - https://developer.bigcommerce.com/stencil-docs/ZG9jOjIyMDcxOA-handlebars-helpers-reference#stylesheet
-- https://developer.bigcommerce.com/stencil-docs/ZG9jOjIyMDcxOA-handlebars-helpers-reference#getfontscollection -->
 
 ## Theme assets that require manual updates
 
@@ -38,21 +31,9 @@ Assets loaded through the `{{stylesheet}}` or `{{getFontsCollection}}` Handlebar
 
 JavaScript files within themes, such as the primary JavaScript bundle, are typically loaded using the [`{{cdn}}` helper](https://developer.bigcommerce.com/stencil-docs/ZG9jOjIyMDcxOA-handlebars-helpers-reference#cdn).
 
-To take advantage of Early Hints, theme developers must mark the highest-priority resources within their theme for preloading by adding the following arguments to the `{{cdn}}` helper:
+To take advantage of Early Hints, theme developers must mark the highest-priority resources within their theme for preloading by adding the `resourceHint`, `rel`, and `cors` arguments to the `{{cdn}}` helper. For detailed information, see {{cdn}} on the [Handlebars helpers reference](https://developer.bigcommerce.com/stencil-docs/ZG9jOjIyMDcxOA-handlebars-helpers-reference#cdn).
 
-`resourceHint` 
-<!-- https://github.com/bigcommerce/paper-handlebars/blob/061f730ef30b0e22103518625b658b95523a8be6/helpers/lib/resourceHints.js -->
-
-- `rel` - any of [preload, preconnect, prerender, dns-prefetch]
-
-`crossorigin`
-- `cors`? - (crossorigin attr in HTML tag) any of [no, anonymous, use-credentials]. Defaults to no when no value is provided.
-
-`as`
-
-- `type`? - (as attr in HTML link tag) any of [style, font, script, document]. If an invalid value is provided, property won't be included.
-
-The following is an example of the changes made to Cornerstone to get these improvements:
+The following is an example of using the Early Hints arguments on the `{{cdn}}` helper:
 
 <!-- https://github.com/bigcommerce/cornerstone/pull/2261/files -->
 
@@ -65,6 +46,6 @@ The following is an example of the changes made to Cornerstone to get these impr
 <script async src="{{cdn 'assets/dist/theme-bundle.head_async.js' resourceHint='preload' as='script'}}"></script>
 ```
 
-#### Best practice
+#### How to choose which scripts to preload
 
-Theme developers should only mark some resources for preloading; the focus should be on critical resources for painting the page and loading the above-the-fold content. For example, the Cornerstone theme uses the main JavaScript bundle(s) necessary for the theme to function. Resources that cannot be [deferred](https://web.dev/render-blocking-resources/) (which should always be the first priority) should be preloaded.
+Developers should only mark a script for preloading if that script is responsible for painting the page and loading the above-the-fold content. Non-critical scripts should be [deferred](https://web.dev/render-blocking-resources/) instead of preloaded. 
