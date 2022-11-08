@@ -354,19 +354,12 @@ The following queries returns the variant options that are associated with the s
 
 ## Get variant options
 
-All variant options are [multiple choice option types](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc), for example, swatch, radio buttons, and more. Each multiple choice option has a schema type that implements the `CatalogProductOptionValue` interface.   
+All variant options are [multiple choice options](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc). The following query returns variant options.  for a specified variant. 
 
-```graphql title="CatalogProductOptionValue interface" lineNumbers
-# Fields common among multiple choice product options 
 
-interface CatalogProductOptionValue {
-  entityId: Int!
-  label: String!
-  isDefault: Boolean!`
-}
-```
+, for example, swatch, radio buttons, and more. 
 
-The example below shows a query that returns all variant options. In the response, each multiple choice option includes common fields from the `CatalogProductOptionValue` interface, and the swatch types return additional fields.
+The example below shows a query that returns all variant options. 
 
 <!--
 type: tab
@@ -374,7 +367,7 @@ title: Query
 -->
 
 ```graphql title="Example query: Get variant options for a variant" lineNumbers
-# This query retrieves all product options.
+# This query retrieves all variant options.
 # This query uses interfaces. For more, see https://graphql.org/learn/schema/#interfaces.
 
 query {
@@ -492,6 +485,130 @@ title: Response
 <!-- type: tab-end -->
 
 ## Get variant option values
+
+When you get variant options, you can retrieve the variant option values (multiple choice values) that are associated with a variant.
+
+Each multiple choice option has a schema type that implements the `CatalogProductOptionValue` interface, meaning that the API can return fields from the `CatalogProductOptionValue` interface for each multiple choice option value.  
+
+```graphql title="CatalogProductOptionValue interface" lineNumbers
+# Fields common among multiple choice options 
+
+interface CatalogProductOptionValue {
+  entityId: Int!
+  label: String!
+  isDefault: Boolean!`
+}
+```
+
+The example query gets variant option values for the specified variant. All returned variant options include queried fields from the `CatalogProductOptionValue` interface, and additional fields are returned for the swatch types.
+
+<!--
+type: tab
+title: Query
+-->
+
+```graphql title="Example query: Get variant options for a variant" lineNumbers
+# This query retrieves all variant options.
+# This query uses interfaces. For more, see https://graphql.org/learn/schema/#interfaces.
+
+query {
+  site {
+    product (entityId: 113) {
+      variants (entityIds: [127]) {
+        edges {
+          node {
+            productOptions {
+              edges {
+                node {
+                  ... on MultipleChoiceOption {                               
+                    values {
+                      edges {
+                        node {
+                          entityId
+                          label
+                          isDefault
+                          ... on SwatchOptionValue {      # extra fields swatch options include
+                            hexColors
+                            imageUrl (width: 2)
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+<!--
+type: tab
+title: Response
+-->
+
+```json title="Example response: Get variant options for a variant" lineNumbers
+{
+  "data": {
+    "site": {
+      "product": {
+        "variants": {
+          "edges": [
+            {
+              "node": {
+                "productOptions": {
+                  "edges": [
+                    {
+                      "node": {
+                        "values": {
+                          "edges": [
+                            {
+                              "node": {
+                                "entityId": 108,
+                                "label": "Pink",
+                                "isDefault": true
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "node": {
+                        "values": {
+                          "edges": [
+                            {
+                              "node": {
+                                "entityId": 129,
+                                "label": "Small",
+                                "isDefault": false,
+                                "hexColors": [
+                                  "#912727",
+                                  "#D6A67C"
+                                ],
+                                "imageUrl": null
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+<!-- type: tab-end -->
 
 The following query returns the value for each variant option that is associated with the specified variant. 
 
