@@ -354,10 +354,7 @@ The following queries returns the variant options that are associated with the s
 
 ## Get variant options
 
-All variant options are [multiple choice options](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc). The following query returns variant options.  for a specified variant. 
-
-
-, for example, swatch, radio buttons, and more. 
+All variant options are [multiple choice options](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc). The following query returns variant options.
 
 The example below shows a query that returns all variant options. 
 
@@ -385,19 +382,6 @@ query {
                     isRequired
                     isVariantOption
                     displayStyle
-                    values {
-                      edges {
-                        node {
-                          entityId
-                          label
-                          isDefault
-                          ... on SwatchOptionValue {      # extra fields swatch options include
-                            hexColors
-                            imageUrl (width: 2)
-                          }
-                        }
-                      }
-                    }
                   }
                 }
               }
@@ -433,17 +417,6 @@ title: Response
                         "isRequired": true,
                         "isVariantOption": true,
                         "displayStyle": "RadioButtons",
-                        "values": {
-                          "edges": [
-                            {
-                              "node": {
-                                "entityId": 108,
-                                "label": "Pink",
-                                "isDefault": true
-                              }
-                            }
-                          ]
-                        }
                       }
                     },
                     {
@@ -453,22 +426,6 @@ title: Response
                         "isRequired": true,
                         "isVariantOption": true,
                         "displayStyle": "Swatch",
-                        "values": {
-                          "edges": [
-                            {
-                              "node": {
-                                "entityId": 129,
-                                "label": "Small",
-                                "isDefault": false,
-                                "hexColors": [
-                                  "#912727",
-                                  "#D6A67C"
-                                ],
-                                "imageUrl": null
-                              }
-                            }
-                          ]
-                        }
                       }
                     }
                   ]
@@ -488,7 +445,7 @@ title: Response
 
 When you get variant options, you can retrieve the variant option values (multiple choice values) that are associated with a variant.
 
-Each multiple choice option has a schema type that implements the `CatalogProductOptionValue` interface, meaning that the API can return fields from the `CatalogProductOptionValue` interface for each multiple choice option value.  
+Multiple choice option types include swatch, radio buttons, and more. Each multiple choice option has a schema type that implements the `CatalogProductOptionValue` interface, meaning that the API can return fields from the `CatalogProductOptionValue` interface for each multiple choice option value.  
 
 ```graphql title="CatalogProductOptionValue interface" lineNumbers
 # Fields common among multiple choice options 
@@ -500,7 +457,7 @@ interface CatalogProductOptionValue {
 }
 ```
 
-The example query gets variant option values for the specified variant. All returned variant options include queried fields from the `CatalogProductOptionValue` interface, and additional fields are returned for the swatch types.
+The example query gets variant option values for the specified variant. All returned variant options include queried fields from the `CatalogProductOptionValue` interface, and additional fields are returned for the swatch option type.
 
 <!--
 type: tab
@@ -520,7 +477,7 @@ query {
             productOptions {
               edges {
                 node {
-                  ... on MultipleChoiceOption {                               
+                  ... on MultipleChoiceOption {           # fields all muliple choice options include
                     values {
                       edges {
                         node {
@@ -610,7 +567,7 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-The following query returns the value for each variant option that is associated with the specified variant. 
+You can also retrieve variant option values using the `options` field. The following query returns the variant option values that are associated with the specified variant. 
 
 <!--
 type: tab
