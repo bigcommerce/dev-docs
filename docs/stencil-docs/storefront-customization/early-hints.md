@@ -40,7 +40,7 @@ JavaScript files within themes, such as the primary JavaScript bundle, are typic
 
 To take advantage of Early Hints, theme developers must mark the highest-priority resources within their theme for preloading by adding the following arguments to the `{{cdn}}` helper:
 
-`resourceHint`
+`resourceHint` 
 <!-- https://github.com/bigcommerce/paper-handlebars/blob/061f730ef30b0e22103518625b658b95523a8be6/helpers/lib/resourceHints.js -->
 
 - `rel` - any of [preload, preconnect, prerender, dns-prefetch]

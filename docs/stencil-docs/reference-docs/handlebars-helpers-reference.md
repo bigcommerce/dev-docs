@@ -1,7 +1,5 @@
 # Handlebars Helpers Reference
 
-
-
 This article is a reference for [Stencil](/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of whitelisted [standard helpers](#standard-helpers).
 
 ## Custom helpers
@@ -180,6 +178,7 @@ A URL transformer for content delivery networks.
 
 - `assetPath` {String}: Path to the file containing static assets.
 
+
 #### Example
 
 ```handlebars
@@ -246,6 +245,37 @@ As highlighted above, the helper is configured to rewrite *local* URLs to an `as
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/cdn.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=cdn)
 
+#### Early Hints and cdn
+
+Early Hints reduces page load time and perceived latency by allowing browsers to download critical assets earlier in the request lifecycle. For more information, see [Early Hints](#).
+
+##### Parameters
+
+- `resourceHint` - {String}
+  - Corresponds to the `rel` attribute in `<link>`.
+  - Value can be any of `preload`, `preconnect`, `prerender`, `dns-prefetch`.
+  - For more information, see [rel](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-rel) on MDN Web Docs.
+- `as` - {String}
+  - Corresponds to the `as` attribute in `<link>`.
+  - Value can be any of `style`, `font`, `script`, `document`.
+  - If an invalid value is provided, `as` won't be included.
+  - Optional.
+  - For more information, see [as](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-as) on MDN Web Docs.
+- `cors` - {String}
+  - Corresponds to the `rel` attribute in `<link>`.
+  - Value can be any of `no`, `anonymous`, `use-credentials`.
+  - Defaults to `no` when no value is provided.
+  - Optional.
+  - For more information, see [crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-crossorigin) on MDN Web Docs.
+
+##### Example
+
+```javascript
+<script async src="{{cdn 'assets/dist/theme-bundle.head_async.js' 
+resourceHint='preload'
+as='script'}}">
+</script>
+```
 
 ### {{moment}}
 
