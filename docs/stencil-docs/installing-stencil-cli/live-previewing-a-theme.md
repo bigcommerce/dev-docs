@@ -31,6 +31,10 @@ To develop against BigCommerce's Cornerstone theme (which is the building block 
 git clone https://github.com/bigcommerce/cornerstone.git
 ```
 
+<!-- theme: warning -->
+> #### Distribution of Cornerstone-based themes
+> Distribution of Cornerstone-based themes is subject to BigCommerce's Cornerstone license, including the mandatory incorporation of BigCommerce's copyright statement.
+
 Cornerstone and other themes can also be downloaded from the BigCommerce control panel. For instructions on doing so, see [Downloading and Uploading Custom Themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload) (BigCommerce Knowledge Base). 
 
 <!-- theme: info -->
@@ -39,11 +43,6 @@ Cornerstone and other themes can also be downloaded from the BigCommerce control
 &nbsp;
 
 <!-- theme: warning -->
-
-<!-- theme: warning -->
-> #### Distribution of Cornerstone-based themes
-> Distribution of Cornerstone-based themes is subject to BigCommerce's Cornerstone license, including the mandatory incorporation of BigCommerce's copyright statement.
-&nbsp;
 
 <!-- theme: warning -->
 > #### Back up before reinstalling
