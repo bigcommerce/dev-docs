@@ -248,7 +248,7 @@ title: Response
 
 You can query the [product options](https://support.bigcommerce.com/s/article/Product-Options-v3) associated with a product. The response includes both variant options and modifer options. If your product has variants, use [Get variant options](/api-docs/storefront/graphql/variants#get-variant-options) for more. 
 
-There are various [types of product options](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#types), including checkbox, multiple choice, and more, each with unique fields. However, each type of product option has a schema type that implements the `CatalogProductOption` interface, meaning you can query the common fields that are included in `CatalogProductOption`. For more on interfaces, see the [GraphQL Schema and Types- Interfaces](https://graphql.org/learn/schema/#interfaces) documentation.
+There are various [types of product options](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#types), including checkbox, multiple choice, and more, each with unique fields. However, each type of product option has a schema type that implements the `CatalogProductOption` interface, meaning you can retrieve the common fields from `CatalogProductOption` for all product options. For more on interfaces, see the [GraphQL Schema and Types- Interfaces](https://graphql.org/learn/schema/#interfaces) documentation.
 
 ```graphql title="CatalogProductOption interface" lineNumbers
 # Fields common among product options 
@@ -349,10 +349,10 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-Product options that are [multiple choice](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc) also have various types, including swatch, radio buttons, and more. Each multiple choice product option has a schema type that implements the `CatalogProductOptionValue` interface.   
+When you query product options, you can query the available values for product options that are [multiple choice](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc). This retrieves all the available values for product options that are multiple choice. These values are of various types, for example, swatch or radio buttons. Each multiple choice value has a schema type that implements the `CatalogProductOptionValue` interface, meaning you can retrieve the common fields from `CatalogProductOptionValue` for all multiple choice values.   
 
 ```graphql title="CatalogProductOptionValue interface" lineNumbers
-# Fields common among multiple choice product options 
+# Fields common among multiple choice values
 
 interface CatalogProductOptionValue {
   entityId: Int!

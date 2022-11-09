@@ -443,9 +443,10 @@ title: Response
 
 ## Get variant option values
 
-When you get variant options, you can retrieve the variant option values (multiple choice values) that are associated with a variant.
+All variant options are [multiple choice](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc). When you get variant options, you can also retrieve the multiple choice values that are associated with a variant (i.e. variant option values). 
 
-Multiple choice option types include swatch, radio buttons, and more. Each multiple choice option has a schema type that implements the `CatalogProductOptionValue` interface, meaning that the API can return fields from the `CatalogProductOptionValue` interface for each multiple choice option value.  
+Multiple choice values are of various types, for example, swatch or radio buttons. Each multiple choice value has a schema type that implements the `CatalogProductOptionValue` interface, meaning you can retrieve the common fields from `CatalogProductOptionValue` for all multiple choice values.   
+
 
 ```graphql title="CatalogProductOptionValue interface" lineNumbers
 # Fields common among multiple choice options 
