@@ -115,7 +115,7 @@ Browse to the local URL to preview the theme and see changes updated in real-tim
 
 It is possible to serve a live preview over HTTPS using [ngrok](https://ngrok.com/docs). To get started with ngrok, follow the [Create an HTTPS Tunnel](https://developer.bigcommerce.com/docs/ZG9jOjE4MjIyODMy-step-2-connect-your-app-to-big-commerce#create-an-https-tunnel) section of the sample app tutorial. If your app does not run on port 3000, replace 3000 with the port of your app server.
 
-### Debugging your theme
+## Debugging your theme
 
 <!-- theme: info -->
 > #### BitBucket re-authentication
