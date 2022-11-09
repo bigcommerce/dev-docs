@@ -33,7 +33,7 @@ Most APIs that work with store API accounts use the `access_token` to authentica
 
 To create a store API account, consult our Knowledge Base article on [Creating a Store API Account](https://support.bigcommerce.com/s/article/Store-API-Accounts?language=en_US#creating).
 
-To get started making requests, see [Getting Started](/api-docs/getting-started/basics/making-requests).
+To get started making requests, see [Getting Started](/api-docs/getting-started/making-requests).
 
 ### Revoking store API credentials
 
