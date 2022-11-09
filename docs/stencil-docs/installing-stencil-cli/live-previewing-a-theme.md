@@ -113,13 +113,13 @@ Browse to the local URL to preview the theme and see changes updated in real-tim
 
 For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands). For help troubleshooting errors or installation issues, see [Troubleshooting Your Setup](/stencil-docs/installing-stencil-cli/troubleshooting-your-setup).
 
-<!-- theme: warning -->
+### Debugging your theme
+
+<!-- theme: info -->
 > #### BitBucket re-authentication
 > If you receive error messages about resolving BitBucket as an SSH host when running `stencil init`, enter the BitBucket password used to set up the BitBucket SSH Keys when prompted.
 
-<!-- theme: info -->
-> #### Debugging your theme  
-> The Stencil framework provides built-in debugging tools to aid in your custom front-end development. To see what data is available on the page you are working on, add the debug query string to your store's localhost URL. For example, `http://localhost:3000/product/sample-product?debug=context`. This string will return a list of all the objects on the page in JSON syntax. If you want to view the available JSON objects and rendered page simultaneously, change the debug value to `bar`. For example, `http://localhost:3000/product/sample-product?debug=bar`.
+The Stencil framework provides built-in debugging tools to aid in your custom front-end development. To see what data is available on the page you are working on, add the debug query string to your store's localhost URL. For example, `http://localhost:3000/product/sample-product?debug=context`. This string will return a list of all the objects on the page in JSON syntax. If you want to view the available JSON objects and rendered page simultaneously, change the debug value to `bar`. For example, `http://localhost:3000/product/sample-product?debug=bar`.
 
 ### Serving a theme over HTTPS 
 
