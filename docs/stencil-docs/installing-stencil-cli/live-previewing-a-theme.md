@@ -109,7 +109,7 @@ stencil start
 [Browsersync] Watching files...
 ```
 
-Browse to the local URL to preview the theme and see changes updated in real-time. To preview the theme on multiple devices simultaneously, browse to the external URL on the desired devices. As you navigate through the site, Stencil CLI will use store API token supplied to make API calls to BigCommerce's API and populate the theme preview with live store data in order to mimic production as closely as possible.
+Browse to the local URL to preview the theme and see changes updated in real-time. To preview the theme on multiple devices simultaneously, browse to the external URL on the desired devices. As you navigate through the site, Stencil CLI will use the store API token supplied to make API calls to BigCommerce's API and populate the theme preview with live store data in order to mimic production as closely as possible.
 
 For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands). For help troubleshooting errors or installation issues, see [Troubleshooting Your Setup](/stencil-docs/installing-stencil-cli/troubleshooting-your-setup).
 
