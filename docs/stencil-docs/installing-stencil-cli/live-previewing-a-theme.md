@@ -1,7 +1,5 @@
 # Live Previewing a Theme
 
-
-
 Once you've installed the Stencil CLI, the next steps are downloading a theme to edit and previewing live changes using Stencil CLI's powerful Browsersync functionality. This article walks you through the process of downloading a theme for development, installing theme modules, and serving a live preview using Stencil CLI's `stencil start` command.
 
 The steps in this article assume you've installed Stencil CLI on your system. If you haven't installed it yet, see [Installing Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil) for detailed, system-specific instructions.
@@ -10,8 +8,6 @@ The steps in this article assume you've installed Stencil CLI on your system. If
 ## Obtaining store API credentials
 
 Stencil CLI uses various BigCommerce APIs to inject store-specific data, like carousel images and products, into the live theme preview it serves up. To do so, you must supply the Stencil CLI with a Stencil CLI token. For detailed instructions, see [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts).
-
-
 
 To automatically create a store API account with the scopes and permissions required by Stencil CLI, select **Create Stencil-CLI Token** in the **Create API Accounts** dropdown:
 
@@ -53,9 +49,7 @@ Cornerstone and other themes can also be downloaded from the BigCommerce control
 > #### Back up before reinstalling
 > If you're re-installing an existing theme, be sure to back up the theme’s `.stencil` file or `secrets.stencil.json` and `config.stencil.json` files (if using Stencil V3.1 release or later). The files contain the store URL, username, access tokens, and other settings. If you would like to allow for complete rollback, back up your entire theme’s directory.
 
-
 ## Installing theme modules
-
 For theme versions `1.10.0+`, modules can be installed with `npm`:
 
 ```shell
@@ -124,7 +118,6 @@ For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](
 <!-- theme: warning -->
 > #### BitBucket re-authentication
 > If you receive error messages about resolving BitBucket as an SSH host when running `stencil init`, enter the BitBucket password used to set up the BitBucket SSH Keys when prompted.
-&nbsp;
 
 <!-- theme: info -->
 > #### Debugging your theme  
