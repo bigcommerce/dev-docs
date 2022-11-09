@@ -42,13 +42,12 @@ Cornerstone and other themes can also be downloaded from the BigCommerce control
 > Downloading a theme does not include the current configuration of a theme. Run a [stencil pull](/stencil-docs/installing-stencil-cli/stencil-cli-options-and-commands#stencil-pull) command to obtain the theme's most recently saved version (appears only for themes customized for this store).
 &nbsp;
 
-<!-- theme: warning -->
+## Installing theme modules
 
 <!-- theme: warning -->
 > #### Back up before reinstalling
 > If you're re-installing an existing theme, be sure to back up the theme’s `.stencil` file or `secrets.stencil.json` and `config.stencil.json` files (if using Stencil V3.1 release or later). The files contain the store URL, username, access tokens, and other settings. If you would like to allow for complete rollback, back up your entire theme’s directory.
 
-## Installing theme modules
 For theme versions `1.10.0+`, modules can be installed with `npm`:
 
 ```shell
