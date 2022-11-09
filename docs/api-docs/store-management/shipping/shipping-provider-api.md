@@ -238,6 +238,7 @@ Accept: application/json
       "state_iso2": "CA",
       "country_iso2": "US",
       "address_type": "commercial"
+      "form_fields": {}
     },
     "destination": {
       "street_1": "",
@@ -246,7 +247,13 @@ Accept: application/json
       "city": "",
       "state_iso2": "CA",
       "country_iso2": "US",
-      "address_type": "residential"
+      "address_type": "residential",
+      "form_fields": {
+        "1234": {
+          "id": "1234",
+          "value": "checkbox_selection_1"
+        }
+      }
     },
     "items": [
       {
