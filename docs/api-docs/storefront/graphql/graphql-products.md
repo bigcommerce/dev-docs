@@ -349,7 +349,7 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-When you query product options, you can query the available values for product options that are [multiple choice](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc). This retrieves all the available values for product options that are multiple choice. These values are of various types, for example, swatch or radio buttons. Each multiple choice value has a schema type that implements the `CatalogProductOptionValue` interface, meaning you can retrieve the common fields from `CatalogProductOptionValue` for all multiple choice values.   
+When you get product options, you can also retrieve the available values for product options that are [multiple choice](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc). This retrieves all the available values for product options that are multiple choice. These values are of various types, for example, swatch or radio buttons. Each multiple choice value has a schema type that implements the `CatalogProductOptionValue` interface, meaning you can retrieve the common fields from `CatalogProductOptionValue` for all multiple choice values.   
 
 ```graphql title="CatalogProductOptionValue interface" lineNumbers
 # Fields common among multiple choice values
