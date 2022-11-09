@@ -4,6 +4,9 @@ Once you've installed the Stencil CLI, the next steps are downloading a theme to
 
 The steps in this article assume you've installed Stencil CLI on your system. If you haven't installed it yet, see [Installing Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil) for detailed, system-specific instructions.
 
+<!-- theme: warning -->
+> #### Theme access, copyright, and distribution
+> Developers may customize free and purchased marketplace themes; however, the original creator retains rights to the theme's design, which means derived themes may not be uploaded to a public theme marketplace (BigCommerce's or third-party) or sold privately.
 
 ## Obtaining store API credentials
 
@@ -36,9 +39,6 @@ Cornerstone and other themes can also be downloaded from the BigCommerce control
 &nbsp;
 
 <!-- theme: warning -->
-> #### Theme access, copyright, and distribution
-> Developers may customize free and purchased marketplace themes; however, the original creator retains rights to the theme's design, which means derived themes may not be uploaded to a public theme marketplace (BigCommerce's or third-party) or sold privately.
-&nbsp;
 
 <!-- theme: warning -->
 > #### Distribution of Cornerstone-based themes
