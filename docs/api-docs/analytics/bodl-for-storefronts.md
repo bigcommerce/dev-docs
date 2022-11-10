@@ -26,7 +26,6 @@ For BODL to successfully <verb> analytics to a provider, the following must be t
 - Merchants must enable GA4 for the storefront channel to set up a provider's analytics tracking script for a storefront. GA4 is enabled for new stores by default. 
 - The storefront uses a stencil theme. The native GA4 integration does not support Blueprint themes. 
 - Headless storefronts are not supported.
-<!-- - QQQ -- so then how does this work on redirected checkouts -- storefront is subdomain of redirected checkout, so presumably BODL  -->
 - If the store uses a custom checkout, you mustthe checkout JavaScript code has to be manually upgraded to support BODL and GA4.
 
 - The store must have a custom domain. The site is verified.
