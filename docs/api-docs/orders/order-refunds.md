@@ -12,21 +12,21 @@ Refunding an order consists of two API requests.
 
 |Request|Operation|Endpoint|Description|
 |-|-|-|-|
-|1|`POST`|[`/v3/orders/{id}/payment_actions/refund_quotes`](/api-reference/store-management/order-transactions/order-refunds/postrefundquote)|Calculate amounts and get payment methods|
-|2|`POST`|[`/v3/orders/{id}/payment_actions/refund`](/api-reference/store-management/order-transactions/order-refunds/postrefund)|Create the refund|
+|1|`POST`|[`/v3/orders/{id}/payment_actions/refund_quotes`](/api-reference/39308e0002a56-create-a-refund-quote)|Calculate amounts and get payment methods|
+|2|`POST`|[`/v3/orders/{id}/payment_actions/refund`](/api-reference/76a2123cd6bfd-create-a-refund)|Create the refund|
 
 The example requests in this article use an order with the following properties:
 * **Products**: Single product priced at `$10.00`
 * **Tax:** `$0.83`
 * **Shipping:** `$10.00`
 
-The refunded amount will include the shipping, tax, and product cost (a total of `$20.83`). We will [create a refund quote](/api-reference/store-management/order-transactions/order-refunds/postrefundquote). Then, we will [create a refund](/api-reference/store-management/order-transactions/order-refunds/postrefund) using the information contained in the [create refund quote response](/api-reference/store-management/order-transactions/order-refunds/postrefundquote#responses).
+The refunded amount will include the shipping, tax, and product cost (a total of `$20.83`). We will [create a refund quote](/api-reference/39308e0002a56-create-a-refund-quote). Then, we will [create a refund](/api-reference/76a2123cd6bfd-create-a-refund) using the information contained in the [create refund quote response](/api-reference/39308e0002a56-create-a-refund-quote#Responses).
 
 ## Creating refund quotes
 
 A refund quote provides the tax amount, total refund amount, and a list of available payment methods for order refunds.
 
-To [create a refund quote](/api-reference/store-management/order-transactions/order-refunds/postrefundquote), send a `POST` request to `/v3/orders/{order_id}/payment_actions/refund_quotes`.
+To [create a refund quote](/api-reference/39308e0002a56-create-a-refund-quote), send a `POST` request to `/v3/orders/{order_id}/payment_actions/refund_quotes`.
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refund_quotes
@@ -57,7 +57,7 @@ Accept: application/json
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/order-refunds/postrefundquote#requestrunner) -->
 
-**[Response:](/api-reference/store-management/order-transactions/order-refunds/postrefundquote#responses)**
+**[Response:](/api-reference/39308e0002a56-create-a-refund-quote#Responses)**
 
 ```json
 {
@@ -93,7 +93,7 @@ Accept: application/json
 
 ## Creating a refund
 
-Use the `provider_id`, the `amount`, and `items` from the [refund quote](#creating-refund-quotes) to [create a refund](/api-reference/store-management/order-transactions/order-refunds/postrefund).
+Use the `provider_id`, the `amount`, and `items` from the [refund quote](#creating-refund-quotes) to [create a refund](/api-reference/76a2123cd6bfd-create-a-refund).
 
 ```http
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/orders/{order_id}/payment_actions/refunds
@@ -131,7 +131,7 @@ Accept: application/json
 
 <!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/store-management/order-transactions/order-refunds/postrefund#requestrunner) -->
 
-**[Response:](/api-reference/store-management/order-transactions/order-refunds/postrefund#responses)**
+**[Response:](/api-reference/76a2123cd6bfd-create-a-refund#Responses)**
 
 ```json
 {
