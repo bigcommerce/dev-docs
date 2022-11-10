@@ -272,12 +272,13 @@ Early Hints reduces page load time and perceived latency by allowing browsers to
 
 ##### Example
 
+The following script is an example of Early Hints usage in the Cornerstone theme:
+
 ```javascript
-<script async src="{{cdn 'assets/dist/theme-bundle.head_async.js' 
-resourceHint='preload'
-as='script'}}">
-</script>
+<script async src="{{cdn 'assets/dist/theme-bundle.head_async.js' resourceHint='preload' as='script'}}"></script>
 ```
+
+You can view other Cornerstone updates that use Early Hints in a commit to the Cornerstone repository modifying [templates/layout/base.html](https://github.com/bigcommerce/cornerstone/commit/f70fcd502343503969c2e475b777a85347137542#).
 
 ### {{moment}}
 
