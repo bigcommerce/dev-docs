@@ -278,7 +278,7 @@ The following script is an example of Early Hints usage in the Cornerstone theme
 <script async src="{{cdn 'assets/dist/theme-bundle.head_async.js' resourceHint='preload' as='script'}}"></script>
 ```
 
-You can view other Cornerstone updates that use Early Hints in a commit to the Cornerstone repository modifying [templates/layout/base.html](https://github.com/bigcommerce/cornerstone/commit/f70fcd502343503969c2e475b777a85347137542#).
+You can view more Early Hints usage in Cornerstone's `templates/layout/base.html` file by visiting the [Cornerstone Repository](https://github.com/bigcommerce/cornerstone/commit/f70fcd502343503969c2e475b777a85347137542#).
 
 ### {{moment}}
 
