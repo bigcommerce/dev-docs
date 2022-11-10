@@ -266,7 +266,8 @@ Early Hints reduces page load time and perceived latency by allowing browsers to
   - Corresponds to the `rel` attribute in `<link>`.
   - Value can be any of `no`, `anonymous`, `use-credentials`.
   - Defaults to `no` when no value is provided.
-  - Optional.
+  - This parameter is optional.
+
   - For more information, see [crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-crossorigin) on MDN Web Docs.
 
 ##### Example
