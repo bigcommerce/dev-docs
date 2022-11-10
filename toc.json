@@ -406,6 +406,22 @@
     },
     {
       "type": "divider",
+      "title": "Analytics"
+    },
+    {
+      "type": "item",
+      "title": "BODL for Storefronts",
+      "href": "/api-docs/analytics/bodl-for-storefronts",
+      "uri": "docs/api-docs/analytics/bodl-for-storefronts.md"
+    },
+    {
+      "type": "item",
+      "title": "GA4 Event Reference",
+      "href": "/api-docs/analytics/bodl-for-ga4",
+      "uri": "docs/api-docs/analytics/bodl-ga4.md"
+    },
+    {
+      "type": "divider",
       "title": "Multi-Storefront Implementations"
     },
     {
@@ -934,18 +950,6 @@
       "title": "Staying Current with Platform Changes",
       "href": "/api-docs/partner/staying-current",
       "uri": "docs/api-docs/partner/staying-current.md"
-    },
-    {
-      "type": "group",
-      "title": "Analytics Solutions",
-      "items": [
-        {
-          "type": "item",
-          "title": "Big Open Data Layer (BODL)",
-          "href": "/api-docs/partner/analytics-solutions/bodl",
-          "uri": "docs/api-docs/analytics/bodl-ga4.md"
-        }
-      ]
     },
     {
       "type": "group",
