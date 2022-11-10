@@ -3,8 +3,6 @@
 <!-- theme: info -->
 > Big Open Data Layer (shortened as `BODL`, pronounced 'Bottle') is a global JavaScript object that integrates BigCommerce storefronts with third-party analytics providers. 
 
-This guide demonstrates how you can integrate a BigCommerce store with [Google Analytics (GA4)](https://support.bigcommerce.com/s/article/GA4). Using BODL, you can track when a shopper starts checkout and purchases an order. You can track events for [One page checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout).
-
 BODL captures shopper storefront data and holds data needed for an analytics provider, such as GA4, to make analytics reports. <!-- rework this one -->
 
 With BODL, providers can easily view and manage captured data from a standardized source. Providers can reformat the event data for their solutions.
@@ -12,8 +10,7 @@ With BODL, providers can easily view and manage captured data from a standardize
 This guide demonstrates how you can integrate a BigCommerce store with [Google Analytics (GA4)](https://support.bigcommerce.com/s/article/GA4). 
 <!-- for whom? seems like this is not actionable. BC handles this for stencil stores and it is not relevant to headless implementations -->
 
-Using BODL, you can capture shopper data at the time of any [supported event](#supported-events). You can track events for both redirected checkouts and [embedded checkouts](/api-docs/storefronts/embedded-checkout/embedded-checkout-tutorial).
-<!-- what is a redirected checkout? -->
+Using BODL, you can capture shopper data at the time of any [supported event](#supported-events). You can track events for [One page checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout).
 
 <!-- theme: info -->
 > #### Supported events
