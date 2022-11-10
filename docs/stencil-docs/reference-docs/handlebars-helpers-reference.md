@@ -259,7 +259,8 @@ Early Hints reduces page load time and perceived latency by allowing browsers to
   - Corresponds to the `as` attribute in `<link>`.
   - Value can be any of `style`, `font`, `script`, `document`.
   - If an invalid value is provided, `as` won't be included.
-  - Optional.
+  - This parameter is optional.
+
   - For more information, see [as](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-as) on MDN Web Docs.
 - `cors` - {String}
   - Corresponds to the `rel` attribute in `<link>`.
