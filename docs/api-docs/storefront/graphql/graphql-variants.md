@@ -348,15 +348,13 @@ title: Response
 
 ## Get variant options and variant option values
 
-You can query the variant options and the variant option values that are associated with a variant. 
-
-The following queries returns the variant options that are associated with the specified variant. Unlike [Get product options](/api-docs/storefront/graphql/products#get-product-options), the queries return only variant options, not modifer options. 
+You can query the variant options and the variant option values that are associated with variants. 
 
 ## Get variant options
 
-All variant options are [multiple choice options](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc). The following query returns variant options.
+All variant options are [multiple choice](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc). 
 
-The example below shows a query that returns all variant options. 
+The following example shows how to get the variant options that are associated with a specified variant.
 
 <!--
 type: tab
@@ -445,11 +443,11 @@ title: Response
 
 All variant options are [multiple choice](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc). When you get variant options, you can also retrieve the multiple choice values that are associated with a variant (i.e. variant option values). 
 
-Multiple choice values are of various types, for example, swatch or radio buttons. Each multiple choice value has a schema type that implements the `CatalogProductOptionValue` interface, meaning you can retrieve the common fields from `CatalogProductOptionValue` for all multiple choice values.   
+Multiple choice values are of various types, for example, swatch or radio buttons. Each type of multiple choice value has a schema type that implements the `CatalogProductOptionValue` interface, meaning you can retrieve the common fields from `CatalogProductOptionValue` for any type of multiple choice value. For more on interfaces, see the [GraphQL Schema and Types- Interfaces](https://graphql.org/learn/schema/#interfaces) documentation.   
 
 
 ```graphql title="CatalogProductOptionValue interface" lineNumbers
-# Fields common among multiple choice options 
+# Fields common among multiple choice values 
 
 interface CatalogProductOptionValue {
   entityId: Int!
@@ -458,7 +456,7 @@ interface CatalogProductOptionValue {
 }
 ```
 
-The example query gets variant option values for the specified variant. All returned variant options include queried fields from the `CatalogProductOptionValue` interface, and additional fields are returned for the swatch option type.
+The following example gets variant option values for the specified variant. In the response, all multiple choice values include queried fields from the `CatalogProductOptionValue` interface, and those that are swatch types include additional fields.
 
 <!--
 type: tab
@@ -466,7 +464,7 @@ title: Query
 -->
 
 ```graphql title="Example query: Get variant options for a variant" lineNumbers
-# This query retrieves all variant options.
+# This query retrieves variant options associated with a variant.
 # This query uses interfaces. For more, see https://graphql.org/learn/schema/#interfaces.
 
 query {
@@ -485,7 +483,7 @@ query {
                           entityId
                           label
                           isDefault
-                          ... on SwatchOptionValue {      # extra fields swatch options include
+                          ... on SwatchOptionValue {      # additional fields for swatch options
                             hexColors
                             imageUrl (width: 2)
                           }
@@ -568,7 +566,7 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-You can also retrieve variant option values using the `options` field. The following query returns the variant option values that are associated with the specified variant. 
+You can also retrieve variant option values using the `options` field. The following query gets the variant option values that are associated with the specified variant. 
 
 <!--
 type: tab

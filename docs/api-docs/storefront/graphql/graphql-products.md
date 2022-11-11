@@ -261,7 +261,7 @@ interface CatalogProductOption {
 }
 ```
 
-The following example shows how to get product options associated with a product. In the response, all product options include common fields from the `CatalogProductOption` interface, and those that are checkbox or datefields include additional fields.  
+The following example shows how to get product options associated with a product. In the response, all product options include queried fields from the `CatalogProductOption` interface, and those that are checkbox or datefields include additional fields.  
 
 <!--
 type: tab
@@ -361,7 +361,7 @@ interface CatalogProductOptionValue {
 }
 ```
 
-The following example shows a query that retrieves all product options. In the response, all multiple choice values include common fields from the `CatalogProductOptionValue` interface, and those that are swatch types include additional fields.
+The following example shows a query that retrieves all product options. In the response, all multiple choice values include queried fields from the `CatalogProductOptionValue` interface, and those that are swatch types include additional fields.
 
 <!--
 type: tab
@@ -382,7 +382,7 @@ query {
             displayName
             isRequired
             isVariantOption
-            ... on MultipleChoiceOption {           # extra fields multiple choice options include
+            ... on MultipleChoiceOption {           # additional fields for multiple choice options
               displayStyle
               values {
                 edges {
@@ -390,7 +390,7 @@ query {
                     entityId
                     label
                     isDefault
-                    ... on SwatchOptionValue {      # extra fields swatch options include
+                    ... on SwatchOptionValue {      # additional fields for swatch options
                       hexColors
                       imageUrl (width: 2)
                     }
