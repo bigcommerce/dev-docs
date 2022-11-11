@@ -1,15 +1,15 @@
 # Products with the GraphQL Storefront API
 
-BigCommerce's GraphQL Storefront API lets merchants on headless storefronts retrieve [products](https://support.bigcommerce.com/s/article/Product-Identifiers) powered by results from our back-end search engine. These built-in capabilities also allow Stencil developers to customize...
+BigCommerce's GraphQL Storefront API lets merchants on headless storefronts retrieve [products](https://support.bigcommerce.com/s/article/Product-Identifiers) powered by results from our back-end search engine. These built-in capabilities also allow Stencil developers to customize their storefronts with variant information.
 
 The GraphQL Storefront API lets you retrieve the following product features, and more:
 - Price info in a store's transacting currency   
 - Product options associated with a product (variant and modifier options) 
 - Product metafields that have storefront access
 
-You can access these features for a product if a merchant makes a product visible on storefronts. For Non-MSF stores, only products in categories that are available to "default GUEST customer groups" returned. => what if you login as a customer???
+You can access these features for a product if a merchant makes a product visible on storefronts.
 
-This page walks you through how to retrieve info for a product. If your product has variants, see [Variants with the GraphQL Storefront API](/api-docs/storefront/graphql/variants) for what you can query for your product's variants. See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/api-docs/storefront/graphql/playground) for full schema documentation.
+This page walks you through how to retrieve info for a product. If your product has variants, see [Variants with the GraphQL Storefront API](/api-docs/storefront/graphql/variants) for how to retrieve variant info. See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/api-docs/storefront/graphql/playground) for full schema documentation.
 
 ## Get a Product
 
@@ -83,7 +83,7 @@ You can also query for featured products, related products, and more. See the [G
 
 ## Get product identifiers
 
-You can query basic info for products. The example query shows how to query product identifiers and other basic info for the specified product:
+You can query basic info for products. The following query retrieves product identifiers and other basic info for the specified product:
 
 <!--
 type: tab
@@ -138,7 +138,7 @@ title: Response
 
 ## Get product prices and dimensions
 
-You can query prices and dimensions for a product. The example query shows how to query prices and dimensions for the specified product:
+You can query prices and dimensions for a product. The following query retrieves prices and dimensions for the specified product:
 
 
 <!--
@@ -471,7 +471,7 @@ title: Response
 
 You can query the images for products. The default image is a product's thumbnail image.
 
-The example query shows how to query the images for the specified product:
+The following example retrieves the images for the specified product:
 
 <!--
 type: tab
@@ -546,7 +546,7 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-You can query product images at different resolutions. The example query shows how to query images at various resolutions for the specified product: 
+You can query product images at different resolutions. The following query retrieves images at various resolutions for the specified product: 
 
 <!--
 type: tab
@@ -609,7 +609,7 @@ title: Response
 
 You can query the metafields for products. Only metafields that have storefront permissions are returned (i.e. permissions must be set to `write_and_sf_access` or `read_and_sf_access`).
 
-The example query shows how to query product metafields for the specified product. The query returns only product metafields. See [Get variant metafields](/api-docs/storefront/graphql/variants#get-variant-metafields) to retrieve variant metafields. 
+The following query retrieves product metafields for the specified product. The query retrieves only product metafields. See the [Get variant metafields](/api-docs/storefront/graphql/variants#get-variant-metafields) query to retrieve variant metafields. 
 
 <!--
 type: tab
@@ -674,7 +674,7 @@ title: Response
 
 ## Get product custom fields
 
-You can query the custom fields for products. The example query shows how to query custom fields for the specified product:
+You can query the custom fields for products. The following example retrieves custom fields for the specified product:
 
 <!--
 type: tab
@@ -736,7 +736,7 @@ title: Response
 
 ## Get product gift wrapping options
 
-You can query gift wrapping options that are available for a product. The example query shows how to query gift wrapping options for the specified product:
+You can query gift wrapping options that are available for a product. The following example retrieves gift wrapping options for the specified product:
 
 <!--
 type: tab
@@ -801,7 +801,7 @@ title: Response
 
 ## Get product reviews
 
-You can query reviews for products. The API returns only reviews that a store owner has approved. The example query shows how to query reviews for the specified product. 
+You can query reviews for products. You retrieve only reviews that a merchant has approved. The following example retrieves reviews for the specified product. 
 
 <!--
 type: tab

@@ -1,15 +1,15 @@
 # Variants with the GraphQL Storefront API
 
-BigCommerce's GraphQL Storefront API lets merchants on headless storefronts retrieve [variants](https://support.bigcommerce.com/s/article/Variants-and-Modifiers) powered by results from our back-end search engine. These built-in capabilities also allow Stencil developers to customize...
+BigCommerce's GraphQL Storefront API lets merchants on headless storefronts retrieve [variants](https://support.bigcommerce.com/s/article/Variants-and-Modifiers) powered by results from our back-end search engine. These built-in capabilities also allow Stencil developers to customize their storefronts with variant information.
 
 The GraphQL Storefront API lets you retrieve the following variant features, and more:
 - Price info in a store's transacting currency   
 - Variant options associated with a variant, along with their values
 - Variant metafields that have storefront access
 
-You can access these features if a merchant makes the product visible on storefronts. For Non-MSF stores, only products in categories that are available to "default GUEST customer groups" returned. => what if you login as a customer???
+You can access these features if a merchant makes the product visible on storefronts.
 
-This page walks you through how to retrieve info for a variant. If you would like to retrieve info for the base product, see [Products with the GraphQL Storefront API](/api-docs/storefront/graphql/products). See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/api-docs/storefront/graphql/playground) for full schema documentation.
+This page walks you through how to retrieve info for a variant. If you would like to retrieve info for the base product, see [Products with the GraphQL Storefront API](/api-docs/storefront/graphql/products). For full schema documentation, see the [GraphQL Storefront Playground](https://developer.bigcommerce.com/api-docs/storefront/graphql/playground).
 
 ## Get a variant
 
@@ -169,7 +169,7 @@ Specifying a variant identifier for the `product` field returns variant informat
 
 ## Get variant identifiers
 
-You can query identifying info for variants. The example query shows how to query identifying info for the specified variant:
+You can query identifying info for variants. The following query retrieves identifying info for the specified variant:
 
 <!--
 type: tab
@@ -228,7 +228,7 @@ title: Response
 
 ## Get variant prices and dimensions
 
-You can query the prices and dimensions for variants. The example query shows how to query prices and dimensions for the specified variant:
+You can query the prices and dimensions for variants. The following query retrieves prices and dimensions for the specified variant:
 
 <!--
 type: tab
@@ -456,7 +456,7 @@ interface CatalogProductOptionValue {
 }
 ```
 
-The following example gets variant option values for the specified variant. In the response, all multiple choice values include queried fields from the `CatalogProductOptionValue` interface, and those that are swatch types include additional fields.
+The following example retrieves variant option values for the specified variant. In the response, all multiple choice values include queried fields from the `CatalogProductOptionValue` interface, and those that are swatch types include additional fields.
 
 <!--
 type: tab
@@ -566,7 +566,7 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-You can also retrieve variant option values using the `options` field. The following query gets the variant option values that are associated with the specified variant. 
+You can also retrieve variant option values using the `options` field. The following query retrieves the variant option values that are associated with the specified variant. 
 
 <!--
 type: tab
@@ -671,7 +671,7 @@ title: Response
 
 ## Get variant images
 
-You can query the default images for variants. The example query shows how to query default image for the specified variant:
+You can query the default images for variants. The following query retrieves the default image for the specified variant:
 
 <!--
 type: tab
@@ -734,7 +734,7 @@ title: Response
 
 You can query the metafields for variants. Only metafields that have storefront permissions are returned (i.e. permissions must be set to `write_and_sf_access` or `read_and_sf_access`).
 
-The example query shows how to query variant metafields for the specified variant. The query returns only variant metafields. See [Get product metafields](/api-docs/storefront/graphql/products#get-product-metafields) to retrieve product metafields. 
+The following query shows how to query variant metafields for the specified variant. The query returns only variant metafields. See [Get product metafields](/api-docs/storefront/graphql/products#get-product-metafields) to retrieve product metafields. 
 
 <!--
 type: tab
