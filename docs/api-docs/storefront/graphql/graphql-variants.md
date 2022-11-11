@@ -9,7 +9,7 @@ The GraphQL Storefront API lets you retrieve the following variant features, and
 
 You can access these features if a merchant makes the product visible on storefronts.
 
-This page walks you through how to retrieve info for a variant. If you would like to retrieve info for the base product, see [Products with the GraphQL Storefront API](/api-docs/storefront/graphql/products). For full schema documentation, see the [GraphQL Storefront Playground](https://developer.bigcommerce.com/api-docs/storefront/graphql/playground).
+This page walks you through how to retrieve info for a variant. To retrieve info for the base product, see [Products with the GraphQL Storefront API](/api-docs/storefront/graphql/products). For full schema documentation, see the [GraphQL Storefront Playground](https://developer.bigcommerce.com/api-docs/storefront/graphql/playground).
 
 ## Get a variant
 
@@ -165,7 +165,7 @@ query {
 
 <!-- type: tab-end -->
 
-Specifying a variant identifier for the `product` field returns variant information overlaid on the Product object. For example, if the variant has a different image, dimensions, SKU, or price, than the product,the variant's info will be returned. This allows you to directly query a variant.
+Specifying a variant identifier for the `product` field returns variant information overlaid on the Product object. For example, if the variant has a different image, dimensions, SKU, or price, than the product, the variant's info will be returned. This allows you to directly query a variant.
 
 ## Get variant identifiers
 
@@ -809,4 +809,4 @@ title: Response
 - [Products with the GraphQL Storefront API](/api-docs/storefront/graphql/products)
 - [GraphQL Storefront API Explorer](https://developer.bigcommerce.com/api-docs/storefront/graphql/explorer)
 - [GraphQL Storefront API Playground](https://developer.bigcommerce.com/api-docs/storefront/graphql/playground)
-- [GraphQL language](https://graphql.org/learn/queries) (learn GraphQL at graphql.org)
+- [GraphQL language documentation](https://graphql.org/learn/queries) (graphql.org)
