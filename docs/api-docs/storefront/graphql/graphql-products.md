@@ -246,12 +246,12 @@ title: Response
 
 ## Get product options 
 
-You can query the [product options](https://support.bigcommerce.com/s/article/Product-Options-v3) associated with a product. The response includes both variant options and modifer options. If your product has variants, use [Get variant options](/api-docs/storefront/graphql/variants#get-variant-options) for more. 
+You can query the [product options](https://support.bigcommerce.com/s/article/Product-Options-v3) associated with a product. The response includes both variant options and modifer options. To retrieve only variant options, you can use a [Get variant options](/api-docs/storefront/graphql/variants#get-variant-options) query. 
 
-There are various [types of product options](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#types), including checkbox, multiple choice, and more, each with unique fields. However, each type of product option has a schema type that implements the `CatalogProductOption` interface, meaning you can retrieve the common fields from `CatalogProductOption` for all product options. For more on interfaces, see the [GraphQL Schema and Types- Interfaces](https://graphql.org/learn/schema/#interfaces) documentation.
+There are various [types of product options](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#types), for example, checkbox and multiple choice. Each type of product option has a schema type that implements the `CatalogProductOption` interface, meaning you can retrieve the common fields from `CatalogProductOption` for any type of product option. For more on interfaces, see the [GraphQL Schema and Types- Interfaces](https://graphql.org/learn/schema/#interfaces) documentation.
 
 ```graphql title="CatalogProductOption interface" lineNumbers
-# Fields common among product options 
+# Fields common among product option types
 
 interface CatalogProductOption {
   entityId: Int!
@@ -261,7 +261,7 @@ interface CatalogProductOption {
 }
 ```
 
-The example below shows how to query product options with additional fields for the checkbox and datefield option types. In the response, all product options include common fields from the `CatalogProductOption` interface, and the checkbox and datefield option returned the additional fields included in the query.  
+The following example shows how to get product options associated with a product. In the response, all product options include common fields from the `CatalogProductOption` interface, and those that are checkbox or datefields include additional fields.  
 
 <!--
 type: tab
@@ -282,11 +282,11 @@ query {
             displayName
             isRequired
             isVariantOption
-            ... on CheckboxOption {   # extra fields checkbox options include
+            ... on CheckboxOption {   # additional fields for checkbox options
               checkedByDefault
               label
             }
-            ... on DateFieldOption {  # extra fields checkbox options include
+            ... on DateFieldOption {  # additional fields for datefield options
               earliest
               latest
               limitDateBy
@@ -349,7 +349,7 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-When you get product options, you can also retrieve the available values for product options that are [multiple choice](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc). This retrieves all the available values for product options that are multiple choice. These values are of various types, for example, swatch or radio buttons. Each multiple choice value has a schema type that implements the `CatalogProductOptionValue` interface, meaning you can retrieve the common fields from `CatalogProductOptionValue` for all multiple choice values.   
+When you get product options, you can also retrieve the available values for product options that are [multiple choice](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc). These values are of various types, for example, swatch or radio buttons. Each type of multiple choice value has a schema type that implements the `CatalogProductOptionValue` interface, meaning you can retrieve the common fields from `CatalogProductOptionValue` for any type of multiple choice value.   
 
 ```graphql title="CatalogProductOptionValue interface" lineNumbers
 # Fields common among multiple choice values
@@ -361,7 +361,7 @@ interface CatalogProductOptionValue {
 }
 ```
 
-The example below shows a query that returns all product options. In the response, each multiple choice product option includes common fields from the `CatalogProductOptionValue` interface, and the swatch types return additional fields.
+The following example shows a query that retrieves all product options. In the response, all multiple choice values include common fields from the `CatalogProductOptionValue` interface, and those that are swatch types include additional fields.
 
 <!--
 type: tab
@@ -369,7 +369,7 @@ title: Query
 -->
 
 ```graphql title="Example query: Get product options for a product" lineNumbers
-# This query retrieves all product options.
+# This query retrieves all product options. Multiple choice options include their values.
 # This query uses interfaces. For more, see https://graphql.org/learn/schema/#interfaces.
 
 query {
