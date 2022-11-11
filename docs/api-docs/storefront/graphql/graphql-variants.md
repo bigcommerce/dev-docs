@@ -350,7 +350,7 @@ title: Response
 
 You can query the variant options and the variant option values that are associated with variants. 
 
-## Get variant options
+### Get variant options
 
 All variant options are [multiple choice](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc). 
 
@@ -362,7 +362,6 @@ title: Query
 -->
 
 ```graphql title="Example query: Get variant options for a variant" lineNumbers
-# This query retrieves all variant options.
 # This query uses interfaces. For more, see https://graphql.org/learn/schema/#interfaces.
 
 query {
@@ -439,7 +438,7 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-## Get variant option values
+### Get variant option values
 
 All variant options are [multiple choice](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc). When you get variant options, you can also retrieve the multiple choice values that are associated with a variant (i.e. variant option values). 
 
@@ -463,8 +462,7 @@ type: tab
 title: Query
 -->
 
-```graphql title="Example query: Get variant options for a variant" lineNumbers
-# This query retrieves variant options associated with a variant.
+```graphql title="Example query: Get variant option values for a variant" lineNumbers
 # This query uses interfaces. For more, see https://graphql.org/learn/schema/#interfaces.
 
 query {
@@ -507,7 +505,7 @@ type: tab
 title: Response
 -->
 
-```json title="Example response: Get variant options for a variant" lineNumbers
+```json title="Example response: Get variant option values for a variant" lineNumbers
 {
   "data": {
     "site": {

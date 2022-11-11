@@ -269,7 +269,6 @@ title: Query
 -->
 
 ```graphql title="Example query: Get product options for a product" lineNumbers
-# This query retrieves all product options.
 # This query uses interfaces. For more, see https://graphql.org/learn/schema/#interfaces.
 
 query {
@@ -349,7 +348,7 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-When you get product options, you can also retrieve the available values for product options that are [multiple choice](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc). These values are of various types, for example, swatch or radio buttons. Each type of multiple choice value has a schema type that implements the `CatalogProductOptionValue` interface, meaning you can retrieve the common fields from `CatalogProductOptionValue` for any type of multiple choice value.   
+When you get product options, you can also retrieve the available values for product options that are [multiple choice](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc) (i.e. product option values). These values are of various types, for example, swatch or radio buttons. Each type of multiple choice value has a schema type that implements the `CatalogProductOptionValue` interface, meaning you can retrieve the common fields from `CatalogProductOptionValue` for any type of multiple choice value.   
 
 ```graphql title="CatalogProductOptionValue interface" lineNumbers
 # Fields common among multiple choice values
@@ -361,7 +360,7 @@ interface CatalogProductOptionValue {
 }
 ```
 
-The following example shows a query that retrieves all product options. In the response, all multiple choice values include queried fields from the `CatalogProductOptionValue` interface, and those that are swatch types include additional fields.
+The following example shows a query that includes values for product options that are multiple choice. In the response, all product option values include queried fields from the `CatalogProductOptionValue` interface, and product option values that are swatch types include additional fields.
 
 <!--
 type: tab
@@ -369,7 +368,7 @@ title: Query
 -->
 
 ```graphql title="Example query: Get product options for a product" lineNumbers
-# This query retrieves all product options. Multiple choice options include their values.
+# Multiple choice options include their values.
 # This query uses interfaces. For more, see https://graphql.org/learn/schema/#interfaces.
 
 query {
