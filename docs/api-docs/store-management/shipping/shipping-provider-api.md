@@ -238,7 +238,6 @@ Accept: application/json
       "state_iso2": "CA",
       "country_iso2": "US",
       "address_type": "commercial"
-      "form_fields": {}
     },
     "destination": {
       "street_1": "",
