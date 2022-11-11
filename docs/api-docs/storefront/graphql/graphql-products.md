@@ -609,7 +609,7 @@ title: Response
 
 You can query the metafields for products. Only metafields that have storefront permissions are returned (i.e. permissions must be set to `write_and_sf_access` or `read_and_sf_access`).
 
-The following query retrieves product metafields for the specified product. The query retrieves only product metafields. See the [Get variant metafields](/api-docs/storefront/graphql/variants#get-variant-metafields) query to retrieve variant metafields. 
+The following query retrieves product metafields for the specified product. The query retrieves only product metafields. See [Get variant metafields](/api-docs/storefront/graphql/variants#get-variant-metafields) to retrieve variant metafields. 
 
 <!--
 type: tab
