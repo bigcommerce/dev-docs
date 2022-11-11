@@ -368,7 +368,6 @@ title: Query
 -->
 
 ```graphql title="Example query: Get product options for a product" lineNumbers
-# Multiple choice options include their values.
 # This query uses interfaces. For more, see https://graphql.org/learn/schema/#interfaces.
 
 query {
