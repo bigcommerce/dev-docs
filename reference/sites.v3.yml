@@ -719,6 +719,8 @@ components:
       x-internal: false
     _site:
       type: object
+      description: ''
+      title: ''
       properties:
         id:
           type: integer
@@ -733,12 +735,10 @@ components:
           type: string
           description: 'The date-time that this site was created, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
           example: '2022-01-04T04:15:50.000Z'
-          format: date-time
         updated_at:
           type: string
           description: 'The date-time that this site was last updated, formatted as an [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) string.'
           example: '2022-01-04T04:15:50.000Z'
-          format: date-time
         ssl_status:
           type: string
           enum:
