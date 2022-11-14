@@ -50,6 +50,7 @@ Theme Styles supports the following data types:
 * reference 
 * select (drop-down list)
 * text
+* sort
 
 Within `schema.json`, you can declare each object's data type in a statement like the one highlighted here:
 
