@@ -2016,32 +2016,67 @@ components:
     StorefrontProductSettings:
       type: object
       properties:
-        default_preorder_message:
-          type: string
-          example: preorder message
+        show_product_price:
+          type: boolean
+          description: |
+           Determines the visibility of the product price.
+          example: true
+        show_product_sku:
+          type: boolean
+          description: |
+           Determines the visibility of the product SKU.
+          example: true
+        show_product_weight:
+          type: boolean
+          description: |
+           Determines the visibility of the product's weight.
+          example: false
+        show_product_brand:
+          type: boolean
+          description: |
+           Determines the visibility of the product's brand.
+          example: true
+        show_product_shipping:
+          type: boolean
+          description: |
+           Determines the visibility of the product's shipping option.
+          example: false
+        show_product_rating:
+          type: boolean
+          description: |
+           Determines the visibility of the product's rating.
+          example: true
         show_add_to_cart_link:
           type: boolean
-        show_add_to_cart_qty_box:
-          type: boolean
-        show_add_to_wishlist:
-          type: boolean
+          description: |
+           Determines the visibility of the Add to Cart link.
+          example: true
+        default_preorder_message:
+          type: string
+          description: |
+           The product's pre-order message. If undefined, the message defaults to the storewide setting.
+          example: Preorder message
         show_breadcrumbs_product_pages:
           type: string
           enum:
             - show_one
             - show_none
-        show_product_brand:
+          example: show_one
+        show_add_to_cart_qty_box:
           type: boolean
-        show_product_price:
+          description: |
+           Determines the visibility of the Add to Cart quantity setting.
+          example: true
+        show_add_to_wishlist:
           type: boolean
-        show_product_rating:
+          description: |
+           Determines the visibilty of the Add to Wishlist setting.
+          example: true
+        hide_price_from_guests:
           type: boolean
-        show_product_shipping:
-          type: boolean
-        show_product_sku:
-          type: boolean
-        show_product_weight:
-          type: boolean
+          description: |
+           Determines the visibility of the price.
+          example: false
       title: StorefrontProductSettings
       x-tags:
         - Models
