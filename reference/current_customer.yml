@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: '3.0.1'
 info:
   title: Current Customer
   description: |-
@@ -8,17 +8,21 @@ info:
 
     <!-- theme: info -->
     > #### Note
-    > The Send a Test Request feature is not currently supported for this endpoint.
-  version: ""
+    > * Substitute your storefront domain for `yourstore.example.com`. 
+    > * The Send a Test Request feature is not currently supported for this endpoint.
+  version: ''
 servers:
-- url: https://{$$.env.store_domain}
+  - url: 'https://{store_domain}/api/storefront'
+    variables:
+      store_domain:
+        default: yourstore.example.com
 tags:
-- name: Current Customers
+  - name: Current Customers
 paths:
   /customer/current.jwt:
     get:
       tags:
-      - Current Customers
+        - Current Customers
       summary: Get Current Customer
       description: |-
         Identify logged-in customers securely via JavaScript.
@@ -28,15 +32,15 @@ paths:
         > The Send a Test Request feature is not currently supported for this endpoint.
       operationId: getCurrentCustomer
       parameters:
-      - name: app_client_id
-        in: query
-        required: true
-        description: This is your application's client ID, which is obtained during application registration in the Developer Portal.
-        schema:
-          type: string
+        - name: app_client_id
+          in: query
+          required: true
+          description: This is your applicationʼs client ID, which is obtained during application registration in the Developer Portal.
+          schema:
+            type: string
       responses:
         default:
-          description: ""
+          description: ''
           content:
             application/json:
               schema:
@@ -59,9 +63,7 @@ paths:
                         example: '"6"'
                   iss:
                     type: string
-                    description: Indicates the token’s issuer. This is your application’s
-                      client ID, which is obtained during application registration
-                      in Developer Portal.
+                    description: Indicates the token’s issuer. This is your application’s client ID, which is obtained during application registration in Developer Portal.
                     example: '"bc/apps"'
                   sub:
                     type: string
@@ -69,14 +71,11 @@ paths:
                     example: '"abc123"'
                   iat:
                     type: integer
-                    description: Time when the token was generated. This is a numeric
-                      value indicating the number of seconds since the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time).
+                    description: 'Time when the token was generated. This is a numeric value indicating the number of seconds since the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time).'
                     example: 1480831863
                   exp:
                     type: integer
-                    description: Time when the token expires. The token usually expires
-                      after 15 minutes. This is a numeric value indicating the number
-                      of seconds since the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time).
+                    description: 'Time when the token expires. The token usually expires after 15 minutes. This is a numeric value indicating the number of seconds since the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time).'
                     example: 1480832763
                   version:
                     type: integer
@@ -84,9 +83,7 @@ paths:
                     example: 1
                   aud:
                     type: string
-                    description: The "aud" (audience) claim identifies the recipients
-                      that the JWT is intended for. This should match the *App Client
-                      ID* and the `application_id`.
+                    description: 'The "aud" (audience) claim identifies the recipients that the JWT is intended for. This should match the *App Client ID* and the `application_id`.'
                     example: '"6sv16tfx3j5gsopm42ss5dd67g2srvq"'
                   application_id:
                     type: string
@@ -103,7 +100,7 @@ paths:
                 customer:
                   id: 4927
                   email: john.doe@gmail.com
-                  group_id: "6"
+                  group_id: '6'
                 iss: bc/apps
                 sub: abc123
                 iat: 1480831863

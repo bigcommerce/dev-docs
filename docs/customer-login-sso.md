@@ -1,6 +1,6 @@
 # Customer Login SSO
 
-* **Host**: {$$.env.store_domain}/graphql
+* **Host**: {store_domain}/graphql
 * **Protocols**:`https`
 * **Accepts**: `application/json`
 * **Responds With**: `application/json`
@@ -15,7 +15,7 @@ Create a login URL for customer single sign-on.
 To log in a customer using the Customer Login API, redirect the customer's browser to the following access point URL:
 
 ```http
-  https://storedomain.com/login/token/{{TOKEN}}
+  https://yourstore.example.com/login/token/{{TOKEN}}
 ```
 
 

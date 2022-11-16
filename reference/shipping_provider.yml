@@ -53,8 +53,7 @@ paths:
 
         > #### Note
 
-        > * The `your_app.example.com` and `rate` are the host and path specific to the shipping provider. 
-
+        > * Substitute the host and path specific to the shipping provider for `your_app.example.com` and `rate`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
       requestBody:
         content:
@@ -380,8 +379,7 @@ paths:
 
         > #### Note
 
-        > * The `your_app.example.com` and `check_connection_options` are the host and path specific to the shipping provider.  
-
+        > * Substitute the host and path specific to the shipping provider for `your_app.example.com` and `check_connection_options`.  
         > * The Send a Test Request feature is not currently supported for this endpoint.  
       requestBody:
         content:

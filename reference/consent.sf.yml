@@ -1,6 +1,9 @@
-openapi: 3.0.1
+openapi: '3.0.1'
 servers:
-  - url: 'https://{$$.env.store_domain}/api/storefront'
+  - url: 'https://{store_domain}/api/storefront'
+    variables:
+      store_domain:
+        default: yourstore.example.com
 info:
   title: Storefront Cookie Consent
   description: Specify shopper cookie consent preferences
@@ -33,7 +36,7 @@ paths:
                     - 4
         description: 'Data sent to the [Update Customer Consent](/api-reference/store-management/customers-v3/customer-consent/customersconsentbycustomerid-put) Customers V3 endpoint when creating a customer during checkout'
         required: true
-      description: |-
+      description: |
         Sets the status of a customer's consent to allow data collection by cookies and scripts according to the following consent categories:
 
 
@@ -45,6 +48,9 @@ paths:
         This endpoint only works if the cookie consent feature is enabled. It is assumed the shopper has not consented to anything until a value is explicitly set. The request body must be populated with a complete set of allowed and denied categories.
 
         Once set, consent preferences will be saved as a cookie for guest shoppers. Consent preferences will be persisted to a shopper's account to be used for future sessions once they have logged in. Consent preferences can also be managed using the [Customer Consent](/api-reference/store-management/customers-v3/customer-consent/) V3 endpoint.   
+
+        > #### Note
+        > * Substitute your storefront domain for `yourstore.example.com`. 
       operationId: postConsent
     parameters: []
 components:

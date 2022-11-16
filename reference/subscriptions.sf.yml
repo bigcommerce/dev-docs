@@ -9,16 +9,19 @@ info:
     * [Collecting Newsletter Subscriptions](https://support.bigcommerce.com/s/article/Collecting-Newsletter-Subscriptions) (support.bigcommerce.com)
     * [Customers Overview](/api-docs/customers/customers-subscribers-overview)
     * [Working with Storefront APIs](/api-docs/cart-and-checkout/working-sf-apis)
-  version: ""
+  version: ''
 servers:
-- url: https://{$$.env.store_domain}
+  - url: 'https://{store_domain}/api/storefront'
+    variables:
+      store_domain:
+        default: yourstore.example.com
 tags:
-- name: Subscription
+  - name: Subscription
 paths:
   /subscriptions:
     post:
       tags:
-      - Subscription
+        - Subscription
       summary: Create a Subscription
       operationId: createASubscription
       description: |-
@@ -30,7 +33,8 @@ paths:
 
         <!-- theme: info -->
         > #### Note
-        > The Send a Test Request feature is not currently supported for this endpoint.
+        > * Substitute your storefront domain for `yourstore.example.com`. 
+        > * The Send a Test Request feature is not currently supported for this endpoint.
       requestBody:
         content:
           application/json:
@@ -39,7 +43,7 @@ paths:
         required: false
       responses:
         '200':
-          description: ""
+          description: ''
           content:
             application/json:
               schema:
@@ -54,11 +58,10 @@ components:
           description: Email of subscriber
         acceptsMarketingNewsletter:
           type: boolean
-          description: Has subscriber provided consent for receiving Marketing emails.
+          description: Describes whether subscriber has consented to receive Marketing emails.
         acceptsAbandonedCartEmails:
           type: boolean
-          description: Has subscriber provided consent for receiving Abandon Cart
-            emails.
+          description: Describes whether subscriber has consented to receive Abandoned Cart emails.
       x-internal: false
     Subscription:
       type: object
