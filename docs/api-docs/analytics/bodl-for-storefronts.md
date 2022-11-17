@@ -4,7 +4,7 @@ The Big Open Data Layer (shortened as BODL, pronounced 'Bottle') is a JavaScript
 
 BODL currently transports data for storefront events that are triggered by a shopper. BigCommerce checks your storefront for a BODL instance once per page render. To ensure that the analytics providers you've chosen have the complete and correct set of data points they require, a merchant must enable BODL through the store control panel so that each storefront page window subscribes to BODL events. As a developer, you can then access storefront data after a shopper triggers a BODL event. 
 
-This guide shows you how to get started using BODL data in your integration. The first section describes the standard BODL schema after shopper triggers a specified event, so that you can see how BODL organizes information for your integration to capture. The remainder provides example scripts for using the standard BODL object, displaying BODL parameters into the browser console or supplying data to third-party analytics engines. You can inject JavaScript snippets into a BigCommerce-hosted storefront using the Script Manager or the Scripts API.
+This guide shows you how to get started using BODL data in your integration. The first section describes the standard BODL schema after shopper triggers a specified event, so that you can see how BODL organizes information for your integration to capture. The remainder provides example scripts for using the standard BODL object, displaying BODL parameters into the browser console or supplying data to third-party analytics engines. You can inject JavaScript snippets into a BigCommerce-hosted storefront using the [Scripts API](/api-reference/store-management/scripts) or the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
 
 ## Standard BODL schema
 
@@ -63,9 +63,13 @@ The `line_item` object has many common fields for browser events. The `line_item
 
 ## Using BODL 
 
+You can inject JavaScript snippets into a BigCommerce-hosted storefront using the [Scripts API](/api-reference/store-management/scripts) or the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
+
 ### Display BODL parameters in the browser console 
 
 ```js
+<script>
+
 function subscribeOnBodlEvents() {
   // logs function name to console to verify that the function is called on every page load
   console.log('run subscribeOnBodlEvents()');
@@ -116,7 +120,35 @@ function subscribeOnBodlEvents() {
 // wait for window load event to run the subscribeOnBodlEvents function
 window.addEventListener('load', subscribeOnBodlEvents, false);
 
+</script>
 ```
+
+The following is an example request that uses the Scripts API to inject the script. Send a request to the [Create a script](/api-reference/store-management/scripts/scripts/createscript) endpoint.
+
+```json title="Example request: Create a Script" lineNumbers
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/content/scripts
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "BODL script",
+  "description": "view BODL in the browser console",
+  "html": "<script> function subscribeOnBodlEvents() {console.log('run subscribeOnBodlEvents()'); window.dataLayer = window.dataLayer || []; if (!window || typeof window.bodlEvents === 'undefined' || typeof window.bodlEvents.checkout === 'undefined') {console.log('not defined'); return;} if (typeof window.bodlEvents.checkout.checkoutBegin === 'function') {window.bodlEvents.checkout.checkoutBegin((payload) => {console.log('window.bodlEvents.checkout.orderPurchased ~ payload', payload);});} if (typeof window.bodlEvents.checkout.orderPurchased === 'function') {window.bodlEvents.checkout.orderPurchased((payload) => {console.log(   'window.bodlEvents.checkout.orderPurchased ~ payload', payload);});}}  window.addEventListener('load', subscribeOnBodlEvents, false); </script>",
+  "load_method": "default",
+  "location": "head",
+  "visibility": "all_pages",
+  "kind": "script_tag",
+  "consent_category": "essential",
+  "enabled": true,
+  "channel_id": 2
+}
+```
+
+<!--theme: info -->
+> #### Category of consent
+> If a merchant enables cookie consent tracking, the shopper must provide consent to the category of consent (`consent_category`) to which the script is set. For more on consent category, see the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager) support article.
+
 
 ### Transport data to a third-party analytic provier 
 
