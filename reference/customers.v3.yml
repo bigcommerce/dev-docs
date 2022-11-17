@@ -1342,21 +1342,21 @@ paths:
         required: true
         x-examples:
           application/json:
-            - attribute_id: -52528392
+            - attribute_id: 52528392
               value: aliqua
               customer_id: 12990306
               id: 47143304
-            - attribute_id: -8263909
+            - attribute_id: 8263909
               value: 'n'
               customer_id: 1122433
-              id: -34305734
-            - attribute_id: -62186196
+              id: 34305734
+            - attribute_id: 62186196
               value: ''
               customer_id: 10906989
               id: 21175547
-            - attribute_id: -68742149
+            - attribute_id: 68742149
               value: l
-              customer_id: -74084818
+              customer_id: 74084818
               id: 99359610
         description: ''
       responses:

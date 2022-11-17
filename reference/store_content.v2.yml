@@ -1248,7 +1248,7 @@ components:
         dst_offset:
           type: integer
           description: '“-/+” offset from UTC/GMT, in seconds, during summer/daylight saving time.'
-          example: -18000
+          example: 18000
         dst_correction:
           type: boolean
           description: A boolean indicating whether this time zone observes daylight saving time.

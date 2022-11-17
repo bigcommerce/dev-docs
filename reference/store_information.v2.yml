@@ -1,8 +1,13 @@
-openapi: 3.0.0
+openapi: '3.0.0'
 info:
   version: ''
   title: Store Information
-  description: 'Get Store Information endpoint, manage store profile settings.'
+  description: Get Store Information endpoint, manage store profile settings.
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
 paths:
   '/stores/{store_hash}/v2/store':
     get:
@@ -100,10 +105,10 @@ paths:
                     admin_email: dolor commodo elit do
                     order_email: ea qui
                     timezone:
-                      name: culpa quis sint eiusmod ut
-                      raw_offset: -25825722
-                      dst_offset: -97926378
-                      dst_correction: false
+                      name: 'Australia/Sydney'
+                      raw_offset: 39600
+                      dst_offset: 36000
+                      dst_correction: true
                       date_format:
                         display: cupidatat
                         export: est
@@ -401,15 +406,15 @@ components:
           example: America/Chicago
           type: string
         raw_offset:
-          description: 'a negative or positive number, identifying the offset from UTC/GMT, in seconds, during winter/standard time.'
+          description: 'A negative or positive number, identifying the offset from UTC/GMT, in seconds, during winter/standard time.'
           example: -21600
           type: integer
         dst_offset:
-          description: '"-/+" offset from UTC/GMT, in seconds, during summer/daylight saving time.'
+          description: 'A negative or positive number, identifying the offset from UTC/GMT, in seconds, during summer/daylight saving time.'
           example: -18000
           type: integer
         dst_correction:
-          description: a boolean indicating whether this time zone observes daylight saving time.
+          description: A boolean indicating whether this time zone observes daylight saving time.
           example: true
           type: boolean
         date_format:

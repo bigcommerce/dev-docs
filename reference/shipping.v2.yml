@@ -174,18 +174,18 @@ paths:
                 response:
                   value:
                     - name: esse veniam deserunt nisi
-                      id: -6648057
+                      id: 6648057
                       type: state
                       locations:
-                        - id: -27962554
+                        - id: 27962554
                           zip: sed commodo
                           country_iso2: laborum Ut
                           state_iso2: sunt officia laboris tempor cupidatat
-                        - id: -90778339
+                        - id: 90778339
                           zip: amet anim deserunt cillum aute
                           country_iso2: cupidatat
                           state_iso2: dolor nisi
-                        - id: -48379114
+                        - id: 48379114
                           zip: dolore fugiat
                           country_iso2: sit in officia ea
                           state_iso2: qui ad
@@ -909,14 +909,14 @@ paths:
               examples:
                 response:
                   value:
-                    - id: -23225205
+                    - id: 23225205
                       name: tempo
                       type: royalmail
                       settings: {}
                       enabled: true
                       handling_fees: fixed_surcharge
                       is_fallback: false
-                    - id: -35889344
+                    - id: 35889344
                       name: Lorem Excepteur esse
                       type: canadapost
                       settings: {}
@@ -995,7 +995,7 @@ paths:
               examples:
                 response:
                   value:
-                    id: -19609616
+                    id: 19609616
                     name: ad sed
                     type: auspost
                     settings: {}
@@ -1302,7 +1302,7 @@ paths:
               examples:
                 response:
                   value:
-                    id: -71711609
+                    id: 71711609
                     name: nisi
                     type: weight
                     settings: {}
@@ -1518,6 +1518,7 @@ paths:
     post:
       description: "Creates a *Carrier Connection*. \n\nCarrier connections refer to specific settings required to connect to a specific shipping carrier. Each carrier requires your app to supply a unique set of properties/fields to establish a connection with that carrier.\n\n*Notes:*\n\n- There is no `GET` with this resource. It has `PUT`, `POST` and `DELETE`.\n    * `PUT` is used to update. The connection can be updated by API.\n\n    \n- Connections created here do not enable the shipping method. To enable the carrier for a shipping zone, use the Shipping Methods API. \n\n- The Carrier Connection resource returns a 204 for both successful and unsuccessful attempts to connect. If a field is missing, it will return a 400.\n\n### Australia Post\n\n#### Sample Request – PUT or POST\n\n```json\n{\n\t\"carrier_id\" : \"auspost\",\n\t\"connection\" : {\n\t\t\"auth_key\" : \"yourAusPostAuthKey\",\n\t\t\"test_mode\" : false\n\t}\n}\n```\n\n#### Sample Request – DELETE\n\n```json\n{\n\t\"carrier_id\" : \"auspost\"\n}\n```\n\n#### Australia Post Connection Object – Properties\n\nAustralia Post `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.\n\n\n| Property | Type | Description\n| - | - | - |\n| auth_key | string | Australia Post authorization key. |\n| test_mode | boolean | Whether or not to use Australia Post test-mode settings. Acceptable values are `true` or `false`. |\n\n\n### Endicia\nUSPS is connected through Endicia.\n\n#### Sample Request – PUT or POST\n\n```json\n{\t\"carrier_id\" : \"endicia\",\n\t\"connection\": {\n\t\t\"account_id\" : \"yourEndiciaAccountId\",\n\t\t\"pass_phrase\" : \"yourEndiciaPassphrase\"\n\t}\n}\n```\n\n#### Sample Request – DELETE\n\n```json\n{\n\t\"carrier_id\" : \"endicia\"\n}\n```\n\n#### Endicia Connection Object – Properties\n\nEndicia `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.\n\n\n| Property | Type | Description |\n| - | - | - |\n| account_id | string | Endicia account ID. |\n| passphrase | string | Endicia passphrase. |\n\n\n### FedEx\n\n#### Sample Request – PUT or POST\n\n```json\n{\n\t\"carrier_id\" : \"fedex\",\n\t\"connection\" : {\n\t\t\"key\" : \"yourFedexKey\",\n\t\t\"password\" : \"yourFedexPassword\",\n\t\t\"account_number\" : \"yourFedexAccountNumber\",\n\t\t\"meter_number\" : \"yourFedexMeterNumber\"\n\t}\n}\n```\n\n#### Sample Request – DELETE\n\n```json\n{\n\t\"carrier_id\" : \"fedex\"\n}\n```\n\n#### FedEx Connection Object – Properties\n\nFedEx `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.\n\n\n| Property | Type | Description | \n| - | - | - |\n| key | string | FedEx account ID. | \n| password | string | FedEx passphrase. |\n| account_number | string | FedEx account number. |\n| meter_number | string | FedEx meter number. |\n\n### Royal Mail\n\nSample Request - PUT or POST\n\n```json\n{\n    \"carrier_id\" : \"royalmail\",\n    \"connection\" : {\n        \n    }\n}\n```\n\nSample Request - DELETE\n\n```json\n{\n    \"carrier_id\" : \"royalmail\"\n}\n```\n\n#### Royal Mail Connection Object - Properties\n\nRoyal Mail has no connection object properties.\n\n\n### Zoom2U\n\n#### Sample Request – PUT or POST\n\n```json\n{\n\t\"carrier_id\" : \"zoom2u\",\n\t\"connection\" : {\n\t\t\"auth_key\" : \"yourZoom2uAuthKey\",\n\t\t\"test_mode\" : false\n\t}\n}\n```\n\n#### Sample Request – DELETE\n\n```json\n{\n\t\"carrier_id\" : \"zoom2u\"\n}\n```\n\n#### Zoom2U Connection Object – Properties\n\nZoom2U `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.\n\n\n| Property | Type | Description | \n| - | - | - |\n| auth_key | string | Zoom2U authorization key. |\n| test_mode | boolean | Whether or not to use Zoom2U test-mode settings. Acceptable values are `true` or `false`. |"
       summary: Create a Carrier Connection
+      operationId: createACarrierConnection
       parameters:
         - name: Accept
           in: header
@@ -1577,7 +1578,6 @@ paths:
         IsMultiContentStreaming: false
       tags:
         - Shipping Carrier
-      operationId: createACarrierConnection
     delete:
       description: |-
         Deletes a *Carrier Connection*.
