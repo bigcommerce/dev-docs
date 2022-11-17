@@ -150,8 +150,6 @@ Accept: application/json
 > If a merchant enables cookie consent tracking, the shopper must provide consent to the category of consent (`consent_category`) to which the script is set. For more on consent category, see the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager) support article.
 
 
-### Transport data to a third-party analytic provier 
-
-The following is an example of how to supply data from BODL to a third-party analytic provider (GA4). This script is an example usage of BODL, as methods and syntax vary between analytics engine providers. 
-
 ## Resources
+- [Scripts API](/api-reference/store-management/scripts)
+- [Scripts Manager support article](https://support.bigcommerce.com/s/article/Using-Script-Manager)
