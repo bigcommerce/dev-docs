@@ -65,6 +65,59 @@ The `line_item` object has many common fields for browser events. The `line_item
 
 ### Display BODL parameters in the browser console 
 
+```js
+function subscribeOnBodlEvents() {
+  // logs function name to console to verify that the function is called on every page load
+  console.log('run subscribeOnBodlEvents()');
+
+  // lets window.dataLayer also be an empty array
+  window.dataLayer = window.dataLayer || [];
+
+  // If...
+  if (
+    // window is not defined, or
+    !window ||
+    // window.bodlEvents is not defined, or
+    typeof window.bodlEvents === 'undefined' ||
+    // window.bodlEvents.checkout is not defined
+    typeof window.bodlEvents.checkout === 'undefined'
+  ) {
+    // then log 'not defined' to the console
+    console.log('not defined');
+    // and end script execution
+    return;
+  }
+
+  //   If window.bodlEvents.checkout.checkoutBegin is available, then...
+  if (typeof window.bodlEvents.checkout.checkoutBegin === 'function') {
+    // run the checkoutBegin function to get the payload
+    window.bodlEvents.checkout.checkoutBegin((payload) => {
+      // take the payload and log it to the console
+      console.log(
+        'window.bodlEvents.checkout.orderPurchased ~ payload',
+        payload
+      );
+    });    
+  }
+
+  // If window.bodlEvents.checkout.orderPurchased is available, then...
+  if (typeof window.bodlEvents.checkout.orderPurchased === 'function') {
+    // run the orderPurchase function to get the payload
+    window.bodlEvents.checkout.orderPurchased((payload) => {
+      // take the payload and log it to the console
+      console.log(
+        'window.bodlEvents.checkout.orderPurchased ~ payload',
+        payload
+      );
+    });
+  }
+}
+
+// wait for window load event to run the subscribeOnBodlEvents function
+window.addEventListener('load', subscribeOnBodlEvents, false);
+
+```
+
 ### Transport data to a third-party analytic provier 
 
 The following is an example of how to supply data from BODL to a third-party analytic provider (GA4). This script is an example usage of BODL, as methods and syntax vary between analytics engine providers. 
