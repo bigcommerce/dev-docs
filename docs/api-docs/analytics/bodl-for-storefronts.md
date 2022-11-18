@@ -6,6 +6,13 @@ BODL transports data for storefront events that a shopper triggers. BigCommerce 
 
 This guide shows you how to get started using BODL data in your integration. The first section describes the standard BODL schema after shopper triggers a specified event, so that you can see how BODL organizes information for your integration to capture. The remainder provides example scripts for using the standard BODL object, displaying BODL parameters into the browser console or supplying data to third-party analytics engines. You can inject JavaScript snippets into a BigCommerce-hosted storefront using the [Scripts API](/api-reference/store-management/scripts) or the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
 
+## Prerequisites
+
+For BODL to successfully transport storefront data to a provider, the following must be true:
+- The merchant must enable the provider storefront channel.
+- The storefront uses a stencil theme.
+- If a merchant enables cookie tracking consent, the shopper must provide consent to the [category of consent](#category-of-consent) to which a BODL script is set.
+
 ## Standard BODL schema
 
 BODL transports data after shoppers trigger storefront events. The following are supported storefront events:
