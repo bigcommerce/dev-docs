@@ -123,11 +123,11 @@ window.addEventListener('load', subscribeOnBodlEvents, false);
 </script>
 ```
 
-The following is an example request that uses the Scripts API to inject the script. Send a request to the [Create a script](/api-reference/store-management/scripts/scripts/createscript) endpoint.
+The following is an example request that uses the Scripts API to inject the script. Send a request to the [Create a script](/api-reference/store-management/scripts/scripts/createscript) endpoint. For more, see the [Scripts API Doc](/api-docs/store-management/scripts).
 
 ```json title="Example request: Create a Script" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/content/scripts
-X-Auth-Token: {{ACCESS_TOKEN}}
+X-Auth-Token: {{ACCESS_TOKEN}}     //scope should include Checkout Content when injecting script into checkout page
 Content-Type: application/json
 Accept: application/json
 
@@ -137,11 +137,11 @@ Accept: application/json
   "html": "<script> function subscribeOnBodlEvents() {console.log('run subscribeOnBodlEvents()'); window.dataLayer = window.dataLayer || []; if (!window || typeof window.bodlEvents === 'undefined' || typeof window.bodlEvents.checkout === 'undefined') {console.log('not defined'); return;} if (typeof window.bodlEvents.checkout.checkoutBegin === 'function') {window.bodlEvents.checkout.checkoutBegin((payload) => {console.log('window.bodlEvents.checkout.orderPurchased ~ payload', payload);});} if (typeof window.bodlEvents.checkout.orderPurchased === 'function') {window.bodlEvents.checkout.orderPurchased((payload) => {console.log(   'window.bodlEvents.checkout.orderPurchased ~ payload', payload);});}}  window.addEventListener('load', subscribeOnBodlEvents, false); </script>",
   "load_method": "default",
   "location": "head",
-  "visibility": "all_pages",
+  "visibility": "all_pages",            //set which pages BODL appears
   "kind": "script_tag",
-  "consent_category": "essential",
+  "consent_category": "essential",      //script is set to a category of consent
   "enabled": true,
-  "channel_id": 2
+  "channel_id": 2                       //storefront channel ID
 }
 ```
 
@@ -151,5 +151,6 @@ Accept: application/json
 
 
 ## Resources
-- [Scripts API](/api-reference/store-management/scripts)
+- [Scripts API Doc](/api-docs/store-management/scripts).
+- [Scripts API Reference](/api-reference/store-management/scripts)
 - [Scripts Manager support article](https://support.bigcommerce.com/s/article/Using-Script-Manager)
