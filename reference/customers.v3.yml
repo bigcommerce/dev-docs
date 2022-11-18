@@ -1633,15 +1633,12 @@ paths:
         required: true
   '/stores/{store_hash}/v3/customers/{customerId}/stored-instruments':
     get:
-      summary: Get Stored Instruments (Beta)
+      summary: Get Stored Instruments
       tags:
         - Customer Stored Instruments
       description: |-
         Lists all available stored instruments for a customer. This list will include all types of stored instruments namely card, account and bank_account instruments
 
-        <!-- theme: info -->
-        > #### Note
-        > * This endpoint is in beta.
       operationId: liststoredinstruments
       parameters:
         - $ref: '#/components/parameters/customerId'
