@@ -67,6 +67,8 @@ You can inject JavaScript snippets into a BigCommerce-hosted storefront using th
 
 ### Display BODL parameters in the browser console 
 
+You can view BODL parameters in the browser console after injecting the following example script:
+
 ```js
 <script>
 
@@ -123,7 +125,7 @@ window.addEventListener('load', subscribeOnBodlEvents, false);
 </script>
 ```
 
-The following is an example request that uses the Scripts API to inject the script. Send a request to the [Create a script](/api-reference/store-management/scripts/scripts/createscript) endpoint. For more, see the [Scripts API Doc](/api-docs/store-management/scripts).
+The following is an example request that uses the Scripts API to inject the example script. Send a request to the [Create a script](/api-reference/store-management/scripts/scripts/createscript) endpoint. For more, see the [Scripts API Doc](/api-docs/store-management/scripts).
 
 ```json title="Example request: Create a Script" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/content/scripts
