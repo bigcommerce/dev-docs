@@ -1561,7 +1561,7 @@ paths:
                           The MAP (Minimum Advertised Price) for the variant mapped in a Price List. Overrides any existing or Catalog MAP price for the variant/product. If empty, the MAP price will be treated as not being set on this variant.
                         format: double
                         minimum: 0
-                        example: 2.50
+                        example: 2.5
                       bulk_pricing_tiers:
                         type: array
                         items:
@@ -1646,7 +1646,7 @@ paths:
                       price: 3.99
                       sale_price: 3.49
                       retail_price: 4.99
-                      map_price: 2.50
+                      map_price: 2.5
                       bulk_pricing_tiers:
                         - quantity_min: 1
                           quantity_max: 10
@@ -2670,8 +2670,33 @@ paths:
     post:
       tags:
         - Price Lists Assignments
+      description: Creates a batch of `Price List Assignments`.
+      summary: Create Price List Assignments
+      operationId: CreatePriceListAssignments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateBatchPriceListAssignmentsRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessBatchResponse'
+        '422':
+          description: Error response. Includes the errors for each reference ID.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PriceListAssignmentsBatchErrorResponse'
+    delete:
+      tags:
+        - Price Lists Assignments
       summary: Delete Price List Assignments
-      description: Deletes one or more `Price List Assignments` objects from BigCommerce using a filter.
+      description: 'Deletes one or more `Price List Assignments` objects from BigCommerce using a query parameter. You must use at least one query parameter. '
       operationId: deletePriceListAssignmentsByFilter
       parameters:
         - $ref: '#/components/parameters/FilterAssignmentIdParam'
@@ -2681,17 +2706,37 @@ paths:
         - $ref: '#/components/parameters/ChannelIdInParam'
       responses:
         '204':
-          description: An empty response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NoContent'
+          description: No Content.
     parameters:
       - name: store_hash
         in: path
         required: true
         schema:
           type: string
+  '/pricelists/{price_list_id}/assignments':
+    put:
+      tags:
+        - Price Lists Assignments
+      description: Upsert a single `Price List Assignment` for a `Price List`.
+      summary: Upsert Price List Assignment
+      operationId: upsertPriceListAssignment
+      parameters:
+        - $ref: '#/components/parameters/PriceListIdParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssignmentForPutRequest'
+        required: true
+      responses:
+        '200':
+          description: A price list assignment.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssignmentForPutResponse'
+        '404':
+          description: 'A matching customer group or channel wasn''t found, so no assignment is created or returned.'
 components:
   parameters:
     ChannelIdInParam:
@@ -2899,76 +2944,110 @@ components:
     AssignmentsForRequest:
       type: object
       description: '`Price List Assignments` object used in a batch create request.'
+      x-internal: false
       properties:
-        customer_group_id:
-          type: integer
-          format: int32
-          description: Customer group id for assignment.
         price_list_id:
           type: integer
           format: int32
-          description: Pricelist id for assignment.
+          description: Price list ID for assignment.
+          example: 1
+        customer_group_id:
+          type: integer
+          format: int32
+          description: Customer group ID for assignment.
+          example: 2
         channel_id:
           type: integer
           format: int32
           description: Channel ID for assignment
+          example: 1
       required:
         - price_list_id
-      x-internal: false
-    PriceListAssignmentsBatchErrorResponse:
-      description: Errors during batch usage for the BigCommerce API.
+    AssignmentForPutRequest:
       type: object
       properties:
-        batch_errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/PriceListAssignmentsBatchErrorSet'
-      x-internal: false
-    PriceListAssignmentsBatchErrorSet:
-      description: Error during `Price List Assignments` batch POST. Includes data sent in the request and errors.
+        customer_group_id:
+          type: integer
+          format: int32
+          description: Customer group ID for assignment.
+          example: 2
+        channel_id:
+          type: integer
+          format: int32
+          description: Channel ID for assignment
+          example: 1
+      required:
+        - customer_group_id
+        - channel_id
+    AssignmentForPutResponse:
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/PriceListAssignmentsIdentifiers'
-        field_errors:
-          $ref: '#/components/schemas/DetailedErrors'
-      x-internal: false
-    PriceListAssignmentsIdentifiers:
-      type: object
-      description: '`Price List Assignments` object used in GET response.'
-      allOf:
-        - type: object
+          type: object
           properties:
-            customer_group_id:
+            id:
               type: integer
-              description: The Customer Group with which this price list assignment is associated. A customer_group_id of 0 indicates default pricing for the channel given in the request.
+              format: int32
+              description: Unique identifier for this price list assignment.
+              example: 1
             price_list_id:
               type: integer
-              description: The Price List with which this price set is associated.
+              format: int32
+              description: Price list ID for assignment.
+              example: 1
+            customer_group_id:
+              type: integer
+              format: int32
+              description: Customer group ID for assignment.
+              example: 2
             channel_id:
               type: integer
-              description: The Channel with which this price set is associated. This field is optional or may be null when a price list applies across channels for the customer_group_id in the assignment.
+              format: int32
+              description: Channel ID for assignment.
+              example: 2
+        meta:
+          type: object
+    PriceListAssignmentsBatchErrorResponse:
+      type: object
       x-internal: false
+      properties:
+        status:
+          type: integer
+        title:
+          type: string
+        type:
+          type: string
+        errors:
+          type: object
+        meta:
+          type: object
+          properties:
+            saved_records:
+              type: integer
     AssignmentForGetResponse:
       type: object
+      x-internal: false
       properties:
         id:
           type: integer
           format: int32
           description: Unique identifier for this price list assignment.
-        customer_group_id:
-          type: integer
-          format: int32
-          description: Customer group ID for assignment.
+          example: 1
         price_list_id:
           type: integer
           format: int32
           description: Pricelist ID for assignment.
+          example: 1
+        customer_group_id:
+          type: integer
+          format: int32
+          description: Customer group ID for assignment.
+          example: 2
         channel_id:
           type: integer
           format: int32
-          description: Channel ID for assignment
-      x-internal: false
+          description: Channel ID for assignment.
+          example: 2
     AssignmentsForGetResponse:
       description: Array of the price list assignments matching the filter. The response is paginated.
       type: object
@@ -4040,7 +4119,7 @@ components:
       x-internal: false
     SuccessBatchResponse:
       type: object
-      description: Empty object for Success case for Batch API.
+      description: Empty object.
       title: Success Batch Response
       x-internal: false
     PriceRecordBatchErrorResponse:
@@ -4086,22 +4165,6 @@ components:
                 title: Detailed Errors
             title: PriceRecord Batch Error Set
       title: PriceRecord Batch Error Response
-      x-internal: false
-    NoContent:
-      description: No-content response for the BigCommerce API.
-      title: No Content
-      type: object
-      properties:
-        status:
-          description: 204 HTTP status code.
-          type: integer
-        title:
-          description: The error title describing the situation.
-          type: string
-        type:
-          type: string
-        instance:
-          type: string
       x-internal: false
     PriceRecordBatchErrorSet:
       description: Error during Price Record batch PUT request. Includes data sent in the request and errors.
@@ -4294,12 +4357,6 @@ components:
         instance:
           type: string
       title: Base Error
-      x-internal: false
-    DetailedErrors:
-      type: object
-      additionalProperties:
-        type: string
-      title: Detailed Errors
       x-internal: false
     NotFound:
       description: Error payload for the BigCommerce API.
