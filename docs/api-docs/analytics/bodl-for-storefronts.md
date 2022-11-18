@@ -98,7 +98,7 @@ function subscribeOnBodlEvents() {
     window.bodlEvents.checkout.checkoutBegin((payload) => {
       // take the payload and log it to the console
       console.log(
-        'window.bodlEvents.checkout.orderPurchased ~ payload',
+        'window.bodlEvents.checkout.checkoutBegin ~ payload',
         payload
       );
     });    
@@ -134,7 +134,7 @@ Accept: application/json
 {
   "name": "BODL script",
   "description": "view BODL in the browser console",
-  "html": "<script> function subscribeOnBodlEvents() {console.log('run subscribeOnBodlEvents()'); window.dataLayer = window.dataLayer || []; if (!window || typeof window.bodlEvents === 'undefined' || typeof window.bodlEvents.checkout === 'undefined') {console.log('not defined'); return;} if (typeof window.bodlEvents.checkout.checkoutBegin === 'function') {window.bodlEvents.checkout.checkoutBegin((payload) => {console.log('window.bodlEvents.checkout.orderPurchased ~ payload', payload);});} if (typeof window.bodlEvents.checkout.orderPurchased === 'function') {window.bodlEvents.checkout.orderPurchased((payload) => {console.log(   'window.bodlEvents.checkout.orderPurchased ~ payload', payload);});}}  window.addEventListener('load', subscribeOnBodlEvents, false); </script>",
+  "html": "<script> function subscribeOnBodlEvents() {console.log('run subscribeOnBodlEvents()'); window.dataLayer = window.dataLayer || []; if (!window || typeof window.bodlEvents === 'undefined' || typeof window.bodlEvents.checkout === 'undefined') {console.log('not defined'); return;} if (typeof window.bodlEvents.checkout.checkoutBegin === 'function') {window.bodlEvents.checkout.checkoutBegin((payload) => {console.log('window.bodlEvents.checkout.checkoutBegin ~ payload', payload);});} if (typeof window.bodlEvents.checkout.orderPurchased === 'function') {window.bodlEvents.checkout.orderPurchased((payload) => {console.log('window.bodlEvents.checkout.orderPurchased ~ payload', payload);});}}  window.addEventListener('load', subscribeOnBodlEvents, false); </script>",
   "load_method": "default",
   "location": "head",
   "visibility": "all_pages",            //set which pages BODL appears
