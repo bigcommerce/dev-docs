@@ -149,7 +149,7 @@ Accept: application/json
 
 <!--theme: info -->
 > #### Category of consent
-> If a merchant enables cookie consent tracking, the shopper must provide consent to the category of consent (`consent_category`) to which the script is set. For more on consent category, see the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager) support article.
+> If a merchant enables cookie tracking consent, the shopper must provide consent to the category of consent (`consent_category`) to which the script is set. For more on consent categories, see the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager) support article.
 
 
 ## Resources
