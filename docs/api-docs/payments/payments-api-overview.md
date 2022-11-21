@@ -290,7 +290,7 @@ In the case of store credit and gift certificates:
 
 <!-- theme: info -->
 > #### List stored instruments
-> Use the [Get Stored Instruments](https://developer.bigcommerce.com/api-reference/b735a25b3a0b8-get-stored-instruments-beta) endpoint to list all available stored instruments for a customer.
+> Use the [Get Stored Instruments](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-stored-instruments/liststoredinstruments) endpoint to list all available stored instruments for a customer.
 
 ## Credit cards
 
