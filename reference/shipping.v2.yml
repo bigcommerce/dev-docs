@@ -1,4 +1,4 @@
-openapi: '3.0.3'
+openapi: 3.0.3
 info:
   version: ''
   title: Shipping V2
@@ -120,26 +120,26 @@ paths:
                       title: Shipping Zone Handling Fees
                       type: object
                       oneOf:
-                      - properties:
-                          fixed_surcharge:
-                            description: Flat-rate handling fee applied to shipping cost.
-                            example: '0'
-                            type: string
-                          display_separately:
-                            description: Indicates whether store displays handling fee separately at checkout.
-                            example: true
-                            type: boolean
-                        title: fixed surcharge
-                      - properties:
-                          percentage_surcharge:
-                            description: Percentage handling fee applied to shipping cost.
-                            example: '5'
-                            type: string
-                          display_separately:
-                            description: Indicates whether store displays handling fee separately at checkout.
-                            example: true
-                            type: boolean
-                        title: percentage surcharge
+                        - properties:
+                            fixed_surcharge:
+                              description: Flat-rate handling fee applied to shipping cost.
+                              example: '0'
+                              type: string
+                            display_separately:
+                              description: Indicates whether store displays handling fee separately at checkout.
+                              example: true
+                              type: boolean
+                          title: fixed surcharge
+                        - properties:
+                            percentage_surcharge:
+                              description: Percentage handling fee applied to shipping cost.
+                              example: '5'
+                              type: string
+                            display_separately:
+                              description: Indicates whether store displays handling fee separately at checkout.
+                              example: true
+                              type: boolean
+                          title: percentage surcharge
                     enabled:
                       description: Whether this shipping zone is enabled.
                       example: true
@@ -279,7 +279,7 @@ paths:
                   title: Shipping Zone Handling Fees
                   type: object
                   oneOf:
-                  - properties:
+                    - properties:
                         fixed_surcharge:
                           description: Flat-rate handling fee applied to shipping cost.
                           example: '0'
@@ -288,17 +288,17 @@ paths:
                           description: Indicates whether store displays handling fee separately at checkout.
                           example: true
                           type: boolean
-                    title: fixed surcharge
-                  - properties:
-                      percentage_surcharge:
-                        description: Percentage handling fee applied to shipping cost.
-                        example: '5'
-                        type: string
-                      display_separately:
-                        description: Indicates whether store displays handling fee separately at checkout.
-                        example: true
-                        type: boolean
-                    title: percentage surcharge
+                      title: fixed surcharge
+                    - properties:
+                        percentage_surcharge:
+                          description: Percentage handling fee applied to shipping cost.
+                          example: '5'
+                          type: string
+                        display_separately:
+                          description: Indicates whether store displays handling fee separately at checkout.
+                          example: true
+                          type: boolean
+                      title: percentage surcharge
                 enabled:
                   description: Whether this shipping zone is enabled.
                   example: true
@@ -393,26 +393,26 @@ paths:
                     title: Shipping Zone Handling Fees
                     type: object
                     oneOf:
-                    - properties:
-                        fixed_surcharge:
-                          description: Flat-rate handling fee applied to shipping cost.
-                          example: '0'
-                          type: string
-                        display_separately:
-                          description: Indicates whether store displays handling fee separately at checkout.
-                          example: true
-                          type: boolean
-                      title: fixed surcharge
-                    - properties:
-                        percentage_surcharge:
-                          description: Percentage handling fee applied to shipping cost.
-                          example: '5'
-                          type: string
-                        display_separately:
-                          description: Indicates whether store displays handling fee separately at checkout.
-                          example: true
-                          type: boolean
-                      title: percentage surcharge
+                      - properties:
+                          fixed_surcharge:
+                            description: Flat-rate handling fee applied to shipping cost.
+                            example: '0'
+                            type: string
+                          display_separately:
+                            description: Indicates whether store displays handling fee separately at checkout.
+                            example: true
+                            type: boolean
+                        title: fixed surcharge
+                      - properties:
+                          percentage_surcharge:
+                            description: Percentage handling fee applied to shipping cost.
+                            example: '5'
+                            type: string
+                          display_separately:
+                            description: Indicates whether store displays handling fee separately at checkout.
+                            example: true
+                            type: boolean
+                        title: percentage surcharge
                   enabled:
                     description: Whether this shipping zone is enabled.
                     example: true
@@ -516,26 +516,26 @@ paths:
                     title: Shipping Zone Handling Fees
                     type: object
                     oneOf:
-                    - properties:
-                        fixed_surcharge:
-                          description: Flat-rate handling fee applied to shipping cost.
-                          example: '0'
-                          type: string
-                        display_separately:
-                          description: Indicates whether store displays handling fee separately at checkout.
-                          example: true
-                          type: boolean
-                      title: fixed surcharge
-                    - properties:
-                        percentage_surcharge:
-                          description: Percentage handling fee applied to shipping cost.
-                          example: '5'
-                          type: string
-                        display_separately:
-                          description: Indicates whether store displays handling fee separately at checkout.
-                          example: true
-                          type: boolean
-                      title: percentage surcharge
+                      - properties:
+                          fixed_surcharge:
+                            description: Flat-rate handling fee applied to shipping cost.
+                            example: '0'
+                            type: string
+                          display_separately:
+                            description: Indicates whether store displays handling fee separately at checkout.
+                            example: true
+                            type: boolean
+                        title: fixed surcharge
+                      - properties:
+                          percentage_surcharge:
+                            description: Percentage handling fee applied to shipping cost.
+                            example: '5'
+                            type: string
+                          display_separately:
+                            description: Indicates whether store displays handling fee separately at checkout.
+                            example: true
+                            type: boolean
+                        title: percentage surcharge
                   enabled:
                     description: Whether this shipping zone is enabled.
                     example: true
@@ -637,26 +637,26 @@ paths:
                   title: Shipping Zone Handling Fees
                   type: object
                   oneOf:
-                  - properties:
-                      fixed_surcharge:
-                        description: Flat-rate handling fee applied to shipping cost.
-                        example: '0'
-                        type: string
-                      display_separately:
-                        description: Indicates whether store displays handling fee separately at checkout.
-                        example: true
-                        type: boolean
-                    title: fixed surcharge
-                  - properties:
-                      percentage_surcharge:
-                        description: Percentage handling fee applied to shipping cost.
-                        example: '5'
-                        type: string
-                      display_separately:
-                        description: Indicates whether store displays handling fee separately at checkout.
-                        example: true
-                        type: boolean
-                    title: percentage surcharge
+                    - properties:
+                        fixed_surcharge:
+                          description: Flat-rate handling fee applied to shipping cost.
+                          example: '0'
+                          type: string
+                        display_separately:
+                          description: Indicates whether store displays handling fee separately at checkout.
+                          example: true
+                          type: boolean
+                      title: fixed surcharge
+                    - properties:
+                        percentage_surcharge:
+                          description: Percentage handling fee applied to shipping cost.
+                          example: '5'
+                          type: string
+                        display_separately:
+                          description: Indicates whether store displays handling fee separately at checkout.
+                          example: true
+                          type: boolean
+                      title: percentage surcharge
                 enabled:
                   description: Whether this shipping zone is enabled.
                   example: true
@@ -727,26 +727,26 @@ paths:
                     title: Shipping Zone Handling Fees
                     type: object
                     oneOf:
-                    - properties:
-                        fixed_surcharge:
-                          description: Flat-rate handling fee applied to shipping cost.
-                          example: '0'
-                          type: string
-                        display_separately:
-                          description: Indicates whether store displays handling fee separately at checkout.
-                          example: true
-                          type: boolean
-                      title: fixed surcharge
-                    - properties:
-                        percentage_surcharge:
-                          description: Percentage handling fee applied to shipping cost.
-                          example: '5'
-                          type: string
-                        display_separately:
-                          description: Indicates whether store displays handling fee separately at checkout.
-                          example: true
-                          type: boolean
-                      title: percentage surcharge
+                      - properties:
+                          fixed_surcharge:
+                            description: Flat-rate handling fee applied to shipping cost.
+                            example: '0'
+                            type: string
+                          display_separately:
+                            description: Indicates whether store displays handling fee separately at checkout.
+                            example: true
+                            type: boolean
+                        title: fixed surcharge
+                      - properties:
+                          percentage_surcharge:
+                            description: Percentage handling fee applied to shipping cost.
+                            example: '5'
+                            type: string
+                          display_separately:
+                            description: Indicates whether store displays handling fee separately at checkout.
+                            example: true
+                            type: boolean
+                        title: percentage surcharge
                   enabled:
                     description: Whether this shipping zone is enabled.
                     example: true
@@ -1222,44 +1222,7 @@ paths:
                     example: Flat Rate
                     type: string
                   type:
-                    title: Shipping Method Type
-                    example: perorder
-                    x-enum-elements:
-                      - name: perorder
-                        description: ''
-                      - name: peritem
-                        description: ''
-                      - name: weight
-                        description: ''
-                      - name: total
-                        description: ''
-                      - name: auspost
-                        description: ''
-                      - name: canadapost
-                        description: ''
-                      - name: endicia
-                        description: ''
-                      - name: usps
-                        description: ''
-                      - name: fedex
-                        description: ''
-                      - name: royalmail
-                        description: ''
-                      - name: upsready
-                        description: ''
-                    type: string
-                    enum:
-                      - perorder
-                      - peritem
-                      - weight
-                      - total
-                      - auspost
-                      - canadapost
-                      - endicia
-                      - usps
-                      - fedex
-                      - royalmail
-                      - upsready
+                    $ref: '#/components/schemas/ShippingMethodType'
                   settings:
                     description: 'Depends on the shipping method type. See the [supported settings object](#supported-settings).'
                     type: object
@@ -1269,18 +1232,18 @@ paths:
                     type: boolean
                   handling_fees:
                     oneOf:
-                    - properties:
-                        fixed_surcharge:
-                          type: number
-                          description: Flat-rate handling fee applied to shipping cost.
-                          example: 0
-                      title: fixed surcharge
-                    - properties:
-                        percentage_surcharge:
-                          type: number
-                          description: Percentage handling fee applied to shipping cost.
-                          example: 0
-                      title: percentage surcharge
+                      - title: fixed surcharge
+                        properties:
+                          fixed_surcharge:
+                            type: number
+                            description: Flat-rate handling fee applied to shipping cost.
+                            example: 0
+                      - title: percentage surcharge
+                        properties:
+                          percentage_surcharge:
+                            type: number
+                            description: Percentage handling fee applied to shipping cost.
+                            example: 0
                     type: object
                   is_fallback:
                     description: Whether or not this shipping zone is the fallback if all others are not valid for the order.
@@ -1679,25 +1642,6 @@ components:
     TrackingCarrier:
       title: Tracking Carrier
       example: auspost
-      x-enum-elements:
-        - name: auspost
-          description: ''
-        - name: canadapost
-          description: ''
-        - name: endicia
-          description: ''
-        - name: usps
-          description: ''
-        - name: fedex
-          description: ''
-        - name: royalmail
-          description: ''
-        - name: ups
-          description: ''
-        - name: upsready
-          description: ''
-        - name: shipperhq
-          description: ''
       type: string
       enum:
         - auspost
@@ -1712,29 +1656,6 @@ components:
       x-internal: false
     ShippingProvider:
       title: Shipping Provider
-      x-enum-elements:
-        - name: Enum_0
-          description: empty string
-        - name: Enum_1
-          description: ''
-        - name: Enum_2
-          description: ''
-        - name: Enum_3
-          description: ''
-        - name: Enum_4
-          description: ''
-        - name: Enum_5
-          description: ''
-        - name: Enum_6
-          description: ''
-        - name: Enum_7
-          description: ''
-        - name: Enum_8
-          description: ''
-        - name: Enum_9
-          description: ''
-        - name: Enum_10
-          description: ''
       type: string
       enum:
         - '``'
@@ -1808,26 +1729,26 @@ components:
           title: Shipping Zone Handling Fees
           type: object
           oneOf:
-          - properties:
-              fixed_surcharge:
-                description: Flat-rate handling fee applied to shipping cost.
-                example: '0'
-                type: string
-              display_separately:
-                description: Indicates whether store displays handling fee separately at checkout.
-                example: true
-                type: boolean
-            title: fixed surcharge
-          - properties:
-              percentage_surcharge:
-                description: Percentage handling fee applied to shipping cost.
-                example: '5'
-                type: string
-              display_separately:
-                description: Indicates whether store displays handling fee separately at checkout.
-                example: true
-                type: boolean
-            title: percentage surcharge
+            - properties:
+                fixed_surcharge:
+                  description: Flat-rate handling fee applied to shipping cost.
+                  example: '0'
+                  type: string
+                display_separately:
+                  description: Indicates whether store displays handling fee separately at checkout.
+                  example: true
+                  type: boolean
+              title: fixed surcharge
+            - properties:
+                percentage_surcharge:
+                  description: Percentage handling fee applied to shipping cost.
+                  example: '5'
+                  type: string
+                display_separately:
+                  description: Indicates whether store displays handling fee separately at checkout.
+                  example: true
+                  type: boolean
+              title: percentage surcharge
         enabled:
           description: Whether this shipping zone is enabled.
           example: true
@@ -1860,26 +1781,26 @@ components:
       title: Shipping Zone Handling Fees
       type: object
       oneOf:
-      - properties:
-          fixed_surcharge:
-            description: Flat-rate handling fee applied to shipping cost.
-            example: '0'
-            type: string
-          display_separately:
-            description: Indicates whether store displays handling fee separately at checkout.
-            example: true
-            type: boolean
-        title: fixed surcharge
-      - properties:
-          percentage_surcharge:
-            description: Percentage handling fee applied to shipping cost.
-            example: '5'
-            type: string
-          display_separately:
-            description: Indicates whether store displays handling fee separately at checkout.
-            example: true
-            type: boolean
-        title: percentage surcharge
+        - properties:
+            fixed_surcharge:
+              description: Flat-rate handling fee applied to shipping cost.
+              example: '0'
+              type: string
+            display_separately:
+              description: Indicates whether store displays handling fee separately at checkout.
+              example: true
+              type: boolean
+          title: fixed surcharge
+        - properties:
+            percentage_surcharge:
+              description: Percentage handling fee applied to shipping cost.
+              example: '5'
+              type: string
+            display_separately:
+              description: Indicates whether store displays handling fee separately at checkout.
+              example: true
+              type: boolean
+          title: percentage surcharge
       x-internal: false
     shippingMethod_Full:
       title: shippingMethod_Full
@@ -1896,29 +1817,6 @@ components:
     ShippingMethodType:
       title: Shipping Method Type
       example: perorder
-      x-enum-elements:
-        - name: perorder
-          description: ''
-        - name: peritem
-          description: ''
-        - name: weight
-          description: ''
-        - name: total
-          description: ''
-        - name: auspost
-          description: ''
-        - name: canadapost
-          description: ''
-        - name: endicia
-          description: ''
-        - name: usps
-          description: ''
-        - name: fedex
-          description: ''
-        - name: royalmail
-          description: ''
-        - name: upsready
-          description: ''
       type: string
       enum:
         - perorder
@@ -1932,6 +1830,7 @@ components:
         - fedex
         - royalmail
         - upsready
+        - freeshipping
       x-internal: false
     shippingMethod_Base:
       title: shippingMethod_Base
@@ -1943,44 +1842,7 @@ components:
           example: Flat Rate
           type: string
         type:
-          title: Shipping Method Type
-          example: perorder
-          x-enum-elements:
-            - name: perorder
-              description: ''
-            - name: peritem
-              description: ''
-            - name: weight
-              description: ''
-            - name: total
-              description: ''
-            - name: auspost
-              description: ''
-            - name: canadapost
-              description: ''
-            - name: endicia
-              description: ''
-            - name: usps
-              description: ''
-            - name: fedex
-              description: ''
-            - name: royalmail
-              description: ''
-            - name: upsready
-              description: ''
-          type: string
-          enum:
-            - perorder
-            - peritem
-            - weight
-            - total
-            - auspost
-            - canadapost
-            - endicia
-            - usps
-            - fedex
-            - royalmail
-            - upsready
+          $ref: '#/components/schemas/ShippingMethodType'
         settings:
           description: 'Depends on the shipping method type. See the [supported settings object](#supported-settings).'
           type: object
@@ -1995,18 +1857,18 @@ components:
           type: boolean
         handling_fees:
           oneOf:
-          - properties:
-              fixed_surcharge:
-                type: number
-                description: Flat-rate handling fee applied to shipping cost.
-                example: 0
-            title: fixed surcharge
-          - properties:
-              percentage_surcharge:
-                type: number
-                description: Percentage handling fee applied to shipping cost.
-                example: 0
-            title: percentage surcharge
+            - title: fixed surcharge
+              properties:
+                fixed_surcharge:
+                  type: number
+                  description: Flat-rate handling fee applied to shipping cost.
+                  example: 0
+            - title: percentage surcharge
+              properties:
+                percentage_surcharge:
+                  type: number
+                  description: Percentage handling fee applied to shipping cost.
+                  example: 0
           type: object
         is_fallback:
           description: Whether or not this shipping zone is the fallback if all others are not valid for the order.
@@ -2025,7 +1887,7 @@ components:
           type: string
         connection:
           type: object
-          description: 'The `connection` object varies by carrier.'
+          description: The `connection` object varies by carrier.
       x-internal: false
     metaCollection:
       title: metaCollection
