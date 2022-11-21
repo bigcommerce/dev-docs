@@ -19037,7 +19037,10 @@ paths:
       description: |-
         Creates new categories. 
 
-         `tree_id` or `parent_id` are required to create a category. 
+        Creating a category requires:
+         - `name`
+         - `url` 
+         - `tree_id` or `parent_id` 
       tags:
         - Categories Batch
       requestBody:
@@ -24752,7 +24755,7 @@ components:
         allOf:
           - $ref: '#/components/schemas/TreeIdCreateData'
           - $ref: '#/components/schemas/ParentIdCreateData'
-          - $ref: '#/components/schemas/CategoryData'
+          - $ref: '#/components/schemas/CategoryDataPOST'
       x-tags:
         - Models
       title: Create Categories
@@ -24766,7 +24769,7 @@ components:
           - $ref: '#/components/schemas/CategoryIdUpdateData'
           - $ref: '#/components/schemas/CategoryUuidData'
           - $ref: '#/components/schemas/ParentIdUpdateData'
-          - $ref: '#/components/schemas/CategoryData'
+          - $ref: '#/components/schemas/CategoryDataPUT'
     Category:
       x-tags:
         - Models
@@ -24844,8 +24847,6 @@ components:
       required:
         - tree_id
     CategoryData:
-      x-tags:
-        - Models
       allOf:
         - type: object
           properties:
@@ -24875,7 +24876,17 @@ components:
               type: string
             url:
               $ref: '#/components/schemas/Url'
+    CategoryDataPUT:
+      allOf:
+        - $ref: '#/components/schemas/CategoryData'
+        - $ref: '#/components/schemas/default_product_sort'   
+    CategoryDataPOST:
+      allOf:
+        - $ref: '#/components/schemas/CategoryData'
         - $ref: '#/components/schemas/default_product_sort'
+      required:
+        - name
+        - url   
     Urls:
       type: array
       items:
