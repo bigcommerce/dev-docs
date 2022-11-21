@@ -54,7 +54,10 @@ fetch('/api/storefront/cart?includes=consignments.availableShippingOptions', {
   console.log(error);
 });
 ```
-&nbsp;
+<!-- theme: info -->
+> #### Note
+> To log order details to the console, use the [Scripts API](/api-docs/scripts/scripts-overview) to inject the script into your theme's footer or add the script directly to `order-confirmation.html` by using the script manager.
+
 ```js title="Log order details to the console" lineNumbers
 console.log('Log Order');
 fetch('/api/storefront/order/' + checkout.order.id, {
@@ -65,6 +68,24 @@ fetch('/api/storefront/order/' + checkout.order.id, {
   console.log(myJson);
 });
 ```
+To display `checkout.order.id` from `order-confirmation.html`, create a variable and assign it to `checkout.order.id`. The following example uses the variable `jsContextOrderId` and assigns it to the value returned by `{{checkout.order.id}}` to log the details to the console.
+
+```js title="Log order details to the console" lineNumbers
+<script>
+// assign order ID to a variable
+let jsContextOrderId = {{checkout.order.id}};
+
+// use jsContextOrderId to fetch and log order details
+fetch(`/api/storefront/order/${jsContextOrderId}`, {
+  credentials: 'include'
+}).then(function (response) {
+  return response.json();
+}).then(function (myJson) {
+  console.log(myJson);
+});
+</script>
+```
+
 
 ## Server-to-Server Cart and Checkout
 
