@@ -5,7 +5,7 @@
 In this section, we will explain how to use the Carts API to create and manage carts. Additionally, we will discuss how to redirect shoppers from a headless storefront to the BigCommerce hosted cart and checkout pages.
 
 <!-- theme: info -->
-> #### Note
+> #### Locale support
 > The Carts API supports selling in different countries by allowing overrides for locale and product details. Merchants can supply a cart's locale, alternative product names, and option values.  
 
 ## Creating a cart
