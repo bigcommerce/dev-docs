@@ -8409,7 +8409,7 @@ components:
                 format: double
               line_item_ids:
                 type: array
-                description: ''
+                description: Array lists only one line item. To display multiple `line_item_ids`, perform a `POST` request to add consignments to the checkout using the same address.
                 items:
                   type: string
         taxes:
