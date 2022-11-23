@@ -55,8 +55,8 @@ fetch('/api/storefront/cart?includes=consignments.availableShippingOptions', {
 });
 ```
 <!-- theme: info -->
-> #### Note
-> To log order details to the console, use the [Scripts API](/api-docs/scripts/scripts-overview) to inject the script into your theme's footer or add the script directly to `order-confirmation.html` by using the script manager.
+> #### Log order details
+> To log order details to the console, use the [Scripts API](/api-docs/scripts/scripts-overview) to inject the script into your theme's footer or use the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager?language=en_US) to add the script directly to `order-confirmation.html`.
 
 ```js title="Log order details to the console" lineNumbers
 console.log('Log Order');
