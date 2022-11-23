@@ -6,7 +6,7 @@ In this section, we will explain how to use the Carts API to create and manage c
 
 <!-- theme: info -->
 > #### Locale support
-> The Carts API supports selling in different markets by allowing locale-based overrides for product details. Supply a cart's locale and add `option_selections` to the cart's line items to configure alternative product names, option names, and modifier values.  
+> The Carts API supports selling in different markets by allowing locale-based overrides for product details. Supply a cart's locale and add `option_selections` to the cart's line items to configure alternative product names, option names, and modifier values. The Carts API stores the locale and makes it available to the Checkout and Orders APIs. 
 
 ## Creating a cart
 
@@ -43,7 +43,7 @@ Several example request bodies follow:
 ```
 <!-- theme: info -->
 > #### Note
-> The locale field supports the ISO standard format for language, script, and region codes.
+> The locale field supports the ISO standard format for language, script, and region codes. 
 
 
 To create a cart with option selections, include an `option_id` and `option_value` for each selection. 
