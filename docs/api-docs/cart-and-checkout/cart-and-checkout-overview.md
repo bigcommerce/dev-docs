@@ -74,7 +74,7 @@ fetch('/api/storefront/order/' + checkout.order.id, {
 ```
 To display `checkout.order.id` from `order-confirmation.html`, create a variable and assign it to `checkout.order.id`. The following example uses the variable `jsContextOrderId` and assigns it to the value returned by `{{checkout.order.id}}` to log the details to the console.
 
-```js title="Log order details to the console" lineNumbers
+```html title="Log order details to the console" lineNumbers
 <script>
 // assign order ID to a variable
 let jsContextOrderId = {{checkout.order.id}};
