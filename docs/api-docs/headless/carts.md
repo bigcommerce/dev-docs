@@ -43,7 +43,7 @@ Several example request bodies follow:
 ```
 <!-- theme: info -->
 > #### Note
-> The locale field supports the ISO standard format for language, script, and region codes. 
+> The locale field supports language, script, and region codes in the [ISO-639 standard](https://www.iso.org/iso-639-language-codes.html) format. 
 
 
 To create a cart with option selections, include an `option_id` and `option_value` for each selection. 
