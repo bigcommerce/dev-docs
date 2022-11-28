@@ -86,10 +86,6 @@ function subscribeOnBodlEvents() {
   // logs function name to console to verify that the function is called on every page load
   console.log('run subscribeOnBodlEvents()');
 
-  // lets window.dataLayer also be an empty array
-  window.dataLayer = window.dataLayer || [];
-
-  // If...
   if (
     // window is not defined, or
     !window ||
@@ -103,6 +99,9 @@ function subscribeOnBodlEvents() {
     // and end script execution
     return;
   }
+
+  // if window.dataLayer doesn't exist, make it an empty array
+  window.dataLayer = window.dataLayer || [];
 
   //   If window.bodlEvents.checkout.checkoutBegin is available, then...
   if (typeof window.bodlEvents.checkout.checkoutBegin === 'function') {
