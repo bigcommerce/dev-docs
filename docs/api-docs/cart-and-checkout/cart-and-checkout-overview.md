@@ -28,6 +28,8 @@ fetch('/api/storefront/cart', {
   return response.json();
 }).then(function(myJson) {
   console.log(myJson);
+}).catch(function (error) {
+  console.log(error);
 });
 ```
 &nbsp;
@@ -66,6 +68,8 @@ fetch('/api/storefront/order/' + checkout.order.id, {
   return response.json();
 }).then(function (myJson) {
   console.log(myJson);
+}).catch(function (error) {
+  console.log(error);
 });
 ```
 To display `checkout.order.id` from `order-confirmation.html`, create a variable and assign it to `checkout.order.id`. The following example uses the variable `jsContextOrderId` and assigns it to the value returned by `{{checkout.order.id}}` to log the details to the console.
@@ -82,6 +86,8 @@ fetch(`/api/storefront/order/${jsContextOrderId}`, {
   return response.json();
 }).then(function (myJson) {
   console.log(myJson);
+}).catch(function (error) {
+  console.log(error);
 });
 </script>
 ```
