@@ -1,25 +1,25 @@
 # Big Open Data Layer for Storefront Analytics
 
-The Big Open Data Layer (shortened as BODL, pronounced 'Bottle') is a JavaScript object that lets you transport data from a BigCommerce-hosted storefront to third-party analytic providers. This data layer exposes storefront data points to BigCommerce and third-party analytics integrations. Using BODL on a BigCommerce-hosted storefront ensures that analytics providers can access consistent, clean page data and makes a site more efficient. Because BODL consolidates data of interest and presents it as a package, each analytics script does not need to fetch the same data independently.
+The Big Open Data Layer (shortened as _BODL_, pronounced 'Bottle') is a JavaScript object that simplifies sending data from BigCommerce-hosted storefronts to third-party analytics providers. It gives third-party scripts access to clean, consistent data. BODL makes store sites more efficient by consolidating data of interest and presenting it as a package. Each analytics script does not need to fetch the same data independently. 
 
-BODL transports data for storefront events that a shopper triggers. BigCommerce checks your storefront for a BODL instance once per page render. To ensure that the analytics providers you've chosen have the complete and correct set of data points they require, a merchant must enable BODL through the store control panel so that each storefront page window subscribes to BODL events. As a developer, you can access storefront data after a shopper triggers a BODL event. 
+BODL is event-based. Scripts can capture accurate storefront data as it exists at the moment a shopper triggers any BODL-supported event.   
 
-This guide shows you how to get started using BODL data in your integration. The first section describes the standard BODL schema after shopper triggers a specified event, so that you can see how BODL organizes information for your integration to capture. The remainder provides example scripts for using the standard BODL object, displaying BODL parameters into the browser console or supplying data to third-party analytics engines. You can inject JavaScript snippets into a BigCommerce-hosted storefront using the [Scripts API](/api-reference/store-management/scripts) or the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
+This guide illustrates the basics of using BODL data in your integration. First, it describes the standard BODL schema after a shopper triggers a specified event, so that you can see how BODL organizes event data for your integration to capture. Next, it provides an example script that uses the standard BODL object to examine BODL properties in the browser console and supply data to third-party analytics scripts. Finally, it gives an example of adding a BODL script to a storefront page using the Scripts API.
 
 ## Prerequisites
 
-For BODL to successfully transport storefront data to a provider, the following must be true:
-- The merchant must enable the provider storefront channel.
-- The storefront uses a stencil theme.
-- If a merchant enables cookie tracking consent, the shopper must provide consent to the [category of consent](#category-of-consent) to which a BODL script is set.
+For scripts to successfully use BODL to access storefront data, the following must be true:
+- The merchant must enable BODL on the subject storefront in the control panel
+- The storefront must use a stencil theme
+- If a merchant enables cookie tracking consent on the subject storefront, the shopper must consent to the [appropriate category](#category-of-consent)
 
-## Standard BODL schema
+## BODL event schemas
 
-BODL transports data after shoppers trigger storefront events. The following are supported storefront events:
+BODL exposes data when shoppers trigger storefront events. Currently, BODL supports the following storefront events:
 - Start checkout
 - Purchase order 
 
-### BODL schema after start checkout event
+### Start checkout event schema
 
 When the shopper clicks on the button to initiate a checkout process, the following fields appear in the BODL object:
 
@@ -30,9 +30,9 @@ When the shopper clicks on the button to initiate a checkout process, the follow
 | `currency` | string | [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) of the order. BigCommerce tracks currency for a cart and not for each line item within the cart. | [Get a cart](/api-reference/store-management/carts/cart/getacart) <br> `currency.code` |
 | `cart_value` | number | Final value of cart after taxes, discounts, and coupons are applied. | [Get a cart](/api-reference/store-management/carts/cart/getacart) <br> `cart_amount` |
 | `coupon_codes[]` | array of strings | Coupon codes applied to the cart. | [Get a cart](/api-reference/store-management/carts/cart/getacart) <br> `coupons.code` |
-| `line_items[]` | array of `line_item` objects | Items being checked out. | See [line_item](#common-event-fields-line_item-object) object for event fields |
+| `line_items[]` | array of `line_item` objects | Items being checked out. | See [line_item](#line_item-object-schema) object for event fields |
 
-### BODL schema after purchase order event
+### Purchase order event schema
 
 When the shopper clicks a button to finalize a purchase, the following fields appear in the BODL object:
 
@@ -46,14 +46,14 @@ When the shopper clicks a button to finalize a purchase, the following fields ap
 | `coupon_codes[]` | array of strings | Coupon codes applied to the purchase. | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `data.cart.coupons[].code` |
 | `shipping_cost` | number | Total shipping cost including tax. | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `data.shipping_cost_total_inc_tax` |
 | `tax` | number | Tax incurred. | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `data.tax_total` |
-| `line_items[]` | array of `line_item` objects | Items being purchased. | See [line_item](#common-event-fields-line_item-object) object for event fields |
+| `line_items[]` | array of `line_item` objects | Items being purchased. | See [line_item](#line_item-object-schema) object for event fields |
 
-### Common event fields: line_item object
+### line_item object schema
 
-The `line_item` object has many common fields for browser events. The `line_item` object includes the following fields:   
+The `line_item` object has many common fields for browser events, including the following fields:   
 
-| Web browser event fields | Type | Description | BigC data map |
-| - | - | - | - |
+| Event field | Type | Description | BigC data map |
+|:---|:---|:---|:---|
 | `product_id` | string | ID of the product. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.id` |
 | `product_name` | string | Name of the product. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.name` |
 | `sku` | string | User-defined SKU for the product or variant (whichever is applied). | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.sku` or `data.variants.sku` |
@@ -68,15 +68,18 @@ The `line_item` object has many common fields for browser events. The `line_item
 | `brand_name` | string | Brand name. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.brand_name` |
 | `category_names[]` | array | Category names. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.categories[]` |
 
-## Using BODL 
 
-You can inject JavaScript snippets into a BigCommerce-hosted storefront using the [Scripts API](/api-reference/store-management/scripts) or the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
+## Example implementation
 
-### Display BODL parameters in the browser console 
+You can use the [Scripts API](/api-reference/store-management/scripts) or control panel [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager) to add scripts to a BigCommerce-hosted storefront.
 
-You can view BODL parameters in the browser console after injecting the following example script:
+Merchants must enable BODL in the store control panel for your script to subscribe to BODL events. Once BODL is enabled, BigCommerce checks every storefront page for the BODL object once per page render. 
 
-```js
+### Example script
+
+To view BODL properties in the browser console, use the following example script:
+
+```html title="Log BODL to the browser console" lineNumbers
 <script>
 
 function subscribeOnBodlEvents() {
@@ -132,11 +135,17 @@ window.addEventListener('load', subscribeOnBodlEvents, false);
 </script>
 ```
 
-The following is an example request that uses the Scripts API to inject the example script. Send a request to the [Create a script](/api-reference/store-management/scripts/scripts/createscript) endpoint. For more, see the [Scripts API Doc](/api-docs/store-management/scripts).
+<!--theme: info -->
+> #### Category of consent
+> If a merchant enables cookie tracking consent, the shopper must provide consent to the category of consent (`consent_category`) to which the script is set. For more on consent categories, see the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager) support article.
+
+### Scripts API example
+
+The following is an example request that uses the Scripts API to inject the example script. Send a request to the [Create a script](/api-reference/store-management/scripts/scripts/createscript) endpoint. For more, see the [Scripts API article](/api-docs/store-management/scripts).
 
 ```json title="Example request: Create a Script" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/content/scripts
-X-Auth-Token: {{ACCESS_TOKEN}}     //scope should include Checkout Content when injecting script into checkout page
+X-Auth-Token: {{ACCESS_TOKEN}}     //scope should include Checkout Content when adding script to a checkout page
 Content-Type: application/json
 Accept: application/json
 
@@ -154,12 +163,7 @@ Accept: application/json
 }
 ```
 
-<!--theme: info -->
-> #### Category of consent
-> If a merchant enables cookie tracking consent, the shopper must provide consent to the category of consent (`consent_category`) to which the script is set. For more on consent categories, see the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager) support article.
-
-
 ## Resources
-- [Scripts API Doc](/api-docs/store-management/scripts).
-- [Scripts API Reference](/api-reference/store-management/scripts)
+- [Scripts API article](/api-docs/store-management/scripts).
+- [Scripts API reference](/api-reference/store-management/scripts)
 - [Scripts Manager support article](https://support.bigcommerce.com/s/article/Using-Script-Manager)
