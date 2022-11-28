@@ -363,6 +363,25 @@ paths:
       responses:
         '201':
           $ref: '#/components/responses/Refund_Resp'
+        '422':
+          description: |
+            Unable to process a guest refund with store credit. 
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                response:
+                  value:
+                    data:
+                      - status: 422
+                        title: Unable to provide store credit for a guest customer.
+                        type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
         '503':
           description: Service Unavailable
           content:
@@ -384,25 +403,6 @@ paths:
                         status: 503
                         error: Tax service gone away
                     meta: {}
-        '422': 
-          description: |
-            Unable to process a guest refund with store credit. 
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: 
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/ErrorResponse'
-              examples: 
-                response:
-                  value: 
-                    data:
-                      - status: 422
-                        title: "Unable to provide store credit for a guest customer."
-                        type: "https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes"
       tags:
         - Payment Actions
     get:
@@ -755,7 +755,7 @@ paths:
                         }
                     }
         '503':
-          description: "Every request in the batch failed. The error object describes the failure for each component request."
+          description: Every request in the batch failed. The error object describes the failure for each component request.
           content:
             application/json:
               schema:
@@ -1710,6 +1710,7 @@ components:
             - store_credit
             - apple_pay_card
             - apple_pay_token
+            - bigpay_token
             - token
             - custom
             - offsite
@@ -1815,7 +1816,6 @@ components:
       title: Not Found
       x-internal: false
     Transaction:
-      description: A BigCommerce Transaction object describes a single transaction.
       allOf:
         - title: Transaction Base
           properties:
@@ -2043,9 +2043,52 @@ components:
                   type: number
                   format: float
                   example: 35.42
-      title: Transaction
-      x-internal: false
       type: object
+      title: ''
+      x-examples:
+        Example 1:
+          event: purchase
+          method: credit_card
+          amount: 3.4
+          currency: string
+          gateway: 2checkout
+          gateway_transaction_id: string
+          date_created: '2019-08-24T14:15:22Z'
+          test: true
+          status: ok
+          fraud_review: true
+          reference_transaction_id: 0
+          offline:
+            display_name: string
+          custom:
+            payment_method: string
+          payment_method_id: string
+          id: 0
+          order_id: string
+          payment_instrument_token: string
+          avs_result:
+            code: string
+            message: string
+            street_match: string
+            postal_match: string
+          cvv_result:
+            code: string
+            message: string
+          credit_card:
+            card_type: alelo
+            card_iin: string
+            card_last4: string
+            card_expiry_month: 1
+            card_expiry_year: 0
+          gift_certificate:
+            code: MB345
+            original_balance: 100
+            starting_balance: 100
+            remaining_balance: 35.42
+            status: active
+          store_credit:
+            remaining_balance: 35.42
+      description: ''
     CreditCard:
       type: object
       description: A credit-card model.
@@ -2329,11 +2372,11 @@ components:
           example: 1
         items:
           type: array
-          items:  
+          items:
             $ref: '#/components/schemas/ItemsRefund'
       required:
-         - order_id
-         - items
+        - order_id
+        - items
     RefundQuote_Full:
       type: object
       title: RefundQuote_Full
