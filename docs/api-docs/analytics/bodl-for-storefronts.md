@@ -83,18 +83,18 @@ To view BODL properties in the browser console, use the following example script
 <script>
 
 function subscribeOnBodlEvents() {
-  // logs function name to console to verify that the function is called on every page load
+  // log to verify that the function is executing
   console.log('run subscribeOnBodlEvents()');
 
   if (
-    // window is not defined, or
+    // window is falsy
     !window ||
-    // window.bodlEvents is not defined, or
+    // window.bodlEvents is not defined
     typeof window.bodlEvents === 'undefined' ||
     // window.bodlEvents.checkout is not defined
     typeof window.bodlEvents.checkout === 'undefined'
   ) {
-    // then log 'not defined' to the console
+    // log 'not defined' to the console
     console.log('not defined');
     // and end script execution
     return;
@@ -107,7 +107,7 @@ function subscribeOnBodlEvents() {
   if (typeof window.bodlEvents.checkout.checkoutBegin === 'function') {
     // run the checkoutBegin function to get the payload
     window.bodlEvents.checkout.checkoutBegin((payload) => {
-      // take the payload and log it to the console
+      // log the event payload
       console.log(
         'window.bodlEvents.checkout.checkoutBegin ~ payload',
         payload
@@ -119,7 +119,7 @@ function subscribeOnBodlEvents() {
   if (typeof window.bodlEvents.checkout.orderPurchased === 'function') {
     // run the orderPurchase function to get the payload
     window.bodlEvents.checkout.orderPurchased((payload) => {
-      // take the payload and log it to the console
+      // log the event payload
       console.log(
         'window.bodlEvents.checkout.orderPurchased ~ payload',
         payload
@@ -128,7 +128,7 @@ function subscribeOnBodlEvents() {
   }
 }
 
-// wait for window load event to run the subscribeOnBodlEvents function
+// when the page window loads, run the subscribeOnBodlEvents function
 window.addEventListener('load', subscribeOnBodlEvents, false);
 
 </script>
