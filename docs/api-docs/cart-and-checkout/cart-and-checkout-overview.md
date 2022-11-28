@@ -72,7 +72,8 @@ fetch('/api/storefront/order/' + checkout.order.id, {
   console.log(error);
 });
 ```
-To display `checkout.order.id` from `order-confirmation.html`, create a variable and assign it to `checkout.order.id`. The following example uses the variable `jsContextOrderId` and assigns it to the value returned by `{{checkout.order.id}}` to log the details to the console.
+
+To access `checkout.order.id` from `order-confirmation.html`, use the Stencil theme's page context to assign the value of `checkout.order.id` to a variable. The following example assigns the value returned by `{{checkout.order.id}}` to the variable `jsContextOrderId`, then fetches order details and logs them to the console.
 
 ```html title="Log order details to the console" lineNumbers
 <script>
