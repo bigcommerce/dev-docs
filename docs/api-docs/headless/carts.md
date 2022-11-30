@@ -21,16 +21,33 @@ Content-Type: application/json
 X-Auth-Token: {{ACCESS_TOKEN}}
 
 {
-  //example request bodies follow
+    "channel_id": 1,
+    "line_items": [
+        {
+            "quantity": 1,
+            "product_id": 80,
+            "variant_id": 64
+        }
+    ]
 }
 
 ```
 
 Several example request bodies follow:
 
+<!--
+type: tab
+title: POST request
+-->
+
+```http title="Example POST request with X-Auth-Token header"
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
+X-Auth-Token: {{access_token}}
+Accept: application/json
+```
 ```json title="Example request body: Create a cart" lineNumbers
 {
-  "channel_id": 704181,
+  "channel_id": 1,
   "line_items": [
     {
       "quantity": 1,
@@ -41,6 +58,65 @@ Several example request bodies follow:
   "locale": "en-us"
 }
 ```
+
+<!--
+type: tab
+title: POST request
+-->
+
+```http title="Example POST request with X-Auth-Token header"
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v... # endpoint
+X-Auth-Token: {{access_token}}
+Accept: application/json
+Content-Type: application/json
+
+```json title="Example request body: Create a cart" lineNumbers
+{
+  "customer_id": 0,
+  "line_items": [],
+  "custom_items": [
+    {
+      "sku": "custom-item-sku",
+      "name": "table",
+      "quantity": 1,
+      "list_price": 30,
+      "gift_wrapping": {
+        "wrap_together": true,
+        "wrap_details": [
+          {
+            "id": 0,
+            "message": "Happy Birthday"
+          }
+        ]
+      }
+    }
+  ],
+  "gift_certificates": [
+    {
+      "name": "Tobi Day",
+      "theme": "Birthday",
+      "amount": 1,
+      "quantity": 1,
+      "sender": {
+        "name": "Brandi Tyler",
+        "email": "Brandi.Tyler@mail.com"
+      },
+      "recipient": {
+        "name": "Tobi Day",
+        "email": "Tobi.Day@mail.com"
+      },
+      "message": "Happy Birthday"
+    }
+  ],
+  "channel_id": 1,
+  "currency": {
+    "code": "usd"
+  },
+  "locale": "en-US"
+}
+```
+<!-- type: tab-end -->
+
 <!-- theme: info -->
 > #### Note
 > The locale field supports language, script, and region codes in the [ISO-639 standard](https://www.iso.org/iso-639-language-codes.html) format. 
@@ -50,21 +126,29 @@ To create a cart with option selections, include an `option_id` and `option_valu
 
 ```json title="Example request body: option selections" lineNumbers
 {
-  "channel_id": 704181,
-  "customer_id": 1,
+  "customer_id": 0,
   "line_items": [
     {
-      "quantity": 1,
-      "product_id": 80,
+      "quantity": 2,
+      "product_id": 118,
+      "list_price": 25,
+      "variant_id": 140,
+      "name": "قميص",
       "option_selections": [
         {
-          "option_id": 123,
-          "option_value": "Hello!"
+          "option_id": 125,
+          "option_value": 127,
+          "name": "بحجم",
+          "value": "صغير"
         }
       ]
     }
   ],
-  "locale": "en-us"
+  "channel_id": 1,
+  "currency": {
+    "code": "JOD"
+  },
+  "locale": "ar-JO"
 }
 ```
 
@@ -72,7 +156,7 @@ To create a cart for an existing customer, include the `customer_id` in your req
 
 ```json title="Example request body: existing customer" lineNumbers
 {
-  "channel_id": 704181,
+  "channel_id": 1,
   "customer_id": 1,
   "line_items": [
     {
