@@ -1896,10 +1896,8 @@ components:
                 properties:
                   name:
                     type: string
-                    description: The property to which the reference value pertains.
-                    example: 'channel_id'
+                    description: The property to which the reference value pertains. Examples include `channel_id` and `cart_id`.
                   value:
                     type: string
-                    description: The reference value.
-                    example: '770ded29-da45-4ee0-abc6-883e83c0e5ed'
+                    description: The reference value. Examples include `1` and `770ded29-da45-4ee0-abc6-883e83c0e5ed`.
       x-internal: false
