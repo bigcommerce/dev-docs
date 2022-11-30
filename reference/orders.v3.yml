@@ -1841,6 +1841,7 @@ components:
                 - gift_certificate
                 - store_credit
                 - apple_pay_card
+                - bigpay_token
                 - apple_pay_token
                 - token
                 - custom
