@@ -890,8 +890,8 @@ paths:
                 status: active
                 template: "Birthday"
                 message: Happy Birthday!
-                purchase_date: "1520957992"
-                expiry_date: "0"
+                purchase_date: "Tue, 20 Jan 1970 08:45:38 CST"
+                expiry_date: "Mon, 2 Jan 2023 08:45:38 CST"
     put:
       tags:
       - Gift Certificates
@@ -953,8 +953,8 @@ paths:
                 status: active
                 template: "Birthday"
                 message: Happy Birthday!
-                purchase_date: "1520957992"
-                expiry_date: "0"
+                purchase_date: "Tue, 20 Jan 1970 08:45:38 CST"
+                expiry_date: "Mon, 2 Jan 2023 08:45:38 CST"
       x-codegen-request-body-name: body
     delete:
       tags:
@@ -1084,8 +1084,8 @@ paths:
                 from_name: Noland
                 from_email: test1@test.com
                 customer_id: 0
-                expiry_date: "0"
-                purchase_date: "1454432829"
+                expiry_date: "Mon, 2 Jan 2023 08:45:38 CST"
+                purchase_date: "Tue, 20 Jan 1970 08:45:38 CST"
               - id: 25
                 code: 10R-6E3-AO4-RST
                 amount: "700.0000"
@@ -1098,8 +1098,8 @@ paths:
                 from_name: Noland
                 from_email: test1@test.com
                 customer_id: 0
-                expiry_date: "0"
-                purchase_date: "1454433240"
+                expiry_date: "Mon, 2 Jan 2023 08:45:38 CST"
+                purchase_date: "Tue, 20 Jan 1970 08:45:38 CST"
               - id: 27
                 code: 15R-6E3-AO4-RST
                 amount: "50.0000"
@@ -1112,8 +1112,8 @@ paths:
                 from_name: Somethingelse
                 from_email: test15@test.com
                 customer_id: 0
-                expiry_date: "0"
-                purchase_date: "1454433621"
+                expiry_date: "Mon, 2 Jan 2023 08:45:38 CST"
+                purchase_date: "Tue, 20 Jan 1970 08:45:38 CST"
     post:
       tags:
       - Gift Certificates
@@ -1182,8 +1182,8 @@ paths:
                 status: active
                 template: "Birthday"
                 message: Happy Birthday!
-                purchase_date: "1520957992"
-                expiry_date: "0"
+                purchase_date: "Tue, 20 Jan 1970 08:45:38 CST"
+                expiry_date: "Mon, 2 Jan 2023 08:45:38 CST"
       x-codegen-request-body-name: body
     delete:
       tags:
@@ -1510,12 +1510,12 @@ components:
             example: "0"
           purchase_date:
             type: string
-            description: Date the gift certificate was purchased. If not assigned,
-              this will be set to today’s date. Date displays in Unix timestamp format.
-            example: "1454432829"
+            description: Date the gift certificate was purchased. If not assigned, this will be set to today’s date. Date displays in the [RFC 2822](https://www.rfc-editor.org/rfc/rfc2822#section-3.3) timestamp format.
+            example: "Tue, 20 Jan 1970 08:45:38 CST"
           expiry_date:
             type: string
-            description: Date on which the gift certificate is set to expire.
+            description: Date on which the gift certificate is set to expire. Date displays in the [RFC 2822](https://www.rfc-editor.org/rfc/rfc2822#section-3.3) timestamp format.
+            example: Mon, 2 Jan 2023 08:45:38 CST
           template:
             type: string
             description: The email theme to use in the message sent to the recipient.
@@ -1566,7 +1566,7 @@ components:
           expiry_date:
             type: string
             description: Date on which the gift certificate is set to expire.
-            example: "1622583106"
+            example: "Mon, 02 Jan 2023 08:45:38 CST"
           customer_id:
             type: integer
             description: The ID of the customer placing the order.
@@ -1621,8 +1621,8 @@ components:
             example: Mon, 19 Jan 1970 07:21:46 CST
           expiry_date:
             type: string
-            description: Date on which the gift certificate is set to expire.
-            example: "1622583106"
+            description: Date on which the gift certificate is set to expire. The date must be in [RFC 2822](https://www.rfc-editor.org/rfc/rfc2822#section-3.3) format.
+            example: "Tue, 20 Jan 1970 08:45:38 CST"
           customer_id:
             type: integer
             description: The ID of the customer placing the order.
@@ -1821,8 +1821,8 @@ components:
             from_name: Noland
             from_email: test1@test.com
             customer_id: 5
-            expiry_date: "0"
-            purchase_date: "1454432829"
+            expiry_date: "Mon, 2 Jan 2023 08:45:38 CST"
+            purchase_date: "Tue, 20 Jan 1970 08:45:38 CST"
           - id: 25
             code: 10R-6E3-AO4-RST
             amount: "700.0000"
@@ -1835,8 +1835,8 @@ components:
             from_name: Noland
             from_email: test1@test.com
             customer_id: 0
-            expiry_date: "0"
-            purchase_date: "1454433240"
+            expiry_date: "Mon, 2 Jan 2023 08:45:38 CST"
+            purchase_date: "Tue, 20 Jan 1970 08:45:38 CST"
           - id: 27
             code: 15R-6E3-AO4-RST
             amount: "50.0000"
@@ -1849,8 +1849,8 @@ components:
             from_name: Somethingelse
             from_email: test15@test.com
             customer_id: 0
-            expiry_date: "0"
-            purchase_date: "1454433621"
+            expiry_date: "Mon, 2 Jan 2023 08:45:38 CST"
+            purchase_date: "Tue, 20 Jan 1970 08:45:38 CST"
     giftCertificate_Resp:
       description: ""
       content:
@@ -1871,8 +1871,8 @@ components:
             status: active
             template: "Birthday"
             message: Happy Birthday!
-            purchase_date: "1520957992"
-            expiry_date: "0"
+            purchase_date: "Tue, 20 Jan 1970 08:45:38 CST"
+            expiry_date: "Mon, 2 Jan 2023 08:45:38 CST"
   securitySchemes:
     X-Auth-Token:
       type: apiKey
