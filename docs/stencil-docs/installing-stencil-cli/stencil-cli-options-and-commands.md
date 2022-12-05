@@ -82,9 +82,8 @@ stencil start --open # opens live theme preview in default browser
 | `--variation NAME`           |`-v` | Set which theme variation to use while developing                                     |
 | `--test`                     |`-t` | Enable QA mode which will bundle all javascript for speed to test locally             |
 | `--tunnel`                   |     | Create a tunnel URL which points to your local server which anyone can use            |
-| `--no-cache`                 |`-n` | Turn off caching for API resource data (cache refreshes every 5 minutes)              |
-| `--no-verbose`               | `-nov`| Disable verbose logging                                                             |
-| `--verbose`                  |`-vb` | Enable verbose logging                                                               |
+| `--no-cache`                 |`-n` | Turn off caching for API resource data (cache refreshes every 5 minutes               |
+| `--verbose`                  |`-vb`| Enable verbose logging                                                                |
 | `--help`                     |`-h` | Output usage information                                                              |
 
 <!-- theme: info -->
