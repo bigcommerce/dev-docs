@@ -937,6 +937,18 @@
     },
     {
       "type": "group",
+      "title": "Staging Solutions",
+      "items": [
+        {
+          "type": "item",
+          "title": "StagingPro",
+          "href": "/api-docs/partner/staging-solutions/staging-pro",
+          "uri": "docs/api-docs/staging/staging-pro-overview.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
       "title": "Analytics Solutions",
       "items": [
         {
