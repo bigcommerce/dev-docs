@@ -1,6 +1,6 @@
 # StagingPro
 
-StagingPro is a full-service sandbox, testing, staging and CI/CD solution for **Enterprise-level** BigCommerce stores. 
+StagingPro is a full-service sandbox, testing, staging, and CI/CD solution for **Enterprise-level** BigCommerce stores. 
 
 It uses Git, BigCommerce's APIs, and StagingPro's public API to provide an auditable solution. It also solves access control problems; it is easier to develop features and work with store data without giving the development team access credentials to the production store.
 
@@ -10,7 +10,7 @@ Consult [the resources section](#resources) for links to more in-depth documenta
 
 ## Selected use cases
 
-StagingPro can help developers, designers, merchants, and other team members. Its applications are not limited to the following; consult [StagingPro's documentation](#resources) to learn how your can implement it to the benefit of your store or client.
+StagingPro can help developers, designers, merchants, and other team members. Its applications are not limited to the following; consult [StagingPro's documentation](#resources) to learn how you can implement it to benefit your store or client.
 
 ### Development
 
@@ -40,15 +40,15 @@ Users have asked the following questions:
 
 ### When you use StagingPro to create a staging environment, are the record IDs for customers and products exactly the same as the production site?
 
-No. However, you can use the StagingPro UI to automatically update the business logic that associates SKUs with category names, hierarchies, brands, etc. for different use cases.
+No. However, for different use cases, you can use the StagingPro UI to automatically update the business logic that associates SKUs with category names, hierarchies, brands, etc.
 
 ### If a StagingPro sandbox is provisioned in one geographical region, but should be in another, how do you fix that? 
 
-Work with your sales rep to re-provision the sandbox and get the StagingPro app installed for the correct region.
+Work with your sales rep to re-provision the sandbox and install the StagingPro app for the correct region.
 
 ### Can StagingPro support scheduled deployments to multiple storefronts using different time zones?
 
-The StagingPro app displays the time zone of the store in its scheduling view. To deploy to a storefront in a different time zone, determine what time it will be for the store at the time you want to the changes to appear on the subject storefront, then schedule the deployment using the calculated time. If you use a third-party API to perform the calculations, you will need to account for daylight savings time. To learn more about store time, see our Help Center article on [Date and Timezone Settings](https://support.bigcommerce.com/s/article/Date-and-Timezone-Settings).
+The StagingPro app displays the store's time zone in its scheduling view. To deploy to a storefront in a different time zone, determine what time it will be for the store at the time you want the changes to appear on the subject storefront, then schedule the deployment using the calculated time. If you use a third-party API to perform the calculations, you must account for daylight savings time. To learn more about store time, see our Help Center article on [Date and Timezone Settings](https://support.bigcommerce.com/s/article/Date-and-Timezone-Settings).
 
 ## Resources
 
