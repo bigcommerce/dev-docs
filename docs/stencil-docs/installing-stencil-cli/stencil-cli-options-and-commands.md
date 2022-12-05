@@ -67,7 +67,7 @@ stencil init [--url STORE_URL] [--token API_TOKEN]
 Starts the live theme preview using the theme files in the current directory.
 
 ```shell title="Usage: stencil start"
-stencil start [-V|--version] [-o|--open] [-v|--variation] [-t|--test] [-t|--tunnel] [-nov|--no-verbose] [-vb|--verbose]
+stencil start [-V|--version] [-o|--open] [-v|--variation] [-t|--test] [-t|--tunnel] [-vb|--verbose]
 stencil start [-h|--help]
 ```
 &nbsp;
