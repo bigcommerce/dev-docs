@@ -2670,7 +2670,10 @@ paths:
     post:
       tags:
         - Price Lists Assignments
-      description: Creates a batch of `Price List Assignments`.
+      description: |-
+        Creates a batch of `Price List Assignments`. 
+
+        **Note:** The batch limit for `Price List Assignments` is 25.
       summary: Create Price List Assignments
       operationId: CreatePriceListAssignments
       requestBody:
