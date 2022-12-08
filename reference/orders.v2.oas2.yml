@@ -4111,7 +4111,7 @@ components:
             - type: null
         external_source:
           description: |-
-            This value identifies an external system that generated the order and submitted it to BigCommerce with the the Orders API.
+            This value identifies an external system that generated the order and submitted it to BigCommerce with the Orders API.
             * When supplying the value, we recommend combining the type of system and vendor, e.g., ERP (Acumatica) or POS (Square).
             * If you are migrating historical orders processed on another eCommerce platform to BigCommerce, supply the following code as the value: M-MIG. This code will exclude historical orders from the store’s GMV/order count, which factors into pricing.
             * If you do not provide a value, then it will default to null.
