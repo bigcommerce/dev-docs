@@ -183,7 +183,7 @@ paths:
         name: store_hash
         in: path
         required: true
-  '/stores/{store_hash}/v2/countries/{country_id}/states{id}':
+  '/stores/{store_hash}/v2/countries/{country_id}/states/{id}':
     get:
       description: |-
         Returns a *State*. 
@@ -237,14 +237,14 @@ paths:
         required: true
         schema:
           type: string
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
       - schema:
           type: string
         name: store_hash
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: id
         in: path
         required: true
   '/stores/{store_hash}/v2/countries/count':
