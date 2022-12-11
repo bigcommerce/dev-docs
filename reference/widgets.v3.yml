@@ -222,7 +222,7 @@ paths:
         name: store_hash
         in: path
         required: true
-  '/store/{store_hash}/v3/content/widget-templates/{uuid}/preview':
+  '/stores/{store_hash}/v3/content/widget-templates/{uuid}/preview':
     post:
       tags:
         - Widget Template
