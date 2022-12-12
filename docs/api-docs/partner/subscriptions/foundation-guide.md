@@ -93,12 +93,12 @@ During development, you'll work with two Stripe accounts. You'll create them bot
 
 | Order of creation | Description |
 |:------------------|:------------|
-| First account | This account simulates a merchant's pre-existing account |
-| Second account | You'll configure this account as the app's dedicated Stripe Connect-enabled account |
+| Merchant account | This account simulates a merchant's pre-existing account |
+| App account      | You'll configure this account as the app's dedicated Stripe Connect-enabled account |
 
 <!-- theme: info -->
 > #### Multi-tenant setup
-> Prior to installing the app, add the **first account** to the sandbox store as a payment method. When the app is installed, the UI prompts the store owner to give the app permission to connect the Stripe accounts together. Consenting initiates an OAuth authorization code grant flow to link the store's Stripe account to the app's Stripe Connect-enabled account.
+> Prior to installing the app, add the merchant account to the sandbox store as a payment method. When the app is installed, the UI prompts the store owner to give the app permission to connect the Stripe accounts together. Consenting initiates an OAuth authorization code grant flow to link the store's Stripe account to the app's Stripe Connect-enabled account.
 
 ### Create Stripe accounts
 
