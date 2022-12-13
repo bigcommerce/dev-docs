@@ -669,7 +669,7 @@ title: Response
 
 ## Get variant images
 
-You can query the default images for variants. The following query retrieves the default image for the specified variant:
+You can query the images for variants. The following query retrieves the image for the specified variant:
 
 <!--
 type: tab
