@@ -354,7 +354,7 @@ You can query the variant options and the variant option values that are associa
 
 All variant options are [multiple choice](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc). 
 
-The following example shows how to get the variant options that are associated with a specified variant.
+The following example shows how to get the first two variant options that are associated with the base product for the specified variant.
 
 <!--
 type: tab
@@ -370,7 +370,7 @@ query {
       variants (entityIds: [127]) {
         edges {
           node {
-            productOptions {
+            productOptions (first: 2) {
               edges {
                 node {
                   ... on MultipleChoiceOption { 
@@ -455,7 +455,7 @@ interface CatalogProductOptionValue {
 }
 ```
 
-The following example retrieves variant option values for the specified variant. In the response, all multiple choice values include queried fields from the `CatalogProductOptionValue` interface, and those that are swatch types include additional fields.
+The following example retrieves variant option values for the specified variant. The example query retrieves only the first two variant options associated with the base product. In the response, all multiple choice values include queried fields from the `CatalogProductOptionValue` interface, and those that are swatch types include additional fields.
 
 <!--
 type: tab
@@ -471,7 +471,7 @@ query {
       variants (entityIds: [127]) {
         edges {
           node {
-            productOptions {
+            productOptions (first: 2) {
               edges {
                 node {
                   ... on MultipleChoiceOption {           # fields all muliple choice options include
@@ -564,7 +564,7 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-You can also retrieve variant option values using the `options` field. The following query retrieves the variant option values that are associated with the specified variant. 
+You can also retrieve variant option values using the `options` field. The following query retrieves the variant option values that are associated with the specified variant. The example query retrieves only the first two variant options associated with the base product.
 
 <!--
 type: tab
@@ -578,7 +578,7 @@ query {
       variants(entityIds: [127]) {
         edges {
           node {
-            options {
+            options (first: 2) {
               edges {
                 node {
                   entityId
@@ -669,7 +669,7 @@ title: Response
 
 ## Get variant images
 
-You can query the default images for variants. The following query retrieves the default image for the specified variant:
+You can query the default images for variants. The following query retrieves the default image for the specified variant.
 
 <!--
 type: tab
@@ -730,9 +730,13 @@ title: Response
 
 ## Get variant metafields
 
-You can query the metafields for variants. Only metafields that have storefront permissions are returned (i.e. permissions must be set to `write_and_sf_access` or `read_and_sf_access`).
+You can query variant metafields for variants by specifying the variant metafield's namespace. Only metafields that have storefront permissions are returned (i.e. permissions must be set to `write_and_sf_access` or `read_and_sf_access`).
 
-The following query shows how to query variant metafields for the specified variant. The query returns only variant metafields. See [Get product metafields](/api-docs/storefront/graphql/products#get-product-metafields) to retrieve product metafields. 
+<!-- theme:info -->
+> #### Variant vs product metafields
+> The query returns only **variant** metafields. See [Get product metafields](/api-docs/storefront/graphql/products#get-product-metafields) to retrieve **product** metafields. 
+
+The following query shows how to query the first variant metafield for the specified variant. 
 
 <!--
 type: tab
@@ -746,7 +750,7 @@ query {
       variants (entityIds: [127]) {
         edges {
           node {
-            metafields (namespace: "Warehouse Locations") {
+            metafields (first: 1 namespace: "Warehouse Locations") {
               edges {
                 node {
                   id
