@@ -1359,6 +1359,63 @@ paths:
                     type: object
       tags:
         - Storefront Status
+  '/stores/{store_hash}/v3/settings/inventory':
+    get:
+      summary: Get inventory settings
+      tags:
+        - Inventory
+      responses:
+        '200':
+          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/InventorySettings'
+                  meta:
+                    type: object
+        '422':
+          description: Provided settings could not be applied for some reason - detailed errors in the response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+      description: Get Inventory Settings
+    put:
+      summary: Update Inventory Settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InventorySettings'
+        description: null set for a particular field removes override on a channel level and means inheritance from a global level
+      responses:
+        '200':
+          description: 'OK, null indicates that a particular field has not been overridden on a channel level when channel level settings are requested'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/InventorySettings'
+                  meta:
+                    type: object
+      parameters:
+        - $ref: '#/components/parameters/ChannelIdParam'
+      tags:
+        - Inventory
+      description: Update inventory settings
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
 components:
   parameters:
     ChannelIdParam:
@@ -1840,6 +1897,50 @@ components:
             - test.user@example.com
           out_of_stock_notification_address:
             - test.user@example.com
+    InventorySettings:
+      type: object
+      properties:
+        product_out_of_stock_behavior:
+          type: string
+          enum:
+            - do_nothing
+            - hide_product
+            - hide_product_and_accessible
+            - hide_product_and_redirect
+          description: Describes storefront behavior when product is out of stock.
+        option_out_of_stock_behavior:
+          type: string
+          enum:
+            - do_nothing
+            - hide_option
+            - label_option
+          description: Describes storefront behavior when variant is out of stock.
+        update_stock_behavior:
+          type: string
+          enum:
+            - order_placed
+            - order_completed_or_shipped
+          description: Describes when stock levels are updated.
+        edit_order_stock_adjustment:
+          type: boolean
+          description: Describes whether stock levels automatically adjust when you edit an order.
+        refund_order_stock_adjustment:
+          type: boolean
+          description: Describes whether stock levels automatically adjust when you refund or cancel an order.
+        stock_level_display:
+          type: string
+          enum:
+            - dont_show
+            - show
+            - show_when_low
+          description: Describes whether a storefront displays stock levels.
+        default_out_of_stock_message:
+          type: string
+          example: Currently out of stock
+          description: Out of stock message displayed to shoppers.
+        hide_in_product_filtering:
+          type: boolean
+          description: 'Describes whether an option is hidden in product filtering. Applies when `option_out_of_stock_behavior` is set to `label_option`. '
     Locale:
       description: 'The basic locale settings for a store, used to give shopper information about languages, countries, etc.'
       type: object
