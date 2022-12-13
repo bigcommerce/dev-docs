@@ -125,7 +125,7 @@ title: Response
         "path": "/smith-journal-13/",
         "name": "[Sample] Smith Journal 13",
         "description": "<p>143 Pages</p>",
-        "addToCartUrl": "https://heavens-gate.mybigcommerce.com/cart.php?action=add&product_id=111",
+        "addToCartUrl": "https://example-store.mybigcommerce.com/cart.php?action=add&product_id=111",
         "upc": "123456",
         "mpn": "example MPN",
         "gtin": "99999999"
@@ -360,7 +360,7 @@ interface CatalogProductOptionValue {
 }
 ```
 
-The following example shows a query that includes values for product options that are multiple choice. In the response, all product option values include queried fields from the `CatalogProductOptionValue` interface, and product option values that are swatch types include additional fields.
+The following example shows a query that includes values for product options that are multiple choice. In the response, all product option values include queried fields from the `CatalogProductOptionValue` interface, and product option values that are swatch types include additional fields. The example query retrieves only the first product option and the first two values for that product option.
 
 <!--
 type: tab
@@ -586,10 +586,10 @@ title: Response
           "edges": [
             {
               "node": {
-                "url320wide": "https://cdn11.bigcommerce.com/s-o8ertuc7vw/images/stencil/320w/products/113/379/IMAG0729__87810.1662649673.jpg",
-                "url640wide": "https://cdn11.bigcommerce.com/s-o8ertuc7vw/images/stencil/640w/products/113/379/IMAG0729__87810.1662649673.jpg",
-                "url960wide": "https://cdn11.bigcommerce.com/s-o8ertuc7vw/images/stencil/960w/products/113/379/IMAG0729__87810.1662649673.jpg",
-                "url1280wide": "https://cdn11.bigcommerce.com/s-o8ertuc7vw/images/stencil/1280w/products/113/379/IMAG0729__87810.1662649673.jpg"
+                "url320wide": "https://cdn11.bigcommerce.com/s-{store_hash}/images/stencil/320w/products/113/379/IMAG0729__87810.1662649673.jpg",
+                "url640wide": "https://cdn11.bigcommerce.com/s-{store_hash}/images/stencil/640w/products/113/379/IMAG0729__87810.1662649673.jpg",
+                "url960wide": "https://cdn11.bigcommerce.com/s-{store_hash}/images/stencil/960w/products/113/379/IMAG0729__87810.1662649673.jpg",
+                "url1280wide": "https://cdn11.bigcommerce.com/s-{store_hash}/images/stencil/1280w/products/113/379/IMAG0729__87810.1662649673.jpg"
               }
             }
           ]
@@ -610,7 +610,7 @@ You can query product metafields by specifying the product metafield's namespace
 > #### Product vs variant metafields 
 > The query retrieves only **product** metafields. See [Get variant metafields](/api-docs/storefront/graphql/variants#get-variant-metafields) to retrieve **variant** metafields. 
 
-The following query retrieves the first two product metafields for the specified product.
+The following query retrieves the first two product metafields for the specified product:
 
 <!--
 type: tab
@@ -802,7 +802,7 @@ title: Response
 
 ## Get product reviews
 
-You can query reviews for products. You retrieve only reviews that a merchant has approved. The following example retrieves the first review for the specified product. 
+You can query reviews for products. You retrieve only reviews that a merchant has approved. The following example retrieves the first review for the specified product: 
 
 <!--
 type: tab
@@ -850,7 +850,7 @@ title: Response
               "node": {
                 "entityId": 3,
                 "author": {
-                  "name": "Android Dao"
+                  "name": "example name"
                 },
                 "title": "Excellent Flowers",
                 "text": "The best flowers for Valentine's Day. Would recommend.",
