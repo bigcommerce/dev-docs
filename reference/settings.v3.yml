@@ -391,7 +391,7 @@ paths:
         '200':
           description: OK
       tags:
-        - Inventory
+        - Inventory Notifications
   '/stores/{store_hash}/v3/settings/logo':
     get:
       operationId: get-settings-logo
@@ -1361,7 +1361,7 @@ paths:
         - Storefront Status
   '/stores/{store_hash}/v3/settings/inventory':
     get:
-      summary: Get inventory settings
+      summary: Get Inventory Settings
       tags:
         - Inventory
       responses:
