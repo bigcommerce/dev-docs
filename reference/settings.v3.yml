@@ -369,7 +369,7 @@ paths:
                     type: object
                   - $ref: 'https://raw.githubusercontent.com/bigcommerce/api-specs/master/reference/global_refs.yaml#/components/schemas/meta_Empty'
       tags:
-        - Inventory
+        - Inventory Notifications
     parameters:
       - $ref: '#/components/parameters/store_hash'
     put:
@@ -2325,6 +2325,7 @@ tags:
   - name: Analytics
   - name: Catalog
   - name: Inventory
+  - name: Inventory Notifications
   - name: Logo
   - name: Logo Image
   - name: Favicon Image
