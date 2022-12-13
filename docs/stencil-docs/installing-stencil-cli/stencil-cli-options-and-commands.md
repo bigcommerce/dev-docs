@@ -80,7 +80,8 @@ stencil start --open # opens live theme preview in default browser
 | `--version`                  |`-V` | Output the version number                                                             |
 | `--open`                     |`-o` | Automatically open default browser                                                    |
 | `--variation NAME`           |`-v` | Set which theme variation to use while developing                                     |
-| `--test`                     |`-t` | Enable QA mode which will bundle all javascript for speed to test locally             |
+| `--channelId CHANNELID`      |`-c` | Set the channel id for the storefront                                                 |
+| `--timeout`                  |`-t` | Set a timeout for the bundle operation. Default is 20 secs                            |
 | `--tunnel`                   |     | Create a tunnel URL which points to your local server which anyone can use            |
 | `--no-cache`                 |`-n` | Turn off caching for API resource data (cache refreshes every 5 minutes)              |
 | `--verbose`                  |`-vb`| Enable verbose logging                                                                |
