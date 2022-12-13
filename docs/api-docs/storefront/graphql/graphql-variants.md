@@ -354,7 +354,7 @@ You can query the variant options and the variant option values that are associa
 
 All variant options are [multiple choice](https://support.bigcommerce.com/s/article/Product-Options-v3?language=en_US#mc). 
 
-The following example shows how to get the first two variant options that are associated with the base product for the specified variant.
+The following example shows how to get the first two variant options that are associated with the base product for the specified variant:
 
 <!--
 type: tab
@@ -455,7 +455,7 @@ interface CatalogProductOptionValue {
 }
 ```
 
-The following example retrieves variant option values for the specified variant. The example query retrieves only the first two variant options associated with the base product. In the response, all multiple choice values include queried fields from the `CatalogProductOptionValue` interface, and those that are swatch types include additional fields.
+The following example retrieves variant option values for the specified variant. In the response, all multiple choice values include queried fields from the `CatalogProductOptionValue` interface, and those that are swatch types include additional fields. The example query retrieves only the first two variant options associated with the base product.
 
 <!--
 type: tab
@@ -669,7 +669,7 @@ title: Response
 
 ## Get variant images
 
-You can query the default images for variants. The following query retrieves the default image for the specified variant.
+You can query the default images for variants. The following query retrieves the default image for the specified variant:
 
 <!--
 type: tab
@@ -730,13 +730,13 @@ title: Response
 
 ## Get variant metafields
 
-You can query variant metafields for variants by specifying the variant metafield's namespace. Only metafields that have storefront permissions are returned (i.e. permissions must be set to `write_and_sf_access` or `read_and_sf_access`).
+You can query variant metafields by specifying the namespace for the variant metafields. Only metafields that have storefront permissions are returned (i.e. permissions must be set to `write_and_sf_access` or `read_and_sf_access`).
 
 <!-- theme:info -->
 > #### Variant vs product metafields
 > The query returns only **variant** metafields. See [Get product metafields](/api-docs/storefront/graphql/products#get-product-metafields) to retrieve **product** metafields. 
 
-The following query shows how to query the first variant metafield for the specified variant. 
+The following query retrieves the first variant metafield for the specified variant:
 
 <!--
 type: tab
