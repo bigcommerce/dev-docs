@@ -261,7 +261,7 @@ interface CatalogProductOption {
 }
 ```
 
-The following example shows how to get product options associated with a product. In the response, all product options include queried fields from the `CatalogProductOption` interface, and those that are checkbox or datefields include additional fields.  
+The following example shows how to get the first three product options associated with a product. In the response, all product options include queried fields from the `CatalogProductOption` interface, and those that are checkbox or datefields include additional fields.  
 
 <!--
 type: tab
@@ -274,7 +274,7 @@ title: Query
 query {
   site {
     product (entityId: 115) {
-      productOptions {
+      productOptions (first: 3) {
         edges {
           node {
             entityId                  # fields that all product options include
@@ -373,7 +373,7 @@ title: Query
 query {
   site {
     product (entityId: 113) {
-      productOptions {
+      productOptions (first: 1) {
         edges {
           node {
             entityId                                # fields that all product options include
@@ -382,7 +382,7 @@ query {
             isVariantOption
             ... on MultipleChoiceOption {           # additional fields for multiple choice options
               displayStyle
-              values {
+              values (first: 2) {
                 edges {
                   node {
                     entityId
@@ -468,7 +468,7 @@ title: Response
 
 You can query the images for products. The default image is a product's thumbnail image.
 
-The following example retrieves the images for the specified product:
+The following example retrieves the first two images and the default image for the specified product:
 
 <!--
 type: tab
@@ -479,7 +479,7 @@ title: Query
 query {
   site {
     product (entityId: 113) {
-      images {
+      images (first: 2) {
         edges {
           node {
             url (width: 1)
@@ -543,7 +543,7 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-You can query product images at different resolutions. The following query retrieves images at various resolutions for the specified product: 
+You can query product images at different resolutions. The following query retrieves the first image for the specified product at various resolutions: 
 
 <!--
 type: tab
@@ -557,7 +557,7 @@ title: Query
 query {
   site {
     product(entityId: 113) {
-      images {
+      images (first: 1) {
         edges {
           node {
             url320wide: url(width: 320)
@@ -604,9 +604,13 @@ title: Response
 
 ## Get product metafields
 
-You can query the metafields for products. Only metafields that have storefront permissions are returned (i.e. permissions must be set to `write_and_sf_access` or `read_and_sf_access`).
+You can query product metafields by specifying the product metafield's namespace. Only metafields that have storefront permissions are returned (i.e. permissions must be set to `write_and_sf_access` or `read_and_sf_access`).
 
-The following query retrieves product metafields for the specified product. The query retrieves only product metafields. See [Get variant metafields](/api-docs/storefront/graphql/variants#get-variant-metafields) to retrieve variant metafields. 
+<!-- theme:info -->
+> #### Product vs variant metafields 
+> The query retrieves only **product** metafields. See [Get variant metafields](/api-docs/storefront/graphql/variants#get-variant-metafields) to retrieve **variant** metafields. 
+
+The following query retrieves the first two product metafields for the specified product.
 
 <!--
 type: tab
@@ -617,7 +621,7 @@ title: Query
 query {
   site {
     product (entityId: 113) {
-      metafields (namespace: "Warehouse Locations") {
+      metafields (first: 2 namespace: "Warehouse Locations") {
         edges {
           node {
             id
@@ -671,7 +675,7 @@ title: Response
 
 ## Get product custom fields
 
-You can query the custom fields for products. The following example retrieves custom fields for the specified product:
+You can query the custom fields for products. The following example retrieves the first two custom fields for the specified product:
 
 <!--
 type: tab
@@ -682,7 +686,7 @@ title: Query
 query {
   site {
     product (entityId: 113) {
-      customFields {
+      customFields (first: 2) {
         edges {
           node {
             entityId
@@ -733,7 +737,7 @@ title: Response
 
 ## Get product gift wrapping options
 
-You can query gift wrapping options that are available for a product. The following example retrieves gift wrapping options for the specified product:
+You can query gift wrapping options that are available for a product. The following example retrieves the first two gift wrapping options for the specified product:
 
 <!--
 type: tab
@@ -744,7 +748,7 @@ title: Query
 query {
   site {
     product (entityId: 113) {
-      giftWrappingOptions {
+      giftWrappingOptions (first: 2) {
         edges {
           node {
             entityId
@@ -798,7 +802,7 @@ title: Response
 
 ## Get product reviews
 
-You can query reviews for products. You retrieve only reviews that a merchant has approved. The following example retrieves reviews for the specified product. 
+You can query reviews for products. You retrieve only reviews that a merchant has approved. The following example retrieves the first review for the specified product. 
 
 <!--
 type: tab
@@ -809,7 +813,7 @@ title: Query
 query {
   site {
     product (entityId: 113) {
-      reviews {
+      reviews (first: 1) {
         edges {
           node {
             entityId
