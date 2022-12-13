@@ -712,8 +712,8 @@ title: Response
             {
               "node": {
                 "defaultImage": {
-                  "url": "https://cdn11.bigcommerce.com/s-o8ertuc7vw/images/stencil/1w/attribute_rule_images/32_source_1667245516.png",
-                  "urlOriginal": "https://cdn11.bigcommerce.com/s-o8ertuc7vw/images/stencil/original/attribute_rule_images/32_source_1667245516.png",
+                  "url": "https://cdn11.bigcommerce.com/s-{store_hash}/images/stencil/1w/attribute_rule_images/32_source_1667245516.png",
+                  "urlOriginal": "https://cdn11.bigcommerce.com/s-{store_hash}/images/stencil/original/attribute_rule_images/32_source_1667245516.png",
                   "altText": "",
                   "isDefault": true
                 }
