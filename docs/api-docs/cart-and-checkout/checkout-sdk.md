@@ -45,7 +45,7 @@ However, the Checkout JS SDK does not allow you to change the checkout's underpi
 The SDK does not allow you to implement custom payment, shipping, or tax calculation providers into the checkout. Instead, you can use the configured providers for these services on a given store using our Checkout API.
 
 ### Required payment method initialization options 
-Some payment methods, like PayPal, Amazon, etc., require you to provide additional initialization options. Amazon requires a container ID to initialize its payment widget. The PayPal method requires specific options to initialize the PayPal Smart Payment button on the checkout page that substitutes a standard submit button. For more details on adjusting your code to make it work with the PayPal method, see the [BigCommerce SDK Repo](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/paypalcommercepaymentinitializeoptions.md).
+Some payment methods, like PayPal, Amazon, etc., require you to provide additional initialization options. Amazon requires a container ID to initialize its payment widget. The PayPal method requires specific options to initialize the PayPal Smart Payment button on the checkout page that substitutes a standard submit button. For more details on adjusting your code to make it work with the PayPal method, see the [BigCommerce SDK Repo](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/interfaces/PaypalCommercePaymentInitializeOptions.md).
 
 ![Checkout Button](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/checkout-sdk-01.png "Checkout Button")
 
