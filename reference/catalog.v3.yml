@@ -1307,11 +1307,11 @@ paths:
                 title: Product Response
                 type: object
                 properties:
+                  data:
+                    $ref: '#/components/schemas/product_Full'
                   meta:
                     type: object
                     properties: {}
-                  product_Full:
-                    $ref: '#/components/schemas/product_Full'
             example-1:
               example:
                 name: Smith Journal 13
@@ -1971,11 +1971,11 @@ paths:
                 title: Product Response
                 type: object
                 properties:
+                  data:
+                    $ref: '#/components/schemas/product_Full'
                   meta:
                     type: object
                     properties: {}
-                  product_Full:
-                    $ref: '#/components/schemas/product_Full'
             example-1:
               example:
                 name: Smith Journal 13
@@ -29218,11 +29218,11 @@ components:
             title: Product Response
             type: object
             properties:
+              data:
+                $ref: '#/components/schemas/product_Full'
               meta:
                 type: object
                 properties: {}
-              product_Full:
-                $ref: '#/components/schemas/product_Full'
         example-1:
           example:
             name: Smith Journal 13
