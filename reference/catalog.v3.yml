@@ -450,10 +450,10 @@ paths:
                         map_price: 0
                         tax_class_id: 0
                         product_tax_code: string
-                        channels:
-                          - 1
                         categories:
                           - 0
+                        channels:
+                          - 1
                         brand_id: 0
                         inventory_level: 0
                         inventory_warning_level: 0
@@ -744,6 +744,8 @@ paths:
                     product_tax_code: string
                     categories:
                       - 0
+                    channels:
+                      - 1
                     brand_id: 0
                     inventory_level: 0
                     inventory_warning_level: 0
@@ -862,6 +864,8 @@ paths:
                         product_tax_code: string
                         categories:
                           - 0
+                        channels:
+                          - 1
                         brand_id: 0
                         inventory_level: 0
                         inventory_warning_level: 0
@@ -1829,6 +1833,8 @@ paths:
                   categories:
                     - 23
                     - 21
+                  channels:
+                    - 1
                   brand_id: 36
                   option_set_id: 55
                   option_set_display: right
@@ -24069,6 +24075,8 @@ components:
           product_tax_code: string
           categories:
             - 0
+          channels:
+            - 1
           brand_id: 0
           inventory_level: 0
           inventory_warning_level: 0
@@ -24119,8 +24127,6 @@ components:
           reviews_rating_sum: 3.2
           reviews_count: 4
           total_sold: 80
-          channels:
-            - 1
           custom_fields:
             - id: 6
               name: ISBN
@@ -24263,6 +24269,12 @@ components:
             - post
           items:
             type: integer
+        channels:
+          type: array
+          description: 'Optional. You can supply a single ID, multiple IDs, or leave the field empty.'
+          items:
+            type: number
+            example: 1
         brand_id:
           maximum: 1000000000
           minimum: 0
@@ -24514,12 +24526,6 @@ components:
           description: |
             The total quantity of this product sold.
           example: 80
-        channels:
-          type: array
-          description: 'Optional. You can supply a single ID, multiple IDs, or leave the field empty.'
-          items:
-            type: number
-            example: 1
         custom_fields:
           type: array
           items:
