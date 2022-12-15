@@ -136,7 +136,7 @@ Previously, the [Activate store theme](/api-reference/store-management/themes/th
 Because we now support installing different themes and/or theme configurations for each storefront, you must supply a `configuration_id`, `variation_id`, and `site_id` to indicate the storefront to which you wish to apply a theme and a corresponding configuration. 
 
 <!-- theme: info -->
-> #### Fields to activate a theme
+> #### Locating the configuration ID
 > The `configuration_id` is the same as a configuration's `uuid`, returned in the [Get Theme Configuration](/api-reference/store-management/themes/theme-configurations/getthemesuuidconfigurations) response body.
 
 ![themes-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/themes-diagram.webp)
