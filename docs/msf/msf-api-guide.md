@@ -137,7 +137,7 @@ Because we now support installing different themes and/or theme configurations f
 
 <!-- theme: info -->
 > #### Fields to activate a theme
-> * `configuration_id` is the same as the `uuid` provided in the [Get Theme Configuration](/api-reference/store-management/themes/theme-configurations/getthemesuuidconfigurations) endpoint.
+> The `configuration_id` is the same as a configuration's `uuid`, returned in the [Get Theme Configuration](/api-reference/store-management/themes/theme-configurations/getthemesuuidconfigurations) response body.
 
 ![themes-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/themes-diagram.webp)
 [Themes API documentation](/api-reference/store-management/themes)
