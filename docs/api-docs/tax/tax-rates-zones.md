@@ -20,7 +20,7 @@ You can specify the customer groups that fall under a zone. You can also set how
 
 ### Create tax zones
 
-Use the [Create tax zones endpoint](/api-reference/store-management/tax-rates-and-zones/tax-zones/create-tax-zones) to add tax zones to the store. 
+Send a request to the [Create tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/create-tax-zones) endpoint to add tax zones to the store. The following example creates a subdivision-based zone.
 
 The response provides an `id` for each tax zone. Use the `id` to get, update, or delete a specific tax zone.
 
