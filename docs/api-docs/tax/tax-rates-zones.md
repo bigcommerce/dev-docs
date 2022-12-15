@@ -6,7 +6,13 @@ This guide shows you how to use the Tax Rates and Tax Zones API. The Tax Rates a
 
 ## Tax zones
 
-A zone can occupy multiple countries, each containing multiple subdivisions and postal codes. You can specify the customer groups that fall under a zone. You can also set how a store displays prices to shoppers in customer groups that fall under a zone.  
+A zone must be based on one of the following:
+
+- Countries: Specify one or more countries. 
+- Subdivisions: Specify one or more subdivisions for each country in the zone. You can have more than one country in a subdivision-based zone. 
+- Postal codes: Specify one or more postal codes for the country in the zone. Currently, a zone based on postal codes can only occupy one country.
+
+You can specify the customer groups that fall under a zone. You can also set how a store displays prices to shoppers in customer groups that fall under a zone.  
 
 <!-- theme:info -->
 > #### Default tax zone
@@ -31,7 +37,7 @@ Accept: application/json
 
 [
   {
-    "name": "Australia",
+    "name": "example zone",
     "enabled": true,
     "price_display_settings": {
       "show_inclusive": true,
@@ -39,21 +45,24 @@ Accept: application/json
       "show_both_on_list_view": true
     },
     "shopper_target_settings": {
-      "customer_groups": [
-        0
-      ],
       "locations": [
+        {
+          "country_code": "AR",
+          "subdivision_codes": [
+            "T",
+            "V"
+          ]
+        },
         {
           "country_code": "AU",
           "subdivision_codes": [
-            "NSW",
-            "QLD"
-          ],
-          "postal_codes": [
-            "2234",
-            "2170"
+            "WA",
+            "VIC"
           ]
         }
+      ],
+      "customer_groups": [
+        0
       ]
     }
   }
@@ -70,7 +79,7 @@ title: Response
   "data": [
     {
       "id": 2,
-      "name": "Australia",
+      "name": "example zone",
       "enabled": true,
       "price_display_settings": {
         "show_inclusive": true,
@@ -78,21 +87,26 @@ title: Response
         "show_both_on_list_view": true
       },
       "shopper_target_settings": {
-        "customer_groups": [
-          0
-        ],
         "locations": [
+          {
+            "country_code": "AR",
+            "subdivision_codes": [
+              "T",
+              "V"
+            ],
+            "postal_codes": []
+          },
           {
             "country_code": "AU",
             "subdivision_codes": [
-              "NSW",
-              "QLD"
+              "WA",
+              "VIC"
             ],
-            "postal_codes": [
-              "2234",
-              "2170"
-            ]
+            "postal_codes": []
           }
+        ],
+        "customer_groups": [
+          0
         ]
       }
     }
@@ -126,6 +140,11 @@ Accept: application/json
       "show_inclusive": false,
       "show_both_on_detail_view": false,
       "show_both_on_list_view": false
+    },
+    "shopper_target_settings": {
+      "customer_groups": [
+        2
+      ]
     }
   }
 ]
@@ -141,7 +160,7 @@ title: Response
   "data": [
     {
       "id": 2,
-      "name": "Australia",
+      "name": "example zone",
       "enabled": false,
       "price_display_settings": {
         "show_inclusive": false,
@@ -149,21 +168,26 @@ title: Response
         "show_both_on_list_view": false
       },
       "shopper_target_settings": {
-        "customer_groups": [
-          0
-        ],
         "locations": [
+          {
+            "country_code": "AR",
+            "subdivision_codes": [
+              "T",
+              "V"
+            ],
+            "postal_codes": []
+          },
           {
             "country_code": "AU",
             "subdivision_codes": [
-              "NSW",
-              "QLD"
+              "WA",
+              "VIC"
             ],
-            "postal_codes": [
-              "2234",
-              "2170"
-            ]
+            "postal_codes": []
           }
+        ],
+        "customer_groups": [
+          2
         ]
       }
     }
@@ -199,7 +223,7 @@ title: Response
   "data": [
     {
       "id": 2,
-      "name": "Australia",
+      "name": "example zone",
       "enabled": false,
       "price_display_settings": {
         "show_inclusive": false,
@@ -207,21 +231,26 @@ title: Response
         "show_both_on_list_view": false
       },
       "shopper_target_settings": {
-        "customer_groups": [
-          0
-        ],
         "locations": [
+          {
+            "country_code": "AR",
+            "subdivision_codes": [
+              "T",
+              "V"
+            ],
+            "postal_codes": []
+          },
           {
             "country_code": "AU",
             "subdivision_codes": [
-              "NSW",
-              "QLD"
+              "WA",
+              "VIC"
             ],
-            "postal_codes": [
-              "2234",
-              "2170"
-            ]
+            "postal_codes": []
           }
+        ],
+        "customer_groups": [
+          2
         ]
       }
     }
