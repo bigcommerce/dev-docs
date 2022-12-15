@@ -317,6 +317,10 @@ Accept: application/json
     "class_rates": [
       {
         "rate": 5,
+        "tax_class_id": 0
+      },
+      {
+        "rate": 5,
         "tax_class_id": 1
       }
     ]
@@ -339,6 +343,10 @@ title: Response
       "enabled": true,
       "priority": 1,
       "class_rates": [
+        {
+          "rate": 5,
+          "tax_class_id": 0
+        },
         {
           "rate": 5,
           "tax_class_id": 1
@@ -370,8 +378,15 @@ Accept: application/json
   {
     "id": 3,
     "tax_zone_id": 4,
+    "name": "Excise Tax",
     "enabled": false,
-    "priority": 2
+    "priority": 2,
+    "class_rates": [
+      {
+        "rate": 10,
+        "tax_class_id": 0
+      }
+    ]
   }
 ]
 ```
@@ -387,10 +402,14 @@ title: Response
     {
       "id": 3,
       "tax_zone_id": 4,
-      "name": "Sales Tax",
+      "name": "Excise Tax",
       "enabled": false,
       "priority": 2,
       "class_rates": [
+        {
+          "rate": 10,
+          "tax_class_id": 0
+        },
         {
           "rate": 5,
           "tax_class_id": 1
@@ -430,10 +449,14 @@ title: Response
     {
       "id": 3,
       "tax_zone_id": 4,
-      "name": "Sales Tax",
+      "name": "Excise Tax",
       "enabled": false,
       "priority": 2,
       "class_rates": [
+        {
+          "rate": 10,
+          "tax_class_id": 0
+        },
         {
           "rate": 5,
           "tax_class_id": 1
