@@ -850,7 +850,12 @@ paths:
       tags:
         - Price Lists Records
       summary: Get All Price List Records
-      description: Returns a list of *Price List Records* associated with a *Price List*.
+      description: |-
+        Returns a list of *Price List Records* associated with a *Price List*.
+
+        **Notes**
+        * Supports up to 10 simultaneous GET requests. Running more than the allowed number of requests concurrently on the same store will result in a `429` status error and your additional requests will fail.
+        * Store Pricelist Records data to reduce the number of calls and maximize performance.
       operationId: getPriceListRecordCollection
       parameters:
         - name: price_list_id
@@ -1761,7 +1766,12 @@ paths:
       tags:
         - Price Lists Records
       summary: Get Price Records by Variant
-      description: Returns *Price List Records* using the variant ID. Will also contain currency records.
+      description: |
+        Returns *Price List Records* using the variant ID. Will also contain currency records.
+        
+        **Notes**
+        * Supports up to 50 simultaneous GET requests. Running more than the allowed number of requests concurrently on the same store will result in a `429` status error and your additional requests will fail.
+        * Store Pricelist Records data to reduce the number of calls and maximize performance.
       operationId: getPriceListRecordsByVariantId
       parameters:
         - name: price_list_id
