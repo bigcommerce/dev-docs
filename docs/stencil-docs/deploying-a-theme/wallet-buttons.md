@@ -23,7 +23,7 @@ To add wallet buttons on the Product Details Page (PDP) you will need to update 
   }
 }
 ```
-2. Update`schema.json` to create a checkbox for togging the feature on Page Builder by adding the following to the Products section:
+2. Update`schema.json` to create a checkbox for toggling the feature on Page Builder by adding the following to the Products section:
 
 ```
 {
