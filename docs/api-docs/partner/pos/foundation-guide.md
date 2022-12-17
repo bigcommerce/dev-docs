@@ -2,7 +2,7 @@
 
 POS Foundation provides a proof-of-concept [open source framework](https://github.com/bigcommerce/point-of-sale-foundation) for building point-of-sale (POS) checkout interfaces that serve BigCommerce merchants with physical locations. It provides a template for custom POS solutions that use secure, pre-certified EMV card readers. POS Foundation's default integration with Stripe Terminal can significantly accelerate development time. 
 
-POS Foundation scaffolds manual connector apps that use [store API accounts](/api-docs/getting-started/authentication/rest-api-authentication#store-api-accounts). You do not need to create an app profile or use ngrok. The app will not appear in the store control panel and is only accessible to computers running on the same local network as the app's server. In contrast to [Subscription Foundation](/api-docs/partner/subscription-solutions/foundation-guide)-derived apps, POS Foundation apps do not create their own dedicated sales channels. If you're interested in contributing to this package, see [Contributing](#contributing).
+POS Foundation scaffolds manual connector apps that use [store-level API accounts](/api-docs/getting-started/authentication/rest-api-authentication#store-level-api-accounts). You do not need to create an app profile or use ngrok. The app will not appear in the store control panel and is only accessible to computers running on the same local network as the app's server. In contrast to [Subscription Foundation](/api-docs/partner/subscription-solutions/foundation-guide)-derived apps, POS Foundation apps do not create their own dedicated sales channels. If you're interested in contributing to this package, see [Contributing](#contributing).
 
 
 ## Software requirements
@@ -24,7 +24,7 @@ To configure your accounts, complete the following steps:
 
 1. To develop and test safely, you need a BigCommerce sandbox store. If you don't have one, [Create a Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=pos-foundation).
 
-2. In the control panel of your sandbox store, [create a store API account](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials) and add the following OAuth scopes:
+2. In the control panel of your sandbox store, [create a store-level API account](/api-docs/getting-started/authentication/rest-api-authentication#creating-store-level-api-accounts) and add the following OAuth scopes:
  
 | UI Name | Permission | Parameter |
 |:--------|:-----------|:----------|
@@ -42,7 +42,7 @@ To configure your accounts, complete the following steps:
 <!-- theme: success -->
 > #### Record the API account credentials
 > * Record the **access token**, **client ID**, and **client secret** in a safe place. In a later step, you will [update the .env file](#declare-environment-variables) and specify these credentials as the values of the `BC_AUTH_TOKEN`, `BC_APP_CLIENT_ID`, and `BC_APP_SECRET` environment variables.
-> * In addition, make note of the **store hash**. It is the path parameter that immediately precedes `v3` in the `API PATH` included with your store API account. In a later step, you will specify the store hash as the value of the `BC_STORE_HASH` environment variable.
+> * In addition, make note of the **store hash**. It is the path parameter that immediately precedes `v3` in the `API PATH` included with your store-level API account. In a later step, you will specify the store hash as the value of the `BC_STORE_HASH` environment variable.
 
 ## Fork and install the source repository 
 To fork the repository, complete the following steps:
@@ -181,9 +181,9 @@ cp .env.sample .env
 | Environment variable | Description | Reference location |
 |:---------------------|:------------|:-------------------|
 | `BC_STORE_HASH` | The unique string that identifies your store | [Configure accounts](#record-the-api-account-credentials) |
-| `BC_AUTH_TOKEN` | The store API account's access token | [Configure accounts](#record-the-api-account-credentials) |
-| `BC_APP_CLIENT_ID` |  The store API account's client ID | [Configure accounts](#record-the-api-account-credentials) |
-| `BC_APP_SECRET` | The store API account's client secret | [Configure accounts](#record-the-api-account-credentials) |
+| `BC_AUTH_TOKEN` | The store-level API account's access token | [Configure accounts](#record-the-api-account-credentials) |
+| `BC_APP_CLIENT_ID` |  The store-level API account's client ID | [Configure accounts](#record-the-api-account-credentials) |
+| `BC_APP_SECRET` | The store-level API account's client secret | [Configure accounts](#record-the-api-account-credentials) |
 | `STRIPE_SECRET_KEY` | The Stripe account's secret key | [Configure Stripe](#record-the-stripe-secret-key) |
 | `DATABASE_URL` | The database connection string | [Create and configure the database](#record-the-connection-string) |
 | `BC_CHANNEL_ID` |  Modify this value if you create a dedicated channel for the POS system | [Create a channel (API Reference)](/api-reference/store-management/channels/channels/createchannel) |
@@ -274,7 +274,7 @@ Want to help expand this foundation? We'd love to hear from you. Submit a pull r
 * [Point of Sale Foundation README (GitHub)](https://github.com/bigcommerce/point-of-sale-foundation/blob/main/README.md)
 * [Introducing the Point of Sale Foundation (Dev Blog)](https://medium.com/@stephen.hilliard/introducing-the-point-of-sale-foundation-70834efca76d)
 * [Create a Sandbox Store](/api-docs/partner/getting-started/create-a-sandbox-store?source=pos-foundation)
-* [Create a Store API Account](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials)
+* [Create a Store-level API Account](/api-docs/getting-started/authentication/rest-api-authentication#creating-store-level-api-accounts)
 * [Connecting with Stripe](https://support.bigcommerce.com/s/article/Connecting-Stripe-Payment-Gateway#foundations)
 * [Setting up an "In-Store Pickup" Shipping Method](https://support.bigcommerce.com/s/article/Free-Shipping#in-store)
 * [Switching to Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout#enabling) 
