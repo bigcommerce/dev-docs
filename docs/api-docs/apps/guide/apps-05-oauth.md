@@ -7,7 +7,7 @@ It may be more appropriate for your application to use an API client to handle t
 
 <!-- theme: info -->
 > #### Store owner access_token constraint
-> Typically, only [store owners](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) can create API accounts and `access_token`s for a store. However, when an app is approved to be publicly available for additional stores to install, it can generate `access_token`s *on behalf* of store owners. 
+> Typically, only [store owners](/api-docs/getting-started/authentication/rest-api-authentication#creating-store-level-api-accounts) can create API accounts and `access_token`s for a store. However, when an app is approved to be publicly available for additional stores to install, it can generate `access_token`s *on behalf* of store owners.
 
 ## Overview
 
