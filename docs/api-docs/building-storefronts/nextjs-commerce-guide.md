@@ -103,7 +103,7 @@ BIGCOMMERCE_STORE_API_STORE_HASH=${STORE_HASH}
 
   ![STORE-HASH location in URL](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/nextjs-commerce-15.png)
 
-- `STORE_TOKEN|STORE_CLIENT`: For instructions on generating Store API credentials, visit [Obtaining Store API Credentials](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
+- `STORE_TOKEN|STORE_CLIENT`: For instructions on generating a store-level API account, visit [Creating Store-level API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#creating-store-level-api-accounts).
 - `STOREFRONT_API_TOKEN`: For instructions on generating the Storefront API token, visit [Create a Token](/api-reference/store-management/tokens/api-token/createtoken).
 - `CHANNEL_ID`: Use the channel ID of the channel created by Vercel during deployment. For information on how to retrieve channel information, visit [Get All Channels](/api-reference/store-management/channels/channels/listchannels).
 
