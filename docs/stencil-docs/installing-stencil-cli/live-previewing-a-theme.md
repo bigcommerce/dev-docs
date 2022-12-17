@@ -8,9 +8,9 @@ The steps in this article assume you've installed Stencil CLI on your system. If
 > #### Theme access, copyright, and distribution
 > Developers may customize free and purchased marketplace themes; however, the original creator retains rights to the theme's design, which means derived themes may not be uploaded to a public theme marketplace (BigCommerce's or third-party) or sold privately.
 
-## Obtaining store API credentials
+## Creating store-level API accounts for Stencil
 
-Stencil CLI uses various BigCommerce APIs to inject store-specific data, like carousel images and products, into the live theme preview it serves up. To do so, you must supply the Stencil CLI with a Stencil CLI token. For detailed instructions, see [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts).
+Stencil CLI uses various BigCommerce APIs to inject store-specific data, like carousel images and products, into the live theme preview it serves up. To do so, you must supply the Stencil CLI with a Stencil CLI token. For detailed instructions, see [Creating store-level API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#creating-store-level-api-accounts).
 
 To automatically create a store API account with the scopes and permissions required by Stencil CLI, select **Create Stencil-CLI Token** in the **Create API Accounts** dropdown:
 
@@ -75,7 +75,7 @@ The Browsersync preview is launched by executing the `stencil start` command in 
 > #### Note
 > The store's URL should be a vanity URL.
 
-This configuration file is created by running `stencil init` and entering the information listed above. Before doing so, be sure to [obtain store API credentials](#obtaining-store-api-credentials).
+This configuration file is created by running `stencil init` and entering the information listed above. Before doing so, be sure to [create a Stencil-scoped store-level API account](#creating-store-level-api-accounts-for-stencil).
 
 To initialize a new `.stencil` or `config.stencil.json` configuration file (if using Stencil V3.1 release or later) and start live preview, run the following commands in a terminal:
 
