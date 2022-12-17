@@ -6,9 +6,9 @@ This quick start guide will take you through making your first requests with Big
 
 ## REST API
 
-### Obtain API credentials
+### Create API credentials
 
-See [Authenticating BigCommerce's Rest APIs](/api-docs/getting-started/authentication/rest-api-authentication#creating-store-level-api-accounts) for instructions on creating store-level API accounts.
+See the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#creating-store-level-api-accounts) for instructions on creating store-level API accounts.
 
 ### Use Request Runner
 
@@ -48,16 +48,19 @@ To make your first requests in a browser with the Storefront APIs, see the step-
 
 ## GraphQL API
 
-### Obtain storefront token
-We'll use **Request Runner** for making an initial request to obtain a Storefront API token. It is a REST API request, so you will need to copy and paste your [store-level API account access_token](/api-docs/getting-started/authentication/rest-api-authentication#creating-store-level-api-accounts).
+### Create storefront token
+You can use **Request Runner** to create a Storefront API token. 
 
-<!-- [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/cart-checkout/storefront-api-token/api-token/createtoken#requestrunner) -->
+Make a `POST` request to the [Create a token](/api-reference/store-management/tokens/api-token/createtoken) endpoint, and include the URL of the storefront on which you'll use the token in the `allowed_cors_origin` array.
 
-Include the URL of the storefront you will be making the request from as the `allowed_cors_origin`.
+It is a REST API request, so you will need to copy and paste your [store-level API account access_token](/api-docs/getting-started/authentication/rest-api-authentication#creating-store-level-api-accounts) in the `X-Auth-Token` field.
 
-**`POST`** `https://api.bigcommerce.com/stores/{store_hash}/v3/storefront/api-token`
+```http title="Example request: Create a token" lineNumbers
+POST https://api.bigcommerce.com/stores/{store_hash}/v3/storefront/api-token
+Accept: application/json
+Content-Type: application/json
+X-Auth-Token: {{ACCESS_TOKEN}}
 
-```javascript
 {
   "channel_id": 1,            // int (only ID 1 currently accepted)
   "expires_at": 1602288000,   // double utc unix timestamp (required)
