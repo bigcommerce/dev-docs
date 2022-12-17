@@ -1,6 +1,5 @@
 # Customer Login API
 
- 
 
 ## Introduction
 In this tutorial, you will learn how to enable single sign-on for storefront customers using the Customer Login API and JSON Web Tokens. 
@@ -11,9 +10,9 @@ In this tutorial, you will learn how to enable single sign-on for storefront cus
 
 ## Overview
 
-Single sign-on (SSO) is an authentication mechanism that enables users to log into multiple software applications using the same set of credentials that the user enters only once. It eliminates the need to maintain multiple passwords, which streamlines the process of accessing web applications. For more details, see [Single Sign-On](https://en.wikipedia.org/wiki/Single_sign-on). 
+Single sign-on (SSO) is an authentication mechanism that enables users to sign in to multiple software applications using the same set of credentials that the user enters only once. It eliminates the need to maintain multiple passwords, which streamlines the process of accessing web applications. For more details, see [Single Sign-On](https://en.wikipedia.org/wiki/Single_sign-on). 
 
-When a user logs into your web app, you can use the Customer Login API to authenticate the user to your BigCommerce store through SSO.
+When a user signs into your web app, you can use the Customer Login API to authenticate the user to your BigCommerce store through SSO.
 
 You can use the Customer Login API in the following use cases:
 
@@ -21,7 +20,7 @@ You can use the Customer Login API in the following use cases:
 * Set up continuous login between a BigCommerce store and another application
 * Enable alternative login methods (ex. phone number and SMS password)
 
-Storefront customers are logged in using the access point URL `/login/token/{token}`. The `{token}` must be a JSON Web Token (JWT) containing parameters for the customer login request signed by your application’s OAuth client secret. For more information on the OAuth protocol, see [OAuth](https://oauth.net/2/). 
+Storefront customers are signed in using the access point URL `/login/token/{token}`. The `{token}` must be a JSON Web Token (JWT) containing parameters for the customer login request signed by your app-level API account's client secret. 
 
 JWT is an industry standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) for securely transmitting information between two parties. A JWT is a sequence of base64url-encoded strings separated by dots (` . `).  The sections include the header, payload, and signature. For more details, see [Introduction to JSON Web Tokens](https://jwt.io/introduction/). 
 
@@ -39,25 +38,26 @@ You are required to include the `channel_id` when using the login JWTs to embed 
 | `channel_id` | integer | Optional field containing the `channel_id` corresponding to the storefront the shopper is signing in to. |
 | `customer_id` | integer | The ID of the shopper who is signing in.|
 | `redirect_to` | string | Optional field containing a relative path for the shopper's destination after sign-in. Defaults to `/account.php`. |
-| `request_ip` | string | Optional field containing the expected IP address for the request. If provided, BigCommerce will check that it matches the browser trying to log in.|
+| `request_ip` | string | Optional field containing the expected IP address for the request. If provided, BigCommerce will check that it matches the browser trying to sign in.|
 
 ## Prerequisites
 
 To enable SSO using the Customer Login API, you will need the following: 
 
 * A BigCommerce store
-* API client ID and client secret with the OAuth Scope set to Customers Login
+* An app-level API account with an OAuth scope set to Customers Login
 * [Node.js](https://nodejs.org/en/) installed on your machine if you plan to use JavaScript
 
-If you do not know your client ID and client secret, obtain the credentials by following the steps outlined in [Creating an API Account](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating). 
-
-Be sure to set the Customers Login scope to Login. 
+<!-- theme: info -->
+> #### API account notes
+> - This endpoint requires **app-level API account** credentials. For more information about generating accounts, consult the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-level-api-accounts).
+> - The app you create doesn't need to be installed or published on a store, and you don't need to generate access tokens. All you need are the client ID and client secret. See the section on [client ID-based authentication](/api-docs/getting-started/authentication#client-id) in the Authentication article.
 
 ![Example OAuth Scope](https://storage.googleapis.com/bigcommerce-production-dev-center/images/scopes.png "Example OAuth Scope")
 
 ## Enable single sign-on
 
-To log a customer into their storefront account using the Customer Login API, your app needs to redirect the customer’s browser to the following access point URL: `https://storedomain.com/login/token/{token}`.
+To sign a customer in to their storefront account using the Customer Login API, your app needs to redirect the customer’s browser to the following access point URL: `https://storedomain.com/login/token/{token}`.
 
 The `{token}` parameter is the JWT containing the payload data signed by your app’s OAuth client secret.
 
@@ -67,7 +67,7 @@ The beginning of this tutorial focuses on manually creating a token using the de
 
 ### Create JWT using the debugger tool
 
-To create a JWT, you will need to obtain a `customer_id` using the [Customers v3 API](/api-reference/store-management/customers-v3). 
+To create a JWT, you will need to get a `customer_id` using the [Customers v3 API](/api-reference/store-management/customers-v3). 
 
 1. Send a `GET` request to the [Get All Customers](/api-reference/store-management/customers-v3/customers/customersget) endpoint. Choose a customer and make note of the `customer_id`. 
 
@@ -116,11 +116,11 @@ https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3M
 
 7. Paste the URL into the address bar of your web browser. 
 
-If the request was successful, you will be logged in as a customer and directed to `/account.php`. If it was unsuccessful, a login attempt error message will be displayed and you will be directed to `/login.php`. 
+If the request was successful, you will be signed in as a customer and directed to `/account.php`. If it was unsuccessful, a sign-in attempt error message will be displayed and you will be directed to `/login.php`. 
 
-![Login Error](https://storage.googleapis.com/bigcommerce-production-dev-center/images/invalid-login.png "Login Error")
+![Login Error](https://storage.googleapis.com/bigcommerce-production-dev-center/images/invalid-login.png "Sign-in Attempt Error")
 
-For common causes of login failure, see [Troubleshooting](#troubleshooting).
+For common causes of sign-in failure, see [Troubleshooting](#troubleshooting).
 
 ### Create JWT using a JavaScript function
 
@@ -191,7 +191,7 @@ You should receive a complete access point URL as an output.
 
 8. Copy the URL and paste it into the address bar of your browser. 
 
-If the request was successful, you will be logged in as a customer and directed to `/account.php`. If it was unsuccessful, you will receive a login attempt error message and be directed to `/login.php`. For common causes of login failure, see [Troubleshooting](#troubleshooting).
+If the request was successful, you will be signed in as a customer and directed to `/account.php`. If it was unsuccessful, you will receive a sign-in attempt error message and be directed to `/login.php`. For common causes of sign-in failure, see [Troubleshooting](#troubleshooting).
 
 ### Sample code
 
@@ -203,9 +203,9 @@ Helper methods for generating login tokens are provided in our [API Client Libra
 
 For client libraries in other languages, see [Libraries for Token Signing/Verification](https://jwt.io/#libraries-io).
 
-### Logging out 
+### Signing out 
 
-To log out a customer, set the `redirect_to` field of the JWT’s payload to `/login.php?action=logout`. 
+To sign a customer out, set the `redirect_to` field of the JWT’s payload to `/login.php?action=logout`. 
 
 ## Troubleshooting
 
@@ -216,9 +216,9 @@ To log out a customer, set the `redirect_to` field of the JWT’s payload to `/l
 ## Related resources 
 
 ### Articles
-* [Authenticating BigCommerce’s REST APIs](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials)
+* [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication)
 * [BigCommerce APIs Quick Start](/api-docs/getting-started/making-requests)
-* [Store API Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts)
+* [Creating App-level API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#creating-app-level-api-accounts)
 * [Introduction to JSON Web Tokens](https://jwt.io/introduction/)
 
 ### Endpoints
