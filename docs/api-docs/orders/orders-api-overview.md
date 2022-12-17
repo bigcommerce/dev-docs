@@ -5,7 +5,7 @@ This article introduces BigCommerce's [Orders V2](/api-reference/store-managemen
 ### Prerequisites:
 
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial)
-* Access token for [API authentication](/api-docs/getting-started/authentication/rest-api-authentication) with the following [scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes):
+* An [API account](/api-docs/getting-started/authentication/rest-api-authentication#api-accounts) with the following [OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes):
   * Orders - **modify**
   * Products - **read-only**
 * [Product](/api-reference/catalog/catalog-api/products/createproduct) with [variants](/api-reference/store-management/catalog/product-variants/createvariant).

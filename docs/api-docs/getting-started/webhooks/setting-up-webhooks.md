@@ -7,7 +7,9 @@ In this tutorial, we'll create a Node.js Express app that handless webhook callb
 
 ### Prerequisites
 
-- [API Access Token](/api-docs/getting-started/authentication/rest-api-authentication) with [scope](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) set to **Information & Settings** read-only and **Products** read-only.
+- An [API account](/api-docs/getting-started/authentication/rest-api-authentication#api-accounts) with the following [OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes): 
+  - **Information & Settings** read-only
+  - **Products** read-only.
 - [Webhooks Overview](/api-docs/store-management/webhooks/overview)
 - Familiarity with working in the terminal
 - Familiarity working with `node` and `npm`

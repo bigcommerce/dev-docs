@@ -59,7 +59,7 @@ stencil init [--url STORE_URL] [--token API_TOKEN]
 | Option                  | Alias | Description                                                                               |
 |-|-|-|
 | `--port HTTP_PORT`  |`-p`   | The `HTTP` port number to use when serving the live theme preview.                         |
-| `--token API_TOKEN` |`-t`   | The [BigCommerce API Token](https://support.bigcommerce.com/s/article/Store-API-Accounts). |
+| `--token API_TOKEN` |`-t`   | The [Stencil-scoped API account token](/stencil-docs/installing-stencil-cli/live-previewing-a-theme#creating-store-level-api-accounts-for-stencil). |
 | `--url STORE_URL`   |`-u`   | The BigCommerce storefront URL.                                                            |
 
 ## stencil start

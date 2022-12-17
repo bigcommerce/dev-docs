@@ -28,7 +28,7 @@ This section gives details on how to edit the DOM, CSS, and display text, and ho
 
 - [Node.js 14+ and npm](https://nodejs.org/en/download/releases/)
 - The [Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil)
-- A [Stencil API token](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating), to push your customized B3-optimized theme to a store 
+- A Stencil-scoped [API account access_token](/stencil-docs/installing-stencil-cli/live-previewing-a-theme#creating-store-level-api-accounts-for-stencil), to push your customized B3-optimized theme to a store 
 - A text editor
 - Access to your BigCommerce store control panel with store owner permissions
 

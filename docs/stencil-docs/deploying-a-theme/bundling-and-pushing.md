@@ -49,7 +49,7 @@ Check the resulting zip file's size before you proceed. The zipped bundle should
 
 ### Bundle and push
 
-The `stencil push` command is available only for themes that you have successfully initialized using a [Stencil CLI token](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) (with `Themes: modify scope`). This command bundles your theme and uploads it to the associated store, in one continuous process.
+The `stencil push` command is available only for themes that you have successfully initialized using a [Stencil CLI token](/stencil-docs/installing-stencil-cli/live-previewing-a-theme#creating-store-level-api-accounts-for-stencil) (with `themes: modify` scope). This command bundles your theme and uploads it to the associated store, in one continuous process.
 
 For further requirements and usage details, please see the _Command-Line Upload_ in [Pushing Your Theme](/stencil-docs/deploying-a-theme/bundling-and-pushing#pushing-your-theme) below.
 
@@ -82,7 +82,7 @@ For error codes that you might encounter when uploading a theme – and correspo
 
 The `stencil push` command allows you to bundle your theme and upload it to the store, with a single terminal command. To run `stencil push`, you must first:
 
-Successfully initialize your theme using a [Stencil CLI token](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) that you created with the `Themes: modify scope`.
+Successfully initialize your theme using a [Stencil CLI token](/stencil-docs/installing-stencil-cli/live-previewing-a-theme#creating-store-level-api-accounts-for-stencil) that you created with the `themes: modify` scope.
 
 Install Stencil CLI version 1.12.0 or higher.
 

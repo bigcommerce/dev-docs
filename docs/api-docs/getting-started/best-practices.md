@@ -44,7 +44,7 @@ The [BigCommerce Ruby API](https://github.com/bigcommerce/bigcommerce-api-ruby) 
 
 Merchants often have more than one person who can access a store's control panel. BigCommerce allows additional users to access an app when the store owner has granted them appropriate permissions. The requirements for supporting multi-user app access are:
 * Tokens must be stored against the `store_hash` and not against user info.
-* Within the [Developer Portal](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-app-api-credentials) workspace, you must enable your app’s **Technical** > **Multiple Users** option.
+* In your app's profile in the [Developer Portal](/api-docs/apps/guide/developer-portal), you must enable the **Technical** > **Multiple Users** option.
 
 In the payload returned when a user launches an app, users are distinguished by `owner_email` versus `user_email`. If these two emails match, the user is the store owner.
 

@@ -170,7 +170,7 @@ If you're interested in making your widgets available for download or sale on ot
 
 ## Resources
 
-* [Authenticating BigCommerce's REST APIs](/api-docs/getting-started/authentication/rest-api-authentication)
+* [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication)
 * [Widgets API Overview](/api-docs/store-management/widgets/overview)
 * [Widget Builder GitHub repository](https://github.com/bigcommerce/widget-builder)
 * [Widgets on the App Marketplace](https://www.bigcommerce.com/apps/toolswidgets/)

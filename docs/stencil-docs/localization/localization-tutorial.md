@@ -10,7 +10,7 @@ In this tutorial, we will use Stencil CLI and [Browsersync](https://github.com/b
 To complete this tutorial, you should be familiar with the following concepts:
 
 * [Installing Stencil CLI](/stencil-docs/installing-stencil-cli/installing-stencil)
-* [Creating a Stencil CLI Token](https://support.bigcommerce.com/s/article/Store-API-Accounts)
+* [Creating a Stencil CLI Token](/stencil-docs/installing-stencil-cli/live-previewing-a-theme#creating-store-level-api-accounts-for-stencil)
 * [Downloading and uploading custom themes](https://support.bigcommerce.com/s/article/Stencil-Themes#download-upload)
 * [Serving a live preview](/stencil-docs/installing-stencil-cli/live-previewing-a-theme#serving-a-live-preview)
 

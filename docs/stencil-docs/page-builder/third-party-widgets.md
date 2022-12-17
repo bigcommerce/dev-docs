@@ -15,7 +15,7 @@ Widgets are injected into the storefront using the [Widgets API](/api-reference/
 
 ### OAuth token
 
-To use this method, you will need to obtain API credentials with OAuth content scope set to `modify`. For information about making requests against BigCommerce’s REST APIs, see [Authenticating BigCommerce’s REST APIs](/api-docs/getting-started/authentication/rest-api-authentication).  After obtaining the token, you can inject, list, and remove widgets on any page of the store. To learn how to complete these actions, see [Widgets Tutorial](/api-docs/storefront/widgets/widgets-tutorial).
+To use this method, you will need to obtain API credentials with OAuth content scope set to `modify`. For information about making requests against BigCommerce’s REST APIs, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication).  After obtaining the token, you can inject, list, and remove widgets on any page of the store. To learn how to complete these actions, see [Widgets Tutorial](/api-docs/storefront/widgets/widgets-tutorial).
 
 ### App Marketplace
 
