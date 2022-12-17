@@ -5,18 +5,18 @@
 Suppose your application interacts dynamically with a storefront and conveys specific information to a particular signed-in customer. You must confirm that customer's identity within the insecure environment of the user's browser before revealing any sensitive information.
 
 
-To address this need, BigCommerce provides a Current Customer endpoint that your app can access on the storefront using JavaScript. This endpoint allows a remote application, such as a third-party subscription billing app, to request a JSON web token, or _JWT_, with identifying customer details. The response is encrypted with your [app API account's client secret](/api-docs/getting-started/authentication/rest-api-authentication#api-accounts).
+To address this need, BigCommerce provides a Current Customer endpoint that your app can access on the storefront using JavaScript. This endpoint allows a remote application, such as a third-party subscription billing app, to request a JSON web token, or _JWT_, with identifying customer details. The response is encrypted with your [app-level API account's client secret](/api-docs/getting-started/authentication/rest-api-authentication#api-accounts).
 
 
 <!-- theme: info -->
 > #### API account notes
-> - This endpoint requires **app API account** credentials. For more information about generating accounts, consult the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts).
-> - The app you create doesn't need to be installed or published on a store, and you don't need to generate access tokens. All you need are the client ID and client secret. See the section on [client ID-based authentication](/api-docs/getting-started/authentication#client-id) in the Authentication tutorial.
+> - This endpoint requires **app-level API account** credentials. For more information about generating accounts, consult the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-level-api-accounts).
+> - The app you create doesn't need to be installed or published on a store, and you don't need to generate access tokens. All you need are the client ID and client secret. See the section on [client ID-based authentication](/api-docs/getting-started/authentication#client-id) in the Authentication article.
 
 
 ## Request
 
-To test this endpoint, save this [Current Customer API example request](/api-docs/getting-started/authentication#current-customer-api-example-request) JavaScript snippet in the storefront's **Script Manager**, located in the store control panel. Include your app API account's client ID as the value of the `app_client_id` query parameter.
+To test this endpoint, save this [Current Customer API example request](/api-docs/getting-started/authentication#current-customer-api-example-request) JavaScript snippet in the storefront's **Script Manager**, located in the store control panel. Include your app-level API account's client ID as the value of the `app_client_id` query parameter.
 
 For more about adding scripts with the UI, see our support article on [Using Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager).
 
@@ -25,7 +25,7 @@ For more about adding scripts with the UI, see our support article on [Using Scr
 
 This API call returns a JWT, sent as a plain-text string. See the [example response](/api-docs/getting-started/authentication#current-customer-api-example-request) on the tab next to the preceding example request.
 
-Decode the JWT using the client secret from the same app API account as the client ID you sent with the request. We recommend that your browser script send this JWT in a POST request to your server or a Function-as-a-Service (FaaS) that can work securely with your client secret. After your implementation decodes and validates the JWT, you can trust the payload as a source of truth about the signed-in customer's identity. You can now use the payload's customer information to make other API calls and display confidential data to the shopper.
+Decode the JWT using the client secret from the same app-level API account as the client ID you sent with the request. We recommend that your browser script send this JWT in a POST request to your server or a Function-as-a-Service (FaaS) that can work securely with your client secret. After your implementation decodes and validates the JWT, you can trust the payload as a source of truth about the signed-in customer's identity. You can now use the payload's customer information to make other API calls and display confidential data to the shopper.
 
 The following code block is an example payload from a decoded Current Customer JWT:
 
