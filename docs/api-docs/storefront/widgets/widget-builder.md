@@ -11,10 +11,10 @@ This article is a guide to help you learn how to use Widget Builder.
 * Node.js 14
 * [npm](https://www.npmjs.com/) 6.14
 * A BigCommerce [store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial) or [sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store).
-* Store API OAuth credentials for `content` resources with scope `modify`. For information on how to generate store API credentials, see [Obtaining store API credentials](/api-docs/getting-started/authentication/rest-api-authentication#obtaining-store-api-credentials).
+* A store-level API account for `content` resources with scope `modify`. For information on how to generate store-level API accounts, see [Creating store-level API accounts](/api-docs/getting-started/authentication/rest-api-authentication#creating-store-level-api-accounts).
 
 <!-- theme: warning -->
-> Because the OAuth scope of these API credentials permits you to modify store content, we strongly recommend that you develop widgets using a [sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store).
+> Because the OAuth scope of store-level API accounts permits you to modify store content, we strongly recommend that you develop widgets using a [sandbox store](/api-docs/partner/getting-started/create-a-sandbox-store).
 
 
 
