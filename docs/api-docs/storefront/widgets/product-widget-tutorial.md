@@ -9,11 +9,11 @@ In this tutorial, we will walk you through the process of creating a product wid
 ## Prerequisites
 
 * [A BigCommerce store](https://support.bigcommerce.com/s/article/Starting-a-Bigcommerce-Trial).
-* API OAuth [access token](/api-docs/getting-started/authentication/rest-api-authentication) with the OAuth **Content** scope set to **modify**.
+* An [API account access_token](/api-docs/getting-started/authentication/rest-api-authentication) with the OAuth **Content** scope set to **modify**.
 * Understanding of [widgets](/api-docs/store-management/widgets/overview#widgets) and the [Widgets API](/api-docs/store-management/widgets/overview).
 * Familiarity with [Page Builder](/stencil-docs/page-builder/page-builder-overview).
 
-The steps in this tutorial assume that you are familiar with BigCommerce’s Widgets API, and have obtained the API `access_token` with the `content` `modify` scope. The API `access_token` is required to inject, remove, and list widgets into any page of the store. To learn more about the Widgets API, see [Widgets API Overview](/api-docs/store-management/widgets/overview). For information on how to create an API account, see [Creating an API Account](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating).
+The steps in this tutorial assume that you are familiar with BigCommerce’s Widgets API, and have created an API account with the `content:modify` scope. The API account `access_token` is required to inject, remove, and list widgets into any page of the store. To learn more about the Widgets API, see [Widgets API Overview](/api-docs/store-management/widgets/overview). For information on how to create an API account, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#api-accounts).
 
 ## Create the widget template
 
