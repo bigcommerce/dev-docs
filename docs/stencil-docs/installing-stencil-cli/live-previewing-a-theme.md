@@ -12,7 +12,7 @@ The steps in this article assume you've installed Stencil CLI on your system. If
 
 Stencil CLI uses various BigCommerce APIs to inject store-specific data, like carousel images and products, into the live theme preview it serves up. To do so, you must supply the Stencil CLI with a Stencil CLI token. For detailed instructions, see [Creating store-level API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#creating-store-level-api-accounts).
 
-To automatically create a store API account with the scopes and permissions required by Stencil CLI, select **Create Stencil-CLI Token** in the **Create API Accounts** dropdown:
+To automatically create a store-level API account with the scopes and permissions required by Stencil CLI, select **Create Stencil-CLI Token** in the **Create API Accounts** dropdown:
 
 ![Create API Account](https://raw.githubusercontent.com/bigcommerce/dev-docs/master/assets/images/create-api-account.png "Create API Account")
 
@@ -68,7 +68,7 @@ Stencil CLI uses [Browsersync](https://github.com/bigcommerce/browser-sync) to s
 
 The Browsersync preview is launched by executing the `stencil start` command in a terminal window. When `stencil start` is executed, Stencil CLI checks for the required `.stencil` configuration file or `secrets.stencil.json` and `config.stencil.json` configuration files (if using Stencil V3.1 release or later), which contains the following information:
 * the store's URL
-* an API access token
+* a store-level API account access_token
 * a local port number
 
 <!-- theme: info -->
@@ -109,7 +109,7 @@ stencil start
 [Browsersync] Watching files...
 ```
 
-Browse to the local URL to preview the theme and see changes updated in real-time. To preview the theme on multiple devices simultaneously, browse to the external URL on the desired devices. As you navigate through the site, Stencil CLI will use the store API token supplied to make API calls to BigCommerce's API and populate the theme preview with live store data in order to mimic production as closely as possible.
+Browse to the local URL to preview the theme and see changes updated in real-time. To preview the theme on multiple devices simultaneously, browse to the external URL on the desired devices. As you navigate through the site, Stencil CLI will use the store-level API account access_token you supply to make API calls to BigCommerce and populate the theme preview with live store data in order to mimic production as closely as possible.
 
 ### Serving a live preview over HTTPS 
 
