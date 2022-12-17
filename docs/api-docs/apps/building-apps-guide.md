@@ -103,7 +103,7 @@ content
 * [Authentication](/api-docs/getting-started/authentication)
 * [Customer Login API](/api-docs/storefront/customer-login-api)
 * [App Store Approval Requirements](/api-docs/partner/app-store-approval-requirements)
-* [Store Accounts](https://support.bigcommerce.com/s/article/Store-API-Accounts#creating) (Knowledge Base)
+* [Store-level API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#creating-store-level-api-accounts)
 * [Supported Browsers](https://support.bigcommerce.com/s/article/Themes-Supported-Browsers) (Knowledge Base)
 * [BigCommerce Partners](https://www.bigcommerce.com/partners/) (BigCommerce)
 * [How to Test App Authentication Locally with ngrok](https://medium.com/bigcommerce-developer-blog/how-to-test-app-authentication-locally-with-ngrok-149150bfe4cf) (BigCommerce Developer Blog)
