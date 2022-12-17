@@ -8,7 +8,7 @@ Create, edit, and submit apps for approval using the [Developer Portal](https://
 
 ## Create an app profile
 
-Creating an app also creates an app API account. To learn more about app API accounts, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts). To create an app, do the following:
+Creating an app also creates an app-level API account. To learn more about app-level API accounts, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts). To create an app, do the following:
 
 <!-- theme: info -->
 > #### Information optional
@@ -42,13 +42,13 @@ You can view the client ID and client secret any time; see the following section
 
 ## View credentials
 
-1. To view an app API account's credentials, navigate to the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps) and click the **View Client ID** padlock icon to the right of the relevant app's listing. 
+1. To view an app-level API account's credentials, navigate to the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps) and click the **View Client ID** padlock icon to the right of the relevant app's listing. 
 
 ![Menu - view client ID](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-app-menu-client-id.png "View Client ID")
 
-2. A dialog box opens to reveal your API account credentials.
+2. A dialog box opens to reveal your app-level API account credentials.
 
-To learn more about using an app API account to generate store-specific access tokens, see [Implementing the OAuth Flow](/api-docs/apps/guide/auth).
+To learn more about using an app-level API account to generate store-specific access tokens, see [Implementing the OAuth Flow](/api-docs/apps/guide/auth).
 
 ## Edit an app profile
 
