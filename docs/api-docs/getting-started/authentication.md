@@ -6,7 +6,7 @@ This article provides an overview of the authentication schemes that our APIs us
 
 Regardless of the subject API's authentication scheme, BigCommerce **API accounts** play a role in every authenticated request to our servers.
 
-Our API accounts come in a few different flavors to meet the needs of different use cases. For example, app API accounts work well in multi-store contexts, whereas store API accounts are a good choice for frontend applications. **Some endpoints only work with one kind of API account.** For a thorough explanation of the differences, check out the section on [choosing the right kind of API account](/api-docs/getting-started/authentication/rest-api-authentication#choosing-the-right-kind-of-api-account) in our API accounts article.
+Our API accounts come in a few different flavors to meet the needs of different use cases. For example, app-level API accounts work well in multi-store contexts, whereas store-level API accounts are a good choice for frontend applications. **Some endpoints only work with one kind of API account.** For a thorough explanation of the differences, check out the section on [choosing the right kind of API account](/api-docs/getting-started/authentication/rest-api-authentication#choosing-the-right-kind-of-api-account) in our API accounts article.
 
 ## Stable tokens
 

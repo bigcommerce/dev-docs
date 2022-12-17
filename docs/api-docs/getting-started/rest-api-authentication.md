@@ -52,13 +52,13 @@ To delete a store-level API account, consult our Knowledge Base article on [Dele
 
 ## App-level API accounts
 
-You can [create app-level API accounts](#obtaining-app-api-credentials) in the [Developer Portal](https://devtools.bigcommerce.com). Most apps use access tokens generated from the API account's `client_ID`, `client_secret`, and a grant `code` to read and change store data once the store owner installs and authorizes the app. [Generate access tokens](#app-access-tokens) with the BigCommerce-initiated grant code authorization flow.
+You can [create app-level API accounts](#creating-app-level-api-accounts) in the [Developer Portal](https://devtools.bigcommerce.com). Most apps use access tokens generated from the API account's `client_ID`, `client_secret`, and a grant `code` to read and change store data once the store owner installs and authorizes the app. [Generate access tokens](#app-access-tokens) with the BigCommerce-initiated grant code authorization flow.
 
 Some APIs use app-level API accounts to implement alternative authentication patterns. For a summary of all our authentication methods, see [Authenticating BigCommerce APIs](/api-docs/getting-started/authentication/authenticating-bigcommerce-apis).
 
 For more on working with apps, see our [Guide to Building Apps](/api-docs/apps/guide/intro). The sections on [Implementing OAuth](/api-docs/apps/guide/auth) and [Callback Handlers](/api-docs/apps/guide/callbacks) are particularly relevant to generating access tokens.
 
-### Creating app-level API credentials
+### Creating app-level API accounts
 
 To create an app and its associated API account, consult our article on [Managing Apps in the Developer Portal](/api-docs/apps/guide/developer-portal#create-an-app).
 
