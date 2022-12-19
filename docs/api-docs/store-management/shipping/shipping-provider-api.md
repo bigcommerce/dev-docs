@@ -248,10 +248,7 @@ Accept: application/json
       "country_iso2": "US",
       "address_type": "residential",
       "form_fields": {
-        "1234": {
-          "id": "1234",
-          "value": "checkbox_selection_1"
-        }
+          "1234": "checkbox_selection_1"
       }
     },
     "items": [
