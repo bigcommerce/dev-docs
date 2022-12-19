@@ -1,6 +1,6 @@
 # Wallet Button Configuration
 
-This article provides information on adding wallet buttons on the Product Display Page (PDP). By default, wallet buttons are supported only by new stores using Cornerstone 6.7.0 and later. However, you can upgrade older themes to support wallet buttons by following the steps outlined in this article. 
+This article provides information on adding wallet buttons on the Product Detail Page (PDP). By default, wallet buttons are supported only by new stores using Cornerstone 6.7.0 and later. However, you can upgrade older themes to support wallet buttons by following the steps outlined in this article. 
 
 <!-- theme: info -->
 >Wallet buttons should always be available to the customer except when the product details form is invalid or if the product is not purchasable.
