@@ -310,10 +310,6 @@ Accept: application/json
 
 [
   {
-    "tax_zone_id": 2,
-    "name": "Sales Tax",
-    "enabled": true,
-    "priority": 1,
     "class_rates": [
       {
         "rate": 5,
@@ -323,7 +319,11 @@ Accept: application/json
         "rate": 5,
         "tax_class_id": 1
       }
-    ]
+    ],
+    "enabled": true,
+    "name": "Sales Tax",
+    "priority": 1,
+    "tax_zone_id": 2
   }
 ]
 ```
@@ -337,11 +337,6 @@ title: Response
 {
   "data": [
     {
-      "id": 3,
-      "tax_zone_id": 2,
-      "name": "Sales Tax",
-      "enabled": true,
-      "priority": 1,
       "class_rates": [
         {
           "rate": 5,
@@ -351,7 +346,12 @@ title: Response
           "rate": 5,
           "tax_class_id": 1
         }
-      ]
+      ],
+      "enabled": true,
+      "id": 3,
+      "name": "Sales Tax",
+      "priority": 1,
+      "tax_zone_id": 2
     }
   ]
 }
@@ -376,17 +376,17 @@ Accept: application/json
 
 [
   {
-    "id": 3,
-    "tax_zone_id": 4,
-    "name": "Excise Tax",
-    "enabled": false,
-    "priority": 2,
     "class_rates": [
       {
         "rate": 10,
         "tax_class_id": 0
       }
-    ]
+    ],
+    "enabled": false,
+    "id": 3,
+    "name": "Excise Tax",
+    "priority": 2,
+    "tax_zone_id": 4
   }
 ]
 ```
@@ -400,11 +400,6 @@ title: Response
 {
   "data": [
     {
-      "id": 3,
-      "tax_zone_id": 4,
-      "name": "Excise Tax",
-      "enabled": false,
-      "priority": 2,
       "class_rates": [
         {
           "rate": 10,
@@ -414,7 +409,12 @@ title: Response
           "rate": 5,
           "tax_class_id": 1
         }
-      ]
+      ],
+      "enabled": false,
+      "id": 3,
+      "name": "Excise Tax",
+      "priority": 2,
+      "tax_zone_id": 4
     }
   ]
 }
@@ -447,11 +447,6 @@ title: Response
 {
   "data": [
     {
-      "id": 3,
-      "tax_zone_id": 4,
-      "name": "Excise Tax",
-      "enabled": false,
-      "priority": 2,
       "class_rates": [
         {
           "rate": 10,
@@ -461,7 +456,12 @@ title: Response
           "rate": 5,
           "tax_class_id": 1
         }
-      ]
+      ],
+      "enabled": false,
+      "id": 3,
+      "name": "Excise Tax",
+      "priority": 2,
+      "tax_zone_id": 4
     }
   ]
 }
