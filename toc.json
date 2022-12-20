@@ -234,6 +234,11 @@
     },
     {
       "type": "item",
+      "title": "Tax Rates and Zones",
+      "uri": "reference/tax_rates_zones.v3.yml"
+    },
+    {
+      "type": "item",
       "title": "Tax Properties",
       "href": "/api-reference/store-management/tax-properties",
       "uri": "reference/tax_properties.v3.yml"
