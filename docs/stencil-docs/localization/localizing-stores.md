@@ -98,7 +98,7 @@ Blog entries are managed through the BigCommerce control panel under **Storefron
  [**Blog**](https://login.mybigcommerce.com/manage/content/blog). You can add blog content in any language you choose. For details, see [Creating a Blog Post](https://support.bigcommerce.com/s/article/Using-the-Built-In-Blog#creating-post).
 
 ### Localizing static web pages
-If you create static pages as Stencil custom templates, you can localize their content just like other theme pages' content. However, if you create custom pages in the BigCommerce control panel under **Storefront > Web Pages**, (if MSF is active on your store go to **Channel Manager > Channels > Edit Settings > **Web Pages**), you must also enter their localized content in the control panel.
+If you create static pages as Stencil custom templates, you can localize their content just like other theme pages' content. However, if you create custom pages in the BigCommerce control panel under **Storefront > Web Pages**, (if MSF is active on your store go to **Channel Manager > Channels > Storefronts > Quick links > Web Pages**), you must also enter their localized content in the control panel.
 
 ### Managing transactional emails
 
