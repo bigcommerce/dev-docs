@@ -35,6 +35,7 @@ The following table lists the payment gateways that are compatible with our publ
 | AdyenV2           | &check;            |                 |
 | Authorize.net     | &check;            | &check;         |
 | Barclaycard Fuse  | &check;            | &check;         |
+| BNZ               | &check;            | &check;         |
 | Bolt              | &check;            | &check;         |
 | CardConnect       |                    | &check;         |
 | Chase Integrated Payments |            | &check;         |
