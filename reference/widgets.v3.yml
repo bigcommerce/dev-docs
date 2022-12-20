@@ -188,40 +188,6 @@ paths:
         required: true
         schema:
           type: string
-  '/stores/{store_hash}/v3/content/widgets/search':
-    get:
-      tags:
-        - Widget
-      summary: Get All Widgets by Search
-      description: Returns a list of widgets by search.
-      operationId: searchWidgets
-      parameters:
-        - in: query
-          name: limit
-          description: Controls the number of items per page in a limited (paginated) list of products.
-          schema:
-            type: integer
-        - in: query
-          name: page
-          description: Specifies the page number in a limited (paginated) list of products.
-          schema:
-            type: integer
-        - in: query
-          name: query
-          description: The query string associated with a widget's name and description.
-          schema:
-            type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/WidgetCollection_Resp'
-        '422':
-          $ref: '#/components/responses/Error422_Resp'
-    parameters:
-      - schema:
-          type: string
-        name: store_hash
-        in: path
-        required: true
   '/stores/{store_hash}/v3/content/widget-templates/{uuid}/preview':
     post:
       tags:
