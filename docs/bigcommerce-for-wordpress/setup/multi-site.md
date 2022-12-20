@@ -16,7 +16,7 @@ Note that embedded checkout is only supported on a single domain at a time. See 
 
 ## Getting your API credentials
 
-1. To get your store’s API credentials, sign in to your active MSF-enabled BigCommerce store and head to `Settings` > `API` > `API accounts`. 
+1. To get your store’s API credentials, sign in to your active MSF-enabled BigCommerce store and head to **Settings > API > API accounts**. 
 
 ![Click 'Create API Account' to get credentials](//s3.amazonaws.com/user-content.stoplight.io/6116/1544044020003 "Click 'Create API Account' to get credentials")
 
