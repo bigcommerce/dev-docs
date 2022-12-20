@@ -17,7 +17,7 @@ The following APIs are deprecated. We discourage using these APIs, as BigCommerc
 |`/v2/option_sets`| [V3 Catalog Product Modifiers](/api-reference/store-management/catalog/product-modifiers/getmodifiers), [V3 Catalog Product Variant Options](/api-reference/store-management/catalog/product-variant-options/getoptions). The `option_sets` endpoint is intentionally not available in the V3 Catalog API. For more information, see [V2 vs V3 Catalog APIs](/legacy/v2-products/v2-v3). |
 |`/v2/products `| [V3 Catalog Products](/api-reference/store-management/catalog/products/getproducts) |
 |`/v2/redirects`| [V3 Redirects](/api-reference/store-management/redirects) |
-| `/v3/content/widgets/search` | [V3 Get All Widgets](/api-reference/store-management/widgets/widget/getwidgets) |
+|`/v3/content/widgets/search` | [V3 Get All Widgets](/api-reference/store-management/widgets/widget/getwidgets) |
 
 
 <!-- theme: info -->
