@@ -1,26 +1,26 @@
 # Tax Rates and Tax Zones
 
-[Tax rates](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US#tax-rate) are percentages for which you tax products or services. Tax zones are geographic locations that you define in your store. [Tax zones](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US#tax-zone) allow you to vary tax rates for different customer groups and locations. Tax rates and zones apply for all storefronts in a store.
+[Tax rates](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US#tax-rate) are percentages a store uses to calculate taxes due for products and services. Tax zones are geographic regions defined in a store. [Tax zones](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US#tax-zone) allow you to apply different tax rates to different customer groups and locations. All the tax rates and zones you configure for a store are available on each storefront.
 
-This guide shows you how to use the Tax Rates and Tax Zones API. The Tax Rates and Zones API allows you to configure [manual taxes](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US) in a store. For more information, see the [Tax Rates and Tax Zones API Reference](/api-reference/store-management/tax-rates-and-zones).
+This guide demonstrates how to use the Tax Rates and Zones API. The Tax Rates and Zones API allows you to configure [manual taxes](https://support.bigcommerce.com/s/article/Manual-Tax-Setup?language=en_US) for a store. For more information, see the [Tax Rates and Zones API Reference](/api-reference/store-management/tax-rates-and-zones).
 
 ## Tax zones
 
-A zone must be based on one of the following:
+A zone must be defined by one of the following location parameters:
 
-- Countries: Specify one or more countries. 
-- Subdivisions: Specify one or more subdivisions for each country in the zone. You can have more than one country in a subdivision-based zone. 
-- Postal codes: Specify one or more postal codes for the country in the zone. Currently, a zone based on postal codes can only occupy one country.
+- Countries: Specify one or more countries for a zone.
+- Subdivisions: Specify one or more states, provinces, or territories. You can include subdivisions of more than one country in a subdivision-based zone.
+- Postal codes: Specify one or more postal codes within a country. Currently, zones based on postal codes are limited to a single country.
 
-You can specify the customer groups that fall under a zone. You can also set how a store displays prices to shoppers in customer groups that fall under a zone.  
+You can further narrow the scope of a zone by specifying one or more customer groups to whom the zone applies. You can also use zones to modify how a store displays prices to different customer groups.  
 
-<!-- theme:info -->
+<!-- theme: info -->
 > #### Default tax zone
 > A default tax zone covers locations that other zones don't cover. Shoppers in customer groups that don't match a tax zone fall under the default tax zone. A default tax zone does not have `shopper_target_settings` in its requests or responses. You can't specify the customer groups or locations for a default tax zone.  
 
 ### Create tax zones
 
-Send a request to the [Create tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/create-tax-zones) endpoint to add tax zones to the store. The following example creates a subdivision-based zone.
+To add tax zones to a store, send a request to the [Create tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/create-tax-zones) endpoint. The following example creates a subdivision-based zone.
 
 The response provides an `id` for each tax zone. Use the `id` to get, update, or delete a specific tax zone.
 
@@ -119,7 +119,7 @@ title: Response
 
 ### Update tax zones
 
-Send a request to the [Update tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/update-tax-zones) endpoint to modify a tax zone. Specify the `id` of the zone you want to update in the request body. The request updates only the fields that you specify.
+To modify a tax zone, send a request to the [Update tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/update-tax-zones) endpoint. In the request body, specify the `id` of the zones you want to update. The request updates only the fields for which you supply values.
 
 <!--
 type: tab
@@ -200,7 +200,7 @@ title: Response
 
 ### Get tax zones
 
-[Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones) returns all tax zones by default. To return certain tax zones, include the `id:in` query parameter.
+[Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones) returns all tax zones by default. To return select tax zones, include the `id:in` query parameter.
 
 <!--
 type: tab
@@ -263,7 +263,7 @@ title: Response
 
 ### Delete tax zones
 
-To delete tax zones, send a request to the [Delete tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/delete-tax-zones) endpoint and use the `id:in` query parameter to specify the tax zones you want to delete. Deleting a tax zone removes all associated tax rates.
+To delete tax zones, send a request to the [Delete tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/delete-tax-zones) endpoint and use the `id:in` query parameter to specify the tax zones you want to delete. Deleting a tax zone cascades to removes all associated tax rates.
 
 <!--
 type: tab
