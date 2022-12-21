@@ -237,4 +237,4 @@ To render wallet buttons, you should paste the following code under the **Add to
 
 The buttons should look as follows:
 
-
+![wallet-buttons-04](https://storage.googleapis.com/bigcommerce-production-dev-center/images/wallet-buttons-04.png "theme-markup")
