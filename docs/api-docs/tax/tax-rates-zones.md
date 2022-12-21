@@ -263,7 +263,7 @@ title: Response
 
 ### Delete tax zones
 
-To delete tax zones, send a request to the [Delete tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/delete-tax-zones) endpoint and use the `id:in` query parameter to specify the tax zones you want to delete. Deleting a tax zone cascades to removes all associated tax rates.
+To delete tax zones, send a request to the [Delete tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/delete-tax-zones) endpoint and use the `id:in` query parameter to specify the tax zones you want to delete. Deleting a tax zone cascades to remove all associated tax rates.
 
 <!--
 type: tab
@@ -289,13 +289,13 @@ HTTP 204 No content
 
 ## Tax rates
 
-After creating a zone, you can add rates to the zone. You can add multiple rates to a zone to account for multiple tax jurisdictions. When adding a rate, you can add a rate for each tax class in your store. 
+After creating a zone, you can add rates to the zone. You can add multiple rates to a zone to help the store collect and report taxes to one or more taxation authorities. You can add a rate for each tax class in your store.
 
 ### Create tax rates
 
-To create tax rates, send a request to the [Create tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/create-tax-rates) endpoint. Specify the rate name, rates of each tax class, and the associated tax zone. The `tax_zone_id` is the `id` from the [Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones) endpoint.
+To create tax rates, send a request to the [Create tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/create-tax-rates) endpoint. Specify the rate name, rates of each tax class, and the associated tax zone. The `tax_zone_id` is the `id` received from calls to the [Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones) endpoint.
 
-The response provides an `id` for each tax rate. Use the `id` to update or delete a specific tax rate.
+The response includes an `id` for each tax rate. Use the tax rate `id` to get, update, or delete the associated tax rate.
 
 <!--
 type: tab
@@ -424,7 +424,7 @@ title: Response
 
 ### Get tax rates
 
-To get tax rates, send a request to the [Get tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/get-tax-rates) endpoint. Specify the tax zones in the `tax_zone_id:in` query parameter to get the tax rates for specific zones.   
+To get tax rates, send a request to the [Get tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/get-tax-rates) endpoint. To get the tax rates for a subset of zones, pass a comma-separated string of the tax zone `id`s using the `tax_zone_id:in` query parameter.
 
 <!--
 type: tab
@@ -471,7 +471,7 @@ title: Response
 
 ### Delete tax rates
 
-To delete tax rates, send a request to the [Delete tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/delete-tax-rates) endpoint and use the `id:in` query parameter to specify the tax rates you want to delete.
+To delete tax rates, send a request to the [Delete tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/delete-tax-rates) endpoint. Use the `id:in` query parameter to specify the tax rates you want to delete.
 
 <!--
 type: tab
