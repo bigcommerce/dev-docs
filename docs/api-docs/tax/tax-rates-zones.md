@@ -22,7 +22,7 @@ You can further narrow the scope of a zone by specifying one or more customer gr
 
 To add tax zones to a store, send a request to the [Create tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/create-tax-zones) endpoint. The following example creates a subdivision-based zone.
 
-The response provides an `id` for each tax zone. Use the `id` to get, update, or delete a specific tax zone.
+The response includes an `id` for each tax zone. Use the `id` to get, update, or delete a specific tax zone.
 
 <!--
 type: tab
@@ -263,7 +263,7 @@ title: Response
 
 ### Delete tax zones
 
-To delete tax zones, send a request to the [Delete tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/delete-tax-zones) endpoint and use the `id:in` query parameter to specify the tax zones you want to delete. Deleting a tax zone cascades to remove all associated tax rates.
+To delete tax zones, send a request to the [Delete tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/delete-tax-zones) endpoint. Use the `id:in` query parameter to specify the tax zones you want to delete. Deleting a tax zone cascades to remove all associated tax rates.
 
 <!--
 type: tab
@@ -361,7 +361,7 @@ title: Response
 
 ### Update tax rates
 
-To update tax rates, send a request to the [Update tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/update-tax-rates) endpoint. Specify the `id` of the rate you want to update in the request body. The `tax_zone_id` is the `id` from the [Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones) endpoint.
+To update tax rates, send a request to the [Update tax rates](/api-reference/store-management/tax-rates-and-zones/tax-rates/update-tax-rates) endpoint. In the request body, specify the `id` of the rates you want to update. The `tax_zone_id` is the `id` received from calls to the [Get tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/get-tax-zones) endpoint.
 
 <!--
 type: tab
