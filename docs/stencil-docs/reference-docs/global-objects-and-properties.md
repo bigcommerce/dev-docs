@@ -445,7 +445,7 @@ All possible values for `{{page_type}}` are:
 | address | Store’s complete physical address, as entered by merchant in the [Store Profile](https://support.bigcommerce.com/s/article/Store-Profile-Settings)|
 | store_name | Name of the BigCommerce store. |
 | store_logo | The store’s logo. |
-| &#x21B3; title | Title for the logo – the text configured in the control panel under **Storefront** > Logo. |
+| &#x21B3; title | Title for the logo – the text configured in the control panel under **Storefront > Logo**. |
 | &#x21B3; image | Optional image file, as a Stencil image object. To access the store_logo use: `{{settings.store_logo.image.data}}` and `{{settings.store_logo.image.alt}}` to access the alt tag. These are pulled from the Stencil image object. |
 | privacy_cookie | If enabled, a string containing merchant-customizable text for (European Union–required) cookie-setting notification; if disabled, a boolean with a value of false. |
 | urls | Global URLs that the template can access – for example, the template could link to the cart page using {{urls.cart}} |
@@ -514,7 +514,7 @@ All possible values for `{{page_type}}` are:
 | &#x21B3; decimal_places | Number of decimal places to display |
 | &#x21B3; thousands_token | Symbol for thousands separator |
 | returns_enabled | Boolean that indicates whether the control-panel setting for the returns system is enabled |
-| tax_label | Defines the Tax Label (VAT, Sales Tax, etc.) that a merchant can set in an active MSF-enabled control panel’s Settings > Tax page for display to customers |
+| tax_label | Defines the Tax Label (VAT, Sales Tax, etc.) that a merchant can set in an active MSF-enabled control panel’s **Settings > Tax** page for display to customers |
 | add_this | Object that defines links for the AddThis social sharing component |
 | &#x21B3; buttons | Array of buttons to display for AddThis social sharing `{{#each settings.add_this.buttons}}{{service}}{{/each}}` `{{#each settings.add_this.buttons}}{{annotations}}{{/each}}` |
 | service | String containing the name of this button's social-media service (facebook, email, print, twitter, linkedin, google, etc.). |
