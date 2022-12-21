@@ -9,7 +9,7 @@ This guide demonstrates how to use the Tax Rates and Zones API. The Tax Rates an
 A zone must be defined by one of the following location parameters:
 
 - Countries: Specify one or more countries for a zone.
-- Subdivisions: Specify one or more states, provinces, or territories. You can include subdivisions of more than one country in a subdivision-based zone.
+- Subdivisions: Specify one or more states, provinces, or territories. You can include subdivisions for more than one country in a subdivision-based zone.
 - Postal codes: Specify one or more postal codes within a country. Currently, zones based on postal codes are limited to a single country.
 
 You can further narrow the scope of a zone by specifying one or more customer groups to whom the zone applies. You can also use zones to modify how a store displays prices to different customer groups.  
