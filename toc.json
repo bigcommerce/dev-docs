@@ -303,6 +303,12 @@
         },
         {
           "type": "item",
+          "title": "Tax Rates and Zones",
+          "href": "/api-docs/store-management/tax/tax-rates-and-zones",
+          "uri": "docs/api-docs/tax/tax-rates-zones.md"
+        },
+        {
+          "type": "item",
           "title": "Tax Properties",
           "href": "/api-docs/store-management/tax/tax-properties",
           "uri": "docs/api-docs/tax/tax-properties.md"
