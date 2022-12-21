@@ -222,6 +222,9 @@ The sorting feature should look as follows:
 
 To render wallet buttons, you should paste the following code under the **Add to Cart**  button on the Product details page:
 
+<!-- theme: info -->
+>Additional steps may be required depending on your setup.
+
 ```
 {{#if this.with_wallet_buttons}}
   {{#if wallet_buttons}}
