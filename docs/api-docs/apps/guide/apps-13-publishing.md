@@ -4,7 +4,7 @@ After completing development, verifying best practices, and checking approval re
 
 ## Before you begin
 
-Your listing on the [Apps Marketplace](https://www.bigcommerce.com/apps/) plays a major role in your app's success. A good listing accomplishes three goals:
+Your listing on the [App Marketplace](https://www.bigcommerce.com/apps/) plays a major role in your app's success. A good listing accomplishes three goals:
 * Shows users how your platform or solution differs from competitive offerings
 * Includes keywords so prospective users can find your listing in searches
 * Sets up clear and accurate user expectations as to your solution's features and functionality
@@ -117,10 +117,10 @@ You may have logged in with the wrong account. Each listing can only be owned by
 **I saved my changes, but my listing has not updated yet. What's the problem?**
 
 The changes will be effective immediately in your control panel app card, but the updates
-can take up to 24 hours to appear on the Apps Marketplace. Feel free to use this as a grace period to make edits as needed.
+can take up to 24 hours to appear on the App Marketplace. Feel free to use this as a grace period to make edits as needed.
 
 ## Next steps
-[Review the Apps Marketplace listing guide (PDF)](https://grow.bigcommerce.com/rs/695-JJT-333/images/Updated_List_of_App_Fields_for_Tech_Partners.pdf)
+[Review the App Marketplace listing guide (PDF)](https://grow.bigcommerce.com/rs/695-JJT-333/images/Updated_List_of_App_Fields_for_Tech_Partners.pdf)
 
 ## Resources
 

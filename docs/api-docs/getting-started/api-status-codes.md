@@ -43,7 +43,7 @@ This article covers [REST](#rest-api-http-status-codes) and [GraphQL](#graphql-a
 | **413** | **Request Entity Too Large** | When the client requests too many objects. For example, the `limit` parameter exceeded the maximum. |
 | **415** | **Unsupported Media Type** | Returned due to issues with the `Content-Type` header.  |
 | **422** | **Missing or Invalid Data** | The request cannot be processed either because it omitted required fields or because it contained invalid data. See the response for more details. |
-| **429** | **Too Many Requests** | When an OAuth client exceeds the [rate limit](/api-docs/getting-started/basics/best-practices#best-practices_rate-limits) for API requests to a store. |
+| **429** | **Too Many Requests** | When an OAuth client exceeds the [rate limit](/api-docs/getting-started/best-practices#best-practices_rate-limits) for API requests to a store. |
 
 ### 5xx Server Error 
 

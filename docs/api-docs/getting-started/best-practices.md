@@ -97,7 +97,7 @@ X-Rate-Limit-Time-Window-Ms: 5000
 | `X-Rate-Limit-Requests-Quota` | Shows how many API requests are allowed in the current window for your client. In this case, the number is 25 requests. |
 | `X-Rate-Limit-Requests-Left` | Details how many remaining requests your client can make in the current window before being rate limited. In this case, you would expect to be able to make 6 more requests in the next 3000 milliseconds; on the 7th request within 3000 milliseconds, you would be rate limited and would receive an HTTP 429 response.|
 
-You will know you've been limited if your request to the API triggers a [429 Too Many Requests](/api-docs/getting-started/basics/api-status-codes#api-status-codes_4-client-error) response.
+You will know you've been limited if your request to the API triggers a [429 Too Many Requests](/api-docs/getting-started/api-status-codes#api-status-codes_4-client-error) response.
 
 The rate limited response will contain the `X-Rate-Limit-Time-Reset-Ms` header, specifying a time (in milliseconds) that your client must wait before its quota has refreshed. Retry the request after this time has elapsed, and your API service will resume as normal.
 
