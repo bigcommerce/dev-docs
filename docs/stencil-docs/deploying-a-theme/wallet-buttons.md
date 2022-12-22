@@ -28,7 +28,7 @@ By default, wallet buttons are not enabled on the PDP. To add wallet buttons, yo
 }
 ```
 
-2. To create a checkbox for the merchant to toggle the feature on and off in **Page Builder**, add the following code to the **Products** section of `schema.json`:
+2. To create a checkbox for the merchant to toggle the feature on and off in Page Builder, add the following code to the **Products** section of `schema.json`:
 
 ```json title="schema.json, checkbox configuration"
 {
@@ -49,7 +49,7 @@ By default, wallet buttons are not enabled on the PDP. To add wallet buttons, yo
 }
 ```
 
-In **Page Builder**, the checkbox appears as follows:
+In Page Builder, the checkbox appears as follows:
  
 ![wallet-buttons-01](https://storage.googleapis.com/bigcommerce-production-dev-center/images/wallet-buttons-01.png "add-checkbox")
 
