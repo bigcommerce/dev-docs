@@ -54,7 +54,7 @@ By default, wallet buttons are not enabled on the PDP. To add wallet buttons, yo
 ```
 
 In Page Builder, the checkbox appears as follows:
- 
+
 ![wallet-buttons-01](https://storage.googleapis.com/bigcommerce-production-dev-center/images/wallet-buttons-01.png "add-checkbox")
 
 ## Setting quantity of wallet buttons
@@ -228,7 +228,6 @@ In Page Builder, the dialog appears as follows:
 }
 ```
 
-  
 ## Adding wallet buttons to theme markup
 
 <!-- theme: warning -->
@@ -253,7 +252,6 @@ To render wallet buttons, you must perform the preceding steps described in this
 The wallet buttons appear on the PDP as follows:
 
 ![wallet-buttons-04](https://storage.googleapis.com/bigcommerce-production-dev-center/images/wallet-buttons-04.png "theme-markup")
-
 
 ## Resources
 
