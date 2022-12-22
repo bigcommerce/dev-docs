@@ -1,31 +1,36 @@
-# Wallet Button Configuration
+# Configuring Wallet Buttons
 
-This article provides information on adding wallet buttons on the Product Detail Page (PDP). By default, wallet buttons are supported only by new stores using Cornerstone 6.7.0 and later. However, you can upgrade older themes to support wallet buttons by following the steps outlined in this article. 
-
-<!-- theme: info -->
->Wallet buttons should always be available to the customer except when the product details form is invalid or if the product is not purchasable.
-
-## Adding wallet buttons 
-
-To add wallet buttons on the Product Details Page (PDP) you will need to update theme settings. You should make an ability for the merchant to turn on and off the feature by performing the following steps.
-
-1. In `config.json`, add `show_quick_payment_buttons` configuration with a default value.
+This article explains how to add wallet buttons to the Product Detail Page, or _PDP_. By default, wallet buttons are supported only by new stores using Cornerstone 6.7.0 and later. However, you can upgrade older themes to support wallet buttons by following the steps outlined in this article. 
 
 <!-- theme: info -->
->To turn on this feature by default, set "show_quick_payment_buttons": true.
+> #### Wallet button availability
+> Wallet buttons are always available to the customer except in the following cases:
+> * The product details form is invalid
+> * The product is not purchasable
 
-```
+## Adding wallet buttons
+
+To add wallet buttons to the PDP, you must update theme settings. Enable the merchant to toggle wallet buttons on and off by performing the following steps:
+
+1. In `config.json`, add a `show_quick_payment_buttons` property and provide a default value.
+
+<!-- theme: info -->
+> #### Setting a default value
+> To turn on this feature by default, set `"show_quick_payment_buttons": true`.
+
+```json title="config.json, quick payment buttons default"
 {
   ...,
-  settings: {
+  "settings": {
     ...,
     "show_quick_payment_buttons": true
   }
 }
 ```
-2. Update`schema.json` to create a checkbox for toggling the feature on Page Builder by adding the following to the Products section:
 
-```
+2. To create a checkbox for the merchant to toggle the feature on and off in **Page Builder**, add the following to the **Products** section of `schema.json`:
+
+```json title="schema.json, checkbox configuration"
 {
   ...,
   {
@@ -44,20 +49,20 @@ To add wallet buttons on the Product Details Page (PDP) you will need to update 
 }
 ```
 
-The checkbox should look as follows:
+In **Page Builder**, the checkbox appears as follows:
  
- ![wallet-buttons-01](https://storage.googleapis.com/bigcommerce-production-dev-center/images/wallet-buttons-01.png "add-checkbox")
+![wallet-buttons-01](https://storage.googleapis.com/bigcommerce-production-dev-center/images/wallet-buttons-01.png "add-checkbox")
 
 ## Setting quantity of wallet buttons
 
 To set the number of wallet buttons visible on the product page, perform the following steps:
 
-1. Update `config.json` by adding `paymentbuttons-number-of-buttons` configuration with a default value.
+1. In `config.json`, add a `paymentbuttons-number-of-buttons` property and provide a default value.
 
-```
+```json title="config.json, number of buttons default"
 {
   ...,
-  settings: {
+  "settings": {
     ...,
     "paymentbuttons-number-of-buttons": 1
   }
@@ -65,11 +70,12 @@ To set the number of wallet buttons visible on the product page, perform the fol
 ```
 
 <!-- theme: info -->
->If the settings option is not provided, then only one button will be shown by default. The customer will have an access to other buttons by clicking on **More payment options** button.
+> #### Default number of buttons
+> If the `paymentbuttons-number-of-buttons` property is not defined, only **one** button will be shown. The customer will have access to any other buttons by clicking **More payment options**.
 
-2. Update `schema.json` to add base wallet buttons count section into the Payments section for display in Page builder.
+2. To add a **Page Builder** dialog for the merchant to configure the number of visible wallet buttons, add the following to the **Payments** section of `schema.json`:
 
-```
+```json title="schema.json, checkbox configuration"
 {
   ...,
   {
@@ -106,7 +112,7 @@ The button should look as follows:
 
 ![wallet-buttons-02](https://storage.googleapis.com/bigcommerce-production-dev-center/images/wallet-buttons-02.png "wallet-buttons-quantity")
 
-### Adding sorting for the wallet buttons
+## Adding sorting for the wallet buttons
 
 Merchants can choose an order for rendering wallet buttons. To add a sorting feature, perform the following steps.
 
@@ -218,9 +224,9 @@ The sorting feature should look as follows:
 ```
 
   
-### Adding wallet buttons to theme markup
+## Adding wallet buttons to theme markup
 
-To render wallet buttons, you should paste the following code under the **Add to Cart**  button on the Product details page:
+To render wallet buttons, you should paste the following code under the **Add to Cart**  button on the PDP:
 
 <!-- theme: info -->
 >Additional steps may be required depending on your setup.
