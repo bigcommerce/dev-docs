@@ -5,7 +5,7 @@ This article explains how to add wallet buttons to the Product Detail Page, or _
 
 <!-- theme: info -->
 > #### Familiarity with Stencil development
-> The file structures for each theme can be unique; therefore, some knowledge of [Stencil](/stencil-docs/getting-started/about-stencil ) development may be required to render wallet buttons. The examples described below are using the Cornerstone theme.
+> The file structures for each theme can be unique; therefore, some knowledge of [Stencil](/stencil-docs/getting-started/about-stencil ) development may be required to render wallet buttons. The examples below use the Cornerstone theme.
 
 
 <!-- theme: info -->
