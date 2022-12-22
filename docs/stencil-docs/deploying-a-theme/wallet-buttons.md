@@ -1,12 +1,10 @@
 # Configuring Wallet Buttons
 
-This article explains how to add wallet buttons to the Product Detail Page, or _PDP_. Cornerstone 6.7.0+ supports wallet buttons by default; however, you can upgrade older themes to support wallet buttons by following the steps outlined in this article. 
-
-
 <!-- theme: info -->
 > #### Familiarity with Stencil development
-> The file structures for each theme can be unique; therefore, some knowledge of [Stencil](/stencil-docs/getting-started/about-stencil ) development may be required to render wallet buttons. The examples below use the Cornerstone theme.
+> The file structures for each theme can be unique; therefore, some knowledge of [Stencil](/stencil-docs/getting-started/about-stencil) development may be required to render wallet buttons. The examples in this article use the Cornerstone theme.
 
+This article explains how to add wallet buttons to the Product Detail Page, or _PDP_. Cornerstone 6.7.0+ supports wallet buttons by default; however, you can upgrade older themes to support wallet buttons by following the steps outlined in this article.
 
 <!-- theme: info -->
 > #### Wallet button availability
