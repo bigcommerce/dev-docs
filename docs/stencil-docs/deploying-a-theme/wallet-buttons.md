@@ -10,7 +10,7 @@ This article explains how to add wallet buttons to the Product Detail Page, or _
 
 ## Adding wallet buttons
 
-By default, wallet buttons are not enabled on the PDP. To add wallet buttons, you must enable the merchant to toggle wallet buttons on and off by performing the following steps: 
+By default, wallet buttons are not enabled on the PDP. To add wallet buttons, you must first prepare your theme by adding a checkbox to Page Builder. The checkbox allows the merchant to control the display of wallet buttons on the PDP on your store. Perform the following steps to add the checkbox: 
 
 1. In `config.json`, add a `show_quick_payment_buttons` property and provide a default value.
 
@@ -28,7 +28,7 @@ By default, wallet buttons are not enabled on the PDP. To add wallet buttons, yo
 }
 ```
 
-2. To create a checkbox for the merchant to toggle the feature on and off in Page Builder, add the following code to the **Products** section of `schema.json`:
+2. To create a checkbox for the merchant to toggle the feature on and off in Page Builder, add the following code to the Products section of `schema.json`:
 
 ```json title="schema.json, checkbox configuration" lineNumbers
 {
@@ -73,7 +73,7 @@ To set the number of wallet buttons visible on the product page, perform the fol
 > #### Default number of buttons
 > If the `paymentbuttons-number-of-buttons` property is not defined, only **one** button will be shown. The customer will have access to any other buttons by clicking **More payment options**.
 
-2. To add a **Page Builder** dialog for the merchant to configure the number of visible wallet buttons, add the following code to the **Payments** section of `schema.json`:
+2. To add a **Page Builder** dialog for the merchant to configure the number of visible wallet buttons, add the following code to the Payments section of `schema.json`:
 
 ```json title="schema.json, visible wallet buttons" lineNumbers
 {
@@ -112,7 +112,7 @@ The button should look as follows:
 
 ![wallet-buttons-02](https://storage.googleapis.com/bigcommerce-production-dev-center/images/wallet-buttons-02.png "wallet-buttons-quantity")
 
-## Adding sorting for the wallet buttons
+## Sorting wallet buttons
 
 Merchants can choose an order for rendering wallet buttons. To add a sorting feature, perform the following steps:
 
@@ -206,7 +206,7 @@ The sorting feature should look as follows:
 <!-- theme: info -->
 >Adding "heading" for a section can be skipped if it was added before.
 
-```json title="schema.json, heading-section" lineNumbers
+```json title="schema.json, previous-heading-section" lineNumbers
 {
   ...,
   {
@@ -226,12 +226,12 @@ The sorting feature should look as follows:
   
 ## Adding wallet buttons to theme markup
 
-To render wallet buttons, you must perform the previous steps described in this article. [Add wallet buttons](#adding-wallet-buttons), [set the quantity of buttons](#setting-quantity-of-wallet-buttons), and [sort the buttons](#adding-sorting-for-the-wallet-buttons) as desired, and then paste the following code under the **Add to Cart** button on the PDP.
+To render wallet buttons, you must perform the previous steps described in this article. [Add wallet buttons](#adding-wallet-buttons), [set the quantity of buttons](#setting-quantity-of-wallet-buttons), and [sort the buttons](#sorting-wallet-buttons) as desired, and then paste the following code under the **Add to Cart** button on the PDP.
 
 <!-- theme: info -->
 >Additional steps may be required depending on your setup.
 
-```json title="schema.json, add to theme files" lineNumbers
+```json title="schema.json, render-wallet-buttons" lineNumbers
 {{#if this.with_wallet_buttons}}
   {{#if wallet_buttons}}
     <div class="your-class-for-wallet-buttons-list">
