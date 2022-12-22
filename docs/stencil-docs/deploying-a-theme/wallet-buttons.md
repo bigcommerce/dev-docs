@@ -209,7 +209,7 @@ In Page Builder, the dialog appears as follows:
 ![wallet-buttons-03](https://storage.googleapis.com/bigcommerce-production-dev-center/images/wallet-buttons-03.png "wallet-buttons-sorting")
 
 <!-- theme: info -->
->Adding "heading" for a section can be skipped if it was added before.
+> Adding "heading" for a section can be skipped if it was added before.
 
 ```json title="schema.json, previous-heading-section" lineNumbers
 {
