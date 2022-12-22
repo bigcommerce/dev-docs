@@ -137,6 +137,11 @@
     },
     {
       "type": "item",
+      "title": "Configuring Wallet Buttons",
+      "uri": "docs/stencil-docs/deploying-a-theme/wallet-buttons.md"
+    },
+    {
+      "type": "item",
       "title": "Third-Party Widgets",
       "uri": "docs/stencil-docs/page-builder/third-party-widgets.md"
     },
