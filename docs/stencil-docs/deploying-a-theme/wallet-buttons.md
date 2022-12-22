@@ -73,7 +73,7 @@ To set the number of wallet buttons visible on the product page, perform the fol
 > #### Default number of buttons
 > If the `paymentbuttons-number-of-buttons` property is not defined, only **one** button will be shown. The customer will have access to any other buttons by clicking **More payment options**.
 
-2. To add a **Page Builder** dialog for the merchant to configure the number of visible wallet buttons, add the following to the **Payments** section of `schema.json`:
+2. To add a **Page Builder** dialog for the merchant to configure the number of visible wallet buttons, add the following code to the **Payments** section of `schema.json`:
 
 ```json title="schema.json, visible wallet buttons"
 {
@@ -127,7 +127,7 @@ Merchants can choose an order for rendering wallet buttons. To add a sorting fea
   }
 }
 ```
-2. Update `schema.json` to add the sorting wallet buttons component into the Payments section for display in Page builder.
+2. Update `schema.json` to add the sorting wallet buttons component into the Payments section for display in Page Builder.
 
 ```
 {
@@ -226,7 +226,7 @@ The sorting feature should look as follows:
   
 ## Adding wallet buttons to theme markup
 
-To render wallet buttons, you must perform the previous steps described in this article. [Add wallet buttons](#adding-wallet-buttons), [set the quantity of buttons](#setting-quantity-of-wallet-buttons), and [sort the buttons](#adding-sorting-for-the-wallet-buttons) as desired and then paste the following code under the **Add to Cart**  button on the PDP:
+To render wallet buttons, you must perform the previous steps described in this article. [Add wallet buttons](#adding-wallet-buttons), [set the quantity of buttons](#setting-quantity-of-wallet-buttons), and [sort the buttons](#adding-sorting-for-the-wallet-buttons) as desired, and then paste the following code under the **Add to Cart** button on the PDP:
 
 <!-- theme: info -->
 >Additional steps may be required depending on your setup.
