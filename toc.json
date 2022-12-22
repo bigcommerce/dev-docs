@@ -93,6 +93,11 @@
       "uri": "docs/stencil-docs/storefront-customization/using-disqus.md"
     },
     {
+      "type": "item",
+      "title": "Early Hints",
+      "uri": "docs/stencil-docs/storefront-customization/early-hints.md"
+    },
+    {
       "type": "divider",
       "title": "Accessibility"
     },
