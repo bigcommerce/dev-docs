@@ -5,7 +5,7 @@ You can use your widget template settings to define a data type in the schema_tr
 
 <!-- theme: info -->
 > #### Force reload
-> Some data types require the `force_reload` field. `force_reload` occurs when Page Builder reloads when the setting defined by `schema.json` changes.
+> Some data types utilize the `force_reload` field. Setting `"force_reload": true` allows Page Builder to reload when the setting defined by `schema.json` changes.
 
 ## Checkbox
 
