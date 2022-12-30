@@ -8,7 +8,7 @@ info:
 
     ## Authentication
 
-    Authenticate requests by sending an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) `access_token` via `X-Auth-Token` HTTP heade
+    Authenticate requests by sending an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes) `access_token` via `X-Auth-Token` HTTP header.
     ### Example
 
     ```http
@@ -96,7 +96,7 @@ info:
     |`category`|Route to category pages |    
     |`blog`|Route to blog page|    
     |`home`|Route to storefront homepage|
-    |`cart`|Route to shopper's cart|
+    |`cart`|Route to shopper’s cart|
     |`checkout`|Route to checkout page|
     |`search`|Route to store search page|
     |`account`|Route to account profile page|
@@ -296,7 +296,7 @@ paths:
         schema:
           type: string
     get:
-      summary: Get a Site's Routes
+      summary: Get a Site’s Routes
       operationId: index-site-routes
       parameters:
         - name: site_id
@@ -354,7 +354,7 @@ paths:
                         total_pages: 1
       tags:
         - Site Routes
-      description: Get a site's routes.
+      description: Get a site’s routes.
     post:
       summary: Create a Site Route
       operationId: post-site-route
@@ -437,7 +437,7 @@ paths:
 
         ## Usage Notes
         * `id` is required when updating an existing route.
-      summary: Update a Site's Routes
+      summary: Update a Site’s Routes
       parameters:
         - in: path
           name: site_id
@@ -448,9 +448,7 @@ paths:
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/siteRoute_Full'
+              $ref: '#/components/schemas/siteRoute_Full'
         x-examples:
           application/json:
             - id: 1
@@ -501,7 +499,7 @@ paths:
                     meta: {}
       tags:
         - Site Routes
-      description: Get a site's route.
+      description: Get a site’s route.
     put:
       summary: Update a Site Route
       operationId: put-site-route
@@ -533,7 +531,7 @@ paths:
       tags:
         - Site Routes
       description: |
-        Update a site's route.
+        Update a site’s route.
     delete:
       summary: Delete a Site Route
       operationId: delete-route
@@ -553,7 +551,7 @@ paths:
           description: ''
       tags:
         - Site Routes
-      description: Delete a site's route.
+      description: Delete a site’s route.
     parameters:
       - name: store_hash
         in: path
@@ -583,8 +581,8 @@ paths:
         in: path
         required: true
     get:
-      summary: Get a Site's SSL/TLS Certificate Information
-      description: Obtain information about a site's SSL/TLS certificate.
+      summary: Get a Site’s SSL/TLS Certificate Information
+      description: Obtain information about a site’s SSL/TLS certificate.
       tags:
         - Site Certificate
       operationId: getSitesIdCertificate
@@ -597,7 +595,7 @@ paths:
                 $ref: '#/components/schemas/CertificateResponse'
               examples: {}
     put:
-      summary: Upsert a Site's SSL/TLS Certificate Information
+      summary: Upsert a Site’s SSL/TLS Certificate Information
       operationId: putSiteIdCertificate
       tags:
         - Site Certificate
@@ -744,7 +742,7 @@ components:
           enum:
             - dedicated
             - shared
-          description: 'Indicates if a private/dedicated SSL is installed on this site, or if it''s using shared SSL.'
+          description: Indicates whether a site is using a private/dedicated SSL or a shared SSL.
         urls:
           type: array
           description: 'All URLs that belong to the site, including `primary`, `canonical`, and `checkout` URLs.'
