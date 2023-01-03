@@ -152,7 +152,7 @@ title: Variant SKU
 -->
 
 ```graphql title="Get a variant using the variant sku" lineNumbers
-# This query retrieves 1 variant. 
+# This query retrieves one variant. 
 
 query {
   site {
