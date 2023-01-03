@@ -9,7 +9,7 @@ The GraphQL Storefront API lets you retrieve the following product features, and
 
 You can access these features for a product if a merchant makes a product visible on storefronts.
 
-This page walks you through how to retrieve info for a product. If your product has variants, see [Variants with the GraphQL Storefront API](/api-docs/storefront/graphql/variants) for how to retrieve variant info. For full schema documentation, see the [GraphQL Storefront Playground](https://developer.bigcommerce.com/api-docs/storefront/graphql/playground).
+This page walks you through the process of retrieving info for a product. If your product has variants, see [Variants with the GraphQL Storefront API](/api-docs/storefront/graphql/variants) on how to retrieve variant info. For full schema documentation, see the [GraphQL Storefront Playground](https://developer.bigcommerce.com/api-docs/storefront/graphql/playground).
 
 ## Get a Product
 
