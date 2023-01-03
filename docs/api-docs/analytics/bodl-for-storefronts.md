@@ -65,6 +65,7 @@ The `line_item` object has many common fields for browser events, including the 
 | `discount` | number | Discount applied to purchase. | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `data.cart.discount_amount` |
 | `brand_name` | string | Brand name. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.brand_name` |
 | `category_names[]` | array | Category names. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.categories[]` |
+| `variant_id` | integer | ID of the variant. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.variants.id` | 
 
 
 ## Example implementation
