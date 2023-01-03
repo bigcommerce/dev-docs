@@ -138,7 +138,7 @@ title: Response
 
 ## Get product prices and dimensions
 
-You can query prices and dimensions for a product. The following query retrieves prices and dimensions for the specified product:
+Query prices and dimensions for a product. The following query retrieves prices and dimensions for the specified product:
 
 
 <!--
