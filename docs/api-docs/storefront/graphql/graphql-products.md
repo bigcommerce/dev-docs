@@ -53,7 +53,7 @@ fragment ProductFields on Product {
 
 <!-- theme:info -->
 > #### Get product versus variant
-> The Product object can also be used to retrieve variant info. For example, if you use the identifier `variantEntityId` or `optionValueIds`, you will retrieve info for the variant overlaid on the Product object (if the variant has a different values than the product). 
+> The Product object is also used to retrieve variant info. For example, if you use the identifier `variantEntityId` or `optionValueIds`, you will retrieve info for the variant overlaid on the Product object (if the variant has a different values than the product). 
 > See [Get a variant](/api-docs/storefront/graphql/variants#get-a-variant) for more info.
 
 ### Get a product with the `products` field
