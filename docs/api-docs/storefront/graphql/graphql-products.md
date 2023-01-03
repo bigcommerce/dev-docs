@@ -466,7 +466,7 @@ title: Response
 
 ## Get product images
 
-You can query the images for products. The default image is a product's thumbnail image.
+Query the images for products. Note that the default image is a thumbnail for the product.
 
 The following example retrieves the first two images and the default image for the specified product:
 
