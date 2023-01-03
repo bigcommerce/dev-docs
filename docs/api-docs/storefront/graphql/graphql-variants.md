@@ -105,7 +105,7 @@ Query all variants by omitting an argument for `variants`.
 
 ### Get a variant with the `product` field
 
-You can also query a variant by specifying a variant identifier for the `product` field. You can use the variant's entity ID, variant option value entity IDs, or variant SKU:
+Query a variant by specifying a variant identifier for the `product` field. Use the variant's entity ID, variant option value entity IDs, or variant SKU:
 
 <!--
 type: tab
