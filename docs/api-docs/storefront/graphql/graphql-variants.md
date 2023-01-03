@@ -131,7 +131,7 @@ title: Variant option value entity ID
 -->
 
 ```graphql title="Get a variant using variant option values" lineNumbers
-# This query retrieves 1 variant.
+# This query retrieves one variant.
 # You must specify the entity ID for the value of each variant option.
 
 query {
