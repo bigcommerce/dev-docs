@@ -730,7 +730,7 @@ title: Response
 
 ## Get variant metafields
 
-You can query variant metafields by specifying the namespace for the variant metafields. Only metafields that have storefront permissions are returned (i.e. permissions must be set to `write_and_sf_access` or `read_and_sf_access`).
+Query variant metafields by specifying the namespace for the variant metafields. Only metafields that have storefront permissions are returned (i.e. permissions must be set to `write_and_sf_access` or `read_and_sf_access`).
 
 <!-- theme:info -->
 > #### Variant vs product metafields
