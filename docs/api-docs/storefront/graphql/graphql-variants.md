@@ -15,7 +15,7 @@ This page walks you through how to retrieve info for a variant. To retrieve info
 
 ### Get a variant with the `variants` field
 
-You can query a variant by specifying a variant identifier, for example, the variant `entityId` or `optionValueId`, for the `variants` field:
+Query a variant by specifying a variant identifier. For instance, use the variant `entityId` or `optionValueId` for the `variants` field as shown here:
 
 <!--
 type: tab
