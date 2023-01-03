@@ -551,7 +551,7 @@ title: Query
 -->
 
 ```graphql title="Example query: Get product images at different resolutions" lineNumbers
-# This query retrieves 4 images.
+# This query retrieves four images.
 # This query uses aliases. To learn more about aliases, see https://graphql.org/learn/queries/#aliases.
 
 query {
