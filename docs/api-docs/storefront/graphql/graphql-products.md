@@ -32,7 +32,7 @@ query {
 &nbsp;
 
 ```graphql title="Get a product with the product field" lineNumbers
-# This query retrieves 2 products.
+# This query retrieves two products.
 # This query uses aliases and fragments. For more, see https://graphql.org/learn/queries.
 
 query {
