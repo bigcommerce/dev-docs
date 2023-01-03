@@ -33,7 +33,7 @@ query {
 
 ```graphql title="Get a product with the product field" lineNumbers
 # This query retrieves two products.
-# This query uses aliases and fragments. For more, see https://graphql.org/learn/queries.
+# This query uses aliases and fragments. To learn more about queries, see https://graphql.org/learn/queries.
 
 query {
   site {
@@ -147,7 +147,7 @@ title: Query
 -->
 
 ```graphql title="Example query: Get prices and dimensions for a product" lineNumbers
-# This query uses fragments. For more, see https://graphql.org/learn/queries/#fragments.
+# This query uses fragments. To learn more about fragments, see https://graphql.org/learn/queries/#fragments.
 
 query {
   site {
@@ -269,7 +269,7 @@ title: Query
 -->
 
 ```graphql title="Example query: Get product options for a product" lineNumbers
-# This query uses interfaces. For more, see https://graphql.org/learn/schema/#interfaces.
+# This query uses interfaces. To learn more about interfaces, see https://graphql.org/learn/schema/#interfaces.
 
 query {
   site {
@@ -368,7 +368,7 @@ title: Query
 -->
 
 ```graphql title="Example query: Get product options for a product" lineNumbers
-# This query uses interfaces. For more, see https://graphql.org/learn/schema/#interfaces.
+# This query uses interfaces. To learn more about interfaces, see https://graphql.org/learn/schema/#interfaces.
 
 query {
   site {
@@ -552,7 +552,7 @@ title: Query
 
 ```graphql title="Example query: Get product images at different resolutions" lineNumbers
 # This query retrieves 4 images.
-# This query uses aliases. For more, see https://graphql.org/learn/queries/#aliases.
+# This query uses aliases. To learn more about aliases, see https://graphql.org/learn/queries/#aliases.
 
 query {
   site {
