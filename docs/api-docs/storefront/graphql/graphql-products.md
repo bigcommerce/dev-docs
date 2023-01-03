@@ -675,7 +675,7 @@ title: Response
 
 ## Get product custom fields
 
-You can query the custom fields for products. The following example retrieves the first two custom fields for the specified product:
+Query the custom fields for products. The following example retrieves the first two custom fields for the specified product:
 
 <!--
 type: tab
