@@ -802,7 +802,7 @@ title: Response
 
 ## Get product reviews
 
-You can query reviews for products. You retrieve only reviews that a merchant has approved. The following example retrieves the first review for the specified product: 
+Query reviews for products. You retrieve only reviews that a merchant has approved. The following example retrieves the first review for the specified product: 
 
 <!--
 type: tab
