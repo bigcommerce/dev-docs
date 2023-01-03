@@ -58,7 +58,7 @@ fragment ProductFields on Product {
 
 ### Get a product with the `products` field
 
-You can query a list of products by using the `products` field and specifying product identifiers, for example, the product `entityID`s:
+Query a list of products by using the `products` field and specifying product identifiers, for example, the product `entityID`s:
 
 ```graphql title="Get a product with the products field" lineNumbers
 # This example retrieves 1 product.
