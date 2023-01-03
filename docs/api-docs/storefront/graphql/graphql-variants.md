@@ -228,7 +228,7 @@ title: Response
 
 ## Get variant prices and dimensions
 
-You can query the prices and dimensions for variants. The following query retrieves prices and dimensions for the specified variant:
+Query the prices and dimensions for variants. The following query retrieves prices and dimensions for the specified variant:
 
 <!--
 type: tab
