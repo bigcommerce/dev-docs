@@ -101,7 +101,7 @@ fragment VariantFields on Variant {
 
 <!-- type: tab-end -->
 
-You can query all variants by not including an argument for `variants`.
+Query all variants by omitting an argument for `variants`.
 
 ### Get a variant with the `product` field
 
