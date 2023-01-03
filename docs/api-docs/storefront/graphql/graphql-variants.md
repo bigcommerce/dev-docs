@@ -348,7 +348,7 @@ title: Response
 
 ## Get variant options and variant option values
 
-You can query the variant options and the variant option values that are associated with variants. 
+Query variant options, and their associated values, that are available with variants. 
 
 ### Get variant options
 
