@@ -83,7 +83,7 @@ You can also query for featured products, related products, and more. See the [G
 
 ## Get product identifiers
 
-You can query basic info for products. The following query retrieves product identifiers and other basic info for the specified product:
+Query basic info for products. The following query retrieves both product identifiers and basic information for the specified product:
 
 <!--
 type: tab
