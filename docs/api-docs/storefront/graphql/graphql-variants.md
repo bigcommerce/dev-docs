@@ -69,7 +69,7 @@ query {
 &nbsp;
 
 ```graphql title="Get a variant using variant option values" lineNumbers
-# This query retrieves 2 variants.
+# This query retrieves two variants.
 # For each variant, you must specify the entity ID for the value of each variant option.
 # This query uses aliases and fragments. For more, see https://graphql.org/learn/queries.
 
