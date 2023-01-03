@@ -59,12 +59,10 @@ The `line_item` object has many common fields for browser events, including the 
 | `sku` | string | User-defined SKU for the product or variant (whichever is applied). | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.sku` or `data.variants.sku` |
 | `base_price` | number | Price of product. Default price in the control panel. The price should include or exclude tax, based on the store settings. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.price` |
 | `sale_price` | number | Price of product after sale. The price should include or exclude tax, based on the store settings. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.sale_price` |
-| `retail_price` | number | Maximum suggested retail price (MSRP). The price should include or exclude tax, based on the store settings. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.retail_price` |
 | `purchase_price` | number | Final price of product that the shopper actually pays before taxes and other charges. Equals the `base_price` unless there is a `sale_price`. The price should include or exclude tax, based on the store settings. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.price` or <br> `data.sale_price` |
 | `quantity` | number | Number of items of product purchased. | [Get a cart](/api-reference/store-management/carts/cart/getacart) <br> `data.line_items.physical_items.quantity` or <br> `data.line_items.digital_items.quantity` |
 | `currency` | string | [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) for the transaction. | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br>  `data.cart.currency.code`  |
 | `discount` | number | Discount applied to purchase. | [Get a checkout](/api-reference/store-management/checkouts/checkout/checkoutsbycheckoutidget) <br> `data.cart.discount_amount` |
-| `index` | integer | Position of item in a list. | - |
 | `brand_name` | string | Brand name. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.brand_name` |
 | `category_names[]` | array | Category names. | [Get a product](/api-reference/store-management/catalog/products/getproductbyid) <br> `data.categories[]` |
 
