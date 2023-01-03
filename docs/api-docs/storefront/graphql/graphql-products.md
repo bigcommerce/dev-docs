@@ -77,7 +77,7 @@ query {
 }
 ```
 
-You can query all products by not including an argument for `products`.
+Query all products by not including an argument for `products`.
 
 You can also query for featured products, related products, and more. See the [GraphQL Storefront Playground](https://developer.bigcommerce.com/graphql-playground) for full schema documentation.
 
