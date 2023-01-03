@@ -114,7 +114,7 @@ title: Variant entity ID
 
 
 ```graphql title="Get a variant using the variant entity ID" lineNumbers
-# This query retrieves 1 variant. 
+# This query retrieves one variant. 
 
 query {
   site {
