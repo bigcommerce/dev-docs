@@ -737,7 +737,7 @@ title: Response
 
 ## Get product gift wrapping options
 
-You can query gift wrapping options that are available for a product. The following example retrieves the first two gift wrapping options for the specified product:
+Query gift wrapping options that are available for a product. The following example retrieves the first two gift wrapping options for the specified product:
 
 <!--
 type: tab
