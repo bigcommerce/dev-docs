@@ -18,7 +18,7 @@ This page walks you through the process of retrieving info for a product. If you
 You can query a product by using the `product` field and specifying a product identifier, for example, the product `entityId`.
 
 ```graphql title="Get a product with the product field" lineNumbers
-# This query retrieves 1 product.
+# This query retrieves one product.
 
 query {
   site {
