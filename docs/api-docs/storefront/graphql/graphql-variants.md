@@ -564,7 +564,7 @@ title: Response
 ```
 <!-- type: tab-end -->
 
-You can also retrieve variant option values using the `options` field. The following query retrieves the variant option values that are associated with the specified variant. The example query retrieves only the first two variant options associated with the base product.
+Retrieve variant option values using the `options` field. The following query retrieves the variant option values that are associated with the specified variant. The example query retrieves only the first two variant options associated with the base product.
 
 <!--
 type: tab
