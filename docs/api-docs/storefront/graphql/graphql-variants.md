@@ -169,7 +169,7 @@ Specifying a variant identifier for the `product` field returns variant informat
 
 ## Get variant identifiers
 
-You can query identifying info for variants. The following query retrieves identifying info for the specified variant:
+Query identifying info for variants by using the following query:
 
 <!--
 type: tab
