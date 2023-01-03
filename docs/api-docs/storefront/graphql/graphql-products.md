@@ -604,7 +604,7 @@ title: Response
 
 ## Get product metafields
 
-You can query product metafields by specifying the product metafield's namespace. Only metafields that have storefront permissions are returned (i.e. permissions must be set to `write_and_sf_access` or `read_and_sf_access`).
+Query product metafields by specifying the product metafield's namespace. Only metafields that have storefront permissions are returned (i.e. permissions must be set to `write_and_sf_access` or `read_and_sf_access`).
 
 <!-- theme:info -->
 > #### Product vs variant metafields 
