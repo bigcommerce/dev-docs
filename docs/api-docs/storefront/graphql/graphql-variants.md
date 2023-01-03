@@ -669,7 +669,7 @@ title: Response
 
 ## Get variant images
 
-You can query the images for variants. The following query retrieves the image for the specified variant:
+Query the images for variants. The following query retrieves the image for the specified variant:
 
 <!--
 type: tab
