@@ -959,9 +959,9 @@
       "items": [
         {
           "type": "item",
-          "title": "Big Open Data Layer (BODL)",
-          "href": "/api-docs/partner/analytics-solutions/bodl",
-          "uri": "docs/api-docs/analytics/bodl-overview.md"
+          "title": "BODL for Storefronts",
+          "href": "/api-docs/analytics/bodl-for-storefronts",
+          "uri": "docs/api-docs/analytics/bodl-for-storefronts.md"
         }
       ]
     },
