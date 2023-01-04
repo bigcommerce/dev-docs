@@ -942,14 +942,16 @@
       "uri": "docs/api-docs/partner/staying-current.md"
     },
     {
-      "type": "divider",
-      "title": "Analytics"
-    },
-    {
-      "type": "item",
-      "title": "BODL for Storefronts",
-      "href": "/api-docs/analytics/bodl-for-storefronts",
-      "uri": "docs/api-docs/analytics/bodl-for-storefronts.md"
+      "type": "group",
+      "title": "Analytics Solutions",
+      "items": [
+        {
+          "type": "item",
+          "title": "BODL for Storefronts",
+          "href": "/api-docs/analytics/bodl-for-storefronts",
+          "uri": "docs/api-docs/analytics/bodl-for-storefronts.md"
+        }
+      ]
     },
     {
       "type": "group",
