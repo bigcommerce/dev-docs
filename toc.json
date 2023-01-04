@@ -303,6 +303,12 @@
         },
         {
           "type": "item",
+          "title": "Tax Rates and Zones",
+          "href": "/api-docs/store-management/tax/tax-rates-and-zones",
+          "uri": "docs/api-docs/tax/tax-rates-zones.md"
+        },
+        {
+          "type": "item",
           "title": "Tax Properties",
           "href": "/api-docs/store-management/tax/tax-properties",
           "uri": "docs/api-docs/tax/tax-properties.md"
@@ -944,6 +950,18 @@
       "title": "BODL for Storefronts",
       "href": "/api-docs/analytics/bodl-for-storefronts",
       "uri": "docs/api-docs/analytics/bodl-for-storefronts.md"
+    },
+    {
+      "type": "group",
+      "title": "Staging Solutions",
+      "items": [
+        {
+          "type": "item",
+          "title": "StagingPro",
+          "href": "/api-docs/partner/staging-solutions/staging-pro",
+          "uri": "docs/api-docs/staging/staging-pro-overview.md"
+        }
+      ]
     },
     {
       "type": "group",

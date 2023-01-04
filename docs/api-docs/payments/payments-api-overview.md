@@ -35,6 +35,7 @@ The following table lists the payment gateways that are compatible with our publ
 | AdyenV2           | &check;            |                 |
 | Authorize.net     | &check;            | &check;         |
 | Barclaycard Fuse  | &check;            | &check;         |
+| BNZ               | &check;            | &check;         |
 | Bolt              | &check;            | &check;         |
 | CardConnect       |                    | &check;         |
 | Chase Integrated Payments |            | &check;         |
@@ -288,6 +289,9 @@ In the case of store credit and gift certificates:
 * If store credit and/or gift certificate covers the entire order amount, the order will be moved to an **Awaiting Fulfillment** status.
 * The order will stay in **Pending** status until it is fully paid. You can make the remaining order payment using other payment methods (credit card, stored card, or stored PayPal account) in the next payment request.
 
+<!-- theme: info -->
+> #### List stored instruments
+> Use the [Get Stored Instruments](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-stored-instruments/liststoredinstruments) endpoint to list all available stored instruments for a customer.
 
 ## Credit cards
 
