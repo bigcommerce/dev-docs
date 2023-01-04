@@ -133,6 +133,8 @@ Content-Type: application/json
 }
 ```
 
+Only use the [Revoke a token](/api-reference/store-management/tokens/api-token/revoketoken) endpoint to revoke compromised tokens under emergency situations. Uncompromised short-lived tokens do not need to be revoked.  
+
 ### Authenticating with an auto-generated Stencil token
 
 Client code in BigCommerce Stencil themes can be passed a token at render time with the `{{settings.storefront_api.token}}` Handlebars object:
