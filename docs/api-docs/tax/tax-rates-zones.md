@@ -263,7 +263,7 @@ title: Response
 
 ### Delete tax zones
 
-To delete tax zones, send a request to the [Delete tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/delete-tax-zones) endpoint. Use the `id:in` query parameter to specify the tax zones you want to delete. Deleting a tax zone cascades to remove all associated tax rates.
+To delete tax zones, send a request to the [Delete tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/delete-tax-zones) endpoint. Use the `id:in` query parameter to specify the tax zones you want to delete. Deleting a tax zone cascades to remove all associated tax rates. You cannot delete the default tax zone, whose `id` is 1.
 
 <!--
 type: tab
