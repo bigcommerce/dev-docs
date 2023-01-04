@@ -98,7 +98,7 @@ During development, you'll work with two Stripe accounts. You'll create them bot
 
 <!-- theme: info -->
 > #### Multi-tenant setup
-> Prior to installing the app, add the **first account** to the sandbox store as a payment method. When the app is installed, the UI prompts the store owner to give the app permission to connect the Stripe accounts together. Consenting initiates an OAuth authorization code grant flow to link the store's Stripe account to the app's Stripe Connect-enabled account. The graphic below shows the configuration and the integration process. 
+> Prior to installing the app, add the **first account** to the sandbox store as a payment method. When the app is installed, the UI prompts the store owner to give the app permission to link the store's Stripe account to the Stripe Connect-enabled account. Upon consent, an OAuth authorization code is granted to link both accounts together. The diagram below shows the configuration and the integration process. 
 
 ![platform-configuration](https://storage.googleapis.com/bigcommerce-production-dev-center/images/platform-configuration.png "Multi-Tenant Stripe Platform Configuration")
 
