@@ -63,7 +63,9 @@ updateView() {
 
 [getPageByGQL](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/index.js)
 
-This method takes the form `utils.api.getPageByGQL(page, callback);` and lets you render parts of a template using the GraphQL inline query in the Front Matter section.
+This method takes the form `utils.api.getPageByGQL(page, callback);`. 
+
+Render parts of a template by using an inline GraphQL query, as shown in [Front Matter Reference- GraphQL attributes](/stencil-docs/reference-docs/front-matter-reference#graphql-attributes).
 
 | Argument | Type | Description/Usage |
 |---|---|---|
