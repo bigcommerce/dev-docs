@@ -59,6 +59,26 @@ updateView() {
 - [`assets/js/theme/gift-certificate.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/gift-certificate.js)
 - [`assets/js/theme/faceted-search.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/faceted-search.js)
 
+### Get page by GraphQL
+
+[getPageByGQL](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/index.js)
+
+This method takes the form `utils.api.getPageByGQL(page, callback);`. 
+
+Render parts of a template by using an inline GraphQL query, as shown in [Front Matter Reference- GraphQL attributes](/stencil-docs/reference-docs/front-matter-reference#graphql-attributes).
+
+| Argument | Type | Description/Usage |
+|---|---|---|
+| page | String | Presentation template. (ex: `pages/store-locator`). <br> The `template` option allows you to select a particular template, or an array of templates, for rendering one page. Each value must correspond to a file present in the theme's `templates/pages/` subdirectory. |
+| callback | Function | Asynchronous function call to handle the results. |
+
+```js title="Example: getPageByGQL" lineNumbers
+utils.api.getPageByGQL('pages/store-locator', (err, response) => {
+  if (err) return;
+  modal.updateContent(response);
+});
+```
+
 ## Cart API 
 
 The following methods allow your theme to work with [cart](https://github.com/bigcommerce/stencil-utils/blob/9cf7c26b0a1f9ca9da83274ebc375e73f20acac5/src/api/cart.js) contents in customized ways.
