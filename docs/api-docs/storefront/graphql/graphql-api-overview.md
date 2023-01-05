@@ -133,7 +133,7 @@ Content-Type: application/json
 }
 ```
 
-Only use the [Revoke a token](/api-reference/store-management/tokens/api-token/revoketoken) endpoint to revoke compromised tokens under emergency situations. Allow uncompromised short-lived tokens to expire naturally, as these do not need to be revoked.
+Only use the [Revoke a token](/api-reference/store-management/tokens/api-token/revoketoken) endpoint to revoke compromised tokens under emergency situations. Let uncompromised short-lived tokens expire naturally, as you do not need to revoke these.
 
 
 ### Authenticating with an auto-generated Stencil token
