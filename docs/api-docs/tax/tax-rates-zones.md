@@ -201,7 +201,7 @@ title: Response
 <!-- theme: info -->
 > #### Note
 > - You cannot adjust the `shopper_target_settings` for the default tax zone. 
-> - All zones must have location data; `locations` cannot be an empty array in the request body.
+> - All zones must cover a specified location; `locations` cannot be an empty array in the request body.
 
 ### Get tax zones
 
@@ -269,6 +269,7 @@ title: Response
 ### Delete tax zones
 
 To delete tax zones, send a request to the [Delete tax zones](/api-reference/store-management/tax-rates-and-zones/tax-zones/delete-tax-zones) endpoint. Use the `id:in` query parameter to specify the tax zones you want to delete. Deleting a tax zone cascades to remove all associated tax rates.
+
 <!--
 type: tab
 title: Request
