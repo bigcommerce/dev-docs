@@ -447,7 +447,7 @@ components:
               description: 'Indicates whether to show both tax inclusive and tax exclusive prices when viewing a list of products; for example, on category and brand pages. This view applies to shoppers matched with this tax zone.'
         shopper_target_settings:
           type: object
-          description: 'Settings that describe which shoppers match this tax zone and help determine the most appropriate target for a shopper. The default tax zone does not have any shopper target settings, as this zone applies to all shoppers that are unable to be matched with another tax zone.'
+          description: Settings that describe which shoppers match this tax zone and help determine the most appropriate target for a shopper. You cannot define shopper target settings for the default tax zone because it must accommodate all shoppers who donʼt qualify for any other zone.
           properties:
             locations:
               type: array
@@ -510,7 +510,7 @@ components:
               description: 'Indicates whether to show both tax inclusive and tax exclusive prices when viewing a list of products; for example, on category and brand pages. This view applies to shoppers matched with this tax zone.'
         shopper_target_settings:
           type: object
-          description: 'Settings that describe which shoppers match this tax zone and help determine the most appropriate target for a shopper. The default tax zone does not have any shopper target settings, as this zone applies to all shoppers that are unable to be matched with another tax zone.'
+          description: Settings that describe which shoppers match this tax zone and help determine the most appropriate target for a shopper. You cannot define shopper target settings for the default tax zone because it must accommodate all shoppers who donʼt qualify for any other zone.
           properties:
             locations:
               type: array
