@@ -472,7 +472,7 @@ query brands {
 
 ## Complexity limits
 
-The GraphQL Storefront API uses an algorithm to calculate a complexity score for queries made against the API. The API returns the query complexity as an integer in the HTTP response header `x-bc-graphql-complexity` when you send requests that are at least partially successful (e.g. not rate limiting).    
+The GraphQL Storefront API uses an algorithm to calculate a complexity score for queries made against the API. The API returns the query complexity as an integer in the HTTP response header `x-bc-graphql-complexity` when you send a valid GraphQL request.
 
 Queries whose complexity score exceed the limit will receive an error response:
 
