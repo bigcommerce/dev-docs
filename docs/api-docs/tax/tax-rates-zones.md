@@ -199,7 +199,7 @@ title: Response
 <!-- type: tab-end -->
 
 <!-- theme: info -->
-> #### Note
+> #### Updating a tax zone
 > - You cannot adjust the `shopper_target_settings` for the default tax zone. 
 > - All zones must cover a specified location; `locations` cannot be an empty array in the request body.
 
