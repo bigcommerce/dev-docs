@@ -16,7 +16,7 @@ You can further narrow the scope of a zone by specifying one or more customer gr
 
 <!-- theme: info -->
 > #### Default tax zone
-> The default tax zone, which has a zone `id` of 1, covers locations that other zones don't cover. Shoppers in customer groups that don't match a tax zone or shoppers without a customer group fall under the default tax zone. You cannot disable or delete the default tax zone. When updating the default tax zone, you cannot adjust the locations or customer groups that it covers.  
+> The default tax zone, which has a zone `id` of 1, covers locations that other zones don't cover. Shoppers in customer groups that don't match a tax zone or shoppers that don't belong in a customer group fall under the default tax zone. You cannot disable or delete the default tax zone. When updating the default tax zone, you cannot adjust the locations or customer groups that it covers.  
 
 ### Create tax zones
 
