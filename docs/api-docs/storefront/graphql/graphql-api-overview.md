@@ -474,13 +474,13 @@ query brands {
 
 The GraphQL Storefront API uses an algorithm to calculate a complexity score for queries made against the API. The API returns the query complexity as an integer in the HTTP response header `x-bc-graphql-complexity` when you send a valid GraphQL request.
 
-Queries whose complexity score exceeds the limit will receive the following error response:
+If a query's complexity score exceeds the complexity limit, you will receive the following error response:
 
 
 ```json title="Example response with complexity error"
 {
   "error": {
-    "error": "The query is too complex as it has a complexity score of 1223 out of 1000. Please remove some elements and try again"
+    "error": "The query is too complex as it has a complexity score of 12230 out of 10000. Please remove some elements and try again"
   }
 }
 ```
