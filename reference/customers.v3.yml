@@ -219,7 +219,7 @@ paths:
           $ref: '#/components/responses/CustomerCollectionResponse'
     post:
       description: |-
-        Creates Customers. Multiple customers can be created in one call.
+        Creates Customers. Create up to 10 customers in one call.
 
         **Required Fields**
         * last_name
@@ -239,8 +239,8 @@ paths:
         * attribute_value -- This is input as a string, regardless of the [Type](/api-reference/customer-subscribers/v3-customers-api/models/type).
 
         **Limits**
-        * Limit of 10 concurrent requests.
-
+        * Limit of 10 concurrent requests 
+        
         **Notes**
 
         A customer can be created with global access or channel-specific access.
@@ -305,6 +305,8 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/CustomerCollectionResponse'
+        '413':
+          description: The request payload is too large. The maximum number of items allowed in the array is 10.
         '422':
           description: The *Customer* was not valid. This is the result of missing required fields or trying to edit a read only field. See the response for more details.
           content:
@@ -345,6 +347,8 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/CustomerCollectionResponse'
+        '413':
+          description: The request payload is too large. The maximum number of items allowed in the array is 10.
         '422':
           description: |
             The `Customer` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
