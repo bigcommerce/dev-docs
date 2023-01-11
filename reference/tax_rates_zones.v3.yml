@@ -1,4 +1,4 @@
-openapi: '3.0.0'
+openapi: '3.1.0'
 info:
   title: Tax Rates & Zones
   version: '1.0.0'
@@ -21,7 +21,7 @@ paths:
       - $ref: '#/components/parameters/Accept'
     get:
       parameters:
-      - $ref: '#/components/parameters/idIn'
+        - $ref: '#/components/parameters/zoneIdIn'
       tags:
         - Tax Zones
       summary: Get Tax Zones
@@ -169,11 +169,16 @@ paths:
                     meta: {}
     delete:
       parameters:
-        - $ref: '#/components/parameters/idIn'
+        - $ref: '#/components/parameters/zoneIdIn'
       tags:
         - Tax Zones
       summary: Delete Tax Zones
-      description: Delete one or more tax zones. Deleting a tax zone removes all associated tax rates.
+      description: |-
+        Delete one or more tax zones. Deleting a tax zone removes all associated tax rates.
+
+        <!-- theme:info -->
+        > You must specify which zone(s) to delete using the `id:in` query parameter.
+
       operationId: delete-tax-zones
       responses:
         '204':
@@ -189,13 +194,8 @@ paths:
       description: Retrieve a list of tax rates.
       operationId: get-tax-rates
       parameters:
-        - name: 'tax_zone_id:in'
-          in: query
-          example: '12,34,56'
-          schema:
-            type: string
-          description: Filter by tax zone `id`. Use comma-separated list of IDs for multiple tax zones.
-          required: true
+        - $ref: '#/components/parameters/rateIdIn'
+        - $ref: '#/components/parameters/taxZoneIdIn'
       responses:
         '200':
           description: OK
@@ -287,11 +287,16 @@ paths:
                     meta: {}
     delete:
       parameters:
-        - $ref: '#/components/parameters/idIn'
+        - $ref: '#/components/parameters/rateIdIn'
       tags:
         - Tax Rates
       summary: Delete Tax Rates
-      description: Delete one or more tax rates.
+      description: |- 
+        Delete one or more tax rates.
+
+        <!-- theme:info -->
+        > You must specify which rate(s) to delete using the `id:in` query parameter.
+
       operationId: delete-tax-rates
       responses:
         '204':
@@ -788,11 +793,33 @@ components:
     idIn:
       name: 'id:in'
       in: query
-      example: '12,34,56'
       schema:
-        type: string
-      description: Filter by tax zone `id`. Use a comma-separated list of IDs for multiple tax zones.
-      required: true
+        type: array
+        items:
+          type: integer
+        minItems: 1
+      style: form
+      explode: false
+      description: Filter by `id`. Use a comma-separated CSV string of IDs for multiple selections. For example, `5` or `12,34,56`.
+      required: false
+    zoneIdIn:
+      $ref: '#/components/parameters/idIn'
+      description: Filter by tax zone `id`. Use a comma-separated CSV string of IDs for multiple tax zones. For example, `5` or `12,34,56`.
+    rateIdIn:
+      $ref: '#/components/parameters/idIn'
+      description: Filter by tax rate `id`. Use a comma-separated CSV string of IDs for multiple tax rates. For example, `5` or `12,34,56`.
+    taxZoneIdIn:
+      name: 'tax_zone_id:in'
+      in: query
+      schema:
+        type: array
+        items:
+          type: integer
+        minItems: 1
+      style: form
+      explode: false
+      description: Filter by tax zone `id`. Use a comma-separated CSV string of IDs for multiple tax zones. For example, `5` or `12,34,56`.
+      required: false
 security:
   - X-Auth-Token: []
 
