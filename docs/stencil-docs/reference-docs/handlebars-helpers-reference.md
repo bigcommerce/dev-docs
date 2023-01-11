@@ -1214,6 +1214,19 @@ Appends key values to a URL.
 
 Strips query string from a URL.
 
+#### Parameters
+
+- `url` {String}: The URL containing the query parameter.
+
+#### Example
+
+```handlebars
+{{stripQuerystring "http://example.com?tests=true"}}
+<!-- results in: http://example.com -->
+```
+
+- [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/stripQuerystring.js)
+
 ### {{strReplace}}
 
 ```handlebars
