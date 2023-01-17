@@ -133,7 +133,11 @@ If your application reads redirects-related data, be sure to filter by the appro
 
 Previously, the [Activate store theme](/api-reference/store-management/themes/theme-actions/activatestoretheme) endpoint accepted a `variation_id` and a `which` value. This has changed.
 
-Because we now support installing different themes and/or theme configurations for each storefront, you must now _instead_ supply a `site_id` and `configuration_id` to indicate the storefront to which you wish to apply a theme and a corresponding configuration.
+Because we now support installing different themes and/or theme configurations for each storefront, you must supply a `variation_id` and `configuration_id` for the theme configuration you want to apply, as well as a `site_id` or `channel_id` for the target storefront. The `which` value is not supported for multi-storefront installations.
+
+<!-- theme: info -->
+> #### Locating the configuration ID
+> The `configuration_id` is the same as a configuration's `uuid`, returned in the [Get Theme Configuration](/api-reference/store-management/themes/theme-configurations/getthemesuuidconfigurations) response body.
 
 ![themes-diagram.webp](https://storage.cloud.google.com/bigcommerce-production-dev-center/images/msf-beta-guide/themes-diagram.webp)
 [Themes API documentation](/api-reference/store-management/themes)

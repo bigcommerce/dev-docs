@@ -3,7 +3,9 @@
 # AMP for the BigCommerce WordPress plugin
 #### Prepared by XWP for BigCommerce
 
- 
+<!-- theme: warning -->
+> ### Warning
+> Google AMP is being deprecated in January 2023. We will continue to support existing merchants who use Google AMP, however new merchants won't have the ability to implement it. Stay up-to-date with the latest details around this effort in our [Developer Changelog](https://developer.bigcommerce.com/changelog#).
 
 ## What's AMP?
 

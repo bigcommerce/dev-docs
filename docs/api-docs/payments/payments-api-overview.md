@@ -35,6 +35,7 @@ The following table lists the payment gateways that are compatible with our publ
 | AdyenV2           | &check;            |                 |
 | Authorize.net     | &check;            | &check;         |
 | Barclaycard Fuse  | &check;            | &check;         |
+| BNZ               | &check;            | &check;         |
 | Bolt              | &check;            | &check;         |
 | CardConnect       |                    | &check;         |
 | Chase Integrated Payments |            | &check;         |
@@ -94,7 +95,7 @@ The store must:
 * use Optimized One-Page Checkout;
 * have stored credit cards enabled.
 
-Use the store's control panel to enable charging stored credit cards. Navigate to **Store Setup › Payments** and click the tab for your payment gateway. Toggle the switch to enable Stored Credit Cards and click **Save**. For more on enabling stored payment methods, see [Enabling Stored Payment Methods](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards).
+Use the active MSF-enabled store's control panel to enable charging stored credit cards. Navigate to **Settings ›  Setup > Payments** and click the tab for your payment gateway. Toggle the switch to enable Stored Credit Cards and click **Save**. For more on enabling stored payment methods, see [Enabling Stored Payment Methods](https://support.bigcommerce.com/s/article/Enabling-Stored-Credit-Cards).
 
 ### Charging stored instruments
 
@@ -289,6 +290,9 @@ In the case of store credit and gift certificates:
 * If store credit and/or gift certificate covers the entire order amount, the order will be moved to an **Awaiting Fulfillment** status.
 * The order will stay in **Pending** status until it is fully paid. You can make the remaining order payment using other payment methods (credit card, stored card, or stored PayPal account) in the next payment request.
 
+<!-- theme: info -->
+> #### List stored instruments
+> Use the [Get Stored Instruments](https://developer.bigcommerce.com/api-reference/store-management/customers-v3/customer-stored-instruments/liststoredinstruments) endpoint to list all available stored instruments for a customer.
 
 ## Credit cards
 

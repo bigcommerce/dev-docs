@@ -32,7 +32,7 @@ For a full list of examples, see the [GraphQL Storefront API Examples repo](http
 
 ## Accessing the GraphQL Playground
 
-To access the GraphQL Storefront API Playground and documentation, [sign in to your store](https://login.bigcommerce.com/deep-links/manage) and navigate to **Advanced Settings > Storefront API Playground**.
+To access the GraphQL Storefront API Playground and documentation, [sign in to your store](https://login.bigcommerce.com/deep-links/manage) and navigate to **Settings > API> Storefront API Playground**.
 
 
 The GraphQL Storefront API Playground will open.
@@ -132,6 +132,9 @@ Content-Type: application/json
   }
 }
 ```
+
+Only use the [Revoke a token](/api-reference/store-management/tokens/api-token/revoketoken) endpoint to revoke compromised tokens under emergency situations. Let uncompromised short-lived tokens expire naturally, as you do not need to revoke these.
+
 
 ### Authenticating with an auto-generated Stencil token
 

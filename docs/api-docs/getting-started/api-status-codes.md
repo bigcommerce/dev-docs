@@ -36,14 +36,14 @@ This article covers [REST](#rest-api-http-status-codes) and [GraphQL](#graphql-a
 | **400** | **Bad Request** | Issued when a malformed request was sent. The request could not be completed due to a URL restriction. Check the URL for ports that may conflict with site permissions. |
 | **401** | **Unauthorized** | This response is sent when your client failed to provide credentials or its credentials were invalid. |
 | **403** | **Forbidden** | Returned when permissions do not allow the operation. |
-| **404** | **Not Found** | When a particular resource doesn't exist or couldn't be found. |
+| **404** | **Does not exist** | The requested entity does not exist. |
 | **405** | **Method Not Allowed** | The resource was found, but doesn't support the request method. Issued when either a specific method isn’t yet implemented on a resource, or the resource doesn’t support the method at all. For example, a `PUT` on `/orders` is invalid, but a `PUT` on `/orders/{_id_}` is valid. |
 | **406** | **Not Acceptable** | When the client specifies a response content type in the `Accept` header that is not supported. |
 | **409** | **Conflict** | A change requested by the client is being rejected, due to a condition imposed by the server. The exact reasons for this response will vary from one resource to the next. An example might be attempting to delete a category whose deletion would cause products to be orphaned. Additional information about the conflict, and about how to resolve it, might be available in the response's `details` section. |
 | **413** | **Request Entity Too Large** | When the client requests too many objects. For example, the `limit` parameter exceeded the maximum. |
 | **415** | **Unsupported Media Type** | Returned due to issues with the `Content-Type` header.  |
 | **422** | **Missing or Invalid Data** | The request cannot be processed either because it omitted required fields or because it contained invalid data. See the response for more details. |
-| **429** | **Too Many Requests** | When an OAuth client exceeds the [rate limit](/api-docs/getting-started/basics/best-practices#best-practices_rate-limits) for API requests to a store. |
+| **429** | **Too Many Requests** | When an OAuth client exceeds the [rate limit](/api-docs/getting-started/best-practices#best-practices_rate-limits) for API requests to a store. |
 
 ### 5xx Server Error 
 

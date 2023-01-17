@@ -4,15 +4,15 @@ Create, edit, and submit apps for approval using the [Developer Portal](https://
 
 <!-- theme: info -->
 > #### Store email address constraint
-> Apps that aren't approved for distribution through the [Apps Marketplace](https://bigcommerce.com/apps) can only be installed on stores owned by the same email address as the developer portal account's email address.
+> Apps that aren't approved for distribution through the [App Marketplace](https://bigcommerce.com/apps) can only be installed on stores owned by the same email address as the developer portal account's email address.
 
-## Create an app
+## Create an app profile
 
 Creating an app also creates an app API account. To learn more about app API accounts, see the [Guide to API Accounts](/api-docs/getting-started/authentication/rest-api-authentication#app-api-accounts). To create an app, do the following:
 
 <!-- theme: info -->
 > #### Information optional
-> No app profile fields are mandatory unless you're preparing the app for BigCommerce [Apps Marketplace](https://bigcommerce.com/apps) approval. To learn more about preparing an app for approval, see our [App Publishing Guide](/api-docs/apps/guide/publishing).
+> No app profile fields are mandatory unless you're preparing the app for BigCommerce [App Marketplace](https://bigcommerce.com/apps) approval. To learn more about preparing an app for approval, see our [App Publishing Guide](/api-docs/apps/guide/publishing).
 
 1. Sign in or create an account with the [Developer Portal](https://devtools.bigcommerce.com).
 
@@ -50,7 +50,7 @@ You can view the client ID and client secret any time; see the following section
 
 To learn more about using an app API account to generate store-specific access tokens, see [Implementing the OAuth Flow](/api-docs/apps/guide/auth).
 
-## Edit an app
+## Edit an app profile
 
 1. To edit an app, navigate to the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps) and click the **Edit App** pencil icon to the right of the app you want to edit.
 
@@ -97,7 +97,7 @@ To read about designing or modifying your app to support multi-storefront, see [
 
 ## Submit an app for approval
 
-1. Submit apps for [Apps Marketplace](https://www.bigcommerce.com/apps) approval by navigating to the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps), then finding the app you want approved and clicking the **Submit** checkmark icon to the right of its listing. 
+1. Submit apps for [App Marketplace](https://www.bigcommerce.com/apps) approval by navigating to the Dev Portal's [My Apps dashboard](https://devtools.bigcommerce.com/my/apps), then finding the app you want approved and clicking the **Submit** checkmark icon to the right of its listing. 
 
 ![Menu - submit](https://storage.googleapis.com/bigcommerce-production-dev-center/images/app-api-account/devtool-app-menu-submit.png "Submit an App")
 
@@ -139,4 +139,4 @@ To learn about mitigating the risks of deleting an app and its API account, see 
 * [Developer Portal](https://devtools.bigcommerce.com/) (devtools.bigcommerce.com)
 * [Partner Portal](https://partners.bigcommerce.com/English/) (partners.bigcommerce.com)
 * [Technology Partner Program](https://partners.bigcommerce.com/English/register_email.aspx) (partners.bigcommerce.com)
-* [BigCommerce Apps Marketplace](https://www.bigcommerce.com/apps/) (bigcommerce.com)
+* [BigCommerce App Marketplace](https://www.bigcommerce.com/apps/) (bigcommerce.com)

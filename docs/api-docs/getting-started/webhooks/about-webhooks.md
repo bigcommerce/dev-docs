@@ -66,7 +66,7 @@ When a webhook is triggered, BigCommerce will `POST` a light payload containing 
  }
 ```
 
-You can then make a request to [/orders/{id}](/api-reference/store-management/orders/orders/getanorder) to obtain full order details.
+You can then make a request to the [Get an order](/api-reference/store-management/orders/orders/getanorder) endpoint to obtain full order details.
 
 For more information on specific webhook events and their payloads, see [Webhook Events](/api-docs/store-management/webhooks/webhook-events).
 
@@ -83,14 +83,14 @@ The webhooks service will do its best to deliver events to the destination callb
 The webhook service may send many payloads to a single URI in quick succession. Because of this, we use a sliding scale across a ** two-minute window** to calculate a callback response success rate for each remote destination. When the webhook service receives a `2xx` response, the destination's success count is increased. If there's no response or the remote server times out, the destination's failure count is increased. Based on these two numbers, a success ratio is calculated.
 
 
-The following process will determine whether the destination URI gets blacklisted:
+The following process will determine whether the destination URI gets blocklisted:
 
-1. Once a webhook is triggered, the service checks if your callback URI is on the blacklist.
+1. Once a webhook is triggered, the service checks if your callback URI is on the blocklist.
 2. If it's not, we calculate a success ratio for the remote server based on its success/failure count in a **two minute window**.
-3. If at any point in the two minute window the success/failure ratio dips below **90%**, the destination URI's domain will be blacklisted for **three minutes**.
-4. Webhook events triggered during this time are sent to our retry queues to be executed later when the domain is no longer blacklisted and once the retry queue time has elapsed.
+3. If at any point in the two minute window the success/failure ratio dips below **90%**, the destination URI's domain will be blocklisted for **three minutes**.
+4. Webhook events triggered during this time are sent to our retry queues to be executed later when the domain is no longer blocklisted and once the retry queue time has elapsed.
 
-Once a domain is no longer blacklisted, all new webhook requests will be sent as they occur. Event requests sent to the retry queue during a blacklisting period will be delivered according to the retry queue schedule.
+Once a domain is no longer blocklisted, all new webhook requests will be sent as they occur. Event requests sent to the retry queue during a blocklisting period will be delivered according to the retry queue schedule.
 
 The webhook dispatcher will then attempt several retries (at increasing intervals) until the maximum retry limit is reached.
 
@@ -112,7 +112,7 @@ After the final retry attempt (cumulatively **48 hours** after the first deliver
 
 <!-- theme: info -->
 > #### Note
-> * A domain's success rate for a given sliding window is not calculated until `100` webhook requests are sent - this means the domain will not be blacklisted for the first `100` webhooks sent within the time window (regardless of response), as all webhooks are sent until the minimum threshold has been reached for the current time window.
+> * A domain's success rate for a given sliding window is not calculated until `100` webhook requests are sent - this means the domain will not be blocklisted for the first `100` webhooks sent within the time window (regardless of response), as all webhooks are sent until the minimum threshold has been reached for the current time window.
 > * The webhook dispatcher determines whether retries are needed based on responses from the subscribed domain as a whole, not by specific hooks. For example, `domain.com/webhook-1` and `domain.com/webhook-2` will affect each other for failures and retries, as both URLs belong to the same domain.
 
 
@@ -151,7 +151,7 @@ Accept: application/json
 }
 ```
 
-BigCommerce will send the specified headers when making callback requests to the destination server - this allows webhook destination URIs to be secured via basic authentication.
+BigCommerce will send the specified headers when making callback requests to the destination server - this allows webhook destination URIs to be secured with basic authentication.
 
 ## Troubleshooting
 
@@ -168,7 +168,7 @@ If you receive an email, or discover `is_active` is `false`, try the following:
   * Hostname on certificate doesn't match the hostname in DNS settings
   * Key and trust stores are not configured with the required intermediate certificates
 
-Once the issue is resolved, set `is_active` to `true` using the [Update a webhook](/api-reference/store-management/webhooks/webhooks/updateawebhook) endpoint so that BigCommerce starts sending event callback requests again.
+Once the issue is resolved, set `is_active` to `true` using the [Update a webhook](/api-reference/store-management/webhooks/webhooks/updateawebhook) endpoint, so that BigCommerce starts sending event callback requests again.
 
 **No 200 response from the [Create a webhook](/api-reference/webhooks/webhooks/createwebhooks) endpoint**
 * Check TLS/SSL configuration on the computer sending the request.
@@ -183,6 +183,14 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 **Unable to view your webhook**
 
 Webhooks created with one token are not visible when you retrieve webhooks using a different token. To view your webhook, use the same account token that created the webhook.
+
+**Webhooks timing out**
+
+To prevent your webhooks from timing out, send a `200` success status response immediately after receiving the request.
+
+**Duplicate webhook events**
+
+Duplicate webhooks can happen. For this reason, apps should use idempotent operations to avoid significant unintended side effects. Idempotent operations allow multiple calls without changing the result. A way to ensure webhook events are idempotent is to create a temporary "blacklist" array to store the hash of webhooks that have already been received or handled. When you receive a webhook, you can compare the hash of the received event to the list. If the hash has already been handled you can ignore the event.
 
 ## Tools
 

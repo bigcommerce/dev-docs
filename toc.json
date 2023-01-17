@@ -85,12 +85,6 @@
           "flag": "code samples",
           "uri": "docs/api-docs/storefront/graphql/graphql-api-examples.md"
         },
-        // {
-        //  "type": "item",
-        //  "title": "Storefront GraphQL Explorer",
-        //  "href": "",
-        //  "uri": ""
-        // },
         {
           "type": "item",
           "title": "GraphQL Storefront Explorer",
@@ -274,6 +268,12 @@
       ]
     },
     {
+      "type": "item",
+      "title": "Store Logs",
+      "href": "/api-docs/store-management/store-logs",
+      "uri": "docs/api-docs/store-logs/store-logs.md"
+    },
+    {
       "type": "group",
       "title": "Shipping",
       "items": [
@@ -291,6 +291,30 @@
         }
       ]
     },
+    {
+      "type": "group",
+      "title": "Tax",
+      "items": [
+        {
+          "type": "item",
+          "title": "Tax Settings",
+          "href": "/api-docs/store-management/tax/tax-settings",
+          "uri": "docs/api-docs/tax/tax-settings.md"
+        },
+        {
+          "type": "item",
+          "title": "Tax Rates and Zones",
+          "href": "/api-docs/store-management/tax/tax-rates-and-zones",
+          "uri": "docs/api-docs/tax/tax-rates-zones.md"
+        },
+        {
+          "type": "item",
+          "title": "Tax Properties",
+          "href": "/api-docs/store-management/tax/tax-properties",
+          "uri": "docs/api-docs/tax/tax-properties.md"
+        }
+      ]
+    },    
     {
       "type": "group",
       "title": "Widgets",
@@ -767,6 +791,22 @@
     },
     {
       "type": "divider",
+      "title": "Beta Features"
+    },
+    {
+      "type": "item",
+      "title": "Promotions API",
+      "href": "/promotions/beta/api-docs/overview",
+      "uri": "https://developer.bigcommerce.com/promotions/beta/api-docs/overview"
+    },
+    {
+      "type": "item",
+      "title": "Customer Segmentation API",
+      "href": "/customers/beta/api-docs/overview",
+      "uri": "https://developer.bigcommerce.com/customers/beta/api-docs/overview"
+    },
+    {
+      "type": "divider",
       "title": "Partner Information"
     },
     {
@@ -903,13 +943,25 @@
     },
     {
       "type": "group",
+      "title": "Staging Solutions",
+      "items": [
+        {
+          "type": "item",
+          "title": "StagingPro",
+          "href": "/api-docs/partner/staging-solutions/staging-pro",
+          "uri": "docs/api-docs/staging/staging-pro-overview.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
       "title": "Analytics Solutions",
       "items": [
         {
           "type": "item",
-          "title": "Big Open Data Layer (BODL)",
-          "href": "/api-docs/partner/analytics-solutions/bodl",
-          "uri": "docs/api-docs/analytics/bodl-overview.md"
+          "title": "BODL for Storefronts",
+          "href": "/api-docs/analytics/bodl-for-storefronts",
+          "uri": "docs/api-docs/analytics/bodl-for-storefronts.md"
         }
       ]
     },
@@ -917,6 +969,12 @@
       "type": "group",
       "title": "POS Solutions",
       "items": [
+        {
+          "type": "item",
+          "title": "Foundation PoC Guide",
+          "href": "/api-docs/partner/pos-solutions/foundation-guide",
+          "uri": "docs/api-docs/partner/pos/foundation-guide.md"
+        },
         {
           "type": "item",
           "title": "Catalog",
