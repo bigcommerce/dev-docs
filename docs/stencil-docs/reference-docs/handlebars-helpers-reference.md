@@ -46,6 +46,7 @@ The following table contains BigCommerce's open source [Handlebars helpers](http
 | [replace](#replace) | string | Replaces all instances of the first parameter in the second parameter. |
 | [setURLQueryParam](#seturlqueryparam) | string | Appends keys values to a URL. |
 | [stripQuerystring](#stripquerystring) | string | Removes a query string. |
+| [strReplace](#strreplace) | string | Replaces some or all occurrences of substring within the given string. |
 | [toLowerCase](#tolowercase) | string | Converts a string to lowercase. |
 | [truncate](#truncate) | string | Truncates a string. |
 | [block](#block) | template | Defines a content block. |
@@ -116,7 +117,7 @@ Assume that `{{cart.items}}` returns 10 items. You can use this helper to limit 
 {{pluck limit collection path}}
 ```
 
-Retrieves corresponding values from some or all elements in a collection using specified search key(s). Returns retrieved values in a comma-separated string. When used in conjunction with the built-in `{{each}}` helper, returns retrieved values in an array. 
+Retrieves corresponding values from some or all elements in a collection using specified search key(s). Returns retrieved values in a comma-separated string. When used in conjunction with the built-in `{{each}}` helper, returns retrieved values in an array.
 
 #### Parameters
 
@@ -204,7 +205,7 @@ In this example, the `image.jpg` file was uploaded to the WebDAV `/content/` dir
 
 You can define custom CDN endpoints to use with the `{{cdn}}` helper. This way you can include large, high-resolution image assets in themes without exceeding BigCommerce's [50 MB limit](/stencil-docs/prepare-and-upload-a-theme/bundling-and-uploading#bundling_bundling-your-theme) when bundling the theme for upload to BigCommerce.
 
-You could use a local version of the image in development and a version on a CDN such as Imgix in production. To do so, define custom CDN endpoints in your theme's [`config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json). 
+You could use a local version of the image in development and a version on a CDN such as Imgix in production. To do so, define custom CDN endpoints in your theme's [`config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json).
 
 For example:
 
@@ -483,7 +484,7 @@ Pre-fetches Google fonts. Outputs a formatted `<link>` tag for DNS-prefetch.
 
 ```handlebars
 {{stylesheet assetPath}}
-``` 
+```
 
 Renders a link tag to insert a stylesheet into a theme; returns an HTML string. (This is required if you want Theme Editor to rewrite the stylesheet file when a merchant customizes their theme.)
 
@@ -507,7 +508,7 @@ Renders a link tag to insert a stylesheet into a theme; returns an HTML string. 
 {{lang translationKey}}
 ```
 
-Maps keys to translation files based on the locale indicated by the visitor’s browser. 
+Maps keys to translation files based on the locale indicated by the visitor’s browser.
 
 #### Parameters
 
@@ -785,7 +786,7 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 {{any arg}}
 ```
 
-Renders block if one or more parameters are true. 
+Renders block if one or more parameters are true.
 
 #### Parameters
 
@@ -822,7 +823,7 @@ In this component, the `{{any}}` helper is used to determine whether a shopper h
 {{all arg}}
 ```
 
-Renders block if all parameters are true. 
+Renders block if all parameters are true.
 
 #### Parameters
 
@@ -1138,7 +1139,7 @@ Converts a JavaScript object into a JSON string.
 {{occurrences str substring}}
 ```
 
-Returns the number of occurrences of substring within the given string. 
+Returns the number of occurrences of substring within the given string.
 
 #### Parameters
 
@@ -1225,6 +1226,39 @@ Strips query string from a URL.
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/stripQuerystring.js)
+
+### {{strReplace}}
+
+```handlebars
+{{strReplace string substr newSubstr occurrence}}
+```
+
+Replaces some or all occurrences of substring within the given string.
+
+#### Parameters
+
+- `string` {String}: The original string.
+- `substr` {String}: The substring in `string` to be replaced.
+- `newSubstr` {String}: The substring to replace `substr`.
+- `occurence` {Number}: The number of occurrences of `substr` to be replaced by `newSubstr` in `string`.
+
+#### Example
+
+```handlebars
+{{strReplace "replace ME ME ME ME ME" "ME" "YOU"}}
+<!-- r=> replace YOU YOU YOU YOU YOU -->
+
+{{strReplace "replace ME ME ME ME ME" "ME" "YOU" -2}}
+<!-- r=> replace ME ME ME ME ME -->
+
+{{strReplace "replace ME ME ME ME ME" "ME" "YOU" 3}}
+<!-- r=> replace YOU YOU YOU ME ME -->
+
+{{strReplace "replace ME ME ME ME ME" "ME" "YOU" 100}}
+<!-- r=> replace YOU YOU YOU YOU YOU -->
+```
+
+- [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/strReplace.js)
 
 ### {{toLowerCase}}
 
