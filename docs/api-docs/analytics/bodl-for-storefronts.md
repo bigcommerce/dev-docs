@@ -2,6 +2,8 @@
 
 The Big Open Data Layer (shortened as _BODL_, pronounced 'Bottle') is a JavaScript object that simplifies sending data from BigCommerce-hosted storefronts to third-party analytics providers. It gives third-party scripts access to clean, consistent data. BODL makes store sites more efficient by consolidating data of interest and presenting it as a package. Each analytics script does not need to fetch the same data independently. 
 
+BODL is event-based. Scripts can capture accurate storefront data as it exists at the moment a shopper triggers any BODL-supported event.
+
 This guide illustrates the basics of using BODL data in your integration. First, it describes the standard BODL schema after a shopper triggers a specified event, so that you can see how BODL organizes event data for your integration to capture. Next, it provides an example script that uses the standard BODL object to examine BODL properties in the browser console. Finally, it gives an example of adding a BODL script to a storefront page using the Scripts API.
 
 ## Prerequisites
