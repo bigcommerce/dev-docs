@@ -24282,13 +24282,13 @@ components:
           description: |
             A product can be added to an existing brand during a product /PUT or /POST.
         inventory_level:
-          maximum: 1000000000
+          maximum: 2147483647
           minimum: 0
           type: integer
           description: |
             Current inventory level of the product. Simple inventory tracking must be enabled (See the `inventory_tracking` field) for this to take any effect.
         inventory_warning_level:
-          maximum: 1000000000
+          maximum: 2147483647
           minimum: 0
           type: integer
           description: |
