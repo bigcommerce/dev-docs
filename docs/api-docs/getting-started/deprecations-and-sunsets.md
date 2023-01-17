@@ -6,7 +6,7 @@ This article provides a reference for deprecated APIs and exposes BigCommerce's 
 
 ## Deprecations
 
-The following APIs are deprecated. We discourage using these APIs, as BigCommerce no longer supports them. Instead, consider using the suggested replacements.
+The following APIs and tools are deprecated. We discourage using these listed items, as BigCommerce no longer supports them. Instead, consider using the suggested replacements.
 
 | Deprecated API | Replacement |
 |:---------------|:------------|
@@ -24,6 +24,13 @@ The following APIs are deprecated. We discourage using these APIs, as BigCommerc
 > #### Accessing product options with V3
 > In V3, `modifiers` attach directly to products and `options` attach to variants. Use `options` and `modifiers` together to access the contents of the former V2 `options` response.
 
+### Product tools
+
+We no longer support the following general product tools.
+
+|Deprecated tool|Support end date|
+|:--|:--|
+|[Google AMP](https://amp.dev/)|January 18th 2023|
 
 ## Sunsets
 
