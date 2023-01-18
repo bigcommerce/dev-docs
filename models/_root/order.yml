@@ -425,3 +425,5 @@ properties:
       pickup_method_id:
         type: number
         example: 1
+  brand:
+    type: string
