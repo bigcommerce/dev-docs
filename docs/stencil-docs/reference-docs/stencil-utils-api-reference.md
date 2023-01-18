@@ -88,10 +88,10 @@ The following methods allow your theme to work with [cart](https://github.com/bi
 
 This method takes the form `utils.api.cart.getCart(options, callback);`.
 
-| Argument | Type | Description |
-|---|---|---|
+| Parameter | Type | Description |
+|:---|:---|:---|
 | options | object | Return product variant options |
-| callback | Function | Asynchronous function call to handle the results |
+| callback | function | Asynchronous function call to handle the results |
 
 
 ```js title="Example: getCart" lineNumbers
@@ -110,10 +110,10 @@ utils.api.cart.getCart({includeOptions: true}, (err, response) => {
 
 Get a sum of the cart line item quantities. It takes the form `utils.api.cart.getCartQuantity(options, callback);`.
 
-| Argument | Type | Description |
-|---|---|---|
+| Parameter | Type | Description |
+|:---|:---|:---|
 | options | object | Return product variant options |
-| callback | Function | Asynchronous function call to handle the results |
+| callback | function | Asynchronous function call to handle the results |
 
 ```js title="Example: getCartQuantity" lineNumbers
 utils.api.cart.getCartQuantity({}, (err, response) => {
@@ -135,10 +135,10 @@ utils.api.cart.getCartQuantity({includeOptions: true}, (err, response) => {
 
 The `itemAdd`method allows your code to add an item to the cart, with options. This method takes the form `utils.api.cart.itemAdd(FormData, callback);`.
 
-| Argument | Type | Description/Usage |
-|---|---|---|
+| Parameter | Type | Description/Usage |
+|:---|:---|:---|
 | FormData| [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) object | Contains all details about the added item and its product options. <br><br>FormData example: <br>`action: add` <br>`product_id: 123` <br> `attribute[123]: 321` <br>`qty[]: 1` |
-| callback| Function | Asynchronous function call to handle the results |
+| callback| function | Asynchronous function call to handle the results |
 
 `itemAdd` is called at the head of the following example (from `common/product-details.js`) to populate the cart.  
 
@@ -181,11 +181,11 @@ utils.api.cart.itemAdd(this.filterEmptyFilesFromForm(new FormData(form)), (err, 
 
 The `itemUpdate` method allows your code to update a specified cart item’s quantity. This method takes the form `utils.api.cart.itemUpdate(itemId, qty, callback);`.
 
-| Argument | Type | Description/Usage |
-|---|---|---|
-| itemId | String | The item’s ID |
-| qty | Integer | The item’s quantity in the cart |
-| callback | Function | Asynchronous function call to handle the results |
+| Parameter | Type | Description/Usage |
+|:---|:---|:---|
+| itemId | string | The item’s ID |
+| qty | integer | The item’s quantity in the cart |
+| callback | function | Asynchronous function call to handle the results |
 
 ```js title="Example: itemUpdate" lineNumbers
 cartUpdate($target) {
@@ -239,10 +239,10 @@ cartUpdate($target) {
 
 The `itemRemove` method allows your code to remove items from the cart. This method takes the form `utils.api.cart.itemRemove(itemId, callback);`.
 
-| Argument| Type | Description/Usage |
-|---|---|---|
-| itemId | String | The item’s ID |
-| callback | Function | Asynchronous function call to handle the results |
+| Parameter| Type | Description/Usage |
+|:---|:---|:---|
+| itemId | string | The item’s ID |
+| callback | function | Asynchronous function call to handle the results |
 
 
 In the following example (from `cart.js`), `itemRemove` is called before the if/else test.
@@ -269,10 +269,10 @@ cartRemoveItem(itemId) {
 
 The `update` method allows your code to update the set of items in the cart. It takes the form `utils.api.cart.update(itemId, qty, callback);`.
 
-| Argument | Type | Description/Usage |
-|---|---|---|
-| items | Array | The items in the cart |
-| callback | Function | Asynchronous function call to handle the results |
+| Parameter | Type | Description/Usage |
+|:---|:---|:---|
+| items | array | The items in the cart |
+| callback | function | Asynchronous function call to handle the results |
 
 
 The following example shows a call to `update` within the `itemUpdate` method:
@@ -312,10 +312,10 @@ itemUpdate(itemId, qty, callback) {
 
 The `getItemGiftWrappingOptions` method allows your code to retrieve gift-wrapping options for the current cart item, in customized ways. It takes the form `utils.api.cart.getItemGiftWrappingOptions(itemId, callback);`.
 
-| Argument | Type | Description/Usage |
-|---|---|---|
-| itemId | String | The cart item |
-| callback | Function | Asynchronous function call to handle the results |
+| Parameter | Type | Description/Usage |
+|:---|:---|:---|
+| itemId | string | The cart item |
+| callback | function | Asynchronous function call to handle the results |
 
 
 The following example (from `cart.js`) calls `getItemGiftWrappingOptions` to display gift-wrapping options in a modal.
@@ -350,10 +350,10 @@ bindGiftWrappingEvents() {
 
 The `submitItemGiftWrappingOption` method allows your code to handle the customer’s gift-wrapping selection for the current cart item. This method takes the form `utils.api.cart.submitItemGiftWrappingOption(itemId, qty, callback);`.
 
-| Argument | Type | Description/Usage |
-|---|---|---|
-| itemId | String | The cart item |
-| callback | Function | Asynchronous function call to handle the results |
+| Parameter | Type | Description/Usage |
+|:---|:---|:---|
+| itemId | string | The cart item |
+| callback | function | Asynchronous function call to handle the results |
 
 
 ```js title="Example: submitItemGiftWrappingOption" lineNumbers
@@ -373,10 +373,10 @@ submitItemGiftWrappingOption(itemId, params, callback) {
 
 The `getContent` method allows your code to display the cart contents in customized ways. It takes the form `utils.api.cart.getContent(options, callback);`.
 
-| Argument | Type | Description/Usage |
-|---|---|---|
-| options | Object | Template containing content and totals children |
-| callback | Function | Asynchronous function call to handle the results |
+| Parameter | Type | Description/Usage |
+|:---|:---|:---|
+| options | object | Template containing content and totals children |
+| callback | function | Asynchronous function call to handle the results |
 
 
 This example (from `cart.js`) shows a call to `getContent` within the `refreshContent` function.
@@ -427,11 +427,11 @@ refreshContent(remove) {
 
 The `getShippingQuotes` method allows your code to retrieve shipping-cost quotes for the cart’s contents. It returns `shippingQuote` objects that contain IDs. You must follow `getShippingQuotes` by calling `submitShippingQuote` on a `quoteId`. This method takes the form `utils.api.cart.getShippingQuotes(params, renderWith, callback);`.
 
-| Argument | Type | Description/Usage |
-|---|---|---|
-| params | Object | Contains country_id, state_id, and zip_code |
-| template | String/Array/Object | The template to use for rendering |
-| callback | Function | Asynchronous function call to handle the results |
+| Parameter | Type | Description/Usage |
+|:---|:---|:---|
+| params | object | Contains country_id, state_id, and zip_code |
+| template | string, array, object | The template to use for rendering |
+| callback | function | Asynchronous function call to handle the results |
 
 
 See `submitShippingQuotes` for an example. 
@@ -446,10 +446,10 @@ This method takes the form `utils.api.cart.submitShippingQuote(quoteId, callback
 
 The `submitShippingQuote` method must be called after `getShippingQuote`, which returns `shippingQuote` objects that contain IDs. The cart page renders the shipping quotes. When the user selects one of the quotes, this method sends that `quoteId` to the backend.
 
-| Argument | Type | Description/Usage |
-|---|---|---|
-| quoteId | Number | ID for a shipping quote returned by `getShippingQuotes` |
-| callback | Function | Asynchronous function call to handle the results |
+| Parameter | Type | Description/Usage |
+|:---|:---|:---|
+| quoteId | number | ID for a shipping quote returned by `getShippingQuotes` |
+| callback | function | Asynchronous function call to handle the results |
 
 
 The following example from `cart/shipping-estimator.js` shows calls to both `getShippingQuotes` and `submitShippingQuote`.
@@ -495,10 +495,10 @@ bindEstimatorEvents() {
 
 The `applyCode` method applies a coupon code or gift certificate to the cart. It takes the form `utils.api.cart.applyCode(code, callback);`.
 
-| Argument | Type | Description/Usage |
-|---|---|---|
-| code | String | Alphanumeric representation of the coupon or gift-certificate code |
-| callback | Function | Asynchronous function call to handle the results |
+| Parameter | Type | Description/Usage |
+|:---|:---|:---|
+| code | string | Alphanumeric representation of the coupon or gift-certificate code |
+| callback | function | Asynchronous function call to handle the results |
 
 In the following example from `cart.js`, `applyCode` is called before the final if/else test to apply a coupon code:
 
@@ -554,10 +554,10 @@ bindPromoCodeEvents() {
 
 This method applies a gift certificate to a cart. It takes the form `utils.api.cart.applyGiftCertificate(code, callback);`.
 
-| Argument | Type | Description |
-|---|---|---|
+| Parameter | Type | Description |
+|:---|:---|:---|
 | code | string | Gift certificate code to apply |
-| callback | Function | Asynchronous function call to handle the results |
+| callback | function | Asynchronous function call to handle the results |
 
 The following example calls `appleGiftCertificate`.
 
@@ -585,10 +585,10 @@ These methods allow your theme or app to retrieve standardized country names, by
 
 The country `getById` method retrieves standardized country names by numeric ID. This method takes the form `utils.api.countries.getById(countryId, callback);`.
 
-| Argument | Type | Description/Usage |
-|---|---|---|
-| countryId | Number | Country code |
-| callback | Function | Asynchronous function call to handle the results |
+| Parameter | Type | Description/Usage |
+|:---|:---|:---|
+| countryId | number | Country code |
+| callback | function | Asynchronous function call to handle the results |
 
 
 The following example makes a call to country `getById`.
@@ -605,10 +605,10 @@ utils.api.countries.getById(countryId, (err, res) => {
 
 The `getByName` method retrieves states by country name, and returns an array of states that can be used in the callback. It takes the form `utils.api.countries.getByName(countryName, callback);`.
 
-| Argument | Type | Description/Usage |
-|---|---|---|
-| countryName | String | Country name |
-| callback | Function | Asynchronous function call to handle the results |
+| Parameter | Type | Description/Usage |
+|:---|:---|:---|
+| countryName | string | Country name |
+| callback | function | Asynchronous function call to handle the results |
 
 In the following example from `common/state-country.js`, `getByName` is called after the initial `if` test:
 
@@ -659,11 +659,11 @@ $('select[data-field-type="Country"]').on('change', (event) => {
 
 The `optionChange` method is fired when the customer selects a product option for the current cart item (for example, changing a shirt’s color from a default "yellow" to "green"). This method takes the form `utils.api.productAttributes.optionChange(productId, params, callback);`.
 
-| Argument | Type | Description/Usage |
-|---|---|---|
-| params | Object | Contains a collection of IDs that map to product properties (color, size, etc.) |
-| productId | Number | ID for this product |
-| callback | Function | Asynchronous function call to handle the results |
+| Parameter | Type | Description/Usage |
+|:---|:---|:---|
+| params | object | Contains a collection of IDs that map to product properties (color, size, etc.) |
+| productId | number | ID for this product |
+| callback | function | Asynchronous function call to handle the results |
 
 In this example (from `common/product-details.js`), `optionChange` is called to update options in a Quick View modal.
 
@@ -692,11 +692,11 @@ if (_.isEmpty(productAttributesData) && hasOptions) {
 
 This method configures product options in the cart. It takes the form `utils.api.productAttributes.configureInCart(itemId, options, callback);`.
 
-| Argument | Type | Description|
-|---|---|---|
+| Parameter | Type | Description|
+|:---|:---|:---|
 | itemId | number | product ID|
 | params | object | |
-| callback | Function | Asynchronous function call to handle the results |
+| callback | function | Asynchronous function call to handle the results |
 
 ```js title="Example: configureCart" lineNumbers
 utils.api.productAttributes.configureInCart(itemId, options, (err, response) => {
@@ -715,11 +715,11 @@ utils.api.productAttributes.configureInCart(itemId, options, (err, response) => 
 
 The product `getById` method allows your code to retrieve, and to present, detailed product information by product ID. This method takes the form `utils.api.product.getById(productId, params, callback);`.
 
-| Argument | Type | Description/Usage |
-|---|---|---|
-| productId | Number | ID for this product |
-| params | Object | Contains request options and/or presentation template |
-| callback | Function | Asynchronous function call to handle the results |
+| Parameter | Type | Description/Usage |
+|:---|:---|:---|
+| productId | number | ID for this product |
+| params | object | Contains request options and/or presentation template |
+| callback | function | Asynchronous function call to handle the results |
 
 ```js title="Example: Product getById" lineNumbers
 $('body').on('click', '.quickview', (event) => {
@@ -749,11 +749,11 @@ The `search` method allows you to present a customized user interface for search
 
 The core search method takes the form `utils.api.search.search(query, params, callback);`.
 
-| Argument | Type | Description/Usage |
-|---|---|---|
-| query | String | Contains the customer’s search query |
-| params | Object | Contains request options and/or presentation template |
-| callback | Function | Asynchronous function call to handle the results |
+| Parameter | Type | Description/Usage |
+|:---|:---|:---|
+| query | string | Contains the customer’s search query |
+| params | object | Contains request options and/or presentation template |
+| callback | function | Asynchronous function call to handle the results |
 
 ```js title="Example: search" lineNumbers
 const doSearch = _.debounce((searchQuery) => {
