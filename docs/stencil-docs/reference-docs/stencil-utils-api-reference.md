@@ -24,7 +24,7 @@ If you do not want to support ES6 modules, Stencil Utils can be included as a no
 ### Get page
 [getPage](https://github.com/bigcommerce/stencil-utils/blob/master/spec/api.spec.js) 
  
-This method takes the form `utils.api.getPage(url, options, callback);`.
+This method takes the form `utils.api.getPage(url, options, callback)`.
 
 | Parameter | Type | Description/Usage |
 |---|---|---|
@@ -63,7 +63,7 @@ updateView() {
 
 [getPageByGQL](https://github.com/bigcommerce/stencil-utils/blob/master/src/api/index.js)
 
-This method takes the form `utils.api.getPageByGQL(page, callback);`. 
+This method takes the form `utils.api.getPageByGQL(page, callback)`. 
 
 | Parameter | Type | Description/Usage |
 
