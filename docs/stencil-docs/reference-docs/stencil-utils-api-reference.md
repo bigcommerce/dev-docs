@@ -51,9 +51,10 @@ updateView() {
     this.refreshView(content);
   });
 }
- ```
+```
 
-### Usage in Cornerstone
+The Cornerstone theme uses the `getPage` method in the following contexts:
+
 - [`assets/js/theme/wishlist.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/wishlist.js)
 - [`assets/js/theme/gift-certificate.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/gift-certificate.js)
 - [`assets/js/theme/faceted-search.js`](https://github.com/bigcommerce/cornerstone/blob/master/assets/js/theme/common/faceted-search.js)
