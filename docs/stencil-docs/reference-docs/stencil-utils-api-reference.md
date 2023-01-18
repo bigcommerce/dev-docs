@@ -26,7 +26,7 @@ If you do not want to support ES6 modules, Stencil Utils can be included as a no
  
 This method takes the form `utils.api.getPage(url, options, callback);`.
 
-| Argument | Type | Description/Usage |
+| Parameter | Type | Description/Usage |
 |---|---|---|
 | url | String | request URL (ex: `/cart.php`) |
 | options | Object | Can contain `template`, [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) (for POST methods), `params` (for GET methods), and/or `config`. <br><br>The `template` option allows you to select a particular template, or an array of templates, for rendering one page. Each value must correspond to a file present in the theme's `templates/components/` subdirectory. <br><br>The `config` option can be used to pass extra resources, corresponding to attributes that are valid in a page's front matter, as an object. |
@@ -35,7 +35,7 @@ This method takes the form `utils.api.getPage(url, options, callback);`.
 
 The `config` argument works like front matter: it encapsulates JSON. For a usage example of `config`, see the [Remote API Example](/stencil-docs/adding-event-hooks-to-your-theme/remote-api-example#remote_remote-api-example).
 
-In the following example (from `common/faceted-search.js`), `api.getPage()` is called to help execute an `updateView()` function.
+In the following example from `common/faceted-search.js`, an `updateView()` method uses `api.getPage()` to refresh page content.
 
 ```js title="Example: getPage" lineNumbers
 updateView() {
@@ -65,7 +65,7 @@ updateView() {
 
 This method takes the form `utils.api.getPageByGQL(page, callback);`. 
 
-Render parts of a template by using an inline GraphQL query, as shown in [Front Matter Reference- GraphQL attributes](/stencil-docs/reference-docs/front-matter-reference#graphql-attributes).
+| Parameter | Type | Description/Usage |
 
 | Argument | Type | Description/Usage |
 |---|---|---|
