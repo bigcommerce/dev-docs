@@ -27,11 +27,10 @@ If you do not want to support ES6 modules, Stencil Utils can be included as a no
 This method takes the form `utils.api.getPage(url, options, callback)`.
 
 | Parameter | Type | Description/Usage |
-|---|---|---|
-| url | String | request URL (ex: `/cart.php`) |
-| options | Object | Can contain `template`, [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) (for POST methods), `params` (for GET methods), and/or `config`. <br><br>The `template` option allows you to select a particular template, or an array of templates, for rendering one page. Each value must correspond to a file present in the theme's `templates/components/` subdirectory. <br><br>The `config` option can be used to pass extra resources, corresponding to attributes that are valid in a page's front matter, as an object. |
-| callback | Function | Asynchronous function call to handle the results |
-
+|:----------|:-----|:------------------|
+| url | string | request URL. For example, `/cart.php`. |
+| options | object | Can contain `template`, [FormData (for POST methods)](https://developer.mozilla.org/en-US/docs/Web/API/FormData), `params` (for GET methods), and/or `config`. <br><br>The `template` option allows you to select a particular template, or an array of templates, for rendering one page. Each value must correspond to a file present in the theme's `templates/components/` subdirectory. <br><br>The `config` option can be used to pass extra resources, corresponding to attributes that are valid in a page's front matter, as an object. |
+| callback | function | Asynchronous function call to handle the results. |
 
 The `config` argument works like front matter: it encapsulates JSON. For a usage example of `config`, see the [Remote API Example](/stencil-docs/adding-event-hooks-to-your-theme/remote-api-example#remote_remote-api-example).
 
@@ -65,12 +64,12 @@ updateView() {
 
 This method takes the form `utils.api.getPageByGQL(page, callback)`. 
 
-| Parameter | Type | Description/Usage |
+It allows you to render parts of a template using an inline GraphQL query, as shown in [Front Matter Reference - GraphQL attributes](/stencil-docs/reference-docs/front-matter-reference#graphql-attributes).
 
-| Argument | Type | Description/Usage |
-|---|---|---|
-| page | String | Presentation template. (ex: `pages/store-locator`). <br> The `template` option allows you to select a particular template, or an array of templates, for rendering one page. Each value must correspond to a file in the theme's `templates/pages/` subdirectory. |
-| callback | Function | Asynchronous function call to handle the results. |
+| Parameter | Type | Description/Usage |
+|:----------|:-----|:------------------|
+| page | string | Presentation template; for example, `pages/store-locator`. <br> The `template` option allows you to select a particular template, or an array of templates, to render one page. Each value must correspond to a file in the theme's `templates/pages/` subdirectory. |
+| callback | function | Asynchronous function call to handle the results. |
 
 ```js title="Example: getPageByGQL" lineNumbers
 utils.api.getPageByGQL('pages/store-locator', (err, response) => {
@@ -979,4 +978,4 @@ getCartContent(cartItemHash, onComplete) {
 ```
 
 ## Resources
-* [Stencil Utils](https://github.com/bigcommerce/stencil-utils) (BigCommerce GitHub)
+* [Stencil Utils (BigCommerce GitHub)](https://github.com/bigcommerce/stencil-utils)
