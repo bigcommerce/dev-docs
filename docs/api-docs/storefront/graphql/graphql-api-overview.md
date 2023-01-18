@@ -478,7 +478,6 @@ The GraphQL Storefront API uses an algorithm to calculate a complexity score for
 If a query's complexity score exceeds the complexity limit, you will receive an error response similar to the following:
 
 
-
 ```json title="Example response with complexity error"
 {
   "error": {
