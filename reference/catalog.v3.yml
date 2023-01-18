@@ -1,4 +1,4 @@
-openapi: '3.0.3'
+openapi: 3.0.3
 info:
   title: Catalog
   description: |-
@@ -87,9 +87,7 @@ paths:
       tags:
         - Products
       summary: Get All Products
-      description: |-
-        Returns a list of **Products**. Optional filter parameters can be passed in.
-        You can supply category IDs.
+      description: Returns a list of **Products**. Optional filter parameters can be passed in.
       operationId: getProducts
       parameters:
         - name: store_hash
@@ -392,11 +390,6 @@ paths:
               - inventory_level
               - is_visible
               - total_sold
-        - name: 'channels:in'
-          in: query
-          description: Filter items by channel ID.
-          schema:
-            type: array
         - name: 'categories:in'
           in: query
           description: 'Filter items by categories. Use for products in multiple categories. For example, `categories:in=12`.'
@@ -430,251 +423,6 @@ paths:
                       $ref: '#/components/schemas/product_Full'
                   meta:
                     $ref: '#/components/schemas/metaCollection_Full'
-              examples:
-                example-1:
-                  value:
-                    data:
-                      - id: 1
-                        name: Smith Journal 13
-                        type: physical
-                        sku: SM-13
-                        description: '<p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel metus ac est egestas porta sed quis erat. Integer id nulla massa. Proin vitae enim nisi. Praesent non dignissim nulla. Nulla mattis id massa ac pharetra. Mauris et nisi in dolor aliquam sodales. Aliquam dui nisl, dictum quis leo sit amet, rutrum volutpat metus. Curabitur libero nunc, interdum ac libero non, tristique porttitor metus. Ut non dignissim lorem, in vestibulum leo. Vivamus sodales quis turpis eget.</span></p>'
-                        weight: 0
-                        width: 0
-                        depth: 0
-                        height: 0
-                        price: 0
-                        cost_price: 0
-                        retail_price: 0
-                        sale_price: 0
-                        map_price: 0
-                        tax_class_id: 0
-                        product_tax_code: string
-                        categories:
-                          - 0
-                        channels:
-                          - 1
-                        brand_id: 0
-                        inventory_level: 0
-                        inventory_warning_level: 0
-                        inventory_tracking: none
-                        fixed_cost_shipping_price: 0
-                        is_free_shipping: true
-                        is_visible: true
-                        is_featured: true
-                        related_products:
-                          - 0
-                        warranty: string
-                        bin_picking_number: string
-                        layout_file: string
-                        upc: string
-                        search_keywords: string
-                        availability_description: string
-                        availability: available
-                        gift_wrapping_options_type: any
-                        gift_wrapping_options_list:
-                          - 0
-                        sort_order: -2147483648
-                        condition: New
-                        is_condition_shown: true
-                        order_quantity_minimum: 0
-                        order_quantity_maximum: 0
-                        page_title: string
-                        meta_keywords:
-                          - string
-                        meta_description: string
-                        view_count: 0
-                        preorder_release_date: '2019-08-24T14:15:22Z'
-                        preorder_message: string
-                        is_preorder_only: true
-                        is_price_hidden: true
-                        price_hidden_label: string
-                        custom_url:
-                          url: string
-                          is_customized: true
-                        open_graph_type: product
-                        open_graph_title: string
-                        open_graph_description: string
-                        open_graph_use_meta_description: true
-                        open_graph_use_product_name: true
-                        open_graph_use_image: true
-                        brand_name or brand_id: Common Good
-                        gtin: string
-                        mpn: string
-                        reviews_rating_sum: 3
-                        reviews_count: 4
-                        total_sold: 80
-                        custom_fields:
-                          - id: 6
-                            name: ISBN
-                            value: '1234567890123'
-                        bulk_pricing_rules:
-                          - id: 0
-                            quantity_min: 10
-                            quantity_max: 50
-                            type: price
-                            amount: 10
-                        images:
-                          - image_file: string
-                            is_thumbnail: true
-                            sort_order: -2147483648
-                            description: string
-                            image_url: string
-                            id: 0
-                            product_id: 0
-                            url_zoom: string
-                            url_standard: string
-                            url_thumbnail: string
-                            url_tiny: string
-                            date_modified: '2019-08-24T14:15:22Z'
-                        videos:
-                          - title: Writing Great Documentation
-                            description: A video about documenation
-                            sort_order: 1
-                            type: youtube
-                            video_id: z3fRu9pkuXE
-                            id: 0
-                            product_id: 0
-                            length: string
-                        date_created: '2018-08-15T14:49:05.000Z'
-                        date_modified: '2018-08-24T14:41:00.000Z'
-                        base_variant_id: 0
-                        calculated_price: 0
-                        options:
-                          - id: 55
-                            product_id: 4
-                            display_name: Add-a-$5-Donation1535042499-187
-                            type: radio_buttons
-                            config:
-                              default_value: string
-                              checked_by_default: true
-                              checkbox_label: string
-                              date_limited: true
-                              date_limit_mode: range
-                              date_earliest_value: '2019-08-24'
-                              date_latest_value: '2019-08-24'
-                              file_types_mode: specific
-                              file_types_supported:
-                                - 'images, documents, other'
-                              file_types_other:
-                                - pdf
-                              file_max_size: 5
-                              text_characters_limited: true
-                              text_min_length: 1
-                              text_max_length: 55
-                              text_lines_limited: true
-                              text_max_lines: 4
-                              number_limited: true
-                              number_limit_mode: lowest
-                              number_lowest_value: 100
-                              number_highest_value: 0
-                              number_integers_only: false
-                              product_list_adjusts_inventory: true
-                              product_list_adjusts_pricing: true
-                              product_list_shipping_calc: weight
-                            sort_order: 1
-                            option_values:
-                              is_default: false
-                              label: Green
-                              sort_order: 0
-                              value_data: {}
-                              id: 0
-                        modifiers:
-                          - type: date
-                            required: true
-                            sort_order: 0
-                            config:
-                              default_value: string
-                              checked_by_default: true
-                              checkbox_label: string
-                              date_limited: true
-                              date_limit_mode: range
-                              date_earliest_value: '2019-08-24'
-                              date_latest_value: '2019-08-24'
-                              file_types_mode: specific
-                              file_types_supported:
-                                - 'images, documents, other'
-                              file_types_other:
-                                - pdf
-                              file_max_size: 5
-                              text_characters_limited: true
-                              text_min_length: 1
-                              text_max_length: 55
-                              text_lines_limited: true
-                              text_max_lines: 4
-                              number_limited: true
-                              number_limit_mode: lowest
-                              number_lowest_value: 100
-                              number_highest_value: 0
-                              number_integers_only: false
-                              product_list_adjusts_inventory: true
-                              product_list_adjusts_pricing: true
-                              product_list_shipping_calc: weight
-                            display_name: string
-                            id: 12
-                            product_id: 77
-                            name: Add-a-$5-Donation1535039590-191
-                            option_values:
-                              - is_default: false
-                                label: Green
-                                sort_order: 0
-                                value_data: {}
-                                adjusters:
-                                  price:
-                                    adjuster: relative
-                                    adjuster_value: 5
-                                  weight:
-                                    adjuster: relative
-                                    adjuster_value: 5
-                                  image_url: 'https://cdn8.bigcommerce.com/s-{{store_hash}}/products/184/images/445/naturalcanvascart2_1024x1024__92347__29648.1534344533.1280.1280.jpg?c=2'
-                                  purchasing_disabled:
-                                    status: true
-                                    message: string
-                                id: 0
-                                option_id: 0
-                        option_set_id: 0
-                        option_set_display: string
-                        variants:
-                          - cost_price: 0
-                            price: 0
-                            sale_price: 0
-                            retail_price: 0
-                            weight: 0
-                            width: 0
-                            height: 0
-                            depth: 0
-                            is_free_shipping: true
-                            fixed_cost_shipping_price: 0
-                            purchasing_disabled: true
-                            purchasing_disabled_message: string
-                            upc: string
-                            inventory_level: 0
-                            inventory_warning_level: 0
-                            bin_picking_number: string
-                            mpn: string
-                            gtin: '012345678905'
-                            id: 0
-                            product_id: 0
-                            sku: string
-                            sku_id: 0
-                            option_values:
-                              - option_display_name: Color
-                                label: Beige
-                                id: 146
-                                option_id: 151
-                            calculated_price: 0
-                            calculated_weight: 0
-                    meta:
-                      pagination:
-                        total: 36
-                        count: 36
-                        per_page: 50
-                        current_page: 1
-                        total_pages: 1
-                        links:
-                          previous: string
-                          current: '?page=1&limit=50'
-                          next: string
     put:
       tags:
         - Products
@@ -691,9 +439,6 @@ paths:
         - `date_modified`
         - `calculated_price`
         - `base_variant_id`
-
-        **Usage Notes**
-        You can supply category IDs.
       operationId: updateProducts
       parameters:
         - name: store_hash
@@ -744,8 +489,6 @@ paths:
                     product_tax_code: string
                     categories:
                       - 0
-                    channels:
-                      - 1
                     brand_id: 0
                     inventory_level: 0
                     inventory_warning_level: 0
@@ -864,8 +607,6 @@ paths:
                         product_tax_code: string
                         categories:
                           - 0
-                        channels:
-                          - 1
                         brand_id: 0
                         inventory_level: 0
                         inventory_warning_level: 0
@@ -1142,7 +883,7 @@ paths:
       tags:
         - Products
       summary: Create a Product
-      description: |
+      description: |-
         Creates a *Product*. Only one product can be created at a time.
 
         **Required Fields:**
@@ -1162,8 +903,8 @@ paths:
         - 250 characters product name length.
 
         **Usage Notes**
-        * `POST` requests to `/products` accept a single `video` object. To send an array of video objects, use: `/products/{product_id}/videos`.
-        * You can supply category IDs.
+        * `POST` requests to `/products` accept a `video` array. 
+        * `POST` requests to `/products/{product_id}/videos` accept a `video` object.
       operationId: createProduct
       parameters:
         - name: store_hash
@@ -1193,111 +934,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/product_Base'
-            examples:
-              example-1:
-                value:
-                  id: 0
-                  name: Smith Journal 13
-                  type: physical
-                  sku: SM-13
-                  description: '<p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel metus ac est egestas porta sed quis erat. Integer id nulla massa. Proin vitae enim nisi. Praesent non dignissim nulla. Nulla mattis id massa ac pharetra. Mauris et nisi in dolor aliquam sodales. Aliquam dui nisl, dictum quis leo sit amet, rutrum volutpat metus. Curabitur libero nunc, interdum ac libero non, tristique porttitor metus. Ut non dignissim lorem, in vestibulum leo. Vivamus sodales quis turpis eget.</span></p>'
-                  weight: 0
-                  width: 0
-                  depth: 0
-                  height: 0
-                  price: 0
-                  cost_price: 0
-                  retail_price: 0
-                  sale_price: 0
-                  map_price: 0
-                  tax_class_id: 0
-                  product_tax_code: string
-                  categories:
-                    - 0
-                  brand_id: 0
-                  inventory_level: 0
-                  inventory_warning_level: 0
-                  inventory_tracking: none
-                  fixed_cost_shipping_price: 0
-                  is_free_shipping: true
-                  is_visible: true
-                  is_featured: true
-                  related_products:
-                    - 0
-                  warranty: string
-                  bin_picking_number: string
-                  layout_file: string
-                  upc: string
-                  search_keywords: string
-                  availability_description: string
-                  availability: available
-                  gift_wrapping_options_type: any
-                  gift_wrapping_options_list:
-                    - 0
-                  sort_order: -2147483648
-                  condition: New
-                  is_condition_shown: true
-                  order_quantity_minimum: 0
-                  order_quantity_maximum: 0
-                  page_title: string
-                  meta_keywords:
-                    - string
-                  meta_description: string
-                  view_count: 0
-                  preorder_release_date: '2019-08-24T14:15:22Z'
-                  preorder_message: string
-                  is_preorder_only: true
-                  is_price_hidden: true
-                  price_hidden_label: string
-                  custom_url:
-                    url: string
-                    is_customized: true
-                  open_graph_type: product
-                  open_graph_title: string
-                  open_graph_description: string
-                  open_graph_use_meta_description: true
-                  open_graph_use_product_name: true
-                  open_graph_use_image: true
-                  brand_name or brand_id: Common Good
-                  gtin: string
-                  mpn: string
-                  reviews_rating_sum: 3
-                  reviews_count: 4
-                  total_sold: 80
-                  custom_fields:
-                    - id: 6
-                      name: ISBN
-                      value: '1234567890123'
-                  bulk_pricing_rules:
-                    - id: 0
-                      quantity_min: 10
-                      quantity_max: 50
-                      type: price
-                      amount: 10
-                  images:
-                    - image_file: string
-                      is_thumbnail: true
-                      sort_order: -2147483648
-                      description: string
-                      image_url: string
-                      id: 0
-                      product_id: 0
-                      url_zoom: string
-                      url_standard: string
-                      url_thumbnail: string
-                      url_tiny: string
-                      date_modified: '2019-08-24T14:15:22Z'
-                  videos:
-                    - title: Writing Great Documentation
-                      description: A video about documenation
-                      sort_order: 1
-                      type: youtube
-                      video_id: z3fRu9pkuXE
-                      id: 0
-                      product_id: 0
-                      length: string
         required: true
-        description: ''
       responses:
         '200':
           description: ''
@@ -1743,8 +1380,7 @@ paths:
       tags:
         - Products
       summary: Get a Product
-      description: |
-        Returns a single *Product*. Optional parameters can be passed in.
+      description: Returns a single *Product*. Optional parameters can be passed in.
       operationId: getProductById
       parameters:
         - name: product_id
@@ -1833,8 +1469,6 @@ paths:
                   categories:
                     - 23
                     - 21
-                  channels:
-                    - 1
                   brand_id: 36
                   option_set_id: 55
                   option_set_display: right
@@ -1922,9 +1556,6 @@ paths:
         - date_modified
         - calculated_price
         - base_variant_id
-
-        **Usage Notes**
-        * You can supply category IDs.
       operationId: updateProduct
       parameters:
         - name: product_id
@@ -24075,8 +23706,6 @@ components:
           product_tax_code: string
           categories:
             - 0
-          channels:
-            - 1
           brand_id: 0
           inventory_level: 0
           inventory_warning_level: 0
@@ -24159,7 +23788,6 @@ components:
               id: 0
               product_id: 0
               length: string
-      x-extension-1: null
       properties:
         id:
           type: integer
@@ -24269,12 +23897,6 @@ components:
             - post
           items:
             type: integer
-        channels:
-          type: array
-          description: 'Optional. You can supply a single ID, multiple IDs, or leave the field empty.'
-          items:
-            type: number
-            example: 1
         brand_id:
           maximum: 1000000000
           minimum: 0
