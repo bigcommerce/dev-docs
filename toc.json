@@ -422,19 +422,19 @@
           "type": "item",
           "href": "/api-docs/buy-online-pick-up-in-store/getting-started/overview",
           "title": "BOPIS Overview",
-          "uri": "docs/bopis/overview.md"
+          "uri": "docs/api-docs/bopis/overview.md"
         },
         {
           "type": "item",
           "title": "Known Limitations",
           "href": "/api-docs/buy-online-pick-up-in-store/getting-started/known-limitations",
-          "uri": "docs/bopis/known-limitations.md"
+          "uri": "docs/api-docs/bopis/known-limitations.md"
         },
         {
           "type": "item",
           "title": "End-to-End API Guide",
           "href": "/api-docs/buy-online-pick-up-in-store/getting-started/end-to-end-api-guide",
-          "uri": "docs/bopis/end-to-end-api-guide.md"
+          "uri": "docs/api-docs/bopis/end-to-end-api-guide.md"
         }
       ]
     },
@@ -446,13 +446,13 @@
           "type": "item",
           "href": "/api-docs/buy-online-pick-up-in-store/shopper-experience/checkout-sdk",
           "title": "Additions to Checkout SDK",
-          "uri": "docs/bopis/checkout-sdk.md"
+          "uri": "docs/api-docs/bopis/checkout-sdk.md"
         },
         {
           "type": "item",
           "title": "Additions to GraphQL Storefront API",
           "href": "/api-docs/buy-online-pick-up-in-store/shopper-experience/graphql-storefront-api",
-          "uri": "docs/bopis/graphql-storefront-api.md"
+          "uri": "docs/api-docs/bopis/graphql-storefront-api.md"
         }
       ]
     },
@@ -464,13 +464,13 @@
           "type": "item",
           "href": "/api-docs/buy-online-pick-up-in-store/additional-reading/glossary",
           "title": "Glossary",
-          "uri": "docs/bopis/glossary.md"
+          "uri": "docs/api-docs/bopis/glossary.md"
         },
         {
           "type": "item",
           "title": "FAQs",
           "href": "/api-docs/buy-online-pick-up-in-store/additional-reading/frequently-asked-questions",
-          "uri": "docs/bopis/faqs.md"
+          "uri": "docs/api-docs/bopis/faqs.md"
         }
       ]
     },
