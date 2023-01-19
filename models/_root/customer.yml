@@ -1,27 +1,27 @@
 description: |-
   `{{customer}}` object available to templates and components with customer context such as `page/contact-us-form.html`, `common/subscription-form.html`, `account/address-list.html`, `account/messages-form.html`, and `account/wishlist-list.html`.
 
-  **Handlebars Expression** {{customer}}
+  **Handlebars Expression**: `{{customer}}`
 type: object
 properties:
   addresses:
     $ref: ../customer/addresses.yml
   customer_group_id:
     type: number
-    description: ID of this customer's group.
+    description: ID of this customerʼs group.
   customer_group_name:
     type: string
-    description: Name of this customer's group.
+    description: Name of this customerʼs group.
   edit_stored_instrument:
     type: string
   email:
     type: string
     description: Customer’s email address.
   id:
-    description: Customer's ID
+    description: Customerʼs ID.
     type: integer
   name:
-    description: Customer's name
+    description: Customerʼs name.
     type: string
   num_new_messages:
     description: Number of unread messages for this customer.
@@ -34,7 +34,7 @@ properties:
   payment_methods:
     $ref: ../customer/payment_methods.yml
   phone:
-    description: Customer's phone number
+    description: Customerʼs phone number.
     type: string
   recently_viewed_products:
     type: array
@@ -43,61 +43,61 @@ properties:
   returns:
     $ref: ../customer/returns.yml
   shipping_address:
-    description: Shipping address used for the order
+    description: Shipping address used for the order.
     type: object
     properties:
       address1:
-        description: 'Customer''s shipping address, first line'
+        description: Customerʼs shipping address, first line.
         type: string
       address2:
-        description: 'Customer''s shipping address, second line'
+        description: Customerʼs shipping address, second line.
         type: string
       city:
-        description: Customer's shipping city
+        description: Customerʼs shipping city.
         type: string
       company:
-        description: Customer's shipping company name
+        description: Customerʼs shipping company name.
         type: string
       country:
-        description: Customer's shipping country
+        description: Customerʼs shipping country.
         type: string
       country_id:
-        description: ID for customer's shipping country
+        description: ID for customerʼs shipping country.
         type: string
       destination:
-        description: 'Type of delivery destination: residential or business/commercial'
+        description: 'Type of delivery destination: residential or business/commercial.'
         type: string
       first_name:
-        description: Customer's shipping (first) name
+        description: Customerʼs shipping (first) name.
         type: string
       form_session_id:
-        description: Used for custom shipping forms
+        description: Used for custom shipping forms.
         type: string
       id:
-        description: 'Unique, system-generated ID'
+        description: 'Unique, system-generated ID.'
         type: string
       last_name:
-        description: Customer's shipping (last) name
+        description: Customerʼs shipping (last) name.
         type: string
       last_used:
-        description: Timestamp when this address was last used as a shipping address
+        description: Timestamp when this address was last used as a shipping address.
         type: string
       phone:
-        description: Customer's shipping phone number
+        description: Customerʼs shipping phone number.
         type: string
       state:
-        description: Customer's shipping state
+        description: Customerʼs shipping state.
         type: string
       state_id:
-        description: ID for customer's shipping state/province/region
+        description: ID for customerʼs shipping state/province/region.
         type: string
       zip:
-        description: Customer's shipping zip
+        description: Customerʼs shipping postal code.
         type: string
   shipping_addresses:
     $ref: ../customer/orders.yml
   store_credit:
-    description: Customer's store credit
+    description: Customerʼs store credit.
     type: object
     properties:
       currency:

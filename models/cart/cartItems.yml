@@ -60,7 +60,7 @@ items:
       description: URL to remove gift certificate from the cart.
     rrp:
       type: object
-      description: Price object that defines the cart item's list price (MSRP); can be used to display struck-out list prices.
+      description: Price object that defines the cart itemʼs list price (MSRP); can be used to display struck-out list prices.
       properties:
         currency:
           type: string

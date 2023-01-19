@@ -3,22 +3,22 @@ description: customer.shipping_addresses object available to customer account te
 properties:
   address1:
     type: string
-    description: 'Customer''s shipping address, first line'
+    description: Customerʼs shipping address, first line.
   address2:
     type: string
-    description: 'Customer''s shipping address, second line'
+    description: Customerʼs shipping address, second line.
   city:
     type: string
-    description: Customer's shipping city
+    description: Customerʼs shipping city
   company:
     type: string
-    description: Customer's shipping company name
+    description: Customerʼs shipping company name
   country:
     type: string
-    description: Customer's shipping country
+    description: Customerʼs shipping country
   country_id:
     type: string
-    description: ID for customer's shipping country
+    description: ID for customerʼs shipping country
   destination:
     type: string
     description: 'Type of delivery destination: residential or business/commercial'
@@ -42,11 +42,11 @@ properties:
     description: Customer’s shipping phone number
   state:
     type: string
-    description: Customer's shipping state
+    description: Customerʼs shipping state
   state_id:
     type: string
-    description: ID for customer's shipping state/province/region
+    description: ID for customerʼs shipping state/province/region
   zip:
     type: string
-    description: Customer's shipping zip
+    description: Customerʼs shipping zip
 

@@ -1,7 +1,7 @@
 description: |-
-  `{{order}}` object available to templates and components with order context
+  The `{{order}}` object available to templates and components with order context.
 
-  **Handlebars Expression** {{order}}
+  **Handlebars Expression**: `{{order}}`
 type: object
 examples:
   - billing_address:
@@ -169,30 +169,30 @@ properties:
     properties:
       address_lines:
         type: array
-        description: Customer's billing address
+        description: Customerʼs billing address
         items:
           type: string
       city:
         type: string
-        description: Customer's billing city
+        description: Customerʼs billing city
       company:
         type: string
-        description: Customer's billing company name
+        description: Customerʼs billing company name
       country:
         type: string
         description: Customer billing country
       email:
         type: string
-        description: Customer's billing email
+        description: Customerʼs billing email
       full_name:
         type: string
-        description: Customer's billing name
+        description: Customerʼs billing name
       phone:
         type: string
         description: Customer billing phone number
       state:
         type: string
-        description: Customer's billing state
+        description: Customerʼs billing state
       zip:
         type: string
         description: Customer billing ZIP
@@ -303,33 +303,33 @@ properties:
     properties:
       address_lines:
         type: array
-        description: Customer's shipping address
+        description: Customerʼs shipping address
         items:
           type: string
       city:
         type: string
-        description: Customer's shipping city
+        description: Customerʼs shipping city
       company:
         type: string
-        description: Customer's shipping company name
+        description: Customerʼs shipping company name
       country:
         type: string
-        description: Customer's shipping country
+        description: Customerʼs shipping country
       email:
         type: string
-        description: Customer's email
+        description: Customerʼs email
       full_name:
         type: string
-        description: Customer's shipping name
+        description: Customerʼs shipping name
       phone:
         type: string
-        description: Customer's shipping phone number
+        description: Customerʼs shipping phone number
       state:
         type: string
-        description: Customer's shipping state
+        description: Customerʼs shipping state
       zip:
         type: string
-        description: Customer's shipping zip
+        description: Customerʼs shipping zip
   shipping_address_count:
     type: string
     description: Number of shipping addresses the customer has specified for this order.

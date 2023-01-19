@@ -20,7 +20,7 @@ definitions:
       version:
         type: string
         example: '"2.6.0"'
-        description: The theme's version number.
+        description: The themeʼs version number.
       meta:
         type: object
         description: BigCommerce will use this metadata to list themes in Theme Marketplace.
@@ -40,7 +40,7 @@ definitions:
           documentation_url:
             type: string
             example: '"https://support.bigcommerce.com/articles/Public/Cornerstone-Theme-Manual"'
-            description: URL of the theme's developer documentation.
+            description: URL of the themeʼs developer documentation.
           author_name:
             type: string
             example: 'eCommerce Themes, Inc.'
@@ -98,7 +98,7 @@ definitions:
         type: string
         example: '"scss"'
         default: SCSS
-        description: Name of the theme's CSS preprocessor.
+        description: Name of the themeʼs CSS preprocessor.
       autoprefixer_cascade:
         type: boolean
         description: Denotes whether to enable the Autoprefixer CSS postprocessor in order to add vendor prefixes to CSS rules.

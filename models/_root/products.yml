@@ -1,4 +1,4 @@
-description: '`{{products}}` object available pages with product cards like `templates/pages/home.html`; contains `new`, `featured`, and `top_sellers`'
+description: 'The `{{products}}` object available on pages with product cards like `templates/pages/home.html`; contains `new`, `featured`, and `top_sellers`.'
 type: object
 properties:
   new:
@@ -12,6 +12,6 @@ properties:
       $ref: ../common/product.yml
   top_sellers:
     type: array
-    description: Object to display a sidebar of top-selling products
+    description: Object to display a sidebar of top-selling products.
     items:
       $ref: ../common/product.yml

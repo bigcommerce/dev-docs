@@ -1,4 +1,4 @@
-description: 'product object for product card arrays like `{{products.new}}`, `{{products.featured}}`, and `{{products.top_sellers}}`'
+description: 'Product object for product card arrays like `{{products.new}}`, `{{products.featured}}`, and `{{products.top_sellers}}`.'
 type: object
 properties:
   add_to_cart_url:
@@ -38,7 +38,8 @@ properties:
       $ref: ../common/image.yml
   low_stock_level:
     type: 'null'
-    description: "\tIf inventory tracking is turned on: Sets a threshold low-stock level. You can use conditional logic to display a \"limited availability\" badge if the stock_levelproperty's value falls below this threshold. If inventory tracking is turned off: A \"null\" string."
+    description: |-
+      If inventory tracking is turned on: Sets a threshold low-stock level. You can use conditional logic to display a “limited availability” badge if the stock_level propertyʼs value falls below this threshold. If inventory tracking is turned off: A “null” string.
   name:
     type: string
   num_reviews:
@@ -57,7 +58,8 @@ properties:
     type: 'null'
   stock_level:
     type: 'null'
-    description: 'If inventory tracking is turned on: The number of items available for sale (0 or more). If inventory tracking is turned off: A "null" string.'
+    description: |-
+      If inventory tracking is turned on: The number of items available for sale (0 or more). If inventory tracking is turned off: A “null” string.
   summary:
     type: string
   url:

@@ -1,7 +1,7 @@
 description: |-
   A list of images, text, and style assets for a storefront’s image slide show.
 
-  {{carousel}} array
+  `{{carousel}}` array
 
   **Handlebars Expression** `{{carousel}}`
 type: object

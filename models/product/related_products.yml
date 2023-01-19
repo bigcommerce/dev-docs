@@ -49,7 +49,8 @@ items:
             description: Internal URL to product or category image.
     low_stock_level:
       type: 'null'
-      description: "\tIf inventory tracking is turned on: Sets a threshold low-stock level. You can use conditional logic to display a \"limited availability\" badge if the stock_levelproperty's value falls below this threshold. If inventory tracking is turned off: A \"null\" string."
+      description: |-
+        If inventory tracking is turned on: Sets a threshold low-stock level. You can use conditional logic to display a “limited availability” badge if the stock_level propertyʼs value falls below this threshold. If inventory tracking is turned off: A “null” string.
     name:
       type: string
     num_reviews:

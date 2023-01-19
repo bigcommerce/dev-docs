@@ -1,7 +1,7 @@
 description: |-
   `{{page}}` object present on content pages, forms, and RSS feeds.
 
-  **Handlebars Expression** {{page}}
+  **Handlebars Expression**: `{{page}}`
 type: object
 properties:
   breadcrumbs:
@@ -12,7 +12,7 @@ properties:
     type: string
     description: HTML content of the page
   feed:
-    description: 'Present if page is an RSS feed page. '
+    description: Present if page is an RSS feed page.
     type: array
     items:
       type: object

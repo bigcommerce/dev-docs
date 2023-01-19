@@ -1,7 +1,7 @@
 description: |-
-  {{countries}} array available to `templates/pages/account/payment-methods.html`; used in country and state drop-downs when submitting add payment form.
+  The `{{countries}}` array available to `templates/pages/account/payment-methods.html`; used in country and state dropdowns when submitting add payment form.
 
-  **Handlebars Expression** {{countries}}
+  **Handlebars Expression**: `{{countries}}`
 type: array
 items:
   type: object
@@ -10,7 +10,7 @@ items:
       description: country code
       type: string
     label:
-      description: country name that appears in the drop-down
+      description: country name that appears in the dropdown
       type: string
     value:
       description: country name

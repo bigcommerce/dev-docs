@@ -1,11 +1,11 @@
 type: object
 title: footer
 description: |-
-  The footer content for each storefront page
+  The footer content for each storefront page.
 
   `global` `{{footer}}` object
 
-  **Handlebars Expression** {{footer}}
+  **Handlebars Expression**: `{{footer}}`
 properties:
   sitemap_url:
     type: string

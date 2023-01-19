@@ -1,9 +1,9 @@
 description: |-
-  Property to display an array of products on product comparison pages. (Called on the default `<theme-name>/templates/pages/compare.html` template.)
+  Property to display an array of products on product comparison pages. (Called on the default `&gt;theme-name&lt;/templates/pages/compare.html` template.)
 
   `{{comparisons}}` array 
 
-  **Handlebars Expression** {{comparisons}}
+  **Handlebars Expression**: `{{comparisons}}`
 type: array
 title: comparisons
 items:
@@ -28,7 +28,7 @@ items:
         type: object
     custom_fields:
       type: array
-      description: 'Array of additional product details – size, color, book''s ISBN, DVD''s release date, etc. – as name/value pairs.'
+      description: Array of additional product details as name-value pairs. For example, size, color, bookʼs ISBN, DVDʼs release date, etc.
       items:
         type: object
         properties:

@@ -3,7 +3,7 @@ description: |-
 
   `{{cart}}` object available to `templates/pages/cart.html`; contains `cart_id` if one exists.
 
-  **Handlebars Expression** {{cart}}
+  **Handlebars Expression**: `{{cart}}`
 type: object
 properties:
   additional_checkout_buttons:
@@ -153,7 +153,7 @@ properties:
           description: URL to remove gift certificate from the cart.
         rrp:
           type: object
-          description: Price object that defines the cart item's list price (MSRP); can be used to display struck-out list prices.
+          description: Price object that defines the cart itemʼs list price (MSRP); can be used to display struck-out list prices.
           properties:
             currency:
               type: string

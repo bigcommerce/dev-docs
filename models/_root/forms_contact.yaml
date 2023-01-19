@@ -34,4 +34,5 @@ properties:
     type: boolean
   text:
     type: string
-    example: '"<p>We''re happy to answer questions or help you with returns.<br />Please fill out the form below if you need assistance.</p>"'
+    example: |-
+      "<p>We're happy to answer questions or help you with returns.<br />Please fill out the form below if you need assistance.</p>"

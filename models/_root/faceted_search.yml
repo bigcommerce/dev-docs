@@ -1,12 +1,12 @@
 description: |-
   `global` `{{faceted_search}}`; provides data for searching by category or brand.
 
-  **Handlebars Expression** {{faceted_search}}
+  **Handlebars Expression**: `{{faceted_search}}`
 type: object
 properties:
   facets:
     type: string
-    description: "\tList of all search facets available"
+    description: List of all search facets available.
   selected:
     type: array
     description: Container for the selected search facets (selected facets contain properties below)

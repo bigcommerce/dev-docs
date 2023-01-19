@@ -21,7 +21,7 @@ oneOf:
         $ref: ../blog/posts.yml
       tag:
         type: 'null'
-        description: The blog's tag.
+        description: The blogʼs tag.
       url:
         type: string
         description: URL to the blog page.

@@ -1,5 +1,5 @@
 description: |-
-  Defines a page's breadcrumbs – available on virtually all pages that have a breadcrumb trail.
+  Defines a pageʼs breadcrumbs. Available on virtually all pages that have a breadcrumb trail.
 
   `global` `{{breadcrumbs}}` array
 
@@ -13,4 +13,4 @@ items:
       description: Displayed name of this breadcrumb element.
     url:
       type: string
-      description: URL of this breadcrumb element
+      description: URL of this breadcrumb element.

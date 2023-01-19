@@ -1,7 +1,7 @@
 description: |-
-  Wishlist information for a specific wishlist. (Called on the default `templates/pages/account/wishlist-details.html` template and `templates/components/account/wishlist-item-list.htmlpartial`.)
+  Wishlist information for a specific wishlist. (Called on the default `templates/pages/account/wishlist-details.html` template and the `templates/components/account/wishlist-item-list.html` partial.)
 
-  **Handlebars Expression** {{wishlist}}
+  **Handlebars Expression**: `{{wishlist}}`
 type: object
 properties:
   id:
@@ -83,7 +83,7 @@ properties:
           type: object
         remove_url:
           type: string
-          description: URL to remove the product from the wishlist
+          description: URL to remove the product from the wishlist.
         show_cart_action:
           type: boolean
         sku:
@@ -127,4 +127,4 @@ properties:
     description: URL used to share the wishlist.
   token:
     type: string
-    description: Unique public token for the wishlist
+    description: Unique public token for the wishlist.
