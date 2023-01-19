@@ -1,6 +1,6 @@
 type: object
 description: |-
-  The category object for the page calling the object. When retrieving a collection of categories, default sorting is by category id, from lowest to highest. Called on the default `templates/pages/category.html` template, and on several partials in the `&lt;theme-name&gt;/templates/components/` subdirectory: `category/shop-by-price.html` and `category/sidebar.html`.
+  The category object for the page calling the object. When retrieving a collection of categories, default sorting is by category id, from lowest to highest. Called on the default `templates/pages/category.html` template, and on several partials in the `<theme-name>/templates/components/` subdirectory: `category/shop-by-price.html` and `category/sidebar.html`.
 
 
   **Handlebars Expression**: `{{category}}`

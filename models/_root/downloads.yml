@@ -1,6 +1,6 @@
 type: array
 description: |-
-  Property for digital (non-physical) products. Exposed on the default `&gt;theme-name&lt;/templates/pages/account/download-item.html` template.
+  Property for digital (non-physical) products. Exposed on the default `<theme-name>/templates/pages/account/download-item.html` template.
 
   **Handlebars Expression**: `{{downloads}}`
 items:

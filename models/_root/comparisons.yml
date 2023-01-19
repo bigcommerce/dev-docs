@@ -1,5 +1,5 @@
 description: |-
-  Property to display an array of products on product comparison pages. (Called on the default `&gt;theme-name&lt;/templates/pages/compare.html` template.)
+  Property to display an array of products on product comparison pages. (Called on the default `<theme-name>/templates/pages/compare.html` template.)
 
   `{{comparisons}}` array 
 
