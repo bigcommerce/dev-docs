@@ -22,7 +22,7 @@ properties:
     properties:
       id:
         type: number
-        description: The `id` of the order. The `id` is not available on the order confirmation page.
+        description: The `id` of the order. To access `checkout.order.id` from `order-confirmation.html`, use Script Manager or the Stencil themeʼs page context to assign the value of `checkout.order.id` to a variable. For more information, see the example in [Using the Fetch API](/api-docs/cart-and-checkout-overview#using-the-fetch-api).
         example: 1836
   header_image:
     type: string
