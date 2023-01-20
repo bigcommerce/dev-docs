@@ -1510,6 +1510,29 @@ Parse data with JSONparse.
 {{/JSONparse}}
 <!-- output: bar -->
 ```
+### {{JSONparseSafe}}
+
+Parse JSON or non-JSON data with JSONparseSafe.
+
+#### Parameters
+
+- `json` {String} 
+
+
+#### Example
+
+```handlebars
+{{#JSONparseSafe jsonString}}
+  {{name}}
+{{/JSONparseSafe}}
+
+{{#JSONparseSafe jsonString}}
+  {{name}}
+{{else}}
+  {{string}}
+{{/JSONparseSafe}}
+<!-- output: bar -->
+```
 
 ## Standard helpers
 
