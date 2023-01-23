@@ -20,7 +20,7 @@ There are certain conditions associated with the Open Beta of BOPIS:
 ### 1.2 Location management
 #### 1.2.1 Location states
 - Currently, the `enabled` and `storefront_visibility` flags on the Location object do similar things.
-- Both flags determine if a a location will return through any of the Storefront APIs, including getting available pickup methods.
+- Both flags determine if a location will return through any of the Storefront APIs, including getting available pickup methods.
 - They also determine if any stock for products at a location contribute to the "available to sell" total returned via Storefront APIs.
 - The intent is to have `storefront_visiblity` continue to control location visibility/readability, and by extension stock availability, through the Storefront APIs.
 - However, the `enabled` flag will additionally also control whether a location is usable for the creation of orders and pickup methods and editing of stock levels using the management APIs.
@@ -28,7 +28,7 @@ There are certain conditions associated with the Open Beta of BOPIS:
 
 
 #### 1.2.2 Localized location time formats
-- Currently, the opening hours and special operating hours for locations are formatted in 24-hour format, using a colon ( : ) as the the hour and minute separator.
+- Currently, the opening hours and special operating hours for locations are formatted in 24-hour format, using a colon ( : ) as the hour and minute separator.
 - We are aware that time formatting is a piece of a localized experience. We, however, did not include it in scope in the Open Beta, as our hypothesis was that the current formatting is universally understood, and thus functionally enabling, not blocking. We will, however, prioritize localizing time formats in the future relative to all other enhancements we need to make.
 
 ### 1.3 Themes experience
