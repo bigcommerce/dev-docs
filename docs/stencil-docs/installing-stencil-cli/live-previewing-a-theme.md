@@ -130,5 +130,5 @@ For a full list of Stencil CLI commands, see [Stencil CLI Options and Commands](
 ## Resources
 
 ### Additional resources
-* [Demonstration of Stencil Installation and Launch](//youtube.com/watch/iWBrJalyM0A) (YouTube)
+* [Demonstration of Stencil Installation and Launch](//youtube.com/watch/iWBrJalyM0A) (YouTube - 6yrs old (Apr 28, 2016))
 * [Stencil CLI GitHub Repo](https://github.com/bigcommerce/stencil-cli)
