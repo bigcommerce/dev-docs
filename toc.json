@@ -440,19 +440,25 @@
     },
     {
       "type": "group",
-      "title": "Shopper Experience",
+      "title": "GraphQL Storefront API",
       "items": [
         {
           "type": "item",
-          "href": "/api-docs/buy-online-pick-up-in-store/shopper-experience/checkout-sdk",
-          "title": "Additions to Checkout SDK",
-          "uri": "docs/api-docs/bopis/checkout-sdk.md"
+          "title": "Overview",
+          "href": "/api-docs/buy-online-pick-up-in-store/graphql-storefront-api/overview",
+          "uri": "docs/api-docs/bopis/graphql-storefront-api.md"
         },
         {
           "type": "item",
-          "title": "Additions to GraphQL Storefront API",
-          "href": "/api-docs/buy-online-pick-up-in-store/shopper-experience/graphql-storefront-api",
-          "uri": "docs/api-docs/bopis/graphql-storefront-api.md"
+          "title": "Get Locations",
+          "href": "/api-docs/buy-online-pick-up-in-store/graphql-storefront-api/get-locations",
+          "uri": "/docs/api-docs/bopis/get-locations.md"
+        },
+        {
+          "type": "item",
+          "title": "Get Inventory By Location",
+          "href": "/api-docs/buy-online-pick-up-in-store/graphql-storefront-api/get-inventory-by-location",
+          "uri": "/docs/api-docs/bopis/get-inventory-by-location.md"
         }
       ]
     },

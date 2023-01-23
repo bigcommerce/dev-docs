@@ -4,7 +4,7 @@ stoplight-id: c12b0d2b2ed99
 
 # End-to-End User Journey API Guide
 
-This page is a how-to guide on creating end-to-end Buy Online Pickup In-Store (BOPIS) *customized* experiences for both merchants and shoppers through BigCommerce’s APIs. This guide lays out the API calls in sequence, framed from the perspective of an end-to-end user journey, i.e. 
+This page is a how-to guide on creating end-to-end Buy Online Pickup In-Store (BOPIS) *customized* experiences for both merchants and shoppers through BigCommerce’s APIs. This guide lays out the API calls in sequence, framed from the perspective of an end-to-end user journey.
 
 ## 1.0 Prerequisites
 1. You create a new partner store and share the URL with (jordan.sim@bigcommerce) to activate BOPIS on your store (Note: this will be a non-transacting store, and should not be used to process live transactions)
@@ -1100,7 +1100,7 @@ The Checkout SDK and Server-to-Server (S2S) Checkout APIs have been updated to s
 If you’re dependent on webhook events, all [existing Cart webhooks](https://developer.bigcommerce.com/api-docs/store-management/webhooks/webhook-events) have been updated to support BOPIS.
 
 ### 4.1 Native storefront & custom checkout experience via Checkout SDK
-In order to fetch pickup-options via the Checkout SDK, you will need to be on SDK version 1.224.0 or above. This applies to existing custom checkouts as well as new custom checkouts. 
+To support BOPIS, we would be adding a `loadPickupOptions` method to the [CheckoutService](https://github.com/bigcommerce/checkout-sdk-js/blob/master/docs/classes/checkoutservice.md) class, allowing you to load pickup options to your storefront checkout. In order to fetch pickup-options via the Checkout SDK, you will need to be on SDK version 1.224.0 or above. This applies to existing custom checkouts as well as new custom checkouts. 
 
 ```JS title="Example JavaScript Code" lineNumbers
 const consignmentId = '123';
