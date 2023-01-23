@@ -1,3 +1,7 @@
+---
+stoplight-id: 6e5040693dacc
+---
+
 # Storefront GraphQL API
 
 Inventory and location information can be queried using the GraphQL Storefront API. The information exposed to the storefront is controlled by the [inventory settings](#inventory-settings) and [location settings](#location-settings) for the store.  Additionally the token used to generate requests via the Storefront API must include scopes for 'Products' and 'Information & Settings'.

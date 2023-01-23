@@ -452,13 +452,13 @@
           "type": "item",
           "title": "Get Locations",
           "href": "/api-docs/buy-online-pick-up-in-store/graphql-storefront-api/get-locations",
-          "uri": "/docs/api-docs/bopis/get-locations.md"
+          "uri": "docs/api-docs/bopis/get-locations.md"
         },
         {
           "type": "item",
           "title": "Get Inventory By Location",
           "href": "/api-docs/buy-online-pick-up-in-store/graphql-storefront-api/get-inventory-by-location",
-          "uri": "/docs/api-docs/bopis/get-inventory-by-location.md"
+          "uri": "docs/api-docs/bopis/get-inventory-by-location.md"
         }
       ]
     },
