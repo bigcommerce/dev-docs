@@ -6,14 +6,6 @@ stoplight-id: c12b0d2b2ed99
 
 This page is a how-to guide on creating end-to-end Buy Online Pickup In-Store (BOPIS) *customized* experiences for both merchants and shoppers through BigCommerce’s APIs. This guide lays out the API calls in sequence, framed from the perspective of an end-to-end user journey, i.e. 
 
-  - [1.0 Prerequisites](#10-prerequisites)
-  - [2.0 Setup and configure as a merchant](#20-setup-and-configure-as-a-merchant)
-  - [3.0 Browse and discover as a shopper](#30-browse-and-discover-as-a-shopper)
-  - [4.0 Manage checkout as a shopper](#40-manage-checkout-as-a-shopper)
-  - [5.0 Manage order as a merchant](#50-manage-order-as-a-merchant)
-  - [6.0 Fulfill order as a merchant](#60-fulfill-order-as-a-merchant)
-  - [7.0 Terminate configuration as a merchant](#70-terminate-configuration-as-a-merchant)
-
 ## 1.0 Prerequisites
 1. You create a new partner store and share the URL with (jordan.sim@bigcommerce) to activate BOPIS on your store (Note: this will be a non-transacting store, and should not be used to process live transactions)
 2. Store settings have been configured (e.g. Payments, Shipping, Tax, Catalog, etc)

@@ -1,35 +1,6 @@
 # Buy Online Pick Up in Store (BOPIS)
 
-<div class="otp" id="no-index">
-
-### Table of contents
-
-- [Preface](#preface)
-- [Introduction](#introduction)
-- [Shopper experience](#shopper-experience)
-- [Merchant experience](#merchant-experience)
-- [Frequently asked questions (FAQ)](#frequently-asked-questions)
-- [Glossary](#glossary)
-
-</div>
-
----
-
-## Preface
-
-Before you begin consuming this API doc, we want to take the time, upfront, to say a BIG thank you.
-
-- Thank you for partnering with us.
-- Thank you for all the time you will put aside to participate in the Open Beta process.
-- And thank you for your continued trust in us to take your business forward.
-
 This doc is designed to give you the ability to, through BigCommerce's APIs, implement end-to-end Buy Online Pick Up in Store (BOPIS) customized experiences for our joint merchants and their end customers (the shopper).
-
-We hope you enjoy what you see, and we look forward to your feedback.
-
-\- BigCommerce Team 
-
----
 
 ## Introduction
 
@@ -47,12 +18,8 @@ There's a relationship amongst all of these users. **Back-office components** (l
 If we bring this all together in a visual, we believe it looks something like this:
 
 <!--  inline: true -->
-![BOPIS APIs.png](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BOPIS%20APIs.png)
+![BOPIS APIs.png](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BOPIS%20API.png)
 
-In the above diagram you'll see two coloured symbols:
-
-- Purple - This represents that the API endpoint will be **updated** to support Buy Online Pick Up in Store (BOPIS).
-- Aqua - This represents that the API endpoint is **new** and has been **introduced** to support Buy Online Pick Up in Store (BOPIS).
 
 ## Shopper experience
 The shopper is the end-customer on the retailer's (merchant's) site, wanting to make a purchase.
@@ -72,7 +39,7 @@ We have updated 4 key resources to equip you with the ability to create your own
 Developers customizing themes will be familiar with **Stencil Handlebars**. There will be no explicit updates made to handlebars. However, GraphQL can be used to define your own resources within the theme, which will inform handlebars.
 
 <!--  inline: true -->
-![BOPIS Storefront APIs.png](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BOPIS%20Storefront%20APIs.png)
+![BOPIS Storefront APIs.png](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BOPIS%20storefront%20API.png)
 
 ## Merchant experience
 The merchant is the retailer who has a BigCommerce store and wants to sell online.
@@ -98,7 +65,7 @@ The primary target segment that will require these APIs are Mid-Market and Enter
 - **Pickup Methods API**
   - This new API Resource is used to enable locations for pickup, and the options shoppers have for picking up their orders.
 <!--  inline: true -->
-![BOPIS Management APIs.png](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BOPIS%20Management%20APIs.png)
+![BOPIS Management APIs.png](https://storage.googleapis.com/bigcommerce-production-dev-center/images/BOPIS%20management%20API.png)
 
 
 

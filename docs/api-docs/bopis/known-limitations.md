@@ -1,15 +1,5 @@
 # Known Limitations and Additional Details
 
-### Table of contents
-
-- [1.0 Known conditions](#10-known-conditions)
-- [2.0 System limits](#20-system-limits)
-- [3.0 Catalog and inventory updates](#30-catalog-and-inventory-updates)
-- [4.0 Opting out of the BOPIS Open Beta](#40-opting-out-of-the-bopis-open-beta)
-- [5.0 Out of scope](#50-out-of-scope)
-
-As you participate in the Open Beta, we want to proactively let you know of some of the nuances of what has been built and supported to date.
-
 ## 1.0 Known conditions
 There are certain conditions associated with the Open Beta of BOPIS:
 
