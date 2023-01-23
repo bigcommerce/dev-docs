@@ -69,7 +69,7 @@ It allows you to render parts of a template using an inline GraphQL query, as sh
 
 | Parameter | Type | Description/Usage |
 |:----------|:-----|:------------------|
-| page | string, array | Presentation template to use for rendering one page; for example, `pages/store-locator`. <br> The `template` option allows you to select a particular template, or an array of templates. Each value must correspond to a file in the theme's `templates/pages/` subdirectory. |
+| page | string | Presentation template to use for rendering one page; for example, `pages/store-locator`. <br> The `template` option allows you to select a particular template. The value must correspond to a file in the theme's `templates/pages/` subdirectory. |
 | callback | function | Asynchronous function you can call to handle the results. |
 
 ```js title="Example: getPageByGQL" lineNumbers
