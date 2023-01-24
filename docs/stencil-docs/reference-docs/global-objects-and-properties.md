@@ -448,65 +448,6 @@ All possible values for `{{page_type}}` are:
 | &#x21B3; title | Title for the logo – the text configured in the control panel under **Storefront > Logo**. |
 | &#x21B3; image | Optional image file, as a Stencil image object. To access the store_logo use: `{{settings.store_logo.image.data}}` and `{{settings.store_logo.image.alt}}` to access the alt tag. These are pulled from the Stencil image object. |
 | privacy_cookie | If enabled, a string containing merchant-customizable text for (European Union–required) cookie-setting notification; if disabled, a boolean with a value of false. |
-| urls | Global URLs that the template can access – for example, the template could link to the cart page using {{urls.cart}} |
-| &#x21B3; home | Store’s home page |
-| &#x21B3; account | Collection of (customer and storefront) account-related URLs:|
-| &nbsp; &nbsp; &#x21B3; index | Account index page `/account.php` |
-| &nbsp; &nbsp; &#x21B3; orders | Collection of orders-related URLs: |
-| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; all | List of all orders. `/account.php?action=order_status` |
-| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; completed | URL to view completed orders `/account.php?action=view_orders` |
-|  &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; save_new_return | URL to submit a New Return form<. `/account.php?action=save_new_return` |
-| &nbsp; &nbsp; &#x21B3; update_action | URL to submit an Edit Account form. `/account.php?action=update_account` |
-| &nbsp; &nbsp; &#x21B3; returns | List of returns. `/account.php?action=view_returns` |
-|  &nbsp; &nbsp; &#x21B3; addresses | List of addresses; default sorting is by address id, from lowest to highest. `/account.php?action=address_book` |
-| &nbsp; &nbsp; &#x21B3; inbox | List of messages in customer’s inbox. `/account.php?action=inbox` |
-| &nbsp; &nbsp; &#x21B3; send_message | URL to submit a message to the merchant. `/account.php?action=send_message` |
-| &nbsp; &nbsp; &#x21B3; add_address | Link to add shipping address form. `/account.php?action=add_shipping_address` |
-| &nbsp; &nbsp; &#x21B3; wishlists | Collection of wishlist-related URLs: |
-| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; add | URL to the Add Wishlist form `/wishlist.php?action=addwishlist` |
-| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; edit | URL to the Edit Wishlist form `/wishlist.php?action=editwishlist` |
-| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; delete | URL to delete a wishlist `/wishlist.php?action=deletewishlist` |
-| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; all | URL to view all wishlists `/wishlist.php` |
-| &nbsp; &nbsp; &#x21B3; details | URL to the Edit Account form `/account.php?action=account_details` |
-| &nbsp; &nbsp; &#x21B3; recent_items | URL to a list of recently viewed items `/account.php?action=recent_items` |
-| &#x21B3; brands | URL to view all brands; default sorting is by brand id, from lowest to highest |
-| &#x21B3; gift_certificate | Collection of gift-certificate–related URLs: |
-| &nbsp; &nbsp; &#x21B3; purchase | URL to a form for purchasing a gift certificate `/giftcertificates.php` |
-| &nbsp; &nbsp; &#x21B3; redeem | URL to view redemption information `/giftcertificates.php?action=redeem` |
-| &nbsp; &nbsp; &#x21B3; balance | URL to check the balance of a gift certificate `/giftcertificates.php?action=balance` |
-| &#x21B3; auth | Collection of authorization-related URLs: |
-| &nbsp; &nbsp; &#x21B3; login | URL to the login form `/login.php` |
-| &nbsp; &nbsp; &#x21B3; check_login | URL to which to submit the login form `/login.php?action=check_login` |
-| &nbsp; &nbsp; &#x21B3; create_account | URL to the Create Account form page `/login.php?action=create_account` |
-| &nbsp; &nbsp; &#x21B3; save_new_account | URL to which to submit the Create Account form< `/login.php?action=save_new_account` |
-| &nbsp; &nbsp; &#x21B3; forgot_password | URL to the Forgot Password form `/login.php?action=reset_password` |
-| &nbsp; &nbsp; &#x21B3; send_password_email | Submission URL for the Forgot Password form `/login.php?action=send_password_email` |
-| &nbsp; &nbsp; &#x21B3; save_new_password | Submission URL for saving a new password `/login.php?action=save_new_password` |
-| &nbsp; &nbsp; &#x21B3; logout | URL for customer to log out of their account `/login.php?action=logout` |
-| &#x21B3; product | Collection of product-related URLs: |
-| &nbsp; &nbsp; &#x21B3; post_review | URL to submit a Write Review form `/postreview.php`  |
-| &#x21B3; cart | URL to the cart page `/cart.php` |
-| &#x21B3; checkout  | Collection of checkout related URLs: |
-| &nbsp; &nbsp; &#x21B3; single_address  | URL for the customer to check out with a single shipping address `/checkout.php` |
-| &nbsp; &nbsp; &#x21B3; multiple_address  | URL for the customer to check out with multiple shipping addresses `/checkout.php?action=multiple` |
-| &#x21B3; rss | Collection of RSS-related URLs: |
-| &nbsp; &nbsp; &#x21B3; products | Collection of product-feed–related URLs: |
-| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; new| RSS feed of new products `/rss.php?type=rss` |
-| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; new_atom | RSS feed of new products, in Atom format `/rss.php?type=atom` |
-| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; popular | RSS feed of popular products `/rss.php?action=popularproducts&type=rss` |
-| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; popular_atom | RSS feed of popular products, in Atom format `/rss.php?action=popularproducts&type=atom` |
-| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; featured | RSS feed of featured products `/rss.php?action=featuredproducts&type=rss';` |
-| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; featured_atom | RSS feed of featured products, in Atom format `/rss.php?action=featuredproducts&type=atom` |
-| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; search | RSS feed of products matching the active search query. |
-| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; search_atom | RSS feed of products matching the active search query, in Atom format. |
-| &nbsp; &nbsp; &#x21B3; blog | RSS feed of recent blog posts `/rss.php?action=newblogs&type=rss` |
-| &nbsp; &nbsp; &#x21B3; blog_atom | RSS feed of recent blog posts, in Atom format `/rss.php?action=newblogs&type=atom` |
-| &#x21B3; contact_us_submit | URL to submit the Contact Us form `/pages.php?action=sendContactForm`|
-| &#x21B3; search | URL to submit a search request `/search.php` |
-| &#x21B3; compare | A string containing the URL to the products comparison page `/compare` |
-| &#x21B3; sitemap | URL to the sitemap `/sitemap.php` |
-| &#x21B3; subscribe | Collection of subscription-related URLs. |
-| &nbsp; &nbsp; &#x21B3; action | URL to which the newsletter subscription will be submitted `/subscribe.php` |
 | money | List of child items that define the store’s default currency formatting |
 | &#x21B3; currency_token | Symbol for the currency |
 | &#x21B3; currency_location | Whether currency symbol appears at left or right of the quantity |
@@ -622,3 +563,76 @@ To access the global`{{products.top_sellers}}` object on your page, you must fir
 products:
   top_sellers:
 ```
+
+## Urls
+
+**Description:** Object containing a collection of storefront pages and their sub-pages<br>
+
+**Handlebars Expression:** `{{urls}}`
+
+**Object Properties:** 
+
+| Property | Description |
+|-|-|
+| urls | Global URLs that the template can access – for example, the template could link to the cart page using {{urls.cart}} |
+| &#x21B3; home | Store’s home page |
+| &#x21B3; account | Collection of (customer and storefront) account-related URLs:|
+| &nbsp; &nbsp; &#x21B3; index | Account index page `/account.php` |
+| &nbsp; &nbsp; &#x21B3; orders | Collection of orders-related URLs: |
+| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; all | List of all orders. `/account.php?action=order_status` |
+| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; completed | URL to view completed orders `/account.php?action=view_orders` |
+|  &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; save_new_return | URL to submit a New Return form<. `/account.php?action=save_new_return` |
+| &nbsp; &nbsp; &#x21B3; update_action | URL to submit an Edit Account form. `/account.php?action=update_account` |
+| &nbsp; &nbsp; &#x21B3; returns | List of returns. `/account.php?action=view_returns` |
+|  &nbsp; &nbsp; &#x21B3; addresses | List of addresses; default sorting is by address id, from lowest to highest. `/account.php?action=address_book` |
+| &nbsp; &nbsp; &#x21B3; inbox | List of messages in customer’s inbox. `/account.php?action=inbox` |
+| &nbsp; &nbsp; &#x21B3; send_message | URL to submit a message to the merchant. `/account.php?action=send_message` |
+| &nbsp; &nbsp; &#x21B3; add_address | Link to add shipping address form. `/account.php?action=add_shipping_address` |
+| &nbsp; &nbsp; &#x21B3; wishlists | Collection of wishlist-related URLs: |
+| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; add | URL to the Add Wishlist form `/wishlist.php?action=addwishlist` |
+| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; edit | URL to the Edit Wishlist form `/wishlist.php?action=editwishlist` |
+| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; delete | URL to delete a wishlist `/wishlist.php?action=deletewishlist` |
+| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; all | URL to view all wishlists `/wishlist.php` |
+| &nbsp; &nbsp; &#x21B3; details | URL to the Edit Account form `/account.php?action=account_details` |
+| &nbsp; &nbsp; &#x21B3; recent_items | URL to a list of recently viewed items `/account.php?action=recent_items` |
+| &#x21B3; payment_methods | Collection of payment methods available on a store: |
+| &nbsp; &nbsp; &#x21B3; all | URL to a form for payment methods `/account.php?action=payment_methods` |
+| &#x21B3; brands | URL to view all brands; default sorting is by brand id, from lowest to highest |
+| &#x21B3; gift_certificate | Collection of gift-certificate–related URLs: |
+| &nbsp; &nbsp; &#x21B3; purchase | URL to a form for purchasing a gift certificate `/giftcertificates.php` |
+| &nbsp; &nbsp; &#x21B3; redeem | URL to view redemption information `/giftcertificates.php?action=redeem` |
+| &nbsp; &nbsp; &#x21B3; balance | URL to check the balance of a gift certificate `/giftcertificates.php?action=balance` |
+| &#x21B3; auth | Collection of authorization-related URLs: |
+| &nbsp; &nbsp; &#x21B3; login | URL to the login form `/login.php` |
+| &nbsp; &nbsp; &#x21B3; check_login | URL to which to submit the login form `/login.php?action=check_login` |
+| &nbsp; &nbsp; &#x21B3; create_account | URL to the Create Account form page `/login.php?action=create_account` |
+| &nbsp; &nbsp; &#x21B3; save_new_account | URL to which to submit the Create Account form< `/login.php?action=save_new_account` |
+| &nbsp; &nbsp; &#x21B3; forgot_password | URL to the Forgot Password form `/login.php?action=reset_password` |
+| &nbsp; &nbsp; &#x21B3; send_password_email | Submission URL for the Forgot Password form `/login.php?action=send_password_email` |
+| &nbsp; &nbsp; &#x21B3; save_new_password | Submission URL for saving a new password `/login.php?action=save_new_password` |
+| &nbsp; &nbsp; &#x21B3; logout | URL for customer to log out of their account `/login.php?action=logout` |
+| &#x21B3; product | Collection of product-related URLs: |
+| &nbsp; &nbsp; &#x21B3; post_review | URL to submit a Write Review form `/postreview.php`  |
+| &#x21B3; cart | URL to the cart page `/cart.php` |
+| &#x21B3; checkout  | Collection of checkout related URLs: |
+| &nbsp; &nbsp; &#x21B3; single_address  | URL for the customer to check out with a single shipping address `/checkout.php` |
+| &nbsp; &nbsp; &#x21B3; multiple_address  | URL for the customer to check out with multiple shipping addresses `/checkout.php?action=multiple` |
+| &#x21B3; rss | Collection of RSS-related URLs: |
+| &nbsp; &nbsp; &#x21B3; products | Collection of product-feed–related URLs: |
+| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; new| RSS feed of new products `/rss.php?type=rss` |
+| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; new_atom | RSS feed of new products, in Atom format `/rss.php?type=atom` |
+| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; popular | RSS feed of popular products `/rss.php?action=popularproducts&type=rss` |
+| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; popular_atom | RSS feed of popular products, in Atom format `/rss.php?action=popularproducts&type=atom` |
+| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; featured | RSS feed of featured products `/rss.php?action=featuredproducts&type=rss';` |
+| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; featured_atom | RSS feed of featured products, in Atom format `/rss.php?action=featuredproducts&type=atom` |
+| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; search | RSS feed of products matching the active search query. |
+| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; search_atom | RSS feed of products matching the active search query, in Atom format. |
+| &nbsp; &nbsp; &#x21B3; blog | RSS feed of recent blog posts `/rss.php?action=newblogs&type=rss` |
+| &nbsp; &nbsp; &#x21B3; blog_atom | RSS feed of recent blog posts, in Atom format `/rss.php?action=newblogs&type=atom` |
+| &#x21B3; contact_us_submit | URL to submit the Contact Us form `/pages.php?action=sendContactForm`|
+| &#x21B3; search | URL to submit a search request `/search.php` |
+| &#x21B3; compare | A string containing the URL to the products comparison page `/compare` |
+| &#x21B3; sitemap | URL to the sitemap `/sitemap.php` |
+| &#x21B3; subscribe | Collection of subscription-related URLs. |
+| &nbsp; &nbsp; &#x21B3; action | URL to which the newsletter subscription will be submitted `/subscribe.php` |
+
