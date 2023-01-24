@@ -1512,7 +1512,7 @@ Parse data with JSONparse.
 ```
 ### {{JSONparseSafe}}
 
-Parse JSON or non-JSON data with JSONparseSafe.
+Parse data safely with JSONparseSafe. This helper is similar to the JSONparse helper but allows non-JSON data.
 
 #### Parameters
 
@@ -1521,11 +1521,16 @@ Parse JSON or non-JSON data with JSONparseSafe.
 
 #### Example
 
+In this case, if the JSONparseSafe helper gets non-JSON data, it doesn't break the page. It does nothing.
+
 ```handlebars
 {{#JSONparseSafe jsonString}}
   {{name}}
 {{/JSONparseSafe}}
+```
+In this case, you can add some behavior in the {{else}} directive if you provide non-JSON data.
 
+```handlebars
 {{#JSONparseSafe jsonString}}
   {{name}}
 {{else}}
