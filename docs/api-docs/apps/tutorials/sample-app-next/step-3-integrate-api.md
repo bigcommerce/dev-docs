@@ -451,7 +451,7 @@ import { promisify } from 'util';
 import { SessionProps, StoreData } from '../../types';
 ```
 
-3. Add the MySQL config and initialization logic.
+3. Add the MySQL config and initialization logic. You can [view mysql.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/lib/dbs/mysql.ts).
 
 ```ts title="mysql.ts" lineNumbers
 const connection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
@@ -498,9 +498,6 @@ export async function deleteStore({ store_hash: storeHash }: SessionProps) {
 }
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/lib/dbs/mysql.ts)
-
-
 
 ## Set up a db lib page
 
@@ -512,7 +509,7 @@ export async function deleteStore({ store_hash: storeHash }: SessionProps) {
 import { Db } from '../types'
 ```
 
-3. Add the switch expression to determine which database code to execute.
+3. Add the switch expression to determine which database code to execute. You can [view db.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/lib/db.ts).
 
 ```ts title="db.ts" lineNumbers
 const { DB_TYPE } = process.env;
@@ -534,8 +531,6 @@ switch (DB_TYPE) {
 export default db;
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/lib/db.ts)
-
 ## Upgrade the endpoints
 
 ### Auth endpoint
@@ -549,7 +544,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { encodePayload, getBCAuth, setSession } from '../../lib/auth';
 ```
 
-3. Update the logic to authenticate the app on install.
+3. Update the logic to authenticate the app on install. You can [view auth.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/api/auth.ts).
 
 ```ts title="auth.ts" lineNumbers
 export default async function auth(req: NextApiRequest, res: NextApiResponse) {
@@ -568,7 +563,7 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
 }
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/api/auth.ts)
+
 
 ### Load endpoint
 
@@ -581,7 +576,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { encodePayload, getBCVerify, setSession } from '../../lib/auth';
 ```
 
-3. Update the logic to authenticate the app on load.
+3. Update the logic to authenticate the app on load. You can [view load.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/api/load.ts).
 
 ```ts title="load.ts" lineNumbers
 export default async function load(req: NextApiRequest, res: NextApiResponse) {
@@ -600,7 +595,6 @@ export default async function load(req: NextApiRequest, res: NextApiResponse) {
 }
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/api/load.ts)
 
 **uninstall** 
 
@@ -613,7 +607,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { getBCVerify, removeSession } from '../../lib/auth';
 ```
 
-3. Update the logic to delete the session at time of uninstall.
+3. Update the logic to delete the session at time of uninstall. You can [view uninstall.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/api/uninstall.ts).
 
 ```ts title="uninstall.ts" lineNumbers
 export default async function uninstall(req: NextApiRequest, res: NextApiResponse) {
@@ -629,7 +623,6 @@ export default async function uninstall(req: NextApiRequest, res: NextApiRespons
 }
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/api/uninstall.tss)
 
 ## Add the Products endpoint
 
@@ -646,7 +639,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { bigcommerceClient, getSession } from '../../../lib/auth';
 ```
 
-4. Add the async `products` function, which awaits the data returned from `bigcommerce.get`.
+4. Add the async `products` function, which awaits the data returned from `bigcommerce.get`. You can [view index.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/api/products/index.ts)
 
 ```ts title="index.ts" lineNumbers
 export default async function products(req: NextApiRequest, res: NextApiResponse) {
@@ -666,7 +659,6 @@ export default async function products(req: NextApiRequest, res: NextApiResponse
 }
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/api/products/index.ts)
 
 The `products` function calls the `getSession` function to retrieve the session's access token and store hash. 
 
@@ -693,7 +685,7 @@ function fetcher(url: string, encodedContext: string) {
 
 The `fetcher` function accepts the API URL and returns data asynchronously.
 
-4. Export the `useProducts` function.
+4. Export the `useProducts` function. You can [view hooks.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/lib/hooks.ts).
 
 ```ts title="hooks.ts" lineNumbers
 // Reusable SWR hooks
@@ -712,8 +704,6 @@ export function useProducts() {
 
 `useSWR` accepts two arguments: the API URL and the `fetcher` function. The `fetcher` function takes the `/api/products` URL passed in from the `useProduct` function. The `useProducts` function destructures the data returned by the `useSWR` hook. 
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/lib/hooks.ts)
-
 ## Create a header component
 
 1. In the app's root directory, create a `components` folder.
@@ -726,7 +716,7 @@ export function useProducts() {
 import { Box, Link } from '@bigcommerce/big-design';
 ```
 
-4. Define the `Header` functional component.
+4. Define the `Header` functional component. You can [view header.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/components/header.tsx).
 
 ```tsx title="header.tsx" lineNumbers
 const Header = () => (
@@ -737,8 +727,6 @@ const Header = () => (
 
 export default Header;
 ```
-
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/components/header.tsx)
 
 ## Update the homepage
 
@@ -754,7 +742,7 @@ import { useSession } from '../context/session';
 import { useProducts } from '../lib/hooks';
 ```
 
-3. Update the `Index` functional component.
+3. Update the `Index` functional component. You can [view index.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/index.tsx).
 
 ```tsx title="index.tsx" lineNumbers
 const Index = ({ context }: { context: string }) => {
@@ -796,7 +784,7 @@ export const getServerSideProps = async ({ query }) => ({
 export default Index;
 ```
 
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/index.tsx)
+
 
 `summary` creates the `Flex` component with three `Box` components inside of it. `inventory_count`, `variant_count`, and `primary_category_name` are populated with data returned from calling the `/catalog/summary` endpoint added in [Add the Products endpoint](#add-the-products-endpoint). 
 
@@ -836,7 +824,7 @@ import SessionProvider from '../context/session';
 </SessionProvider>
 ```
 
-5. Add a `Box` component and place the `Header` and `SessionProvider` components inside it.
+5. Add a `Box` component and place the `Header` and `SessionProvider` components inside it. You can [view _app.tsx (GitHub)](hhttps://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/_app.tsx).
 
 ```tsx title="_app.tsx" lineNumbers
 const MyApp = ({ Component, pageProps }: AppProps) => (
@@ -854,17 +842,14 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
 export default MyApp;
 ```
 
-[View code in GitHub](hhttps://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/_app.tsx)
 
 6. In the root of the `pages` folder, open `index.tsx`.
 
-7. Import the `Header` component.
+7. Import the `Header` component. You can [view index.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-add-database/pages/index.tsx).
 
 ```tsx title="index.tsx" lineNumbers
 import Header from '../components/header';
 ```
-
-[View code in GitHub](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-add-database/pages/index.tsx)
 
 ## Test your app
 
