@@ -1,7 +1,7 @@
 # Known Limitations and Additional Details
 
 ## 1.0 Known conditions
-There are certain conditions associated with the Open Beta of BOPIS:
+There are certain conditions associated with BOPIS APIs:
 
 ### 1.1 Inventory management
 - All the newly introduced Inventory APIs are asynchronous in nature. As such there may be a short delay between the time of calling an endpoint and the underlying data being updated. Endpoints that manage locations and inventory at those locations will return a `transaction_id` for any write requests.
@@ -65,12 +65,7 @@ There will be two levels of limits applied on locations.
 ### 3.2 Reading inventory
 You will still be able to read an inventory value for products via the v2/v3 endpoints. However the behavior will change slightly. The inventory returned from the Catalog API will be the total inventory available to sell for the merchant. This provides limited backwards compatibility with any apps or integrations that facilitate selling a merchants products on external sales channels, such as Amazon.
 
-
-## 4.0 Opting out of the BOPIS Open Beta
-Opting out of the BOPIS Open Beta for new and existing stores may result in a loss of data (stock levels, warning levels, order information), because the underlying inventory system is completely independent and we make no attempt to duplicate data written under BOPIS, back to the older system.
-
-
-## 5.0 Out of scope
+## 4.0 Out of scope
 - **Checkout routing logic API**
   - Such an API allows routing logic within an ERP/OMS to be exposed in the BigCommerce Checkout, to drive routing logic & thus shipping quote generation in the Checkout.
   - This is out of scope (for this release) because there is immaterial merchant demand for this capability for several reasons:
