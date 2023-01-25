@@ -1234,7 +1234,8 @@ Strips query string from a URL.
 {{strReplace string substr newSubstr occurrence}}
 ```
 
-Replaces some or all occurrences of substring within the given string.
+Replaces some or all occurrences of a substring within the given string.
+
 
 #### Parameters
 
