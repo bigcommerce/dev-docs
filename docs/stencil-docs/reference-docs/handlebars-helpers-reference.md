@@ -46,8 +46,7 @@ The following table contains BigCommerce's open source [Handlebars helpers](http
 | [replace](#replace) | string | Replaces all instances of the first parameter in the second parameter. |
 | [setURLQueryParam](#seturlqueryparam) | string | Appends keys values to a URL. |
 | [stripQuerystring](#stripquerystring) | string | Removes a query string. |
-| [strReplace](#strreplace) | string | Replaces some or all occurrences of a substring within the given string. |
-
+| [strReplace](#strreplace) | string | Replaces some or all occurrences of a target substring within the subject string. |
 | [toLowerCase](#tolowercase) | string | Converts a string to lowercase. |
 | [truncate](#truncate) | string | Truncates a string. |
 | [block](#block) | template | Defines a content block. |
@@ -1231,33 +1230,33 @@ Strips query string from a URL.
 ### {{strReplace}}
 
 ```handlebars
-{{strReplace string substr newSubstr occurrence}}
+{{strReplace subjectString targetSubstring newSubstring occurrenceSelection}}
 ```
 
-Replaces some or all occurrences of a substring within the given string.
+Replaces some or all occurrences of a target substring within the subject string.
 
 
 #### Parameters
 
-- `string` {String}: The original string.
-- `substr` {String}: The substring in `string` to be replaced.
-- `newSubstr` {String}: The substring to replace `substr`.
-- `occurence` {Number}: The number of occurrences of `substr` to be replaced by `newSubstr` in `string`.
+- `subjectString` {String}: The original string to modify.
+- `targetSubstring` {String}: The substring in `subjectString` to be replaced.
+- `newSubstring` {String}: The substring to insert in place of `targetSubstring`.
+- `occurenceSelection` {Integer}: Optional. The number of occurrences of `targetSubstring` to replace with `newSubstring`. If you pass no argument or the supplied integer is greater than the number of `targetSubstring` occurrences, `newSubstring` will replace all instances of `targetSubstring`. A positive integer `n` will replace `n` instances of `targetSubstring`, starting from the left side of the string. Arguments of zero or less will replace no instances. Non-integer arguments may have unpredictable results.
 
 #### Example
 
 ```handlebars
-{{strReplace "replace ME ME ME ME ME" "ME" "YOU"}}
-<!-- r=> replace YOU YOU YOU YOU YOU -->
+{{strReplace "Buy one, get one half price. Limit one per customer." "one" "two" 0}}
+<!-- Buy one, get one half price. Limit one per customer. -->
 
-{{strReplace "replace ME ME ME ME ME" "ME" "YOU" -2}}
-<!-- r=> replace ME ME ME ME ME -->
+{{strReplace "Buy one, get one half price. Limit one per customer." "one" "two" -2}}
+<!-- Buy one, get one half price. Limit one per customer. -->
 
-{{strReplace "replace ME ME ME ME ME" "ME" "YOU" 3}}
-<!-- r=> replace YOU YOU YOU ME ME -->
+{{strReplace "Buy one, get one half price. Limit one per customer." "one" "two" 3}}
+<!-- Buy two, get two half price. Limit two per customer. -->
 
-{{strReplace "replace ME ME ME ME ME" "ME" "YOU" 100}}
-<!-- r=> replace YOU YOU YOU YOU YOU -->
+{{strReplace "Buy one, get one half price. Limit one per customer." "one" "two" 100}}
+<!-- Buy two, get two half price. Limit two per customer. -->
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/strReplace.js)
