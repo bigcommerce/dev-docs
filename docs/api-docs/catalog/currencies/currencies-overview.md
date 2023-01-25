@@ -46,9 +46,9 @@ Additionally, review the [Currency API reference](/api-reference/store-managemen
 
 <a id="adding-a-currency"></a>
 
-Transactional currencies can't be created via API, so they'll need to be added via the control panel. To do so:
+Transactional currencies can't be created via API, so they'll need to be added via the active MSF-enabled control panel. To do so:
 
-1. Navigate to **Store Setup > Currencies**, then select **Add a Currency...**
+1. Navigate to **Settings > Setup > Currencies**, then select **Add a Currency...**
 2. Select the currency code that corresponds to the currency you want to set up, then click **Next**.
 3. Configure the currency’s display and transactional settings.
 4. Click **Save**.

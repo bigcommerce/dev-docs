@@ -404,7 +404,7 @@
 | &nbsp;&nbsp;sku | SKU value for this cart item |
 | &nbsp;&nbsp;availability | An optional availability message set by the merchant |
 | &nbsp;&nbsp;image | Product image for the cart item |
-| can_modify | Boolean indicating whether the customer may modify the quantity of, or remove, this cart item |
+| can_modify | Boolean indicating whether the customer may modify the quantity of, or remove, this cart item (read-only field)|
 | &nbsp;&nbsp;event_date | Chosen event date for event-based products |
 | &nbsp;&nbsp;show_gift_wrapping | Boolean indicating whether the wrapping options are shown |
 | gift_wrapping | Gift-wrapping options |

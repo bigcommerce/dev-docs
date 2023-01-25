@@ -5,10 +5,10 @@
 ## Displaying theme thumbnail images
 
 
-A complete Stencil theme includes screenshots to display the theme on cards that appear in two locations within the BigCommerce control panel:
+A complete Stencil theme includes screenshots to display the theme on cards that appear in two locations within a non active MSF BigCommerce control panel:
 
 
-* **Storefront** › **My Themes**: Each individual card displays a composite which is an image that contains combination of screenshots of the theme's multiple variations.
+* **Storefront** › **Themes**: Each individual card displays a composite which is an image that contains combination of screenshots of the theme's multiple variations.
 * **Storefront** › **Themes Marketplace**: Each card displays one variation of your theme. The three variations of Cornerstone (Light, Warm, and Bold) are displayed across three separate cards.
 
 ![Desktop View of My Themes](//s3.amazonaws.com/user-content.stoplight.io/6116/1563226648470 "Desktop View of My Themes")
@@ -26,7 +26,7 @@ All screenshots described below must meet the following specifications in order 
 
 ## Theme-wide composite image
 
-The theme-wide composite image represents your theme in the control panel's **Storefront** › **My Themes**, which shows merchants their currently available themes, including any custom uploaded themes.
+The theme-wide composite image represents your theme in a non-active MSF BigCommerce control panel's **Storefront** › **Themes**, which shows merchants their currently available themes, including any custom uploaded themes.
 
 
 This file will normally be a mosaic of screenshots from multiple variations within your theme. It must meet the following requirements, beyond the general specifications above:
@@ -53,7 +53,7 @@ Here is how you would reference this file within [config.json](https://github.co
 
 ## Variations: desktop and mobile screenshots
 
-Each variation within your theme must be represented by two additional screenshots if you want that variation to appear in the control panel's  **Storefront** › **Theme Marketplace**, which shows merchants the themes that are available for download.
+Each variation within your theme must be represented by two additional screenshots if you want that variation to appear in a non-active MSF control panel's  **Storefront** › **Theme Marketplace**, which shows merchants the themes that are available for download.
 
 ### Desktop screenshot
 

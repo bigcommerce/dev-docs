@@ -28,6 +28,8 @@ fetch('/api/storefront/cart', {
   return response.json();
 }).then(function(myJson) {
   console.log(myJson);
+}).catch(function (error) {
+  console.log(error);
 });
 ```
 &nbsp;
@@ -54,7 +56,10 @@ fetch('/api/storefront/cart?includes=consignments.availableShippingOptions', {
   console.log(error);
 });
 ```
-&nbsp;
+<!-- theme: info -->
+> #### Log order details
+> To log order details to the console, use the [Scripts API](/api-docs/scripts/scripts-overview) to inject the script into your theme's footer or use the [Script Manager](https://support.bigcommerce.com/s/article/Using-Script-Manager?language=en_US) to add the script directly to `order-confirmation.html`.
+
 ```js title="Log order details to the console" lineNumbers
 console.log('Log Order');
 fetch('/api/storefront/order/' + checkout.order.id, {
@@ -63,8 +68,31 @@ fetch('/api/storefront/order/' + checkout.order.id, {
   return response.json();
 }).then(function (myJson) {
   console.log(myJson);
+}).catch(function (error) {
+  console.log(error);
 });
 ```
+
+To access `checkout.order.id` from `order-confirmation.html`, use the Stencil theme's page context to assign the value of `checkout.order.id` to a variable. The following example assigns the value returned by `{{checkout.order.id}}` to the variable `jsContextOrderId`, then fetches order details and logs them to the console.
+
+```html title="Log order details to the console" lineNumbers
+<script>
+// assign order ID to a variable
+let jsContextOrderId = {{checkout.order.id}};
+
+// use jsContextOrderId to fetch and log order details
+fetch(`/api/storefront/order/${jsContextOrderId}`, {
+  credentials: 'include'
+}).then(function (response) {
+  return response.json();
+}).then(function (myJson) {
+  console.log(myJson);
+}).catch(function (error) {
+  console.log(error);
+});
+</script>
+```
+
 
 ## Server-to-Server Cart and Checkout
 

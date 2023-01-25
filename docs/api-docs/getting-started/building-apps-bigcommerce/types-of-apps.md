@@ -63,7 +63,7 @@ To install a Personal app on a store, your Dev Tools login credentials must be t
 
 You may wish to write a small program that can make requests against a store’s API that does not install in the store’s control panel. Scripts connect to a store solely through API credentials: they don’t install in the control panel or present a UI to the user.
 
-To get started with writing scripts, all you need are API Credentials from the store’s Control Panel.  Learn more about [making your first request](/api-docs/getting-started/basics/making-requests) with the BigCommerce API. 
+To get started with writing scripts, all you need are API Credentials from the store’s Control Panel.  Learn more about [making your first request](/api-docs/getting-started/making-requests) with the BigCommerce API. 
 
 ## Resources
 

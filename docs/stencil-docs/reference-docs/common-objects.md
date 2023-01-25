@@ -144,10 +144,10 @@ This consistent behavior is true for each of the common objects documented in th
 | &#x21B3; url | URL of the brand | string |
 | add_to_cart_url | URL that adds this product to customer’s cart | string |
 | category | Categories the product belongs to. | array |
-| price |References the [catalog price object](/stencil-docs/reference-docs/common-objects#common-objects_catalog-price), to access price properties in both raw-numeric and formatted/string formats | object | 
+| price |References the [catalog price object](#catalog-price), to access price properties in both raw-numeric and formatted/string formats | object | 
 | summary | Summary description of the product |  string |
-| image | Default image for the product, in  [Stencil image format](/stencil-docs/reference-docs/common-objects#common-objects_stencil-image) | object
-| images | Array of a product's images, in  [Stencil image format](/stencil-docs/reference-docs/common-objects#common-objects_stencil-image); currently limited to 5 images | array object |
+| image | Default image for the product, in  [Stencil image format](#stencil-image) | object
+| images | Array of a product's images, in  [Stencil image format](#stencil-image); currently limited to 5 images | array object |
 | date_added | Date the product was added to this BigCommerce storefront | string Ex. `"Aug 15th 2018"` |
 | pre_order |Product’s availability for pre-order | boolean |
 | show_cart_action | Indicates whether the product is available for purchase | boolean |
