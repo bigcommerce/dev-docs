@@ -46,7 +46,8 @@ The following table contains BigCommerce's open source [Handlebars helpers](http
 | [replace](#replace) | string | Replaces all instances of the first parameter in the second parameter. |
 | [setURLQueryParam](#seturlqueryparam) | string | Appends keys values to a URL. |
 | [stripQuerystring](#stripquerystring) | string | Removes a query string. |
-| [strReplace](#strreplace) | string | Replaces some or all occurrences of substring within the given string. |
+| [strReplace](#strreplace) | string | Replaces some or all occurrences of a substring within the given string. |
+
 | [toLowerCase](#tolowercase) | string | Converts a string to lowercase. |
 | [truncate](#truncate) | string | Truncates a string. |
 | [block](#block) | template | Defines a content block. |
