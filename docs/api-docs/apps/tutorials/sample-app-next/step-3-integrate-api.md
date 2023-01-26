@@ -149,7 +149,6 @@ JWT_KEY={SECRET}
 > The JWT key should be at least 32 random characters (256 bits) for HS256.
 
 
-
 ## Update the auth lib page
 
 1. In the `lib` folder, open the `auth.ts` file.
@@ -430,9 +429,8 @@ MYSQL_PORT={mysql port}
 ```
 
 <!-- theme: info -->
-> #### Note
+> #### Restart dev server when .env changes
 > In the development mode, every time you modify your environment variables, make sure to restart the process (`npm run dev`) to capture the changes.
-
 
 
 ### Configure MySQL
@@ -663,14 +661,14 @@ To consume the Products endpoint, create a custom React hook using [SWR](https:/
 
 2. At the top of the file, import the `useSWR` React hook from SWR and `useSession` from Context.
 
-```ts title="hooks.ts" lineNumbers
+```ts title="Add imports hooks.ts" lineNumbers
 import useSWR from 'swr';
 import { useSession } from '../context/session';
 ```
 
 3. Declare the `fetcher` function.
 
-```ts title="hooks.ts" lineNumbers
+```ts title="Declare fetcher hooks.ts" lineNumbers
 function fetcher(url: string, encodedContext: string) {
     return fetch(`${url}?context=${encodedContext}`).then(res => res.json());
 }
@@ -680,7 +678,7 @@ The `fetcher` function accepts the API URL and returns data asynchronously.
 
 4. Export the `useProducts` function. You can [view hooks.ts (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/lib/hooks.ts).
 
-```ts title="hooks.ts" lineNumbers
+```ts title="Export useProducts hooks.ts" lineNumbers
 // Reusable SWR hooks
 // https://swr.vercel.app/
 export function useProducts() {
@@ -705,13 +703,13 @@ export function useProducts() {
 
 3. Import `Box` and `Link` components from BigDesign.
 
-```tsx title="header.tsx" lineNumbers
+```tsx title="Add imports header.tsx" lineNumbers
 import { Box, Link } from '@bigcommerce/big-design';
 ```
 
 4. Define the `Header` functional component. You can [view header.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/components/header.tsx).
 
-```tsx title="header.tsx" lineNumbers
+```tsx title="Functional component header.tsx" lineNumbers
 const Header = () => (
     <Box marginBottom="xxLarge">
         <Link href="#">Home</Link>
@@ -796,7 +794,7 @@ import SessionProvider from '../context/session';
 
 4. For Context to properly propagate, we need to wrap `<Component {...pageProps} />` with the Context `SessionProvider`. This ensures that each page has access to the React Context.
 
-```tsx title="_app.tsx" lineNumbers
+```tsx title="SessionProvider _app.tsx" lineNumbers
 <SessionProvider>
   <Component {...pageProps} />
 </SessionProvider>
@@ -804,7 +802,7 @@ import SessionProvider from '../context/session';
 
 5. Add a `Box` component and place the `Header` and `SessionProvider` components inside it. You can [view _app.tsx (GitHub)](hhttps://github.com/bigcommerce/sample-app-nodejs/blob/step-3-add-database/pages/_app.tsx).
 
-```tsx title="_app.tsx" lineNumbers
+```tsx title="Add Box _app.tsx" lineNumbers
 const MyApp = ({ Component, pageProps }: AppProps) => (
     <>
         <GlobalStyles />
@@ -825,7 +823,7 @@ export default MyApp;
 
 7. Import the `Header` component. You can [view index.tsx (GitHub)](https://github.com/bigcommerce/sample-app-nodejs/blob/step-4-add-database/pages/index.tsx).
 
-```tsx title="index.tsx" lineNumbers
+```tsx title="Add imports index.tsx" lineNumbers
 import Header from '../components/header';
 ```
 
