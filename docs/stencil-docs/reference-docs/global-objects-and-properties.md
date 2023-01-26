@@ -639,7 +639,8 @@ products:
 
 | &nbsp; &nbsp; &#x21B3; save_new_password | Submission URL for saving a new password `/login.php?action=save_new_password`. |
 
-| &nbsp; &nbsp; &#x21B3; logout | URL for customer to log out of their account `/login.php?action=logout` |
+| &nbsp; &nbsp; &#x21B3; logout | URL for customer to log out of their account `/login.php?action=logout`. |
+
 | &#x21B3; product | Collection of product-related URLs: |
 | &nbsp; &nbsp; &#x21B3; post_review | URL to submit a Write Review form `/postreview.php`  |
 | &#x21B3; cart | URL to the cart page `/cart.php` |
