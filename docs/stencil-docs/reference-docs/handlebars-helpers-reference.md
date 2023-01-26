@@ -1512,7 +1512,7 @@ Parse data with JSONparse.
 ```
 ### {{JSONparseSafe}}
 
-Parse data safely with JSONparseSafe. This helper is similar to the JSONparse helper but allows the handling of incorrect JSON data. Returns `parsed data` when JSON is correct; otherwise, renders an `else` block.
+Parse data safely with JSONparseSafe. This helper is similar to the JSONparse helper but allows handling of incorrect JSON data. Returns `parsed data` when JSON is correct; otherwise, renders an `else` block.
 
 #### Parameters
 
