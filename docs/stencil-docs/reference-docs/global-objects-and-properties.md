@@ -622,7 +622,8 @@ products:
 
 | &nbsp; &nbsp; &#x21B3; redeem | URL to view redemption information `/giftcertificates.php?action=redeem`. |
 
-| &nbsp; &nbsp; &#x21B3; balance | URL to check the balance of a gift certificate `/giftcertificates.php?action=balance` |
+| &nbsp; &nbsp; &#x21B3; balance | URL to check the balance of a gift certificate `/giftcertificates.php?action=balance`. |
+
 | &#x21B3; auth | Collection of authorization-related URLs: |
 | &nbsp; &nbsp; &#x21B3; login | URL to the login form `/login.php` |
 | &nbsp; &nbsp; &#x21B3; check_login | URL to which to submit the login form `/login.php?action=check_login` |
