@@ -649,7 +649,8 @@ products:
 | &#x21B3; checkout  | Collection of checkout related URLs: |
 | &nbsp; &nbsp; &#x21B3; single_address  | URL for the customer to check out with a single shipping address `/checkout.php`. |
 
-| &nbsp; &nbsp; &#x21B3; multiple_address  | URL for the customer to check out with multiple shipping addresses `/checkout.php?action=multiple` |
+| &nbsp; &nbsp; &#x21B3; multiple_address  | URL for the customer to check out with multiple shipping addresses `/checkout.php?action=multiple`. |
+
 | &#x21B3; rss | Collection of RSS-related URLs: |
 | &nbsp; &nbsp; &#x21B3; products | Collection of product-feed–related URLs: |
 | &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; new| RSS feed of new products `/rss.php?type=rss` |
