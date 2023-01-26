@@ -591,7 +591,8 @@ products:
 
 | &nbsp; &nbsp; &#x21B3; returns | List of returns `/account.php?action=view_returns`. |
 
-|  &nbsp; &nbsp; &#x21B3; addresses | List of addresses; default sorting is by address id, from lowest to highest. `/account.php?action=address_book` |
+|  &nbsp; &nbsp; &#x21B3; addresses | List of addresses; default sorting is by address id, from lowest to highest `/account.php?action=address_book`. |
+
 | &nbsp; &nbsp; &#x21B3; inbox | List of messages in customer’s inbox. `/account.php?action=inbox` |
 | &nbsp; &nbsp; &#x21B3; send_message | URL to submit a message to the merchant. `/account.php?action=send_message` |
 | &nbsp; &nbsp; &#x21B3; add_address | Link to add shipping address form. `/account.php?action=add_shipping_address` |
