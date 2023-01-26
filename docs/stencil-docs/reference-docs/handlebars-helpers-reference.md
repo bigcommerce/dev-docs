@@ -1259,7 +1259,7 @@ Replaces some or all occurrences of a target substring within the subject string
 <!-- output: Buy two, get two half price. Limit two per customer. -->
 ```
 
-- [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/strReplace.js)
+- [See the strReplace helper (GitHub)](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/strReplace.js)
 
 ### {{toLowerCase}}
 
