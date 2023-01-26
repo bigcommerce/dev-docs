@@ -644,7 +644,8 @@ products:
 | &#x21B3; product | Collection of product-related URLs: |
 | &nbsp; &nbsp; &#x21B3; post_review | URL to submit a Write Review form `/postreview.php`.  |
 
-| &#x21B3; cart | URL to the cart page `/cart.php` |
+| &#x21B3; cart | URL to the cart page `/cart.php`. |
+
 | &#x21B3; checkout  | Collection of checkout related URLs: |
 | &nbsp; &nbsp; &#x21B3; single_address  | URL for the customer to check out with a single shipping address `/checkout.php` |
 | &nbsp; &nbsp; &#x21B3; multiple_address  | URL for the customer to check out with multiple shipping addresses `/checkout.php?action=multiple` |
