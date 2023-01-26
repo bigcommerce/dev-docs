@@ -6,6 +6,8 @@ This guide shows you how to use the Data Layer API. For more info, see the [Data
 
 ## Get data layer
 
+Send the following query to retrieve whether the data layer is enabled in the store: 
+
 <!--
 type: tab
 title: Query
@@ -47,6 +49,8 @@ title: Response
 <!-- type: tab-end -->
 
 ## Enable data layer
+
+Send the following query to enable the data layer in the store: 
 
 <!--
 type: tab
@@ -93,6 +97,8 @@ title: Response
 <!-- type: tab-end -->
 
 ## Disable data layer
+
+Send the following query to disable the data layer in the store: 
 
 <!--
 type: tab
