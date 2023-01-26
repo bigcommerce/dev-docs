@@ -1246,17 +1246,29 @@ Replaces some or all occurrences of a target substring within the subject string
 #### Example
 
 ```handlebars
-{{strReplace "Buy one, get one half price. Limit one per customer." "one" "two" 0}}
-<!-- output: Buy one, get one half price. Limit one per customer. -->
-
-{{strReplace "Buy one, get one half price. Limit one per customer." "one" "two" -2}}
-<!-- output: Buy one, get one half price. Limit one per customer. -->
+<!-- Replace all instances -->
+{{strReplace "Buy one, get one half price. Limit one per customer." "one" "two"}}
+<!-- output: Buy two, get two half price. Limit two per customer. -->
 
 {{strReplace "Buy one, get one half price. Limit one per customer." "one" "two" 3}}
 <!-- output: Buy two, get two half price. Limit two per customer. -->
 
 {{strReplace "Buy one, get one half price. Limit one per customer." "one" "two" 100}}
 <!-- output: Buy two, get two half price. Limit two per customer. -->
+
+
+<!-- Replace some instances -->
+{{strReplace "Buy one, get one half price. Limit one per customer." "one" "two" 2}}
+<!-- output: Buy two, get two half price. Limit one per customer. -->
+
+
+<!-- Replace no instances -->
+{{strReplace "Buy one, get one half price. Limit one per customer." "one" "two" 0}}
+<!-- output: Buy one, get one half price. Limit one per customer. -->
+
+{{strReplace "Buy one, get one half price. Limit one per customer." "one" "two" -2}}
+<!-- output: Buy one, get one half price. Limit one per customer. -->
+
 ```
 
 - [See the strReplace helper (GitHub)](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/strReplace.js)
