@@ -573,7 +573,7 @@ products:
 **Object Properties:** 
 
 | Property | Description |
-|-|-|
+| :--- | :--- |
 | urls | Global URLs that the template can access – for example, the template could link to the cart page using {{urls.cart}} |
 | &#x21B3; home | Store’s home page |
 | &#x21B3; account | Collection of (customer and storefront) account-related URLs:|
