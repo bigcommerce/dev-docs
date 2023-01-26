@@ -4,7 +4,7 @@ The Data Layer API allows BigCommerce to send data from BigCommerce-hosted store
 
 This guide shows you how to use the Data Layer API. For more info, see the [Data Layer API Reference](/api-reference/graphql/data-layer-api). 
 
-## Get data layer enabled flag
+## Get data layer
 
 <!--
 type: tab
@@ -44,10 +44,9 @@ title: Response
   }
 }
 ```
+<!-- type: tab-end -->
 
 ## Enable data layer
-
-<!-- type: tab-end -->
 
 <!--
 type: tab
@@ -91,9 +90,9 @@ title: Response
 }
 ```
 
-## Disable data layer
-
 <!-- type: tab-end -->
+
+## Disable data layer
 
 <!--
 type: tab
