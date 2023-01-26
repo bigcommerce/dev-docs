@@ -579,7 +579,8 @@ products:
 | &#x21B3; home | Store's home page. |
 
 | &#x21B3; account | Collection of (customer and storefront) account-related URLs:|
-| &nbsp; &nbsp; &#x21B3; index | Account index page `/account.php` |
+| &nbsp; &nbsp; &#x21B3; index | Account index page `/account.php`. |
+
 | &nbsp; &nbsp; &#x21B3; orders | Collection of orders-related URLs: |
 | &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; all | List of all orders. `/account.php?action=order_status` |
 | &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; completed | URL to view completed orders `/account.php?action=view_orders` |
