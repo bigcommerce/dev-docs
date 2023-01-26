@@ -653,7 +653,8 @@ products:
 
 | &#x21B3; rss | Collection of RSS-related URLs: |
 | &nbsp; &nbsp; &#x21B3; products | Collection of product-feed–related URLs: |
-| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; new| RSS feed of new products `/rss.php?type=rss` |
+| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; new| RSS feed of new products `/rss.php?type=rss`. |
+
 | &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; new_atom | RSS feed of new products, in Atom format `/rss.php?type=atom` |
 | &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; popular | RSS feed of popular products `/rss.php?action=popularproducts&type=rss` |
 | &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; popular_atom | RSS feed of popular products, in Atom format `/rss.php?action=popularproducts&type=atom` |
