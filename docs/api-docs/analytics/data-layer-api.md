@@ -11,7 +11,11 @@ type: tab
 title: Query
 -->
 
-```graphql title="Example query: Get data layer enabled flag" lineNumbers
+```http title="Example query: Get data layer enabled flag" lineNumbers
+GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/...
+X-Auth-Token: {{ACCESS_TOKEN}}
+Accept: application/json
+
 query {
   store {
     settings {
@@ -50,7 +54,12 @@ type: tab
 title: Mutation
 -->
 
-```graphql title="Example mutation: Enable data layer" lineNumbers
+```http title="Example mutation: Enable data layer" lineNumbers
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/...
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
 mutation {
   settings {
     dataSolutions {
@@ -91,7 +100,12 @@ type: tab
 title: Mutation
 -->
 
-```graphql title="Example mutation: Disable data layer" lineNumbers
+```http title="Example mutation: Disable data layer" lineNumbers
+POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/...
+X-Auth-Token: {{ACCESS_TOKEN}}
+Content-Type: application/json
+Accept: application/json
+
 mutation {
   settings {
     dataSolutions {
