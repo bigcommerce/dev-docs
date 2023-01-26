@@ -669,7 +669,8 @@ products:
 | &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; search_atom | RSS feed of products matching the active search query, in Atom format. |
 | &nbsp; &nbsp; &#x21B3; blog | RSS feed of recent blog posts `/rss.php?action=newblogs&type=rss`. |
 
-| &nbsp; &nbsp; &#x21B3; blog_atom | RSS feed of recent blog posts, in Atom format `/rss.php?action=newblogs&type=atom` |
+| &nbsp; &nbsp; &#x21B3; blog_atom | RSS feed of recent blog posts, in Atom format `/rss.php?action=newblogs&type=atom`. |
+
 | &#x21B3; contact_us_submit | URL to submit the Contact Us form `/pages.php?action=sendContactForm`|
 | &#x21B3; search | URL to submit a search request `/search.php` |
 | &#x21B3; compare | A string containing the URL to the products comparison page `/compare` |
