@@ -677,7 +677,8 @@ products:
 
 | &#x21B3; compare | A string containing the URL to the products comparison page `/compare`. |
 
-| &#x21B3; sitemap | URL to the sitemap `/sitemap.php` |
+| &#x21B3; sitemap | URL to the sitemap `/sitemap.php`. |
+
 | &#x21B3; subscribe | Collection of subscription-related URLs. |
 | &nbsp; &nbsp; &#x21B3; action | URL to which the newsletter subscription will be submitted `/subscribe.php`. |
 
