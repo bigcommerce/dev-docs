@@ -1,3 +1,11 @@
+# Data Layer API
+
+The Data Layer API allows BigCommerce to send data from BigCommerce-hosted storefronts to third-party analytics providers through [Big Open Data Layer](/...). Bigcommerce can build native integrations to analytic providers, such as Google Analytics 4, using the data layer. Partners may also build their own integrations using the data layer. In each case, you must first enable the data layer via the Data Layer API.
+
+This guide shows you how to use the Data Layer API. For more info, see the [Data Layer API Reference](/api-reference/graphql/data-layer-api). 
+
+## Get data layer enabled flag
+
 <!--
 type: tab
 title: Query
@@ -32,6 +40,8 @@ title: Response
   }
 }
 ```
+
+## Enable data layer
 
 <!-- type: tab-end -->
 
@@ -71,6 +81,8 @@ title: Response
   }
 }
 ```
+
+## Disable data layer
 
 <!-- type: tab-end -->
 
@@ -113,3 +125,7 @@ title: Response
 ```
 
 <!-- type: tab-end -->
+
+## Resources
+- [Data Layer API Reference](/api-reference/graphql/data-layer-api)
+- [Big Open Data Layer](/...)
