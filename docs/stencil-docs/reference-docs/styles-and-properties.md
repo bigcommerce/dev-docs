@@ -3,6 +3,10 @@ Use the following data types in the `schema.json` file to create configurable op
 
 You can use your widget template settings to define a data type in the schema_translations property of the widget template schema.
 
+<!-- theme: info -->
+> #### Force reload
+> Some data types use the `force_reload` field. Setting `"force_reload": true` allows Page Builder to reload when the setting defined by `schema.json` changes.
+
 ## Checkbox
 
 Used to toggle on theme settings (boolean value)
@@ -186,6 +190,7 @@ Note: Option types should all be the same (i.e., string, number, etc.).
 Required fields: `type`, `label`, `id`, and `options`
 
 Optional field: `force_reload`
+
 
 ## Text
 

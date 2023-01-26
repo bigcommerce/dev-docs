@@ -67,7 +67,7 @@ stencil init [--url STORE_URL] [--token API_TOKEN]
 Starts the live theme preview using the theme files in the current directory.
 
 ```shell title="Usage: stencil start"
-stencil start [-V|--version] [-o|--open] [-v|--variation] [-t|--test] [-t|--tunnel]
+stencil start [-V|--version] [-o|--open] [-v|--variation] [-t|--test] [-t|--tunnel] [-vb|--verbose]
 stencil start [-h|--help]
 ```
 &nbsp;
@@ -77,12 +77,14 @@ stencil start --open # opens live theme preview in default browser
 
 | Option                       |Alias| Description                                                                           |
 |-|-|-|
-| `--version`                  |`-V` | Output the version number                                                            |
+| `--version`                  |`-V` | Output the version number                                                             |
 | `--open`                     |`-o` | Automatically open default browser                                                    |
-| `--variation NAME`       |`-v` | Set which theme variation to use while developing                                     |
-| `--test`                     |`-t` | Enable QA mode which will bundle all javascript for speed to test locally             |
+| `--variation NAME`           |`-v` | Set which theme variation to use while developing                                     |
+| `--channelId CHANNELID`      |`-c` | Set the channel id for the storefront                                                 |
+| `--timeout`                  |`-t` | Set a timeout for the bundle operation. Default is 20 secs                            |
 | `--tunnel`                   |     | Create a tunnel URL which points to your local server which anyone can use            |
-| `--no-cache`                 |`-n` | Turn off caching for API resource data (cache refreshes every 5 minutes)             |
+| `--no-cache`                 |`-n` | Turn off caching for API resource data (cache refreshes every 5 minutes)              |
+| `--verbose`                  |`-vb`| Enable verbose logging                                                                |
 | `--help`                     |`-h` | Output usage information                                                              |
 
 <!-- theme: info -->

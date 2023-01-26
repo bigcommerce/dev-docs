@@ -1,7 +1,5 @@
 # Handlebars Helpers Reference
 
-
-
 This article is a reference for [Stencil](/stencil-docs/getting-started/about-stencil) supported [Handlebars](https://handlebarsjs.com/) helpers. It includes [custom helpers](#custom-helpers) documentation and a list of whitelisted [standard helpers](#standard-helpers).
 
 ## Custom helpers
@@ -34,7 +32,7 @@ The following table contains BigCommerce's open source [Handlebars helpers](http
 | [all](#all) | logic | Renders block if **all** params are true. |
 | [compare](#compare) | logic | Compares values with JavaScript operators, including `typeof`. |
 | [contains](#contains) | logic | Renders block if first param is in second param. |
-| [for](#for) | logic | Iterates for range `a` to `b`. |
+| [for](#for) | logic | Iterates for range `a` to `b`, inclusive of `b`. |
 | [if](#if) | logic | Renders block if statement is true. |
 | [or](#or) | logic | Renders block if one or more parameters evaluate to true. |
 | [unless](#unless) | logic | Renders block if a statement evaluates to false. |
@@ -48,6 +46,7 @@ The following table contains BigCommerce's open source [Handlebars helpers](http
 | [replace](#replace) | string | Replaces all instances of the first parameter in the second parameter. |
 | [setURLQueryParam](#seturlqueryparam) | string | Appends keys values to a URL. |
 | [stripQuerystring](#stripquerystring) | string | Removes a query string. |
+| [strReplace](#strreplace) | string | Replaces some or all occurrences of a target substring within a subject string. |
 | [toLowerCase](#tolowercase) | string | Converts a string to lowercase. |
 | [truncate](#truncate) | string | Truncates a string. |
 | [block](#block) | template | Defines a content block. |
@@ -118,7 +117,7 @@ Assume that `{{cart.items}}` returns 10 items. You can use this helper to limit 
 {{pluck limit collection path}}
 ```
 
-Retrieves corresponding values from some or all elements in a collection using specified search key(s). Returns retrieved values in a comma-separated string. When used in conjunction with the built-in `{{each}}` helper, returns retrieved values in an array. 
+Retrieves corresponding values from some or all elements in a collection using specified search key(s). Returns retrieved values in a comma-separated string. When used in conjunction with the built-in `{{each}}` helper, returns retrieved values in an array.
 
 #### Parameters
 
@@ -180,6 +179,7 @@ A URL transformer for content delivery networks.
 
 - `assetPath` {String}: Path to the file containing static assets.
 
+
 #### Example
 
 ```handlebars
@@ -205,7 +205,7 @@ In this example, the `image.jpg` file was uploaded to the WebDAV `/content/` dir
 
 You can define custom CDN endpoints to use with the `{{cdn}}` helper. This way you can include large, high-resolution image assets in themes without exceeding BigCommerce's [50 MB limit](/stencil-docs/prepare-and-upload-a-theme/bundling-and-uploading#bundling_bundling-your-theme) when bundling the theme for upload to BigCommerce.
 
-You could use a local version of the image in development and a version on a CDN such as Imgix in production. To do so, define custom CDN endpoints in your theme's [`config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json). 
+You could use a local version of the image in development and a version on a CDN such as Imgix in production. To do so, define custom CDN endpoints in your theme's [`config.json` file](https://github.com/bigcommerce/cornerstone/blob/master/config.json).
 
 For example:
 
@@ -246,6 +246,40 @@ As highlighted above, the helper is configured to rewrite *local* URLs to an `as
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/cdn.js)
 - [See it in Cornerstone](https://github.com/bigcommerce/cornerstone/search?l=HTML&q=cdn)
 
+#### Early Hints and cdn
+
+Early Hints reduces page load time and perceived latency by allowing browsers to download critical assets earlier in the request lifecycle. For more information, see [Early Hints](#).
+
+##### Parameters
+
+- `resourceHint` - {String}
+  - Corresponds to the `rel` attribute in `<link>`.
+  - Value can be any of `preload`, `preconnect`, `prerender`, `dns-prefetch`.
+  - For more information, see [rel](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-rel) on MDN Web Docs.
+- `as` - {String}
+  - Corresponds to the `as` attribute in `<link>`.
+  - Value can be any of `style`, `font`, `script`, `document`.
+  - If an invalid value is provided, `as` won't be included.
+  - This parameter is optional.
+
+  - For more information, see [as](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-as) on MDN Web Docs.
+- `cors` - {String}
+  - Corresponds to the `rel` attribute in `<link>`.
+  - Value can be any of `no`, `anonymous`, `use-credentials`.
+  - Defaults to `no` when no value is provided.
+  - This parameter is optional.
+
+  - For more information, see [crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-crossorigin) on MDN Web Docs.
+
+##### Example
+
+The following script is an example of Early Hints usage in the Cornerstone theme:
+
+```javascript
+<script async src="{{cdn 'assets/dist/theme-bundle.head_async.js' resourceHint='preload' as='script'}}"></script>
+```
+
+You can view more Early Hints usage in Cornerstone's `templates/layout/base.html` file by visiting the [Cornerstone Repository](https://github.com/bigcommerce/cornerstone/commit/f70fcd502343503969c2e475b777a85347137542#).
 
 ### {{moment}}
 
@@ -450,7 +484,7 @@ Pre-fetches Google fonts. Outputs a formatted `<link>` tag for DNS-prefetch.
 
 ```handlebars
 {{stylesheet assetPath}}
-``` 
+```
 
 Renders a link tag to insert a stylesheet into a theme; returns an HTML string. (This is required if you want Theme Editor to rewrite the stylesheet file when a merchant customizes their theme.)
 
@@ -474,7 +508,7 @@ Renders a link tag to insert a stylesheet into a theme; returns an HTML string. 
 {{lang translationKey}}
 ```
 
-Maps keys to translation files based on the locale indicated by the visitor’s browser. 
+Maps keys to translation files based on the locale indicated by the visitor’s browser.
 
 #### Parameters
 
@@ -752,7 +786,7 @@ As above, you can reference `theme_settings` keys or specify your own size inlin
 {{any arg}}
 ```
 
-Renders block if one or more parameters are true. 
+Renders block if one or more parameters are true.
 
 #### Parameters
 
@@ -789,7 +823,7 @@ In this component, the `{{any}}` helper is used to determine whether a shopper h
 {{all arg}}
 ```
 
-Renders block if all parameters are true. 
+Renders block if all parameters are true.
 
 #### Parameters
 
@@ -879,7 +913,7 @@ Repeats block for a specified range from index `a` to index `b`. To protect agai
 #### Parameters
 
 - `a` {Number}: Starting number.
-- `b` {Number}: Ending number.
+- `b` {Number}: Ending number. (Inclusive)
 
 #### Example
 
@@ -1105,7 +1139,7 @@ Converts a JavaScript object into a JSON string.
 {{occurrences str substring}}
 ```
 
-Returns the number of occurrences of substring within the given string. 
+Returns the number of occurrences of substring within the given string.
 
 #### Parameters
 
@@ -1192,6 +1226,52 @@ Strips query string from a URL.
 ```
 
 - [See it in GitHub](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/stripQuerystring.js)
+
+### {{strReplace}}
+
+```handlebars
+{{strReplace subjectString targetSubstring newSubstring occurrenceSelection}}
+```
+
+Replaces some or all occurrences of a target substring within the subject string.
+
+
+#### Parameters
+
+- `subjectString` {String}: The original string to modify.
+- `targetSubstring` {String}: The substring in `subjectString` to be replaced.
+- `newSubstring` {String}: The substring to insert in place of `targetSubstring`.
+- `occurenceSelection` {Integer}: Optional. The number of occurrences of `targetSubstring` to replace with `newSubstring`. If you pass no argument or the supplied integer is greater than the number of `targetSubstring` occurrences, `newSubstring` will replace all instances of `targetSubstring`. A positive integer `n` will replace `n` instances of `targetSubstring`, starting from the left side of the string. Arguments of zero or less will replace no instances. Non-integer arguments may have unpredictable results.
+
+#### Example
+
+```handlebars
+<!-- Replace all instances -->
+{{strReplace "Buy one, get one half price. Limit one per customer." "one" "two"}}
+<!-- output: Buy two, get two half price. Limit two per customer. -->
+
+{{strReplace "Buy one, get one half price. Limit one per customer." "one" "two" 3}}
+<!-- output: Buy two, get two half price. Limit two per customer. -->
+
+{{strReplace "Buy one, get one half price. Limit one per customer." "one" "two" 100}}
+<!-- output: Buy two, get two half price. Limit two per customer. -->
+
+
+<!-- Replace some instances -->
+{{strReplace "Buy one, get one half price. Limit one per customer." "one" "two" 2}}
+<!-- output: Buy two, get two half price. Limit one per customer. -->
+
+
+<!-- Replace no instances -->
+{{strReplace "Buy one, get one half price. Limit one per customer." "one" "two" 0}}
+<!-- output: Buy one, get one half price. Limit one per customer. -->
+
+{{strReplace "Buy one, get one half price. Limit one per customer." "one" "two" -2}}
+<!-- output: Buy one, get one half price. Limit one per customer. -->
+
+```
+
+- [See the strReplace helper (GitHub)](https://github.com/bigcommerce/paper-handlebars/blob/master/helpers/strReplace.js)
 
 ### {{toLowerCase}}
 

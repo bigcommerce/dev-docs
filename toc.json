@@ -85,12 +85,6 @@
           "flag": "code samples",
           "uri": "docs/api-docs/storefront/graphql/graphql-api-examples.md"
         },
-        // {
-        //  "type": "item",
-        //  "title": "Storefront GraphQL Explorer",
-        //  "href": "",
-        //  "uri": ""
-        // },
         {
           "type": "item",
           "title": "GraphQL Storefront Explorer",
@@ -306,6 +300,12 @@
           "title": "Tax Settings",
           "href": "/api-docs/store-management/tax/tax-settings",
           "uri": "docs/api-docs/tax/tax-settings.md"
+        },
+        {
+          "type": "item",
+          "title": "Tax Rates and Zones",
+          "href": "/api-docs/store-management/tax/tax-rates-and-zones",
+          "uri": "docs/api-docs/tax/tax-rates-zones.md"
         },
         {
           "type": "item",
@@ -791,6 +791,22 @@
     },
     {
       "type": "divider",
+      "title": "Beta Features"
+    },
+    {
+      "type": "item",
+      "title": "Promotions API",
+      "href": "/promotions/beta/api-docs/overview",
+      "uri": "https://developer.bigcommerce.com/promotions/beta/api-docs/overview"
+    },
+    {
+      "type": "item",
+      "title": "Customer Segmentation API",
+      "href": "/customers/beta/api-docs/overview",
+      "uri": "https://developer.bigcommerce.com/customers/beta/api-docs/overview"
+    },
+    {
+      "type": "divider",
       "title": "Partner Information"
     },
     {
@@ -927,13 +943,25 @@
     },
     {
       "type": "group",
+      "title": "Staging Solutions",
+      "items": [
+        {
+          "type": "item",
+          "title": "StagingPro",
+          "href": "/api-docs/partner/staging-solutions/staging-pro",
+          "uri": "docs/api-docs/staging/staging-pro-overview.md"
+        }
+      ]
+    },
+    {
+      "type": "group",
       "title": "Analytics Solutions",
       "items": [
         {
           "type": "item",
-          "title": "Big Open Data Layer (BODL)",
-          "href": "/api-docs/partner/analytics-solutions/bodl",
-          "uri": "docs/api-docs/analytics/bodl-overview.md"
+          "title": "BODL for Storefronts",
+          "href": "/api-docs/analytics/bodl-for-storefronts",
+          "uri": "docs/api-docs/analytics/bodl-for-storefronts.md"
         }
       ]
     },

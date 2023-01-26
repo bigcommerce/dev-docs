@@ -404,7 +404,7 @@
 | &nbsp;&nbsp;sku | SKU value for this cart item |
 | &nbsp;&nbsp;availability | An optional availability message set by the merchant |
 | &nbsp;&nbsp;image | Product image for the cart item |
-| can_modify | Boolean indicating whether the customer may modify the quantity of, or remove, this cart item |
+| can_modify | Boolean indicating whether the customer may modify the quantity of, or remove, this cart item (read-only field)|
 | &nbsp;&nbsp;event_date | Chosen event date for event-based products |
 | &nbsp;&nbsp;show_gift_wrapping | Boolean indicating whether the wrapping options are shown |
 | gift_wrapping | Gift-wrapping options |
@@ -470,13 +470,6 @@ For further details about catalog price properties, please see [Catalog Price Ob
 | message  | System-generated messages for the cart  |
 |type|Type of message: error, info, or success	|
 
-### Suggested Products
-
-**Description:** A list of suggested products, based on cart contents; displays only if enabled by the `cart.suggestions` front-matter attribute, and only immediately after a product is added to the cart
-
-**Handlebars Expression:** `{{cart.suggested_products}}`
-
-**Object Properties:** References standard product card model.
 
 ## Customer
 
