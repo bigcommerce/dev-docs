@@ -582,7 +582,8 @@ products:
 | &nbsp; &nbsp; &#x21B3; index | Account index page `/account.php`. |
 
 | &nbsp; &nbsp; &#x21B3; orders | Collection of orders-related URLs: |
-| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; all | List of all orders. `/account.php?action=order_status` |
+| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; all | List of all orders `/account.php?action=order_status`. |
+
 | &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; completed | URL to view completed orders `/account.php?action=view_orders` |
 |  &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; save_new_return | URL to submit a New Return form<. `/account.php?action=save_new_return` |
 | &nbsp; &nbsp; &#x21B3; update_action | URL to submit an Edit Account form. `/account.php?action=update_account` |
