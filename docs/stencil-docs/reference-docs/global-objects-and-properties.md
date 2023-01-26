@@ -661,7 +661,8 @@ products:
 
 | &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; popular_atom | RSS feed of popular products, in Atom format `/rss.php?action=popularproducts&type=atom`. |
 
-| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; featured | RSS feed of featured products `/rss.php?action=featuredproducts&type=rss';` |
+| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; featured | RSS feed of featured products `/rss.php?action=featuredproducts&type=rss';`. |
+
 | &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; featured_atom | RSS feed of featured products, in Atom format `/rss.php?action=featuredproducts&type=atom` |
 | &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; search | RSS feed of products matching the active search query. |
 | &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; search_atom | RSS feed of products matching the active search query, in Atom format. |
