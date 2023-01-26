@@ -600,7 +600,8 @@ products:
 | &nbsp; &nbsp; &#x21B3; add_address | Link to add shipping address form `/account.php?action=add_shipping_address`. |
 
 | &nbsp; &nbsp; &#x21B3; wishlists | Collection of wishlist-related URLs: |
-| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; add | URL to the Add Wishlist form `/wishlist.php?action=addwishlist` |
+| &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; add | URL to the Add Wishlist form `/wishlist.php?action=addwishlist`. |
+
 | &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; edit | URL to the Edit Wishlist form `/wishlist.php?action=editwishlist` |
 | &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; delete | URL to delete a wishlist `/wishlist.php?action=deletewishlist` |
 | &nbsp; &nbsp; &nbsp; &nbsp; &#x21B3; all | URL to view all wishlists `/wishlist.php` |
