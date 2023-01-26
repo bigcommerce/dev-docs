@@ -1583,10 +1583,10 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [phoneNumber](https://github.com/helpers/handlebars-helpers#phoneNumber) | number | Converts a string or number to a formatted phone number. |
 | [toAbbr](https://github.com/helpers/handlebars-helpers#toAbbr) | number | Abbreviates numbers to the given number of precision. This is for general numbers, not size in bytes. |
 | [toExponential](https://github.com/helpers/handlebars-helpers#toExponential) | number | Returns a string representing the given number in exponential notation. |
-| [toFixed](https://github.com/helpers/handlebars-helpers#toFixed)|number| Formats the given number using fixed-point notation. |
+| [toFixed](https://github.com/helpers/handlebars-helpers#toFixed)| number | Formats the given number using fixed-point notation. |
 | [toFloat](https://github.com/helpers/handlebars-helpers#toFloat) | number | |
 | [toInt](https://github.com/helpers/handlebars-helpers#toInt) | number | |
-| [toPrecision](https://github.com/helpers/handlebars-helpers#toPrecision) |number| Returns a string representing the `Number` object to the specified precision. |
+| [toPrecision](https://github.com/helpers/handlebars-helpers#toPrecision) | number| Returns a string representing the `Number` object to the specified precision. |
 | [extend](https://github.com/helpers/handlebars-helpers#extend) | object | Extends the context with the properties of other objects. A shallow merge is performed to avoid mutating the context. |
 | [forIn](https://github.com/helpers/handlebars-helpers#forIn) | object | Block helper that iterates over the properties of an object exposing each key and value on the context. |
 | [forOwn](https://github.com/helpers/handlebars-helpers#forOwn) |object| Block helper that iterates over the own properties of an object, exposing each key and value on the context. |
@@ -1595,12 +1595,12 @@ The following table contains whitelisted standard Handlebars helpers available t
 | [isObject](https://github.com/helpers/handlebars-helpers#isObject) | object | Returns `true` if value is an object. |
 | [JSONparse](#jsonparse) | object | Parses the given string using `JSON.parse`. |
 | [JSONstringify](https://github.com/helpers/handlebars-helpers#JSONstringify)  | object | Stringifies an object using `JSON.stringify`. |
-| [merge](https://github.com/helpers/handlebars-helpers#merge) |object| Deeply merges the properties of the given objects with the context object. |
+| [merge](https://github.com/helpers/handlebars-helpers#merge) | object | Deeply merges the properties of the given objects with the context object. |
 | [pick](https://github.com/helpers/handlebars-helpers#pick) | object | Picks properties from the context object. |
-| [camelcase](https://github.com/helpers/handlebars-helpers#camelcase) |string| camelCase the characters in the given string. |
+| [camelcase](https://github.com/helpers/handlebars-helpers#camelcase) | string | camelCase the characters in the given string. |
 | [capitalize](https://github.com/helpers/handlebars-helpers#capitalize) | string | Capitalizes the first word in a sentence. |
 | [capitalizeAll](https://github.com/helpers/handlebars-helpers#capitalizeAll) | string | Capitalizes all words in a string. |
-| [center](https://github.com/helpers/handlebars-helpers#center) |string| Centers a string using non-breaking spaces. |
+| [center](https://github.com/helpers/handlebars-helpers#center) | string | Centers a string using non-breaking spaces. |
 | [chop](https://github.com/helpers/handlebars-helpers#chop) | string | Like trim, but removes both extraneous whitespace and non-word characters from the beginning and end of a string. |
 | [dashcase](https://github.com/helpers/handlebars-helpers#dashcase) | string | Replaces non-word characters and periods with hyphens. |
 | [dotcase](https://github.com/helpers/handlebars-helpers#dotcase) | string | `dot.case` the characters in a string. |
