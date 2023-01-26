@@ -613,7 +613,8 @@ products:
 | &nbsp; &nbsp; &#x21B3; recent_items | URL to a list of recently viewed items `/account.php?action=recent_items`. |
 
 | &#x21B3; payment_methods | Collection of payment methods available on a store, visible when [stored payment methods](https://support.bigcommerce.com/s/article/Enabling-Stored-Payment-Methods?language=en_US) are enabled: |
-| &nbsp; &nbsp; &#x21B3; all | URL to a form for payment methods `/account.php?action=payment_methods` |
+| &nbsp; &nbsp; &#x21B3; all | URL to a form for payment methods `/account.php?action=payment_methods`. |
+
 | &#x21B3; brands | URL to view all brands; default sorting is by brand id, from lowest to highest |
 | &#x21B3; gift_certificate | Collection of gift-certificate–related URLs: |
 | &nbsp; &nbsp; &#x21B3; purchase | URL to a form for purchasing a gift certificate `/giftcertificates.php` |
