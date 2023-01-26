@@ -620,7 +620,8 @@ products:
 | &#x21B3; gift_certificate | Collection of gift-certificate–related URLs: |
 | &nbsp; &nbsp; &#x21B3; purchase | URL to a form for purchasing a gift certificate `/giftcertificates.php`. |
 
-| &nbsp; &nbsp; &#x21B3; redeem | URL to view redemption information `/giftcertificates.php?action=redeem` |
+| &nbsp; &nbsp; &#x21B3; redeem | URL to view redemption information `/giftcertificates.php?action=redeem`. |
+
 | &nbsp; &nbsp; &#x21B3; balance | URL to check the balance of a gift certificate `/giftcertificates.php?action=balance` |
 | &#x21B3; auth | Collection of authorization-related URLs: |
 | &nbsp; &nbsp; &#x21B3; login | URL to the login form `/login.php` |
