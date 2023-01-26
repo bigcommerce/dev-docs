@@ -1521,15 +1521,12 @@ Parse data safely with JSONparseSafe. This helper is similar to the JSONparse he
 
 #### Example
 
-In this case, if the JSONparseSafe helper gets incorrect JSON data, it doesn't break the page. It does nothing.
-
 ```handlebars
 {{#JSONparseSafe '{"foo": "bar"}'}
   {{foo}}
 {{/JSONparseSafe}}
 <!-- output: bar -->
 ```
-In this case, you can add some behavior in the {{else}} directive when the JSONparseSafe helper gets incorrect JSON data.
 
 ```handlebars
 {{#JSONparseSafe 'foo'}
