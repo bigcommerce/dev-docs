@@ -625,7 +625,8 @@ products:
 | &nbsp; &nbsp; &#x21B3; balance | URL to check the balance of a gift certificate `/giftcertificates.php?action=balance`. |
 
 | &#x21B3; auth | Collection of authorization-related URLs: |
-| &nbsp; &nbsp; &#x21B3; login | URL to the login form `/login.php` |
+| &nbsp; &nbsp; &#x21B3; login | URL to the login form `/login.php`. |
+
 | &nbsp; &nbsp; &#x21B3; check_login | URL to which to submit the login form `/login.php?action=check_login` |
 | &nbsp; &nbsp; &#x21B3; create_account | URL to the Create Account form page `/login.php?action=create_account` |
 | &nbsp; &nbsp; &#x21B3; save_new_account | URL to which to submit the Create Account form< `/login.php?action=save_new_account` |
