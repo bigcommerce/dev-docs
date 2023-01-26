@@ -673,7 +673,8 @@ products:
 
 | &#x21B3; contact_us_submit | URL to submit the Contact Us form `/pages.php?action=sendContactForm`. |
 
-| &#x21B3; search | URL to submit a search request `/search.php` |
+| &#x21B3; search | URL to submit a search request `/search.php`. |
+
 | &#x21B3; compare | A string containing the URL to the products comparison page `/compare` |
 | &#x21B3; sitemap | URL to the sitemap `/sitemap.php` |
 | &#x21B3; subscribe | Collection of subscription-related URLs. |
