@@ -12,7 +12,7 @@ In this section, we will explain how to use the Carts API to create and manage c
 
 The [Carts API](/api-reference/store-management/carts) lets you create carts for both existing and guest customers. 
 
-To create a cart, send a request to the [Create a Cart](/api-reference/store-management/carts/cart/createacart) endpoint.
+To create a cart, send a request to the [Create a cart](/api-reference/store-management/carts/cart/createacart) endpoint.
 
 ```http title="Create a cart"
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts
@@ -203,7 +203,7 @@ The response will contain `cart_url` and `checkout_url` properties. Use these UR
 
 ### Creating a redirect using the include query parameter
 
-It is possible to generate a redirect URL when creating a cart using the [Create a Cart](/api-reference/store-management/carts/cart/createacart) endpoint by appending the `include=redirect_urls` query parameter to the request URL.
+It is possible to generate a redirect URL when creating a cart using the [Create a cart](/api-reference/store-management/carts/cart/createacart) endpoint by appending the `include=redirect_urls` query parameter to the request URL.
 
 ```http title="Create a cart"
 POST https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts?include=redirect_urls
@@ -219,7 +219,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ### Signing in and redirecting a customer
 
-Registered customers have personally-identifiable information, or _PII_, saved in their accounts. If you passed a `customer_id` in the [Create a Cart](/api-reference/store-management/carts/cart/createacart) request, send the customer to a sign-in page before redirecting them to cart or checkout pages. You can use the [Customer Login API](/api-docs/storefront/customer-login-api) to manage the redirection flow.
+Registered customers have personally-identifiable information, or _PII_, saved in their accounts. If you passed a `customer_id` in the [Create a cart](/api-reference/store-management/carts/cart/createacart) request, send the customer to a sign-in page before redirecting them to cart or checkout pages. You can use the [Customer Login API](/api-docs/storefront/customer-login-api) to manage the redirection flow.
 
 <!-- theme: info -->
 > #### API account notes
@@ -258,7 +258,7 @@ X-Auth-Token: {{ACCESS_TOKEN}}
 
 ## Clearing the cart
 
-Removing all cart items essentially deletes the cart. To clear the cart, send a request to the [Delete a Cart](/api-reference/store-management/carts/cart/deleteacart) endpoint.
+Removing all cart items essentially deletes the cart. To clear the cart, send a request to the [Delete a cart](/api-reference/store-management/carts/cart/deleteacart) endpoint.
 
 ```http title="Delete a cart"
 DELETE https://api.bigcommerce.com/stores/{{store_hash}}/v3/carts/{{cartId}}
